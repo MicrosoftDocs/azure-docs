@@ -6,7 +6,8 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: overview 
-ms.date: 04/25/2024
+ms.date: 09/29/2025
+
 --- 
 
 # What is Azure Managed Grafana?
@@ -19,6 +20,8 @@ Azure Managed Grafana is optimized for the Azure environment. It works seamlessl
 * User authentication and access control using Microsoft Entra identities
 * Direct import of existing charts from the Azure portal
 
+Grafana is also available within Azure Monitor. For more information, see [Difference between Azure Managed Grafana and Grafana in Azure Monitor](./faq.md#whats-the-difference-between-azure-managed-grafana-and-grafana-in-azure-monitor).
+
 To learn more about how Grafana works, visit the [Getting Started documentation](https://grafana.com/docs/grafana/latest/getting-started/) on the Grafana Labs website.  
 
 ## Why use Azure Managed Grafana?
@@ -29,41 +32,50 @@ As a fully managed service, Azure Managed Grafana lets you deploy Grafana withou
 
 You can share Grafana dashboards with people inside and outside of your organization and allow others to join in for monitoring or troubleshooting.
 
-Managed Grafana uses Microsoft Entra ID’s centralized identity management, which allows you to control which users can use a Grafana instance, and you can use managed identities to access Azure data stores, such as Azure Monitor.
+Azure Managed Grafana uses Microsoft Entra ID’s centralized identity management, which allows you to control which users can use a Grafana workspace, and you can use managed identities to access Azure data stores, such as Azure Monitor.
 
 You can create dashboards instantaneously by importing existing charts directly from the Azure portal or by using prebuilt dashboards.
 
 ## Service tiers
 
-Azure Managed Grafana is available in the two service tiers presented below.
+Azure Managed Grafana is available in the service tiers presented below.
+
+> [!IMPORTANT] 
+> The Essential (preview) service tier for Azure Managed Grafana is being replaced with the Standard service tier and Azure Monitor dashboards with Grafana. Use the Standard tier for all new workspaces and upgrade any existing Essential workspaces to Standard or migrate to Azure Monitor dashboards with Grafana. For details, see [Migrate from Essential (preview) service tier](how-to-migrate-essential-service-tier.md).
 
 | Tier      | Description                                                                                                                                                                               |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Essential (preview)    | Provides the core Grafana functionalities in use with Azure data sources. Since it doesn't provide an SLA guarantee, this tier should be used only for non-production environments.   |
-| Standard              | The default tier, offering better performance, more features and an SLA. It's recommended for most situations.  |
+| Essential (preview). See important note above. | Provides core Grafana functionalities in use with Azure data sources. This tier is intended for evaluation and testing scenarios only and does not provide an SLA.   |
+| Standard (recommended)           | The default tier, offering enhanced performance, more features and an SLA. It's recommended for most situations. Two instance sizes are available within the Standard tier: **X1** (default) and **X2**. The X2 size offers more memory and supports 1,000 alert rules per organization, compared to 500 for the X1 size. See [Limits and quotas](known-limitations.md#throttling-limits-and-quotas) for more details. The X2 size comes at an additional cost. |
 
-The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) gives more information on these tiers and the following table lists the main features supported in each tier:
+Refer to the [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) for details about the costs of each tier and instance size.
 
-| Feature                                                                                  | Essential (preview)                          | Standard                                                                                                        |
-|------------------------------------------------------------------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [Zone redundancy](how-to-enable-zone-redundancy.md)                                      | -                                   | ✔                                                                                                              |
-| [Deterministic outbound IPs](how-to-deterministic-ip.md)                                 | -                                   | ✔                                                                                                              |
-| [Private endpoints](how-to-set-up-private-access.md)                                     | -                                   | ✔                                                                                                              |
-| [Alerting](https://grafana.com/docs/grafana/latest/alerting/)                            | -                                   | ✔                                                                                                              |
-| [Emails, via SMTP](how-to-smtp-settings.md)                                              | -                                   | ✔                                                                                                              |
-| [Reporting/image rendering](how-to-use-reporting-and-image-rendering.md)                 | -                                   | ✔                                                                                                              |
-| [API keys](how-to-create-api-keys.md) and [service accounts](how-to-service-accounts.md) | ✔                                  | ✔                                                                                                              |
-| [Data source plugins](how-to-data-source-plugins-managed-identity.md)                    | Azure Monitor, Prometheus, TestData | All core plugins, including Azure Monitor and Prometheus, as well as Azure Data Explorer, GitHub, and JSON API. |
-| [Grafana Enterprise](how-to-grafana-enterprise.md)                                       | -                                   | Optional, with licensing costs                                                                                  |
+The following table lists the main features supported in each tier:
+
+| Feature                                                                  | Essential (preview). See important note above. | Standard                                                                                                        |
+|--------------------------------------------------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| [Zone redundancy](how-to-enable-zone-redundancy.md)                      | -                                   | ✔                                                                                                              |
+| [Deterministic outbound IPs](how-to-deterministic-ip.md)                 | -                                   | ✔                                                                                                              |
+| [Private endpoints](how-to-set-up-private-access.md)                     | -                                   | ✔                                                                                                              |
+| [Alerting](https://grafana.com/docs/grafana/latest/alerting/)            | -                                   | ✔                                                                                                              |
+| [Emails, via SMTP](how-to-smtp-settings.md)                              | -                                   | ✔                                                                                                              |
+| [Reporting/image rendering](how-to-use-reporting-and-image-rendering.md) | -                                   | ✔                                                                                                              |
+| [API keys and service accounts](how-to-service-accounts.md)              | ✔                                  | ✔                                                                                                              |
+| [Data source plugins](how-to-data-source-plugins-managed-identity.md)    | Azure Monitor, Prometheus, TestData | All core plugins, including Azure Monitor and Prometheus, as well as Azure Data Explorer, GitHub, and JSON API. |
+| [Grafana Enterprise](how-to-grafana-enterprise.md)                       | -                                   | Optional, with licensing costs                                                                                  |
 
 > [!NOTE]
-> Users can upgrade an instance from Essential (preview) to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential (preview) however isn't supported.
+> You can upgrade your workspace from Essential (preview) to Standard, or increase your Standard instance size by going to **Settings** > **Configuration** > **Pricing Plans**. However, downgrading from Standard to Essential (preview) or from a larger to a smaller instance size, is not supported.
+
+> [!NOTE]
+> Grafana Enterprise is an option within the Standard plan, not a separate plan within Azure.
 
 ## Quotas
 
-Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#throttling-limits-and-quotas).
+Different quotas apply to Azure Managed Grafana service instances depending on their service tiers and instance sizes. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#throttling-limits-and-quotas).
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Create an Azure Managed Grafana instance using the Azure portal](./quickstart-managed-grafana-portal.md)
+- [Create an Azure Managed Grafana workspace using the Azure portal](quickstart-managed-grafana-portal.md)
+- [Create an Azure Managed Grafana workspace using the Azure CLI](quickstart-managed-grafana-cli.md)
+- [Frequently asked questions](faq.md)

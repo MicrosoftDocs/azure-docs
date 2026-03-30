@@ -1,24 +1,23 @@
 ---
 title: Use Microsoft Entra for cache authentication
-titleSuffix: Azure Cache for Redis
 description: Learn how to use Microsoft Entra with Azure Cache for Redis.
+ms.custom: references_regions, ignite-2024
 
-
-ms.custom: references_regions
-
-ms.topic: conceptual
-ms.date: 07/17/2024
-
-
+ms.topic: how-to
+ms.date: 07/22/2025
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Use Microsoft Entra for cache authentication
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis offers two methods to [authenticate](cache-configure.md#authentication) to your cache instance: access keys and Microsoft Entra.
 
 Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
-Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/management/security/acl/) supported in open-source Redis.
+Azure Cache for Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra](/azure/active-directory/fundamentals/active-directory-whatis). This integration also includes [role-based access control](/azure/role-based-access-control/) functionality provided through [access control lists (ACLs)](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) supported in open-source Redis.
 
 To use the ACL integration, your client application must assume the identity of a Microsoft Entra entity, like service principal or managed identity, and connect to your cache. In this article, you learn how to use your service principal or managed identity to connect to your cache. You also learn how to grant your connection predefined permissions based on the Microsoft Entra artifact that's used for the connection.
 
@@ -31,8 +30,8 @@ To use the ACL integration, your client application must assume the identity of 
 ## Prerequisites and limitations
 
 - Microsoft Entra authentication is supported for SSL connections and TLS 1.2 or higher.
-- Microsoft Entra authentication isn't supported on Azure Cache for Redis instances that [depend on Azure Cloud Services](./cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic).
 - Microsoft Entra authentication isn't supported in the Enterprise tiers of Azure Cache for Redis Enterprise.
+- Microsoft Entra groups are not supported.
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
 > [!IMPORTANT]
@@ -63,20 +62,21 @@ Using Microsoft Entra is the secure way to connect your cache. We recommend that
 
 When you disable access key authentication for a cache, all existing client connections are terminated, whether they use access keys or Microsoft Entra authentication. Follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections, if any.
 
-### Before you disable access keys:
+### Before you disable access keys
 
 - Ensure that Microsoft Entra authentication is enabled and you have at least one Redis User configured.
 - Ensure all applications connecting to your cache instance switch to using Microsoft Entra Authentication.
-- Ensure that the metrics _Connected Clients_ and _Connected Clients Using Microsoft Entra Token_ have the same values. If the values for these two metrics are not the same, that means there are still some connections that were created using access keys and not Entra Token.
+- Ensure that the metrics _Connected Clients_ and _Connected Clients Using Microsoft Entra Token_ have the same values. If the values for these two metrics aren't the same, that means there are still some connections that were created using access keys and not Microsoft Entra Token.
 - Consider disabling access during the scheduled maintenance window for your cache instance.
 - Disabling access keys is only available for Basic, Standard, and Premium tier caches.
-- For geo-replicated caches, you must:
+
+For geo-replicated caches, you must:
 
    1. Unlink the caches.
    1. Disable access keys.
    1. Relink the caches.
 
-If you have a cache where access keys are used and you want to disable access keys, follow this procedure:
+If you have a cache where you used access keys, and you want to disable access keys, follow this procedure:
 
 1. In the Azure portal, select the Azure Cache for Redis instance where you want to disable access keys.
 
@@ -144,15 +144,14 @@ The library [`Microsoft.Azure.StackExchangeRedis`](https://www.nuget.org/package
 
 The following table includes links to code samples. They demonstrate how to connect to your Azure Cache for Redis instance by using a Microsoft Entra token. Various client libraries are included in multiple languages.
 
-| Client library  | Language   | Link to sample code|
-|----|----|----|
-| StackExchange.Redis | .NET           | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
-| redis-py            | Python         | [redis-py code sample](https://aka.ms/redis/aad/sample-code/python)        |
-| Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
-| Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
-| Redisson            | Java           | [Redisson code sample](https://aka.ms/redis/aad/sample-code/java-redisson) |
-| ioredis             | Node.js        | [ioredis code sample](https://aka.ms/redis/aad/sample-code/js-ioredis)    |
-| node-redis          | Node.js        | [node-redis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
+| Client library      | Language | Link to sample code                                                                            |
+|---------------------|----------|------------------------------------------------------------------------------------------------|
+| StackExchange.Redis | .NET     | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis) |
+| redis-py            | Python   | [redis-py code sample](https://redis.io/docs/latest/develop/clients/redis-py/amr/)             |
+| Jedis               | Java     | [Jedis code sample](https://redis.io/docs/latest/develop/clients/jedis/amr/)                   |
+| Lettuce             | Java     | [Lettuce code sample](https://redis.io/docs/latest/develop/clients/lettuce/amr/)               |
+| node-redis          | Node.js  | [node-redis code sample](https://redis.io/docs/latest/develop/clients/nodejs/amr/)             |
+| go-redis            | Go       | [go code sample](https://redis.io/docs/latest/develop/clients/go/amr)                          |
 
 ### Best practices for Microsoft Entra authentication
 

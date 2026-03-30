@@ -3,10 +3,18 @@ title: 'Tutorial: Access data with managed identity in Java'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Tomcat app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 06/04/2024
+ms.date: 03/26/2026
 author: KarlErickson
-ms.author: edburns
-ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
+ms.author: karler
+ms.reviewer: edburns
+ms.service: azure-app-service
+ms.custom:
+  - passwordless-java
+  - service-connector
+  - devx-track-azurecli
+  - devx-track-java
+  - AppServiceConnectivity
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity

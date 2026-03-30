@@ -1,14 +1,16 @@
----
+﻿---
 title: Imports in Bicep
 description: This article describes how to import shared functionality and namespaces in Bicep.
-ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 08/20/2024
+ms.topic: article
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 12/22/2025
 ---
 
 # Imports in Bicep
 
-This article describes the syntax you use to export and import shared functionality and namespaces for Bicep extensions.
+This article describes the syntax you use to export and import shared functionality and namespaces. Using compile-time imports automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
 ## Export variables, types, and functions
 
@@ -47,6 +49,8 @@ Only statements that were [exported](#export-variables-types-and-functions) in t
 
 You can use functionality that was imported from another file without restrictions. For example, you can use imported variables anywhere that a variable declared in-file would normally be valid.
 
+Starting with [Bicep CLI version 0.31.X](https://github.com/Azure/bicep/releases/tag/v0.31.34), variables imported from other Bicep files are accessible within your user-defined functions, just like variables defined locally. For more information, see [User-defined functions](./user-defined-functions.md#define-functions).
+
 ### Example
 
 *exports.bicep*
@@ -80,10 +84,7 @@ output greeting string = sayHello('Bicep user')
 output exampleObject myImports.myObjectType = exampleObject
 ```
 
-## Import namespaces and extensions (preview)
-
-> [!NOTE]
-> The experimental feature `extensibility` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features) to use this feature.
+## Import namespaces
 
 The syntax for importing namespaces is:
 
@@ -94,25 +95,10 @@ import 'sys@1.0.0'
 
 Both `az` and `sys` are Bicep built-in namespaces. They're imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
 
-The syntax for importing Bicep extensions is:
-
-```bicep
-import '<extension-name>@<extension-version>'
-```
-
-The syntax for importing Bicep extensions, which require configuration is:
-
-```bicep
-import '<extension-name>@<extension-version>' with {
-  <extension-properties>
-}
-```
-
-For an example, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
-
 ## Related content
 
-- To learn about Bicep data types, see [Data types](./data-types.md).
-- To learn about Bicep functions, see [Bicep functions](./bicep-functions.md).
-- To learn how to use the Bicep Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
-- To go through a Kubernetes extension tutorial, see [Quickstart: Deploy Azure applications to Azure Kubernetes Services by using the Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
+- To learn about the Bicep data types, see [Data types](./data-types.md).
+- To learn about the Bicep functions, see [Bicep functions](./bicep-functions.md).
+- To learn about how to use the Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
+- To go through a Kubernetes extension tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension.](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
+- To learn about how to use the Microsoft Graph extension, see [Bicep files for Microsoft Graph](https://aka.ms/graphbicep).

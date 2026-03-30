@@ -7,9 +7,10 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.date: 05/09/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
+# Customer intent: As a developer, I want to provide a custom encryption key with my Blob storage requests, so that I can maintain granular control over the encryption and security of my data during read and write operations.
 ---
 
 # Provide an encryption key on a request to Blob storage
@@ -55,7 +56,6 @@ The following Blob storage operations support sending customer-provided encrypti
 - [Put Page](/rest/api/storageservices/put-page)
 - [Put Page from URL](/rest/api/storageservices/put-page-from-url)
 - [Append Block](/rest/api/storageservices/append-block)
-- [Set Blob Properties](/rest/api/storageservices/set-blob-properties)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
 - [Get Blob](/rest/api/storageservices/get-blob)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)

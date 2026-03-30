@@ -2,7 +2,7 @@
 title: Authenticate using managed identity
 description: This article provides information about authenticating a managed identity with Microsoft Entra ID to access Azure Event Hubs resources
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 02/11/2025
 ms.custom: subject-rbac-steps
 #customer intent: As a developer, I want to know how to authenticate to an Azure event hub using a managed identity.
 ---
@@ -35,7 +35,7 @@ Once the application is created, follow these steps:
     Now, assign this service identity to a role in the required scope in your Event Hubs resources.
 
 ### To Assign Azure roles using the Azure portal
-Assign one of the [Event Hubs roles](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) to the managed identity at the desired scope (Event Hubs namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+Assign one of the [Event Hubs roles](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) to the managed identity at the desired scope (Event Hubs namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!NOTE]
 > For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
@@ -98,6 +98,10 @@ protected async void btnReceive_Click(object sender, EventArgs e)
 }
 ```
 
+> [!NOTE]
+> If the source service or app doesn't restart after the access to the event hub is disabled by removing the source's managed identity from the Event Hubs RBAC role, the source app may continue to publish events to or receiev events from the event hub until the token expires (default token validity is 24 hours). This behavior is by design. 
+>
+> Therefore, after you remove the source's managed identity from the RBAC role, restart the source app or service to immediately expire the token and prevent it from sending events to or receiving events from the event hub. 
 
 ## Event Hubs for Kafka
 You can use Apache Kafka applications to send messages to and receive messages from Azure Event Hubs using managed identity OAuth. See the following sample on GitHub: [Event Hubs for Kafka - send and receive messages using managed identity OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).

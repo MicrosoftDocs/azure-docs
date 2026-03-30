@@ -1,21 +1,22 @@
 ---
-title: Quickstart - Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Terraform
+title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Terraform
 description: Learn how to quickly configure backup for a Kubernetes cluster using Terraform.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 05/31/2024
+ms.date: 01/09/2026
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli
 ms.reviewer: rajats
-ms.author: v-abhmallick
+ms.author: v-mallicka
 author: AbhishekMallick-MS
 content_well_notification: 
  - AI-contribution
 #Customer intent: As a developer or backup operator, I want to quickly configure backup for an Azure Kubernetes Cluster using Azure Backup for AKS.
+# Customer intent: As a developer or backup operator, I want to quickly configure backup for an Azure Kubernetes Service (AKS) cluster using Terraform, so that I can ensure data protection and recovery for my applications in a cloud-native environment.
 ---
 
-# Quickstart: Configure backup for an Azure Kubernetes Service (AKS) cluster using Terraform
+# Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Terraform
 
-This quickstart describes how to configure backup for an Azure Kubernetes Service (AKS) cluster using Terraform.
+This quickstart describes how to configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Terraform.
 
 Azure Backup for AKS is a cloud-native, enterprise-ready, application-centric backup service that lets you quickly configure backup for AKS clusters.
 
@@ -30,9 +31,13 @@ Things to ensure before you configure AKS backup:
 
 * This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-* You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
+
+> [!NOTE]
+>
+> Ensure that the Terraform version being used is 3.99 or later
 
 * [Download kubectl](https://kubernetes.io/releases/download/).
 
@@ -210,6 +215,8 @@ To implement the Terraform code for AKS backup flow, run the following scripts:
          "configuration.backupStorageLocation.config.resourceGroup" = azurerm_storage_account.backupsa.resource_group_name
          "configuration.backupStorageLocation.config.subscriptionId" =  data.azurerm_client_config.current.subscription_id
          "credentials.tenantId" = data.azurerm_client_config.current.tenant_id
+         "configuration.backupStorageLocation.config.useAAD" = true
+         "configuration.backupStorageLocation.config.storageAccountURI" = azurerm_storage_account.backupsa.primary_blob_endpoint
         }
       depends_on = [azurerm_storage_container.backupcontainer]
     }
@@ -217,7 +224,7 @@ To implement the Terraform code for AKS backup flow, run the following scripts:
     #Assign Role to Extension Identity over Storage Account
     resource "azurerm_role_assignment" "extensionrole" {
       scope                = azurerm_storage_account.backupsa.id
-      role_definition_name = "Storage AccountContributor"
+      role_definition_name = "Storage Blob Data Contributor"
       principal_id         = azurerm_kubernetes_cluster_extension.dataprotection.aks_assigned_identity[0].principal_id
       depends_on = [azurerm_kubernetes_cluster_extension.dataprotection]
     }
@@ -408,8 +415,12 @@ Learn more about:
 
 > [!div class="nextstepaction"]
 > [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
+> [Restore AKS Cluster using Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md).
 > [How to use Azure Backup for AKS.][aks-home]
 
 <!-- LINKS - internal -->
 [aks-home]: /azure/aks
 
+## Related content
+
+[Configure item-level backup for an AKS cluster](tutorial-configure-backup-aks.md).

@@ -3,13 +3,16 @@ title: Monitor Apache Spark applications with Azure Log Analytics
 description: Learn how to enable the Synapse Studio connector for collecting and sending the Apache Spark application metrics and logs to your Log Analytics workspace.
 author: jejiang
 ms.author: jejiang
-ms.reviewer: whhender 
+ 
 ms.service: azure-synapse-analytics
-ms.topic: tutorial
+ms.topic: how-to
 ms.subservice: spark
-ms.date: 03/25/2021
-ms.custom: references_regions
+ms.date: 12/13/2024
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
+
 # Monitor Apache Spark applications with Azure Log Analytics
 
 In this tutorial, you learn how to enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). Finally, you can use an Azure Monitor workbook to visualize the metrics and logs.
@@ -21,17 +24,18 @@ Follow these steps to configure the necessary information in Synapse Studio.
 ### Step 1: Create a Log Analytics workspace
 
 Consult one of the following resources to create this workspace:
+
 - [Create a workspace in the Azure portal.](/azure/azure-monitor/logs/quick-create-workspace)
 - [Create a workspace with Azure CLI.](/azure/azure-monitor/logs/resource-manager-workspace)
 - [Create and configure a workspace in Azure Monitor by using PowerShell.](/azure/azure-monitor/logs/powershell-workspace-configuration)
 
-### Step 2: Prepare an Apache Spark configuration file
+### Step 2: Gather configuration information
 
-Use any of the following options to prepare the file.
+Use any of the following options to prepare the configuration.
 
-#### Option 1: Configure with Log Analytics workspace ID and key 
+#### Option 1: Configure with Log Analytics workspace ID and key
 
-Copy the following Apache Spark configuration, save it as *spark_loganalytics_conf.txt*, and fill in the following parameters:
+Gather the following values for the spark configuration:
 
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: Log Analytics workspace ID.
    - `<LOG_ANALYTICS_WORKSPACE_KEY>`: Log Analytics key. To find this, in the Azure portal, go to **Azure Log Analytics workspace** > **Agents** > **Primary key**.
@@ -42,21 +46,32 @@ spark.synapse.logAnalytics.workspaceId <LOG_ANALYTICS_WORKSPACE_ID>
 spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 ```
 
+Alternatively, use the following properties:
+
+```properties
+spark.synapse.diagnostic.emitters: LA
+spark.synapse.diagnostic.emitter.LA.type: "AzureLogAnalytics"
+spark.synapse.diagnostic.emitter.LA.categories: "Log,EventLog,Metrics"
+spark.synapse.diagnostic.emitter.LA.workspaceId: <LOG_ANALYTICS_WORKSPACE_ID>
+spark.synapse.diagnostic.emitter.LA.secret: <LOG_ANALYTICS_WORKSPACE_KEY>
+```
+
 #### Option 2: Configure with Azure Key Vault
 
 > [!NOTE]
-> You need to grant read secret permission to the users who will submit Apache Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). When you enable this feature in a Synapse pipeline, you need to use **Option 3**. This is necessary to obtain the secret from Azure Key Vault with workspace managed identity.
+> You need to grant read secret permission to the users who submit Apache Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). When you enable this feature in a Synapse pipeline, you need to use **Option 3**. This is necessary to obtain the secret from Azure Key Vault with workspace managed identity.
 
 To configure Azure Key Vault to store the workspace key, follow these steps:
 
 1. Create and go to your key vault in the Azure portal.
-2. On the settings page for the key vault, select **Secrets**.
-3. Select **Generate/Import**.
-4. On the **Create a secret** screen, choose the following values:
+1. Grant the right permission to the users or workspace managed identities.
+1. On the settings page for the key vault, select **Secrets**.
+1. Select **Generate/Import**.
+1. On the **Create a secret** screen, choose the following values:
    - **Name**: Enter a name for the secret. For the default, enter `SparkLogAnalyticsSecret`.
    - **Value**: Enter the `<LOG_ANALYTICS_WORKSPACE_KEY>` for the secret.
    - Leave the other values to their defaults. Then select **Create**.
-5. Copy the following Apache Spark configuration, save it as *spark_loganalytics_conf.txt*, and fill in the following parameters:
+1. Gather the following values for the spark configuration:
 
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: The Log Analytics workspace ID.
    - `<AZURE_KEY_VAULT_NAME>`: The key vault name that you configured.
@@ -67,6 +82,17 @@ spark.synapse.logAnalytics.enabled true
 spark.synapse.logAnalytics.workspaceId <LOG_ANALYTICS_WORKSPACE_ID>
 spark.synapse.logAnalytics.keyVault.name <AZURE_KEY_VAULT_NAME>
 spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
+```
+
+Alternatively, use the following properties:
+
+```properties
+spark.synapse.diagnostic.emitters LA
+spark.synapse.diagnostic.emitter.LA.type: "AzureLogAnalytics"
+spark.synapse.diagnostic.emitter.LA.categories: "Log,EventLog,Metrics"
+spark.synapse.diagnostic.emitter.LA.workspaceId: <LOG_ANALYTICS_WORKSPACE_ID>
+spark.synapse.diagnostic.emitter.LA.secret.keyVault: <AZURE_KEY_VAULT_NAME>
+spark.synapse.diagnostic.emitter.LA.secret.keyVault.secretName: <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 ```
 
 > [!NOTE]
@@ -80,7 +106,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 To configure a Key Vault linked service in Synapse Studio to store the workspace key, follow these steps:
 
 1. Follow all the steps in the preceding section, "Option 2."
-2. Create a Key Vault linked service in Synapse Studio:
+1. Create a Key Vault linked service in Synapse Studio:
 
     a. Go to **Synapse Studio** > **Manage** > **Linked services**, and then select **New**.
 
@@ -90,7 +116,7 @@ To configure a Key Vault linked service in Synapse Studio to store the workspace
 
     d. Choose your key vault, and select **Create**.
 
-3. Add a `spark.synapse.logAnalytics.keyVault.linkedServiceName` item to the Apache Spark configuration.
+1. Add a `spark.synapse.logAnalytics.keyVault.linkedServiceName` item to the Apache Spark configuration.
 
 ```properties
 spark.synapse.logAnalytics.enabled true
@@ -100,43 +126,36 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 ```
 
+Alternatively, use the following properties:
+
+```properties
+spark.synapse.diagnostic.emitters LA
+spark.synapse.diagnostic.emitter.LA.type: "AzureLogAnalytics"
+spark.synapse.diagnostic.emitter.LA.categories: "Log,EventLog,Metrics"
+spark.synapse.diagnostic.emitter.LA.workspaceId: <LOG_ANALYTICS_WORKSPACE_ID>
+spark.synapse.diagnostic.emitter.LA.secret.keyVault: <AZURE_KEY_VAULT_NAME>
+spark.synapse.diagnostic.emitter.LA.secret.keyVault.secretName: <AZURE_KEY_VAULT_SECRET_KEY_NAME>
+spark.synapse.diagnostic.emitter.LA.secret.keyVault.linkedService: <AZURE_KEY_VAULT_LINKED_SERVICE>
+```
+
 For a list of Apache Spark configurations, see [Available Apache Spark configurations](../monitor-synapse-analytics-reference.md#available-apache-spark-configurations)
 
-### Step 3: Upload your Apache Spark configuration to an Apache Spark pool 
+### Step 3: Create an Apache Spark Configuration
 
-> [!NOTE]
->
-> This step will be replaced by step 4.
-
-You can upload the configuration file to your Azure Synapse Analytics Apache Spark pool. In Synapse Studio:
-
-   1. Select **Manage** > **Apache Spark pools**.
-   2. Next to your Apache Spark pool, select the **...** button.
-   3. Select **Apache Spark configuration**. 
-   4. Select **Upload**, and choose the *spark_loganalytics_conf.txt* file.
-   5. Select **Upload**, and then select **Apply**.
-
-      > [!div class="mx-imgBorder"]
-      > ![Screenshot that shows the Spark pool configuration.](./media/apache-spark-azure-log-analytics/spark-pool-configuration.png)
-
-> [!NOTE] 
->
-> All the Apache Spark applications submitted to the Apache Spark pool will use the configuration setting to push the Apache Spark application metrics and logs to your specified workspace.
-
-
-### Step 4: Create an Apache Spark Configuration
-
-You can create an Apache Spark Configuration to your workspace, and when you create Notebook or Apache spark job definition can select the Apache Spark configuration that you want to use with your Apache Spark pool. When you select it, the details of the configuration are displayed.
+You can create an Apache Spark Configuration to your workspace, and when you create Notebook or Apache spark job definition you can select the Apache Spark configuration that you want to use with your Apache Spark pool. When you select it, the details of the configuration are displayed.
 
    1. Select **Manage** > **Apache Spark configurations**.
-   2. Click on **New** button to create a new Apache Spark configuration, or click on **Import** a local .json file to your workspace.
-   3. **New Apache Spark configuration** page will be opened after you click on **New** button.
-   4. For **Name**, you can enter your preferred and valid name.
-   5. For **Description**, you can input some description in it.
-   6. For **Annotations**, you can add annotations by clicking the **New** button, and also you can delete existing annotations by selecting and clicking **Delete** button.
-   7. For **Configuration properties**, customize the configuration by clicking **Add** button to add properties. If you do not add a property, Azure Synapse will use the default value when applicable. 
+   1. Select **New** button to create a new Apache Spark configuration.
+   1. **New Apache Spark configuration** page will be opened after you select **New** button.
 
-      ![Screenshot that create spark configuration.](./media/apache-spark-azure-log-analytics/create-spark-configuration.png)
+      :::image type="content" source="./media/apache-spark-azure-log-analytics/create-spark-configuration.png" alt-text="Screenshot that creates Spark configuration.":::
+
+   1. For **Name**, you can enter your preferred and valid name.
+   1. For **Description**, you can input some description in it.
+   1. For **Annotations**, you can add annotations by clicking the **New** button, and also you can delete existing annotations by selecting and clicking **Delete** button.
+   1. For **Configuration properties**, add all the properties from the configuration option you chose by selecting the **Add** button. For **Property** add the property name as listed, and for **Value** use the value you gathered during step 2. If you don't add a property, Azure Synapse will use the default value when applicable.
+
+      :::image type="content" source="./media/apache-spark-azure-log-analytics/spark-configuration.png" alt-text="Screenshot with an example for updating configuration properties.":::
 
 ## Submit an Apache Spark application and view the logs and metrics
 
@@ -236,8 +255,6 @@ SparkMetrics_CL
 | order by TimeGenerated asc
 ```
 
-
-
 ## Create and manage alerts
 
 Users can query to evaluate metrics and logs at a set frequency, and fire an alert based on the results. For more information, see [Create, view, and manage log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-log).
@@ -246,29 +263,43 @@ Users can query to evaluate metrics and logs at a set frequency, and fire an ale
 
 After the Synapse workspace is created with [data exfiltration protection](../security/workspace-data-exfiltration-protection.md) enabled.
 
-When you want to enable this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (A M P L S)](/azure/azure-monitor/logs/private-link-security) in the workspace’s approved Microsoft Entra tenants.
+When you want to enable this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](/azure/azure-monitor/logs/private-link-security) in the workspace’s approved Microsoft Entra tenants.
 
-You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (A M P L S):
+You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (AMPLS):
 
-1. If there is no existing A M P L S, you can follow [Azure Monitor Private Link connection setup](/azure/azure-monitor/logs/private-link-security) to create one.
-2. Navigate to your A M P L S in Azure portal, on the **Azure Monitor Resources** page, click **Add** to add connection to your Azure Log Analytics workspace.
-3. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Monitor Private Link Scopes**, and **continue**.
+1. If there's no existing AMPLS, you can follow [Azure Monitor Private Link connection setup](/azure/azure-monitor/logs/private-link-security) to create one.
+1. Navigate to your AMPLS in Azure portal, on the **Azure Monitor Resources** page, select **Add** to add connection to your Azure Log Analytics workspace.
+1. Navigate to **Synapse Studio > Manage > Managed private endpoints**, select **New** button, select **Azure Monitor Private Link Scopes**, and **continue**.
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of create A M P L S managed private endpoint 1.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
-4. Choose your Azure Monitor Private Link Scope you created, and click **Create** button.
+   > ![Screenshot of create AMPLS managed private endpoint 1.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
+1. Choose your Azure Monitor Private Link Scope you created, and select **Create** button.
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of create A M P L S managed private endpoint 2.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
-5. Wait a few minutes for private endpoint provisioning.
-6. Navigate to your A M P L S in Azure portal again, on the **Private Endpoint connections** page, select the connection provisioned and **Approve**.
+   > ![Screenshot of create AMPLS managed private endpoint 2.](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
+1. Wait a few minutes for private endpoint provisioning.
+1. Navigate to your AMPLS in Azure portal again, on the **Private Endpoint connections** page, select the connection provisioned and **Approve**.
 
-> [!NOTE] 
->  - The A M P L S object has a number of limits you should consider when planning your Private Link setup. See [A M P L S limits](/azure/azure-monitor/logs/private-link-security) for a deeper review of these limits. 
+> [!NOTE]
+>  - The AMPLS object has many limits you should consider when planning your Private Link setup. See [AMPLS limits](/azure/azure-monitor/logs/private-link-security) for a deeper review of these limits. 
 >  - Check if you have [right permission](../security/synapse-workspace-access-control-overview.md) to create managed private endpoint.
 
-## Next steps
+## Available configurations
 
- - [Use serverless Apache Spark pool in Synapse Studio](../quickstart-create-apache-spark-pool-studio.md).
+| Configuration | Description |
+| --- | --- |
+| `spark.synapse.diagnostic.emitters`                                         | Required. The comma-separated destination names of diagnostic emitters. For example, `MyDest1,MyDest2` |
+| `spark.synapse.diagnostic.emitter.<destination>.type`                       | Required. Built-in destination type. To enable Azure Log Analytics destination, AzureLogAnalytics needs to be included in this field.|
+| `spark.synapse.diagnostic.emitter.<destination>.categories`                 | Optional. The comma-separated selected log categories. Available values include `DriverLog`, `ExecutorLog`, `EventLog`, `Metrics`. If not set, the default value is **all** categories. |
+| `spark.synapse.diagnostic.emitter.<destination>.workspaceId`                       | Required. To enable Azure Log Analytics destination, workspaceId needs to be included in this field. |
+| `spark.synapse.diagnostic.emitter.<destination>.secret`                        | Optional. The secret (Log Analytics key) content.  To find this, in the Azure portal, go to Azure Log Analytics workspace > Agents > Primary key. |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` is not specified. The [Azure Key vault](/azure/key-vault/general/overview) name where the secret (AccessKey or SAS) is stored. |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | Required if `.secret.keyVault` is specified. The Azure Key vault secret name where the secret is stored. |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.linkedService` | Optional. The Azure Key vault linked service name. When enabled in Synapse pipeline, this is necessary to obtain the secret from Azure Key vault. (Make sure the MSI has read access to the Azure Key vault). |
+| `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | Optional. The comma-separated Log4j logger names, you can specify which logs to collect. For example `SparkListenerApplicationStart,SparkListenerApplicationEnd` |
+| `spark.synapse.diagnostic.emitter.<destination>.filter.loggerName.match`    | Optional. The comma-separated log4j logger names, you can specify which logs to collect. For example: `org.apache.spark.SparkContext,org.example.Logger` |
+| `spark.synapse.diagnostic.emitter.<destination>.filter.metricName.match`    | Optional. The comma-separated spark metric name suffixes, you can specify which metrics to collect. For example:`jvm.heap.used` |
+
+## Related content
+
  - [Run a Spark application in notebook](./apache-spark-development-using-notebooks.md).
- - [Create Apache Spark job definition in Azure Studio](./apache-spark-job-definitions.md).
  - [Collect Apache Spark applications logs and metrics with Azure Storage account](./azure-synapse-diagnostic-emitters-azure-storage.md).
  - [Collect Apache Spark applications logs and metrics with Azure Event Hubs](./azure-synapse-diagnostic-emitters-azure-eventhub.md).

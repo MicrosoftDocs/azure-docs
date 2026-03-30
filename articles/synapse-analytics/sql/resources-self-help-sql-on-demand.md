@@ -3,11 +3,11 @@ title: Serverless SQL pool self-help
 description: This article contains information that can help you troubleshoot problems with serverless SQL pool.
 author: azaricstefan
 ms.author: stefanazaric
-ms.reviewer: whhender, wiassaf
-ms.topic: overview
+
+ms.topic: troubleshooting-known-issue
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.date: 09/26/2024
+ms.date: 02/04/2026
 ---
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics
@@ -29,12 +29,12 @@ Usually, this problem occurs for one of two reasons:
 - Your network prevents communication to the Azure Synapse Analytics back-end. The most frequent case is that TCP port 1443 is blocked. To get serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool from working too. For more information, see the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
 - You don't have permission to sign in to serverless SQL pool. To gain access, an Azure Synapse workspace administrator must add you to the workspace administrator role or the SQL administrator role. For more information, see [Azure Synapse access control](../security/synapse-workspace-access-control-overview.md).
 
-### Websocket connection closed unexpectedly
+### WebSocket connection closed unexpectedly
 
 Your query might fail with the error message `Websocket connection was closed unexpectedly.` This message means that your browser connection to Synapse Studio was interrupted, for example, because of a network issue.
 
 - To resolve this issue, rerun your query. 
-- Try [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
+- Try the [MSSQL extension for Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code) or [SQL Server Management Studio](/ssms/sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 - If this message occurs often in your environment, get help from your network administrator. You can also check firewall settings, and check the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
 - If the issue continues, create a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) through the Azure portal. 
 
@@ -187,7 +187,7 @@ The error `Query timeout expired` is returned if the query executed more than 30
 
 The error `Invalid object name 'table name'` indicates that you're using an object, such as a table or view, that doesn't exist in the serverless SQL pool database. Try these options:
 
-- List the tables or views and check if the object exists. Use SQL Server Management Studio or Azure Data Studio because Synapse Studio might show some tables that aren't available in serverless SQL pool.
+- List the tables or views and check if the object exists. Use SQL Server Management Studio or Visual Studio Code, because Synapse Studio might show some tables that aren't available in serverless SQL pool.
 - If you see the object, check that you're using some case-sensitive/binary database collation. Maybe the object name doesn't match the name that you used in the query. With a binary database collation, `Employee` and `employee` are two different objects.
 - If you don't see the object, maybe you're trying to query a table from a lake or Spark database. The table might not be available in the serverless SQL pool because:
 
@@ -677,7 +677,7 @@ If your query returns NULL values instead of partitioning columns or can't find 
 
 The error `Inserting value to batch for column type DATETIME2 failed` indicates that the serverless pool can't read the date values from the underlying files. The datetime value stored in the Parquet or Delta Lake file can't be represented as a `DATETIME2` column.
 
-Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using the [Spark 2.4 (unsupported runtime version)](../spark/apache-spark-24-runtime.md) version or with the higher Spark version that still uses legacy datetime storage format, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools.
+Inspect the minimum value in the file by using Spark, and check that some dates are less than 0001-01-03. If you stored the files by using the higher Spark version that still uses legacy datetime storage format, the datetime values before are written by using the Julian calendar that isn't aligned with the proleptic Gregorian calendar used in serverless SQL pools.
 
 There might be a two-day difference between the Julian calendar used to write the values in Parquet (in some Spark versions) and the proleptic Gregorian calendar used in serverless SQL pool. This difference might cause conversion to a negative date value, which is invalid.
 
@@ -990,6 +990,12 @@ Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that ar
 
 This is a public preview limitation. Drop and re-create the Delta table in Spark (if it's possible) instead of altering tables to resolve this issue.
 
+### Query timeout or performance degradation on a table
+
+When the original table in Spark or Dataverse is modified, the corresponding tables in the serverless pool are automatically recreated. This process results in the loss of existing statistics on the table. Without these statistics, queries on the table may experience delays or even timeouts.
+
+If you encounter this issue, consider setting up a job to recreate statistics on the tables after changes in Spark/Dataverse or on a regular schedule.
+
 ## Performance
 
 Serverless SQL pool assigns the resources to the queries based on the size of the dataset and query complexity. You can't change or limit the resources that are provided to the queries. There are some cases where you might experience unexpected query performance degradations and you might have to identify the root causes.
@@ -998,13 +1004,13 @@ Serverless SQL pool assigns the resources to the queries based on the size of th
 
 If you have queries with a query duration longer than 30 minutes, the query slowly returning results to the client are slow. Serverless SQL pool has a 30-minute limit for execution. Any more time is spent on result streaming. Try the following workarounds:
 
-- If you use [Synapse Studio](#query-is-slow-when-executed-by-using-synapse-studio), try to reproduce the issues with some other application like SQL Server Management Studio or Azure Data Studio.
-- If your query is slow when executed by using [SQL Server Management Studio, Azure Data Studio, Power BI, or some other application](#query-is-slow-when-executed-by-using-an-application), check networking issues and best practices.
+- If you use [Synapse Studio](#query-is-slow-when-executed-by-using-synapse-studio), try to reproduce the issues with some other application like SQL Server Management Studio or Visual Studio Code.
+- If your query is slow when executed by using [SQL Server Management Studio, Visual Studio Code, Power BI, or some other application](#query-is-slow-when-executed-by-using-an-application), check networking issues and best practices.
 - Put the query in the CETAS command and measure the query duration. The CETAS command stores the results to Azure Data Lake Storage and doesn't depend on the client connection. If the CETAS command finishes faster than the original query, check the network bandwidth between the client and serverless SQL pool.
 
 #### Query is slow when executed by using Synapse Studio
 
-If you use Synapse Studio, try using a desktop client such as SQL Server Management Studio or Azure Data Studio. Synapse Studio is a web client that connects to serverless SQL pool by using the HTTP protocol, which is generally slower than the native SQL connections used in SQL Server Management Studio or Azure Data Studio.
+If you use Synapse Studio, try using a desktop client such as SQL Server Management Studio or Visual Studio Code. Synapse Studio is a web client that connects to serverless SQL pool by using the HTTP protocol, which is generally slower than the native SQL connections used in SQL Server Management Studio or Visual Studio Code.
 
 #### Query is slow when executed by using an application
 
@@ -1033,7 +1039,8 @@ Serverless SQL pool enables you to connect by using the TDS protocol and by usin
 
 Following a longer period of inactivity, serverless SQL pool will be deactivated. The activation happens automatically on the first next activity, such as the first connection attempt. The activation process might take a bit longer than a single connection attempt interval, so the error message is displayed. Retrying the connection attempt should be enough.
 
-As a best practice, for the clients that support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behavior.
+As a best practice, for the clients that support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behavior. Most SQL client drivers have the default connection timeout set to 15 seconds. Make sure the connection timeout is configured to allow all retry attempts. For example, the chosen values should satisfy the following condition:
+Connection Timeout > ConnectRetryCount * ConnectionRetryInterval.
 
 If the error message persists, file a support ticket through the Azure portal.
 
@@ -1109,6 +1116,10 @@ Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant $tenantId
 
 New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName "Synapse Administrator" -ObjectId "<app_id_to_add_as_admin>" [-Debug]
 ```
+> [!NOTE]
+> In this case, the synapse data studio UI will not display the role assignment added by the above method, so it is recommended to add the role assignment to both object ID and application ID at the same time so that it can be displayed on the UI as well.
+> 
+> New-AzSynapseRoleAssignment -WorkspaceName "\<workspaceName\>" -RoleDefinitionName "Synapse Administrator" -ObjectId "\<object_id_to_add_as_admin\>" [-Debug]
 
 **Validation**
 

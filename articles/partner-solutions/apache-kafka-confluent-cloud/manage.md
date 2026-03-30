@@ -1,86 +1,53 @@
 ---
-title: Manage a Confluent Cloud
-description: This article describes management of a Confluent Cloud on the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
-# customerIntent: As a developer I want to learn how to manage Apache Kafka & Apache Flink on Confluent Cloud, so that I can enable single sign-on, delete a Confluent organization, and get support. 
-ms.topic: conceptual
-ms.custom: devx-track-azurecli
-ms.date: 1/31/2024
+title: Manage a Confluent Cloud Resource
+description: Learn how to manage your Confluent Cloud resource settings.
+ms.topic: how-to
+ms.date: 02/27/2025
+ms.custom: sfi-image-nochange
 
 ---
 
-# Manage the Confluent Cloud resource
+# Manage a Confluent Cloud resource
 
-This article describes how to manage your instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ on Azure. It shows how to set up single sign-on (SSO) and delete a Confluent organization.
+This article describes how to manage the settings for Apache Kafka & Apache Flink on Confluent Cloud.
 
-## Single sign-on
+## Resource overview
 
-To implement SSO for your organization, your tenant administrator can import the gallery application. This step is optional. For information importing an application, see [Quickstart: Add an application to your Microsoft Entra tenant](../../active-directory/manage-apps/add-application-portal.md). When the tenant administrator imports the application, users don't need to explicitly consent to allow access for the Confluent Cloud portal.
+[!INCLUDE [manage](../includes/manage.md)]
 
-To enable SSO, follow these steps:
+:::image type="content" source="media/manage/resource-overview.png" alt-text="Screenshot that shows a Confluent resource in the Azure portal with the overview displayed in the working pane.":::
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to the **Overview** for your instance of the Confluent Cloud resource.
-1. Select the link to **Manage on Confluent Cloud**.
+The **Essentials** details include:
 
-   :::image type="content" source="media/manage/sso-link.png" alt-text="Confluent portal single sign-on.":::
+- Resource group
+- Location
+- Subscription name
+- Subscription ID
+- Tags
+- Confluent single sign-on (SSO) URL
+- Status
+- Plan
+- Billing term
 
-1. If tenant administrator didn't import the gallery application for SSO consent, grant permissions and consent. This step is only needed the first time you access the link to **Manage on Confluent Cloud**.
+To manage your resource, select the link next to a corresponding detail.
 
-   :::image type="content" source="media/manage/permissions-requested.png" alt-text="Grant permissions.":::
+Select a tab to go to other details about your resource.
 
-1. Choose a Microsoft Entra account for single sign-on to the Confluent Cloud portal.
-1. After consent is provided, you're redirected to the Confluent Cloud portal.
+- The **Get started** tab provides links to configure connectors, manage user access, and manage Confluent.
 
-## Set up cluster
+    Select the **Launch** button to [create clusters](https://docs.confluent.io/cloud/current/clusters/create-cluster.html), [connect your apps, systems, and entire organizations](https://docs.confluent.io/cloud/current/connectors/index.html#).
+- The **Tutorials** tab displays links to free courses and video tutorials.
 
-For information about setting up your cluster, see [Create a Cluster in Confluent Cloud - Confluent Documentation](https://docs.confluent.io/cloud/current/clusters/create-cluster.html).
+## Delete a resource
 
-## Delete Confluent organization
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-When you no longer need your Confluent Cloud resource, delete the resource in Azure and Confluent Cloud.
+> [!IMPORTANT]
+>
+> - To delete the resource on Confluent Cloud, see the documentation for [Confluent Cloud Environments](https://docs.confluent.io/current/cloud/using/environments.html) and [Confluent Cloud Basics](https://docs.confluent.io/current/cloud/using/cloud-basics.html).
+> - The cluster and all data in the cluster are permanently deleted. If your contract includes a data retention clause, Confluent keeps your data for the time period that is specified in the [Terms of Service](https://www.confluent.io/confluent-cloud-tos).
+> - You're billed for prorated usage up to the time the cluster is deleted. After your cluster is permanently deleted, Confluent sends you an email confirmation.
 
-### [Portal](#tab/azure-portal)
+## Related content
 
-To delete the resources in Azure:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select **All Resources** and **Filter by the name** of the Confluent Cloud resource or the **Resource Type** _Confluent organization_. Or in the Azure portal, search for the resource name.
-1. In the resource's **Overview** select **Delete**.
-
-    :::image type="content" source="media/delete-resources-icon.png" alt-text="Resource delete icon.":::
-
-1. To confirm the deletion, type the resource name and select **Delete**.
-
-    :::image type="content" source="media/delete-resources-prompt.png" alt-text="Prompt to confirm resource deletion.":::
-
-### [Azure CLI](#tab/azure-cli)
-
-Start by preparing your environment for the Azure CLI:
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-After you sign in, use the [az confluent organization delete](/cli/azure/confluent#az-confluent-organization-delete) command to delete the organization resource by name:
-
-```azurecli
-az confluent organization delete --name "myOrganization" --resource-group "myResourceGroup"
-```
-
-Or, by resource ID:
-
-```azurecli
-az confluent organization delete --id "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Confluent/organizations/{myOrganization}"
-```
-
----
-
-To delete the resource on Confluent Cloud, see the documentation for [Confluent Cloud Environments - Confluent Documentation](https://docs.confluent.io/current/cloud/using/environments.html) and [Confluent Cloud Basics - Confluent Documentation](https://docs.confluent.io/current/cloud/using/cloud-basics.html).
-
-The cluster and all data in the cluster are permanently deleted. If your contract includes a data retention clause, Confluent keeps your data for the time period that is specified in the [Terms of Service - Confluent Documentation](https://www.confluent.io/confluent-cloud-tos).
-
-You're billed for prorated usage up to the time of cluster deletion. After your cluster is permanently deleted, Confluent sends you an email confirmation.
-
-## Next steps
-
-* For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
-* If you need to contact support, see [Get support for Confluent Cloud resource](get-support.md).
-* To learn about managing user permissions, go to [How to manage user permissions in a Confluent organization](manage.md).
+- [Troubleshoot Confluent Cloud](troubleshoot.md)

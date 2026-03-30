@@ -2,23 +2,23 @@
 title: Upload files from devices to Azure IoT Hub (Node)
 titleSuffix: Azure IoT Hub
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Node.js. Uploaded files are stored in an Azure storage blob container.
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include
 ms.date: 07/01/2024
-ms.custom: mqtt, devx-track-js
+ms.custom:
+  - mqtt
+  - devx-track-js
+  - sfi-ropc-nochange
 ---
 
 ## Overview
 
-This how-to contains two sections:
+This article describes how to use the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) to create a device app to upload a file and backend service application receive file upload notification.
 
-* Upload a file from a device application
-* Receive file upload notification in a backend application
-
-## Upload a file from a device application
+## Create a device application
 
 This section describes how to upload a file from a device to an IoT hub using the [azure-iot-device](/javascript/api/azure-iot-device) package in the Azure IoT SDK for Node.js.
 
@@ -32,9 +32,10 @@ npm install azure-iot-device azure-iot-device-mqtt @azure/storage-blob --save
 
 The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices.
 
-Follow this procedure for uploading a file from a device to IoT hub:
+Follow this procedure to upload a file from a device to IoT hub:
 
-1. Get Blob shared access signatures
+1. Connect the device to IoT Hub
+1. Get a Blob shared access signature (SAS) token from IoT Hub
 1. Upload the file to Azure Storage
 1. Send file upload status notification to IoT hub
 
@@ -43,15 +44,97 @@ Follow this procedure for uploading a file from a device to IoT hub:
 Create Client, Protocol, errors, and path modules using the installed packages.
 
 ```javascript
-const Client = require('azure-iot-device').Client;
 const Protocol = require('azure-iot-device-mqtt').Mqtt;
 const errors = require('azure-iot-common').errors;
 const path = require('path');
 ```
 
-### Get a SAS URI from IoT hub
+### Connect a device to IoT Hub
 
-Use [getBlobSharedAccessSignature](/javascript/api/azure-iot-device/client?#azure-iot-device-client-getblobsharedaccesssignature) to get the linked storage account SAS token from IoT hub. As described in prerequisites, the IoT hub is linked to the Blob Storage.
+A device app can authenticate with IoT Hub using the following methods:
+
+* X.509 certificate
+* Shared access key
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-node](iot-hub-howto-auth-device-cert-node.md)]
+
+#### Authenticate using a shared access key
+
+##### Choose a transport protocol
+
+The `Client` object supports these protocols:
+
+* `Amqp`
+* `Http` - When using `Http`, the `Client` instance checks for messages from IoT Hub infrequently (a minimum of every 25 minutes).
+* `Mqtt`
+* `MqttWs`
+* `AmqpWs`
+
+Install needed transport protocols on your development machine.
+
+For example, this command installs the `Amqp` protocol:
+
+```cmd/sh
+npm install azure-iot-device-amqp --save
+```
+
+For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](../articles/iot-hub/iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](../articles/iot-hub/iot-hub-devguide-protocols.md).
+
+##### Create a client object
+
+Create a `Client` object using the installed package.
+
+For example:
+
+```javascript
+const Client = require('azure-iot-device').Client;
+```
+
+##### Create a protocol object
+
+Create a `Protocol` object using an installed transport package.
+
+This example assigns the AMQP protocol:
+
+```javascript
+const Protocol = require('azure-iot-device-amqp').Amqp;
+```
+
+##### Add the device connection string and transport protocol
+
+Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to supply device connection parameters:
+
+* **connStr** - The device connection string.
+* **transportCtor** - The transport protocol.
+
+This example uses the `Amqp` transport protocol:
+
+```javascript
+const deviceConnectionString = "{IoT hub device connection string}"
+const Protocol = require('azure-iot-device-mqtt').Amqp;
+let client = Client.fromConnectionString(deviceConnectionString, Protocol);
+```
+
+##### Open the connection to IoT Hub
+
+Use the [open](/javascript/api/azure-iot-device/client?#azure-iot-device-client-open) method to open connection between an IoT device and IoT Hub.
+
+For example:
+
+```javascript
+client.open(function(err) {
+  if (err) {
+    console.error('error connecting to hub: ' + err);
+    process.exit(1);
+  }
+})
+```
+
+#### Get a SAS token from IoT hub
+
+Use [getBlobSharedAccessSignature](/javascript/api/azure-iot-device/client?#azure-iot-device-client-getblobsharedaccesssignature) to get the linked storage account SAS token from IoT hub.
 
 For example:
 
@@ -65,7 +148,7 @@ throw new errors.ArgumentError('Invalid upload parameters');
 }
 ```
 
-### Upload the file to IoT hub
+#### Upload the file to IoT hub
 
 To upload a file from a device to IoT hub:
 
@@ -125,43 +208,72 @@ console.log('uploadStreamToBlockBlob success');
 await client.notifyBlobUploadStatus(blobInfo.correlationId, isSuccess, statusCode, statusDescription);
 ```
 
-## Receive file upload notification in a backend application
+### Upload the local file to blob storage
 
-You can create a backend application to check the IoT hub service client for device file upload notifications.
+You can upload a local file to blob storage from a computer
 
-To create a file upload notification application:
+```javascript
+const deviceClient = Client.fromConnectionString(deviceConnectionString, Protocol);
+uploadToBlob(localFilePath, deviceClient)
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => {
+    process.exit();
+  });
 
-1. Connect to the IoT hub service client
-1. Check for a file upload notification
+```
 
-### Connect to the IoT hub service client
+#### SDK file upload sample
+
+The SDK includes an [upload to blob advanced](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/upload_to_blob_advanced.js) sample.
+
+## Create a backend application
+
+This section describes how to receive file upload notifications in a backend application.
 
 The [ServiceClient](/javascript/api/azure-iothub/client) class contains methods that services can use to receive file upload notifications.
 
-Connect to IoT hub using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring). Pass the IoT hub primary connection string.
+### Install service SDK package
 
-```javascript
-const Client = require('azure-iothub').Client;
-const connectionString = "{IoT hub primary connection string}";
-const serviceClient = Client.fromConnectionString(connectionString);
+Run this command to install **azure-iothub** on your development machine:
+
+```cmd/sh
+npm install azure-iothub --save
 ```
 
-[Open](/javascript/api/azure-iothub/client?#azure-iothub-client-open-1) the connection to IoT hub.
+### Connect to IoT hub
+
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Use [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) to connect to IoT hub.
+
+To upload a file from a device, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+
+As a parameter to `CreateFromConnectionString`, supply the **service** shared access policy connection string. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```javascript
-//Open the connection to IoT hub
-serviceClient.open(function (err) {
-  if (err) {
-    console.error('Could not connect: ' + err.message);
-  } else {
-    console.log('Service client connected');
+var Client = require('azure-iothub').Client;
+var connectionString = '{IoT hub shared access policy connection string}';
+var client = Client.fromConnectionString(connectionString);
 ```
 
-### Check for a file upload notification
+#### Connect using Microsoft Entra
 
-To check for file upload notifications:
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-node](iot-hub-howto-connect-service-iothub-entra-node.md)]
 
-1. Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that are called when notification messages are received.
+### Create a file upload notification callback receiver
+
+To create a file upload notification callback receiver:
+
+1. Call [getFileNotificationReceiver](/javascript/api/azure-iothub/client?#azure-iothub-client-getfilenotificationreceiver). Supply the name of a file upload callback method that is called when notification messages are received.
 1. Process file upload notifications in the callback method.
 
 This example sets up a `receiveFileUploadNotification` notification  callback receiver. The receiver interprets the file upload status information and prints a status message to the console.
@@ -186,6 +298,6 @@ if (err) {
 }
 ```
 
-### SDK file upload sample
+#### SDK file upload notification sample
 
-The SDK includes an [upload to blob advanced](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/upload_to_blob_advanced.js) sample.
+The SDK includes a [file upload](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/file_upload.js) sample.

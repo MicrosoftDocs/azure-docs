@@ -1,15 +1,17 @@
 ---
 title: Create connections with IaC tools
-description: Learn how to translate your infrastructure to an IaC template
+description: Learn how to create connections using Infrastructure as Code (IaC) tools and translate your infrastructure configurations into IaC templates for CI/CD pipelines.
 author: houk-ms
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 12/18/2024
 ms.author: honc
 ---
-# How to translate your infrastructure to an IaC template
+# How to create connections with IaC tools
 
-Service Connector helps users connect their compute services to target backing services in just a few clicks or commands. When moving from a getting-started to a production stage, users also need to make the transition from using manual configurations to using Infrastructure as Code (IaC) templates in their CI/CD pipelines. In this guide, we show how to translate your connected Azure services to IaC templates.
+Service Connector helps users connect their compute services to target backing services in just a few clicks or commands. When moving from a getting-started to a production stage, users also need to make the transition from using manual configurations to using Infrastructure as Code (IaC) templates in their CI/CD pipelines. 
+
+In this guide, you learn how to translate your connected Azure services to IaC templates.
 
 ## Prerequisites
 
@@ -51,7 +53,7 @@ Authoring the template from scratch is the preferred and recommended way to prov
 
 ```bicep
 // This template creates a webapp and a storage account.
-// In order to make it more readable, we use only the mininal set of parameters to create the resources.
+// In order to make it more readable, we use only the minimal set of parameters to create the resources.
 
 param location string = resourceGroup().location
 // App Service plan parameters
@@ -114,13 +116,13 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 
 If the resources you're provisioning are exactly the same ones as the ones you have in the cloud, exporting the template from Azure might be another option. The two premises of this approach are: the resources exist in Azure and you're using ARM templates for your IaC. The `Export template` button is usually at the bottom of the sidebar on Azure portal. The exported ARM template reflects the resource's current states, including the settings configured by Service Connector. You usually need to know about the resource properties to polish the exported template.
 
-:::image type="content" source="./media/how-to/export-webapp-template.png" alt-text="Screenshot of the Azure portal, exporting arm template of a web app.":::
+:::image type="content" source="./media/how-to/export-webapp-template.png" alt-text="Screenshot of the Azure portal, exporting ARM template of a web app.":::
 
 ### Build connection logic
 
 #### Using Service Connector and storing configuration in App Configuration
 
-Using the App Configuration to store configuration naturally supports IaC scenarios. We therefore recommend you use this method to build your IaC template if possible.
+Using App Configuration to store configuration naturally supports IaC scenarios. We therefore recommend you use this method to build your IaC template if possible.
 
 For simple portal instructions, you can refer to [this App Configuration tutorial](./tutorial-portal-app-configuration-store.md). To add this feature into a bicep file, add the App Configuration ID in the Service Connector payload.
 
@@ -160,7 +162,7 @@ resource serviceConnector 'Microsoft.ServiceLinker/linkers@2022-05-01' = {
 
 #### Using Service Connector
 
-Creating connections between the source and target service using Service Connector is the preferred and recommended way if the [Service Connector ](./known-limitations.md)[IaC limitation](./known-limitations.md) doesn't matter for your scenario. Service Connector makes the template simpler and also provides additional elements, such as the connection health validation, which you won't have if you're building connections through template logic directly.
+Creating connections between the source and target service using Service Connector is the preferred and recommended approach, provided that the [Service Connector ](./known-limitations.md)[IaC limitation](./known-limitations.md) doesn't negatively impact your scenario. Service Connector simplifies the template and provides additional features, such as a connection health validation, which aren't available when building connections directly through template logic.
 
 ```bicep
 // The template builds a connection between a webapp and a storage account 
@@ -175,7 +177,7 @@ resource webApp 'Microsoft.Web/sites@2022-09-01' existing = {
   name: webAppName
 }
 
-// Get an existig storage
+// Get an existing storage
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' existing = {
   name: storageAccountName
 }
@@ -200,7 +202,7 @@ resource serviceConnector 'Microsoft.ServiceLinker/linkers@2022-05-01' = {
 
 For the formats of properties and values needed when creating a Service Connector resource, check [how to provide correct parameters](./how-to-provide-correct-parameters.md). You can also preview and download an ARM template for reference when creating a Service Connector resource in the Azure portal.
 
-:::image type="content" source="./media/how-to/export-sc-template.png" alt-text="Screenshot of the Azure portal, exporting arm template of a service connector resource.":::
+:::image type="content" source="./media/how-to/export-sc-template.png" alt-text="Screenshot of the Azure portal, exporting ARM template of a service connector resource.":::
 
 #### Using template logic
 

@@ -23,8 +23,8 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
     "Source": "InputTelemetryData",
     "Type": "DataError",
     "DataErrorType": "InputDeserializerError.InvalidData",
-    "BriefMessage": "Json input stream should either be an array of objects or line separated objects. Found token type: Integer",
-    "Message": "Input Message Id: https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt Error: Json input stream should either be an array of objects or line separated objects. Found token type: Integer",
+    "BriefMessage": "JSON input stream should either be an array of objects or line separated objects. Found token type: Integer",
+    "Message": "Input Message Id: https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt Error: JSON input stream should either be an array of objects or line separated objects. Found token type: Integer",
     "ExampleEvents": "[\"1,2\\\\u000d\\\\u000a3,4\\\\u000d\\\\u000a5,6\"]",
     "FromTimestamp": "2019-03-22T22:34:18.5664937Z",
     "ToTimestamp": "2019-03-22T22:34:18.5965248Z",
@@ -119,11 +119,11 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 **Error messages**
 
 ```json
-"BriefMessage": "Json input stream should either be an array of objects or line separated objects. Found token type: String"
+"BriefMessage": "JSON input stream should either be an array of objects or line separated objects. Found token type: String"
 ```
 
 ```json
-"Message": "Json input stream should either be an array of objects or line separated objects. Found token type: String"
+"Message": "JSON input stream should either be an array of objects or line separated objects. Found token type: String"
 ```
 
 ### InvalidInputTimeStamp
@@ -213,7 +213,7 @@ There are several data errors that can only be detected after making a call to t
 
 ### OutputDataConversionError.RequiredColumnMissing
 
-* Cause: The column required for the output doesn't exist. For example, a column defined as Azure Table PartitionKey does't exist.
+* Cause: The column required for the output doesn't exist. For example, a column defined as Azure Table PartitionKey doesn't exist.
 * Portal notification provided: Yes
 * Resource log level: Warning
 * Impact:  All output data conversion errors including missing required column are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.

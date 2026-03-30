@@ -4,8 +4,8 @@ description: Use built-in authentication in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
-ms.date: 04/20/2022
+ms.topic: article
+ms.date: 12/04/2025
 ms.author: cshoe
 ---
 
@@ -26,13 +26,18 @@ For details surrounding authentication and authorization, refer to the following
 
 You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards and keep your implementation up to date.
 
-The built-in authentication feature for Container Apps saves you time and effort by providing out-of-the-box authentication with federated identity providers. These features allow you to focus more time developing your application, and less time on building security systems. 
+The built-in authentication feature for Container Apps saves you time and effort by providing out-of-the-box authentication with federated identity providers. These features allow you to focus more time developing your application, and less time on building security systems.
 
 The benefits include:
 
 * Azure Container Apps provides access to various built-in authentication providers.
 * The built-in auth features don’t require any particular language, SDK, security expertise, or even any code that you have to write.
 * You can integrate with multiple providers including Microsoft Entra ID, Facebook, Google, and X.
+
+> [!NOTE]
+> Azure Container Apps uses the same authentication and authorization system as Azure App Service. For more information authentication and authorization details, see [Authentication and authorization in Azure App Service and Azure Functions](/azure/app-service/overview-authentication-authorization).
+>
+> There are some differences in how Azure Container Apps implements authorization and authentication among App Service. The content in this article details the important differences.
 
 ## Identity providers
 
@@ -105,7 +110,7 @@ In the [Azure portal](https://portal.azure.com), you can edit your container app
   With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](#access-user-claims-in-application-code)).
 
   > [!CAUTION]
-  > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
+  > Restricting access to your application applies to all requests to your app. These restrictions may not be preferable for apps with a publicly available web page, as is typical in many single-page applications.
 
   > [!NOTE]
   > By default, any user in your Microsoft Entra tenant can request a token for your application from Microsoft Entra ID. You can [configure the application in Microsoft Entra ID](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
@@ -132,6 +137,9 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 ```
 
 When the user selects on one of the links, the UI for the respective providers is displayed to the user.
+
+> [!WARNING]
+> For client-side apps, the client's route manager may intercept the `/.auth/login/` routes, preventing the auth side-car from receiving requests. Ensure your client-side routing configuration allows the server to process these routes.
 
 To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_uri` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
 
@@ -160,7 +168,7 @@ The token format varies slightly according to the provider. See the following ta
 | `microsoftaccount` | `{"access_token":"<ACCESS_TOKEN>"}` or `{"authentication_token": "<TOKEN>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
 | `google` | `{"id_token":"<ID_TOKEN>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value adds an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<USER_ACCESS_TOKEN>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
-| `twitter` | `{"access_token":"<ACCESS_TOKEN>", "access_token_secret":"<ACCES_TOKEN_SECRET>"}` | |
+| `twitter` | `{"access_token":"<ACCESS_TOKEN>", "access_token_secret":"<ACCESS_TOKEN_SECRET>"}` | |
 | | | |
 
 If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
@@ -215,7 +223,65 @@ For all language frameworks, Container Apps makes the claims in the incoming tok
 Code that is written in any language or framework can get the information that it needs from these headers.
 
 > [!NOTE]
-> Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.
+> Different language frameworks might present these headers to the app code in different formats, such as lowercase or title case.
+
+## Secure endpoints with EasyAuth
+
+When securing endpoints with Azure Container Apps authentication, you need to register an application with Microsoft Entra ID and configure the authentication settings.
+
+Follow these steps to set up secure access:
+
+1. Create Azure AD app registration
+
+    ```azurecli
+    az ad app create \
+      --display-name <APP_DISPLAY_NAME> \
+      --sign-in-audience AzureADMyOrg
+    ---
+
+1. Enable the app to issue ID tokens. This step is required for Easy Auth support.
+
+    ```azurecli
+    az ad app update \
+      --id <APPLICATION_ID> \
+      --enable-id-token-issuance true
+    ```
+
+1. Add the redirect URI for Easy Auth callback.
+
+    ```azurecli
+    az ad app update \
+      --id <APP_ID> \
+      --web-redirect-uris "https://<APP-NAME>.<ENVIRONMENT-NAME>.<REGION>.azurecontainerapps.io/.auth/login/aad/callback"
+    ---
+
+1. Generate a client secret
+
+    ```azurecli
+    az ad app credential reset \
+      --id <APP_ID>" \
+      --display-name "<APP_NAME>-Secret"
+    ---
+
+1. Create service principal for your application.
+
+    ```azurecli
+    az ad sp create --id <APP_ID>
+    ---
+
+1. Configure your container app to use Microsoft Entra ID authentication.
+
+    Make sure the value you provide for the `<APP_NAME>` placeholder is the name of the application that you configured to work with EasyAuth.
+
+    ```azurecli
+    az containerapp auth microsoft update \
+      --name <APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --client-id <APP_ID> \
+      --client-secret CLIENT_SECRET> \
+      --tenant-id <TENANT_ID> \
+      --yes
+    ```
 
 ## Next steps
 

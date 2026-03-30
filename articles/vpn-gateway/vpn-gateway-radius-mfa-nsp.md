@@ -1,75 +1,58 @@
 ---
-title: 'Integrate NPS with VPN Gateway RADIUS authentication for MFA'
+title: Integrate P2S RADIUS authentication with NPS for MFA
 titleSuffix: Azure VPN Gateway
-description: Learn about integrating Azure VPN Gateway RADIUS authentication with NPS server for multifactor authentication.
-author: ahmadnyasin  
-manager: dcscontentpm
+description: Learn about integrating P2S RADIUS authentication with Network Policy Server (NPS) for point-to-site multifactor authentication (MFA).
+author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 09/16/2019
-ms.author: genli
+ms.date: 11/13/2024
+ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
+# Customer intent: As a network administrator, I want to integrate RADIUS authentication with Azure VPN for multifactor authentication, so that I can enhance security for point-to-site VPN connections.
 ---
-# Integrate Azure VPN gateway RADIUS authentication with NPS server for multifactor authentication 
+# Integrate P2S RADIUS authentication with NPS for multifactor authentication
 
-The article describes how to integrate Network Policy Server (NPS) with Azure VPN gateway RADIUS authentication to deliver multifactor authentication (MFA) for point-to-site VPN connections. 
+The article helps you integrate Network Policy Server (NPS) with Azure VPN Gateway RADIUS authentication to deliver multifactor authentication (MFA) for point-to-site (P2S) VPN connections.
 
-## Prerequisite
+## Prerequisites
 
-To enable MFA, the users must be in Microsoft Entra ID, which must be synced from either the on-premises or cloud environment. Also, the user must have already completed the auto-enrollment process for MFA. If your MFA is text based (SMS, mobile app verification code etc) and requires the user to enter a code or text in the VPN client UI, the authentication will not succeed and is **not a supported scenario.** For more information, see [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) 
+* **Microsoft Entra ID**: In order to enable MFA, the users must be in Microsoft Entra ID, which must be synced from either the on-premises environment, or the cloud environment.
 
-## Detailed steps
+  * The user must have completed the autoenrollment process for MFA. For more information, see [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
 
-### Step 1: Create a virtual network gateway
+  * If your MFA is text-based (SMS, mobile app verification code, etc.) and requires the user to enter a code or text in the VPN client UI, authentication won't succeed and isn't a supported scenario.
 
-1. Log on to the [Azure portal](https://portal.azure.com).
-2. In the virtual network that will host the virtual network gateway, select **Subnets**, and then select **Gateway subnet** to create a subnet. 
+* **Route-based VPN gateway**: You must already have a route-based VPN gateway. For steps to create a route-based VPN gateway, see [Tutorial: Create and manage a VPN gateway](tutorial-create-gateway-portal.md).
 
-    ![The image about how to add gateway subnet](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
-3. Create a virtual network gateway by specifying the following settings:
+* **NPS**: You must already have installed the Network Policy Server and configured the VPN policy for RADIUS.
 
-    - **Gateway type**: Select **VPN**.
-    - **VPN type**: Select **Route-based**.
-    - **SKU**: Select a SKU type based on your requirements.
-    - **Virtual network**: Select the virtual network in which you created the gateway subnet.
+  * For steps to install the Network Policy Server, see [Install the Network Policy Server (NPS)](/windows-server/networking/technologies/nps/nps-manage-install).
 
-        ![The image about virtual network gateway settings](./media/vpn-gateway-radiuis-mfa-nsp/create-vpn-gateway.png)
+  * For steps to create a VPN policy for RADIUS, see [Create a VPN policy for RADIUS](/windows-server/networking/technologies/nps/nps-np-configure).
 
+## Create RADIUS client
 
- 
-<a name='step-2-configure-the-nps-for-azure-ad-mfa'></a>
+1. Create the RADIUS client by specifying the following settings:
+   * **Friendly Name**: Type any name.
+   * **Address (IP or DNS)**: Use the value specified for your VPN gateway Gateway Subnet. For example, 10.1.255.0/27.
+   * **Shared secret**: Type any secret key, and remember it for later use.
+1. On the **Advanced** tab, set the vendor name to **RADIUS Standard** and make sure that the **Additional Options** check box isn't selected. Then, select **OK**.
+1. Go to **Policies** > **Network Policies**. Double-click **Connections to Microsoft Routing and Remote Access server** policy. Select **Grant access**, and then select **OK**.
 
-### Step 2: Configure the NPS for Microsoft Entra multifactor authentication
+## Configure the VPN gateway
 
-1. On the NPS server, [install the NPS extension for Microsoft Entra multifactor authentication](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
-2. Open the NPS console, right-click **RADIUS Clients**, and then select **New**. Create the RADIUS client by specifying the following settings:
+[!INCLUDE [Configure gateway](../../includes/vpn-gateway-add-gw-radius-include.md)]
 
-    - **Friendly Name**: Type any name.
-    - **Address (IP or DNS)**: Type the gateway subnet that you created in the Step 1.
-    - **Shared secret**: type any secret key, and remember it for later use.
+After the settings are saved, you can click **Download VPN Client** to download the VPN client configuration package and use the settings to configure the VPN client. For more information about P2S VPN client configuration, see the [Point-to-site client configuration requirements](point-to-site-about.md#client) table.
 
-      ![The image about RADIUS client settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+## Integrate NPS with Microsoft Entra MFA
 
- 
-3.  On the **Advanced** tab, set the vendor name to **RADIUS Standard** and make sure that the **Additional Options** check box is not selected.
+Use the following links to integrate your NPS infrastructure with Microsoft Entra multifactor authentication:
 
-    ![The image about RADIUS client Advanced settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
-
-4. Go to **Policies** > **Network Policies**, double-click **Connections to Microsoft Routing and Remote Access server** policy, select **Grant access**, and then click **OK**.
-
-### Step 3: Configure the virtual network gateway
-
-1. Log on to [Azure portal](https://portal.azure.com).
-2. Open the virtual network gateway that you created. Make sure that the gateway type is set to **VPN** and that the VPN type is **route-based**.
-3. Click **Point to site configuration** > **Configure now**, and then specify the following settings:
-
-    - **Address pool**: Type the gateway subnet you created in the step 1.
-    - **Authentication type**: Select **RADIUS authentication**.
-    - **Server IP address**: Type the IP address of the NPS server.
-
-      ![The image about point to site settings](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+* [How it works: Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks)
+* [Integrate your existing NPS infrastructure with Microsoft Entra multifactor authentication](/entra/identity/authentication/howto-mfa-nps-extension)
 
 ## Next steps
 
-- [Microsoft Entra multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md)
-- [Integrate your existing NPS infrastructure with Microsoft Entra multifactor authentication](../active-directory/authentication/howto-mfa-nps-extension.md)
+For steps to configure your VPN client, see the [Point-to-site client configuration requirements](point-to-site-about.md#client) table.

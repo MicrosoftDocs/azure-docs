@@ -1,30 +1,50 @@
----
+﻿---
 title: What's new in Azure VPN Gateway?
 description: Learn what's new with Azure VPN Gateway such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
-ms.date: 08/16/2024
+ms.topic: concept-article
+ms.date: 11/25/2025
 ms.author: cherylmc
+ms.custom:
+  - build-2025
+# Customer intent: "As a network administrator, I want to stay informed about the latest updates and planned changes for the VPN Gateway service, so that I can ensure optimal usage and compliance with upcoming migrations and deprecations."
 ---
 
 # What's new in Azure VPN Gateway?
 
 Azure VPN Gateway is updated regularly. Stay up to date with the latest announcements. This article provides you with information about:
 
+* Projected changes
 * Recent releases
 * Previews underway with known limitations (if applicable)
 * Known issues
 * Deprecated functionality (if applicable)
 * Azure VPN Client versions
 
-You can also find the latest VPN Gateway updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates/?category=networking&query=azure%20vpn%20gateway).
+You can also find the latest VPN Gateway updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates?filters=%5B%22VPN+Gateway%22%5D).
+
+## Upcoming projected changes
+
+> [!NOTE]
+> Timelines are subject to change.<br>
+> Basic IP deprecation timeline for all **VPN Gateways** is moved to **End of June 2026**
+
+| Event | Customer impact| Anticipated timelines | Customer action/ prerequisites | Documentation | Announcement Links |
+|---|---|---|---|---|---|
+|Basic SKU public IP address migration - For all VPN SKUs except Basic SKU Gateway |- New [pricing changes](https://azure.microsoft.com/pricing/details/ip-addresses/).<br>- Up to 10 min downtime during migration.<br>- IP address un-changed.|- **Active-Passive** gateways generally available Jan, 26 <br> - **Active-Active** gateways Public Preview in Mar'26 <br> - GA Apr’26 |- Verify IP address space and subnet size [here](https://learn.microsoft.com/azure/vpn-gateway/basic-public-ip-migrate-about#considerations) <br>- Migrate Basic to Standard SKU public IP. <br> - No action if already on Standard SKU.|- [About Basic SKU Public IP address migration](basic-public-ip-migrate-about.md) <br>  - [How to migrate Basic SKU public IP address to Standard](basic-public-ip-migrate-howto.md?tabs=portal)|[Basic SKU public IP address retirement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) |
+|Basic SKU public IP address - For Basic SKU Gateway | - IP address unchanged.<br> - No connectivity interruption. | - Available **March'2026** <br> | - Removing Basic public IP reference  from VNG gateway. [FAQ](https://learn.microsoft.com/azure/vpn-gateway/basic-sku-public-ip-remove) | [Remove Basic Public IP Reference from Basic SKU VPN Gateway](https://learn.microsoft.com/azure/vpn-gateway/basic-sku-public-ip-remove)  | [Basic SKU public IP address retirement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) |
+|Non-AZ gateway SKU retirement |- New AZ SKUs pricing applied since Jan 2025.<br>- No downtime expected.<br>- New Non-AZ SKU creates blocked in 2025. |- **Jan 2025**: New pricing activated.<br> - **May 2025 - Sep 2026**: Non-AZ SKU migration.<br> - **Sep 2026**: Non-AZ SKU retirement.|- Migrate Basic IP address to Standard IP if applicable. <br> - Upgrade the gateway SKU from portal |[VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md)| [Non-AZ gateway SKU retirement](https://azure.microsoft.com/updates?id=vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026)|
+|Legacy SKU retirement: Standard and High Performance SKUs.|- New creations blocked in 2024.<br> - Up to 10 minutes of downtime.|- **May 2025 - Jun 2026**: Migration.<br>- **Jun 2026**: Legacy SKU retirement.| - **Nov 2025** Migrate Basic IP address (Active-Passive gateway) <br>- **Jan 2026** Migrate Basic IP address (Active-Active gateway) |[Working with VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md)|[Standard and HighPerf gateway SKU retirement](https://azure.microsoft.com/updates?id=standard-and-highperformance-vpn-gateway-skus-will-be-retired-on-30-september-2025)|
+|Classic VPN gateways retired|- Classic VPN gateways will be decommissioned.|- **Aug 2024**: Retirement<br>- **By Aug 2025**: Decommission|- Migrate your classic VPN gateway to an Azure Resource Manager gateway|[VPN Gateway classic to Resource Manager migration](vpn-gateway-classic-resource-manager-migration.md)|[Classic resource retirement](https://azure.microsoft.com/updates?id=cloud-services-retirement-announcement)|
+
 
 ## Recent releases and announcements
 
 | Type | Area | Name | Description | Date added | Limitations |
 |---|---|---|---|---|---|
-|SKU Consolidation | N/A | [VpnGw1-5 non-AZ VPN Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/gateway-sku-consolidation) | VpnGw1-5 non-AZ SKU will be deprecated on 30 Sep 2026. View the announcement [here](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026) | Sep 2024 | N/A
+|IPv6 Preview | N/A | [VPN Gateway IPv6](ipv6-configuration.md) | Azure VPN Gateway supports IPv6 in dual stack. View the announcement [here](https://aka.ms/vpnipv6preview) | May 2025 | N/A |
+|SKU Consolidation | N/A | [VpnGw1-5 non-AZ VPN Gateway SKU](gateway-sku-consolidation.md) | VpnGw1-5 non-AZ SKU will be deprecated on 30 Sep 2026. View the announcement [here](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026) | Sep 2024 | N/A |
 | P2S VPN | P2S | [Azure VPN Client for Linux](#linux)| [Certificate](point-to-site-certificate-client-linux-azure-vpn-client.md) authentication, [Microsoft Entra ID ](point-to-site-entra-vpn-client-linux.md) authentication.| May 2024 | N/A|
 | P2S VPN | P2S | [Azure VPN Client for macOS](#macos) | Microsoft Entra ID authentication updates, additional features.  | Sept 2024 | N/A|
 | P2S VPN | P2S | [Azure VPN Client for Windows](#windows) | Microsoft Entra ID authentication updates, additional features.  | May 2024 | N/A|

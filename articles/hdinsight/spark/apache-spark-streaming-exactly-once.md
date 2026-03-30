@@ -4,6 +4,9 @@ description: How to set up Apache Spark Streaming to process an event once and o
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/15/2024
 ---
 

@@ -2,13 +2,14 @@
 title: Configure Traffic Collector for ExpressRoute
 titleSuffix: Azure ExpressRoute
 description: This article shows you how to create an ExpressRoute Traffic Collector resource and import logs into a Log Analytics workspace.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 06/19/2024
+ms.date: 03/12/2026
 ms.author: duau
-#Customer intent: As a network engineer, I want to configure ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace.
+ms.custom: sfi-image-nochange
+
+# Customer intent: As a network engineer, I want to configure an ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace, so that I can effectively monitor and analyze network traffic.
 ---
 
 # Configure Traffic Collector for ExpressRoute
@@ -41,7 +42,7 @@ This article helps you deploy an ExpressRoute Traffic Collector using the Azure 
 
 - Minimum of **contributor** access is required in both subscriptions to associate an ExpressRoute Traffic Collector with an ExpressRoute circuit in a different subscription.
 
-For more information, see [Identity and access management](../active-directory/fundamentals/active-directory-ops-guide-iam.md).
+For more information, see [Identity and access management](/entra/architecture/ops-guide-iam).
 
 ## Deploy ExpressRoute Traffic Collector
 
@@ -52,8 +53,6 @@ For more information, see [Identity and access management](../active-directory/f
     :::image type="content" source="./media/how-to-configure-traffic-collector/circuit-list.png" alt-text="Screenshot of the create new ExpressRoute Traffic Collector button from the ExpressRoute circuit list page.":::
 
 1. On the **Create an ExpressRoute Traffic Collector** page, enter or select the following information then select **Next**.
-
-    :::image type="content" source="./media/how-to-configure-traffic-collector/basics.png" alt-text="Screenshot of the basics page for create an ExpressRoute Traffic Collector.":::
 
    | Setting | Description |
    | --- | --- |
@@ -77,8 +76,6 @@ For more information, see [Identity and access management](../active-directory/f
 
 1. Select **Create** once validation has passed to deploy your ExpressRoute Traffic Collector.
 
-    :::image type="content" source="./media/how-to-configure-traffic-collector/validation.png" alt-text="Screenshot of the create validation page.":::
-
 1. Once deployed you should start seeing sampled flow logs within the configure Log Analytics workspace.
 
     :::image type="content" source="./media/how-to-configure-traffic-collector/log-analytics.png" alt-text="Screenshot of logs in Log Analytics workspace." lightbox="./media/how-to-configure-traffic-collector/log-analytics.png":::
@@ -92,8 +89,6 @@ To delete the ExpressRoute Traffic Collector resource, you first need to remove 
 >
 
 Once all circuits have been removed from the ExpressRoute Traffic Collector, select **Delete** from the overview page to remove the resource from your subscription.
-
-:::image type="content" source="./media/how-to-configure-traffic-collector/overview.png" alt-text="Screenshot of delete button on overview page." lightbox="./media/how-to-configure-traffic-collector/overview.png":::
 
 ## Next step
 

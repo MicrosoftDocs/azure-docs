@@ -16,6 +16,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Set up sign-up and sign-in with a PingOne account using Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 
@@ -25,7 +27,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a PingOne application
 
-To enable sign-in for users with a PingOne (Ping Identity) account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the Ping Identity Administrator Console. For more information, see [Adding or updating an OIDC application](https://docs.pingidentity.com/access/sources/dita/topic?resourceid=p14e_add_update_oidc_application) in the Ping Identity documentation. If you don't already have a PingOne account, you can sign up at [`https://admin.pingone.com/web-portal/register`](https://admin.pingone.com/web-portal/register).
+To enable sign-in for users with a PingOne (Ping Identity) account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in the Ping Identity Administrator Console. If you don't already have a PingOne account, you can sign up at [`https://admin.pingone.com/web-portal/register`](https://admin.pingone.com/web-portal/register).
 
 1. Sign in to the Ping Identity Administrator Console with your PingOne account credentials.
 1. In the left menu of the page, select **Connections**, then next to **Applications**, select **+**.

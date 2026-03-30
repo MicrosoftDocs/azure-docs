@@ -9,6 +9,7 @@ ms.date: 07/23/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: "As a cloud engineer, I want to create an internal load balancer using Azure PowerShell, so that I can effectively manage and distribute traffic to my virtual machines."
 ---
 
 # Quickstart: Create an internal load balancer to load balance virtual machines using Azure PowerShell
@@ -19,7 +20,7 @@ Get started with Azure Load Balancer creating an internal load balancer and two 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 
@@ -364,7 +365,7 @@ Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to inst
 The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
 
 > [!IMPORTANT]
-> Ensure the virtual machine deployments have completed from the previous steps before proceeding.  Use `Get-Job` to check the status of the virtual machine deployment jobs.
+> Ensure the virtual machine deployments have completed from the previous steps before proceeding. Use `Get-Job` to check the status of the virtual machine deployment jobs.
 
 ```azurepowershell-interactive
 ## For loop with variable to install custom script extension on virtual machines. ##
@@ -474,19 +475,19 @@ New-AzVM @vm
 
 1. Find the private IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer**.
 
-2. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
+1. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **CreateIntLBQS-rg** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **CreateIntLBQS-rg** resource group.
 
-4. On the **Overview** page, select **Connect**, then **Bastion**.
+1. On the **Overview** page, select **Connect**, then **Bastion**.
 
-6. Enter the username and password entered during VM creation.
+1. Enter the username and password entered during VM creation.
 
-7. Open **Internet Explorer** on **myTestVM**.
+1. Open **Internet Explorer** on **myTestVM**.
 
-8. Enter the IP address from the previous step into the address bar of the browser. The custom IIS Web server page is displayed.
+1. Enter the IP address from the previous step into the address bar of the browser. The custom IIS Web server page is displayed.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of web browser showing default web page for load balanced VM" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of web browser showing default web page for load balanced VM." border="true":::
    
 To see the load balancer distribute traffic across all three VMs, you can force-refresh your web browser from the test machine.
 

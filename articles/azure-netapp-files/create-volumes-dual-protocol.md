@@ -1,12 +1,14 @@
 ---
-title: Create a dual-protocol volume for Azure NetApp Files | Microsoft Docs
+title: Create a dual-protocol volume for Azure NetApp Files
 description: Describes how to create a volume that uses the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB) with support for LDAP user mapping.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/17/2024
+ms.date: 08/11/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT administrator, I want to create a dual-protocol volume in Azure NetApp Files, so that I can enable both NFS and SMB access with LDAP user mapping for a flexible file storage solution.
 ---
 # Create a dual-protocol volume for Azure NetApp Files
 
@@ -22,7 +24,6 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
 
 ## Considerations
 
@@ -110,11 +111,15 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
+    * **Availability zone**   
+        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+
     * **Encryption key source** 
         You can select `Microsoft Managed Key` or `Customer Managed Key`. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
-    * **Availability zone**   
-        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+    * **Advanced Ransomware Protection**
+        Select **Enabled** to configure ransomware threat detection alerts for your volumes. For more information, see [Configure advanced ransomware protection](ransomware-configure.md). 
+
 
     * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
@@ -130,7 +135,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * Specify a unique **Volume Path**. This path is used when you create mount targets. The requirements for the path are as follows:  
 
         - For volumes not in an availability zone or volumes in the same availability zone, the volume path must be unique within each subnet in the region. 
-        - For volumes in availability zones, the volume path must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
+        - For volumes in availability zones, the volume path must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.

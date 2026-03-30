@@ -17,6 +17,8 @@ ms.subservice: b2c
 
 # Tutorial: Configure Haventec Authenticate with Azure Active Directory B2C for single-step, multi-factor passwordless authentication
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Learn to integrate Azure Active Directory B2C (Azure AD B2C) with Haventec Authenticate, a passwordless technology that eliminates passwords, shared secrets, and friction.
 
 To learn more, go to haventec.com: [Haventec](https://www.haventec.com/)
@@ -54,7 +56,7 @@ To get started, you need:
 
 * An Azure subscription
 
-  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An Azure AD B2C tenant linked to the Azure subscription
   * see, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
 * A Haventec Authenticate demo environment
@@ -131,5 +133,5 @@ For the following instructions, Haventec is a new OIDC identity provider in the 
 
 ## Next steps
 
-* Go to docs.haventec.com for [Haventec Documentation](https://docs.haventec.com/)
+* Go to docs.haventec.com for [Haventec Documentation](https://www.haventec.com/)
 * [Azure AD B2C custom policy overview](custom-policy-overview.md)

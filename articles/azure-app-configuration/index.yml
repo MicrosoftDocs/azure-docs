@@ -9,8 +9,9 @@ metadata:
   ms.service: azure-app-configuration
   ms.custom:
     - build-2024
+    - build-2025
   ms.topic: landing-page
-  ms.date: 05/10/2024
+  ms.date: 11/21/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -70,12 +71,12 @@ landingContent:
           url: quickstart-azure-app-configuration-create.md
         - text: Code an ASP.NET Core app
           url: quickstart-aspnet-core-app.md
+        - text: Code an Aspire project
+          url: quickstart-aspire.md
         - text: Code a .NET app
           url: quickstart-dotnet-core-app.md
         - text: Code a .NET Framework app
           url: quickstart-dotnet-app.md
-        - text: Code a .NET app in Visual Studio
-          url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
         - text: Code an Azure Functions app in C#
           url: quickstart-azure-functions-csharp.md
         - text: Code a Java Spring app
@@ -84,14 +85,16 @@ landingContent:
           url: quickstart-python-provider.md
         - text: Code a JavaScript app
           url: quickstart-javascript-provider.md
-        - text: Azure Container Apps
-          url: quickstart-container-apps.md
+        - text: Code a Go app
+          url: quickstart-go-console-app.md
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core
           url: enable-dynamic-configuration-aspnet-core.md
         - text: Use dynamic config in ASP.NET (.NET Framework)
           url: enable-dynamic-configuration-aspnet-netfx.md
+        - text: Use dynamic config in Aspire
+          url: enable-dynamic-configuration-aspire.md
         - text: Use dynamic config in .NET
           url: enable-dynamic-configuration-dotnet-core.md
         - text: Use dynamic config in .NET Framework
@@ -102,16 +105,16 @@ landingContent:
           url: enable-dynamic-configuration-java-spring-app.md
         - text: Use dynamic config in Python
           url: enable-dynamic-configuration-python.md
-        - text: Integrating dynamic config using the push model in .NET
-          url: enable-dynamic-configuration-dotnet-core-push-refresh.md
-        - text: Integrating dynamic config using the push model in Java Spring
-          url: enable-dynamic-configuration-java-spring-push-refresh.md
+        - text: Use dynamic config in Go
+          url: enable-dynamic-configuration-go-console-app.md
+        - text: Use dynamic config in Go Gin
+          url: enable-dynamic-configuration-gin-web-app.md
       - linkListType: tutorial
         links:
-        - text: Push data using Azure Pipelines
-          url: push-kv-devops-pipeline.md
-        - text: Pull data using Azure Pipelines
-          url: pull-key-value-devops-pipeline.md
+        - text: Import data using Azure Pipelines
+          url: azure-pipeline-import-task.md
+        - text: Export data using Azure Pipelines
+          url: azure-pipeline-export-task.md
         - text: Push data using GitHub Actions
           url: push-kv-github-action.md
         - text: Export to project configuration file
@@ -142,28 +145,36 @@ landingContent:
           url: manage-feature-flags.md
         - text: ASP.NET Core app
           url: quickstart-feature-flag-aspnet-core.md
+        - text: Aspire app
+          url: quickstart-feature-flag-aspire.md
         - text: .NET/.NET Framework app
           url: quickstart-feature-flag-dotnet.md
         - text: Spring Boot app
           url: quickstart-feature-flag-spring-boot.md
         - text: Python app
           url: quickstart-feature-flag-python.md
+        - text: Node.js app
+          url: quickstart-feature-flag-javascript.md
+        - text: Go console app
+          url: quickstart-feature-flag-go-console.md
+        - text: Go Gin web app
+          url: quickstart-feature-flag-go-gin.md
       - linkListType: tutorial
         links: 
-        - text: Use feature flags in ASP.NET Core
-          url: use-feature-flags-dotnet-core.md
-        - text: Use feature flags in Spring Boot
-          url: use-feature-flags-spring-boot.md
         - text: Enable conditional features with feature filters
           url: howto-feature-filters.md
         - text: Enable features on a schedule
           url: howto-timewindow-filter.md
         - text: Roll out features to targeted audience
           url: howto-targetingfilter.md
-        - text: Run experiments with variant feature flags
-          url: run-experiments-aspnet-core.md
+        - text: Use variant feature flags
+          url: howto-variant-feature-flags.md
+        - text: Enable telemetry for feature flags
+          url: howto-telemetry.md
       - linkListType: reference
         links:
+        - text: Overview
+          url: feature-management-overview.md
         - text: .NET feature management
           url: feature-management-dotnet-reference.md
         - text: .NET feature management API reference
@@ -174,21 +185,29 @@ landingContent:
           url: feature-management-python-reference.md
         - text: Python feature management API reference
           url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
+        - text: JavaScript feature management
+          url: feature-management-javascript-reference.md
+        - text: Go feature management
+          url: https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement
 
   - title: Client libraries and tools
     linkLists:
       - linkListType: reference
         links:
+        - text: Overview
+          url: configuration-provider-overview.md
         - text: .NET provider
-          url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+          url: reference-dotnet-provider.md
         - text: Java Spring provider
           url: https://go.microsoft.com/fwlink/?linkid=2180917
         - text: Python provider
           url: https://pypi.org/project/azure-appconfiguration-provider/
         - text: JavaScript provider
-          url: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration
+          url: reference-javascript-provider.md
         - text: Kubernetes provider
           url: reference-kubernetes-provider.md
+        - text: Go provider
+          url: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - linkListType: reference
         links:      
         - text: Azure SDK for .NET
@@ -207,6 +226,8 @@ landingContent:
           url: /rest/api/appconfiguration/
         - text: Data plane REST API
           url: rest-api.md
+        - text: Local emulator
+          url: emulator-overview.md
       - linkListType: reference
         links:
         - text: Azure CLI

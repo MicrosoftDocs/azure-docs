@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 09/25/2024
+ms.topic: reference
+ms.date: 04/01/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -52,36 +52,28 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 | ----------- | --------------------------------------------------------------------------------- | -------- |
 | dimension   | Add one or more of these elements for each dimension included in the custom metric.  | Yes      |
 
-### dimension attributes
+### Dimension attributes
 
 | Attribute | Description                | Required |  Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
 | name      | A string or policy expression. Name of dimension.      | Yes      |  N/A            |
 | value     | A string or policy expression. Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No        | N/A |
 
- ### Default dimension names that may be used without value
-
-* API ID
-* Operation ID
-* Product ID
-* User ID
-* Subscription ID
-* Location
-* Gateway ID
+[!INCLUDE [api-management-emit-metric-dimensions](../../includes/api-management-emit-metric-dimensions.md)]
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
-* You can configure at most 10 custom dimensions for this policy.
+* You can configure at most 5 custom dimensions for this policy.
 
 ## Example
 
-The following example sends a custom metric to count the number of API requests along with API ID as a custom dimension.
+The following example sends a custom metric to count the number of API requests along with API ID as a default dimension.
 
 ```xml
 <policies>

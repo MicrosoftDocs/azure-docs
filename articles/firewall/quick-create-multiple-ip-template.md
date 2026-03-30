@@ -2,12 +2,13 @@
 title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Resource Manager template'
 description: In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to create an Azure Firewall with multiple public IP addresses.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 10/19/2023
-ms.author: victorh
+ms.author: duau
+# Customer intent: As a network engineer, I want to use an Azure Resource Manager template to deploy an Azure Firewall with multiple public IP addresses, so that I can effectively manage remote connections to my virtual machines.
 ---
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - ARM template
@@ -26,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 

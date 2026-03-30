@@ -1,48 +1,48 @@
 ---
 title: Endpoints in Azure Front Door
-TitleSuffix: Azure Front Door
 description: Learn about endpoints when using Azure Front Door.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
-ms.date: 08/09/2023
-ms.author: duau
+ms.topic: concept-article
+ms.date: 11/13/2024
 ---
 
 # Endpoints in Azure Front Door
 
-In Azure Front Door, an *endpoint* is a logical grouping of one or more routes that are associated with domain names. Each endpoint is [assigned a domain name](#endpoint-domain-names) by Front Door, and you can associate your own custom domains by using routes.
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
+In Azure Front Door, an *endpoint* is a logical grouping of one or more routes associated with domain names. Each endpoint is [assigned a domain name](#endpoint-domain-names) by Front Door, and you can also associate your own custom domains using routes.
 
 ## How many endpoints should I create?
 
-A Front Door profile can contain multiple endpoints. However, in many situations you might only need a single endpoint.
+A Front Door profile can contain multiple endpoints, but in many cases, a single endpoint might suffice.
 
-When you're planning the endpoints to create, consider the following factors:
+Consider the following factors when planning your endpoints:
 
-- If all of your domains use the same or similar route paths, it's probably best to combine them into a single endpoint.
-- If you use different routes and route paths for each domain, consider using separate endpoints, such as by having an endpoint for each custom domain.
-- If you need to enable or disable all of your domains together, consider using a single endpoint. An entire endpoint can be enabled or disabled together.
+- If all your domains use the same or similar route paths, it's likely best to combine them into a single endpoint.
+- If you use different routes and route paths for each domain, consider creating separate endpoints, such as one for each custom domain.
+- If you need to enable or disable all your domains together, consider using a single endpoint, as an entire endpoint can be enabled or disabled at once.
 
 ## Endpoint domain names
 
 Endpoint domain names are automatically generated when you create a new endpoint. Front Door generates a unique domain name based on several components, including:
 
 - The endpoint's name.
-- A pseudorandom hash value, which gets determined by Front Door. By using hash values as part of the domain name, Front Door helps to protect against [subdomain takeover](../security/fundamentals/subdomain-takeover.md) attacks.
-- The base domain name for your Front Door environment. Generally is `z01.azurefd.net`.
+- A pseudorandom hash value determined by Front Door, which helps protect against [subdomain takeover](../security/fundamentals/subdomain-takeover.md) attacks.
+- The base domain name for your Front Door environment, generally `z01.azurefd.net`.
 
-For example, suppose you have created an endpoint named `myendpoint`. The endpoint domain name might be `myendpoint-mdjf2jfgjf82mnzx.z01.azurefd.net`.
+For example, if you create an endpoint named `myendpoint`, the endpoint domain name might be `myendpoint-mdjf2jfgjf82mnzx.z01.azurefd.net`.
 
 The endpoint domain is accessible when you associate it with a route.
 
 ### Reuse of an endpoint domain name
 
-When you delete and redeploy an endpoint, you might expect to get the same pseudorandom hash value, and therefore the same endpoint domain name. Front Door enables you to control how the pseudorandom hash values are reused on an endpoint-by-endpoint basis.
+When you delete and redeploy an endpoint, you might expect to get the same pseudorandom hash value and, therefore, the same endpoint domain name. Front Door allows you to control how these pseudorandom hash values are reused on an endpoint-by-endpoint basis.
 
 An endpoint's domain can be reused within the same tenant, subscription, or resource group scope level. You can also choose to not allow the reuse of an endpoint domain. By default, Front Door allows reuse of the endpoint domain within the same Microsoft Entra tenant.
 
-You can use Bicep, an Azure Resource Manager template (ARM template), the Azure CLI, or Azure PowerShell to configure the scope level of the endpoint's domain reuse behavior. You can also configure it for all Front Door endpoints in your whole organization by using Azure Policy. The Azure portal uses the scope level you define through the command line once it has been changed.
+You can configure the scope level of the endpoint's domain reuse behavior using Bicep, an Azure Resource Manager (ARM) template, the Azure CLI, or Azure PowerShell. Additionally, you can configure it for all Front Door endpoints in your organization using Azure Policy. The Azure portal uses the scope level you define through the command line once it has been changed.
 
 The following table lists the allowable values for the endpoint's domain reuse behavior:
 
@@ -50,15 +50,15 @@ The following table lists the allowable values for the endpoint's domain reuse b
 |--|--|
 | `TenantReuse` | This is the default value. Endpoints with the same name in the same Microsoft Entra tenant receive the same domain label. |
 | `SubscriptionReuse` | Endpoints with the same name in the same Azure subscription receive the same domain label. |
-| `ResourceGroupReuse` | Endpoints with the same name in the same resource group receives the same domain label. |
+| `ResourceGroupReuse` | Endpoints with the same name in the same resource group receive the same domain label. |
 | `NoReuse` | Endpoints always receive a new domain label. |
 
 > [!NOTE]
-> You can't modify the reuse behavior of an existing Front Door endpoint. The reuse behavior only applies to newly created endpoints.
+> The reuse behavior cannot be modified for an existing Front Door endpoint. It only applies to newly created endpoints.
 
-The following example shows how to create a new Front Door endpoint with a reuse scope of `SubscriptionReuse`:
+The following examples demonstrate how to create a new Front Door endpoint with the reuse scope set to `SubscriptionReuse`:
 
-# [Azure CLI](#tab/azurecli)
+### Azure CLI
 
 ```azurecli
 az afd endpoint create \
@@ -68,7 +68,7 @@ az afd endpoint create \
   --name-reuse-scope SubscriptionReuse
 ```
 
-# [Azure PowerShell](#tab/azurepowershell)
+### Azure PowerShell
 
 ```azurepowershell
 New-AzFrontDoorCdnEndpoint `
@@ -79,7 +79,7 @@ New-AzFrontDoorCdnEndpoint `
    -AutoGeneratedDomainNameLabelScope SubscriptionReuse
 ```
 
-# [Bicep](#tab/bicep)
+### Bicep
 
 ```bicep
 resource endpoint 'Microsoft.Cdn/profiles/afdEndpoints@2021-06-01' = {

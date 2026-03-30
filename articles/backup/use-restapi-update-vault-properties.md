@@ -2,17 +2,18 @@
 title: Update Recovery Services vault configuration with REST API
 description: In this article, learn how to update vault's configuration using REST API.
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.date: 10/16/2025
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an cloud administrator, I want to update the soft delete state of a Recovery Services vault using REST API, so that I can ensure immediate deletion of vaults when necessary without being hindered by soft delete settings.
 ---
 # Update Azure Recovery Services vault configurations using REST API
 
 This article describes how to update backup related configurations in Azure Recovery Services vault using REST API.
 
-## Soft delete state
+## Manage soft delete operations in Recovery Services vault
 
 Deleting backups of a protected item is a significant operation that has to be monitored. To protect against accidental deletions, Azure Recovery Services vault has a soft-delete capability. This capability allows you to restore deleted backups, if necessary, within a time period after the deletion.
 
@@ -33,7 +34,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 The GET URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters. In this example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there's no need for a separate request body.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
+GET https://management.azure.com/Subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### Responses
@@ -50,7 +51,7 @@ Once the 'GET' request is submitted, a 200 (successful) response is returned.
 
 ```json
 {
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testvaultRG/providers/Microsoft.RecoveryServices/vaults/testvault/backupconfig/vaultconfig",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testvaultRG/providers/Microsoft.RecoveryServices/vaults/testvault/backupconfig/vaultconfig",
   "name": "vaultconfig",
   "type": "Microsoft.RecoveryServices/vaults/backupconfig",
   "properties": {
@@ -71,7 +72,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 The PUT URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters. In this example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". If we replace the URI with the values above, then the URI will look like this.
 
 ```http
-PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
+PUT https://management.azure.com/Subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### Create the request body
@@ -114,7 +115,7 @@ Once the 'PATCH' request is submitted, a 200 (successful) response is returned.
 
 ```json
 {
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testvaultRG/providers/Microsoft.RecoveryServices/vaults/testvault/backupconfig/vaultconfig",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testvaultRG/providers/Microsoft.RecoveryServices/vaults/testvault/backupconfig/vaultconfig",
   "name": "vaultconfig",
   "type": "Microsoft.RecoveryServices/vaults/backupconfig",
   "properties": {

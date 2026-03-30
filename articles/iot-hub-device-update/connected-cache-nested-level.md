@@ -2,11 +2,12 @@
 title: Deploy Microsoft Connected Cache on nested gateways
 titleSuffix:  Device Update for Azure IoT Hub
 description: Microsoft Connected Cache two level nested Azure IoT Edge Gateway with outbound unauthenticated proxy 
-author: andyrivMSFT
-ms.author: andyriv
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 04/14/2023
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Deploy the Microsoft Connected Cache module on nested gateways, including in IIoT scenarios (preview)

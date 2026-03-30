@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Forward Syslog data to Microsoft Sentinel and Azure Monitor by using Azure Monitor Agent'
 description: In this tutorial, you learn how to monitor Linux-based devices by forwarding Syslog data to a Log Analytics workspace.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.service: microsoft-sentinel
 ms.topic: tutorial
 ms.date: 05/16/2024
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 To complete the steps in this tutorial, you must have the following resources and roles:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure account with the following roles to deploy the agent and create the data collection rules.
 
   |Built-in role  |Scope  |Reason  |
@@ -48,9 +48,15 @@ To complete the steps in this tutorial, you must have the following resources an
    - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [add an on-premises Linux server to Azure Arc](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
 - A Linux-based device that generates event log data like a firewall network device.
 
-## Configure Azure Monitor Agent to collect Syslog data
+## Create the DCR and add resources
 
-See the step-by-step instructions in [Collect Syslog events with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog).
+To create the DCR and add resources, follow the steps in these articles:
+- [Create the data collection rule](/azure/azure-monitor/vm/data-collection#create-a-data-collection-rule)
+- [Add resources](/azure/azure-monitor/vm/data-collection#add-resources)
+
+[!INCLUDE [configure-syslog-ama](~/reusable-content/ce-skilling/azure/includes/azure-monitor/agents/configure-syslog-ama.md)]
+
+For the full procedure of configuring Syslog data collection, see [Collect Syslog events with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog).
 
 ## Verify that Azure Monitor Agent is running
 
@@ -115,7 +121,7 @@ sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/
 This script can make changes for both rsyslog.d and syslog-ng.
 
 > [!NOTE]
-> To avoid [Full Disk scenarios](/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed Azure Monitor Agent.
+> To avoid [Full Disk scenarios](/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog) where the agent can't function, you must set the `syslog-ng` or `rsyslog` configuration to not store logs, which are not needed by the agent. A Full Disk scenario disrupts the function of the installed Azure Monitor Agent.
 > Read more about [rsyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [syslog-ng](https://www.syslog-ng.com/technical-documents).
 
 ## Verify Syslog data is forwarded to your Log Analytics workspace

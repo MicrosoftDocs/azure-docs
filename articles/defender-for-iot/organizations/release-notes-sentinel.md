@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for IoT solution versions in Microsoft Sentinel
 description: Learn about the updates available in each version of the Microsoft Defender for IoT solution, available from the Microsoft Sentinel content hub.
-ms.date: 09/22/2022
+ms.date: 11/17/2025
 ms.topic: release-notes
 ms.subservice: sentinel-integration
 ---
@@ -17,6 +17,17 @@ For more information, see:
 - [What's new in Microsoft Defender for IoT?](whats-new.md)
 - [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json)
 - [Tutorial: Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json).
+
+## Version 3.0.02
+
+**Released**: January 2025
+
+Updates in this version include:
+
+- Microsoft Defender for IoT analytic rule templates now use Microsoft Sentinel Entities for alert entity mapping. The mapping includes source and destination IP addresses, as well as other device entities such as host to attach devices to alerts.
+
+ - Device entities add richer alert context to incidents in Microsoft Sentinel and the Microsoft Defender portal.
+
 
 ## Version 2.0.2
 
@@ -46,7 +57,7 @@ New features in this version include:
 
 - New SOC playbooks for automation with CVEs, triaging incidents that involve sensitive devices, and email notifications to device owners for new incidents.
 
-For more information, see [Updates to the Microsoft Defender for IoT solution](whats-new.md#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub).
+For more information, see [Updates to the Microsoft Defender for IoT solution](whats-new-archive.md#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub).
 
 ## Version 2.0.0
 
@@ -62,9 +73,8 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 New features in this version include:
 
-- [Microsoft Sentinel incident synch with Defender for IoT alerts](whats-new.md#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts)
+- [Microsoft Sentinel incident synch with Defender for IoT alerts](whats-new-archive.md#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts)
 - IoT device entities displayed in related Microsoft Sentinel incidents.
-
 
 ## Version 1.0.13
 

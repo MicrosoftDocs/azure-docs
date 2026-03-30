@@ -5,7 +5,7 @@ services: healthcare-apis
 author: chachachachami
 ms.service: azure-health-data-services
 ms.topic: how-to
-ms.date: 09/06/2023
+ms.date: 06/02/2025
 ms.author: chrupa
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -59,8 +59,6 @@ Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-dic
 
 ---
 ## Next steps
-
-[Access the FHIR service by using Postman](./fhir/use-postman.md)
 
 [Access the FHIR service by using REST client](./fhir/using-rest-client.md)
 

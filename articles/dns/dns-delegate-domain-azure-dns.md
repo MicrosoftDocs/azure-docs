@@ -2,13 +2,16 @@
 title: 'Tutorial: Host your domain in Azure DNS'
 description: In this tutorial, you learn how to configure Azure DNS to host your DNS zones using Azure portal.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 06/07/2024
-ms.author: greglin
-ms.custom: template-tutorial
+ms.author: allensu
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.
+# Customer intent: As a network administrator, I want to host my domain in Azure DNS, so that I can manage my DNS records using Azure's tools and credentials.
 ---
 
 # Tutorial: Host your domain in Azure DNS
@@ -38,7 +41,7 @@ In this tutorial, you learn how to:
 > * Delegate the domain.
 > * Verify the delegation is working.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -96,7 +99,7 @@ After the DNS zone is created, you must update the parent domain with the Azure 
 2. When you delegate a domain to Azure DNS, you must use the name servers that Azure DNS provides. Use all four name servers, regardless of the name of your domain. Domain delegation doesn't require a name server to use the same top-level domain as your domain.
 
 > [!IMPORTANT]
-> When you copy each name server address, make sure you copy the trailing period at the end of the address. The trailing period indicates the end of a fully qualified domain name. Some registrars append the period if the NS name doesn't have it at the end. To be compliant with the DNS RFC, include the trailing period.
+> When you copy each name server address, make sure you copy the trailing period at the end of the address. The trailing period indicates the end of a fully qualified domain name. Some registrars append the period if the NS name doesn't have it at the end. To be compliant with the DNS RFC, include the trailing period. Please note that some registrars append the trailing period on your behalf. If you are unsure, check with your registrar on whether they append the trailing period on your behalf or not. 
 
 Delegations that use name servers in your own zone, sometimes called *vanity name servers*, aren't currently supported in Azure DNS.
 

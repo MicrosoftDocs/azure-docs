@@ -8,7 +8,9 @@ ms.service: azure-data-box-gateway
 ms.topic: tutorial
 ms.date: 08/19/2024
 ms.author: shaas
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure.  
+# Customer intent: As an IT admin, I want to prepare the Azure portal for deploying Data Box Gateway so that I can efficiently manage data transfer to Azure.
 ---
 
 # Tutorial: Prepare to deploy Azure Data Box Gateway
@@ -122,7 +124,7 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 
    Finally, select **Review + create** to review your order.
 
-    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-basics-sml.png" alt-text="Sreenshot of a Project and Instance detail entry for a Data Box Gateway order." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-basics.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-basics-sml.png" alt-text="Screenshot of a Project and Instance detail entry for a Data Box Gateway order." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-basics.png":::
 
 1. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select **Create**.
 

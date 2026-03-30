@@ -1,14 +1,15 @@
 ---
-title: Display health status of Azure NetApp Files replication relationship | Microsoft Docs
+title: Display health status of Azure NetApp Files replication relationship
 description: Describes how to view replication status on the source volume or the destination volume of Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 03/03/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to monitor the health status of replication relationships in Azure NetApp Files, so that I can ensure data integrity and continuity during cross-region replication processes.
 ---
-# Display health and monitor status of replication relationship 
+# Display health and monitor status of replication relationship in Azure NetApp Files
 
 You can view replication status on the source volume or the destination volume. You can also set alert rules in Azure Monitor to help you monitor the replication status.
 
@@ -38,7 +39,10 @@ You can view replication status on the source volume or the destination volume. 
     ![Replication health status](./media/cross-region-replication-display-health-status/cross-region-replication-health-status.png)
 
 > [!NOTE] 
-> Replication relationship shows health status as *unhealthy* if previous replication jobs are not complete. This status is a result of larger volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a larger volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
+> Replication relationship shows health status as *unhealthy* if previous replication jobs aren't complete. This status is a result of larger volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a larger volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
+
+>[!NOTE]
+>When you break the peering relationship, the health status displays as healthy. This is expected. To confirm the broken peering relationship, check that the Mirror state displays broken, and the Relationship status is idle. 
 
 ## Set alert rules to monitor replication
 
@@ -61,9 +65,9 @@ Create [alert rules in Azure Monitor](/azure/azure-monitor/alerts/alerts-overvie
 
 ## Next steps
 
-* [Cross-region replication](cross-region-replication-introduction.md)
+* [Cross-region replication](replication.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
-* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-replication-destination-volume)
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)

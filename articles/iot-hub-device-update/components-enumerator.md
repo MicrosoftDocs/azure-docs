@@ -1,11 +1,12 @@
 ---
 title: 'Register components with Device Update: Contoso Virtual Vacuum component enumerator | Microsoft Docs'
 description: Follow a Contoso Virtual Vacuum example to implement your own component enumerator by using proxy update.
-author: kgremban
-ms.author: kgremban
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/25/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Register components with Device Update

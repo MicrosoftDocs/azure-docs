@@ -4,15 +4,14 @@ description: Azure Center for SAP solutions is an Azure offering that makes SAP 
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: overview
-ms.date: 10/19/2022
+ms.date: 02/02/2026
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to learn about Azure Center for SAP solutions so that I can decide to use the service with a new or existing SAP system.
+# Customer intent: As an SAP administrator, I want to utilize Azure Center for SAP solutions to deploy and manage SAP systems on Azure, so that I can ensure seamless integration, automation of best practices, and robust monitoring for efficient operations.
 ---
 
 # What is Azure Center for SAP solutions?
-
-
 
 *Azure Center for SAP solutions* is an Azure offering that makes SAP a top-level workload on Azure. Azure Center for SAP solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems.
 

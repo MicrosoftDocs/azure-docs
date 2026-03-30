@@ -4,9 +4,9 @@ description: An overview of mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 09/25/2024
+ms.date: 07/25/2025
 ---
 
 # Mapping data flows in Azure Data Factory

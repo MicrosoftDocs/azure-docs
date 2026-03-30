@@ -1,0 +1,42 @@
+---
+title: CycleCloud Workspace for Slurm - Release Notes 2025.07.08
+description: These release notes for Azure CycleCloud Workspace for Slurm 2025.07.08 summarize new features and bug fixes included in the release. 
+author: abatallas
+ms.date: 09/29/2025
+ms.author: padmalathas
+---
+
+# CycleCloud Workspace for Slurm version 2025.07.08
+
+Azure CycleCloud Workspace for Slurm 2025.07.08 was released as General Audience. This article provides you with information about:
+
+* Recent releases
+* Previews underway with known limitations (if applicable)
+* Known issues
+* Deprecated functionality (if applicable)
+
+The following release notes identify the new features and the open issues for the 2025.07.08 release of Azure CycleCloud Workspace for Slurm.
+
+The release notes are continuously updated. Open known issues that require a workaround are added when they're discovered. Carefully review the information in the release notes before deploying Azure CycleCloud Workspace for Slurm.
+
+This release corresponds to the software version:
+
+- **CycleCloud Workspace for Slurm version 2025.07.08** 
+
+## What's new in CycleCloud Workspace for Slurm version 2025.07.08?
+
+Azure CycleCloud Workspace for Slurm is updated regularly. Stay up to date with the latest announcements. 
+
+This release contains the following new features:
+
+* Use of CycleCloud Marketplace Image 8.7.2
+* Metadata for availability zones
+* Updated default availability zones for Azure Managed Lustre
+* Updated mount options for Azure Managed Lustre
+* Secure access of azure.repo.almalinux.org in cloud-init script
+* Guaranteed proper renaming of login node hosts
+* Appropriate scoping for Bastion deployments
+
+## Known issues in this release
+
+- **Azure US Gov Only**: Marketplace deployment validation fails due to an incorrect API version. To mitigate this issue, refer: [How to deploy a CycleCloud Workspace for Slurm environment using the CLI](../../how-to/ccws/deploy-with-cli.md).

@@ -8,21 +8,20 @@ ms.topic: reference
 ms.date: 06/27/2024
 ms.author: mbender
 ms.custom: template-reference, engagement-fy23
+# Customer intent: As a cloud architect, I want to evaluate the differences between Azure Load Balancer SKUs, so that I can choose the appropriate option for my application's performance and availability needs before the retirement of the Basic Load Balancer.
 ---
 
 # Azure Load Balancer SKUs
 
 >[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. For guidance on upgrading, visit [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
-
-Azure Load Balancer has three stock-keeping units (SKUs).
+>On September 30, 2025, Basic Load Balancer was retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer as soon as possible. For guidance on upgrading, visit [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
 
 ## <a name="skus"></a> SKU comparison
-Azure Load Balancer has three stock-keeping units (SKUs) - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
+Azure Load Balancer has three stock-keeping units (SKUs) - Basic(Retired), Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
 
-To compare and understand the differences between Basic and Standard SKU, see the following table. 
+To compare and understand the differences between Basic(Retired) and Standard SKU, see the following table. 
 
-| | Standard Load Balancer | Basic Load Balancer |
+| | Standard Load Balancer | Basic Load Balancer (retired) |
 | --- | --- | --- |
 | **Scenario** |  Equipped for load-balancing network layer traffic when high performance and ultra-low latency is needed. Routes traffic within and across regions, and to availability zones for high resiliency. | Equipped for small-scale applications that don't need high availability or redundancy. Not compatible with availability zones. |
 | **Backend type** | IP based, NIC based | NIC based |
@@ -30,7 +29,7 @@ To compare and understand the differences between Basic and Standard SKU, see th
 | **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
 | **[Health probes](./load-balancer-custom-probe-overview.md#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Health probe down behavior](./load-balancer-custom-probe-overview.md#probe-down-behavior)** | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down. |
-| **Availability Zones** | Zone-redundant, zonal, or non-zonal frontend IP configurations can be used for inbound and outbound traffic | Not available |
+| **Availability Zones** | Zone-redundant, zonal, or no-zone frontend IP configurations can be used for inbound and outbound traffic | Not available |
 | **Type** | Internal, Public | Internal, Public | 
 | **Frontend IP configuration** | When using a Public Standard Load Balancer, the SKU of the public IP must be Standard. Basic Public IPs are not supported on Standard LB | When using a Public Basic Load Balancer, the SKU of the public IP must be Basic. Standard Public IPs are not supported on Basic LB | 
 | **Diagnostics** | [Azure Monitor multi-dimensional metrics](./load-balancer-standard-diagnostics.md) | Not supported |

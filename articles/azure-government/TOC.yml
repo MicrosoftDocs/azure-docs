@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Government?
     href: documentation-government-welcome.md
+  - name: Azure Government product General Availability
+    href: documentation-government-product-roadmap.md
   - name: Compare Azure Government and global Azure
     href: compare-azure-government-global-azure.md
 - name: Quickstarts
@@ -13,12 +15,6 @@
     href: documentation-government-get-started-connect-with-portal.md
   - name: Azure CLI
     href: documentation-government-get-started-connect-with-cli.md
-  - name: DoD DISA STIGs
-    items:
-    - name: Deploy Linux VM
-      href: documentation-government-stig-linux-vm.md
-    - name: Deploy Windows VM
-      href: documentation-government-stig-windows-vm.md
   - name: PowerShell
     href: documentation-government-get-started-connect-with-ps.md
   - name: Visual Studio
@@ -61,7 +57,7 @@
       href: documentation-government-developer-guide.md
     - name: Azure Storage
       href: documentation-government-get-started-connect-to-storage.md
-    - name: Azure AI services
+    - name: Foundry Tools
       href: documentation-government-cognitiveservices.md
     - name: Integrate Microsoft Entra authentication
       href: documentation-government-aad-auth-qs.md
@@ -95,6 +91,9 @@
     href: compliance/compliance-tic.md
   - name: Cloud services by audit scope
     href: compliance/azure-services-in-fedramp-auditscope.md
+  - name: Recommended Secure Configuration
+    href: ./compliance/recommended-secure-configuration.md
+    displayName: Configuration
   - name: Accelerate your path to ATO with Azure
     href: compliance/documentation-accelerate-compliance.md
 - name: Reference
@@ -118,9 +117,9 @@
   - name: Azure Government Website
     href: https://azure.microsoft.com/global-infrastructure/government/
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?tag=azure-government
+    href: /shows/browse?terms=government
   - name: Blog
     href: https://devblogs.microsoft.com/azuregov/
   - name: Pricing

@@ -22,7 +22,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Complete the [Quickstart: Design a Network Service Design for Nginx Container as CNF.](quickstart-containerized-network-function-network-design.md)
 - Complete the [Quickstart: Prerequisites for Operator and Containerized Network Function (CNF)](quickstart-containerized-network-function-operator.md).
 
@@ -40,14 +40,15 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 
     |Setting  |Value  |
     |---------|---------|
-    |NFVI Name     |  Enter nginx_NFVI1.       |
+    |NFVI Name     |  Enter nginx-nsdg_NFVI1.       |
     |NFVI Type     |   Select Azure Arc Kubernetes.      |
     |Custom Location ID    |    Select your custom location that you created in the previous guide.     |
 
     :::image type="content" source="media/create-site-add-nfvis.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and custom location of the NFVIs." lightbox="media/create-site-add-nfvis.png":::
 
     > [!NOTE]
-    > This example features a single Network Function Virtual Infrastructure (NFVI) named nginx_NFVI1. If you modified the nsd_name in the input.json file while publishing the NSD, the NFVI name should be <nsd_name>_NFVI1. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.
+    > This example features a single Network Function Virtual Infrastructure (NFVI) named prefix_NFVI1.  Use the prefix nginx-nsdg to matches the nsd_name used in the default input.json file. Not the prefix shown in the image.
+    > If you otherwise modified the nsd_name in input.json, adjust the prefix appropriately to match <nsd_name>_NFVI1. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.
 
 1. Select **Review + create**, then select **Create**.
 

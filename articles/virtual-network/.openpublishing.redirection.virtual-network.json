@@ -16,6 +16,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-configure-vnet-connections.md",
+            "redirect_url": "/azure/vpn-gateway/design",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md",
             "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
             "redirect_document_id": false
@@ -247,7 +252,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
-            "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-public-ip",
             "redirect_document_id": false
         },
         {
@@ -752,32 +757,32 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md",
-            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli",
+            "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip",
             "redirect_document_id": false
         },
         {
@@ -1198,6 +1203,96 @@
         {
             "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-powershell.md",
             "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+            "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md",
+          "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md",
+          "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md",
+          "redirect_url": "/azure/virtual-network/ip-services/virtual-networks-static-private-ip",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps.md",
+          "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md",
+          "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md",
+          "redirect_url": "/azure/virtual-network/ip-services/virtual-network-static-public-ip",
+          "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/tutorial-routing-preference-virtual-machine-portal.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/configure-routing-preference-virtual-machine-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/configure-routing-preference-virtual-machine-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/configure-routing-preference-virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-peering-different-deployment-models.md",
+            "redirect_url": "/azure/azure-resource-manager/management/deployment-models",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/create-peering-different-deployment-models-subscriptions.md",
+            "redirect_url": "/azure/azure-resource-manager/management/deployment-models",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-portal.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-powershell.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-cli.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-template.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-bicep.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/quick-create-terraform.md",
+            "redirect_url": "/azure/virtual-network/quickstart-create-virtual-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-disaster-recovery-guidance.md",
+            "redirect_url": "/azure/reliability/reliability-virtual-network",
             "redirect_document_id": false
         }
     ]

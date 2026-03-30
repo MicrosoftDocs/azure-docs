@@ -2,12 +2,15 @@
 title: Move an Azure Synapse Analytics workspace from region to another
 description: This article teaches you how to move an Azure Synapse Analytics workspace from one region to another. 
 ms.service: azure-synapse-analytics 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/30/2022
-author: matt1883
-ms.author: mahi
-ms.reviewer: wiassaf
+author: gillharmeet
+ms.author: harmeetgill
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Move an Azure Synapse Analytics workspace from one region to another
@@ -69,7 +72,7 @@ $regionName="<YourTargetRegionName>"
 $containerName="<YourFileSystemName>" # This is the file system name
 $workspaceName="<YourTargetRegionWorkspaceName>"
 
-$sourcRegionWSName="<Your source region workspace name>"
+$sourceRegionWSName="<Your source region workspace name>"
 $sourceRegionRGName="<YourSourceRegionResourceGroupName>"
 $sqlUserName="<SQLUserName>"
 $sqlPassword="<SQLStrongPassword>"
@@ -92,7 +95,6 @@ New-AzStorageAccount -ResourceGroupName $resourceGroupName `
   -Kind StorageV2 `
   -EnableHierarchicalNamespace $true 
 ```
-
 
 #### Create an Azure Synapse workspace
 
@@ -147,7 +149,7 @@ if($StorageAccountNameAvailable)
 Write-Host "Storage account Name is available to be used...creating storage account"
 
 #Creating a Data Lake Storage Gen2 account
-$storgeAccountProvisionStatus=az storage account create `
+$storageAccountProvisionStatus=az storage account create `
   --name $storageAccountName `
   --resource-group $resourceGroupName `
   --location $regionName `
@@ -155,7 +157,7 @@ $storgeAccountProvisionStatus=az storage account create `
   --kind StorageV2 `
   --enable-hierarchical-namespace $true
 
-($storgeAccountProvisionStatus| ConvertFrom-Json).provisioningState
+($storageAccountProvisionStatus| ConvertFrom-Json).provisioningState
 }
 else
 {
@@ -321,7 +323,7 @@ Transform the Azure Synapse SQL pool resource ID to SQL database ID because curr
 For example: `/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Sql/servers/<WorkspaceName>/databases/<DatabaseName>`
 
 ```powershell
-$pool = Get-AzSynapseSqlPool -ResourceGroupName $sourceRegionRGName -WorkspaceName $sourcRegionWSName -Name $sqlPoolName
+$pool = Get-AzSynapseSqlPool -ResourceGroupName $sourceRegionRGName -WorkspaceName $sourceRegionWSName -Name $sqlPoolName
 $databaseId = $pool.Id `
     -replace "Microsoft.Synapse", "Microsoft.Sql" `
     -replace "workspaces", "servers" `
@@ -439,7 +441,7 @@ The following PowerShell script adds the Synapse Administrator role assignment t
 New-AzSynapseRoleAssignment `
    -WorkspaceName $workspaceName  `
    -RoleDefinitionName "Synapse Administrator" `
-   -ObjectId 1c02d2a6-ed3d-46ec-b578-6f36da5819c6
+   -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 
 Get-AzSynapseRoleAssignment -WorkspaceName $workspaceName  
 ```

@@ -7,8 +7,9 @@ author: cherylmc
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 02/13/2023
+ms.date: 10/25/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Configure Azure Firewall in a Virtual WAN hub
@@ -27,34 +28,24 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 > [!IMPORTANT]
 > Virtual WAN is a collection of hubs and services made available inside the hub. The user can deploy as many Virtual WANs as they need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across **Availability Zones** (*except* Azure Firewall) if the region supports Availability Zones. To deploy an Azure Firewall with Availability Zones (recommended) in a Secure vWAN Hub, [this article](../firewall-manager/secure-cloud-network.md) must be used. 
 
-## View virtual hubs
-
-The **Overview** page for your virtual WAN shows a list of virtual hubs and secured hubs. The following figure shows a virtual WAN with no secured hubs.
-
-:::image type="content" source="./media/howto-firewall/vwan-overview-page.jpg" alt-text="Screenshot showing the Overview page for an Azure Virtual WAN." lightbox="./media/howto-firewall/vwan-overview-page.jpg":::
-
 ## Convert to secured hub
 
-1. On the **Overview** page for your virtual WAN, select the hub that you want to convert to a secured hub. 
+To view virtual hubs, go to your Virtual WAN **Overview** page. The **Overview** page for your virtual WAN shows a list of virtual hubs and secured hubs.
 
-2. Once in the hub properties, select **Azure Firewall and Firewall Manager** under the "Security" section on the left:
+1. On the **Overview** page for your virtual WAN, select the hub that you want to convert to a secured hub.
 
-   :::image type="content" source="./media/howto-firewall/vwan-convert-firewall-start.png" alt-text="Screenshot showing Azure Virtual WAN Hub properties." lightbox="./media/howto-firewall/vwan-convert-firewall-start.png":::
+2. On the virtual hub page, select **Azure Firewall and Firewall Manager** under the "Security" section on the left.
 
-3. Select **Next: Azure Firewall** button at the bottom of screen: 
-
-   :::image type="content" source="./media/howto-firewall/vwan-select-hub.png" alt-text="Screenshot showing [Select virtual hubs] step in the conversion flow" lightbox="./media/howto-firewall/vwan-select-hub.png":::
+3. Select **Next: Azure Firewall** button at the bottom of screen to advance to the next page.  
 
 4. Select the Azure Firewall properties and status desired, then complete the wizard up to the **Review + confirm** tab:
 
    :::image type="content" source="./media/howto-firewall/vwan-firewall-properties-conversion.png" alt-text="[Azure Firewall] step in the conversion flow" lightbox="./media/howto-firewall/vwan-firewall-properties-conversion.png":::
 
 > [!NOTE]
-> As reported at the beginning of the article, the procedure described in this article will not permit the usage of Availability Zones for Azure Firewall. 
+> This procedure doesn't permit the use of Availability Zones for Azure Firewall.
 
-5. After the hub has been converted to a secured hub, Azure Firewall status will be reported as in the image below: 
-
-   :::image type="content" source="./media/howto-firewall/vwan-firewall-secured-final.png" alt-text="Screenshot showing end result of the conversion flow." lightbox="./media/howto-firewall/vwan-firewall-secured-final.png":::
+5. After the hub has been converted to a secured hub, you can view the status for the **Azure Firewall** on the virtual hub **Overview** page. The status shows **Secured**.
 
 ## View hub resources
 
@@ -62,11 +53,7 @@ From the virtual WAN **Overview** page, select the secured hub. On the hub page,
 
 To view Azure Firewall settings from the secured hub, select on **Azure Firewall and Firewall Manager** under the "Security" section on the left:
 
-:::image type="content" source="./media/howto-firewall/vwan-secured-hub-status.png" alt-text="Screenshot showing Azure Virtual WAN status view in Firewall Manager." lightbox="./media/howto-firewall/vwan-secured-hub-status.png":::
-
-Usage of Availability Zones for Azure Firewall in the Azure Virtual WAN Hub, can be checked accessing the security properties of the hub, as shown in the screenshot below:
-
-:::image type="content" source="./media/howto-firewall/vwan-firewall-hub-az-correct-zone.png" alt-text="Screenshot showing Availability Zones property in Virtual WAN secured hub." lightbox="./media/howto-firewall/vwan-firewall-hub-az-correct-zone.png":::
+Usage of Availability Zones for Azure Firewall in the Azure Virtual WAN Hub, can be checked accessing the security properties of the hub.
 
 
 ## Configure additional settings
@@ -80,7 +67,7 @@ To return to the hub **Overview** page, you can navigate back by clicking the pa
 :::image type="content" source="./media/howto-firewall/arrow.png" alt-text="Screenshot showing how to return to the Overview page." lightbox="./media/howto-firewall/arrow.png":::
 
 ## Upgrade to Azure Firewall Premium
-At any time, it's possible to upgrade from Azure Firewall Standard to Premium following these [instructions](../firewall/premium-migrate.md#migrate-a-secure-hub-firewall). This operation will require a maintenance window since some minimal downtime will be generated. 
+At any time, it's possible to upgrade from Azure Firewall Standard to Premium following these [instructions](../firewall/change-sku.md#migrate-a-secure-hub-firewall). This operation will require a maintenance window since some minimal downtime will be generated. 
 
 ## Next steps
 

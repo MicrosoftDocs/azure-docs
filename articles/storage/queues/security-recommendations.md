@@ -5,17 +5,18 @@ description: Learn about security recommendations for Queue Storage. Implementin
 author: akashdubey-ms
 services: storage
 ms.author: akashdubey
-ms.date: 05/12/2022
-ms.topic: conceptual
+ms.date: 03/04/2025
+ms.topic: concept-article
 ms.service: azure-queue-storage
 ms.custom: security-recommendations
+# Customer intent: "As a cloud security administrator, I want to implement security recommendations for Queue Storage, so that I can fulfill my organization's security obligations and protect our data assets effectively."
 ---
 
 # Security recommendations for Queue Storage
 
 This article contains security recommendations for Queue Storage. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model.
 
-Some of the recommendations included in this article can be automatically monitored by Microsoft Defender for Cloud. Microsoft Defender for Cloud is the first line of defense in protecting your resources in Azure. For information on Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](/azure/defender-for-cloud/defender-for-cloud-introduction).
+Some of the recommendations included in this article can be automatically monitored by Microsoft Defender for Cloud. Microsoft Defender for Cloud is the first line of defense in protecting your resources in Azure. For information on Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](/azure/defender-for-cloud/defender-for-cloud-introduction)
 
 Microsoft Defender for Cloud periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them. For more information on Microsoft Defender for Cloud recommendations, see [Security recommendations in Microsoft Defender for Cloud](/azure/defender-for-cloud/review-security-recommendations).
 
@@ -23,7 +24,7 @@ Microsoft Defender for Cloud periodically analyzes the security state of your Az
 
 | Recommendation | Comments | Defender for Cloud |
 |-|----|--|
-| Use the Azure Resource Manager deployment model | Create new storage accounts using the Azure Resource Manager deployment model for important security enhancements, including superior Azure role-based access control (Azure RBAC) and auditing, Resource Manager-based deployment and governance, access to managed identities, access to Azure Key Vault for secrets, and Microsoft Entra ID-based authentication and authorization for access to Azure Storage data and resources. If possible, migrate existing storage accounts that use the classic deployment model to use Azure Resource Manager. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md). | - |
+| Use the Azure Resource Manager deployment model | Create new storage accounts using the Azure Resource Manager deployment model for important security enhancements, including superior Azure role-based access control (Azure RBAC) and auditing, Resource Manager-based deployment and governance, access to managed identities, access to Azure Key Vault for secrets, and Microsoft Entra ID-based authentication and authorization for access to Azure Storage data and resources. [Migrate](../common/classic-account-migration-process.md) all existing storage accounts that use the classic deployment model to use Azure Resource Manager. For more information about Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md). | - |
 | Enable advanced threat protection for all of your storage accounts | [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction) provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts are triggered in Microsoft Defender for Cloud when anomalous activities occur and are also sent via email to subscription administrators, with details of suspicious activity and recommendations for how to investigate and remediate threats. For more information, see [Protect your Azure Storage accounts](/azure/defender-for-cloud/defender-for-storage-introduction). | [Yes](/azure/defender-for-cloud/implement-security-recommendations) |
 | Limit shared access signature (SAS) tokens to HTTPS connections only | Requiring HTTPS when a client uses a SAS token to access queue data helps to minimize the risk of eavesdropping. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md). | - |
 

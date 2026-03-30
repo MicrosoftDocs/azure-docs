@@ -4,10 +4,11 @@ description: Configure a WordPress plugin (preview) for the developer portal in 
 services: api-management
 author: dlepow
 ms.service: azure-api-management
-ms.custom: 
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 01/10/2025
 ms.author: danlep
+ms.custom:
+  - sfi-image-nochange
 ---
 
 # Customize the API Management developer portal on WordPress
@@ -35,13 +36,16 @@ For this scenario, you create a managed WordPress site hosted on Azure App Servi
 
 1. In the Azure portal, navigate to [https://portal.azure.com/#create/WordPress.WordPress](https://portal.azure.com/#create/WordPress.WordPress). 
 
-1. On the **Create WordPress on App Service** page, in the **Basics** tab, enter your project details. 
+1. On the **Create WordPress on App Service** page, in the **Basics** tab, enter your project details, Web App details, and WordPress setup settings. 
 
-    Record the WordPress admin username and password in a safe place. These credentials are required to sign into the WordPress admin site and install the plugin in a later step.
+    Store the WordPress admin username and password in a safe place. These credentials are required to sign into the WordPress admin site and install the plugin in a later step.
+
+    > [!CAUTION]
+    > Avoid using the default WordPress `admin` username, and create a strong password. [Learn more about WordPress password best practices](https://wordpress.org/documentation/article/password-best-practices/)
 
 1. On the **Add-ins** tab:
 
-    1. Select the recommended default values for **Email with Azure Communication Services**, **Azure CDN**, and **Azure Blob Storage**.
+    1. Select the recommended default values for **Email with Azure Communication Services**, **Azure Front Door**, and **Azure Blob Storage**.
     1. In **Virtual network**, select either the **New** value or an existing virtual network. 
 1. On the **Deployment** tab, leave **Add staging slot** unselected.
 1. Select **Review + create** to run final validation.
@@ -69,7 +73,7 @@ In this step, create a new Microsoft Entra app. In later steps, you configure th
     
     `https://<apim-instance-name>.developer.azure-api.net/signin`
     
-1. Select **+ Add a platform** again. Select **Single-page application** agaain.
+1. Select **+ Add a platform** again. Select **Single-page application** again.
 1. On the **Configure single-page application** page, enter the following redirect URI, substituting the name of your API Management instance, and select **Configure**:
     
     `https://<apim-instance-name>.developer.azure-api.net/`
@@ -320,7 +324,7 @@ The following screenshot shows a sample page of the API Management developer por
 
 If you don't see the latest developer portal pages when you visit the WordPress site, check that the developer portal plugin is installed, activated, and configured in the WordPress admin site. See [Install the developer portal plugin](#step-7-install-the-developer-portal-plugin) for steps.
 
-You might also need to clear the cache on your WordPress site or in the CDN, if one is configured. Alternatively, you might need to clear the cache on your browser.
+You might also need to clear the cache on your WordPress site or in Azure Front Door, if one is configured. Alternatively, you might need to clear the cache on your browser.
 
 ### I'm having problems signing in or out of the developer portal
 

@@ -1,14 +1,15 @@
 ---
 title: Hunt for security threats with Jupyter notebooks - Microsoft Sentinel
 description: Launch and run notebooks with the Microsoft Sentinel hunting capabilities.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 06/20/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 #Customer intent: As a security analyst, I want to deploy and launch a Jupyter notebook to hunt for security threats.
 
 
@@ -148,7 +149,7 @@ If you have multiple notebooks, make sure to select a default AML workspace to u
 
 ## Launch a notebook in your Azure Machine Learning workspace
 
-After you create an Azure Machine Learning workspace, launch your notebook in that workspace from Microsoft Sentinel. Be aware that if you have private endpoints enabled in your Azure storage account, you can't launch notebooks in the Azure Machine Learning workspace from Microsoft Sentinel. You must copy the notebook template from Microsoft Sentinel and upload the notebook to the Azure Machine Learning studio.
+After you create an Azure Machine Learning workspace, launch your notebook in that workspace from Microsoft Sentinel. Be aware that if you have private endpoints or restrictions on the public network access enabled in your Azure storage account, you can't launch notebooks in the Azure Machine Learning workspace from Microsoft Sentinel. You must copy the notebook template from Microsoft Sentinel and upload the notebook to the Azure Machine Learning studio.
 
 To launch your Microsoft Sentinel notebook in your Azure Machine Learning workspace, complete the following steps. 
 
@@ -156,7 +157,7 @@ To launch your Microsoft Sentinel notebook in your Azure Machine Learning worksp
 1. Select the **Templates** tab to see the notebooks that Microsoft Sentinel provides.
 1. Select a notebook to view its description, required data types, and data sources.
 
-1. When you find the notebook you want to use, select **Create from template** and **Save** to clone it into your own workspace.
+1. When you find the notebook you want to use, select **Create from template** and **Save** to clone it into your own workspace. Only Azure Machine Learning workspaces in the same subscription can be selected.
 
 1. Edit the name as needed. If the notebook already exists in your workspace, overwrite the existing notebook or create a new one. By default, your notebook is saved in /Users/<Your_User_Name>/ directory of selected AML workspace.
 

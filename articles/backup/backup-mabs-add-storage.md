@@ -2,11 +2,14 @@
 title: Use Modern Backup Storage with Azure Backup Server
 description: Learn about the new features in Azure Backup Server. This article describes how to upgrade your Backup Server installation.
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 07/15/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
-ms.custom: engagement-fy24
+ms.author: v-mallicka
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
+# Customer intent: As a backup administrator, I want to upgrade to Azure Backup Server V2 and implement Modern Backup Storage, so that I can enhance backup performance and reduce storage costs while efficiently managing different workloads.
 ---
 
 # Add storage to Azure Backup Server
@@ -41,7 +44,7 @@ To create a volume for Modern Backup Storage, follow these steps:
 
 1. In Server Manager, select **File and Storage Services** > **Volumes** > **Storage Pools**. Under **PHYSICAL DISKS**, select **New Storage Pool**.
 
-    ![Screenshow shows how to start creating a new storage poo.l](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
+    ![Screenshot shows how to start creating a new storage poo.l](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
 2. In the **TASKS** drop-down box, select **New Virtual Disk**.
 
@@ -92,7 +95,7 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 The following screenshot shows the Update-DPMDiskStorage cmdlet in the PowerShell window.
 
-![Screenshot shows the Update-DPMDiskStorage command in the PowerShel.l window](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
+![Screenshot shows the Update-DPMDiskStorage command in the PowerShell window](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
 The changes you make by using PowerShell are reflected in the Backup Server Administrator Console.
 
@@ -137,3 +140,7 @@ After you install Backup Server, learn how to prepare your server, or begin prot
 - [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
 - [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
 - [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
+
+## Related content
+
+[Run an unattended installation of MABS](backup-mabs-unattended-install.md).

@@ -1,11 +1,10 @@
 ---
 title: Support for Microsoft Defender XDR connector data types in Microsoft Sentinel for different clouds (GCC environments)
 description: This article describes support for different Microsoft Defender XDR connector data types in Microsoft Sentinel across different clouds, including Commercial, GCC, GCC-High, and DoD.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 02/01/2023
-
 
 #Customer intent: As a security analyst, I want to understand the support for Microsoft Defender XDR connector data types in different cloud environments so that I can effectively monitor and respond to security incidents using Microsoft Sentinel.
 
@@ -39,7 +38,7 @@ Read more about [data type support for different clouds in Microsoft Sentinel](d
 | ----------------- | ---------- | --- | ------------------------- |
 | **Microsoft Defender for Endpoint: *SecurityAlert (MDATP)*** | Generally available | Generally available | Generally available |
 | **Microsoft Defender for Office 365: *SecurityAlert (OATP)*** | Public preview | Public preview | Public preview |
-| **Microsoft Defender for Identity: *SecurityAlert (AATP)*** | Generally available | Unsupported | Unsupported |
+| **Microsoft Defender for Identity: *SecurityAlert (AATP)*** | Generally available | Generally available | Unsupported |
 | **Microsoft Defender for Cloud Apps: *SecurityAlert (MCAS)*** | Generally available | Generally available | Unsupported |
 | **Microsoft Defender for Cloud Apps: *McasShadowItReporting*** | Generally available | Generally available | Unsupported |
 

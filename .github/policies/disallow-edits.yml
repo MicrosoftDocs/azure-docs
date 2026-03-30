@@ -10,7 +10,7 @@ configuration:
           - payloadType: Pull_Request
           - isAction:
               action: Opened
-          - or:              
+          - or:
               - filesMatchPattern:
                   matchAny: true
                   pattern: articles/aks/*
@@ -121,4 +121,78 @@ configuration:
               reply: >-
                 @${issueAuthor} - You tried to add content to a folder path that has been removed from this repository. Your pull request will be automatically closed. Submit your changes to the updated repository, which can be identified by clicking the Edit this Document link at the top of any published article for that product or service.
           - closePullRequest
+
+      - description: Alert authors to edits in the /articles/reliability folder.
+        if:
+          # If a PR in the articles/reliability folder is opened, and the PR author isn't Anastasia or John...
+          - payloadType: Pull_Request
+          - filesMatchPattern:
+              matchAny: true
+              pattern: articles/reliability/*
+          - isAction:
+              action: Opened
+          - not:
+              or:
+                - isActivitySender:
+                    user: anaharris-ms
+                - isActivitySender:
+                    user: johndowns
+        then:
+          # Mention Anastasia and John, add a reply asking the PR author not to sign off on the PR, and add the needs-human-review label.
+          - mentionUsers:
+              mentionees:
+                - anaharris-ms
+                - johndowns
+              replyTemplate: >-
+                Tagging authors for this folder: ${mentionees}
+          - addReply:
+              reply: >-
+                @${issueAuthor} - Please do NOT sign off on this pull request. The Reliability Hub owners will sign off for you.
+          - addLabel:
+              label: needs-human-review
+
+      - description: Disallow sign-off for articles in the /articles/reliability folder.
+        if:
+          # If a 'sign-off' comment is added to a PR that's assigned to anaharris-ms, and the PR author isn't Anastasia or John...
+          - or:
+            - payloadType: Issue_Comment
+            - payloadType: Pull_Request_Review_Comment
+          - isAction:
+              action: Created
+          - isActivitySender:
+              issueAuthor: True
+          - isAssignedToUser:
+              user: anaharris-ms
+          - commentContains:
+              pattern: '#sign-off'
+              isRegex: False
+          - not:
+              or:
+                - isActivitySender:
+                    user: anaharris-ms
+                - isActivitySender:
+                    user: johndowns
+        then:
+          # Add the do-not-merge label, remove the ready-to-merge label, and add a reply asking the PR author not to sign off on the PR.
+          - addReply:
+              reply: >-
+                @${issueAuthor} - Please do NOT sign off on this pull request. The Reliability Hub owners will sign off for you.
+          - addLabel:
+              label: do-not-merge
+          - removeLabel:
+              label: ready-to-merge
+      
+      - description: Write a message if the breadcrumb file is modified in the azure-docs-pr repository.
+        if:
+        - payloadType: Pull_Request
+        - isAction:
+            action: Opened
+        - filesMatchPattern:
+              matchAny: true
+              pattern: bread/*
+              
+        then:
+          - addReply:
+              reply: >-
+                @${issueAuthor} - This PR modifies the breadcrumb file for the entire repository: bread/toc.yml. This file supports the on-site navigation for 100s of services. Please make sure your changes to the breadcrumb file are intentional. Do not delete this file. 
           

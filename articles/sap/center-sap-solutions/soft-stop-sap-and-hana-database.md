@@ -8,6 +8,7 @@ ms.date: 10/25/2023
 ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As a developer, I want to stop SAP systems by draining existing connections gracefully when using Azure Center for SAP solutions.
+# Customer intent: As an SAP administrator, I want to gracefully soft stop SAP systems and HANA databases through Azure resources, so that I can ensure all user connections and processes are properly managed before shutting down to maintain system integrity.
 ---
 # Soft stop SAP systems, application server instances and HANA database
 
@@ -33,7 +34,7 @@ Using the [Azure PowerShell](/powershell/module/az.workloads), [CLI](/cli/azure/
 Currently, you can initiate a soft stop operation from the Azure PowerShell, Azure Command-Line Interface (Azure CLI) and REST API interfaces. You must use the stop operation along with a soft stop timeout value in seconds to initiate a soft stop. Once you initiate soft stop on VIS and the operation is successfully triggered on the SAP system, then monitor the Health and Status of the VIS to check if the system has stopped. 
 
 > [!NOTE]
-> When attempting to soft stop an SAP system or applicaton server instance using Azure Center for SAP solutions, soft stop timeout value must be greater than 0 and less than 82800 seconds. 
+> When attempting to soft stop an SAP system or application server instance using Azure Center for SAP solutions, soft stop timeout value must be greater than 0 and less than 82800 seconds. 
 
 
 ### Soft stop system in PowerShell

@@ -1,7 +1,7 @@
 ---
 title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
-ms.date: 04/12/2022
+ms.date: 03/04/2025
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ---
@@ -10,7 +10,7 @@ ms.custom: devx-track-arm-template
 > Applies to Azure Policy extension version **0.1.2** and newer
 
 Learn how to use the Azure Policy extension for Visual Studio Code (VS Code) to look up
-[aliases](../concepts/definition-structure.md#aliases), review resources and policy definitions,
+[aliases](../concepts/definition-structure-alias.md), review resources and policy definitions,
 export objects, and evaluate policy definitions. First, we'll describe how to install the Azure
 Policy extension in Visual Studio Code. Then we'll walk through how to look up aliases.
 
@@ -21,7 +21,7 @@ The Azure Policy extension for Visual Studio Code can be installed on Linux, mac
 The following items are required for completing the steps in this article:
 
 - An Azure subscription. If you don't have an Azure subscription, create a
-  [free account](https://azure.microsoft.com/free/) before you begin.
+  [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com).
 
 ## Install and configure the Azure Policy extension
@@ -150,7 +150,7 @@ matching aliases.
 
 > [!NOTE]
 > The VS Code extension only supports evaluation of Resource Manager mode properties. For more
-> information about the modes, see the [mode definitions](../concepts/definition-structure.md#mode).
+> information about the modes, see the [mode definitions](../concepts/definition-structure-basics.md#mode).
 
 ### Search for and view policy definitions and assignments
 
@@ -188,7 +188,7 @@ schema.
 
 > [!NOTE]
 > The VS Code extension will only show the latest version of the policy definition. For more
-> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version-preview).
+> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version).
 
 ### Export objects
 
@@ -222,8 +222,8 @@ policy assignment.
    Studio Code opens with the resulting evaluation details in JSON form.
 
 > [!NOTE]
-> For [AuditIfNotExists](../concepts/effects.md#auditifnotexists) or
-> [DeployIfNotExists](../concepts/effects.md#deployifnotexists) policy definitions, use the plus
+> For [AuditIfNotExists](../concepts/effect-audit-if-not-exists.md) or
+> [DeployIfNotExists](../concepts/effect-deploy-if-not-exists.md) policy definitions, use the plus
 > icon in the **Evaluation** pane or **Azure Policy: Select a resource for existence check (only
 > used for if-not-exists policies)** from the Command Palette to select a _related_ resource for the
 > existence check.
@@ -251,7 +251,7 @@ example:
 
 > [!NOTE]
 > The VS Code extension only supports evaluation of Resource Manager mode properties. For more
-> information about the modes, see the [mode definitions](../concepts/definition-structure.md#mode).
+> information about the modes, see the [mode definitions](../concepts/definition-structure-basics.md#mode).
 >
 > The evaluation feature does not work on macOS and Linux installations of the extension.
 
@@ -282,9 +282,9 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
-- Study the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Read [Understanding policy effects](../concepts/effects.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
+- Study the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Read [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policy definitions](programmatically-create.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).
 - Grasp what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

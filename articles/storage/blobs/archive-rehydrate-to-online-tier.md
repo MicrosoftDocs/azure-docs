@@ -12,6 +12,7 @@ ms.reviewer: fryu
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: "As a cloud storage administrator, I want to rehydrate archived blobs to an online tier, so that I can access and manage the data stored in those blobs efficiently."
 ---
 
 # Rehydrate an archived blob to an online tier

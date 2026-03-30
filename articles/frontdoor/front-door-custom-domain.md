@@ -1,22 +1,28 @@
 ---
-title: 'Add a custom domain to Azure Front Door'
+title: Add a Custom Domain to Azure Front Door
 description: In this article, you learn how to onboard a custom domain to Azure Front Door.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 08/12/2024
-ms.author: duau
+ms.date: 09/25/2025
+
 #Customer intent: As a website owner, I want to add a custom domain to my Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
 # Add a custom domain to Azure Front Door
 
-[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding. Migrate to [Front Door Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Starting August 15, 2025, Azure Front Door (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or migrate to [Front Door Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Azure Front Door (classic) will be retired on March 31, 2027. To avoid service disruption, ⁠[migrate to ⁠Front Door Standard or Premium](/azure/frontdoor/tier-migration). ⁠[Learn more](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
+
 
 This article shows how to add a custom domain to your Front Door. When you use Azure Front Door for application delivery, a custom domain is necessary if you want your own domain name to be visible in your end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
 
-After you create a Front Door profile, the default frontend host is a subdomain of `azurefd.net`. This name is included in the URL for delivering Front Door content to your backend by default. For example, `https://contoso-frontend.azurefd.net`. For your convenience, Azure Front Door provides the option to associate a custom domain to the endpoint. With this capability, you can deliver your content with your URL instead of the Front Door default domain name such as, `https://www.contoso.com/photo.png`. 
+After you create a Front Door profile, the default frontend host is a subdomain of `azurefd.net`. This name is included in the URL for delivering Front Door content to your backend by default. For example, `https://contoso-frontend.azurefd.net`. For your convenience, Azure Front Door provides the option to associate a custom domain to the endpoint. With this capability, you can deliver your content with your URL instead of the Front Door default domain name, such as `https://www.contoso.com/photo.png`. 
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +36,6 @@ After you create a Front Door profile, the default frontend host is a subdomain 
 * If you don't already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](../app-service/manage-custom-dns-buy-domain.md).
 
 * If you're using Azure to host your [DNS domains](../dns/dns-overview.md), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](../dns/dns-delegate-domain-azure-dns.md). Otherwise, if you're using a domain provider to handle your DNS domain, continue to [Create a CNAME DNS record](#create-a-cname-dns-record).
-
 
 ## Create a CNAME DNS record
 
@@ -88,7 +93,6 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
  
     The CNAME entry is added to the DNS records table.
 
-
 ## Associate the custom domain with your Front Door
 
 After you register your custom domain, you can then add it to your Front Door.
@@ -107,7 +111,7 @@ After you register your custom domain, you can then add it to your Front Door.
 
    Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain gets validated.
 
->[!WARNING]
+> [!WARNING]
 > You **must** ensure that each of the frontend hosts (including custom domains) in your Front Door has a routing rule with a default path ('/\*') associated with it. That is, across all of your routing rules there must be at least one routing rule for each of your frontend hosts defined at the default path ('/\*'). Failing to do so, may result in your end-user traffic not getting routed correctly.
 
 ## Verify the custom domain
@@ -186,15 +190,7 @@ In the preceding steps, you added a custom domain to a Front Door. If you no lon
 
 3. Select **Delete** from the context menu for the custom domain. The custom domain is removed from your endpoint.
 
-## Next steps
-
-In this tutorial, you learned how to:
-
-* Create a CNAME DNS record.
-* Associate the custom domain with your Front Door.
-* Verify the custom domain.
-
-To learn how to enable HTTPS for your custom domain, continue to the next tutorial.
+## Next step
 
 > [!div class="nextstepaction"]
 > [Enable HTTPS for a custom domain](front-door-custom-domain-https.md)

@@ -3,10 +3,12 @@ title: Manage variables in Azure Automation
 description: This article tells how to work with variables in runbooks and DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/15/2024
+ms.date: 11/17/2025
 ms.topic: overview
 ms.custom: devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 # Manage variables in Azure Automation
 
@@ -196,7 +198,7 @@ from automationassets import AutomationAssetNotFound
 
 # get a variable
 value = automationassets.get_automation_variable("test-variable")
-print value
+print(value)
 
 # set a variable (value can be int/bool/string)
 automationassets.set_automation_variable("test-variable", True)
@@ -207,7 +209,7 @@ automationassets.set_automation_variable("test-variable", "test-string")
 try:
     value = automationassets.get_automation_variable("nonexisting variable")
 except AutomationAssetNotFound:
-    print ("variable not found")
+    print("variable not found")
 ```
 
 ---

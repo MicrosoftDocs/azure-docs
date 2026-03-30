@@ -1,13 +1,13 @@
 ---
 title: Buy an Azure reservation
 description: Learn about important points to help you buy an Azure reservation.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/09/2024
-ms.author: banders
+ms.date: 03/19/2026
+ms.author: primittal
 ---
 
 # Buy a reservation
@@ -24,7 +24,7 @@ You can't buy a reservation if you have a custom role that mimics owner role or 
 
 Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, navigate to the **Policies** menu.
 
-Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, navigate to the **Policies** menu under **Billing Profile**.
+Microsoft Customer Agreement (MCA), Billing Profile Owners can restrict the reservation purchase by disabling the **Reserved Instances** policy option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Billing Profile, and Billing Account Owners will have the ability to purchase Reservations even if the Reserved Instances policy option is disabled in the Azure portal. You can change the settings in **Policies** menu under **Billing Profile** to control ability to purchase for RBAC users.
 
 EA admins or Billing Profile Owners must have owner or reservation purchaser access on at least one EA or MCA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
@@ -42,7 +42,7 @@ You have four options to scope a reservation, depending on your needs:
 - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
 - **Shared scope** - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. If a subscription is moved to different billing context, the benefit no longer applies to the subscription. It continues to apply to other subscriptions in the billing context.
     - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Microsoft Entra tenants in an enrollment.
-    - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
+    - For Microsoft Customer Agreement customers, the billing scope is the billing profile. The reservation shared scope can include multiple Microsoft Entra tenants in a billing profile.
     - For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
 
@@ -65,42 +65,17 @@ Reservation discounts apply to the following eligible subscriptions and offer ty
 - Microsoft Customer Agreement subscriptions.
 - Individual plans with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P)
 - CSP subscriptions
+- Microsoft Azure Sponsorship subscriptions (offer number: MS-AZR-0036P)
 
 Resources that run in a subscription with other offer types don't receive the reservation discount.
+
+Some Azure services do not support Reservation (RI) discounts, so it's important to check eligibility before making a purchase to avoid unnecessary costs. For example: Azure SQL Serverless and Azure Cosmos DB serverless
 
 ## Purchase reservations
 
 When you buy a reservation, the current UTC date and time are used to record the transaction.
 
-You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the following articles that apply to you when you're ready to make a reservation purchase:
-
-- [App Service](prepay-app-service.md)
-- [App Service - JBoss EA Integrated Support](prepay-jboss-eap-integrated-support-app-service.md)
-- [Azure Backup](../../backup/backup-azure-reserved-pricing-optimize-cost.md)
-- [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
-- [Azure Data Factory](../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure Database for MySQL](/azure/mysql/concept-reserved-pricing)
-- [Azure Database for PostgreSQL](/azure/postgresql/concept-reserved-pricing)
-- [Azure Blob storage](../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure Files](../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure VMware Solution](../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure Cosmos DB](/azure/cosmos-db/cosmos-db-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure OpenAI](azure-openai.md)
-- [Azure SQL Edge](prepay-sql-edge.md)
-- [Databricks](prepay-databricks-reserved-capacity.md)
-- [Data Explorer](/azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Dedicated Host](/azure/virtual-machines/prepay-dedicated-hosts-reserved-instances)
-- [Defender for Cloud - Pre-Purchase](/azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Disk Storage](/azure/virtual-machines/disks-reserved-capacity)
-- [Microsoft Fabric](fabric-capacity.md)
-- [Microsoft Sentinel - Pre-Purchase](../../sentinel/billing-pre-purchase-plan.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
-- [Software plans](/azure/virtual-machines/linux/prepay-suse-software-charges?toc=/azure/cost-management-billing/reservations/toc.json)
-- [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Synapse Analytics - data warehouse](prepay-sql-data-warehouse-charges.md)
-- [Synapse Analytics - Pre-Purchase](synapse-analytics-pre-purchase-plan.md)
-- [Virtual machines](/azure/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Virtual machine software](buy-vm-software-reservation.md)
+You can purchase reservations from Azure portal, APIs, PowerShell, CLI. You can read through the details for each reservation type in the left side menu.
 
 ## Buy reservations with monthly payments
 
@@ -108,7 +83,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments aren't available for: Databricks, Synapse Analytics - Prepurchase, SUSE Linux reservations, Red Hat Plans, and Azure Red Hat OpenShift Licenses.
+Monthly payments aren't available for: SUSE Linux reservations, Red Hat Plans, Azure Red Hat OpenShift Licenses, and any of the pre-purchase plans.
 
 ### View payments made
 
@@ -126,7 +101,7 @@ When you exchange a reservation with monthly payments, the total cost of the new
 
 If you cancel a reservation that gets paid for monthly, canceled future payments accrue towards the $50,000 USD refund limit.
 
-For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
+For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md). Each reservation type can have their own refund and exchnage applicability, please review individual document.
 
 ## Reservation notifications
 
@@ -142,13 +117,13 @@ Depending on how you pay for your Azure subscription, email reservation notifica
 Notifications are sent to the following users:
 
 - Customers with EA subscriptions
-    - Notifications are sent to the EA notification contacts, EA admin, reservation owners, and the reservation administrator.
+    - Notifications are sent to the EA notification contacts, EA admin, reservation owners, and the reservation contributors and administrators.
 - Customers with Microsoft Customer Agreement (Azure Plan)
-    - Notifications are sent to the reservation owners and the reservation administrator.
+    - Notifications are sent to the reservation owners, the reservation contributors and administrators.
 - Cloud Solution Provider and new commerce partners
     - Notifications are sent to the primary contact partner identified by the partner legal information account settings. For more information about how to update the primary contact email address for partner account settings, see [Verify or update your company profile information](/partner-center/update-your-partner-profile#update-your-legal-business-profile).
 - Individual subscription customers with pay-as-you-go rates
-    - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
+    - Emails are sent to users who are set up as account administrators, reservation owners, the reservation contributors and administrators.
 
 
 ## Next steps

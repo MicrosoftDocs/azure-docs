@@ -5,7 +5,7 @@ description: Learn about Azure Communication Services Call Automation API.
 author: ashwinder
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/19/2023
 ms.author: askaur
 ---
@@ -39,7 +39,7 @@ The following features are currently available in the Azure Communication Servic
 |                       | Place new outbound call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
-|                       | Connect to an ongoing call or Room (in preview)   | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Connect to an ongoing call or Room                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Cancel adding an endpoint to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -50,6 +50,10 @@ The following features are currently available in the Azure Communication Servic
 |                       | Stop continuous DTMF recognition                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Hold participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Unhold participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop audio streaming                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Start/Stop real-time transcription               | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer a participant from group call to another endpoint|  ✔️    | ✔️    |     ✔️         |   ✔️ |
@@ -57,12 +61,13 @@ The following features are currently available in the Azure Communication Servic
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
 |                       | Share [custom info](../../how-tos/call-automation/custom-context.md) (via VOIP or SIP headers) with endpoints when adding them to a call or transferring a call to them| ✔️    |  ✔️   |     ✔️         |    ✔️   |
+|                       | Move a participant to another call                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Query scenarios       | Get the call state                                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Get a participant in a call                       | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | List all participants in a call                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Call Recording        | Start/pause/resume/stop recording                 | ✔️    | ✔️    |     ✔️         |    ✔️   |
 
-\* Transfer or redirect of a VoIP call to a phone number is currently not supported.
+\* Redirect of a VoIP call to a phone number is not supported.
 
 ## Architecture
 
@@ -82,11 +87,11 @@ These actions are performed before the destination endpoint listed in the `Incom
 
 **Reject** – To reject a call means your application can receive the `IncomingCall` event and prevent the call from being connected to the destination endpoint.
 
-**Redirect** – Using the `IncomingCall` event from Event Grid, you can redirect a call to one or more endpoints creating a single or simultaneous ringing (sim-ring) scenario. Redirect action doesn't answer the call. The call is redirected or forwarded to another destination endpoint to be answered.
+**Redirect** – Using the `IncomingCall` event from Event Grid, you can redirect a call to another endpoint. Redirect action doesn't answer the call. The call is redirected or forwarded to another destination endpoint to be answered.
 
 **Create Call** - Use the Create Call action to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
 
-**Connect Call** (in preview) - Use the Connect Call action to connect to an ongoing call and take call actions on it. You can also use this action to connect and [manage a Rooms call programmatically](./../../quickstarts/rooms/manage-rooms-call.md), like performing PSTN dial outs for Room using your service. 
+**Connect Call** - Use the Connect Call action to connect to an ongoing call and take call actions on it. You can also use this action to connect and [manage a Rooms call programmatically](./../../quickstarts/rooms/manage-rooms-call.md), like performing PSTN dial outs for Room using your service. 
 
 ### Mid-call actions
 
@@ -113,6 +118,12 @@ Your application can perform these actions on calls that are answered or placed 
 **Terminate** – Whether your application answers a one-to-one or group call, or places an outbound call with one or more participants, this action removes all participants and ends the call. This operation is triggered by setting the `forEveryOne` property to `true` in Hang-Up call action.
 
 **Cancel media operations** – Based on business logic your application might need to cancel ongoing and queued media operations. Depending on the media operation canceled and the ones in queue, your application might receive a webhook event indicating that the action was canceled. 
+
+**Start/Stop audio streaming** - Audio streaming allows you to subscribe to real-time audio streams from an ongoing call.  For more detailed guidance on how to get started with audio streaming and information about audio streaming callback events, see our [concept](audio-streaming-concept.md) and our [quickstart](../../how-tos/call-automation/audio-streaming-quickstart.md).
+
+**Start/Stop real-time transcription** - Real-time transcription allows you to access live transcriptions for the audio of an ongoing call.  For more detailed guidance on how to get started with real-time transcription and information about real-time transcription callback events, see our [concept](real-time-transcription.md) and our [quickstart](../../how-tos/call-automation/real-time-transcription-tutorial.md).
+
+**Move a participant to another call** – When your application needs to move a participant from one ongoing call into another using the `MoveParticipants` API. This enables dynamic routing and flexible call orchestration, such as moving a translator into a doctor–patient call or transferring a customer from a lobby call into an active support call. To learn more, see [How to control and steer calls](../../how-tos/call-automation/actions-for-call-control.md).
 
 ### Query scenarios
 
@@ -145,6 +156,8 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | ----------------- | ------------ |
 | `CallConnected` | The call successfully started (when using `Answer` or `Create` action) or your application successfully connected to an ongoing call (when using `Connect` action). |
 | `CallDisconnected` | Your application has been disconnected from the call. |
+| `CreateCallFailed` | Your application has failed to create the call. |
+| `AnswerFailed` | Your application has failed to answer the call. |
 | `ConnectFailed` | Your application failed to connect to a call (for `Connect` call action only). |
 | `CallTransferAccepted` | Transfer action successfully completed and the transferee is connected to the target participant. |
 | `CallTransferFailed` | The transfer action failed. |
@@ -189,6 +202,12 @@ Operation Callback URI is an optional parameter in some mid-call APIs that use e
 | `Recognize` | `RecognizeCompleted` / `RecognizeFailed` / `RecognizeCanceled`  |
 | `StopContinuousDTMFRecognition` | `ContinuousDtmfRecognitionStopped` |
 | `SendDTMF` | `ContinuousDtmfRecognitionToneReceived` / `ContinuousDtmfRecognitionToneFailed`  |
+| `Hold` | `HoldFailed` |
+| `StartMediaStreaming` | `MediaStreamingStarted` / `MediaStreamingFailed` |
+| `StopMediaStreaming` | `MediaStreamingStopped` / `MediaStreamingFailed` |
+| `StartTranscription` | `TranscriptionStarted` / `TranscriptionFailed` |
+| `UpdateTranscription` | `TranscriptionUpdated` / `TranscriptionFailed` |
+| `StopTranscription` | `TranscriptionStopped` / `TranscriptionFailed` |
 
 ## Next steps
 

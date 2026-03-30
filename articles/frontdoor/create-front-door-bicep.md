@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Create an Azure Front Door using Bicep'
 description: This quickstart describes how to create an Azure Front Door using Bicep.
-services: front-door
-author: duongau
-ms.author: duau
-ms.date: 12/29/2023
-ms.topic: quickstart
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
+ms.topic: quickstart
+ms.date: 11/18/2024
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
+
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door using Bicep
 
-This quickstart describes how to use Bicep to create an Azure Front Door with a Web App as origin.
+This quickstart guides you through using Bicep to create an Azure Front Door with a Web App as the origin.
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
@@ -21,26 +21,27 @@ This quickstart describes how to use Bicep to create an Azure Front Door with a 
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* IP or FQDN of a website or web application.
+* An active Azure subscription. Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
+* The IP address or FQDN of a website or web application.
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/front-door-standard-premium-app-service-public/).
+The Bicep file used in this quickstart is available from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/front-door-standard-premium-app-service-public/).
 
-In this quickstart, you create an Azure Front Door profile, an Azure App Service, and configure the app service to validate that traffic comes through the Azure Front Door origin.
+In this quickstart, you will create an Azure Front Door profile, an Azure App Service, and configure the app service to validate that traffic comes through the Azure Front Door origin.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/main.bicep":::
 
-Multiple Azure resources are defined in the Bicep file:
+The Bicep file defines multiple Azure resources:
 
-* [**Microsoft.Cdn/profiles**](/azure/templates/microsoft.cdn/profiles) (Azure Front Door Standard/Premium profile)
-* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms) (App service plan to host web apps)
-* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites) (Web app origin servicing request for Front Door)
+* [**Microsoft.Cdn/profiles**](/azure/templates/microsoft.cdn/profiles) - Azure Front Door Standard/Premium profile
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms) - App service plan to host web apps
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites) - Web app origin servicing requests for Front Door
 
 ## Deploy the Bicep file
 
-1. Save the Bicep file as **main.bicep** to your local computer.
+1. Save the Bicep file as **main.bicep** on your local computer.
+
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
@@ -59,13 +60,13 @@ Multiple Azure resources are defined in the Bicep file:
 
     ---
 
-    When the deployment finishes, the output is similar to:
+    After the deployment completes, you should see output similar to:
 
     :::image type="content" source="./media/create-front-door-bicep/front-door-standard-premium-bicep-deployment-powershell-output.png" alt-text="Screenshot of Front Door Bicep PowerShell deployment output.":::
 
 ## Validate the deployment
 
-Use Azure CLI or Azure PowerShell to list the deployed resources in the resource group.
+Use Azure CLI or Azure PowerShell to list the resources deployed in the resource group.
 
 # [CLI](#tab/CLI)
 
@@ -81,15 +82,15 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ---
 
-You can also use the Azure portal to validate the deployment.
+You can also validate the deployment using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Resource groups** from the left pane.
 
-1. Select the resource group that you created in the previous section.
+1. Select the resource group you created in the previous section.
 
-1. Select the Front Door you created and you're able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your requests automatically get routed to the web app.
+1. Select the Front Door you created. You will see the endpoint hostname. Copy the hostname and paste it into the address bar of a browser. Press enter, and your requests will be routed to the web app.
 
     :::image type="content" source="./media/create-front-door-bicep/front-door-bicep-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
 

@@ -8,6 +8,8 @@ ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 03/26/2024
 ms.author: shaas
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT admin, I want to copy data to Azure Data Box Disk and verify its integrity, so that I can ensure successful data transfer to Azure while following the correct procedures and access tier assignments.
 ---
 
 <!--
@@ -18,33 +20,33 @@ ms.author: shaas
 #    09/01/23: 100 (2159/0)
 -->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 # Tutorial: Copy data to Azure Data Box Disk and verify
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ## Copy data to Azure Data Box Disk and validate
 
 After the disks are connected and unlocked, you can copy data from your source data server to your disks. After the data copy is complete, you should validate the data to ensure that it will successfully upload to Azure.
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 > [!IMPORTANT]
 > Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs.
 >
-> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps containined within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
+> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps contained within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
 >
 > For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section.
 >
 > The information contained within this section applies to orders placed after April 1, 2024.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is end of support status. Please consider your use and planning accordingly.
 
 This tutorial describes how to copy data from your host computer and generate checksums to verify data integrity.
 
@@ -111,7 +113,7 @@ Review the following considerations before you copy the data to the disks:
 - Only fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs, and VHDX files aren't supported.
 - The Data Box Disk Split Copy and Validation tools, `DataBoxDiskSplitCopy.exe` and `DataBoxDiskValidation.cmd`, report failures when long paths are processed. These failures are common when long paths aren't enabled on the client, and your data copy's paths and file names exceed 256 characters. To avoid these failures, follow the guidance within the [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later) article.
  > [!IMPORTANT]
- > Powershell ISE is not supported for the Data Box Disk Tools
+ > PowerShell ISE is not supported for the Data Box Disk Tools
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
@@ -148,7 +150,7 @@ Perform the following steps to connect and copy data from your computer to the D
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt`
 
     >[!NOTE]
-    > The parameters used in this example are based on the environment used during in-house testing. Your paramters and values are likely different.
+    > The parameters used in this example are based on the environment used during in-house testing. Your parameters and values are likely different.
 
     The parameters and options for the command are used as follows:
 
@@ -252,7 +254,7 @@ The Data Box Split Copy tool helps split and copy data across two or more Azure 
 >[!IMPORTANT]
 > The Data Box Split Copy tool can also validate your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
 >
-> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps containined within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
+> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps contained within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
 >
 > The Data Box Split Copy tool is not supported with managed disks.
 
@@ -351,9 +353,9 @@ Advance to the next tutorial to learn how to return the Data Box Disk and verify
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box back to Microsoft](./data-box-disk-deploy-picked-up.md)
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ### Copy data to disks
 
@@ -386,4 +388,6 @@ Verify your data by following these steps:
 
     For more information on data validation, see [Validate data](#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
-::: zone-end
+::: zone-end-->
+
+

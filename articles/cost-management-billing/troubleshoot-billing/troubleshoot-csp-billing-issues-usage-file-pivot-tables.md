@@ -1,13 +1,17 @@
 ---
 title: Troubleshoot Azure CSP billing issues with usage file pivot tables
 description: This article helps you troubleshoot Azure Cloud Solution Provider (CSP) billing issues using pivot tables created from your CSV usage files.
-author: banders
-ms.reviewer: isvargas
+author: jkinma39
+ms.author: jkinma
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 11/04/2025
+ms.custom:
+- build-2025
+- sfi-image-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Troubleshoot CSP billing issues with usage file pivot tables
@@ -21,7 +25,7 @@ This article helps you troubleshoot Cloud Solution Provider (CSP) billing issues
 
 By using the information from your usage files, you can get a better understanding of usage issues and diagnose them. Usage files are generated in comma delimited (CSV) format. Because the usage files might be large CSV files, they're easier to manipulate and view as pivot tables in a spreadsheet application like Excel. Examples in this article use Excel, but you can use any spreadsheet application that you want.
 
-Only Billing admins and Global admins have access to download reconciliation files. For more information, see [Learn how to read the line items in your Partner Center reconciliation files](/partner-center/use-the-reconciliation-files).
+Only [billing admins](/partner-center/account-settings/permissions-overview#billing-admin-role) and admin agents have access to download reconciliation files. For more information, see [Learn how to read the line items in your Partner Center reconciliation files](/partner-center/use-the-reconciliation-files).
 
 ## Get the data and format it
 

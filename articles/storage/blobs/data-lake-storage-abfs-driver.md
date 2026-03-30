@@ -4,11 +4,12 @@ titleSuffix: Azure Storage
 description: Learn about the Azure Blob Filesystem driver (ABFS), a dedicated Azure Storage driver for Hadoop. Access data in Azure Data Lake Storage using this driver.
 author: normesta
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 03/09/2023
+ms.date: 11/15/2024
 ms.service: azure-data-lake-storage
+# Customer intent: As a data engineer, I want to use the Azure Blob File System driver to access Azure Data Lake Storage, so that I can leverage Hadoop tools and frameworks without needing to modify my existing codebase.
 ---
 
 # The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop
@@ -53,11 +54,11 @@ The ABFS driver supports two forms of authentication so that the Hadoop applicat
 
 All configuration for the ABFS driver is stored in the <code>core-site.xml</code> configuration file. On Hadoop distributions featuring [Ambari](https://ambari.apache.org/), the configuration may also be managed using the web portal or Ambari REST API.
 
-Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
+Details of all supported configuration entries are specified in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/).
 
 ### Hadoop documentation
 
-The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
+The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/stable/)
 
 ## Next steps
 

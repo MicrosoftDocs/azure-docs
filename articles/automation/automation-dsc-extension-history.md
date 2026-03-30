@@ -1,17 +1,21 @@
 ---
 title: Work with Azure Desired State Configuration extension version history
 description: This article shares version history information for the Desired State Configuration (DSC) extension in Azure.
-ms.date:  02/17/2021
+ms.date: 11/17/2025
 keywords: dsc, powershell, azure, extension
 services: automation
 ms.subservice: desired-state-config
-ms.topic: conceptual
+ms.topic: release-notes
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Work with Azure Desired State Configuration extension version history
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
 
 The Azure Desired State Configuration (DSC) VM [extension](/azure/virtual-machines/extensions/dsc-overview) is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.
 

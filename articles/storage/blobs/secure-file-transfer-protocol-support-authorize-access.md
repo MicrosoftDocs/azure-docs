@@ -3,11 +3,15 @@ title: Authorize access to Azure Blob Storage for an SFTP client
 titleSuffix: Azure Storage
 description: Learn how to authorize access to Azure Blob Storage for an SSH File Transfer Protocol (SFTP) client.
 author: normesta
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/30/2024
 ms.author: normesta
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: "As a cloud architect, I want to authorize access for SFTP clients to Azure Blob Storage, so that I can securely manage file transfers with defined permissions."
 ---
 
 # Authorize access to Azure Blob Storage for an SSH File Transfer Protocol (SFTP) client
@@ -63,6 +67,9 @@ You can authenticate local users connecting from SFTP clients by using a passwor
    | Generate a new key pair | Use this option to create a new public / private key pair. The public key is stored in Azure with the key name that you provide. The private key can be downloaded after the local user has been successfully added. |
    | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](/azure/virtual-machines/ssh-keys-portal#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
    | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure. If you don't have a public key, but would like to generate one outside of Azure, see [Generate keys with ssh-keygen](/azure/virtual-machines/linux/create-ssh-keys-detailed#generate-keys-with-ssh-keygen). |
+
+   > [!IMPORTANT]
+   > Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format, then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
 
 4. Select **Next** to open the **Permissions** tab of the configuration pane.
 
@@ -181,7 +188,7 @@ This section shows you how to authenticate by using either an SSH key or a passw
 
 Choose which containers you want to grant access to and what level of access you want to provide. Those permissions apply to all directories and subdirectories in the container. To learn more about each container permission, see [Container permissions](secure-file-transfer-protocol-support.md#container-permissions).
 
-If you want to authorize access at the file and directory level, you can enable ACL authorization. This capability is in preview and can be enabled only by using the Azure portal.
+If you want to authorize access at the file and directory level, you can enable ACL authorization.
 
 #### [Portal](#tab/azure-portal)
 
@@ -193,7 +200,7 @@ If you want to authorize access at the file and directory level, you can enable 
    > [!IMPORTANT]
    > The local user must have at least one container permission or ACL permission to the home directory of that container. Otherwise a connection attempt to that container will fail.
 
-2. If you want to authorize access by using the access control lists (ACLs) associated with files and directories in this container, then select the **Allow ACL authorization** checkbox. To learn more about using ACLS to authorize SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
+2. If you want to authorize access by using the access control lists (ACLs) associated with files and directories in this container, then select the **Allow ACL authorization** checkbox. To learn more about using ACLs to authorize SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
 
    You can also add this local user to a group by assigning that user to a group ID. That ID can be any number or number scheme that you want. Grouping users allow you to add and remove users without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove users from the group.
 

@@ -1,18 +1,14 @@
 ---
 title: "Tutorial: Back up an Azure Extended Zone VM"
 description: Learn how to back up a virtual machine (VM) in Azure Extended Zones using the Azure portal.
-author: halkazwini
-ms.author: halkazwini
+author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: tutorial
-ms.date: 08/02/2024
+ms.date: 02/25/2026
 ---
 
 # Tutorial: Back up an Azure Extended Zone virtual machine
-
-> [!IMPORTANT]
-> Azure Extended Zones service is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. In this article, you learn how to back up an existing virtual machine (VM) using the Azure portal.
 
@@ -24,7 +20,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - An Azure virtual machine (VM) in an Extended Zone. For more information, see [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md).
 

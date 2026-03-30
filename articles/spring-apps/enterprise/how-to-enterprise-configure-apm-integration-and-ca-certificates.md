@@ -1,20 +1,26 @@
 ---
-title: How to configure APM integration and CA certificates
+title: How to Configure APM Integration and CA Certificates
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to configure APM integration and CA certificates in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: fenzho
+ms.author: karler
+ms.reviewer: fenzho
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/29/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # How to configure APM integration and CA certificates
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to configure application performance monitor (APM) integration and certificate authority (CA) certificates in the Azure Spring Apps Enterprise plan.
 
@@ -45,7 +51,7 @@ Azure Spring Apps supports CA certificates for all language family buildpacks, b
 | .NET              |                     | ✔        |             | ✔         |            |
 | Go                |                     |           |             | ✔        |            |
 | Python            |                     |           |             |           |            |
-| NodeJS            |                     | ✔        | ✔           | ✔        | ✔          |
+| Node.js            |                     | ✔        | ✔           | ✔        | ✔          |
 | Web servers       |                     |           |             | ✔        |            |
 | Java Native Image |                     |           |             |           |            |
 | PHP               |                     | ✔         | ✔          | ✔         |            |
@@ -113,7 +119,7 @@ This section lists the supported languages and required environment variables fo
   - `application_packages`
   - `server_url`
 
-  For other supported environment variables, see [Elastic](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
+  For other supported environment variables, see [Elastic](https://www.elastic.co/guide/en/apm/agent/java/current/configuration.html)
 
 - **AppDynamics**
 
@@ -352,7 +358,7 @@ az spring app deploy \
    --apms <your-APM>
 ```
 
-When you disable the build service, you can only deploy an application with a container image. For more information, see [Deploy an application with a custom container image](how-to-deploy-with-custom-container-image.md).
+When you disable the build service, you can only deploy an application with a container image. For more information, see [Deploy an application with a custom container image](../basic-standard/how-to-deploy-with-custom-container-image.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 You can use multiple instances of Azure Spring Apps Enterprise, where some instances build and deploy images and others only deploy images. Consider the following scenario:
 
@@ -414,11 +420,11 @@ You can configure CA certificates in Azure Spring Apps in the following two ways
 
 You can now manage public certificates in the TLS/SSL settings and bind to app builds and deployments by referring to them. This approach is the recommended way to configure CA certificates.
 
-To manage public certificates on the service instance level, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md). then, follow one of the approaches described in the following sections to bind CA certificates to app builds and deployments.
+To manage public certificates on the service instance level, see the [Import a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json). then, follow one of the approaches described in the following sections to bind CA certificates to app builds and deployments.
 
 ### Bind CA certificates to app builds and deployments
 
-For information on how to bind CA certificates to deployments, see the [Load a certificate](how-to-use-tls-certificate.md#load-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md). Then, use the following instructions to bind to app builds.
+For information on how to bind CA certificates to deployments, see the [Load a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#load-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json). Then, use the following instructions to bind to app builds.
 
 When you enable the build service and use a managed Azure Container Registry, use the following command to integrate CA certificates into your deployment:
 
@@ -526,7 +532,7 @@ az spring build-service builder buildpack-binding list \
 
 ### Create a binding
 
-Use this command to change the binding from *Unbound* to *Bound* status:
+Use this command to change the binding from `Unbound` to `Bound` status:
 
 ```azurecli
 az spring build-service builder buildpack-binding create \
@@ -572,7 +578,7 @@ For more information on the `properties` and `secrets` parameters for your build
 
 ### Delete a binding
 
-Use the following command to change the binding status from *Bound* to *Unbound*.
+Use the following command to change the binding status from `Bound` to `Unbound`.
 
 ```azurecli
 az spring build-service builder buildpack-binding delete \
@@ -654,7 +660,7 @@ During the migration process, APM is configured in both bindings and APM configu
 
 Use the following steps to migrate a CA certificate:
 
-1. For a CA certificate configured in binding, if it's used in runtime, you can load the certificate into your application. For more information, see [Load a certificate](how-to-use-tls-certificate.md#load-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+1. For a CA certificate configured in binding, if it's used in runtime, you can load the certificate into your application. For more information, see [Load a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#load-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 1. Use the following command to redeploy all the applications using the CA certificate. If you use the certificate at build time, use the `--build-certificates` parameter to specify the CA certificate to use at build time for a deployment:
 

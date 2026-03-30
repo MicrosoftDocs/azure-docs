@@ -1,8 +1,8 @@
 ---
 title: Azure Storage samples using .NET
 description: View developer guides and sample code for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET storage client libraries.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 05/23/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
@@ -10,6 +10,7 @@ ms.topic: sample
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ai-usage: ai-assisted
+# Customer intent: "As a .NET developer, I want access to sample code and developer guides for Azure Storage services, so that I can efficiently implement storage functionalities in my applications."
 ---
 
 # Azure Storage samples using .NET client libraries
@@ -72,7 +73,7 @@ The following table links to Azure Queues samples that use .NET client libraries
 
 | Topic | Samples on GitHub |
 |-------|-------------------|
-| Authentication | [Authenticate using Microsoft Entra ID](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L167)</br>[Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L24)</br>[Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L52)</br>[Authenticate using a shared access signature (SAS))](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L86)</br>[Authenticate using an Active Directory token](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L140) |
+| Authentication | [Authenticate using Microsoft Entra ID (recommended)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L167)</br>[Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L24)</br>[Authenticate using a shared key credential](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L52)</br>[Authenticate using a shared access signature (SAS))](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L86)</br>[Authenticate using an Active Directory token](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L140) |
 | Queue | [Create a queue and add a message](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L24) |
 | Message | [Receive and process messages](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L61)</br>[Peek at messages](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L90)</br>[Receive messages and update visibility timeout](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L115) |
 | Troubleshooting | [Trigger a recoverable error using a queue client](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L188) |
@@ -121,3 +122,4 @@ For information on samples for other languages:
 - JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 - C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
 - All other languages: [Azure Storage samples](storage-samples.md)
+

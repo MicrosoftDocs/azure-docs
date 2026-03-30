@@ -2,10 +2,14 @@
 title: Migrate Azure Cosmos DB extension for Azure Functions to version 4.x 
 description: This article shows you how to upgrade your existing function apps using the Azure Cosmos DB extension version 3.x to be able to use version 4.x of the extension. 
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
 ms.date: 07/10/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - sfi-ropc-nochange
 ---
 
 # Migrate function apps from Azure Cosmos DB extension version 3.x to version 4.x 
@@ -97,7 +101,7 @@ The underlying SDK used by extension changed to use the Azure Cosmos DB V3 SDK, 
 
 ## Update the extension bundle
 
-By default, [extension bundles](./functions-bindings-register.md#extension-bundles) are used by non-.NET function apps to install binding extensions. The Azure Cosmos DB version 4 extension is part of the Microsoft Azure Functions version 4 extension bundle.
+By default, [extension bundles](./extension-bundles.md) are used by non-.NET function apps to install binding extensions. The Azure Cosmos DB version 4 extension is part of the Microsoft Azure Functions version 4 extension bundle.
 
 To update your application to use the latest extension bundle, update your `host.json`. The following `host.json` file uses version 4 of the Microsoft Azure Functions extension bundle.
 
@@ -127,7 +131,7 @@ The following table only includes attributes that were renamed or were removed f
 |**CollectionName** |**ContainerName** | The name of the container being monitored. |
 |**LeaseConnectionStringSetting** |**LeaseConnection** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `Connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
 |**LeaseCollectionName** |**LeaseContainerName** | (Optional) The name of the container used to store leases. When not set, the value `leases` is used. |
-|**CreateLeaseCollectionIfNotExists** |**CreateLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](/azure/cosmos-db/nosql/troubleshoot-forbidden#non-data-operations-are-not-allowed) and your Function won't be able to start.|
+|**CreateLeaseCollectionIfNotExists** |**CreateLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](/azure/cosmos-db/troubleshoot-forbidden#non-data-operations-are-not-allowed) and your Function won't be able to start.|
 |**LeasesCollectionThroughput** |**LeasesContainerThroughput** | (Optional) Defines the number of Request Units to assign when the leases container is created. This setting is only used when `CreateLeaseContainerIfNotExists` is set to `true`. This parameter is automatically set when the binding is created using the portal. |
 |**LeaseCollectionPrefix** |**LeaseContainerPrefix** | (Optional) When set, the value is added as a prefix to the leases created in the Lease container for this function. Using a prefix allows two separate Azure Functions to share the same Lease container by using different prefixes. |
 |**UseMultipleWriteLocations** |*Removed* | This attribute is no longer needed as it's automatically detected. |
@@ -150,7 +154,7 @@ The following table only includes attributes that changed or were removed from t
 |**collectionName** |**containerName** | The name of the container being monitored. |
 |**leaseConnectionStringSetting** |**leaseConnection** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
 |**leaseCollectionName** |**leaseContainerName** | (Optional) The name of the container used to store leases. When not set, the value `leases` is used. |
-|**createLeaseCollectionIfNotExists** |**createLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](/azure/cosmos-db/nosql/troubleshoot-forbidden#non-data-operations-are-not-allowed) and your Function won't be able to start.|
+|**createLeaseCollectionIfNotExists** |**createLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](/azure/cosmos-db/troubleshoot-forbidden#non-data-operations-are-not-allowed) and your Function won't be able to start.|
 |**leasesCollectionThroughput** |**leasesContainerThroughput** | (Optional) Defines the number of Request Units to assign when the leases container is created. This setting is only used when `createLeaseContainerIfNotExists` is set to `true`. This parameter is automatically set when the binding is created using the portal. |
 |**leaseCollectionPrefix** |**leaseContainerPrefix** | (Optional) When set, the value is added as a prefix to the leases created in the Lease container for this function. Using a prefix allows two separate Azure Functions to share the same Lease container by using different prefixes. |
 |**useMultipleWriteLocations** |*Removed* | This attribute is no longer needed as it's automatically detected. |

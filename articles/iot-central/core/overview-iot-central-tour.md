@@ -5,9 +5,11 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 10/14/2024
 ms.topic: overview
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Take a tour of the Azure IoT Central UI
@@ -128,6 +130,9 @@ Data explorer exposes rich capabilities to analyze historical trends and correla
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Screenshot of IoT Central Dashboard, a customizable UI for your application.":::
 
 * Personal dashboards can also be created to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](howto-manage-dashboards.md) how-to article.
+
+> [!TIP]
+> For accessibility support, use line charts in preference to other chart types on your dashboards.
 
 ### Jobs
 

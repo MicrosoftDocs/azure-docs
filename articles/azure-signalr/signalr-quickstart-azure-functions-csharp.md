@@ -26,12 +26,14 @@ In this article, you learn how to use SignalR Service and Azure Functions to bui
 
 ---
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Prerequisites
 
 The following prerequisites are needed for this quickstart:
 
 - Visual Studio Code, or other code editor. If you don't already have Visual Studio Code installed, [download Visual Studio Code here](https://code.visualstudio.com/Download).
-- An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/dotnet) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure Functions Core Tools](../azure-functions/functions-run-local.md?tabs=windows%2Ccsharp%2Cbash#v2)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
@@ -275,7 +277,9 @@ You need the Azure Functions Core Tools for this step.
 
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copy the primary connection string, and then run the following command:
+    1. Copy the primary connection string, and then run the following command.
+    
+        [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"

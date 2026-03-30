@@ -2,14 +2,15 @@
 title: Copy a blob from a source object URL with JavaScript
 titleSuffix: Azure Storage
 description: Learn how to copy a blob from a source object URL in Azure Storage by using the JavaScript client library.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
-ms.date: 08/05/2024
+ms.author: shaas
+ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer, I want to copy blobs from a source object URL using JavaScript, so that I can manage and transfer data within my Azure Storage efficiently.
 ---
 
 # Copy a blob from a source object URL with JavaScript
@@ -39,7 +40,7 @@ The following method wraps the [Put Blob From URL](/rest/api/storageservices/put
 
 These methods are preferred for scenarios where you want to move data into a storage account and have a URL for the source object.
 
-For large objects, you may choose to work with individual blocks. The following method wraps the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. This method creates a new block to be committed as part of a blob where the contents are read from a source URL:
+For large objects, you might choose to work with individual blocks. The following method wraps the [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operation. This method creates a new block to be committed as part of a blob where the contents are read from a source URL:
 
 - [BlockBlobClient.stageBlockFromURL](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-stageblockfromurl)
 
@@ -49,7 +50,15 @@ If you're copying a blob from a source within Azure, access to the source blob c
 
 The following example shows a scenario for copying from a source blob within Azure:
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob-put-from-url.js" id="Snippet_copy_from_azure_put_blob_from_url":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob-put-from-url.ts" id="Snippet_copy_from_azure_put_blob_from_url":::
+
+---
 
 The [syncUploadFromURL](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-syncuploadfromurl) method can also accept a [BlockBlobSyncUploadFromURLOptions](/javascript/api/@azure/storage-blob/blockblobsyncuploadfromurloptions) parameter to specify further options for the operation.
 
@@ -57,11 +66,23 @@ The [syncUploadFromURL](/javascript/api/@azure/storage-blob/blockblobclient#@azu
 
 You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
 
+## [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob-put-from-url.js" id="Snippet_copy_from_external_source_put_blob_from_url":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob-put-from-url.ts" id="Snippet_copy_from_external_source_put_blob_from_url":::
+
+---
 
 ## Resources
 
 To learn more about copying blobs using the Azure Blob Storage client library for JavaScript, see the following resources.
+
+### Code samples
+
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob-put-from-url.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob-put-from-url.ts) code samples from this article (GitHub)
 
 ### REST API operations
 
@@ -70,8 +91,7 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
 - [Put Block From URL](/rest/api/storageservices/put-block-from-url) (REST API)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob-put-from-url.js)
-
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]
+

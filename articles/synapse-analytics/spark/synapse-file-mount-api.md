@@ -7,32 +7,32 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 07/27/2022
 ms.author: jingzh
-ms.reviewer: whhender
-ms.custom: subject-rbac-steps
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Introduction to file mount/unmount APIs in Azure Synapse Analytics 
 
-The Azure Synapse Studio team built two new mount/unmount APIs in the Microsoft Spark Utilities (`mssparkutils`) package. You can use these APIs to attach remote storage (Azure Blob Storage or Azure Data Lake Storage Gen2) to all working nodes (driver node and worker nodes). After the storage is in place, you can use the local file API to access data as if it's stored in the local file system. For more information, see [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md).
+The Azure Synapse Studio team built two new mount/unmount APIs in the Microsoft Spark Utilities (`mssparkutils`) package. You can use these APIs to attach remote storage (Azure Blob Storage, Azure Data Lake Storage Gen2 or Azure File Share) to all working nodes (driver node and worker nodes). After the storage is in place, you can use the local file API to access data as if it's stored in the local file system. For more information, see [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md).
 
 The article shows you how to use mount/unmount APIs in your workspace. You'll learn: 
 
-+ How to mount Data Lake Storage Gen2 or Blob Storage.
++ How to mount Data Lake Storage Gen2, Blob Storage or Azure File Share.
 + How to access files under the mount point via the local file system API. 
-+ How to access files under the mount point by using the `mssparktuils fs` API. 
++ How to access files under the mount point by using the `mssparkutils fs` API. 
 + How to access files under the mount point by using the Spark read API.
 + How to unmount the mount point.
  
 > [!WARNING]
-> Azure file-share mounting is temporarily disabled. You can use Data Lake Storage Gen2 or Azure Blob Storage mounting instead, as described in the next section.
->
 > Azure Data Lake Storage Gen1 storage is not supported. You can migrate to Data Lake Storage Gen2 by following the [Azure Data Lake Storage Gen1 to Gen2 migration guidance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using the mount APIs.
 
 
 <a id="How-to-mount-Gen2/blob-Storage"></a>
 ## Mount storage
 
-This section illustrates how to mount Data Lake Storage Gen2 step by step as an example. Mounting Blob Storage works similarly. 
+This section illustrates how to mount Data Lake Storage Gen2 step by step as an example. Mounting Blob Storage and Azure File Share works similarly.
 
 The example assumes that you have one Data Lake Storage Gen2 account named `storegen2`. The account has one container named `mycontainer` that you want to mount to `/test` in your Spark pool. 
 

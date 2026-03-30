@@ -1,9 +1,8 @@
 ---
 title: 'Quickstart: Create a Synapse workspace' 
 description: In this quickstart, you'll learn how to create a Synapse workspace, a dedicated SQL pool, and a serverless Apache Spark pool.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+author: juluczni
+ms.author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: quickstart
@@ -16,7 +15,7 @@ In this Quickstart, you will create a Synapse workspace, and you can follow alon
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - To complete this tutorial's steps, you need to have access to a resource group for which you're assigned the **Owner** role. Create the Synapse workspace in this resource group.
 
 ## Create a Synapse workspace in the Azure portal

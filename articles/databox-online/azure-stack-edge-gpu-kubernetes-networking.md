@@ -5,9 +5,10 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/27/2021
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 # Kubernetes networking on Azure Stack Edge Pro GPU device
 

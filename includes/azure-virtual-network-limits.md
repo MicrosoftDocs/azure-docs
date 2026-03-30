@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: networking
- author: anavinahar
+ author: rdhillon
  ms.service: networking
  ms.topic: include
- ms.date: 12/05/2022
- ms.author: anavin
+ ms.date: 10/16/2025
+ ms.author: rdhillon
  ms.custom: include file
 
 ---
@@ -24,10 +24,11 @@ The following limits apply only for networking resources managed through **Azure
 | [Virtual network gateways (VPN gateways) per virtual network](../articles/vpn-gateway/about-gateway-skus.md#benchmark) |1 |
 | [Virtual network gateways (ExpressRoute gateways) per virtual network](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | DNS servers per virtual network |20 |
+| DNS servers per network interface |20 |
 | Private IP addresses per virtual network |65,536 |
 | Total Private Addresses for a group of Peered Virtual networks | 128,000 |
 | Private IP addresses per network interface |256 |
-| Private IP addresses per virtual machine |256 |
+| Private IP addresses per virtual machine |256 * N (N is number of NICs on VM) |
 | Public IP addresses per network interface |256 |
 | Public IP addresses per virtual machine |256 |
 | [Concurrent TCP or UDP flows per NIC of a virtual machine or role instance](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) |500,000 |
@@ -41,70 +42,28 @@ The following limits apply only for networking resources managed through **Azure
 | IP configurations per application security group |4,000 |
 | Application security groups that can be specified within all security rules of a network security group |100 |
 | User-defined route tables |200 |
-| User-defined routes per route table |400 |
+| User-defined routes per route table |600<sup>1</sup> |
+| Routes with service tag per route table | 25 |
 | Point-to-site root certificates per Azure VPN Gateway |20 |
 | Point-to-site revoked client certificates per Azure VPN Gateway |300 |
-| Virtual network TAPs |100 |
-| Network interface TAP configurations per virtual network TAP |100 |
+| Network interface TAP configurations per virtual network TAP |10 |
+
+<sup>1</sup>Support for user-defined route per subscription higher than 600 is available via [Azure Virtual Network Manager](../articles/virtual-network-manager/overview.md). 
 
 #### <a name="publicip-address"></a>Public IP address limits
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Public IP addresses<sup>1,2</sup> | 10 for Basic. | Contact support. |
-| Static Public IP addresses<sup>1</sup> | 10 for Basic. | Contact support. |
-| Standard Public IP addresses<sup>1</sup> | 10 | Contact support. |
-| Public IP prefixes | limited by number of Standard Public IPs in a subscription | Contact support. |
-| Public IP prefix length | /28 | Contact support. |
-| Custom IP prefixes | 5 | Contact support. |
+| Basic Public IPv4, IPv6 addresses<sup>1,2,3</sup> | 10 | Contact support |
+| Standard Public IPv4, IPv6 addresses<sup>1</sup> | 10 | Contact support |
+| Global Tier Public IPv4, IPv6 addresses<sup>1</sup> | 10 | Contact support |
+| Routing Preference Internet Public IPv4, IPv6 addresses<sup>1</sup> | 10 | Contact support |
+| Public IP prefixes | limited by number of Standard Public IPs in a subscription | Contact support |
+| Public IP prefix length | /28 | Contact support |
+| Custom IP prefixes | 5 | Contact support |
 
-<sup>1</sup>Default limits for Public IP addresses vary by offer category type, such as Free Trial, Pay-As-You-Go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000.
+<sup>1</sup>Default limits for Public IPv4/v6 addresses vary by offer category type, such as Free Trial, pay-as-you-go, CSP. For example, the default for Enterprise Agreement subscriptions is 1000 and the default for pay-as-you-go is 20. The majority of offers start at 10.  There's also an overall maximum number of Public IP addresses per subscription.
 
-<sup>2</sup>Public IP addresses limit refers to the total amount of Public IP addresses, including Basic and Standard. 
-
-#### <a name="load-balancer"></a>Load balancer limits
-The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
-
-**Standard Load Balancer**
-
-| Resource                                | Limit         |
-|-----------------------------------------|-------------------------------|
-| Load balancers                          | 1,000                         |
-| Frontend IP configurations              | 600                           |
-| Rules (Load Balancer + Inbound NAT) per resource  | 1,500               |
-| Rules per NIC (across all IPs on a NIC)<sup>1<sup> | 300                           |
-| High-availability ports rule            | 1 per internal frontend       |
-| Outbound rules per Load Balancer        | 600                           |
-| Backend pool size                       | 5,000                         |
-| Azure global Load Balancer Backend pool size                       | 300                         |
-| Backend IP configurations per frontend <sup>2<sup> | 10,000                        |
-| Backend IP configurations across all frontends | 500,000 |
-
-<sup>1<sup> Each NIC can have a total of 300 rules (load balancing, inbound NAT, and outbound rules combined) configured across all IP configurations on the NIC.
-<sup>2</sup> Backend IP configurations are aggregated across all load balancer rules including load balancing, inbound NAT, and outbound rules. Each rule a backend pool instance is configured to counts as one configuration.
-
-Load Balancer doesn't apply any throughput limits. However, throughput limits for virtual machines and virtual networks still apply. For more information, see [Virtual machine network bandwidth](../articles/virtual-network/virtual-machine-network-throughput.md).
-
-**Gateway Load Balancer**
-
-| Resource                                | Limit        |
-|-----------------------------------------|------------------------------|
-| Resources chained per Load Balancer (LB frontend configurations or VM NIC IP configurations combined) | 100 |
-
-All limits for Standard Load Balancer also apply to Gateway Load Balancer.
-
-**Basic Load Balancer**
-
-| Resource                                | Limit        |
-|-----------------------------------------|------------------------------|
-| Load balancers                          | 1,000                        |
-| Rules per resource                      | 250                          |
-| Rules per NIC (across all IPs on a NIC) | 300                          |
-| Frontend IP configurations <sup>3<sup>  | 200                          |
-| Backend pool size                       | 300 IP configurations, single availability set |
-| Availability sets per Load Balancer     | 1                            |
-| Load Balancers per VM                   | 2 (1 Public and 1 internal)  |
-
-<sup>3</sup> The limit for a single discrete resource in a backend pool (standalone virtual machine, availability set, or virtual machine scale-set placement group) is to have up to 250 Frontend IP configurations across a single Basic Public Load Balancer and Basic Internal Load Balancer.
+<sup>2</sup>Basic Public IP addresses are retired as of September 30, 2025. See [here](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired) for more details.
 
 <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 

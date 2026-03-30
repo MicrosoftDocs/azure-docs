@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: devx-track-arm-template
 ms.topic: reference
-ms.date: 05/16/2024
+ms.date: 03/11/2025
 ms.author: danlep
 ---
 
@@ -22,11 +22,13 @@ A built-in [direct management API](/rest/api/apimanagement/apimanagementrest/api
 
 ## What is the deadline for the change?
 
-The direct management API is deprecated. Support for the direct management API will no longer be available after 15 March 2025.
+The direct management API is deprecated. Support for the direct management API will no longer be available starting 15 March 2025.
 
 ## What do I need to do?
 
-You should no longer use the direct management API. Before the retirement date, update your tools, scripts, and programs to use equivalent operations in the Azure Resource Manager-based REST API instead. 
+You should no longer use the direct management API and, if it's enabled in your API Management instance, you should disable it. To detect API Management instances that have the direct management API enabled, you can use this [open-source tool](https://github.com/simonkurtz-MSFT/api-management-discover-direct-management-api-status). 
+
+Before the retirement date, update your tools, scripts, and programs that call the direct management API endpoint (`https://<service-name>.management.azure-api.net`) to use equivalent operations in the Azure Resource Manager-based REST API instead. 
 
 ## Help and support
 

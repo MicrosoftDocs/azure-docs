@@ -31,9 +31,9 @@ const onload = () => {
     authOptions: {
       // Use Azure Active Directory authentication.
       authType: "aad",
-      clientId: "<Your Azure Maps Client Id>",
-      aadAppId: "<Your Azure Active Directory Client Id>",
-      aadTenant: "<Your Azure Active Directory Tenant Id>"
+      clientId: "<Your Azure Maps Client ID>",
+      aadAppId: "<Your Azure Active Directory Client ID>",
+      aadTenant: "<Your Azure Active Directory Tenant ID>"
     }
   });
 
@@ -48,7 +48,7 @@ const onload = () => {
     };
 
     // Create a Search client.
-    const client = MapsSearch(credential, "<Your Azure Maps Client Id>");
+    const client = MapsSearch(credential, "<Your Azure Maps Client ID>");
 
     // Create a data source and add it to the map.
     const datasource = new atlas.source.DataSource();
@@ -103,7 +103,7 @@ The second block of code creates an object that implements the [TokenCredential]
 
 The third block of code creates a data source object using the [DataSource] class and add search results to it. A [symbol layer] uses text or icons to render point-based data wrapped in the [DataSource] as symbols on the map.  A symbol layer is then created. The data source is added to the symbol layer, which is then added to the map.
 
-The fourth code block makes a GET request in the [MapsSearch] client. It allows you to perform a free form text search via the [Get Search Fuzzy rest API] to search for point of interest. Get requests to the Search Fuzzy API can handle any combination of fuzzy inputs. The response is then converted to [Feature] objects and added to the data source, which automatically results in the data being rendered on the map via the symbol layer.
+The fourth code block makes a GET request in the [MapsSearch] client. It allows you to perform a free form text search via the [Get Search Fuzzy REST API] to search for point of interest. Get requests to the Search Fuzzy API can handle any combination of fuzzy inputs. The response is then converted to [Feature] objects and added to the data source, which automatically results in the data being rendered on the map via the symbol layer.
 
 The last block of code adjusts the camera bounds for the map using the Map's [setCamera] property.
 
@@ -124,9 +124,9 @@ const onload = () => {
     authOptions: {
       // Use Azure Active Directory authentication.
       authType: "aad",
-      clientId: "<Your Azure Maps Client Id>",
-      aadAppId: "<Your Azure Active Directory Client Id>",
-      aadTenant: "<Your Azure Active Directory Tenant Id>"
+      clientId: "<Your Azure Maps Client ID>",
+      aadAppId: "<Your Azure Active Directory Client ID>",
+      aadTenant: "<Your Azure Active Directory Tenant ID>"
     }
   });
 
@@ -139,7 +139,7 @@ const onload = () => {
     const resultLayer = new atlas.layer.SymbolLayer(datasource);
     map.layers.add(resultLayer);
 
-    // Send a request to Azure Maps search API
+    // Send a request to Azure Maps Search API
     let url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1";
     url += "&query=gasoline%20station";
@@ -151,7 +151,7 @@ const onload = () => {
     fetch(url, {
       headers: {
         Authorization: "Bearer " + map.authentication.getToken(),
-        "x-ms-client-id": "<Your Azure Maps Client Id>"
+        "x-ms-client-id": "<Your Azure Maps Client ID>"
       }
     })
       .then((response) => response.json())
@@ -231,7 +231,7 @@ See the following articles for full code examples:
 [DataSource]: /javascript/api/azure-maps-control/atlas.source.datasource
 [symbol layer]: /javascript/api/azure-maps-control/atlas.layer.symbollayer
 [Create a map]: map-create.md
-[Get Search Fuzzy rest API]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
+[Get Search Fuzzy REST API]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-
 [event listener]: /javascript/api/azure-maps-control/atlas.map#events
 [BoundingBox]: /javascript/api/azure-maps-control/atlas.data.boundingbox

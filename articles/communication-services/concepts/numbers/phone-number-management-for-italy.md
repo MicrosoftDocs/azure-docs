@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: krkutser
 ms.date: 03/30/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.custom: references_regions
 ---
@@ -39,7 +39,6 @@ More details on eligible subscription types are as follows:
 | Number Type                      | Eligible Azure Agreement Type                                                                             |
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, pay-as-you-go |
-
 | Alphanumeric Sender ID            | Modern Customer Agreement (Field Led and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement**, pay-as-you-go                                      |
 
 

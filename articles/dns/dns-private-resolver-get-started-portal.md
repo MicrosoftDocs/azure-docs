@@ -2,13 +2,17 @@
 title: Quickstart - Create an Azure DNS Private Resolver using the Azure portal
 description: In this quickstart, you create and test a private DNS resolver in Azure DNS. This article is a step-by-step guide to create and manage your first private DNS resolver using the Azure portal.
 services: dns
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 08/21/2024
 ms.topic: quickstart
 ms.service: azure-dns
-ms.custom: mode-ui, ignite-2022
+ms.custom:
+  - mode-ui
+  - ignite-2022
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
+# Customer intent: As a network administrator, I want to create a private DNS resolver in Azure, so that I can efficiently resolve DNS queries between my Azure virtual networks and on-premises environments without relying on traditional DNS servers.
 ---
 
 # Quickstart: Create an Azure DNS Private Resolver using the Azure portal
@@ -34,7 +38,7 @@ The following figure summarizes the setup used in this article:
 ## Prerequisites
 
 An Azure subscription is required.
-- If you don't already have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you don't already have an Azure subscription, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Register the Microsoft.Network provider namespace
 
@@ -156,7 +160,7 @@ Add or remove specific rules your DNS forwarding ruleset as desired, such as:
 - A wildcard rule to forward unmatched DNS queries to a protective DNS service.
 
 > [!IMPORTANT]
-> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the forwarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
 > **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 ### Delete a rule from the forwarding ruleset

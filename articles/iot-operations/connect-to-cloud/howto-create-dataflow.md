@@ -1,23 +1,25 @@
 ---
-title: Create a dataflow using Azure IoT Operations
-description: Create a dataflow to connect data sources and destinations using Azure IoT Operations.
-author: PatAltimore
-ms.author: patricka
+title: Create a data flow using Azure IoT Operations
+description: Create a data flow to connect data sources and destinations using Azure IoT Operations.
+author: sethmanheim
+ms.author: sethm
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 03/19/2026
 ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
+#CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
+ms.custom:
+  - build-2025
 ---
 
-# Configure dataflows in Azure IoT Operations
+# Create data flows in Azure IoT Operations
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow by creating a *Dataflow* custom resource or using the Azure IoT Operations Studio portal. A dataflow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
+A data flow is the path that data takes from the source to the destination with optional transformations. You can configure the data flow by creating a *Data flow* custom resource or using the operations experience web UI. A data flow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
-<!--
 ```mermaid
 flowchart LR
   subgraph Source
@@ -34,47 +36,129 @@ flowchart LR
   Source - -> BuiltInTransformation
   BuiltInTransformation - -> Destination
 ```
--->
 
-:::image type="content" source="media/howto-create-dataflow/dataflow.svg" alt-text="Diagram of a dataflow showing flow from source to transform then destination.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow.svg" alt-text="Diagram of a data flow showing flow from source to transform then destination.":::
 
-To define the source and destination, you need to configure the dataflow endpoints. The transformation is optional and can include operations like enriching the data, filtering the data, and mapping the data to another field. 
+To define the source and destination, you need to configure the data flow endpoints. The transformation is optional and can include operations like enriching the data, filtering the data, and mapping the data to another field.
 
-This article shows you how to create a dataflow with an example, including the source, transformation, and destination.
+> [!IMPORTANT]
+> Each data flow must have the Azure IoT Operations local MQTT broker default endpoint [as *either* the source or destination](#proper-data-flow-configuration).
+
+You can use the operations experience in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep file, or use Kubernetes to create a data flow using a YAML file.
+
+Continue reading to learn how to configure the source, transformation, and destination.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- A [configured dataflow profile](howto-configure-dataflow-profile.md)
-- [Dataflow endpoints](howto-configure-dataflow-endpoint.md). For example, create a dataflow endpoint for the [local MQTT broker](./howto-configure-mqtt-endpoint.md#azure-iot-operations-local-mqtt-broker). You can use this endpoint for both the source and destination. Or, you can try other endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of dataflow endpoint, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md).
+You can deploy data flows as soon as you have an instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md) using the default data flow profile and endpoint. However, you might want to configure data flow profiles and endpoints to customize the data flow.
 
-## Create dataflow
+### Data flow profile
 
-Once you have dataflow endpoints, you can use them to create a dataflow. Recall that a dataflow is made up of three parts: the source, the transformation, and the destination.
+If you don't need different scaling settings for your data flows, use the [default data flow profile](./howto-configure-dataflow-profile.md#default-data-flow-profile) provided by Azure IoT Operations. Avoid associating too many data flows with a single data flow profile. If you have a large number of data flows, distribute them across multiple data flow profiles to reduce the risk of exceeding the data flow profile configuration size limit of 70.
 
-# [Portal](#tab/portal)
+To learn how to configure a new data flow profile, see [Configure data flow profiles](howto-configure-dataflow-profile.md).
 
-To create a dataflow in [operations experience](https://iotoperations.azure.com/), select **Dataflow** > **Create dataflow**.
+### Data flow endpoints
 
-:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience to create a dataflow.":::
+You need data flow endpoints to configure the source and destination for the data flow. To get started quickly, use the [default data flow endpoint for the local MQTT broker](./howto-configure-mqtt-endpoint.md#default-endpoint). You can also create other types of data flow endpoints like Kafka, Event Hubs, OpenTelemetry, or Azure Data Lake Storage. For more information, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
+
+## Get started
+
+When you have the prerequisites, you can start creating a data flow.
+
+# [Operations experience](#tab/portal)
+
+1. To create a data flow in [operations experience](https://iotoperations.azure.com/), select **Data flow** > **Create data flow**. 
+
+1. Select the placeholder name **new-data-flow** to set the data flow properties. Enter the name of the data flow and choose the data flow profile to use. The default data flow profile is selected by default. For more information on data flow profiles, see [Configure data flow profile](howto-configure-dataflow-profile.md).
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-profile.png" alt-text="Screenshot of the operations experience interface where a user names the data flow and selects a profile for it.":::
+
+    > [!IMPORTANT] 
+    > You can only choose the data flow profile when creating a data flow. You can't change the data flow profile after the data flow is created.
+    > If you want to change the data flow profile of an existing data flow, delete the original data flow and create a new one with the new data flow profile.
+
+1. Configure the source, transformation, and destination endpoint for the data flow by selecting the items in the data flow diagram.
+
+    :::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot of the operations experience interface displaying a data flow diagram with a source endpoint, transformation stage, and destination endpoint.":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
+
+```azurecli
+az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `data-flow.json` with the following content is stored in the user's home directory:
+
+```json
+{
+    "mode": "Enabled",
+    "operations": [
+        {
+            "operationType": "Source",
+            "sourceSettings": {
+                // See source configuration section
+            }
+        },
+        {
+            "operationType": "BuiltInTransformation",
+            "builtInTransformationSettings": {
+                // See transformation configuration section
+            }
+        },
+        {
+            "operationType": "Destination",
+            "destinationSettings": {
+                // See destination configuration section
+            }
+        }
+    ]
+}
+```
+
+Here's an example command to create or update a data flow using the default dataflow profile:
+
+```azurecli
+az iot ops dataflow apply --resource-group myResourceGroup --instance myAioInstance --profile default --name data-flow --config-file ~/data-flow.json
+```
 
 # [Bicep](#tab/bicep)
 
-The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
-
-1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
-1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
-
-    ```azurecli
-    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-    ```
-
- The overall structure of a dataflow configuration for Bicep is as follows:
+Create a Bicep `.bicep` file to start creating a data flow. This example shows the structure of the data flow containing the source, transformation, and destination configurations.
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param dataflowName string = '<DATAFLOW_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+// Pointer to the default data flow profile
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+  // Reference to the parent data flow profile, the default profile in this case
+  // Same usage as profileRef in Kubernetes YAML
   parent: defaultDataflowProfile
-  name: 'my-dataflow'
+  name: dataflowName
   extendedLocation: {
     name: customLocation.id
     type: 'CustomLocation'
@@ -88,6 +172,7 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
           // See source configuration section
         }
       }
+      // Transformation optional
       {
         operationType: 'BuiltInTransformation'
         builtInTransformationSettings: {
@@ -105,23 +190,27 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
-The overall structure of a dataflow configuration is as follows:
+Create a Kubernetes manifest `.yaml` file to start creating a data flow. This example shows the structure of the data flow containing the source, transformation, and destination configurations.
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: Dataflow
 metadata:
-  name: my-dataflow
+  name: <DATAFLOW_NAME>
   namespace: azure-iot-operations
 spec:
-  profileRef: default
+  # Reference to the default data flow profile
+  # This field is required when configuring via Kubernetes YAML
+  # The syntax is different when using Bicep
+  profileRef: default 
   mode: Enabled
   operations:
     - operationType: Source
       sourceSettings:
         # See source configuration section
+      # Transformation optional
     - operationType: BuiltInTransformation
       builtInTransformationSettings:
         # See transformation configuration section
@@ -132,280 +221,121 @@ spec:
 
 ---
 
-<!-- TODO: link to API reference -->
+Review the following sections to learn how to configure the operation types of the data flow.
 
-Review the following sections to learn how to configure the operation types of the dataflow.
+## Source
 
-## Configure a source with a dataflow endpoint to get data
+Configure the source endpoint and data sources (topics) for the data flow. You can use the default MQTT broker, an asset, or a custom MQTT or Kafka endpoint as the source.
 
-To configure a source for the dataflow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint.
+For complete configuration details, including MQTT topic wildcards, shared subscriptions, Kafka topics, and source schema, see [Configure a data flow source](howto-configure-dataflow-source.md).
 
-# [Portal](#tab/portal)
+If you don't use the default endpoint as the source, you must use it as the [destination](#destination). For more information about using the local MQTT broker endpoint, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
 
-### Use Asset as a source
+## Request disk persistence
 
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. Using an asset as a source is only available in the operations experience.
+Disk persistence keeps data flow processing state across restarts. For configuration details, see [Configure disk persistence](howto-configure-disk-persistence.md).
 
-1. Under **Source details**, select **Asset**.
-1. Select the asset you want to use as the source endpoint.
-1. Select **Proceed**.
+## Transformation
 
-    A list of datapoints for the selected asset is displayed.
+The transformation operation is where you transform the data from the source before you send it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the data flow configuration. Multiple transformations chain together in stages regardless of the order in which you specify them in the configuration. The order of the stages is always:
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience to select an asset as the source endpoint.":::
+1. **Enrich**: Add more data to the source data given a dataset and condition to match.
+1. **Filter**: Filter the data based on a condition.
+1. **Map**, **Compute**, **Rename**, or add a **New property**: Move data from one field to another with an optional conversion.
 
-1. Select **Apply** to use the asset as the source endpoint.
+This section is an introduction to data flow transforms. For more detailed information, see [Map data by using data flows](concept-dataflow-mapping.md), and [Enrich data by using data flows](concept-dataflow-enrich.md).
 
-# [Bicep](#tab/bicep)
+# [Operations experience](#tab/portal)
 
-Configuring an asset as a source is only available in the operations experience.
+In the operations experience, select **Data flow** > **Add transform (optional)**.
 
-# [Kubernetes](#tab/kubernetes)
+:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot of the operations experience interface showing the addition of a transformation stage to a data flow.":::
 
-Configuring an asset as a source is only available in the operations experience.
-
----
-
-### Use MQTT as a source
-
-# [Portal](#tab/portal)
-
-1. Under **Source details**, select **MQTT**.
-1. Enter the **MQTT Topic** that you want to listen to for incoming messages.
-1. Choose a **Message schema** from the dropdown list or upload a new schema. If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience to select MQTT as the source endpoint.":::
-
-1. Select **Apply**.
-
-# [Bicep](#tab/bicep)
-
-The MQTT endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the dataflow.
-
-```bicep
-{
-  operationType: 'Source'
-  sourceSettings: {
-    endpointRef: MqttBrokerDataflowEndpoint.name // Reference to the 'mq' endpoint
-    dataSources: [
-        'azure-iot-operations/data/thermostat', // MQTT topic for thermostat temperature data
-        'humidifiers/+/telemetry/humidity/#'  // MQTT topic for humidifier humidity data
-        
-    ]
-  }
-}
-```
-
-The `dataSources` setting is an array of MQTT topics that define the data source. In this example, `azure-iot-operations/data/thermostat` refers to one of the topics in the dataSources array where thermostat data is published.
-
-Datasources allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. For more information, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
-
-<!-- TODO: Put the right article link here -->
-For more information about creating an MQTT endpoint as a dataflow source, see [MQTT Endpoint](howto-configure-mqtt-endpoint.md).
-
-# [Kubernetes](#tab/kubernetes)
-
-For example, to configure a source using an MQTT endpoint and two MQTT topic filters, use the following configuration:
-
-```yaml
-sourceSettings:
-  endpointRef: mq
-  dataSources:
-    - thermostats/+/telemetry/temperature/#
-    - humidifiers/+/telemetry/humidity/#
-```
-
-Because `dataSources` allows you to specify MQTT or Kafka topics without modifying the endpoint configuration, you can reuse the endpoint for multiple dataflows even if the topics are different. To learn more, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
-
-<!-- TODO: link to API reference -->
-
-#### Specify schema to deserialize data
-
-If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
-
-```yaml
-spec:
-  operations:
-  - operationType: Source
-    sourceSettings:
-      serializationFormat: Json
-      schemaRef: aio-sr://exampleNamespace/exampleAvroSchema:1.0.0
-```
-
-To specify the schema, create the file and store it in the schema registry.
+# [Azure CLI](#tab/cli)
 
 ```json
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "name": "Temperature",
-  "description": "Schema for representing an asset's key attributes",
-  "type": "object",
-  "required": [ "deviceId", "asset_name"],
-  "properties": {
-    "deviceId": {
-      "type": "string"
-    },
-    "temperature": {
-      "type": "double"
-    },
-    "serial_number": {
-      "type": "string"
-    },
-    "production_date": {
-      "type": "string",
-      "description": "Event duration"
-    },
-    "asset_name": {
-      "type": "string",
-      "description": "Name of asset"
-    },
-    "location": {
-      "type": "string",
-    },
-    "manufacturer": {
-      "type": "string",
-      "description": "Name of manufacturer"
-    }
+  "operationType": "BuiltInTransformation",
+  "builtInTransformationSettings": {
+    "datasets": [
+      // See section on enriching data
+    ],
+    "filter": [
+      // See section on filtering data
+    ],
+    "map": [
+      // See section on mapping data
+    ]
   }
 }
 ```
 
-> [!NOTE]
-> The only supported serialization format is JSON. The schema is optional.
-
-For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
-
-#### Shared subscriptions
-
-<!-- TODO: may not be final -->
-
-To use shared subscriptions with MQTT sources, you can specify the shared subscription topic in the form of `$shared/<subscription-group>/<topic>`.
-
-```yaml
-sourceSettings:
-  dataSources:
-    - $shared/myGroup/thermostats/+/telemetry/temperature/#
-```
-
-> [!NOTE]
-> If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, then the shared subscription topic must be used.
-
-<!-- TODO: Details -->
-
----
-
-## Configure transformation to process data
-
-The transformation operation is where you can transform the data from the source before you send it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order in which they're specified in the configuration. The order of the stages is always
-
-1. **Enrich**: Add additional data to the source data given a dataset and condition to match.
-1. **Filter**: Filter the data based on a condition.
-1. **Map**: Move data from one field to another with an optional conversion.
-
-# [Portal](#tab/portal)
-
-In the operations experience, select **Dataflow** > **Add transform (optional)**.
-
-:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience to add a transform to a dataflow.":::
 
 # [Bicep](#tab/bicep)
 
 ```bicep
-{
-  operationType: 'BuiltInTransformation'
-  builtInTransformationSettings: {
-    map: [
-      // ...
-    ]
-    filter: [
-      // ...
-    ]
-  }
+builtInTransformationSettings: {
+  datasets: [
+    // See section on enriching data
+  ]
+  filter: [
+    // See section on filtering data
+  ]
+  map: [
+    // See section on mapping data
+  ]
 }
 ```
 
-### Specify output schema to transform data
-
-The following configuration demonstrates how to define an output schema in your Bicep file. In this example, the schema defines fields such as `asset_id`, `asset_name`, `location`, `temperature`, `manufacturer`, `production_date`, and `serial_number`. Each field is assigned a data type and marked as non-nullable. The assignment ensures all incoming messages contain these fields with valid data.
-
-```bicep
-var assetDeltaSchema = '''
-{
-    "$schema": "Delta/1.0",
-    "type": "object",
-    "properties": {
-        "type": "struct",
-        "fields": [
-            { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "asset_name", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "location", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "manufacturer", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "production_date", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "serial_number", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "temperature", "type": "double", "nullable": false, "metadata": {} }
-        ]
-    }
-}
-'''
-```
-
-The following Bicep configuration registers the schema with the Azure Schema Registry. This configuration creates a schema definition and assigns it a version within the schema registry, allowing it to be referenced later in your data transformations.
-
-```bicep
-param opcuaSchemaName string = 'opcua-output-delta'
-param opcuaSchemaVer string = '1'
-
-resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
-  parent: schemaRegistry
-  name: opcuaSchemaName
-  properties: {
-    displayName: 'OPC UA Delta Schema'
-    description: 'This is a OPC UA delta Schema'
-    format: 'Delta/1.0'
-    schemaType: 'MessageSchema'
-  }
-}
-
-resource opcuaSchemaInstance 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
-  parent: opcSchema
-  name: opcuaSchemaVer
-  properties: {
-    description: 'Schema version'
-    schemaContent: opcuaSchemaContent
-  }
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 builtInTransformationSettings:
   datasets:
-    # ...
+    # See section on enriching data
   filter:
-    # ...
+    # See section on filtering data
   map:
-    # ...
+    # See section on mapping data
 ```
-
-<!-- TODO: link to API reference -->
-
 
 ---
 
 ### Enrich: Add reference data
 
-To enrich the data, you can use the reference dataset in the Azure IoT Operations [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
+To enrich the data, first add a reference dataset in the Azure IoT Operations [state store](../develop-edge-apps/overview-state-store.md). The dataset adds extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
-Key names in the distributed state store correspond to a dataset in the dataflow configuration.
+You can load sample data into the state store by using the [state store CLI](https://github.com/Azure/iot-operations-sdks/tree/main/tools/statestore-cli). Key names in the state store correspond to a dataset in the data flow configuration.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-Currently, the enrich operation isn't available in the operations experience.
+Currently, the *Enrich* stage isn't supported in the operations experience.
+
+# [Azure CLI](#tab/cli)
+
+To enrich the data, use the `builtInTransformationSettings` property in the data flow configuration. Use the `datasets` property to specify the datasets for enrichment.
+
+```json
+{
+  "operationType": "BuiltInTransformation",
+  "builtInTransformationSettings": {
+    "datasets": [
+      {
+        "key": "<DATASET_KEY>",
+        "inputs": [
+          "$source.<SOURCE_FIELD>" // ---------------- $1
+          "$context(<DATASET_KEY>).<DATASET_FIELD>" // - $2
+        ],
+        "expression": "$1 == $2"
+      }
+    ]
+  }
+}
+```
 
 # [Bicep](#tab/bicep)
 
-This example shows how you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
+This example shows how you can use the `deviceId` field in the source data to match the `asset` field in the dataset:
 
 ```bicep
 builtInTransformationSettings: {
@@ -413,31 +343,16 @@ builtInTransformationSettings: {
     {
       key: 'assetDataset'
       inputs: [
-        '$source.deviceId',                // Reference to the device ID from the source
-        '$context(assetDataset).asset'     // Reference to the asset from the dataset context
+        '$source.deviceId' // ---------------- $1
+        '$context(assetDataset).asset' // ---- $2
       ]
-      expression: '$1 == $2'                // Expression to evaluate the inputs
+      expression: '$1 == $2'
     }
   ]
 }
 ```
 
-### Passthrough operation
-
-For example, you could apply a passthrough operation that takes all the input fields and maps them to the output field, essentially passing through all fields. 
-
-```bicep
-builtInTransformationSettings: {
-  map: [
-    {
-      inputs: array('*')
-      output: '*'
-    }
-  ]
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
 
@@ -451,6 +366,8 @@ builtInTransformationSettings:
     expression: $1 == $2
 ```
 
+---
+
 If the dataset has a record with the `asset` field, similar to:
 
 ```json
@@ -461,345 +378,669 @@ If the dataset has a record with the `asset` field, similar to:
 }
 ```
 
-The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available in `filter` and `map` stages.
+The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available in filter and map stages.
 
-<!-- TODO: link to API reference -->
-
----
-
-You can load sample data into the DSS by using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set).
-
-For more information about condition syntax, see [Enrich data by using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
+For more information about condition syntax, see [Enrich data by using data flows](concept-dataflow-enrich.md)
 
 ### Filter: Filter data based on a condition
 
-To filter the data on a condition, you can use the `filter` stage. The condition is specified as a field in the source data that matches a value.
+Use the filter stage to drop messages that don't meet a condition. You can define multiple filter rules with input fields and boolean expressions.
 
-# [Portal](#tab/portal)
-
-1. Under **Transform (optional)**, select **Filter** > **Add**.
-1. Choose the datapoints to include in the dataset.
-1. Add a filter condition and description.
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using operations experience to add a filter transform.":::
-
-1. Select **Apply**.
-
-# [Bicep](#tab/bicep)
-
-For example, you could use the `temperature` field in the source data to filter the data:
-
-```bicep
-builtInTransformationSettings: {
-  filter: [
-    {
-      inputs: [
-        'temperature ? $last' // Reference to the last temperature value, if available
-      ]
-      expression: '$1 > 20'   // Expression to filter based on the temperature value
-    }
-  ]
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-For example, you could use the `temperature` field in the source data to filter the data:
-
-```yaml
-builtInTransformationSettings:
-  filter:
-    - inputs:
-      - temperature ? $last # - $1
-      expression: "$1 > 20"
-```
-
-If the `temperature` field is greater than 20, the data is passed to the next stage. If the `temperature` field is less than or equal to 20, the data is filtered.
-
-<!-- TODO: link to API reference -->
-
----
+For complete configuration details and examples, see [Filter data in a data flow](howto-dataflow-filter.md).
 
 ### Map: Move data from one field to another
 
-To map the data to another field with optional conversion, you can use the `map` operation. The conversion is specified as a formula that uses the fields in the source data.
+To map the data to another field with optional conversion, use the `map` operation. Specify the conversion as a formula that uses the fields in the source data.
 
-# [Portal](#tab/portal)
+In the operations experience, you can currently map data by using **Compute**, **Rename**, and **New property** transforms.
 
-In the operations experience, mapping is currently supported using **Compute** transforms.
+#### Compute
+
+Use the **Compute** transform to apply a formula to the source data. This operation applies a formula to the source data and stores the result in a field.
 
 1. Under **Transform (optional)**, select **Compute** > **Add**.
-1. Enter the required fields and expressions.
 
     :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience to add a compute transform.":::
 
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                       |
+    |--------------------|---------------------------------------------------------------------------------------------------|
+    | Select formula     | Choose an existing formula from the dropdown or select **Custom** to enter a formula manually.     |
+    | Output             | Specify the output display name for the result.                          |
+    | Formula            | Enter the formula to be applied to the source data.                                               |
+    | Description        | Provide a description for the transformation.                                                     |
+    | Last known value   | Optionally, use the last known value if the current value isn't available.                       |
+
+
+    Enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown. For built-in formulas, select the `<dataflow>` placeholder to see the list of available datapoints.
+
+    Enter MQTT metadata properties by using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+
+    The formula can use the fields in the source data. For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` output field. 
+    
 1. Select **Apply**.
+
+#### Rename
+
+Use the **Rename** transform to rename a datapoint. This operation renames a datapoint in the source data to a new name. Use the new name in the subsequent stages of the data flow.
+
+1. Under **Transform (optional)**, select **Rename** > **Add**. 
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-rename.png" alt-text="Screenshot using operations experience to rename a datapoint.":::
+
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                             |
+    |--------------------|---------------------------------------------------------------------------------------------------------|
+    | Datapoint          | Select a datapoint from the dropdown or enter a $metadata header.                                       |
+    | New datapoint name | Enter the new name for the datapoint.                                                                   |
+    | Description        | Provide a description for the transformation.                                                           |
+
+    Enter MQTT metadata properties by using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+
+1. Select **Apply**.
+
+#### New property
+
+Use the **New property** transform to add a new property to the source data. This operation adds a new property to the source data. Use the new property in the subsequent stages of the data flow.
+
+# [Operations experience](#tab/portal)
+
+1. Under **Transform (optional)**, select **New property** > **Add**. 
+
+    :::image type="content" source="media/howto-create-dataflow/dataflow-new-property.png" alt-text="Screenshot using operations experience to add a new property.":::
+
+1.  Enter the required settings.
+
+    | Setting            | Description                                                                                         |
+    |--------------------|-----------------------------------------------------------------------------------------------------|
+    | Property key       | Enter the key for the new property.                                                                 |
+    | Property value     | Enter the value for the new property.                                                               |
+    | Description        | Provide a description for the new property.                                                         |
+
+1. Select **Apply**.
+
+# [Azure CLI](#tab/cli)
+
+For example, you can use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. Enrich the source data with the `location` field from the contextualization dataset:
+
+```json
+{
+  "operationType": "BuiltInTransformation",
+  "builtInTransformationSettings": {
+    "map": [
+      {
+        "inputs": [
+          "$source.temperature ? $last" // ---------------- $1
+        ],
+        "output": "temperatureCelsius",
+        "expression": "($1 - 32) * 5/9"
+      },
+      {
+        "inputs": [
+          "$context(assetDataset).location" // - $2
+        ],
+        "output": "location"
+      }
+    ]
+  }
+}
+```
 
 # [Bicep](#tab/bicep)
 
-For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
+You can access MQTT metadata properties by using the format `$metadata.user_properties.<property>` or `$metadata.topic`. You can also enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+
+For example, you can use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. Enrich the source data with the `location` field from the contextualization dataset:
 
 ```bicep
 builtInTransformationSettings: {
   map: [
     {
       inputs: [
-        'temperature'                     // Reference to the temperature input
+        'temperature'
       ]
-      output: 'temperatureCelsius'        // Output variable for the converted temperature
-      expression: '($1 - 32) * 5/9'       // Expression to convert Fahrenheit to Celsius
+      output: 'temperatureCelsius'
+      expression: '($1 - 32) * 5/9'
     }
     {
       inputs: [
-        '$context(assetDataset).location'  // Reference to the location from the dataset context
+        '$context(assetDataset).location'
       ]
-      output: 'location'                   // Output variable for the location
+      output: 'location'
     }
   ]
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
-For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
+You can access MQTT metadata properties by using the format `$metadata.user_properties.<property>` or `$metadata.topic`. You can also enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+
+For example, you can use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. Enrich the source data with the `location` field from the contextualization dataset:
 
 ```yaml
 builtInTransformationSettings:
   map:
     - inputs:
       - temperature # - $1
-      output: temperatureCelsius
       expression: "($1 - 32) * 5/9"
+      output: temperatureCelsius
     - inputs:
       - $context(assetDataset).location  
       output: location
 ```
 
-<!-- TODO: link to API reference -->
-
 ---
 
-To learn more, see [Map data by using dataflows](concept-dataflow-mapping.md) and [Convert data by using dataflows](concept-dataflow-conversions.md).
+To learn more, see [Map data by using data flows](concept-dataflow-mapping.md).
 
-### Serialize data according to a schema
+#### Remove
 
-If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON with the types inferred. Remember that storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency.
+By default, the output schema includes all datapoints. Remove any datapoint from the destination by using the **Remove** transform.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-Specify the **Output** schema when you add the destination dataflow endpoint.
+1. Under **Transform (optional)**, select **Remove**. 
+1. Select the datapoint to remove from the output schema.
 
-# [Bicep](#tab/bicep)
+    :::image type="content" source="media/howto-create-dataflow/dataflow-remove.png" alt-text="Screenshot using operations experience to remove the weight datapoint the output schema.":::
 
-When the dataflow resource is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry. It can be referenced in transformations which creates a new schema in Delta format. 
-This [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) provides a streamlined approach to provisioning the dataflow with schema integration.
+1. Select **Apply**.
 
-```bicep
-{
-  operationType: 'BuiltInTransformation'
-  builtInTransformationSettings: {
-    // ..
-    schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
-    serializationFormat: 'Parquet' 
-  }
-}
-```
+# [Azure CLI](#tab/cli)
 
-For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
-
-# [Kubernetes](#tab/kubernetes)
-
-
-```yaml
-builtInTransformationSettings:
-  serializationFormat: Parquet
-  schemaRef: aio-sr://<NAMESPACE>/<SCHEMA>:<VERSION>
-```
-
-To specify the schema, you can create a Schema custom resource with the schema definition.
-
-For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
+To remove a datapoint from the output schema, use the `builtInTransformationSettings` property in the data flow configuration. Use the `map` property to specify the datapoints to remove.
 
 ```json
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "name": "Temperature",
-  "description": "Schema for representing an asset's key attributes",
-  "type": "object",
-  "required": [ "deviceId", "asset_name"],
-  "properties": {
-    "deviceId": {
-      "type": "string"
-    },
-    "temperature": {
-      "type": "double"
-    },
-    "serial_number": {
-      "type": "string"
-    },
-    "production_date": {
-      "type": "string",
-      "description": "Event duration"
-    },
-    "asset_name": {
-      "type": "string",
-      "description": "Name of asset"
-    },
-    "location": {
-      "type": "string",
-    },
-    "manufacturer": {
-      "type": "string",
-      "description": "Name of manufacturer"
-    }
+  "operationType": "BuiltInTransformation",
+  "builtInTransformationSettings": {
+    "map": [
+      {
+        "inputs": [
+          "*"
+        ],
+        "output": "*"
+      },
+      {
+        "inputs": [
+          "weight"
+        ],
+        "output": ""
+      }
+      {
+          "inputs": [
+          "weight.SourceTimestamp"
+          ],
+          "output": ""
+      },
+      {
+          "inputs": [
+          "weight.Value"
+          ],
+          "output": ""
+      },
+      {
+          "inputs": [
+          "weight.StatusCode"
+          ],
+          "output": ""
+      },
+      {
+          "inputs": [
+          "weight.StatusCode.Code"
+          ],
+          "output": ""
+      },
+      {
+          "inputs": [
+          "weight.StatusCode.Symbol"
+          ],
+          "output": ""
+      }
+    ]
   }
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+builtInTransformationSettings: {
+  map: [
+    {
+      inputs: [
+        '*'
+      ]
+      output: '*'
+    }
+    {
+      inputs: [
+        'weight'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.SourceTimestamp'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.Value'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode.Code'
+      ]
+      output: ''
+    }
+    {
+      inputs: [
+        'weight.StatusCode.Symbol'
+      ]
+      output: ''
+    }
+  ]
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+builtInTransformationSettings:
+  map:
+    - type: PassThrough
+      inputs:
+        - "*"
+      output: "*"
+    - inputs:
+        - weight
+      output: ""
+    - inputs:
+        - weight.SourceTimestamp
+      output: ""
+    - inputs:
+        - weight.Value
+      output: ""
+    - inputs:
+        - weight.StatusCode
+      output: ""
+    - inputs:
+        - weight.StatusCode.Code
+      output: ""
+    - inputs:
+        - weight.StatusCode.Symbol
+      output: ""
+```
+
 ---
 
-Supported serialization formats are JSON, Parquet, and Delta.
+To learn more, see [Map data by using data flows](concept-dataflow-mapping.md).
 
-## Configure destination with a dataflow endpoint to send data
+### Serialize data according to a schema
 
-To configure a destination for the dataflow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint.
+If you want to serialize the data before sending it to the destination, specify a schema and serialization format. For details, see [Serialize the output with a schema](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
+
+## Destination
+
+Configure the destination endpoint and data destination (topic, container, or table) for the data flow. You can use any supported endpoint type as the destination, including MQTT, Kafka, Azure Data Lake Storage, Microsoft Fabric, Azure Data Explorer, and local storage.
+
+For complete configuration details, including the data destination table, dynamic destination topics, and output serialization, see [Configure a data flow destination](howto-configure-dataflow-destination.md).
+
+To send data to a destination other than the local MQTT broker, create a data flow endpoint. To learn how, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
 > [!IMPORTANT]
-> Storage endpoints require a schema reference. If you've created storage destination endpoints for Microsoft Fabric OneLake, ADLS Gen 2, Azure Data Explorer and Local Storage, use bicep to specify the schema reference.
+> Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use data flow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 
-# [Portal](#tab/portal)
+## Example
 
-1. Select the dataflow endpoint to use as the destination.
+The following example is a data flow configuration that uses the MQTT endpoint for the source and destination. The source filters the data from the MQTT topic `azure-iot-operations/data/thermostat`. The transformation converts the temperature to Fahrenheit and filters the data where the temperature multiplied by the humidity is less than 100000. The destination sends the data to the MQTT topic `factory`.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience to select Event Hubs destination endpoint.":::
+# [Operations experience](#tab/portal)
 
-1. Select **Proceed** to configure the destination.
-1. Add the mapping details based on the type of destination.
+:::image type="content" source="media/howto-create-dataflow/dataflow-example.png" alt-text="Screenshot showing the operations experience data flow example with a source endpoint, transforms, and a destination endpoint." lightbox="media/howto-create-dataflow/dataflow-example.png":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
+
+```azurecli
+az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `data-flow.json` with the following content is stored in the user's home directory:
+
+```json
+{
+    "mode": "Enabled",
+    "operations": [
+      {
+        "operationType": "Source",
+        "sourceSettings": {
+          "dataSources": [
+            "thermostats/+/sensor/temperature/#",
+            "humidifiers/+/sensor/humidity/#"
+          ],
+          "endpointRef": "default",
+          "serializationFormat": "Json"
+        }
+      },
+      {
+        "builtInTransformationSettings": {
+          "datasets": [],
+          "filter": [
+            {
+              "expression": "$1 * $2 < 100000",
+              "inputs": [
+                "temperature.Value",
+                "\"Tag 10\".Value"
+              ],
+              "type": "Filter"
+            }
+          ],
+          "map": [
+            {
+              "inputs": [
+                "*"
+              ],
+              "output": "*",
+              "type": "PassThrough"
+            },
+            {
+              "expression": "fToC($1)",
+              "inputs": [
+                "Temperature.Value"
+              ],
+              "output": "TemperatureF",
+              "type": "Compute"
+            },
+            {
+              "inputs": [
+                "@\"Tag 10\".Value"
+              ],
+              "output": "Humidity",
+              "type": "Rename"
+            }
+          ],
+          "serializationFormat": "Json"
+        },
+        "operationType": "BuiltInTransformation"
+      },
+      {
+        "destinationSettings": {
+          "dataDestination": "factory",
+          "endpointRef": "default"
+        },
+        "operationType": "Destination"
+      }
+    ]
+}
+```
+
+Here's an example command to create or update a data flow using the default dataflow profile:
+
+```azurecli
+az iot ops dataflow apply --resource-group myResourceGroup --instance myAioInstance --profile default --name data-flow --config-file ~/data-flow.json
+```
+
+Here's another example using dynamic topic translation to route messages from different thermostats to device-specific topics:
+
+```json
+{
+    "mode": "Enabled",
+    "operations": [
+      {
+        "operationType": "Source",
+        "sourceSettings": {
+          "dataSources": [
+            "thermostats/+/sensor/temperature"
+          ],
+          "endpointRef": "default",
+          "serializationFormat": "Json"
+        }
+      },
+      {
+        "destinationSettings": {
+          "dataDestination": "processed/device/${inputTopic.2}/temperature",
+          "endpointRef": "default"
+        },
+        "operationType": "Destination"
+      }
+    ]
+}
+```
+
+This configuration processes messages from `thermostats/device1/sensor/temperature` and sends them to `processed/device/device1/temperature`.
 
 # [Bicep](#tab/bicep)
 
-The following example configures Fabric OneLake as a destination with a static MQTT topic.
-
 ```bicep
-resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param dataflowName string = '<DATAFLOW_NAME>'
+
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+  name: aioInstanceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+// Pointer to the default data flow endpoint
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' existing = {
   parent: aioInstance
-  name: 'onelake-ep'
+  name: 'default'
+}
+
+// Pointer to the default data flow profile
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+  parent: aioInstance
+  name: 'default'
+}
+
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+  // Reference to the parent data flow profile, the default profile in this case
+  // Same usage as profileRef in Kubernetes YAML
+  parent: defaultDataflowProfile
+  name: dataflowName
   extendedLocation: {
     name: customLocation.id
     type: 'CustomLocation'
   }
   properties: {
-    endpointType: 'FabricOneLake'
-    fabricOneLakeSettings: {
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          // Use the default MQTT endpoint as the source
+          endpointRef: defaultDataflowEndpoint.name
+          // Filter the data from the MQTT topic azure-iot-operations/data/thermostat
+          dataSources: [
+            'azure-iot-operations/data/thermostat'
+          ]
+        }
       }
-      oneLakePathType: 'Tables'
-      host: 'https://msit-onelake.dfs.fabric.microsoft.com'
-      names: {
-        lakehouseName: '<EXAMPLE-LAKEHOUSE-NAME>'
-        workspaceName: '<EXAMPLE-WORKSPACE-NAME>'
+      // Transformation optional
+      {
+        operationType: 'BuiltInTransformation'
+        builtInTransformationSettings: {
+          // Filter the data where temperature * "Tag 10" < 100000
+          filter: [
+            {
+              inputs: [
+                'temperature.Value'
+                '"Tag 10".Value'
+              ]
+              expression: '$1 * $2 < 100000'
+            }
+          ]
+          map: [
+            // Passthrough all values by default
+            {
+              inputs: [
+                '*'
+              ]
+              output: '*'
+            }
+            // Convert temperature to Fahrenheit and output it to TemperatureF
+            {
+              inputs: [
+                'temperature.Value'
+              ]
+              output: 'TemperatureF'
+              expression: 'cToF($1)'
+            }
+          // Extract the "Tag 10" value and output it to Humidity
+            {
+              inputs: [
+                '"Tag 10".Value'
+              ]
+              output: 'Humidity'
+            }
+          ]
+        }
       }
-      batching: {
-        latencySeconds: 5
-        maxMessages: 10000
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          // Use the default MQTT endpoint as the destination
+          endpointRef: defaultDataflowEndpoint.name
+          // Send the data to the MQTT topic factory
+          dataDestination: 'factory'
+        }
       }
-    }
+    ]
   }
 }
 ```
 
-```bicep
-{
-  operationType: 'Destination'
-  destinationSettings: {
-    endpointRef: oneLakeEndpoint.name // oneLake endpoint
-    dataDestination: 'sensorData' // static MQTT topic
-  }
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-For example, to configure a destination using the MQTT endpoint created earlier and a static MQTT topic, use the following configuration:
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
-destinationSettings:
-  endpointRef: mq
-  dataDestination: factory
-```
-
-## Example
-
-The following example is a dataflow configuration that uses the MQTT endpoint for the source and destination. The source filters the data from the MQTT topics `thermostats/+/telemetry/temperature/#` and `humidifiers/+/telemetry/humidity/#`. The transformation converts the temperature to Fahrenheit and filters the data where the temperature is less than 100000. The destination sends the data to the MQTT topic `factory`.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: Dataflow
 metadata:
   name: my-dataflow
   namespace: azure-iot-operations
 spec:
+  # Reference to the default data flow profile
   profileRef: default
   mode: Enabled
   operations:
     - operationType: Source
       sourceSettings:
-        endpointRef: mq
+        # Use the default MQTT endpoint as the source
+        endpointRef: default
+        # Filter the data from the MQTT topic azure-iot-operations/data/thermostat
         dataSources:
-          - thermostats/+/telemetry/temperature/#
-          - humidifiers/+/telemetry/humidity/#
+          - azure-iot-operations/data/thermostat
+    # Transformation optional
     - operationType: builtInTransformation
       builtInTransformationSettings:
+        # Filter the data where temperature * "Tag 10" < 100000
         filter:
           - inputs:
               - 'temperature.Value'
               - '"Tag 10".Value'
-            expression: "$1*$2<100000"
+            expression: '$1 * $2 < 100000'
         map:
+          # Passthrough all values by default
           - inputs:
               - '*'
             output: '*'
+          # Convert temperature to Fahrenheit and output it to TemperatureF
           - inputs:
               - temperature.Value
             output: TemperatureF
             expression: cToF($1)
+          # Extract the "Tag 10" value and output it to Humidity
           - inputs:
               - '"Tag 10".Value'
-            output: 'Tag 10'
+            output: 'Humidity'
     - operationType: Destination
       destinationSettings:
-        endpointRef: mq
+        # Use the default MQTT endpoint as the destination
+        endpointRef: default
+        # Send the data to the MQTT topic factory
         dataDestination: factory
 ```
 
-<!-- TODO: add links to examples in the reference docs -->
-
 ---
 
-## Verify a dataflow is working
+To see more examples of data flow configurations, see [Azure REST API - Data flow](/rest/api/iotoperations/dataflow/create-or-update#examples) and the [quickstart Bicep](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/quickstart.bicep).
 
-Follow [Tutorial: Bi-directional MQTT bridge to Azure Event Grid](tutorial-mqtt-bridge.md) to verify the dataflow is working.
+## Verify a data flow is working
 
-### Export dataflow configuration
+To verify the data flow is working, follow [Tutorial: Bi-directional MQTT bridge to Azure Event Grid](tutorial-mqtt-bridge.md).
 
-To export the dataflow configuration, you can use the operations experience or by exporting the Dataflow custom resource.
+### Export data flow configuration
 
-# [Portal](#tab/portal)
+To export the data flow configuration, use the operations experience or export the data flow custom resource.
 
-Select the dataflow you want to export and select **Export** from the toolbar.
+# [Operations experience](#tab/portal)
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience to export a dataflow.":::
+Select the data flow you want to export, then select **Export** from the toolbar.
+
+:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot of the operations experience interface showing the export option for a configured data flow.":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops dataflow show](/cli/azure/iot/ops/dataflow/#az-iot-ops-dataflow-show) command to export a data flow.
+
+```azurecli
+az iot ops dataflow show --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <DataflowName> --profile <DataflowProfileName> --output json > my-dataflow.json
+```
+
+Here's an example command to export a data flow named `data-flow` to a JSON file named `data-flow.json`:
+
+```azurecli
+az iot ops dataflow show --resource-group myResourceGroup --instance myAioInstance --profile default --name data-flow --output json > data-flow.json
+```
 
 # [Bicep](#tab/bicep)
 
-Bicep is infrastructure as code and no export is required. Use the [Bicep template file to create a dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure dataflows.
+Bicep is infrastructure as code and no export is required. Use the [Bicep file to create a data flow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure data flows.
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```bash
 kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
 ```
 
 ---
+
+## Proper data flow configuration
+
+To ensure the data flow works as expected, verify the following conditions:
+
+- The default MQTT data flow endpoint [must be used as either the source or destination](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
+- The [data flow profile](./howto-configure-dataflow-profile.md) exists and is referenced in the data flow configuration.
+- The source is either an MQTT endpoint, Kafka endpoint, or an asset. You can't use storage type endpoints as a source.
+- When you use Event Grid as the source, you set the [dataflow profile instance count](./howto-configure-dataflow-profile.md#scaling) to 1 because Event Grid MQTT broker doesn't support shared subscriptions.
+- When you use Event Hubs as the source, each event hub in the namespace is a separate Kafka topic and you must specify each as the data source.
+- Transformation, if used, is configured with proper syntax, including proper [escaping of special characters](./concept-dataflow-mapping.md#escaping).
+- When you use storage type endpoints as destination, a [schema is specified](#serialize-data-according-to-a-schema).
+- When you use dynamic destination topics for MQTT endpoints, ensure that topic variables reference valid segments.
+
+## Next steps
+
+- [Map data by using data flows](concept-dataflow-mapping.md)
+- [Enrich data by using data flows](concept-dataflow-enrich.md)
+- [Understand message schemas](concept-schema-registry.md)
+- [Manage data flow profiles](howto-configure-dataflow-profile.md)

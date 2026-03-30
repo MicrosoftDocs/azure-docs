@@ -6,7 +6,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
-ms.date: 10/13/2023
+ms.date: 07/15/2025
 ms.author: buchvarun
 ---
 
@@ -46,7 +46,7 @@ This version of the conformance statement corresponds to the `v1` version of the
 
 For information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
-You can find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+You can find example requests for supported transactions in the Postman collection.
 
 ## Preamble Sanitization
 

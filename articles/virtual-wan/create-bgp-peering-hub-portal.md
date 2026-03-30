@@ -7,6 +7,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 10/30/2023
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Configure BGP peering to an NVA - Azure portal
@@ -59,6 +60,8 @@ After your hub router status is provisioned, create a connection between your hu
 1. Click **Add** to complete the BGP peer configuration. You can view the peer on the **BGP Peers** page.
 
     :::image type="content" source="./media/create-bgp-peering-hub-portal/view-peer.png" alt-text="Screenshot of the BGP peers page with the new peer.":::
+
+1. On the virtual hub resource, you'll see two IP addresses under "virtualRouterIps". It is required to peer with both these addresses and advertise the same routes to both these addresses. This ensures that the routes are successfully advertised to your virtual hub.  
 
 ### Modify a BGP peer
 

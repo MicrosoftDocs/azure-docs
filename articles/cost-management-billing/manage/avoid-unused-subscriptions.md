@@ -1,14 +1,14 @@
 ---
 title: Avoid unused subscriptions
 description: Learn how to prevent unused subscriptions from getting automatically blocked or deleted due to inactivity.
-author: bandersmsft
+author: Nicholak-MS
+ms.author: mijeffer
 ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 10/08/2024
-ms.author: banders
-# customer intent: As a billing administrator, I want to prevent my subscriptions from getting blocked or deleted.
+ms.date: 12/30/2025
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Avoid unused subscriptions
@@ -16,7 +16,11 @@ ms.author: banders
 Unused and abandoned subscriptions can increase potential security risks to your Azure account. To reduce this risk, Microsoft takes measures to secure, protect, and ultimately delete unused Azure subscriptions.
 
 >[!NOTE]
-> This article only applies to Microsoft Online Service Program (MOSP) and Cloud Solution Provider (CSP) subscriptions.
+> This article applies to the following subscription types:
+> - Microsoft Online Subscription Agreement (MOSA)
+> - Cloud Solution Provider (CSP)
+> - Microsoft Customer Agreement (MCA) that you bought through the Azure website or Azure portal
+> - Microsoft Customer Agreement (MCA) that your partner manages
 
 ## What is an unused subscription?
 

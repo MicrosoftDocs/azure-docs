@@ -5,8 +5,9 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 12/15/2023
 ms.custom: MVC, engagement-fy23
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: As an IT administrator, I want to configure Azure resources for on-premises disaster recovery, so that I can ensure high availability and quick recovery of critical workloads in the event of a disaster.
 ---
 # Prepare Azure for on-premises disaster recovery to Azure
 
@@ -43,7 +44,7 @@ If you just created your free Azure account, you're the administrator of your su
 - Create a VM in the selected resource group.
 - Create a VM in the selected virtual network.
 - Write to an Azure storage account.
-- Write to an Azure managed disk.
+- Write to an Azure Managed Disk.
 
 To complete these tasks your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor built-in role.
 
@@ -67,7 +68,7 @@ The new vault will now be listed in **Dashboard** > **All resources**, and on th
 
 ## Set up an Azure network
 
-On-premises machines are replicated to Azure managed disks. When failover occurs,  Azure VMs are created from these managed disks, and joined to the Azure network you specify in this procedure.
+On-premises machines are replicated to Azure Managed Disks. When failover occurs,  Azure VMs are created from these managed disks, and joined to the Azure network you specify in this procedure.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 1. Under **Categories**, select **Networking** > **Virtual network**. 
@@ -87,7 +88,7 @@ On-premises machines are replicated to Azure managed disks. When failover occurs
     1. After deleting the pre-existing address range, select **Add an IP address space**.
     
        :::image type="Protection state" source="media/tutorial-prepare-azure/add-ip-address-space.png" alt-text="Screenshot of the adding IP.":::
-    1. In **Starting address** enter **10.0.0.**
+    1. In **Starting address** enter **10.0.0.0**
     1. Under **Address space size**, select **/24 (256 addresses)**.
     1. Select **Add**.
     

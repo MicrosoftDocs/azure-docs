@@ -1,18 +1,17 @@
 ---
-title: include file
-description: include file
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 08/19/2022
+ms.date: 02/10/2025
 ms.author: anfdocs
 ms.custom: include file
 
 # azure-netapp-files/performance-linux-mount-options.md
 # faq-performance.md
+# Customer intent: As a system administrator managing performance settings for Linux mounts, I want to understand the implications of using `nconnect` and `sec=krb5*` together, so that I can optimize my application's data transmission without causing performance degradation.
 ---
 
-It is not recommended to use `nconnect` and `sec=krb5*` mount options together. Performance degradation has been observed when using the two options in combination.
+It's not recommended to use `nconnect` and `sec=krb5*` mount options together. Using these options together can cause performance degradation.
 
 The Generic Security Standard Application Programming Interface (GSS-API) provides a way for applications to protect data sent to peer applications. This data might be sent from a client on one machine to a server on another machine.  
 

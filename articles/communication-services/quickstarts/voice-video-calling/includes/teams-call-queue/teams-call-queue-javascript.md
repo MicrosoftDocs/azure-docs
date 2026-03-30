@@ -44,7 +44,7 @@ In results we'll are able to find "ID" field
 
 ## Prerequisites
 
-- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Node.js](https://nodejs.org/en/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1)
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
 
@@ -230,12 +230,12 @@ acceptCallButton.onclick = async () => {
     }
 }
 // Subscribe to a call obj.
-// Listen for property changes and collection udpates.
+// Listen for property changes and collection updates.
 subscribeToCall = (call) => {
     try {
         // Inspect the initial call.id value.
         console.log(`Call Id: ${call.id}`);
-        //Subsribe to call's 'idChanged' event for value changes.
+        //Subscribe to call's 'idChanged' event for value changes.
         call.on('idChanged', () => {
             console.log(`Call ID changed: ${call.id}`); 
         });
@@ -299,7 +299,7 @@ subscribeToCall = (call) => {
     }
 }
 // Subscribe to a remote participant obj.
-// Listen for property changes and collection udpates.
+// Listen for property changes and collection updates.
 subscribeToRemoteParticipant = (remoteParticipant) => {
     try {
         // Inspect the initial remoteParticipant.state value.
@@ -313,7 +313,7 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
             subscribeToRemoteVideoStream(remoteVideoStream)
         });
         // Subscribe to the remoteParticipant's 'videoStreamsUpdated' event to be
-        // notified when the remoteParticiapant adds new videoStreams and removes video streams.
+        // notified when the remoteParticipant adds new videoStreams and removes video streams.
         remoteParticipant.on('videoStreamsUpdated', e => {
             // Subscribe to newly added remote participant's video streams.
             e.added.forEach(remoteVideoStream => {

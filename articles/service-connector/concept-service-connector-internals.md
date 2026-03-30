@@ -5,8 +5,8 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.custom: engagement-fy23
-ms.topic: conceptual
-ms.date: 01/17/2023
+ms.topic: concept-article
+ms.date: 09/29/2025
 ---
 # Service Connector internals
 

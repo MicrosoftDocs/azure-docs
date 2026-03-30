@@ -1,9 +1,9 @@
 ---
-author: xixian73
+author: sundiraman
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 08/02/2022
-ms.author: xixian
+ms.author: sundraman
 ---
 
 Get started with Azure Communication Services by using the Communication Services calling SDK to add 1:1 voice & video calling to your app. You'll learn how to start and answer a call using the Azure Communication Services Calling SDK for JavaScript.
@@ -13,7 +13,7 @@ Get started with Azure Communication Services by using the Communication Service
 If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-cte-video-calling).
 
 ## Prerequisites
-- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - You need to have [Node.js 18](https://nodejs.org/dist/v18.18.0/). You can use the msi installer to install it.
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows).
 - Create a User Access Token to instantiate the call client. [Learn how to create and manage user access tokens](../../../manage-teams-identity.md?pivots=programming-language-javascript).
@@ -198,12 +198,12 @@ acceptCallButton.onclick = async () => {
     }
 }
 // Subscribe to a call obj.
-// Listen for property changes and collection udpates.
+// Listen for property changes and collection updates.
 subscribeToCall = (call) => {
     try {
         // Inspect the initial call.id value.
         console.log(`Call Id: ${call.id}`);
-        //Subsribe to call's 'idChanged' event for value changes.
+        //Subscribe to call's 'idChanged' event for value changes.
         call.on('idChanged', () => {
             console.log(`Call ID changed: ${call.id}`); 
         });
@@ -267,7 +267,7 @@ subscribeToCall = (call) => {
     }
 }
 // Subscribe to a remote participant obj.
-// Listen for property changes and collection udpates.
+// Listen for property changes and collection updates.
 subscribeToRemoteParticipant = (remoteParticipant) => {
     try {
         // Inspect the initial remoteParticipant.state value.
@@ -281,7 +281,7 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
             subscribeToRemoteVideoStream(remoteVideoStream)
         });
         // Subscribe to the remoteParticipant's 'videoStreamsUpdated' event to be
-        // notified when the remoteParticiapant adds new videoStreams and removes video streams.
+        // notified when the remoteParticipant adds new videoStreams and removes video streams.
         remoteParticipant.on('videoStreamsUpdated', e => {
             // Subscribe to newly added remote participant's video streams.
             e.added.forEach(remoteVideoStream => {

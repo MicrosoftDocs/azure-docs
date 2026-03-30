@@ -2,13 +2,16 @@
 title: "Azure roles, Microsoft Entra roles, and classic subscription administrator roles"
 description: Describes the different roles in Azure - Azure roles, and Microsoft Entra roles, and classic subscription administrator roles
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.topic: overview
-ms.date: 03/15/2024
+ms.date: 12/11/2025
 ms.author: rolyon
-ms.custom: it-pro;
+ms.custom:
+  - it-pro;
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 
 # Azure roles, Microsoft Entra roles, and classic subscription administrator roles
@@ -50,7 +53,7 @@ When you click the **Roles** tab, you'll see the list of built-in and custom rol
 
 :::image type="content" source="./media/shared/roles-list.png" alt-text="Screenshot of built-in roles in the Azure portal." lightbox="./media/shared/roles-list.png":::
 
-For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
+For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 <a name='azure-ad-roles'></a>
 
@@ -94,7 +97,7 @@ Several Microsoft Entra roles span Microsoft Entra ID and Microsoft 365, such as
 ## Classic subscription administrator roles
 
 > [!IMPORTANT]
-> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately. Starting in **December 2025**, Azure will begin to automatically assign the Owner role at subscription scope to users in the public cloud who are still assigned the Co-Administrator or Service Administrator role.
 >
 > For more information, see [Azure classic subscription administrators](classic-administrators.md).
 
@@ -124,6 +127,6 @@ Accounts and subscriptions are managed in the [Azure portal](https://portal.azur
 
 ## Next steps
 
-- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Assign Microsoft Entra roles to users](../active-directory/roles/manage-roles-portal.md)
 - [Roles for Microsoft 365 services in Microsoft Entra ID](../active-directory/roles/m365-workload-docs.md)

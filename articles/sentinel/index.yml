@@ -8,9 +8,9 @@ metadata:
   description: Microsoft Sentinel provides attack detection, threat visibility, proactive hunting, and threat response to help you stop threats before they cause harm.
   ms.service: microsoft-sentinel
   ms.topic: landing-page
-  author: yelevin
-  ms.author: yelevin
-  ms.date: 02/15/2024
+  author: guywi-ms
+  ms.author: guywild
+  ms.date: 01/03/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -51,8 +51,54 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Install solutions and content
-            url: sentinel-solutions-deploy.md          
-
+            url: sentinel-solutions-deploy.md  
+  # Card
+  - title: Microsoft Sentinel data lake
+    linkLists:
+      - linkListType: overview
+        links:           
+          - text: "What is Microsoft Sentinel data lake"
+            url: datalake/sentinel-lake-overview.md
+      - linkListType: deploy
+        links:
+          - text: "Onboarding to Microsoft Sentinel data lake"
+            url: datalake/sentinel-lake-onboarding.md
+          - text: "Set up connectors for the Microsoft Sentinel data lake"
+            url: datalake/sentinel-lake-connectors.md
+      - linkListType: concept
+        links:
+          - text: KQL and Microsoft Sentinel data lake
+            url: datalake/kql-overview.md
+          - text: Notebooks and Microsoft Sentinel data lake
+            url: datalake/notebooks-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Run KQL queries
+            url: datalake/kql-queries.md
+          - text: Running notebooks
+            url: datalake/notebooks.md
+  # Card
+  - title: Unified security operations
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: "What are unified security operations?"
+            url: /unified-secops-platform/overview-unified-security
+          - text: "Microsoft Defender portal overview"
+            url: /unified-secops-platform/overview-defender-portal
+          - text: "Microsoft Sentinel in the Microsoft Defender portal"
+            url: microsoft-sentinel-defender-portal.md
+      - linkListType: deploy
+        links:
+          - text: "Plan for unified security operations"
+            url: /unified-secops-platform/overview-plan
+          - text: "Deploy unified security operations"
+            url: /unified-secops-platform/overview-deploy
+      - linkListType: how-to-guide
+        links:
+          - text: Connect Microsoft Sentinel to the Microsoft Defender portal
+            url: /defender-xdr/microsoft-sentinel-onboard?toc=%2Funified-secops-platform%2Ftoc.json&bc=%2Funified-secops-platform%2Fbreadcrumb%2Ftoc.json 
+            
   # Card
   - title: Collect data
     linkLists:
@@ -105,7 +151,7 @@ landingContent:
             url: detect-threats-custom.md
 
  # Card (optional)
-  - title: Investigate
+  - title: Investigate and respond
     linkLists:
       - linkListType: concept
         links:
@@ -113,12 +159,18 @@ landingContent:
             url: incident-investigation.md
           - text: Threat hunting
             url: hunting.md
-          - text: Kusto Query Language in Microsoft Sentinel
-            url: kusto-overview.md
+          - text: Kusto Query Language overview
+            url: /kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+          - text: Automation rules
+            url: automate-incident-handling-with-automation-rules.md
+          - text: Playbooks
+            url: automate-responses-with-playbooks.md
       - linkListType: tutorial
         links:
         - text: Investigate with UEBA
           url: investigate-with-ueba.md
+        - text: Respond automatically to threats
+          url: tutorial-respond-threats-playbook.md
       - linkListType: how-to-guide
         links:
           - text: Investigate incidents
@@ -130,17 +182,4 @@ landingContent:
           - text: Conduct end-to-end threat hunting
             url: hunts.md
 
-# Card (optional)
-  - title: Respond
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Automation rules
-            url: automate-incident-handling-with-automation-rules.md
-          - text: Playbooks
-            url: automate-responses-with-playbooks.md
-      - linkListType: tutorial
-        links:
-        - text: Respond automatically to threats
-          url: tutorial-respond-threats-playbook.md
 

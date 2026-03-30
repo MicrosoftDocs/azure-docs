@@ -7,14 +7,17 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: troubleshooting
-ms.date: 04/01/2024
+ms.date: 05/22/2025
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # API Management developer portal - frequently asked questions
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 ## What if I need functionality that isn't supported in the portal?
 
@@ -57,7 +60,7 @@ After you update the domain, you need to [republish the portal](developer-portal
 
 ## I added an identity provider and I can't see it in the portal
 
-After you configure an identity provider (for example, Azure AD, Azure AD B2C), you need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
+After you configure an identity provider (for example, [Microsoft Entra ID](api-management-howto-aad.md) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam)), you need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
 
 ## I set up delegation and the portal doesn't use it
 

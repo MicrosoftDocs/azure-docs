@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 02/20/2024
+ms.date: 11/21/2025
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -41,19 +41,18 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call.
+1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call. You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID.
 
     ```csharp
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(connectionString)
-               // Load all keys that start with `TestApp:` and have no label
-               .Select("TestApp:*", LabelFilter.Null)
-               // Configure to reload configuration if the registered sentinel key is modified
-               .ConfigureRefresh(refreshOptions =>
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+                // Load all keys that start with `TestApp:` and have no label
+                .Select("TestApp:*", LabelFilter.Null)
+                // Configure to reload configuration if the registered sentinel key is modified
+                .ConfigureRefresh(refreshOptions =>
                     refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
-        
         // Load all feature flags with no label
         options.UseFeatureFlags();
     });

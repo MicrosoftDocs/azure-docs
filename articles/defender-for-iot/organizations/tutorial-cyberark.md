@@ -3,7 +3,9 @@ title: Integrate CyberArk with Microsoft Defender for IoT
 description: In this tutorial, you learn how to integrate Microsoft Defender for IoT with CyberArk.
 ms.topic: tutorial
 ms.date: 10/14/2024
-ms.custom: how-to
+ms.custom:
+  - how-to
+  - sfi-image-nochange
 ---
 
 # Integrate CyberArk with Microsoft Defender for IoT
@@ -44,7 +46,7 @@ Before you begin, make sure that you have the following prerequisites:
 
 - Verify that you have [CLI](references-work-with-defender-for-iot-cli-commands.md) access to all Defender for IoT appliances in your enterprise.
 
-- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -77,11 +79,11 @@ CyberArk must be configured to allow communication with Defender for IoT. This c
 
 ## Enable the integration in Defender for IoT
 
-In order to enable the integration, Syslog Server needs to be enabled in the Defender for IoT on-premises management console. By default, the Syslog Server listens to the IP address of the system using port 514 UDP.
+In order to enable the integration, Syslog Server needs to be enabled in the OT sensor. By default, the Syslog Server listens to the IP address of the system using port 514 UDP.
 
 **To configure Defender for IoT**:
 
-1. Sign into your Defender for IoT on-premises management console, then navigate to **System Settings**.
+1. Sign into your OT sensor, then navigate to **System Settings**.
 
 1. Toggle the Syslog Server to **On**.
 
@@ -101,7 +103,7 @@ Whenever the Defender for IoT platform identifies remote sessions that haven't b
 
 **To view alerts**:
 
-1. Sign into your on-premises management console, then select **Alerts**.
+1. Sign into your OT sensor, then select **Alerts**.
 
 1. From the list of alerts, select the alert titled **Unauthorized Remote Session**.
 
@@ -131,7 +133,7 @@ At any point in time, you can stop the integration from communicating.
 
 **To stop the integration**:
 
-1. In the Defender for IoT on-premises management console, navigate to **System Settings**.
+1. In the OT sensor, navigate to **System Settings**.
 
 1. Toggle the Syslog Server option to **Off** .
 

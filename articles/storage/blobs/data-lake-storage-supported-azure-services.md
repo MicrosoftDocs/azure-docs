@@ -5,9 +5,10 @@ description: Learn about which Azure services integrate with Azure Data Lake Sto
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/09/2023
 ms.author: normesta
+# Customer intent: "As a data engineer, I want to understand how different Azure services integrate with Azure Data Lake Storage, so that I can efficiently use these services for data ingestion, analytics, and visualization in my data pipeline."
 ---
 
 # Azure services that support Azure Data Lake Storage

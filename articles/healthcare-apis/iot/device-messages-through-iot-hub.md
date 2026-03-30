@@ -6,12 +6,16 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: tutorial
-ms.date: 07/27/2023
-ms.custom: devx-track-arm-template
+ms.date: 08/18/2025
 ms.author: chrupa
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Tutorial: Receive device messages through Azure IoT Hub
+
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 The MedTech service can receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template also deploys an IoT hub to create and manage devices, and message routes device messages to an event hub for the MedTech service to read and process. After device data processing, the FHIR&reg; resources are persisted in the FHIR service, which is also included in the template.
 
@@ -244,7 +248,7 @@ If you provided your own Microsoft Entra user object ID as the optional value fo
 * BodyTemperature
 * BloodPressure
 
-To learn how to get a Microsoft Entra access token and view FHIR resources in your FHIR service, see [Access by using Postman](../fhir/use-postman.md). You need to use the following values in your Postman `GET` request to view the FHIR Observation resources created by the test message: `{{fhirurl}}/Observation`
+To learn how to get a Microsoft Entra access token and view FHIR resources in your FHIR service, see [Access by using REST Client](../fhir/using-rest-client.md). You need to use the following values `GET` request to view the FHIR Observation resources created by the test message: `{{fhirurl}}/Observation`
 
 ## Next steps
 

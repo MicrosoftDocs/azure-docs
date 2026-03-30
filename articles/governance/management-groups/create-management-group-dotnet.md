@@ -20,7 +20,7 @@ directory. You receive a notification when the process is complete. For more inf
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
+- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
   account before you begin.
 
 - An Azure service principal, including the _clientId_ and _clientSecret_. If you don't have a

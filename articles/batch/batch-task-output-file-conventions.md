@@ -2,9 +2,10 @@
 title: Persist output data to Azure Storage with .NET File Conventions library
 description: Learn how to persist Azure Batch task and job output to Azure Storage using the Batch File Conventions library for .NET to persist Batch task & job output to Azure Storage.
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.date: 04/02/2025
 ms.devlang: csharp
 ms.custom: H1Hack27Feb2017, devx-track-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to use the Batch File Conventions library to persist task and job output data to Azure Storage, so that I can manage and retrieve output files efficiently without needing to know their exact names or locations."
 ---
 # Persist job and task data to Azure Storage with the Batch File Conventions library for .NET
 
@@ -30,7 +31,7 @@ For other scenarios, you might want to consider a different approach. For more i
 
 ## What is the Batch File Conventions standard?
 
-The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files) provides a naming scheme for the destination containers and blob paths to which your output files are written. Files persisted to Azure storage that follow the standard are [automatically viewable in the Azure portal](#view-output-files-in-the-azure-portal). 
+The [Batch File Conventions standard](/dotnet/api/microsoft.azure.batch.conventions.files) provides a naming scheme for the destination containers and blob paths to which your output files are written. Files persisted to Azure storage that follow the standard are [automatically viewable in the Azure portal](#view-output-files-in-the-azure-portal). 
 
 The File Conventions library for .NET automatically names your storage containers and task output files according to the standard. The library also provides methods to query output files in Azure Storage. You can query by job ID, task ID, or purpose.
 
@@ -175,14 +176,14 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## View output files in the Azure portal
 
-If your task output files use the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files), you can view the files in the Azure portal. 
+If your task output files use the [Batch File Conventions standard](/dotnet/api/microsoft.azure.batch.conventions.files), you can view the files in the Azure portal. 
 
 To enable the display of your output files in the portal, you must satisfy the following requirements:
 
 For output files to automatically display in the Azure portal, you must:
 
 1. [Link an Azure Storage account to your Batch account](#link-an-azure-storage-account).
-1. Follow the predefined naming conventions for Azure Storage containers and files. Review the [README](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md) for all definitions. If you use the [File Conventions library](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files) to persist your output, your files are persisted according to the File Conventions standard.
+1. Follow the predefined naming conventions for Azure Storage containers and files. If you use the [File Conventions library](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files) to persist your output, your files are persisted according to the File Conventions standard.
 
 To view task output files and logs in the Azure portal:
 
@@ -209,7 +210,7 @@ The [PersistOutputs](https://github.com/Azure/azure-batch-samples/tree/master/CS
 
 The Batch File Conventions library for .NET is available on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). The library extends the [CloudJob](/dotnet/api/microsoft.azure.batch.cloudjob) and [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) classes with new methods. For more information, see the [File Conventions library reference documentation](/dotnet/api/microsoft.azure.batch.conventions.files).
 
-The [File Conventions library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files) is available on GitHub. 
+The [File Conventions library source code](/dotnet/api/microsoft.azure.batch.conventions.files) is available on GitHub. 
 
 ### Next steps
 

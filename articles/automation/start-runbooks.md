@@ -3,10 +3,12 @@ title: Start a runbook in Azure Automation
 description: This article tells how to start a runbook in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 11/17/2025
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 # Start a runbook in Azure Automation
 
@@ -16,7 +18,7 @@ The following table helps you determine the method to start a runbook in Azure A
 | --- | --- |
 | [Azure portal](#start-a-runbook-with-the-azure-portal) |<li>Simplest method with interactive user interface.<br> <li>Form to provide simple parameter values.<br> <li>Easily track job state.<br> <li>Access authenticated with Azure sign in. |
 | [Windows PowerShell](/powershell/module/az.automation/start-azautomationrunbook) |<li>Call from command line with Windows PowerShell cmdlets.<br> <li>Can be included in automated feature with multiple steps.<br> <li>Request is authenticated with certificate or OAuth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.<br> <li>Client required to support PowerShell cmdlets. |
-| [Azure Automation API](/rest/api/automation/) |<li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or Oauth user principal / service principal.<br> <li>Provide simple and complex parameter values. *If you're calling a Python runbook using the API, the JSON payload must be serialized.*<br> <li>Track job state. |
+| [Azure Automation API](/rest/api/automation/) |<li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or OAuth user principal / service principal.<br> <li>Provide simple and complex parameter values. *If you're calling a Python runbook using the API, the JSON payload must be serialized.*<br> <li>Track job state. |
 | [Webhooks](automation-webhooks.md) |<li>Start runbook from single HTTP request.<br> <li>Authenticated with security token in URL.<br> <li>Client can't override parameter values specified when webhook created. Runbook can define single parameter that is populated with the HTTP request details.<br> <li>No ability to track job state through webhook URL. |
 | [Respond to Azure Alert](/azure/azure-monitor/alerts/alerts-overview) |<li>Start a runbook in response to Azure alert.<br> <li>Configure webhook for runbook and link to alert.<br> <li>Authenticated with security token in URL. |
 | [Schedule](./shared-resources/schedules.md) |<li>Automatically start runbook on hourly, daily, weekly, or monthly schedule.<br> <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule. |

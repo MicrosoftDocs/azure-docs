@@ -23,7 +23,7 @@ Before you begin, make sure that:
 
 1. You have created a namespace and a user. You have also granted user the access to this namespace. You have the kubeconfig file of this namespace installed on the client system that you'll use to access your device. For detailed instructions, see [Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-kubernetes-cluster.md#configure-cluster-access-via-kubernetes-rbac). 
 
-1. Save the following deployment `yaml` on your local system. You'll use this file to run Kubernetes deployment. This deployment is based on [Simple CUDA containers](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#running-simple-containers) that are publicly available from Nvidia. 
+1. Save the following deployment `yaml` on your local system. You'll use this file to run Kubernetes deployment. This deployment is based on [Simple CUDA containers](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#running-simple-containers) that are publicly available from NVIDIA. 
 
     ```yml
     apiVersion: batch/v1
@@ -81,7 +81,7 @@ The first step is to verify that your device is running required GPU driver and 
     Get-HcsGpuNvidiaSmi
     ```
 
-1. In the Nvidia smi output, make a note of the GPU version and the CUDA version on your device. If you are running Azure Stack Edge 2102 software, this version would correspond to the following driver versions:
+1. In the NVIDIA smi output, make a note of the GPU version and the CUDA version on your device. If you are running Azure Stack Edge 2102 software, this version would correspond to the following driver versions:
 
     - GPU driver version: 460.32.03
     - CUDA version: 11.2
@@ -115,7 +115,7 @@ The first step is to verify that your device is running required GPU driver and 
     [10.100.10.10]: PS> 
     ```
 
-1. Keep this session open as you will use it to view the Nvidia smi output throughout the article.
+1. Keep this session open as you will use it to view the NVIDIA smi output throughout the article.
 
 
 
@@ -248,7 +248,7 @@ You'll run the first job to deploy an application on your device in the namespac
     ```
     The output indicates that both the pods were successfully created by the job. 
 
-1. While both the containers are running the n-body simulation, view the GPU utilization from the Nvidia smi output. Go to the PowerShell interface of the device and run `Get-HcsGpuNvidiaSmi`.
+1. While both the containers are running the n-body simulation, view the GPU utilization from the NVIDIA smi output. Go to the PowerShell interface of the device and run `Get-HcsGpuNvidiaSmi`.
 
     Here is an example output when both the containers are running the n-body simulation:
 
@@ -342,7 +342,7 @@ You'll run the first job to deploy an application on your device in the namespac
     = 1969.517 single-precision GFLOP/s at 20 flops per interaction
     PS C:\WINDOWS\system32>    
     ```
-1. There should be no processes running on the GPU at this time. You can verify this by viewing the GPU utilization using the Nvidia smi output.
+1. There should be no processes running on the GPU at this time. You can verify this by viewing the GPU utilization using the NVIDIA smi output.
 
     ```powershell
     [10.100.10.10]: PS>Get-HcsGpuNvidiaSmi
@@ -473,7 +473,7 @@ You'll run the second job to deploy the n-body simulation on two CUDA containers
     PS C:\WINDOWS\system32>
     ```
 
-1. While the simulation is running, you can view the Nvidia smi output. The output shows processes corresponding to the cuda containers (M + C type) with n-body simulation and the MPS service (C type) as running. All these processes share GPU 0.
+1. While the simulation is running, you can view the NVIDIA smi output. The output shows processes corresponding to the cuda containers (M + C type) with n-body simulation and the MPS service (C type) as running. All these processes share GPU 0.
 
     ```powershell
     PS>Get-HcsGpuNvidiaSmi
@@ -540,7 +540,7 @@ You'll run the second job to deploy the n-body simulation on two CUDA containers
         = 2164.987 single-precision GFLOP/s at 20 flops per interaction
         PS C:\WINDOWS\system32>
     ```
-1. After the simulation is complete, you can view the Nvidia smi output again. Only the nvidia-cuda-mps-server process for the MPS service shows as running. 
+1. After the simulation is complete, you can view the NVIDIA smi output again. Only the nvidia-cuda-mps-server process for the MPS service shows as running. 
 
     ```powershell
     PS>Get-HcsGpuNvidiaSmi

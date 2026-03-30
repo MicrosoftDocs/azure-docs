@@ -3,8 +3,11 @@ title: Uninstall VMware HCX in Azure VMware Solution
 description: Uninstall VMware HCX in Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
-ms.custom: engagement-fy23
-ms.date: 12/20/2023
+ms.date: 02/26/2025
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to uninstall VMware HCX from Azure VMware Solution, so that I can clean up resources and ensure proper network functionality after migration tasks are completed."
 ---
 
 
@@ -17,7 +20,7 @@ Generally, the workflow cleans up from the HCX on-premises side first, then clea
 - Make sure you don't have any active migrations in progress. 
 - Ensure that L2 extensions are no longer needed or the networks are `unstretched` to the destination.  
 - For workloads using MON, ensure that you removed the default gateways. Otherwise, it can result in workloads not being able to communicate or function. 
-- [Uninstall HCX deployment from Connector on-premises](https://docs.vmware.com/en/VMware-HCX/4.7/hcx-user-guide/GUID-28172DB0-93C6-4A7A-B5A9-51C8325B02DC.html).  
+- [Uninstall HCX deployment from Connector on-premises](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/removing-hcx/uninstalling-vmware-hcx.html).  
  
 ## Uninstall HCX
  

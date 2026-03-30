@@ -1,14 +1,19 @@
 ---
 title: Tutorial - Provision devices using a symmetric key enrollment group in DPS
 description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance.
-author: kgremban
+author: cwatson-cat
 
-ms.author: kgremban
-ms.date: 03/12/2024
+ms.author: cwatson
+ms.date: 08/07/2025
 ms.topic: tutorial
-ms.service: iot-dps
-ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
+ms.service: azure-iot-hub
 zone_pivot_groups: iot-dps-set1
+ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - devx-track-extended-java
+  - devx-track-python
+  - devx-track-js
+  - sfi-image-nochange
 ---
 
 # Tutorial: Provision devices using symmetric key enrollment groups
@@ -40,11 +45,11 @@ In this tutorial, you complete the following objectives:
 This tutorial is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
 >[!NOTE]
-> If you've previously completed [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md) and still have your Azure resources and development environment set up, you can proceed to [Create a symmetric key enrollment group](#create-a-symmetric-key-enrollment-group) in this tutorial.
+> If you previously completed [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md) and still have your Azure resources and development environment set up, you can proceed to [Create a symmetric key enrollment group](#create-a-symmetric-key-enrollment-group) in this tutorial.
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 ::: zone pivot="programming-language-ansi-c"
@@ -54,7 +59,7 @@ This tutorial is oriented toward a Windows-based workstation. However, you can p
 * Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
 
     >[!IMPORTANT]
-    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
 
 ::: zone-end
 
@@ -88,7 +93,7 @@ This tutorial is oriented toward a Windows-based workstation. However, you can p
 
 ::: zone-end
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+* Install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/downloads) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 ## Prepare your development environment
 
@@ -124,7 +129,7 @@ In this section, you prepare a development environment to build the [Azure IoT D
     ```
 
     >[!TIP]
-    >If `cmake` does not find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+    >If `cmake` doesn't find your C++ compiler, you might get build errors while running the previous command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 1. When the build completes successfully, the last few output lines look similar to the following output:
 
@@ -227,7 +232,7 @@ Create unique registration IDs for each device. The registration ID is a case-in
 To generate device keys, use the enrollment group primary key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the registration ID for each device. The result is then converted into Base 64 format for each device.
 
 > [!WARNING]
-> Your device code for each device should only include the derived device key for that device. Do not include your group primary key in your device code. 
+> Your device code for each device should only include the derived device key for that device. Don't include your group primary key in your device code. 
 > A compromised group key has the potential to compromise the security of all devices being authenticated with it.
 
 # [Azure CLI](#tab/azure-cli)
@@ -331,7 +336,7 @@ To update and run the provisioning sample with your device information:
     ```
 
     >[!TIP]
-    >If the file was not generated in your cmake directory, make sure you used a recent version of the CMake build system.
+    >If the file wasn't generated in your cmake directory, make sure you used a recent version of the CMake build system.
 
 4. In Visual Studio's *Solution Explorer* window, go to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
@@ -341,7 +346,7 @@ To update and run the provisioning sample with your device information:
     static const char* id_scope = "0ne00002193";
     ```
 
-6. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown below:
+6. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown in the following example:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -365,7 +370,7 @@ To update and run the provisioning sample with your device information:
     ```
 
     > [!CAUTION]
-    > Be aware that this step leaves the derived device key included as part of the image for each device, which isn't a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
+    > This step leaves the derived device key included as part of the image for each device, which isn't a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
 
 8. Save the file.
 
@@ -500,7 +505,7 @@ To update and run the provisioning sample with your device information:
     provisioningClient.setProvisioningPayload({a: 'b'});
     ```
 
-    You may comment out this code, as it's not needed with for this tutorial. You can use a custom payload when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
+    You can comment out this code, as it's unnecessary for this tutorial. You can use a custom payload when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
 
     The `provisioningClient.register()` method attempts the registration of your device.
 
@@ -690,7 +695,7 @@ To update and run the provisioning sample with your device information:
     ```
 
     > [!CAUTION]
-    > Be aware that this step leaves the derived device key included as part of the image for each device, which isn't a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
+    > This step leaves the derived device key included as part of the image for each device, which isn't a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
 
 5. Open a command prompt for building. Go to the provisioning sample project folder of the Java SDK repository.
 
@@ -744,11 +749,11 @@ To update and run the provisioning sample with your device information:
     2022-10-07 18:14:59,395 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
     2022-10-07 18:14:59,404 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
     Sending message from device to IoT Hub...
-    2022-10-07 18:14:59,408 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
+    2022-10-07 18:14:59,408 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
     Press any key to exit...
-    2022-10-07 18:14:59,409 DEBUG (contoso-hub-2.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
-    2022-10-07 18:14:59,777 DEBUG (MQTT Call: sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
-    2022-10-07 18:14:59,779 DEBUG (contoso-hub-2.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] ) with status OK
+    2022-10-07 18:14:59,409 DEBUG (contoso-hub-2.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
+    2022-10-07 18:14:59,777 DEBUG (MQTT Call: sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
+    2022-10-07 18:14:59,779 DEBUG (contoso-hub-2.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] ) with status OK
     Message received! Response status: OK
     ```
 

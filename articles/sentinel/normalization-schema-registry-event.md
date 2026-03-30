@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Registry Event normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Registry Event normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel Registry Event normalization schema.
 author: oshezaf
 ms.topic: reference
@@ -11,19 +11,13 @@ ms.author: ofshezaf
 
 ---
 
-# The Advanced Security Information Model (ASIM) Registry Event normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Registry Event normalization schema reference
 
 The Registry Event schema is used to describe the Windows activity of creating, modifying, or deleting Windows Registry entities.
 
 Registry events are specific to Windows systems, but are reported by different systems that monitor Windows, such as EDR (End Point Detection and Response) systems, Sysmon, or Windows itself.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The Registry Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Parsers
 
@@ -40,6 +34,29 @@ For more information, see [ASIM parsers](normalization-parsers-overview.md) and 
 When implementing custom parsers for the Registry Event information model, name your KQL functions using the following syntax: `imRegistry<vendor><Product>`.
 
 Add your KQL functions to the `imRegistry` unifying parsers to ensure that any content using the Registry Event model also uses your new parser.
+
+### Filtering parser parameters
+
+The Registry Event parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parameters are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only registry events that occurred at or after this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **endtime** | datetime | Filter only registry events that occurred at or before this time. This parameter filters on the `TimeGenerated` field, which is the standard designator for the time of the event, regardless of the parser-specific mapping of the EventStartTime and EventEndTime fields. |
+| **eventtype_in** | dynamic | Filter only registry events where the event type is one of the values listed, including: `RegistryKeyCreated`, `RegistryKeyDeleted`, `RegistryKeyRenamed`, `RegistryValueDeleted`, or `RegistryValueSet`. |
+| **actorusername_has_any** | dynamic | Filter only registry events where the actor username has any of the listed values. |
+| **registrykey_has_any** | dynamic | Filter only registry events where the registry key has any of the listed values. |
+| **registryvalue_has_any** | dynamic | Filter only registry events where the registry value has any of the listed values. |
+| **registrydata_has_any** | dynamic | Filter only registry events where the registry data has any of the listed values. |
+| **dvchostname_has_any** | dynamic | Filter only registry events where the device hostname has any of the listed values. |
+
+For example, to filter only registry key creation events from the last day, use:
+
+```kusto
+_Im_RegistryEvent (eventtype_in=dynamic(['RegistryKeyCreated']), starttime = ago(1d), endtime=now())
+```
 
 ## Normalized content
 
@@ -65,14 +82,9 @@ The following list mentions  fields that have specific guidelines for process ac
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Registry records, supported values include: <br>- `RegistryKeyCreated` <br>- `RegistryKeyDeleted`<br>- `RegistryKeyRenamed` <br>- `RegistryValueDeleted` <br>- `RegistryValueSet`|
-| **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1.2`         |
-| **EventSchema** | Optional | String | The name of the schema documented here is `RegistryEvent`. |
+| **EventSchemaVersion**  | Mandatory   | SchemaVersion (String) |    The version of the schema. The version of the schema documented here is `0.1.3`         |
+| **EventSchema** | Mandatory | String | The name of the schema documented here is `RegistryEvent`. |
 | **Dvc** fields|        |      | For registry activity events, device fields refer to the system on which the registry activity occurred. |
-
-
-> [!IMPORTANT]
-> The `EventSchema` field is currently optional but will become Mandatory on September 1st 2022.
->
 
 #### All common fields
 
@@ -105,20 +117,39 @@ For more information, see [Structure of the Registry](/windows/win32/sysinfo/str
 |**RegistryPreviousValueData**     | Recommended        |   String      |The original registry data, for operations that modify the registry. <br><br>Example:  `C:\Windows\system32;C:\Windows;`         |
 |**User** | Alias | |Alias to the [ActorUsername](#actorusername) field. <br><br>Example: `CONTOSO\ dadmin` |
 |**Process**     |  Alias       |         |  Alias to the [ActingProcessName](#actingprocessname) field.<br><br>Example: `C:\Windows\System32\rundll32.exe`       |
-| <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
-| **ActorUsernameType**              | Conditional    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `Windows`       |
-| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
-| **ActorScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
-| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `SID`         |
-| **ActorSessionId** | Conditional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. If you are using a Windows machine and the source sends a different type, make sure to convert the value. For example, if source sends a hexadecimal value, convert it to a decimal value.   |
+| <a name="actorusername"></a>**ActorUsername**  | Mandatory    | Username (String)     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
+| **ActorUsernameType**              | Conditional    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization-entity-user.md). <br><br>Example: `Windows`       |
+| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-entity-user.md).  <br><br>Example: `S-1-5-18`    |
+| **ActorScope** | Optional | String | The scope, such as Microsoft Entra tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-entity-user.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **ActorUserIdType**| Conditional  | Enumerated     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-entity-user.md). <br><br>Example: `SID`         |
+| **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. If you are using a Windows machine and the source sends a different type, make sure to convert the value. For example, if source sends a hexadecimal value, convert it to a decimal value.   |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The file name of the acting process image file. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
 | **ActingProcessId**| Mandatory    | String        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
-| **ActingProcessGuid**              | Optional     | String     |  A generated unique identifier (GUID) of the acting process.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
+| **ActingProcessGuid**              | Optional     | GUID (String)     |  A generated unique identifier (GUID) of the acting process.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ParentProcessName**              | Optional     | String     |  The file name of the parent process image file. This value is typically considered to be the process name.    <br><br>Example: `C:\Windows\explorer.exe` |
 | **ParentProcessId**| Mandatory    | String    | The process ID (PID) of the parent process.   <br><br>     Example:  `48610176`    |
 | **ParentProcessGuid**              | Optional     | String     |  A generated unique identifier (GUID) of the parent process.     <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 
+### <a name="inspection-fields"></a>Inspection fields
 
+The following fields are used to represent that inspection performed by a security system such an EDR system.
+
+| Field | Class | Type | Description |
+| --- | --- | --- | --- |
+| <a name="rulename"></a>**RuleName** | Optional | String | The name or ID of the rule by associated with the inspection results. |
+| <a name="rulenumber"></a>**RuleNumber** | Optional | Integer | The number of the rule associated with the inspection results. |
+| **Rule** | Conditional | String | Either the value of [kRuleName](#rulename) or the value of [RuleNumber](#rulenumber). If the value of [RuleNumber](#rulenumber) is used, the type should be converted to string. |
+| **ThreatId** | Optional | String | The ID of the threat or malware identified in the file activity. |
+| **ThreatName** | Optional | String | The name of the threat or malware identified in the file activity.<br><br>Example: `EICAR Test File` |
+| **ThreatCategory** | Optional | String | The category of the threat or malware identified in the file activity.<br><br>Example: `Trojan` |
+| **ThreatRiskLevel** | Optional | RiskLevel (Integer) | The risk level associated with the identified threat. The level should be a number between **0** and **100**.<br><br>**Note**: The value might be provided in the source record by using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatOriginalRiskLevel](#threatoriginalrisklevel). |
+| <a name="threatoriginalrisklevel"></a>**ThreatOriginalRiskLevel** | Optional | String | The risk level as reported by the reporting device. |
+| <a name="threatfield"></a>**ThreatField** | Optional | String | The field for which a threat was identified. |
+| **ThreatConfidence** | Optional | ConfidenceLevel (Integer) | The confidence level of the threat identified, normalized to a value between 0 and a 100.| 
+| **ThreatOriginalConfidence** | Optional | String |  The original confidence level of the threat identified, as reported by the reporting device.| 
+| **ThreatIsActive** | Optional | Boolean | True if the threat identified is considered an active threat. | 
+| **ThreatFirstReportedTime** | Optional | datetime | The first time the IP address or domain were identified as a threat.  | 
+| **ThreatLastReportedTime** | Optional | datetime | The last time the IP address or domain were identified as a threat.| 
 
 ### Root keys
 
@@ -152,15 +183,17 @@ These are the changes in version 0.1.1 of the schema:
 - Added the field `EventSchema`.
 
 These are the changes in version 0.1.2 of the schema:
-- Added the fields `ActorScope`, `DvcScopeId`, and `DvcScope`..
+- Added the fields `ActorScope`, `DvcScopeId`, and `DvcScope`.
 
+These are the changes in version 0.1.3 of the schema:
+- Added inspection fields.
 
 ## Next steps
 
 For more information, see:
 
 - [Normalization in Microsoft Sentinel](normalization.md)
-- [Microsoft Sentinel authentication normalization schema reference (Public preview)](normalization-schema-authentication.md)
+- [Microsoft Sentinel authentication normalization schema reference](normalization-schema-authentication.md)
 - [Microsoft Sentinel DNS normalization schema reference](normalization-schema-dns.md)
-- [Microsoft Sentinel file event normalization schema reference (Public preview)](normalization-schema-file-event.md)
+- [Microsoft Sentinel file event normalization schema reference](normalization-schema-file-event.md)
 - [Microsoft Sentinel network normalization schema reference](./normalization-schema-network.md)

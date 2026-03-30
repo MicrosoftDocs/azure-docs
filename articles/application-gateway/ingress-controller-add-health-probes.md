@@ -2,16 +2,20 @@
 title: Add health probes to your AKS pods
 description: This article provides information on how to add readiness or liveness health probes to AKS pods by using Application Gateway. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 9/17/2024
-ms.author: greglin
+ms.date: 02/28/2025
+ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to add readiness and liveness health probes to my AKS pods, so that I can ensure they are properly monitored for availability and performance within my application deployment.
 ---
 
 # Add health probes to your AKS pods
 
 By default, the Application Gateway Ingress Controller (AGIC) provisions an HTTP `GET` probe for exposed Azure Kubernetes Service (AKS) pods. You can customize the probe properties by adding a [readiness or liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) to your deployment or pod specification.
+
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Custom health probe for Application Gateway for Containers](for-containers/custom-health-probe.md).
 
 ## Code for adding a readiness or liveness probe
 
@@ -68,4 +72,5 @@ Any property that the readiness or liveness probe can't infer uses the following
 
 ## Related content
 
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)
+- [Application Gateway for Containers - Custom Health Probe](for-containers/custom-health-probe.md)

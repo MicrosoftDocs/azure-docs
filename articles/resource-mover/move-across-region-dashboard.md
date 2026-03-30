@@ -2,12 +2,13 @@
 title: Move across region dashboard
 description: Monitor your resources moving across regions using Move across region dashboard.
 author: Aarthi-Vijayaraghavan
-manager: sutalasi
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 09/26/2025
 ms.custom: engagement-fy23
 ms.author: AarthiV
+ms.reviewer: v-jasmineme
+# Customer intent: "As a cloud administrator, I want to monitor the status of resource migrations across regions using a centralized dashboard, so that I can quickly identify issues and ensure a smooth transition of resources."
 ---
 # Move across region dashboard
 

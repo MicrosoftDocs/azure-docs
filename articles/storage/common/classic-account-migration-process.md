@@ -6,11 +6,12 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/28/2023
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
+# Customer intent: "As an IT administrator managing classic storage accounts, I want to migrate them to the Azure Resource Manager model, so that I can take advantage of improved management tools and ensure compliance with the upcoming migration deadline."
 ---
 
 # Understand storage account migration from the classic deployment model to Azure Resource Manager

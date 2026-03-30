@@ -1,17 +1,19 @@
 ---
 title: Get fine-tuning recommendations for your analytics rules in Microsoft Sentinel
 description: Learn how to fine-tune your threat detection rules in Microsoft Sentinel, using automatically generated recommendations, to reduce false positives while maintaining threat detection coverage.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 11/09/2021
-
 
 #Customer intent: As a security analyst, I want to receive fine-tuning recommendations for my Microsoft Sentinel analytics rules so that I can optimize threat detection and reduce false positives.
 
 ---
 
 # Get fine-tuning recommendations for your analytics rules in Microsoft Sentinel
+
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
 
 > [!IMPORTANT]
 >

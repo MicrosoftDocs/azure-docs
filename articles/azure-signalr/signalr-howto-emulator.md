@@ -6,6 +6,7 @@ ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 12/20/2023
 ms.author: lianwei 
+ms.custom: sfi-image-nochange
 ---
 
 # Use Azure SignalR Local Emulator for serverless development
@@ -17,9 +18,13 @@ When developing serverless applications, we provide an Azure SignalR Local Emula
 * Latest Rest API support
 * Upstream
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Walkthrough
 
 We use [this serverless sample](https://github.com/Azure/azure-functions-signalrservice-extension/tree/3e87c3ce277265866ca9d0bf51bb9c7ecea39e14/samples/bidirectional-chat) to show how to use the emulator.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 1. Clone the sample repo to local
     ```
@@ -37,7 +42,7 @@ We use [this serverless sample](https://github.com/Azure/azure-functions-signalr
     dotnet tool update -g Microsoft.Azure.SignalR.Emulator
     ```
 
-3. Run the emulator `asrs-emulator` to list all the available commands
+3. Run the emulator `asrs-emulator` to list all available commands
 
     :::image type="content" source="./media/signalr-howto-emulator/emulator-command-list.png" alt-text="Screenshot of the available commands for the emulator.":::
 
@@ -69,9 +74,7 @@ We use [this serverless sample](https://github.com/Azure/azure-functions-signalr
     asrs-emulator start
     ```
 
-    After the emulator is successfully started, it generates the ConnectionString to be used later, for example, the ConnectionString is `Endpoint=http://localhost;Port=8888;AccessKey=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGH;Version=1.0;` as the below screenshot shows.
-    
-    :::image type="content" source="./media/signalr-howto-emulator/emulator-command-running.png" alt-text="Screenshot of the emulator command is running.":::
+    After the emulator is successfully started, it generates the ConnectionString to be used later.
 
     The emulator also provides advanced options when start, for example, you can use `asrs-emulator start -p 8999` to customize the port the emulator used. Type `asrs-emulator start --help` to check the options available.
 
@@ -79,7 +82,7 @@ We use [this serverless sample](https://github.com/Azure/azure-functions-signalr
 
     :::image type="content" source="./media/signalr-howto-emulator/local-function.png" alt-text="Screenshot of the local serverless function is running.":::
 
-7. In the browser, navigate to `http://localhost:7071/api/index` to play with the demo.
+7. In your browser, navigate to `http://localhost:7071/api/index` to test the demo.
 
     :::image type="content" source="./media/signalr-howto-emulator/local-chat.png" alt-text="Screenshot of the serverless chat demo is running.":::
 
@@ -92,3 +95,4 @@ In this article, you learn how to use SignalR Service in your applications. Chec
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a chat room by using SignalR Service](./signalr-quickstart-dotnet-core.md)
+

@@ -37,15 +37,17 @@ Before acquiring a Microsoft Entra token, you must identify what user you want t
 
 ### Audience
 
-Request the Microsoft Entra token with a proper audience. For Azure App Configuration use the following audience. The audience can also be referred to as the *resource* that the token is being requested for.
+Request the Microsoft Entra token with a proper audience. The audience can also be referred to as the *resource* that the token is being requested for.
 
-`https://azconfig.io`
+For details on which audience to use for which cloud, refer to the [audience section of the  Entra ID access overview](./concept-enable-rbac.md#app-configuration-audience).
 
 <a name='azure-ad-authority'></a>
 
 ### Microsoft Entra authority
 
-The Microsoft Entra authority is the endpoint you use for acquiring a Microsoft Entra token. It's in the form of `https://login.microsoftonline.com/{tenantId}`. The `{tenantId}` segment refers to the Microsoft Entra tenant ID to which the user or application who is trying to authenticate belongs.
+The Microsoft Entra authority is the endpoint you use for acquiring a Microsoft Entra token. For the global Azure cloud, it's in the form of `https://login.microsoftonline.com/{tenantId}`. The `{tenantId}` segment refers to the Microsoft Entra tenant ID to which the user or application who is trying to authenticate belongs.
+
+Azure national clouds have different Microsoft Entra authentication endpoints. See [Microsoft Entra authentication endpoints](/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) for which endpoints to use in the national clouds. 
 
 ### Authentication libraries
 

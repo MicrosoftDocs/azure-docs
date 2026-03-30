@@ -2,11 +2,11 @@
 title: 'Copy and paste to and from a Windows virtual machine: Azure'
 titleSuffix: Azure Bastion
 description: Learn how copy and paste to and from a Windows VM using Bastion.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/04/2024
-ms.author: cherylmc
+ms.author: abell
 # Customer intent: I want to copy and paste to and from VMs using Azure Bastion.
 
 ---
@@ -19,7 +19,7 @@ This article helps you copy and paste text to and from virtual machines when usi
 
 Before you proceed, make sure you have the following items.
 
-* A virtual network with [Azure Bastion](./tutorial-create-host-portal.md) deployed.
+* A virtual network with [Azure Bastion](./quickstart-host-portal.md) deployed.
 * A Windows virtual machine deployed to your virtual network.
 
 ## <a name="configure"></a> Configure the bastion host

@@ -5,8 +5,8 @@ description: Learn how to secure user access to an API in Azure API Management w
 services: api-management
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 04/27/2022
+ms.topic: how-to
+ms.date: 09/30/2025
 ms.author: danlep
 ---
 
@@ -14,13 +14,13 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-In this article, you'll learn high level steps to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Microsoft Entra ID](../active-directory/develop/active-directory-v2-protocols.md).
+In this article, you learn high level steps to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Microsoft Entra ID](../active-directory/develop/active-directory-v2-protocols.md).
 
 For a conceptual overview of API authorization, see [Authentication and authorization to APIs in API Management](authentication-authorization-overview.md). 
 
 ## Prerequisites
 
-Prior to following the steps in this article, you must have:
+Before following the steps in this article, you must have:
 
 - An API Management instance
 - A published API using the API Management instance
@@ -30,13 +30,13 @@ Prior to following the steps in this article, you must have:
 
 Follow these steps to protect an API in API Management, using OAuth 2.0 authorization with Microsoft Entra ID.
 
-1. Register an application (called *backend-app* in this article) in Microsoft Entra ID to protect access to the API. 
+1. Register an application (called *backend-app* in this article) in Microsoft Entra ID. 
 
-    To access the API, users or applications will acquire and present a valid OAuth token granting access to this app with each API request.
+    To access the API, users or applications must acquire and present a valid OAuth token granting access to this application with each API request.
 
-1. Configure the [validate-jwt](validate-jwt-policy.md) policy in API Management to validate the OAuth token presented in each incoming API request. Valid requests can be passed to the API.
+1. Configure the [validate-jwt](validate-jwt-policy.md) policy in API Management. This policy validates the OAuth token presented in each incoming API request. Valid requests can be passed to the API.
 
-Details about OAuth authorization flows and how to generate the required OAuth tokens are beyond the scope of this article. Typically, a separate client app is used to acquire tokens from Microsoft Entra ID that authorize access to the API. For links to more information, see the [Next steps](#next-steps).
+Details about OAuth authorization flows and how to generate the required OAuth tokens are beyond the scope of this article. Typically, a separate client app is used to acquire tokens from Microsoft Entra ID that authorize access to the API. For links to more information, see the [related content](#related-content) section.
 
 <a name='register-an-application-in-azure-ad-to-represent-the-api'></a>
 
@@ -52,7 +52,7 @@ For details about app registration, see [Quickstart: Configure an application to
 
 1. When the **Register an application page** appears, enter your application's registration information:
 
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, such as *backend-app*. 
+   - In the **Name** section, enter a meaningful application name, such as *backend-app*. This name is displayed to users of the app. 
    - In the **Supported account types** section, select an option that suits your scenario. 
 
 1. Leave the [**Redirect URI**](../active-directory/develop/reply-url.md) section empty.
@@ -79,21 +79,21 @@ For details about app registration, see [Quickstart: Configure an application to
 
 ## Authorization workflow
 
-1. A user or application acquires a token from Microsoft Entra ID with permissions that grant access to the backend-app. 
+1. A user or application acquires a token from Microsoft Entra ID with permissions that grant access to the backend-app. If you use the v2 endpoint, ensure that the `accessTokenAcceptedVersion` property is set to `2` in the application manifest of the backend app and any client app that you configure.
 
 1. The token is added in the Authorization header of API requests to API Management. 
 
 1. API Management validates the token by using the `validate-jwt` policy. 
 
-    * If a request doesn't have a valid token, API Management blocks it. 
+    - If a request doesn't have a valid token, API Management blocks it. 
 
-    * If a request is accompanied by a valid token, the gateway can forward the request to the API. 
+    - If a request does have a valid token, the gateway can forward the request to the API. 
 
-## Next steps
+## Related content
 
-* To learn more about how to build an application and implement OAuth 2.0, see [Microsoft Entra code samples](../active-directory/develop/sample-v2-code.md).
+- To learn more about how to build an application and implement OAuth 2.0, see [Microsoft Entra code samples](../active-directory/develop/sample-v2-code.md).
 
-* For an end-to-end example of configuring OAuth 2.0 user authorization in the API Management developer portal, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md).
+- For an end-to-end example of configuring OAuth 2.0 user authorization in the API Management developer portal, see [How to authorize test console of developer portal by configuring OAuth 2.0 user authorization](api-management-howto-oauth2.md).
 
 - Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 

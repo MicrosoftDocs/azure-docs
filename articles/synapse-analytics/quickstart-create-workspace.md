@@ -1,25 +1,24 @@
 ---
 title: 'Quickstart: Create an Azure Synapse Analytics workspace'
 description: Learn how to create an Azure Synapse Analytics workspace by following the steps in this quickstart.
-author: whhender
+author: juluczni
 ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
-ms.date: 03/23/2022
-ms.author: whhender
-ms.reviewer: whhender
+ms.date: 12/16/2024
+ms.author: juluczni
 ms.custom: subject-rbac-steps, mode-other
 ---
 
 # Quickstart: Create an Azure Synapse Analytics workspace
 
-This quickstart describes the steps to create an Azure Synapse Analytics workspace by using the Azure portal.
+This quickstart describes the steps to create an Azure Synapse Analytics workspace using the Azure portal.
 
 ## Create an Azure Synapse Analytics workspace
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top, search for **Synapse**.
 1. In the search results, under **Services**, select **Azure Synapse Analytics**.
-1. Select **Add** to create a workspace.
+1. Select **Create** to create a workspace.
 1. On the **Basics** tab, give the workspace a unique name. We use **mysworkspace** in this document.
 1. You need an Azure Data Lake Storage Gen2 account to create a workspace. The simplest choice is to create a new one. If you want to reuse an existing one, you need to perform extra configuration:
 
@@ -46,7 +45,7 @@ After your Azure Synapse Analytics workspace is created, you have two ways to op
 1. Go to an existing Data Lake Storage Gen2 storage account.
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-1. Assign the following role. For more information, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -66,8 +65,8 @@ Managed identities for your Azure Synapse Analytics workspace might already have
 1. Open the [Azure portal](https://portal.azure.com) and the primary storage account chosen for your workspace.
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-1. Assign the following role. For more information, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-    
+1. Assign the following role. For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+
     | Setting | Value |
     | --- | --- |
     | Role | Storage Blob Data Contributor |
@@ -82,6 +81,6 @@ Managed identities for your Azure Synapse Analytics workspace might already have
 
 ## Related content
 
-* [Create a dedicated SQL pool](quickstart-create-sql-pool-studio.md) 
-* [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
-* [Use a serverless SQL pool](quickstart-sql-on-demand.md)
+- [Create a dedicated SQL pool](quickstart-create-sql-pool-studio.md) 
+- [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
+- [Use a serverless SQL pool](quickstart-sql-on-demand.md)

@@ -1,13 +1,14 @@
 ---
 title: Enable replication for encrypted Azure VMs in Azure Site Recovery
 description: This article describes how to configure replication for Azure Disk Encryption-enabled VMs from one Azure region to another by using Site Recovery.
-author: ankitaduttaMSFT
-manager: gaggupta
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 05/06/2024
-ms.author: ankitadutta
+ms.date: 10/31/2025
+ms.author: v-gajeronika
+ms.custom: sfi-image-nochange
 
+# Customer intent: As a cloud administrator, I want to configure replication for encrypted Azure VMs to another region, so that I can ensure disaster recovery and maintain data security across regions.
 ---
 
 # Replicate Azure Disk Encryption-enabled virtual machines to another Azure region
@@ -69,6 +70,9 @@ To troubleshoot permissions, refer to [key vault permission issues](#trusted-roo
     - **Key encryption key vaults**
 
    By default, Site Recovery creates a new key vault in the target region. The vault's name has an "asr" suffix that's based on the source VM disk encryption keys. If a key vault already exists that was created by Site Recovery, it's reused. Select a different key vault from the list if necessary.
+
+> [!NOTE]
+> Alternatively, you can download the key, import it in the secondary key vault region. You can then modify your replicas disks to use the keys.
 
 ## Enable replication
 

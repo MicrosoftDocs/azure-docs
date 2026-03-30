@@ -1,11 +1,12 @@
 ---
 title: Add an Azure Monitor workspace to Azure Managed Grafana
-description: Learn how to add an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data.
+description: Learn how to connect an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data.
 ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 01/22/2024
+ms.date: 12/19/2024
+ms.custom: sfi-image-nochange
 --- 
 
 # Add an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data
@@ -14,8 +15,8 @@ In this guide, learn how to connect an Azure Monitor workspace to Grafana direct
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance in the Standard tier. [Create a new instance](quickstart-managed-grafana-portal.md) if you don't have one.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure Managed Grafana workspace in the Standard tier. [Create a new workspace](quickstart-managed-grafana-portal.md) if you don't have one.
 - An [Azure Monitor workspace with Prometheus data](/azure/azure-monitor/containers/monitor-kubernetes).
 
 ## Add a new role assignment
@@ -38,9 +39,6 @@ To assign the Monitoring Data Reader role:
 
 1. Open your Azure Managed Grafana workspace.
 1. In the left menu, select **Integrations** > **Azure Monitor workspaces**.
-
-    :::image type="content" source="media\monitor-integration\add-azure-monitor.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
-
 1. Select **Add**.
 1. In the pane that opens, select an Azure Monitor workspace from the list and confirm with **Add**.
 1. Once the operation is complete, Azure displays all the Azure Monitor workspaces added to the Azure Managed Grafana workspace. You can add more Azure Monitor workspaces by selecting **Add** again.

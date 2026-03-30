@@ -4,11 +4,12 @@ description: Learn how to plan for and manage costs for Azure Blob Storage by us
 services: storage
 author: normesta
 ms.service: azure-storage
-ms.topic: conceptual
-ms.date: 09/10/2024
+ms.topic: concept-article
+ms.date: 10/01/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, copilot-scenario-highlight
+# Customer intent: As a cost manager, I want to analyze and manage Azure Blob Storage costs, so that I can optimize our cloud spending and avoid unexpected charges.
 ---
 
 # Plan and manage costs for Azure Blob Storage
@@ -74,11 +75,15 @@ Each request made by a client arrives to the service in the form of a REST opera
 
 The pricing pages don't list a price for each individual operation but instead lists the price of an operation _type_. To determine the price of an operation, you must first determine how that operation is classified in terms of its type. To trace a _logged operation_ to a _REST operation_ and then to an operation _type_, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md). 
 
+Some operations like deletes or metadata operations may be charged on hot tier only, even if the operation is executed against objects on other tiers. This does not impact the price of the operation.
+
 The price that appears beside an operation type isn't the price you pay for each operation. In most cases, it's the price of `10,000` operations. To obtain the price of an individual operation, divide the price by `10,000`. For example, if the price for write operations is `$0.055`, then the price of an individual operation is `$.0555` / `10,000` = `$0.0000055`. You can estimate the cost to upload a file by multiplying the number write operations required to complete the upload by the cost of an individual transaction. To learn more, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
 
 #### Data transfer meter
 
-Any data that leaves the Azure region incurs data transfer and network bandwidth charges. These charges commonly appear in scenarios where an account is configured for geo-redundant storage or when an object replication policy is configured to copy data to an account in another region. However, these charges also apply to data that is downloaded to an on-premises client. The price of network bandwidth doesn't appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
+Any data that leaves the Azure region incurs either a data transfer or network bandwidth charge. The data transfer meter appears when an account is configured for geo-redundant storage. 
+
+Network bandwidth fees apply when a workload or object replication policy copies data to an account in another region. Network bandwidth fees can also appear when data that is downloaded to an on-premises client. The price of network bandwidth doesn't appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 #### Feature-related meters
 
@@ -134,22 +139,27 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 2. Scroll down the page and locate the **Storage Accounts** section of your estimate.
 
-3. Choose options from the drop-down lists.
+1. Choose options from the drop-down lists.
 
    As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate.
 
    ![Screenshot showing your estimate.](media/storage-plan-manage-costs/price-calculator-storage-type.png)
-
-   As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
+   
+      As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
 
 4. Modify the remaining options to see their effect on your estimate.
 
-   > [!TIP]
-   > See these in-depth guides to help you predict and forecast costs:
-   >
-   > - [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
-   > - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
-   > - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+### Guides and sample estimates
+
+See these in-depth guides to help you predict and forecast costs:
+
+- [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
+- [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md)
+- [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
+- [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+- [Cost estimate: Move data out of archive storage](../blobs/cost-estimate-archive-retrieval-set-tier.md)
+- [Cost estimate: Retrieve data from archive storage for analysis](../blobs/cost-estimate-archive-retrieval-copy-blob.md)
+- [Cost estimate: Upload and access data from multiple regions](../blobs/cost-estimate-multi-region-access.md)
 
 ### Using Azure Prepayment with Azure Blob Storage
 
@@ -163,11 +173,19 @@ If you've been using Blob Storage for some time, you should periodically review 
 - [Tutorial: Calculate container statistics by using Databricks](../blobs/storage-blob-calculate-container-statistics-databricks.md)
 - [Calculate blob count and total size per container using Azure Storage inventory](../blobs/calculate-blob-count-size.yml)
 
+> [!TIP]
+> You can use Azure Copilot to get suggestions on reducing the cost of your storage account. For more information, see [Manage and migrate storage accounts using Azure Copilot](/azure/copilot/improve-storage-accounts#reduce-storage-costs).
+
 If you can model future capacity requirements, you can save money with Azure Storage reserved capacity. Azure Storage reserved capacity is available for most access tiers and offers you a discount on capacity for block blobs and for Azure Data Lake Storage data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage data. To learn more, see [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
 
-You can also reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the _hot_ tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the _cold_ or _archive_ tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. See any of these articles:
+You can also reduce costs by placing blob data into the most cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the _hot_ tier has a higher storage cost but lower access cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to access data less frequently, the _cold_ or _archive_ tier might make the most sense because it raises the cost of accessing data while reducing the cost of storing data. 
+
+Smart tier is a great option to choose when you want to store your data on standard online tiers but are not fully aware of the data access patterns or do not want to manage data transitions across online tiers. The automatic movement of inactive data into a cooler tier can lead to cost savings over time. While charging a small monitoring fee, it provides additional simplification to the billing model by not charging tier transitions, early deletes or capacity rehydration.
+
+See any of these articles:
 
 - [Access tiers for blob data](../blobs/access-tiers-overview.md?tabs=azure-portal)
+- [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
 - [Best practices for using blob access tiers](../blobs/access-tiers-best-practices.md)
 - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
 
@@ -190,22 +208,22 @@ To view Azure Storage costs in cost analysis:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
+1. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
 
    ![Screenshot showing scope](./media/storage-plan-manage-costs/cost-analysis-pane.png)
-
-4. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list.
+   
+1. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list.
 
    Here's an example showing costs for just Azure Storage:
 
    ![Screenshot showing filter by storage](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
-
+   
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear. 
 You can add other filters as well (For example: a filter to see costs for specific storage accounts).
 
 ## Export cost data
 
-You can also [export your cost data](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../../cost-management-billing/costs/tutorial-improved-exports.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Avoid billing surprises
 
@@ -216,6 +234,7 @@ Some actions, such as changing the default access tier of your account, can lead
 | Access tiers | Changing the default access tier setting | If your account contains a large number of blobs for which the access tier is inferred, then a change to this setting can incur a significant cost. <br><br>A change to the default access tier setting of a storage account applies to all blobs in the account for which an access tier hasn't been explicitly set. For example, if you toggle the default access tier setting from hot to cool in a general-purpose v2 account, then you're charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in a general-purpose v2 account. <br><br>For more information, see [Default account access tier setting](../blobs/access-tiers-overview.md#default-account-access-tier-setting). |
 | Access tiers | Rehydrating from archive  | High priority rehydration from archive can lead to higher than normal bills. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations. <br><br>For more information, see [Rehydration priority](../blobs/archive-rehydrate-overview.md#rehydration-priority).|
 | Access tiers | Deleting, overwriting, or moving a blob to another tier | Tools or applications that use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to update a blob will overwrite the blob. Blobs are subject to an early deletion penalty if they're deleted, overwritten, or moved to a different tier before the minimum number of days required by the tier have transpired.  |
+| Application development | Uploading to a stream in Blob Storage | You can incur significant transaction costs if you open a stream in Blob Storage and write to it frequently in cases where object replication is enabled on the account.<br> Each write to the stream creates a new version of the zip file, and each version is copied to the destination account. The same is true if Azure Blob vaulted backup is enabled because vaulted backup uses object replication. |
 | Data protection | Enabling blob soft delete | Overwriting blobs can lead to blob snapshots. Unlike the case where a blob is deleted, the creation of these snapshots isn't logged. This can lead to unexpected storage costs. Consider whether data that is frequently overwritten should be placed in an account that doesn't have soft delete enabled.<br><br>For more information, see [How overwrites are handled when soft delete is enabled](../blobs/soft-delete-blob-overview.md#how-overwrites-are-handled-when-soft-delete-is-enabled).|
 | Data protection | Enabling blob versioning | Every write operation on a blob creates a new version. As is the case with enabling blob soft delete, consider whether data that is frequently overwritten should be placed in an account that doesn't have versioning enabled. <br><br>For more information, see [Versioning on write operations](../blobs/versioning-overview.md#versioning-on-write-operations). |
 | Monitoring | Enabling Storage Analytics logs (classic logs)| Storage analytics logs can accumulate in your account over time if the retention policy isn't set. Make sure to set the retention policy to avoid log buildup which can lead to unexpected capacity charges.<br><br>For more information, see [Modify log data retention period](manage-storage-analytics-logs.md#modify-log-data-retention-period) |

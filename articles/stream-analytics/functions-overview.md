@@ -4,7 +4,7 @@ description: This article is an overview of user-defined functions in Azure Stre
 author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/07/2020
 ---
 

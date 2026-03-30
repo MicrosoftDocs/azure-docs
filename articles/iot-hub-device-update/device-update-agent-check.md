@@ -1,11 +1,12 @@
 ---
 title: Device Update for Azure IoT Hub agent check | Microsoft Docs
 description: Device Update for IoT Hub uses Agent Check to find and diagnose missing devices.
-author: vimeht
-ms.author: vimeht
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 10/31/2022
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Find and fix devices missing from Device Update for IoT Hub using agent check

@@ -1,12 +1,9 @@
 ---
 title: Monitor Azure Resource Manager
 description: Start here to learn how to monitor Azure Resource Manager. Learn about Traffic and latency observability for subscription-level control plane requests.
-ms.date: 07/25/2024
+ms.date: 02/27/2026
 ms.custom: horz-monitor, devx-track-arm-template
-ms.topic: conceptual
-author: mumian
-ms.author: jgao
-ms.service: azure-resource-manager
+ms.topic: article
 ---
 
 # Monitor Azure Resource Manager
@@ -27,26 +24,43 @@ For more information about the resource types for Resource Manager, see [Azure R
 
 For a list of available metrics for Resource Manager, see [Azure Resource Manager monitoring data reference](monitor-resource-manager-reference.md#metrics).
 
-When you create and manage resources in Azure, your requests are orchestrated through Azure's [control plane](./control-plane-and-data-plane.md), Azure Resource Manager. This article describes how to monitor the volume and latency of control plane requests made to Azure.
+When you create and manage resources in Azure, Azure Resource Manager orchestrates your requests through Azure's [control plane](./control-plane-and-data-plane.md). This article describes how to monitor the volume and latency of control plane requests made to Azure.
 
-With these metrics, you can observe traffic and latency for control plane requests throughout your subscriptions. For example, you can now figure out when your requests have been throttled by [examining throttled requests](#examining-throttled-requests). Determine if they failed by filtering for specific status codes and [examining server errors](#examining-server-errors).
+With these metrics, you can observe traffic and latency for control plane requests throughout your subscriptions. For example, you can figure out when your requests are throttled by [examining throttled requests](#examining-throttled-requests). Determine if they failed by filtering for specific status codes and [examining server errors](#examining-server-errors).
 
-The metrics are available for up to three months (93 days) and only track synchronous requests. For a scenario like a virtual machine creation, the metrics don't represent the performance or reliability of the long running asynchronous operation.
+The metrics are available for up to three months (93 days) and only track synchronous requests. For a scenario like a virtual machine creation, the metrics don't represent the performance or reliability of the long-running asynchronous operation.
+
 
 ### Accessing Azure Resource Manager metrics
+
+Azure Resource Manager offers enhanced integration with Azure Monitor Metrics for your subscriptions. You can have deeper visibility and more granular monitoring capabilities for your Resource Manager operations.
 
 You can access control plane metrics by using the Azure Monitor REST APIs, SDKs, and the Azure portal by selecting the **Azure Resource Manager** metric. For an overview on Azure Monitor, see [Azure Monitor Metrics](/azure/azure-monitor/data-platform).
 
 There's no opt-in or sign-up process to access control plane metrics.
 
+
+Dimensions Available:
+You can analyze and filter your metrics using the following new dimensions:
+
+- Operation type: By high customer demand, you can now distinguish between different operation categories (read, write, delete)!
+- ARM request region: Identify where requests originate and monitor regional trends.
+- HTTP method: Break down metrics by request type (GET, POST, etc.).
+- HTTP status code: Track specific response codes for better troubleshooting.
+- HTTP status code class: Group responses by class (2xx, 4xx, 5xx) for high-level insights.
+- Resource type: Filter metrics by the type of Azure resource.
+- RP namespace: Analyze metrics by resource provider namespace.
+These dimensions empower you to create more targeted alerts, dashboards, and reports, helping you optimize performance and quickly identify issues across your Azure environment.
+
+
 For guidance on how to retrieve a bearer token and make requests to Azure, see [Azure REST API reference](/rest/api/azure/#create-the-request).
 
 ### Metric definition
 
-The definition for Azure Resource Manager metrics in Azure Monitor is only accessible through the 2017-12-01-preview API version. To retrieve the definition, you can run the following snippet. Replace `00000000-0000-0000-0000-000000000000` with your subscription ID.
+The definition for Azure Resource Manager metrics in Azure Monitor is only accessible through the 2017-12-01-preview API version. To retrieve the definition, run the following snippet. Replace `00000000-0000-0000-0000-000000000000` with your subscription ID.
 
 ```bash
-curl --location --request GET 'https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/metricDefinitions?api-version=2017-12-01-preview&metricnamespace=microsoft.resources/subscriptions' \
+curl --location --request GET 'https://management.azure.com/subscriptions/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/providers/microsoft.insights/metricDefinitions?api-version=2017-12-01-preview&metricnamespace=microsoft.resources/subscriptions' \
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
@@ -68,18 +82,33 @@ After selecting **Explore Metrics**, select a single subscription and then selec
 
 Then, after selecting **Apply**, you can visualize your Traffic or Latency control plane metrics with custom filtering and splitting:
 
-:::image type="content" source="./media/view-arm-monitor-metrics/arm-metrics-view.png" alt-text="Screenshot of the metrics visualization in the Azure portal, showing options to filter and split by dimensions.":::
+Select **Latency** as your Metric:
+
+:::image type="content" source="./media/monitor-resource-manager/latency.png" alt-text="Screenshot of the Latency metrics visualization in the Azure portal, showing options to filter and split by dimensions.":::
+
+View **Traffic**:
+
+:::image type="content" source="./media/monitor-resource-manager/traffic.png" alt-text="Screenshot of the Traffic metrics visualization in the Azure portal, showing options to filter and split by dimensions.":::
+
+
+Here are additional dimensions you can view to further analyze your call behavior - select **Add filter** to deep dive into one value like "reads," or select **Apply splitting** to view a breakdown of your operations.
+
+With our newest dimension **Operation Type**, you can filter or split your requests by reads, writes, or deletes to analyze your request behavior for a specific operation.
+
+:::image type="content" source="./media/monitor-resource-manager/filter-operation-type.png" alt-text="Screenshot of the Operation Type metrics visualization in the Azure portal, showing the option to filter dimensions.":::
+
+:::image type="content" source="./media/monitor-resource-manager/split-operation-type.png" alt-text="Screenshot of the Operation Type metrics visualization in the Azure portal, showing the option to split by dimensions.":::
 
 #### Query traffic and latency control plane metrics with REST API
 
-After you authenticate with Azure, you can make a request to retrieve control plane metrics for your subscription. In the script, replace `00000000-0000-0000-0000-000000000000` with your subscription ID. The script retrieves the average request latency, in seconds, and the total request count for the two day timespan, broken down by one day intervals:
+After you authenticate with Azure, make a request to retrieve control plane metrics for your subscription. In the script, replace `00000000-0000-0000-0000-000000000000` with your subscription ID. The script retrieves the average request latency, in seconds, and the total request count for the two-day timespan, broken down by one-day intervals:
 
 ```bash
-curl --location --request GET "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=average,count&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z" \
+curl --location --request GET "https://management.azure.com/subscriptions/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=average,count&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z" \
 --header "Authorization: bearer {{bearerToken}}"
 ```
 
-For Azure Resource Manager metrics, you can retrieve the traffic count by using the Latency metric and including the 'count' aggregation. You see a JSON response for the request:
+For Azure Resource Manager metrics, you can retrieve the traffic count by using the Latency metric and including the `count` aggregation. You see a JSON response for the request:
 
 ```Json
 {
@@ -88,7 +117,7 @@ For Azure Resource Manager metrics, you can retrieve the traffic count by using 
     "interval": "P1D",
     "value": [
         {
-            "id": "subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Insights/metrics/Latency",
+            "id": "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Insights/metrics/Latency",
             "type": "Microsoft.Insights/metrics",
             "name": {
                 "value": "Latency",
@@ -121,10 +150,10 @@ For Azure Resource Manager metrics, you can retrieve the traffic count by using 
 }
 ```
 
-If you want to retrieve only the traffic count, then you can use the Traffic metric with the `count` aggregation:
+To retrieve only the traffic count, use the Traffic metric with the `count` aggregation:
 
 ```bash
-curl --location --request GET 'https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Traffic&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z' \
+curl --location --request GET 'https://management.azure.com/subscriptions/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Traffic&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z' \
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
@@ -137,7 +166,7 @@ The response for the request is:
     "interval": "P1D",
     "value": [
         {
-            "id": "subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Insights/metrics/Traffic",
+            "id": "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Insights/metrics/Traffic",
             "type": "Microsoft.Insights/metrics",
             "name": {
                 "value": "Traffic",
@@ -168,16 +197,16 @@ The response for the request is:
 }
 ```
 
-For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you want to focus on the **Latency** for successful requests to Resource Manager, you need to filter the **StatusCodeClass** dimension with **2XX**.
+For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you want to focus on the **Latency** for successful requests to Resource Manager, filter the **StatusCodeClass** dimension with **2XX**.
 
-If you want to look at the number of requests made in your subscription for Networking resources, like Virtual Networks and Load Balancers, you would need to filter the **Namespace** dimension for **MICROSOFT.NETWORK**.
+If you want to look at the number of requests made in your subscription for Networking resources, like Virtual Networks and Load Balancers, filter the **Namespace** dimension for **MICROSOFT.NETWORK**.
 
 #### Examining Throttled Requests
 
-To view only your throttled requests, you need to filter for 429 status code responses only. For REST API calls, filtering is accomplished by using the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCode dimension by appending: `$filter=StatusCode eq '429'` as seen at the end of the request in the following snippet:
+You can set your **HTTP Status Code**. To view only your throttled requests, filter for 429 status code responses. For REST API calls, use the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCode dimension by appending: `%24filter=StatusCode eq '429'`. The following snippet shows this filter at the end of the request:
 
 ```bash
-curl --location --request GET 'https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&$filter=StatusCode%20eq%20%27429%27' \
+curl --location --request GET 'https://management.azure.com/subscriptions/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&%24filter=StatusCode%20eq%20%27429%27' \
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
@@ -186,14 +215,14 @@ You can also filter directly in portal:
 
 #### Examining Server Errors
 
-Similar to looking at throttled requests, you view *all* requests that returned a server error response code by filtering 5xx responses only. For REST API calls, filtering is accomplished by using the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCodeClass dimension by appending: $filter=StatusCodeClass eq '5xx' as seen at the end of the request in the following snippet:
+Similar to looking at throttled requests, you view *all* requests that returned a server error response code by filtering 5xx responses. To filter REST API calls, use the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCodeClass dimension by appending: `%24filter=StatusCodeClass eq '5xx'` at the end of the request in the following snippet:
 
 ```bash
-curl --location --request GET 'https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&$filter=StatusCodeClass%20eq%20%275xx%27' \
+curl --location --request GET 'https://management.azure.com/subscriptions/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&%24filter=StatusCodeClass%20eq%20%275xx%27' \
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
-You can also accomplish generic server errors filtering within portal by setting the filter property to `StatusCodeClass` and the value to `5xx`, similar to what was done in the throttling example.
+You can also filter generic server errors in the portal by setting the filter property to `StatusCodeClass` and the value to `5xx`, similar to what you did in the throttling example.
 
 [!INCLUDE [horz-monitor-no-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
 
@@ -219,3 +248,4 @@ You can set alerts for any metric, log entry, or activity log entry listed in th
 
 - See [Azure Resource Manager monitoring data reference](monitor-resource-manager-reference.md) for a reference of the metrics, logs, and other important values created for Resource Manager.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
+

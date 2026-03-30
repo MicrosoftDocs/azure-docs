@@ -4,7 +4,10 @@ description: Get started using HBase in Azure HDInsight. Learn how to create HDI
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-extended-java
-ms.date: 10/16/2023
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  10/17/2024
 ---
 
 # Create Apache HBase clusters on HDInsight in Azure Virtual Network
@@ -17,7 +20,7 @@ With virtual network integration, Apache HBase clusters can be deployed to the s
 * Improved performance by not having your traffic go over multiple gateways and load-balancers.
 * The ability to process sensitive information in a more secure manner without exposing a public endpoint.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create Apache HBase cluster into virtual network
 
@@ -53,14 +56,14 @@ In this section, you create a Linux-based Apache HBase cluster with the dependen
     Resource group|Select **Create new**, and specify a new resource group name.|
     |Location|Select a location for the resource group.|
     |Cluster Name|Enter a name for the Hadoop cluster to be created.|
-    |Cluster Login User Name and Password|The default User Name is **admin**. Provide a password.|
+    |Cluster sign-in User Name and Password|The default User Name is **admin**. Provide a password.|
     |Ssh User Name and Password|The default User Name is **sshuser**.  Provide a password.|
 
     Select **I agree to the terms and the conditions**.
 
 1. Select **Purchase**. It takes about around 20 minutes to create a cluster. Once the cluster is created, you can select the cluster in the portal to open it.
 
-After you complete the article, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
+After you complete the article, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for a HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use. For the instructions of deleting a cluster, see [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using Apache HBase with Apache Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -76,7 +79,7 @@ Create an infrastructure as a service (IaaS) virtual machine into the same Azure
 > [!IMPORTANT]  
 > Replace `CLUSTERNAME` with the name you used when creating the HDInsight cluster in previous steps.
 
-By using these values, the virtual machine is placed in the same virtual network and subnet as the HDInsight cluster. This configuration allows them to directly communicate with each other. There is a way to create an HDInsight cluster with an empty edge node. The edge node can be used to manage the cluster.  For more information, see [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md).
+By using these values, the virtual machine is placed in the same virtual network and subnet as the HDInsight cluster. This configuration allows them to directly communicate with each other. There's a way to create a HDInsight cluster with an empty edge node. The edge node can be used to manage the cluster.  For more information, see [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md).
 
 ### Obtain fully qualified domain name
 

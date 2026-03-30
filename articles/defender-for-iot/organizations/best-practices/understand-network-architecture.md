@@ -3,6 +3,7 @@ title: Microsoft Defender for IoT and your network architecture - Microsoft Defe
 description: Describes the Purdue reference module in relation to Microsoft Defender for IoT to help you understand more about your own OT network architecture.
 ms.date: 04/08/2024
 ms.topic: concept-article
+ms.custom: sfi-image-nochange
 ---
 
 # Defender for IoT and your network architecture
@@ -98,7 +99,7 @@ Based on the results of the matching process, devices track their network traffi
 
 ## Implementing Defender for IoT deployment with a unidirectional gateway
 
-If you're working with a unidirectional gateway, such as [Waterfall](https://waterfall-security.com/), [Owl Cyber Defense](https://owlcyberdefense.com/products/data-diode-products/), or [Hirschmann](https://hirschmann.com/en/Hirschmann_Produkte/Hirschmann-News/Rail_Data_Diode/index.phtml), where data passes through a data diode in one direction only, use one of the following methods to understand where to place your OT sensors:
+If you're working with a unidirectional gateway, such as [Waterfall](https://waterfall-security.com/), [Owl Cyber Defense](https://owlcyberdefense.com/products/data-diode-products/), or [Hirschmann](https://www.belden.com/products/by-brand/hirschmann/cybersecurity), where data passes through a data diode in one direction only, use one of the following methods to understand where to place your OT sensors:
 
 - **Place your OT sensors outside the network perimeter (Recommended)**. In this scenario, your sensor receives SPAN traffic through the diode, unidirectionally from the network to the sensor's monitoring port. We recommend using this method in large deployments. For example:
 

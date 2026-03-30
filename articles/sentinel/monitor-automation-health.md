@@ -4,7 +4,7 @@ description: Use the SentinelHealth and AzureDiagnostics data tables to keep tra
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 05/20/2024
+ms.date: 08/20/2025
 ms.service: microsoft-sentinel
 
 
@@ -20,7 +20,7 @@ Set up notifications of health events for relevant stakeholders, who can then ta
 
 This article describes how to use Microsoft Sentinel's health monitoring features to keep track of your automation rules and playbooks's health from within Microsoft Sentinel. For more information, see [Auditing and health monitoring in Microsoft Sentinel](health-audit.md).
 
-## Use the SentinelHealth data table (Public preview)
+## Use the SentinelHealth data table
 
 To get automation health data from the *SentinelHealth* data table, first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](enable-monitoring.md).
 
@@ -134,6 +134,16 @@ SentinelHealth
     playbookName,
     playbookRunStatus
 ```
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***mv-expand*** operator](/kusto/query/mv-expand-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***tostring()*** function](/kusto/query/tostring-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Use the health monitoring workbook
 

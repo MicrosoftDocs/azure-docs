@@ -2,11 +2,12 @@
 title: Tutorial - SAP HANA DB restore on Azure using CLI 
 description: In this tutorial, learn how to restore SAP HANA databases running on an Azure VM from an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 10/01/2024
+ms.date: 10/16/2025
 ms.custom: devx-track-azurecli,engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As an SAP administrator, I want to restore SAP HANA databases on Azure VMs using CLI commands, so that I can ensure data recovery from backup in a streamlined and efficient manner.
 ---
 
 # Tutorial: Restore SAP HANA databases in an Azure VM using Azure CLI
@@ -31,7 +32,7 @@ This tutorial assumes you have an SAP HANA database running on Azure VM that's b
 
 For more information on the supported configurations and scenarios, see the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
-## View restore points for a backed-up database
+## View restore points for a backed-up SAP HANA database
 
 To view the list of all the recovery points for a database, use the [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet as follows:
 
@@ -88,7 +89,7 @@ arvind@Azure:~$
 >[!NOTE]
 >You can also view the start and end points of every unbroken log backup chain, using the [az backup recoverypoint show-log-chain](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-show-log-chain) cmdlet.
 
-## Prerequisites to restore a database
+## Prerequisites to restore an SAP HANA database
 
 Ensure that the following prerequisites are met before restoring a database:
 
@@ -96,7 +97,7 @@ Ensure that the following prerequisites are met before restoring a database:
 * The target instance must be registered with the same vault as the source or another vault in the same region.
 * Azure Backup can't identify two different SAP HANA instances on the same VM. Therefore, restoring data from one instance to another on the same VM isn't possible.
 
-## Restore a database
+## Restore an SAP HANA database
 
 Azure Backup can restore SAP HANA databases that are running on Azure VMs as follows:
 
@@ -109,11 +110,11 @@ To restore a database, use the [az restore restore-azurewl](/cli/azure/backup/re
 > **OriginalWorkloadRestore** - Restore the data to the same SAP HANA instance as the original source. This option overwrites the original database. <br>
 > **AlternateWorkloadRestore** - Restore the database to an alternate location and keep the original source database.
 
-## Restore to alternate location
+## Restore an SAP HANA database to alternate location
 
 To restore a database to an alternate location, use **AlternateWorkloadRestore** as the restore mode. You must then choose the restore point, which could either be a previous point-in-time or any of the previous restore points.
 
-In this tutorial, you'll restore to a previous restore point. [View the list of restore points](#view-restore-points-for-a-backed-up-database) for the database and choose the point you want to restore to. This tutorial will use the restore point with the name *7660777527047692711*.
+In this tutorial, you'll restore to a previous restore point. [View the list of restore points](#view-restore-points-for-a-backed-up-sap-hana-database) for the database and choose the point you want to restore to. This tutorial will use the restore point with the name *7660777527047692711*.
 
 By using the above restore point name and the restore mode, let's create the recovery config object using the [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig#az-backup-recoveryconfig-show) cmdlet. Let's look at what each of the remaining parameters in this cmdlet mean:
 
@@ -145,7 +146,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 The response to the above query will be a recovery config object that looks something like this:
 
 ```Output
-{"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
+{"restore_mode": "AlternateLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "7660777527047692711", "item_type": "SAPHana", "source_resource_id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}
 ```
 
 Now, to restore the database run the [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) cmdlet. To use this command, we'll enter the above json output that's saved to a file named *recoveryconfig.json*.
@@ -177,7 +178,7 @@ az backup recoveryconfig show --resource-group hanarghsr2 --vault-name hanavault
  arvind@Azure:~$ cat recoveryInput.json
 {
   "alternate_directory_paths": null,
-  "container_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.RecoveryServices/vaults/hanavault10/backupFabrics/Azure/protectionContainers/vmappcontainer;compute;hanarghsr2;hsr-primary",
+  "container_id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.RecoveryServices/vaults/hanavault10/backupFabrics/Azure/protectionContainers/vmappcontainer;compute;hanarghsr2;hsr-primary",
   "container_uri": "HanaHSRContainer;hsrtestps2",
   "database_name": "ARV/restored_DB_p2",
   "filepath": null,
@@ -240,7 +241,7 @@ az backup recoveryconfig show --resource-group saphanaResourceGroup \
 The response to the above query will be a recovery config object that looks as follows:
 
 ```output
-{"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
+{"restore_mode": "OriginalLocation", "container_uri": " VMAppContainer;Compute;saphanaResourceGroup;saphanaVM ", "item_uri": "SAPHanaDatabase;hxe;hxe", "recovery_point_id": "DefaultRangeRecoveryPoint", "log_point_in_time": "28-11-2019-09:53:00", "item_type": "SAPHana", "source_resource_id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/saphanavm", "database_name": null, "container_id": null, "alternate_directory_paths": null}"
 ```
 
 Now, to restore the database run the [az restore restore-azurewl](/cli/azure/backup/restore#az-backup-restore-restore-azurewl) cmdlet. To use this command, we'll enter the above json output that's saved to a file named *recoveryconfig.json*.
@@ -262,7 +263,7 @@ Name                                  Resource
 
 The response will give you the job name. This job name can be used to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
-## Restore to secondary region
+## Restore an SAP HANA database to secondary region
 
 To restore a database to the secondary region, specify a target vault and server located in the secondary region, in the restore configuration.
 
@@ -289,7 +290,7 @@ Following is the response to the above command that will be a recovery configura
 ```output
 {
   "alternate_directory_paths": null,
-  "container_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/saphanaTargetRG/providers/Microsoft.RecoveryServices/vaults/targetVault/backupFabrics/Azure/protectionContainers/vmappcontainer;compute;saphanaTargetRG;targethanaserver",
+  "container_id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/saphanaTargetRG/providers/Microsoft.RecoveryServices/vaults/targetVault/backupFabrics/Azure/protectionContainers/vmappcontainer;compute;saphanaTargetRG;targethanaserver",
   "container_uri": "VMAppContainer;compute;hanasnapshotcvtmachines;hanasnapcvt01",
   "database_name": "SAPHanaDatabase;h10;h10",
   "filepath": null,
@@ -299,7 +300,7 @@ Following is the response to the above command that will be a recovery configura
   "recovery_mode": null,
   "recovery_point_id": "293170069256531",
   "restore_mode": "AlternateLocation",
-  "source_resource_id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/hanasnapcvt01",
+  "source_resource_id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/hanasnapcvt01",
   "workload_type": "SAPHanaDatabase"
 }
 ```
@@ -325,7 +326,7 @@ Name                                  Operation           Status      Item Name 
 >[!Note]
 >The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
 
-## Restore as files
+## Restore SAP HANA database as files
 
 To restore the backup data as files instead of a database, we'll use **RestoreAsFiles** as the restore mode. Then choose the restore point, which can either be a previous point-in-time or any of the previous restore points. Once the files are dumped to a specified path, you can take these files to any SAP HANA machine where you want to restore them as a database. Because you can move these files to any machine, you can now restore the data across subscriptions and regions.
 
@@ -354,7 +355,7 @@ The response to the query above will be a recovery config object that looks as f
 ```output
 {
   "alternate_directory_paths": null,
-  "container_id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/SAPHANAVault/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;SAPHANA;hanamachine",
+  "container_id": "/Subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/SAPHANAVault/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;SAPHANA;hanamachine",
   "container_uri": "VMAppContainer;compute;saphana;hanamachine",
   "database_name": null,
   "filepath": "/home/",
@@ -364,7 +365,7 @@ The response to the query above will be a recovery config object that looks as f
   "recovery_mode": "FileRecovery",
   "recovery_point_id": "DefaultRangeRecoveryPoint",
   "restore_mode": "AlternateLocation",
-  "source_resource_id": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/hanamachine"
+  "source_resource_id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/saphanaResourceGroup/providers/Microsoft.Compute/virtualMachines/hanamachine"
 }
 ```
 
@@ -382,9 +383,9 @@ The output will look like this:
 ```output
 {
   "eTag": null,
-  "id": "/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/SAPHANARESOURCEGROUP/providers/Microsoft.RecoveryServices/vaults/SAPHANAVault/backupJobs/608e737e-c001-47ca-8c37-57d909c8a704",
+  "id": "/Subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/SAPHANARESOURCEGROUP/providers/Microsoft.RecoveryServices/vaults/SAPHANAVault/backupJobs/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
   "location": null,
-  "name": "608e737e-c001-47ca-8c37-57d909c8a704",
+  "name": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
   "properties": {
     "actionsInfo": [
       "Cancellable"
@@ -536,5 +537,3 @@ Add the parameter `--target-subscription-id` that enables you to provide the tar
 ## Next step
 
 - [Manage SAP HANA databases that are backed up using Azure CLI](tutorial-sap-hana-backup-cli.md).
-
-

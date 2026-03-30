@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 05/25/2022
 ms.topic: include
-ms.custom: include file
 ms.author: lakshmans
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication Services Python SMS SDK to send SMS messages.
@@ -18,14 +20,14 @@ Get started with Azure Communication Services by using the Communication Service
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-sms-quickstart).
+> For the finalized code for this article, see GitHub Azure Samples [Manage phone numbers using Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-sms-quickstart).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python](https://www.python.org/downloads/) 3.7+.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- An SMS-enabled telephone number. [Get a phone number](../../telephony/get-phone-number.md).
+- An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](../../telephony/get-phone-number.md).
 
 ### Prerequisite check
 
@@ -34,11 +36,11 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 ## Set up the application environment
 
-To set up an environment for sending messages, take the steps in the following sections.
+To set up an environment for sending messages, complete the following sections.
 
 ### Create a new Python application
 
-1. Open your terminal or command window. Then use the following command to create a new directory for your app and navigate to it.
+1. Open your terminal or command window. Use the following command to create a new directory for your app and navigate to it.
 
    ```console
    mkdir sms-quickstart && cd sms-quickstart
@@ -57,7 +59,7 @@ To set up an environment for sending messages, take the steps in the following s
        print(ex)
    ```
 
-In the following sections, you'll add all the source code for this quickstart to the **send-sms.py** file that you just created.
+In the following sections, add all the source code for this quickstart to the **send-sms.py** file that you created.
 
 ### Install the package
 
@@ -71,10 +73,10 @@ pip install azure-communication-sms
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Python.
 
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| SmsClient | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages.                                                                                                                 |
-| SmsSendResult               | This class contains the result from the SMS service.                                          |
+| Name | Description |
+| --- | --- |
+| SmsClient | This class is needed for all SMS functionality. Instantiate it with your subscription information, and use it to send SMS messages. |
+| SmsSendResult | This class contains the result from the SMS service. |
 
 ## Authenticate the client
 
@@ -104,7 +106,7 @@ sms_responses = sms_client.send(
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your communication service.
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your communication service.
 - Replace `<to-phone-number>` with the phone number that you'd like to send a message to.
 
 > [!WARNING]
@@ -128,15 +130,15 @@ sms_responses = sms_client.send(
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your communication service.
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your communication service.
 - Replace `<to-phone-number-1>` and `<to-phone-number-2>` with phone numbers that you'd like to send a message to.
 
 > [!WARNING]
-> Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
+> Provide phone numbers in E.164 international standard format, such as +14255550123. The value for `<from-phone-number>` can also be a short code, such as 23456 or an alphanumeric sender ID, such as CONTOSO.
 
 ## Optional parameters
 
-The `enable_delivery_report` parameter is an optional parameter that you can use to configure delivery reporting. This functionality is useful when you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure delivery reporting for your SMS messages.
+The `enable_delivery_report` parameter is an optional parameter you can use to configure delivery reporting. Use this function if you want to emit events when SMS messages are delivered. See [Handle SMS Events](../handle-sms-events.md) to configure delivery reporting for your SMS messages.
 
 The `tag` parameter is an optional parameter that you can use to apply a tag to the delivery report.
 

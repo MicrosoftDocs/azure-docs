@@ -1,129 +1,131 @@
 ---
-title: Configure a dev box by using Azure VM Image Builder
-titleSuffix: Microsoft Dev Box
-description: Learn how to use Azure VM Image Builder to build a custom image for configuring dev boxes with Microsoft Dev Box.
+title: Use Azure VM Image Builder
+description: Learn how to use Azure VM Image Builder to create and distribute a customized dev box image for Microsoft Dev Box.
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurepowershell
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/02/2024
+ms.date: 12/05/2025
 ms.topic: how-to
+ai-usage: ai-assisted
 ---
 
-# Configure a dev box by using Azure VM Image Builder and Microsoft Dev Box
+# Use Azure VM Image Builder to create a dev box image
 
-In this article, you use Azure VM Image Builder to create a customized dev box in Microsoft Dev Box by using a template. The template includes a customization step to install Visual Studio Code (VS Code).
+This article shows you how to use an Azure VM Image Builder template to create a customized VM image in Azure Compute Gallery and distribute it globally. You can then use the image to create dev boxes in Microsoft Dev Box.
 
-When your organization uses standardized virtual machine (VM) images, it can more easily migrate to the cloud and help ensure consistency in your deployments. Images ordinarily include predefined security, configuration settings, and any necessary software. Setting up your own imaging pipeline requires time, infrastructure, and many other details. With Azure VM Image Builder, you can create a configuration that describes your image. The service then builds the image and submits it to a dev box project.
+Standardized VM images can help you ensure consistent dev box deployments by including predefined security, configuration, and software. But manually setting up an imaging pipeline is time-consuming and complex, and creating custom virtual machine (VM) images can be difficult and unreliable.
 
-Although it's possible to create custom VM images by hand or by using other tools, the process can be cumbersome and unreliable. VM Image Builder, which is built on HashiCorp Packer, gives you the benefits of a managed service.
+Azure VM Image Builder is a managed service based on HashiCorp Packer that simplifies the process of creating and building VM images for dev boxes. The Image Builder template in this article includes customization steps that install Visual Studio Code and Chocolatey.
 
-To reduce the complexity of creating VM images, VM Image Builder:
+VM Image Builder can:
 
-- Removes the need to use complex tooling, processes, and manual steps to create a VM image. VM Image Builder abstracts out all these details and hides Azure-specific requirements, such as the need to generalize the image (Sysprep). And it gives more advanced users the ability to override such requirements.
-
-- Works with existing image build pipelines for a click-and-go experience. You can call VM Image Builder from your pipeline or use an Azure VM Image Builder service DevOps task.
-
-- Fetches customization data from various sources, which removes the need to collect them all from one place.
-
-- Integrates with Azure Compute Gallery, which creates an image management system for distributing, replicating, versioning, and scaling images globally. Additionally, you can distribute the same resulting image as a virtual hard disk or as one or more managed images, without having to rebuild them from scratch.
+- Abstract manual steps or complex tools and processes and hide Azure-specific needs. For example, generalize an image by running `sysprep` but allow advanced users to override it.
+- Work with existing image build pipelines. You can call VM Image Builder from your pipeline or use an Azure VM Image Builder service task in Azure Pipelines.
+- Gather customization data from various sources, so you don't have to collect it yourself.
+- Integrate with Azure Compute Gallery to create an image management system for global distribution, replication, versioning, and scaling. You can distribute an image as both a virtual hard disk and a managed image without rebuilding it.
 
 > [!IMPORTANT]
-> Microsoft Dev Box supports only images that use the security type [Trusted Launch](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal2) enabled.
+> Microsoft Dev Box supports only images that use the [Trusted Launch](/azure/virtual-machines/trusted-launch-portal?tabs=portal%2Cportal2) security type.
 
 ## Prerequisites
 
-To provision a custom image that you created by using VM Image Builder, you need:
+The example in this article uses Azure PowerShell. You can also use the Azure CLI.
 
-- Azure PowerShell 6.0 or later. If you don't have PowerShell installed, follow the steps in [Install Azure PowerShell on Windows](/powershell/azure/install-azps-windows).
-- Owner or Contributor permissions on an Azure subscription or on a specific resource group.
-- A resource group.
-- A dev center with an attached network connection. If you don't have one, follow the steps in [Connect dev boxes to resources by configuring network connections](how-to-configure-network-connections.md).
+| Category | Requirements |
+|---------|--------------|
+| Tools and permissions | An Azure resource group that you have **Owner** or **Contributor** permissions to. |
+| Tools | Azure PowerShell 6.0 or later installed. For instructions, see [Install Azure PowerShell on Windows](/powershell/azure/install-azps-windows). |
 
-## Create a Windows image and distribute it to Azure Compute Gallery
+## Set up tools and roles
 
-The first step is to use Azure VM Image Builder and Azure PowerShell to create an image version in Azure Compute Gallery and then distribute the image globally. You can also do this task by using the Azure CLI.
+To set up tools and roles, you:
 
-1. To use VM Image Builder, you need to register the features.
+1. Install necessary Azure PowerShell modules.
+1. Set variables for information you use more than once.
+1. Register necessary Azure resource providers.
+1. Create a user identity for your resource group and assign it a role that allows distributing images.
 
-   Check your provider registrations. Make sure each command returns `Registered` for the specified feature.
+### Install PowerShell modules
 
-   ```powershell
-      Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState 
-      Get-AzResourceProvider -ProviderNamespace Microsoft.Storage | Format-table -Property ResourceTypes,RegistrationState  
-      Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState 
-      Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState 
-      Get-AzResourceProvider -ProviderNamespace Microsoft.Network | Format-table -Property ResourceTypes,RegistrationState 
+Install the necessary PowerShell modules by running the following command:
+
+```azurepowershell
+'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
+```
+
+Respond *Y* to the prompts about untrusted repositories.
+
+### Set variables
+
+Create variables to store information you use more than once. Run the following code, replacing `<resource-group>` with your resource group name and `<location>` with the Azure region you want to use.
+
+```azurepowershell
+# Get existing context 
+$currentAzContext = Get-AzContext
+
+# Get your current subscription ID  
+$subscriptionID=$currentAzContext.Subscription.Id
+
+# Destination image resource group  
+$imageResourceGroup="<resource-group>"
+
+# Location
+$location="<location>"
+
+# Image distribution metadata reference name  
+$runOutputName="aibCustWinManImg01"
+
+# Image template name  
+$imageTemplateName="vscodeWinTemplate"  
+```
+
+### Register Azure resource providers
+
+To use VM Image Builder, the following Azure resource providers must be registered:
+
+- `Microsoft.VirtualMachineImages`
+- `Microsoft.Compute`
+- `Microsoft.Network`
+- `Microsoft.Storage`
+- `Microsoft.KeyVault`
+- `Microsoft.ContainerInstance`
+
+1. Check the provider registrations by running the following command:
+
+   ```azurepowershell
+     Get-AzResourceProvider -ProviderNamespace "Microsoft.VirtualMachineImages", "Microsoft.Compute", "Microsoft.Network", "Microsoft.Storage", "Microsoft.KeyVault", "Microsoft.ContainerInstance" | Format-table -Property ProviderNamespace,RegistrationState
    ```
 
-   If the provider registrations don't return `Registered`, register the providers by running the following commands:
+1. If any of the provider registrations don't return `Registered`, register the provider by running the `Register-AzResourceProvider` command. The following example registers the `Microsoft.VirtualMachineImages` resource provider.
 
-   ```powershell
-      Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages  
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Storage  
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Compute  
-      Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault  
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Network 
+   ```azurepowershell
+     Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
    ```
 
-1. Install PowerShell modules:
+### Create and assign a user identity
 
-   ```powershell
-   'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
-   ```
+Create an Azure role definition that allows distributing the image. Then create a user-assigned identity for your resource group and assign the role to the user identity. VM Image Builder uses the user identity to store the image in Azure Compute Gallery.
 
-1. Create variables to store information that you use more than once.
+1. Run the following code to create an Azure role definition and user identity.
 
-   1. Copy the following sample code.
-   1. Replace `<Resource group>` with the resource group that you used to create the dev center.
-   1. Run the updated code in PowerShell.
-
-   ```powershell
-   # Get existing context 
-   $currentAzContext = Get-AzContext
-
-   # Get your current subscription ID  
-   $subscriptionID=$currentAzContext.Subscription.Id
-
-   # Destination image resource group  
-   $imageResourceGroup="<Resource group>"
-
-   # Location  
-   $location="eastus2"
-
-   # Image distribution metadata reference name  
-   $runOutputName="aibCustWinManImg01"
-
-   # Image template name  
-   $imageTemplateName="vscodeWinTemplate"  
-   ```
-
-1. Create a user-assigned identity and set permissions on the resource group by running the following code in PowerShell.
-
-   VM Image Builder uses the provided user identity to inject the image into Azure Compute Gallery. The following example creates an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
-
-   ```powershell
-   # Set up role definition names, which need to be unique 
+   ```azurepowershell
+   # Set up a unique role definition name
    $timeInt=$(get-date -UFormat "%s") 
    $imageRoleDefName="Azure Image Builder Image Def"+$timeInt 
    $identityName="aibIdentity"+$timeInt 
-    
-   # Add an Azure PowerShell module to support AzUserAssignedIdentity 
-   Install-Module -Name Az.ManagedServiceIdentity 
-    
+   
    # Create an identity 
    New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Location $location
-    
+   
    $identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id 
    $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
    ```
 
-1. Assign permissions for the identity to distribute the images.
+1. Run the following code to download an Azure role definition template that allows distributing an image, update the template with your parameters, and assign the role to the user identity.
 
-   Use this command to download an Azure role definition template, and then update it with the previously specified parameters:
-
-   ```powershell
+   ```azurepowershell
    $aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json" 
    $aibRoleImageCreationPath = "aibRoleImageCreation.json" 
    
@@ -140,22 +142,20 @@ The first step is to use Azure VM Image Builder and Azure PowerShell to create a
    New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup" 
    ```
 
-## Create a gallery
+## Create a gallery and VM Image Builder template
 
-To use VM Image Builder with Azure Compute Gallery, you need to have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
+To use VM Image Builder with Azure Compute Gallery, you need a gallery and an image definition. The following steps create a new gallery and image definition and customize a VM Image Builder template.
 
-1. Run the following commands to create a new gallery and image definition.
+1. Run the following commands to create a new gallery and an image definition that has the required trusted launch security type for a Windows 365 image.
 
-   This code creates a definition with the _trusted launch_ security type and meets the Windows 365 image requirements.
-
-   ```powershell
+   ```azurepowershell
    # Gallery name 
    $galleryName= "devboxGallery" 
 
    # Image definition name 
    $imageDefName ="vscodeImageDef" 
 
-   # Additional replication region 
+   # Second replication region 
    $replRegion2="eastus" 
 
    # Create the gallery 
@@ -168,11 +168,9 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
    New-AzGalleryImageDefinition -GalleryName $galleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'myCompany' -Offer 'vscodebox' -Sku '1-0-0' -Feature $features -HyperVGeneration "V2" 
    ```
 
-1. Create a file to store your template definition, such as c:/temp/mytemplate.txt.
+1. Copy and paste the following Azure Resource Manager template for VM Image Builder into a new file. Save the file to a location such as *c:\\temp\\mytemplate.json*, and then close the file.
 
-1. Copy the following Azure Resource Manger template for VM Image Builder into your new template file.
-
-   This template indicates the source image and the customizations applied. It installs Choco and VS Code, and also indicates the image distribution location.
+   The template defines the source image and customizations applied, installs Chocolatey and Visual Studio Code, and indicates the image distribution location.
 
    ```json
    {
@@ -223,7 +221,7 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
            "customize": [
             {
                "type": "PowerShell",
-               "name": "Install Choco and Vscode",
+               "name": "Install Choco and VS Code",
                "inline": [
                   "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
                   "choco install -y vscode"
@@ -252,14 +250,10 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
      }
    ```
 
-   Close your template file before proceeding to the next step.
+1. Configure the new template with your settings by running the following code, replacing `<template-location>` with your template file location and name.
 
-1. Configure your new template with your variables.
-
-   Replace `<Template Path>` with the location of your template file, such as `c:/temp/mytemplate`.
-
-   ```powershell
-   $templateFilePath = <Template Path>
+   ```azurepowershell
+   $templateFilePath = "<template-location>"
    
    (Get-Content -path $templateFilePath -Raw ) -replace '<subscriptionID>',$subscriptionID | Set-Content -Path $templateFilePath 
    (Get-Content -path $templateFilePath -Raw ) -replace '<rgName>',$imageResourceGroup | Set-Content -Path $templateFilePath 
@@ -271,51 +265,51 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
    ((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath 
    ```
 
-1. Submit your template to the service.
+## Build and view the image
 
-   The following command downloads any dependent artifacts, such as scripts, and store them in the staging resource group. The staging resource group is prefixed with `IT_`.
+Submit your customized template to the VM Image Builder service and build the image.
 
-   ```powershell
+1. Run the following command to submit your template to the service. The command downloads any dependent artifacts, such as scripts, and stores them in a staging resource group prefixed with `IT_`.
+
+   ```azurepowershell
    New-AzResourceGroupDeployment  -ResourceGroupName $imageResourceGroup  -TemplateFile $templateFilePath  -Api-Version "2020-02-14"  -imageTemplateName $imageTemplateName  -svclocation $location 
    ```
 
-1. Build the image by invoking the `Run` command on the template:
+1. Build the image by invoking the `Run` action on the template. At the confirmation prompt, enter *Y* for `Yes`.
 
-   At the prompt to confirm the run process, enter **Yes**.
-
-   ```powershell
+   ```azurepowershell
    Invoke-AzResourceAction  -ResourceName $imageTemplateName  -ResourceGroupName $imageResourceGroup  -ResourceType Microsoft.VirtualMachineImages/imageTemplates  -ApiVersion "2020-02-14"  -Action Run
    ```
 
-   > [!IMPORTANT]
-   > Creating the image and replicating it to both regions can take some time. You might see a difference in progress reporting between PowerShell and the Azure portal. Before you begin creating a dev box definition, wait until the process completes.
+> [!IMPORTANT]
+> Creating the image and replicating it to two regions can take some time. You might see different progress reporting between PowerShell and the Azure portal. Wait until the process completes before you start creating a dev box definition from the image. 
 
-1. Get information about the newly built image, including the run status and provisioning state.
+### Get information about the image
 
-    ```powershell
-    Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup | Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState 
-    ```
+Run the following command to get information about the newly built image, including the run status and provisioning state.
 
-    Sample output:
+```azurepowershell
+Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup | Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState 
+```
 
-    ```powershell
-    Name                 LastRunStatusRunState    LastRunStatusMessage   ProvisioningState
-    ---------------------------------------------------------------------------------------
-    vscodeWinTemplate                                                    Creating
-    ```
+Sample output:
 
-    You can also view the provisioning state of your image in the Azure portal. Go to your gallery and view the image definition.
+```azurepowershell
+Name              LastRunStatusRunState LastRunStatusMessage ProvisioningState
+----              --------------------- -------------------- -----------------
+vscodeWinTemplate Running                                    Succeeded
+```
 
-    :::image type="content" source="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png" alt-text="Screenshot that shows the provisioning state of the customized image version." lightbox="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png":::
+You can also view the provisioning state of your image in the Azure portal. Go to your gallery to view the image definition.
 
-## Configure the gallery
+:::image type="content" source="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png" alt-text="Screenshot that shows the provisioning state of the customized image version." lightbox="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png":::
 
-After your custom image is provisioned in the gallery, you can configure the gallery to use the images in the dev center. For more information, see [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).
+## Configure the gallery and create a dev box
 
-## Set up Microsoft Dev Box with a custom image
+Once your custom image is stored in the gallery, you can configure the gallery to use its images in a Microsoft Dev Box dev center. For more information, see [Configure Azure Compute Gallery for Microsoft Dev Box](./how-to-configure-azure-compute-gallery.md).
 
-After the gallery images are available in the dev center, you can use the custom image with Microsoft Dev Box. For more information, see [Quickstart: Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
+After you make the gallery images available in the dev center, you can attach the custom image to a dev box project and use it to create dev boxes. For more information, see [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).
 
 ## Related content
 
-- [Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
+- [Manage a dev box definition](how-to-manage-dev-box-definitions.md)

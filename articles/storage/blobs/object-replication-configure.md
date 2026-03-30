@@ -7,9 +7,13 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 03/10/2026
 ms.author: normesta
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a cloud storage administrator, I want to configure object replication policies for block blobs between storage accounts, so that I can ensure data redundancy and availability across different locations.
 ---
 
 # Configure object replication for block blobs
@@ -215,6 +219,10 @@ az storage account or-policy show \
     --policy "@-"
 ```
 
+### [REST API](#tab/rest-api)
+
+N/A
+
 ---
 
 ## Configure object replication using a JSON file
@@ -228,7 +236,7 @@ For information about how to author a JSON file that contains the policy definit
 
 The examples in this section show how to configure the object replication policy on the destination account, and then get the JSON file for that policy that another user can use to configure the policy on the source account.
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 To configure object replication on the destination account with a JSON file in the Azure portal, follow these steps:
 
@@ -257,7 +265,7 @@ The downloaded JSON file includes the policy ID that Azure Storage created for t
 
 Keep in mind that uploading a JSON file to create a replication policy for the destination account via the Azure portal doesn't automatically create the same policy in the source account. Another user must create the policy on the source account before Azure Storage begins replicating objects.
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 To download a JSON file that contains the replication policy definition for the destination account from PowerShell, call the [Get-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/get-azstorageobjectreplicationpolicy) command to return the policy. Then convert the policy to JSON and save it as a local file, as shown in the following example. Remember to replace values in angle brackets and the file path with your own values:
 
@@ -284,7 +292,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -Rule $object.Rules
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To write the replication policy definition for the destination account to a JSON file from Azure CLI, call the [az storage account or-policy show](/cli/azure/storage/account/or-policy#az-storage-account-or-policy-show) command and output to a file.
 
@@ -305,13 +313,146 @@ az storage account or-policy create \
     --policy @policy.json
 ```
 
+### [REST API](#tab/rest-api)
+
+N/A
+
 ---
+
+## Configure blob index tags replication (preview)
+
+Object replication now supports copying index tags from source blobs to destination blobs. You can configure this capability as part of a new or existing replication rule.
+
+> [!IMPORTANT]
+> Tag replication is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Prerequisites
+
+The source storage account must be registered for the EnableObjectReplicationTags preview feature before tag replication can be enabled. Register the preview feature in the Azure portal by following the steps in the [Azure Resource Manager preview features](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) documentation.
+
+### Enable Tags replication
+
+Tags replication can be enabled on both new and existing object replication policies. Any change to a source blob or it's index tags will trigger replication of tags.
+
+#### [Azure portal](#tab/portal)
+
+Enable tags replication from the Object Replication blade when creating a rule or update existing rules using the Tags replication column.
+
+To configure replicating blob index tags when creating a new rule, follow these steps:
+
+1. Navigate to the source storage account in the Azure portal.
+1. Under **Data management**, select **Object replication**.
+1. Select **Create replication rules**.
+1. Select **Enable tags replication** and finally select **Save and apply** to configure replicating blob index tags.
+
+To configure replicating blob index tags for exsiting rules, follow these steps:
+
+1. Navigate to **Your accounts tab** in **Object replication** page 
+1. Select **Enable** option under Tags replication column in **Objects copied from this account** table and select **OK**.
+1. Status of Tags replication column against a rule now shows **Enabled**.
+
+To disable replicating blob index tags for exsiting rules, follow these steps:
+
+1. Navigate to **Your accounts tab** in **Object replication** page 
+2. Select an exsiting rule and select **Edit rules** from the '…' menu
+3. Unselect **Enable tags replication** option and finally select **Save and apply** to disable replicating blob index tags.
+
+#### [PowerShell](#tab/powershell)
+
+N/A.
+
+#### [Azure CLI](#tab/azure-cli)
+
+N/A.
+
+#### [REST API](#tab/rest-api)
+
+Users can use existing REST APIs: [Object Replication Policies - Create Or Update - REST API](/rest/api/storagerp/object-replication-policies/create-or-update) to configure policies for replicating tags set on the Blobs. 
+
+Add the following line ``` “tagsReplication”: { “enabled”: true }``` when creating or updating the replication 
+rules on the source account.
+
+Tags replication is supported on API version 2022-05-01 and above. You can add the new tagsReplication field to the replication policy.
+
+Sample: 
+
+``` json
+{
+    "sourceAccount": "<source-account-name>",
+    "destinationAccount": "<destination-account-name>",
+    "tagsReplication":
+    {
+     "enabled": true
+    },
+    "rules":
+    [
+        {
+            "ruleId": "<rule-id>",
+            "sourceContainer": "<source-container-name>",
+            "destinationContainer": "<destination-container-name>"
+        }
+    ]
+}
+```
+---
+
+## Configure replication metrics
+
+### Enable replication metrics
+
+You can enable replication metrics on both new and existing object replication policies. It might take a few minutes to start observing the metrics.  
+
+#### [Azure portal](#tab/portal)
+
+You can enable metrics using **Object Replication** blade from the new _Metrics_ column or by editing the _Edit Rules_ section of a policy from "…" on the OR policy row.
+
+#### [PowerShell](#tab/powershell)
+
+Not yet supported.
+
+#### [Azure CLI](#tab/azure-cli)
+
+Not yet supported.
+
+#### [REST API](#tab/rest-api)
+
+Enabling metrics is supported on API version 2021-08-01 and above. You can add the new metrics field to the replication policy. Sample: 
+
+``` json
+{
+    "sourceAccount": "<source-account-name>",
+    "destinationAccount": "<destination-account-name>",
+    "metrics":
+    {
+     "enabled": true
+    },
+    "rules":
+    [
+        {
+            "ruleId": "<rule-id>",
+            "sourceContainer": "<source-container-name>",
+            "destinationContainer": "<destination-container-name>"
+        }
+    ]
+}
+```
+
+---
+
+If you enable metrics on a policy that is configured to copy over existing data, you might observe an increasing amount at the beginning while the policy works on initial phase of listing. Once this is completed, the replication will start.
+
+### View replication metrics
+
+You can click the **View** link from Metrics column to view monitoring metrics
+
+To further view metrics in Azure Monitor, click on chart of a metric. This will direct you to Azure Monitor Metrics view with more filtering capabilities.
 
 ## Check the replication status of a blob
 
 You can check the replication status for a blob in the source account using the Azure portal, PowerShell, or Azure CLI. Object replication properties aren't populated until replication has either completed or failed.
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 To check the replication status for a blob in the source account in the Azure portal, follow these steps:
 
@@ -321,7 +462,7 @@ To check the replication status for a blob in the source account in the Azure po
 
 :::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot showing replication status for a blob in the source account":::
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 To check the replication status for a blob in the source account with PowerShell, get the value of the object replication **ReplicationStatus** property, as shown in the following example. Remember to replace values in angle brackets with your own values:
 
@@ -334,7 +475,7 @@ $blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
 $blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To check the replication status for a blob in the source account with Azure CLI, get the value of the object replication **status** property, as shown in the following example:
 
@@ -348,19 +489,23 @@ az storage blob show \
     --auth-mode login
 ```
 
----
-
 If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
 
 - Make sure that the object replication policy is configured on the destination account.
 - Verify that the destination container still exists.
 - If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
+### [REST API](#tab/rest-api)
+
+N/A
+
+---
+
 ## Remove a replication policy
 
 To remove a replication policy and its associated rules, use Azure portal, PowerShell, or CLI.
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 To remove a replication policy in the Azure portal, follow these steps:
 
@@ -369,7 +514,7 @@ To remove a replication policy in the Azure portal, follow these steps:
 1. Select the **More** button next to the policy name.
 1. Select **Delete Rules**.
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 To remove a replication policy, delete the policy from both the source account and the destination account. Deleting the policy also deletes any rules associated with it.
 
@@ -385,7 +530,7 @@ Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -PolicyId $destPolicy.PolicyId
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To remove a replication policy, delete the policy from both the source account and the destination account. Deleting the policy also deletes any rules associated with it.
 
@@ -401,11 +546,37 @@ az storage account or-policy delete \
     --resource-group <resource-group>
 ```
 
+### [REST API](#tab/rest-api)
+
+N/A
+
 ---
+
+## Behavior when re-creating an object replication policy 
+
+
+When an object replication policy is deleted and re‑created on the same source and destination container pair, Azure treats the new policy as an entirely separate replication relationship. The following behavior applies: 
+
+- A new policy ID is generated for the re‑created policy. 
+
+- Any replication tasks associated with the previous policy are terminated. 
+
+- The destination container is assigned a new replication lock tied to the new policy ID. 
+
+- Replication state from the previous policy is not reused. 
+
+## Replication behavior after re‑creating an object replication policy 
+
+After the policy is re‑created, Azure attempts replication again for eligible blobs, and the outcome depends on the availability of blob version history on the source account: 
+
+- **If a source blob has no previous versions available on the destination:** Azure determines that the blob has already been copied under a prior policy. Re‑replication of that blob does not succeed. Only new blob writes (or new versions created after the policy is re‑created) replicate successfully. 
+
+- **If a source blob has previous versions available on the destination:** Azure is able to re‑replicate the blob. The blob is copied again to the destination as a new version. This enables successful re‑replication of existing blobs without data inconsistency. 
 
 ## Next steps
 
 - [Object replication for block blobs](object-replication-overview.md)
 - [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md)
 - [Enable and manage blob versioning](versioning-enable.md)
+
 - [Process change feed in Azure Blob storage](storage-blob-change-feed-how-to.md)

@@ -1,13 +1,13 @@
 ---
 title: Changes to the Azure reservation exchange policy
 description: Learn how changes to the Azure reservation exchange policy might affect you.
-author: bandersmsft
-ms.author: banders
+author: pri-mittal
+ms.author: primittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 06/06/2024
+ms.topic: concept-article
+ms.date: 03/19/2026
 ---
 
 # Changes to the Azure reservation exchange policy

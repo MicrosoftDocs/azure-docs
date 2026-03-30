@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
-            "redirect_url": "/azure/orbital/overview",
+            "redirect_url": "https://azure.microsoft.com/en-us/updates?id=azure-orbital-ground-station-retirement",
             "redirect_document_id": false
         },
         {

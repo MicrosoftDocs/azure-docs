@@ -3,11 +3,11 @@ title: CREATE TABLE AS SELECT (CTAS)
 description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in dedicated SQL pool (formerly SQL DW) for developing solutions.
 author: joannapea
 ms.author: joanpo
-ms.reviewer: wiassaf
-ms.date: 06/09/2022
+
+ms.date: 01/21/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - azure-synapse
 ---
@@ -90,7 +90,7 @@ WITH(
 );
 ```
 
-Now you want to create a new copy of this table, with a `Clustered Columnstore Index`, so you can take advantage of the performance of Clustered Columnstore tables. You also want to distribute this table on `ProductKey`, because you're anticipating joins on this column and want to avoid data movement during joins on `ProductKey`. Lastly, you also want to add partitioning on `OrderDateKey`, so you can quickly delete old data by dropping old partitions. Here is the CTAS statement, which copies your old table into a new table.
+Now you want to create a new copy of this table, with a `Clustered Columnstore Index`, so you can take advantage of the performance of Clustered Columnstore tables. You also want to distribute this table on `ProductKey`, because you're anticipating joins on this column and want to avoid data movement during joins on `ProductKey`. Lastly, you also want to add partitioning on `OrderDateKey`, so you can quickly delete old data by dropping old partitions. Here's the CTAS statement, which copies your old table into a new table.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -169,9 +169,9 @@ The value stored for result is different. As the persisted value in the result c
 
 This is important for data migrations. Even though the second query is arguably more accurate, there's a problem. The data would be different compared to the source system, and that leads to questions of integrity in the migration. This is one of those rare cases where the "wrong" answer is actually the right one!
 
-The reason we see a disparity between the two results is due to implicit type casting. In the first example, the table defines the column definition. When the row is inserted, an implicit type conversion occurs. In the second example, there is no implicit type conversion as the expression defines the data type of the column.
+The reason we see a disparity between the two results is due to implicit type casting. In the first example, the table defines the column definition. When the row is inserted, an implicit type conversion occurs. In the second example, there's no implicit type conversion as the expression defines the data type of the column.
 
-Notice also that the column in the second example has been defined as a NULLable column, whereas in the first example it has not. When the table was created in the first example, column nullability was explicitly defined. In the second example, it was left to the expression, and by default would result in a NULL definition.
+Notice also that the column in the second example has been defined as a NULLable column, whereas in the first example it hasn't. When the table was created in the first example, column nullability was explicitly defined. In the second example, it was left to the expression, and by default would result in a NULL definition.
 
 To resolve these issues, you must explicitly set the type conversion and nullability in the SELECT portion of the CTAS statement. You can't set these properties in 'CREATE TABLE'.
 The following example demonstrates how to fix the code:
@@ -194,7 +194,7 @@ Note the following:
 * The second part of the ISNULL is a constant, 0.
 
 > [!NOTE]
-> For the nullability to be correctly set, it's vital to use ISNULL and not COALESCE. COALESCE is not a deterministic function, and so the result of the expression will always be NULLable. ISNULL is different. It's deterministic. Therefore, when the second part of the ISNULL function is a constant or a literal, the resulting value will be NOT NULL.
+> For the nullability to be correctly set, it's vital to use ISNULL and not COALESCE. COALESCE isn't a deterministic function, and so the result of the expression will always be NULLable. ISNULL is different. It's deterministic. Therefore, when the second part of the ISNULL function is a constant or a literal, the resulting value will be NOT NULL.
 
 Ensuring the integrity of your calculations is also important for table partition switching. Imagine you have this table defined as a fact table:
 
@@ -270,6 +270,6 @@ You can see that type consistency and maintaining nullability properties on a CT
 
 CTAS is one of the most important statements in Synapse SQL. Make sure you thoroughly understand it. See the [CTAS documentation](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-## Next steps
+## Related content
 
 For more development tips, see the [development overview](sql-data-warehouse-overview-develop.md).

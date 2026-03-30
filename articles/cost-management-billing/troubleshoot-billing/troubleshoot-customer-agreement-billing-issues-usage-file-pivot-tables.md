@@ -1,13 +1,17 @@
 ---
 title: Troubleshoot Azure MCA billing issues with usage file pivot tables
 description: This article helps you troubleshoot Microsoft Customer Agreement (MCA) billing issues using pivot tables created from your CSV usage files.
-author: banders
-ms.reviewer: isvargas
+author: jkinma39
+ms.author: jkinma
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 11/04/2025
+ms.custom:
+- build-2025
+- sfi-image-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Troubleshoot MCA billing issues with usage file pivot tables
@@ -46,7 +50,7 @@ In this section, you create a pivot table where you can troubleshoot overall gen
 
 1. In the PivotTable Fields area, drag **Meter Category** and **Product** to the **Rows** section. Put **Product** below **Meter Category**.  
     :::image type="content" source="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/rows-section.png" alt-text="Screenshot showing Meter Category and Product in Rows." lightbox="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/rows-section.png" :::
-1. Next, add the **costInBillingCurrenty** column to the **Values** section. You can also use the **Quantity** column instead to get information about consumption units and transactions. For example, GB and Hours. Or, transactions instead of cost in different currencies like USD, EUR, and INR.  
+1. Next, add the **costInBillingCurrency** column to the **Values** section. You can also use the **Quantity** column instead to get information about consumption units and transactions. For example, GB and Hours. Or, transactions instead of cost in different currencies like USD, EUR, and INR.  
     :::image type="content" source="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" alt-text="Screenshot showing fields added to the pivot table." lightbox="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/add-pivot-table-fields.png" :::
 1. Now you have a dashboard for generalized consumption investigation. You can filter for a specific service using the filtering options in the pivot table.  
     :::image type="content" source="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" alt-text="Screenshot showing the pivot table filter option for a row label." lightbox="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/pivot-table-filter-option-row-label.png" :::

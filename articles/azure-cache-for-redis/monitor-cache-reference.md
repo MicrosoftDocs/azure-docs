@@ -1,11 +1,14 @@
 ---
 title: Monitoring data reference for Azure Cache for Redis
 description: This article contains important reference material you need when you monitor Azure Cache for Redis.
-ms.date: 05/13/2024
-ms.custom: horz-monitor
+ms.date: 05/18/2025
 ms.topic: reference
-author: rboucher
-ms.author: robb
+ms.custom:
+  - horz-monitor
+  - ignite-2024
+  - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 
@@ -43,7 +46,6 @@ The following list provides details and more information about the supported Azu
   - Depicts the worst-case (99th percentile) latency of server-side commands. Measured by issuing `PING` commands from the load balancer to the Redis server and tracking the time to respond.
   - Useful for tracking the health of your Redis instance. Latency increases if the cache is under heavy load or if there are long running commands that delay the execution of the `PING` command.
   - This metric is only available in Standard and Premium tier caches.
-  - This metric is not available for caches that are affected by Cloud Service retirement. See more information [here](cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic)
 - Cache Latency (preview)
   - The latency of the cache calculated using the internode latency of the cache. This metric is measured in microseconds, and has three dimensions: `Avg`, `Min`, and `Max`. The dimensions represent the average, minimum, and maximum latency of the cache during the specified reporting interval.
 - Cache Misses
@@ -51,11 +53,11 @@ The following list provides details and more information about the supported Azu
 - Cache Miss Rate
   - The percent of unsuccessful key lookups during the specified reporting interval. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 - Cache Read
-  - The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](./cache-planning-faq.yml#azure-cache-for-redis-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
+  - The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](../redis/planning-faq.yml#how-can-i-measure-azure-managed-redis-performance-) for the observed bandwidth limits for various cache pricing tiers and sizes.
 - Cache Write
   - The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.
 - Connected Clients
-  - The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there might still be a few instances of connected clients because of internal processes and connections.
+  - The number of client connections to the cache during the specified reporting interval. This number maps to `connected_clients` from the Redis INFO command. Once the [connection limit]/azure-cache-for-redis/cache-configure.md#default-redis-server-configuration) is reached, later attempts to connect to the cache fail. Even if there are no active client applications, there might still be a few instances of connected clients because of internal processes and connections.
 - Connected Clients Using Microsoft Entra Token (preview)
   - The number of client connections to the cache authenticated using Microsoft Entra token during the specified reporting interval.
 - Connections Created Per Second
@@ -87,7 +89,7 @@ The following list provides details and more information about the supported Azu
 
   Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-  The [Geo-Replication Dashboard](cache-insights-overview.md#workbooks) workbook is a simple and easy way to view all Premium-tier geo-replication metrics in the same place. This dashboard pulls together metrics that are only emitted by the geo-primary or geo-secondary, so they can be viewed simultaneously.
+  The [Geo-Replication Dashboard](../azure-cache-for-redis/cache-insights-overview.md#workbooks) workbook is a simple and easy way to view all Premium-tier geo-replication metrics in the same place. This dashboard pulls together metrics that are only emitted by the geo-primary or geo-secondary, so they can be viewed simultaneously.
 
   - Geo Replication Connectivity Lag
     - Depicts the time, in seconds, since the last successful data synchronization between geo-primary & geo-secondary. If the link goes down, this value continues to increase, indicating a problem.

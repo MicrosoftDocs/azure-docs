@@ -5,7 +5,7 @@ services: healthcare-apis
 author: expekesheth
 ms.service: azure-health-data-services
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 10/09/2025
 ms.author: kesheth
 ---
 

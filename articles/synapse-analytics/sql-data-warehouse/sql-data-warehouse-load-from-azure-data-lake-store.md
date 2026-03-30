@@ -1,13 +1,13 @@
 ---
 title: "Tutorial load data from Azure Data Lake Storage"
 description: Use the COPY statement to load data from Azure Data Lake Storage for dedicated SQL pools.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: joannapea
+ms.author: joanpo
 ms.reviewer: joanpo 
 ms.date: 09/02/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: azure-synapse
 ---
 
@@ -23,7 +23,7 @@ This guide outlines how to use the [COPY statement](/sql/t-sql/statements/copy-i
 > * Create the target table to load data from Azure Data Lake Storage.
 > * Create the COPY statement to load data into the data warehouse.
 
-If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Before you begin
 

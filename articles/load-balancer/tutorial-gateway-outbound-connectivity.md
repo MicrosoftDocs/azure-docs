@@ -6,8 +6,11 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 10/24/2023
-ms.custom: template-tutorial
+ms.date: 11/26/2024
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
+# Customer intent: "As a network administrator, I want to configure a Gateway Load Balancer for my virtual machines' outbound connectivity, so that I can ensure high performance and scalability while securing both inbound and outbound traffic."
 ---
 
 # Tutorial: Configure outbound connectivity with a gateway load balancer
@@ -22,10 +25,10 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see [Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
     - For the purposes of this tutorial, the standard load balancer is named **myLoadBalancer** and is located in a resource group called **myResourceGroup**.
-- An existing Gateway SKU Azure Load Balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer using the Azure portal](tutorial-gateway-portal.md).
+- An existing Gateway SKU Azure Load Balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer using the Azure portal](tutorial-create-gateway-load-balancer.md).
     - For the purposes of this tutorial, the gateway load balancer in the examples is name **myGatewayLoadBalancer**.
 - A virtual machine or network virtual appliance deployed in the same region and resource group as the load balancers. For more information on deploying a virtual machine, see [Create a Windows VM in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
     - For the purposes of this tutorial, the virtual machine is named **myVM1**.
@@ -36,18 +39,13 @@ In this section, you chain an existing virtual machine’s public IP to a gatewa
 
 1. Navigate to your existing virtual machine. This example uses a virtual machine named **myVM1**. 
 
-1. To verify your virtual machine has a standard SKU public IP associated with it, select **Public IP address > Overview** and confirm that the SKU is **Standard**.
+1. To verify your virtual machine has a standard SKU public IP associated with it, select the listed public IP address in **Overview** of the virtual machine.
+1. Under **Overview** of the public IP address, confirm that the SKU is **Standard**.
 1. Return to your virtual machine.
-1. In **Overview** of the virtual machine, select **Networking** under **Settings**.
-1. Select the network interface attached to the virtual machine. This example uses **myvm1185_z1**.
-
-    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/select-network-interface.png" alt-text="Screenshot of network interface attached to virtual machine.":::
-
+1. In **Overview** of the virtual machine, select **Networking** > **Network settings**.
+1. Select the network interface attached to the virtual machine. 
 1. In **Network interface**, select **IP configurations** under **Settings**.
-6. Select **myFrontend** in **Gateway Load balancer**.
-
-    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/select-gateway-load-balancer.png" alt-text="Screenshot of gateway load balancer selection in IP configuration settings.":::
-
+1. Under **IP configurations**, select **myGWFrontend** from the **Gateway Load balancer** dropdown menu.
 1. Select **Save**.
 
 ## Create a load balancer frontend
@@ -55,9 +53,6 @@ In this section, you chain an existing virtual machine’s public IP to a gatewa
 In this section, you create a new frontend IP configuration for outbound traffic in our existing standard public load balancer. Using separate public IPs for inbound and outbound traffic is a recommend best practice. Reusing the same public IP for inbound and outbound traffic can increase the risk of SNAT exhaustion, as load balancing and inbound NAT rules decrease the number of available SNAT ports. 
 
 1. Navigate to **myLoadBalancer** or your existing standard public load balancer and go to the **Frontend IP configuration** under **Settings**.
-
-    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/frontend-settings.png" alt-text="Screenshot of frontend IP configuration.":::
-
 1. Select **+ Add** to create a new frontend IP configuration
 1. In the **Add frontend IP configuration** page, enter or select the following information:
 
@@ -67,11 +62,7 @@ In this section, you create a new frontend IP configuration for outbound traffic
     | IP version | Select **IPv4**. |
     | IP type | Select **IP address**. |
     | Public IP address | <br> Select **Create new**.</br> <br/> In **Add a public IP address**, enter **myOutboundPublicIP** for name, and select **Ok**.<br/>|
-    | Gateway Load balancer | Select **myGatewayLoadBalancerFrontEnd**. |    
-
-
-    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/add-frontend-ip-configuration.png" alt-text="Screenshot of Add frontend ip configuration screen.":::
-
+    | Gateway Load balancer | Select **myGWFrontEnd**. |    
 1.	Select **Add**.
 
 > [!NOTE] 
@@ -81,10 +72,7 @@ In this section, you create a new frontend IP configuration for outbound traffic
 ## Create outbound rule
 
 1. In **Load balancer**, select **Outbound rules** under **Settings**.
-2. Select **+ Add** in **Outbound rules** to add a rule.
-
-    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/outbound-rules.png" alt-text="Screenshot of Load Balancer Outbound rules settings.":::
-
+1. Select **+ Add** in **Outbound rules** to add a rule.
 1. In **Add outbound rule** window, Enter or select the following information in:
 
     | Setting | Value |
@@ -101,10 +89,6 @@ In this section, you create a new frontend IP configuration for outbound traffic
     | **Outbound ports** | |
     | Choose by | Select **Maximum number of backend instances**. |
     | Ports per instance | Enter the anticipated maximum number of backend instances. This example uses **2** backend instances.
-
-    
-    :::image type="content" source="media/tutorial-gateway-outbound-connectivity/add-outbound-rule.png" alt-text="Screenshot of Add Outbound Rule screen.":::
-
 1. Select **Add**.
 
     > [!IMPORTANT]

@@ -4,15 +4,17 @@ description: include file
 author: jianleishen
 ms.author: jianleishen
 ms.topic: include
-ms.custom: include file
 ms.date: 06/27/2019
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 
 ## Prerequisites
 
 ### Azure subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Azure roles
 

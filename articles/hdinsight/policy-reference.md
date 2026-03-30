@@ -1,16 +1,18 @@
 ---
 title: Built-in policy definitions for Azure HDInsight
 description: Lists Azure Policy built-in policy definitions for Azure HDInsight. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 02/06/2024
+ms.date: 02/03/2025
 ms.topic: reference
 ms.service: azure-hdinsight
-ms.custom: subject-policy-reference
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 # Azure Policy built-in definitions for Azure HDInsight
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure HDInsight. For additional Azure Policy built-ins for other services, see
-[Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md).
+[Azure Policy built-in definitions](/azure/governance/policy/samples/built-in-policies).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use
 the link in the **Version** column to view the source on the
@@ -18,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure HDInsight
 
-[!INCLUDE [azure-policy-reference-rp-hdinsight](../../includes/policy/reference/byrp/microsoft.hdinsight.md)]
+[!INCLUDE [azure-policy-reference-rp-hdinsight](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.hdinsight.md)]
 
 ## Next steps
 

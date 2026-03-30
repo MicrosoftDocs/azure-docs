@@ -2,15 +2,16 @@
 title: Configure anonymous read access for containers and blobs
 titleSuffix: Azure Storage
 description: Learn how to allow or disallow anonymous access to blob data for the storage account. Set the container's anonymous access setting to make containers and blobs available for anonymous access.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 03/04/2025
 ms.reviewer: nachakra
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+# Customer intent: "As a storage account administrator, I want to configure anonymous access for containers and blobs, so that I can control which users can read blob data without authorization while ensuring optimal security for sensitive information."
 ---
 
 # Configure anonymous read access for containers and blobs
@@ -20,10 +21,7 @@ Azure Storage supports optional anonymous read access for containers and blobs. 
 > [!WARNING]
 > When a container is configured for anonymous access, any client can read data in that container. Anonymous access presents a potential security risk, so if your scenario does not require it, we recommend that you remediate anonymous access for the storage account.
 
-This article describes how to configure anonymous read access for a container and its blobs. For information about how to remediate anonymous access for optimal security, see one of these articles:
-
-- [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)
-- [Remediate anonymous read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md)
+This article describes how to configure anonymous read access for a container and its blobs. For information about how to remediate anonymous access for optimal security, see [Remediate anonymous read access to blob data](anonymous-read-access-prevent.md).
 
 ## About anonymous read access
 
@@ -306,3 +304,4 @@ Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 - [Prevent anonymous read access to containers and blobs](anonymous-read-access-prevent.md)
 - [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md)
 - [Authorizing access to Azure Storage](../common/authorize-data-access.md)
+

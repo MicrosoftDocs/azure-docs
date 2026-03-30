@@ -3,6 +3,7 @@ title: Plan your OT monitoring system with Defender for IoT
 description: Learn how to plan your overall OT network monitoring structure and requirements.
 ms.topic: install-set-up-deploy
 ms.date: 02/16/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Plan your OT monitoring system with Defender for IoT
@@ -74,7 +75,7 @@ For more information, see:
 
 For cloud-connected sensors, determine how you'll be connecting each OT sensor to Defender for IoT in the Azure cloud, such as what sort of proxy you might need.  For more information, see [Methods for connecting sensors to Azure](../architecture-connections.md).
 
-If you're working in an air-gapped or hybrid environment and will have multiple, locally-managed OT network sensors, you may want to plan to deploy an on-premises management console to configure your settings and view data from a central location. For more information, see the [Air-gapped OT sensor management deployment path](../ot-deploy/air-gapped-deploy.md).
+If you're working in an air-gapped or hybrid environment and will have multiple, locally-managed OT network sensors, see the [Air-gapped OT sensor management deployment path](../ot-deploy/air-gapped-deploy.md).
 
 ## Plan on-premises SSL/TLS certifications
 

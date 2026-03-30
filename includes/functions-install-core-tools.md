@@ -21,6 +21,9 @@ Download and run the Core Tools installer, based on your version of Windows:
 
 If you previously used Windows installer (MSI) to install Core Tools on Windows, you should uninstall the old version from Add Remove Programs before installing the latest version.
 
+>[!TIP]  
+>To install Core Tools on [Windows Subsystem for Linux (WSL)](/windows/wsl/install), follow the instructions on the Linux tab. 
+
 ### [macOS](#tab/macos)
 
 The following steps use Homebrew to install the Core Tools on macOS.
@@ -68,6 +71,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     | Debian 11                  | `bullseye` |
     | Debian 10                  | `buster`   |
     | Debian 9                   | `stretch`  |
+    | Ubuntu 24.04               | `noble`    |
     | Ubuntu 22.04               | `jammy`    |
     | Ubuntu 20.04               | `focal`    |
     | Ubuntu 19.04               | `disco`    |

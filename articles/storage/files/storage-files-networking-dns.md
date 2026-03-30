@@ -6,23 +6,19 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 09/09/2024
 ms.author: kendownie
+ms.custom: sfi-image-nochange
+# Customer intent: As a network administrator managing Azure storage, I want to configure DNS forwarding for Azure Files to ensure the fully qualified domain name resolves to the private endpoint IP address, so that I can securely access file shares from my on-premises network.
 ---
 
 # Configure DNS forwarding for Azure Files using VMs or Azure DNS Private Resolver
+
+:heavy_check_mark: **Applies to:** All Azure file shares
 
 Azure Files enables you to create private endpoints for the storage accounts containing your file shares. Although useful for many different applications, private endpoints are especially useful for connecting to your Azure file shares from your on-premises network using a VPN or ExpressRoute connection using private-peering. 
 
 In order for connections to your storage account to go over your network tunnel, the fully qualified domain name (FQDN) of your storage account must resolve to your private endpoint's private IP address. To achieve this, you must forward the storage endpoint suffix (`core.windows.net` for public cloud regions) to the Azure private DNS service accessible from within your virtual network. This guide will show how to setup and configure DNS forwarding to properly resolve to your storage account's private endpoint IP address.
 
 We strongly recommend that you read [Planning for an Azure Files deployment](storage-files-planning.md) and [Azure Files networking considerations](storage-files-networking-overview.md) before you complete the steps described in this article.
-
-## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Overview
 
@@ -96,7 +92,7 @@ If you prefer not to deploy DNS server VMs, you can accomplish the same task usi
 There's no difference in how you configure your on-premises DNS servers, except that instead of pointing to the IP addresses of the DNS servers in Azure, you point to the resolver's inbound endpoint IP address. The resolver doesn't require any configuration, as it will forward queries to the Azure private DNS server by default. If a private DNS zone is linked to the VNet where the resolver is deployed, the resolver will be able to reply with records from that DNS zone.
 
 > [!WARNING]
-> When configuring forwarders for the *core.windows.net* zone, all queries for this public domain will be forwarded to your Azure DNS infrastructure. This causes an issue when you try to access a storage account of a different tenant that has been configured with private endpoints, because Azure DNS will answer the query for the storage account public name with a CNAME that doesn’t exist in your private DNS zone. A workaround for this issue is to create a cross-tenant private endpoint in your environment to connect to that storage account.
+> When configuring forwarders for the *core.windows.net* zone, all queries for this public domain will be forwarded to your Azure DNS infrastructure. This causes an issue when you try to access a storage account of a different tenant that has been configured with private endpoints, because Azure DNS will answer the query for the storage account public name with a CNAME that doesn't exist in your private DNS zone. A workaround for this issue is to create a cross-tenant private endpoint in your environment to connect to that storage account.
 
 To configure DNS forwarding using Azure DNS Private Resolver, run this script on your on-premises DNS servers. Replace `<resolver-ip>` with the resolver's inbound endpoint IP address.
 

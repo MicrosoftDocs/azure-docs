@@ -23,7 +23,7 @@ Depending on your situation, you might want to deploy from a [code editor](#code
 
 ## New to containers
 
-You can simplify the development and deployment of your application by packaging your app into a "container". Containers allow you to wrap up your application and all its dependencies into a single unit that is portal and can be run easily on any container platform.
+You can simplify the development and deployment of your application by packaging your app into a "container". Containers allow you to wrap up your application and all its dependencies into a single unit that is portable and can be run easily on any container platform.
 
 If you're interested in deploying your application to Azure Container Apps, but don't want to define a container ahead of time, Container Apps can create a container. The Container Apps cloud build feature automatically identifies your application stack and uses [CNCF Buildpacks](https://buildpacks.io/) to generate a container image for you.
 
@@ -56,12 +56,9 @@ The Azure portal's focus is on setting up, changing, and experimenting with your
 
 While you can't use the portal to deploy your code, it's ideal for making incremental changes to your configuration. The portal's strengths lie in making it easy for you to set up, change, and experiment with your container app.
 
-You can also use the portal with [Azure App Spaces](/azure/app-spaces/overview) to deploy your applications to Container Apps.
-
 ### Resources
 
 - [Deploy your first container app using the Azure portal](quickstart-portal.md)
-- [Deploy a web app with Azure App Spaces](/azure/app-spaces/quickstart-deploy-your-app)
 
 ## Code repository
 
@@ -100,3 +97,4 @@ In Azure Container Apps, you can use the [Azure CLI](/cli/azure/) or the [Azure 
 
 - [Deploy to Azure Container Apps using Visual Studio](deploy-visual-studio.md)
 - [Deploy to Azure Container Apps using Visual Studio Code](deploy-visual-studio-code.md)
+- Migrating from Heroku? See [Heroku to Azure Container Apps migration overview](migrate-heroku-overview.md).

@@ -2,12 +2,15 @@
 title: 'Tutorial: Configure weighted round-robin traffic routing with Azure Traffic Manager'
 description: This tutorial explains how to load balance traffic using a round-robin method in Traffic Manager
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: tutorial
 ms.date: 04/26/2023
-ms.author: greglin
-ms.custom: template-tutorial
+ms.author: allensu
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to configure weighted round-robin traffic routing in a load balancer, so that I can distribute traffic across multiple endpoints effectively to optimize resource utilization and improve performance.
 ---
 
 # Tutorial: Configure the weighted traffic routing method in Traffic Manager
@@ -25,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * A Traffic Manager profile. To learn more see, [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
 
 ## Configure the weighted traffic routing method
@@ -45,8 +48,8 @@ In this tutorial, you learn how to:
     | Protocol    | Select a protocol for endpoint monitoring. *Options: HTTP, HTTPS, and TCP* |
     | Port | Specify the port number. |
     | Path | To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default). |
-    | Custom Header settings | Configure the Custom Headers in format host:contoso.com,newheader:newvalue. Maximum supported pair is 8. Applicable for Http and Https protocol. Applicable for all endpoints in the profile |
-    | Expected Status Code Ranges (default: 200) | Configure the Status Code Ranges in format 200-299,301-301. Maximum supported range is 8. Applicable for Http and Https protocol. Applicable for all endpoints in the profile |
+    | Custom Header settings | Configure the Custom Headers in format host:contoso.com,newheader:newvalue. Maximum supported pair is 8. Applicable for HTTP and HTTPS protocol. Applicable for all endpoints in the profile |
+    | Expected Status Code Ranges (default: 200) | Configure the Status Code Ranges in format 200-299,301-301. Maximum supported range is 8. Applicable for HTTP and HTTPS protocol. Applicable for all endpoints in the profile |
     | Probing interval | Configure the time interval between endpoint health probes. You can choose 10 or 30 seconds. |
     | Tolerate number of failures | Configure the number of health probe failures tolerated before an endpoint failure is triggered. You can enter a number between 0 and 9. | 
     | Probe timeout | Configure the time required before an endpoint health probe times out. This value must be at least 5 and smaller than the probing interval value. |

@@ -3,11 +3,11 @@ title: Manage Azure Reservations
 description: Learn how to manage Azure Reservations. See steps to change the reservation scope, split a reservation, and optimize reservation use.
 ms.service: cost-management-billing
 ms.subservice: reservations
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 08/14/2024
-ms.author: banders
+ms.date: 03/19/2026
+ms.author: primittal
 ---
 # Manage Reservations for Azure resources
 
@@ -61,7 +61,7 @@ By default, the following users can view and manage reservations:
 To allow other people to manage reservations, you have two options:
 
 - Delegate access management for an individual reservation order by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+     For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
     - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
@@ -81,9 +81,17 @@ If you're a billing administrator, use following steps to view and manage all re
 3. The complete list of reservations for your EA enrollment or billing profile is shown.
 4. Billing administrators can take ownership of a reservation by selecting it and then selecting **Grant access** in the window that appears.
 
+> [!NOTE]
+> As a billing profile Owner or Contributor, you cannot grant access to reservations that reside in a different Microsoft Entra tenant (directory). The reservation Owner can either change the reservation order’s directory or add you directly to grant access.
+
 ## Change billing subscription for an Azure Reservation
 
 We don’t allow changing the billing subscription after a reservation is purchased. [Subscription transfer](../manage/ea-transfers.md#change-azure-subscription-or-account-ownership) doesn't transfer an Azure reservation. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+
+## Check billing subscription for an Azure Reservation
+
+To check the billing subscription for an Azure reservation, please confirm which Azure subscription is being charged for [an Azure reservation purchase cost](/azure/cost-management-billing/reservations/view-purchase-refunds).
+
 
 ## Change billing frequency for an Azure Reservation
 

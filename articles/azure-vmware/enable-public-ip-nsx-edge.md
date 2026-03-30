@@ -3,8 +3,9 @@ title: Turn on public IP addresses to an NSX Edge node for VMware NSX
 description: Learn how to turn on internet access for NSX in Azure VMware Solution. Learn how to turn on public IP addresses to an NSX Edge node and set internet access rules.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 2/4/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a network administrator, I want to enable public IP addresses for an NSX Edge node in Azure VMware Solution, so that my workloads can have inbound and outbound internet access while maintaining security and scalability."
 ---
 
 # Turn on public IP addresses to an NSX Edge node for VMware NSX
@@ -44,7 +45,9 @@ The following figure shows internet access to and from your Azure VMware Solutio
 :::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows internet access to and from an Azure VMware Solution private cloud and a public IP address directly to the NSX Edge node." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
 
 > [!IMPORTANT]
-> Using a public IP address at the NSX Edge node for NSX is not compatible with reverse DNS lookup. If you use this scenario, you can't host a mail server in Azure VMware Solution.
+> When using a Public IP on NSX the Public IP address(es) will not be advertised via the Private Cloud ExpressRoute. For customers advertising public IP space from on premises to Azure VMware Solution via Express Route this will cause asymmetric routing when accessing a Public IP address assigned in NSX from an IP address that is within the range(s) advertised from on-premises.
+>
+> Also, using a public IP address at the NSX Edge node for NSX is not compatible with reverse DNS lookup. If you use this scenario, you can't host a mail server in the Azure VMware Solution.
 
 ## Set up a public IP address or range
 
@@ -110,7 +113,7 @@ A Source Network Address Translation (SNAT) service with Port Address Translatio
 Logging is turned on via the logging slider.
 
 For more information on VMware NSX NAT configuration and options, see the
-[NSX Data Center NAT Administration Guide](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-7AD2C384-4303-4D6C-A44A-DEF45AA18A92.html).
+[NSX Data Center NAT Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/administration-guide/network-address-translation.html).
 
 #### Create a No-NAT rule
 
@@ -169,8 +172,8 @@ You can provide security protection for your network traffic in and out of the p
 
 If **Match Internal Address** was specified, the destination is the internal or private IP address of the VM.
 
-For more information on the NSX gateway firewall, see the [NSX Gateway Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html).
-The distributed firewall can be used to filter traffic to VMs. For more information, see [NSX Distributed Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-6AB240DB-949C-4E95-A9A7-4AC6EF5E3036.html).
+For more information on the NSX gateway firewall, see the [NSX Gateway Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/nsxt-dc/3-2/administration-guide/security/gateway-firewall.html).
+The distributed firewall can be used to filter traffic to VMs. For more information, see [NSX Distributed Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/nsxt-dc/3-2/administration-guide/security/distributed-firewall.html).
 
 ## Related content
 

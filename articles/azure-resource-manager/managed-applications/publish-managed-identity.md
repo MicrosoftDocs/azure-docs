@@ -1,8 +1,8 @@
----
+﻿---
 title: Managed app with managed identity
 description: Configure an Azure Managed Application with managed identity for linking to existing resources, managing Azure resources, and providing operational identity for Activity Log.
-ms.topic: conceptual
-ms.date: 06/24/2024
+ms.topic: article
+ms.date: 02/10/2025
 ms.custom: subject-rbac-steps
 ---
 
@@ -35,7 +35,7 @@ Creating a managed application with a managed identity requires another property
   "identity": {
     "type": "SystemAssigned, UserAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity": {}
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity": {}
     }
   }
 }
@@ -194,7 +194,7 @@ A basic Azure Resource Manager template that deploys a managed application with 
 
 Once a managed application is granted an identity, it can be granted access to existing Azure resources by creating a role assignment.
 
-To do so, search for and select the name of the managed application or user-assigned managed identity, and then select **Access control (IAM)**. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+To do so, search for and select the name of the managed application or user-assigned managed identity, and then select **Access control (IAM)**. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Linking existing Azure resources
 
@@ -232,7 +232,7 @@ When you link the deployment of the managed application to existing resources, b
             "name": "networkInterfaceId",
             "type": "Microsoft.Common.TextBox",
             "label": "Network interface resource ID",
-            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Network/networkInterfaces/existingnetworkinterface",
+            "defaultValue": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testRG/providers/Microsoft.Network/networkInterfaces/existingnetworkinterface",
             "toolTip": "Must represent the identity as an Azure Resource Manager resource identifier format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.Network/networkInterfaces/networkinterface1",
             "visible": true
           },
@@ -240,7 +240,7 @@ When you link the deployment of the managed application to existing resources, b
             "name": "userAssignedId",
             "type": "Microsoft.Common.TextBox",
             "label": "User-assigned managed identity resource ID",
-            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity",
+            "defaultValue": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity",
             "toolTip": "Must represent the identity as an Azure Resource Manager resource identifier format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1",
             "visible": true
           }
@@ -281,7 +281,7 @@ A sample main template that sets the network profile to an existing network inte
       "name": "myLinkedResourceVM",
       "location": "[resourceGroup().location]",
       "properties": {
-        …,
+        ...,
         "networkProfile": {
           "networkInterfaces": [
             {
@@ -335,10 +335,10 @@ Content-Type: application/json
 {
   "value": [
     {
-      "access_token": "eyJ0eXAi…",
-      "expires_in": "2…",
-      "expires_on": "1557…",
-      "not_before": "1557…",
+      "access_token": "eyJ0eXAi...,
+      "expires_in": "2...,
+      "expires_on": "1557...,
+      "not_before": "1557...,
       "authorizationAudience": "https://management.azure.com/",
       "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}",
       "token_type": "Bearer"
@@ -359,7 +359,74 @@ The response contains an array of tokens under the `value` property:
 | `resourceId` | The Azure resource ID for the issued token. This value is either the managed application ID or the user-assigned managed identity ID. |
 | `token_type` | The type of the token. |
 
+## Create a managed identity and role assignment for managed applications
+
+This section describes how to create a managed identity and assign a role as part of a managed application using publisher access mode.
+
+1. Create a managed identity using an Azure Resource Manager template.
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [
+        {
+          "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+          "apiVersion": "2018-11-30",
+          "name": "myManagedIdentity",
+          "location": "[resourceGroup().location]"
+        }
+      ]
+    }
+    ```
+
+1. To allow for managed identity propagation, create a sleep time of 30 seconds.
+
+    Since the managed identity is not in the home tenant of the target scope, you must apply a delay between creating the managed identity and assigning the role to allow the managed identity to propagate between tenants. Without this delay, Azure Resource Manager might not recognize this identity when used in the template and fail within a future deployment script.
+
+    ```json
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "sleepScript",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "azPowerShellVersion": "2.0",
+        "scriptContent": "Start-Sleep -Seconds 30",
+        "timeout": "PT1H",
+        "cleanupPreference": "OnSuccess",
+        "retentionInterval": "P1D"
+      },
+      "dependsOn": [
+        "myManagedIdentity"
+      ]
+    }
+    ```
+
+1. Assign the Contributor role to the managed identity at the scope of the managed resource group.
+
+    ```json
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2020-04-01-preview",
+      "name": "[guid(resourceGroup().id, 'Contributor')]",
+      "properties": {
+        "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', 'myManagedIdentity'), '2018-11-30').principalId]",
+        "scope": "[resourceGroup().id]",
+        "delegatedManagedIdentityResourceId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities','myManagedIdentity')]"
+      },
+      "dependsOn": [
+        "myManagedIdentity",
+        "sleepScript"
+      ]
+    }
+    ```
+
+   The `delegatedManagedIdentityResourceId` property is used to properly assign roles to managed identities across different tenants. This is particularly useful when dealing with managed applications published in the Azure Marketplace, where the publisher and the customer exist in separate tenants. Learn more about [delegatedManagedIdentityResourceId](concepts-delegated-managed-identity-resource-id.md).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [How to configure a managed application with a custom provider](../custom-providers/overview.md)
+

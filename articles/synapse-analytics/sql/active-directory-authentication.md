@@ -7,7 +7,7 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 3/07/2022
 ms.author: vvasic
-ms.reviewer: whhender
+ms.custom: sfi-image-nochange
 ---
 # Use Microsoft Entra authentication for authentication with Synapse SQL
 
@@ -137,7 +137,7 @@ The following authentication methods are supported for Microsoft Entra server pr
 - SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Microsoft Entra authentication. (Microsoft Entra authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). So, the newest versions of these tools and data-tier applications (DAC and .BACPAC) can use Microsoft Entra authentication.
 - Beginning with version 15.0.1, [sqlcmd utility](/sql/tools/sqlcmd-utility?view=azure-sqldw-latest&preserve-view=true) and [bcp utility](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) support Active Directory Interactive authentication with MFA.
 - SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently, Microsoft Entra users aren't shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=azure-sqldw-latest&preserve-view=true).
-- [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) supports Microsoft Entra authentication. Also, see [Setting the Connection Properties](/sql/connect/jdbc/setting-the-connection-properties?view=azure-sqldw-latest&preserve-view=true).
+- [Microsoft JDBC Driver 6.0 for SQL Server](https://go.microsoft.com/fwlink/?linkid=2122617) supports Microsoft Entra authentication. Also, see [Setting the Connection Properties](/sql/connect/jdbc/setting-the-connection-properties?view=azure-sqldw-latest&preserve-view=true).
 - The Microsoft Entra admin account controls access to dedicated pools, while Synapse RBAC roles are used to control access to serverless pools, for example, with the **Synapse Administrator** and **Synapse SQL Administrator** role. Configure Synapse RBAC roles via Synapse Studio, for more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](../security/how-to-manage-synapse-rbac-role-assignments.md).
 - If a user is configured as a Microsoft Entra administrator and Synapse Administrator, and then removed from the Microsoft Entra administrator role, then the user will lose access to the dedicated SQL pools in Synapse. They must be removed and then added to the Synapse Administrator role to regain access to dedicated SQL pools.
 

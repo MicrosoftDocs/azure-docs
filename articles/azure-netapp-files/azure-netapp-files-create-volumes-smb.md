@@ -1,18 +1,23 @@
 ---
-title: Create an SMB volume for Azure NetApp Files | Microsoft Docs
+title: Create an SMB volume for Azure NetApp Files 
 description: This article shows you how to create an SMB3 volume in Azure NetApp Files. Learn about requirements for Active Directory connections and Domain Services.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/17/2024
+ms.date: 11/12/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to create an SMB volume in Azure NetApp Files, so that I can leverage scalable storage solutions that meet my organization’s data management and sharing requirements.
 ---
 # Create an SMB volume for Azure NetApp Files
 
 Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
 
-This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
+This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md). 
+
+>[!IMPORTANT]
+>For Elastic zone-redundant storage, see [Create an Elastic zone-redundant SMB volume](elastic-volume-server-message-block.md).
 
 ## Before you begin 
 
@@ -20,7 +25,6 @@ This article shows you how to create an SMB3 volume. For NFS volumes, see [Creat
 
 * You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
 * A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
 
 ## Configure Active Directory connections 
 
@@ -33,7 +37,10 @@ Before creating an SMB volume, you need to create an Active Directory connection
     ![Navigate to Volumes](./media/shared/azure-netapp-files-navigate-to-volumes.png)
 
 2. Select **+ Add volume** to create a volume.  
+    
     The Create a Volume window appears.
+
+    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-new-volume.png" alt-text="Screenshot of create new volume interface." lightbox="../media/azure-netapp-files/azure-netapp-files-new-volume.png":::
 
 3. In the Create a Volume window, select **Create** and provide information for the following fields under the Basics tab:   
     * **Volume name**      
@@ -71,17 +78,20 @@ Before creating an SMB volume, you need to create an Active Directory connection
         The subnet you specify must be delegated to Azure NetApp Files. 
         
         If you haven't delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
+      
+        :::image type="content" source="./media/shared/azure-netapp-files-create-subnet.png" alt-text="Screenshot of create new subnet interface." lightbox="./media/shared/azure-netapp-files-create-subnet.png":::
     
-        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
-
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
-    * **Encryption key source** 
-        You can select `Microsoft Managed Key` or `Customer Managed Key`.  See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
-
-    * **Availability zone**   
+    * **Availability Zone**   
         This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+
+    * **Encryption key source** 
+        Select Microsoft Managed Key or Customer Managed Key.  See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) to learn more about this field. 
+
+    * **Advanced Ransomware Protection**
+        Select **Enabled** to configure ransomware threat detection alerts for your volumes. For more information, see [Configure advanced ransomware protection](ransomware-configure.md). 
 
     * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
@@ -96,7 +106,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     
     * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
         - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region.  
-        - For volumes in availability zones, it must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
+        - For volumes in availability zones, it must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
     

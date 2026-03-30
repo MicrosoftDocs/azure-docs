@@ -30,7 +30,7 @@ In this quickstart, you do the following steps:
 
 If you're new to the service, see [Event Grid overview](overview.md) before you do this quickstart.
 
-- **Azure subscription**. To use Azure services, including Azure Event Grid, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet).
+- **Azure subscription**. To use Azure services, including Azure Event Grid, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10. To use the latest syntax, we recommend that you install .NET 6.0, or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
 [!INCLUDE [event-grid-create-namespace-portal](./includes/event-grid-create-namespace-portal.md)]
@@ -80,7 +80,7 @@ This section shows you how to create a .NET console application to send messages
 1. Replace the contents of `Program.cs` with the following code. The important steps are outlined,  with additional information in the code comments.
 
     > [!IMPORTANT]
-    > Update placeholder values (`<NAMESPACE-ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`, `<TOPIC-SUBSCRIPTION-NAME>`) in the code snippet with your namespace endpoint, topic name, and topic key.
+    > Update placeholder values (`<NAMESPACE-ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`) in the code snippet with your namespace endpoint, topic name, and topic key.
 
     ```csharp
     using Azure.Messaging;

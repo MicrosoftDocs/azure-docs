@@ -2,15 +2,16 @@
 title: Use .NET to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use the Azure Storage client library for .NET to manage directories and files in storage accounts that have a hierarchical namespace enabled.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.service: azure-data-lake-storage
-ms.date: 07/24/2023
+ms.date: 11/20/2023
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to manage directories and files in Azure Data Lake Storage using the client library, so that I can efficiently organize and access large amounts of data in my applications.
 ---
 
 # Use .NET to manage directories and files in Azure Data Lake Storage
@@ -125,8 +126,6 @@ The following code example shows how to upload a local file to a directory using
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_UploadFile":::
 
-You can use this method to create and upload content to a new file, or you can set the `overwrite` parameter to `true` to overwrite an existing file.
-
 ## Append data to a file
 
 You can upload data to be appended to a file by using the following method:
@@ -146,7 +145,7 @@ The following code example shows how to append data to the end of a file using t
 The following code example shows how to download a file from a directory to a local file using these steps:
 
 - Create a [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) instance to represent the file that you want to download. 
-- Use the [DataLakeFileClient.ReadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync) method, then parse the return value to obtain a [Stream](/dotnet/api/system.io.stream) object. Use any .NET file processing API to save bytes from the stream to a file.
+- Use the [DataLakeFileClient.ReadStreamingAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readstreamingasync) method, then parse the return value to obtain a [Stream](/dotnet/api/system.io.stream) object. Use any .NET file processing API to save bytes from the stream to a file.
 
 This example uses a [BinaryReader](/dotnet/api/system.io.binaryreader) and a [FileStream](/dotnet/api/system.io.filestream) to save bytes to a file.
 
@@ -226,3 +225,4 @@ To learn more about creating a service SAS, see [Create a service SAS with .NET]
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+

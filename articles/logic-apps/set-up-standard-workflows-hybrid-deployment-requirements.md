@@ -6,54 +6,70 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 06/09/2025
+ms.custom:
+  - build-2025
+  - sfi-ropc-nochange
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
-# Set up your own infrastructure for Standard logic apps using hybrid deployment (Preview)
+# Set up your own infrastructure for Standard logic apps using hybrid deployment
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-> [!NOTE]
->
-> This capability is in preview, incurs charges for usage, and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Sometimes you have to set up and manage your own infrastructure to meet specific needs for regulatory compliance, data privacy, or network restrictions. Azure Logic Apps offers a *hybrid deployment model* so that you can deploy and host Standard logic app workflows in on-premises, private cloud, or public cloud scenarios. This model gives you the capabilities to host integration solutions in partially connected environments when you need to use local processing, data storage, and network access. With the hybrid option, you have the freedom and flexibility to choose the best environment for your workflows.
 
-Azure Logic Apps supports scenarios where you need to use your own managed infrastructure to deploy and host Standard logic app workflows by offering a hybrid deployment model. This model provides the capabilities for hosting integration solutions in partially connected environments that require local processing, storage, and network access. Standard logic app workflows are powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension.
+## How hybrid deployment works
 
-The following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
+Standard logic app workflows with the hybrid deployment option are powered by an Azure Logic Apps runtime that is hosted in an Azure Container Apps extension. In your workflow, any [built-in, runtime-native operations](../connectors/built-in.md) run locally with the runtime so that you get higher throughput for access to local data sources. If you need access to non-local data resources, for example, cloud-based services such as Microsoft Office 365, Microsoft Teams, Salesforce, GitHub, LinkedIn, or ServiceNow, you can choose operations from [1,400+ connectors hosted in Azure](/connectors/connector-reference/connector-reference-logicapps-connectors) to include in your workflows. For more information, see [Managed (shared) connectors](../connectors/managed.md). Although you need to have internet connectivity to manage your logic app in the Azure portal, the semi-connected nature of this platform lets you absorb any temporary internet connectivity issues.
 
-- Either Azure Arc-enabled Kubernetes clusters or Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged infrastructure* (HCI)
-- A SQL database to locally store workflow run history, inputs, and outputs for processing
+For example, if you have an on-premises scenario, the following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
+
+- Azure Arc-enabled Azure Kubernetes Service (AKS) clusters
+- An SQL database to locally store workflow run history, inputs, and outputs for processing
 - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
+
+For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Local](/azure/azure-local/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks/hybrid/kubernetes-walkthrough-powershell).
+
+The hybrid deployment model combines on-premises and cloud capabilities to provide flexible integration solutions for various needs. For example, your hybrid logic app resource can efficiently adjust resources based on changing workloads. This dynamic scaling helps you manage computing costs by increasing capacity during peak demand and reducing resources when usage drops.
 
 For more information, see the following documentation:
 
 - [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
 - [Core concepts for Azure Kubernetes Service (AKS)](/azure/aks/concepts-clusters-workloads)
-- [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview)
-- [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview)
 - [Custom locations for Azure Arc-enabled Kubernetes clusters](/azure/azure-arc/platform/conceptual-custom-locations)
 - [What is Azure Container Apps?](../container-apps/overview.md)
 - [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
+- [Dynamic scaling model and architecture for Kubernetes-based Event-Driven Autoscaling (KEDA)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/scaling-mechanism-in-hybrid-deployment-model-for-azure-logic-apps-standard/4389763)
 
 This how-to guide shows how to set up the necessary on-premises resources in your infrastructure so that you can create, deploy, and host a Standard logic app workflow using the hybrid deployment model.
 
 ## Limitations
 
-- Hybrid deployment is currently available and supported only for Azure Arc-enabled Azure Kubernetes Service (AKS) clusters and Azure Arc-enabled Kubernetes clusters on Azure Stack HCI.
+The following section describes the limitations for the hybrid deployment option:
+
+| Limitation | Description |
+|------------|-------------|
+| Data logging with a disconnected runtime | In partially connected mode, the Azure Logic Apps runtime can stay disconnected up to 24 hours and still retain data logs. However, any logging data past this duration might be lost. |
+| Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Central US <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US <br> |
+| Supported Azure Arc-enabled Kubernetes clusters | - Azure Arc-enabled Kubernetes clusters <br>- Azure Arc-enabled Kubernetes clusters on Azure Local (formerly Azure Stack HCI) <br>- Azure Arc-enabled Kubernetes clusters on Windows Server |
+| Unsupported capabilities available in single-tenant Azure Logic Apps (Standard) and related Azure services | - Deployment slots <br><br>- Azure Business process tracking <br><br>- Resource health under **Support + troubleshooting** in Azure portal <br><br>- Managed identity authentication for connector operations. For more information, see [Limitations for creating hybrid deployment workflows](create-standard-workflows-hybrid-deployment.md#limitations). |
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Basic understanding about [core AKS concepts](/azure/aks/concepts-clusters-workloads)
 
 - [Technical requirements for working with Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli#before-you-begin)
 
 - [Technical requirements for Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-overview#prerequisites), including access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
+
+## Billing
+
+For information about how billing works, see [Standard (hybrid deployment)](logic-apps-pricing.md#standard-hybrid-pricing).
 
 ## Create a Kubernetes cluster
 
@@ -63,13 +79,15 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
 
 > [!NOTE]
 >
-> You can also create a [Kubernetes cluster on Azure Stack HCI infrastructure](/azure-stack/hci/overview) 
-> and apply the steps in this how-to guide to connect your cluster to Azure Arc and to set up your 
-> connected environment. For more information about Azure Stack HCI, see the following resources:
+> You can also create a [Kubernetes cluster on Azure Local](/azure/azure-local/overview) 
+> or [Kubernetes cluster on Windows Server](/azure/aks/hybrid/overview) and apply the steps in this guide 
+> to connect your cluster to Azure Arc and set up your connected environment. For more information about 
+> Azure Local and AKS on Windows Server, see the following resources:
 >
-> - [About Azure Stack HCI](/azure-stack/hci/deploy/deployment-introduction)
-> - [Deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)
-> - [Create Kubernetes clusters on Azure Stack HCI using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli)
+> - [About Azure Local deployment](/azure/azure-local/deploy/deployment-introduction)
+> - [Deployment prerequisites for Azure Local](/azure/azure-local/deploy/deployment-prerequisites)
+> - [Create Kubernetes clusters using Azure CLI](/azure/aks/aksarc/aks-create-clusters-cli)
+> - [Set up an Azure Kubernetes Service host on Azure Local and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/aksarc/kubernetes-walkthrough-powershell)
 
 1. Set the following environment variables for the Kubernetes cluster that you want to create:
 
@@ -85,7 +103,7 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
    | **SUBSCRIPTION** | Yes | <*Azure-subscription-ID*> | The ID for your Azure subscription |
    | **AKS_CLUSTER_GROUP_NAME** | Yes | <*aks-cluster-resource-group-name*> | The name for the Azure resource group to use with your Kubernetes cluster. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. |
    | **AKS_NAME** | Yes | <*aks-cluster-name*> | The name for your Kubernetes cluster. |
-   | **LOCATION** | Yes | <*Azure-region*> | An Azure region that [supports Azure container apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **eastus**. |
+   | **LOCATION** | Yes | <*Azure-region*> | An Azure region that [supports Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md#limitations). <br><br>This example uses **eastus**. |
 
 1. Run the following commands either by using the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview) or locally using [Azure CLI installed on your computer](/cli/azure/install-azure-cli):
 
@@ -97,9 +115,10 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
    az login
    az account set --subscription $SUBSCRIPTION
    az provider register --namespace Microsoft.KubernetesConfiguration --wait
+   az provider register --namespace Microsoft.Kubernetes --wait
    az extension add --name k8s-extension --upgrade --yes
-   az group create
-      --name $AKS_CLUSTER_GROUP_NAME
+   az group create \
+      --name $AKS_CLUSTER_GROUP_NAME \
       --location $LOCATION
    az aks create \
       --resource-group $AKS_CLUSTER_GROUP_NAME \
@@ -119,7 +138,10 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
    For more information, see the following resources:
 
    - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli)
+   - [**az extension add**](/cli/azure/extension#az-extension-add)
+   - [Register the required namespaces](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#setup)
    - [**az account set**](/cli/azure/account#az-account-set)
+   - [**az provider register**](/cli/azure/provider#az-provider-register)
    - [**az group create**](/cli/azure/group#az-group-create)
    - [**az aks create**](/cli/azure/aks#az-aks-create)
 
@@ -153,12 +175,13 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Install Azure CLI extensions](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#setup)
-   - [az extension add](/cli/azure/extension#az-extension-add)
+   - [**az extension add**](/cli/azure/extension#az-extension-add)
 
 1. Register the following required namespaces:
 
    ```azurecli
    az provider register --namespace Microsoft.ExtendedLocation --wait
+   az provider register --namespace Microsoft.Kubernetes --wait
    az provider register --namespace Microsoft.KubernetesConfiguration --wait
    az provider register --namespace Microsoft.App --wait
    az provider register --namespace Microsoft.OperationalInsights --wait
@@ -167,7 +190,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Register the required namespaces](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#setup)
-   - [az provider register](/cli/azure/provider#az-provider-register)
+   - [**az provider register**](/cli/azure/provider#az-provider-register)
 
 1. Install the Kubernetes command line interface (CLI) named **kubectl**:
 
@@ -182,6 +205,24 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    - [Command line tool (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/)
    - [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy)
    - [choco install kubernetes-cli](https://docs.chocolatey.org/en-us/choco/commands/install/)
+
+1. Test your connection to your cluster by getting the [**kubeconfig** file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/):
+
+   ```azurecli
+   az aks get-credentials \
+      --resource-group $AKS_CLUSTER_GROUP_NAME \
+      --name $AKS_NAME \
+      --admin
+   kubectl get ns 
+   ```
+
+   By default, the **kubeconfig** file is saved to the path, **~/.kube/config**. This command applies to our example Kubernetes cluster and differs for other kinds of Kubernetes clusters.
+
+   For more information, see the following resources:
+
+   - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
+   - [**az aks get-credentials**](/cli/azure/aks#az-aks-get-credentials)
+   - [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
 
 1. Install the Kubernetes package manager named **Helm**:
 
@@ -216,27 +257,9 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
       kubectl get csidriver
       ```
 
-      For more information, see [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
+      For more information, see [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
 
 ## Connect your Kubernetes cluster to Azure Arc
-
-1. Test your connection to your cluster by getting the [**kubeconfig** file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/):
-
-   ```azurecli
-   az aks get-credentials \
-      --resource-group $AKS_CLUSTER_GROUP_NAME \
-      --name $AKS_NAME \
-      --admin
-   kubectl get ns 
-   ```
-
-   By default, the **kubeconfig** file is saved to the path, **~/.kube/config**. This command applies to our example Kubernetes cluster and differs for other kinds of Kubernetes clusters.
-
-   For more information, see the following resources:
-
-   - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials)
-   - [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
 
 1. Based on your Kubernetes cluster deployment, set the following environment variable to provide a name to use for the Azure resource group that contains your Azure Arc-enabled cluster and resources:
 
@@ -259,7 +282,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [az group create](/cli/azure/group#az-group-create)
+   - [**az group create**](/cli/azure/group#az-group-create)
 
 1. Set the following environment variable to provide a name for your Azure Arc-enabled Kubernetes cluster:
 
@@ -282,7 +305,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [az connectedk8s connect](/cli/azure/connectedk8s?#az-connectedk8s-connect)
+   - [**az connectedk8s connect**](/cli/azure/connectedk8s?#az-connectedk8s-connect)
 
 1. Validate the connection between Azure Arc and your Kubernetes cluster:
 
@@ -297,7 +320,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [az connectedk8s show](/cli/azure/connectedk8s?#az-connectedk8s-show)
+   - [**az connectedk8s show**](/cli/azure/connectedk8s?#az-connectedk8s-show)
 
 ## Create an Azure Log Analytics workspace
 
@@ -324,7 +347,7 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
    For more information, see the following resources:
 
    - [Create a Log Analytics workspace](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-log-analytics-workspace)
-   - [az monitor log-analytics](/cli/azure/monitor/log-analytics)
+   - [**az monitor log-analytics**](/cli/azure/monitor/log-analytics)
 
 1. Get the base64-encoded ID and shared key for your Log Analytics workspace. You need these values for a later step.
 
@@ -356,7 +379,7 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
    For more information, see the following resources:
 
    - [Create a Log Analytics workspace](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-log-analytics-workspace)
-   - [az monitor log-analytics](/cli/azure/monitor/log-analytics)
+   - [**az monitor log-analytics**](/cli/azure/monitor/log-analytics)
 
 ## Create and install the Azure Container Apps extension
 
@@ -364,8 +387,9 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
 
 > [!IMPORTANT]
 >
-> If you want to deploy to AKS on Azure Stack HCI, before you create and install the Azure Container Apps extension, 
-> make sure that you [set up **HAProxy** or a custom load balancer](/azure/aks/hybrid/configure-load-balancer).
+> If you want to deploy to AKS on Azure Local, before you create and 
+> install the Azure Container Apps extension, make sure that you 
+> [set up **HAProxy** or a custom load balancer](/azure/aks/hybrid/configure-load-balancer). 
 
 1. Set the following environment variables to the following values:
    
@@ -428,7 +452,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Install the Azure Container Apps extension](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#install-the-container-apps-extension)
-   - [az k8s-extension create](/cli/azure/k8s-extension?#az-k8s-extension-create)
+   - [**az k8s-extension create**](/cli/azure/k8s-extension?#az-k8s-extension-create)
 
 1. Save the **ID** value for the Azure Container Apps extension to use later:
 
@@ -449,7 +473,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Install the Azure Container Apps extension](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#install-the-container-apps-extension)
-   - [az k8s-extension show](/cli/azure/k8s-extension?#az-k8s-extension-show)
+   - [**az k8s-extension show**](/cli/azure/k8s-extension?#az-k8s-extension-show)
 
 1. Before you continue, wait for the extension to fully install. To have your terminal session wait until the installation completes, run the following command:
 
@@ -463,7 +487,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Install the Azure Container Apps extension](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#install-the-container-apps-extension)
-   - [az resource wait](/cli/azure/resource?#az-resource-wait)
+   - [**az resource wait**](/cli/azure/resource?#az-resource-wait)
 
 ## Create your custom location
 
@@ -487,7 +511,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-custom-location)
-   - [az k8s-extension show](/cli/azure/k8s-extension?#az-k8s-extension-show)
+   - [**az k8s-extension show**](/cli/azure/k8s-extension?#az-k8s-extension-show)
 
 1. Create the custom location:
 
@@ -511,7 +535,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-custom-location)
-   - [az customlocation create](/cli/azure/customlocation#az-customlocation-create)
+   - [**az customlocation create**](/cli/azure/customlocation#az-customlocation-create)
 
 1. Validate that the custom location is successfully created:
 
@@ -540,7 +564,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-custom-location)
-   - [az customlocation show](/cli/azure/customlocation#az-customlocation-show)
+   - [**az customlocation show**](/cli/azure/customlocation#az-customlocation-show)
 
 ## Create the Azure Container Apps connected environment
 
@@ -557,13 +581,56 @@ az containerapp connected-env create \
 For more information, see the following resources:
 
 - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-the-azure-container-apps-connected-environment)
-- [az containerapp connected-env create](/cli/azure/containerapp#az-containerapp-create)
+- [**az containerapp arc setup-core-dns**](/cli/azure/containerapp/arc)
+
+<a name="update-coredns-azure-local"></a>
+
+## Update CoreDNS for a Kubernetes cluster in Azure Local
+
+If your Azure Kubernetes cluster is hosted in Azure Local, you must manually update the CoreDNS configuration for your cluster. This step adds a new *config map* to your Azure Kubernetes namespace. In comparison, Azure Logic Apps automatically completes this step when your Kubernetes cluster is hosted in Azure. However, for a cluster hosted elsewhere, you must manually complete this step.
+
+For more information, see the following documentation:
+
+- [CoreDNS for Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/#coredns)
+- [Customize CoreDNS for Azure Kubernetes Service](/azure/aks/coredns-custom)
+- [ConfigMaps in Kubernetes](https://kubernetes.io/docs/concepts/configuration/configmap/)
+- [Namespaces - core concepts for Azure Kubernetes Service](/azure/aks/core-aks-concepts#namespaces)
+
+To update the CoreDNS configuration, run the following Azure CLI command using the options for your scenario:
+
+```azurecli
+az containerapp arc setup-core-dns
+```
+
+| Parameters | Required | Description |
+|------------|----------|--------------|
+| **`--distro`** | Yes | The supported distribution to use for updating the CoreDNS configuration. Allowed values: `AksAzureLocal` |
+| **`--kube-config`** | No | The path to the ([*kubeconfig file*](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)), which contains the configuration parameters for accessing Kubernetes clusters. |
+| **`--kube-context`** | No | The kubeconfig context from the on-premises host for your cluster. In Kubernetes, a *context* defines how to communicate with a Kubernetes cluster. |
+| **`skip-ssl-verification`** | No | Skip SSL verification for any cluster connection. |
+| **`--yes -y`** | No | Don't prompt for confirmation. |
+
+For more information, such as global parameters, see [**az containerapp arc setup-core-dns**](/cli/azure/containerapp/arc#az-containerapp-arc-setup-core-dns).
+
+### Examples
+
+- Set up CoreDNS configuration for Azure Local:
+
+  ```azurecli
+  az containerapp arc setup-core-dns --distro AksAzureLocal
+  ```
+
+- Set up CoreDNS configuration for Azure Local using a Kubernetes configuration file and the Kubernetes context:
+
+   ```azurecli
+   az containerapp arc setup-core-dns --distro AksAzureLocal --kube-config <kubeconfig-file-path> --kube-context <kubeconfig-context-name>
+   ```
 
 <a name="create-storage-provider"></a>
 
 ## Create SQL Server storage provider
 
-Standard logic app workflows in the hybrid deployment model use a SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on. 
+Standard logic app workflows in the hybrid deployment model use an SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on. 
 
 Your SQL database requires inbound and outbound connectivity with your Kubernetes cluster, so these resources must exist in the same network.
 
@@ -584,13 +651,17 @@ Your SQL database requires inbound and outbound connectivity with your Kubernete
 
 ## Set up SMB file share for artifacts storage
 
-To store artifacts such as maps, schemas, and assemblies for your container app resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
+To store artifacts such as maps, schemas, and assemblies for your logic app (container app) resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 - You need administrator access to set up your SMB file share.
 
 - Your SMB file share must exist in the same network as your Kubernetes cluster and SQL database.
 
 - Your SMB file share requires inbound and outbound connectivity with your Kubernetes cluster. If you enabled Azure virtual network restrictions, make sure that your file share exists in the same virtual network as your Kubernetes cluster or in a peered virtual network.
+
+- Don't use the same exact file share path for multiple logic apps.
+
+- You can use separate SMB file shares for each logic app, or you can use different folders in the same SMB file share as long as those folders aren't nested. For example, don't have a logic app use the root path, and then have another logic app use a subfolder.
 
 - To deploy your logic app using Visual Studio Code, make sure that the local computer with Visual Studio Code can access the file share.
 
@@ -635,7 +706,7 @@ Alternatively, for testing purposes, you can use [Azure Files as an SMB file sha
 
 1. On the **Overview** page toolbar, select **+ Add directory**, and provide a name to use for the directory. Save this name to use later.
 
-You need these saved values to provide your SMB file share information when you deploy your container app resource.
+You need these saved values to provide your SMB file share information when you deploy your logic app resource.
 
 For more information, see [Create an SMB Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal).
 
@@ -665,6 +736,10 @@ To test the connection between your Arc-enabled Kubernetes cluster and your SMB 
      **`- mount -t cifs //{ip-address-smb-computer}/{file-share-name}/mnt/smb -o username={user-name}, password={password}`**
 
 - To confirm that artifacts correctly upload, connect to the SMB file share path, and check whether artifact files exist in the correct folder that you specify during deployment.
+
+## Optimize performance for hybrid deployments
+
+To maximize the efficiency and performance for a Standard logic app in a hybrid deployment, you need to understand how to analyze and evaluate key aspects such as CPU, memory allocation, and scaling mechanisms so you can get valuable insights around optimization. Other key elements include the underlying Kubernetes infrastructure, SQL configuration, and scaling setup, which can significantly affect workflow efficiency and overall performance. For more information, see [Hybrid deployments performance analysis and optimization recommendations](https://techcommunity.microsoft.com/blog/integrationsonazureblog/hybrid-deployment-model-for-logic-apps--performance-analysis-and-optimization-re/4401529).
 
 ## Next steps
 

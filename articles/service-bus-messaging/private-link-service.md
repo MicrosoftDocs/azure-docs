@@ -3,9 +3,11 @@ title: Integrate Azure Service Bus with Azure Private Link Service
 description: Learn how to integrate Azure Service Bus with Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 02/16/2023
-ms.topic: article 
-ms.custom: devx-track-azurepowershell
+ms.date: 12/19/2024
+ms.topic: how-to 
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Allow access to Azure Service Bus namespaces via private endpoints
@@ -59,12 +61,13 @@ If you already have an existing namespace, you can create a private endpoint by 
     > You see the **Networking** tab only for **premium** namespaces.  
 1. On the **Networking** page, for **Public network access**, select **Disabled** if you want the namespace to be accessed only via private endpoints. 
 1. For **Allow trusted Microsoft services to bypass this firewall**, select **Yes** if you want to allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall. 
+1. Select **Save** on the toolbar. 
 
-    :::image type="content" source="./media/private-link-service/public-access-disabled.png" alt-text="Screenshot of the Networking page with public network access as Disabled.":::
+    :::image type="content" source="./media/private-link-service/public-access-disabled.png" alt-text="Screenshot of the Networking page with public network access as Disabled." lightbox="./media/private-link-service/public-access-disabled.png":::
 1. To allow access to the namespace via private endpoints, select the **Private endpoint connections** tab at the top of the page
 1. Select the **+ Private Endpoint** button at the top of the page.
 
-    ![Add private endpoint button](./media/private-link-service/private-link-service-3.png)
+    :::image type="content" source="./media/private-link-service/add-private-endpoint-button.png" alt-text="Screenshot that shows the Private endpoint connections page with Add private endpoint button selected." lightbox="./media/private-link-service/add-private-endpoint-button.png":::
 7. On the **Basics** page, follow these steps: 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
@@ -93,9 +96,9 @@ If you already have an existing namespace, you can create a private endpoint by 
 1. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
     :::image type="content" source="./media/private-link-service/create-private-endpoint-review-create-page.png" alt-text="Screenshot showing the Review and Create page of the Create private endpoint wizard.":::
-12. Confirm that the private endpoint is created. If you're the owner of the resource and had selected **Connect to an Azure resource in my directory** option for the **Connection method**, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
+12. Confirm that the private endpoint is created. If you're the owner of the resource, on the **Networking** page of the Service Bus namespace, the endpoint connection should be **auto-approved**. If it's in the **pending** state, see the [Manage private endpoints using Azure portal](#manage-private-endpoints-using-azure-portal) section.
 
-    ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
+    :::image type="content" source="./media/private-link-service/private-endpoint-created.png" alt-text="Screenshot that shows the Private endpoint connections page with the newly created private endpoint." lightbox="./media/private-link-service/private-endpoint-created.png":::
 
 [!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
@@ -175,7 +178,7 @@ There are four provisioning states:
 | None | Pending | Connection is created manually and is pending approval from the Private Link resource owner. |
 | Approve | Approved | Connection was automatically or manually approved and is ready to be used. |
 | Reject | Rejected | Connection was rejected by the private link resource owner. |
-| Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. |
+| Remove | Disconnected | Connection was removed by the private link resource owner. The private endpoint becomes informative and should be deleted for cleanup. |
  
 ###  Approve, reject, or remove a private endpoint connection
 
@@ -185,42 +188,37 @@ There are four provisioning states:
 1. Select the **Networking** tab.
 5. See the appropriate following section based on the operation you want to: approve, reject, or remove. 
 
-### Approve a private endpoint connection
-
-1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
-2. Select the **private endpoint** you wish to approve
-3. Select the **Approve** button.
-
-    ![Approve private endpoint](./media/private-link-service/private-endpoint-approve.png)
-4. On the **Approve connection** page, enter an optional **comment**, and select **Yes**. If you select **No**, nothing happens. 
-
-    ![Approve connection page](./media/private-link-service/approve-connection-page.png)
-5. You should see the status of the connection in the list changed to **Approved**. 
-
-    ![Connection status - approved](./media/private-link-service/connection-status-approved.png)
-
 ### Reject a private endpoint connection
 
 1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection that was approved earlier, select the endpoint connection and select the **Reject** button.
 
-    ![Reject button](./media/private-link-service/private-endpoint-reject.png)
+    :::image type="content" source="./media/private-link-service/private-endpoint-reject.png" alt-text="Screenshot that shows the Private endpoint connections page with the Reject button highlighted." lightbox="./media/private-link-service/private-endpoint-reject.png":::
 2. On the **Reject connection** page, enter an optional comment, and select **Yes**. If you select **No**, nothing happens. 
 
-    ![Reject connection page](./media/private-link-service/reject-connection-page.png)
+    :::image type="content" source="./media/private-link-service/reject-connection-page.png" alt-text="Screenshot that shows the Reject connection page.":::
 3. You should see the status of the connection in the list changed **Rejected**. 
 
-    ![Endpoint rejected](./media/private-link-service/endpoint-rejected.png)
+    :::image type="content" source="./media/private-link-service/endpoint-rejected.png" alt-text="Screenshot that shows the Private endpoint connections page with endpoint rejected." lightbox="./media/private-link-service/endpoint-rejected.png":::
 
 
 ### Remove a private endpoint connection
 
 1. To remove a private endpoint connection, select it in the list, and select **Remove** on the toolbar. 
 
-    ![Remove button](./media/private-link-service/remove-endpoint.png)
+    :::image type="content" source="./media/private-link-service/remove-endpoint.png" alt-text="Screenshot that shows the Private endpoint connections page with the Remove button highlighted." lightbox="./media/private-link-service/remove-endpoint.png":::
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens. 
 
-    ![Delete connection page](./media/private-link-service/delete-connection-page.png)
+    :::image type="content" source="./media/private-link-service/delete-connection-page.png" alt-text="Screenshot that shows the Delete connection page.":::
 3. You should see the status changed to **Disconnected**. Then, the endpoint disappears from the list. 
+
+### Approve a private endpoint connection
+
+1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
+2. Select the **private endpoint** you wish to approve
+3. Select the **Approve** button on the toolbar.
+4. On the **Approve connection** page, enter an optional **comment**, and select **Yes**. If you select **No**, nothing happens. 
+5. You should see the status of the connection in the list changed to **Approved**. 
+
 
 ## Validate that the private link connection works
 

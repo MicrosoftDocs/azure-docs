@@ -1,21 +1,24 @@
 ---
 title: Tutorial - Create and publish a product in Azure API Management
 description: In this tutorial, you create and publish a product in Azure API Management. Once it's published, developers can begin to use the product's APIs.
-
-author: dlepow
-ms.service: azure-api-management
 ms.topic: tutorial
-ms.date: 01/18/2022
-ms.author: danlep
+ms.date: 08/19/2025
 ms.custom: devdivchpfy22, devx-track-azurecli 
+ms.service: azure-api-management
+author: dlepow
+ms.author: danlep
 ms.devlang: azurecli
-
+zone_pivot_groups: api-management-howto-add-products
 ---
 # Tutorial: Create and publish a product
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. After a product is published, developers can [subscribe](api-management-subscriptions.md) to the product and begin to use the product's APIs.  
+
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+
+:::zone pivot="interactive"
 
 In this tutorial, you learn how to:
 
@@ -25,7 +28,6 @@ In this tutorial, you learn how to:
 > * Access product APIs
 
 :::image type="content" source="media/api-management-howto-add-products/added-product-1.png" alt-text="API Management products in portal":::
-
 
 ## Prerequisites
 
@@ -50,10 +52,10 @@ In this tutorial, you learn how to:
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Display name             | The name as you want it to be shown in the [developer portal](api-management-howto-developer-portal.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | Description              | Provide information about the product such as its purpose, the APIs it provides access to, and other details.                                                                                                                                               |
-    | State                    | Select **Published** if you want to publish the product to the developer portal. Before the APIs in a product can be discovered by developers, the product must be published. By default, new products are unpublished.                                                                                      |
+    | State                    | Select **Published** if you want to publish the product to the developer portal for discovery of the product's APIs by developers. By default, new products are unpublished.<br/><br/>Regardless of whether the product is published, all of the product's APIs are accessible for requests via the API Management gateway.                                                                                    |
     | Requires subscription    | Select if a user is required to subscribe to use the product (the product is *protected*) and a subscription key must be used to access the product's APIs. If a subscription isn't required (the product is *open*), a subscription key isn't required to access the product's APIs. See [Access to product APIs](#access-to-product-apis) later in this article.                                                                                                                                                                                                   |
     | Requires approval        | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved.                                                                                                                         |
-    | Subscription count limit | Optionally limit the count of multiple simultaneous subscriptions.                                                                                                                                                                                                                                |
+    | Subscription count limit | Optionally limit the count of multiple simultaneous subscriptions. Minimum value: 1                                                                                                                                                                                                                                |
     | Legal terms              | You can include the terms of use for the product which subscribers must accept in order to use the product.                                                                                                                                                                                                             |
     | APIs                     | Select one or more APIs. You can also add APIs after creating the product. For more information, see [Add APIs to a product](#add-apis-to-a-product) later in this article. <br/><br/>If the product is open (doesn't require a subscription), you can only add an API that isn't associated with another open product.                |
 
@@ -149,7 +151,7 @@ Products are associations of one or more APIs. You can include many APIs and off
 
    ```azurecli
    az apim product api add --resource-group apim-hello-word-resource-group \
-       --api-id demo-conference-api --product-id contoso-product \
+       --api-id petstore-api --product-id contoso-product \
        --service-name apim-hello-world
    ```
 
@@ -164,15 +166,95 @@ You can remove an API from a product by using the [az apim product api delete](/
 
 ```azurecli
 az apim product api delete --resource-group apim-hello-word-resource-group \
-    --api-id demo-conference-api --product-id contoso-product \
+    --api-id petstore-api --product-id contoso-product \
     --service-name apim-hello-world
 ```
 
 ---
 
+:::zone-end
+
+:::zone pivot="terraform"
+
+In this article, you use Terraform to create an Azure API Management instance, an API, a product, a group, and associations between the product and the API, and the product and the group.
+
+[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+
+> [!div class="checklist"]
+>
+> * Specify the required version of Terraform and the required providers.
+> * Define variables for the resource group name prefix, resource group location, and the content format and value for the API definition import.
+> * Create a resource group with a randomized name.
+> * Create an API Management service with a randomized name.
+> * Create an API with a randomized name.
+> * Create a product with a randomized name in the API Management service.
+> * Create a group with a randomized name.
+> * Associate the API with the product.
+> * Associate the group with the product.
+> * Output the randomized values such as the names of the resource group, API Management service, API, product, and group.
+
+## Prerequisites
+
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+- [Install and configure Terraform.](/azure/developer/terraform/quickstart-configure)
+
+## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-api-management-create-with-api). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-api-management-create-with-api/TestRecord.md).
+> 
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
+
+1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+
+1. Create a file named `main.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/main.tf":::
+
+1. Create a file named `outputs.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/outputs.tf":::
+
+1. Create a file named `providers.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/providers.tf":::
+
+1. Create a file named `variables.tf`, and insert the following code:
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/variables.tf":::
+
+## Initialize Terraform
+
+[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
+
+## Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
+
+## Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
+## Verify the results
+
+Run [`az apim show`](/cli/azure/apim#az-apim-show) to view the Azure API Management:
+
+```azurecli
+
+az apim show --<apim_service_name> --<resource_group_name>
+
+```
+
+## Clean up resources
+
+[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
+
+:::zone-end
+
 ## Access to product APIs
 
-After you publish a product, developers can access the APIs. Depending on how the product is configured, they may need to subscribe to the product for access.
+After you publish a product, developers can discover the product's APIs in the developer portal. Depending on how the product is configured, they may need to subscribe to the product for access.
 
 * **Protected product** - Developers must first subscribe to a protected product to get access to the product's APIs. When they subscribe, they get a subscription key that can access any API in that product. If you created the API Management instance, you are an administrator already, so you are subscribed to every product by default. For more information, see [Subscriptions in Azure API Management](api-management-subscriptions.md).
 

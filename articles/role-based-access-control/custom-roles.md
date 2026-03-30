@@ -2,10 +2,10 @@
 title: Azure custom roles - Azure RBAC
 description: Learn how to create Azure custom roles with Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.service: role-based-access-control
-ms.topic: conceptual
-ms.date: 02/22/2024
+ms.topic: how-to
+ms.date: 10/23/2025
 ms.author: rolyon
 ---
 
@@ -141,10 +141,10 @@ The following table describes what the custom role properties mean.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Microsoft Entra tenant. This display name must be unique at the scope of the Microsoft Entra tenant. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 512. |
+| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Microsoft Entra tenant. This display name must be unique at the scope of the Microsoft Entra tenant. Can include letters, numbers, spaces, and special characters. Recommended maximum: 256 characters. |
 | `Id`</br>`name` | Yes | String | The unique ID of the custom role. For Azure PowerShell and Azure CLI, this ID is automatically generated when you create a new role. |
 | `IsCustom`</br>`roleType` | Yes | String | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
-| `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 2048. |
+| `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Recommended maximum: 512 characters. |
 | `Actions`</br>`actions` | Yes | String[] | An array of strings that specifies the control plane actions that the role allows to be performed. For more information, see [Actions](role-definitions.md#actions). |
 | `NotActions`</br>`notActions` | No | String[] | An array of strings that specifies the control plane actions that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
 | `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role can't be assigned at management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |
@@ -155,7 +155,7 @@ Permission strings are case-insensitive. When you create your custom roles, the 
 
 ## Wildcard permissions
 
-`Actions`, `NotActions`, `DataActions`, and `NotDataActions` support wildcards (`*`) to define permissions. A wildcard (`*`) extends a permission to everything that matches the action string you provide. For example, suppose that you wanted to add all the permissions related to Azure Cost Management and exports. You could add all of these action strings:
+`Actions`, `NotActions`, `DataActions`, and `NotDataActions` support wildcards (`*`) to define permissions. A wildcard (`*`) extends a permission to everything that matches the action string you provide. For example, suppose that you wanted to add all the permissions related to Microsoft Cost Management and exports. You could add all of these action strings:
 
 ```
 Microsoft.CostManagement/exports/action
@@ -193,10 +193,10 @@ Before you can delete a custom role, you must remove any role assignments that u
 
 Here are steps to help find the role assignments before deleting a custom role:
 
-- List the [custom role definition](role-definitions-list.yml).
+- List the [custom role definition](/azure/role-based-access-control/role-definitions-list).
 - In the [AssignableScopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
-- Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.yml).
-- [Remove the role assignments](role-assignments-remove.yml) that use the custom role.
+- Iterate over the `AssignableScopes` and [list the role assignments](/azure/role-based-access-control/role-assignments-list-portal).
+- [Remove the role assignments](/azure/role-based-access-control/role-assignments-remove) that use the custom role.
 - If you are using [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles), remove eligible custom role assignments.
 - [Delete the custom role](custom-roles-portal.md#delete-a-custom-role).
 
@@ -216,7 +216,7 @@ The following list describes the limits for custom roles.
 - Custom roles with `DataActions` can't be assigned at the management group scope.
 - You can create a custom role with `DataActions` and one management group in `AssignableScopes`. You can't assign the custom role at the management group scope itself; however, you can assign the custom role at the scope of the subscriptions within the management group. This can be helpful if you need to create a single custom role with `DataActions` that needs to be assigned in multiple subscriptions, instead of creating a separate custom role for each subscription.
 
-For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)
 
 ## Input and output formats
 

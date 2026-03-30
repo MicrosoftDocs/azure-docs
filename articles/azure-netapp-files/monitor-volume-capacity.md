@@ -1,13 +1,17 @@
 ---
-title: Monitor the capacity of an Azure NetApp Files volume | Microsoft Docs
+title: Monitor the capacity of an Azure NetApp Files volume 
 description: Describes ways to monitor the capacity utilization of an Azure NetApp Files volume.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 09/04/2024
 ms.author: anfdocs
+ms.custom:
+  - devx-track-azurecli
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: As a system administrator, I want to monitor the capacity utilization of Azure NetApp Files volumes, so that I can ensure efficient storage management and prevent capacity issues.
 ---
 # Monitor the capacity of a volume  
 
@@ -21,7 +25,7 @@ This section shows how to use a Windows or Linux client to monitor the volume ca
 
 You can use Windows clients to check the used and available capacity of a volume through the network mapped drive properties. You can use one of the following two methods: 
 
-* Go to File Explorer, right-click the mapped drive, and select **Properties** to display capacity.  
+* Navigate to File Explorer, right-click the mapped drive, then select **Properties** to display capacity.  
 
     [ ![Screenshot that shows Explorer drive properties and volume properties.](./media/monitor-volume-capacity/monitor-explorer-drive-properties.png) ](./media/monitor-volume-capacity/monitor-explorer-drive-properties.png#lightbox)
 
@@ -55,7 +59,7 @@ You can use the [`az netappfiles volume`](/cli/azure/netappfiles/volume) command
 
 See [REST API for Azure NetApp Files](azure-netapp-files-develop-with-rest-api.md) and [REST API using PowerShell for Azure NetApp Files](develop-rest-api-powershell.md). 
 
-The REST API specification and example code for Azure NetApp Files are available through the [resource-manager GitHub directory](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager/Microsoft.NetApp/stable). 
+The REST API specification and example code for Azure NetApp Files are available through the [resource-manager GitHub directory](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager/Microsoft.NetApp/NetApp/stable). 
 
 ## Next steps
 

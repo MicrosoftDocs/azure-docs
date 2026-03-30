@@ -1,0 +1,29 @@
+- name: Azure Service Groups documentation
+  href: index.yml
+- name: What are Azure Service Groups?
+  href: overview.md
+- name: Get started
+  items:
+  - name: Create a service group in Azure portal
+    href: create-service-group-portal.md
+  - name: Add service group members in Azure portal
+    href: create-service-group-member-portal.md
+  - name: Create a service group with REST API
+    href: create-service-group-rest-api.md
+  - name: Add service group members with REST API
+    href: create-service-group-member-rest-api.md
+  - name: How to use service groups to manage resources
+    href: manage-service-groups.md
+  - name: Manage membership at scale
+    href: manage-membership.md
+- name: Monitoring
+  href: monitoring.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
+- name: Reference
+  items:
+  - name: Resource Manager templates
+    href: /azure/templates/microsoft.management/servicegroups
+  expanded: true

@@ -4,8 +4,10 @@ description: Step-by-step guidance to diagnose private link connectivity
 author: abell
 ms.service: azure-private-link
 ms.topic: troubleshooting
-ms.date: 03/29/2020
+ms.date: 01/06/2025
 ms.author: abell
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network administrator, I want to diagnose Azure Private Link connectivity issues, so that I can ensure secure, private access to services and troubleshoot any problems effectively."
 ---
 
 # Troubleshoot Azure Private Link Service connectivity problems
@@ -42,8 +44,6 @@ If you experience connectivity problems with your private link setup, review the
 
     b. On the left pane, select **Private link services**.
 
-      :::image type="content" source="./media/private-link-tsg/private-link-service.png" alt-text="Screenshot of Private link services.":::
-
     c. Filter and select the private link service that you want to diagnose.
 
     d. Review the private endpoint connections.
@@ -52,34 +52,22 @@ If you experience connectivity problems with your private link setup, review the
 
      - If the state is **Pending**, select it and approve it.
 
-       :::image type="content" source="./media/private-link-tsg/pls-private-endpoint-connections.png" alt-text="Screenshot of Private endpoint connections.":::
-
-     - Go to the private endpoint that you're connecting from by selecting the name. Make sure the connection status shows as **Approved**.
-
-       :::image type="content" source="./media/private-link-tsg/pls-private-endpoint-overview.png" alt-text="Screenshot of private endpoint connection overview.":::
+    - Select the private endpoint you're connecting from by clicking on its name. Ensure the connection status is **Approved**.
 
      - After both sides are approved, try the connectivity again.
 
     e. Review **Alias** on the **Overview** tab and **Resource ID** on the **Properties** tab.
-     - Make sure the **Alias** and **Resource ID** information matches the **Alias** and **Resource ID** you're using to create a private endpoint to this service.
+    - Ensure that the **Alias** and **Resource ID** details match the ones you're using to create a private endpoint for this service.
 
-       :::image type="content" source="./media/private-link-tsg/pls-overview-pane-alias.png" alt-text="Screenshot of verify alias information.":::
-
-       :::image type="content" source="./media/private-link-tsg/pls-properties-pane-resourceid.png" alt-text="Screenshot of verify resource ID information.":::
-
-    f. Review **Visibility** information on the **Overview** tab.
+    f. Review **Visibility** information on the **Overview** tab. Select **See more** in the overview pane to see the details.
 
      - Make sure that your subscription falls under the **Visibility** scope.
 
-       :::image type="content" source="./media/private-link-tsg/pls-overview-pane-visibility.png" alt-text="Screenshot of verify visibility information.":::
-
     g. Review **Load balancer** information on the **Overview** tab.
 
-     - You can go to the load balancer by selecting the load balancer link.
-
-       :::image type="content" source="./media/private-link-tsg/pls-overview-pane-ilb.png" alt-text="Screenshot of verify load balancer information.":::
-
-     - Make sure that the load balancer settings are configured as per your expectations.
+     - View the load balancer by selecting the load balancer link in the *Overview* pane.
+      
+     - Confirm the load balancer settings are configured as per your requirements.
 
        - Review **Frontend IP configuration**.
 
@@ -87,17 +75,17 @@ If you experience connectivity problems with your private link setup, review the
 
        - Review **Load balancing rules**.
 
-       :::image type="content" source="./media/private-link-tsg/pls-ilb-properties.png" alt-text="Screenshot of verify load balancer properties.":::
+     - Confirm load balancer is working as per the previous settings.
 
-     - Make sure the load balancer is working as per the previous settings.
+      - Choose a virtual machine located in a subnet different from the one where the load balancer back-end pool resides.  
+      
+      - Access the load balancer front end from the previous virtual machine.
 
-       - Select a VM in any subnet other than the subnet where the load balancer back-end pool is available.
+      - If the connection reaches the back-end pool according to the load-balancing rules, then your load balancer is functioning correctly.    
 
-       - Try accessing the load balancer front end from the previous VM.
-
-       - If the connection makes it to the back-end pool as per load-balancing rules, your load balancer is operational.
-
-       - You can also review the load balancer metric through Azure Monitor to see if data is flowing through the load balancer.
+      - If the connection doesn't reach the back-end pool, then you need to troubleshoot the load balancer configuration.
+      
+      - Use Azure Monitor to review load balancer metrics and verify if data is flowing through the load balancer.
 
 1. Use [Azure Monitor](/azure/azure-monitor/overview) to see if data is flowing.
 
@@ -107,7 +95,7 @@ If you experience connectivity problems with your private link setup, review the
 
      - See if data is flowing when you attempt to connect to the private link service. Expect a delay of approximately 10 minutes.
 
-       :::image type="content" source="./media/private-link-tsg/pls-metrics.png" alt-text="Screenshot of verify private link service metrics.":::
+    
 
 1. Use [Azure Monitor - Networks](../network-watcher/network-insights-overview.md#resource-view) for insights and to see a resource view of the resources by going to:
 
@@ -123,6 +111,6 @@ Contact the [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Supp
 
 ## Next steps
 
- * [Create a private link service (CLI)](./create-private-link-service-cli.md)
+* [Create a private link service (CLI)](./create-private-link-service-cli.md)
  
 * [Azure Private Endpoint troubleshooting guide](troubleshoot-private-endpoint-connectivity.md)

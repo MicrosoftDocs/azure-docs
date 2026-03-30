@@ -4,6 +4,9 @@ description: Learn how to create a Java-based user-defined function (UDF) that w
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-java, devx-track-extended-java
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---
 

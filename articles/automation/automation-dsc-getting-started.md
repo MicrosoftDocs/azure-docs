@@ -3,15 +3,21 @@ title: Get started with Azure Automation State Configuration
 description: This article tells how to do the most common tasks in Azure Automation State Configuration.
 services: automation
 ms.subservice: desired-state-config
-ms.custom: devx-track-arm-template
-ms.date: 08/20/2024
+ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Get started with Azure Automation State Configuration
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
 
 This article provides a step-by-step guide for doing the most common tasks with Azure Automation
 State Configuration, such as:
@@ -279,8 +285,7 @@ You can see the following status information for the corresponding consistency c
 You can also select **View raw report** to see the actual data that the node sends to the server. For
 more information about using that data, see [Using a DSC report server][18].
 
-It can take some time after a node is enabled before the first report is available. You might need
-to wait up to 30 minutes for the first report after you enable a node.
+It can take some time before the first report is available, after a node is enabled or restarted. You might need to wait up to 30 minutes after you enable a node or restart a node.
 
 ## Reassign a node to a different node configuration
 

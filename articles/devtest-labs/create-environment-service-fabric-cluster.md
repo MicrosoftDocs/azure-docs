@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 ---
 
 # Create an environment with self-contained Service Fabric cluster in Azure DevTest Labs
@@ -23,7 +25,7 @@ Service Fabric clusters are created using environments in DevTest Labs. Each env
 2. Confirm that the Service Fabric provider is registered for your subscription by following these steps:
     1. Select **Subscriptions** on the left navigational menu, and select your **Subscription**
     2. On the **Subscription** page, select **Resource providers** in the **Settings** section on the left menu. 
-    3. If **Microsoft.ServiecFabric** isn't registered, select **Register**. 
+    3. If **Microsoft.ServiceFabric** isn't registered, select **Register**. 
 3. On the **DevTest Lab** page for your lab, select **+ Add** on the toolbar. 
     
     ![Screenshot that shows the Add button on the toolbar.](./media/create-environment-service-fabric-cluster/add-button.png)

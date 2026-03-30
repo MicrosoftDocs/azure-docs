@@ -2,12 +2,16 @@
 title: Create an Azure Data Factory using Bicep
 description: Create a sample Azure Data Factory pipeline using Bicep.
 tags: azure-resource-manager
-author: jonburchel 
+author: whhender 
 ms.subservice: data-movement
-ms.author: jburchel 
+ms.author: whhender 
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 05/15/2024
+ms.date: 06/06/2025
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-bicep
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep
@@ -19,13 +23,13 @@ This quickstart describes how to use Bicep to create an Azure data factory. The 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 > [!NOTE]
-> This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
+> This article doesn't provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
 ## Prerequisites
 
 ### Azure subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

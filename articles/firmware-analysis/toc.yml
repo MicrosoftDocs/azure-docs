@@ -1,0 +1,40 @@
+- name: Firmware analysis
+  href: index.yml
+
+- name: "Overview"
+  items:
+  - name: Overview
+    href: overview-firmware-analysis.md
+  - name: FAQ
+    href: firmware-analysis-faq.md
+  - name: What's new?
+    href: release-notes.md
+  expanded: true
+- name: Quickstarts
+  items:
+  - name: Analyze firmware images using Azure CLI
+    href: quickstart-upload-firmware-using-azure-command-line-interface.md
+  - name: Analyze firmware images using Azure PowerShell
+    href: quickstart-upload-firmware-using-powershell.md
+  - name: Analyze firmware images using a Python script
+    href: quickstart-upload-firmware-using-python.md
+  - name: Create a firmware workspace using Bicep files
+    href: quickstart-firmware-analysis-bicep.md
+  - name: Create a firmware workspace using ARM templates
+    href: quickstart-firmware-analysis-arm.md
+  - name: Create a firmware workspace using Terraform
+    href: quickstart-firmware-analysis-terraform.md
+  expanded: false
+- name: Tutorial using firmware analysis with the Azure portal 
+  href: tutorial-analyze-firmware.md
+- name: Concepts
+  items:
+  - name: Firmware analysis role-based access control
+    href: firmware-analysis-rbac.md
+- name: How-to guides
+  items:
+  - name: Automate firmware analysis using service principals
+    href: automate-firmware-analysis-service-principals.md
+  - name: Interpreting extractor paths from analysis results
+    href: interpreting-extractor-paths.md
+    

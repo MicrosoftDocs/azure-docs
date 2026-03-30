@@ -6,7 +6,8 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, subject-rbac-steps
 ---
 
@@ -14,7 +15,7 @@ ms.custom: devx-track-java, devx-track-extended-java, subject-rbac-steps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps using Microsoft Entra role-based access control (RBAC).
 
@@ -34,7 +35,7 @@ Assign the role to the [user | group | service-principal | managed-identity] at 
 | Azure Spring Apps Service Registry Reader      | Allow read access to Azure Spring Apps Service Registry.                    |
 | Azure Spring Apps Service Registry Contributor | Allow read, write, and delete access to Azure Spring Apps Service Registry. |
 
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Access Config Server and Service Registry Endpoints
 
@@ -49,8 +50,8 @@ After the role is assigned, the assignee can access the Spring Cloud Config Serv
 
 1. Compose the endpoint. We support the default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Apps.
 
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/{path}'*
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}'*
+    * `https://SERVICE_NAME.svc.azuremicroservices.io/eureka/<path>`
+    * `https://SERVICE_NAME.svc.azuremicroservices.io/config/<path>`
 
     >[!NOTE]
     > If you're using Microsoft Azure operated by 21Vianet, replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Microsoft Azure operated by 21Vianet developer guide](/azure/china/resources-developer-guide).
@@ -77,9 +78,9 @@ After the role is assigned, you can register Spring Boot apps to Spring Cloud Co
 
 For more information, see the samples [Access Azure Spring Apps managed Config Server](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-config-server-client) and [Access Azure Spring Apps managed Service Registry](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-eureka-client). The following sections explain some important details in these samples.
 
-**In *AccessTokenManager.java*:**
+In **AccessTokenManager.java**:
 
-`AccessTokenManager` is responsible for getting an access token from Microsoft Entra ID. Configure the service principal's sign-in information in the *application.properties* file and initialize `ApplicationTokenCredentials` to get the token. You can find this file in both samples.
+`AccessTokenManager` is responsible for getting an access token from Microsoft Entra ID. Configure the service principal's sign-in information in the **application.properties** file and initialize `ApplicationTokenCredentials` to get the token. You can find this file in both samples.
 
 ```java
 prop.load(in);
@@ -91,7 +92,7 @@ credentials = new ApplicationTokenCredentials(
     clientId, tenantId, secret, AzureEnvironment.AZURE);
 ```
 
-**In *CustomConfigServiceBootstrapConfiguration.java*:**
+In **CustomConfigServiceBootstrapConfiguration.java**:
 
 `CustomConfigServiceBootstrapConfiguration` implements the custom REST template for Config Server and injects the token from Microsoft Entra ID as `Authorization` headers. You can find this file in the [Config Server sample](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-config-server-client).
 
@@ -111,7 +112,7 @@ public class RequestResponseHandlerInterceptor implements ClientHttpRequestInter
 }
 ```
 
-**In *CustomRestTemplateTransportClientFactories.java*:**
+In **CustomRestTemplateTransportClientFactories.java**:
 
 The previous two classes are for the implementation of the custom REST template for Spring Cloud Service Registry. The `intercept` part is the same as in the Config Server above. Be sure to add `factory.mappingJacksonHttpMessageConverter()` to the message converters. You can find this file in the [Spring Cloud Service Registry sample](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/custom-eureka-client).
 
@@ -141,4 +142,4 @@ eureka.instance.prefer-ip-address=true
 
 * [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli)
 * [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints)
-* [Create roles and permissions](../enterprise/how-to-permissions.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+* [Create roles and permissions](how-to-permissions.md)

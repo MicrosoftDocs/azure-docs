@@ -3,13 +3,14 @@ title: Upload a blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the .NET client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
-ms.date: 08/05/2024
+author: stevenmatthew
+ms.author: shaas
+ms.date: 10/01/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to upload blobs to Azure Storage using the .NET client library, so that I can efficiently manage and store data in the cloud."
 ---
 
 # Upload a blob with .NET
@@ -42,6 +43,9 @@ To open a stream in Blob Storage and write to that stream, use either of the fol
 - [OpenWrite](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.openwrite)
 - [OpenWriteAsync](/dotnet/api/azure.storage.blobs.specialized.blockblobclient.openwriteasync)
 
+> [!NOTE]
+> The Azure Storage client libraries don't support concurrent writes to the same blob. If your app requires multiple processes writing to the same blob, you should implement a strategy for concurrency control to provide a predictable experience. To learn more about concurrency strategies, see [Manage concurrency in Blob Storage](concurrency-manage.md).
+
 ## Upload a block blob from a local file path
 
 The following example uploads a block blob from a local file path:
@@ -68,7 +72,10 @@ The following example uploads a block blob from a string:
 
 ## Upload to a stream in Blob Storage
 
-You can open a stream in Blob Storage and write to it. The following example creates a zip file in Blob Storage and writes files to it. Instead of building a zip file in local memory, only one file at a time is in memory. 
+You can open a stream in Blob Storage and write to it. The following example creates a zip file in Blob Storage and writes files to it. Instead of building a zip file in local memory, only one file at a time is in memory.
+
+> [!WARNING]
+> This approach can be very expensive if object replication policy is enabled because each write to the stream creates a new version of the zip file, and each version is copied to the destination account. The same is true if Azure Blob vaulted backup is enabled because vaulted backup uses object replication. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadToStream":::
 
@@ -150,3 +157,4 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]
+

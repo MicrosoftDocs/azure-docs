@@ -7,8 +7,9 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: whhender
-ms.custom: has-adal-ref
+ms.custom:
+  - has-adal-ref
+  - sfi-image-nochange
 ---
 
 # Use multifactor Microsoft Entra authentication with Synapse SQL (SSMS support for MFA)
@@ -29,7 +30,7 @@ Active Directory Universal Authentication supports the two non-interactive authe
     - `Active Directory - Password` authentication
     - `Active Directory - Integrated` authentication
 
-There are two non-interactive authentication models as well, which can be used in many different applications (ADO.NET, JDCB, ODC, etc.). These two methods never result in pop-up dialog boxes:
+There are two non-interactive authentication models as well, which can be used in many different applications (ADO.NET, JDBC, ODC, etc.). These two methods never result in pop-up dialog boxes:
 
 - `Active Directory - Password`
 - `Active Directory - Integrated`

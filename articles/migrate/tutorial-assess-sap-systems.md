@@ -6,9 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 08/08/2024
+ms.reviewer: v-uhabiba
+ms.date: 02/06/2025
 ms.custom: engagement-fy25
+monikerRange:
 
+# Customer intent: As an IT administrator, I want to assess my on-premises SAP systems for migration to Azure, so that I can understand the cost and performance requirements for a successful transition.
 ---
 
 # Tutorial: Assess SAP systems for migration to Azure (preview)
@@ -91,23 +94,6 @@ To run an assessment, follow these steps:
 > [!NOTE]
 > After you select **Create assessment**, wait for 5 to 10 minutes and refresh the page to check if the assessment computation is completed.
 
-## Review an assessment
-
-To review an assessment, follow these steps:
-
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
-1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number associated with **SAP® Systems (Preview)**.
-
-    :::image type="content" source="./media/tutorial-assess-sap-systems/review-assess.png" alt-text="Screenshot that shows the option to access assess." lightbox="./media/tutorial-assess-sap-systems/review-assess.png":::
-
-1. On the **Assessments** page, select a desired assessment name to view from the list of assessments. <br/>On the **Overview** page, you can view the SAP system details of **Essentials**, **Assessed entities** and **SAP® on Azure** cost estimates.
-1. Select **SAP on Azure** for the drill-down assessment details at the System ID (SID) level.
-1. On the **SAP on Azure** page, select any SID to review the assessment summary such as cost of the SID, including its ASCS, App, and DB server assessments and storage details for the DB server assessments. <br/>If required, you can edit the assessment properties or recalculate the assessment.
-
-    :::image type="content" source="./media/tutorial-assess-sap-systems/sap-on-azure.png" alt-text="Screenshot that shows to select SAP on Azure." lightbox="./media/tutorial-assess-sap-systems/sap-on-azure.png":::
-
-> [!NOTE]
-> When you update any of the assessment settings, it triggers a new assessment, which takes a few minutes to reflect the updates.
 
 ## Next steps
 Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).

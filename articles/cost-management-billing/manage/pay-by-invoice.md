@@ -1,13 +1,13 @@
 ---
 title: Pay for Azure subscriptions by wire transfer
 description: Learn how to pay for Azure subscriptions by wire transfer.
-author: bandersmsft
-ms.reviewer: lishepar
+author: kennyday
+ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/15/2024
-ms.author: banders
+ms.date: 10/15/2025
+ms.author: souchak
 ---
 
 # Pay for your Azure subscription by wire transfer
@@ -41,7 +41,7 @@ To qualify for wire transfer payments, you must:
 
 > [!IMPORTANT]
 > - You must pay all outstanding charges before switching to payment by wire transfer.
-> - If you switch to payment by wire transfer, you can't switch back to paying by credit or debit card, except for one-time payments.
+> - If you switch to payment by wire transfer, you can't switch back to paying by credit or debit card as your recurring form of payment. However, you can make manual, one-time (non-recurring) payments with a credit or debit card.
 > - As of September 30, 2023, Microsoft no longer accepts checks as a payment method.
 
 ## Submit a request to set up payment by wire transfer

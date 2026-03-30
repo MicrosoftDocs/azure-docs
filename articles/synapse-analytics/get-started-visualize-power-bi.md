@@ -1,16 +1,15 @@
 ---
 title: "'Tutorial: Get started with Azure Synapse Analytics - visualize workspace data with Power BI'"
 description: In this tutorial, you learn how to use Power BI to visualize data in Azure Synapse Analytics.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
-ms.date: 10/16/2023
+author: gillharmeet
+ms.author: harmeetgill
+ms.date: 12/16/2024
 ms.service: azure-synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ---
 
-# Visualize data with Power BI
+# Tutorial: Visualize data with Power BI
 
 In this tutorial, you learn how to create a Power BI workspace, link your Azure Synapse workspace, and create a Power BI data set that utilizes data in your Azure Synapse workspace. 
 
@@ -23,24 +22,29 @@ From the NYC Taxi data, we created aggregated datasets in two tables:
 - **nyctaxi.passengercountstats**
 - **SQLDB1.dbo.PassengerCountStats**
 
-You can link a Power BI workspace to your Azure Synapse workspace. This capability allows you to easily get data into your Power BI workspace. You can edit your Power BI reports directly in your Azure Synapse workspace. 
+You can link a Power BI workspace to your Azure Synapse workspace. This capability allows you to easily get data into your Power BI workspace. You can edit your Power BI reports directly in your Azure Synapse workspace.
 
-### Create a Power BI workspace
+## Create a Power BI workspace
 
 1. Sign in to [powerbi.microsoft.com](https://powerbi.microsoft.com/).
 1. Select **Workspaces**, then select **Create a workspace**. Create a new Power BI workspace named **NYCTaxiWorkspace1** or similar, since this name must be unique.
 
-### Link your Azure Synapse workspace to your new Power BI workspace
+## Link your Azure Synapse workspace to your new Power BI workspace
 
 1. In Synapse Studio, go to **Manage** > **Linked Services**.
 1. Select **New** > **Connect to Power BI**.
 1. Set **Name** to **NYCTaxiWorkspace1** or similar.
 1. Set **Workspace name** to the Power BI workspace you created earlier, similar to **NYCTaxiWorkspace1**.
+
+    >[!TIP]
+    >If the workspace name doesn't load, select **Edit** and then enter your workspace ID. You can find the ID in the URL for the PowerBI workspace: `https://msit.powerbi.com/groups/<workspace id>/`
+
 1. Select **Create**.
+1. Publish to create the linked service.
 
-### Create a Power BI dataset that uses data in your Azure Synapse workspace
+## Create a Power BI dataset that uses data in your Azure Synapse workspace
 
-1. In Synapse Studio, go to **Develop** > **Power BI**.
+1. In Synapse Studio, go to **Develop** > **Power BI**. (If you don't see Power BI, refresh the page.)
 1. Go to **NYCTaxiWorkspace1** > **Power BI datasets** and select **New Power BI dataset**. Select **Start**.
 1. Select the **SQLPOOL1** data source, select **Continue**.
 1. Select **Download** to download the `.pbids` file for your `NYCTaxiWorkspace1SQLPOOL1.pbids` file. Select **Continue**.
@@ -59,9 +63,9 @@ You can link a Power BI workspace to your Azure Synapse workspace. This capabili
 1. Select **Save** to save your changes.
 1. Choose the file name `PassengerAnalysis.pbix`, and then select **Save**.
 1. In the **Publish to Power BI** window, under **Select a destination**, choose your `NYCTaxiWorkspace1`, and then select **Select**.
-1. Wait for publishing to finish. 
+1. Wait for publishing to finish.
 
-### Configure authentication for your dataset
+## Configure authentication for your dataset
 
 1. Open [powerbi.microsoft.com](https://powerbi.microsoft.com/) and **Sign in**.
 1. On the left side, under **Workspaces**, select the **NYCTaxiWorkspace1** workspace.
@@ -69,7 +73,7 @@ You can link a Power BI workspace to your Azure Synapse workspace. This capabili
 1. Hover over the **PassengerAnalysis** dataset, select the ellipsis (...) button, and then select **Settings**.
 1. In **Data source credentials**, select **Edit**, set the **Authentication method** to **OAuth2**, and then select **Sign in**.
 
-### Edit a report in Synapse Studio
+## Edit a report in Synapse Studio
 
 1. Go back to Synapse Studio and select **Close and refresh**.
 1. Go to the **Develop** hub.

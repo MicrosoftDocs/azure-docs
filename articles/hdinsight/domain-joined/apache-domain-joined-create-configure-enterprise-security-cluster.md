@@ -4,15 +4,20 @@ description: Learn how to create and configure Enterprise Security Package clust
 services: hdinsight
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 09/06/2024
-ms.custom: devx-track-azurepowershell
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf 
+ms.date: 12/11/2024
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Create and configure Enterprise Security Package clusters in Azure HDInsight
 
-Enterprise Security Package (ESP) for Azure HDInsight gives you access to Active Directory-based authentication, multiuser support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations that adhere to strict corporate security policies to process sensitive data securely.
+Enterprise Security Package (ESP) for Azure HDInsight gives you access to Microsoft Entra ID-based authentication, multiuser support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations that adhere to strict corporate security policies to process sensitive data securely.
 
-This guide shows how to create an ESP-enabled Azure HDInsight cluster. It also shows how to create a Windows IaaS VM on which Active Directory and Domain Name System (DNS) are enabled. Use this guide to configure the necessary resources to allow on-premises users to sign in to an ESP-enabled HDInsight cluster.
+This guide shows how to create an ESP-enabled Azure HDInsight cluster. It also shows how to create a Windows IaaS VM on which Microsoft Entra ID and Domain Name System (DNS) are enabled. Use this guide to configure the necessary resources to allow on-premises users to sign in to an ESP-enabled HDInsight cluster.
 
 The server you create will act as a replacement for your *actual* on-premises environment. You'll use it for the setup and configuration steps. Later you'll repeat the steps in your own environment.
 
@@ -20,7 +25,7 @@ This guide will also help you create a hybrid identity environment by using pass
 
 Before you use this process in your own environment:
 
-* Set up Active Directory and DNS.
+* Set up Microsoft Entra ID and DNS.
 * Enable Microsoft Entra ID.
 * Sync on-premises user accounts to Microsoft Entra ID.
 
@@ -28,9 +33,9 @@ Before you use this process in your own environment:
 
 ## Create an on-premises environment
 
-In this section, you'll use an Azure Quickstart deployment template to create new VMs, configure DNS, and add a new Active Directory forest.
+In this section, you'll use an Azure Quickstart deployment template to create new VMs, configure DNS, and add a new Microsoft Entra ID forest.
 
-1. Go to the Quickstart deployment template to [Create an Azure VM with a new Active Directory forest](https://azure.microsoft.com/resources/templates/active-directory-new-domain/).
+1. Go to the Quickstart deployment template to [Create an Azure VM with a new Microsoft Entra ID forest](https://azure.microsoft.com/resources/templates/active-directory-new-domain/).
 
 1. Select **Deploy to Azure**.
 1. Sign in to your Azure subscription.
@@ -65,15 +70,15 @@ In this section, you'll create the users that will have access to the HDInsight 
     1. Enter the password that you chose for the admin account.
     1. Select **OK**.
 
-1. From the domain controller **Server Manager** dashboard, navigate to **Tools** > **Active Directory Users and Computers**.
+1. From the domain controller **Server Manager** dashboard, navigate to **Tools** > **Microsoft Entra ID Users and Computers**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/server-manager-active-directory-screen.png" alt-text="On the Server Manager dashboard, open Active Directory Management." border="true":::
+    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/server-manager-active-directory-screen.png" alt-text="On the Server Manager dashboard, open Microsoft Entra ID Management." border="true":::
 
 1. Create two new users: **HDIAdmin** and **HDIUser**. These two users will sign in to HDInsight clusters.
 
-    1. From the **Active Directory Users and Computers** page, right-click `HDIFabrikam.com`, and then navigate to  **New** > **User**.
+    1. From the **Microsoft Entra ID Users and Computers** page, right-click `HDIFabrikam.com`, and then navigate to  **New** > **User**.
 
-        :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png" alt-text="Create a new Active Directory user." border="true":::
+        :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png" alt-text="Create a new Microsoft Entra ID user." border="true":::
 
     1. On the **New Object - User** page, enter `HDIUser` for **First name** and **User logon name**. The other fields will autopopulate. Then select **Next**.
 
@@ -87,13 +92,13 @@ In this section, you'll create the users that will have access to the HDInsight 
 
 1. Create a security group.
 
-    1. From **Active Directory Users and Computers**, right-click `HDIFabrikam.com`, and then navigate to  **New** > **Group**.
+    1. From **Microsoft Entra ID Users and Computers**, right-click `HDIFabrikam.com`, and then navigate to  **New** > **Group**.
 
     1. Enter `HDIUserGroup` in the **Group name** text box.
 
     1. Select **OK**.
 
-    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png" alt-text="Create a new Active Directory group." border="true":::
+    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png" alt-text="Create a new Microsoft Entra ID group." border="true":::
 
     :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0028.png" alt-text="Create a new object." border="true":::
 
@@ -105,7 +110,7 @@ In this section, you'll create the users that will have access to the HDInsight 
 
         :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/active-directory-add-users-to-group.png" alt-text="Add the member HDIUser to the group HDIUserGroup." border="true":::
 
-You've now created your Active Directory environment. You've added two users and a user group that can access the HDInsight cluster.
+You've now created your Microsoft Entra ID environment. You've added two users and a user group that can access the HDInsight cluster.
 
 The users will be synchronized with Microsoft Entra ID.
 
@@ -141,9 +146,9 @@ The users will be synchronized with Microsoft Entra ID.
 
 ## Configure your Microsoft Entra tenant
 
-Now you'll configure your Microsoft Entra tenant so that you can synchronize users and groups from the on-premises Active Directory instance to the cloud.
+Now you'll configure your Microsoft Entra tenant so that you can synchronize users and groups from the on-premises Microsoft Entra ID instance to the cloud.
 
-Create an Active Directory tenant administrator.
+Create a Microsoft Entra ID tenant administrator.
 
 1. Sign in to the Azure portal and select your Microsoft Entra tenant, **HDIFabrikam**.
 
@@ -171,8 +176,6 @@ Create an Active Directory tenant administrator.
    1. Select **User**.
    1. Select **Administrator**, and then **Select**.
 
-      :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png" alt-text="The Microsoft Entra role dialog box." border="true":::
-
 1. Select **Create**.
 
 1. Then have the new user sign in to the Azure portal where it will be prompted to change the password. You'll need to do this before configuring Microsoft Entra Connect.
@@ -191,11 +194,11 @@ Create an Active Directory tenant administrator.
 
 1. Select **Use express settings**.
 
-1. On the **Connect to Microsoft Entra ID** page, enter the username and password of the administrator for Microsoft Entra ID. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
-
+1. On the **Connect to Microsoft Entra ID** page, enter the username and password of the [Domain Name Administrator](/entra/identity/role-based-access-control/permissions-reference#domain-name-administrator) for Microsoft Entra ID. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your tenant. Then select **Next**.
+   
    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png" alt-text="Connect to Microsoft Entra ID." border="true":::
 
-1. On the **Connect to Active Directory Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**.
+1. On the **Connect to Microsoft Entra ID Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**.
 
    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png" alt-text="Connect to A D D S page." border="true":::
 
@@ -425,11 +428,11 @@ This step requires the following prerequisites:
 
     :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg" alt-text="Assign the cluster admin role to hdiusergroup." border="true":::
 
-1. Open your Secure Shell (SSH) client and sign in to the cluster. Use the **hdiuser** that you created in the on-premises Active Directory instance.
+1. Open your Secure Shell (SSH) client and sign in to the cluster. Use the **hdiuser** that you created in the on-premises Microsoft Entra ID instance.
 
     :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg" alt-text="Sign in to the cluster by using the SSH client." border="true":::
 
-If you can sign in with this account, you've configured your ESP cluster correctly to sync with your on-premises Active Directory instance.
+If you can sign in with this account, you've configured your ESP cluster correctly to sync with your on-premises Microsoft Entra ID instance.
 
 ## Next steps
 

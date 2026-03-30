@@ -1,9 +1,12 @@
----
+﻿---
 title: Bicep Kubernetes extension
 description: Learn how to Bicep Kubernetes extension to deploy .NET applications to Azure Kubernetes Service clusters.
-ms.topic: conceptual
-ms.custom: devx-track-bicep, devx-track-dotnet
-ms.date: 08/07/2024
+ms.topic: article
+ms.custom:
+  - devx-track-bicep
+  - devx-track-dotnet
+  - build-2025
+ms.date: 12/22/2025
 ---
 
 # Bicep Kubernetes extension (Preview)
@@ -12,9 +15,9 @@ The Kubernetes extension allows you to create Kubernetes resources directly with
 
 > [!NOTE]
 > The Kubernetes extension is not currently supported for private clusters:
-> 
+>
 > ```bicep
-> resource AKS 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
+> resource AKS 'Microsoft.ContainerService/managedClusters@2024-10-01' = {
 >  ...
 >  properties: {
 >   apiServerAccessProfile: {
@@ -24,7 +27,6 @@ The Kubernetes extension allows you to create Kubernetes resources directly with
 > }
 > 
 > ```
-> 
 
 ## Enable the preview feature
 
@@ -41,7 +43,7 @@ This preview feature can be enabled by configuring the [bicepconfig.json](./bice
 ## Import Kubernetes extension
 
 To safely pass secrets for the Kubernetes deployment, you must invoke the Kubernetes code with a Bicep module and pass the parameter as a secret.
-To import the Kubernetes extension, use the [import statement](./bicep-import.md). After importing the extension, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, the Kubernetes manifest in YML doesn't include any programmability support.
+To import the Kubernetes extension, use the [extension statement](./bicep-extension.md). After importing the extension, you can refactor the Bicep module file as usual, such as by using variables, parameters, and output. By contract, the Kubernetes manifest in YML doesn't include any programmability support.
 
 The following sample imports the Kubernetes extension:
 
@@ -49,7 +51,7 @@ The following sample imports the Kubernetes extension:
 @secure()
 param kubeConfig string
 
-import 'kubernetes@1.0.0' with {
+extension kubernetes with {
   namespace: 'default'
   kubeConfig: kubeConfig
 } as k8s
@@ -61,7 +63,7 @@ import 'kubernetes@1.0.0' with {
 The following sample shows how to pass `kubeConfig` value from a parent Bicep file:
 
 ```bicep
-resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' existing = {
+resource aks 'Microsoft.ContainerService/managedClusters@2025-08-02-preview' existing = {
   name: 'demoAKSCluster'
 }
 
@@ -81,4 +83,6 @@ From Visual Studio Code, you can import Kubernetes manifest files to create Bice
 
 ## Next steps
 
-- [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension)
+- To walk through a quickstart, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
+- To learn about how to use the Microsoft Graph extension, see [Bicep files for Microsoft Graph](https://aka.ms/graphbicep).
+

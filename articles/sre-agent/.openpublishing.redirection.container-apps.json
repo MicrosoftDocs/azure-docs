@@ -1,0 +1,84 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/sre-agent/access-management.md",
+            "redirect_url": "/azure/sre-agent/user-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/agent-managed-identity.md",
+            "redirect_url": "/azure/sre-agent/permissions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/custom-logic-python.md",
+            "redirect_url": "/azure/sre-agent/python-code-execution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/code-repository-connect.md",
+            "redirect_url": "/azure/sre-agent/connect-source-code",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/custom-mcp-server.md",
+            "redirect_url": "/azure/sre-agent/mcp-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/memory-system.md",
+            "redirect_url": "/azure/sre-agent/memory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/user-access-roles.md",
+            "redirect_url": "/azure/sre-agent/user-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/prompts.md",
+            "redirect_url": "/azure/sre-agent/starter-prompts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/faq-security-compliance.md",
+            "redirect_url": "/azure/sre-agent/data-privacy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/agent-run-modes.md",
+            "redirect_url": "/azure/sre-agent/run-modes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/subagent-builder-overview.md",
+            "redirect_url": "/azure/sre-agent/subagents",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/subagent-builder-scenarios.md",
+            "redirect_url": "/azure/sre-agent/subagents",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/incident-response-plan.md",
+            "redirect_url": "/azure/sre-agent/incident-response-plans",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/documentation-connector.md",
+            "redirect_url": "/azure/sre-agent/ado-wiki-knowledge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/roles-permissions-overview.md",
+            "redirect_url": "/azure/sre-agent/user-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/incident-management.md",
+            "redirect_url": "/azure/sre-agent/incident-platforms",
+            "redirect_document_id": false
+        }
+    ]
+}

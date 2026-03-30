@@ -1,6 +1,6 @@
 ---
 title: Forward on-premises OT alert information to partners - Microsoft Defender for IoT
-description: Learn how to forward OT alert details from an OT sensor or on-premises management console to partner services.
+description: Learn how to forward OT alert details from an OT sensor to partner services.
 ms.date: 01/01/2023
 ms.topic: how-to
 ---
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-This article describes how to configure your OT sensor or on-premises management console to forward alerts to partner services, syslog servers, email addresses, and more. Forwarded alert information includes details like:
+This article describes how to configure your OT sensor to forward alerts to partner services, syslog servers, email addresses, and more. Forwarded alert information includes details like:
 
 :::row:::
     :::column:::
@@ -31,13 +31,13 @@ This article describes how to configure your OT sensor or on-premises management
 
 ## Prerequisites
 
-- Depending on where you want to create your forwarding alert rules, you need to have either an [OT network sensor or on-premises management console installed](how-to-install-software.md), with access as an **Admin** user.
+- Depending on where you want to create your forwarding alert rules, you need to have either an [OT network sensor installed](how-to-install-software.md), with access as an **Admin** user.
 
     For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-- You also need to define SMTP settings on the OT sensor or on-premises management console.
+- You also need to define SMTP settings on the OT sensor.
 
-    For more information, see [Configure SMTP mail server settings on an OT sensor](how-to-manage-individual-sensors.md#configure-smtp-mail-server-settings) and [Configure SMTP mail server settings on the on-premises management console](legacy-central-management/how-to-manage-the-on-premises-management-console.md#configure-smtp-mail-server-settings).
+    For more information, see [Configure SMTP mail server settings on an OT sensor](how-to-manage-individual-sensors.md#configure-smtp-mail-server-settings).
 
 ## Create forwarding rules on an OT sensor
 
@@ -71,47 +71,9 @@ To edit or delete an existing rule:
 
     - Select **Delete** > **Yes** to confirm the deletion.
 
-## Create forwarding rules on an on-premises management console
-
-**To create a forwarding rule on the management console**:
-
-1. Sign in to the on-premises management console and select **Forwarding** on the left-hand menu.
-
-1. Select the **+** button at the top-right to create a new rule.
-
-1. In the **Create Forwarding Rule** window, enter a meaningful name for the rule, and then define rule conditions and actions as follows:
-
-    |Name  |Description  |
-    |---------|---------|
-    |**Minimal alert level**     | At the top-right of the dialog, use the dropdown list to select the minimum [alert severity level](alert-engine-messages.md#alert-severities) that you want to forward.    <br><br>For example, if you select **Minor**, minor alerts and any alert above this severity level are forwarded.    |
-    |**Protocols**     |   Select **All** to forward alerts from all protocol traffic, or select **Specific** to add specific protocols only.     |
-    |**Engines**     |  Select **All** to forward alerts triggered by all sensor analytics engines, or select **Specific** to add specific engines only.       |
-    |**System Notifications**     | Select the **Report System Notifications** option to notify about disconnected sensors or remote backup failures.        |
-    |**Alert Notifications**     |  Select the **Report Alert Notifications** option to notify about an alert's date and time, title, severity, source and destination name and IP address, suspicious traffic, and the engine that detected the event.     |
-    |**Actions**     |   Select **Add** to add an action to apply and enter any parameters values needed for the selected action. Repeat as needed to add multiple actions.  <br><br>For more information, see [Configure alert forwarding rule actions](#configure-alert-forwarding-rule-actions).    |
-
-1. When you're done configuring the rule, select **SAVE**. The rule is listed on the **Forwarding** page.
-
-1. Test the rule you've created:
-
-    1. On the row for your rule, select the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/run-button.png" border="false"::: **test this forwarding rule** button. A success notification is shown if the message sent successfully.
-    1. Go to your partner system to verify that the information sent by the sensor was received.
-
-### Edit or delete forwarding rules on an on-premises management console
-
-To edit or delete an existing rule:
-
-1. Sign into your on-premises management console and select **Forwarding** on the left-hand menu.
-
-1. Find the row for your rule and then select either the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/edit-button.png" border="false"::: **Edit** or :::image type="icon" source="media/how-to-forward-alert-information-to-partners/delete-icon.png" border="false"::: **Delete** button.
-
-    - If you're editing the rule, [update the fields as needed](#create-forwarding-rules-on-an-on-premises-management-console) and select **SAVE**.
-
-    - If you're deleting the rule, select **CONFIRM** to confirm the deletion.
-
 ## Configure alert forwarding rule actions
 
-This section describes how to configure settings for supported forwarding rule actions, on either an OT sensor or the on-premises management console.
+This section describes how to configure settings for supported forwarding rule actions on an OT sensor.
 
 ### Email address action
 
@@ -174,48 +136,6 @@ The following sections describe the syslog output syntax for each format.
 | Date and time | Date and time that the sensor sent the information, in UTC format |
 | Hostname | Sensor IP |
 | Message | Sensor name: The name of the Microsoft Defender for IoT appliance. <br />*LEEF:1.0* <br />Microsoft Defender for IoT <br />Sensor  <br />Sensor version <br />Microsoft Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. It might be different from the time of the syslog server machine, and depends on the time-zone configuration. <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
-
-### Webhook server action
-
-**Supported from the on-premises management console only**
-
-Configure a **Webhook** action to configure an integration that subscribes to Defender for IoT alert events. For example, send alert data to a webhook server to update an external SIEM system, SOAR system, or incident management system.
-
-When you've configured alerts to be forwarded to a webhook server and an alert event is triggered, the on-premises management console sends an HTTP POST payload to the configured webhook URL.
-
-In the **Actions** area, enter the following details:
-
-|Name  |Description  |
-|---------|---------|
-|**Server**     | Select **Webhook**.        |
-|**URL**     | Enter the webhook server URL.        |
-|**Key / Value**    | Enter key/value pairs to customize the HTTP header as needed. Supported characters include: <br>- **Keys** can contain only letters, numbers, dashes, and underscores. <br>- **Values** can contain only one leading and/or trailing space.  |
-
-### Webhook extended
-
-**Supported from the on-premises management console only**
-
-Configure a **Webhook extended** action to send the following extra data to your webhook server:
-
-- sensorID
-- sensorName
-- zoneID
-- zoneName
-- siteID
-- siteName
-- sourceDeviceAddress
-- destinationDeviceAddress
-- remediationSteps
-- handled
-- additionalInformation
-
-In the **Actions** area, enter the following details:
-
-|Name  |Description  |
-|---------|---------|
-|**Server**     | Select **Webhook extended**.        |
-|**URL**     | Enter the endpoint data URL.        |
-|**Key / Value**    | Enter key/value pairs to customize the HTTP header as needed. Supported characters include: <br>- **Keys** can contain only letters, numbers, dashes, and underscores. <br>- **Values** can contain only one leading and/or trailing space.  |
 
 ### NetWitness action
 
@@ -297,11 +217,9 @@ If your forwarding alert rules aren't working as expected, check the following d
 
 - **Certificate validation**. Forwarding rules for [Syslog CEF](#syslog-server-actions), [Microsoft Sentinel](integrate-overview.md#microsoft-sentinel), and [QRadar](tutorial-qradar.md) support encryption and certificate validation.
 
-    If your OT sensors or on-premises management console are configured to [validate certificates](ot-deploy/create-ssl-certificates.md#verify-crl-server-access) and the certificate can't be verified, the alerts aren't forwarded.
+    If your OT sensors are configured to [validate certificates](ot-deploy/create-ssl-certificates.md#verify-crl-server-access) and the certificate can't be verified, the alerts aren't forwarded.
 
-    In these cases, the sensor or on-premises management console is the session's client and initiator. Certificates are typically received from the server or use asymmetric encryption, where a specific certificate is provided to set up the integration.
-
-- **Alert exclusion rules**. If you have exclusion rules configured on your on-premises management console, your sensors might be ignoring the alerts you're trying to forward. For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
+    In these cases, the sensor is the session's client and initiator. Certificates are typically received from the server or use asymmetric encryption, where a specific certificate is provided to set up the integration.
 
 ## Next steps
 

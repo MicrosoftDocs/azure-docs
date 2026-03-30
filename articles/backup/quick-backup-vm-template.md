@@ -3,11 +3,12 @@ title: Quickstart - Resource Manager template VM Backup
 description: Learn how to back up your virtual machines with Azure Resource Manager template
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 11/15/2021
+ms.date: 12/19/2025
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As an IT administrator, I want to deploy an ARM template to back up my Azure virtual machines, so that I can ensure data protection and recovery capabilities are in place for my applications.
 ---
 
 #  Back up a virtual machine in Azure with an ARM template
@@ -63,11 +64,11 @@ Azure PowerShell is used to deploy the ARM template in this quickstart. The [Azu
 
 ### Start a backup job
 
-The template creates a VM and enables backup on the VM. After you deploy the template, you need to start a backup job. For more information, see [Start a backup job](./quick-backup-vm-powershell.md#start-a-backup-job).
+The template creates a VM and enables backup on the VM. After you deploy the template, you need to start a backup job. For more information, see [Start a backup job](./quick-backup-vm-powershell.md#trigger-an-azure-vm-backup-job).
 
 ### Monitor the backup job
 
-To monitor the backup job, see [Monitor the backup job](./quick-backup-vm-powershell.md#monitor-the-backup-job).
+To monitor the backup job, see [Monitor the backup job](./quick-backup-vm-powershell.md#monitor-the-backup-job-for-the-azure-vm).
 
 ## Clean up resources
 
@@ -92,3 +93,4 @@ In this quickstart, you created a Recovery Services vault, enabled protection on
 - [Learn how](tutorial-backup-vm-at-scale.md) to back up VMs in the Azure portal.
 - [Learn how](tutorial-restore-disk.md) to quickly restore a VM
 - [Learn how](../azure-resource-manager/templates/template-tutorial-create-first-template.md) to create ARM templates.
+- Learn how to [restore an Azure VM using REST API](backup-azure-arm-userestapi-restoreazurevms.md)

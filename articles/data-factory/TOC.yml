@@ -13,6 +13,52 @@ items:
   - name: What's new (archived months)
     href: whats-new-archive.md
     displayName: timeout
+- name: Migrate to Fabric
+  items:
+  - name: Compare Azure Data Factory to Data Factory in Fabric
+    href: /fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Migration planning
+    href: /fabric/data-factory/migrate-planning-azure-data-factory?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Upgrade pipelines to Fabric
+    items:
+    - name: Pipeline assessment tool
+      href: how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md
+    - name: Upgrade Azure Data Factory pipelines to Fabric
+      href: how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory.md
+    - name: Upgrade Azure Synapse Analytics pipelines to Fabric
+      href: how-to-upgrade-your-azure-synapse-analytics-pipelines-to-fabric-data-factory.md
+    - name: Upgrade pipelines with PowerShell
+      items:
+      - name: Pipeline upgrade with PowerShell overview
+        href: /fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+      - name: Tutorial PowerShell pipeline upgrade
+        href: /fabric/data-factory/migrate-pipelines-powershell-upgrade-module-tutorial?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+      - name: Build your resolutions file
+        href: /fabric/data-factory/migrate-pipelines-how-to-add-connections-to-resolutions-file?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+      - name: Find your Fabric workspace ID
+        href: /fabric/data-factory/migrate-pipelines-how-to-find-your-fabric-workspace-id?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Connector capability comparison
+    href: /fabric/data-factory/connector-parity?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Migrate global parameters to variable libraries
+    href: /fabric/data-factory/convert-global-parameters-to-variable-libraries?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Migration best practices
+    href: /fabric/data-factory/migration-best-practices?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+  - name: Bring your Azure Data Factory to Fabric
+    href: /fabric/data-factory/migrate-pipelines-azure-data-factory-item?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json 
+  - name: How to ingest data from Azure Data Factory to Fabric
+    href: how-to-ingest-data-into-fabric-from-azure-data-factory.md
+  - name: Dataflows
+    items:
+    - name: Fabric dataflows for mapping data flow users
+      href: /fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json    
+    - name: Migrate from Dataflow Gen1 to Dataflow Gen2
+      href: /fabric/data-factory/dataflow-gen2-migrate-from-dataflow-gen1?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: Migrate to Dataflow Gen2 scenarios
+      href: /fabric/data-factory/dataflow-gen2-migrate-from-dataflow-gen1-scenarios?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: Move queries from Dataflow Gen1 to Gen2
+      href: /fabric/data-factory/move-dataflow-gen1-to-dataflow-gen2?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
+    - name: Migrate to Dataflow Gen2 using Save As
+      href: /fabric/data-factory/migrate-to-dataflow-gen2-using-save-as?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -53,12 +99,8 @@ items:
         href: tutorial-hybrid-copy-portal.md
       - name: Azure PowerShell
         href: tutorial-hybrid-copy-powershell.md
-    - name: From Amazon Web Services S3 to Azure Data Lake Storage
-      items:
-      - name: Azure Data Lake Storage Gen2
-        href: load-azure-data-lake-storage-gen2.md
-      - name: Azure Data Lake Storage Gen1
-        href: load-azure-data-lake-store.md
+    - name: Amazon Web Services S3 to Azure Data Lake Storage Gen2
+      href: load-azure-data-lake-storage-gen2.md
     - name: From Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
       href: load-azure-data-lake-storage-gen2-from-gen1.md
     - name: From Azure SQL Database to Azure Synapse Analytics
@@ -109,6 +151,12 @@ items:
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
     - name: Build a copy pipeline using managed VNet and private endpoints
       href: tutorial-copy-data-portal-private.md
+  - name: Connect to Fabric
+    items:
+    - name: Ingest data into Fabric
+      href:  how-to-ingest-data-into-fabric-from-azure-data-factory.md
+    - name: Change data capture from SAP to Microsoft Fabric
+      href: change-data-capture-from-sap-to-onelake-with-azure-data-factory.md
   - name: Transform data
     items:
     - name: Transform data with mapping data flows
@@ -139,12 +187,6 @@ items:
         items:
         - name: User interface (UI)
           href: transform-data-using-databricks-notebook.md
-      - name: Hive transformation in virtual network
-        items:
-        - name: User interface (UI)
-          href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-hive-virtual-network.md
     - name: Build mapping dataflow pipeline using managed VNet and private endpoints
       href: tutorial-data-flow-private.md
   - name: Control Flow
@@ -165,10 +207,6 @@ items:
     items:
     - name: Push Data Factory lineage data to Microsoft Purview
       href: tutorial-push-lineage-to-purview.md
-  - name: End-to-end labs
-    items:
-    - name: Data integration using data factory and data share
-      href: lab-data-flow-data-share.md
   - name: Managed virtual network
     items:
     - name: Access on premises SQL Server
@@ -304,8 +342,8 @@ items:
     href: concepts-roles-permissions.md
   - name: Naming rules
     href: naming-rules.md
-  - name: Data redundancy
-    href: concepts-data-redundancy.md
+  - name: Reliability
+    href: /azure/reliability/reliability-data-factory?toc=/azure/data-factory/toc.json
 - name: How-to guides
   items:
   - name: Create a data factory in UI
@@ -314,6 +352,8 @@ items:
     items:
     - name: Create data factory - Azure CLI
       href: quickstart-create-data-factory-azure-cli.md
+    - name: Create data factory - ARM
+      href: quickstart-create-data-factory-resource-manager-template.md
     - name: Create data factory - Azure PowerShell
       href: quickstart-create-data-factory-powershell.md
     - name: Create data factory - .NET
@@ -369,6 +409,22 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
+    - name: Connector lifecycle
+      items:
+      - name: Connector lifecycle overview
+        href: connector-lifecycle-overview.md
+      - name: Connector upgrade guidance
+        href: connector-upgrade-guidance.md
+      - name: Automatic connector upgrade 
+        href: automatic-connector-upgrade.md
+      - name: Connector upgrade advisor
+        href: connector-upgrade-advisor.md
+      - name: Connector release stages and timelines
+        href: connector-release-stages-and-timelines.md
+      - name: Connector upgrade FAQ
+        href: connector-deprecation-frequently-asked-questions.md  
+      - name: Guidance for Bring Your Own Driver (BYOD)
+        href: guidance-for-byod-approach.md        
     - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
@@ -471,9 +527,9 @@ items:
       href: connector-google-adwords.md
     - name: Google BigQuery
       items:
-      - name: Google BigQuery
+      - name: Google BigQuery V2
         href: connector-google-bigquery.md
-      - name: Google BigQuery (Legacy)
+      - name: Google BigQuery V1
         href: connector-google-bigquery-legacy.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
@@ -492,6 +548,8 @@ items:
       displayName: timeout
     - name: HubSpot
       href: connector-hubspot.md
+    - name: Iceberg format
+      href: format-iceberg.md      
     - name: Impala
       href: connector-impala.md
     - name: Informix
@@ -551,9 +609,9 @@ items:
       href: connector-phoenix.md
     - name: PostgreSQL
       items:
-      - name: PostgreSQL
+      - name: PostgreSQL V2
         href: connector-postgresql.md
-      - name: PostgreSQL (legacy)
+      - name: PostgreSQL V1
         href: connector-postgresql-legacy.md
     - name: Presto
       href: connector-presto.md
@@ -566,14 +624,15 @@ items:
       displayName: timeout
     - name: Salesforce
       items:
-      - name: Salesforce
+      - name: Salesforce V2
         href: connector-salesforce.md
-      - name: Salesforce (legacy)
+      - name: Salesforce V1
         href: connector-salesforce-legacy.md
-    - name: Salesforce Service Cloud
-      href: connector-salesforce-service-cloud.md
+    - name: Salesforce Service Cloud 
       items:
-      - name: Salesforce Service Cloud (legacy)
+      - name: Salesforce Service Cloud V2
+        href: connector-salesforce-service-cloud.md
+      - name: Salesforce Service Cloud V1
         href: connector-salesforce-service-cloud-legacy.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
@@ -598,9 +657,9 @@ items:
       href: connector-sap-table.md
     - name: ServiceNow
       items:
-      - name: ServiceNow
+      - name: ServiceNow V2
         href: connector-servicenow.md
-      - name: ServiceNow (legacy)
+      - name: ServiceNow V1
         href: connector-servicenow-legacy.md
     - name: SFTP
       href: connector-sftp.md
@@ -613,9 +672,9 @@ items:
       href: connector-smartsheet.md
     - name: Snowflake
       items:
-      - name: Snowflake
+      - name: Snowflake V2
         href: connector-snowflake.md
-      - name: Snowflake (legacy)
+      - name: Snowflake V1
         href: connector-snowflake-legacy.md
     - name: Spark
       href: connector-spark.md
@@ -681,9 +740,6 @@ items:
       href: copy-activity-data-consistency.md
     - name: Copy activity log
       href: copy-activity-log.md
-    - name: Format and compression support (legacy)
-      href: supported-file-formats-and-compression-codecs-legacy.md
-      displayName: zip
   - name: Transform data
     href: transform-data.md
     items:
@@ -700,6 +756,8 @@ items:
       href: transform-data-using-custom-activity.md
     - name: Databricks Jar activity
       href: transform-data-databricks-jar.md
+    - name: Databricks Job activity
+      href: transform-data-databricks-job.md
       displayName: data bricks
     - name: Databricks Notebook activity
       href: transform-data-databricks-notebook.md
@@ -724,10 +782,6 @@ items:
       href: transform-data-using-hadoop-streaming.md
     - name: Machine Learning Execute Pipeline activity
       href: transform-data-machine-learning-service.md
-    - name: Machine Learning Studio (classic) Batch Execution activity
-      href: transform-data-using-machine-learning.md
-    - name: Machine Learning Studio (classic) Update Resource activity
-      href: update-machine-learning-models.md
     - name: Mapping data flows
       href: tutorial-data-flow.md
     - name: Stored Procedure activity
@@ -929,8 +983,6 @@ items:
     - name: Monitor pipelines with email notifications
       href: how-to-send-email.md
       displayName: logic app
-    - name: Monitor pipelines with Microsoft Teams notifications
-      href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor managed virtual network integration runtime
@@ -1086,8 +1138,6 @@ items:
     items:
     - name: Send email from a pipeline
       href: how-to-send-email.md
-    - name: Send Microsoft Teams notifications from a pipeline
-      href: how-to-send-notifications-to-teams.md
     - name: Data migration for data lake & EDW
       items:
       - name: Why Azure Data Factory
@@ -1113,8 +1163,6 @@ items:
         href: how-to-sqldb-to-cosmosdb.md
       - name: Dedupe and null check with snippets
         href: how-to-data-flow-dedupe-nulls-snippets.md
-      - name: Process data from aml models using data flow
-        href: scenario-dataflow-process-data-aml-models.md
     - name: SSIS migration from on-premises
       items:
       - name: SSIS migration overview
@@ -1148,8 +1196,6 @@ items:
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
       displayName: data bricks
-    - name: Call Synapse pipeline with a notebook activity
-      href: solution-template-synapse-notebook.md
   - name: Understanding pricing
     items:
     - name: Data flow reserved capacity overview
@@ -1163,27 +1209,6 @@ items:
       displayName: diu
     - name: FinOps in Azure Data Factory
       href: apply-finops.md
-    - name: Pricing examples
-      items:
-      - name: Pricing overview
-        href: pricing-concepts.md
-        displayName: diu
-      - name: Copy data from AWS S3 to Azure Blob storage
-        href: pricing-examples-s3-to-blob.md
-      - name: Copy data and transform with Azure Databricks
-        href: pricing-examples-copy-transform-azure-databricks.md
-      - name: Copy/transform data with dynamic parameters
-        href: pricing-examples-copy-transform-dynamic-parameters.md
-      - name: Run SSIS packages on Azure-SSIS integration runtime
-        href: pricing-examples-ssis-on-azure-ssis-integration-runtime.md
-      - name: Using mapping data flow debug for a workday
-        href: pricing-examples-mapping-data-flow-debug-workday.md
-      - name: Transform blob data with mapping data flows
-        href: pricing-examples-transform-mapping-data-flows.md
-      - name: Data integration with Managed VNET
-        href: pricing-examples-data-integration-managed-vnet.md
-      - name: Get delta data from SAP ECC via SAP CDC in mapping data flows
-        href: pricing-examples-get-delta-data-from-sap-ecc.md
   - name: Troubleshooting guides
     items:
     - name: Azure Data Factory Studio
@@ -1202,6 +1227,9 @@ items:
       - name: Overview and general copy activity errors
         href: connector-troubleshoot-guide.md
         displayName: polybase, timeout, troubleshooting
+      - name: Amazon S3
+        href: connector-troubleshoot-amazon-simple-storage-service.md
+        displayName: troubleshooting  
       - name: Azure Blob Storage
         href: connector-troubleshoot-azure-blob-storage.md
         displayName: troubleshooting
@@ -1247,6 +1275,12 @@ items:
       - name: Hive
         href: connector-troubleshoot-hive.md
         displayName: troubleshooting
+      - name: Microsoft Fabric Lakehouse
+        href: connector-troubleshoot-microsoft-fabric-lakehouse.md
+        displayName: troubleshooting
+      - name: Microsoft Fabric Warehouse
+        href: connector-troubleshoot-microsoft-fabric-warehouse.md
+        displayName: troubleshooting
       - name: MongoDB
         href: connector-troubleshoot-mongodb.md
         displayName: troubleshooting
@@ -1268,11 +1302,17 @@ items:
       - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
         href: connector-troubleshoot-sap.md
         displayName: troubleshooting
+      - name: ServiceNow
+        href: connector-troubleshoot-servicenow.md
+        displayName: troubleshooting
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
         displayName: troubleshooting
       - name: Snowflake
         href: connector-troubleshoot-snowflake.md
+        displayName: troubleshooting
+      - name: Teradata
+        href: connector-troubleshoot-teradata.md
         displayName: troubleshooting
       - name: XML format
         href: connector-troubleshoot-xml.md
@@ -1306,6 +1346,9 @@ items:
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
+    - name: Azure Data Factory known issues
+      href: known-issues-troubleshoot-guide.md
+      displayName: troubleshooting
 - name: SAP knowledge center
   items:
   - name: Overview
@@ -1332,6 +1375,12 @@ items:
     - name: Advanced topics
       href: sap-change-data-capture-advanced-topics.md
       displayName: SAP, change data capture, CDC
+- name: Security
+  items:
+  - name: Secure your Azure Data Factory
+    href: secure-your-azure-data-factory.md
+  - name: Business continuity and disaster recovery
+    href: pipelines-disaster-recovery.md
 - name: Workflow Orchestration Manager
   items:
   - name: Tutorials
@@ -1390,16 +1439,10 @@ items:
     href: policy-reference.md
   - name: Azure CLI
     href: /cli/azure/datafactory
-  - name: Compute optimized data flows retired
-    href: compute-optimized-data-flow-retire.md
   - name: Monitoring data reference
     href: monitor-data-factory-reference.md
 - name: Resources
   items:
-  - name: Important changes (deprecations) coming
-    items: 
-    - name: Connector upgrade and deprecations
-      href: connector-deprecation-plan.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ
@@ -1421,8 +1464,6 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
-  - name: Request quota increases from support
-    href: quota-increase.md
   - name: Limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits
 

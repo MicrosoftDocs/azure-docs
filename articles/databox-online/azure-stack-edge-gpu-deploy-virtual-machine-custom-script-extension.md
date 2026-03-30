@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
@@ -205,7 +206,7 @@ Etag                    : null
 Publisher               : Microsoft.Compute
 ExtensionType           : CustomScriptExtension
 TypeHandlerVersion      : 1.10
-Id                      : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM5/extensions/CustomScriptExtension
+Id                      : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM5/extensions/CustomScriptExtension
 PublicSettings          : {
                             "commandToExecute": "md C:\\Users\\Public\\Documents\\test"
                           }
@@ -351,7 +352,7 @@ Etag                    : null
 Publisher               : Microsoft.Compute
 ExtensionType           : CustomScriptExtension
 TypeHandlerVersion      : 1.10
-Id                      : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM5/extensions/CustomScriptExtension
+Id                      : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM5/extensions/CustomScriptExtension
 PublicSettings          : {
                             "commandToExecute": "md C:\\Users\\Public\\Documents\\test"
                           }
@@ -392,4 +393,4 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)
+[Azure Resource Manager cmdlets](/azure/automation/shared-resources/modules)

@@ -14,7 +14,7 @@ In this tutorial, you learn to use Azure Blueprints to do some of the common tas
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a
-  [free account](https://azure.microsoft.com/free) before you begin.
+  [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - If you've not used Azure Blueprints before, register the resource provider through the Azure CLI with
   `az provider register --namespace Microsoft.Blueprint`.
 

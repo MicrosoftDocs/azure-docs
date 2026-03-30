@@ -29,7 +29,7 @@ This article describes how to configure the Key Vault to work with Managed Appli
 
 ## Add service as contributor
 
-Assign the **Contributor** role to the **Appliance Resource Provider** user at the key vault scope. The **Contributor** role is a _privileged administrator role_ for the role assignment. For detailed steps, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+Assign the **Contributor** role to the **Appliance Resource Provider** user at the key vault scope. The **Contributor** role is a _privileged administrator role_ for the role assignment. For detailed steps, go to [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 The **Appliance Resource Provider** is a service principal in your Microsoft Entra tenant. From the Azure portal, you can verify its registration at **Microsoft Entra ID** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If the service principal isn't found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
 

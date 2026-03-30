@@ -4,9 +4,11 @@ description: Diagnostic tool for self-hosted integration runtime
 ms.author: lle
 author: lrtoyou1223
 ms.subservice: integration-runtime
-ms.topic: conceptual
-ms.custom: references_regions
+ms.topic: feature-guide
 ms.date: 05/15/2024
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 ---
 
 # Diagnostic tool for self-hosted integration runtime

@@ -2,17 +2,20 @@
 title: Back up SQL Server always on availability groups
 description: In this article, learn how to back up SQL Server on availability groups.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 02/13/2026
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to configure SQL Server always on availability group backups across multiple regions and subscriptions, so that I can ensure data protection and recovery in case of failovers or emergencies."
 ---
 # Back up SQL Server always on availability groups
 
 Azure Backup offers an end-to-end support for backing up SQL Server always on availability groups (AG) if all nodes are in the same region and subscription as the Recovery Services vault. However, if the AG nodes are spread across regions/subscriptions/on-premises and Azure, there are a few considerations to keep in mind.
 
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
+
 >[!Note]
->- Backup of Basic Availability Group databases is not supported by Azure Backup.
->- See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+> Backup of Basic Availability Group databases is not supported by Azure Backup.
+
 
 The backup preference used by Azure Backup SQL AG supports full and differential backups only from the primary replica. So, these backup jobs always run on the Primary node irrespective of the backup preference. For copy-only full and transaction log backups, the AG backup preference is considered while deciding the node where backup will run.
 
@@ -196,3 +199,9 @@ Learn how to:
 
 * [Restore backed-up SQL Server databases](restore-sql-database-azure-vm.md)
 * [Manage backed-up SQL Server databases](manage-monitor-sql-database-backup.md)
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).

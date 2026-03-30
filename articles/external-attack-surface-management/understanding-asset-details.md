@@ -6,6 +6,7 @@ ms.author: dandennis
 ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Understand asset details
@@ -37,7 +38,7 @@ This section includes high-level information that's key to understanding your as
 | First seen (Global Security Graph) | The date that Microsoft first scanned the asset and added it to the comprehensive Global Security Graph.  | All |
 | Last seen (Global Security Graph) | The date that Microsoft most recently scanned the asset. | All |
 | Discovered on | Indicates the creation date of the discovery group that detected the asset.  | All |
-| Country | The country of origin detected for this asset. | All |
+| Country | The country/region of origin detected for this asset. | All |
 | State/Province | The state or province of origin detected for this asset. | All |
 | City | The city of origin detected for this asset. | All |
 | Whois name | The name associated with a Whois record. | Host |
@@ -76,7 +77,7 @@ The following data is specific to IP blocks and provides contextual information 
 | Organization name | The organization name found in the registration information for the IP block. | IP block |
 | Org ID | The organization ID found in the registration information for the IP block. | IP block |
 | ASNs | The ASN associated with the IP block. | IP block |
-| Country | The country of origin as detected in the Whois registration information for the IP block. | IP block |
+| Country | The country/region of origin as detected in the Whois registration information for the IP block. | IP block |
 
 ### Subject
 
@@ -89,7 +90,7 @@ The following data is specific to the subject (that is, the protected entity) as
 | Organization name | The organization linked to the subject of the SSL certificate. | SSL certificate |
 | Organization unit | Optional metadata that indicates the department within an organization that's responsible for the certificate. | SSL certificate |
 | Locality | Denotes the city where the organization is located. | SSL certificate |
-| Country | Denotes the country where the organization is located. | SSL certificate |
+| Country | Denotes the country/region where the organization is located. | SSL certificate |
 | State/Province | Denotes the state or province where the organization is located. | SSL certificate |
 
 ### Issuer
@@ -202,7 +203,7 @@ Web components are categorized based on their function.
 | Hosting Provider | hostingprovider.com |
 | Server | Apache |
 | DNS Server | ISC BIND |
-| Data stores | MySQL, ElasticSearch, MongoDB |
+| Data stores | MySQL, Elasticsearch, MongoDB |
 | Remote access | OpenSSH, Microsoft Admin Center, Netscaler Gateway |
 | Data Exchange | Pure-FTPd |
 | Internet of things (IoT) | HP Deskjet, Linksys Camera, Sonos |
@@ -282,7 +283,7 @@ The following fields are included in the table in the **Values** section on the 
 | City | The city listed in the street address for the registrant, if provided. |
 | State | The state listed in the street address for the registrant, if provided. |
 | Postal code | The postal code listed in the street address for the registrant, if provided. |
-| Country | The country listed in the street address for the registrant, if provided. |
+| Country | The country/region listed in the street address for the registrant, if provided. |
 | Phone | The phone number associated with a registrant contact, if provided. |
 | Name servers | Any name servers associated with the registered entity. |
 

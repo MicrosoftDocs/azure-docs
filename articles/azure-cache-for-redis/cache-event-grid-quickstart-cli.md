@@ -4,12 +4,17 @@ description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, 
 
 
 ms.date: 1/5/2021
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ms.topic: quickstart
 
 ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Event Grid is an eventing service for the cloud. In this quickstart, you'll use the Azure CLI to subscribe to Azure Cache for Redis events, trigger an event, and view the results.
 

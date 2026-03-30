@@ -6,6 +6,7 @@ ms.author: dandennis
 ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Understanding dashboards
@@ -59,7 +60,7 @@ Your attack surface is constantly changing, which is why Defender EASM continuou
 
 The "Changes by date" section provides more granular context on how your attack surface has changed on a daily basis. This section categorizes removals as "removed by user" or "removed by system."  User removals include all manual removals, including individual, bulk or cascading asset state changes, as well as removals triggered by user-configured asset policies. System removals occur automatically. The system removes assets that are no longer relevant to your attack surface because recent scans no longer observed their connection to your inventory. Assets are eligible for pruning if they haven't been observed in a scan for 30-60 days, depending on the asset type. Assets that are manually added to inventory are not eligible for removal. From the "Changes by date" section, you can click on any listed value to see a full list of the assets that were added or removed. 
 
-![Screenshot of Inventory changes dashboard with addition and removal counts.](media/inventory-changes-2.png)
+![Screenshot of Inventory changes dashboard with addition and removal counts.](media/inventory-changes-date.png)
 
 
 ## Attack surface summary
@@ -257,7 +258,7 @@ This chart displays live PII sites by their usage of SSL certificates. By refere
 
 A login page is a page on a website where a user has the option to enter a username and password to gain access to services hosted on that site. Login pages have specific requirements under GDPR, so Defender EASM references the DOM of all scanned pages to search for code that correlates to a login. For instance, login pages must be secure to be compliant. This first chart displays Login websites by protocol (HTTP or HTTPS) and the second by certificate posture. 
 
-![Screenshot of Login websites by protcol chart.](media/Dashboards-25.png)
+![Screenshot of Login websites by protocol chart.](media/Dashboards-25.png)
 
 ![Screenshot of Login websites by certificate posture chart.](media/Dashboards-26.png)
 

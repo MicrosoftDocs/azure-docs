@@ -2,11 +2,12 @@
 title: TLS policy overview for Azure Application Gateway
 description: Learn how to configure TLS policy for Azure Application Gateway and reduce encryption and decryption overhead from a backend server farm.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 06/06/2023
-ms.author: greglin
+ms.date: 01/12/2026
+ms.author: mbender
+#customer intent: As an IT administrator, I want to configure a TLS policy for the Application Gateway, so that I can centralize certificate management and ensure compliance with security standards while optimizing backend performance.
 ---
 
 # Application Gateway TLS policy overview
@@ -16,6 +17,12 @@ You can use Azure Application Gateway to centralize TLS/SSL certificate manageme
 The TLS policy includes control of the TLS protocol version as well as the cipher suites and the order in which ciphers are used during a TLS handshake. Application Gateway offers two mechanisms for controlling TLS policy. You can use either  a predefined policy or a custom policy.
 
 ## Usage and version details
+
+> [!IMPORTANT]
+> Starting **August 31, 2025**, all clients and backend servers interacting with Azure Application Gateway must use Transport Layer Security (TLS) 1.2 or higher, as [support for TLS 1.0 and 1.1 will be discontinued](https://azure.microsoft.com/updates/azure-application-gateway-support-for-tls-10-and-tls-11-will-end-by-31-august-2025). Visit [TLS 1.0 and 1.1 retirement](application-gateway-tls-version-retirement.md) for more details on deprecating policies and resource configuration changes.
+> 
+> Policy changes are non-disruptive if clients and backends use TLS 1.2 or higher. It is recommended to update the TLS policy for your gateways before enforcement applies across all Azure regions.
+
 
 - SSL 2.0 and 3.0 are disabled for all application gateways and are not configurable.
 - A custom TLS policy allows you to select any TLS protocol as the minimum protocol version for your gateway: TLSv1_0, TLSv1_1, TLSv1_2, or TLSv1_3.
@@ -35,8 +42,8 @@ The following table shows the list of cipher suites and minimum protocol version
 | **Minimum Protocol Version** | 1.0 | 1.1 | 1.2 | 1.2 | 1.2 |
 | **Enabled protocol versions** | 1.0<br/>1.1<br/>1.2 | 1.1<br/>1.2 | 1.2 | 1.2<br/>1.3 | 1.2<br/>1.3 |
 | **Default** | True<br/>(for API version < 2023-02-01) | False | False | True<br/>(for API version >= 2023-02-01) | False |
-| TLS_AES_128_GCM_SHA256 | &cross; | &cross; | &cross; | &check; | &check; |
 | TLS_AES_256_GCM_SHA384 | &cross; | &cross; | &cross; | &check; | &check; |
+| TLS_AES_128_GCM_SHA256 | &cross; | &cross; | &cross; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | &check; | &check; | &check; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | &check; | &check; | &check; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | &check; | &cross; | &cross; | &check; | &cross; |
@@ -129,7 +136,7 @@ Application Gateway supports the following cipher suites from which you can choo
 
 ## Limitations
 
-- The connections to backend servers are always with minimum protocol TLS v1.0 and up to TLS v1.2. Therefore, only TLS versions 1.0, 1.1 and 1.2 are supported to establish a secured connection with backend servers. 
+- The connections to backend servers prefer TLS 1.3 when available, with fallback support for TLS 1.2. The TLS version and cipher suites for backend connections cannot be customized.
 - As of now, the TLS 1.3 implementation is not enabled with &#34;Zero Round Trip Time (0-RTT)&#34; feature.
 - TLS session (ID or Tickets) resumption is not supported.
 - Application Gateway v2 doesn't support the following DHE ciphers. These won't be used for the TLS connections with clients even though they are mentioned in the predefined policies. Instead of DHE ciphers, secure and faster ECDHE ciphers are recommended.

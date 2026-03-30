@@ -3,11 +3,13 @@ title: Configure an internal load balancer (ILB) endpoint
 titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway Standard v1 with a private frontend IP address
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 08/09/2024
-ms.author: greglin
+ms.date: 02/26/2026
+ms.author: mbender
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network administrator, I want to configure an internal load balancer with a private frontend IP for my application gateway, so that I can manage and optimize traffic for internal applications without exposing them to the Internet."
 ---
 
 # Configure an application gateway with an internal load balancer (ILB) endpoint
@@ -15,7 +17,7 @@ ms.author: greglin
 Azure Application Gateway Standard v1 can be configured with an Internet-facing VIP or with an internal endpoint that isn't exposed to the Internet. An internal endpoint uses a private IP address for the frontend, which is also known as an *internal load balancer (ILB) endpoint*.
 
 > [!NOTE]
-> Application Gateway v1 is being retired. See the [v1 retiredment announcement](/azure/application-gateway/v1-retirement).<br>
+> Application Gateway v1 is being retired. See the [v1 retirement announcement](/azure/application-gateway/v1-retirement).<br>
 > To configure a v2 application gateway with a private frontend IP address, see [Private Application Gateway deployment](/azure/application-gateway/application-gateway-private-deployment).
 
 Configuring the gateway using a frontend private IP address is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers within a multi-tier application that are in a security boundary that isn't exposed to the Internet but:
@@ -67,7 +69,7 @@ In this example, you create a new virtual network. You can create a virtual netw
 13. Select **Add**.
 14. Select **Next:Configuration**.
 15. Under **Routing rules**, select **Add a routing rule**.
-16. For **Rule name**, type *Rrule-01*.
+16. For **Rule name**, type *Rule-01*.
 17. For **Listener name**, type *Listener-01*.
 18. For **Frontend IP**, select **Private**.
 19. Accept the remaining defaults and select the **Backend targets** tab.
@@ -104,13 +106,18 @@ To do this:
    - Select **Windows Server 2019 Datacenter** for **Image**.
    - Type a valid **Username**.
    - Type a valid **Password**.
+   - For **Public inbound ports**, select **None**.
 1. Accept the remaining defaults and select **Next: Disks**.
 1. Accept the defaults and select **Next : Networking**.
 1. Ensure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**.
+1. For **Public IP**, select **None**.
 1. Accept the remaining defaults, and select **Next : Management**.
 1. Select **Disable** to disable boot diagnostics.
 1. Select **Review + create**.
 1. Review the settings on the summary page, and then select **Create**. It may take several minutes to create the VM. Wait until the deployment finishes successfully before moving on to the next section.
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including RDP. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
 
 ### Install IIS
 

@@ -1,11 +1,12 @@
 ---
-title: Add a synthetic GraphQL API to Azure API Management | Microsoft Docs
+title: Add a Synthetic GraphQL API to Azure API Management | Microsoft Docs
 description: Add a synthetic GraphQL API by importing a GraphQL schema to API Management and configuring field resolvers that use HTTP-based data sources.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/31/2023
+ms.date: 10/08/2025
+# Customer intent: As an API admin, I want to add a synthetic GraphQL API to API Management so that I can expose it as an API. 
 ---
 
 # Add a synthetic GraphQL API and set up field resolvers
@@ -18,9 +19,9 @@ ms.date: 05/31/2023
 
 In this article, you'll:
 > [!div class="checklist"]
-> * Import a GraphQL schema to your API Management instance
-> * Set up a resolver for a GraphQL query using an existing HTTP endpoint
-> * Test your GraphQL API
+> * Import a GraphQL schema to your Azure API Management instance.
+> * Set up a resolver for a GraphQL query using an existing HTTP endpoint.
+> * Test your GraphQL API.
 
 If you want to expose an existing GraphQL endpoint as an API, see [Import a GraphQL API](graphql-api.md).
 
@@ -35,39 +36,39 @@ If you want to expose an existing GraphQL endpoint as an API, see [Import a Grap
 
 ## Add a GraphQL schema
 
-1. From the side navigation menu, under the **APIs** section, select **APIs**.
-1. Under **Define a new API**, select the **GraphQL** icon.
+1. In the left pane, under **APIs**, select **APIs**.
+1. Under **Define a new API**, select the **GraphQL** tile.
 
-    :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Screenshot of selecting GraphQL icon from list of APIs.":::
+    :::image type="content" source="media/graphql-api/import-graphql-api.png" alt-text="Screenshot of selecting the GraphQL tile.":::
 
-1. In the dialog box, select **Full** and complete the required form fields.
+1. In the dialog box, select **Full**, and then enter values in the required fields, as described in the following table.
 
-    :::image type="content" source="media/graphql-schema-resolve-api/create-from-graphql-schema.png" alt-text="Screenshot of fields for creating a GraphQL API.":::
+    :::image type="content" source="media/graphql-schema-resolve-api/create-from-graphql-schema.png" alt-text="Screenshot of the Create from GraphQL schema page." lightbox="media/graphql-schema-resolve-api/create-from-graphql-schema.png":::
 
-     | Field | Description |
+     | Value | Description |
     |----------------|-------|
     | **Display name** | The name by which your GraphQL API will be displayed. |
-    | **Name** | Raw name of the GraphQL API. Automatically populates as you type the display name. |
+    | **Name** | The raw name of the GraphQL API. Automatically populates as you type the display name. |
     | **GraphQL type** | Select **Synthetic GraphQL** to import from a GraphQL schema file.  |
     | **Fallback GraphQL endpoint** | Optionally enter a URL with a GraphQL API endpoint name. API Management passes GraphQL queries to this endpoint when a custom resolver isn't set for a field.  |
     | **Description** | Add a description of your API. |
-    | **URL scheme** |  Make a selection based on your GraphQL endpoint. Select one of the options that includes a WebSocket scheme (**WS** or **WSS**) if your GraphQL API includes the subscription type. Default selection: *HTTP(S)*. |
-    | **API URL suffix**| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this API Management instance. |
-    | **Base URL** | Uneditable field displaying your API base URL |
-    | **Tags** | Associate your GraphQL API with new or existing tags. |
+    | **URL scheme** | Select a scheme based on your GraphQL endpoint. Select one of the options that includes a WebSocket scheme (**WS** or **WSS**) if your GraphQL API includes the subscription type. The default selection is **HTTP(S)**. |
+    | **API URL suffix**| Add a URL suffix to identify the specific API in the API Management instance. Must be unique in the API Management instance. |
+    | **Base URL** | Uneditable field displaying your API base URL. |
+    | **Tags** | Optionally associate your GraphQL API with new or existing tags. |
     | **Products** | Associate your GraphQL API with a product to publish it. |
-    | **Version this API?** | Select to apply a versioning scheme to your GraphQL API. |
+    | **Version this API?** | Select the checkbox to apply a versioning scheme to your GraphQL API. |
 
  
 1. Select **Create**.
 
-1. After the API is created, browse or modify the schema on the **Design** tab.
+1. After the API is created, review or modify the schema on the **Schema** tab.
 
-## Configure resolver
+## Configure a resolver
 
-Configure a resolver to map a field in the schema to an existing HTTP endpoint. High level steps are provided here. For details, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
+Configure a resolver to map a field in the schema to an existing HTTP endpoint. High-level steps are provided here. For details, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
-Suppose you imported the following basic GraphQL schema and wanted to set up a resolver for the *users* query.
+Suppose you imported the following basic GraphQL schema and want to set up a resolver for the `users` query.
 
 ```
 type Query {
@@ -80,19 +81,20 @@ type User {
 }
 ```
 
-1. From the side navigation menu, under the **APIs** section, select **APIs** > your GraphQL API.
-1. On the **Schema** tab, review the schema for a field in an object type where you want to configure a resolver. 
-    1. Select a field, and then in the left margin, hover the pointer. 
-    1. Select **+ Add Resolver**
+1. In the left pane, under **APIs**, select **APIs**. 
+1. Select your GraphQL API.
+1. On the **Schema** tab, review the schema for a field in an object type in which you want to configure a resolver. 
+    1. Select a field, and then hover the pointer in the left margin. 
+    1. Select **Add resolver**.
 
-        :::image type="content" source="media/graphql-schema-resolve-api/add-resolver.png" alt-text="Screenshot of adding a GraphQL resolver in the portal.":::
+        :::image type="content" source="media/graphql-schema-resolve-api/add-resolver.png" alt-text="Screenshot of adding a GraphQL resolver in the portal." lightbox="media/graphql-schema-resolve-api/add-resolver.png":::
 
-1. On the **Create Resolver** page:
+1. In the **Create resolver** pane:
 
     1. Update the **Name** property if you want to, optionally enter a **Description**, and confirm or update the **Type** and **Field** selections.
     1. In **Data source**, select **HTTP API**. 
 
-1. In the **Resolver policy** editor, update the `<http-data-source>` element with child elements for your scenario. For example, the following resolver retrieves the *users* field by making a `GET` call to an existing HTTP data source.
+1. In the **Resolver policy** editor, update the `<http-data-source>` element with child elements for your scenario. For example, the following resolver retrieves the `users` field by making a `GET` call to an existing HTTP data source.
 
     
     ```xml
@@ -104,9 +106,10 @@ type User {
         </http-data-source>
     ```
 
-    :::image type="content" source="media/graphql-schema-resolve-api/configure-resolver-policy.png" alt-text="Screenshot of configuring resolver policy in the portal.":::
+    :::image type="content" source="media/graphql-schema-resolve-api/configure-resolver-policy.png" alt-text="Screenshot of configuring resolver a policy in the portal." lightbox="media/graphql-schema-resolve-api/configure-resolver-policy.png":::
+
 1. Select **Create**. 
-1. To resolve data for another field in the schema, repeat the preceding steps to create a resolver. 
+1. To resolve data for another field in the schema, repeat the preceding steps to create another resolver. 
 
 > [!TIP]
 > As you edit a resolver policy, select **Run Test** to check the output from the data source, which you can validate against the schema. If errors occur, the response includes troubleshooting information. 
@@ -119,7 +122,3 @@ Secure your GraphQL API by applying both existing [authentication and authorizat
 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

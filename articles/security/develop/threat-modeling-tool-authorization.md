@@ -3,8 +3,8 @@ title: Authorization - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Learn about authorization mitigation in the Threat Modeling Tool. See a list of potential threats and mitigation instructions.
 services: security
 author: jegeib
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: azure-information-protection
+ms.subservice: azure-information-protection-policy
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
@@ -170,7 +170,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [Iot Hub Access Control](../../iot-hub/iot-hub-devguide.md) |
+| **References**              | [IoT Hub Access Control](../../iot-hub/iot-hub-devguide.md) |
 | **Steps** | Provide least privilege permissions to various components that connect to Cloud Gateway (IoT Hub). Typical example is – Device management/provisioning component uses registryread/write, Event Processor (ASA) uses Service Connect. Individual devices connect using Device credentials|
 
 ## <a id="sendonly-sas"></a>Use a send-only permissions SAS Key for generating device tokens
@@ -225,7 +225,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.yml)  |
+| **References**              | [Assign Azure roles to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal)  |
 | **Steps** | Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can grant only the amount of access that users need to perform their jobs.|
 
 ## <a id="cluster-rbac"></a>Restrict client's access to cluster operations using Service Fabric RBAC

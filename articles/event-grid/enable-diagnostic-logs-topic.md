@@ -54,49 +54,49 @@ This article provides step-by-step instructions for enabling diagnostic settings
     - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription.
     
         :::image type="content" source="./media/enable-diagnostic-logs-topic/archive-storage.png" alt-text="Screenshot that shows the Diagnostic settings page with Archive to an Azure storage account checked and a storage account selected.":::
-    - If you select **Stream to an event hub**, select **Event hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy.
-    
-        ![Screenshot that shows the "Diagnostic settings" page with "Stream to an event hub" checked.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+   - If you select **Stream to an event hub**, select **Event hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy.
+   
+       ![Screenshot that shows the "Diagnostic settings" page with "Stream to an event hub" checked.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
 1. Select **Save**. Then, select **X** in the right-corner to close the page.
 1. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table.
 
     ![Screenshot that shows the "Diagnostic settings" page with a new entry highlighted in the "Diagnostics settings" table.](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
-
+   
 You can also enable collection of all metrics for the topic.
 
 ## Enable diagnostic logs for Event Grid system topics
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to the system topic for which you want to enable diagnostic log settings.
+1. Navigate to the system topic for which you want to enable diagnostic log settings.
     1. In the search bar at the top, search for **Event Grid system topics**.
         ![Search for system topics](./media/enable-diagnostic-logs-topic/search-system-topics.png)
-    1. Select the **system topic** for which you want to configure diagnostic settings.
-        ![Select system topic](./media/enable-diagnostic-logs-topic/select-system-topic.png)
-3. Select **Diagnostic settings** under **Monitoring** on the left menu, and then select **Add diagnostic setting**.
-    ![Add diagnostic settings - button](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
+   1. Select the **system topic** for which you want to configure diagnostic settings.
+   ![Select system topic](./media/enable-diagnostic-logs-topic/select-system-topic.png)
+1. Select **Diagnostic settings** under **Monitoring** on the left menu, and then select **Add diagnostic setting**.
+![Add diagnostic settings - button](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
 4. Specify a **name** for the diagnostic setting.
-5. Select the **allLogs** option in the **Logs** section.
-    ![Select delivery failures](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
-6. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource.
+1. Select the **allLogs** option in the **Logs** section.
+![Select delivery failures](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
+1. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource.
     - If you select **Send to Log Analytics**, select the Log Analytics workspace.
         ![Send to Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png)
-    - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription.
-        ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
+   - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription.
+   ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
     - If you select **Stream to an Event Hub**, select **Event Hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy.
         ![Stream to an event hub](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
 7. Select **Save**. Then, select **X** in the right-corner to close the page.
-8. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table.
-    ![Diagnostic setting in the list](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
+1. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table.
+![Diagnostic setting in the list](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
 
 You can also enable collection of all **metrics** for the system topic.
-    ![System topic - enable all metrics](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
+![System topic - enable all metrics](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
 
 ## View diagnostic logs in Azure Storage
 
 1. Once you enable a storage account as a capture destination, Event Grid starts emitting diagnostic logs. You should see new containers named **insights-logs-deliveryfailures** and **insights-logs-publishfailures** in the storage account.
 
     ![Storage - containers for diagnostic logs](./media/enable-diagnostic-logs-topic/storage-containers.png)
-2. As you navigate through one of the containers, you'll end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the Event Grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section.
+1. As you navigate through one of the containers, you'll end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the Event Grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section.
 
     ![JSON file in the storage](./media/enable-diagnostic-logs-topic/select-json.png)
 3. You should see content in the JSON file similar to the following example:
@@ -104,7 +104,7 @@ You can also enable collection of all **metrics** for the system topic.
     ```json
     {
         "time": "2019-11-01T00:17:13.4389048Z",
-        "resourceId": "/SUBSCRIPTIONS/SAMPLE-SUBSCTIPTION-ID /RESOURCEGROUPS/SAMPLE-RESOURCEGROUP-NAME/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/SAMPLE-TOPIC-NAME ",
+        "resourceId": "/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID /RESOURCEGROUPS/SAMPLE-RESOURCEGROUP-NAME/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/SAMPLE-TOPIC-NAME ",
         "eventSubscriptionName": "SAMPLEDESTINATION",
         "category": "DeliveryFailures",
         "operationName": "Deliver",
@@ -218,4 +218,4 @@ The audit trace can be used to ensure that data access is allowed only for autho
 
 ## Next steps
 
-For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](monitor-push-reference.md).
+For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](monitor-push-reference.md#schema-for-data-plane-operations-logs).

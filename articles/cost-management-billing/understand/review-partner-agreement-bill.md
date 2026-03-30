@@ -1,13 +1,14 @@
 ---
 title: Review your Microsoft Partner Agreement invoice - Azure
 description: Learn how to review your bill and resource usage and to verify charges for your Microsoft Partner Agreement invoice.
-author: bandersmsft
-ms.reviewer: judupont
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 11/10/2025
+ms.author: jkinma
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Tutorial: Review your Microsoft Partner Agreement invoice
@@ -16,7 +17,7 @@ In the billing account for a Microsoft Partner Agreement, an invoice is generate
 
 For more information, see [how to download invoices from the Azure portal](download-azure-invoice.md).
 
-This tutorial applies only to Azure partners with an Microsoft Partner Agreement.
+This tutorial applies only to Azure partners with a Microsoft Partner Agreement.
 
 In this tutorial, you learn how to:
 
@@ -44,8 +45,6 @@ In the Azure portal, type *cost management + billing* in the search box and then
 :::image type="content" border="true" source="./media/review-partner-agreement-bill/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search.":::
 
 If you have access to just one billing scope, select **Properties** from the left-hand side. You have access to a billing account for a Microsoft Partner Agreement if the billing account type is **Microsoft Partner Agreement**.
-
-:::image type="content" border="true" source="./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png" alt-text="Screenshot that shows Microsoft Partner Agreement in properties page.":::
 
 If you have access to multiple billing scopes, check the type in the billing account column. You have access to a billing account for a Microsoft Partner Agreement if the billing account type for any of the scopes is **Microsoft Partner Agreement**.
 

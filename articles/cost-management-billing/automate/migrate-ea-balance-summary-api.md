@@ -2,13 +2,13 @@
 title: Migrate from EA Balance Summary API
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Balance Summary API.
-author: bandersmsft
-ms.author: banders
-ms.date: 04/23/2024
-ms.topic: conceptual
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 07/01/2025
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
 
 # Migrate from EA Balance Summary API

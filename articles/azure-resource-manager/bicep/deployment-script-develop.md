@@ -1,9 +1,9 @@
----
+﻿---
 title: Develop a deployment script in Bicep
 description: Learn how to develop a deployment script within a Bicep file or store one externally as a separate file.
 ms.custom: devx-track-bicep
-ms.topic: conceptual
-ms.date: 09/26/2024
+ms.topic: article
+ms.date: 12/22/2025
 ---
 
 # Develop a deployment script in Bicep
@@ -121,10 +121,9 @@ In your deployment script, specify these property values:
 
     See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). The version determines which container image to use:
 
-    - Az version *greater than or equal to 9* uses Ubuntu 22.04.
-    - Az version *greater than or equal to 6 but less than 9* uses Ubuntu 20.04.
-    - Az version *less than 6* uses Ubuntu 18.04.
-
+    - Az version *greater than or equal to 12 uses Ubuntu 24.04.
+    - Az version *greater than or equal to 9* but less than 12 uses Ubuntu 22.04.
+    
     > [!IMPORTANT]
     > We advise you to upgrade to the latest version of Ubuntu. Ubuntu 18.04 is nearing its end of support and won't receive security updates after [May 31, 2023](https://ubuntu.com/18-04).
 
@@ -466,7 +465,7 @@ output result object = deploymentScript.properties.outputs
 
 ## Work with outputs
 
-The approach to handling outputs varies based on the type of script you're using—the Azure CLI or Azure PowerShell.
+The approach to handling outputs varies based on the type of script you're using-the Azure CLI or Azure PowerShell.
 
 # [CLI](#tab/CLI)
 
@@ -731,7 +730,7 @@ You can also specify `subnetId` values for running the deployment script in a pr
 
 ```bicep
 param containerGroupName string = 'mycustomaci'
-param subnetId string = '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
+param subnetId string = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
 
 resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   ...
@@ -804,3 +803,4 @@ In this article, you learned how to create deployment script resources. To learn
 
 > [!div class="nextstepaction"]
 > [Use deployment scripts in Bicep](./deployment-script-bicep.md)
+

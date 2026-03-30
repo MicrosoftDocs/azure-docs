@@ -1,8 +1,9 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Discover what caused the non-compliance with the policy.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Determine causes of non-compliance
@@ -54,8 +55,8 @@ To view the compliance details, follow these steps:
 
    For an `auditIfNotExists` or `deployIfNotExists` policy definition, the details include the
    **details.type** property and any optional properties. For a list, see [auditIfNotExists
-   properties](../concepts/effects.md#auditifnotexists-properties) and [deployIfNotExists
-   properties](../concepts/effects.md#deployifnotexists-properties). **Last evaluated resource** is
+   properties](../concepts/effect-audit-if-not-exists.md#auditifnotexists-properties) and [deployIfNotExists
+   properties](../concepts/effect-deploy-if-not-exists.md#deployifnotexists-properties). **Last evaluated resource** is
    a related resource from the **details** section of the definition.
 
    Example partial `deployIfNotExists` definition:
@@ -94,15 +95,15 @@ history (Preview)](#change-history-preview).
 
 ### Compliance reasons
 
-[Resource Manager modes](../concepts/definition-structure.md#resource-manager-modes) and
-[Resource Provider modes](../concepts/definition-structure.md#resource-provider-modes) each have
+[Resource Manager modes](../concepts/definition-structure-basics.md#resource-manager-modes) and
+[Resource Provider modes](../concepts/definition-structure-basics.md#resource-provider-modes) each have
 different _reasons_ for non-compliance.
 
 #### General Resource Manager mode compliance reasons
 
 The following table maps each
-[Resource Manager mode](../concepts/definition-structure.md#resource-manager-modes) _reason_ to the
-responsible [condition](../concepts/definition-structure.md#conditions) in the policy definition:
+[Resource Manager mode](../concepts/definition-structure-basics.md#resource-manager-modes) _reason_ to the
+responsible [condition](../concepts/definition-structure-policy-rule.md#conditions) in the policy definition:
 
 | Reason                                                                  | Condition                                                                                                                                           |
 | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -131,7 +132,7 @@ responsible [condition](../concepts/definition-structure.md#conditions) in the p
 #### Azure Policy Resource Provider mode compliance reasons
 
 The following table maps each `Microsoft.PolicyInsights`
-[Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) reason code to
+[Resource Provider mode](../concepts/definition-structure-basics.md#resource-provider-modes) reason code to
 its corresponding explanation:
 
 | Compliance reason code              | Error message and explanation                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -150,7 +151,7 @@ its corresponding explanation:
 #### AKS Resource Provider mode compliance reasons
 
 The following table maps each `Microsoft.Kubernetes.Data`
-[Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) _reason_ to
+[Resource Provider mode](../concepts/definition-structure-basics.md#resource-provider-modes) _reason_ to
 the responsible state of the
 [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)
 in the policy definition:
@@ -174,7 +175,7 @@ in the policy definition:
 
 ## Component details for Resource Provider modes
 
-For assignments with a Resource Provider mode, select the _Non-compliant_ resource to view its component compliance records. The **Component Compliance** tab shows more information specific to the [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) like **Component Name**, **Component ID**, and **Type**.
+For assignments with a Resource Provider mode, select the _Non-compliant_ resource to view its component compliance records. The **Component Compliance** tab shows more information specific to the [Resource Provider mode](../concepts/definition-structure-basics.md#resource-provider-modes) like **Component Name**, **Component ID**, and **Type**.
 
 :::image type="content" source="../media/determine-non-compliance/component-compliance-dashboard.png" alt-text="Screenshot of Component Compliance dashboard and compliance details for assignments with a Resource Provider mode.":::
 
@@ -251,9 +252,9 @@ query this information outside of the Azure portal, see [Get resource changes](.
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
 - Learn how to [get compliance data](get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](remediate-resources.md).

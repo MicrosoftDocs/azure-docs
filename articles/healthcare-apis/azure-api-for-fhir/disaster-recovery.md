@@ -5,7 +5,7 @@ author: outinyman
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 9/27/2023
+ms.date: 11/20/2025
 ms.author: ounyman
 ---
 
@@ -18,8 +18,8 @@ Azure API for FHIR is a fully managed service, based on Fast Healthcare Interope
 The DR feature provides a Recovery Point Objective (RPO) of 15 minutes and a Recovery Time Objective (RTO) of 60 minutes.
 
 ## How to enable DR 
-  
-To enable the DR feature, create a one-time support ticket. You can choose an Azure paired region or another region where the Azure API for FHIR is supported. The Microsoft support team enables the DR feature based on the support priority.
+
+To enable the DR feature, create a one-time support ticket. You can choose an Azure region, where the Azure API for FHIR is supported. The Microsoft support team enables the DR feature based on the support priority.
 
 ## How the DR process works
 

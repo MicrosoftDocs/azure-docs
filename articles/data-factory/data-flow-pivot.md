@@ -5,7 +5,7 @@ description: Pivot data from rows to columns using mapping data flow Pivot Trans
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
 ms.date: 05/15/2024
 ---
@@ -18,7 +18,7 @@ ms.date: 05/15/2024
 
 Use the pivot transformation to create multiple columns from the unique row values of a single column. Pivot is an aggregation transformation where you select group by columns and generate pivot columns using [aggregate functions](data-flow-aggregate-functions.md).
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4C4YN]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=10a0178b-4ae1-4af7-a092-84d90ff2e284]
 
 ## Configuration
 

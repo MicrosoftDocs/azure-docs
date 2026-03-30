@@ -1,77 +1,68 @@
 ---
-title: .NET feature flag management
+title: .NET Feature Flag Management
 titleSuffix: Azure App Configuration
-description: Learn to implement feature flags in your .NET and ASP.NET Core applications using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
+description: Find information about using the .NET feature management library and Azure App Configuration to implement feature flags in .NET and ASP.NET Core applications.
 services: azure-app-configuration
-author: zhiyuanliang-ms
-ms.author: zhiyuanliang
+author: rossgrambo
+ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
-ms.topic: tutorial
-ms.date: 05/22/2024
-zone_pivot_groups: feature-management
-#Customer intent: I want to control feature availability in my app by using the Feature Management library.
+ms.topic: article
+ms.date: 07/23/2025
+# customer intent: As a developer, I want to access reference information about the .NET feature management library so that I can control feature availability in my app without redeploying the app.
 ---
 
-# .NET Feature Management
-
-:::zone target="docs" pivot="stable-version"
+# .NET feature management
 
 [![Microsoft.FeatureManagement](https://img.shields.io/nuget/v/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement)<br>
 [![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore)<br>
+[![Microsoft.FeatureManagement.Telemetry.ApplicationInsights](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights)<br>
 
-:::zone-end
+The .NET feature management library provides a way to develop and expose application functionality based on feature flags. When a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships. It also integrates with common .NET code patterns to make exposing these features possible.
 
-:::zone target="docs" pivot="preview-version"
+Feature flags provide a way for .NET and ASP.NET Core applications to turn features on or off dynamically. You can use feature flags in basic use cases like conditional statements. You can also use feature flags in more advanced scenarios like conditionally adding routes or model–view–controller (MVC) filters. Feature flags are built on top of the .NET Core configuration system. Any .NET Core configuration provider is capable of acting as the backbone for feature flags.
 
-[![Microsoft.FeatureManagement](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement/4.0.0-preview3)<br>
-[![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/4.0.0-preview3)<br>
-[![Microsoft.FeatureManagement.Telemetry.ApplicationInsights](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/4.0.0-preview3)<br>
+Here are some of the benefits of using the .NET feature management library:
 
-:::zone-end
-
-.NET feature management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common .NET code patterns to make exposing these features possible.
-
-Feature flags provide a way for .NET and ASP.NET Core applications to turn features on or off dynamically. Developers can use feature flags in simple use cases like conditional statements to more advanced scenarios like conditionally adding routes or MVC filters. Feature flags are built on top of the .NET Core configuration system. Any .NET Core configuration provider is capable of acting as the backbone for feature flags.
-
-Here are some of the benefits of using .NET feature management library:
-
-* A common convention for feature management
-* Low barrier-to-entry
-  * Built on `IConfiguration`
-  * Supports JSON file feature flag setup
-* Feature Flag lifetime management
-  * Configuration values can change in real-time; feature flags can be consistent across the entire request
-* Simple to Complex Scenarios Covered
-  * Toggle on/off features through declarative configuration file
-  * Dynamically evaluate state of feature based on call to server
-* API extensions for ASP.NET Core and MVC framework
+* It uses common conventions for feature management.
+* It has a low barrier to entry:
+  * It's built on the `IConfiguration` interface.
+  * It supports JSON file feature flag setup.
+* It provides feature flag lifetime management.
+  * Configuration values can change in real time.
+  * Feature flags can be consistent across the entire request.
+* It covers basic to complex scenarios by offering support for the following capabilities:
+  * Turning features on and off through a declarative configuration file
+  * Presenting different variants of a feature to different users
+  * Dynamically evaluating the state of a feature based on a call to a server
+* It provides API extensions for ASP.NET Core and MVC framework in the following areas:
   * Routing
   * Filters
-  * Action Attributes
+  * Action attributes
 
-  The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
+The .NET feature management library is open source. For more information, see the [FeatureManagement-Dotnet](https://github.com/microsoft/FeatureManagement-Dotnet) GitHub repo.
 
-## Feature Flags
-Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
+## Feature flags
+Feature flags can be either enabled or disabled. The state of a flag can be made conditional by using feature filters.
 
-### Feature Filters
-Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated for whether it is on or off, its list of feature filters is traversed until one of the filters decides the feature should be enabled. At this point, the feature is considered enabled and traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
+### Feature filters
 
-As an example, a Microsoft Edge browser feature filter could be designed. This feature filter would activate any features it's attached to as long as an HTTP request is coming from Microsoft Edge.
+Feature filters define a scenario for when a feature should be enabled. To evaluate the state of a feature, its list of feature filters are traversed until one of the filters determines the feature is enabled. At this point, traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
 
-### Feature Flag Configuration
+For example, suppose you design a Microsoft Edge browser feature filter. If an HTTP request comes from Microsoft Edge, your feature filter activates any features it's attached to.
 
-The .NET Core configuration system is used to determine the state of feature flags. The foundation of this system is `IConfiguration`. Any provider for `IConfiguration` can be used as the feature state provider for the feature flag library. This system enables scenarios ranging from appsettings.json to Azure App Configuration and more.
+### Feature flag configuration
 
-### Feature Flag Declaration
+The .NET Core configuration system is used to determine the state of feature flags. The foundation of this system is the `IConfiguration` interface. Any provider for `IConfiguration` can be used as the feature state provider for the feature flag library. This system supports scenarios ranging from the *appsettings.json* configuration file to Azure App Configuration.
 
-:::zone target="docs" pivot="stable-version"
+### Feature flag declaration
 
-The feature management library supports appsettings.json as a feature flag source since it's a provider for .NET Core's `IConfiguration` system. Below we have an example of the format used to set up feature flags in a json file.
+The feature management library supports the *appsettings.json* configuration file as a feature flag source because it's a provider for the .NET Core `IConfiguration` system. Feature flags are declared by using the [`Microsoft Feature Management schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json). This schema is language agnostic in origin and is supported across all Microsoft feature management libraries.
 
-``` JavaScript
+The code in the following example declares feature flags in a JSON file:
+
+```json
 {
     "Logging": {
         "LogLevel": {
@@ -79,138 +70,7 @@ The feature management library supports appsettings.json as a feature flag sourc
         }
     },
 
-    // Define feature flags in a json file
-    "FeatureManagement": {
-        "FeatureT": {
-            "EnabledFor": [
-                {
-                    "Name": "AlwaysOn"
-                }
-            ]
-        },
-        "FeatureU": {
-            "EnabledFor": []
-        },
-        "FeatureV": {
-            "EnabledFor": [
-                {
-                    "Name": "TimeWindow",
-                    "Parameters": {
-                        "Start": "Wed, 01 May 2019 13:59:59 GMT",
-                        "End": "Mon, 01 Jul 2019 00:00:00 GMT"
-                    }
-                }
-            ]
-        }
-    }
-}
-```
-
-The `FeatureManagement` section of the json document is used by convention to load feature flag settings. In the section above, we see three different features. Features define their feature filters using the `EnabledFor` property. In the feature filters for `FeatureT`, we see `AlwaysOn`. This feature filter is built-in and if specified will always enable the feature. The `AlwaysOn` feature filter doesn't require any configuration, so it only has the `Name` property. `FeatureU` has no filters in its `EnabledFor` property and thus will never be enabled. Any functionality that relies on this feature being enabled won't be accessible as long as the feature filters remain empty. However, as soon as a feature filter is added that enables the feature it can begin working. `FeatureV` specifies a feature filter named `TimeWindow`. This is an example of a configurable feature filter. We can see in the example that the filter has a `Parameters` property. This is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
-
-The detailed schema of the `FeatureManagement` section can be found [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json).
-
-**Advanced:** The usage of colon ':' is forbidden in feature flag names.
-
-#### On/Off Declaration
- 
-The following snippet demonstrates an alternative way to define a feature that can be used for on/off features. 
-``` JavaScript
-{
-    "Logging": {
-        "LogLevel": {
-            "Default": "Warning"
-        }
-    },
-
-    // Define feature flags in config file
-    "FeatureManagement": {
-        "FeatureT": true, // On feature
-        "FeatureX": false // Off feature
-    }
-}
-```
-
-#### RequirementType
-
-The `RequirementType` property of a feature flag is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `RequirementType` isn't specified, the default value is `Any`.
-
-* `Any` means only one filter needs to evaluate to true for the feature to be enabled. 
-* `All` means every filter needs to evaluate to true for the feature to be enabled.
-
-A `RequirementType` of `All` changes the traversal. First, if there are no filters, the feature is disabled. Then, the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, it's considered enabled.
-
-``` JavaScript
-"FeatureW": {
-    "RequirementType": "All",
-    "EnabledFor": [
-        {
-            "Name": "TimeWindow",
-            "Parameters": {
-                "Start": "Mon, 01 May 2023 13:59:59 GMT",
-                "End": "Sat, 01 Jul 2023 00:00:00 GMT"
-            }
-        },
-        {
-            "Name": "Percentage",
-            "Parameters": {
-                "Value": "50"
-            }
-        }
-    ]
-}
-```
-
-In the above example, `FeatureW` specifies a `RequirementType` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature is enabled for 50% of users during the specified time window.
-
-#### Microsoft Feature Management Schema
-
-The feature management library also supports the usage of the [`Microsoft Feature Management schema`](https://github.com/Azure/AppConfiguration/blob/main/docs/FeatureManagement/FeatureManagement.v1.0.0.schema.json) to declare feature flags. This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
-
-``` JavaScript
-{
-    "feature_management": {
-        "feature_flags": [
-            {
-                "id": "FeatureT",
-                "enabled": true,
-                "conditions": {
-                    "client_filters": [
-                        {  
-                            "name": "Microsoft.TimeWindow",
-                            "parameters": {
-                                "Start": "Mon, 01 May 2023 13:59:59 GMT",
-                                "End": "Sat, 01 Jul 2023 00:00:00 GMT"
-                            }
-                        }
-                    ]
-                }
-            }
-        ]
-    }
-}
-```
-
-> [!NOTE]
-> If the `feature_management` section can be found in the configuration, the `FeatureManagement` section is ignored.
-
-:::zone-end
-
-:::zone target="docs" pivot="preview-version"
-
-The feature management library supports appsettings.json as a feature flag source since it's a provider for .NET Core's `IConfiguration` system. Feature flags are declared using the [`Microsoft Feature Management schema`](https://github.com/Azure/AppConfiguration/blob/main/docs/FeatureManagement/FeatureManagement.v2.0.0.schema.json). This schema is language agnostic in origin and is supported by all Microsoft feature management libraries.
-
-Below we have an example of declaring feature flags in a json file.
-
-``` JavaScript
-{
-    "Logging": {
-        "LogLevel": {
-            "Default": "Warning"
-        }
-    },
-
-    // Define feature flags in a json file
+    // Define feature flags in a JSON file.
     "feature_management": {
         "feature_flags": [
             {
@@ -230,8 +90,8 @@ Below we have an example of declaring feature flags in a json file.
                         {  
                             "name": "Microsoft.TimeWindow",
                             "parameters": {
-                                "Start": "Mon, 01 May 2023 13:59:59 GMT",
-                                "End": "Sat, 01 July 2023 00:00:00 GMT"
+                                "Start": "Sun, 01 Jun 2025 13:59:59 GMT",
+                                "End": "Fri, 01 Aug 2025 00:00:00 GMT"
                             }
                         }
                     ]
@@ -242,20 +102,34 @@ Below we have an example of declaring feature flags in a json file.
 }
 ```
 
-The `feature_management` section of the json document is used by convention to load feature flag settings. Feature flag objects must be listed in the `feature_flags` array under the `feature_management` section. In the section above, we see that we have provided three different features. A feature flag has `id` and `enabled` properties. The `id` is the name used to identify and reference the feature flag. The `enabled` property specifies the enabled state of the feature flag. A feature is *OFF* if `enabled` is false. If `enabled` is true, then the state of the feature depends on the `conditions`. If there are no `conditions` then the feature is *ON*. If there are `conditions` and they're met then the feature is *ON*. If there are `conditions` and they aren't met then the feature is *OFF*. The `conditions` property declares the conditions used to dynamically enable the feature. Features define their feature filters in the `client_filters` array. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. This is an example of a configurable feature filter. We can see in the example that the filter has a `Parameters` property. This is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+The `feature_management` section of the JSON document is used by convention to load feature flag settings. You must list feature flag objects in the `feature_flags` array in this section. This code lists three feature flags. Each feature flag object has an `id` and an `enabled` property.
 
-**Advanced:** The usage of colon ':' is forbidden in feature flag names.
+* The `id` value is the name you use to identify and reference the feature flag.
+* The `enabled` property specifies the enabled state of the feature flag.
 
-#### RequirementType
+A feature is off if `enabled` is `false`. If `enabled` is `true`, the state of the feature depends on the `conditions` property. The `conditions` property declares the conditions that are used to dynamically enable the feature.
 
-The `requirement_type` property of `conditions` is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`.
+* If a feature flag doesn't have a `conditions` property, the feature is on.
+* If a feature flag has a `conditions` property and its conditions are met, the feature is on.
+* If a feature flag has a `conditions` property and its conditions aren't met, the feature is off.
 
-* `Any` means only one filter needs to evaluate to true for the feature to be enabled. 
-* `All` means every filter needs to evaluate to true for the feature to be enabled.
+Feature filters are defined in the `client_filters` array. In the preceding code, the `FeatureV` feature flag has a feature filter named `Microsoft.TimeWindow`. This filter is an example of a configurable feature filter. In this code, this filter has a `parameters` property. This property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
 
-A `requirement_type` of `All` changes the traversal. First, if there is no filter, the feature will be disabled. If there are filters, then the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, then it will be considered enabled.
+**Advanced:** The colon character (`:`) is forbidden in feature flag names.
 
-``` JavaScript
+#### Requirement type
+
+Within the `conditions` property, the `requirement_type` property is used to determine whether the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`. The  `requirement_type` values result in the following behavior:
+
+* `Any`: Only one filter needs to evaluate to `true` for the feature to be enabled. 
+* `All`: Every filter needs to evaluate to `true` for the feature to be enabled.
+
+A `requirement_type` of `All` changes the way the filters are traversed:
+
+* If no filters are listed, the feature is disabled.
+* If filters are listed, they're traversed until the conditions of one specify that the feature should be disabled. If no filter indicates that the feature should be disabled, it's considered enabled.
+
+```json
 {
     "id": "FeatureW",
     "enabled": true,
@@ -265,8 +139,8 @@ A `requirement_type` of `All` changes the traversal. First, if there is no filte
             {
                 "name": "Microsoft.TimeWindow",
                 "parameters": {
-                    "Start": "Mon, 01 May 2023 13:59:59 GMT",
-                    "End": "Sat, 01 Jul 2023 00:00:00 GMT"
+                    "Start": "Sun, 01 Jun 2025 13:59:59 GMT",
+                    "End": "Fri, 01 Aug 00:00:00 GMT"
                 }
             },
             {
@@ -280,36 +154,93 @@ A `requirement_type` of `All` changes the traversal. First, if there is no filte
 }
 ```
 
-In the above example, `FeatureW` specifies a `requirement_type` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature will be enabled for 50% of users during the specified time window.
+In this example, the `FeatureW` feature flag has a `requirement_type` value of `All`. As a result, all its filters must evaluate to `true` for the feature to be enabled. In this case, the feature is enabled for 50 percent of users during the specified time window.
 
-### .NET Feature Management schema
+#### Handling multiple configuration sources
 
-In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry won't be supported for the .NET feature management schema.
+Starting with v4.3.0, you can opt in to custom merging for Microsoft schema feature flags (the `feature_management` section). When the same feature flag ID appears in multiple configuration sources, an instance of the built-in `ConfigurationFeatureDefinitionProvider` class merges those definitions according to configuration provider registration order. If there's a conflict, the last feature flag definition is used. This behavior differs from the default array index-based merging in .NET.
 
-> [!NOTE]
-> If there is a feature flag declaration that can be found in both the `feature_management` and `FeatureManagement` sections, the one from the `feature_management` section will be adopted.
+The following code enables custom feature flag configuration merging through dependency injection:
 
-:::zone-end
+```C#
+IConfiguration configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .AddJsonFile("appsettings.prod.json")
+    .Build();
 
-## Consumption
-
-The basic form of feature management is checking if a feature flag is enabled and then performing actions based on the result. This is done through the `IFeatureManager`'s `IsEnabledAsync` method.
-
-``` C#
-…
-IFeatureManager featureManager;
-…
-if (await featureManager.IsEnabledAsync("FeatureX"))
+services.AddSingleton(configuration);
+services.AddFeatureManagement();
+services.Configure<ConfigurationFeatureDefinitionProviderOptions>(o =>
 {
-    // Do something
+        o.CustomConfigurationMergingEnabled = true;
+});
+```
+
+You can also enable custom merging when you construct an instance of `ConfigurationFeatureDefinitionProvider`:
+
+```C#
+var featureManager = new FeatureManager(
+    new ConfigurationFeatureDefinitionProvider(
+            configuration,
+            new ConfigurationFeatureDefinitionProviderOptions
+            {
+                    CustomConfigurationMergingEnabled = true
+            }));
+```
+
+Example behavior:
+
+```javascript
+// appsettings.json
+{
+    "feature_management": {
+        "feature_flags": [
+            { "id": "FeatureA", "enabled": true },
+            { "id": "FeatureB", "enabled": false }
+        ]
+    }
+}
+
+// appsettings.prod.json (added later in ConfigurationBuilder)
+{
+    "feature_management": {
+        "feature_flags": [
+            { "id": "FeatureB", "enabled": true }
+        ]
+    }
 }
 ```
 
-### Service Registration
+When you enable custom merging, `FeatureA` remains enabled and `FeatureB` resolves to enabled, because the last declaration is used. When you use default .NET merging, where custom merging is disabled, arrays are merged by index. This approach can yield unexpected results if sources don't align by position.
 
-Feature management relies on .NET Core dependency injection. We can register the feature management services using standard conventions.
+### .NET Feature Management schema
 
-``` C#
+In previous versions of the feature management library, the primary schema was the [.NET feature management schema](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json).
+
+Starting with version 4.0.0 of the library, new features, including variants and telemetry, aren't supported in the .NET feature management schema.
+
+> [!NOTE]
+> If the feature flag configuration includes a declaration that's listed in both the `feature_management` and `FeatureManagement` sections, the one from the `feature_management` section gets adopted.
+
+## Consumption
+
+In a basic implementation, feature management checks whether a feature flag is enabled. Then it performs actions based on the result. This check is done through the `IsEnabledAsync` method of `IVariantFeatureManager`.
+
+```csharp
+…
+IVariantFeatureManager featureManager;
+…
+if (await featureManager.IsEnabledAsync("FeatureX"))
+{
+    // Do something.
+}
+```
+
+### Service registration
+
+Feature management relies on .NET Core dependency injection. As the following code shows, you can use standard conventions to register feature management services:
+
+```csharp
 using Microsoft.FeatureManagement;
 
 public class Startup
@@ -321,47 +252,48 @@ public class Startup
 }
 ```
 
-By default, the feature manager retrieves feature flag configuration from the "FeatureManagement" section of the .NET Core configuration data. If the "FeatureManagement" section doesn't exist, the configuration is considered empty.
+By default, the feature manager retrieves the feature flag configuration from the `feature_management` or `FeatureManagement` section of the .NET Core configuration data. If neither section exists, the configuration is considered empty.
 
 > [!NOTE]
-> You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example tells the feature manager to read from a different section called "MyFeatureFlags" instead:
+> You can also specify that the feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example specifies that the feature manager should read from a section called `MyFeatureFlags` instead:
 >
-> ``` C#
+> ```csharp
 > services.AddFeatureManagement(configuration.GetSection("MyFeatureFlags"));
 > ```
 
-### Dependency Injection
+### Dependency injection
 
-When using the feature management library with MVC, the `IFeatureManager` can be obtained through dependency injection.
+When you use the feature management library with MVC, you can obtain the object that implements `IVariantFeatureManager` by using dependency injection.
 
-``` C#
+```csharp
 public class HomeController : Controller
 {
-    private readonly IFeatureManager _featureManager;
+    private readonly IVariantFeatureManager _featureManager;
     
-    public HomeController(IFeatureManager featureManager)
+    public HomeController(IVariantFeatureManager featureManager)
     {
         _featureManager = featureManager;
     }
 }
 ```
 
-### Scoped Feature Management Services
+### Scoped feature management services
 
-The `AddFeatureManagement` method adds feature management services as singletons within the application, but there are scenarios where it may be necessary for feature management services to be added as scoped services instead. For example, users may want to use feature filters that consume scoped services for context information. In this case, the `AddScopedFeatureManagement` method should be used instead. This ensures that feature management services, including feature filters, are added as scoped services.
+The `AddFeatureManagement` method adds feature management services as singletons within an application. Some scenarios require feature management services to be added as scoped services instead. For example, you might want to use feature filters that consume scoped services for context information. In this case, you should use the `AddScopedFeatureManagement` method. This method ensures that feature management services, including feature filters, are added as scoped services.
 
-``` C#
+```csharp
 services.AddScopedFeatureManagement();
 ```
-## ASP.NET Core Integration
+
+## ASP.NET Core integration
 
 The feature management library provides functionality in ASP.NET Core and MVC to enable common feature flag scenarios in web applications. These capabilities are available by referencing the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) NuGet package.
 
-### Controllers and Actions
+### Controllers and actions
 
-MVC controller and actions can require that a given feature, or one of any list of features, be enabled in order to execute. This can be done by using a `FeatureGateAttribute`, which can be found in the `Microsoft.FeatureManagement.Mvc` namespace. 
+An MVC controller and actions can require that a given feature, or one of any list of features, be enabled in order to run. You can fulfill this requirement by using a `FeatureGateAttribute` object. The `FeatureGateAttribute` class is defined in the `Microsoft.FeatureManagement.Mvc` namespace. 
 
-``` C#
+```csharp
 [FeatureGate("FeatureX")]
 public class HomeController : Controller
 {
@@ -369,9 +301,9 @@ public class HomeController : Controller
 }
 ```
 
-The `HomeController` above is gated by "FeatureX". "FeatureX" must be enabled before any action the `HomeController` contains can be executed. 
+In the preceding example, the `HomeController` class is gated by `FeatureX`. `HomeController` actions can run only if the `FeatureX` feature is enabled.
 
-``` C#
+```csharp
 [FeatureGate("FeatureX")]
 public IActionResult Index()
 {
@@ -379,141 +311,101 @@ public IActionResult Index()
 }
 ```
 
-The `Index` MVC action above requires "FeatureX" to be enabled before it can be executed. 
+In the preceding example, the `Index` MVC action can run only if the `FeatureX` feature is enabled. 
 
-### Disabled Action Handling
+### Disabled action handling
 
-When an MVC controller or action is blocked because none of the features it specifies are enabled, a registered `IDisabledFeaturesHandler` will be invoked. By default, a minimalistic handler is registered which returns HTTP 404. This can be overridden using the `IFeatureManagementBuilder` when registering feature flags.
+When an MVC controller or action is blocked because none of the features it specifies are enabled, a registered implementation of `IDisabledFeaturesHandler` is invoked. By default, a minimalistic handler is registered that returns an HTTP 404 error. You can override this handler by using `IFeatureManagementBuilder` when you register feature flags.
 
-``` C#
+```csharp
 public interface IDisabledFeaturesHandler
 {
-    Task HandleDisabledFeature(IEnumerable<string> features, ActionExecutingContext context);
+    Task HandleDisabledFeatures(IEnumerable<string> features, ActionExecutingContext context);
 }
 ```
 
 ### View
 
-:::zone target="docs" pivot="stable-version"
+In MVC views, you can use `<feature>` tags  to conditionally render content. You can base the rendering conditions on whether a feature is enabled or whether a specific variant of a feature is assigned. For more information, see [Variants](#variants), later in this article.
 
-In MVC views `<feature>` tags can be used to conditionally render content based on whether a feature is enabled or not.
-
-``` HTML+Razor
+```HTML+Razor
 <feature name="FeatureX">
-  <p>This can only be seen if 'FeatureX' is enabled.</p>
+  <p>This content appears only when 'FeatureX' is enabled.</p>
 </feature>
 ```
 
-You can also negate the tag helper evaluation to display content when a feature or set of features are disabled. By setting `negate="true"` in the example below, the content is only rendered if `FeatureX` is disabled.
-
-``` HTML+Razor
-<feature negate="true" name="FeatureX">
-  <p>This can only be seen if 'FeatureX' is disabled.</p>
-</feature>
-```
-
-The `<feature>` tag can reference multiple features by specifying a comma separated list of features in the `name` attribute.
-
-``` HTML+Razor
-<feature name="FeatureX,FeatureY">
-  <p>This can only be seen if 'FeatureX' and 'FeatureY' are enabled.</p>
-</feature>
-```
-
-By default, all listed features must be enabled for the feature tag to be rendered. This behavior can be overridden by adding the `requirement` attribute as seen in the example below.
-
-``` HTML+Razor
-<feature name="FeatureX,FeatureY" requirement="Any">
-  <p>This can only be seen if either 'FeatureX' or 'FeatureY' or both are enabled.</p>
-</feature>
-```
-
-:::zone-end
-
-:::zone target="docs" pivot="preview-version"
-
-In MVC views `<feature>` tags can be used to conditionally render content based on whether a feature is enabled or whether specific variant of a feature is assigned. For more information, see the [variants](#variants) section.
-
-``` HTML+Razor
-<feature name="FeatureX">
-  <p>This can only be seen if 'FeatureX' is enabled.</p>
-</feature>
-```
-
-``` HTML+Razor
+```HTML+Razor
 <feature name="FeatureX" variant="Alpha">
-  <p>This can only be seen if variant 'Alpha' of 'FeatureX' is assigned.</p>
+  <p>This content appears only when variant 'Alpha' of 'FeatureX' is assigned.</p>
 </feature>
 ```
 
-You can also negate the tag helper evaluation to display content when a feature or set of features are disabled. By setting `negate="true"` in the example below, the content is only rendered if `FeatureX` is disabled.
+You can also negate the tag helper evaluation if you want to display content when a feature or set of features are disabled. If you specify `negate="true"`, as in the following examples, the content is rendered only when `FeatureX` is disabled.
 
-``` HTML+Razor
+```HTML+Razor
 <feature negate="true" name="FeatureX">
-  <p>This can only be seen if 'FeatureX' is disabled.</p>
+  <p>This content appears only when 'FeatureX' is disabled.</p>
 </feature>
 ```
 
-``` HTML+Razor
+```HTML+Razor
 <feature negate="true" name="FeatureX" variant="Alpha">
-  <p>This can only be seen if variant 'Alpha' of 'FeatureX' isn't assigned.</p>
+  <p>This content appears only when variant 'Alpha' of 'FeatureX' isn't assigned.</p>
 </feature>
 ```
 
-The `<feature>` tag can reference multiple features/variants by specifying a comma separated list of features/variants in the `name`/`variant` attribute. 
+You can use the `<feature>` tag to reference multiple features. To do so, specify a comma-separated list of features in the `name` attribute.
 
-``` HTML+Razor
+```HTML+Razor
 <feature name="FeatureX,FeatureY">
-  <p>This can only be seen if 'FeatureX' and 'FeatureY' are enabled.</p>
+  <p>This content appears only when 'FeatureX' and 'FeatureY' are enabled.</p>
 </feature>
 ```
 
-``` HTML+Razor
-<feature name="FeatureX" variant="Alpha,Beta">
-  <p>This can only be seen if variant 'Alpha' or 'Beta' of 'FeatureX' is assigned.</p>
-</feature>
-```
+By default, all listed features must be enabled for the feature tag to be rendered. You can override this behavior by adding the `requirement` attribute, as the following example shows.
 
-> [!NOTE]
-> If `variant` is specified, only *one* feature should be specified. 
-
-By default, all listed features must be enabled for the feature tag to be rendered. This behavior can be overridden by adding the `requirement` attribute as seen in the example below.
-
-> [!NOTE]
-> If a `requirement` of `And` is used in conjunction with `variant` an error will be thrown, as multiple variants can never be assigned.
-
-``` HTML+Razor
+```HTML+Razor
 <feature name="FeatureX,FeatureY" requirement="Any">
-  <p>This can only be seen if either 'FeatureX' or 'FeatureY' or both are enabled.</p>
+  <p>This content appears only when 'FeatureX,' 'FeatureY,' or both are enabled.</p>
 </feature>
 ```
 
-:::zone-end
+You can also use the `<feature>` tag to reference multiple variants. To do so, use a `requirement` value of `Any` and specify a comma-separated list of variants in the `variant` attribute.
 
-The `<feature>` tag requires a tag helper to work. This can be done by adding the feature management tag helper to the _ViewImports.cshtml_ file.
-``` HTML+Razor
+```HTML+Razor
+<feature name="FeatureX" variant="Alpha,Beta" requirement="Any">
+  <p>This content appears only when variant 'Alpha' or 'Beta' of 'FeatureX' is assigned.</p>
+</feature>
+```
+
+> [!NOTE]
+> * If you specify a variant, you should specify only *one* feature. 
+> * If you specify multiple variants and use a `requirement` value of `And`, an error is thrown. You can't assign multiple variants.
+
+The `<feature>` tag requires a tag helper to work. To use the tag, add the feature management tag helper to the [\_ViewImports.cshtml](/aspnet/core/mvc/views/layout#importing-shared-directives) file.
+
+```HTML+Razor
 @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
 ```
 
-### MVC Filters
+### MVC filters
 
-MVC action filters can be set up to conditionally execute based on the state of a feature. This is done by registering MVC filters in a feature aware manner.
-The feature management pipeline supports async MVC Action filters, which implement `IAsyncActionFilter`.
+You can set up MVC action filters that you apply conditionally based on the state of a feature. To set up these filters, you register them in a feature-aware manner. The feature management pipeline supports async MVC action filters that implement the `IAsyncActionFilter` interface.
 
-``` C#
+```csharp
 services.AddMvc(o => 
 {
     o.Filters.AddForFeature<SomeMvcFilter>("FeatureX");
 });
 ```
 
-The code above adds an MVC filter named `SomeMvcFilter`. This filter is only triggered within the MVC pipeline if "FeatureX" is enabled.
+The preceding code registers an MVC filter named `SomeMvcFilter`. This filter is only triggered within the MVC pipeline if `FeatureX` is enabled.
 
-### Razor Pages
+### Razor pages
 
-MVC Razor pages can require that a given feature, or one of any list of features, be enabled in order to execute. This can be done by using a `FeatureGateAttribute`, which can be found in the `Microsoft.FeatureManagement.Mvc` namespace. 
+MVC Razor pages can require that a given feature, or one of any list of features, be enabled in order to run. You can add this requirement by using a `FeatureGateAttribute` object. The `FeatureGateAttribute` class is defined in the `Microsoft.FeatureManagement.Mvc` namespace.
 
-``` C#
+```csharp
 [FeatureGate("FeatureX")]
 public class IndexModel : PageModel
 {
@@ -523,67 +415,69 @@ public class IndexModel : PageModel
 }
 ```
 
-The code above sets up a Razor page to require the "FeatureX" to be enabled. If the feature is not enabled, the page generates an HTTP 404 (NotFound) result.
+The preceding code sets up a Razor page that requires that `FeatureX` is enabled. If the feature isn't enabled, the page generates an HTTP 404 (NotFound) result.
 
-When used on Razor pages, the `FeatureGateAttribute` must be placed on the page handler type. It can't be placed on individual handler methods.
+When you use a `FeatureGateAttribute` object on Razor pages, you must place `FeatureGateAttribute` on the page handler type. You can't place it on individual handler methods.
 
 ### Application building
 
-The feature management library can be used to add application branches and middleware that execute conditionally based on feature state.
+You can use the feature management library to add application branches and middleware that run conditionally based on the state of a feature.
 
-``` C#
+```csharp
 app.UseMiddlewareForFeature<ThirdPartyMiddleware>("FeatureX");
 ```
 
-With the above call, the application adds a middleware component that only appears in the request pipeline if the feature "FeatureX" is enabled. If the feature is enabled/disabled during runtime, the middleware pipeline can be changed dynamically.
+In the preceding code, the application adds a middleware component that appears in the request pipeline only if the `FeatureX` feature is enabled. If the feature is enabled or disabled during runtime, the middleware pipeline can be changed dynamically.
 
-This builds off the more generic capability to branch the entire application based on a feature.
+As the following code shows, this functionality builds off the more generic capability to branch the entire application based on a feature.
 
-``` C#
+```csharp
 app.UseForFeature(featureName, appBuilder => 
 {
     appBuilder.UseMiddleware<T>();
 });
 ```
 
-## Implementing a Feature Filter
+## Implement a feature filter
 
-Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `IFeatureFilter` interface must be implemented. `IFeatureFilter` has a single method named `EvaluateAsync`. When a feature specifies that it can be enabled for a feature filter, the `EvaluateAsync` method is called. If `EvaluateAsync` returns `true`, it means the feature should be enabled.
+Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, you must implement the `IFeatureFilter` interface. `IFeatureFilter` has a single method named `EvaluateAsync`. When a feature specifies that it can be enabled for a feature filter, the `EvaluateAsync` method is called. If `EvaluateAsync` returns `true`, the feature should be enabled.
 
-The following snippet demonstrates how to add a customized feature filter `MyCriteriaFilter`.
+The following code demonstrates how to add a customized feature filter called `MyCriteriaFilter`.
 
-``` C#
+```csharp
 services.AddFeatureManagement()
         .AddFeatureFilter<MyCriteriaFilter>();
 ```
 
-Feature filters are registered by calling `AddFeatureFilter<T>` on the `IFeatureManagementBuilder` returned from `AddFeatureManagement`. These feature filters have access to the services that exist within the service collection that was used to add feature flags. Dependency injection can be used to retrieve these services.
+You can register a feature filter by calling `AddFeatureFilter<T>` on the `IFeatureManagementBuilder` implementation that `AddFeatureManagement` returns. The feature filter has access to the services in the service collection that you use to add feature flags. You can use dependency injection to retrieve these services.
 
 > [!NOTE]
-> When filters are referenced in feature flag settings (for example, appsettings.json), the _Filter_ part of the type name should be omitted. For more information, see the [`Filter Alias Attribute`](#filter-alias-attribute) section.
+> When you reference filters in feature flag settings (for example, *appsettings.json*), you should omit the `Filter` part of the type name. For more information, see [Filter alias attribute](#filter-alias-attribute), later in this article.
 
-### Parameterized Feature Filters
+### Parameterized feature filters
 
-Some feature filters require parameters to decide whether a feature should be turned on or not. For example, a browser feature filter may turn on a feature for a certain set of browsers. It may be desired that Edge and Chrome browsers enable a feature, while Firefox does not. To do this, a feature filter can be designed to expect parameters. These parameters would be specified in the feature configuration, and in code would be accessible via the `FeatureFilterEvaluationContext` parameter of `IFeatureFilter.EvaluateAsync`.
+Some feature filters require parameters to evaluate whether a feature should be turned on. For example, a browser feature filter might turn on a feature for a certain set of browsers. You might want to turn on a feature in the Microsoft Edge and Chrome browsers but not in Firefox.
 
-``` C#
+To implement this filtering, you can design a feature filter to expect parameters. You specify these parameters in the feature configuration. In code, you access them via the `FeatureFilterEvaluationContext` parameter of `IFeatureFilter.EvaluateAsync`.
+
+```csharp
 public class FeatureFilterEvaluationContext
 {
     /// <summary>
-    /// The name of the feature being evaluated.
+    /// The name of the feature being evaluated
     /// </summary>
     public string FeatureName { get; set; }
 
     /// <summary>
-    /// The settings provided for the feature filter to use when evaluating whether the feature should be enabled.
+    /// The settings provided for the feature filter to use when evaluating whether the feature should be enabled
     /// </summary>
     public IConfiguration Parameters { get; set; }
 }
 ```
 
-`FeatureFilterEvaluationContext` has a property named `Parameters`. These parameters represent a raw configuration that the feature filter can use to decide how to evaluate whether the feature should be enabled or not. To use the browser feature filter as an example once again, the filter could use `Parameters` to extract a set of allowed browsers that would be specified for the feature and then check if the request is being sent from one of those browsers.
+The `FeatureFilterEvaluationContext` class has a property named `Parameters`. The parameters of this property represent a raw configuration that the feature filter can use when evaluating whether the feature should be enabled. In the browser feature filter example, the filter can use the `Parameters` property to extract a set of allowed browsers that are specified for the feature. The filter can then check whether the request is from one of those browsers.
 
-``` C#
+```csharp
 [FilterAlias("Browser")]
 public class BrowserFilter : IFeatureFilter
 {
@@ -594,42 +488,46 @@ public class BrowserFilter : IFeatureFilter
         BrowserFilterSettings settings = context.Parameters.Get<BrowserFilterSettings>() ?? new BrowserFilterSettings();
 
         //
-        // Here we would use the settings and see if the request was sent from any of BrowserFilterSettings.AllowedBrowsers
+        // Use the settings to check whether the request is from a browser in BrowserFilterSettings.AllowedBrowsers.
     }
 }
 ```
 
-### Filter Alias Attribute
+### Filter alias attribute
 
-When a feature filter is registered for a feature flag, the alias used in configuration is the name of the feature filter type with the _Filter_ suffix, if any, removed. For example, `MyCriteriaFilter` would be referred to as _MyCriteria_ in configuration.
+When you register a feature filter for a feature flag, the alias you use in configuration is the name of the feature filter type with the `Filter` suffix, if any, removed. For example, you should refer to `MyCriteriaFilter` as `MyCriteria` in configuration.
 
-``` JavaScript
-"MyFeature": {
-    "EnabledFor": [
-        {
-            "Name": "MyCriteria"
-        }
-    ]
+```json
+{
+    "id": "MyFeature",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "MyCriteria"
+            }
+        ]
+    }
 }
 ```
-This can be overridden by using the `FilterAliasAttribute`. A feature filter can be decorated with this attribute to declare the name that should be used in configuration to reference this feature filter within a feature flag.
+You can override this name by using the `FilterAliasAttribute` class. To declare a name to use in configuration to reference a feature filter within a feature flag, you can decorate the feature filter with this attribute.
 
-### Missing Feature Filters
+### Missing feature filters
 
-If a feature is configured to be enabled for a specific feature filter and that feature filter isn't registered, an exception is thrown when the feature is evaluated. The exception can be disabled by using the feature management options. 
+Suppose you configure a feature to be enabled for a specific feature filter. If that feature filter isn't registered, an exception is thrown when the feature is evaluated. As the following code shows, you can disable the exception by using feature management options. 
 
-``` C#
+```csharp
 services.Configure<FeatureManagementOptions>(options =>
 {
     options.IgnoreMissingFeatureFilters = true;
 });
 ```
 
-### Using HttpContext
+### Use HttpContext
 
-Feature filters can evaluate whether a feature should be enabled based on the properties of an HTTP Request. This is performed by inspecting the HTTP Context. A feature filter can get a reference to the HTTP Context by obtaining an `IHttpContextAccessor` through dependency injection.
+Feature filters can evaluate whether a feature should be enabled based on the properties of an HTTP request. This check is performed by inspecting the HTTP context. As the following code shows, a feature filter can get a reference to the HTTP context by using dependency injection to obtain an implementation of `IHttpContextAccessor`.
 
-``` C#
+```csharp
 public class BrowserFilter : IFeatureFilter
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
@@ -641,28 +539,28 @@ public class BrowserFilter : IFeatureFilter
 }
 ```
 
-The `IHttpContextAccessor` must be added to the dependency injection container on startup for it to be available. It can be registered in the `IServiceCollection` using the following method.
+You must add the `IHttpContextAccessor` implementation to the dependency injection container on startup for it to be available. You can use the following method to register the implementation in the `IServiceCollection` services.
 
-``` C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     …
-    services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    services.AddHttpContextAccessor();
     …
 }
 ```
 
-**Advanced:** `IHttpContextAccessor`/`HttpContext` should not be used in the Razor components of server-side Blazor apps. [The recommended approach](/aspnet/core/blazor/security/server/interactive-server-side-rendering#ihttpcontextaccessorhttpcontext-in-razor-components) for passing http context in Blazor apps is to copy the data into a scoped service. For Blazor apps, `AddScopedFeatureManagement` should be used to register the feature management services. For more information, see the [`Scoped Feature Management Services`](#scoped-feature-management-services) section.
+**Advanced:** `IHttpContextAccessor` and `HttpContext` shouldn't be used in the Razor components of server-side Blazor apps. The [recommended approach](/aspnet/core/blazor/components/httpcontext) for passing HTTP context in Blazor apps is to copy the data into a scoped service. For Blazor apps, you should use `AddScopedFeatureManagement` to register feature management services. For more information, see [Scoped feature management services](#scoped-feature-management-services), earlier in this article.
 
-## Provide a Context For Feature Evaluation
+## Provide a context for feature evaluation
 
-In console applications, there's no ambient context such as `HttpContext` that feature filters can acquire and utilize to check if a feature should be on or off. In this case, applications need to provide an object representing a context into the feature management system for use by feature filters. This is done by using `IFeatureManager.IsEnabledAsync<TContext>(string featureName, TContext appContext)`. The appContext object that is provided to the feature manager can be used by feature filters to evaluate the state of a feature.
+In console applications, there's no ambient context such as `HttpContext` that feature filters can use to check whether a feature should be on. In this case, applications need to provide an object that represents a context to the feature management system for use by feature filters. You can use `IVariantFeatureManager.IsEnabledAsync<TContext>(string featureName, TContext appContext)` to provide this context. To evaluate the state of a feature, feature filters can use the `appContext` object that you provide to the feature manager.
 
-``` C#
+```csharp
 MyAppContext context = new MyAppContext
 {
-    AccountId = current.Id;
-}
+    AccountId = current.Id
+};
 
 if (await featureManager.IsEnabledAsync(feature, context))
 {
@@ -670,11 +568,13 @@ if (await featureManager.IsEnabledAsync(feature, context))
 }
 ```
 
-### Contextual Feature Filters
+### Contextual feature filters
 
-Contextual feature filters implement the `IContextualFeatureFilter<TContext>` interface. These special feature filters can take advantage of the context that is passed in when `IFeatureManager.IsEnabledAsync<TContext>` is called. The `TContext` type parameter in `IContextualFeatureFilter<TContext>` describes what context type the filter is capable of handling. This allows the developer of a contextual feature filter to describe what is required for those who wish to utilize it. Since every type is a descendant of object, a filter that implements `IContextualFeatureFilter<object>` can be called for any provided context. To illustrate an example of a more specific contextual feature filter, consider a feature that is enabled if an account is in a configured list of enabled accounts. 
+Contextual feature filters implement the `IContextualFeatureFilter<TContext>` interface. These special feature filters can take advantage of the context that's passed in when `IVariantFeatureManager.IsEnabledAsync<TContext>` is called. The `TContext` type parameter in `IContextualFeatureFilter<TContext>` describes the context type that the filter can handle. When you develop a contextual feature filter, you can establish the requirements for using the filter by specifying a context type.
 
-``` C#
+Because every type is a descendant of the `Object` class, a filter that implements `IContextualFeatureFilter<object>` can be called for any provided context. The following code provides an example of a specific contextual feature filter. In this code, a feature is enabled if an account is in a configured list of enabled accounts.
+
+```csharp
 public interface IAccountContext
 {
     string AccountId { get; set; }
@@ -686,312 +586,364 @@ class AccountIdFilter : IContextualFeatureFilter<IAccountContext>
     public Task<bool> EvaluateAsync(FeatureFilterEvaluationContext featureEvaluationContext, IAccountContext accountId)
     {
         //
-        // Evaluate if the feature should be on with the help of the provided IAccountContext
+        // Evaluate whether the feature should be on by using the IAccountContext that's provided.
     }
 }
 ```
 
-We can see that the `AccountIdFilter` requires an object that implements `IAccountContext` to be provided to be able to evaluate the state of a feature. When using this feature filter, the caller needs to make sure that the passed in object implements `IAccountContext`.
+The `AccountIdFilter` class requires an object that implements `IAccountContext` to be provided to be able to evaluate the state of a feature. When you use this feature filter, the caller needs to make sure that the passed-in object implements `IAccountContext`.
 
 > [!NOTE]
-> Only a single feature filter interface can be implemented by a single type. Trying to add a feature filter that implements more than a single feature filter interface results in an `ArgumentException`.
+> Only a single feature filter interface can be implemented by a single type. Trying to add a feature filter that implements more than a single feature filter interface results in an `ArgumentException` exception.
 
-### Using Contextual and Non-contextual Filters With the Same Alias
+### Use contextual and non-contextual filters with the same alias
 
-Filters of `IFeatureFilter` and `IContextualFeatureFilter` can share the same alias. Specifically, you can have one filter alias shared by 0 or 1 `IFeatureFilter` and 0 or N `IContextualFeatureFilter<ContextType>`, so long as there is at most one applicable filter for `ContextType`.
+Filters that implement `IFeatureFilter` and `IContextualFeatureFilter` can share the same alias. Specifically, you can have one filter alias shared by zero or one `IFeatureFilter` implementations and zero or *N* `IContextualFeatureFilter<ContextType>` implementations if there's at most one applicable filter for `ContextType`.
 
-The following passage describes the process of selecting a filter when contextual and non-contextual filters of the same name are registered in an application.
+To understand the process of selecting a filter when contextual and non-contextual filters of the same name are registered in an application, consider the following example.
 
-Let's say you have a non-contextual filter called `FilterA` and two contextual filters `FilterB` and FilterC that accept `TypeB` and `TypeC` contexts respectively. All three filters share the same alias `SharedFilterName`.
+Three filters share the `SharedFilterName` alias:
 
-You also have a feature flag `MyFeature` that uses the feature filter `SharedFilterName` in its configuration.
+* A non-contextual filter called `FilterA`
+* A contextual filter called `FilterB` that accepts a `TypeB` context
+* A contextual filter called `FilterC` that accepts a `TypeC` context
 
-If all of three filters are registered:
-* When you call IsEnabledAsync("MyFeature"), the `FilterA` is used to evaluate the feature flag.
-* When you call IsEnabledAsync("MyFeature", context), if context's type is `TypeB`, `FilterB` is used. If context's type is `TypeC`, `FilterC` is used.
-* When you call IsEnabledAsync("MyFeature", context), if context's type is `TypeF`, `FilterA` is used.
+A feature flag called `MyFeature` uses the `SharedFilterName` feature filter in its configuration.
 
-## Built-In Feature Filters
+If all three filters are registered:
 
-There are a few feature filters that come with the `Microsoft.FeatureManagement` package: `PercentageFilter`, `TimeWindowFilter`, `ContextualTargetingFilter` and `TargetingFilter`. All filters, except for the `TargetingFilter`, are added **automatically** when feature management is registered by `AddFeatureManagement` method. The `TargetingFilter` is added with the `WithTargeting` method that is detailed in the `Targeting` section below.
+* When you call `IsEnabledAsync("MyFeature")`, the `FilterA` filter is used to evaluate the feature flag.
+* When you call `IsEnabledAsync("MyFeature", context)`:
+  * If the type of `context` is `TypeB`, `FilterB` is used.
+  * If the type of `context` is `TypeC`, `FilterC` is used.
+  * If the type of `context` is `TypeF`, `FilterA` is used.
 
-Each of the built-in feature filters has its own parameters. Here's the list of feature filters along with examples.
+## Built-in feature filters
+
+There are a few feature filters that come with the `Microsoft.FeatureManagement` package: `PercentageFilter`, `TimeWindowFilter`, `ContextualTargetingFilter`, and `TargetingFilter`. All filters except `TargetingFilter` are added **automatically** when you use the `AddFeatureManagement` method to register feature management. `TargetingFilter` is added by using the `WithTargeting` method. For more information, see [Targeting](#targeting), later in this article.
+
+Each of the built-in feature filters has its own parameters. The following sections describe these feature filters and provide examples.
 
 ### Microsoft.Percentage
 
-This filter provides the capability to enable a feature based on a set percentage.
+The `Microsoft.Percentage` filter provides a way to enable a feature based on a set percentage.
 
-``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.Percentage",
-            "Parameters": {
-                "Value": 50
+```json
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.Percentage",
+                "parameters": {
+                    "Value": 50
+                }
             }
-        }
-    ]
+        ]
+    }
 }
 ```
 
 ### Microsoft.TimeWindow
 
-This filter provides the capability to enable a feature based on a time window. If only `End` is specified, the feature is considered on until that time. If only `Start` is specified, the feature is considered on at all points after that time.
+The `Microsoft.TimeWindow` filter provides a way to enable a feature based on a time window.
 
-``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.TimeWindow",
-            "Parameters": {
-                "Start": "Wed, 01 May 2019 13:59:59 GMT",
-                "End": "Mon, 01 Jul 2019 00:00:00 GMT"
+- If you specify only an `End` value, the feature is considered on until that time.
+- If you specify only a `Start` value, the feature is considered on at all points after that time.
+
+```json
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.TimeWindow",
+                "parameters": {
+                    "Start": "Sun, 01 Jun 2025 13:59:59 GMT",
+                    "End": "Fri, 01 Aug 2025 00:00:00 GMT"
+                }
             }
-        }
-    ]
+        ]
+    }
 }
 ```
 
-:::zone target="docs" pivot="stable-version"
-
-The time window can be configured to recur periodically. This can be useful for the scenarios where one may need to turn on a feature during a low or high traffic period of a day or certain days of a week. To expand the individual time window to recurring time windows, the recurrence rule should be specified in the `Recurrence` parameter.
+You can configure the filter to apply a time window on a recurring basis. This capability can be useful when you need to turn on a feature during a low-traffic or high-traffic period of a day or certain days of a week. To expand an individual time window to a recurring time window, you use a `Recurrence` parameter to specify a recurrence rule.
 
 > [!NOTE]
-> `Start` and `End` must be both specified to enable `Recurrence`.
+> To use recurrence, you must specify `Start` and `End` values. With recurrence, the date part of the `End` value doesn't specify an end date for considering the filter active. Instead, the filter uses the end date, relative to the start date, to define the duration of the time window that recurs.
 
-``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.TimeWindow",
-            "Parameters": {
-                "Start": "Fri, 22 Mar 2024 20:00:00 GMT",
-                "End": "Sat, 23 Mar 2024 02:00:00 GMT",
-                "Recurrence": {
-                    "Pattern": {
-                        "Type": "Daily",
-                        "Interval": 1
-                    },
-                    "Range": {
-                        "Type": "NoEnd"
+```json
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.TimeWindow",
+                "parameters": {
+                    "Start": "Fri, 22 Mar 2024 20:00:00 GMT",
+                    "End": "Sat, 23 Mar 2024 02:00:00 GMT",
+                    "Recurrence": {
+                        "Pattern": {
+                            "Type": "Daily",
+                            "Interval": 1
+                        },
+                        "Range": {
+                            "Type": "NoEnd"
+                        }
                     }
                 }
             }
-        }
-    ]
+        ]
+    }
 }
 ```
 
-The `Recurrence` settings are made up of two parts: `Pattern` (how often the time window repeats) and `Range` (for how long the recurrence pattern repeats). 
+The `Recurrence` settings are made up of two parts:
 
-#### Recurrence Pattern
+* The `Pattern` settings specify how often the time window repeats.
+* The `Range` settings specify for how long the recurrence pattern repeats. 
 
-There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window could repeat "every day", "every three days", "every Monday" or "every other Friday". 
+#### Recurrence pattern
 
-Depending on the type, certain fields of the `Pattern` are required, optional, or ignored.
+There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window can repeat every day, every three days, every Monday, or every other Friday. 
 
-- `Daily`
+Depending on the type, certain fields of the `Pattern` settings are required, optional, or ignored.
+
+* `Daily`
     
-    The daily recurrence pattern causes the time window to repeat based on a number of days between each occurrence.
+  The daily recurrence pattern causes the time window to repeat based on a specified number of days between each occurrence.
 
-    | Property | Relevance | Description |
-    |----------|-----------|-------------|
-    | **Type** | Required | Must be set to `Daily`. |
-    | **Interval** | Optional | Specifies the number of days between each occurrence. Default value is 1. |
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence pattern type. Must be set to `Daily`. |
+  | `Interval` | Optional | The number of days between each occurrence. The default value is `1`. |
 
-- `Weekly`
+* `Weekly`
 
-    The weekly recurrence pattern causes the time window to repeat on the same day or days of the week, based on the number of weeks between each set of occurrences.
+  The weekly recurrence pattern causes the time window to repeat on the same day or days of the week. But you can specify the number of weeks between each set of occurrences.
 
-    | Property | Relevance | Description |
-    |----------|-----------|-------------|
-    | **Type** | Required | Must be set to `Weekly`. |
-    | **DaysOfWeek** | Required | Specifies on which days of the week the event occurs. |
-    | **Interval** | Optional | Specifies the number of weeks between each set of occurrences. Default value is 1. |
-    | **FirstDayOfWeek** | Optional | Specifies which day is considered the first day of the week. Default value is `Sunday`. |
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence pattern type. Must be set to `Weekly`. |
+  | `DaysOfWeek` | Required | The days of the week the event occurs on. |
+  | `Interval` | Optional | The number of weeks between each set of occurrences. The default value is `1`. |
+  | `FirstDayOfWeek` | Optional | The day to use as the first day of the week. The default value is `Sunday`. |
 
-    The following example repeats the time window every other Monday and Tuesday
+  The following example repeats the time window every other Monday and Tuesday:
 
-    ``` javascript
-    "Pattern": {
-        "Type": "Weekly",
-        "Interval": 2,
-        "DaysOfWeek": ["Monday", "Tuesday"]
-    }
-    ```
+  ```json
+  "Pattern": {
+      "Type": "Weekly",
+      "Interval": 2,
+      "DaysOfWeek": ["Monday", "Tuesday"]
+  }
+  ```
 
 > [!NOTE]
-> `Start` must be a valid first occurrence that fits the recurrence pattern. Additionally, the duration of the time window can't be longer than how frequently it occurs. For example, it's invalid to have a 25-hour time window recur every day.
+> The `Start` value must be a valid first occurrence that fits the recurrence pattern. Also, the duration of the time window can't be longer than how frequently it occurs. For example, a 25-hour time window can't recur every day.
 
-#### Recurrence Range
+#### Recurrence range
 
-There are three possible recurrence range types: `NoEnd`, `EndDate` and `Numbered`.
+There are three possible recurrence range types: `NoEnd`, `EndDate`, and `Numbered`.
 
-- `NoEnd`
+* `NoEnd`
 
-    The `NoEnd` range causes the recurrence to occur indefinitely.
+  The `NoEnd` range causes the recurrence to occur indefinitely.
 
-    | Property | Relevance | Description |
-    |----------|-----------|-------------|
-    | **Type** | Required | Must be set to `NoEnd`. |
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence range type. Must be set to `NoEnd`. |
 
-- `EndDate`
+* `EndDate`
 
-    The `EndDate` range causes the time window to occur on all days that fit the applicable pattern until the end date.
+  The `EndDate` range causes the time window to occur on all days that fit the applicable pattern until the end date.
 
-    | Property | Relevance | Description |
-    |----------|-----------|-------------|
-    | **Type** | Required | Must be set to `EndDate`. |
-    | **EndDate** | Required | 	Specifies the date time to stop applying the pattern. As long as the start time of the last occurrence falls before the end date, the end time of that occurrence is allowed to extend beyond it. |
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence range type. Must be set to `EndDate`. |
+  | `EndDate` | Required | 	The date and time to stop applying the pattern. If the start time of the last occurrence falls before the end date, the end time of that occurrence can extend beyond it. |
 
-    The following example will repeat the time window every day until the last occurrence happens on April 1, 2024.
+  In the following example, the time window repeats every day until the last occurrence on April 1, 2024.
 
-    ``` javascript
-    "Start": "Fri, 22 Mar 2024 18:00:00 GMT",
-    "End": "Fri, 22 Mar 2024 20:00:00 GMT",
-    "Recurrence":{
-        "Pattern": {
-            "Type": "Daily",
-            "Interval": 1
-        },
-        "Range": {
-            "Type": "EndDate",
-            "EndDate": "Mon, 1 Apr 2024 20:00:00 GMT"
-        }
-    }
-    ```
+  ```json
+  "Start": "Fri, 22 Mar 2024 18:00:00 GMT",
+  "End": "Fri, 22 Mar 2024 20:00:00 GMT",
+  "Recurrence":{
+      "Pattern": {
+          "Type": "Daily",
+          "Interval": 1
+      },
+      "Range": {
+          "Type": "EndDate",
+          "EndDate": "Mon, 1 Apr 2024 20:00:00 GMT"
+      }
+  }
+  ```
 
-- `Numbered`
+* `Numbered`
 
-    The `Numbered` range causes the time window to occur a fixed number of times (based on the pattern).
+  The `Numbered` range causes the time window to occur a specified number of times.
 
-    | Property | Relevance | Description |
-    |----------|-----------|-------------|
-    | **Type** | Required | Must be set to `Numbered`. |
-    | **NumberOfOccurrences** | Required | 	Specifies the number of occurrences. |
+  | Property | Relevance | Description |
+  |----------|-----------|-------------|
+  | `Type` | Required | The recurrence range type. Must be set to `Numbered`. |
+  | `NumberOfOccurrences` | Required | The number of occurrences. |
 
-    The following example will repeat the time window on Monday and Tuesday until there are three occurrences, which respectively happen on April 1(Mon), April 2(Tue) and April 8(Mon).
+  In the following example, the time window repeats on Monday and Tuesday for a total of three occurrences, which happen on the following dates:
 
-    ``` javascript
-    "Start": "Mon, 1 Apr 2024 18:00:00 GMT",
-    "End": "Mon, 1 Apr 2024 20:00:00 GMT",
-    "Recurrence":{
-        "Pattern": {
-            "Type": "Weekly",
-            "Interval": 1,
-            "DaysOfWeek": ["Monday", "Tuesday"]
-        },
-        "Range": {
-            "Type": "Numbered",
-            "NumberOfOccurrences": 3
-        }
-    }
-    ```
+  * Monday, April 1
+  * Tuesday, April 2
+  * Monday, April 8
 
-To create a recurrence rule, you must specify both `Pattern` and `Range`. Any pattern type can work with any range type.
+  ```json
+  "Start": "Mon, 1 Apr 2024 18:00:00 GMT",
+  "End": "Mon, 1 Apr 2024 20:00:00 GMT",
+  "Recurrence":{
+      "Pattern": {
+          "Type": "Weekly",
+          "Interval": 1,
+          "DaysOfWeek": ["Monday", "Tuesday"]
+      },
+      "Range": {
+          "Type": "Numbered",
+          "NumberOfOccurrences": 3
+      }
+  }
+  ```
+
+To create a recurrence rule, you must specify both `Pattern` and `Range` settings. Any pattern type can work with any range type.
 
 **Advanced:** The time zone offset of the `Start` property is applied to the recurrence settings.
 
-:::zone-end
-
 ### Microsoft.Targeting
 
-This filter provides the capability to enable a feature for a target audience. An in-depth explanation of targeting is explained in the [targeting](#targeting) section below. The filter parameters include an `Audience` object that describes users, groups, excluded users/groups, and a default percentage of the user base that should have access to the feature. Each group object that is listed in the `Groups` section must also specify what percentage of the group's members should have access. If a user is specified in the `Exclusion` section, either directly or if the user is in an excluded group, the feature is disabled. Otherwise, if a user is specified in the `Users` section directly, or if the user is in the included percentage of any of the group rollouts, or if the user falls into the default rollout percentage then that user will have the feature enabled.
+The `Microsoft.Targeting` filter provides a way to enable a feature for a target audience. For an in-depth explanation of targeting, see [Targeting](#targeting), later in this article.
 
-``` JavaScript
-"EnhancedPipeline": {
-    "EnabledFor": [
-        {
-            "Name": "Microsoft.Targeting",
-            "Parameters": {
-                "Audience": {
-                    "Users": [
-                        "Jeff",
-                        "Alicia"
-                    ],
-                    "Groups": [
-                        {
-                            "Name": "Ring0",
-                            "RolloutPercentage": 100
-                        },
-                        {
-                            "Name": "Ring1",
-                            "RolloutPercentage": 50
-                        }
-                    ],
-                    "DefaultRolloutPercentage": 20,
-                    "Exclusion": {
+The filter parameters include an `Audience` object that describes who has access to the feature. Within the `Audience` object, you can specify users, groups, excluded users and groups, and a default percentage of the user base.
+
+For each group object that you list in the `Groups` section, you must also specify what percentage of the group's members should have access.
+
+For each user, the feature is evaluated in the following way:
+
+* If the user is excluded, the feature is disabled for the user. You can exclude the user by:
+  * Listing their name under `Users` in the `Exclusion` section.
+  * Listing a group they belong to under `Groups` in the `Exclusion` section.
+
+* If the user isn't excluded, the feature is enabled if any of the following conditions are met:
+  * The user is listed in the `Users` section.
+  * The user is in the included percentage of any of the group rollouts.
+  * The user falls into the default rollout percentage.
+
+* If none of the previous cases apply, the feature is disabled for the user. For instance, if the user isn't in an included percentage, the feature is disabled.
+
+```json
+{
+    "id": "EnhancedPipeline",
+    "enabled": true,
+    "conditions": {
+        "client_filters": [
+            {
+                "name": "Microsoft.Targeting",
+                "parameters": {
+                    "Audience": {
                         "Users": [
-                            "Ross"
+                            "Jeff",
+                            "Alicia"
                         ],
                         "Groups": [
-                            "Ring2"
-                        ]
+                            {
+                                "Name": "Ring0",
+                                "RolloutPercentage": 100
+                            },
+                            {
+                                "Name": "Ring1",
+                                "RolloutPercentage": 50
+                            }
+                        ],
+                        "DefaultRolloutPercentage": 20,
+                        "Exclusion": {
+                            "Users": [
+                                "Ross"
+                            ],
+                            "Groups": [
+                                "Ring2"
+                            ]
+                        }
                     }
                 }
             }
-        }
-    ]
+        ]
+    }
 }
 ```
 
-### Feature Filter Alias Namespaces
+### Feature filter alias namespaces
 
-All of the built-in feature filter alias' are in the `Microsoft` feature filter namespace. This is to prevent conflicts with other feature filters that may share the same alias. The segments of a feature filter namespace are split by the '.' character. A feature filter can be referenced by its fully qualified alias such as `Microsoft.Percentage` or by the last segment which in the case of `Microsoft.Percentage` is `Percentage`.
+All built-in feature filter aliases are in the `Microsoft` feature filter namespace. Being in this namespace prevents conflicts with other feature filters that share the same alias. The segments of a feature filter namespace are split by the `.` character. You can reference a feature filter by its fully qualified alias, such as `Microsoft.Percentage`. Or you can reference the last segment, such as `Percentage`.
 
 ## Targeting
 
-Targeting is a feature management strategy that enables developers to progressively roll out new features to their user base. The strategy is built on the concept of targeting a set of users known as the target _audience_. An audience is made up of specific users, groups, excluded users/groups, and a designated percentage of the entire user base. The groups that are included in the audience can be broken down further into percentages of their total members.
+Targeting is a feature management strategy that you can use to progressively roll out new features to your user base. The strategy is built on the concept of targeting a set of users known as the target *audience*. An audience is made up of specific users, groups, excluded users and groups, and a designated percentage of the entire user base. The groups that are included in the audience can be broken down further into percentages of their total members.
 
-The following steps demonstrate an example of a progressive rollout for a new 'Beta' feature:
+The following steps demonstrate an example of a progressive rollout for a new feature called Beta:
 
-1. Individual users Jeff and Alicia are granted access to the Beta
-2. Another user, Mark, asks to opt-in and is included.
-3. Twenty percent of a group known as "Ring1" users are included in the Beta.
-5. The number of "Ring1" users included in the beta is bumped up to 100 percent.
-5. Five percent of the user base is included in the beta.
-6. The rollout percentage is bumped up to 100 percent and the feature is completely rolled out.
+1. Individual users Jeff and Alicia are granted access to the Beta feature.
+1. Another user, Mark, asks to opt in and is included.
+1. Twenty percent of the users in the Ring1 group are included in the Beta feature.
+1. The number of Ring1 users included is bumped up to 100 percent.
+1. Five percent of the user base is included in the Beta feature.
+1. The rollout percentage is bumped up to 100 percent to completely roll out the feature.
 
-This strategy for rolling out a feature is built-in to the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
+The library supports this strategy for rolling out a feature through the built-in [Microsoft.Targeting](#microsofttargeting) feature filter.
 
-### Targeting in a Web Application
+### Targeting in a web application
 
-An example web application that uses the targeting feature filter is available in the [FeatureFlagDemo](https://github.com/microsoft/FeatureManagement-Dotnet/tree/main/examples/FeatureFlagDemo) example project.
+For an example of a web application that uses the targeting feature filter, see the [FeatureFlagDemo](https://github.com/microsoft/FeatureManagement-Dotnet/tree/main/examples/FeatureFlagDemo) example project.
 
-To begin using the `TargetingFilter` in an application, it must be added to the application's service collection just as any other feature filter. Unlike other built-in filters, the `TargetingFilter` relies on another service to be added to the application's service collection. That service is an `ITargetingContextAccessor`.
+To begin using `TargetingFilter` in an application, you must add it to the application's service collection just like any other feature filter. Unlike other built-in filters, `TargetingFilter` relies on another service to be added to the application's service collection. That service is an `ITargetingContextAccessor` implementation.
 
-`Microsoft.FeatureManagement.AspNetCore` provides a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` which will extract targeting info from a request's `HttpContext`. You can use the default targeting context accessor when setting up targeting by using the non-generic `WithTargeting` overload on the `IFeatureManagementBuilder`.
+The `Microsoft.FeatureManagement.AspNetCore` library provides a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` that extracts targeting information from a request's `HttpContext` value. You can use the default targeting context accessor when you set up targeting by using the nongeneric `WithTargeting` overload on `IFeatureManagementBuilder`.
 
-The default targeting context accessor and `TargetingFilter` are registered by calling `WithTargeting` on the `IFeatureManagementBuilder`.
+To register the default targeting context accessor and `TargetingFilter`, you call `WithTargeting` on `IFeatureManagementBuilder`.
 
-``` C#
+```csharp
 services.AddFeatureManagement()
         .WithTargeting();
 ```
 
-You can also register a customized implementation for `ITargetingContextAccessor` and `TargetingFilter` by calling `WithTargeting<T>`. Here's an example setting up feature management in a web application to use the `TargetingFilter` with an implementation of `ITargetingContextAccessor` called `ExampleTargetingContextAccessor`.
+You can also register a customized implementation for `ITargetingContextAccessor` and `TargetingFilter` by calling `WithTargeting<T>`. The following code sets up feature management in a web application to use `TargetingFilter` with an implementation of `ITargetingContextAccessor` called `ExampleTargetingContextAccessor`.
 
-``` C#
+```csharp
 services.AddFeatureManagement()
         .WithTargeting<ExampleTargetingContextAccessor>();
 ```
 
 #### ITargetingContextAccessor
 
-To use the `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. This is because when a targeting evaluation is being performed, contextual information such as what user is currently being evaluated is needed. This information is known as the [`TargetingContext`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement/Targeting/TargetingContext.cs). Different applications may extract this information from different places. Some common examples of where an application may pull the targeting context are the request's HTTP context or a database.
+To use `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. The reasoning behind this requirement is that contextual information, such as information about the user, is needed for targeting evaluations. This information is stored in instances of the [`TargetingContext`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement/Targeting/TargetingContext.cs) class. Different applications extract this information from different places, such as a request's HTTP context or a database.
 
-An example that extracts targeting context information from the application's HTTP context is the [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) provided by the `Microsoft.FeatureManagement.AspNetCore` package. It will extract targeting info from `HttpContext.User`. `UserId` information will be extracted from from the `Identity.Name` field and `Groups` information will be extracted from claims of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role). This implementation relies on the use of `IHttpContextAccessor`, which is discussed [here](#using-httpcontext).
+For an example that extracts targeting context information from an application's HTTP context, see [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) in the `Microsoft.FeatureManagement.AspNetCore` package. It extracts the following information:
 
-### Targeting in a Console Application
+* Targeting information from the `HttpContext.User` property
+* `UserId` information from the `Identity.Name` field
+* `Groups` information from claims of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role)
 
-The targeting filter relies on a targeting context to evaluate whether a feature should be turned on. This targeting context contains information such as what user is currently being evaluated, and what groups the user in. In console applications, there's typically no ambient context available to flow this information into the targeting filter, thus it must be passed directly when `FeatureManager.IsEnabledAsync` is called. This is supported by using the `ContextualTargetingFilter`. Applications that need to float the targeting context into the feature manager should use this instead of the `TargetingFilter.`
+This implementation relies on the use of `IHttpContextAccessor`. For more information about `IHttpContextAccessor`, see [Use HttpContext](#use-httpcontext), earlier in this article.
 
-Since `ContextualTargetingFilter` is an [`IContextualTargetingFilter<ITargetingContext>`](#contextual-feature-filters), an implementation of `ITargetingContext` must be passed in to `IFeatureManager.IsEnabledAsync` for it to be able to evaluate and turn on a feature.
+### Targeting in a console application
 
-``` C#
-IFeatureManager fm;
+The targeting filter relies on a targeting context to evaluate whether a feature should be turned on. This targeting context contains information such as the user that's being evaluated and the groups the user belongs to. In console applications, there's typically no ambient context available for passing this information to the targeting filter. As a result, you must pass it directly when you call `FeatureManager.IsEnabledAsync`. This type of context is supported by using `ContextualTargetingFilter`. Applications that need to send the targeting context to the feature manager should use `ContextualTargetingFilter` instead of `TargetingFilter.`
+
+Because `ContextualTargetingFilter` implements [`IContextualTargetingFilter<ITargetingContext>`](#contextual-feature-filters), you must pass an implementation of `ITargetingContext` to `IVariantFeatureManager.IsEnabledAsync` for it to be able to evaluate and turn on a feature.
+
+```csharp
+IVariantFeatureManager fm;
 …
-// userId and groups defined somewhere earlier in application
+// The userId and groups variables are defined earlier in the application.
 TargetingContext targetingContext = new TargetingContext
 {
    UserId = userId,
@@ -1001,25 +953,26 @@ TargetingContext targetingContext = new TargetingContext
 await fm.IsEnabledAsync(featureName, targetingContext);
 ```
 
-The `ContextualTargetingFilter` still uses the feature filter alias [Microsoft.Targeting](#microsofttargeting), so the configuration for this filter is consistent with what is mentioned in that section.
+`ContextualTargetingFilter` uses the feature filter alias `Microsoft.Targeting`, so the configuration for this filter is consistent with the information in [Microsoft.Targeting](#microsofttargeting), earlier in this article.
 
-An example that uses the `ContextualTargetingFilter` in a console application is available in the [TargetingConsoleApp](https://github.com/microsoft/FeatureManagement-Dotnet/tree/main/examples/TargetingConsoleApp) example project.
+For an example that uses `ContextualTargetingFilter` in a console application, see the [TargetingConsoleApp](https://github.com/microsoft/FeatureManagement-Dotnet/tree/main/examples/TargetingConsoleApp) example project.
 
-### Targeting Evaluation Options
+### Targeting evaluation options
 
-Options are available to customize how targeting evaluation is performed across all features. These options can be configured when setting up feature management.
+Options are available to customize how targeting evaluation is performed across all features. You can configure these options when you set up feature management.
 
-``` C#
+```csharp
 services.Configure<TargetingEvaluationOptions>(options =>
 {
     options.IgnoreCase = true;
 });
 ```
 
-### Targeting Exclusion
+### Targeting exclusion
 
-When defining an Audience, users and groups can be excluded from the audience. This is useful when a feature is being rolled out to a group of users, but a few users or groups need to be excluded from the rollout. Exclusion is defined by adding a list of users and groups to the `Exclusion` property of the audience.
-``` JavaScript
+When you define an audience, you can exclude users and groups from the audience. This functionality is useful when you roll out a feature to a group of users but you need to exclude a few users or groups from the rollout. To specify users and groups to exclude, you use the `Exclusion` property of an audience.
+
+```json
 "Audience": {
     "Users": [
         "Jeff",
@@ -1031,7 +984,7 @@ When defining an Audience, users and groups can be excluded from the audience. T
             "RolloutPercentage": 100
         }
     ],
-    "DefaultRolloutPercentage": 0
+    "DefaultRolloutPercentage": 0,
     "Exclusion": {
         "Users": [
             "Mark"
@@ -1040,49 +993,47 @@ When defining an Audience, users and groups can be excluded from the audience. T
 }
 ```
 
-In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It's also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
-
-:::zone target="docs" pivot="preview-version"
+The preceding code enables a feature for users named `Jeff` and `Alicia`. The feature is also enabled for users in the group named `Ring0`. However, the feature is disabled for the user named `Mark`, even if that user is in the `Ring0` group. Exclusions take priority over the rest of the targeting filter.
 
 ## Variants
 
-When new features are added to an application, there may come a time when a feature has multiple different proposed design options. A common solution for deciding on a design is some form of A/B testing, which involves providing a different version of the feature to different segments of the user base and choosing a version based on user interaction. In this library, this functionality is enabled by representing different configurations of a feature with variants.
+Sometimes when you add a new feature to an application, the feature has multiple proposed design options. A/B testing provides a common solution for deciding on a design. A/B testing involves providing a different version of the feature to different segments of the user base and then choosing a version based on user interaction. In the .NET feature management library, you can implement A/B testing by using variants to represent various configurations of a feature.
 
-Variants enable a feature flag to become more than a simple on/off flag. A variant represents a value of a feature flag that can be a string, a number, a boolean, or even a configuration object. A feature flag that declares variants should define under what circumstances each variant should be used, which is covered in greater detail in the [Allocating Variants](#allocating-variants) section.
+Variants provide a way for a feature flag to become more than a basic on/off flag. A variant represents a value of a feature flag that can be a string, a number, a Boolean, or even a configuration object. A feature flag that declares variants should define the circumstances under which each variant should be used. For more information, see [Allocate variants](#allocate-variants), later in this article.
 
-``` C#
+```csharp
 public class Variant
 {
     /// <summary>
-    /// The name of the variant.
+    /// The name of the variant
     /// </summary>
     public string Name { get; set; }
 
     /// <summary>
-    /// The configuration of the variant.
+    /// The configuration of the variant
     /// </summary>
     public IConfigurationSection Configuration { get; set; }
 }
 ```
 
-### Getting Variants
+### Retrieve variants
 
-For each feature, a variant can be retrieved using the `IVariantFeatureManager`'s `GetVariantAsync` method.
+For each feature, you can retrieve a variant by using the `GetVariantAsync` method of the `IVariantFeatureManager` interface.
 
-``` C#
+```csharp
 …
 IVariantFeatureManager featureManager;
 …
-Variant variant = await featureManager.GetVariantAsync(MyFeatureFlags.FeatureU, CancellationToken.None);
+Variant variant = await featureManager.GetVariantAsync("MyVariantFeatureFlag", CancellationToken.None);
 
 IConfigurationSection variantConfiguration = variant.Configuration;
 
-// Do something with the resulting variant and its configuration
+// Do something with the resulting variant and its configuration.
 ```
 
-Once a variant is retrieved, the configuration of a variant can be used directly as an `IConfigurationSection` from the variant's `Configuration` property. Another option is to bind the configuration to an object using .NET's configuration binding pattern.
+After you retrieve a variant, you can use its configuration directly as an implementation of `IConfigurationSection` from the variant's `Configuration` property. Another option is to bind the configuration to an object by using the .NET configuration binding pattern.
 
-``` C#
+```csharp
 IConfigurationSection variantConfiguration = variant.Configuration;
 
 MyFeatureSettings settings = new MyFeatureSettings();
@@ -1090,13 +1041,13 @@ MyFeatureSettings settings = new MyFeatureSettings();
 variantConfiguration.Bind(settings);
 ```
 
-The variant returned is dependent on the user currently being evaluated, and that information is obtained from an instance of `TargetingContext`. This context can either be passed in when calling `GetVariantAsync` or it can be automatically retrieved from an implementation of [`ITargetingContextAccessor`](#itargetingcontextaccessor) if one is registered.
+The variant that's returned depends on the user who's being evaluated. You can obtain information on the user from an instance of `TargetingContext`. You can pass in this context when you call `GetVariantAsync`. Or it can be automatically retrieved from an implementation of [`ITargetingContextAccessor`](#itargetingcontextaccessor) if one is registered.
 
-### Variant Feature Flag Declaration
+### Variant feature flag declaration
 
-Compared to normal feature flags, variant feature flags have two additional properties: `variants` and `allocation`. The `variants` property is an array that contains the variants defined for this feature. The `allocation` property defines how these variants should be allocated for the feature. Just like declaring normal feature flags, you can set up variant feature flags in a json file. Here is an example of a variant feature flag.
+Compared to standard feature flags, variant feature flags have two extra properties: `variants` and `allocation`. The `variants` property is an array that contains the variants defined for the feature. The `allocation` property defines how these variants should be allocated for the feature. Just like declaring standard feature flags, you can set up variant feature flags in a JSON file. The following code is an example of a variant feature flag:
 
-``` javascript
+```json
 {
     "feature_management": {
         "feature_flags": [
@@ -1128,13 +1079,13 @@ Compared to normal feature flags, variant feature flags have two additional prop
 }
 ```
 
-#### Defining Variants
+#### Define variants
 
-Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using `configuration_value` property. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If `configuration_value` is not specified, the returned variant's `Configuration` property will be null.
+Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. You can use the `configuration_value` property to specify the configuration. The `configuration_value` property is an inline configuration that can be a string, number, Boolean, or configuration object. If you don't configure the `configuration_value` property, the returned variant's `Configuration` property is `null`.
 
-A list of all possible variants is defined for each feature under the `variants` property.
+To specify all possible variants for a feature, you list them under the `variants` property.
 
-``` javascript
+```json
 {
     "feature_management": {
         "feature_flags": [
@@ -1160,11 +1111,11 @@ A list of all possible variants is defined for each feature under the `variants`
 }
 ```
 
-#### Allocating Variants
+#### Allocate variants
 
-The process of allocating a feature's variants is determined by the `allocation` property of the feature.
+To allocate a feature's variants, you use the `allocation` property of the feature.
 
-``` javascript
+```json
 "allocation": { 
     "default_when_enabled": "Small", 
     "default_when_disabled": "Small",  
@@ -1205,33 +1156,47 @@ The process of allocating a feature's variants is determined by the `allocation`
 ]
 ```
 
-The `allocation` setting of a feature has the following properties:
+The `allocation` setting has the following properties:
 
 | Property | Description |
 | ---------------- | ---------------- |
-| `default_when_disabled` | Specifies which variant should be used when a variant is requested while the feature is considered disabled. |
-| `default_when_enabled` | Specifies which variant should be used when a variant is requested while the feature is considered enabled and no other variant was assigned to the user. |
-| `user` | Specifies a variant and a list of users to whom that variant should be assigned. | 
-| `group` | Specifies a variant and a list of groups. The variant will be assigned if the user is in at least one of the groups. |
-| `percentile` | Specifies a variant and a percentage range the user's calculated percentage has to fit into for that variant to be assigned. |
-| `seed` | The value which percentage calculations for `percentile` are based on. The percentage calculation for a specific user will be the same across all features if the same `seed` value is used. If no `seed` is specified, then a default seed is created based on the feature name. |
+| `default_when_disabled` | The variant to use when a variant is requested while the feature is considered disabled. |
+| `default_when_enabled` | The variant to use when a variant is requested while the feature is considered enabled and no other variant is assigned to the user. |
+| `user` | A variant and a list of users to assign the variant to. | 
+| `group` | A variant and a list of groups. The variant is assigned if the current user is in at least one of the groups. |
+| `percentile` | A variant and a percentage range that the user's calculated percentage has to fit into for the variant to be assigned. |
+| `seed` | The value that percentage calculations for `percentile` are based on. The percentage calculation for a specific user is the same across all features if the same `seed` value is used. If no `seed` value is specified, a default seed is created based on the feature name. |
 
-In the above example, if the feature is not enabled, the feature manager will assign the variant marked as `default_when_disabled` to the current user, which is `Small` in this case.
+If a feature isn't enabled, the feature manager assigns the variant specified for `default_when_disabled` to the current user. In the preceding example, that feature is called `Small`.
 
-If the feature is enabled, the feature manager will check the `user`, `group`, and `percentile` allocations in that order to assign a variant. For this particular example, if the user being evaluated is named `Marsha`, in the group named `Ring1`, or the user happens to fall between the 0 and 10th percentile, then the specified variant is assigned to the user. In this case, all of these would return the `Big` variant. If none of these allocations match, the user is assigned the `default_when_enabled` variant, which is `Small`.
+If the feature is enabled, the feature manager checks the `user`, `group`, and `percentile` allocations in that order to assign a variant. In the preceding example, the specified variant, `Big`, is assigned to the user in the following cases:
 
-Allocation logic is similar to the [Microsoft.Targeting](#microsofttargeting) feature filter, but there are some parameters that are present in targeting that aren't in allocation, and vice versa. The outcomes of targeting and allocation aren't related.
+* The user being evaluated is named `Marsha`.
+* The user is in the `Ring1` group.
+* The user happens to fall between the zeroth and tenth percentile.
+
+If none of these allocations match, the `default_when_enabled` variant is assigned to the user. In the example, that variant is `Small`.
+
+Allocation logic is similar to the logic you use for the [Microsoft.Targeting](#microsofttargeting) feature filter. But there are some parameters that are present in targeting that aren't in allocation, and vice versa. The outcomes of targeting and allocation aren't related.
 
 > [!NOTE]
-> To allow allocating feature variants, you need to register `ITargetingContextAccessor`. This can be done by calling the `WithTargeting<T>` method.
+> To allocate feature variants, you need to register `ITargetingContextAccessor` by calling the `WithTargeting<T>` method.
 
-### Overriding Enabled State with a Variant
+### Override enabled state by using a variant
 
-You can use variants to override the enabled state of a feature flag. This gives variants an opportunity to extend the evaluation of a feature flag. When calling `IsEnabled` on a flag with variants, the feature manager will check if the variant assigned to the current user is configured to override the result. This is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with an `enabled` state of `false` can't be overridden.
+You can use variants to override the enabled state of a feature flag. When you take advantage of this functionality, you can extend the evaluation of a feature flag. During the call to `IsEnabledAsync` on a flag with variants, the feature manager checks whether the variant assigned to the current user is configured to override the result.
 
-If you're using a feature flag with binary variants, the `status_override` property can be very helpful. It allows you to continue using APIs like `IsEnabledAsync` and `FeatureGateAttribute` in your application, all while benefiting from the new features that come with variants, such as percentile allocation and seed.
+You can implement overriding by using the optional variant property `status_override`. This property can have the following values:
 
-``` javascript
+* `None`: The variant doesn't affect whether the flag is considered enabled or disabled. `None` is the default value.
+* `Enabled`: When the variant is chosen, the feature flag is evaluated as enabled.
+* `Disabled`: When the variant is chosen, the feature flag is evaluated as disabled.
+
+You can't override a feature with an `enabled` state of `false`.
+
+If you use a feature flag with binary variants, the `status_override` property can be helpful. You can continue to use APIs like `IsEnabledAsync` and `FeatureGateAttribute` in your application. But you can also benefit from the features that come with variants, such as percentile allocation and using a seed value for percentage calculations.
+
+```json
 {
     "id": "MyVariantFeatureFlag",
     "enabled": true,
@@ -1258,33 +1223,34 @@ If you're using a feature flag with binary variants, the `status_override` prope
 }
 ```
 
-In the above example, the feature is always enabled. If the current user is in the calculated percentile range of 10 to 20, then the `On` variant is returned. Otherwise, the `Off` variant is returned and because `status_override` is equal to `Disabled`, the feature will now be considered disabled.
+In the preceding example, the feature is always enabled. If the current user is in the calculated percentile range of 10 to 20, the `On` variant is returned. Otherwise, the `Off` variant is returned, and because the `status_override` value is `Disabled`, the feature is considered disabled.
 
-### Variants in Dependency Injection
+### Variants in dependency injection
 
-Variant feature flags can be used in conjunction with dependency injection to surface different implementations of a service for different users. This is accomplished by using the `IVariantServiceProvider<TService>` interface.
+You can use variant feature flags together with dependency injection to expose different implementations of a service to different users. The `IVariantServiceProvider<TService>` interface provides a way to accomplish this combination.
 
-``` C#
+```csharp
 IVariantServiceProvider<IAlgorithm> algorithmServiceProvider;
 ...
 
 IAlgorithm forecastAlgorithm = await algorithmServiceProvider.GetServiceAsync(cancellationToken); 
 ```
 
-In the snippet above, the `IVariantServiceProvider<IAlgorithm>` retrieves an implementation of `IAlgorithm` from the dependency injection container. The chosen implementation is dependent upon:
-* The feature flag that the `IAlgorithm` service was registered with.
+In the preceding code, the `IVariantServiceProvider<IAlgorithm>` implementation retrieves an implementation of `IAlgorithm` from the dependency injection container. The chosen implementation is dependent on:
+
+* The feature flag that the `IAlgorithm` service is registered with.
 * The allocated variant for that feature.
 
-The `IVariantServiceProvider<T>` is made available to the application by calling `IFeatureManagementBuilder.WithVariantService<T>(string featureName)`. See below for an example.
+The `IVariantServiceProvider<T>` implementation is made available to the application by calling `IFeatureManagementBuilder.WithVariantService<T>(string featureName)`, as the following example shows. The call in this code makes `IVariantServiceProvider<IAlgorithm>` available in the service collection.
 
-``` C#
+```csharp
 services.AddFeatureManagement() 
         .WithVariantService<IAlgorithm>("ForecastAlgorithm");
 ```
 
-The call above makes `IVariantServiceProvider<IAlgorithm>` available in the service collection. Implementations of `IAlgorithm` must be added separately via an add method such as `services.AddSingleton<IAlgorithm, SomeImplementation>()`. The implementation of `IAlgorithm` that the `IVariantServiceProvider` uses depends on the `ForecastAlgorithm` variant feature flag. If no implementation of `IAlgorithm` is added to the service collection, the `IVariantServiceProvider<IAlgorithm>.GetServiceAsync()` returns a task with a *null* result.
+You must add each implementation of `IAlgorithm` separately via an add method such as `services.AddSingleton<IAlgorithm, SomeImplementation>()`. The implementation of `IAlgorithm` that `IVariantServiceProvider` uses depends on the `ForecastAlgorithm` variant feature flag. If no implementation of `IAlgorithm` is added to the service collection, the `IVariantServiceProvider<IAlgorithm>.GetServiceAsync()` returns a task with a `null` result.
 
-``` javascript
+```json
 {
     // The example variant feature flag
     "id": "ForecastAlgorithm",
@@ -1298,9 +1264,11 @@ The call above makes `IVariantServiceProvider<IAlgorithm>` available in the serv
 }
 ```
 
-#### Variant Service Alias Attribute
+#### Variant service alias attribute
 
-``` C#
+The variant service provider uses the type names of implementations to match the allocated variant. If a variant service is decorated with `VariantServiceAliasAttribute`, the name declared in this attribute should be used in configuration to reference this variant service.
+
+```csharp
 [VariantServiceAlias("Beta")]
 public class AlgorithmBeta : IAlgorithm
 {
@@ -1308,26 +1276,23 @@ public class AlgorithmBeta : IAlgorithm
 }
 ```
 
-The variant service provider will use the type names of implementations to match the allocated variant. If a variant service is decorated with the `VariantServiceAliasAttribute`, the name declared in this attribute should be used in configuration to reference this variant service.
-
 ## Telemetry
 
-When a feature flag change is deployed, it's often important to analyze its effect on an application. For example, here are a few questions that may arise:
+When you deploy a feature flag change, it's often important to analyze its effect on an application. For example, here are a few questions that can arise:
 
-* Are my flags enabled/disabled as expected?
+* Are the flags enabled and disabled as expected?
 * Are targeted users getting access to a certain feature as expected?
 * Which variant is a particular user seeing?
 
+The emission and analysis of feature flag evaluation events can help you answer these types of questions. The .NET feature management library uses the [`System.Diagnostics.Activity`](/dotnet/api/system.diagnostics.activity) API to produce tracing telemetry during feature flag evaluation.
 
-These types of questions can be answered through the emission and analysis of feature flag evaluation events. This library uses the [`System.Diagnostics.Activity`](/dotnet/api/system.diagnostics.activity) API to produce tracing telemetry during feature flag evaluation.
+### Enable telemetry
 
-### Enabling Telemetry
+By default, feature flags don't have telemetry emitted. To publish telemetry for a given feature flag, the flag *must* declare that it's enabled for telemetry emission.
 
-By default, feature flags don't have telemetry emitted. To publish telemetry for a given feature flag, the flag *MUST* declare that it is enabled for telemetry emission.
+For feature flags defined in *appsettings.json*, you can enable telemetry by using the `telemetry` property.
 
-For feature flags defined in `appsettings.json`, this is done by using the `telemetry` property.
-
-``` javascript
+```json
 {
     "feature_management": {
         "feature_flags": [
@@ -1343,25 +1308,33 @@ For feature flags defined in `appsettings.json`, this is done by using the `tele
 }
 ```
 
-The appsettings snippet above defines a feature flag named `MyFeatureFlag` that is enabled for telemetry. This is indicated by the `telemetry` object that sets `enabled` to true. The value of the `enabled` property must be `true` to publish telemetry for the flag.
+The preceding code from an *appsettings.json* file defines a feature flag named `MyFeatureFlag` that's enabled for telemetry. The telemetry state is indicated by the `telemetry` object that sets `enabled` to `true`. The value of the `enabled` property must be `true` to publish telemetry for the flag.
 
 The `telemetry` section of a feature flag has the following properties:
 
 | Property | Description |
 | ---------------- | ---------------- |
-| `enabled` | Specifies whether telemetry should be published for the feature flag. |
-| `metadata` | A collection of key-value pairs, modeled as a dictionary, which can be used to attach custom metadata about the feature flag to evaluation events. |
-
-### Custom Telemetry Publishing
-
-The feature manager has its own `ActivitySource` named "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of the feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` named `FeatureFlag` to the current activity. The `FeatureFlag` event will have tags which include the information about the feature flag evaluation, following the fields defined in the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent) schema.
+| `enabled` | A Boolean value that specifies whether telemetry should be published for the feature flag. |
+| `metadata` | A collection of key-value pairs, modeled as a dictionary, that you can use to attach custom metadata about the feature flag to evaluation events. |
 
 > [!NOTE]
-> All key value pairs specified in `telemetry.metadata` of the feature flag will also be included in the tags.
+> When you use the .NET configuration provider with Azure App Configuration, [additional telemetry metadata](./reference-dotnet-provider.md#feature-flag-telemetry) is added to feature flag evaluation when telemetry is enabled.
 
-To enable custom telemetry publishing, you can create an [`ActivityListener`](/dotnet/api/system.diagnostics.activitylistener) and listen to the `Microsoft.FeatureManagement` activity source. Here is an example showing how to listen to the feature management activity source and add a callback when a feature is evaluated.
+### Custom telemetry publishing
 
-``` C#
+The feature manager has its own `ActivitySource` instance named `Microsoft.FeatureManagement`. If telemetry is enabled for a feature flag:
+
+* When a feature flag evaluation starts, the feature manager starts an instance of `Activity`.
+* When a feature flag evaluation finishes, the feature manager adds an `ActivityEvent` instance named `FeatureFlag` to the current activity.
+
+The `FeatureFlag` event has tags that include the information about the feature flag evaluation. The tags use the fields defined in the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent) schema.
+
+> [!NOTE]
+> All key-value pairs specified in the `telemetry.metadata` property of the feature flag are also included in the tags.
+
+To enable custom telemetry publishing, you can create an instance of [`ActivityListener`](/dotnet/api/system.diagnostics.activitylistener) and listen to the `Microsoft.FeatureManagement` activity source. The following code shows you how to listen to the feature management activity source and add a callback when a feature is evaluated.
+
+```csharp
 ActivitySource.AddActivityListener(new ActivityListener()
 {
     ShouldListenTo = (activitySource) => activitySource.Name == "Microsoft.FeatureManagement",
@@ -1378,58 +1351,50 @@ ActivitySource.AddActivityListener(new ActivityListener()
 });
 ```
 
-For more information, please go to [Collect a distributed trace](/dotnet/core/diagnostics/distributed-tracing-collection-walkthroughs).
+For more information, see [Collect a distributed trace](/dotnet/core/diagnostics/distributed-tracing-collection-walkthroughs).
 
+### Application Insights telemetry
 
+The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package also provides a telemetry initializer that automatically tags all events with `TargetingId` so that events can be linked to flag evaluations. To take advantage of this functionality, add a reference to the package and register the Application Insights telemetry. The following code provides an example:
 
-### Application Insights Telemetry Publisher
-
-The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To take advantage of this, add a reference to the package and register the Application Insights telemetry publisher as shown below.
-
-``` C#
+```csharp
 builder.services
     .AddFeatureManagement()
-    .AddApplicationInsightsTelemetryPublisher();
-```
-
-The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a telemetry initializer that automatically tags all events with `TargetingId` so that events may be linked to flag evaluations. To use the telemetry initializer, [`TargetingTelemetryInitializer`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/TargetingTelemetryInitializer.cs), add it into the application's service collection.
-
-``` C#
-builder.Services.AddSingleton<ITelemetryInitializer, TargetingTelemetryInitializer>();
+    .AddApplicationInsightsTelemetry();
 ```
 
 > [!NOTE]
-> To ensure that `TargetingTelemetryInitializer` works as expected, the `TargetingHttpContextMiddleware` described below should be used.
+> To help ensure Application Insights telemetry works as expected, you should use the `TargetingHttpContextMiddleware` class.
 
-To enable persistance of targeting context in the current activity, you can use the [`TargetingHttpContextMiddleware`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.AspNetCore/TargetingHttpContextMiddleware.cs).
+To enable persistence of targeting context in the current activity, you can use the [`TargetingHttpContextMiddleware`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/TargetingHttpContextMiddleware.cs) class.
 
-``` C#
+```csharp
 app.UseMiddleware<TargetingHttpContextMiddleware>();
 ```
 
-An example of its usage can be found in the [EvaluationDataToApplicationInsights](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/EvaluationDataToApplicationInsights) example.
+For an example of its usage, see the [VariantAndTelemetryDemo](https://github.com/microsoft/FeatureManagement-Dotnet/tree/main/examples/VariantAndTelemetryDemo) example.
 
 #### Prerequisite
 
-This telemetry publisher depends on Application Insights already being [setup](/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service. For example, that is done [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/examples/EvaluationDataToApplicationInsights/Program.cs#L20C1-L20C54) in the example application.
-
-:::zone-end
+The telemetry publisher that the `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides requires Application Insights to be [set up](/azure/azure-monitor/app/asp-net#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service. For sample code, see the [VariantAndTelemetryDemo](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/VariantAndTelemetryDemo/Program.cs#L22-L32) example application.
 
 ## Caching
 
-Feature state is provided by the `IConfiguration` system. Any caching and dynamic updating is expected to be handled by configuration providers. The feature manager asks `IConfiguration` for the latest value of a feature's state whenever a feature is checked to be enabled.
+Feature state is provided by the `IConfiguration` system. Configuration providers are expected to handle any caching and dynamic updating. The feature manager asks `IConfiguration` for the latest value of a feature's state whenever it evaluates whether a feature is enabled.
 
 ### Snapshot
 
-There are scenarios that require the state of a feature to remain consistent during the lifetime of a request. The values returned from the standard `IFeatureManager` may change if the `IConfiguration` source that it's pulling from is updated during the request. This can be prevented by using `IFeatureManagerSnapshot`. `IFeatureManagerSnapshot` can be retrieved in the same manner as `IFeatureManager`. `IFeatureManagerSnapshot` implements the interface of `IFeatureManager`, but it caches the first evaluated state of a feature during a request and returns the same state of a feature during its lifetime.
+Some scenarios require the state of a feature to remain consistent during the lifetime of a request. The values returned from a standard `IVariantFeatureManager` implementation can change if the `IConfiguration` source that it pulls from is updated during the request.
 
-## Custom Feature Providers
+You can prevent this behavior by using `IVariantFeatureManagerSnapshot`. You can retrieve `IVariantFeatureManagerSnapshot` in the same manner as `IVariantFeatureManager`. `IVariantFeatureManagerSnapshot` implements the `IVariantFeatureManager` interface, but `IVariantFeatureManagerSnapshot` caches the first evaluated state of a feature during a request. It returns that state during the lifetime of the feature.
 
-Implementing a custom feature provider enables developers to pull feature flags from sources such as a database or a feature management service. The included feature provider that is used by default pulls feature flags from .NET Core's configuration system. This allows for features to be defined in an [appsettings.json](/aspnet/core/fundamentals/configuration/#jcp) file or in configuration providers like [Azure App Configuration](./quickstart-feature-flag-aspnet-core.md). This behavior can be substituted to provide complete control of where feature definitions are read from.
+## Custom feature providers
 
-To customize the loading of feature definitions, one must implement the `IFeatureDefinitionProvider` interface.
+When you implement a custom feature provider, you can pull feature flags from sources such as a database or a feature management service. The default feature provider pulls feature flags from the .NET Core configuration system. This system provides support for defining features in an [appsettings.json](/aspnet/core/fundamentals/configuration/#jcp) file or in configuration providers like [Azure App Configuration](./quickstart-feature-flag-aspnet-core.md). You can customize this behavior to control where feature definitions are read from.
 
-``` C#
+To customize the loading of feature definitions, you must implement the `IFeatureDefinitionProvider` interface.
+
+```csharp
 public interface IFeatureDefinitionProvider
 {
     Task<FeatureDefinition> GetFeatureDefinitionAsync(string featureName);
@@ -1438,19 +1403,22 @@ public interface IFeatureDefinitionProvider
 }
 ```
 
-To use an implementation of `IFeatureDefinitionProvider`, it must be added into the service collection before adding feature management. The following example adds an implementation of `IFeatureDefinitionProvider` named `InMemoryFeatureDefinitionProvider`.
+To use an implementation of `IFeatureDefinitionProvider`, you must add it into the service collection before you add feature management. The following example adds an implementation of `IFeatureDefinitionProvider` named `InMemoryFeatureDefinitionProvider`.
 
-``` C#
+```csharp
 services.AddSingleton<IFeatureDefinitionProvider, InMemoryFeatureDefinitionProvider>()
         .AddFeatureManagement()
 ```
 
 ## Next steps
 
-To learn how to use feature flags in your applications, continue to the following quickstarts.
+To find out how to use feature flags in your applications, see the following quickstarts:
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [Aspire](./quickstart-feature-flag-aspire.md)
 
 > [!div class="nextstepaction"]
 > [.NET/.NET Framework console app](./quickstart-feature-flag-dotnet.md)
@@ -1458,7 +1426,7 @@ To learn how to use feature flags in your applications, continue to the followin
 > [!div class="nextstepaction"]
 > [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
 
-To learn how to use feature filters, continue to the following tutorials.
+To find out how to use feature filters, see the following tutorials:
 
 > [!div class="nextstepaction"]
 > [Enable conditional features with feature filters](./howto-feature-filters.md)
@@ -1468,8 +1436,3 @@ To learn how to use feature filters, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
 > [Roll out features to targeted audiences](./howto-targetingfilter.md)
-
-To learn how to run experiments with variant feature flags, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./howto-feature-filters.md)

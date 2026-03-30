@@ -6,8 +6,9 @@ services: virtual-wan
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 10/16/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 
@@ -37,8 +38,6 @@ Another consideration is the address pool size for translation. If the target ad
 
 > [!NOTE]
 > Site-to-site NAT is not supported with site-to-site VPN connections where policy-based traffic selectors are used.
-
-   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Screenshot showing how to edit rules."lightbox="./media/nat-rules-vpn-gateway/edit-rules.png":::
 
 1. Navigate to your virtual hub.
 1. Select **VPN (Site to site)**.
@@ -85,8 +84,6 @@ The following diagram shows the projected result:
 
 1. Toggle **BGP Route Translation** to 'Enable'.
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/enable-bgp.png" alt-text="Screenshot showing how to enable BGP translation.":::
-
 1. Ensure the site-to-site VPN gateway can peer with the on-premises BGP peer.
 
    In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 172.30.0.132. To do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (172.30.0.132).
@@ -102,7 +99,7 @@ The following diagram shows the projected result:
    For instance, if the on-premises BGP IP address is 10.30.0.133 and there is an **Ingress NAT Rule** that translates 10.30.0.0/24 to 172.30.0.0/24, the VPN site's **Link Connection BGP Address** must be configured to be the translated address (172.30.0.133).
 * In Dynamic NAT, on-premises BGP peer IP can't be part of the pre-NAT address range (**Internal Mapping**) as IP and port translations aren't fixed. If there is a need to translate the on-premises BGP peering IP, please create a separate **Static NAT Rule** that translates BGP Peering IP address only.
 
-   For instance, if the on-premises network has an address space of 10.0.0.0/24 with an on-premises BGP peer IP of 10.0.0.1 and there is an **Ingress Dynamic NAT Rule** to translate 10.0.0.0/24 to 192.198.0.0/32, a separate **Ingress Static NAT Rule** translating 10.0.0.1/32 to 192.168.0.02/32 is required and the corresponding VPN site's **Link Connection BGP address** must be updated to the NAT-translated address (part of the External Mapping).
+   For instance, if the on-premises network has an address space of 10.0.0.0/24 with an on-premises BGP peer IP of 10.0.0.1 and there is an **Ingress Dynamic NAT Rule** to translate 10.0.0.0/24 to 192.198.0.0/24, a separate **Ingress Static NAT Rule** translating 10.0.0.1/32 to 192.168.0.1/32 is required and the corresponding VPN site's **Link Connection BGP address** must be updated to the NAT-translated address (part of the External Mapping).
 
 ### Ingress SNAT (VPN site with statically configured routes)
 
@@ -130,8 +127,6 @@ In this example, we'll NAT VPN site 1 to 172.30.0.0.0/24. However, because the V
    * Go to the virtual hub resource that contains the site-to-site VPN gateway. On the virtual hub page, under Connectivity, select **VPN (Site-to-site)**.
 
    * Select the VPN site that is connected to the Virtual WAN hub via Link A. Select **Edit Site** and input 172.30.0.0/24 as the private address space for the VPN site.
-
-     :::image type="content" source="./media/nat-rules-vpn-gateway/vpn-site-static.png" alt-text="Screenshot showing how to edit the Private Address space of a VPN site" lightbox="./media/nat-rules-vpn-gateway/vpn-site-static.png":::
 
 ### <a name="considerationsnobgp"></a>Considerations if VPN sites are statically configured (not connected via BGP)
 

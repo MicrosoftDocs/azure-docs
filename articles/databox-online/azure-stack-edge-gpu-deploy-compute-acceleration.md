@@ -25,8 +25,8 @@ Compute acceleration is a term used specifically for Azure Stack Edge devices wh
 
 The article will discuss compute acceleration only using GPU or VPU for the following devices:
 
-- **Azure Stack Edge Pro GPU** - These devices can have 1 or 2 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
-- **Azure Stack Edge Pro R** - These devices have 1 Nvidia T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
+- **Azure Stack Edge Pro GPU** - These devices can have 1 or 2 NVIDIA T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
+- **Azure Stack Edge Pro R** - These devices have 1 NVIDIA T4 Tensor Core GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 - **Azure Stack Edge Mini R** - These devices have 1 Intel Movidius Myriad X VPU. For more information, see [Intel Movidius Myriad X VPU](https://www.movidius.com/MyriadX).
 
 

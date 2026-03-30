@@ -12,6 +12,7 @@ ms.author: normesta
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+# Customer intent: "As a data administrator, I want to configure version-level immutability policies for blob storage, so that I can ensure critical data remains unchanged and protected against accidental deletion or modification."
 ---
 
 # Configure immutability policies for blob versions
@@ -79,7 +80,7 @@ az storage account create \
 If version-level immutability support is enabled for the storage account and the account contains one or more containers, then you must delete all containers before you delete the storage account, even if there are no immutability policies in effect for the account or containers.
 
 > [!NOTE]
-> Version-level immutability cannot be disabled after it is enabled on the storage account, although locked policies can be deleted.
+> Version-level immutability cannot be disabled after it is enabled on the storage account, although unlocked policies can be deleted.
 
 ### Enable version-level immutability support on a container
 
@@ -150,7 +151,7 @@ To configure version-level immutability policies for an existing container, you 
 
 To migrate an existing container to support version-level immutability policies, the container must have a container-level time-based retention policy configured. The migration fails unless the container has an existing policy. The retention interval for the container-level policy is maintained as the retention interval for the default version-level policy on the container.
 
-If the container has an existing container-level legal hold, then it can't be migrated until the legal hold is removed.
+If the container has an existing container-level legal hold, then it can't be migrated until the legal hold is removed. If a container or any blob within that container has an active lease, it cannot be migrated.
 
 ##### [Portal](#tab/azure-portal)
 
@@ -171,7 +172,11 @@ While the migration operation is underway, the scope of the policy on the contai
 
 After the migration is complete, the scope of the policy on the container shows as *Version*. The policy shown is a default policy on the container that automatically applies to all blob versions subsequently created in the container. The default policy can be overridden on any version by specifying a custom policy for that version.
 
-:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-complete.png" alt-text="Screenshot showing completed container migration":::
+:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-complete.png" alt-text="Screenshot showing completed container migration":::In the event the migration fails, the scope of the policy on the container will continue to show as *Container,* and the *In Progress* information will also be reset. To verify the migration has failed, you can view the *Activity Log* of the storage account to find the *Write Migrate* operation and check the status. 
+
+You can restart a failed migration by repeating the earlier steps. Before starting the process again, it is recommended that you verify there are no active leases on any blobs. The easiest way to do so is using [Blob Inventory](/azure/storage/blobs/blob-inventory). Migrations could fail for multiple reasons, the most common one being active leases on any blob.
+
+NOTE: A failed migration could result in a partial migration state where some of the blobs in the container have a blob-level policy and is not reflected on the Portal. But the scope of the immutability policy will remain at the container level until a successful migration has been completed.
 
 ##### [PowerShell](#tab/azure-powershell)
 
@@ -503,6 +508,9 @@ az storage blob immutability-policy delete \
 ```
 
 ---
+
+> [!NOTE]
+> With version‑level immutability enabled, each blob version receives its own immutable retention period at the moment it is created. Even if the container’s default policy is unlocked, modifying the container‑level default retention policy later can never shorten, override, or reduce the retention already assigned to existing versions. When a new version is uploaded, you may optionally assign a unique retention period specifically for that version. If no unique value is assigned, the version automatically inherits the container’s current default retention policy.
 
 ## Lock a time-based retention policy
 

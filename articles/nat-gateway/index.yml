@@ -5,8 +5,7 @@ summary: Learn how to use NAT gateway. Quickstarts, tutorials, samples, and more
 metadata:
   title: Azure NAT Gateway Documentation - Tutorials, quickstarts, API references
   description: Learn how to use NAT gateway. Quickstarts, tutorials, samples, and more, show you how to deploy a NAT gateway.
-  ms.service: azure-virtual-network
-  ms.subservice: nat
+  ms.service: azure-nat-gateway
   ms.topic: landing-page
   author: asudbring
   ms.author: allensu
@@ -30,8 +29,6 @@ landingContent:
             url: nat-gateway-resource.md
           - text: NAT gateway metrics and alerts
             url: nat-metrics.md
-          - text: NAT gateway resource health
-            url: resource-health.md
       - linkListType: learn
         links:
           - text: Introduction to Azure NAT Gateway
@@ -39,7 +36,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Virtual%20Network%20NAT
+            url: https://azure.microsoft.com/updates?searchterms=NAT+Gateway
       - linkListType: video
         links:
           - text: How to get better outbound connectivity using Azure NAT Gateway
@@ -50,13 +47,17 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create and validate NAT gateway
-            url: quickstart-create-nat-gateway-portal.md    
+          - text: Create and validate a Standard V2 NAT gateway
+            url: quickstart-create-nat-gateway-v2.md    
+      - linkListType: concept
+        links:
+          - text: Azure NAT Gateway SKUs
+            url: nat-sku.md
       - linkListType: tutorial
         links:
           - text: Integrate NAT gateway with a public load balancer
             url: tutorial-nat-gateway-load-balancer-public-portal.md
-          - text: Integrate NAT gateway with a internal load balancer
+          - text: Integrate NAT gateway with an internal load balancer
             url: tutorial-nat-gateway-load-balancer-internal-portal.md
             
   # Card (optional)
@@ -110,7 +111,7 @@ landingContent:
         links:
           - text: Frequently asked questions about NAT gateway
             url: faq.yml
-          - text: Azure Powershell
+          - text: Azure PowerShell
             url: /powershell/module/az.network/#networking
           - text: Azure CLI
             url: /cli/azure/network/nat/gateway

@@ -1,19 +1,14 @@
 ---
 title: Tutorial - Web app accesses Microsoft Graph as the user | Azure
 description: In this tutorial, you learn how to access data in Microsoft Graph for a signed-in user.
-services: microsoft-graph, app-service-web
-author: rwike77
-manager: CelesteDG
-
+author: cephalin
+ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 09/15/2023
-ms.author: ryanwi
-ms.reviewer: stsoneff
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
 ms.custom: azureday1
-ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---
 

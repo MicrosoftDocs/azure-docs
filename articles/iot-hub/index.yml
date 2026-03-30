@@ -3,15 +3,15 @@
 title: Azure IoT Hub Documentation
 metadata:
   title: Azure IoT Hub Documentation
-  description: Learn how to use Azure IoT Hub to connect, monitor, and control billions of Internet of Things assets.
-  ms.service: iot-hub
+  description: Learn how to use Azure IoT Hub  to connect, monitor, and control billions of Internet of Things assets.
+  ms.service: azure-iot-hub
   ms.topic: landing-page
-  author: kgremban
-  ms.author: kgremban
-  ms.date: 08/14/2024
+  author: cwatson-cat
+  ms.author: cwatson
+  ms.date: 11/01/2025
 
 landingContent:
- - title: Learn about IoT Hub
+ - title: Get started with IoT Hub
    linkLists:
     - linkListType: overview
       links:
@@ -19,10 +19,27 @@ landingContent:
         url: iot-concepts-and-iot-hub.md
     - linkListType: concept
       links:
-      - text: Compare IoT Hub and Event Hubs
-        url: iot-hub-compare-event-hubs.md
-      - text: Choose your IoT Hub tier
+      - text: Choose your IoT Hub tier and size
         url: iot-hub-scaling.md
+    - linkListType: how-to-guide
+      links:
+      - text: Create an IoT hub
+        url: create-hub.md
+
+ - title: New features in IoT Hub (Preview)
+   linkLists:
+    - linkListType: overview
+      links:
+      - text: What is Azure Device Registry?
+        url: iot-hub-device-registry-overview.md
+      - text: What is certificate management?
+        url: iot-hub-certificate-management-overview.md
+      - text: "FAQ: What is new in IoT Hub?"
+        url: iot-hub-faq.md
+    - linkListType: how-to-guide
+      links:
+      - text: Get started with Azure Device Registry and certificate management
+        url: iot-hub-device-registry-setup.md
 
  - title: Collect data from your devices
    linkLists:
@@ -76,15 +93,15 @@ landingContent:
    - linkListType: concept
      links:
      - text: Security best practices
-       url: ../iot/iot-overview-security.md?context=/azure/iot-hub/rc/rc
-     - text: Control access to IoT Hub
+       url: secure-azure-iot-hub.md
+     - text: Control access to IoT Hub by using Microsoft Entra ID
        url: iot-hub-devguide-security.md
 
  - title: Develop with SDKs and tools
    linkLists:
    - linkListType: concept
      links:
-     - text: Learn about Azure IoT SDKs
+     - text: Learn about Azure IoT Hub SDKs
        url: iot-hub-devguide-sdks.md
      - text: Use the Azure IoT Hub extension for VS Code
        url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit

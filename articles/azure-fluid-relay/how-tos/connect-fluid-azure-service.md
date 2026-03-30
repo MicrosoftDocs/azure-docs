@@ -178,7 +178,7 @@ A sample `AzureMember` object looks like:
 
 ```json
 {
-  "userId": "0e662aca-9d7d-4ff0-8faf-9f8672b70f15",
+  "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
   "userName": "Test User",
   "connections": [
     {
@@ -186,7 +186,7 @@ A sample `AzureMember` object looks like:
       "mode": "write"
     },
     {
-      "id": "0e662aca-9d7d-4ff0-8faf-9f8672b70f15",
+      "id": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
       "mode": "write"
     }
   ],
@@ -197,7 +197,7 @@ A sample `AzureMember` object looks like:
 }
 ```
 
-Alongside the user ID, name and additional details, `AzureMember` objects also hold an array of connections. If the user is logged into the session with only one client, `connections` will only have one value in it with the ID of the client, and whether is in read/write mode. However, if the same user is logged in from multiple clients (that is, they are logged in from different devices or have multiple browser tabs open with the same container), `connections` here will hold multiple values for each client. In the example data above, we can see that a user with name "Test User" and ID "0e662aca-9d7d-4ff0-8faf-9f8672b70f15" currently has the container open from two different clients. The values in the additionalDetails field match up to the values provided in the `AzureFunctionTokenProvider` token generation.
+Alongside the user ID, name and additional details, `AzureMember` objects also hold an array of connections. If the user is logged into the session with only one client, `connections` will only have one value in it with the ID of the client, and whether is in read/write mode. However, if the same user is logged in from multiple clients (that is, they are logged in from different devices or have multiple browser tabs open with the same container), `connections` here will hold multiple values for each client. In the example data above, we can see that a user with name "Test User" and ID "00aa00aa-bb11-cc22-dd33-44ee44ee44ee" currently has the container open from two different clients. The values in the additionalDetails field match up to the values provided in the `AzureFunctionTokenProvider` token generation.
 
 These functions and events can be combined to present a real-time view of the users in the current session.
 

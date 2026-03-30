@@ -1,11 +1,12 @@
 ---
-title: Expose applications on Azure Spring Apps to the internet from a public network
+title: Expose Applications on Azure Spring Apps to the Internet from a Public Network
 description: Describes how to expose applications on Azure Spring Apps to the internet from a public network.
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java
 ms.devlang: azurecli
 ---
@@ -16,13 +17,13 @@ ms.devlang: azurecli
 
 This article describes how to expose applications on Azure Spring Apps to the internet from a public network.
 
-You can expose applications to the internet with TLS Termination or end-to-end TLS using Application Gateway. These approaches are described in [Expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md). These approaches work well, but Application Gateway can involve a complicated setup and extra expense.
+You can expose applications to the internet with TLS Termination or end-to-end TLS using Application Gateway. These approaches are described in [Expose applications to the internet with TLS Termination at Application Gateway](./expose-apps-gateway-tls-termination.md) and [Expose applications with end-to-end TLS in a virtual network](../basic-standard/expose-apps-gateway-end-to-end-tls.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json). These approaches work well, but Application Gateway can involve a complicated setup and extra expense.
 
 If you don't want to use Application Gateway for advanced operations, you can expose your applications to the internet with one click using the Azure portal or one command using the Azure CLI. The only extra expense is a standard public IP for one Azure Spring Apps service instance, regardless of how many apps you want to expose.
 
 ## Prerequisites
 
-- An Azure Spring Apps service instance deployed in a virtual network and an app created in it. For more information, see [Deploy Azure Spring Apps in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
+- An Azure Spring Apps service instance deployed in a virtual network and an app created in it. For more information, see [Deploy Azure Spring Apps in a virtual network](../basic-standard/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ## Assign a public fully qualified domain name (FQDN) for your application in a virtual network injection instance
 
@@ -57,7 +58,7 @@ az spring app update \
 
 ## Use a public URL to access your application from both inside and outside the virtual network
 
-You can use a public URL to access your application both inside and outside the virtual network. Follow the steps in [Access your application in a private network](./access-app-virtual-network.md) to bind the domain `.private.azuremicroservices.io` to the service runtime Subnet private IP address in your private DNS zone while keeping the **Assign Endpoint** in a disable state. You can then access the app using the **public URL** from both inside and outside the virtual network.
+You can use a public URL to access your application both inside and outside the virtual network. Follow the steps in [Access your application in a private network](../basic-standard/access-app-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json) to bind the domain `.private.azuremicroservices.io` to the service runtime Subnet private IP address in your private DNS zone while keeping the **Assign Endpoint** in a disable state. You can then access the app using the **public URL** from both inside and outside the virtual network.
 
 ## Secure traffic to the public endpoint
 
@@ -68,6 +69,6 @@ To ensure the security of your applications when you expose a public endpoint fo
 
 ## Next steps
 
-- [Expose applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
-- [Troubleshooting Azure Spring Apps in virtual networks](./troubleshooting-vnet.md)
-- [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md)
+- [Expose applications with end-to-end TLS in a virtual network](../basic-standard/expose-apps-gateway-end-to-end-tls.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
+- [Troubleshooting Azure Spring Apps in virtual networks](../basic-standard/troubleshooting-vnet.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
+- [Customer responsibilities for running Azure Spring Apps in a virtual network](../basic-standard/vnet-customer-responsibilities.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

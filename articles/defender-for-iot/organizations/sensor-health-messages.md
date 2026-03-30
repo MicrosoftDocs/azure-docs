@@ -13,27 +13,35 @@ For more information, see [Understand sensor health](how-to-manage-sensors-on-th
 
 ## Critical messages
 
-|Title  |Message  |Description  |Recommendation  |
-|---------|---------|---------|---------|
-|**Disconnected**     |   This sensor isn't communicating with Azure     |      Sensor is disconnected   |   Try signing into the sensor to check for errors or networking failures. <br><br> We also recommend reviewing the sensor networking configuration and verifying the sensor’s ability to communicate with Azure.      |
-|**Sanity failed**     |    This sensor failed an internal consistency check     |      Sensor fails sanity   |       The sensor is in a degraded state. <br><br> Check the sensor for hardware failures and try restarting the sensor.  If the issue isn't resolved, open a support ticket.  |
-|**No traffic detected**     |   No traffic detected on the monitored network interfaces      |   No traffic detected      |  Check that the monitoring ports are connected to SPAN/monitor ports on the adjacent switch and that traffic is active on the link. At least one link with network traffic should be connected to the monitor ports.       |
+|Title  |Message  |Recommendation  |
+|---------|---------|---------|
+|**Disconnected**     |   This sensor isn't communicating with Azure     |   Try signing into the sensor to check for errors or networking failures. <br><br> We also recommend reviewing the sensor networking configuration and verifying the sensor’s ability to communicate with Azure.      |
+|**Sanity failed**     |    This sensor failed an internal consistency check     |       The sensor is in a degraded state. <br><br> Check the sensor for hardware failures and try restarting the sensor.  If the issue isn't resolved, open a support ticket.  |
+|**No traffic detected**     |   No traffic detected on the monitored network interfaces      |  Check that the monitoring ports are connected to SPAN/monitor ports on the adjacent switch and that traffic is active on the link. At least one link with network traffic should be connected to the monitor ports.       |
+|**No connection to NTP** |Failed to connect to the NTP server. |Contact your network team to confirm that the NTP server is reachable, or replace the NTP server with an accessible alternative. |
+|**No connection to Active Directory** |Failed to connect to any of the following Active Directory servers: <list of servers>. |Check with your network team if the Domain Controller server is reachable. |
+|**Traffic bandwidth exceeded its limit** |The sensor exceeded its network bandwidth limit. The current bandwidth is <current_bandwidth>, which exceeds the maximum supported limit of <max_bandwidth>.<br><br>**Note**: This error is only displayed if none of the configured active directories are reachable. |Connect the sensor to a more accurate switch location or purchase a sensor with enhanced hardware specifications. |
+|**Number of monitored devices exceeded its limit** |The sensor exceeded its monitored devices limit. The current number of monitored devices is <current_devices>, which exceeds the maximum supported limit of <max_devices>. |Connect the sensor to a more accurate switch location or purchase a sensor with enhanced hardware specifications.|
 
 ## Warning messages
 
-|Title  |Message  |Description  |Recommendation  |
-|---------|---------|---------|---------|
-|**Package upload failed** |There was an error uploading the file to the sensor |Upload error |Verify the sensor’s ability to communicate with download.microsoft.com and retry. <br><br> If the problem persists,  open a support ticket.|
-|**Sensor update failed** | There was an error installing the update.| Installation error |Open a support ticket. |
-| **Unstable traffic to Azure**|Sensor’s connection to Azure is unstable |Unstable traffic to Azure | We recommend that you check the sensor WAN connection, the BW limit settings, and validate network equipment that might be on the route between the sensor and the cloud.|
-| **Outdated**|Outdated software may result in a non-optimal experience |Sensor version is outdated |Upgrade your sensor software to the latest version to use the most recently available Defender for IoT features.|
+|Title  |Message  |Recommendation  |
+|---------|---------|---------|
+|**Package upload failed** |There was an error uploading the file to the sensor |Verify the sensor’s ability to communicate with download.microsoft.com and retry. <br><br> If the problem persists,  open a support ticket.|
+|**Sensor update failed** | There was an error installing the update.| Open a support ticket. |
+| **Unstable traffic to Azure**|Sensor’s connection to Azure is unstable | We recommend that you check the sensor WAN connection, the BW limit settings, and validate network equipment that might be on the route between the sensor and the cloud.|
+| **Outdated**|Outdated software may result in a non-optimal experience | Upgrade your sensor software to the latest version to use the most recently available Defender for IoT features.|
+| **NTP server not configured**|No NTP server is configured on the sensor | For accurate time synchronization, configure an NTP server in the **Sensor settings** page.|
+| **Traffic bandwidth is close to its limit** |The sensor is close to exceeding its network traffic bandwidth limit. The current bandwidth is <current_bandwidth>, which exceeds <percentage> of the maximum supported limit of <max_bandwidth>. | We recommend that you connect the sensor to a more accurate switch location or purchase a sensor with enhanced hardware specifications.|
+|**Number of monitored devices is close to its limit** |The sensor is close to exceeding its monitored devices limit. The current number of monitored devices is <current_devices>, which exceeds <percentage> of the maximum supported limit of <max_devices>. | We recommend that you connect the sensor to a more accurate switch location or purchase a sensor with enhanced hardware specifications.|
+|**Disk is almost full** |The sensor hard disk is close to reaching its capacity. <partition> has reached <storage>, which exceeds <percentage> of <max_storage>.<br><br>**Note**: This error is displayed when either the root or the data partition runs low on space. The message specifies the relevant partition. | Open a support ticket. |
 
 ## Healthy messages
 
-|Title  |Message  |Description  |Recommendation  |
-|---------|---------|---------|---------|
-|**Pending activation** |Waiting for sensor to connect for the first time |Pending activation | Upload the activation file to the sensor. If this doesn't resolve the problem, verify the sensor’s ability to communicate with Azure.|
-|**Pending reactivation** |Waiting for reactivation with new license |Pending reactivation |Upload the new activation file to the sensor. If this doesn't resolve the problem, verify the sensor’s ability to communicate with Azure. |
+|Title  |Message  |Recommendation  |
+|---------|---------|---------|
+|**Pending activation** |Waiting for sensor to connect for the first time | Upload the activation file to the sensor. If this doesn't resolve the problem, verify the sensor’s ability to communicate with Azure.|
+|**Pending reactivation** |Waiting for reactivation with new license | Upload the new activation file to the sensor. If this doesn't resolve the problem, verify the sensor’s ability to communicate with Azure. |
 
 ## Next steps
 

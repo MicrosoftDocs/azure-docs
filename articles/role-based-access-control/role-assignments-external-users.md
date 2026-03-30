@@ -2,12 +2,15 @@
 title: Assign Azure roles to external users using the Azure portal - Azure RBAC
 description: Learn how to grant access to Azure resources for users external to an organization using the Azure portal and Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 02/28/2024
+ms.date: 03/30/2025
 ms.author: rolyon
-ms.custom: it-pro,subject-rbac-steps
+ms.custom:
+  - it-pro
+  - subject-rbac-steps
+  - sfi-image-nochange
 ---
 
 # Assign Azure roles to external users using the Azure portal
@@ -30,7 +33,7 @@ Here are a couple example scenarios when you might invite users to your organiza
 
 ## Permission differences between member users and guest users
 
-Users of a directory with member type (member users) have different permissions by default than users invited from another directory as a B2B collaboration guest (guest users). For example, member users can read almost all directory information while guest users have restricted directory permissions. For more information about member users and guest users, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md).
+Users of a directory with member type (member users) have different permissions by default than users invited from another directory as a B2B collaboration guest (guest users). For example, member users can read almost all directory information while guest users have restricted directory permissions. For more information about member users and guest users, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md)
 
 ## Invite an external user to your directory
 
@@ -60,7 +63,7 @@ For more information about the invitation process, see [Microsoft Entra B2B coll
 
 ## Assign a role to an external user
 
-In Azure RBAC, to grant access, you assign a role. To assign a role to an external user, you follow [same steps](role-assignments-portal.yml) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to an external user at different scopes.
+In Azure RBAC, to grant access, you assign a role. To assign a role to an external user, you follow [same steps](/azure/role-based-access-control/role-assignments-portal) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to an external user at different scopes.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -110,7 +113,7 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to an extern
 
 ## Assign a role to an external user not yet in your directory
 
-To assign a role to an external user, you follow [same steps](role-assignments-portal.yml) as you would for a member user, group, service principal, or managed identity.
+To assign a role to an external user, you follow [same steps](/azure/role-based-access-control/role-assignments-portal) as you would for a member user, group, service principal, or managed identity.
 
 If the external user is not yet in your directory, you can invite the user directly from the Select members pane.
 
@@ -196,7 +199,7 @@ Before you remove an external user from a directory, you should first remove any
 
 ### External user cannot browse the directory
 
-External users have restricted directory permissions. For example, external users can't browse the directory and can't search for groups or applications. For more information, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md).
+External users have restricted directory permissions. For example, external users can't browse the directory and can't search for groups or applications. For more information, see [What are the default user permissions in Microsoft Entra ID?](../active-directory/fundamentals/users-default-permissions.md)
 
 :::image type="content" source="./media/role-assignments-external-users/directory-no-users.png" alt-text="Screenshot of external user can't browse users in a directory." lightbox="./media/role-assignments-external-users/directory-no-users.png":::
 

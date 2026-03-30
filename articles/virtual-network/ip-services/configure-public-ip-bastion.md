@@ -7,8 +7,9 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 09/19/2023
+ms.date: 01/07/2025
 ms.custom: template-how-to 
+# Customer intent: As a network administrator, I want to set up an Azure Bastion host using an existing public IP address, so that I can securely manage virtual machines without exposing their public IPs.
 ---
 
 # Manage a public IP address with Azure Bastion
@@ -19,14 +20,14 @@ Azure Bastion is deployed to provide secure management connectivity to virtual m
 
 An Azure Bastion host requires a public IP address for its configuration.
 
-In this article, you learn how to create an Azure Bastion host using an existing public IP in your subscription. Azure Bastion doesn't support the change of the public IP address after creation.  Azure Bastion supports assigning an IP address within an IP prefix range but not assigning the IP prefix range itself. 
+In this article, you learn how to create an Azure Bastion host using an existing public IP in your subscription. Azure Bastion doesn't support the change of the public IP address after creation. Azure Bastion supports assigning an IP address within an IP prefix range but not assigning the IP prefix range itself. 
 
 >[!NOTE]
 >[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - One standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP address **myStandardPublicIP**.
 
@@ -48,13 +49,15 @@ In this section, you create an Azure Bastion host. You select the IP address you
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **myResourceGroup** in **Name**.</br> Select **OK**. |
     | **Instance details** |  |
     | Name | Enter **myBastionHost**. |
     | Region | Select **(US) West US 2**. |
+    | Availability zone | Leave the default of **None**. |
     | Tier | Select **Basic**. |
-    | **Configure virtual network** |   |
-    | Virtual network | Select **Create new**. </br> Enter **myVNet** in **Name**. </br> Leave the default address space of **10.4.0.0/16**. </br> Leave the default subnet of **10.4.0.0/24**. </br> In the text box under the **default** subnet, enter **AzureBastionSubnet**. </br> In address range, enter **10.4.1.0/26**. </br> Select **OK**. |
+    | Instance size | Leave the default of **2**. |
+    | **Configure virtual networks** |   |
+    | Virtual network | Select **Create new**.</br> Enter **myVNet** in **Name**.</br> Leave the default address space of **10.1.0.0/16**.</br> Leave the default subnet of **10.1.0.0/24**.</br> In the text box under the **default** subnet, enter **AzureBastionSubnet**.</br> In address range, enter **10.1.1.0/26**.</br> Select **OK**. |
     | Subnet | Select **AzureBastionSubnet**. |
     | **Public IP address** |   |
     | Public IP address | Select **Use existing**. |
@@ -77,7 +80,7 @@ Azure Bastion doesn't support the changing of the public IP address after creati
 
 ## Caveats
 
-* Public IPv6 addresses aren't supported for Azure Bastion at this time.  
+* Public IPv6 addresses aren't supported for Azure Bastion at this time. 
 
 ## Next steps
 

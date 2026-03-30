@@ -1,8 +1,9 @@
 ---
 title: Rendering capabilities
 description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
-ms.date: 06/10/2024
+ms.date: 01/05/2026
 ms.topic: how-to
+# Customer intent: As a 3D artist, I want to utilize Azure Batch to run rendering workloads with custom VM images, so that I can efficiently manage application licensing and optimize resource allocation for my projects.
 ---
 
 # Azure Batch rendering capabilities
@@ -26,7 +27,7 @@ Most rendering applications will require licenses obtained from a license server
 * [Application packages](./batch-application-packages.md):
   * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:
-  * Application files are uploaded to Azure blob storage, and you specify file references in the [pool start task](/rest/api/batchservice/pool/add#starttask). When pool VMs are created, the resource files are downloaded onto each VM.
+  * Application files are uploaded to Azure blob storage, and you specify file references in the [pool start task](/rest/api/batchmanagement/pool/create#starttask). When pool VMs are created, the resource files are downloaded onto each VM.
 
 ## Azure VM families
 

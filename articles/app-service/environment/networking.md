@@ -1,24 +1,30 @@
 ---
 title: App Service Environment networking
 description: App Service Environment networking details
-author: madsd
+author: seligj95
 ms.topic: overview
-ms.date: 08/06/2024
-ms.author: madsd
+ms.date: 02/03/2026
+ms.author: jordanselig
+ms.service: azure-app-service
 ---
 
 # App Service Environment networking
 
 App Service Environment is a single-tenant deployment of Azure App Service that hosts Windows and Linux containers, web apps, API apps, logic apps, and function apps. When you install an App Service Environment, you pick the Azure virtual network that you want it to be deployed in. All of the inbound and outbound application traffic is inside the virtual network you specify. You deploy into a single subnet in your virtual network, and nothing else can be deployed into that subnet.
 
-> [!NOTE]
-> This article is about App Service Environment v3, which is used with Isolated v2 App Service plans.
-
 ## Subnet requirements
 
-You must delegate the subnet to `Microsoft.Web/hostingEnvironments`, and the subnet must be empty.
+The following are the minimum set of requirements for the subnet your App Service Environment is in.
+
+- The subnet must be delegated to `Microsoft.Web/hostingEnvironments`.
+- The subnet must be empty.
+- The subnet's `addressPrefix` property must be formatted as a string, not an array. 
 
 The size of the subnet can affect the scaling limits of the App Service plan instances within the App Service Environment. For production scale, we recommend a `/24` address space (256 addresses) for your subnet. If you plan to scale near max capacity of 200 instances in our App Service Environment and you plan frequent up/down scale operations, we recommend a `/23` address space (512 addresses) for your subnet.
+
+>[!NOTE]
+> It's now possible to move your App Service Environment to a new subnet. To move your App Service Environment to a new subnet, create a support ticket. A support ticket is required because there are prerequisites and configurations that need to be validated and properly configured before changing the subnet to ensure a successful migration. Failure to properly migrate can lead to downtime and connectivity issues.
+> 
 
 If you use a smaller subnet, be aware of the following limitations:
 
@@ -30,7 +36,7 @@ If you use a smaller subnet, be aware of the following limitations:
 - If you run out of addresses within your subnet, you can be restricted from scaling out your App Service plans in the App Service Environment. Another possibility is that you can experience increased latency during intensive traffic load, if Microsoft isn't able to scale the supporting infrastructure.
 
 >[!NOTE]
-> Windows Containers uses an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If your App Service Environment has for example 2 Windows Container App Service plans each with 25 instances and each with 5 apps running, you will need 300 IP addresses and additional addresses to support horizontal (in/out) scale.
+> Windows Containers use an additional IP address per app for each App Service plan instance, and you need to size the subnet accordingly. If your App Service Environment has, for example,  2 Windows Container App Service plans each with 25 instances and each with 5 apps running, you'll need 300 IP addresses and additional addresses to support horizontal (in/out) scale.
 >
 > Sample calculation:
 >
@@ -72,12 +78,16 @@ You can bring your own inbound address to your App Service Environment. If you c
 - For App Service Environment with external VIP, the Azure Public IP address resource must be in the same subscription as the App Service Environment. 
 - The inbound address can't be changed after the App Service Environment is created.
 
+### ILB App Service Environment inbound traffic limitation
+
+For App Service Environments with an internal VIP, inbound traffic to the front ends can be dropped if the source IP address falls within the infrastructure address range used for the App Service Environment's front ends. **Don't use source IP addresses in the `172.31.192.0/25` address space when connecting to an ILB App Service Environment**.
+
 ## Ports and network restrictions
 
 For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This port is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.
 
 > [!NOTE]
-> Changes to NSG rules can take up to 14 days to take effect due to HTTP connection persistence. If you make a change that blocks platform/management traffic, it could take up to 14 days for the impact to be seen.
+> Changes to NSG rules can take up to 14 days to take effect due to HTTP connection persistence. If you make a change that blocks platform/management traffic, it could take up to 14 days for the effect to be seen.
 >
 
 It's a good idea to configure the following inbound NSG rule:
@@ -120,7 +130,58 @@ You can put your web application firewall devices, such as Azure Application Gat
 Your application uses one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
 
 > [!NOTE]
-> Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. The supportability is determined by a setting on the subscription where the virtual network is deployed. For virtual networks/subnets created before 1. August 2022 you need to initiate a temporary configuration change to the virtual network/subnet for the setting to be synchronized from the subscription. An example could be to add a temporary subnet, associate/dissociate an NSG temporarily or configure a service endpoint temporarily. For more information and troubleshooting, see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
+> Outbound SMTP connectivity (port 25) is supported for App Service Environment v3. The supportability is determined by a setting on the subscription where the virtual network is deployed. For virtual networks/subnets created before 1. August 2022 you need to initiate a temporary configuration change to the virtual network/subnet for the setting to be synchronized from the subscription. An example could be to add a temporary subnet, associate/dissociate an NSG temporarily, or configure a service endpoint temporarily. For more information and troubleshooting, see [Troubleshoot outbound SMTP connectivity problems in Azure](../../virtual-network/troubleshoot-outbound-smtp-connectivity.md).
+
+## Outbound network segmentation
+
+Outbound network segmentation allows you to join apps to alternate subnets to control how outbound traffic is routed. By default, all outbound traffic from an App Service Environment originates from the subnet hosting the App Service Environment.
+
+### Enable outbound network segmentation
+
+You must enable outbound network segmentation when you create your App Service Environment. You can't enable this feature on existing App Service Environments. Portal support for enabling this cluster setting or joining alternate subnets isn't available.
+
+To enable the feature, configure the `MultipleSubnetJoinEnabled` cluster setting when you create the App Service Environment using an Azure Resource Manager or Bicep template:
+
+```json
+"clusterSettings": [
+    {
+        "name": "MultipleSubnetJoinEnabled",
+        "value": "true"
+    }
+]
+```
+
+For guidance on configuring cluster settings, see [Custom configuration settings for App Service Environments](app-service-app-service-environment-custom-settings.md).
+
+### Join an app to an alternate subnet
+
+The alternate subnet must be empty and delegated to `Microsoft.Web/serverFarms`. Ensure that [application traffic routing is enabled for your app](../configure-vnet-integration-routing.md#configure-application-routing) to route all traffic through the alternate subnet.
+
+To join an app to an alternate subnet, use the following Azure CLI command:
+
+```azurecli-interactive
+az webapp vnet-integration add --resource-group <APP-RESOURCE-GROUP> --name <APP-NAME> --vnet <VNET-NAME> --subnet <ALTERNATE-SUBNET-NAME>
+```
+
+If your alternate subnet is in a different resource group than your app, run `az webapp vnet-integration add -h` to learn how to specify the resource ID.
+
+To change the alternate subnet for an app, first remove the existing integration and then add a new one.
+
+To remove the alternate subnet join for an app, remove the virtual network integration using the Azure CLI or ARM/Bicep:
+
+```azurecli-interactive
+az webapp vnet-integration remove --resource-group <APP-RESOURCE-GROUP> --name <APP-NAME>
+```
+
+> [!IMPORTANT]
+> Don't add the App Service Environment's subnet as the alternate subnet. This configuration causes a conflict and will prevent your app from functioning correctly.
+
+### Limitations
+
+- The app, App Service Environment, and virtual network must all be in the same subscription.
+- Each app from a given plan can only integrate with one alternate subnet.
+- A plan can have up to four different subnet connections, and apps in the same plan can use any of the connections.
+- This feature isn't compatible with the [multi-plan subnet join](../overview-vnet-integration.md#subnet-requirements) feature available in the multitenant App Service offering.
 
 ## Private endpoint
 
@@ -137,7 +198,7 @@ For more information about Private Endpoint and Web App, see [Azure Web App Priv
 
 ## DNS
 
-The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix. For App Service Environment domains, the site name is truncated at 40 characters because of DNS limits. If you have a slot, the slot name is truncated at 19 characters.
+The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix. For App Service Environment domains, the site name is truncated at 59 characters because of DNS limits. For App Service Environment domains with slots, the site name is truncated at 40 characters and the slot name is truncated at 19 characters because of DNS limits.
 
 ### DNS configuration to your App Service Environment
 
@@ -167,7 +228,7 @@ For FTP access to Internal Load balancer (ILB) App Service Environment v3 specif
 1. Create an Azure DNS private zone named `ftp.appserviceenvironment.net`.
 1. Create an A record in that zone that points `<App Service Environment-name>` to the inbound IP address.
 
-In addition to setting up DNS, you also need to enable it in the [App Service Environment configuration](./configure-network-settings.md#ftp-access) and at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
+In addition to setting up DNS, you also need to enable it in the [App Service Environment - Configure networking settings](./configure-network-settings.md#allow-incoming-ftp-connections) and at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
 
 ### DNS configuration from your App Service Environment
 

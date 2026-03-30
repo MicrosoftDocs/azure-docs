@@ -3,9 +3,10 @@ title: How to create and manage private endpoints (with v2 experience) for Azure
 description: This article explains how to configure and manage private endpoints for Azure Backup.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 07/19/2024
+ms.date: 12/03/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to configure private endpoints for Azure Backup, so that I can enhance the security of backup and restore operations within my Virtual Network.
 ---
 
 # Create and use private endpoints (v2 experience) for Azure Backup
@@ -35,8 +36,8 @@ Follow these steps:
    :::image type="content" source="./media/backup-azure-private-endpoints/deny-public-network.png" alt-text="Screenshot showing how to select the Deny option.":::
 
    >[!Note]
-   >Once you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
-   
+   >- When you deny access, you can still access the vault, but you can't move data to/from networks that don't contain private endpoints. For more information, see [Create private endpoints for Azure Backup](#create-private-endpoints-for-azure-backup).
+   >- If public access is denied and a private endpoint isn’t enabled, backups succeed, but restore operations fail for all workloads except Virtual Machines. However, Virtual Machine item-level recovery also fails. Ensure that you configure network restrictions carefully.   
 
 3. Select **Apply** to save the changes. 
 
@@ -139,12 +140,11 @@ Once the private endpoints created for the vault in your VNet have been approved
 >[!IMPORTANT]
 >Ensure that you've completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
 >
->1. Created a (new) Recovery Services vault
->2. Enabled the vault to use system assigned Managed Identity
->3. Assigned relevant permissions to the Managed Identity of the vault
->4. Created a Private Endpoint for your vault
->5. Approved the Private Endpoint (if not auto approved)
->6. Ensured all DNS records are appropriately added (except blob and queue records for custom servers, which will be discussed in the following sections)
+>1. Created a (new) Recovery Services vault.
+>2. [Enabled the vault to use system assigned Managed Identity](encryption-at-rest-with-cmk.md?tabs=portal#enable-a-system-assigned-managed-identity-for-the-vault).
+>3. Created a Private Endpoint for your vault.
+>4. Approved the Private Endpoint (if not auto approved).
+>5. Ensured all DNS records are appropriately added (except blob and queue records for custom servers, which will be discussed in the following sections).
 
 ### Check VM connectivity
 
@@ -198,8 +198,10 @@ When using the MARS Agent to back up your on-premises resources, make sure your 
 But if you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
 
 >[!NOTE]
-> - Private endpoints are supported with only DPM server 2022 and later.
-> - Private endpoints are not yet supported with MABS.
+>- Private endpoints are supported with only DPM server 2022 (10.22.123.0) and later.
+>- Private endpoints are supported with only MABS V4 (14.0.30.0) and later.
+
+To auto-update the MARS Agent allow access to `download.microsoft.com/download/MARSagent/*`.
 
 #### Cross Subscription Restore to a Private Endpoint enabled vault
 
@@ -211,6 +213,8 @@ To perform Cross Subscription Restore to a Private Endpoint enabled vault:
 4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
 5. Create the **Private Endpoint** and trigger the restore process.
 
+   >[!Note]
+   >In the **DNS** section, ensure that the virtual machine in the target subscription can resolve the DNS names associated with the new private endpoint. To enable access to the resource, create a private endpoint for the target virtual machine. For DNS resolution to work correctly, select a different private DNS zone other than the one used in the original vault subscription. Reuse of the same DNS zone overwrites existing entries.
 #### Cross region restore to a private endpoint enabled vault
 
 You can create a **Secondary Private Endpoint** before or after adding protected items in the vault.

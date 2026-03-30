@@ -4,22 +4,18 @@ description: include file
 services: azure-communication-services
 author: mrayyan
 manager: alexokun
-
 ms.service: azure-communication-services
-ms.date: 07/20/2023
+ms.date: 06/02/2025
 ms.topic: include
 ms.custom: include file
 ms.author: t-siddiquim
 ---
 
-## Sample app
+## Implement the sample app
 
+To implement the code needed to join participants to a rooms call, download from GitHub the [Room Call sample app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/RoomsCallQuickstart).
 
-To follow along with this quickstart, you can download the Room Call quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/RoomsCallQuickstart).
-
-
-## Setting up project
-
+## Set up the project
 
 ## Create an Android app with an empty activity
 
@@ -32,6 +28,7 @@ Name your project **Room Call Quickstart** and select **Kotlin**.
 :::image type="content" source="..\..\voice-video-calling\media\android\android-room-project.png" alt-text="Screenshot showing new project properties in the Project Setup Screen.":::
 
 ## Install the package
+
 In your module level `build.gradle`, add the following line to the `dependencies` section.
 
 ```groovy
@@ -43,10 +40,9 @@ dependencies {
 }
 ```
 
-
 ## Add permissions to application manifest
 
-To request permissions required to make a call, you must first declare the permissions in the application manifest (`app/src/main/AndroidManifest.xml`). Copy the following to your manifest file:
+To request permissions required to make a call, first declare the permissions in the application manifest (`app/src/main/AndroidManifest.xml`). Copy the following to your manifest file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -86,14 +82,13 @@ To request permissions required to make a call, you must first declare the permi
     </application>
 
 </manifest>
-
 ```
 
 ### Set up the layout for the app
 
 You need a text input for the room ID, a button for placing the call, and extra button for hanging up the call.
 
-Go to `app/src/main/res/layout/activity_main.xml`, and replace the content of file with the following code:
+Open the `app/src/main/res/layout/activity_main.xml` file, and replace the content of file with the following code:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -167,18 +162,17 @@ Go to `app/src/main/res/layout/activity_main.xml`, and replace the content of fi
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
 ```
 
 ## Create the main activity
 
-With the layout created, you can add the logic to start a Room call. The activity handles requesting runtime permissions, creating the call agent, and placing the call when the button is pressed.
+With the layout created, you can add the logic to start a Room call. The activity handles requesting runtime permissions, creating the call agent, and placing the call when a participant presses the button.
 
 The `onCreate` method invokes `getAllPermissions` and `createAgent`, and adds the bindings for the call button. 
 
-This event occurs only once when the activity is created. For more information about `onCreate`, see the guide [Understand the activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
+This event occurs only once when the activity is created. For more information about `onCreate`, see [Understand the activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle).
 
-Go to *MainActivity.kt* file, and replace the content with the following code:
+Open the `MainActivity.kt` file, and replace the content with the following code:
 
 ```java
 package com.contoso.roomscallquickstart
@@ -336,14 +330,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
 ```
 
 > [!NOTE]
-> When you're designing your app, consider when these permissions should be requested. Permissions should be requested as they are needed, not ahead of time. For more information, see, the [Android Permissions Guide](https://developer.android.com/training/permissions/requesting).
-
+> When designing your app, consider when you need to request these permissions. We recommend requesting permissions when needed not ahead of time. For more information, see the [Android Permissions Guide](https://developer.android.com/training/permissions/requesting).
 
 ## Run your project
+
 Before running your project, replace `<ACS_USER_TOKEN>` in  `MainActivity.kt` with your Azure Communication Services User Access Token.
 
 ```
@@ -352,12 +345,11 @@ private val userToken = "<ACS_USER_TOKEN>"
 
 Run the project on an emulator or a physical device.
 
-You should see a field to enter your Room ID and a button to start the Room Call. Enter your Room ID and verify the Call status has changed along with your Role.
-
+Look for the field to enter your Room ID and a button to start the Room Call. Enter your Room ID and verify the Call status changed along with your Role.
 
 ## Understanding joining a Room call
 
-All the code that you have added in your QuickStart app allowed you to successfully start and join a room call. We need to dive deep into how it all works and what more methods/handlers you can access for Rooms.
+All the code that you added in the app enables you to successfully start and join a room call. We need to dive deep into how it all works and which other methods and handlers you can access for Rooms.
 
 Room calls are joined through `CallAgent` which is created with a valid user token:
 ```kotlin
@@ -373,19 +365,17 @@ private fun createCallAgent() {
         ).show()
     }
 }
-
 ```
 
-Using `CallAgent` and `RoomCallLocator`, we can join a room call using the `CallAgent.join` method which returns a `Call` object:
+Participants can use `CallAgent` and `RoomCallLocator` to join a room call using the `CallAgent.join` method which returns a `Call` object:
 
 ```java
  val joinCallOptions = JoinCallOptions()
  val roomCallLocator = RoomCallLocator(roomId)
  call = callAgent.join(applicationContext, roomCallLocator, joinCallOptions)
-        
 ```
 
-Further customization beyond the `MainActivity.kt`file includes subscribing to `Call` events to get updates:
+You can further customize the `MainActivity.kt` file by subscribing to `Call` events to get updates:
 
 ```Java
 call.addOnRemoteParticipantsUpdatedListener { args: ParticipantsUpdatedEvent? ->
@@ -401,7 +391,7 @@ call.addOnStateChangedListener { args: PropertyChangedEvent? ->
 }
 ```
 
-You can extend `MainActivity.kt` further to display the role of the local or remote call participants by using these methods and handlers below.
+You can extend `MainActivity.kt` to display the role of the local or remote call participants by using these methods and handlers:
 
 ```java
 // Get your role in the call
@@ -427,4 +417,4 @@ remoteParticipant.getCallParticipantRole();
 
 The ability to join a room call and display the roles of call participants is available in the Android Mobile Calling SDK version [2.4.0](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/2.4.0/aar) and above.
 
-You can learn more about roles of room call participants in the [rooms concept documentation](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).
+For more information about roles of room call participants, see [Rooms API for structured meetings](../../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).

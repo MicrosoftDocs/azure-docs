@@ -2,10 +2,10 @@
 title: Monitor device status
 titleSuffix: Azure IoT Hub
 description: Use Event Grid or the device heartbeat pattern to monitor the connection states of Azure IoT Hub devices.
-author: kgremban
-ms.author: kgremban
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: reference
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.date: 01/05/2024
 ---
 
@@ -17,30 +17,29 @@ The following table introduces three ways to monitor your device connection stat
 
 | Method | Status frequency | Cost | Effort to build |
 | --- | --- | --- | --- |
-| Device twin connectionState property | Intermittent | Low | Low |
-| Event Grid | 60 seconds | Low | Low |
-| Custom device heartbeat pattern | Custom | High | High |
+| [Device twin connectionState property](#device-twin-connectionstate) | Intermittent | Low | Low |
+| [Event Grid](#event-grid) | 60 seconds | Low | Low |
+| [Custom device heartbeat pattern](#device-heartbeat-pattern) | Custom | High | High |
 
-Because of its reliability, low cost, and ease of use we recommend Event Grid as the preferred monitoring solution for most customers.
+Because of its reliability, low cost, and ease of use, we recommend Event Grid as the preferred monitoring solution for most customers.
 
 However, there are certain limitations to monitoring with Event Grid that may disqualify it for some IoT solutions. Use this article to understand the benefits and limitations of each option.
 
 ## Device twin connectionState
 
-Every IoT Hub device identity contains a property called **connectionState** that reports either **connected** or **disconnected**. This property represents IoT Hub's understanding of a device's connection status.
+Every IoT Hub device identity contains a property called `connectionState` that reports either `connected` or `disconnected`. This property represents IoT Hub's understanding of a device's connection status.
 
-The connection state property has several limitations:
+The `connectionState` property has several limitations:
 
-* The connection state is updated only for devices that use MQTT or AMQP.
+* This property is updated only for devices that use MQTT or AMQP.
 * Updates to this property rely on protocol-level pings and may be delayed as much as five minutes.
 
-For these reasons, we recommend that you only use the **connectionState** field during development and debugging. IoT solutions shouldn't query the field at run time. For example, don't query the **connectionState** field to check if a device is connected before you send a cloud-to-device message or an SMS.
+> [!IMPORTANT]
+> We recommend that you only use the `connectionState` field during development and debugging, not in production. IoT solutions shouldn't query the field at run time. For example, don't query the `connectionState` field to check if a device is connected before you send a cloud-to-device message or an SMS.
 
 ## Event Grid
 
-We recommend Event Grid as the preferred monitoring solution for most customers.
-
-Subscribe to the **deviceConnected** and **deviceDisconnected** events on Event Grid to get alerts and monitor the device connection state.
+We recommend Event Grid as the preferred monitoring solution for most customers. Subscribe to the **deviceConnected** and **deviceDisconnected** events on Event Grid to get alerts and monitor the device connection state.
 
 Use the following articles to learn how to integrate device connected and disconnected events in your IoT solution:
 

@@ -5,9 +5,10 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/21/2024
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 # Clustering on your Azure Stack Edge Pro GPU device

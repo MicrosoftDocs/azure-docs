@@ -3,15 +3,19 @@ title: Set up Azure Automation continuous deployment with Chocolatey
 description: This article tells how to set up continuous deployment with State Configuration and the Chocolatey package manager.
 services: automation
 ms.subservice: desired-state-config
-ms.date: 08/20/2024
+ms.date: 11/17/2025
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Set up continuous deployment with Chocolatey
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
 
 In a DevOps world, there are many tools to assist with various points in the continuous integration
 pipeline. Azure Automation [State Configuration][09] is a welcome new addition to the options that
@@ -311,7 +315,7 @@ For each package that you put into the package repository, you need a Nuspec tha
 must be compiled and stored on your NuGet server. For more information, see
 [[Create a NuGet package using nuget.exe CLI]][15].
 
-You can use **MyGet.org** as a NuGet server. You can buy this service, but thee is a free starter
+You can use **MyGet.org** as a NuGet server. You can buy this service, but there is a free starter
 SKU. For instructions on installing your own NuGet server for your private packages, see the
 documentation on [Nuget.org][21].
 

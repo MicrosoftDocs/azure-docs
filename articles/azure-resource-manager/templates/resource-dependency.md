@@ -1,8 +1,8 @@
----
+﻿---
 title: Set deployment order for resources
 description: Describes how to set one Azure resource as dependent on another resource during deployment. The dependencies ensure resources are deployed in the correct order.
-ms.topic: conceptual
-ms.date: 09/26/2024
+ms.topic: article
+ms.date: 04/28/2025
 ---
 
 # Define the order for deploying resources in ARM templates
@@ -18,12 +18,12 @@ Azure Resource Manager evaluates the dependencies between resources, and deploys
 
 Within your Azure Resource Manager template (ARM template), the `dependsOn` element enables you to define one resource as a dependent on one or more resources. Its value is a JavaScript Object Notation (JSON) array of strings, each of which is a resource name or ID. The array can include resources that are [conditionally deployed](conditional-resource-deployment.md). When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
-The following example shows a network interface that depends on a virtual network, network security group, and public IP address. For the full template, see [the quickstart template for a Linux virtual machine](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json).
+The following example shows a network interface that depends on a virtual network, network security group, and public IP address.
 
 ```json
 {
   "type": "Microsoft.Network/networkInterfaces",
-  "apiVersion": "2022-07-01",
+  "apiVersion": "2025-01-01",
   "name": "[variables('networkInterfaceName')]",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -51,7 +51,7 @@ With [languageVersion 2.0](./syntax.md#languageversion-20), use resource symboli
   "resources": {
     "myStorage": {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('storage{0}', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -61,7 +61,7 @@ With [languageVersion 2.0](./syntax.md#languageversion-20), use resource symboli
     },
     "myVm": {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2023-03-01",
+      "apiVersion": "2025-04-01",
       "name": "[format('vm{0}', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -166,7 +166,7 @@ The following example shows how to deploy multiple virtual machines. The templat
 ```json
 {
   "type": "Microsoft.Network/networkInterfaces",
-  "apiVersion": "2022-07-01",
+  "apiVersion": "2025-01-01",
   "name": "[format('{0}-{1}', variables('nicPrefix'), copyIndex())]",
   "location": "[parameters('location')]",
   "copy": {
@@ -177,7 +177,7 @@ The following example shows how to deploy multiple virtual machines. The templat
 },
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2022-11-01",
+  "apiVersion": "2025-04-01",
   "name": "[format('{0}{1}', variables('vmPrefix'), copyIndex())]",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -218,7 +218,7 @@ The following example shows how to deploy three storage accounts before deployin
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}storage{1}, copyIndex(), uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -233,7 +233,7 @@ The following example shows how to deploy three storage accounts before deployin
     },
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2022-11-01",
+      "apiVersion": "2025-04-01",
       "name": "[format('VM{0}', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...
@@ -258,7 +258,7 @@ The following example shows how to deploy three storage accounts before deployin
   "resources": {
     "myStorages": {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}storage{1}, copyIndex(), uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -273,7 +273,7 @@ The following example shows how to deploy three storage accounts before deployin
     },
     "myVM": {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2022-11-01",
+      "apiVersion": "2025-04-01",
       "name": "[format('VM{0}', uniqueString(resourceGroup().id))]",
       "dependsOn": ["myStorages"],
       ...
@@ -301,3 +301,4 @@ For information about assessing the deployment order and resolving dependency er
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 * To learn about creating Azure Resource Manager templates, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * For a list of the available functions in a template, see [ARM template functions](template-functions.md).
+

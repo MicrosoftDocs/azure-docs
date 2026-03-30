@@ -8,6 +8,8 @@ ms.custom: playwright-testing-preview
 
 # Service limits in Microsoft Playwright Testing Preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Azure uses limits and quotas to prevent budget overruns due to fraud, and to honor Azure capacity constraints. Consider these limits as you scale for production workloads. In this article, you learn about:
 
 - Default limits on Azure resources related to Microsoft Playwright Testing Preview.
@@ -25,13 +27,13 @@ While the service is in preview, the following limits apply on a per-subscriptio
 | Resource  | Limit |
 |---------|---------|
 | Workspaces per region per subscription | 2 |
-| Parallel workers per workspace | 50 |
+| Parallel workers per workspace | 100 |
 | Access tokens per user per workspace | 10 |
 
 ## Test code limitations
 
-- Only tests Playwright version 1.47 and higher is supported with the Microsoft Playwright Testing service package.
-- Only the Playwright runner and test code written in JavaScript or TypeScript are supported.
+- The service supports Playwright OSS version 1.47 or higher.
+- The service supports the Playwright test runner and the NUnit test runner only.
 
 ## Supported operating systems and browsers
 
@@ -41,7 +43,7 @@ While the service is in preview, the following limits apply on a per-subscriptio
 ## Other limitations
 
 - Moving a workspace to another resource group is not yet supported.
-- The Playwright portal is only available in English. Localization in other languages is currently in progress.
+- The Playwright Testing service portal is only available in English. Localization in other languages is currently in progress.
 
 ## Request quota increases
 

@@ -1,12 +1,14 @@
 ---
-title: Introduction to the Fitness Store sample app
+title: Introduction to the Fitness Store Sample App
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Describes the sample app used in this series of quickstarts for deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: asirveda # external contributor: paly@vmware.com
+ms.author: karler
+ms.reviewer: asirveda # external contributor: paly@vmware.com
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java
 ---
 
@@ -14,7 +16,7 @@ ms.custom: devx-track-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart describes the [fitness store](https://github.com/Azure-Samples/acme-fitness-store) sample application, which shows you how to deploy polyglot apps to an Azure Spring Apps Enterprise plan instance. You see how polyglot applications are built and deployed using Azure Spring Apps Enterprise plan capabilities. These capabilities include Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
 
@@ -38,7 +40,7 @@ This quickstart applies this architecture to a Fitness Store application. This a
 - One ASP.NET Core application:
   - **Order Service** places orders to buy products that are in the users' carts.
 
-- One NodeJS and static HTML application:
+- One Node.js and static HTML application:
   - **Frontend** is the shopping application that depends on the other services.
 
 ## Next steps

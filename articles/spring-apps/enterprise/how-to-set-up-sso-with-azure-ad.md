@@ -1,20 +1,24 @@
 ---
-title: How to set up single sign-on with Microsoft Entra ID for Spring Cloud Gateway and API Portal for Tanzu
+title: How to Set Up Single Sign-on with Microsoft Entra ID for Spring Cloud Gateway and API Portal for Tanzu
 titleSuffix: Azure Spring Apps Enterprise plan
 description: How to set up single sign-on with Microsoft Entra ID for Spring Cloud Gateway and API Portal for Tanzu with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: ninpan
+ms.author: karler
+ms.reviewer: ninpan
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 04/23/2024
-ms.custom: devx-track-java
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - sfi-image-nochange
 ---
 
 # Set up single sign-on using Microsoft Entra ID for Spring Cloud Gateway and API Portal
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to configure single sign-on (SSO) for Spring Cloud Gateway or API Portal using the Microsoft Entra ID as an OpenID identify provider.
 
@@ -49,9 +53,9 @@ First, you must get the assigned public endpoint for Spring Cloud Gateway and AP
 
 Register your application to establish a trust relationship between your app and the Microsoft identity platform using the following steps:
 
-1. From the *Home* screen, select **Microsoft Entra ID** from the left menu.
-1. Select **App Registrations** under *Manage*, then select **New registration**.
-1. Enter a display name for your application under *Name*, then select an account type to register under *Supported account types*.
+1. From the **Home** screen, select **Microsoft Entra ID** from the left menu.
+1. Select **App Registrations** under **Manage**, then select **New registration**.
+1. Enter a display name for your application under **Name**, then select an account type to register under **Supported account types**.
 1. In *Redirect URI (optional)* select **Web**, then enter the URL from the above section in the text box. The redirect URI is the location where Microsoft Entra ID redirects your client and sends security tokens after authentication.
 1. Select **Register** to finish registering the application.
 
@@ -61,7 +65,7 @@ When registration finishes, you'll see the *Application (client) ID* on the **Ov
 
 You can also add redirect URIs after app registration by following these steps:
 
-1. From your application overview, under *Manage* in the left menu, select **Authentication**.
+1. From your application overview, under **Manage** in the left menu, select **Authentication**.
 1. Select **Web**, then select **Add URI** under *Redirect URIs*.
 1. Add a new redirect URI, then select **Save**.
 
@@ -73,7 +77,7 @@ For more information on Application Registration, see [Quickstart: Register an a
 
 The application uses a client secret to authenticate itself in SSO workflow. You can add a client secret using the following steps:
 
-1. From your application overview, under *Manage* in the left menu, select **Certificates & secrets**.
+1. From your application overview, under **Manage** in the left menu, select **Certificates & secrets**.
 1. Select **Client secrets**, then select **New client secret**.
 1. Enter a description for the client secret, then set an expiration date.
 1. Select **Add**.

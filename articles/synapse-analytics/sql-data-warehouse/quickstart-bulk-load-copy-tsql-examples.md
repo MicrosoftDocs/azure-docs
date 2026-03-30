@@ -1,13 +1,12 @@
 ---
 title: Authentication mechanisms with the COPY statement
 description: Outlines the authentication mechanisms to bulk load data with the COPY statement in Synapse SQL.
-author: WilliamDAssafMSFT
+author: ajagadish-24
+ms.author: ajagadish
 ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
-ms.date: 06/15/2022
-ms.author: wiassaf
-ms.reviewer: whhender
+ms.date: 10/23/2025
 ms.custom: subject-rbac-steps, mode-other
 ---
 
@@ -17,7 +16,7 @@ This article highlights and provides examples on the secure authentication mecha
 
 ## Supported authentication mechanisms
 
-The following matrix describes the supported authentication methods for each file type and storage account. This applies to the source storage location and the error file location.
+The following matrix describes the supported authentication methods for each file type and storage account. This information applies to the source storage location and the error file location.
 
 |                          |                CSV                |                      Parquet                       |                        ORC                         |
 | :----------------------: | :-------------------------------: | :------------------------------------------------: | :------------------------------------------------: |
@@ -45,7 +44,7 @@ WITH (
 ```
 > [!IMPORTANT]
 >
-> - Use the hexadecimal value (0x0A) to specify the Line Feed/Newline character. Note the COPY statement will interpret the `\n` string as `\r\n` (carriage return newline).
+> - Use the hexadecimal value (0x0A) to specify the Line Feed/Newline character. Note the COPY statement interprets the `\n` string as `\r\n` (carriage return newline).
 
 ## B. Shared Access Signatures (SAS) with CRLF as the row terminator (Windows style new line)
 
@@ -62,7 +61,7 @@ WITH (
 ```
 
 > [!IMPORTANT]
-> Do not specify the `ROWTERMINATOR` as '\r\n' which will be interpreted as '\r\r\n' and can result in parsing issues. The COPY command automatically prefixes the \r character when \n (newline) is specified. This results in carriage return newline (\r\n) for Windows based systems.
+> Don't specify the `ROWTERMINATOR` as '\r\n', which is interpreted as '\r\r\n' and can result in parsing issues. The COPY command automatically prefixes the \r character when \n (newline) is specified. This results in carriage return newline (\r\n) for Windows based systems.
 
 ## C. Managed Identity
 
@@ -84,7 +83,7 @@ Managed Identity authentication is required when your storage account is attache
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-   This step is not required for dedicated SQL pools within a Synapse workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
+   This step isn't required for dedicated SQL pools within a Synapse workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
 
 1. Create a **general-purpose v2 Storage Account**. For more information, see [Create a storage account](../../storage/common/storage-account-create.md).
 
@@ -97,13 +96,13 @@ Managed Identity authentication is required when your storage account is attache
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
     | Role | Storage Blob Data Contributor |
     | Assign access to | SERVICEPRINCIPAL |
-    | Members | server or workspace hosting your dedicated SQL pool that you've registered with Microsoft Entra ID  |
+    | Members | Server or workspace hosting your dedicated SQL pool that is registered with Microsoft Entra ID  |
 
     ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
@@ -136,7 +135,7 @@ Managed Identity authentication is required when your storage account is attache
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |

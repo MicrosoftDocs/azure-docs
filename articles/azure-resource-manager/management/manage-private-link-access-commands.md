@@ -1,14 +1,14 @@
 ---
-title: Manage resource management private links
+title: Manage Resource Management Private Links
 description: Use APIs to manage existing resource management private links
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/26/2024
+ms.date: 02/27/2026
 ---
 
 # Manage resource management private links
 
-This article explains how you to work with existing resource management private links. It shows API operations for getting and deleting existing resources.
+This article explains how to work with existing resource management private links. It shows API operations for getting and deleting existing resources.
 
 If you need to create a resource management private link, see [Use portal to create private link for managing Azure resources](create-private-link-access-portal.md) or [Use APIs to create private link for managing Azure resources](create-private-link-access-commands.md).
 
@@ -232,3 +232,4 @@ The operation returns: `Status 200 OK`.
 * To learn more about private links, see [Azure Private Link](../../private-link/index.yml).
 * To manage your private endpoints, see [Manage Private Endpoints](../../private-link/manage-private-endpoint.md).
 * To create a resource management private links, see [Use portal to create private link for managing Azure resources](create-private-link-access-portal.md) or [Use REST API to create private link for managing Azure resources](create-private-link-access-rest.md).
+

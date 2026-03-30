@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/22/2022
+ms.date: 10/09/2025
 ms.author: kesheth
 ---
 # Defining custom search parameters
@@ -13,7 +13,7 @@ ms.author: kesheth
 The FHIR&reg; specification defines a set of search parameters that apply to all resources. Additionally, FHIR defines many search parameters that are specific to certain resources. However, you might also want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own custom [search parameters](https://www.hl7.org/fhir/searchparameter.html) for use in the FHIR service in Azure Health Data Services.
 
 > [!NOTE]
-> Each time you create, update, or delete a search parameter, you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter for live production. We will outline how you can test search parameters before reindexing the entire FHIR service database following.
+> Each time you create, update, or delete a search parameter, you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter to perform search with custom search parameter.
 
 ## Create new search parameter 
 
@@ -237,8 +237,11 @@ PUT {{FHIR_URL}}/SearchParameter/{{SearchParameter_ID}}
 
 The result of the above request will be an updated `SearchParameter` resource. 
 
+To avoid disruption with reindexing of an existing custom search parameter, consider creating a new custom search parameter instead. Ensure the base, code, and url values associated with the new search parameter are unique. Duplicating these fields may lead to indeterminate behavior during reindexing.
+
 > [!Warning]
-> Be careful when updating search parameters. Changing an existing search parameter could have impacts on the expected behavior. We recommend running a reindex job immediately.
+> Be careful when updating search parameters. Changing an existing search parameter can impact expected behavior. We recommend running a reindex job immediately.
+> **Note**: Frequent changes to custom search parameters in production instances can disrupt queries. Plan such changes carefully to avoid potential issues.
 
 ## Delete a search parameter
 

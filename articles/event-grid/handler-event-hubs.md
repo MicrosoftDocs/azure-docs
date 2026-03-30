@@ -1,7 +1,7 @@
 ---
 title: Event hub as an event handler for Azure Event Grid events
 description: Describes how you can use event hubs as event handlers for Azure Event Grid events.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/19/2023
 ---
 

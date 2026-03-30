@@ -20,13 +20,15 @@ ms.subservice: b2c
 
 # Integrating Twilio Verify App with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this walkthrough, learn how to integrate a sample online payment app in Azure Active Directory B2C (Azure AD B2C) with the Twilio Verify API. By using Twilio Verify App, Azure AD B2C customers can comply with PSD2 (Payment Services Directive 2) transaction requirements through dynamic linking and strong customer authentication.
 
 ## Prerequisites
 
 To get started, you'll need:
 
-* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 * A [trial account](https://www.twilio.com/try-twilio) at Twilio.
 
@@ -66,8 +68,8 @@ The following components make up the Twilio solution:
 
     ```xml
     <add key="ida:Tenant" value="yourtenant.onmicrosoft.com" />
-    <add key="ida:TenantId" value="d6f33888-0000-4c1f-9b50-1590f171fc70" />
-    <add key="ida:ClientId" value="6bd98cc8-0000-446a-a05e-b5716ef2651b" />
+    <add key="ida:TenantId" value="aaaabbbb-0000-cccc-1111-dddd2222eeee" />
+    <add key="ida:ClientId" value="00001111-aaaa-2222-bbbb-3333cccc4444" />
     <add key="ida:ClientSecret" value="secret" />
     <add key="ida:AadInstance" value="https://yourtenant.b2clogin.com/tfp/{0}/{1}" />
     <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
@@ -80,7 +82,7 @@ The following components make up the Twilio solution:
    - Update the following lines based on your certificate in the web.config:
    
      ```xml
-     <add key="ida:SigningCertThumbprint" value="4F39D6014818082CBB763E5BA5F230E545212E89" />
+     <add key="ida:SigningCertThumbprint" value="AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00" />
      <add key="ida:SigningCertAlgorithm" value="RS256" />
      ```
 

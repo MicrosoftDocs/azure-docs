@@ -1,30 +1,34 @@
 ---
 title: Assess ASP.NET/Java web apps for migration to Azure Kubernetes Service
 description: Assessments of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
-author: anraghun
-ms.author: anraghun
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
-ms.date: 04/01/2024
-ms.custom: template-tutorial, devx-track-extended-java
+ms.date: 02/05/2025
 zone_pivot_groups: web-apps-assessment-aks
+monikerRange:
+ms.custom:
+  - template-tutorial
+  - devx-track-extended-java
+  - sfi-image-nochange
+# Customer intent: As a web application developer, I want to assess my ASP.NET or Java web apps for migration to a container orchestration service, so that I can understand their readiness, optimal resource requirements, and estimated hosting costs for effective deployment on a cloud infrastructure.
 ---
 
 # Assess web apps for migration to Azure Kubernetes Service (preview)
 
 ::: zone pivot="asp-net"
 
-This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Creating an assessment for your ASP.NET web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
+This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Create an assessment for your ASP.NET web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
 ::: zone pivot="java"
 
-This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Creating an assessment for your Java web app provides key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
+This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Create an assessment for your Java web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 ::: zone pivot="asp-net"
 > [!div class="checklist"]
@@ -71,7 +75,7 @@ In this tutorial, you'll learn how to:
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-scenario.png" alt-text="Screenshot of selecting the scenario for web app assessment.":::
 
-    2. Select **Edit** to modify assessment settings. See the table below to update the various assessment settings.
+    2. Select **Edit** to modify assessment settings. See the table to update the various assessment settings.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/create-basics-settings.png" alt-text="Screenshot of changing the target settings for web app assessment.":::
 
@@ -116,7 +120,7 @@ The assessment can take around 10 minutes to complete.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to the Web apps on Azure assessment. 
 1. On the **Assessments** page, select a desired assessment name to view from the list of assessments.
 
-    :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-view-assessments.png" alt-text="Screenshot of clicking the hyperlink to see the list of web app assessments.":::
+    :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-view-assessments.png" alt-text="Screenshot of selecting the hyperlink to see the list of web app assessments.":::
 
 2. Use the search bar to filter for your assessment. It should be in the **Ready** state. 
 

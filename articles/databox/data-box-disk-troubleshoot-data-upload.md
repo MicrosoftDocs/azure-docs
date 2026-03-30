@@ -4,11 +4,12 @@ description: Describes review and follow-up for errors during uploads from an Az
 services: databox
 author: sipastak
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: troubleshooting
 ms.date: 01/24/2023
 ms.author: shaas
+ms.custom: sfi-image-nochange
+# Customer intent: "As a data administrator, I want to review and resolve upload errors from Azure Data Box Disk, so that I can ensure successful data transfer to the Azure cloud."
 ---
 
 # Review copy errors in uploads from Azure Data Box Disk
@@ -20,17 +21,17 @@ The error notification and options vary depending on whether you can fix the err
 - **Retryable errors** - You can fix many types of copy error and resume the upload. The data is then successfully uploaded in your current order. 
     
     
-    An example of a retryable error is when Large File Shares are not enabled for a storage account that requires shares with data more than 5 TiB. To resolve this, you will need to enable this setting and then confirm to resume data copy. This type of error is referred to as a *retryable error* in the discussion that follows.
+    An example of a retryable error is when Large File Shares aren't enabled for a storage account that requires shares with data more than 5 TiB. To resolve this issue, you need to enable this setting and then confirm to resume data copy. This type of error is referred to as a *retryable error* in the discussion that follows.
 
-- **Non-retryable errors** - These are errors that can't be fixed. For those errors, the upload pauses to give you a chance to review the errors. But the order completes without the data that failed to upload, and the data is secure erased from the device. You'll need to create a new order after you resolve the issues in your data. 
+- **Non-retryable errors** - These errors are errors that can't be fixed. For those errors, the upload pauses to give you a chance to review the errors. But the order completes without the data that failed to upload, and the data is secure erased from the device. You'll need to create a new order after you resolve the issues in your data. 
 
-    An example of a non-retryable error is if a blob storage container is configured as Write Once, Read Many (WORM). Upload of any blobs that are already stored in the container will fail. This type of error is referred to as a *non-retryable error* in the discussion that follows.
+    An example of a non-retryable error is if a blob storage container is configured as Write Once, Read Many (WORM). Upload of any blobs that are already stored in the container fails. This type of error is referred to as a *non-retryable error* in the discussion that follows.
 
 ## Upload errors notification
 
-When a file upload fails because of an error, you'll receive a notification in the Azure portal. You can tell whether the error can be fixed by the status and options in the order overview.
+When a file upload fails because of an error, you receive a notification in the Azure portal. You can tell whether the error can be fixed by the status and options in the order overview.
 
-**Retryable errors**: If you can fix the error in the current order, the notification looks similar to the following one. The current order status is **Data copy halted**. You can either choose to resolve the error or proceed with data erasure without making any change. If you select **Resolve error**, a **Resolve error** screen will tell you how to resolve each error. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
+**Retryable errors**: If you can fix the error in the current order, the notification looks similar to the following one. The current order status is **Data copy halted**. You can either choose to resolve the error or proceed with data erasure without making any change. If you select **Resolve error**, a **Resolve error** screen tells you how to resolve each error. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
 
 ![Screenshot of a Data Box Disk order with retryable upload errors.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-01.png)
 
@@ -40,7 +41,7 @@ When a file upload fails because of an error, you'll receive a notification in t
 ![Screenshot of a Data Box Disk order with Resolve errors pane.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-non-retriable-errors-01.png)
 
 
-You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
+You can't fix these errors. The upload completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
 After you review the errors and confirm you're ready to proceed, the data is secure erased from the device. If you don't respond to the notification, the order is completed automatically after 14 days.
 
@@ -65,7 +66,7 @@ To resolve retryable copy errors during an upload, do these steps:
 
    ![Screenshot of a Data Box Disk order with retryable upload error. Resolve option is highlighted.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-02.png)
 
-   Your screen will look similar to the one below. In the example, the **Enable large file share** error can be resolved by toggling **Not enabled** for each storage account.
+   Your screen looks similar to the following example. In the example, the **Enable large file share** error can be resolved by toggling **Not enabled** for each storage account.
 
    ![Screenshot of a Data Box Disk order with Resolve errors pane and Enable large file shares highlighted.](media/data-box-disk-troubleshoot-data-upload/data-box-disk-retriable-errors-03.png)
 

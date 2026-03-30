@@ -5,9 +5,12 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.custom: devx-track-csharp, devdivchpfy22
-ms.date: 02/20/2024
+ms.date: 03/20/2025
 ms.author: malev
+ms.custom:
+  - devx-track-csharp
+  - devdivchpfy22
+  - sfi-ropc-nochange
 
 # Customer intent: I want to use Azure App Configuration data in my CI/CD pipeline.
 
@@ -18,7 +21,7 @@ This article explains how to use data from Azure App Configuration in a continuo
 
 ## Use App Configuration in your Azure DevOps Pipeline
 
-If you have an Azure DevOps Pipeline, you can fetch key-values from App Configuration and set them as task variables. The Azure App Configuration DevOps extension is an add-on module that provides this functionality. [Get this module](https://go.microsoft.com/fwlink/?linkid=2091063) and refer to [Pull settings from App Configuration with Azure Pipelines](./pull-key-value-devops-pipeline.md) for instructions to use it in your Azure Pipelines.
+If you have an Azure DevOps Pipeline, you can fetch key-values from App Configuration and set them as task variables. The Azure App Configuration DevOps extension is an add-on module that provides this functionality. [Get this module](https://go.microsoft.com/fwlink/?linkid=2091063) and refer to [Export settings from App Configuration with Azure Pipelines](./azure-pipeline-export-task.md) for instructions to use it in your Azure Pipelines.
 
 ## Deploy App Configuration data with your application
 
@@ -70,7 +73,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     To build and run the app locally using the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
     
     ```console
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+        setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
     
     ### [PowerShell](#tab/powershell)
@@ -78,7 +81,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     If you use Windows PowerShell, run the following command:
     
     ```powershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+        $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
     
     ### [macOS](#tab/unix)
@@ -86,7 +89,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     If you use macOS, run the following command:
     
     ```console
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+        export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
     
     ### [Linux](#tab/linux)
@@ -94,7 +97,7 @@ If you build locally, download and install the [Azure CLI](/cli/azure/install-az
     If you use Linux, run the following command:
     
     ```console
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+        export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
     
     ---

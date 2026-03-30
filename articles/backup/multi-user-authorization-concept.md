@@ -1,110 +1,121 @@
 ---
-title: Multi-user authorization using Resource Guard
-description: An overview of Multi-user authorization using Resource Guard.
+title: Multiuser Authorization Using Resource Guard
+description: This article provides an overview of multiuser authorization using Resource Guard.
 ms.topic: overview
-ms.date: 09/11/2024
+ms.date: 06/27/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a backup administrator, I want to implement multiuser authorization using Resource Guard so that I can enhance the security of critical operations on my Recovery Services vaults and ensure that only authorized users can perform those operations.
 ---
-# About Multi-user authorization using Resource Guard
+# Multiuser authorization using Resource Guard
 
-Multi-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization.
+You can use multiuser authorization (MUA) for Azure Backup to add a layer of protection to critical operations on your Recovery Services vaults and Backup vaults. For MUA, Azure Backup uses another Azure resource called Resource Guard to ensure that critical operations are performed only with applicable authorization.
 
->[!Note]
->Multi-user authorization using Resource Guard for Backup vault is now generally available.
+Multiuser authorization using Resource Guard for a Backup vault is now generally available.
 
-## How does MUA for Backup work?
+## Permissions for MUA for Azure Backup
 
-Azure Backup uses the Resource Guard as an additional authorization mechanism for a Recovery Services vault or a Backup vault. Therefore, to perform a critical operation (described below) successfully, you must have sufficient permissions on the associated Resource Guard as well.
+Azure Backup uses Resource Guard as an additional authorization mechanism for a Recovery Services vault or a Backup vault. To perform a critical operation (described in the next section) successfully, you must have sufficient permissions on Resource Guard.
 
-> [!Important]
-> To function as intended, the Resource Guard must be owned by a different user, and the **vault admin** mustn't have **Contributor**, **Backup MUA Admin**, or **Backup MUA Operator** permissions on the Resource Guard. You can place Resource Guard in a subscription or tenant different from the one containing the vaults to provide better protection.
+For MUA to function as intended:
+
+- A different user must own the Resource Guard instance.
+- The vault admin must not have Contributor, Backup MUA Admin, or Backup MUA Operator permissions on Resource Guard.
+
+To provide better protection, you can place Resource Guard in a subscription or tenant that's different from the one that contains the vaults.
 
 ## Critical operations
 
-The following table lists the operations defined as critical operations and can be protected by a Resource Guard. You can choose to exclude certain operations from being protected using the Resource Guard when associating vaults with it.
+The following table lists the operations that are defined as critical and that Resource Guard can help protect. You can choose to exclude certain operations from being protected via Resource Guard when you're associating vaults with it.
 
->[!Note]
->You can't excluded the operations denoted as Mandatory  from being protected using the Resource Guard for vaults associated with it. Also, the excluded critical operations would apply to all vaults associated with a Resource Guard.
-
-**Choose a vault**
+> [!NOTE]
+> You can't exclude the operations denoted as *mandatory* from being protected via Resource Guard for vaults that are associated with it. Also, the excluded critical operations would apply to all vaults associated with Resource Guard.
 
 # [Recovery Services vault](#tab/recovery-services-vault)
 
 | Operation | Mandatory/ Optional | Description |
 | --- | --- | --- |
-| **Disable soft delete or security features** | Mandatory | Disable soft delete setting on a vault. |
+| **Disable soft delete or security features** | Mandatory | Disable the soft-delete setting on a vault. |
 | **Remove MUA protection** | Mandatory | Disable MUA protection on a vault. |
-| **Delete protection** | Optional | Delete protection by stopping backups and performing delete data. |
-| **Modify protection** | Optional | Add a new backup policy with reduced retention or change policy frequency to increase [RPO](azure-backup-glossary.md#recovery-point-objective-rpo). |
-| **Modify policy** | Optional | Modify backup policy to reduce retention or change policy frequency to increase [RPO](azure-backup-glossary.md#recovery-point-objective-rpo). |
-| **Get backup security PIN** | Optional | Change MARS security PIN. |
-| **Stop backup and retain data** | Optional | Delete protection by stopping backups and performing retain data forever or retain as per policy. |
-| **Disable immutability** | Optional | Disable immutability setting on a vault. |
-
+| **Delete protection** | Optional | Delete protection by stopping backups and deleting data. |
+| **Modify protection** | Optional | Add a new backup policy with reduced retention, or change policy frequency to increase [recovery point objective (RPO)](azure-backup-glossary.md#recovery-point-objective-rpo). |
+| **Modify policy** | Optional | Modify the backup policy to reduce retention, or change the policy frequency to increase RPO. |
+| **Get backup security PIN** | Optional | Change the Microsoft Azure Recovery Services (MARS) security PIN. |
+| **Stop backup and retain data** | Optional | Delete protection by stopping backups and retaining data forever or retaining data according to policy. |
+| **Disable immutability** | Optional | Disable the immutability setting on a vault. |
 
 # [Backup vault](#tab/backup-vault)
 
 | Operation | Mandatory/ Optional | Description |
 | --- | --- | --- |
-| **Disable soft delete** | Mandatory | Disable soft delete setting on a vault. |
+| **Disable soft delete** | Mandatory | Disable the soft-delete setting on a vault. |
 | **Remove MUA protection** | Mandatory | Disable MUA protection on a vault. |
-| **Delete Backup Instance** | Optional | Delete protection by stopping backups and performing delete data. |
-| **Stop backup and retain forever** | Optional | Delete protection by stopping backups and performing retain data forever. |
-| **Stop backup and retain as per policy** | Optional | Delete protection by stopping backups and performing retain data as per policy. |
-| **Disable immutability** | Optional | Disable immutability setting on a vault. |
-
+| **Delete Backup Instance** | Optional | Delete protection by stopping backups and deleting data. |
+| **Stop backup and retain forever** | Optional | Delete protection by stopping backups and retaining data forever. |
+| **Stop backup and retain as per policy** | Optional | Delete protection by stopping backups and retaining data according to policy. |
+| **Disable immutability** | Optional | Disable the immutability setting on a vault. |
 
 ---
 
-### Concepts and process
+## Concepts and process
 
-The concepts and the processes involved when using MUA for Azure Backup are explained below.
+This section describes the concepts and the processes involved when you use MUA for Azure Backup.
 
-Let’s consider the following two personas for a clear understanding of the process and responsibilities. These two personas are referenced throughout this article.
+For a clear understanding of the process and responsibilities, consider the following two personas. These personas are referenced throughout this article.
 
-**Backup admin**: Owner of the Recovery Services vault or the Backup vault who performs management operations on the vault. To begin with, the Backup admin must not have any permissions on the Resource Guard. This can be *Backup Operator* or *Backup Contributor* RBAC role on the Recovery Services vault.
+- **Backup admin**: Owner of the Recovery Services vault or Backup vault who performs management operations on the vault. At first, the backup admin must not have any permissions on Resource Guard. The backup admin can have the Backup Operator or Backup Contributor role-based access control (RBAC) role on the Recovery Services vault.
 
-**Security admin**: Owner of the Resource Guard and serves as the gatekeeper of critical operations on the vault. Hence, the Security admin controls permissions that the Backup admin needs to perform critical operations on the vault. This can be *Backup MUA Admin* RBAC role on the Resource Guard.
+- **Security admin**: Owner of the Resource Guard instance and serves as the gatekeeper of critical operations on the vault. The security admin controls permissions that the backup admin needs for performing critical operations on the vault. The security admin can have the Backup MUA Admin RBAC role on Resource Guard.
 
-Following is a diagrammatic representation for performing a critical operation on a vault that has MUA configured using a Resource Guard.
+The following diagram shows the steps for performing a critical operation on a vault that has MUA configured via Resource Guard.
 
-:::image type="content" source="./media/multi-user-authorization/configure-multi-user-authorization-using-resource-guard-diagram.png" alt-text="Diagrammatic representation on configuring MUA using a Resource Guard.":::
- 
+:::image type="content" source="./media/multi-user-authorization/configure-multi-user-authorization-using-resource-guard-diagram.png" alt-text="Diagram of configuring multiuser authorization by using Resource Guard.":::
+
 Here's the flow of events in a typical scenario:
 
-1. The Backup admin creates the Recovery Services vault or the Backup vault.
-2. The Security admin creates the Resource Guard.
+1. The backup admin creates the Recovery Services vault or the Backup vault.
 
-   The Resource Guard can be in a different subscription or a different tenant with respect to the vault. Ensure that the Backup admin doesn't have **Contributor**, **Backup MUA Admin**, or **Backup MUA Operator** permissions on the Resource Guard.
+2. The security admin creates the Resource Guard instance.
 
-3. The Security admin grants the Reader role to the Backup Admin for the Resource Guard (or a relevant scope). The Backup admin requires the reader role to enable MUA on the vault.
-4. The Backup admin now configures the vault to be protected by MUA via the Resource Guard.
-5. Now, if the Backup admin or any user who has write access to the vault wants to perform a critical operation that is protected with Resource Guard on the vault, they need to request access to the Resource Guard. The Backup Admin can contact the Security admin for details on gaining access to perform such operations. They can do this using Privileged Identity Management (PIM) or other processes as mandated by the organization. They can request for “Backup MUA Operator” RBAC role which allows users to perform only critical operations protected by the Resource Guard and does not allow to delete the resource Guard. 
-6. The Security admin temporarily grants the “Backup MUA Operator” role on the Resource Guard to the Backup admin to perform critical operations.
-7. Then the Backup admin initiates the critical operation.
-8.	The Azure Resource Manager checks if the Backup admin has sufficient permissions or not. Since the Backup admin now has “Backup MUA Operator” role on the Resource Guard, the request is completed. If the Backup admin doesn't have the required permissions/roles, the request will fail.
-9. The Security admin must ensure to revoke the privileges to perform critical operations after authorized actions are performed or after a defined duration. You can use *JIT tools Microsoft Entra Privileged Identity Management* to ensure the same.
+   The Resource Guard instance can be in a different subscription or a different tenant with respect to the vault. Ensure that the backup admin doesn't have Contributor, Backup MUA Admin, or Backup MUA Operator permissions on Resource Guard.
 
+3. The security admin grants the Reader role to the backup admin for Resource Guard (or a relevant scope). The backup admin requires the Reader role to enable MUA on the vault.
 
->[!Note]
->- If you grant the **Contributor** or **Backup MUA Admin** role on the Resource Guard access temporarily to the Backup Admin, it also provides the delete permissions on the Resource Guard. We recommend you to provide **Backup MUA Operator** permissions only.
->- MUA provides protection on the above listed operations performed on the vaulted backups only. Any operations performed directly on the data source (that is, the Azure resource/workload that is protected) are beyond the scope of the Resource Guard. 
+4. The backup admin configures MUA to help protect the vault via Resource Guard.
+
+5. If the backup admin or any user who has write access to the vault wants to perform a critical operation that's protected with Resource Guard on the vault, they need to request access to Resource Guard.
+
+   The backup admin can contact the security admin for details on gaining access to perform such operations. They can do this by using privileged identity management (PIM) or other processes that the organization mandates.
+
+   The backup admin can request the Backup MUA Operator RBAC role. This role allows users to perform only critical operations that Resource Guard protects. It doesn't allow the deletion of the Resource Guard instance.
+
+6. The security admin temporarily grants the Backup MUA Operator role on Resource Guard to the backup admin to perform critical operations.
+
+7. The backup admin initiates the critical operation.
+
+8. Azure Resource Manager checks if the backup admin has sufficient permissions. Because the backup admin now has the Backup MUA Operator role on Resource Guard, the request is completed. If the backup admin doesn't have the required permissions or roles, the request fails.
+
+9. The security admin revokes the privileges to perform critical operations after authorized actions are performed or after a defined duration. You can use the just-in-time (JIT) tools in Microsoft Entra Privileged Identity Management to revoke the privileges.
+
+>[!NOTE]
+>
+>- If you grant the Contributor or Backup MUA Admin role on Resource Guard access temporarily to the backup admin, that access also provides delete permissions on Resource Guard. We recommend that you provide Backup MUA Operator permissions only.
+>- MUA provides protection on the previously listed operations performed on the vaulted backups only. Any operations performed directly on the data source (that is, the Azure resource or workload that's protected) are beyond the scope of Resource Guard.
 
 ## Usage scenarios
 
-The following table lists the scenarios for creating your Resource Guard and vaults (Recovery Services vault and Backup vault), along with the relative protection offered by each.
+The following table lists the scenarios for creating your Resource Guard instance and vaults (Recovery Services vault and Backup vault), along with the relative protection that each offers.
 
->[!Important]
-> The **Backup admin** must not have **Contributor**, **Backup MUA Admin**, or **Backup MUA Operator** permissions to the Resource Guard in any scenario as this overrides adding MUA protection on the vault.
+> [!IMPORTANT]
+> The backup admin must not have Contributor, Backup MUA Admin, or Backup MUA Operator permissions for Resource Guard in any scenario. These permissions override the MUA protection on the vault.
 
-**Usage scenario** | **Protection due to MUA** | **Ease of implementation** | **Notes**
---- | --- |--- |--- |
-Vault and Resource Guard are **in the same subscription.** </br> The Backup admin doesn't have access to the Resource Guard. | Least isolation between the Backup admin and the Security admin. | Relatively easy to implement since only one subscription is required. | Resource level permissions/ roles need to be ensured are correctly assigned.
-Vault and Resource Guard are **in different subscriptions but the same tenant.** </br> The Backup admin doesn't have access to the Resource Guard or the corresponding subscription. | Medium isolation between the Backup admin and the Security admin. | Relatively medium ease of implementation since two subscriptions (but a single tenant) are required. | Ensure that permissions/ roles are correctly assigned for the resource or the subscription.
-Vault and Resource Guard are **in different tenants.** </br> The Backup admin doesn't have access to the Resource Guard, the corresponding subscription, or the corresponding tenant.| Maximum isolation between the Backup admin and the Security admin, hence, maximum security. | Relatively difficult to test since requires two tenants or directories to test. | Ensure that permissions/ roles are correctly assigned for the resource, the subscription or the directory.
+| Usage scenario | Protection due to MUA | Ease of implementation | Notes |
+| --- | --- |--- |--- |
+| Vault and Resource Guard are *in the same subscription.* </br>The backup admin doesn't have access to Resource Guard. | Least isolation between the backup admin and the security admin. | Relatively easy to implement because only one subscription is required. | Resource-level permissions and roles need to be correctly assigned. |
+| Vault and Resource Guard are *in different subscriptions but the same tenant.* </br>The backup admin doesn't have access to Resource Guard or the corresponding subscription. | Medium isolation between the backup admin and the security admin. | Medium ease of implementation because two subscriptions (but a single tenant) are required. | Ensure that permissions and roles are correctly assigned for the resource or the subscription. |
+| Vault and Resource Guard are *in different tenants*. </br>The backup admin doesn't have access to Resource Guard, the corresponding subscription, or the corresponding tenant.| Maximum isolation between the backup admin and the security admin, which provides maximum security. | Relatively difficult to test because testing requires two tenants or directories. | Ensure that permissions and roles are correctly assigned for the resource, the subscription, or the directory. |
 
-## Next steps
+## Related content
 
-[Configure Multi-user authorization using Resource Guard](multi-user-authorization.md).
+- [Configure multiuser authorization by using Resource Guard](multi-user-authorization.md)

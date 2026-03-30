@@ -1,23 +1,23 @@
----
+﻿---
 title: Template functions in scoped deployments
 description: Describes how template functions are resolved in scoped deployments. The scope can be a tenant, management groups, subscriptions, and resource groups.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 08/05/2025
 ---
 
 # ARM template functions in deployment scopes
 
-With Azure Resource Manager templates (ARM templates), you can deploy to resource groups, subscriptions, management groups, or tenants. Generally, [ARM template functions](template-functions.md) work the same for all scopes. This article describes the differences that exist for some functions depending on the scope.
+With Azure Resource Manager templates (ARM templates), you can deploy to resource groups, subscriptions, management groups, or tenants. Generally, [ARM template functions](template-functions.md) work the same for all scopes. This article describes the differences that exist for some functions and how these differences depend on the scope.
 
 ## Supported functions
 
-When deploying to different scopes, there are some important considerations:
+Consider the following when deploying to different scopes:
 
-* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **supported** for resource group deployments.
-* The [subscription()](template-functions-resource.md#subscription) function is **supported** for resource group and subscription deployments.
-* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are **supported** for all scopes.
-* Use [resourceId()](template-functions-resource.md#resourceid) to get the ID for a resource deployed at the resources group.
+* The [`resourceGroup()`](template-functions-resource.md#resourcegroup) function is **supported** for resource group deployments.
+* The [`subscription()`](template-functions-resource.md#subscription) function is **supported** for resource-group and subscription deployments.
+* The [`reference()`](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are **supported** for all scopes.
+* Use [`resourceId()`](template-functions-resource.md#resourceid) to get the ID for a resource deployed at the resources group.
 
   ```json
   "subnet": {
@@ -25,23 +25,23 @@ When deploying to different scopes, there are some important considerations:
   }
   ```
 
-* Use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the ID for a resource deployed at the subscription.
+* Use the [`subscriptionResourceId()`](template-functions-resource.md#subscriptionresourceid) function to get the ID for a resource deployed at the subscription.
 
-  For example, to get the resource ID for a policy definition that is deployed to a subscription, use:
+  For example, to get the resource ID for a policy definition that's  deployed to a subscription, use:
 
   ```json
   "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
   ```
 
-* Use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function for resources that are implemented as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group.
+* Use the [`extensionResourceId()`](template-functions-resource.md#extensionresourceid) function for resources that implement as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group.
 
-  To get the resource ID for a custom policy definition at the management group level, use:
+  To get the resource ID for a custom policy definition at the management-group level, use:
 
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* Use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function to get the ID for a resource deployed at the tenant. Built-in policy definitions are tenant level resources. When assigning a built-in policy at the management group level, use the tenantResourceId function.
+* Use the [`tenantResourceId()`](template-functions-resource.md#tenantresourceid) function to get the ID for a resource deployed at the tenant. Built-in policy definitions are tenant-level resources. When assigning a built-in policy at the management-group level, use the `tenantResourceId` function.
 
   To get the resource ID for a built-in policy definition, use:
 
@@ -51,9 +51,9 @@ When deploying to different scopes, there are some important considerations:
 
 ## Function resolution in scopes
 
-When you deploy to more than one scope, the [resourceGroup()](template-functions-resource.md#resourcegroup) and [subscription()](template-functions-resource.md#subscription) functions resolve differently based on how you specify the template. When you link to an external template, the functions always resolve to the scope for that template. When you nest a template within a parent template, use the `expressionEvaluationOptions` property to specify whether the functions resolve to the resource group and subscription for the parent template or the nested template. Set the property to `inner` to resolve to the scope for the nested template. Set the property to `outer` to resolve to the scope of the parent template.
+When you deploy to more than one scope, the [`resourceGroup()`](template-functions-resource.md#resourcegroup) and [`subscription()`](template-functions-resource.md#subscription) functions resolve differently based on how you specify the template. When you link to an external template, the functions always resolve to the scope for that template. When you nest a template within a parent template, use the `expressionEvaluationOptions` property to specify if the functions resolve to the resource group and subscription for the parent template or the nested template. Set the property to `inner` to resolve to the scope for the nested template. Set the property to `outer` to resolve to the scope of the parent template.
 
-The following table shows whether the functions resolve to the parent or embedded resource group and subscription.
+The following table shows if the functions resolve to the parent or embedded resource group and subscription.
 
 | Template type | Scope | Resolution |
 | ------------- | ----- | ---------- |
@@ -61,15 +61,99 @@ The following table shows whether the functions resolve to the parent or embedde
 | nested        | inner | Sub resource group |
 | linked        | N/A   | Sub resource group |
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) shows:
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) shows a:
 
-* nested template with default (outer) scope
-* nested template with inner scope
-* linked template
+- Nested template with a default (`outer`) scope.
+- Nested template with an `inner` scope.
+- Linked template.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crossresourcegroupproperties.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "defaultScopeTemplate",
+      "resourceGroup": "inlineGroup",
+      "properties": {
+        "mode": "Incremental",
+        "parameters": {},
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [],
+          "outputs": {
+            "resourceGroupOutput": {
+              "type": "string",
+              "value": "[resourceGroup().name]"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "innerScopeTemplate",
+      "resourceGroup": "inlineGroup",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {},
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [],
+          "outputs": {
+            "resourceGroupOutput": {
+              "type": "string",
+              "value": "[resourceGroup().name]"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "linkedTemplate",
+      "resourceGroup": "linkedGroup",
+      "properties": {
+        "mode": "Incremental",
+        "parameters": {},
+        "templateLink": {
+          "contentVersion": "1.0.0.0",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/resourcegroupname.json"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "parentRG": {
+      "type": "string",
+      "value": "[format('Parent resource group is {0}', resourceGroup().name)]"
+    },
+    "defaultScopeRG": {
+      "type": "string",
+      "value": "[format('Default scope resource group is {0}', reference('defaultScopeTemplate').outputs.resourceGroupOutput.value)]"
+    },
+    "innerScopeRG": {
+      "type": "string",
+      "value": "[format('Inner scope resource group is {0}', reference('innerScopeTemplate').outputs.resourceGroupOutput.value)]"
+    },
+    "linkedRG": {
+      "type": "string",
+      "value": "[format('Linked resource group is {0}', reference('linkedTemplate').outputs.resourceGroupOutput.value)]"
+    }
+  }
+}
+```
 
-To test the preceding template and see the results, use PowerShell or Azure CLI.
+To test the preceding template and see the results, use PowerShell or the Azure CLI.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -134,6 +218,7 @@ The output from the preceding example is:
 
 ## Next steps
 
-* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](./syntax.md).
-* For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
-* For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](secure-template-with-sas-token.md).
+- To learn more about defining parameters in your template, see [the structure and syntax of ARM templates](./syntax.md).
+- For tips on resolving common deployment errors, see how to [troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
+- For information about deploying a template that requires an SAS token, see how to [deploy private ARM template with SAS token](secure-template-with-sas-token.md).
+

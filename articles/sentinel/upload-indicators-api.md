@@ -1,23 +1,24 @@
 ---
-title: Import threat intelligence with the upload indicators API
+title: Reference the legacy upload indicators API
 titleSuffix: Microsoft Sentinel
-description: This article is a reference for the upload indicators API with an example request and response.
-author: austinmccollum
+description: This article is a reference for the legacy upload indicators API with an example request and response.
+author: poliveria
 ms.topic: reference
-ms.date: 05/23/2023
-ms.author: austinmc
+ms.date: 05/30/2024
+ms.author: pauloliveria 
 
 
 #Customer intent: As a security analyst, I want to use the upload indicators API reference to customize the threat intelligence data from my source into Microsoft Sentinel.
 
 ---
 
-# Reference the upload indicators API (Preview) to import threat intelligence to Microsoft Sentinel
+# Reference the legacy upload indicators API
 
-The Microsoft Sentinel upload indicators API allows for threat intelligence platforms or custom applications to import indicators of compromise in the STIX format into a Microsoft Sentinel workspace. Whether you use the API with the [Microsoft Sentinel upload indicators API data connector](connect-threat-intelligence-upload-api.md) or as part of a custom solution, this document serves as a reference.
+The Microsoft Sentinel upload indicators API allowed threat intelligence platforms or custom applications to import indicators of compromise in the STIX format into a Microsoft Sentinel workspace. This document serves as a reference to the legacy API.
 
 > [!IMPORTANT]
-> This API is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> This API is in PREVIEW but no longer recommended. Use the new STIX objects API in preview to upload threat intelligence. For more information, see [STIX objects API](stix-objects-api.md).
+> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 An upload indicators API call has five components:
@@ -66,11 +67,12 @@ The resource/scope value is the audience of the token. This API only accepts the
 
 
 ### Assemble the request message
-There are two versions of the upload indicators API. Depending on the endpoint, a different array name is required in the request body. This is also represented by two versions of the logic app connector action.
 
-:::image type="content" source="media/logic-app-sentinel-connector-action-names.png" alt-text="Screenshot of logic app connector action names for Microsoft Sentinel upload indicators API.":::
+There were two versions of the legacy API. Depending on the endpoint, a different array name was required in the request body. This was also represented by two versions of the logic app connector action.
 
-- Connector action name: **Threat Intelligence - Upload Indicators of Compromise (Deprecated)**
+:::image type="content" source="media/stix-objects-api/logic-app-sentinel-connector-action-names.png" alt-text="Screenshot of logic app connector action names for Microsoft Sentinel upload indicators API.":::
+
+1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (Deprecated)**
    - Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators`
    - Array of indicators name: `value`
      ```json
@@ -146,7 +148,7 @@ The response header contains an HTTP status code. Reference this table for more 
 |**401**     |   Unauthorized. |
 |**404**     |   File not found. Usually this error occurs when the workspace ID isn't found.   |
 |**429**     |   The number of requests in a minute has exceeded.   |
-|**500**     |   Server error. Usually an error in the API or Microsoft Sentinel services.
+|**500**     |   Server error. Usually an error in the API or Microsoft Sentinel services. |
 
 The response body is an array of error messages in JSON format:
 
@@ -269,12 +271,6 @@ If validation fails for one or more indicators, the response body is returned wi
 ```
 The indicators are sent as an array, so the `recordIndex` begins at `0`.
 
+## Next step
 
-## Next steps
-
-To learn more about how to work with threat intelligence in Microsoft Sentinel, see the following articles:
-
-- [Understand threat intelligence](understand-threat-intelligence.md)
-- [Work with threat indicators](work-with-threat-indicators.md)
-- [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md)
-- Utilize the intelligence feed from Microsoft and [enable MDTI data connector](connect-mdti-data-connector.md)
+This API is legacy. Please migrate to use the STIX objects API to upload threat intelligence. For more information, see [STIX objects API](stix-objects-api.md).

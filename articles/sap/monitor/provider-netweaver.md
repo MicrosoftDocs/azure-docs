@@ -6,8 +6,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: article
 ms.date: 08/22/2024
-ms.author: sujaj
+ms.author: jacobjaygbay
 #Customer intent: As a developer, I want to configure a SAP NetWeaver provider so that I can use Azure Monitor for SAP solutions.
+# Customer intent: As a system administrator, I want to configure the SAP NetWeaver provider for Azure Monitor, so that I can effectively collect and analyze performance metrics from my SAP systems.
 ---
 
 
@@ -93,7 +94,7 @@ to unprotect the web-methods in the SAP Windows virtual machine.
 RFC metrics are only supported for **AS ABAP applications** and don't apply to SAP JAVA systems. This step is **mandatory** when the connection type selected is **SOAP+RFC**. 
 Below steps need to be performed as a prerequisite to enable RFC
 
-1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/MicrosoftDocs/azure-docs-pr/files/12528831/Z_AMS_NETWEAVER_MONITORING.zip)
+1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/raw/main/Files/Z_AMS_NETWEAVER_MONITORING.zip)
 
 
     1. Sign in to your SAP system.

@@ -3,7 +3,7 @@ title: "Quickstart: Create a dedicated SQL pool (formerly SQL DW) with Azure Pow
 description: Quickly create a dedicated SQL pool (formerly SQL DW) with a server-level firewall rule using Azure PowerShell.
 author: joannapea
 ms.author: joanpo
-ms.reviewer: wiassaf
+
 ms.date: 4/11/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
@@ -20,7 +20,7 @@ Create an dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using 
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!IMPORTANT]
 > Creating a dedicated SQL pool (formerly SQL DW) may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).

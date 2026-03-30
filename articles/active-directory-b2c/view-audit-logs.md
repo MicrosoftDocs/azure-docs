@@ -12,7 +12,9 @@ ms.topic: how-to
 ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to access and view the audit logs for my Azure AD B2C tenant, so that I can monitor activity, track user sign-ins, and troubleshoot any issues related to B2C resources and applications.
@@ -20,6 +22,7 @@ ms.custom: fasttrack-edit
 ---
 
 # Accessing Azure AD B2C audit logs
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -166,7 +169,7 @@ Here's the JSON representation of the example activity event shown earlier in th
 {
     "id": "B2C_DQO3J_4984536",
     "category": "Authentication",
-    "correlationId": "00000000-0000-0000-0000-000000000000",
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "result": "success",
     "resultReason": "N/A",
     "activityDisplayName": "Issue an id_token to the application",
@@ -176,7 +179,7 @@ Here's the JSON representation of the example activity event shown earlier in th
     "initiatedBy": {
         "user": null,
         "app": {
-            "appId": "00000000-0000-0000-0000-000000000000",
+            "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
             "displayName": null,
             "servicePrincipalId": null,
             "servicePrincipalName": "00000000-0000-0000-0000-000000000000"

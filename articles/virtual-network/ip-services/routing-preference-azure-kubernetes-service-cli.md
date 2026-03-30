@@ -8,8 +8,12 @@ ms.date: 08/12/2024
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
-ms.custom: template-tutorial, devx-track-azurecli
 ms.devlang: azurecli
+ms.custom:
+  - template-tutorial
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: As a cloud engineer, I want to configure routing preferences for my Azure Kubernetes Service using the Azure CLI, so that I can ensure optimal network performance and proper public IP management for my Kubernetes cluster.
 ---
 
 # Tutorial: Configure routing preference for an Azure Kubernetes Service using the Azure CLI
@@ -24,7 +28,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

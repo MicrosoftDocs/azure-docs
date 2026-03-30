@@ -1,19 +1,17 @@
 ---
 title: Create an Azure Compute Fleet using an ARM template
 description: Learn how to create an Azure Compute Fleet using an ARM template.
-author: rajeeshr
-ms.author: rajeeshr
+author: shandilvarun
+ms.author: vashan
 ms.topic: how-to
 ms.service: azure-compute-fleet
-ms.date: 06/19/2024
-ms.reviewer: jushiman
+ms.date: 04/21/2025
+ms.reviewer: cynthn
 ms.custom: devx-track-arm-template, build-2024
+# Customer intent: "As a cloud engineer, I want to create an Azure Compute Fleet using an ARM template, so that I can automate the deployment and management of scalable virtual machine resources."
 ---
 
-# Create an Azure Compute Fleet using an ARM template (Preview)
-
-> [!IMPORTANT]
-> Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+# Create an Azure Compute Fleet using an ARM template
 
 This article steps through using an ARM template to create an Azure Compute Fleet. 
 
@@ -23,7 +21,7 @@ This article steps through using an ARM template to create an Azure Compute Flee
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Before using Compute Fleet, complete the feature registration and configure role-based access controls (RBAC). 
 
 

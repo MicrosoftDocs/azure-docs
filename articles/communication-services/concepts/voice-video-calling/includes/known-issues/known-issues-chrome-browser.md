@@ -14,6 +14,14 @@ ms.custom: template-how-to
 
 ## Chrome Desktop
 
+### Call disconnection issues on macOS 15.0, Build: 24A335
+
+**OS version:** macOS 15.0, build: 24A335.<br>
+**Browser version:** Google Chrome - all versions.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When initiating a 1:1 call on macOS 15.0, if the callee accepts the call, it sometimes disconnects automatically after a few seconds. Additional delays in receiving and joining calls are observed, which can also lead to disconnections. Disabling the Firewall temporarily resolves these issues, suggesting interference from macOS firewall settings is the root cause. This issue has been addressed in macOS 15.0.1, which enhances compatibility with third-party security software, as detailed [here in the macOS 15.0.1 release notes](https://support.apple.com/en-us/121011).<br>
+**Recommended workaround:** Users experiencing this issue should consider disabling the Firewall temporarily or update to macOS 15.0.1 to resolve these call connectivity problems permanently.<br>
+
 ### Chrome M98 - a regression that degrades video resolution and increases keyframe generation for devices that do not have an NVIDIA card
 **Browser version:** Google Chrome version 98 (Feb 2022)<br>
 **Azure Communication Service calling SDK version:** All.<br>

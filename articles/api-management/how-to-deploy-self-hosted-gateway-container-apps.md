@@ -1,11 +1,11 @@
 ---
-title: Deploy a self-hosted gateway to Azure Container Apps - Azure API Management
+title: Deploy a Self-Hosted Gateway to Azure Container Apps - Azure API Management
 description: Learn how to deploy a self-hosted gateway component of Azure API Management to an Azure Container Apps environment.
 author: dlepow
 ms.service: azure-api-management
 ms.custom: devx-track-azurecli
-ms.topic: article
-ms.date: 03/04/2024
+ms.topic: how-to
+ms.date: 10/07/2025
 ms.author: danlep
 ---
 
@@ -27,17 +27,17 @@ Deploy a self-hosted gateway to a container app to access APIs that are hosted i
     > [!NOTE]
     > The Azure CLI command examples in this article require the `containerapp` Azure CLI extension. If you haven't used `az containerapp` commands, the extension is installed dynamically when you run your first `az containerapp` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
 
-## Provision gateway in your API Management instance
+## Provision gateway in your Azure API Management instance
 
-Before deploying a self-hosted gateway, provision a gateway resource in your Azure API Management instance. For steps, see [Provision a self-hosted gateway](api-management-howto-provision-self-hosted-gateway.md). In the examples in this article, the gateway is named `my-gateway`.
+Before deploying a self-hosted gateway, provision a gateway resource in your Azure API Management instance. For steps, see [Provision a self-hosted gateway](api-management-howto-provision-self-hosted-gateway.md). In this article's examples, the gateway is named `my-gateway`.
 
 ## Get gateway deployment settings from API Management
 
 To deploy the gateway, you need the gateway's **Token** and **Configuration endpoint** values. You can find them in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
-1. In the left menu, under **Deployment and infrastructure**, select **Gateways**.
-1. Select the gateway resource you provisioned, and select **Deployment**. 
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your Azure API Management instance.
+1. In the left menu, under **Deployment + infrastructure**, select **Self-hosted gateways**.
+1. Select the gateway resource you provisioned, and select **Settings** > **Deployment**. 
 1. Copy the **Token** and **Configuration endpoint** values.  
 
 ## Deploy the self-hosted gateway to a container app
@@ -71,7 +71,7 @@ This command creates:
 
 To deploy the self-hosted gateway to a container app in the environment, run the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command. 
 
-First set variables for the **Token** and **Configuration endpoint** values from the API Management gateway resource.
+First set variables for the **Token** and **Configuration endpoint** values from the Azure API Management gateway resource.
 
 # [Bash](#tab/bash)
 ```azurecli-interactive
@@ -94,7 +94,7 @@ Create the container app using the `az containerapp create` command:
 #!/bin/bash
 az containerapp create --name my-gateway \
     --resource-group myResourceGroup --environment 'my-environment' \
-    --image "mcr.microsoft.com/azure-api-management/gateway:2.5.0" \
+    --image "mcr.microsoft.com/azure-api-management/gateway:2.9.2" \
     --target-port 8080 --ingress external \
     --min-replicas 1 --max-replicas 3 \
     --env-vars "config.service.endpoint"="$endpoint" "config.service.auth"="$token" "net.server.http.forwarded.proto.enabled"="true"
@@ -105,7 +105,7 @@ az containerapp create --name my-gateway \
 # PowerShell syntax
 az containerapp create --name my-gateway `
     --resource-group myResourceGroup --environment 'my-environment' `
-    --image "mcr.microsoft.com/azure-api-management/gateway:2.5.0" `
+    --image "mcr.microsoft.com/azure-api-management/gateway:2.9.2" `
     --target-port 8080 --ingress external `
     --min-replicas 1 --max-replicas 3 `
     --env-vars "config.service.endpoint"="$endpoint" "config.service.auth"="$token" "net.server.http.forwarded.proto.enabled"="true"
@@ -113,19 +113,19 @@ az containerapp create --name my-gateway `
 ---
 
 This command creates:
-* A container app named `my-gateway` in the `myResourceGroup` resource group. In this example, the container app is created using the `mcr.microsoft.com/azure-api-management/gateway:2.5.0` image. Learn more about the self-hosted gateway [container images](self-hosted-gateway-overview.md#packaging).
+* A container app named `my-gateway` in the `myResourceGroup` resource group. In this example, the container app uses the `mcr.microsoft.com/azure-api-management/gateway:2.9.2` image. For more information about the self-hosted gateway, see [container images](self-hosted-gateway-overview.md#packaging).
 * Support for external ingress to the container app on port 8080.
 * A minimum of 1 and a maximum of 3 replicas of the container app.
-* A connection from the self-hosted gateway to the API Management instance using configuration values passed in environment variables. For details, see the self-hosted gateway [container configuration settings](self-hosted-gateway-settings-reference.md).
+* A connection from the self-hosted gateway to the Azure API Management instance by passing configuration values in environment variables. For details, see the self-hosted gateway [container configuration settings](self-hosted-gateway-settings-reference.md).
 
     > [!NOTE]
     > Azure Container Apps ingress forwards HTTPS requests to the self-hosted gateway container app as HTTP. Here, the `net.server.http.forwarded.proto.enabled` environment variable is set to `true` so that the self-hosted gateway uses the `X-Forwarded-Proto` header to determine the original protocol of the request.
 
 ### Confirm that the container app is running
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your container app.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your container app.
 1. On the container app's **Overview** page, check that the **Status** is **Running**.
-1. Send a test request to the status endpoint on `/status-012345678990abcdef`. For example, use a `curl` command similar to the following.
+1. Send a test request to the status endpoint on `/status-012345678990abcdef`. For example, use a `curl` command similar to the following command.
 
     ```bash
     curl -i https://my-gateway.happyvalley-abcd1234.centralus.azurecontainerapps.io/status-012345678990abcdef
@@ -138,9 +138,9 @@ This command creates:
 
 ### Confirm that the gateway is healthy
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
-1. In the left menu, under **Deployment and infrastructure**, select **Gateways**.
-1. On the **Overview** page, check the **Status** of your gateway. If the gateway is healthy, it reports regular gateway heartbeats.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your Azure API Management instance.
+1. In the left menu, under **Deployment + infrastructure**, select **Self-hosted gateways**.
+1. On the **Overview** page, check your gateway's **Status**. If the gateway is healthy, it reports regular gateway heartbeats.
 
     :::image type="content" source="media/how-to-deploy-self-hosted-gateway-container-apps/gateway-heartbeat.png" alt-text="Screenshot of gateway status in the portal." lightbox="media/how-to-deploy-self-hosted-gateway-container-apps/gateway-heartbeat.png":::
 
@@ -150,13 +150,13 @@ The following example shows how you can use the self-hosted gateway to access an
 
 :::image type="content" source="media/how-to-deploy-self-hosted-gateway-container-apps/scenario.png" alt-text="Diagram of example scenario with self-hosted gateway.":::
 
-1. Deploy a container app hosting an API in the same environment as the self-hosted gateway
-1. Add the API to your API Management instance 
-1. Call the API through the self-hosted gateway
+1. Deploy a container app hosting an API in the same environment as the self-hosted gateway.
+1. Add the API to your Azure API Management instance.
+1. Call the API through the self-hosted gateway.
 
 ### Deploy a container app hosting an API in the same environment as the self-hosted gateway
 
-For example, deploy an example music album API to a container app. For later access to the API using the self-hosted gateway, deploy the API in the same environment as the self-hosted gateway. For detailed steps and information about the resources used in this example, see [Quickstart: Build and deploy from local source code to Azure Container Apps](../container-apps/quickstart-code-to-cloud.md). Abbreviated steps follow:
+In this example, you deploy an example music album API to a container app. To access the API later by using the self-hosted gateway, deploy the API in the same environment as the self-hosted gateway. For detailed steps and information about the resources used in this example, see [Quickstart: Build and deploy from local source code to Azure Container Apps](../container-apps/quickstart-code-to-cloud.md). Abbreviated steps follow:
 
 1. Download [Python source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/main) to your local machine. If you prefer, download the source code in another language of your choice.
 1. Extract the source code to a local folder and change to the *containerapps-albumapi-python-main/src* folder.
@@ -185,20 +185,20 @@ For example, deploy an example music album API to a container app. For later acc
 
 Now update the container app hosting the sample API to enable ingress only in the container environment. This setting restricts access to the API only from the self-hosted gateway that you deployed.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your container app.
-1. In the left menu, select **Ingress**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your container app.
+1. In the left menu, select **Networking** > **Ingress**.
 1. Set **Ingress** to **Enabled**.
 1. In **Ingress traffic**, select **Limited to Container Apps Environment**.
 1. Review the remaining settings and select **Save**.
 
-### Add the API to your API Management instance 
+### Add the API to your Azure API Management instance 
 
-The following are example steps to add an API to your API Management instance and configure an API backend. For more information, see [Add an API to Azure API Management](add-api-manually.md).
+The following steps show how to add an API to your Azure API Management instance and configure an API backend. For more information, see [Add an API to Azure API Management](add-api-manually.md).
 
 #### Add the API to your API Management instance
 
-1. In the portal, navigate to the API Management instance where you configured the self-hosted gateway.
-1. In the left menu, select **APIs** > **+ Add API**.
+1. In the Azure portal, go to the API Management instance where you configured the self-hosted gateway.
+1. In the left menu, select **APIs** > **APIs** > **+ Add API**.
 1. Select **HTTP** and select **Full**. Enter the following settings:
     1. **Display name**: Enter a descriptive name. Example: *Albums API*.
     1. **Web service URL**: Enter the *internal* FQDN of the container app hosting the API. Example: `http://albums-api.internal.happyvalley-abcd1234.centralus.azurecontainerapps.io`.
@@ -218,7 +218,7 @@ The following are example steps to add an API to your API Management instance an
 
 ### Call the API through the self-hosted gateway
 
-Call the API using the FQDN of the self-hosted gateway running in the container app. Find the FQDN on the container app's **Overview** page in the Azure portal, or run the following `az containerapp show` command.
+Call the API by using the FQDN of the self-hosted gateway running in the container app. Find the FQDN on the container app's **Overview** page in the Azure portal, or run the following `az containerapp show` command.
 
 # [Bash](#tab/bash)
 
@@ -255,8 +255,13 @@ date: Wed, 28 Feb 2024 22:45:09 GMT
 ```
 
 > [!TIP]
-> If you've enabled [logging of your API to Application insights](api-management-howto-app-insights.md), you can query the logs to see the requests and responses.
+> If you enable [logging for your API to Application insights](api-management-howto-app-insights.md), you can query the logs to see the requests and responses.
 
+## Limitations
+
+Self-hosted gateway instances rely on the UDP protocol for [heartbeat and rate-limit communications](self-hosted-gateway-settings-reference.md#cross-instance-discovery--synchronization). Because Azure Container Apps currently doesn't support the UDP protocol, neither for ingress nor for internal traffic, the `rate-limit` policy can't synchronize its counter across instances. Consequently, maintaining three replicas of a self-hosted gateway container app with limit X might result in three times the traffic until limit X is reached. 
+
+Azure Container Apps distributes requests linearly across each available and healthy replica. To implement rate limiting, you can divide the desired limit by the number of replicas you want to run and set the resulting value in configuration. This approach has its own downsides as you might not be able to account for adjusted counters if and when your container apps scale.
 
 ## Related content
 

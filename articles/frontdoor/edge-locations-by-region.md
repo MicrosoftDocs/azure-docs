@@ -1,27 +1,28 @@
 ---
-title: 'Azure Front Door POP locations by region'
+title: Azure Front Door POP Locations by Region
 description: This article lists Azure Front Door POP locations, sorted by regions.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
-ms.date: 08/12/2024
-ms.author: duau
+ms.topic: concept-article
+ms.date: 09/25/2025
 ms.custom: references_regions
 ---
 
 # Azure Front Door POP locations by metro
 
-This article lists current metro cities with Azure Front Door point-of-presence (POP), sorted by regions. Each metro may contain more than one POP. Currently, Azure Front Door has 192 edge locations across 109 metro cities. Azure Front Door also has 4 edge locations across 4 Azure US Government cloud regions.
+**Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic) :heavy_check_mark: CDN Standard from Microsoft (classic)
+
+This article lists current metro cities with Azure Front Door point-of-presence (POP), sorted by regions. Each metro may contain more than one POP. Currently, Azure Front Door has 192 edge locations across 109 metro cities. Azure Front Door also has four edge locations across four Azure US Government cloud regions.
 
 ## Microsoft POP locations
 
 > [!NOTE]
-> A location may contain more than one POP, noted by the number in parentheses.
+> A location might contain more than one POP, noted by the number in parentheses.
 
 [!INCLUDE [front-door-edge-locations](../../includes/front-door-edge-locations.md)]
 
-## Next steps
+## Related content
 
 * View [Azure Front Door edge locations by abbreviation](edge-locations-abbreviation.md).
 * To get the latest list of edge nodes for Azure Front Door, see [Edge Nodes List - REST API](/rest/api/cdn/edge-nodes/list).

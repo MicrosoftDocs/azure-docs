@@ -3,10 +3,14 @@ title: Microsoft Playwright Testing authentication
 description: Learn how to manage authentication and authorization for Microsoft Playwright Testing preview
 ms.topic: how-to
 ms.date: 09/07/2024
-ms.custom: playwright-testing-preview
+ms.custom: playwright-testing-preview, ignite-2024
+zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
+zone_pivot_groups: microsoft-playwright-testing
 ---
 
 # Manage authentication and authorization for Microsoft Playwright Testing preview
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to manage authentication and authorization for Microsoft Playwright Testing preview. Authentication is required to run Playwright tests on cloud-hosted browsers and to publish test results and artifacts to the service.
 
@@ -49,6 +53,8 @@ To enable authentication using access tokens:
 
 ## Set up authentication using access-tokens
 
+::: zone pivot="playwright-test-runner"
+
 1. While running the tests, enable access token auth in the `playwright.service.config.ts` file in your setup. 
 
     ```typescript
@@ -57,14 +63,29 @@ To enable authentication using access tokens:
         serviceAuthType:'ACCESS_TOKEN'
     }));
     ```
+::: zone-end
 
-1. Create access token 
+::: zone pivot="nunit-test-runner"
 
-    Follow the steps to [create an access token](./how-to-manage-access-tokens.md#generate-a-workspace-access-token)
+1. While running the tests, enable access token auth in the `.runsettings` file in your setup. 
 
-1. Set up your environment
+    ```xml
+    <TestRunParameters>
+        <!-- Use this option when you want to authenticate using access tokens. This mode of auth should be enabled for the workspace. -->
+         <Parameter name="ServiceAuthType" value="AccessToken" />
+    </TestRunParameters>
+    ```
+::: zone-end
 
-    To set up your environment, you have to configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps.
+2. Create access token 
+
+    Follow the steps to [create an access token](./how-to-manage-access-tokens.md#generate-a-workspace-access-token). Copy the value of the access token generated.
+
+::: zone pivot="playwright-test-runner"
+
+3. Set up your environment
+
+    To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
 
     We recommend that you use the `dotenv` module to manage your environment. With `dotenv`, you define your environment variables in the `.env` file.
 
@@ -74,7 +95,7 @@ To enable authentication using access tokens:
         npm i --save-dev dotenv
         ```
 
-    1. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
+    2. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
         
         ```
         PLAYWRIGHT_SERVICE_ACCESS_TOKEN={MY-ACCESS-TOKEN}
@@ -82,15 +103,31 @@ To enable authentication using access tokens:
 
         Make sure to replace the `{MY-ACCESS-TOKEN}` text placeholder with the value you copied earlier.
 
+::: zone-end
+
+::: zone pivot="nunit-test-runner"
+
+3. Set up your environment
+
+    To set up your environment, configure the `PLAYWRIGHT_SERVICE_ACCESS_TOKEN` environment variable with the value you obtained in the previous steps. Ensure this environment variable is available in your setup where you are running tests.
+
+::: zone-end
 
 ## Run tests on the service and publish results
 
 Run Playwright tests against cloud-hosted browsers and publish the results to the service using the configuration you created above.
 
+::: zone pivot="playwright-test-runner"
 ```typescript
 npx playwright test --config=playwright.service.config.ts --workers=20
 ```
+::: zone-end
 
+::: zone pivot="nunit-test-runner"
+```bash
+dotnet test --settings:.runsettings --logger "microsoft-playwright-testing" -- NUnit.NumberOfTestWorkers=20
+```
+::: zone-end
 ## Related content
 
 - Learn more about [managing access tokens](./how-to-manage-access-tokens.md).

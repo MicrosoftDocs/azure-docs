@@ -2,10 +2,10 @@
 title: Validate Azure Communication Services events
 titleSuffix: An Azure Communication Services how-to document
 description: In this how-to document, you can learn how to validate Azure Communication Services events with RequestBin or Azure Event Viewer.
-author: tophpalmer
+author: sundiraman
 manager: shahen
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 02/09/2023
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -20,7 +20,7 @@ This document shows you how to validate that your Azure Communication Services r
 
 ## Pre-requisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 

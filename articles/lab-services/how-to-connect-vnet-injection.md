@@ -8,6 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 06/20/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Connect a lab plan to a virtual network with advanced networking
@@ -35,7 +36,7 @@ The following diagram shows an overview of the Azure Lab Services advanced netwo
 > If your organization needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software. For more information, read guidance on [content filtering in the supported networking scenarios](./concept-lab-services-supported-networking-scenarios.md).
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Your Azure account has the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network.
 - An Azure virtual network and subnet in the same Azure region as where you create the lab plan. Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network) and [subnet](/azure/virtual-network/virtual-network-manage-subnet).
 - The subnet has enough free IP addresses for the template VMs and lab VMs for all labs (each lab uses 512 IP addresses) in the lab plan.

@@ -3,11 +3,12 @@ title: Verify and update detected device inventory - Microsoft Defender for IoT
 description: Learn how to fine-tune your newly detected device inventory on an OT sensor, such as updating device types and properties, merging devices as needed, and more.
 ms.date: 03/09/2023
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Verify and update your detected device inventory
 
-This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for Opertaional Technology (OT) monitoring with Microsoft Defender for IoT, and describes how to review your device inventory and enhance security monitoring with fine-tuned device details.
+This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for Operational Technology (OT) monitoring with Microsoft Defender for IoT, and describes how to review your device inventory and enhance security monitoring with fine-tuned device details.
 
 :::image type="content" source="../media/deployment-paths/progress-fine-tuning-ot-monitoring.png" alt-text="Diagram of a progress bar with Fine-tune OT monitoring highlighted." border="false" lightbox="../media/deployment-paths/progress-fine-tuning-ot-monitoring.png":::
 
@@ -53,22 +54,6 @@ For each device where you need to edit device properties:
     |**Programming device**     | Select if your device is a programming device. Defender for IoT doesn't trigger alerts for programming activities detected on devices defined as programming devices.        |
 
 1. Select **Save** to save your changes.
-
-## Merge duplicate devices
-
-As you review the devices detected on your device inventory, note whether multiple entries were detected for the same device on your network.
-
-For example, this might occur when you have a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
-
-Devices with the same IP and MAC addresses are automatically merged, and identified as the same device. We recommend merging any duplicate devices so that each entry in the device inventory represents only one unique device in your network.
-
-> [!IMPORTANT]
-> Device merges are irreversible. If you merge devices incorrectly, you'll have to delete the merged device and wait for the sensor to rediscover both devices.
->
-
-To merge multiple devices, select two or more authorized devices in the device inventory and then select **Merge**.
-
-The devices and all their properties are merged in the device inventory. For example, if you merge two devices with different IP addresses, each IP address appears as separate interfaces in the new device.
 
 ## Enhance device data (optional)
 

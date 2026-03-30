@@ -1,149 +1,164 @@
 ---
-title: Create Datadog
-description: This article describes how to use the Azure portal to create an instance of Datadog.
-author: flang-msft
-
+title: Create a Datadog resource
+description: Get started with Datadog on Azure by creating a new resource, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
 ms.topic: quickstart
-ms.date: 01/06/2023
-ms.author: franlanglois
-ms.custom: references_regions
-
+zone_pivot_groups: datadog-create
+ms.date: 12/01/2025
+ms.custom:
+  - references_regions
+  - ai-gen-docs-bap
+  - ai-gen-desc
+  - ai-seo-date:12/03/2024
+  - sfi-image-nochange
 ---
 
-# QuickStart: Get started with Datadog - An Azure Native ISV Service by creating new instance
+# QuickStart: Get started with Datadog
 
-In this quickstart, you'll create a new instance of Datadog - An Azure Native ISV Service. You can either create a new Datadog organization or [link to an existing Datadog organization](link-to-existing-organization.md).
+In this quickstart, you create a new instance of Datadog. 
 
 ## Prerequisites
 
-Before creating your first instance of Datadog in Azure, [configure your environment](prerequisites.md). These steps must be completed before continuing with the next steps in this quickstart.
+[!INCLUDE [create-prerequisites-owner](../includes/create-prerequisites-owner.md)]
+- You must [configure your environment](prerequisites.md).
+- You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
-## Find offer
+## Create a Datadog resource
 
-Use the Azure portal to find Datadog.
+> [!NOTE] 
+> The steps in this article are for creating a new Datadog organization.  See [Link to an existing Datadog organization](link-to-existing-organization.md) if you have an existing Datadog organization you'd prefer to link your Azure subscription to.
 
-1. Go to the [Azure portal](https://portal.azure.com/) and sign in.
+::: zone pivot="azure-cli"
 
-1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
+Start by preparing your environment for the Azure CLI:
 
-    :::image type="content" source="media/create/marketplace.png" alt-text="Screenshot of the Azure Marketplace icon.":::
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-1. In the Marketplace, search for **Datadog**.
+After you sign in, use the [az datadog monitor create](/cli/azure/datadog/monitor#az-datadog-monitor-create) command to create the new monitor resource:
 
-1. In the plan overview screen, select **Subscribe**.
+```azurecli
+az datadog monitor create --name "myMonitor" --resource-group "myResourceGroup" \
+ --location "my location" \ 
+ --offer-detail id="string" plan-id="string" plan-name="string" publisher-id="string" term-unit="string" \ 
+ --user-detail email-address="contoso@microsoft.com" first-name="string" last-name="string" \ 
+ --tags Environment="Dev" 
+```
 
-   :::image type="content" source="media/create/datadog-app-2.png" alt-text="Screenshot of the Datadog application in Azure Marketplace.":::
+> [!NOTE]
+> If you want the command to return before the create operation completes, add the optional parameter `--no-wait`. The operation continues to run until the Datadog monitor is created.
 
-## Create a Datadog resource in Azure
+To pause CLI execution until a monitor's specific event or condition occurs, use the [az datadog monitor wait](/cli/azure/datadog/monitor#az-datadog-monitor-wait) command. For example, to wait until a monitor is created:
 
-The portal displays a selection asking whether you would like to create a Datadog organization or link Azure subscription to an existing Datadog organization.
+```azurecli
+az datadog monitor wait --name "myMonitor" --resource-group "myResourceGroup" --created
+```
 
-If you're creating a new Datadog organization, select **Create** under the **Create a new Datadog organization**
+To see a list of existing monitors, use the [az datadog monitor list](/cli/azure/datadog/monitor#az-datadog-monitor-list) command.
 
-:::image type="content" source="media/create/datadog-create-link-selection.png" alt-text="Screenshot of the create or link a Datadog organization.":::
+You can view all of the monitors in your subscription:
 
-The portal displays a form for creating the Datadog resource.
+```azurecli
+az datadog monitor list
+```
 
-:::image type="content" source="media/create/datadog-create-resource.png" alt-text="Screenshot of the create Datadog resource.":::
+Or, view the monitors in a resource group:
 
-Provide the following values.
+```azurecli
+az datadog monitor list --resource-group "myResourceGroup"
+```
 
-|Property | Description
-|:-----------|:-------- |
-| Subscription | Select the Azure subscription you want to use for creating the Datadog resource. You must have owner access. |
-| Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution. |
-| Resource name | Specify a name for the Datadog resource. This name will be the name of the new Datadog organization, when creating a new Datadog organization. |
-| Location | Select West US 2. Currently, West US 2 is the only supported region. |
-| Pricing plan | When creating a new organization, select from the list of available Datadog plans. |
-| Billing Term | Monthly. |
+To see the properties of a specific monitor, use the [az datadog monitor show](/cli/azure/datadog/monitor#az-datadog-monitor-show) command.
 
-## Configure metrics and logs
+You can view the monitor by name:
 
-Use Azure resource tags to configure which metrics and logs are sent to Datadog. You can include or exclude metrics and logs for specific resources.
+```azurecli
+az datadog monitor show --name "myMonitor" --resource-group "myResourceGroup"
+```
 
-Tag rules for sending **metrics** are:
+Or, view the monitor by resource ID:
 
-- By default, metrics are collected for all resources, except virtual machines, Virtual Machine Scale Sets, and App Service plans.
-- Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Include_ tags send metrics to Datadog.
-- Virtual machines, Virtual Machine Scale Sets, and App Service plan with _Exclude_ tags don't send metrics to Datadog.
-- If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+```azurecli
+az datadog monitor show --ids "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Datadog/monitors/{myMonitor}"
 
-Tag rules for sending **logs** are:
+::: zone-end
 
-- By default, logs are collected for all resources.
-- Azure resources with _Include_ tags send logs to Datadog.
-- Azure resources with _Exclude_ tags don't send logs to Datadog.
-- If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+::: zone pivot="azure-portal"
 
-For example, the following screenshot shows a tag rule where only those virtual machines, Virtual Machine Scale Sets, and App Service plan tagged as _Datadog = True_ send metrics to Datadog.
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
-:::image type="content" source="media/create/config-metrics-logs.png" alt-text="Screenshot of how to configure metrics and logs in Azure for Datadog.":::
+### Basics tab
 
-There are three types of logs that can be sent from Azure to Datadog.
+The *Basics* tab has three sections:
 
-1. **Subscription level logs** - Provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
+- Project details
+- Azure resource details
+- Datadog organization details
+ 
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Datadog resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
-1. **Azure resource logs** - Provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
-1. **Microsoft Entra logs** - As an IT administrator, you want to monitor your IT environment. The information about your system's health enables you to assess potential issues and decide how to respond.
+1. Enter the values for each required setting under *Project details*.
 
-The Microsoft Entra admin center gives you access to three activity logs:
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
 
-- [Sign-in](../../active-directory/reports-monitoring/concept-sign-ins.md) – Information about sign-ins and how your resources are used by your users.
-- [Audit](../../active-directory/reports-monitoring/concept-audit-logs.md) – Information about changes applied to your tenant such as users and group management or updates applied to your tenant's resources.
-- [Provisioning](../../active-directory/reports-monitoring/concept-provisioning-logs.md) – Activities performed by the provisioning service, such as the creation of a group in ServiceNow or a user imported from Workday.
+1. Enter the values for each required setting under *Azure Resource details*.
 
-To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
+    | Field              | Action                                    |
+    |--------------------|-------------------------------------------|
+    | Resource name      | Specify a unique name for the resource.   |
+    | Location           | Select a region to deploy your resource.  |
 
-To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories). To filter the set of Azure resources sending logs to Datadog, use Azure resource tags.
+1. Enter the values for each required setting under *Datadog organization details*.
 
-You can request your IT Administrator to route Microsoft Entra logs to Datadog. For more information, see [Microsoft Entra activity logs in Azure Monitor](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md).
+    | Field             | Action                                                                                           |
+    |-------------------|--------------------------------------------------------------------------------------------------|
+    | Datadog org name  | Choose to create a new organization, or associate your resource with an existing organization.   | 
 
-The logs sent to Datadog will be charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+    Select the **Change plan** link to change your billing plan.
 
-Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
+    The remaining fields update to reflect the details of the plan you selected for this new organization.
 
-## Configure single sign-on
+1. Choose your preferred billing term. 
 
-If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. If your organization uses a different identity provider or you don't want to establish single sign-on at this time, you can skip this section.
+1. Select the **Next** button at the bottom of the page.
 
-To establish single sign-on through Microsoft Entra ID, select the checkbox for **Enable single sign-on through Microsoft Entra ID**.
+### Metrics and logs tab (optional)
 
-The Azure portal retrieves the appropriate Datadog application from Microsoft Entra ID. The app matches the Enterprise app you provided in an earlier step.
+If you wish, you can configure resources to send metrics/logs to Datadog. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 
-Select the Datadog app name.
+Enter the names and values for each *Action* listed under Metrics and Logs.
 
-:::image type="content" source="media/create/sso.png" alt-text="Screenshot of the enable Single sign-on to Datadog.":::
+- Select **Silence monitoring for expected Azure VM Shutdowns**.
+- Select **Collect custom metrics from App Insights**.
+- Select **Send subscription activity logs**.
+- Select **Send Azure resource logs for all defined sources**.
 
-Select **Next: Tags**.
+After you finish configuring metrics and logs, select **Next**.
 
-## Add custom tags
+### Security tab (optional)
 
-You can specify custom tags for the new Datadog resource. Provide name and value pairs for the tags to apply to the Datadog resource.
+If you wish to enable Datadog Cloud Security Posture management, select the checkbox.
 
-:::image type="content" source="media/create/tags.png" alt-text="Screenshot of the add custom tags for the Datadog resource.":::
+Select the **Next** button at the bottom of the page.
 
-When you've finished adding tags, select **Next: Review+Create**.
+### Single sign-on tab (optional)
 
-## Review + Create Datadog resource
+[!INCLUDE [sso](../includes/sso.md)]
 
-Review your selections and the terms of use. After validation completes, select **Create**.
+### Tags tab (optional)
 
-:::image type="content" source="media/create/review-create.png" alt-text="Screenshot of Review and Create a Datadog resource.":::
+[!INCLUDE [tags](../includes/tags.md)]
 
-Azure deploys the Datadog resource.
+### Review + create tab
 
-When the process completes, select **Go to Resource** to see the Datadog resource.
+[!INCLUDE [review-create](../includes/review-create.md)]
 
-:::image type="content" source="media/create/go-to-resource.png" alt-text="Screenshot of the Datadog resource deployment.":::
+::: zone-end
 
-## Next steps
+## Next step
+> [!div class="nextstepaction"]
+> [Manage Datadog resources](manage.md)
 
-- [Manage the Datadog resource](manage.md)
-- Get started with Datadog – An Azure Native ISV Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)

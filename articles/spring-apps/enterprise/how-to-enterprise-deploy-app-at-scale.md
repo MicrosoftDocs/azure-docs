@@ -1,18 +1,20 @@
 ---
-title: Scale out to deploy over 500 and up to 1000 application instances using Azure Spring Apps Enterprise
+title: Scale Out to Deploy Over 500 and Up to 1000 Application Instances Using Azure Spring Apps Enterprise
 description: Learn how to deploy applications at scale in the Enterprise plan for Azure Spring Apps and learn about the restrictions.
 author: karlerickson
-ms.author: xiading
+ms.author: karler
+ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # Scale out to deploy over 500 and up to 1000 application instances using Azure Spring Apps Enterprise
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-This article applies to ❌ Basic/Standard ✔️ Enterprise
+This article applies to ❎ Basic/Standard ✅ Enterprise
 
 This article guides you on deploying up to 1000 application instances in Azure Spring Apps Enterprise. The feature supporting deployment of more than 500 instances is currently in Preview. This article outlines the limitations during the Preview stage. The Enterprise plan, crafted for handling substantial production workloads, supports a maximum of 1000 application instances per service. However, we recommend using a maximum of 500 instances in your production environment.
 
@@ -26,7 +28,7 @@ When you deploy Azure Spring Apps in an Azure virtual network, you need to confi
 
 To avoid this problem, you should reserve subnet ranges that are large enough to support the number of application instances. For subnets, Azure reserves five IP addresses, and Azure Spring Apps requires at least three IP addresses. We recommend that you reserve at least the `/24` subnet ranges for the apps subnet.
 
-For more information about how to deploy an Azure Spring Apps instance in your virtual network, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+For more information about how to deploy an Azure Spring Apps instance in your virtual network, see [Deploy Azure Spring Apps in a virtual network](../basic-standard/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ## Restrictions
 
@@ -63,4 +65,4 @@ Spring Cloud Gateway supports rolling restarts to ensure zero downtime and disru
 
 ## Next steps
 
-- [Scale an application in Azure Spring Apps](how-to-scale-manual.md)
+- [Scale an application in Azure Spring Apps](../basic-standard/how-to-scale-manual.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

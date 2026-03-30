@@ -2,7 +2,7 @@
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: include
-ms.date: 07/19/2023
+ms.date: 01/28/2025
 ms.author: cherylmc
 ---
 Before you begin, verify that you have the following prerequisites:

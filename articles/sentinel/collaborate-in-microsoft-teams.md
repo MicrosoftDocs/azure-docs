@@ -1,19 +1,19 @@
 ---
-title: Collaborate in Microsoft Teams with a Microsoft Sentinel incident team | Microsoft Docs
+title: Collaborate in Microsoft Teams with a Microsoft Sentinel incident team
 description: Learn how to connect to Microsoft Teams from Microsoft Sentinel to collaborate with others on your team using Microsoft Sentinel data.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 03/30/2022
-ms.author: yelevin
-
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+ms.custom: sfi-image-nochange
 #Customer intent: As a security analyst, I want to take advantage of Microsoft Teams' integration with Microsoft Sentinel to collaborate efficiently on incident investigations with my team.
-
 ---
 
-# Collaborate in Microsoft Teams (Public preview)
+# Collaborate in Microsoft Teams in the Azure portal (Public preview)
 
-Microsoft Sentinel supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into teamwork on specific incidents.
+Microsoft Sentinel in the Azure portal supports a direct integration with [Microsoft Teams](/microsoftteams/), enabling you to jump directly into teamwork on specific incidents.
 
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ Continue the conversation about the investigation in Teams for as long as needed
 > [!TIP]
 > - <a name="more-users"></a>If you need to add individual users to your team, you can do so in Microsoft Teams using the **Add more people** button on the **Posts** tab.
 >
-> - When you [close an incident](investigate-cases.md#closing-an-incident), the related incident team you've created in Microsoft Teams is archived. If the incident is ever re-opened, the related incident team is also re-opened in Microsoft Teams so that you can continue your conversation, right where you left off.
+> - When you [close an incident](investigate-cases.md#close-an-incident), the related incident team you've created in Microsoft Teams is archived. If the incident is ever re-opened, the related incident team is also re-opened in Microsoft Teams so that you can continue your conversation, right where you left off.
 >
 
 ## Next steps

@@ -1,0 +1,51 @@
+### YamlMime:Landing
+
+title: Azure Change Tracking and Inventory documentation
+metadata:
+  title: Azure Change Tracking and Inventory documentation
+  description: Learn how to use Azure Change Tracking and Inventory.
+  ms.service: azure-automation
+  ms.topic: landing-page
+  ms.date: 11/06/2025
+  ms.author: v-rochak2
+  author: RochakSingh-blr
+
+landingContent: 
+
+  # Card
+  - title: Learn about Change Tracking and Inventory
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Change Tracking and Inventory?
+            url: overview-monitoring-agent.md
+          - text: Release notes
+            url: extension-version-details.md
+          - text: Support matrix for Azure CTI
+            url: change-tracking-inventory-support-matrix.md
+
+  # Card  
+  - title: Get started with Change Tracking and Inventory
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Enable Azure Change Tracking and Inventory
+            url: quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md
+      - linkListType: tutorial
+        links:
+          - text: Change a workspace and configure Data Collection Rule
+            url: tutorial-change-workspace-configure-data-collection-rule.md
+
+  # Card  
+  - title: Manage Change Tracking and Inventory
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create Data Collection Rule
+            url: create-data-collection-rule.md
+          - text: Enable Azure CTI at scale using Azure portal
+            url: enable-change-tracking-at-scale-machines-blade.md
+          - text: Enable CTI at scale using Azure policy
+            url: enable-change-tracking-at-scale-policy.md
+          - text: Disable Azure Change Tracking and Inventory
+            url: disable-azure-change-tracking-inventory-monitoring-agent.md

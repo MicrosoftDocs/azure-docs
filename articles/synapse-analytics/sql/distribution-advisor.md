@@ -3,9 +3,9 @@ title: Synapse SQL Distribution Advisor
 description: This article describes how a user can receive advice on the best distribution strategy to utilize on tables based on user queries.
 author: mariyaali
 ms.author: mariyaali
-ms.reviewer: wiassaf
+
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 07/16/2023
 ---
 

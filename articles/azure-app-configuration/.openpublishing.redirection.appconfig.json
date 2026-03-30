@@ -1,0 +1,19 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/push-kv-devops-pipeline.md",
+            "redirect_url": "/azure/azure-app-configuration/azure-pipeline-import-task",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/pull-key-value-devops-pipeline.md",
+            "redirect_url": "/azure/azure-app-configuration/azure-pipeline-export-task",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-app-configuration/create-snapshot-devops-pipeline.md",
+            "redirect_url": "/azure/azure-app-configuration/azure-pipeline-snapshot-task",
+            "redirect_document_id": true
+        }
+    ]
+}

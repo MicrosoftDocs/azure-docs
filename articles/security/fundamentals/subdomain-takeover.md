@@ -4,12 +4,11 @@ title: Prevent subdomain takeovers with Azure DNS alias records and Azure App Se
 description: Learn how to avoid the common high-severity threat of subdomain takeover
 services: security
 author: msmbaldwin
-manager: rkarlin
 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 03/27/2024
+ms.date: 01/12/2026
 ms.author: mbaldwin
 
 ---
@@ -183,7 +182,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
     - Investigate why the address wasn't rerouted when the resource was decommissioned.
     - Delete the DNS record if it's no longer in use, or point it to the correct Azure resource (FQDN) owned by your organization.
  
-### Clean up DNS pointers or Re-claim the DNS
+### Clean up DNS pointers or re-claim the DNS
 
 Upon deletion of the classic cloud service resource, the corresponding DNS is reserved as per Azure DNS policies. During the reservation period, re-use of the DNS will be forbidden EXCEPT for subscriptions belonging to the Microsoft Entra tenant of the subscription originally owning the DNS. After the reservation expires, the DNS is free to be claimed by any subscription. By taking DNS reservations, the customer is afforded some time to either 1) clean up any associations/pointers to said DNS or 2) re-claim the DNS in Azure. The recommendation would be to delete unwanted DNS entries at the earliest. The DNS name being reserved can be derived by appending the cloud service name to the DNS zone for that cloud.
  

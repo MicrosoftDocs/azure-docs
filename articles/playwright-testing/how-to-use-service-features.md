@@ -3,10 +3,14 @@ title: Microsoft Playwright Testing features
 description: Learn how to use different features offered by Microsoft Playwright Testing service
 ms.topic: how-to
 ms.date: 09/07/2024
-ms.custom: playwright-testing-preview
+ms.custom: playwright-testing-preview, ignite-2024
+zone_pivot_group_filename: playwright-testing/zone-pivots-groups.json
+zone_pivot_groups: microsoft-playwright-testing
 ---
 
 # Use features of Microsoft Playwright Testing preview
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to use the features provided by Microsoft Playwright Testing preview. 
 
@@ -15,15 +19,15 @@ In this article, you learn how to use the features provided by Microsoft Playwri
 
 ## Prerequisites  
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Microsoft Playwright Testing workspace. To create a workspace, see [Quickstart: Run Playwright tests at scale](./quickstart-run-end-to-end-tests.md).
 - To manage features, your Azure account needs to have the [Contributor](/azure/role-based-access-control/built-in-roles#owner) or [Owner](/azure/role-based-access-control/built-in-roles#contributor) role at the workspace level. Learn more about [managing access to a workspace](./how-to-manage-workspace-access.md).
 
 ## Background
 
 Microsoft Playwright Testing preview allows you to:
-- Run your Playwright tests on cloud-hosted browsers.
-- Publish test reports and artifacts to the service and view them in the service portal.
+- Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
+- Simplify troubleshooting by publishing test results and artifacts to the service, making them easily accessible through the service portal.
 
 These features have their own pricing plans and are billed separately. You can choose to use either feature or both. These features can be enabled or disabled for the workspace or for any specific run. To know more about pricing, see [Microsoft Playwright Testing preview pricing](https://aka.ms/mpt/pricing)
 
@@ -48,7 +52,7 @@ You can also choose to use either feature or both for a test run.
 
 > [!IMPORTANT]
 > You can only use a feature in a test run if it is enabled for the workspace.
-
+::: zone pivot="playwright-test-runner"
 1. In your Playwright setup, go to `playwright.service.config.ts` file and use these settings for feature management. 
 
 ```typescript
@@ -87,7 +91,51 @@ export default defineConfig(
       ["@azure/microsoft-playwright-testing/reporter"]],
       ```
 
+::: zone-end
 
+::: zone pivot="nunit-test-runner"
+
+1. In your Playwright setup, go to `.runsettings` file and use these settings for feature management. 
+
+```xml
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestRunParameters>
+        <!--Select if you want to use cloud-hosted browsers to run your Playwright tests.-->
+        <Parameter name="UseCloudHostedBrowsers" value="true" />
+    </TestRunParameters>
+  <!-- NUnit adapter -->  
+  .
+  .
+  .
+    <LoggerRunSettings>
+        <Loggers>
+            <!--microsoft playwright testing service logger for reporting -->
+            <Logger friendlyName="microsoft-playwright-testing" enabled="true" />
+            <!--could enable any logger additionally -->
+            <Logger friendlyName="trx" enabled="false" />
+        </Loggers>
+    </LoggerRunSettings>
+</RunSettings>
+
+```
+
+* **`UseCloudHostedBrowsers`**
+    - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests run on the browsers of your client machine instead of cloud-hosted browsers, and you don't incur any charges.
+    - **Default Value**: true
+    - **Example**:
+      ```xml
+      <Parameter name="UseCloudHostedBrowsers" value="true" />
+      ```   
+
+* **`reporter`**
+    - **Description**: You can publish your test results and artifacts to the service using `microsoft-playwright-testing` logger. You can disable reporting by removing this from your `.runsettings` or by setting it to false. 
+    - **Default Value**: true
+    - **Example**:
+      ```xml
+      <Logger friendlyName="microsoft-playwright-testing" enabled="true" />
+      ```
+::: zone-end
 ## Related content
 
 - Learn more about [Microsoft Playwright Testing preview pricing](https://aka.ms/mpt/pricing).

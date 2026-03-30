@@ -7,7 +7,12 @@ ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/03/2024
-ms.custom: engagement-fy24
+ms.reviewer: v-uhabiba
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: As an IT administrator managing VMware environments, I want to set up a scale-out appliance for agentless migration to Azure, so that I can efficiently replicate and migrate a large number of virtual machines concurrently.
 ---
 
 
@@ -39,7 +44,7 @@ Before you get started, you need to perform the following steps:
 > [!IMPORTANT]
 > You'll need to have at least one replicating virtual machine in the project before you can add a scale-out appliance for migration.
 
-To learn how to perform the above, review the tutorial on [migrating VMware virtual machines to Azure with the agentless migration method](./tutorial-migrate-vmware.md).
+To learn how to perform the above, review the tutorial on [migrating VMware virtual machines to Azure with the agentless migration method](tutorial-migrate-vmware.md).
 
 ## Deploy a scale-out appliance
 
@@ -73,7 +78,7 @@ In **Download Azure Migrate appliance**, select  **Download**. You need to downl
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 > 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+Verify [security](migrate-appliance.md#verify-security) by validating the SHA256 values. 
 
 ### 3. Run the Azure Migrate installer script
 
@@ -135,7 +140,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
     1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
 	2. The appliance verifies the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
-    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
+    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
@@ -149,7 +154,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
 To complete the registration of the scale-out appliance, select **import** to get the necessary configuration files from the primary appliance.
 
-1. Clicking **import** opens a pop-up window with instructions on how to import the necessary configuration files from the primary appliance.
+1. Selecting **import** opens a pop-up window with instructions on how to import the necessary configuration files from the primary appliance.
 
     :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Screenshot of the Import Configuration files modal.":::
 
@@ -166,8 +171,8 @@ To complete the registration of the scale-out appliance, select **import** to ge
 
 1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and select **Save**.
 
-    Once the files are successfully imported, the registration of the scale-out appliance completes and it shows you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
-1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7, 7, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
+    Once the files are successfully imported, the registration of the scale-out appliance completes and it shows you the timestamp of the last successful import. You can also see the registration details by selecting **View details**.
+1. **Install the VDDK**: The appliance checks if the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK version 8.0 from the [Broadcom Developer portal](https://developer.broadcom.com/sdks/vmware-virtual-disk-development-kit-vddk/8.0). After downloading, extract the zip file to the default location: C:\Program Files\VMware\VMware Virtual Disk Development Kit, as mentioned in the installation instructions.
 
     The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 
@@ -202,4 +207,4 @@ In this article, you learned:
 - How to replicate VMs using a scale-out appliance
 
 
-[Learn more](./tutorial-migrate-vmware.md) about migrating servers to Azure using the Migration and modernization tool.
+[Learn more](tutorial-migrate-vmware.md) about migrating servers to Azure using the Migration and modernization tool.

@@ -8,6 +8,9 @@ ms.service: azure-blob-storage
 ms.topic: article
 ms.date: 12/29/2021
 ms.author: normesta
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud storage developer, I want to understand how blob snapshots work and their billing implications so that I can effectively manage costs and maintain data integrity in my applications.
 ---
 
 # Blob snapshots
@@ -18,13 +21,6 @@ A snapshot is a read-only version of a blob that's taken at a point in time.
 > Blob versioning offers a superior way to maintain previous versions of a blob. For more information, see [Blob versioning](versioning-overview.md).
 
 ## About blob snapshots
-
-> [!IMPORTANT]
-> Snapshots in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
->
-> To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9iuLyDgXDNIkMaAAVSMpJxUOTRZODFORzBQSkhIMEQ0UlhZUFZWNFdKRS4u).
 
 A snapshot of a blob is identical to its base blob, except that the blob URI has a **DateTime** value appended to the blob URI to indicate the time at which the snapshot was taken. For example, if a page blob URI is `http://storagesample.core.blob.windows.net/mydrives/myvhd`, the snapshot URI is similar to `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
@@ -50,6 +46,8 @@ Blob snapshots, like blob versions, are billed at the same rate as active data. 
 If you haven't changed a blob or snapshot's tier, then you're billed for unique blocks of data across that blob, its snapshots, and any versions it may have. For more information, see [Billing when the blob tier hasn't been explicitly set](#billing-when-the-blob-tier-hasnt-been-explicitly-set).
 
 If you have changed a blob or snapshot's tier, then you're billed for the entire object, regardless of whether the blob and snapshot are eventually in the same tier again. For more information, see [Billing when the blob tier has been explicitly set](#billing-when-the-blob-tier-hasnt-been-explicitly-set).
+
+For storage accounts that leverage the smart tier public preview, versions and snapshots are billed at full content length. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
 
 For more information about billing details for blob versions, see [Blob versioning](versioning-overview.md).
 
@@ -143,6 +141,10 @@ The following table describes the billing behavior for a blob that is soft-delet
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
+> [!IMPORTANT]
+> The Snapshots Preview for accounts that have the hierarchical namespace feature enabled is no longer accepting new customers. We encourage you to consider alternative mechanisms. (Examples: [Soft delete for blobs](/azure/storage/blobs/soft-delete-blob-overview), [AzCopy](/azure/storage/common/storage-use-azcopy-v10?tabs=dnf), [Vaulted Backup [Preview]](/azure/backup/azure-data-lake-storage-backup-overview))
+> 
+> 
 ## Next steps
 
 - [Blob versioning](versioning-overview.md)

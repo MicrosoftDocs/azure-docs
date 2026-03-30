@@ -3,27 +3,33 @@ title: Get started with Azure Blob Storage and Go
 titleSuffix: Azure Storage
 description: Get started developing a Go application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: golang
-ms.custom: devx-track-go, devguide-go
+ms.custom:
+  - devx-track-go
+  - devguide-go
+  - sfi-ropc-nochange
+# Customer intent: "As a Go developer, I want to set up a project that connects to Azure Blob Storage, so that I can manage and interact with containers and blobs effectively."
 ---
 
 # Get started with Azure Blob Storage and Go
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client module for Go. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client module for Go. Once connected, use the [developer guides](#build-your-app) to learn how your code can operate on containers, blobs, and features of the Blob Storage service.
+
+If you're looking to start with a complete example, see [Quickstart: Azure Blob Storage client library for Go](storage-quickstart-blobs-go.md).
 
 [API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) | [Package (pkg.go.dev)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob)
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Go 1.18+](https://go.dev/doc/install)
 
@@ -129,3 +135,4 @@ The following guides show you how to access data and perform specific actions us
 | [Upload blobs](storage-blob-upload-go.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
 
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
+

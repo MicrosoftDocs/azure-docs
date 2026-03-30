@@ -9,12 +9,14 @@ ms.topic: tutorial
 ms.date: 10/10/2024
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom: sfi-ropc-nochange
 
 #Customer intent: As a developer or IT admin, I want to register my web application in Azure AD B2C so that I can enable my users to sign up, sign in, and manage their profiles.
 
 ---
 
 # Tutorial: Register a web application in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal. 
 
@@ -27,7 +29,7 @@ A "web application" refers to a traditional web application that performs most o
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
 

@@ -31,7 +31,7 @@ Before you import an image from a physical lab, learn more about [recommended ap
 
 ## Prerequisites
 
-- Your Azure account has permission to create an [Azure managed disk](/azure/virtual-machines/managed-disks-overview). Learn about the [Azure RBAC roles you need to create a managed disk](/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell#assign-rbac-role).
+- Your Azure account has permission to create an [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview). Learn about the [Azure RBAC roles you need to create a managed disk](/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell#assign-rbac-role).
 
 - Restructure each virtual machine image so that it only includes the software that is needed for a lab's class. Learn more about [moving from a Physical Lab to Azure Lab Services](./concept-migrating-physical-labs.md).
 

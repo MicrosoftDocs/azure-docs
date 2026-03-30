@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises VM data from my server onto Azure.
+# Customer intent: As an IT admin, I want to copy VHD data from my on-premises VMs to Azure Data Box Heavy, so that I can efficiently migrate and manage these workloads as managed disks in Azure.
 ---
 # Tutorial: Use Data Box Heavy to import data as managed disks in Azure
 
@@ -32,7 +33,7 @@ Before you begin, make sure that:
 4. You've reviewed the:
 
     - Supported [managed disk sizes in Azure object size limits](data-box-heavy-limits.md#azure-object-size-limits).
-    - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview). 
+    - [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview). 
 
 ## Connect to Data Box Heavy
 

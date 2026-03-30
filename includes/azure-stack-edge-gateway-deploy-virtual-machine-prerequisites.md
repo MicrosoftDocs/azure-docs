@@ -1,9 +1,10 @@
 ---
 author: alkohli
-ms.service: databox  
+ms.service: azure-databox
 ms.topic: include
 ms.date: 06/30/2021
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 Before you can deploy VMs on your Azure Stack Edge device, you must configure your client to connect to the device via Azure Resource Manager over Azure PowerShell. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).

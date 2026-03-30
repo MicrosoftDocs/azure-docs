@@ -1,13 +1,13 @@
 ---
 title: Enable replication of encrypted Azure VMs in Azure Site Recovery
 description: This article describes how to configure replication for VMs with customer-managed key (CMK) enabled disks from one Azure region to another by using Site Recovery.
-author: ankitaduttaMSFT
-manager: rochakm
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/27/2024
-ms.author: ankitadutta
+ms.date: 10/31/2025
+ms.author: v-gajeronika
+# Customer intent: "As a cloud administrator, I want to configure replication for Azure VMs with customer-managed key enabled disks, so that I can ensure data protection and disaster recovery across regions."
 ---
 
 # Replicate machines with Customer-Managed Keys (CMK) enabled disks
@@ -16,6 +16,9 @@ This article describes how to replicate Azure VMs with Customer-Managed Keys (CM
 
 ## Prerequisite
 You must create the Disk Encryption set(s) in the target region for the target subscription before enabling replication for your virtual machines that have CMK-enabled managed disks.
+
+> [!NOTE]
+> Azure Site Recovery doesn't support rotating the key for an encrypted virtual machine while it is protected. If you rotate the keys, you must disable and re-enable the replication.
 
 ## Enable replication
 

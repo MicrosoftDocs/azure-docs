@@ -13,17 +13,13 @@ ms.author: abnarain
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-> [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
-> [!NOTE]
-> Workflow Orchestration Manager for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
-
-Data Factory pipelines provide 100+ data source connectors that provide scalable and reliable data integration/ data flows. There are scenarios where you would like to run an existing data factory pipeline from your Apache Airflow DAG.  This tutorial shows you how to do just that.
+Data Factory pipelines provide 100+ data source connectors that provide scalable and reliable data integration/ data flows. There are scenarios where you would like to run an existing data factory pipeline from your Apache Airflow DAG. This tutorial shows you how.
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure storage account**. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.*
 * **Azure Data Factory pipeline**. You can follow any of the tutorials and create a new data factory pipeline in case you don't already have one, or create one with one select in [Get started and try out your first data factory pipeline](quickstart-get-started.md).
 * **Setup a Service Principal**. You'll need to [create a new service principal](../active-directory/develop/howto-create-service-principal-portal.md) or use an existing one and grant it permission to run the pipeline (example - contributor role in the data factory where the existing pipelines exist), even if the Workflow Orchestration Manager environment and the pipelines exist in the same data factory. You'll need to get the Service Principal’s Client ID and Client Secret (API Key).

@@ -3,8 +3,14 @@ title: Create Apache Hadoop clusters using web browser, Azure HDInsight
 description: Learn to create Apache Hadoop, Apache HBase, and Apache Spark clusters on HDInsight. Using web browser and the Azure portal.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, linux-related-content
-ms.date: 11/21/2023
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 11/25/2024
+ms.custom:
+  - hdinsightactive
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Create Linux-based clusters in HDInsight by using the Azure portal
@@ -17,7 +23,7 @@ The Azure portal is a web-based management tool for services and resources hoste
 
 The Azure portal exposes most of the cluster properties. By using Azure Resource Manager templates, you can hide many details. For more information, see [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create clusters
 
@@ -51,7 +57,7 @@ From the **Basics** tab, provide the following information:
 |Cluster login password|Provide the password.|
 |Confirm cluster login password|Reenter the password|
 |Secure Shell (SSH) username|Provide the username, default is **sshuser**|
-|Use cluster login password for SSH|If you want the same SSH password as the admin password you specified earlier, select the **Use cluster login password for SSH** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY** to authenticate the SSH user. A public key is the approach we recommend. Choose **Select** at the bottom to save the credentials configuration.  For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
+|Use cluster login password for SSH|If you want the same SSH password as the admin password you specified earlier, select the **`Use cluster login password for SSH`** check box. If not, provide either a **PASSWORD** or **PUBLIC KEY** to authenticate the SSH user. A public key is the approach we recommend. Choose **Select** at the bottom to save the credentials configuration.  For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).|
 
 Select **Next: Storage >>** to advance to the next tab.
 
@@ -157,6 +163,7 @@ Some of the icons in the window are explained as follows:
 
 See [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](./hdinsight-delete-cluster.md).
 
+
 ## Troubleshoot
 
 If you run into issues with creating HDInsight clusters, see [access control requirements](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
@@ -164,6 +171,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 ## Next steps
 
 You've successfully created an HDInsight cluster. Now learn how to work with your cluster.
+
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [Get started with Apache HBase on HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)

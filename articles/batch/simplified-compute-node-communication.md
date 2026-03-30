@@ -2,8 +2,9 @@
 title: Use simplified compute node communication
 description: Learn about the simplified compute node communication mode in the Azure Batch service and how to enable it.
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 01/12/2026
 ms.custom: references_regions
+# Customer intent: "As a cloud administrator managing workload execution on Batch pools, I want to switch to simplified compute node communication mode, so that I can reduce networking complexity and enhance security for my batch processing environment."
 ---
 
 # Use simplified compute node communication
@@ -17,10 +18,10 @@ Batch supports two types of communication modes:
 This article describes the *simplified* communication mode and the associated network configuration requirements.
 
 > [!TIP]
-> Information in this document pertaining to networking resources and rules such as NSGs doesn't apply to Batch pools with [no public IP addresses](simplified-node-communication-pool-no-public-ip.md) that use the node management private endpoint without internet outbound access.
+> Information in this document pertaining to networking resources and rules such as NSGs doesn't apply to Batch pools with no public IP addresses that use the node management private endpoint without internet outbound access.
 
 > [!WARNING]
-> The *classic* compute node communication mode will be retired on **31 March 2026** and replaced with the *simplified* communication mode described in this document. For more information, see the communication mode [migration guide](batch-pools-to-simplified-compute-node-communication-model-migration-guide.md).
+> The *classic* compute node communication mode will be retired on **31 March 2026** and replaced with the *simplified* communication mode described in this document.
 
 ## Supported regions
 
@@ -86,7 +87,7 @@ The following steps are required to migrate to the new communication mode:
 1. Use one of the following options to update your workloads to use the new communication mode.
    - Create new pools with the `targetNodeCommunicationMode` set to *simplified* and validate that the new pools are working correctly. Migrate your workload to the new pools and delete any earlier pools.
    - Update existing pools `targetNodeCommunicationMode` property to *simplified* and then resize all existing pools to zero nodes and scale back out.
-1. Use the [Get Pool](/rest/api/batchservice/pool/get) API, [List Pool](/rest/api/batchservice/pool/list) API, or the Azure portal to confirm the `currentNodeCommunicationMode` is set to the desired communication mode of *simplified*.
+1. Use the [Get Pool](/rest/api/batchservice/pools/get-pool) API, [List Pool](/rest/api/batchservice/pools/list-pools) API, or the Azure portal to confirm the `currentNodeCommunicationMode` is set to the desired communication mode of *simplified*.
 1. Modify all applicable networking configuration to the simplified communication rules, at the minimum (note any extra rules needed as discussed above):
    - Inbound:
      - None
@@ -103,7 +104,7 @@ If you follow these steps, but later want to switch back to *classic* compute no
 
 ## Specify the communication mode on a Batch pool
 
-The [targetNodeCommunicationMode](/rest/api/batchservice/pool/add) property on Batch pools allows you to indicate a preference to the Batch service for which communication mode to utilize between the Batch service and compute nodes. The following are the allowable options on this property:
+The [targetNodeCommunicationMode](/rest/api/batchservice/pools/create-pool) property on Batch pools allows you to indicate a preference to the Batch service for which communication mode to utilize between the Batch service and compute nodes. The following are the allowable options on this property:
 
 - **Classic**: creates the pool using classic compute node communication.
 - **Simplified**: creates the pool using simplified compute node communication.
@@ -130,7 +131,7 @@ To display the current node communication mode for a pool, navigate to the **Poo
 
 ### REST API
 
-This example shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool with simplified compute node communication.
+This example shows how to use the [Batch Service REST API](/rest/api/batchservice/pools/create-pool) to create a pool with simplified compute node communication.
 
 ```http
 POST {batchURL}/pools?api-version=2022-10-01.16.0
@@ -168,9 +169,8 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 
 The following are known limitations of the simplified communication mode:
 
-- Limited migration support for previously created pools [without public IP addresses](batch-pool-no-public-ip-address.md). These pools can only be migrated if created in a [virtual network](batch-virtual-network.md), otherwise they won't use simplified compute node communication, even if specified on the pool. For more information, see the [migration guide](batch-pools-without-public-ip-addresses-classic-retirement-migration-guide.md).
-- Cloud Service Configuration pools are currently not supported for simplified compute node communication and are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Specifying a communication mode for these types of pools aren't honored and always results in *classic* communication mode. We recommend using Virtual Machine Configuration for your Batch pools. For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
-
+- Limited migration support for previously created pools [without public IP addresses](batch-pool-no-public-ip-address.md). These pools can only be migrated if created in a [virtual network](batch-virtual-network.md), otherwise they won't use simplified compute node communication, even if specified on the pool.
+- Cloud Service Configuration pools are not supported for simplified compute node communication and are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Specifying a communication mode for these types of pools aren't honored and always results in *classic* communication mode. We recommend using Virtual Machine Configuration for your Batch pools.
 ## Next steps
 
 - Learn how to [use private endpoints with Batch accounts](private-connectivity.md).

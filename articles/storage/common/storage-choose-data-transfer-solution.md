@@ -6,9 +6,10 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/25/2020
 ms.author: shaas
+# Customer intent: As a data engineer, I want to evaluate Azure data transfer solutions based on data size and network bandwidth, so that I can choose the most efficient method for transferring data to the cloud.
 ---
 
 <!--
@@ -30,9 +31,9 @@ Data transfer can be offline or over the network connection. Choose your solutio
 
 The data movement can be of the following types:
 
-- **Offline transfer using shippable devices** - Use physical shippable devices when you want to do offline one-time bulk data transfer. This use case involves copying data to either a disk or specialized device, and then shipping it to a secure Microsoft facility where the data is uploaded. You can purchase and ship your own disks, or you order a Microsoft-supplied disk or device. Microsoft-supplied solutions for offline transfer include Azure [Data Box](../../databox/data-box-overview.md), [Data Box Disk](../../databox/data-box-disk-overview.md), and [Data Box Heavy](../../databox/data-box-heavy-overview.md).
+- **Offline transfer using shippable devices** - Use physical shippable devices when you want to do offline one-time bulk data transfer. This use case involves copying data to either a disk or specialized device, and then shipping it to a secure Microsoft facility where the data is uploaded. You can purchase and ship your own disks, or you order a Microsoft-supplied disk or device. Microsoft-supplied solutions for offline transfer include Azure [Data Box Next-Gen](../../databox/data-box-overview.md?pivots=dbx-ng) and [Data Box Disk](../../databox/data-box-disk-overview.md).
 
-- **Network Transfer** - You transfer your data to Azure over your network connection. This transfer can be done in many ways.
+- **Network Transfer** - You transfer your data to Azure over the Internet or your network connection. This transfer can be done in many ways.
 
   - **Hybrid migration service** - [Azure Storage Mover](../../storage-mover/service-overview.md) is a new, fully managed migration service that enables you to migrate your files and folders to Azure Storage while minimizing downtime for your workload. Azure Storage Mover is a hybrid cloud service consisting of a cloud service component and an on-premises migration agent virtual machine (VM). Storage Mover is used for migration scenarios such as *lift-and-shift*, and for cloud migrations that you repeat occasionally.
   - **On-premises devices** - We supply you a physical or virtual device that resides in your datacenter and optimizes data transfer over the network. These devices also provide a local cache of frequently used files. The physical device is the Azure Stack Edge and the virtual device is the Data Box Gateway. Both run permanently in your premises and connect to Azure over the network.
@@ -44,7 +45,7 @@ The following visual illustrates the guidelines to choose the various Azure data
 
 ![Azure data transfer tools](media/storage-choose-data-transfer-solution/azure-data-transfer-options-3.png)
 
-**The upper limits of the offline transfer devices - Data Box Disk, Data Box, and Data Box Heavy can be extended by placing multiple orders of a device type.*
+**The upper limits of the offline transfer devices - Data Box 120, Data Box 525 and Data Box Disk can be extended by placing multiple orders of a device type.*
 
 ## Selecting a data transfer solution
 
@@ -72,7 +73,7 @@ You can also provide information specific to your scenario and review a list of 
 
 ## Next steps
 
-- [Get an introduction to Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
+- [Introduction to Azure Storage](/azure/storage/common/storage-introduction).
 - [Read an overview of AzCopy](./storage-use-azcopy-v10.md).
 - [Quickstart: Upload, download, and list blobs with PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Quickstart: Create, download, and list blobs with Azure CLI](../blobs/storage-quickstart-blobs-cli.md)

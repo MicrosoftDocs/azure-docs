@@ -1,16 +1,14 @@
----
+﻿---
 title: Type definitions in templates
 description: Describes how to create type definitions in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Type definitions in ARM templates
 
 This article describes how to create and use definitions in your Azure Resource Manager template (ARM template). By defining your own types, you can reuse these types. Type definitions can only be used with [languageVersion 2.0](./syntax.md#languageversion-20).
-
-[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
 
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [User-defined data types in Bicep](../bicep/user-defined-data-types.md).
@@ -121,7 +119,7 @@ The following example would accept `{"foo": "string", "bar": 1}`, but reject `{"
 }
 ```
 
-All properties are required unless the property’s type definition has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
+All properties are required unless the property's type definition has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
 
 ```json
 "definitions": {
@@ -405,3 +403,4 @@ The following example shows how to reference a type definition from parameters a
 ## Next steps
 
 * To learn about the available properties for type definitions, see [Understand the structure and syntax of ARM templates](./syntax.md).
+

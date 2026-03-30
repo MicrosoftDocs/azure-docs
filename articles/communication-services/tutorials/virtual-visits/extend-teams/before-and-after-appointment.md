@@ -8,6 +8,7 @@ ms.date: 05/22/2023
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: teams-interop
+ms.custom: sfi-image-nochange
 ---
 
 # Extend before and after appointment activities

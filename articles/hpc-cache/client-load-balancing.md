@@ -1,11 +1,13 @@
 ---
 title: Load balance client connections to Azure HPC Cache
 description: How to configure a DNS server for round-robin load balancing for Azure HPC Cache
-author: femila
+author: ronhogue
 ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: femila
+ms.author: rohogue
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT administrator, I want to configure load balancing for client connections to Azure HPC Cache using DNS, so that I can efficiently distribute traffic among multiple mount points for optimal performance.
 ---
 
 # Load balance HPC Cache client traffic

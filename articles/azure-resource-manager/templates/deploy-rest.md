@@ -3,7 +3,7 @@ title: Deploy resources with REST API and template
 description: Use Azure Resource Manager and Resource Manager REST API to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ---
 
 # Deploy resources with ARM templates and Azure Resource Manager REST API
@@ -11,6 +11,8 @@ ms.date: 03/20/2024
 This article explains how to use the Azure Resource Manager REST API with Azure Resource Manager templates (ARM templates) to deploy your resources to Azure.
 
 You can either include your template in the request body or link to a file. When using a file, it can be a local file or an external file that is available through a URI. When your template is in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+
+## Prerequisites
 
 [!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
@@ -161,7 +163,7 @@ The examples in this article use resource group deployments.
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2022-09-01",
+            "apiVersion": "2025-06-01",
             "name": "[variables('storageAccountName')]",
             "location": "[parameters('location')]",
             "sku": {

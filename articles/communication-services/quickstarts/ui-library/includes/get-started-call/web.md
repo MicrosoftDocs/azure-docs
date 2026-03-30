@@ -13,12 +13,12 @@ ms.service: azure-communication-services
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - Azure Communication Services Token. See [example](../../../identity/quick-create-identity.md)
 
 ### You can access the following quickstarts
 
-- [UI Components](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page)
-- [Composites](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page)
-- [Stateful Client (Calling)](https://azure.github.io/communication-ui-library/?path=/story/composites-call-basicexample--basic-example)
+- [UI Components](https://azure.github.io/communication-ui-library/?path=/docs/components-get-started--docs)
+- [Composites](https://azure.github.io/communication-ui-library/?path=/docs/composites-get-started--docs)
+- [Stateful Client (Calling)](https://azure.github.io/communication-ui-library/?path=/docs/stateful-client-get-started-call--docs)

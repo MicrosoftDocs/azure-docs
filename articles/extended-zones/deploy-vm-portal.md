@@ -1,28 +1,29 @@
 ---
 title: "Quickstart: Deploy a virtual machine in an Extended Zone - Azure portal"
 description: Learn how to deploy a virtual machine (VM) in an Azure Extended Zone using the Azure portal.
-author: halkazwini
-ms.author: halkazwini
+author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: quickstart
-ms.date: 08/02/2024
+ms.date: 12/08/2025
+ms.custom: sfi-image-nochange
 ---
   
 # Quickstart: Deploy a virtual machine in an Extended Zone using the Azure portal
- 
-> [!IMPORTANT]
-> Azure Extended Zones service is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this quickstart, you learn how to deploy a virtual machine (VM) in Los Angeles Extended Zone using the Azure portal.
+In this quickstart, you learn how to deploy a virtual machine (VM) to an Extended Zone using the Azure portal.
+> [!NOTE]
+> Access the [Extended Zones-specific VM Creation Portal experience here](https://aka.ms/azportalezimages) to follow along this qickstart tutorial.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
 - An Azure account with an active subscription
 
-- Access to Los Angeles Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
+- Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
+
+- Using the [Extended Zones-specific VM Creation Portal experience](https://aka.ms/azportalezimages).
 
 ## Sign in to Azure
 
@@ -47,7 +48,7 @@ In this section, you create a virtual network in the Azure Extended Zone that yo
     | Resource group | Select **Create new**. </br> Enter *myResourceGroup* in **Name**. </br> Select **OK**. |
     | **Instance details** |  |
     | Virtual network name | Enter *myVNet*. |
-    | Region | Select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select **Los Angeles**. </br> Select the **Select** button. |
+    | Region | Select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select **Los Angeles** (or your desired Extended Zone). </br> Select the **Select** button. |
 
     :::image type="content" source="./media/deploy-vm-portal/create-vnet-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network in an Azure Extended Zone." lightbox="./media/deploy-vm-portal/create-vnet-basics.png":::
 
@@ -72,7 +73,7 @@ In this section, you create a virtual network in the Azure Extended Zone that yo
     | Resource group | Select **myResourceGroup**. |
     | **Instance details** |  |
     | Virtual machine name | Enter *myVM*. |
-    | Region | Select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select **Los Angeles**. </br> Select the **Select** button. |
+    | Region | Select **Deploy to an Azure Extended Zone**. </br> In  **Azure Extended Zones**, select **Los Angeles** (or your desired Extended Zone). </br> Select the **Select** button. |
     | Availability options | Select **No infrastructure redundancy required**. Azure Extended Zones don't support availability zones. |
     | Security type | Leave the default of **Standard**.  The other available option is **Trusted launch virtual machines**.|
     | Image | Select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2**. |

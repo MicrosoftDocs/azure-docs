@@ -3,17 +3,19 @@ title: Create an Event Hubs Dedicated cluster using the Azure portal
 description: In this quickstart, you learn how to create an Azure Event Hubs cluster using Azure portal.
 ms.topic: quickstart
 ms.date: 02/07/2023
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a Dedicated Azure Event Hubs cluster using Azure portal 
-Event Hubs clusters offer **single-tenant deployments** for customers with the most demanding streaming needs. This offering has a guaranteed **99.99%** SLA, which is available only in our Dedicated pricing tier. An [Event Hubs cluster](event-hubs-dedicated-overview.md) can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within a cluster include all features of the premium offering and more, but without any ingress limits. The Dedicated offering also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
+Event Hubs clusters offer **single-tenant deployments** for customers with the most demanding streaming needs. This offering has a guaranteed **99.99%** service level agreement (SLA), which is available only in our Dedicated pricing tier. An [Event Hubs cluster](event-hubs-dedicated-overview.md) can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within a cluster include all features of the premium offering and more, but without any ingress limits. The Dedicated offering also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no extra cost, allowing you to automatically batch and log data streams to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
 
-Dedicated clusters are provisioned and billed by **capacity units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase up to 10 CUs for a cluster in the Azure portal. If you need a cluster larger than 10 CU, you can submit an Azure support request to scale up your cluster after its creation. In this quickstart, we'll walk you through creating a 1 CU Event Hubs cluster through the Azure portal.
+Dedicated clusters are provisioned and billed by **capacity units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase up to 10 CUs for a cluster in the Azure portal. If you need a cluster larger than 10 CU, you can submit an Azure support request to scale up your cluster after its creation. In this quickstart, we walk you through creating a 1 CU Event Hubs cluster through the Azure portal.
 
 > [!NOTE]
 > - The Dedicated tier isn't available in all regions. Try to create a Dedicated cluster in the Azure portal and see supported regions in the **Location** drop-down list on the **Create Event Hubs Cluster** page.
-> - This [Azure Portal](https://aka.ms/eventhubsclusterquickstart) self-serve experience is currently in **preview**. If you have any questions about the Dedicated offering, reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
+> - This [Azure portal](https://portal.azure.com) self-serve experience is currently in **preview**. If you have any questions about the Dedicated offering, reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
 
 
 ## Prerequisites
@@ -28,11 +30,11 @@ To complete this quickstart, make sure that you have:
 An Event Hubs cluster provides a unique scoping container in which you can create one or more namespaces. 
 
 > [!WARNING]
-> You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you will be charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
+> You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you're charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 To create a cluster in your resource group using the Azure portal, complete the following steps:
 
-1. Follow [this link](https://aka.ms/eventhubsclusterquickstart) to create a cluster on Azure portal. Conversely, select **All services** from the left navigation pane, then type in **Event Hubs Clusters** in the search bar and select **Event Hubs Clusters** from the list of results.
+1. Follow [this link](https://portal.azure.com) to create a cluster on Azure portal. Conversely, select **All services** from the left navigation pane, then type in **Event Hubs Clusters** in the search bar and select **Event Hubs Clusters** from the list of results.
 1. On the **Event Hubs Clusters** page, select **+ Create** on the toolbar. 
 1. On the **Create Cluster** page, configure the following settings:
     1. Enter a **name for the cluster**. The system immediately checks to see if the name is available.
@@ -41,7 +43,7 @@ To create a cluster in your resource group using the Azure portal, complete the 
     1. Notice that the **Support Scaling** option is set to **Enabled**. 
     1. Select a **location** for the cluster. If your preferred region is grayed out or it's temporarily out of capacity. Submit a [support request](#submit-a-support-request) to the Event Hubs team for further assistance.
     1. For **Capacity units**, move the slider to set the number or CUs. The minimum value is 1 and the maximum value is 10. 
-    1. Select the **Next: Tags** button at the bottom of the page. You may have to wait a few minutes for the system to fully provision the resources.
+    1. Select the **Next: Tags** button at the bottom of the page. You might have to wait a few minutes for the system to fully provision the resources.
 
         :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png" alt-text="Image showing the Create Event Hubs Cluster - Basics page.":::
 3. On the **Tags** page, configure the following:
@@ -49,7 +51,7 @@ To create a cluster in your resource group using the Azure portal, complete the 
     2. Select the **Review + Create** button.
     
         > [!IMPORTANT]
-        > You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you will be charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).   
+        > You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you're charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).   
 1. On the **Review + Create** page, review the details, and select **Create**. 
 
     :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png" alt-text="Image showing the Create Event Hubs Cluster page - Review + Create page.":::
@@ -106,10 +108,10 @@ For clusters created with the **Support Scaling** option set, use the following 
 1. To delete the cluster, select **Delete** from the toolbar on the **Event Hubs Cluster** page for your cluster. 
 
     > [!IMPORTANT]
-    > You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you will be charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).  
+    > You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you're charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
     :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/delete-menu.png" alt-text="Screenshot showing the Delete button on the Event Hubs Cluster page.":::   
-1. A message will appear confirming your wish to delete the cluster.
+1. A message appears confirming your wish to delete the cluster.
 1. Type the **name of the cluster** and select **Delete** to delete the cluster.
 
     ![Delete cluster page](./media/event-hubs-dedicated-cluster-create-portal/delete-cluster-page.png)
@@ -124,4 +126,4 @@ In this article, you created an Event Hubs cluster. For step-by-step instruction
     - [Python](event-hubs-python-get-started-send.md)
     - [JavaScript](event-hubs-node-get-started-send.md)
 - [Use Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
-- [Use Azure Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md)
+- [Use Azure Event Hubs for Apache Kafka](azure-event-hubs-apache-kafka-overview.md)

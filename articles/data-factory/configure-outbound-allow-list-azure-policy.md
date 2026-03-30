@@ -1,12 +1,13 @@
 ---
 title: Outbound network rules with Azure Policy (Preview)
 description: Learn about outbound network rules using Azure Policy (Preview).
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.author: abnarain
 author: nabhishek
 ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: security
+ms.custom: sfi-image-nochange
 ---
 
 # Outbound network rules using Azure Policy (Preview)

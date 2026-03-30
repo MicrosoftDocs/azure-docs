@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: 3D Scenes Studio (preview) for Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Learn about 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 11/07/2022
-ms.topic: conceptual
+ms.author: baanders
+ms.date: 08/26/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # 3D Scenes Studio (preview) for Azure Digital Twins
@@ -25,7 +19,7 @@ This article gives an overview of 3D Scenes Studio and its key features. For com
 
 ## Studio overview
 
-Work in 3D Scenes Studio is built around the concept of *scenes*. A scene is a view of a single business environment, and is comprised of 3D content, custom business logic, and references to an Azure Digital Twins instance. You can have multiple scenes for a single digital twin instance.
+Work in 3D Scenes Studio is built around the concept of *scenes*. A scene is a view of a single business environment, and is composed of 3D content, custom business logic, and references to an Azure Digital Twins instance. You can have multiple scenes for a single digital twin instance.
 
 Scenes are configured in the [builder](#builder) inside the 3D Scenes Studio. Then, you can view your finished scenes in the studio's [built-in view experience](#viewer), or [embedded in custom web applications](#embeddable-viewer-component). You can extend the built-in viewer or create your own viewers that access the 3D Scenes files and your Azure Digital Twins graph.
 
@@ -112,7 +106,7 @@ You can use the **Elements** list to explore all the elements and active conditi
 
 3D Scenes Studio is extensible to support additional viewing needs. The [viewer component](#viewer) can be embedded into custom applications, and can work in conjunction with 3rd party components.
 
-[!INCLUDE [digital-twins-3d-embed.md](../../includes/digital-twins-3d-embed.md)]
+[!INCLUDE [digital-twins-3d-embed.md](includes/digital-twins-3d-embed.md)]
 
 ## Limits and performance
 
@@ -127,9 +121,9 @@ These limits are recommended because 3D Scenes Studio leverages the standard [Az
 
 ### Refresh rate and performance
 
-The default refresh rate of the 3D scene viewer starts at 10 seconds for fewer than 100 twins. It increases as the number of twins increases, at a rate of about one second for every 10 twins.
+The default refresh rate of the 3D scene viewer has a baseline of 10 seconds, then increases at a rate of half a second per twin. For example, the refresh rate for 10 twins is the baseline value of 10 seconds (10 twins * 0.5 seconds = 5 seconds, which gets adjusted to the minimum baseline of 10 seconds), while the refresh rate for 30 twins is 15 seconds (30 seconds * 0.5 seconds = 15 seconds). This is the minimum possible refresh rate.
 
-The **minimum refresh rate** can also be configured manually, to exercise some control over how often data is pulled and the resulting impact on performance. You can configure the minimum refresh rate for the viewer to be anywhere between 10 seconds and one hour. The viewer will never drop below the minimum refresh rate that you set. The viewer may, however, raise the **actual** refresh rate as the number of twins increases, in an effort to improve performance.
+The minimum refresh rate can be slowed manually, to exercise precise control over how often data is pulled. You can configure the minimum refresh rate for the viewer to be anywhere between 10 seconds and one hour. The viewer will never drop below the minimum refresh rate that you set. The viewer may, however, raise their **actual** refresh rate as the number of twins increases, in an effort to improve performance.
 
 For instructions on how to configure the minimum refresh rate for the viewer, see [Configure minimum refresh rate](how-to-use-3d-scenes-studio.md#configure-minimum-refresh-rate).
 

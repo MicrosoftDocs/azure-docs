@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud security administrator, I want to configure Azure Storage encryption with customer-managed keys using a managed HSM, so that I can maintain control over encryption keys and ensure compliance with organizational security policies.
 ---
 
 # Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM
@@ -25,7 +26,7 @@ This article shows how to configure encryption with customer-managed keys stored
 
 ## Assign an identity to the storage account
 
-First, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the managed HSM. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+First, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the managed HSM. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md)
 
 To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). Remember to replace the placeholder values in brackets with your own values:
 

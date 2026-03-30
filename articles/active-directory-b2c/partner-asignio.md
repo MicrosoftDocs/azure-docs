@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Asignio with Azure Active Directory B2C for multifactor authentication
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Learn to integrate Microsoft Entra ID (Azure AD B2C) authentication with [Asignio](https://www.web.asignio.com/). With this integration, provide passwordless, soft biometric, and multifactor authentication experience to customers. Asignio uses patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature helps to reduce passwords, fraud, phishing, and credential reuse through omni-channel authentication.
 
 ## Before you begin
@@ -38,7 +40,7 @@ Learn more:
 
 * An Azure subscription. 
 
-* If you don't have on, get an [Azure free account](https://azure.microsoft.com/free/)
+* If you don't have on, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - An Azure AD B2C tenant linked to the Azure subscription
 - See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md) 
@@ -74,7 +76,7 @@ The following diagram illustrates the implementation.
 
 ## Configure an application with Asignio
 
-Configurating an application with Asignio is with the Asignio Partner Administration site. 
+Configuring an application with Asignio is with the Asignio Partner Administration site. 
 
 1. To request access for your organization, go to asignio.com [Asignio Partner Administration](https://partner.asignio.com) page. 
 2. With credentials, sign into Asignio Partner Administration.
@@ -217,17 +219,17 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
             <Item Key="scope">openid profile email</Item>
             <Item Key="UsePolicyInRedirectUri">0</Item>
             <!-- Update the Client ID below to the Asignio Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
 
 
             <!-- trying to add additional claim-->
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->
-            <Item Key="11111111-1111-1111-1111-111111111111"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="22222222-2222-2222-2222-222222222222"></Item>
+            <!--Insert b2c-extensions-app application ID here, for example: 00001111-aaaa-2222-bbbb-3333cccc4444-->
+            <Item Key="00001111-aaaa-2222-bbbb-3333cccc4444"></Item>
+            <!--Insert b2c-extensions-app application ObjectId here, for example: aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb-->
+            <Item Key="aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"></Item>
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
-            <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>-->
+            <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/00001111-aaaa-2222-bbbb-3333cccc4444</Item>-->
             <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to     sign in. -->
             <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item>
           </Metadata>
@@ -435,7 +437,7 @@ If you have an Asignio Signature, you're prompted to authenticate with your Asig
 ## Next steps
 
 * [Solutions and Training for Azure Active Directory B2C](solution-articles.md)
-* Ask questions on [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+* Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 * [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 * YouTube: [Identity Azure AD B2C Series](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0)
 * [Azure AD B2C custom policy overview](custom-policy-overview.md)

@@ -1,77 +1,77 @@
 ---
 title: Create and update statistics on tables
-description: Recommendations and examples for creating and updating query-optimization statistics on tables in dedicated SQL pool.
+description: Explore recommendations and examples for creating and updating query-optimization statistics on tables in dedicated SQL pool.
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.subservice: sql-dw
-ms.date: 05/09/2018
+ms.date: 02/10/2025
 author: mstehrani
 ms.author: emtehran
-ms.reviewer: wiassaf
+
 ms.custom: azure-synapse
 ---
 
-# Table statistics for dedicated SQL pool in Azure Synapse Analytics
+# Create and update table statistics in dedicated SQL pool
 
-In this article, you'll find recommendations and examples for creating and updating query-optimization statistics on tables in dedicated SQL pool.
+This article provides recommendations and examples for creating and updating query-optimization statistics on tables in dedicated SQL pool.
 
 ## Why use statistics
 
-The more dedicated SQL pool knows about your data, the faster it can execute queries against it. After loading data into dedicated SQL pool, collecting statistics on your data is one of the most important things you can do to optimize your queries.
+The more dedicated SQL pool knows about your data, the faster it can execute queries against it. After you load data into dedicated SQL pool, collecting statistics on your data is one of the most important things you can do to optimize your queries.
 
-The dedicated SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest.
+The dedicated SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that executes the fastest.
 
-For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+For example, the optimizer selects a certain plan if it estimates that the date your query filters on returns one row. If the optimizer estimates that the selected date returns a million rows, it chooses a different plan.
 
 ## Automatic creation of statistic
 
-When the database AUTO_CREATE_STATISTICS option is on, dedicated SQL pool analyzes incoming user queries for missing statistics.
+When the database `AUTO_CREATE_STATISTICS` option is on, dedicated SQL pool analyzes incoming user queries for missing statistics.
 
 If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
 
 > [!NOTE]
 > Automatic creation of statistics is currently turned on by default.
 
-You can check if your dedicated SQL pool has AUTO_CREATE_STATISTICS configured by running the following command:
+You can check if your dedicated SQL pool has `AUTO_CREATE_STATISTICS` configured by running the following T-SQL command:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-If your dedicated SQL pool doesn't have AUTO_CREATE_STATISTICS configured, we recommend you enable this property by running the following command:
+If your dedicated SQL pool doesn't have `AUTO_CREATE_STATISTICS` configured, we recommend you enable this property by running the following command. Replace `<your-datawarehouse-name>` with the name of your dedicated SQL pool.
 
 ```sql
-ALTER DATABASE <yourdatawarehousename>
+ALTER DATABASE <your-datawarehouse-name>
 SET AUTO_CREATE_STATISTICS ON
 ```
 
-These statements will trigger automatic creation of statistics:
+These statements trigger the automatic creation of statistics:
 
-- SELECT
-- INSERT-SELECT
-- CTAS
-- UPDATE
-- DELETE
-- EXPLAIN when containing a join or the presence of a predicate is detected
+- `SELECT`
+- `INSERT`... `SELECT`
+- `CREATE TABLE AS SELECT` (CTAS)
+- `UPDATE`
+- `DELETE`
+- `EXPLAIN` when containing a join or the presence of a predicate is detected
 
 > [!NOTE]
-> Automatic creation of statistics are not created on temporary or external tables.
+> Automatic creation of statistics isn't performed on temporary or external tables.
 
-Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the table.
+Automatic creation of statistics is done synchronously so you might incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the table.
 
 To avoid measurable performance degradation, you should ensure stats have been created first by executing the benchmark workload before profiling the system.
 
 > [!NOTE]
-> The creation of stats will be logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) under a different user context.
+> The creation of stats is logged in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) under a different user context.
 
-When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats that have already been created by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) command:
+When automatic statistics are created, they take the form: `_WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>`. You can view stats that have already been created by running the [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) command:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-The table_name is the name of the table that contains the statistics to display. This table can't be an external table. The target is the name of the target index, statistics, or column for which to display statistics information.
+The `table_name` is the name of the table that contains the statistics to display. This table can't be an external table. The target is the name of the target index, statistics, or column for which to display statistics information.
 
 ## Update statistics
 
@@ -81,98 +81,98 @@ Statistics on a country/region column in a customer table might never need to be
 
 However, if your dedicated SQL pool only contains one country/region, and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
 
-The following are recommendations updating statistics:
+The following are recommendations for updating statistics:
 
 | Statistics attribute | Recommendation|
 |-|-|
 | **Frequency of stats updates**  | Conservative: Daily </br> After loading or transforming your data |
-| **Sampling** |  Less than 1 billion rows, use default sampling (20 percent). </br> With more than 1 billion rows, use sampling of two percent. |
+| **Sampling** |  Less than 1 billion rows, use default sampling (20 percent).</br> With more than 1 billion rows, use sampling of two percent. |
 
-One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
+One of the first questions to ask when you're troubleshooting a query is *"Are the statistics up to date?"*
 
-This question isn't one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. When the number of rows has changed substantially, or there is a material change in the distribution of values for a column, *then* it's time to update statistics. 
+This question can't be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. When the number of rows has changed substantially, or there's a material change in the distribution of values for a column, *then* it's time to update statistics.
 
-There is no dynamic management view to determine if data within the table has changed since the last time statistics were updated.  The following two queries can help you determine whether your statistics are stale.
+There's no dynamic management view to determine if data within the table has changed since the last time statistics were updated. The following two queries can help you determine whether your statistics are stale.
 
-**Query 1:**  Find out the difference between the row count from the statistics (**stats_row_count**) and the actual row count (**actual_row_count**). 
+- **Query 1:** Find the difference between the row count from the statistics (`stats_row_count`) and the actual row count (`actual_row_count`).
 
-```sql
-select 
-objIdsWithStats.[object_id], 
-actualRowCounts.[schema], 
-actualRowCounts.logical_table_name, 
-statsRowCounts.stats_row_count, 
-actualRowCounts.actual_row_count,
-row_count_difference = CASE
-    WHEN actualRowCounts.actual_row_count >= statsRowCounts.stats_row_count THEN actualRowCounts.actual_row_count - statsRowCounts.stats_row_count
-    ELSE statsRowCounts.stats_row_count - actualRowCounts.actual_row_count
-END,
-percent_deviation_from_actual = CASE
-    WHEN actualRowCounts.actual_row_count = 0 THEN statsRowCounts.stats_row_count
-    WHEN statsRowCounts.stats_row_count = 0 THEN actualRowCounts.actual_row_count
-    WHEN actualRowCounts.actual_row_count >= statsRowCounts.stats_row_count THEN CONVERT(NUMERIC(18, 0), CONVERT(NUMERIC(18, 2), (actualRowCounts.actual_row_count - statsRowCounts.stats_row_count)) / CONVERT(NUMERIC(18, 2), actualRowCounts.actual_row_count) * 100)
-    ELSE CONVERT(NUMERIC(18, 0), CONVERT(NUMERIC(18, 2), (statsRowCounts.stats_row_count - actualRowCounts.actual_row_count)) / CONVERT(NUMERIC(18, 2), actualRowCounts.actual_row_count) * 100)
-END
-from
-(
-    select distinct object_id from sys.stats where stats_id > 1
-) objIdsWithStats
-left join
-(
-    select object_id, sum(rows) as stats_row_count from sys.partitions group by object_id
-) statsRowCounts
-on objIdsWithStats.object_id = statsRowCounts.object_id 
-left join
-(
-    SELECT sm.name [schema] ,
-        tb.name logical_table_name ,
-        tb.object_id object_id ,
-        SUM(rg.row_count) actual_row_count
-    FROM sys.schemas sm
-         INNER JOIN sys.tables tb ON sm.schema_id = tb.schema_id
-         INNER JOIN sys.pdw_table_mappings mp ON tb.object_id = mp.object_id
-         INNER JOIN sys.pdw_nodes_tables nt ON nt.name = mp.physical_name
-         INNER JOIN sys.dm_pdw_nodes_db_partition_stats rg     ON rg.object_id = nt.object_id
-            AND rg.pdw_node_id = nt.pdw_node_id
-            AND rg.distribution_id = nt.distribution_id
-    WHERE rg.index_id = 1
-    GROUP BY sm.name, tb.name, tb.object_id
-) actualRowCounts
-on objIdsWithStats.object_id = actualRowCounts.object_id
+    ```sql
+    select 
+    objIdsWithStats.[object_id], 
+    actualRowCounts.[schema], 
+    actualRowCounts.logical_table_name, 
+    statsRowCounts.stats_row_count, 
+    actualRowCounts.actual_row_count,
+    row_count_difference = CASE
+        WHEN actualRowCounts.actual_row_count >= statsRowCounts.stats_row_count THEN actualRowCounts.actual_row_count - statsRowCounts.stats_row_count
+        ELSE statsRowCounts.stats_row_count - actualRowCounts.actual_row_count
+    END,
+    percent_deviation_from_actual = CASE
+        WHEN actualRowCounts.actual_row_count = 0 THEN statsRowCounts.stats_row_count
+        WHEN statsRowCounts.stats_row_count = 0 THEN actualRowCounts.actual_row_count
+        WHEN actualRowCounts.actual_row_count >= statsRowCounts.stats_row_count THEN CONVERT(NUMERIC(18, 0), CONVERT(NUMERIC(18, 2), (actualRowCounts.actual_row_count - statsRowCounts.stats_row_count)) / CONVERT(NUMERIC(18, 2), actualRowCounts.actual_row_count) * 100)
+        ELSE CONVERT(NUMERIC(18, 0), CONVERT(NUMERIC(18, 2), (statsRowCounts.stats_row_count - actualRowCounts.actual_row_count)) / CONVERT(NUMERIC(18, 2), actualRowCounts.actual_row_count) * 100)
+    END
+    from
+    (
+        select distinct object_id from sys.stats where stats_id > 1
+    ) objIdsWithStats
+    left join
+    (
+        select object_id, sum(rows) as stats_row_count from sys.partitions group by object_id
+    ) statsRowCounts
+    on objIdsWithStats.object_id = statsRowCounts.object_id 
+    left join
+    (
+        SELECT sm.name [schema] ,
+            tb.name logical_table_name ,
+            tb.object_id object_id ,
+            SUM(rg.row_count) actual_row_count
+        FROM sys.schemas sm
+             INNER JOIN sys.tables tb ON sm.schema_id = tb.schema_id
+             INNER JOIN sys.pdw_table_mappings mp ON tb.object_id = mp.object_id
+             INNER JOIN sys.pdw_nodes_tables nt ON nt.name = mp.physical_name
+             INNER JOIN sys.dm_pdw_nodes_db_partition_stats rg     ON rg.object_id = nt.object_id
+                AND rg.pdw_node_id = nt.pdw_node_id
+                AND rg.distribution_id = nt.distribution_id
+        WHERE rg.index_id = 1
+        GROUP BY sm.name, tb.name, tb.object_id
+    ) actualRowCounts
+    on objIdsWithStats.object_id = actualRowCounts.object_id
+    
+    ```
 
-```
+- **Query 2:** Find the age of your statistics by checking the last time your statistics were updated on each table.
 
-**Query 2:** Find out the age of your statistics by checking the last time your statistics were updated on each table. 
+    > [!NOTE]
+    > If there's a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.
 
-> [!NOTE]
-> If there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.
-
-```sql
-SELECT
-    sm.[name] AS [schema_name],
-    tb.[name] AS [table_name],
-    co.[name] AS [stats_column_name],
-    st.[name] AS [stats_name],
-    STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
-FROM
-    sys.objects ob
-    JOIN sys.stats st
-        ON  ob.[object_id] = st.[object_id]
-    JOIN sys.stats_columns sc
-        ON  st.[stats_id] = sc.[stats_id]
-        AND st.[object_id] = sc.[object_id]
-    JOIN sys.columns co
-        ON  sc.[column_id] = co.[column_id]
-        AND sc.[object_id] = co.[object_id]
-    JOIN sys.types  ty
-        ON  co.[user_type_id] = ty.[user_type_id]
-    JOIN sys.tables tb
-        ON  co.[object_id] = tb.[object_id]
-    JOIN sys.schemas sm
-        ON  tb.[schema_id] = sm.[schema_id]
-WHERE
-    st.[user_created] = 1;
-```
+    ```sql
+    SELECT
+        sm.[name] AS [schema_name],
+        tb.[name] AS [table_name],
+        co.[name] AS [stats_column_name],
+        st.[name] AS [stats_name],
+        STATS_DATE(st.[object_id],st.[stats_id]) AS [stats_last_updated_date]
+    FROM
+        sys.objects ob
+        JOIN sys.stats st
+            ON  ob.[object_id] = st.[object_id]
+        JOIN sys.stats_columns sc
+            ON  st.[stats_id] = sc.[stats_id]
+            AND st.[object_id] = sc.[object_id]
+        JOIN sys.columns co
+            ON  sc.[column_id] = co.[column_id]
+            AND sc.[object_id] = co.[object_id]
+        JOIN sys.types  ty
+            ON  co.[user_type_id] = ty.[user_type_id]
+        JOIN sys.tables tb
+            ON  co.[object_id] = tb.[object_id]
+        JOIN sys.schemas sm
+            ON  tb.[schema_id] = sm.[schema_id]
+    WHERE
+        st.[user_created] = 1;
+    ```
 
 **Date columns** in a dedicated SQL pool, for example, usually need frequent statistics updates. Each time new rows are loaded into the dedicated SQL pool, new load dates or transaction dates are added. These additions change the data distribution and make the statistics out of date.
 
@@ -182,17 +182,17 @@ If your dedicated SQL pool contains only one gender and a new requirement result
 
 For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-## Implementing statistics management
+## Implement statistics management
 
-It is often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load to avoid/minimize blocking or resource contention between concurrent queries.  
+It's often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load to avoid or minimize blocking or resource contention between concurrent queries.  
 
-The data load is when tables most frequently change their size and/or their distribution of values. Data-loading is a logical place to implement some management processes.
+The data load is when tables most frequently change their size or their distribution of values. Data-loading is a logical place to implement some management processes.
 
 The following guiding principles are provided for updating your statistics:
 
 - Ensure that each loaded table has at least one statistics object updated. This updates the table size (row count and page count) information as part of the statistics update.
 - Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.
-- Consider updating "ascending key" columns such as transaction dates more frequently, because these values will not be included in the statistics histogram.
+- Consider updating *ascending key* columns such as transaction dates more frequently, because these values aren't included in the statistics histogram.
 - Consider updating static distribution columns less frequently.
 - Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
 
@@ -200,13 +200,13 @@ For more information, see [Cardinality Estimation](/sql/relational-databases/per
 
 ## Examples: Create statistics
 
-These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
+These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column is used in queries.
 
 ### Create single-column statistics with default options
 
 To create statistics on a column, provide a name for the statistics object and the name of the column.
 
-This syntax uses all of the default options. By default, **20 percent** of the table is sampled when creating statistics.
+This syntax uses all of the default options. By default, *20 percent* of the table is sampled when creating statistics.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -244,9 +244,9 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 
 ### Create single-column statistics on only some of the rows
 
-You can also create statistics on a portion of the rows in your table. This is called a filtered statistic.
+You can also create statistics on a portion of the rows in your table. This is called a *filtered statistic*.
 
-For example, you can use filtered statistics when you plan to query a specific partition of a large partitioned table. By creating statistics on only the partition values, the accuracy of the statistics will improve, and therefore improve query performance.
+For example, you can use filtered statistics when you plan to query a specific partition of a large partitioned table. By creating statistics on only the partition values, the accuracy of the statistics improves, which improves query performance.
 
 This example creates statistics on a range of values. The values can easily be defined to match the range of values in a partition.
 
@@ -274,17 +274,17 @@ To create a multi-column statistics object, use the previous examples, but speci
 > [!NOTE]
 > The histogram, which is used to estimate the number of rows in the query result, is only available for the first column listed in the statistics object definition.
 
-In this example, the histogram is on *product\_category*. Cross-column statistics are calculated on *product\_category* and *product\_sub_category*:
+In this example, the histogram is on `product_category`. Cross-column statistics are calculated on `product_category` and `product_sub_category`:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Because there is a correlation between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
+Because there's a correlation between `product_category` and `product_sub_category`, a multi-column statistics object can be useful if these columns are accessed at the same time.
 
 ### Create statistics on all columns in a table
 
-One way to create statistics is to issue CREATE STATISTICS commands after creating the table:
+One way to create statistics is to issue `CREATE STATISTICS` commands after creating the table:
 
 ```sql
 CREATE TABLE dbo.table1
@@ -306,9 +306,9 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### Use a stored procedure to create statistics on all columns in a SQL pool
 
-Dedicated SQL pool does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column in a SQL pool that doesn't already have statistics.
+Dedicated SQL pool doesn't have a system stored procedure equivalent to `sp_create_stats` in SQL Server. This stored procedure creates a single column statistics object on every column in a SQL pool that doesn't already have statistics.
 
-The following example will help you get started with your SQL pool design. Feel free to adapt it to your needs.
+The following example shows how to get started with your SQL pool design. Feel free to adapt it to your needs.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
@@ -408,7 +408,7 @@ To create statistics on all columns in the table using a fullscan, call this pro
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
 
-To create sampled statistics on all columns in the table, enter 3, and the sample percent. This procedure uses a 20 percent sample rate.
+To create sampled statistics on all columns in the table, enter *3*, and the sample percent. This procedure uses a *20* percent sample rate.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
@@ -451,10 +451,10 @@ For example:
 UPDATE STATISTICS dbo.table1;
 ```
 
-The UPDATE STATISTICS statement is easy to use. Just remember that it updates *all* statistics on the table, and therefore might perform more work than is necessary. If performance is not an issue, this is the easiest and most complete way to guarantee that statistics are up to date.
+The `UPDATE STATISTICS` statement is easy to use. Just remember that it updates *all* statistics on the table, and therefore might perform more work than is necessary. If performance isn't an issue, this is the easiest and most complete way to guarantee that statistics are up to date.
 
 > [!NOTE]
-> When updating all statistics on a table, dedicated SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
+> When you update all statistics on a table, dedicated SQL pool does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 
 For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](sql-data-warehouse-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
 
@@ -470,13 +470,13 @@ These system views provide information about statistics:
 
 | Catalog view | Description |
 |:--- |:--- |
-| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each column. |
-| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each object in the database. |
-| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each schema in the database. |
-| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each statistics object. |
-| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each column in the statistics object. Links back to sys.columns. |
-| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each table (includes external tables). |
-| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each data type. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each column |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each object in the database |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each schema in the database |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each statistics object |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each column in the statistics object; links back to *sys.columns* |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each table (includes external tables) |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |One row for each data type |
 
 ### System functions for statistics
 
@@ -484,12 +484,12 @@ These system functions are useful for working with statistics:
 
 | System function | Description |
 |:--- |:--- |
-| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Date the statistics object was last updated. |
-| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Date the statistics object was last updated |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Summary level and detailed information about the distribution of values as understood by the statistics object |
 
 ### Combine statistics columns and functions into one view
 
-This view brings columns that relate to statistics and results from the STATS_DATE() function together.
+This view brings columns that relate to statistics and results from the `STATS_DATE()` function together.
 
 ```sql
 CREATE VIEW dbo.vstats_columns
@@ -529,7 +529,7 @@ AND     st.[user_created] = 1
 
 ## DBCC SHOW_STATISTICS() examples
 
-DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data comes in three parts:
+`DBCC SHOW_STATISTICS()` shows the data held within a statistics object. This data comes in three parts:
 
 - Header
 - Density vector
@@ -570,16 +570,16 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ## DBCC SHOW_STATISTICS() differences
 
-DBCC SHOW_STATISTICS() is more strictly implemented in dedicated SQL pool compared to SQL Server:
+`DBCC SHOW_STATISTICS()` is more strictly implemented in dedicated SQL pool compared to SQL Server:
 
-- Undocumented features are not supported.
-- Cannot use Stats_stream.
-- Cannot join results for specific subsets of statistics data. For example, STAT_HEADER JOIN DENSITY_VECTOR.
-- NO_INFOMSGS cannot be set for message suppression.
-- Square brackets around statistics names cannot be used.
-- Cannot use column names to identify statistics objects.
-- Custom error 2767 is not supported.
+- Undocumented features aren't supported.
+- Can't use `Stats_stream`.
+- Can't join results for specific subsets of statistics data. For example, `STAT_HEADER JOIN DENSITY_VECTOR`.
+- `NO_INFOMSGS` can't be set for message suppression.
+- Square brackets around statistics names can't be used.
+- Can't use column names to identify statistics objects.
+- Custom error 2767 isn't supported.
 
-## Next steps
+## Related content
 
-For further improve query performance, see [Monitor your workload](sql-data-warehouse-manage-monitor.md)
+[Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](sql-data-warehouse-manage-monitor.md)

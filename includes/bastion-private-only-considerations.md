@@ -15,4 +15,6 @@ ms.topic: include
 
 * If you want to create end-to-end private connectivity, connect using the native client instead of connecting via the Azure portal.
 
-* If your client machine is on-premises and non-Azure, you will need to deploy an ExpressRoute or VPN and enable **IP-based connection** on the Bastion resource
+* If your client machine is on-premises and non-Azure, you will need to deploy an ExpressRoute or VPN and enable **IP-based connection** on the Bastion resource.
+
+* Ensure your network security rules do not block port 443 access to the AzureBastionSubnet for inbound Virtual Network traffic.

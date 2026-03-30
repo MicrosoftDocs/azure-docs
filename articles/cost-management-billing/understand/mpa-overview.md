@@ -1,14 +1,15 @@
 ---
 title: Get started with your Microsoft Partner Agreement billing account - Azure CSP
 description: Understand your Microsoft Partner Agreement billing account (CSP)
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 06/25/2024
-ms.author: banders
+ms.date: 11/03/2025
+ms.author: jkinma
 # customer intent: As a Partner billing administrator, I want manage and use my Microsoft Partner Agreement to manage my customer's billing accounts.
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Get started with your Microsoft Partner Agreement billing account
@@ -25,7 +26,7 @@ The following diagram shows the relationship between a billing account, billing 
 
 :::image type="content" border="false" source="./media/mpa-overview/mpa-hierarchy.svg" alt-text="Diagram showing the Microsoft Partner Agreement billing hierarchy.":::
 
-Users with  **Global Admin** and **Admin Agents** role in your organization can manage billing accounts, billing profiles and customers. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
+Users with the **Admin Agent** or [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) role in your organization can manage billing accounts, billing profiles and customers. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
 ## Billing profiles
 

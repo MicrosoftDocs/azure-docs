@@ -7,7 +7,7 @@
 - name: Quickstarts
   items:
   - name: Secure virtual hub - Bicep
-    displayName: Resource Manager, ARM, Template
+    displayName: Resource Manager, ARM, Templatehttps://github.com/MicrosoftDocs/azure-docs-pr/pull/290736/
     href: quick-secure-virtual-hub-bicep.md
   - name: Secure virtual hub - Terraform
     displayName: Terraform
@@ -46,8 +46,6 @@
     href: deployment-overview.md
   - name: Security partner providers
     href: trusted-security-partners.md
-  - name: Secure hubs using Check Point Cloudguard Connect
-    href: check-point-overview.md
   - name: IP Groups
     href: ip-groups.md
   - name: Rule processing logic
@@ -62,6 +60,9 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-firewall-manager-security-baseline?toc=/azure/firewall-manager/toc.json
+    - name: Network security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+- name: Deploy
 - name: How-to guides
   items:
   - name: Deploy security partner providers
@@ -98,12 +99,12 @@
     href: ../azure-resource-manager/management/overview.md
 - name: Resources
   items:
+  - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
+    href: https://github.com/Azure/azure-quickstart-templates?tab=readme-ov-file#azure-resource-manager-quickstart-templates
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/firewall-manager/
   - name: Regional availability

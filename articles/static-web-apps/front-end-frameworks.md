@@ -2,11 +2,11 @@
 title: Configure front-end frameworks with Azure Static Web Apps
 description: Settings for popular front-end frameworks needed for Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
+author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  reference
 ms.date: 06/24/2024
-ms.author: cshoe
+ms.author: jikunchen
 ---
 
 # Configure front-end frameworks and libraries with Azure Static Web Apps
@@ -40,7 +40,7 @@ The intent of the table columns is explained by the following items:
 | [Glimmer](https://glimmerjs.com/) | `dist` | n/a | n/a |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a | n/a |
 | [Hugo](https://gohugo.io/) | `public` | n/a | n/a |
-| [Hyperapp](https://hyperapp.dev/) | `/` | n/a | n/a |
+| [Hyperapp](https://github.com/jorgebucaran/hyperapp) | `/` | n/a | n/a |
 | [JavaScript](https://developer.mozilla.org/docs/Web/javascript) | `/` | n/a | n/a |
 | [jQuery](https://jquery.com/) | `/` | n/a | n/a |
 | [KnockoutJS](https://knockoutjs.com/) | `dist` | n/a | n/a |
@@ -49,7 +49,7 @@ The intent of the table columns is explained by the following items:
 | [Next.js](https://nextjs.org/) (Static HTML Export) | `out` | n/a | n/a |
 | [Next.js](https://nextjs.org/) (Hybrid Rendering) | `/` | n/a | n/a |
 | [Nuxt 2](https://v2.nuxt.com/) | `/` | n/a | n/a |
-| [Nuxt 3](https://nuxt.com/) | `output/public` | `output/server` | n/a |
+| [Nuxt 3](https://nuxt.com/) | `.output/public` | `.output/server` | n/a |
 | [Preact](https://preactjs.com/) | `dist` | n/a | n/a |
 | [React](https://reactjs.org/) | `build` | n/a | n/a |
 | [RedwoodJS](https://redwoodjs.com/) | `web/dist` | n/a | `yarn rw build web` |

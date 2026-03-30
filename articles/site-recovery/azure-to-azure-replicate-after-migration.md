@@ -1,20 +1,19 @@
 ---
 title: Set up disaster recovery after migration to Azure with Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: This article describes how to prepare machines to set up disaster recovery between Azure regions after migration to Azure using Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.custom:
 ms.topic: how-to
-ms.date: 05/02/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 12/08/2025
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: As a cloud administrator, I want to set up disaster recovery for Azure VMs after migration, so that I can ensure business continuity and data protection in case of an outage.
 ---
 
 # Set up disaster recovery for Azure VMs after migration to Azure
 
-
 Follow this article if you've [migrated on-premises machines to Azure VMs](./migrate-tutorial-on-premises-azure.md) using the [Site Recovery](site-recovery-overview.md) service, and you now want to get the VMs set up for disaster recovery to a secondary Azure region. The article describes how to ensure that the Azure VM agent is installed on migrated VMs, and how to remove the Site Recovery Mobility service that's no longer needed after migration.
-
-
 
 ## Verify migration
 
@@ -27,7 +26,6 @@ Each Azure VM must have the [Azure VM agent](/azure/virtual-machines/extensions/
 - If the machine is running version 9.7.0.0 or later of the Site Recovery Mobility service, the Azure VM agent is automatically installed by the Mobility service on Windows VMs. On earlier versions of the Mobility service, you'll install the agent manually.
 - For Linux VMs, you must install the Azure VM agent manually. You only need to install the Azure VM agent if the Mobility service installed on the migrated machine is v9.6 or earlier.
 
-
 ### Install the agent on Windows VMs
 
 If you're running a version of the Site Recovery mobility service earlier than 9.7.0.0, or you have some other need to install the agent manually, do the following:
@@ -37,6 +35,7 @@ If you're running a version of the Site Recovery mobility service earlier than 9
 3. Run the installer file.
 
 #### Validate the installation
+
 To check that the agent is installed:
 
 1. On the Azure VM, in the C:\WindowsAzure\Packages folder, you should see the WaAppAgent.exe file.

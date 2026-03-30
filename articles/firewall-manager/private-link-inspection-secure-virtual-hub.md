@@ -2,11 +2,12 @@
 title: Secure traffic destined to private endpoints in Azure Virtual WAN
 description: Learn how to use network rules and application rules to secure traffic destined to private endpoints in Azure Virtual WAN 
 services: firewall-manager
-author: vhorne
+author: duongau
 ms.service: azure-firewall-manager
 ms.topic: how-to
-ms.date: 06/19/2023
-ms.author: victorh
+ms.date: 01/08/2025
+ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Secure traffic destined to private endpoints in Azure Virtual WAN
@@ -27,6 +28,9 @@ Azure Firewall filters traffic using any of the following methods:
 * Source and destination IP addresses, port, and protocol using [network rules](../firewall/features.md#network-traffic-filtering-rules)
 
 Application rules are preferred over network rules to inspect traffic destined to private endpoints because Azure Firewall always SNATs traffic with application rules. SNAT is recommended when inspecting traffic destined to a private endpoint due to the limitation described here: [What is a private endpoint?][private-endpoint-overview]. If you're planning on using network rules instead, it's recommended to configure Azure Firewall to always perform SNAT: [Azure Firewall SNAT private IP address ranges][firewall-snat-private-ranges].
+
+ > [!IMPORTANT]
+> Regardless of the rules configured in Azure Firewall, ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed. This ensures that traffic destined for private endpoints does not bypass Azure Firewall.
 
  Microsoft manages secured virtual hubs, which can't be linked to a [Private DNS Zone](../dns/private-dns-privatednszone.md). This is required to resolve a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource) FQDN to its corresponding private endpoint IP address.
 
@@ -56,8 +60,6 @@ The following steps enable Azure Firewall to filter traffic using either network
 
 2. Configure an [application rule](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule) as required in the firewall policy associated with the Azure Firewall. Choose *Destination Type* FQDN and the private link resource public FQDN as *Destination*.
 
-Lastly, and regardless of the type of rules configured in the Azure Firewall, make sure [Network Policies][network-policies-overview] (at least for UDR support) are enabled in the subnet(s) where the private endpoints are deployed. This ensures traffic destined to private endpoints doesn't bypass the Azure Firewall. 
-
  > [!IMPORTANT]
    > By default, RFC 1918 prefixes are automatically included in the *Private Traffic Prefixes* of the Azure Firewall. For most private endpoints, this will be enough to make sure traffic from on-premises clients, or in different virtual networks connected to the same secured hub, will be inspected by the firewall. In case traffic destined to private endpoints is not being logged in the firewall, try adding the /32 prefix for each private endpoint to the list of *Private Traffic Prefixes*. 
 
@@ -68,8 +70,6 @@ If needed, you can edit the CIDR prefixes that is inspected via Azure Firewall i
 2. Navigate to **Security configuration**, select **Send via Azure Firewall** under **Private traffic**.
 
 3. Select **Private traffic prefixes** to edit the CIDR prefixes that are inspected via Azure Firewall in secured virtual hub and add one /32 prefix for each private endpoint.
-
-   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration" border="true":::
 
 To inspect traffic from clients in the same virtual network as private endpoints, it isn't required to specifically override the /32 routes from private endpoints. As long as **Network Policies** are enabled in the private endpoints subnet(s), a UDR with a wider address range takes precedence. For instance, configure this UDR with **Next hop type** set to **Virtual Appliance**, **Next hop address** set to the private IP of the Azure Firewall, and **Address prefix** destination set to the subnet dedicated to all private endpoint deployed in the virtual network. **Propagate gateway routes** must be set to **Yes**.
 
@@ -126,15 +126,9 @@ In most cases, one of the following issues causes these problems:
 
 1. Verify *Security configuration* in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub. Make sure under the **PRIVATE TRAFFIC** column it shows as **Secured by Azure Firewall** for all the virtual network and branches connections you want to filter traffic for.
 
-   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/firewall-policy-private-traffic-configuration.png" alt-text="Private Traffic Secured by Azure Firewall" border="true":::
-
 2. Verify **Security configuration** in the firewall policy associated with the Azure Firewall deployed in the secured virtual hub. In case traffic destined to private endpoints isn't being logged in the firewall, try adding the /32 prefix for each private endpoint to the list of **Private Traffic Prefixes**.
 
-   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/firewall-manager-security-configuration.png" alt-text="Firewall Manager Security Configuration - Private Traffic Prefixes" border="true":::
-
-3. In the secured virtual hub under virtual WAN, inspect effective routes for the route tables associated with the virtual networks and branches connections you want to filter traffic for. If /32 entries were added for each private endpoint you want to inspect traffic for, make sure these are listed in the effective routes.
-
-   :::image type="content" source="./media/private-link-inspection-secure-virtual-hub/secured-virtual-hub-effective-routes.png" alt-text="Secured Virtual Hub Effective Routes" border="true":::
+ 3. In the secured virtual hub under virtual WAN, inspect effective routes for the route tables associated with the virtual networks and branches connections you want to filter traffic for. If /32 entries were added for each private endpoint you want to inspect traffic for, make sure these are listed in the effective routes.
 
 4. Inspect the effective routes on the NICs attached to the virtual machines deployed in the virtual networks you want to filter traffic for. Make sure there are /32 entries for each private endpoint private IP address you want to filter traffic for (if added).
  

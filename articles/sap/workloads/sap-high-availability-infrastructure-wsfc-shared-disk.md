@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 06/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
+# Customer intent: As an IT administrator, I want to set up a high-availability SAP ASCS/SCS instance on Azure using a Windows failover cluster and shared disk so that I can ensure uninterrupted service and data access for critical SAP applications.
 ---
 
 # Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS
@@ -171,7 +172,7 @@ $SAPSID = "PR1"
 $ClusterNodes = ("pr1-ascs-10","pr1-ascs-11")
 $ClusterName = $SAPSID.ToLower() + "clust"
 
-# IP adress for cluster network name is needed ONLY on Windows Server 2016 cluster
+# IP address for cluster network name is needed ONLY on Windows Server 2016 cluster
 $ClusterStaticIPAddress = "10.0.0.42"
 
 # Test cluster
@@ -286,7 +287,7 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
    $DiskLabel = "$SAPSID" + "SAP"
  
    Get-Disk -Number $DiskNumber | Where-Object PartitionStyle -Eq "RAW" | Initialize-Disk -PartitionStyle GPT -PassThru |  New-Partition -DriveLetter $DriveLetter -UseMaximumSize | Format-Volume  -FileSystem ReFS -NewFileSystemLabel $DiskLabel -Force -Verbose
-   # Example outout
+   # Example output
    # DriveLetter FileSystemLabel FileSystem DriveType HealthStatus OperationalStatus SizeRemaining      Size
    # ----------- --------------- ---------- --------- ------------ ----------------- -------------      ----
    # S           PR1SAP          ReFS       Fixed     Healthy      OK                    504.98 GB 511.81 GB

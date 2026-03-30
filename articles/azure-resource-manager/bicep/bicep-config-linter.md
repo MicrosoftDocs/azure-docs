@@ -1,9 +1,9 @@
----
+﻿---
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 09/19/2024
+ms.date: 03/12/2026
 ---
 
 # Add linter settings in the Bicep config file
@@ -37,19 +37,19 @@ The following example shows the rules that are available for configuration.
           "level": "off"
         },
         "max-asserts": {
-          "level": "warning"
+          "level": "error"
         },
         "max-outputs": {
-          "level": "warning"
+          "level": "error"
         },
         "max-params": {
-          "level": "warning"
+          "level": "error"
         },
         "max-resources": {
-          "level": "warning"
+          "level": "error"
         },
         "max-variables": {
-          "level": "warning"
+          "level": "error"
         },
         "nested-deployment-template-scoping": {
           "level": "error"
@@ -58,6 +58,9 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "no-deployments-resources" : {
+          "level": "warning"
+        },
+        "no-explicit-any": {
           "level": "warning"
         },
         "no-hardcoded-env-urls": {
@@ -73,6 +76,9 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "no-unused-existing-resources": {
+          "level": "warning"
+        },
+        "no-unused-imports": {
           "level": "warning"
         },
         "no-unused-params": {
@@ -112,14 +118,14 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "use-recent-api-versions": {
-          "level": "warning",
+          "level": "off",
           "maxAllowedAgeInDays": 730
         },
         "use-recent-module-versions": {
-          "level": "warning"
+          "level": "off"
         },
         "use-resource-id-functions": {
-          "level": "warning"
+          "level": "off"
         },
         "use-resource-symbol-reference": {
           "level": "warning"
@@ -137,7 +143,7 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "what-if-short-circuiting": {
-          "level": "warning"
+          "level": "off"
         }
       }
     }
@@ -173,9 +179,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
         "no-hardcoded-env-urls": {
           "level": "warning",
           "disallowedhosts": [
-            "api.loganalytics.io",
-            "api.loganalytics.iov1",
-            "asazure.windows.net",
             "azuredatalakeanalytics.net",
             "azuredatalakestore.net",
             "batch.core.windows.net",
@@ -187,8 +190,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
             "login.microsoftonline.com",
             "management.azure.com",
             "management.core.windows.net",
-            "region.asazure.windows.net",
-            "trafficmanager.net",
             "vault.azure.net"
           ],
           "excludedhosts": [

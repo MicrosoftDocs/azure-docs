@@ -6,6 +6,7 @@ ms.author: lle
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
@@ -25,7 +26,7 @@ access SQL Managed Instance from Managed VNET using Private Endpoint.
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Virtual Network**. If you don’t have a Virtual Network, create one following [Create Virtual Network](../virtual-network/quick-create-portal.md).
 * **Virtual network to on-premises network**. Create a connection between virtual network and on-premises network either using [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **Data Factory with Managed VNET enabled**. If you don’t have a Data Factory or Managed VNET is not enabled, create one following [Create Data Factory with Managed VNET](./tutorial-copy-data-portal-private.md).
@@ -230,8 +231,6 @@ the page.
 1. Run the script on with the following options:<br/>
     **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
     <FQDN/IP> is the host of your SQL Managed Instance.
-    
-    :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Screenshot that shows SQL MI host." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
 3. Run below command and check the iptables in your backend server VMs. You can see one record in   your iptables with your target IP. <br/>
     **sudo iptables -t nat -v -L PREROUTING -n --line-number**
@@ -260,11 +259,8 @@ data factory from the resources list.
 6. Enter the name of private endpoint and select **myPrivateLinkService** in private 
 link service list.
 7. Add FQDN of your target SQL Managed Instance.
-    
-    :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Screenshot that shows SQL MI host." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
-
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-5.png" alt-text="Screenshot that shows the private endpoint settings.":::
+   :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-5.png" alt-text="Screenshot that shows the private endpoint settings.":::
 
 8. Create private endpoint.
 

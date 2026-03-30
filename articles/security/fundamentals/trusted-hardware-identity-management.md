@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 10/24/2022
+ms.date: 03/26/2026
 ---
 
 # Trusted Hardware Identity Management
@@ -33,17 +33,18 @@ The Open Enclave SDK and Azure Attestation don't look at the `nextUpdate` date, 
 
 ### What is the Azure DCAP library?
 
-The Azure Data Center Attestation Primitives (DCAP) library, a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the Trusted Hardware Identity Management service. Fetching collateral directly from the Trusted Hardware Identity Management service ensures that all Azure hosts have collateral readily available within the Azure cloud to reduce external dependencies. The current recommended version of the DCAP library is 1.11.2.
+The Azure Data Center Attestation Primitives (DCAP) library, a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the Trusted Hardware Identity Management service. Fetching collateral directly from the Trusted Hardware Identity Management service ensures that all Azure hosts have collateral readily available within the Azure cloud to reduce external dependencies. It is recommended to use the latest version available for your target OS.
 
 ### Where can I download the latest Azure DCAP library?
 
 Use the following links to download the packages:
 
-- [Ubuntu 20.04](https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.12.0_amd64.deb)
-- [Ubuntu 18.04](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.12.0_amd64.deb)
+- [Ubuntu 22.04](https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/a/az-dcap-client/)
+- [Ubuntu 20.04](https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/a/az-dcap-client/)
+- [Ubuntu 18.04](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/)
 - [Windows](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.12.0)
 
-For newer versions of Ubuntu (for example, Ubuntu 22.04), you have to use the [Intel QPL](#how-do-i-use-intel-qpl-with-trusted-hardware-identity-management).
+For newer versions of Ubuntu (for example, Ubuntu 24.04), you have to use the [Intel QPL](#how-do-i-use-intel-qpl-with-trusted-hardware-identity-management).
 
 ### Why do Trusted Hardware Identity Management and Intel have different baselines?
 
@@ -183,25 +184,25 @@ Follow these steps to request AMD collateral in a confidential container:
        1. Create a resource group in one of the CVM supported regions:
 
           ```bash
-          az group create --resource-group <RG_NAME> --location <LOCATION> 
+          az group create --resource-group <resource-group> --location <location> 
           ```
 
        2. Create an AKS cluster with one CVM node in the resource group:
 
           ```bash
-          az aks create --name <CLUSTER_NAME> --resource-group <RG_NAME> -l <LOCATION> --node-vm-size Standard_DC4as_v5 --nodepool-name <POOL_NAME> --node-count 1
+          az aks create --name <aks-cluster-name> --resource-group <resource-group> -l <location> --node-vm-size Standard_DC4as_v5 --nodepool-name <pool-name> --node-count 1
           ```
 
        3. Configure kubectl to connect to the cluster:
 
           ```bash
-          az aks get-credentials --resource-group <RG_NAME> --name <CLUSTER_NAME> 
+          az aks get-credentials --resource-group <resource-group> --name <aks-cluster-name> 
           ```
 
     - Add a CVM node pool to an existing AKS cluster:
 
       ```bash
-      az aks nodepool add --cluster-name <CLUSTER_NAME> --resource-group <RG_NAME> --name <POOL_NAME > --node-vm-size Standard_DC4as_v5 --node-count 1 
+      az aks nodepool add --cluster-name <aks-cluster-name> --resource-group <resource-group> --name <pool-name> --node-vm-size Standard_DC4as_v5 --node-count 1 
       ```
 
 2. Verify the connection to your cluster by using the `kubectl get` command. This command returns a list of the cluster nodes.

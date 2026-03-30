@@ -4,8 +4,11 @@ description: Use Azure Data Factory to migrate data from Amazon S3 to Azure Stor
 ms.author: yexu
 author: dearandyxu
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
+ms.collection: 
+ - migration
+ - aws-to-azure
 ---
 
 # Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage 

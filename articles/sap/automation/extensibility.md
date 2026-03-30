@@ -5,10 +5,11 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 10/29/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-ansible, linux-related-content
+# Customer intent: "As a cloud engineer, I want to extend the SAP Deployment Automation Framework by incorporating custom configurations and Ansible playbooks, so that I can tailor the deployment to meet specific operational requirements efficiently."
 ---
 
 # Extending the SAP Deployment Automation Framework

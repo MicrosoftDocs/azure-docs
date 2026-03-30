@@ -7,8 +7,9 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/05/2024
+# Customer intent: As a network administrator, I want to bring my own IP address range to Azure, so that I can maintain my established reputation and utilize it seamlessly with Azure resources.
 ---
 
 # Custom IP address prefix (BYOIP)
@@ -47,6 +48,8 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 ## Limitations
 
+* Custom IP Address Prefix(BYOIP) can't be attached to a Firewall deployed in VNET. 
+
 * By default, you can bring a maximum of five custom IP prefixes per region to Azure. This limit can be increased upon request. 
 
 * By default:
@@ -56,15 +59,17 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * Custom IP prefixes don't currently support derivation of IPs with Internet Routing Preference or that use Global Tier (for cross-region load-balancing).
 
-* In regions with [availability zones](../../availability-zones/az-overview.md), a custom IPv4 prefix (or a regional custom prefix) must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
+* In regions with [availability zones](/azure/reliability/availability-zones-overview), a custom IPv4 prefix (or a regional custom prefix) must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
 * The advertisements of IPs from a custom IP prefix over an Azure ExpressRoute Microsoft peering isn't currently supported.
 
 * Custom IP prefixes don't support Reverse DNS lookup using Azure-owned zones; customers must onboard their own Reverse Zones to Azure DNS.
 
-* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](manage-custom-ip-address-prefix.md#permissions).
+* Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](manage-custom-ip-address-prefix.md#permissions).  However, public IP prefix ranges that are derived from a custom IP prefix can't be moved to another subscription.
 
 * IPs brought to Azure may have a delay of up to a week before they can be used for Windows Server Activation.
+
+* Public IP Prefixes with Standard v2 IPs cannot be derived from a Custom IP Prefix.
 
 > [!IMPORTANT]
 > There are several differences between how custom IPv4 and IPv6 prefixes are onboarded and utilized. For more information, see [Differences between using BYOIPv4 and BYOIPv6](create-custom-ip-address-prefix-ipv6-powershell.md#differences-between-using-byoipv4-and-byoipv6).

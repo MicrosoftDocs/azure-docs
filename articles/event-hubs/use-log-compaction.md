@@ -26,7 +26,7 @@ You can create a compacted event hub using the Azure portal by following these s
 1. Navigate to your Event Hubs namespace.
 1. On the Event Hubs Namespace page, select Event Hubs in the left menu.
 1. At the top of the window, select + Event Hubs.
-    :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub4.png" alt-text="Screenshot of event hub creation UI.":::
+    :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub-button.png" alt-text="Screenshot of event hub creation UI.":::
 1. Type a *name* for your event hub, and specify the *partition count*. Since we're creating a compacted event hub, select *compaction policy* as *compaction* and provide the desired value for *tombstone retention time*. 
     :::image type="content" source="./media/event-hubs-log-compaction/enabling-compaction.png" alt-text="Screenshot of the event hubs creation UI with compaction related attributes.":::
 1. Select *create* and create the compacted event hub. 

@@ -1,78 +1,84 @@
 ---
-title: Device Update for IoT Hub tutorial using the Raspberry Pi 3 B+ reference Yocto image | Microsoft Docs
-description: Get started with Device Update for Azure IoT Hub by using the Raspberry Pi 3 B+ reference Yocto image.
+title: Azure Device Update for IoT Hub using a Raspberry Pi image
+description: Do an end-to-end image-based Azure Device Update for IoT Hub update using a Raspberry Pi 3 B+ Yocto image.
 author: eshashah
-ms.author: eshashah
-ms.date: 3/8/2023
+ms.author: cwatson
+ms.date: 12/18/2024
 ms.topic: tutorial
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
+ms.custom: sfi-image-nochange
 ---
 
-# Tutorial: Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ reference image
+# Tutorial: Azure Device Update for IoT Hub using a Raspberry Pi image
 
-Device Update for Azure IoT Hub supports image-based, package-based, and script-based updates.
+Device Update for Azure IoT Hub supports image-based, package-based, and script-based updates. This tutorial demonstrates an end-to-end image-based Device Update for IoT Hub update using a Yocto image on a Raspberry Pi 3 B+ board.
 
-Image updates provide a higher level of confidence in the end state of the device. It's typically easier to replicate the results of an image update between a preproduction environment and a production environment because it doesn't pose the same challenges as packages and their dependencies. Because of their atomic nature, you can also adopt an A/B failover model easily.
+Image updates provide a high level of confidence in the end state of the device, and don't pose the same package and dependency management challenges as package or script based updates. It's easier to replicate the results of an image update between a preproduction and production environment, or easily adopt an A/B failover model.
 
-This tutorial walks you through the steps to complete an end-to-end image-based update by using Device Update for IoT Hub on a Raspberry Pi 3 B+ board.
-
-In this tutorial, you'll learn how to:
+In this tutorial, you:
 > [!div class="checklist"]
 >
-> * Download an image.
-> * Add a tag to your IoT device.
-> * Import an update.
-> * Deploy an image update.
-> * Monitor the update deployment.
-
-> [!NOTE]
-> Image updates in this tutorial were validated on the Raspberry Pi B3 board.
-
+> - Download and install an image update.
+> - Assign a tag to your IoT device.
+> - Import the image update.
+> - Deploy the image update.
+> - View the update deployment history.
 
 ## Prerequisites
 
-If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md) and configure an IoT hub. This tutorial needs the device to be connected via ethernet connection.
+- A [Device Update account and instance configured with an IoT hub](create-device-update-account.md).
+- A Raspberry Pi 3 IoT board connected via Ethernet to hardware that can download and extract the image files and control the device.
 
-Download files in **Assets** on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The Tutorial_RaspberryPi.zip has all the required files for the tutorial.
+  > [!NOTE]
+  > Image updates in this tutorial were validated on a Raspberry Pi B3 board.
 
-## Create a device in IoT Hub and get a connection string
+## Register the device and get the connection string
 
-Now, add the device to IoT Hub. From within IoT Hub, a connection string is generated for the device.
+Add your device to the device registry in your IoT hub and get the connection string IoT Hub generates for the device.
 
-1. From the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-1. On the left pane, select **Devices**. Then select **New**.
-1. Under **Device ID**, enter a name for the device. Ensure that the **Autogenerate keys** checkbox is selected.
-1. Select **Save**. On the **Devices** page, the device you created should be in the list.
-1. Get the device connection string by navigating to the device view, select the **Copy** icon next to **Primary Connection String**.
-1. Paste the copied characters somewhere for later use in the following steps:
+1. In the [Azure portal](https://portal.azure.com), open the IoT hub page associated with your Device Update instance.
+1. In the left navigation pane, select **Device management** > **Devices**.
+1. On the **Devices** page, select **Add Device**.
+1. Under **Device ID**, enter a name for the device. Ensure that **Autogenerate keys** checkbox is selected.
+1. Select **Save**. The device appears in the list on the **Devices** page.
+1. On the **Devices** page, select the device you registered.
+1. On the device page, select the **Copy** icon next to **Connection string (primary key)**. Save this *device connection string* to use when you configure the Device Update agent.
 
-   **This copied string is your device connection string**.
-   
 > [!NOTE]
-> This tutorial uses a device connection string to authenticate and connect with the IoT Hub for ease of set-up. For production scenarios, we recommend using module identity and leveraging AIS([IoT Identity Service](https://azure.github.io/iot-identity-service/)) to provision devices. [Learn more ](device-update-agent-provisioning.md) 
+> For demonstration purposes, this tutorial uses a device connection string to authenticate and connect with the IoT hub. For production scenarios, it's better to use module identity and [IoT Identity Service](https://azure.github.io/iot-identity-service/) to provision devices. For more information, see [Device Update agent provisioning](device-update-agent-provisioning.md).
    
 ## Set up Raspberry Pi
 
-We provide base image and update files in **Assets** on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The Tutorial_RaspberryPi.zip has all the required files for the tutorial. 
-The .wic file is the base image that you can flash on to a Raspberry Pi 3 B+ board. The swUpdate(.swu) file, custom swupdate script and manifest are the update files you would import through Device Update for IoT Hub.
+The *Tutorial_RaspberryPi3.zip* file has all the required files for the tutorial. Download the file from the **Assets** section of the latest release on the [GitHub Device Update Releases page](https://github.com/Azure/iot-hub-device-update/releases), and unzip it.
 
-This base image uses a Yocto build(based on 3.4.4 release) with: 
-* SWUpdate which enables the dual partition update with DU
-* Device Update agent
+In the extracted *Tutorial_RaspberryPi3* folder, the base image that you can flash onto the Raspberry Pi board is *adu-base-image-raspberrypi3.wic*. The base image uses a Yocto build based on the 3.4.4 release. The image has the Device Update agent and SWUpdate, which enables the Device Update dual partition update. For more information about the Yocto layers, see [Build a custom Linux-based system with Device Update agent using the Yocto Project](https://github.com/Azure/iot-hub-device-update-yocto).
 
-To learn more about the Yocto layers used, refer to [Device Update Yocto GitHub.](https://github.com/Azure/iot-hub-device-update-yocto).
+The update files you import through Device Update are:
 
-You can use your favorite OS flashing tool to install the Device Update base image (adu-base-image) on the SD card that will be used in the Raspberry Pi 3 B+ device. Below are the instructions for using bmaptool to flash to the SD card.
+- SWUpdate file *adu-update-image-raspberrypi3-1.2.0.swu* 
+- Custom SWUpdate script *example-a-b-update.sh* 
+- Manifest *EDS-ADUClient.yocto-update.1.2.0.importmanifest.json*
 
 ### Use bmaptool to flash the SD card
 
-1. Install the `bmaptool` utility, if you haven't done so already.
+>[!IMPORTANT]
+>Azure Device Update for IoT Hub software is subject to the following license terms:
+>
+>- [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE)
+>- [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
+>
+>Read the license terms before using the agent. Agent installation and use constitutes acceptance of these terms. If you don't agree with the license terms, don't use the Device Update agent.
+
+Use an OS flashing tool to install the Device Update base image on the SD card you use in the Raspberry Pi device. The following instructions use `bmaptool` to flash to the SD card. Replace the `<device>` placeholder with your device name and the `<path to image>` placeholder with the path to the downloaded image file.
+
+1. Install the `bmap-tools` utility if you don't have it.
 
    ```shell
    sudo apt-get install bmap-tools
    ```
 
-1. Locate the path for the SD card in `/dev`. The path should look something like `/dev/sd*` or `/dev/mmcblk*`. You can use the `dmesg` utility to help locate the correct path.
+1. Locate the SD card path in */dev*. The path should look something like */dev/sd\** or */dev/mmcblk\**. You can use the `dmesg` utility to help locate the correct path.
 1. Unmount all mounted partitions before flashing.
 
    ```shell
@@ -85,246 +91,231 @@ You can use your favorite OS flashing tool to install the Device Update base ima
    sudo chmod a+rw /dev/<device>
    ```
 
-1. Optional: For faster flashing, download the bimap file and the image file and put them in the same directory.
 1. Flash the SD card.
 
    ```shell
    sudo bmaptool copy <path to image> /dev/<device>
    ```
 
-Device Update for Azure IoT Hub software is subject to the following license terms:
-
-* [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE)
-* [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
-
-Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you don't agree with the license terms, don't use the Device Update for IoT Hub agent.
+   >[!TIP]
+   >For faster flashing, you can download the bimap file and the image file and put them in the same directory.
 
 ## Configure the Device Update agent on Raspberry Pi
 
-1. Make sure that Raspberry Pi 3 is connected to the network.
-1. SSH into the Raspberry Pi 3 by using the following command in the PowerShell window:
+1. Make sure that the Raspberry Pi is connected to the network.
+
+1. Secure shell (SSH) into the Raspberry Pi by using the following command in a PowerShell window:
 
    ```shell
-     ssh raspberrypi3 -l root
-    ```
-
-1. The DU configuration files (du-config.json and du-diagnostics-config.json) must be on the device so that Device Update for IoT Hub configures properly. 
-
-    1. To create or open the `du-config.json` file for editing by using:
-
-      ```bash
-        nano /adu/du-config.json
-      ```
-
-   2. After you run the command, you should see an open editor with the file. If you've never created the file, it will be empty. Now copy the below du-config.json contents, and substitute the configurations required for your device. Then replace the example connection string with the one for the device you created in the preceding steps.
-
-      ### du-config.json
-
-     ```JSON
-     {
-        "schemaVersion": "1.0",
-        "aduShellTrustedUsers": [
-           "adu",
-           "do"
-        ],
-        "manufacturer": "contoso",
-        "model": "virtual-vacuum-v2",
-        "agents": [
-           {
-           "name": "main",
-           "runas": "adu",
-           "connectionSource": {
-              "connectionType": "string",
-              "connectionData": "HostName=<hub_name>.azure-devices.net;DeviceId=<device_id>;SharedAccessKey=<device_key>" 
-           },
-           "manufacturer": "contoso",
-           "model": "virtual-vacuum-v2"
-           }
-        ]
-     }  
-     ```
-  
-      3. After you finish your changes, select `Ctrl+X` to exit the editor. Then enter `y` to save the changes.
-      
-1. Now you need to create the `du-diagnostics-config.json` file by using similar commands. 
-
-      1. Start by creating or opening the `du-diagnostics-config.json` file for editing by using:
-
-      ```bash
-        nano /adu/du-diagnostics-config.json
-      ```
-
-      2. Copy the du-diagnostics-config.json contents provided below, and substitute any configurations that differ from the default build. The example du-diagnostics-config.json file represents the default log locations for Device Update for IoT Hub. You only need to change these default values if your implementation differs.
-
-   ### du-diagnostics-config.json
-
-     ```JSON
-     {
-        "logComponents":[
-           {
-              "componentName":"adu",
-              "logPath":"/adu/logs/"
-           },
-           {
-              "componentName":"do",
-              "logPath":"/var/log/deliveryoptimization-agent/"
-           }
-        ],
-        "maxKilobytesToUploadPerLogPath":50
-     }
-     ```
-     
-      3. After you finish your changes, select `Ctrl+X` to exit the editor. Then enter `y` to save the changes.
-     
-1. Use the following command to show the files located in the `/adu/` directory. You should see both of your configuration files.du-diagnostics-config.json files for editing by using:
-
-      ```bash
-        ls -la /adu/
-      ```
-
-1. Restart the Device Update system daemon to make sure that the configurations were applied. Use the following command within the terminal logged in to the `raspberrypi`:
-
-      ```bash
-        systemctl start deviceupdate-agent
-      ```
-
-1. Check that the agent is live by using the following command:
-  
-      ```bash
-        systemctl status deviceupdate-agent
-      ```
-
-   You should see the status appear as alive and green.
-
-## Connect the device in Device Update for IoT Hub
-
-1. On the left pane, select **Devices**.
-1. Select the link with your device name.
-1. At the top of the page, select **Device Twin**.
-1. Under the **reported** section of the **Device Twin** properties, look for the Linux kernel version.
-
-   For a new device, which hasn't received an update from Device Update, the [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) value represents the firmware version running on the device. After an update has been applied to a device, Device Update uses the [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](device-update-plug-and-play.md) property value to represent the firmware version running on the device.
-
-1. The base and update image files have a version number in the file name.
-
-   ```markdown
-    adu-<image type>-image-<machine>-<version number>.<extension>
+   ssh raspberrypi3 -l root
    ```
-   Use that version number in the later "Import the update" section.
 
-## Add a Device Update group tag to your device
+### Create the Device Update configuration files
 
-1. In the Azure portal, navigate to your IoT hub.
-1. On the left pane, under **Devices**, find your IoT device and go to the device twin or module twin.
-1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using the device identity with the Device Update agent, make these changes on the device twin.
-1. Add a new Device Update tag value, as shown:
+The Device Update *du-config.json* and *du-diagnostics-config.json* configuration files must be on the device. To create the files, run the following commands in the terminal signed in to the Raspberry Pi.
 
-    ```JSON
-        "tags": {
-                "ADUGroup": "<CustomTagValue>"
-                }
-    ```
+1. To create the *du-config.json* file or open it for editing, run the following command:
 
-   :::image type="content" source="media/import-update/device-twin-ppr.png" alt-text="Screenshot that shows twin with tag information." lightbox="media/import-update/device-twin-ppr.png":::
+   ```bash
+   nano /adu/du-config.json
+   ```
 
-   _This screenshot shows the section where the tag needs to be added in the twin._
+1. The editor opens the *du-config.json* file. If you're creating the file, it's empty. Copy and paste the following code into the file, replacing the example values with any required configurations for your device. Replace the example `connectionData` string with the device connection string you copied in the device registration step.
+
+   ```json
+   {
+      "schemaVersion": "1.0",
+      "aduShellTrustedUsers": [
+         "adu",
+         "do"
+      ],
+      "manufacturer": "contoso",
+      "model": "virtual-vacuum-v2",
+      "agents": [
+         {
+         "name": "main",
+         "runas": "adu",
+         "connectionSource": {
+            "connectionType": "string",
+            "connectionData": "HostName=<hub_name>.azure-devices.net;DeviceId=<device_id>;SharedAccessKey=<device_key>" 
+         },
+         "manufacturer": "contoso",
+         "model": "virtual-vacuum-v2"
+         }
+      ]
+   }  
+   ```
+
+1. Press **Ctrl**+**X** to exit the editor, and enter *y* to save your changes.
+
+1. Create the *du-diagnostics-config.json* file by using similar commands. Create and open the file:
+
+   ```bash
+   nano /adu/du-diagnostics-config.json
+   ```
+
+1. Copy and paste the following *du-diagnostics-config.json* code into the file. The values are the default Device Update log locations, and you need to change them only if your configuration differs from the default.
+
+   ```JSON
+   {
+      "logComponents":[
+         {
+            "componentName":"adu",
+            "logPath":"/adu/logs/"
+         },
+         {
+            "componentName":"do",
+            "logPath":"/var/log/deliveryoptimization-agent/"
+         }
+      ],
+      "maxKilobytesToUploadPerLogPath":50
+   }
+   ```
+
+1. Press **Ctrl**+**X** to exit the editor, and enter *y* to save your changes.
+
+1. Use the following command to show the files located in the */adu/* directory. You should see both configuration files.
+
+   ```bash
+   ls -la /adu/
+   ```
+
+1. Use the following command to restart the Device Update system daemon and ensure configurations are applied.
+
+   ```bash
+   systemctl start deviceupdate-agent
+   ```
+
+1. Check that the agent is live by running the following command:
+  
+   ```bash
+   systemctl status deviceupdate-agent
+   ```
+
+   Status should appear as alive and green.
+
+## Connect to the device in IoT Hub and add a group tag
+
+1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device management** > **Devices** from the left navigation.
+1. On the **Devices** page, select your device's name.
+1. At the top of the device page, select **Device twin**.
+1. On the **Device twin** page, under the `"reported"` section of the device twin `"properties"` section, look for the Linux kernel version for your device.
+
+   For a new device that hasn't received an update from Device Update, the [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md#device-information-interface) property value represents the firmware version running on the device. After the device has an update applied, the [AzureDeviceUpdateCore:ClientMetadata:4.installedUpdateId](device-update-plug-and-play.md#agent-metadata) property value represents the firmware version.
+
+   The base and update image file names have the format *adu-\<image type>-image-\<machine>-\<version number>.\<extension>*. Note the version numbers to use when you import the update.
+
+### Add a group tag
+
+Device Update automatically organizes devices into groups based on their assigned tags and compatibility properties. Each device can belong to only one group, but groups can have multiple subgroups to sort different device classes. For more information about tags and groups, see [Manage device groups](create-update-group.md).
+
+1. In the device twin, delete any existing Device Update tag values by setting them to null, and then add the following new Device Update group tag. If you're using a Module Identity with the Device Update agent, add the tag in the **Module Identity Twin** instead of the device twin.
+
+   ```json
+   "tags": {
+       "ADUGroup": "<CustomTagValue>"
+   },
+   ```
+   The following screenshot shows where in the file to add the tag.
+
+   :::image type="content" source="media/import-update/device-twin-ppr.png" alt-text="Screenshot that shows twin with tag information.":::
+
    
+1. Select **Save**.
 
 ## Import the update
 
-1. Download the sample tutorial manifest and sample update (.swu file) and the sample A/B script from [Tutorial_RaspberryPi.zip](https://github.com/Azure/iot-hub-device-update/releases/download/1.0.2/Tutorial_RaspberryPi.zip) under **Release Assets** for the latest agent.
-1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your IoT hub with Device Update. On the left pane, under **Automatic Device Management**, select **Updates**.
-1. Select the **Updates** tab.
-1. Select **+ Import New Update**.
-1. Select **+ Select from storage container**. Select an existing account or create a new account by using **+ Storage account**. Then select an existing container or create a new container by using **+ Container**. This container will be used to stage your update files for importing.
+1. On the [Azure portal](https://portal.azure.com) IoT hub page for your Device Update instance, select **Device Management** > **Updates** from the left navigation.
+1. On the **Updates** page, select **Import a new update**.
+1. On the **Import update** page, select **Select from storage container**.
+1. On the **Storage accounts** page, select an existing storage account or create a new account by selecting **Storage account**.
+1. On the **Containers** page, select an existing container or create a new container by selecting **Container**. You use the container to stage the update files for import.
 
-   > [!NOTE]
-   > We recommend that you use a new container each time you import an update to avoid accidentally importing files from previous updates. If you don't use a new container, be sure to delete any files from the existing container before you finish this step.
+   :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers.":::
 
-   :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers." lightbox="media/import-update/storage-account-ppr.png":::
+   > [!TIP]
+   > To avoid accidentally importing files from previous updates, use a new container each time you import an update. If you don't use a new container, be sure to delete any files from the existing container.
 
-1. In your container, select **Upload** and go to the files you downloaded in step 1. After you've selected all your update files, select **Upload**. Then select the **Select** button to return to the **Import update** page.
+1. On the container page, select **Upload**. Drag and drop, or browse to and select, the following update files from the *Tutorial_RaspberryPi3* folder you downloaded:
 
-   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Screenshot that shows selecting uploaded files." lightbox="media/import-update/import-select-ppr.png":::
+   - *adu-update-image-raspberrypi3-1.2.0.swu* 
+   - *example-a-b-update.sh* 
+   - *EDS-ADUClient.yocto-update.1.2.0.importmanifest.json*
 
-   *This screenshot shows the import step. File names might not match the ones used in the example.*
+1. Select **Upload**. After they upload, the files appear on the container page.
 
-1. On the **Import update** page, review the files to be imported. Then select **Import update** to start the import process. For the tutorial, import the sample tutorial manifest and sample update (.swu file) and the sample A/B script downloaded earlier.
+1. On the container page, review and select the files to import, and then select **Select**.
 
-   :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Screenshot that shows Import update." lightbox="media/import-update/import-start-2-ppr.png":::
+   :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Screenshot that shows selecting uploaded files.":::
 
-1. The import process begins, and the screen switches to the **Import history** section. When the **Status** column indicates the import has succeeded, select the **Available updates** header. You should see your imported update in the list now.
+1. On the **Import update** screen, select **Import update**.
 
-   :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Screenshot that shows job status." lightbox="media/import-update/update-ready-ppr.png":::
+   :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Screenshot that shows Import update.":::
 
-For more information about the import process, see [Import an update to Device Update](import-update.md).
+The import process begins, and the screen switches to the **Updates** screen. After the import succeeds, it appears on the **Updates** tab. For more information about the import process, see [Import an update to Device Update](import-update.md).
 
-## View device groups
+:::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Screenshot that shows job status.":::
 
-Device Update uses groups to organize devices. Device Update automatically sorts devices into groups based on their assigned tags and compatibility properties. Each device belongs to only one group, but groups can have multiple subgroups to sort different device classes.
+## Select the device group
 
-1. Go to the **Groups and Deployments** tab at the top of the page.
+You can use the group tag you applied to your device to deploy the update to the device group. Select the **Groups and Deployments** tab at the top of the **Updates** page to view the list of groups and deployments and the update compliance chart.
 
-   :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot that shows ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
+The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. For more information, see [Device Update compliance](device-update-compliance.md).
 
-1. View the list of groups and the update compliance chart. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
+Under **Group name**, you see a list of all the device groups for devices connected to this IoT hub and their available updates, with links to deploy the updates under **Status**. Any devices that don't meet the device class requirements of a group appear in a corresponding invalid group. For more information about tags and groups, see [Manage device groups](create-update-group.md).
 
-   :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
+You should see the device group that contains the device you set up in this tutorial, along with the available updates for the devices in the group. You might need to refresh the page. To deploy the best available update to a group from this view, select **Deploy** next to the group.
 
-1. You should see a device group that contains the simulated device you set up in this tutorial along with any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they'll show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
-
-For more information about tags and groups, see [Manage device groups](create-update-group.md).
+:::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
 ## Deploy the update
 
-1. After the group is created, you should see a new update available for your device group with a link to the update under **Best update**. You might need to refresh once.
-
-   For more information about compliance, see [Device Update compliance](device-update-compliance.md).
-
-1. Select the target group by selecting the group name. You're directed to the group details under **Group basics**.
-
-   :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Screenshot that shows Group details." lightbox="media/deploy-update/group-basics.png":::
-
-1. To initiate the deployment, go to the **Current deployment** tab. Select the **deploy** link next to the desired update from the **Available updates** section. The best available update for a given group is denoted with a **Best** highlight.
+1. On the **Group details** page, select the **Current deployment** tab, and then select **Deploy** next to the desired update in the **Available updates** section. The best available update for the group is denoted with a **Best** highlight.
 
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows selecting an update." lightbox="media/deploy-update/select-update.png":::
 
-1. Schedule your deployment to start immediately or in the future. Then select **Create**.
-
-   > [!TIP]
-   > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin earlier.
+1. On the **Create deployment** page, schedule your deployment to start immediately or in the future, and then select **Create**.
 
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows creating a deployment." lightbox="media/deploy-update/create-deployment.png":::
 
-1. Under **Deployment details**, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
+   > [!TIP]
+   > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin sooner.
+
+1. Under **Deployment details**, **Status** turns to **Active**. Under **Available updates**, the selected update is marked with **(deploying)**.
 
    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows the deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
 
-1. View the compliance chart to see that the update is now in progress.
-
-1. After your device is successfully updated, you see that your compliance chart and deployment details are updated to reflect the same.
+1. On the **Updates** page, view the compliance chart to see that the update is now in progress. After your device successfully updates, your compliance chart and deployment details update to reflect that status.
 
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
-## Monitor the update deployment
+## View update deployment history
 
-1. Select the **Deployment history** tab at the top of the page.
+To view deployment history:
+
+1. Select the **Deployment history** tab at the top of the **Group details** page, and select the **details** link next to the deployment you created.
 
    :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Screenshot that shows Deployment history." lightbox="media/deploy-update/deployments-history.png":::
 
-1. Select the **details** link next to the deployment you created.
+1. On the **Deployment details** page, select **Refresh** to view the latest status details.
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
 
-1. Select **Refresh** to view the latest status details.
-
-You've now completed a successful end-to-end image update by using Device Update for IoT Hub on a Raspberry Pi 3 B+ device.
-
 ## Clean up resources
 
-When no longer needed, clean up your Device Update account, instance, IoT hub, and IoT device.
+When you no longer need the resources you created for this tutorial, you can delete them.
+
+1. In the [Azure portal](https://portal.azure.com), navigate to the resource group that contains the resources.
+1. If you want to delete all the resources in the group, select **Delete resource group**.
+1. If you want to delete only some of the resources, use the check boxes to select the resources and then select **Delete**.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Update device packages with Device Update](device-update-ubuntu-agent.md)
+- [Device Update for IoT Hub using a simulator agent](device-update-raspberry-pi.md)
+- [Device Update for IoT Hub using a package agent](device-update-ubuntu-agent.md)
+
+## Related content
+
+- [Device Update accounts and instances](device-update-resources.md)
+- [Device Update access control roles](device-update-control-access.md)
+- [Device Update and IoT Plug and Play](device-update-plug-and-play.md)

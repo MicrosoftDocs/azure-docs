@@ -5,9 +5,12 @@ description: Learn how to copy data from MongoDB to supported sink data stores, 
 author: jianleishen
 ms.author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 05/15/2024
+ms.topic: how-to
+ms.date: 01/26/2026
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics
@@ -200,7 +203,7 @@ The following properties are supported in the Copy Activity **sink** section:
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out. The allowed value is timespan. | No<br/>(the default is **00:30:00** - 30 minutes) |
 
 >[!TIP]
->To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#schema-mapping).
+>To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#data-type-mapping-for-mongodb).
 
 **Example**
 
@@ -244,25 +247,40 @@ You can use this MongoDB connector to easily:
 
 To achieve such schema-agnostic copy, skip the "structure" (also called *schema*) section in dataset and schema mapping in copy activity.
 
+## Data type mapping for MongoDB
 
-## Schema mapping
+When copying data from MongoDB, the following mappings are used from MongoDB data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-To copy data from MongoDB to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+| MongoDB data Type | Interim Service Data Type |
+|:---|:---|
+| Date | Int64 |
+| ObjectId | String |
+| Decimal128 | String |
+| TimeStamp | The most significant 32 bits -> Int64<br>The least significant 32 bits -> Int64 | 
+| String | String |
+| Double | String |
+| Int32 | Int64 |
+| Int64 | Int64 |
+| Boolean | Boolean |
+| Null | Null |
+| JavaScript | String |
+| Regular Expression | String |
+| Min key | Int64 |
+| Max key | Int64 |
+| Binary | String |
 
-## Upgrade the MongoDB linked service
+## MongoDB connector lifecycle and upgrade
 
-Here are steps that help you upgrade your linked service and related queries:
+The following table shows the release stage and change logs for different versions of the MongoDB connector:
 
-1. Create a new MongoDB linked service and configure it by referring to [Linked service properties](#linked-service-properties).
-1. If you use SQL queries in your pipelines that refer to the old MongoDB linked service, replace them with the equivalent MongoDB queries. See the following table for the replacement examples:
+| Version  | Release stage           | Change log |
+| :------- | :---------------------- |:---------- |
+| MongoDB (legacy) | Removed | Not applicable. |
+| MongoDB | GA version available | • Support the equivalent MongoDB queries only. <br><br>• Double is read as String data type. |
 
-    | SQL query | Equivalent MongoDB query | 
-    |:--- |:--- |
-    | `SELECT * FROM users` | `db.users.find({})` |
-    | `SELECT username, age FROM users` |`db.users.find({}, {username: 1, age: 1})` |
-    | `SELECT username AS User, age AS Age, statusNumber AS Status, CASE WHEN Status = 0 THEN "Pending" CASE WHEN Status = 1 THEN "Finished" ELSE "Unknown" END AS statusEnum LastUpdatedTime + interval '2' hour AS NewLastUpdatedTime FROM users` | `db.users.aggregate([{ $project: { _id: 0, User: "$username", Age: "$age", Status: "$statusNumber", statusEnum: { $switch: { branches: [ { case: { $eq: ["$Status", 0] }, then: "Pending" }, { case: { $eq: ["$Status", 1] }, then: "Finished" } ], default: "Unknown" } }, NewLastUpdatedTime: { $add: ["$LastUpdatedTime", 2 * 60 * 60 * 1000] } } }])`|
-    | `SELECT employees.name, departments.name AS department_name FROM employees LEFT JOIN departments ON employees.department_id = departments.id;`|`db.employees.aggregate([ { $lookup: { from: "departments", localField: "department_id", foreignField: "_id", as: "department" } }, { $unwind: "$department" }, { $project: { _id: 0, name: 1, department_name: "$department.name" } } ])` |
+### Upgrade the MongoDB linked service
 
+Create a new MongoDB linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -3,10 +3,13 @@ title: Branching in Azure Data Factory pipeline
 description: Learn how to control flow of data in Azure Data Factory by branching and chaining activities.
 author: ssabat
 ms.author: susabat
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: orchestration
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Branching and chaining activities in a Data Factory pipeline
@@ -33,7 +36,7 @@ This tutorial shows you how to do the following tasks:
 
 This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory. For Data Factory quickstarts, see [5-Minute Quickstarts](./quickstart-create-data-factory-portal.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

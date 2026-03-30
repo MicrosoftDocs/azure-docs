@@ -7,7 +7,8 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/06/2022
+ms.date: 10/01/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial for Da Vinci Drug Formulary

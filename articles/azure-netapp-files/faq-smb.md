@@ -1,11 +1,13 @@
 ---
-title: SMB FAQs for Azure NetApp Files | Microsoft Docs
+title: SMB FAQs for Azure NetApp Files 
 description: Answers frequently asked questions (FAQs) about the SMB protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 07/30/2024
+ms.date: 12/08/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -15,9 +17,36 @@ This article answers frequently asked questions (FAQs) about the SMB protocol of
 
 Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0). 
 
+## Can I use Windows Server 2025? 
+
+Yes, Windows Server 2025 domain controllers are supported as of September 9, 2025. Windows Server 2025 domain controllers must have all cumulative security updates installed, including [KB5065426](https://support.microsoft.com/en-us/topic/september-9-2025-kb5065426-update-for-windows-server-2025-os-build-26100-6584-6a59dc6a-1ff2-48f4-b375-81e93deee5dd), released on September 9, 2025. You must also enable AES encryption (AES-256) on the Active Directory connection if you plan to introduce any Windows Server 2025 domain controllers into your Active Directory environment. For more information, see [Create and Manage Active Directory connections for Azure NetApp Files](create-active-directory-connections.md).
+
+## What SMB minimum version should be configured on Windows Server 2025 domain controllers for Azure NetApp Files?
+
+For Azure NetApp Files communication with Windows Server 2025 domain controllers, set the SMB minimum dialect to SMB 3.0. If required by your environment, SMB 2.1 can be used. Although Windows Server 2025 supports SMB 3.1.1, enforcing SMB 3.1.1 for this communication can break domain controller communication and prevent authentication to Azure NetApp Files SMB shares.
+
+Run one of the following commands on each Windows Server 2025 domain controller, based on your requirements:
+
+```
+Set-SmbServerConfiguration -Smb2DialectMin SMB211
+```
+
+```
+Set-SmbServerConfiguration -Smb2DialectMin SMB300
+```
+
+>[!NOTE] 
+>This configuration must be applied individually on all Windows Server 2025 domain controllers. It doesn't replicate across the domain.
+
+As an alternative, update the Active Directory site used by Azure NetApp Files so it includes only domain controllers that aren't running Windows Server 2025.
+
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
 
 Azure NetApp Files supports 'manual' offline files, allowing users on Windows clients to manually select files to be cached locally.
+
+## Does Azure NetApp Files have an SMB Credits limit?
+
+By default, Windows and Azure NetApp Files have an SMB credit limit of 512. If the limit is reached, limit batch processing or submit a [feature request]( https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR2Qj2eZL0mZPv1iKUrDGvc9UQzBVVFNCUUhEQVVSMDBFTjZFQlpFRjNUUSQlQCN0PWcu&route=shorturl).
 
 ## Is an Active Directory connection required for SMB access? 
 
@@ -25,7 +54,7 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ## How many Active Directory connections are supported?
 
-Azure NetApp Files now supports the ability to [create multiple Active Directory configurations in a subscription](create-active-directory-connections.md#multi-ad). 
+Azure NetApp Files now supports the ability to [create multiple Active Directory (AD) configurations in a subscription](create-active-directory-connections.md#multi-ad). 
 
 You can also map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
 
@@ -33,7 +62,7 @@ You can also map multiple NetApp accounts that are under the same subscription a
 
 ## Does Azure NetApp Files support Microsoft Entra ID? 
 
-Both [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Microsoft Entra ID](../active-directory/fundamentals/index.yml) at this time. However, you can use Microsoft Entra ID with [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) to [Access SMB volumes from Microsoft Entra joined Windows virtual machines](access-smb-volume-from-windows-client.md).
+Both [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Microsoft Entra ID](../active-directory/fundamentals/index.yml) at this time. 
 
 If you're using Azure NetApp Files with Microsoft Entra Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
 
@@ -93,7 +122,7 @@ If you're using:
 * regional volumes (without availability zones) or
 * volumes within the same availability zone, 
 
-the same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
+The same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
 
 For more information, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
@@ -119,6 +148,12 @@ To learn more about file locking in Azure NetApp Files, see [file locking](under
 
 NTLMv2 and Kerberos network authentication methods are supported with SMB volumes in Azure NetApp Files. NTLMv1 and LanManager are disabled and are not supported.
 
+To disable NTLM, see:
+
+- [Active Directory Hardening Series - Part 1 – Disabling NTLMv1](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/active-directory-hardening-series---part-1-%E2%80%93-disabling-ntlmv1/3934787)
+- [Network security - Restrict NTLM Incoming NTLM traffic](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-incoming-ntlm-traffic)
+- [Network security - Restrict NTLM in this domain](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
+
 ## What is the password rotation policy for the Active Directory computer account for SMB volumes?
 
 The Azure NetApp Files service has a policy that automatically updates the password on the Active Directory computer account that is created for SMB volumes. This policy has the following properties:   
@@ -135,7 +170,11 @@ To see  when the password was last updated on the Azure NetApp Files SMB compute
 > Due to an interoperability issue with the [April 2022 Monthly Windows Update](
 https://support.microsoft.com/topic/april-12-2022-kb5012670-monthly-rollup-cae43d16-5b5d-43ea-9c52-9174177c6277), the policy that automatically updates the Active Directory computer account password for SMB volumes has been suspended until a fix is deployed.
 
-## Does Azure NetApp Files support Alternate Data Streams (ADS)?
+## How do Azure NetApp Files Continuous Availability Shares behave when there's an underlying storage hardware maintenance event?
+
+The SMB client detects a TCP reset. There's no disruption if the SMB client reconnects within 60 seconds.
+
+## Does Azure NetApp Files support Alternate Data Streams?
 
 Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) by default on [SMB volumes](azure-netapp-files-create-volumes-smb.md) and [dual-protocol volumes configured with NTFS security style](create-volumes-dual-protocol.md#considerations) when accessed via SMB.
 
@@ -143,6 +182,9 @@ Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windo
 
 SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS client in certain file-sharing scenarios to perform client-side caching of read-ahead, write-behind, and lock information. A client can then work with a file (read or write it) without regularly reminding the server that it needs access to the file. This improves performance by reducing network traffic. SMB/CIFS oplocks are enabled on Azure NetApp Files SMB and dual-protocol volumes.
 
+## Will the access time automatically update when reading files?
+
+No, access time will not be updated when reading files. This behavior ensures low-latency and high-performance access to your data.
 
 ## Next steps  
 

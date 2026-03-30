@@ -2,9 +2,10 @@
 title: Job preparation and release tasks on Batch compute nodes
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 07/01/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a cloud solutions architect, I want to implement job preparation and release tasks for my Batch jobs, so that I can efficiently manage data transfer and cleanup operations on compute nodes, optimizing resource usage and ensuring compliance with data retention policies.
 ---
 # Job preparation and release tasks on Batch compute nodes
 
@@ -57,7 +58,7 @@ Once you mark a job as completed, the job release task runs on each node in the 
 > [!NOTE]
 > Deleting a job also executes the job release task. However, if a job is already terminated, the release task doesn't run a second time if the job is later deleted.
 
-Job release tasks can run for a maximum of 15 minutes before the Batch service terminates them. For more information, see the [REST API reference documentation](/rest/api/batchservice/job/add#jobreleasetask).
+Job release tasks can run for a maximum of 15 minutes before the Batch service terminates them. For more information, see the [REST API reference documentation](/rest/api/batchservice/jobs/create-job).
 
 ## Job preparation and release tasks with Batch .NET
 

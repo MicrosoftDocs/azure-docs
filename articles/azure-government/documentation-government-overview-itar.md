@@ -143,7 +143,7 @@ Learn more about:
 
 - [Azure Security](../security/fundamentals/overview.md)
 - [Azure Compliance](../compliance/index.yml)
-- [Microsoft government solutions](https://www.microsoft.com/enterprise/government)
+- [Microsoft government solutions](https://www.microsoft.com/industry/government)
 - [What is Azure Government?](./documentation-government-welcome.md)
 - [Explore Azure Government](https://azure.microsoft.com/global-infrastructure/government/)
 - [Exporting Microsoft products](https://www.microsoft.com/exporting)

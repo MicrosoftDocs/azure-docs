@@ -1,12 +1,13 @@
 ---
 title: Convert dashboards to Azure Workbooks in Microsoft Sentinel
 description: Learn how to review, planning, and migrate your current dashboards to Azure Workbooks.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 06/12/2024
 appliesto:
-- Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -60,7 +61,7 @@ Before finalizing your KQL queries, always review and tune the queries to improv
 
 For more information, see the following resources:
 
-- [KQL query best practices](/azure/data-explorer/kusto/query/best-practices)
+- [KQL query best practices](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
 - [Optimize queries in Azure Monitor Logs](/azure/azure-monitor/logs/query-optimization)
 - [Optimizing KQL performance (webinar)](https://youtu.be/jN1Cz0JcLYU)
 
@@ -100,7 +101,7 @@ Workbooks provide a rich set of capabilities for visualizing your data. Review t
 
 ### 6. Preview and save the workbook
 
-After you save your workbook, specify the parameters, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data.md#refresh-your-workbook-data) or the print feature to [save as a PDF](monitor-your-data.md#print-a-workbook-or-save-as-pdf).
+After you save your workbook, specify the parameters, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data.md#refresh-your-workbook-data) or the print feature to [save as a PDF](monitor-your-data.md#print-a-workbook-or-save-as-pdf-azure-portal-only).
 
 ## Next steps
 

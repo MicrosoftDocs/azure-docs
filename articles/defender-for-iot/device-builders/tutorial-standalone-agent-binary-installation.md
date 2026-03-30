@@ -3,7 +3,9 @@ title: Install the Microsoft Defender for IoT micro agent
 description: Learn how to install and authenticate the Defender for IoT micro agent.
 ms.date: 04/26/2022
 ms.topic: tutorial
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-blocked
 #Customer intent: As an Azure admin I want to install the Defender for IoT agent on devices connected to an Azure IoT Hub
 ---
 
@@ -14,15 +16,18 @@ This tutorial will help you learn how to install and authenticate the Defender f
 In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
+>
 > - Download and install the micro agent
 > - Authenticate the micro agent
 > - Validate the installation
 > - Test the system
 > - Install a specific micro agent version
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
@@ -155,7 +160,7 @@ This procedure describes additional steps required to support the AMQP protocol.
     ```
 
 The agent will use this protocol, and communicate with the IoT Hub on port 443.
-Http Proxy configuration is supported for this protocol, in the case that proxy is also configured, the port of communication with the proxy will be as defined in the proxy configuration.
+HTTP Proxy configuration is supported for this protocol, in the case that proxy is also configured, the port of communication with the proxy will be as defined in the proxy configuration.
 
 ## Authenticate the micro agent
 

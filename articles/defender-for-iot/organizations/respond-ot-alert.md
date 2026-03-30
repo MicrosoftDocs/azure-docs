@@ -3,6 +3,7 @@ title: Respond to an alert in the Azure portal - Microsoft Defender for IoT
 description: Learn about how to fully respond to OT network alerts in Microsoft Defender for IoT.
 ms.date: 12/05/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Investigate and respond to an OT network alert
@@ -17,7 +18,7 @@ Alternately, you might be an OT engineer watching for operational alerts directl
 
 Before you start, make sure that you have:
 
-- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A cloud-connected [OT network sensor](onboard-sensors.md) onboarded to Defender for IoT, with alerts streaming into the Azure portal.
 
@@ -44,7 +45,12 @@ After updating the status, check the alert details page for the following detail
 
 - **Source and destination device details**. Source and destination devices are listed in **Alert details** tab, and also in the **Entities** area below, as Microsoft Sentinel *entities*, with their own [entity pages](iot-advanced-threat-monitoring.md#investigate-further-with-iot-device-entities). In the **Entities** area, you'll use the links in the **Name** column to open the relevant device details pages for [further investigation](#investigate-related-alerts-on-the-azure-portal).
 
-- **Site and/or zone**. These values help you understand the geographic and network location of the alert and if there are areas of the network that are now more vulnerable to attack.
+- **Site and/or zone**. These values help you understand the geographic and network location of the alert and if there are areas of the network that are now more vulnerable to attack. 
+
+- **Sensor information**. Review the **Sensor**, **SiteDisplayName**, and other sensor information to provide context about the sensor that triggered the alert. 
+
+    > [!NOTE] 
+    > In some cases, the alerts displayed in the alert list might not correlate with specific sensors. For more information, see [Investigate alerts that don't correlate with specific sensors](#investigate-alerts-that-dont-correlate-with-a-specific-sensor).
 
 - **MITRE ATT&CK** tactics and techniques. Scroll down in the left pane to view all MITRE ATT&CK details. In addition to descriptions of the tactics and techniques, select the links to the MITRE ATT&CK site to learn more about each one.
 
@@ -65,6 +71,12 @@ For example, a device that attempted to connect to a malicious IP, together with
 1. On the device details page, select the **Alerts** tab to view all alerts for that device. For example:
 
     :::image type="content" source="media/iot-solution/device-details-alerts.png" alt-text="Screenshot of the Alerts tab on a device details page.":::
+
+## Investigate alerts that don't correlate with a specific sensor
+
+In some cases, alerts in the Azure portal might not correlate with alerts on a specific sensor. The alert may be triggered by a specific sensor's configuration, like a device marked as a scanner in one sensor but not in another. As a result, alerts may only be displayed on the sensor that has the relevant configuration, even if other sensors also see the same traffic.
+
+In this scenario, you can check the **Sensor**, **SiteDisplayName**, and **SensorZone** fields in the alert's **Alert details** tab to identify the sensor that generated the alert. You can then review that sensor's configuration and context to understand why the alert was triggered.
 
 ## Investigate alert details on the OT sensor
 

@@ -1,13 +1,15 @@
 ---
 title: include file
 description: include file
-author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 08/07/2019
-ms.author: kgremban
-ms.custom: include file
+ms.author: sonialopez
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 <!-- This tells how to get the connection string for the registryReadWrite shared access policy of your IoT hub -->
 

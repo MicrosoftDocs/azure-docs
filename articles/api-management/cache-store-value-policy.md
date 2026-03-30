@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -34,7 +34,7 @@ The `cache-store-value` performs cache storage by key. The key can have an arbit
 
 | Attribute         | Description                                            | Required | Default |
 |---|--|--|--|
-| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise.<br/><br/>Policy expressions aren't allowed.| No       | `prefer-external` |
+| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise.<br/><br/>Policy expressions aren't allowed.| No       | `prefer-external` |
 | duration         | Value will be cached for the provided duration value, specified in seconds. Policy expressions are allowed.                                                                                                                                                                                                                                                                                 | Yes      | N/A               |
 | key              | Cache key the value will be stored under. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                  | Yes      | N/A               |
 | value            | The value to be cached. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                    | Yes      | N/A               |
@@ -42,11 +42,21 @@ The `cache-store-value` performs cache storage by key. The key can have an arbit
 ## Usage
 
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
+### Usage notes
+
+- API Management only caches responses to HTTP GET requests.
+- This policy can only be used once in a policy section.
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
+
 ## Example
+
+This example shows how to use the `cache-store-value` policy to store a user profile in the cache. The key for the cache entry is constructed using a policy expression that combines a string with the value of the `enduserid` context variable. 
+
+See a [cache-lookup-value](cache-lookup-value-policy.md#example) example to retrieve the user profile from the cache.
 
 ```xml
 <cache-store-value

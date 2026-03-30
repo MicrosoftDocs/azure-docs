@@ -2,13 +2,17 @@
 title: Manage billing across multiple tenants
 titleSuffix: Microsoft Cost Management
 description: Describes how to use associated billing tenants to manage billing across tenants and move subscriptions in different tenants.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/28/2024
-ms.author: banders
+ms.date: 01/19/2026
+ms.author: jkinma
+ms.custom:
+- sfi-image-nochange
+- sfi-ga-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Manage billing across multiple tenants using associated billing tenants
@@ -50,10 +54,13 @@ Before you begin, make sure you have either the tenant ID, or the primary domain
 1. On the Associated billing tenants page, select **Add** at the top of the page.
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-list-add.png" alt-text="Screenshot showing the Add option for Associated billing tenants." lightbox="./media/manage-billing-across-tenants/associated-tenants-list-add.png" :::
 1. On the Add tenant page, enter a tenant ID or domain name, provide a friendly name and then select one or both options for access settings. For more information about access settings, see [Access settings for associated billing tenant](#access-settings-for-associated-billing-tenants).  
+    >[!NOTE]
+    > The Tenant ID is case sensitive.  
+
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add.png" alt-text="Screenshot showing associated billing tenants form." lightbox="./media/manage-billing-across-tenants/associated-tenants-add.png" :::
     > [!NOTE]
     > The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Microsoft Entra ID.
-1. Select **Save**.
+3. Select **Save**.
 
 If the Provisioning access setting is turned on, a unique link is created for you to send to the global administrator of the associated billing tenant. They must accept the request before you can move subscriptions to their tenant.
 
@@ -103,6 +110,27 @@ Choosing to assign roles to users from associated billing tenants might be the r
 |---------|---------|---------|
 |Security     |  The users that you invite to share your billing account follow their tenant's security policies.      |  The users that you invite to share your billing account follow your tenant's security policies.       |
 |Access    | The users get access to your billing account in their own tenant and can manage billing and make purchases without switching tenants.        |  External guest identities are created for users in your tenant and these identities get access to your billing account. Users would have to switch tenant to manage billing and make purchases.     |
+
+## Understanding Guest Users in Azure portal
+
+A guest user (also known as guested user or B2B user) is an external user who has been invited to access resources within an Azure Active Directory (Azure AD) tenant. Typically, this user has a primary identity in another Azure AD tenant or identity provider and receives access via Azure AD B2B (business-to-business) collaboration features. Once invited, the guest user appears in the inviting organization’s directory and can be assigned roles and permissions just like any other user.
+
+### Accessing the Azure portal
+
+The guest user must sign in to the [Azure portal](https://portal.azure.com/) using their own organization’s credentials. Upon successful authentication, they should select the host directory (the client organization) from the top-right user menu in the Azure portal if they are members of multiple tenants.
+
+### Navigation and User Interface
+
+Once inside the client’s directory, the guest user will see the resources and features available based on their role assignments. They can navigate to: 
+
+- Cost Management + Billing: The main blade for all billing-related tasks. 
+- Billing accounts, profiles, and invoice sections: Visible as per access rights. 
+
+## Troubleshooting Common Issues for Guest Users
+
+- Access Denied Errors: Ensure correct roles are assigned and the guest has accepted the invitation. 
+- Directory Not Found: Instruct the user to switch directories in the Azure portal. 
+- Resource Visibility: Confirm that the user’s roles map to the correct billing profiles or invoice sections. 
 
 ## Move Microsoft 365 subscriptions to a billing tenant
 

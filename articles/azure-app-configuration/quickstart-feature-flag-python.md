@@ -15,20 +15,20 @@ ms.custom: devx-track-python, mode-other
 
  In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control Python apps to create an end-to-end implementation of feature management.
 
-The feature management support extends the dynamic configuration feature in App Configuration. These examples in the quickstart build on thePpython apps introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-python-provider.md) and the [tutorial](./enable-dynamic-configuration-python.md) to create python apps with dynamic configuration first.
+The feature management support extends the dynamic configuration feature in App Configuration. These examples in the quickstart build on the python app introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-python-provider.md) and the [tutorial](./enable-dynamic-configuration-python.md) to create python apps with dynamic configuration first.
 
 This library does **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Python configuration provider.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/), otherwise see [python downloads](https://www.python.org/downloads/).
 - [azure-appconfiguration-provider library](https://pypi.org/project/azure-appconfiguration-provider/) 1.2.0 or later.
 
 ## Add a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag). At this stage the Enable feature flag check bock should be unchecked.
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag). At this stage the Enable feature flag check box should be unchecked.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of enable feature flag named Beta.](media/add-beta-feature-flag.png)
@@ -79,7 +79,7 @@ When starting the application, a browser window will open to authenticate the us
     To build and run the app locally using the Windows command prompt, run the following command:
 
     ```console
-    setx APP_CONFIGURATION_ENDPOINT "endpoint-of-your-app-configuration-store"
+    setx APP_CONFIGURATION_ENDPOINT "<endpoint-of-your-app-configuration-store>"
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -89,7 +89,7 @@ When starting the application, a browser window will open to authenticate the us
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-    $Env:APP_CONFIGURATION_ENDPOINT = "endpoint-of-your-app-configuration-store"
+    $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
 
     ### [macOS](#tab/unix)
@@ -97,7 +97,7 @@ When starting the application, a browser window will open to authenticate the us
     If you use macOS, run the following command:
 
     ```console
-    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -107,7 +107,7 @@ When starting the application, a browser window will open to authenticate the us
     If you use Linux, run the following command:
 
     ```console
-    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.

@@ -1,13 +1,18 @@
 ---
 title: How to manage linked IoT hubs with Device Provisioning Service (DPS)
 description: This article shows how to link and manage IoT hubs with the Device Provisioning Service (DPS).
-author: kgremban
-ms.author: kgremban
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/23/2024
 ms.topic: how-to
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
-ms.custom: mvc, devx-track-azurecli
+ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # How to link and manage IoT hubs
@@ -197,7 +202,7 @@ To update symmetric keys for a linked IoT hub with Azure CLS:
 1. Use the [az iot dps linked-hub list](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-show) command to find the position of the IoT hub in the collection of linked IoT hubs for your DPS instance. For example, the following command gets the primary connection string for the *owner* shared access policy that the primary key was regenerated for in the previous command:
 
     ```azurecli
-    az iot dps linked-hub list --dos-name MyExampleDps
+    az iot dps linked-hub list --dps-name MyExampleDps
     ```
 
     The output shows the position of the linked IoT hub you want to update the connection string for in the table of linked IoT hubs maintained by your DPS instance. In this case, it's the first IoT hub in the list, *MyExampleHub*.

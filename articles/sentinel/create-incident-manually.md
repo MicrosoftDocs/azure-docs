@@ -1,17 +1,17 @@
 ---
-title: Create your own incidents manually in Microsoft Sentinel
+title: Create your own incidents manually in Microsoft Sentinel in the Azure portal
 description: Manually create incidents in Microsoft Sentinel based on data or information received by the SOC through alternate means or channels.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
-ms.date: 08/17/2022
-
-
+ms.date: 10/16/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+ms.custom: sfi-image-nochange
 #Customer intent: As a security analyst, I want to manually create incidents in Microsoft Sentinel so that I can investigate and respond to threats not automatically detected or ingested from external systems.
-
 ---
 
-# Create your own incidents manually in Microsoft Sentinel
+# Create your own incidents manually in Microsoft Sentinel in the Azure portal
 
 > [!IMPORTANT]
 >
@@ -29,7 +29,7 @@ With Microsoft Sentinel as your security information and event management (SIEM)
 
 However, threat data can also come from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, and yet can justify opening an investigation. For example, an employee might notice an unrecognized person engaging in suspicious activity related to your organization’s information assets. This employee might call or email the security operations center (SOC) to report the activity.
 
-Microsoft Sentinel allows your security analysts to manually create incidents for any type of event, regardless of its source or data, so you don't miss out on investigating these unusual types of threats.
+Microsoft Sentinel in the Azure portal allows your security analysts to manually create incidents for any type of event, regardless of its source or data, so you don't miss out on investigating these unusual types of threats.
 
 ## Common use cases
 
@@ -53,7 +53,18 @@ There are three ways to create an incident manually:
 - [Create an incident using Azure Logic Apps](#create-an-incident-using-azure-logic-apps), using the Microsoft Sentinel Incident trigger.
 - [Create an incident using the Microsoft Sentinel API](#create-an-incident-using-the-microsoft-sentinel-api), through the [Incidents](/rest/api/securityinsights/preview/incidents) operation group. It allows you to get, create, update, and delete incidents.
 
-After onboarding Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, manually created incidents will not be synchronized with the unified platform, though they can still be viewed and managed in Microsoft Sentinel in the Azure portal, and through Logic Apps and  the API.
+After onboarding Microsoft Sentinel to the Microsoft Defender portal, manually created incidents aren't synchronized with the Defender portal, though they can still be viewed and managed in Microsoft Sentinel in the Azure portal, and through Logic Apps and  the API.
+
+### Permissions
+
+The following roles and permissions are required to manually create an incident.
+
+| Method | Required role |
+| ------ | ------------- |
+| Azure portal and API | One of the following:<li>[Microsoft Sentinel Responder](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-responder)<li>[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) |
+| Azure Logic Apps | One of the above, plus:<li>[Microsoft Sentinel Playbook Operator](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-playbook-operator) to use an existing playbook<li>[Logic App Contributor](/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor) to create a new playbook |
+
+Learn more about [roles in Microsoft Sentinel](roles.md).
 
 ### Create an incident using the Azure portal
 
@@ -104,7 +115,7 @@ After onboarding Microsoft Sentinel to the unified security operations platform 
 
 Select the incident in the queue to see its full details, add bookmarks, change its owner and status, and more.
 
-If for some reason you change your mind after the fact about creating the incident, you can [delete it](delete-incident.md) from the queue grid, or from within the incident itself.
+If for some reason you change your mind after the fact about creating the incident, you can [delete it](delete-incident.md) from the queue grid, or from within the incident itself. You must have the [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) role in order to delete an incident.
 
 ### Create an incident using Azure Logic Apps
 
@@ -150,7 +161,7 @@ Here's an example of what a request body might look like:
     "description": "This is a demo incident",
     "title": "My incident",
     "owner": {
-      "objectId": "2046feea-040d-4a46-9e2b-91c2941bfa70"
+      "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
     },
     "severity": "High",
     "classification": "FalsePositive",
@@ -177,5 +188,5 @@ Here's an example of what a request body might look like:
 For more information, see:
 - [Relate alerts to incidents in Microsoft Sentinel](relate-alerts-to-incidents.md)
 - [Delete incidents in Microsoft Sentinel](delete-incident.md)
-- [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
-- [Create custom analytics rules to detect threats](detect-threats-custom.md)
+- [Navigate, triage, and manage Microsoft Sentinel incidents](incident-navigate-triage.md)
+- [Investigate Microsoft Sentinel incidents in depth](investigate-incidents.md)

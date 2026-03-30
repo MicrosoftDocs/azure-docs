@@ -2,7 +2,7 @@
 title: Configure managed identities with Azure App Configuration
 description: Learn how managed identities work in Azure App Configuration and how to configure a managed identity
 author: maud-lv
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2024
 ms.author: malev
 ms.service: azure-app-configuration

@@ -2,17 +2,15 @@
 title: Overview of $convert-data for the FHIR service in Azure Health Data Services
 description: Learn about the $convert-data operation in the FHIR service, a tool for transforming healthcare data across various formats into standardized FHIR R4 data. 
 services: healthcare-apis
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 05/13/2024
-ms.author: jasteppe
+ms.date: 08/12/2025
+ms.author: kesheth
 ---
 
 # $convert-data in the FHIR service
-
-[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
 
 The `$convert-data` operation in the FHIR&reg; service enables you to convert health data from various formats into [FHIR R4](https://www.hl7.org/fhir/R4/index.html) data. The `$convert-data` operation uses [Liquid](https://shopify.github.io/liquid/) templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project for FHIR data conversion. You can customize these conversion templates as needed. 
 

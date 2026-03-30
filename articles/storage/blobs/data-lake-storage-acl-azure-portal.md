@@ -6,8 +6,9 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 11/26/2024
 ms.author: normesta
+# Customer intent: "As a data administrator, I want to manage access control lists (ACLs) in Azure Data Lake Storage through the Azure portal, so that I can effectively control permissions and secure my data assets."
 ---
 
 # Use the Azure portal to manage ACLs in Azure Data Lake Storage
@@ -66,7 +67,7 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
    > [!NOTE]
    > We recommend that you create a security group in Microsoft Entra ID, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
 
-8. To manage the *default ACL*, select the **default permissions** tab, and then select the **Configure default permissions** checkbook.
+8. To manage the *default ACL*, select the **default permissions** tab, and then select the **Configure default permissions** checkbox.
 
    > [!TIP]
    > A default ACL is a template of an ACL that determines the access ACLs for any child items that are created under a directory. A blob doesn't have a default ACL, so this tab appears only for directories.

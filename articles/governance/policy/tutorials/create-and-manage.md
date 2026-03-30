@@ -1,9 +1,12 @@
 ---
 title: "Tutorial: Build policies to enforce compliance"
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise-wide design principles.
-ms.date: 08/17/2021
+ms.date: 03/04/2025
 ms.topic: tutorial
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 # Tutorial: Create and manage policies to enforce compliance
 
@@ -23,7 +26,7 @@ resources, the quickstart articles go over how to do so.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 before you begin.
 
 ## Assign a policy
@@ -65,7 +68,7 @@ resources missing the tag.
 
    :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Screenshot of the search filter while selecting a policy definition.":::
 
-1. The **Version** is automatically populated to the latest major version of the definition and set to autoinjest any non-breaking changes. You may change the version to others, if available or adjust your ingesting settings, but no change is required. **Overrides** are optional, so leave it blank for now. 
+1. The **Version** is automatically populated to the latest major version of the definition and set to autoinjest any non-breaking changes. You may change the version to others, if available or adjust your ingesting settings, but no change is required. **Overrides** are optional, so leave it blank for now.
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
    change it. For this example, leave _Inherit a tag from the resource group if missing_. You can
@@ -163,10 +166,10 @@ create a virtual machine in the G series, the request is denied.
    ```
 
    The _field_ property in the policy rule must be a supported value. A full list of values is found
-   on [policy definition structure fields](../concepts/definition-structure.md#fields). An example
+   on [policy definition structure fields](../concepts/definition-structure-policy-rule.md#fields). An example
    of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
 
-   To view more Azure Policy samples, see [Azure Policy samples](../samples/index.md).
+   To view more Azure Policy samples, see [Azure Policy samples](/azure/governance/policy/samples/index).
 
 1. Select **Save**.
 
@@ -570,8 +573,8 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Select the **Remediation** tab at the top of the wizard. Leave **Create a Managed Identity**
    unchecked. This box _must_ be checked when the policy or initiative being assigned includes a
-   policy with the [deployIfNotExists](../concepts/effects.md#deployifnotexists) or
-   [modify](../concepts/effects.md#modify) effects. As the policy used for this tutorial doesn't,
+   policy with the [deployIfNotExists](../concepts/effect-deploy-if-not-exists.md) or
+   [modify](../concepts/effect-modify.md) effects. As the policy used for this tutorial doesn't,
    leave it blank. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and
@@ -682,4 +685,4 @@ In this tutorial, you successfully accomplished the following tasks:
 To learn more about the structures of policy definitions, look at this article:
 
 > [!div class="nextstepaction"]
-> [Azure Policy definition structure](../concepts/definition-structure.md)
+> [Azure Policy definition structure](../concepts/definition-structure-basics.md)

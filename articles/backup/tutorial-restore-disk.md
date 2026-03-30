@@ -2,22 +2,19 @@
 title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 10/28/2022
+ms.date: 12/31/2025
 ms.custom: mvc, devx-track-azurecli
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator managing virtual machines, I want to restore a VM from a recovery point using command-line tools, so that I can efficiently recover data without unnecessary manual steps."
 ---
 
-# Restore a VM with Azure CLI
+# Tutorial: Restore a VM with Azure CLI
 
-Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files. This article explains how to restore a complete VM using CLI. In this tutorial you learn how to:
+This tutorial describes how to restore a complete VM using CLI. 
 
-> [!div class="checklist"]
->
-> * List and select recovery points
-> * Restore a disk from a recovery point
-> * Create a VM from the restored disk
+Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or individual files.
 
 For information on using PowerShell to restore a disk and create a recovered VM, see [Back up and restore Azure VMs with PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
@@ -29,7 +26,7 @@ Now, you can also use CLI to directly restore the backup content to a VM (origin
 
  - This tutorial requires a Linux VM that has been protected with Azure Backup. To simulate an accidental VM deletion and recovery process, you create a VM from a disk in a recovery point. If you need a Linux VM that has been protected with Azure Backup, see [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md).
 
-## Backup overview
+## Backup overview for Azure VMs
 
 When Azure initiates a backup, the backup extension on the VM takes a point-in-time snapshot. The backup extension is installed on the VM when the first backup is requested. Azure Backup can also take a snapshot of the underlying storage if the VM isn't running when the backup takes place.
 
@@ -37,7 +34,7 @@ By default, Azure Backup takes a file system consistent backup. Once Azure Backu
 
 When the data transfer is complete, the snapshot is removed and a recovery point is created.
 
-## List available recovery points
+## List available recovery points for a VM
 
 To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point each day and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery.
 
@@ -121,7 +118,7 @@ az backup restore restore-disks \
 
 ### Cross-zonal restore
 
-You can restore [Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](../availability-zones/az-overview.md) of the same region.
+You can restore [Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](/azure/reliability/availability-zones-overview) of the same region.
 
 To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks) command.
 
@@ -278,22 +275,8 @@ Now get the SAS token for this container and template as detailed [here](../azur
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
-connection=$(az storage account show-connection-string \
-    --resource-group mystorageaccountRG \
-    --name mystorageaccount \
-    --query connectionString)
-token=$(az storage blob generate-sas \
-    --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
-    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
-    --expiry $expiretime \
-    --permissions r \
-    --output tsv \
-    --connection-string $connection)
-url=$(az storage blob url \
-   --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
-    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
-    --output tsv \
-    --connection-string $connection)
+token=$(az storage blob generate-sas --account-name $storageAccountName --container-name $containerName --name $templateName --permissions r --expiry $expiretime --auth-mode login --as-user --https-only --output tsv)
+url=$(az storage blob url --account-name $storageAccountName --container-name $containerName --name $templateName --output tsv --auth-mode login)
 ```
 
 ### Deploy the template to create the VM

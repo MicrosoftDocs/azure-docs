@@ -2,7 +2,7 @@
 
 ms.service: bicep, arm-templates
 ms.topic: include
-ms.date: 08/28/2024
+ms.date: 04/30/2025
 
 ---
 
@@ -17,4 +17,4 @@ Here are the steps for opening a support ticket for Azure Resource Manager (ARM)
 1. Select a subscription, and then select **Next**.
 1. Select **Issue with ARM templates**, and then select **Next**.
 
-   :::image type="content" source="./media/template-support/request-arm-template-support.png" alt-text="Screenshot of requesting ARM template support." border="false":::
+   :::image type="content" source="./media/template-support/request-arm-template-support.png" alt-text="Screenshot of requesting ARM template support.":::

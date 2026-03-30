@@ -4,7 +4,11 @@ description: This quickstart shows you how to write Python code to capture data 
 ms.topic: quickstart
 ms.date: 02/07/2024
 ms.devlang: python
-ms.custom: mode-api, devx-track-python
+ms.custom:
+  - mode-api
+  - devx-track-python
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)
@@ -25,7 +29,7 @@ In this quickstart, you:
 ## Prerequisites
 
 - Python 3.8 or later, with pip installed and updated.
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.  
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.  
 - An active Event Hubs namespace and event hub.
 [Create an Event Hubs namespace and an event hub in the namespace](event-hubs-create.md). Record the name of the Event Hubs namespace, the name of the event hub, and the primary access key for the namespace. To get the access key, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md#azure-portal). The default key name is *RootManageSharedAccessKey*. For this quickstart, you need only the primary key. You don't need the connection string.  
 - An Azure storage account, a blob container in the storage account, and a connection string to the storage account. If you don't have these items, do the following steps:  
@@ -62,7 +66,7 @@ In this section, you create a Python script that sends 200 events (10 devices * 
         devices.append(str(uuid.uuid4()))
     
     # Create a producer client to produce and publish events to the event hub.
-    producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESAPCE CONNECTION STRING", eventhub_name="EVENT HUB NAME")
+    producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE CONNECTION STRING", eventhub_name="EVENT HUB NAME")
     
     for y in range(0,20):    # For each device, produce 20 events. 
         event_data_batch = producer.create_batch() # Create a batch. You will add events to the batch later. 

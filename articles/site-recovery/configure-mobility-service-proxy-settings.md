@@ -1,13 +1,13 @@
 ---
 title: Configure Mobility Service Proxy Settings for Azure to Azure Disaster Recovery | Microsoft Docs
 description: Provides details on how to configure mobility service when customers use a proxy in their source environment.
-author: ankitaduttaMSFT
-manager: rochakm
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 07/10/2024
-ms.author: ankitadutta
+ms.date: 03/21/2025
+ms.author: v-gajeronika
 
+# Customer intent: As an IT administrator configuring disaster recovery, I want to set up proxy settings for the Mobility Service in Azure Site Recovery, so that I can ensure proper connectivity during VM replication and recovery across Azure regions.
 ---
 # Configure Mobility Service Proxy Settings for Azure to Azure Disaster Recovery
 
@@ -35,8 +35,8 @@ Mobility Service supports unauthenticated proxies only. It provides two ways to 
 Mobility Service auto detects the proxy settings from environment settings or Internet Explorer settings (Windows only) during enable replication. 
 
 - **Windows OS**: During Enable Replication, Mobility Service detects the proxy settings as configured in Internet Explorer for Local System user. To set up proxy for Local System account, an administrator may use `psexec` to launch a command prompt and then Internet Explorer. 
-    The proxy settings are configured as environment variables `http_proxy` and `no_proxy`. 
-- **Linux OS**: The proxy settings are configured in /etc/profile or /etc/environment as environment variables `http_proxy` and `no_proxy`. 
+    The proxy settings are configured as environment variables `https_proxy` and `no_proxy`. 
+- **Linux OS**: The proxy settings are configured in /etc/profile or /etc/environment as environment variables `https_proxy` and `no_proxy`. 
 - **Auto-detected proxy settings**: The auto-detected proxy settings are saved to Mobility Service proxy config file `ProxyInfo.conf` 
     The default location of ProxyInfo.conf is:
         - **Windows**: C:\ProgramData\Microsoft Azure Site Recovery\Config\ProxyInfo.conf 
@@ -45,7 +45,8 @@ Mobility Service auto detects the proxy settings from environment settings or In
 
 ### Method 2: Provide custom application proxy settings
 
-In this case, the customer provides custom application proxy settings in Mobility Service config file ProxyInfo.conf. This method allows customers to provide proxy only for Mobility Service or a different proxy for Azure Site Recovery Mobility Service than a proxy (or no proxy) for rest of the applications on the machine.
+In this case, the customer provides custom application proxy settings in Mobility Service config file ProxyInfo.conf. This method allows customers to provide proxy only for Mobility Service or a different proxy for Azure Site Recovery Mobility Service than a proxy (or no proxy) for rest of the applications on the machine. Check whether the file `C:\ProgramData\Microsoft Azure Site Recovery\Config\ProxyInfo.conf` has any proxy entry. In case the file doesn't exist, create one.
+
 
 ## Proxy template
 

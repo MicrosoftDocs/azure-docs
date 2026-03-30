@@ -1,8 +1,8 @@
----
+﻿---
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
-ms.topic: conceptual
-ms.date: 09/26/2024
+ms.topic: article
+ms.date: 09/15/2025
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -215,6 +215,10 @@ Some resources have a limit on the number instances per region. This limit is di
 * servers/jobAgents
 * virtualClusters
 
+## Microsoft.SqlVirtualMachine
+
+* sqlVirtualMachines
+
 ## Microsoft.Storage
 
 * storageAccounts
@@ -226,9 +230,9 @@ Some resources have a limit on the number instances per region. This limit is di
 ## Microsoft.Web
 
 * apiManagementAccounts/apis
-* certificates
 * sites
 
 ## Next steps
 
 For a complete list of quotas and limits, see [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md).
+

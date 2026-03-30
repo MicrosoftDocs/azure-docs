@@ -4,45 +4,22 @@ description: Learn how the Microsoft Azure Network Adapter can improve the netwo
 author: mattmcinnes
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 09/04/2025
 ms.author: mattmcinnes
+# Customer intent: As a cloud administrator, I want to implement the Azure Network Adapter to optimize networking performance for my virtual machines, so that I can ensure better stability and availability in our cloud infrastructure.
 ---
 
 # Microsoft Azure Network Adapter overview
 
 Learn how to use the Microsoft Azure Network Adapter (MANA) component of Azure Boost to improve the performance and availability of virtual machines (VMs) in Azure. MANA is a next-generation network interface that provides stable forward-compatible device drivers for Windows and Linux operating systems. MANA hardware and software are engineered by Microsoft and take advantage of the latest advancements in cloud networking technology.
 
-> [!IMPORTANT]
-> MANA is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Compatibility
 
-MANA supports several VM operating systems. Although your VM might be running a supported operating system, you might need to update the kernel (Linux) or install drivers (Windows).
+MANA supports several VM operating systems. Although your VM might be running a supported operating system, you might need to update the kernel (Linux) or install drivers (Windows) to leverage MANA or the latest features. 
 
-MANA maintains feature parity with previous Azure networking features. VMs run on hardware with both Mellanox and MANA NICs, so existing `mlx4` and `mlx5` support still need to be present.
+MANA maintains feature parity with previous Azure networking features. VMs run on hardware with both Mellanox and MANA NICs, so existing `mlx4` and `mlx5` support still needs to be present.
 
-### Supported Azure Marketplace images
-
-Several [Azure Marketplace](/marketplace/azure-marketplace-overview) images have built-in support for the Ethernet driver in MANA.
-
-#### Linux
-
-- Ubuntu 20.04 LTS
-- Ubuntu 22.04 LTS
-- Red Hat Enterprise Linux 8.8
-- Red Hat Enterprise Linux 9.2
-- SUSE Linux Enterprise Server 15 SP4
-- Debian 12 "Bookworm"
-- Oracle Linux 9.0
-
-> [!NOTE]
-> None of the current Linux distributions in Azure Marketplace are on a 6.2 or later kernel, which is required for RDMA/InfiniBand and Data Plane Development Kit (DPDK). If you use an existing Linux image from Azure Marketplace, you need to update the kernel.
-
-#### Windows
-
-- Windows Server 2016
-- Windows Server 2019
-- Windows Server 2022
+For operating system support see [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
 ### Custom images and legacy VMs
 
@@ -51,6 +28,9 @@ To maximize performance, we recommend using an operating system that supports MA
 ### DPDK on MANA hardware
 
 For information about using DPDK on MANA hardware, see [Microsoft Azure Network Adapter and DPDK on Linux](setup-dpdk-mana.md).
+
+> [!NOTE]
+> A 6.2 or later kernel is required for RDMA/InfiniBand and Data Plane Development Kit (DPDK). If you use an earlier Linux image from Azure Marketplace, you need to update the kernel.
 
 ## Evaluating performance
 

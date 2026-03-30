@@ -4,9 +4,10 @@ description: Learn how to register a service client application in Microsoft Ent
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 09/27/2023
+ms.topic: article
+ms.date: 12/05/2025
 ms.author: kesheth
+ms.custom: sfi-image-nochange
 ---
 
 # Register a service client application in Microsoft Entra ID for Azure API for FHIR
@@ -38,7 +39,7 @@ Follow these steps to create a new service client.
 Permissions for Azure API for FHIR are managed through role-based access control (RBAC). For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
 
 >[!NOTE]
->Use a `grant_type` of `client_credentials` when trying to otain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
+>Use a `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools for intuitive querying.
 
 ## Application secret
 
@@ -55,9 +56,9 @@ The service client needs a secret (password) to obtain a token.
 
 ## Next steps
 
-In this article, you learned how to register a service client application in Microsoft Entra ID. Next, test access to your FHIR server using Postman.
+In this article, you learned how to register a service client application in Microsoft Entra ID. Next, test access to your FHIR server using REST Client.
  
 >[!div class="nextstepaction"]
->[Access the FHIR service using Postman](./../fhir/use-postman.md)
+>[Access the FHIR service using REST Client](./../fhir/using-rest-client.md)
 
 [!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

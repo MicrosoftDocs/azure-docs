@@ -1,33 +1,43 @@
 ---
-title: 'Create a route-based virtual network gateway: CLI'
+title: Create a virtual network gateway - CLI
 titleSuffix: Azure VPN Gateway
-description: Learn how to create a route-based virtual network gateway for a VPN connection to an on-premises network, or to connect virtual networks.
+description: Learn how to create a virtual network gateway for VPN Gateway connections using CLI.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 11/18/2024
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: "As a network engineer, I want to create a VPN gateway using CLI, so that I can establish secure connections to on-premises networks and between virtual networks efficiently."
 ---
 
-# Create a route-based VPN gateway using CLI
+# Create a VPN gateway using CLI
 
-This article helps you quickly create a route-based Azure VPN gateway using the Azure CLI. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets. 
-
-In this article you'll create a VNet, a subnet, a gateway subnet, and a route-based VPN gateway (virtual network gateway). Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Once the gateway creation has completed, you can then create connections. These steps require an Azure subscription.
-
-A VPN gateway is just one part of a connection architecture to help you securely access resources within a virtual network.
+This article helps you create an Azure VPN gateway using Azure CLI. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect virtual networks. For more comprehensive information about some of the settings in this article, see [Create a VPN gateway - portal](tutorial-create-gateway-portal.md).
 
 :::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram that shows a virtual network and a VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
 
 * The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
 * You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+The steps in this article create a virtual network, a subnet, a gateway subnet, and a route-based, zone-redundant active-active mode VPN gateway (virtual network gateway) using the Generation 2 VpnGw2AZ SKU. The steps in this article create a virtual network, a subnet, a gateway subnet, and a route-based, zone-redundant active-active mode VPN gateway (virtual network gateway) using the Generation 2 VpnGw2AZ SKU. Once the gateway is created, you can configure connections.
+
+* If you want to create a VPN gateway using the **Basic** SKU instead, see [Create a Basic SKU VPN gateway](create-gateway-basic-sku-powershell.md).
+* We recommend that you create an active-active mode VPN gateway when possible. Active-active mode VPN gateways provide better availability and performance than standard mode VPN gateways. For more information about active-active gateways, see [About active-active mode gateways](about-active-active-gateways.md).
+* For information about availability zones and zone redundant gateways, see [What are availability zones](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvpn-gateway%2Ftoc.json&tabs=azure-cli#availability-zones)?
+
+> [!NOTE]
+> [!INCLUDE [AZ SKU region support note](../../includes/vpn-gateway-az-regions-support-include.md)]
+
+## Before you begin
+
+These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -39,7 +49,9 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>Create a virtual network
 
-Create a virtual network using the [az network vnet create](/cli/azure/network/vnet) command. The following example creates a virtual network named **VNet1** in the **EastUS** location:
+If you don't already have a virtual network, create one using the [az network vnet create](/cli/azure/network/vnet) command. When you create a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. If a duplicate address range exists on both sides of the VPN connection, traffic doesn't route the way you might expect it to. Additionally, if you want to connect this virtual network to another virtual network, the address space can't overlap with other virtual network. Take care to plan your network configuration accordingly.
+
+The following example creates a virtual network named 'VNet1' and a subnet, 'FrontEnd'. The FrontEnd subnet isn't used in this exercise. You can substitute your own subnet name.
 
 ```azurecli-interactive
 az network vnet create \
@@ -47,13 +59,18 @@ az network vnet create \
   -g TestRG1 \
   -l eastus \
   --address-prefix 10.1.0.0/16 \
-  --subnet-name Frontend \
+  --subnet-name FrontEnd \
   --subnet-prefix 10.1.0.0/24
 ```
 
 ## <a name="gwsubnet"></a>Add a gateway subnet
 
-The gateway subnet contains the reserved IP addresses that the virtual network gateway services use. Use the following examples to add a gateway subnet:
+[!INCLUDE [About GatewaySubnet with links](../../includes/vpn-gateway-about-gwsubnet-include.md)]
+
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
+
+Use the following example to add a gateway subnet:
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -63,33 +80,40 @@ az network vnet subnet create \
   --address-prefix 10.1.255.0/27 
 ```
 
-## <a name="PublicIP"></a>Request a public IP address
+## <a name="PublicIP"></a>Request public IP addresses
 
-A VPN gateway must have a public IP address. The public IP address is allocated to the VPN gateway that you create for your virtual network. Use the following example to request a public IP address using the [az network public-ip create](/cli/azure/network/public-ip) command:
+A VPN gateway must have a public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. For active-active mode gateways, each gateway instance has its own public IP address resource. You first request the IP address resource, and then refer to it when creating your virtual network gateway. Additionally, for any gateway SKU ending in *AZ*, you must also specify the Zone setting. This example specifies a zone-redundant configuration because it specifies all three regional zones.
+
+The IP address is assigned to the resource when the VPN gateway is created. The only time the public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
+
+Use the [az network public-ip create](/cli/azure/network/public-ip) command to request a public IP address:
 
 ```azurecli-interactive
-az network public-ip create \
-  -n VNet1GWIP \
-  -g TestRG1 \
+az network public-ip create --name VNet1GWpip1 --resource-group TestRG1 --allocation-method Static --sku Standard --version IPv4 --zone 1 2 3
+```
+
+To create an active-active gateway (recommended), request a second public IP address:
+
+```azurecli-interactive
+az network public-ip create --name VNet1GWpip2 --resource-group TestRG1 --allocation-method Static --sku Standard --version IPv4 --zone 1 2 3
 ```
 
 ## <a name="CreateGateway"></a>Create the VPN gateway
 
-Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway) command.
+Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Once the gateway is created, you can create connection between your virtual network and your on-premises location. Or, create a connection between your virtual network and another virtual network.
 
-If you run this command by using the `--no-wait` parameter, you don't see any feedback or output. The `--no-wait` parameter allows the gateway to be created in the background. It doesn't mean that the VPN gateway is created immediately.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/network/vnet-gateway) command. If you run this command by using the `--no-wait` parameter, you don't see any feedback or output. The `--no-wait` parameter allows the gateway to be created in the background. It doesn't mean that the VPN gateway is created immediately. If you want to create a gateway using a different SKU, see [About Gateway SKUs](about-gateway-skus.md) to determine the SKU that best fits your configuration requirements.
+
+**Active-active mode gateway**
 
 ```azurecli-interactive
-az network vnet-gateway create \
-  -n VNet1GW \
-  -l eastus \
-  --public-ip-address VNet1GWIP \
-  -g TestRG1 \
-  --vnet VNet1 \
-  --gateway-type Vpn \
-  --sku VpnGw2 \
-  --vpn-gateway-generation Generation2 \
-  --no-wait
+az network vnet-gateway create --name VNet1GW --public-ip-addresses VNet1GWpip1 VNet1GWpip2 --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw2AZ --vpn-gateway-generation Generation2 --no-wait
+```
+
+**Active-standby mode gateway**
+
+```azurecli-interactive
+az network vnet-gateway create --name VNet1GW --public-ip-addresses VNet1GWpip1 --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw2AZ --vpn-gateway-generation Generation2 --no-wait
 ```
 
 A VPN gateway can take 45 minutes or more to create.
@@ -102,109 +126,26 @@ az network vnet-gateway show \
   -g TestRG1
 ```
 
-The response looks similar to this:
+## View gateway IP addresses
 
-```output
-{
-  "activeActive": false,
-  "bgpSettings": {
-    "asn": 65515,
-    "bgpPeeringAddress": "10.1.255.30",
-    "bgpPeeringAddresses": [
-      {
-        "customBgpIpAddresses": [],
-        "defaultBgpIpAddresses": [
-          "10.1.255.30"
-        ],
-        "ipconfigurationId": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
-        "tunnelIpAddresses": [
-          "20.228.164.35"
-        ]
-      }
-    ],
-    "peerWeight": 0
-  },
-  "disableIPSecReplayProtection": false,
-  "enableBgp": false,
-  "enableBgpRouteTranslationForNat": false,
-  "enablePrivateIpAddress": false,
-  "etag": "W/\"6c61f8cb-d90f-4796-8697\"",
-  "gatewayType": "Vpn",
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
-  "ipConfigurations": [
-    {
-      "etag": "W/\"6c61f8cb-d90f-4796-8697\"",
-      "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
-      "name": "vnetGatewayConfig0",
-      "privateIPAllocationMethod": "Dynamic",
-      "provisioningState": "Succeeded",
-      "publicIPAddress": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
-        "resourceGroup": "TestRG1"
-      },
-      "resourceGroup": "TestRG1",
-      "subnet": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworks/VNet1/subnets/GatewaySubnet",
-        "resourceGroup": "TestRG1"
-      }
-    }
-  ],
-  "location": "eastus",
-  "name": "VNet1GW",
-  "natRules": [],
-  "provisioningState": "Succeeded",
-  "resourceGroup": "TestRG1",
-  "resourceGuid": "69c269e3-622c-4123-9231",
-  "sku": {
-    "capacity": 2,
-    "name": "VpnGw2",
-    "tier": "VpnGw2"
-  },
-  "type": "Microsoft.Network/virtualNetworkGateways",
-  "vpnGatewayGeneration": "Generation2",
-  "vpnType": "RouteBased"
-}
-```
-
-### View the public IP address
-
-To view the public IP address assigned to your gateway, use the following example:
+Each VPN gateway instance is assigned a public IP address resource. To view the IP address associated with the resource, use the following command. Repeat for each gateway instance.
 
 ```azurecli-interactive
-az network public-ip show \
-  --name VNet1GWIP \
-  --resource-group TestRG1
-```
-
-The value associated with the **ipAddress** field is the public IP address of your VPN gateway.
-
-Example response:
-
-```output
-{
-  "dnsSettings": null,
-  "etag": "W/\"69c269e3-622c-4123-9231\"",
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
-  "idleTimeoutInMinutes": 4,
-  "ipAddress": "13.90.195.184",
-  "ipConfiguration": {
-    "etag": null,
-    "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
+az network public-ip show -g TestRG1 -n VNet1GWpip1
 ```
 
 ## Clean up resources
 
 When you no longer need the resources you created, use [az group delete](/cli/azure/group) to delete the resource group. This deletes the resource group and all of the resources it contains.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name TestRG1 --yes
 ```
 
 ## Next steps
 
-Once the gateway has finished creating, you can create a connection between your virtual network and another VNet. Or, create a connection between your virtual network and an on-premises location.
+Once the gateway is created, you can configure connections.
 
-> [!div class="nextstepaction"]
-> [Create a site-to-site connection](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>
-> [Create a point-to-site connection](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
-> [Create a connection to another VNet](vpn-gateway-vnet-vnet-rm-ps.md)
+* [Create a site-to-site connection](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
+* [Create a connection to another virtual network](vpn-gateway-howto-vnet-vnet-cli.md)
+* [Create a point-to-site connection](point-to-site-about.md)

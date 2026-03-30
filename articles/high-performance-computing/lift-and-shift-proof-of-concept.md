@@ -1,15 +1,20 @@
 ---
-title: "Proof-of-concept migration overview"
-description: Learn about what a proof-of-concept migration entails and follow the guide through one.
+title: Build a proof-of-concept HPC cluster on Azure
+description: Deploy a proof-of-concept HPC cluster on Azure using CycleCloud and Slurm to validate your migration before moving to production.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
+# Customer intent: As an IT manager, I want to understand the steps for conducting a proof-of-concept migration of my HPC infrastructure to the cloud, so that I can evaluate its benefits and performance before transitioning to a full production environment.
 ---
 
-# Proof-of-concept migration overview
+# Build a proof-of-concept HPC cluster on Azure
 
 When you move an HPC infrastructure from the on-premises environment to the cloud, there are various aspects to be taken into account. This document provides guidance on how to create such HPC environment in the cloud. We recommend
 a two-phase approach. First, a proof-of-concept, and then a production-level environment. Once the production environment is up and running, only certain components should be modified over time, including changes on VM types and storage capabilities to best meet the varying requirements of users, projects, and business.

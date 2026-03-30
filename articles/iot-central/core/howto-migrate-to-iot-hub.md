@@ -3,9 +3,10 @@ title: Migrate devices from Azure IoT Central to Azure IoT Hub
 description: Describes how to use the migration tool to migrate devices that currently connect to an Azure IoT Central application to an Azure IoT hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 08/06/2025
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
+ms.custom: sfi-image-nochange
 ---
 
 # Migrate devices to Azure IoT Hub
@@ -17,7 +18,7 @@ The migrator tool:
 - Creates device registrations in your IoT hub for the devices that currently connect to your IoT Central application.
 - Uses a command to send the *ID scope* of the Device Provisioning Service (DPS) instance associated with your IoT hub to your devices.
 
-The tool requires your connected devices to implement a **DeviceMove** command that's defined in the device template in your IoT Central application. The command payload is the ID scope of the target DPS instance. When a device receives this command, it should:
+The tool requires your connected devices to implement a **DeviceMove** command defined in the device template in your IoT Central application. The command payload is the ID scope of the target DPS instance. When a device receives this command, it should:
 
 - Stop sending telemetry and disconnect from the IoT Central application.
 - Provision itself with DPS by using the new ID scope in the command payload.
@@ -41,7 +42,7 @@ Minimize business impact by following these steps:
 
 - Migrate the devices in phases and verify at each phase. If something doesn't go as planned, fail the devices back to IoT Central.
 
-- When you've migrated all the devices to the PaaS solution and fully exported your data from IoT Central, you can remove the devices from the IoT Central solution.
+- After you migrate all the devices to the PaaS solution and fully export your data from IoT Central, you can then remove the devices from the IoT Central solution.
 
 After the migration, devices aren't automatically deleted from the IoT Central application. These devices continue to be billed as IoT Central charges for all provisioned devices in the application. When you remove these devices from the IoT Central application, you're no longer billed for them. Eventually, remove the IoT Central application.
 

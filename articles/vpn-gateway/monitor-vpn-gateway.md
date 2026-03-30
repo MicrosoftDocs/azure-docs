@@ -1,12 +1,15 @@
 ---
 title: Monitor Azure VPN Gateway
 description: Start here to learn how to monitor Azure VPN Gateway by using Azure Monitor metrics and resource logs.
-ms.date: 07/26/2024
-ms.custom: horz-monitor
-ms.topic: conceptual
+ms.date: 03/31/2025
+ms.topic: concept-article
 author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
+ms.custom:
+  - horz-monitor
+  - sfi-image-nochange
+# Customer intent: As a network administrator, I want to utilize monitoring tools for Azure VPN Gateway, so that I can effectively track performance metrics and logs to ensure secure and reliable connectivity.
 ---
 # Monitor Azure VPN Gateway
 
@@ -59,8 +62,6 @@ In the Azure portal, you can view BGP peers, learned routes, and advertised rout
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your virtual network gateway.
 1. Under **Monitoring**, select **BGP peers** to open the BGP peers page.
-
-   :::image type="content" source="./media/bgp-diagnostics/bgp-portal.jpg" alt-text="Screenshot of metrics in the Azure portal.":::
 
 #### Learned routes
 

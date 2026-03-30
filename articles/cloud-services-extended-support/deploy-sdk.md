@@ -2,15 +2,20 @@
 title: Deploy Azure Cloud Services (extended support) - SDK
 description: Deploy Azure Cloud Services (extended support) by using the Azure SDK.
 ms.topic: quickstart
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
-ms.custom: devx-track-azurepowershell
+ms.update-cycle: 365-days
+ms.custom: devx-track-azurepowershell, cloud-services-extended-support
+# Customer intent: As a cloud developer, I want to deploy Azure Cloud Services (extended support) using the SDK so that I can manage role-based applications and configurations programmatically through Resource Manager.
 ---
 
 # Deploy Cloud Services (extended support) by using the Azure SDK
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to create an Azure Cloud Services (extended support) deployment that has multiple roles (WebRole and WorkerRole). It also covers how to use the Remote Desktop Protocol (RDP) extension. Cloud Services (extended support) is a deployment model of Azure Cloud Services based on Azure Resource Manager.
 
@@ -33,7 +38,7 @@ To deploy Cloud Services (extended support) by using the SDK:
                 var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantID}");
                 var credential = new ClientCredential(clientId: "{clientID}", clientSecret: "{clientSecret}");
                 var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
-                if (result == null) throw new InvalidOperationException("Failed to obtain the JWT token");
+                if (result == null) throw new InvalidOperationException("Failed to obtain the JWT");
                 AuthenticationToken = result.Result.AccessToken;
             }
             public override async Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)

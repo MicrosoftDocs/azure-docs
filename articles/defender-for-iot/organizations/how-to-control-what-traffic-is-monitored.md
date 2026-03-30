@@ -3,6 +3,7 @@ title: Control the OT traffic monitored by Microsoft Defender for IoT
 description: Learn how to control the OT network traffic monitored by Microsoft Defender for IoT.
 ms.date: 10/11/2024
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Control the OT traffic monitored by Microsoft Defender for IoT
@@ -21,7 +22,7 @@ Before performing the procedures in this article, you must have:
 
 - An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [configured, and activated](ot-deploy/activate-deploy-sensor.md).
 
-- Access to your OT network sensor and on-premises management console as an **Admin** user.  For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- Access to your OT network sensor as an **Admin** user.  For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 This step is performed by your deployment teams.
 
@@ -142,9 +143,6 @@ VLANs are either discovered automatically by the OT network sensor or added manu
 
 VLAN's support is based on 802.1q (up to VLAN ID 4094).
 
-> [!NOTE]
-> VLAN names aren't synchronized between the OT network sensor and the on-premises management console. If you want to view customized VLAN names on the on-premises management console, [define the VLAN names](legacy-central-management/how-to-manage-the-on-premises-management-console.md#define-vlan-names) there as well.
-
 **To configure VLAN names on an OT network sensor:**
 
 1. Sign in to your OT sensor as an **Admin** user.
@@ -216,13 +214,11 @@ If you're working with dynamic networks, you need to handle IP addresses changes
 
 1. Select **Save** to save your changes.
 
-## Configure traffic filters (advanced)
+## Configure traffic capture filters (advanced)
 
 To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source. Capture filters are configured via the OT sensor CLI, and allow you to block high-bandwidth traffic at the hardware layer, optimizing both appliance performance and resource usage.
 
-For more information, see:
-
-- [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md)
+For more information, see [Traffic capture filters](cli-ot-sensor.md#traffic-capture-filters).
 
 ## Next steps
 

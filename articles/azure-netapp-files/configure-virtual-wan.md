@@ -1,12 +1,16 @@
 ---
-title: Configure Virtual WAN for Azure NetApp Files | Microsoft Docs
+title: Configure Virtual WAN for Azure NetApp Files
 description: Describes guidelines to help you configure Azure NetApp files on Azure Virtual WAN.
 services: azure-netapp-files, virtual-wan
 author: rambk
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 04/26/2023
+ms.topic: concept-article
+ms.date: 11/25/2024
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+  - sfi-image-nochange
+# Customer intent: "As a network engineer, I want to configure Azure NetApp Files within a Virtual WAN environment so that I can ensure secure and efficient access to file storage across multiple sites and branches."
 ---
 # Configure Virtual WAN for Azure NetApp Files
 
@@ -56,8 +60,11 @@ The following image of the Azure portal shows an example virtual hub of effectiv
 
 :::image type="content" source="./media/configure-virtual-wan/effective-routes.png" alt-text="Screenshot of effective routes in Azure portal.":::
 
-> [!IMPORTANT] 
-> Azure NetApp Files mount leverages private IP addresses within a delegated [subnet](azure-netapp-files-network-topologies.md#subnets). The specific IP address entry is required, even if a CIDR to which the Azure NetApp Files volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
+>[!IMPORTANT] 
+> Azure NetApp Files mount leverages private IP addresses within a delegated [subnet](azure-netapp-files-network-topologies.md#subnets). Either the delegated subnet prefix of the Azure NetApp Files volume _or_ a more specific IP address is required, even if a CIDR to which the Azure NetApp Files volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, the subnet prefix 10.2.0.0/24 or 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
+
+>[!IMPORTANT]
+>If routing intent is enabled on the virtual WAN hub, use either a delegated subnet size prefix or a more specific route with next the hop to Azure Firewall. **To accomplish this setting, add a prefix in the Additional Prefixes option on Routing Intent.**
 
 ## List Azure NetApp Files volume IP under virtual hub effective routes
 
@@ -81,7 +88,7 @@ You can effect changes to a virtual hub's effective routes by adding routes expl
 ## Next steps
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
-* [Cross-region replication of Azure NetApp Files volumes](cross-region-replication-introduction.md)
+* [Cross-region replication of Azure NetApp Files volumes](replication.md)
 * [Disaster recovery design](../virtual-wan/disaster-recovery-design.md)
 * [Migrate to Azure Virtual WAN](../virtual-wan/migrate-from-hub-spoke-topology.md)
 * [Virtual WAN routing deep dive](../virtual-wan/routing-deep-dive.md)

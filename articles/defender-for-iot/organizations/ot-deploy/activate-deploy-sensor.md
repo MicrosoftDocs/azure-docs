@@ -3,6 +3,7 @@ title: Configure and activate your OT sensor - - Microsoft Defender for IoT
 description: Learn how to configure initial setup settings and activate your Microsoft Defender for IoT OT sensor.
 ms.date: 12/19/2023
 ms.topic: install-set-up-deploy
+ms.custom: sfi-image-nochange
 ---
 
 # Configure and activate your OT sensor
@@ -82,7 +83,7 @@ In the **Management interface** tab, use the following fields to define network 
 
 |Name  |Description  |
 |---------|---------|
-|**Management interface**     |  Select the interface you want to use as the management interface, to connect to either the Azure portal or an on-premises management console.<br><br>To identify a physical interface on your machine, select an interface and then select **Blink physical interface LED**. The port that matches the selected interface lights up so that you can connect your cable correctly.        |
+|**Management interface**     |  Select the interface you want to use as the management interface, to connect to the Azure portal.<br><br>To identify a physical interface on your machine, select an interface and then select **Blink physical interface LED**. The port that matches the selected interface lights up so that you can connect your cable correctly.        |
 |<a name="ip"></a>**IP Address**     |  Enter the IP address you want to use for your sensor. This is the IP address your team uses to connect to the sensor via the browser or CLI. |
 |**Subnet Mask**     | Enter the address you want to use as the sensor's subnet mask.        |
 |**Default Gateway**     | Enter the address you want to use as the sensor's default gateway.        |
@@ -113,7 +114,21 @@ In the **Interface configurations** tab, do the following to configure settings 
     |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface.  |
     |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
 
-    Select **Save** to save your changes.
+    **To add ERSPAN tunneling to your interface:**
+
+    1. In the **Mode** option, select **Tunneling** from the drop-down list.
+
+    1. To configure the tunnel, update the following OT sensor details:
+
+        - **Description** (optional).
+        - **Interface IP**.
+        - **Subnet**.
+
+    For example:
+
+    :::image type="content" source="media/activate-deploy-sensor/erspan-adv-settings-tunneling.png" alt-text="Screenshot of how to configure ERSPAN settings in the OT sensor settings.":::
+
+1. Select **Save** to save your changes.
 
 1. Select **Next: Reboot >** to continue, and then **Start reboot** to reboot your sensor machine. After the sensor starts again, you're automatically redirected to the IP address you'd [defined earlier as your sensor IP address](#ip).
 
@@ -149,14 +164,12 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
 
     You may need to refresh the page after uploading your files. For more information, see [Troubleshoot certificate upload errors](../how-to-manage-individual-sensors.md#troubleshoot-certificate-upload-errors).
 
+    For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
+
     > [!TIP]
     > If you're working on a testing environment, you can also use the self-signed certificate that's generated locally during installation. If you select to use a self-signed certificate, make sure to select the **Confirm** option about the recommendations.
     >
     > For more information, see [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates).
-
-1. In the **Validation of on-premises management console certificate** area, select **Mandatory** to validate an on-premises management console's certificate against a certificate revocation list (CRL), as [configured in your certificate](../best-practices/certificate-requirements.md#crt-file-requirements).
-
-    For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
 
 1. Select **Finish** to complete the initial setup and open your sensor console.
 
@@ -226,10 +239,14 @@ An interface can be set as either **Management**, **Monitor**, **Tunnel** or **U
     1. Select the interface.
     1. Select **Monitor**. The **Sensor Config** screen updates.
 
-1. To configure an **ERSPAN** interface:
+1. To configure an ERSPAN **Tunnel** interface:
 
-    1. Select **Type**.
-    1. Select **ERSPAN**.
+    1. Select Interface IP and add the **IP** and **Subnet** details.
+    1. Select **Confirm**.
+    1. Select **Tunnels** and add a **Name**, **Source IP** and an **ID** numbered between 1 and 1023.
+
+        :::image type="content" source="media/activate-deploy-sensor/ersp-cli-interface-tunnel.png" alt-text="Screenshot of the interface Tunnels screen.":::
+
     1. Select **Confirm**.
 
 1. To configure an interface as **Unused**:

@@ -5,13 +5,14 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 12/06/2024
 ms.custom: template-how-to
+# Customer intent: "As a network administrator, I want to manage health probes for my load balancer, so that I can ensure backend instances are monitored and remain operational."
 ---
 
 # Manage health probes for Azure Load Balancer using the Azure portal
 
-Azure Load Balancer uses health probes to monitor the health of backend instances. In this article, you'll learn how to manage health probes for Azure Load Balancer.
+Azure Load Balancer uses health probes to monitor the health of backend instances. In this article, you learn how to manage health probes for Azure Load Balancer.
 
 There are three types of health probes:
 
@@ -25,11 +26,11 @@ Health probes have the following properties:
 | Health Probe configuration | Details |
 | --- | --- | 
 | Name | Name of the health probe. This is a name you get to define for your health probe |
-| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to leverage. Available options are: TCP, HTTP, HTTPS |
+| Protocol | Protocol of health probe. This is the protocol type you would like the health probe to use. Available options are: TCP, HTTP, HTTPS |
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
 | Interval (seconds) | Interval of health probe. The amount of time (in seconds) between consecutive health check attempts to the virtual machine |
 | Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
-| Path | The URI used for requesting health status from the virtual machine instance by the health probe (only applicable for HTTP(s) probes).
+| Path | The URI used for requesting health status from the virtual machine instance by the health probe (only applicable for HTTPS probes).
 
 >[!IMPORTANT]
 >Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance as up. To see this probe traffic within your backend instance, review [the Azure Load Balancer FAQ](./load-balancer-faqs.yml).
@@ -39,17 +40,17 @@ Health probes have the following properties:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 
 ## TCP health probe
 
-In this section, you'll learn how to add and remove a TCP health probe. A public load balancer is used in the examples.
+In this section, you learn how to add and remove a TCP health probe. A public load balancer is used in the examples.
 
 ### Add a TCP health probe
 
-In this example, you'll create a TCP health probe to monitor port 80.
+In this example, you create a TCP health probe to monitor port 80.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -60,8 +61,6 @@ In this example, you'll create a TCP health probe to monitor port 80.
 4. In the load balancer page, select **Health probes** in **Settings**.
 
 5. Select **+ Add** in **Health probes** to add a probe.
-
-    :::image type="content" source="./media/manage-probes-how-to/add-probe.png" alt-text="Screenshot of the health probes page for Azure Load Balancer":::
 
 6. Enter or select the following information in **Add health probe**.
 
@@ -76,7 +75,7 @@ In this example, you'll create a TCP health probe to monitor port 80.
 
 ### Remove a TCP health probe
 
-In this example, you'll remove a TCP health probe.
+In this example, you remove a TCP health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -90,15 +89,13 @@ In this example, you'll remove a TCP health probe.
 
 6. Select **Delete**.
 
-    :::image type="content" source="./media/manage-probes-how-to/remove-tcp-probe.png" alt-text="Screenshot of TCP probe removal.":::
-
 ## HTTP health probe
 
-In this section, you'll learn how to add and remove an HTTP health probe. A public load balancer is used in the examples.
+In this section, you learn how to add and remove an HTTP health probe. A public load balancer is used in the examples.
 
 ### Add an HTTP health probe
 
-In this example, you'll create an HTTP health probe.
+In this example, you create an HTTP health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -109,8 +106,6 @@ In this example, you'll create an HTTP health probe.
 4. In the load balancer page, select **Health probes** in **Settings**.
 
 5. Select **+ Add** in **Health probes** to add a probe.
-
-    :::image type="content" source="./media/manage-probes-how-to/add-probe.png" alt-text="Screenshot of the health probes page for Azure Load Balancer":::
 
 6. Enter or select the following information in **Add health probe**.
 
@@ -126,7 +121,7 @@ In this example, you'll create an HTTP health probe.
 
 ### Remove an HTTP health probe
 
-In this example, you'll remove an HTTP health probe.
+In this example, you remove an HTTP health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -140,15 +135,13 @@ In this example, you'll remove an HTTP health probe.
 
 6. Select **Delete**.
 
-    :::image type="content" source="./media/manage-probes-how-to/remove-http-probe.png" alt-text="Screenshot of HTTP probe removal.":::
-
 ## HTTPS health probe
 
-In this section, you'll learn how to add and remove an HTTPS health probe. A public load balancer is used in the examples.
+In this section, you learn how to add and remove an HTTPS health probe. A public load balancer is used in the examples.
 
 ### Add an HTTPS health probe
 
-In this example, you'll create an HTTPS health probe.
+In this example, you create an HTTPS health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -159,8 +152,6 @@ In this example, you'll create an HTTPS health probe.
 4. In the load balancer page, select **Health probes** in **Settings**.
 
 5. Select **+ Add** in **Health probes** to add a probe.
-
-    :::image type="content" source="./media/manage-probes-how-to/add-probe.png" alt-text="Screenshot of the health probes page for Azure Load Balancer":::
 
 6. Enter or select the following information in **Add health probe**.
 
@@ -176,7 +167,7 @@ In this example, you'll create an HTTPS health probe.
 
 ### Remove an HTTPS health probe
 
-In this example, you'll remove an HTTPS health probe.
+In this example, you remove an HTTPS health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -189,8 +180,6 @@ In this example, you'll remove an HTTPS health probe.
 5. Select the three dots next to the rule you want to remove.
 
 6. Select **Delete**.
-
-    :::image type="content" source="./media/manage-probes-how-to/remove-https-probe.png" alt-text="Screenshot of HTTPS probe removal.":::
 
 ## Next steps
 

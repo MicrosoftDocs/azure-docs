@@ -7,8 +7,9 @@ ms.author: jovanpop
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 03/24/2022
-ms.reviewer: whhender, wiassaf
+ms.date: 02/04/2026
+ms.custom: sfi-ropc-nochange
+
 ---
 
 # Transact-SQL features supported in Azure Synapse SQL
@@ -94,7 +95,7 @@ Synapse SQL pools enable you to use built-in security features to secure your da
 | **Permissions - [Database-level](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true)** | Yes | Yes, you can grant, deny, or revoke permissions on the database objects. |
 | **Permissions - Schema-level** | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema | Yes, you can specify schema-level permissions  including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema. |
 | **Permissions - Object-level** | Yes, including ability to GRANT, DENY, and REVOKE permissions to users | Yes, you can GRANT, DENY, and REVOKE permissions to users/logins on the system objects that are supported. |
-| **Permissions - [Column-level security](../sql-data-warehouse/column-level-security.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)** | Yes | Column-level security is supported in serverless SQL pools for views and not for external tables. In case of external tables one can create a logical view on top of the external table and than apply Column-level security.
+| **Permissions - [Column-level security](../sql-data-warehouse/column-level-security.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json)** | Yes | Column-level security is supported in serverless SQL pools for views and not for external tables. In case of external tables one can create a logical view on top of the external table and then apply Column-level security.
 | **Row-level security** | [Yes](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No, there is no built-in support for the row-level security. Use custom views as a [workaround](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759). |
 | **Data masking** | [Yes](../guidance/security-white-paper-access-control.md#dynamic-data-masking) | No, built-in data masking is not supported in the serverless SQL pools. Use wrapper SQL views that explicitly mask some columns as a workaround. |
 | **Built-in/system security &amp; identity functions** | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators are supported:  `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER`, `IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SESSION_CONTEXT`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, and `REVERT`. Security functions cannot be used to query external data (store the result in variable that can be used in the query).  |
@@ -123,11 +124,11 @@ You can use various tools to connect to Synapse SQL to query data.
 
 | Tool  | Dedicated | Serverless |
 | --- | --- | --- |
-| **Synapse Studio** | Yes, SQL scripts | Yes, SQL scripts can be used in Synapse Studio. Use SSMS or ADS instead of Synapse Studio if you are returning a large amount of data as a result. |
+| **Synapse Studio** | Yes, SQL scripts | Yes, SQL scripts can be used in Synapse Studio. Use SSMS or Visual Studio Code instead of Synapse Studio if you are returning a large amount of data as a result. |
 | **Power BI** | Yes | Yes, you can [use Power BI](tutorial-connect-power-bi-desktop.md) to create reports on serverless SQL pool. Import mode is recommended for reporting.|
 | **Azure Analysis Service** | Yes | Yes, you can load data in Azure Analysis Service using the serverless SQL pool. |
-| **Azure Data Studio (ADS)** | Yes | Yes, you can [use Azure Data Studio](get-started-azure-data-studio.md) (version 1.18.0 or higher) to query a serverless SQL pool. SQL scripts and SQL notebooks are supported. |
-| **SQL Server Management Studio (SSMS)** | Yes | Yes, you can [use SQL Server Management Studio](get-started-ssms.md) (version 18.5 or higher) to query a serverless SQL pool. SSMS shows only the objects that are available in the serverless SQL pools. |
+| **SQL Server Management Studio (SSMS)** | Yes | Yes, you can [use SQL Server Management Studio](get-started-ssms.md) to query a serverless SQL pool. SSMS shows only the objects that are available in the serverless SQL pools. |
+| **MSSQL extension for Visual Studio Code** | Yes | Yes, you can [use Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code) to query a serverless SQL pool. SQL scripts and SQL notebooks are supported. Visual Studio Code shows only the objects that are available in the serverless SQL pools. |
 
 > [!NOTE]
 > You can use SSMS to connect to serverless SQL pool and query. It is partially supported starting from version 18.5, you can use it to connect and query only.

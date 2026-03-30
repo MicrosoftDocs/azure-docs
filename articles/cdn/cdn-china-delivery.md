@@ -2,13 +2,15 @@
 title: China content delivery with Azure Content Delivery Network
 description: Learn about using Azure Content Delivery Network to deliver content to China users.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
-ms.topic: conceptual
-ms.date: 03/20/2024
-ms.author: duau
+ms.topic: concept-article
+ms.date: 02/28/2026
 ms.custom: mvc
+ROBOTS: NOINDEX
+# Customer intent: As a content manager targeting users in China, I want to understand the differences between global and China-specific content delivery networks, so that I can choose the optimal solution for fast and compliant content delivery to my audience.
 ---
 
 # China content delivery with Azure Content Delivery Network
@@ -29,8 +31,6 @@ Azure Content Delivery Network global and Azure Content Delivery Network China h
 
      - Performs content delivery outside of China
 
-     - Three pricing tiers: Microsoft standard, Edgio standard, and Edgio premium
-
      - [Documentation](./index.yml)
 
 - Azure Content Delivery Network China:
@@ -41,7 +41,7 @@ Azure Content Delivery Network global and Azure Content Delivery Network China h
 
      - Two pricing tiers: Standard and premium
 
-     - [Documentation](https://docs.azure.cn/en-us/cdn/)
+     - [Documentation](https://docs.azure.cn/en-us/frontdoor/china-cdn-retirement-faq)
 
 ## Next steps
 
@@ -49,8 +49,8 @@ To learn more about Azure Content Delivery Network China, see:
 
 - [Content Delivery Network features](https://www.azure.cn/en-us/home/features/cdn/)
 
-- [Overview of Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-overview)
+- [Overview of Azure Content Delivery Network](https://docs.azure.cn/en-us/frontdoor/azure-china-cdn-and-afd-comparison)
 
-- [Use the Azure content delivery network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
+- [Use the Azure content delivery network](https://docs.azure.cn/en-us/frontdoor/azure-china-cdn-migration-to-azure-front-door-guidance)
 
 - [Azure service availability in China](/azure/china/concepts-service-availability)

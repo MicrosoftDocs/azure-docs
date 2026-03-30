@@ -87,7 +87,7 @@ Consider an Azure Data Manager for Energy instance named `medstest` with a data 
 }
 ```
 
-The country of origin should follow [ISO Alpha2 format](https://www.nationsonline.org/oneworld/country_code_list.htm).
+The country/region of origin should follow [ISO Alpha2 format](https://www.nationsonline.org/oneworld/country_code_list.htm).
 
 This API internally appends `data-partition-id` to legal tag name if it isn't already present. For instance, if request has name as: ```legal-tag```, then the create legal tag name would be ```<instancename>-<data-partition-id>-legal-tag```. 
 

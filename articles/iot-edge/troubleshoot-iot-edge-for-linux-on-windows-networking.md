@@ -1,21 +1,20 @@
 ---
 title: Troubleshoot your IoT Edge for Linux on Windows networking
 description: Learn about troubleshooting and diagnostics for Azure IoT Edge for Linux on Windows (EFLOW), like retrieving component status and logs.
-author: PatAltimore
-
-ms.author: patricka
-ms.date: 06/10/2024
+author: sethmanheim
+ms.author: sethm
+ms.date: 07/22/2025
 ms.topic: troubleshooting-general
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
 
 # Troubleshoot your IoT Edge for Linux on Windows networking
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-If you experience networking issues using Azure IoT Edge for Linux on Windows (EFLOW) in your environment, use this article as a guide for troubleshooting and diagnostics. Also, check [Troubleshoot your IoT Edge for Linux on Windows device](./troubleshoot-iot-edge-for-linux-on-windows.md) for more EFLOW virtual machine troubleshooting help.
+If you experience networking issues with Azure IoT Edge for Linux on Windows (EFLOW), use this article to troubleshoot and diagnose the problem. For more help with EFLOW virtual machines, see [Troubleshoot your IoT Edge for Linux on Windows device](./troubleshoot-iot-edge-for-linux-on-windows.md).
 
 ## Isolate the issue
 
@@ -64,11 +63,11 @@ If the *inet* IP address is blank or different from the one provided by using th
 | External | Static IP | Ensure that the IP configuration is correctly set up. All three parameters *ip4Address*, *ip4GateWayAddress*, and *ip4PrefixLength* should be used. The IP address assigned to the VM should be valid and not being used by other device on the external network. You can check EFLOW VM interface configurations by checking the files under `/etc/systemd/network/`. |
 | External | DHCP | Ensure that there's a DHCP server on the external network. If no DHCP server is available, then use static IP configurations. Also, make sure that DHCP server has no firewall policy regarding MAC addresses. If it has, you can get the EFLOW MAC address by using the `Get-EflowVmAddr` cmdlet. | 
 | Default switch | DHCP | Generally, the issue is related to a malfunction of the default switch. Try rebooting the Windows host OS. If the problem persists, try disabling and enabling Hyper-V | 
-| Internal | Static IP | Ensure that the IP configuration is correctly set up. All three parameters *ip4Address*, *ip4GateWayAddress*, and *ip4PrefixLength* should be used. The IP address assigned to the VM should be valid and not being used by other device on the internal network. Also, to get connected to internet, you'll need to set up a NAT table. Follow the NAT configuration steps in [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md).|
+| Internal | Static IP | Ensure that the IP configuration is correctly set up. All three parameters *ip4Address*, *ip4GateWayAddress*, and *ip4PrefixLength* should be used. The IP address assigned to the VM should be valid and not being used by other device on the internal network. Also, to get connected to internet, you need to set up a NAT table. Follow the NAT configuration steps in [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md).|
 | Internal | DHCP | Ensure that there's a DHCP server on the internal network. To set up a DHCP server and a NAT table on Windows Server, follow the steps in [Azure IoT Edge for Linux on Windows virtual switch creation](./how-to-create-virtual-switch.md). If no DHCP server is available, then use static IP configurations.|
 
 >[!WARNING]
-> In some cases, if you are using the external virtual switch on a Windows Server or client VM, you may need some extra configurations. For more information about nested virtualization configurations, see [Nested virtualization for Azure IoT Edge for Linux on Windows](./nested-virtualization.md).
+> In some cases, if you're using the external virtual switch on a Windows Server or client VM, you might need some extra configurations. For more information about nested virtualization configurations, see [Nested virtualization for Azure IoT Edge for Linux on Windows](./nested-virtualization.md).
 
 If you're still having issues with the IP address assignation, try setting up another Windows or Linux virtual machine and assign the same switch and IP configuration. If you have the same issue with the new non-EFLOW VM, the issue is likely with the virtual switch or IP configuration and it's not specific to EFLOW. 
 
@@ -90,9 +89,9 @@ The address resolution could fail for multiple reasons. First, the DNS servers c
    ping <DNS-Server-IP-Address>
     ```
    >[!TIP]
-   > If the server is reachable, you should get a response, and your issue may be related to other DNS server configurations. If there's no response, then you probably have a connection issue to the server.
+   > If the server is reachable, you should get a response, and your issue might be related to other DNS server configurations. If there's no response, then you probably have a connection issue to the server.
 
-Second, some network environments will limit the access of the DNS servers to specific allowlist addresses. If so, first make sure that you can access the DNS server from the Windows host OS, and then check with your networking team if you need to add the EFLOW IP address to an allowlist. 
+Second, some network environments limit the access of the DNS servers to specific allowlist addresses. If so, first make sure that you can access the DNS server from the Windows host OS, and then check with your networking team if you need to add the EFLOW IP address to an allowlist. 
 
 Finally, some network environments block public DNS servers, like Google DNS (*8.8.8.8* and *8.8.4.4*). If so, talk with your network environment team to define a valid DNS server, and then set it up using the `Set-EflowVmDnsServers` cmdlet. 
 

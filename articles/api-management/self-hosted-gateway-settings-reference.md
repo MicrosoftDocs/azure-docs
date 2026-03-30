@@ -71,8 +71,8 @@ This guidance helps you provide the required information to define how to authen
 
 | Name                    | Description              | Required | Default           | Availability |
 |-------------------------|------------------------|----------|-------------------| ----|
-| k8s.ingress.enabled     | Enable Kubernetes Ingress integration. | No | `false` | v1.2+ |
-| k8s.ingress.namespace   | Kubernetes namespace to watch Kubernetes Ingress resources in. | No | `default` | v1.2+ |
+| k8s.ingress.enabled     | Enable Kubernetes Ingress integration. | No | `false` | v2.0+ |
+| k8s.ingress.namespace   | Kubernetes namespace to watch Kubernetes Ingress resources in. | No | `default` | v2.0+ |
 | k8s.ingress.dns.suffix  | DNS suffix to build DNS hostname for services to send requests to. | No | `svc.cluster.local` | v2.4+ |
 | k8s.ingress.config.path | Path to Kubernetes configuration (Kubeconfig). | No | N/A | v2.4+ |
 
@@ -170,7 +170,7 @@ helm install azure-api-management-gateway \
 ```
 
 
-## Next steps
+## Related content
 
 -   Learn more about guidance for [running the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)

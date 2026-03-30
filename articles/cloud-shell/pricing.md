@@ -2,7 +2,7 @@
 description: Overview of pricing of Azure Cloud Shell
 ms.contributor: jahelmic
 ms.date: 04/22/2024
-ms.topic: conceptual
+ms.topic: concept-article
 tags: azure-resource-manager
 title: Azure Cloud Shell pricing
 ---

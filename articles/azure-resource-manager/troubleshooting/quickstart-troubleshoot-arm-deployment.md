@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot ARM template JSON deployments
 description: Learn how to troubleshoot Azure Resource Manager template (ARM template) JSON deployments.
-ms.date: 06/20/2024
+ms.date: 04/28/2025
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ---
@@ -24,7 +24,7 @@ All types of errors return an error code that you use to troubleshoot the deploy
 
 To complete this quickstart, you need the following items:
 
-- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 

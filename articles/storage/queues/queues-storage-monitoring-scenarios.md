@@ -3,11 +3,14 @@ title: Best practices for monitoring Azure Queue Storage
 description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Queue Storage. 
 author: normesta
 ms.service: azure-queue-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.date: 08/24/2021
 ms.devlang: csharp
-ms.custom: "monitoring"
+ms.custom:
+  - "monitoring"
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to implement best practices for monitoring Azure Queue Storage, so that I can ensure efficient message handling and maintain compliance through effective auditing and cost optimization strategies.
 ---
 
 # Best practices for monitoring Azure Queue Storage

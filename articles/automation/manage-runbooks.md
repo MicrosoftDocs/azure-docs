@@ -3,10 +3,12 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/10/2024
+ms.date: 11/17/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage runbooks in Azure Automation
@@ -366,7 +368,6 @@ To use a custom script:
 
 1. Create an Automation account.
 2. Deploy the [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) role.
-3. If on a Linux machine, you need elevated privileges. Sign in to [turn off signature checks](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## Test a runbook
 
@@ -436,7 +437,7 @@ When your runbook has been published, you can schedule it for operation:
 You can recover a deleted runbook through PowerShell scripts. To recover a runbook, ensure that the following conditions are met:
 
 - The runbooks to be restored were deleted in the past 29 days.
-- The Automation account for that runbook exist.
+- The Automation account for that runbook exists.
 - The *Automation Contributor* role permission is granted to the System-assigned managed identity of the Automation account.
 
 ### PowerShell script

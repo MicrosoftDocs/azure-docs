@@ -2,7 +2,7 @@
 title: Handle error rows with mapping data flows in Azure Data Factory
 description: Learn how to handle SQL truncation errors in Azure Data Factory using mapping data flows.
 author: kromerm
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-flows
 ms.date: 10/03/2024
 ms.author: makromer
@@ -33,7 +33,7 @@ There are two primary methods to graceful handle errors when writing data to you
 3. The problem is that the movie title doesn't all fit within a sink column that can only hold five characters. When you execute this data flow, you receive an error like this one: ```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
 
 This video walks through an example of setting-up error row handling logic in your data flow:
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=248a4a27-1955-4cb9-9dd2-47ffd1534c62]
 
 ## How to design around this condition
 

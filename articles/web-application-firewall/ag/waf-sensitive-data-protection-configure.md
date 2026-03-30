@@ -1,16 +1,20 @@
 ---
 title: How to mask sensitive data on Azure Web Application Firewall
 description: Learn how to mask sensitive data on Azure Web Application Firewall
-author: vhorne
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 09/05/2023
+# Customer intent: As a security administrator, I want to enable log scrubbing on the web application firewall, so that I can mask sensitive data in logs to protect user privacy and comply with data protection regulations.
 ---
 
 # How to mask sensitive data on Azure Web Application Firewall
 
-The Web Application Firewall's (WAF's) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive data. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
+The Web Application Firewall's (WAF's) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive data. In order to work correctly, your content-type header and request body type must match. Once specified sensitive content is identified, the tool scrubs that information from your logs and replaces it with _*******_.
+
+> [!NOTE]
+> The log scrubbing feature is only supported on Web Application Firewalls running the [latest WAF engine](waf-engine.md).  Select OWASP CRS 3.2 or Default Rule Set 2.1 as the managed rule set.
 
 > [!NOTE]
 > When you enable the log scrubbing feature, Microsoft still retains IP addresses in our internal logs to support critical security features.
@@ -26,7 +30,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 | Request JSON Arg Names | Equals | Jsonarg | "data":"Matched Data: ****** found within ARGS:jsonarg: ******" |
 | Request IP Address* | Equals Any | NULL | "clientIp":"******" |
 
-\* Request IP Address rules only support the *equals any* operator and scrubs all instances of the requestor's IP address that appears in the WAF logs.
+\* Request IP Address rules only support the *equals any* operator and scrubs all instances of the requester's IP address that appears in the WAF logs.
 
 For more information, see [What is Azure Web Application Firewall Sensitive Data Protection?](waf-sensitive-data-protection.md)
 

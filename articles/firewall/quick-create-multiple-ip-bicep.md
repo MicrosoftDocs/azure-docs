@@ -5,9 +5,14 @@ services: firewall
 author: mumian
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: jgao
 ms.date: 10/19/2023
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-bicep
+  - sfi-image-nochange
+# Customer intent: As a cloud architect, I want to deploy an Azure Firewall with multiple public IP addresses using a Bicep file, so that I can enable secure remote access to my virtual machines efficiently.
 ---
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - Bicep
@@ -23,7 +28,7 @@ For more information about Azure Firewall with multiple public IP addresses, see
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the Bicep file
 

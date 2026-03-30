@@ -3,9 +3,10 @@ title: Build large-scale data copy pipelines with metadata-driven approach in co
 description: 'Provides information about the metadata-driven approach in ADF copy data tool'
 author: dearandyxu
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 01/05/2024
+ms.topic: how-to
+ms.date: 02/13/2025
 ms.author: yexu
+ms.custom: sfi-image-nochange
 ---
 # Build large-scale data copy pipelines with metadata-driven approach in copy data tool
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

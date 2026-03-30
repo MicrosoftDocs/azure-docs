@@ -18,7 +18,7 @@ The sample job reads streaming data from an IoT Hub device. The input data is ge
 
 ## Before you begin
 
-* If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)
+* If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * This quickstart requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 * Some IoT Hub actions aren't supported by Azure PowerShell and must be completed using Azure CLI version 2.0.70 or later and the IoT extension for Azure CLI. [Install the Azure CLI](/cli/azure/install-azure-cli) and use `az extension add --name azure-iot` to install the IoT extension.
 
@@ -76,10 +76,10 @@ The following Azure CLI code block has many commands to prepare the input data r
     az iot hub create --name "MyASAIoTHub" --resource-group $resourceGroup --sku S1
     ```
 
-    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command. Copy the entire connection string and save it. You need it when you add the IoT Hub as an input to your Stream Analytics job.
+    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command. Copy the entire connection string and save it. You need it when you add the IoT Hub as an input to your Stream Analytics job.
 
     ```azurecli
-    az iot hub show-connection-string --resource-group $resourceGroup --hub-name "MyASAIoTHub"
+    az iot hub connection-string show --resource-group $resourceGroup --hub-name "MyASAIoTHub"
     ```
 
 3. Add a device to IoT Hub using the [`az iot hub device-identity create`](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command. This example creates a device called **MyASAIoTDevice**.

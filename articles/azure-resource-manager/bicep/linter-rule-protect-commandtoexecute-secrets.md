@@ -3,7 +3,7 @@ title: Linter rule - use protectedSettings for commandToExecute secrets
 description: Linter rule - use protectedSettings for commandToExecute secrets
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 10/30/2025
 ---
 
 # Linter rule - use protectedSettings for commandToExecute secrets
@@ -30,11 +30,11 @@ param location string
 param fileUris string
 param storageAccountName string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
-resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2023-10-03-preview' = {
+resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2025-02-19-preview' = {
   name: '${vmName}/CustomScriptExtension'
   location: location
   properties: {
@@ -57,11 +57,11 @@ param location string
 param fileUris string
 param storageAccountName string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
-resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2023-10-03-preview' = {
+resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2025-02-19-preview' = {
   name: '${vmName}/CustomScriptExtension'
   location: location
   properties: {

@@ -2,8 +2,8 @@
 title: Assign an Azure role for access to blob data
 titleSuffix: Azure Storage
 description: Learn how to assign permissions for blob data to a Microsoft Entra security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Microsoft Entra ID.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/28/2024
@@ -11,6 +11,7 @@ ms.reviewer: dineshm
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As an IT administrator, I want to assign Azure roles for accessing blob data to security principals, so that I can ensure the right permissions are granted for secure and efficient data access management.
 ---
 
 # Assign an Azure role for access to blob data
@@ -41,7 +42,7 @@ To access blob data in the Azure portal with Microsoft Entra credentials, a user
 - A data access role, such as **Storage Blob Data Reader** or **Storage Blob Data Contributor**
 - The Azure Resource Manager **Reader** role, at a minimum
 
-To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 The [Reader](../../role-based-access-control/built-in-roles.md#reader) role is an Azure Resource Manager role that permits users to view storage account resources, but not modify them. It doesn't provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to blob containers in the Azure portal.
 
@@ -73,10 +74,10 @@ The first response returns the security principal, and the second returns the se
 UserPrincipalName : markpdaniels@contoso.com
 ObjectType        : User
 DisplayName       : Mark P. Daniels
-Id                : ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+Id                : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 Type              : 
 
-ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ```
 
 The `-RoleDefinitionName` parameter value is the name of the RBAC role that needs to be assigned to the principal. To access blob data in the Azure portal with Microsoft Entra credentials, a user must have the following role assignments:
@@ -113,7 +114,7 @@ The following example assigns the **Storage Blob Data Reader** role to a user by
 
 <!-- replaycheck-task id="3361d580" -->
 ```powershell
-New-AzRoleAssignment -ObjectID "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" `
+New-AzRoleAssignment -ObjectID "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" `
     -RoleDefinitionName "Storage Blob Data Reader" `
     -Scope  "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
 ```
@@ -160,7 +161,7 @@ The following example assigns the **Storage Blob Data Reader** role to a user by
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Reader" \
-    --assignee-object-id "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" \
+    --assignee-object-id "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" \
     --assignee-principal-type "User" \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
 ```
@@ -188,3 +189,4 @@ Keep in mind the following points about Azure role assignments in Azure Storage:
 
 - [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md)
+

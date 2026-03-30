@@ -1,17 +1,16 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 07/30/2021
+ms.date: 12/12/2024
 ms.service: azure-virtual-wan
 ms.topic: include
+ms.custom: sfi-image-nochange
 ---
 1. Navigate to the virtual WAN that you created. 
 
 1. Select **User VPN configurations** from the menu on the left.
 
 1. On the **User VPN configurations** page, select **+Create user VPN config**.
-
-   :::image type="content" source="media/virtual-wan-p2s-configuration/user-vpn.png" alt-text="Screenshot of user VPN configurations page.":::
 
 1. On the **Create new User VPN configuration** page **Basics** tab, under **Instance details**, enter the **Name** you want to assign to your VPN configuration.
 
@@ -23,17 +22,17 @@ ms.topic: include
 
      **IKEv2 VPN**
 
-     * **Requirements:** When you select the **IKEv2** tunnel type, you see a message directing you to select an authentication method. For IKEv2, you may specify multiple authentication methods. You can choose Azure Certificate, RADIUS-based authentication or both.
+     * **Requirements:** When you select the **IKEv2** tunnel type, you see a message directing you to select an authentication method. For IKEv2, you can specify multiple authentication methods. You can choose Azure Certificate, RADIUS-based authentication or both.
 
      * **IPSec custom parameters:** To customize the parameters for IKE Phase 1 and IKE Phase 2, toggle the IPsec switch to **Custom** and select the parameter values. For more information about customizable parameters, see the [Custom IPsec](../articles/virtual-wan/point-to-site-ipsec.md) article.
 
      **OpenVPN**
 
-     * **Requirements:** When you select the **OpenVPN** tunnel type, you see a message directing you to select an authentication mechanism. If OpenVPN is selected as the tunnel type, you may specify multiple authentication methods. You can choose any subset of Azure Certificate, Microsoft Entra ID, or RADIUS-based authentication. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
+     * **Requirements:** When you select the **OpenVPN** tunnel type, you see a message directing you to select an authentication mechanism. If OpenVPN is selected as the tunnel type, you can specify multiple authentication methods. You can choose any subset of Azure Certificate, Microsoft Entra ID, or RADIUS-based authentication. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
 
      **OpenVPN and IKEv2**
 
-     * **Requirements:** When you select the **OpenVPN and IKEv2** tunnel type, you see a message directing you to select an authentication mechanism. If OpenVPN and IKEv2 is selected as the tunnel type, you may specify multiple authentication methods. You can choose Microsoft Entra ID along with either Azure Certificate or RADIUS-based authentication. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
+     * **Requirements:** When you select the **OpenVPN and IKEv2** tunnel type, you see a message directing you to select an authentication mechanism. If **OpenVPN and IKEv2** is selected as the tunnel type, you can specify multiple authentication methods. You can choose Microsoft Entra ID along with either Azure Certificate or RADIUS-based authentication. For RADIUS-based authentication, you can provide a secondary RADIUS server IP address and server secret.
 
 1. Configure the **Authentication** methods you want to use. Each authentication method is in a separate tab: **Azure certificate**, **RADIUS authentication**, and **Microsoft Entra ID**. Some authentication methods are only available on certain tunnel types.
 

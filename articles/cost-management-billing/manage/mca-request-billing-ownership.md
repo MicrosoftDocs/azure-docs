@@ -1,13 +1,15 @@
 ---
 title: Transfer Azure product billing ownership to a Microsoft Customer Agreement
 description: Learn how to transfer billing ownership of Azure subscriptions, reservations, and savings plans.
-author: bandersmsft
-ms.reviewer: sgautam
+ms.topic: how-to
+ms.date: 12/29/2025
+author: Nicholak-MS
+ms.author: nicholak
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: how-to
-ms.date: 06/26/2024
-ms.author: banders
+ms.custom: sfi-image-nochange
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Transfer Azure product billing ownership to a Microsoft Customer Agreement
@@ -44,9 +46,14 @@ Before you transfer billing products, read [Supplemental information about trans
 ## Prerequisites
 
 >[!IMPORTANT]
-> - When you have a savings plan purchased under an Enterprise Agreement enrollment that was bought in a non-USD currency, you can't transfer it. Instead you must use it in the original enrollment. However, you change the scope of the savings plan so that is used by other subscriptions. For more information, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope). You can view your billing currency in the Azure portal on the enrollment properties page. For more information, see [To view enrollment properties](direct-ea-administration.md#to-view-enrollment-properties).
+> - If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in pricing currency (e.g. EUR to USD), Savings Plans from the source enrollment will not be transferred to the destination enrollment. The Savings Plans will be cancelled in the source enrollment and automatically repurchased in the destination enrollment. Note the following:
+>    - Each newly purchase Savings Plan will be billed Monthly, regardless of the billing frequency of the Savings Plan it is replacing.
+>    - Each newly purchased Savings Plan will be priced as the USD equivalent of the original Savings Plan. For example, assuming a €1: $1.17 rate, a €5/hour Savings Plan would be replaced with a $5.85/hour Savings Plan. 
+>    - Each newly purchased Savings Plans will have a 1-year term, regardless of the term of the Savings Plan it is replacing. As a result, each new Savings Plan will have a different term end date when compared to the Savings Plan being replaced.
+>    - If the original Savings Plan has a 1-year term, the new 1-year Savings Plan will provide identical savings benefits. If you are going from 3-year to 1-year Savings Plans, expect reduced savings benefits due to the discount differences between the terms. To maintain your previous savings level, you should buy an additional 1- year Savings Plan. Hourly commitment recommendations for the additional savings plan may take up to 2 days to appear in the Azure portal.
+> - Customers with 3-year savings plans, who want to retain their discount levels should immediately contact Azure support for assistance purchasing the new 3-year Savings Plans in the destination enrollment.
 > - When you transfer subscriptions, cost and usage data for your Azure products aren't accessible after the transfer. We recommend that you [download your cost and usage data](../understand/download-azure-daily-usage.md) and invoices before you transfer subscriptions.
-> - When there's is a currency change during or after transfer, reservations paid for monthly are canceled. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1).
+> - When there's a currency change during or after transfer, reservations paid for monthly are canceled. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1).
 
 Before you begin, make sure that the people involved in the product transfer have the required permissions.
 
@@ -57,9 +64,9 @@ You can also go along with the following video that outlines each step of the pr
 
 >[!VIDEO https://www.youtube.com/embed/gfiUI2YLsgc]
 
-### Required permission for the transfer requestor
+### Required permission for the transfer requester
 
-The product transfer requestor must have one of the following permissions:
+The product transfer requester must have one of the following permissions:
 
 For a Microsoft Customer Agreement, the person must have an owner or contributor role for the billing account or for the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
@@ -71,6 +78,15 @@ The subscription, reservation, or savings plan product owner (transfer request r
 - For an Enterprise Agreement subscription, the person must be an account owner or EA administrator.
 - For an Enterprise Agreement savings plan or reservation, the person must be an EA administrator
 - For a Microsoft Online Subscription Agreement, the person must be an Account Administrator.
+
+### Marketplace purchases
+
+When you transfer a subscription from an Enterprise Agreement to a Microsoft Customer Agreement, Marketplace purchases transfer with it when the following conditions are met:
+
+- The Marketplace purchase in the EA subscription must be active.
+- The Marketplace purchase must pass all eligibility checks before transfer. For example, the purchase must be available for use in the target agreement.
+- All other assets in the source subscription must also be able to successfully be transferred. Otherwise, the transfer fails.
+
 
 ## Create the product transfer request
 
@@ -89,7 +105,7 @@ The following procedure has you navigate to **Transfer requests** by selecting a
 1. Select **Billing profiles** from the left-hand side and then select a **Billing profile** from the list. Once you take over the ownership of the products, their usage is billed to this billing profile.  
     :::image type="content" source="./media/mca-request-billing-ownership/billing-profile.png" alt-text="Screenshot that shows selecting billing profiles." lightbox="./media/mca-request-billing-ownership/billing-profile.png" :::  
     *If you don't see Billing profiles, you aren't in the right billing scope.* You need to select a billing account for a Microsoft Customer Agreement and then select Billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
-1. Select **Invoice sections** from the left-hand side and then select an invoice section from the list. Each billing profile contains on invoice section by default. Select the invoice where you want to move your Azure product billing - that's where the Azure product consumption is transferred to.  
+1. Select **Invoice sections** from the left-hand side and then select an invoice section from the list. Each billing profile contains one invoice section by default. Select the invoice where you want to move your Azure product billing - that's where the Azure product consumption is transferred to.  
     :::image type="content" source="./media/mca-request-billing-ownership/invoice-section.png" alt-text="Screenshot that shows selecting invoice sections." lightbox="./media/mca-request-billing-ownership/invoice-section.png" :::  
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**. Enter the email address of the user you're requesting billing ownership from. The user must have an account administrator role for the old products.  
     :::image type="content" source="./media/mca-request-billing-ownership/transfer-request-add-email.png" alt-text="Screenshot that shows selecting transfer requests." lightbox="./media/mca-request-billing-ownership/transfer-request-add-email.png" :::
@@ -112,10 +128,10 @@ The recipient of the transfer request uses the following procedure to review and
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-subscriptions-select.png" alt-text="Screenshot showing the Subscriptions tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-subscriptions-select.png" :::  
     *Disabled subscriptions can't be transferred.*
 1. If there are reservations available to transfer, select the **Reservations** tab, and then select them. If you don't want to transfer reservations, make sure that no reservations are selected.  
-If reservations are transferred, they're applied to the scope that’s set in the request. If you want to change the scope of the reservation after it’s transferred, see [Change the reservation scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
+If reservations are transferred, they're applied to the scope set in the request. If you want to change the scope of the reservation after it’s transferred, see [Change the reservation scope](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" alt-text="Screenshot showing the Reservations tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" :::
 1. If there are savings plans available to transfer, select the **Saving plan** tab, and then select them. If you don't want to transfer savings plans, make sure that no savings plans are selected.  
-If savings plans are transferred, they're applied to the scope that’s set in the request. If you want to change the scope of the savings plan after it’s transferred, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope).
+If savings plans are transferred, they're applied to the scope set in the request. If you want to change the scope of the savings plan after it gets transferred, see [Change the savings plan scope](../savings-plan/manage-savings-plan.md#change-the-savings-plan-scope).
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-savings-plan-select.png" alt-text="Screenshot showing the Savings plan tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-savings-plan-select.png" :::
 
 1. Select the **Review request** tab and verify the information about the products to transfer. If there are Warnings or Failed status messages, see the following information. When you're ready to continue, select **Transfer**.   
@@ -125,7 +141,7 @@ If savings plans are transferred, they're applied to the scope that’s set in t
 
 On the Review request tab, the following status messages might be displayed.
 
-* **Ready to transfer** - Validation for this Azure product has passed and can be transferred.
+* **Ready to transfer** - Validation for this Azure product passed and can be transferred.
 * **Warnings** - There's a warning for the selected Azure product. While the product can still be transferred, doing so has some consequence that the user should be aware of in case they want to take mitigating actions. For example, the Azure subscription being transferred is benefitting from a reservation. After transfer, the subscription will no longer receive that benefit. To maximize savings, ensure that the reservation is associated to another subscription that can use its benefits. Instead, the user can also choose to go back to the selection page and unselect this Azure subscription. Select **Check details** for more information.
 * **Failed** - The selected Azure product can't be transferred because of an error. The user needs to go back to the selection page and unselect this product to transfer the other selected Azure products.  
 
@@ -162,7 +178,7 @@ The transfer request can have one of the following states:
 
 As the user that approved the transfer:
 
-1. Select a transfer request to view details. The transfer details page displays the following information:  
+Select a transfer request to view details. The transfer details page displays the following information:  
   :::image type="content" source="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" alt-text="Screenshot that shows the Transfer status page with example status." lightbox="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" :::
 
 |Column  |Definition|

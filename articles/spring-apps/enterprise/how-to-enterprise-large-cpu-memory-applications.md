@@ -1,11 +1,13 @@
 ---
-title: How to deploy large CPU and memory applications in Azure Spring Apps in the Enterprise plan
+title: How to Deploy Large CPU and Memory Applications in Azure Spring Apps in the Enterprise Plan
 description: Learn how to deploy large CPU and memory applications in the Enterprise plan for Azure Spring Apps.
 author: KarlErickson
-ms.author: haital
+ms.author: karler
+ms.reviewer: haital
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -13,7 +15,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows how to deploy large CPU and memory applications in Azure Spring Apps to support CPU intensive or memory intensive workloads. Support for large applications is currently available only in the Enterprise plan, which supports the CPU and memory combinations as shown in the following table.
 
@@ -25,7 +27,7 @@ This article shows how to deploy large CPU and memory applications in Azure Spri
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Azure Spring Apps service instance.
 - The [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`.
 
@@ -106,4 +108,4 @@ az spring app scale \
 
 ## Next steps
 
-- [Scale an application in Azure Spring Apps](how-to-scale-manual.md)
+- [Scale an application in Azure Spring Apps](../basic-standard/how-to-scale-manual.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

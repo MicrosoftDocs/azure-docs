@@ -1,63 +1,77 @@
 ---
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: include
-ms.date: 06/20/2024
-ms.custom: mqtt, devx-track-python, py-fresh-zinc
+ms.date: 12/19/2024
+ms.custom:
+  - mqtt
+  - devx-track-python
+  - py-fresh-zinc
+  - sfi-ropc-nochange
 ---
 
-## Install the Azure IoT SDK library
+## Create a device application
 
-Install the azure-iot-device SDK library on your development machine before calling any related code:
+This section describes how to receive cloud-to-device messages.
+
+The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class includes methods to create a synchronous connection from a device to an Azure IoT Hub and receive messages from IoT Hub.
+
+The **azure-iot-device** library must be installed to create device applications.
 
 ```cmd/sh
 pip install azure-iot-device
 ```
 
-There are two Python SDK classes that are used to send messages to and from IoT devices. Message handling methods from these classes are described in sections on this page.
-
-* The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class includes methods to create a synchronous connection from a device to an Azure IoT Hub and receive messages from IoT Hub.
-
-* The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothub_registry_manager.iothubregistrymanager) class includes APIs for IoT Hub Registry Manager operations. In this article, methods from this class show how to connect to IoT Hub and send a message to a device.
-
-## Receive cloud-to-device messages
-
-This section describes how to receive cloud-to-device messages using the [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class from the Azure IoT SDK for Python.
-
 For a Python-based device application to receive cloud-to-device messages, it must connect to IoT Hub and then set up a callback message handler to process incoming messages from IoT Hub.
 
-### Import the IoTHubDeviceClient object
+### Device import statement
 
-Add a line of code to import the `IoTHubDeviceClient` functions from the azure.iot.device SDK.
+Add this code to import the `IoTHubDeviceClient` functions from the azure.iot.device SDK.
 
 ```python
 from azure.iot.device import IoTHubDeviceClient
 ```
 
-### Connect the device client
+### Connect a device to IoT Hub
 
-Instantiate the [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient), passing an IoT Hub connection string to [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?azure-iot-device-iothubdeviceclient-create-from-connection-string). This creates a connection from the device to IoT Hub.
+A device app can authenticate with IoT Hub using the following methods:
 
-Alternatively, you can connect `IoTHubDeviceClient`to a device using one of these methods:
+* Shared access key
+* X.509 certificate
 
-* [SAS token string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient)
-* [Symmetric key authentication](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-symmetric-key/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient)
-* [X.509 certificate authentication](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-x509-certificate)
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
+
+To connect a device to IoT Hub:
+
+1. Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to add the device primary connection string.
+1. Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client.
+
+For example:
 
 ```python
-deviceConnectionString = "{your IoT hub connection string}";
-client = IoTHubDeviceClient.create_from_connection_string ({deviceConnectionString})
+# Add your IoT hub primary connection string
+CONNECTION_STRING = "{Device primary connection string}"
+device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+
+# Connect the client
+device_client.connect()
 ```
 
-#### Handle reconnection
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-python](iot-hub-howto-auth-device-cert-python.md)]
+
+##### Handle reconnection
 
 `IoTHubDeviceClient` will by default attempt to reestablish a dropped connection. Reconnection behavior is governed by the `IoTHubDeviceClient` [connection_retry](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-on-message-received) and `connection_retry_interval` parameters.
 
 ### Create a message handler
 
-Create the message handler function to process incoming messages to the device.
+Create a message handler function to process incoming messages to the device. This will be assigned by `on_message_received` (next step) as the callback message handler.
 
 In this example, `message_handler` is called when a message is received. The message properties (`.items`) are printed to the console using a loop.
 
@@ -77,7 +91,7 @@ def message_handler(message):
 
 ### Assign the message handler
 
-Use the [on_message_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?azure-iot-device-iothubdeviceclient-on-message-received) method to assign the message handler method to the `IoTHubDeviceClient` object.
+Use the [on_message_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?azure-iot-device-iothubdeviceclient-on-message-received) method to assign the message handler method.
 
 In this example, a message handler method named `message_handler` is attached to the `IoTHubDeviceClient` `client` object. The `client` object waits to receive a cloud-to-device message from an IoT Hub. This code waits up to 300 seconds (5 minutes) for a message, or exits if a keyboard key is pressed.
 
@@ -100,9 +114,15 @@ finally:
 
 [Receive Message](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios) - Receive Cloud-to-Device (C2D) messages sent from the Azure IoT Hub to a device.
 
-## Send cloud-to-device messages
+## Create a backend application
 
-This section describes how to send a cloud-to-device message using the [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothub_registry_manager.iothubregistrymanager) class from the Azure IoT SDK for Python. A solution backend application connects to an IoT Hub and messages are sent to IoT Hub encoded with a destination device. IoT Hub stores incoming messages to its message queue, and messages are delivered from the IoT Hub message queue to the target device.
+This section describes how to send a cloud-to-device message. A solution backend application connects to an IoT Hub and messages are sent to IoT Hub encoded with a destination device. IoT Hub stores incoming messages to its message queue, and messages are delivered from the IoT Hub message queue to the target device.
+
+The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager) class exposes all methods required to create a backend application to interact with cloud-to-device messages from the service. The **azure-iot-hub** library must be installed to create backend service applications.
+
+```cmd/sh
+pip install azure-iot-hub
+```
 
 ### Import the IoTHubRegistryManager object
 
@@ -112,14 +132,29 @@ Add the following `import` statement. [IoTHubRegistryManager](/python/api/azure-
 from azure.iot.hub import IoTHubRegistryManager
 ```
 
-### Connect the IoT Hub registry manager
+### Connect to IoT hub
 
-Instantiate the [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothub_registry_manager.iothubregistrymanager) object that connects to an IoT hub, passing an IoT Hub connection string to [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string).
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string).
+
+For example:
 
 ```python
-IoTHubConnectionString = "{Primary connection string to an IoT hub}"
+IoTHubConnectionString = "{IoT hub service connection string}"
 registry_manager = IoTHubRegistryManager.from_connection_string(IoTHubConnectionString)
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-python](iot-hub-howto-connect-service-iothub-entra-dotnet.md)]
 
 ### Build and send a message
 
@@ -154,4 +189,4 @@ registry_manager.send_c2d_message(deviceID, message, properties=props)
 
 ### SDK send message sample
 
-[send_message.py](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios) - Demonstrates how to send a cloud-to-device message.
+The Azure IoT SDK for Python provides a working sample of a service app that demonstrates how to send a cloud-to-device message. For more information, see [send_message.py](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios) demonstrates how to send a cloud-to-device message.

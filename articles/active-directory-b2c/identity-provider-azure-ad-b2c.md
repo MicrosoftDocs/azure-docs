@@ -9,17 +9,21 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 10/11/2023
+ms.date: 10/11/2024
 ms.author: godonnell
 ms.subservice: b2c
-ms.custom: fasttrack-edit, 
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 #Customer Intent: As an Azure AD B2C administrator, I want to set up federation with another Azure AD B2C tenant, so that users from the other tenant can sign in to applications protected by my tenant using their existing accounts.
 
 ---
 
 # Set up sign-up and sign-in with an Azure AD B2C account from another Azure AD B2C tenant
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -166,7 +170,7 @@ You can define Azure AD B2C as a claims provider by adding Azure AD B2C to the *
         <Protocol Name="OpenIdConnect"/>
         <Metadata>
           <!-- Update the Client ID below to the Application ID -->
-          <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+          <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
           <!-- Update the metadata URL with the other Azure AD B2C tenant name and policy name -->
           <Item Key="METADATA">https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration</Item>
           <Item Key="UsePolicyInRedirectUri">false</Item>

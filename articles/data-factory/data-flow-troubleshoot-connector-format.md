@@ -7,6 +7,7 @@ ms.reviewer: wiassaf
 ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 03/19/2024
+ms.custom: sfi-image-nochange
 ---
 
 
@@ -215,7 +216,7 @@ The RWX permission or the dataset property isn't set correctly.
 
 When you use the ADLS Gen2 as a sink in the data flow (to preview data, debug/trigger run, etc.) and the partition setting in **Optimize** tab in the **Sink** stage isn't default, you might find the job fails with the following error message:
 
-`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-5df7454e-7b14-4253-a20b-d20b63fe9983-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
+`Job failed due to reason: Error while reading file abfss:REDACTED_LOCAL_PART@prod.dfs.core.windows.net/import/data/e3342084-930c-4f08-9975-558a3116a1a9/part-00000-tid-7848242374008877624-aaaabbbb-0000-cccc-1111-dddd2222eeee-1-1-c000.csv. It is possible the underlying files have been updated. You can explicitly invalidate the cache in Spark by running 'REFRESH TABLE tableName' command in SQL or by recreating the Dataset/DataFrame involved.`
 
 #### Cause
 
@@ -596,7 +597,7 @@ The escape character either escapes the column delimiter or the escape the chara
 4. The quote character and the escape character both be empty and the column value contains column delimiters.<br/>
 `Column delimiter: \t`<br/>
 `column value: 111\t222\t33\t3`<br/>
-`It will be ambigious if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
+`It will be ambiguous if it contains 3 columns 111,222,33\t3 or 4 columns 111,222,33,3.`<br/>
 
 #### Recommendation
 The first symptom and the second symptom can't be solved currently. For the third and fourth symptoms, you can apply the following methods:
@@ -800,6 +801,6 @@ For more help with troubleshooting, see these resources:
 *  [Troubleshoot mapping data flows in Azure Data Factory](data-flow-troubleshoot-guide.md)
 *  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [X information about Data Factory](https://x.com/hashtag/DataFactory)

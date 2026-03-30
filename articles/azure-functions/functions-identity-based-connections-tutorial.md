@@ -5,6 +5,9 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/27/2024
 titleSuffix: Azure Functions
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid needing to handle secrets or connection strings in my application settings.
 ---
@@ -24,15 +27,11 @@ In this tutorial, you learn how to:
 > - Move secrets that can't be replaced with identities into Azure Key Vault
 > - Configure an app to connect to the default host storage using its managed identity
 
-After you complete this tutorial, you should complete the follow-on tutorial that shows how to [use identity-based connections instead of secrets with triggers and bindings].
+After you complete this tutorial, you should complete the follow-on tutorial that shows how to [use identity-based connections instead of secrets with triggers and bindings](./functions-identity-based-connections-tutorial-2.md).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-- The [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
-
-- The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Why use identity?
 
@@ -255,7 +254,7 @@ Congratulations! You've successfully created your function app to reference the 
 Whenever your app would need to add a reference to a secret, you would just need to define a new application setting pointing to the value stored in Key Vault. For more information, see [Key Vault references for Azure Functions](../app-service/app-service-key-vault-references.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json).
 
 > [!TIP]
-> The [Application Insights connection string](/azure/azure-monitor/app/sdk-connection-string) and its included instrumentation key are not considered secrets and can be retrieved from App Insights using [Reader](../role-based-access-control/built-in-roles.md#reader) permissions. You do not need to move them into Key Vault, although you certainly can.
+> The [Application Insights connection string](/azure/azure-monitor/app/sdk-connection-string) and its included instrumentation key are not considered secrets and can be retrieved from App Insights using [Reader](../role-based-access-control/built-in-roles.md#reader) permissions. You do not need to move them into an Azure Key Vault instance, although you certainly can. If you choose to use Key Vault, your function app must have a managed identity that can be used to securely retrieve the secret [using a Key Vault reference in the app settings](../app-service/app-service-key-vault-references.md).
 
 ## Use managed identity for AzureWebJobsStorage
 
@@ -297,7 +296,7 @@ Next you update your function app to use its system-assigned identity when it us
 > [!IMPORTANT]
 > The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity](./functions-reference.md#connecting-to-host-storage-with-an-identity).
 >
-> Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consumption, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
+> Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consumption, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md). 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 

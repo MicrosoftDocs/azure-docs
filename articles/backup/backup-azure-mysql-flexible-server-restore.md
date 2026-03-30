@@ -1,51 +1,55 @@
 ---
-title: Restore the Azure Database for MySQL - Flexible Server by using Azure Backup
-description: Learn how to restore the Azure Database for MySQL - Flexible Server.
+title: Restore an Azure Database for MySQL Flexible Server by Using Azure Backup
+description: Learn how to restore an Azure Database for MySQL flexible server.
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 11/21/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to restore an Azure Database for MySQL flexible server using backup, so that I can recover data and ensure business continuity after data loss or corruption."
 ---
 
-# Restore the Azure Database for MySQL - Flexible Server by using Azure Backup (preview)
+# Restore an Azure Database for MySQL flexible server by using Azure Backup (preview)
 
-This article describes how to restore the Azure Database for MySQL - Flexible Server by using Azure Backup.
+[!INCLUDE [Azure Database for MySQL - Flexible Server backup advisory](../../includes/backup-mysql-flexible-server-advisory.md)]
 
-Learn more about the [supported scenarios. considerations, and limitations](backup-azure-mysql-flexible-server-support-matrix.md).
+This article describes how to restore your Azure Database for MySQL flexible server by using Azure Backup.
+
+Learn more about the [supported scenarios, considerations, and limitations](backup-azure-mysql-flexible-server-support-matrix.md).
 
 ## Prerequisites
 
-Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the **AllowCrossTenantReplication** property set to **true**.
+Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the `AllowCrossTenantReplication` property set to `true`.
 
-## Restore MySQL - Flexible Server database
+## Restore the Azure Database for MySQL - Flexible Server
 
 To restore the database, follow these steps:
 
-1. Go to the *Backup vault* > **Backup instances**.
+1. Go to the Backup vault, and then select **Backup instances**.
 
-2. Select the **Azure Database for MySQL - Flexible Server** > **Restore**.
+2. Select **Azure Database for MySQL - Flexible Server (preview)** > **Restore**.
 
-   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore-parameters.png" alt-text="Screenshot shows how to go to the backup instance." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore-parameters.png":::
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore-parameters.png" alt-text="Screenshot that shows how to go to a backup instance." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore-parameters.png":::
 
-3. Click **Select restore point** > **Point-in-time** you want to restore.
+3. Choose **Select restore point**, and then select the point in time that you want to restore.
 
    To change the date range, select **Time period**.
 
-   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore-point.png" alt-text="Screenshot shows the selection of point-in-time recovery point." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore-point.png":::
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore-point.png" alt-text="Screenshot that shows the selection of a point-in-time recovery point." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore-point.png":::
 
-4. On the **Restore parameters** tab, choose the **Target Storage account**, and then select **Validate**.
+4. On the **Restore parameters** tab, select the **Target Storage account** and **Target Container** values, and then select **Validate**.
 
    The validation process checks if the restore parameters and permissions are assigned for the restore operation.
 
-
-   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore.png" alt-text="Screenshot shows the selection of restore parameters." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore.png":::
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/restore.png" alt-text="Screenshot that shows the selection of restore parameters." lightbox="./media/backup-azure-mysql-flexible-server-restore/restore.png":::
 
 5. When the validation is successful, select **Restore**.
 
-   It restores the selected database backups in the target storage account.
+   This action restores the selected database backups in the target storage account.
 
-   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/review-restore.png" alt-text="Screenshot shows how to trigger restore operation." lightbox="./media/backup-azure-mysql-flexible-server-restore/review-restore.png":::
+   :::image type="content" source="./media/backup-azure-mysql-flexible-server-restore/review-restore.png" alt-text="Screenshot that shows how to trigger restore operation." lightbox="./media/backup-azure-mysql-flexible-server-restore/review-restore.png":::
 
 ## Next steps
 
-- [Back up the Azure Database for MySQL - Flexible Server (preview)](backup-azure-mysql-flexible-server.md)
+> [!div class="nextstepaction"]
+> [Back up an Azure Database for MySQL flexible server (preview)](backup-azure-mysql-flexible-server.md).
+> [Troubleshoot Azure Database for MySQL - Flexible Server backup (preview)](backup-azure-mysql-flexible-server-troubleshoot.md).

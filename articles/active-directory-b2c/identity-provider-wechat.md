@@ -10,6 +10,7 @@ ms.date: 09/16/2021
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-up and sign-in with a WeChat account, so that users can authenticate using their WeChat credentials.
 
@@ -17,6 +18,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Set up sign-up and sign-in with a WeChat account using Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -45,7 +47,7 @@ To enable sign-in for users with a WeChat account in Azure Active Directory B2C 
 
 ## Configure WeChat as an identity provider
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that has at least [External Identity Provider Administrator](/entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator) privileges.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **WeChat (Preview)**.

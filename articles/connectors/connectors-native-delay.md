@@ -1,87 +1,98 @@
 ---
-title: Delay the next action in workflows
-description: Wait to run the next action in logic app workflows by using the Delay or Delay Until actions in Azure Logic Apps.
+title: Pause Workflow Execution
+description: Learn how to pause a workflow run and delay the next action by using the Delay action or Delay Until action in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 08/08/2025
+#Customer intent: As an integration developer, I need to know how to pause workflow execution and delay the next action in the same workflow.
 ---
 
-# Delay running the next action in Azure Logic Apps
+# Pause workflow execution to delay the next action in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To have your logic app wait an amount of time before running the next action, you can add the built-in **Delay** action before an action in your logic app's workflow. Or, you can add the built-in **Delay until** action to wait until a specific date and time before running the next action. For more information about the built-in Schedule actions and triggers, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+To pause workflow execution and delay the next action, you can set up your workflow to wait an amount of time before the next action runs by using the built-in action named **Delay**. To pause the workflow until a specific date and time, add the built-in action named **Delay until**.
 
-* **Delay**: Wait for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months, before the next action runs.
+The following descriptions provide more information about these actions:
 
-* **Delay until**: Wait until the specified date and time before the next action runs.
+- **Delay**: Wait for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months, before the next action runs.
+- **Delay until**: Wait until the specified date and time before the next action runs.
 
 Here are some example ways to use these actions:
 
-* Wait until a weekday to send a status update over email.
-
-* Delay your workflow until an HTTP call finishes before resuming and retrieving data.
+- Wait until a weekday to send a status update over email.
+- Delay your workflow until an HTTP call finishes before resuming and retrieving data.
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md). Before you can use an action, your logic app must first start with a trigger. You can use any trigger you want and add other actions before you add a delay action. This topic uses an Office 365 Outlook trigger.
+- Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md). To use an action, your workflow must start with a trigger. You can use any trigger you want and add other actions before you add a delay action.
 
 <a name="add-delay"></a>
 
 ## Add the Delay action
 
-1. In the Logic App Designer, under the step where you want to add the delay action, choose **New step**.
+To add a **Delay** action to your workflow, follow these steps:
 
-   To add the delay action between steps, move the pointer over the arrow that connects the steps. Choose the plus sign (+) that appears, and then select **Add an action**.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. In the search box, enter "delay" as your filter. From the actions list, select this action: **Delay**
+1. Based on whether you have a Consumption or Standard logic app resource, follow the corresponding steps:
 
-   ![Add "Delay" action](./media/connectors-native-delay/add-delay-action.png)
+   - Consumption: On the resource sidebar, under **Development Tools**, select the designer to open your workflow.
 
-1. Specify the amount of time to wait before the next action runs.
+   - Standard: On the resource sidebar, under **Workflows**, select **Workflows**, and then select your workflow. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
-   ![Set amount of time for the delay](./media/connectors-native-delay/delay-time-intervals.png)
+1. On the designer, follow these [general steps to add the action named **Delay**](../logic-apps/add-trigger-action-workflow.md#add-action) to your workflow.
 
-   | Property | JSON name | Required | Type | Description |
-   |----------|-----------|----------|------|-------------|
-   | Count | count | Yes | Integer | The number of time units to delay |
-   | Unit | unit | Yes | String | The unit of time, for example: `Second`, `Minute`, `Hour`, `Day`, `Week`, or `Month` |
-   ||||||
+
+
+1. In the **Delay** action, specify the amount of time to wait before the next action runs.
+
+   :::image type="content" source="./media/connectors-native-delay/delay-time-intervals.png" alt-text="Screenshot shows the Delay action where you can set the count and unit for the delay.":::
+
+   | Parameter | JSON name | Required | Type | Description |
+   |-----------|-----------|----------|------|-------------|
+   | **Count** | `count` | Yes | Integer | The number of time units to delay. |
+   | **Unit** | `unit` | Yes | String | The unit of time, for example: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month**. |
 
 1. Add any other actions that you want to run in your workflow.
 
-1. When you're done, save your logic app.
+1. When you're done, save your workflow.
 
 <a name="add-delay-until"></a>
 
-## Add the Delay-until action
+## Add the Delay until action
 
-1. In the Logic App Designer, under the step where you want to add the delay action, choose **New step**.
+To add a **Delay until** action to your workflow, follow these steps:
 
-   To add the delay action between steps, move the pointer over the arrow that connects the steps. Choose the plus sign (+) that appears, and then select **Add an action**.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. In the search box, enter "delay" as your filter. From the actions list, select this action: **Delay until**
+1. Based on whether you have a Consumption or Standard logic app resource, follow the corresponding steps:
 
-   ![Add "Delay until" action](./media/connectors-native-delay/add-delay-until-action.png)
+   - Consumption: On the resource sidebar, under **Development Tools**, select the designer to open your workflow.
 
-1. Provide the end date and time for when you want to resume the workflow.
+   - Standard: On the resource sidebar, under **Workflows**, select **Workflows**, and then select your workflow. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
-   ![Specify timestamp for when to end the delay](./media/connectors-native-delay/delay-until-timestamp.png)
+1. On the designer, follow these [general steps to add the action named **Delay until**](../logic-apps/add-trigger-action-workflow.md#add-action) to your workflow.
 
-   | Property | JSON name | Required | Type | Description |
-   |----------|-----------|----------|------|-------------|
-   | Timestamp | timestamp | Yes | String | The end date and time for resuming the workflow using this format: <p>YYYY-MM-DDThh:mm:ssZ <p>So for example, if you want September 18, 2017 at 2:00 PM, specify "2017-09-18T14:00:00Z". <p>**Note:** This time format must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Without a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). |
-   ||||||
+
+
+1. In the **Delay until** action, provide the date and time for when you want to resume the workflow.
+
+   :::image type="content" source="./media/connectors-native-delay/delay-until-timestamp.png" alt-text="Screenshot shows the action named Delay until and the timestamp for when to end the delay.":::
+
+   | Parameter | JSON name | Required | Type | Description |
+   |-----------|-----------|----------|------|-------------|
+   | **Timestamp** | `timestamp` | Yes | String | The date and time for resuming the workflow using the following format: <br><br>YYYY-MM-DDThh:mm:ssZ <br><br>So for example, if you want September 18, 2025 at 2:00 PM, specify "2025-09-18T14:00:00Z". <br><br>**Note:** This time format must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Without a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). |
 
 1. Add any other actions that you want to run in your workflow.
 
-1. When you're done, save your logic app.
+1. When you're done, save your workflow.
 
-## Next steps
+## Related content
 
-* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Built-in connectors for Azure Logic Apps](built-in.md)
+- [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+- [Built-in connectors for Azure Logic Apps](built-in.md)

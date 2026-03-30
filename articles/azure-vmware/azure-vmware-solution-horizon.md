@@ -3,8 +3,9 @@ title: Deploy Horizon on Azure VMware Solution
 description: Learn how to deploy VMware Horizon on Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 4/1/2024
+ms.date: 01/09/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to deploy VMware Horizon on Azure VMware Solution so that I can provide virtual desktop infrastructure and applications accessible from anywhere, while maximizing scalability and ensuring seamless management within the Azure environment."
 ---
 
 # Deploy Horizon on Azure VMware Solution 
@@ -12,15 +13,15 @@ ms.custom: engagement-fy23
 >[!NOTE]
 >This document focuses on the VMware Horizon product, formerly known as Horizon 7. Horizon is a different solution than Horizon Cloud on Azure, although there are some shared components. Key advantages of the Azure VMware Solution include both a more straightforward sizing method and the integration of Software-Defined Data Center (SDDC) private cloud management into the Azure portal.
 
-[VMware Horizon](https://www.vmware.com/products/horizon.html)®, a virtual desktop and applications platform, runs in the data center and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create, and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
+[VMware Horizon](https://www.omnissa.com/products/horizon-8/)®, a virtual desktop and applications platform, runs in the data center and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create, and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
 
 Here, we focus specifically on deploying Horizon on Azure VMware Solution. For general information on VMware Horizon, refer to the Horizon production documentation:
 
-* [What is VMware Horizon?](https://www.vmware.com/products/horizon.html)
+* [What is VMware Horizon?](https://www.omnissa.com/products/horizon-8/)
 
-* [Learn more about VMware Horizon](https://docs.vmware.com/en/VMware-Horizon/index.html)
+* [Learn more about VMware Horizon](https://docs.omnissa.com/category/Horizon_8)
 
-* [Horizon Reference Architecture](https://techzone.vmware.com/resource/workspace-one-and-horizon-reference-architecture)
+* [Horizon Reference Architecture](https://techzone.omnissa.com/reference-architecture)
 
 With Horizon's introduction on Azure VMware Solution, there are now two Virtual Desktop Infrastructure (VDI) solutions on the Azure platform:
 
@@ -28,11 +29,11 @@ With Horizon's introduction on Azure VMware Solution, there are now two Virtual 
 
 * VMware Horizon Cloud (Desktop-as-a-Service Model)
 
-Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Other products in the Horizon ecosystem are also supported. For more information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
+Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Other products in the Horizon ecosystem are also supported. For more information, see [feature parity and interoperability](https://kb.omnissa.com/s/article/80850).
 
 ## Deploy Horizon in a hybrid cloud
 
-You can deploy Horizon in a hybrid cloud environment by using Horizon Cloud Pod Architecture (CPA) to interconnect on-premises and Azure data centers. CPA scales up your deployment, builds a hybrid cloud, and provides redundancy for Business Continuity and Disaster Recovery.  For more information, see [Expanding Existing Horizon 7 Environments](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
+You can deploy Horizon in a hybrid cloud environment by using Horizon Cloud Pod Architecture (CPA) to interconnect on-premises and Azure data centers. CPA scales up your deployment, builds a hybrid cloud, and provides redundancy for Business Continuity and Disaster Recovery.  For more information, see [Expanding Existing Horizon 7 Environments](https://techzone.omnissa.com/resource/horizon-8-azure-vmware-solution-architecture#cloud-pod-architecture).
 
 >[!IMPORTANT]
 >CPA is not a stretched deployment; each Horizon pod is distinct, and all Connection Servers that belong to each of the individual pods are required to be located in a single location and run on the same broadcast domain from a network perspective.
@@ -210,11 +211,8 @@ Work with your VMware EUC sales team to determine the Horizon licensing cost bas
 
 ### Azure Instance Types
 
-To understand the Azure virtual machine sizes that are required for the Horizon Infrastructure, see [Horizon Installation on Azure VMware Solution](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
+To understand the Azure virtual machine sizes that are required for the Horizon Infrastructure, see [Horizon Installation on Azure VMware Solution](https://techzone.omnissa.com/resource/horizon-8-azure-vmware-solution-configuration#instance-types-for-federated-deployment).
 
 ## References
-[System Requirements For Horizon Agent for Linux](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)
-
-
-## Next steps
-To learn more about VMware Horizon on Azure VMware Solution, read the [VMware Horizon FAQ](https://www.vmware.com/docs/vmw-horizon-faqs).
+[System Requirements For Horizon Agent for Linux](https://docs.omnissa.com/bundle/Desktops-and-Applications-in-HorizonV2406/page/SystemRequirementsforHorizonAgentforLinux.html)
+[Horizon 8 on Azure VMware Solution Architecture](https://techzone.omnissa.com/resource/horizon-8-azure-vmware-solution-architecture)

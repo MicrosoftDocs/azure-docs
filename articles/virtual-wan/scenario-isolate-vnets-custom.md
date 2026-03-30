@@ -6,9 +6,10 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: azure-virtual-wan
-ms.topic: conceptual
-ms.date: 08/24/2023
+ms.topic: concept-article
+ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Scenario: Custom isolation for VNets

@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Diagnose communication problem between virtual networks - Azure portal'
+title: 'Tutorial: Diagnose Communication Problem between Virtual Networks - Azure Portal'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to use Azure Network Watcher VPN troubleshoot to diagnose a communication problem between virtual networks connected by VPN gateways.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: tutorial
-ms.date: 11/29/2023
+ms.date: 02/25/2026
 
-#CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
+# Customer intent: As a network administrator, I want to diagnose and resolve communication issues between virtual networks connected by VPN gateways, so that I can ensure seamless connectivity between resources in different networks.
 ---
 
 # Tutorial: Diagnose a communication problem between virtual networks using the Azure portal
 
 This tutorial shows you how to use Azure Network Watcher [VPN troubleshoot](vpn-troubleshoot-overview.md) capability to diagnose and troubleshoot a connectivity issue between two virtual networks. The virtual networks are connected via VPN gateways using VNet-to-VNet connections. 
 
-:::image type="content" source="./media/diagnose-communication-problem-between-networks/vpn-troubleshoot-tutorial-diagram.png" alt-text="Diagram shows the resources created in the tutorial." lightbox="./media/diagnose-communication-problem-between-networks/vpn-troubleshoot-tutorial-diagram.png":::
+:::image type="content" source="./media/diagnose-communication-problem-between-networks/vpn-troubleshoot-tutorial-diagram.png" alt-text="Diagram that shows the resources created in the tutorial.":::
 
 In this tutorial, you learn how to:
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create VPN gateways
 
@@ -38,9 +38,9 @@ In this section, you create two virtual network gateways to connect two virtual 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter ***virtual network gateways***. Select **Virtual network gateways** from the search results.
+1. In the search box at the top of the portal, enter ***virtual network gateway***. Select **Virtual network gateways** from the search results.
 
-    :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-gateway-azure-portal.png" alt-text="Screenshot shows searching for virtual network gateways in the Azure portal.":::
+    :::image type="content" source="./media/diagnose-communication-problem-between-networks/virtual-network-gateway-portal-search.png" alt-text="Screenshot shows searching for virtual network gateways in the Azure portal.":::
 
 1. Select **+ Create**. In **Create virtual network gateway**, enter or select the following values in the **Basics** tab:
 

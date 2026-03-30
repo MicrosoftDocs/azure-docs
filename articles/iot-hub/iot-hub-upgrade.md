@@ -1,12 +1,12 @@
 ---
 title: Upgrade Azure IoT Hub
 description: Change the pricing and scale tier for IoT Hub to get more messaging and device management capabilities. 
-author: kgremban
+author: cwatson-cat
 
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: upgrade-and-migration-article
-ms.date: 06/21/2024
-ms.author: kgremban
+ms.date: 07/25/2025
+ms.author: cwatson
 ---
 
 # How to upgrade your IoT hub
@@ -22,16 +22,16 @@ When you have more devices and need more capabilities, there are three ways to a
 * Upgrade to a higher tier. For example, upgrade a hub from the B1 tier to the S1 tier for access to advanced features with the same messaging capacity.
 
    > [!Warning]
-   > You cannot upgrade from a Free Hub to a Paid Hub through our upgrade function.  You must create a Paid hub and migrate the configurations and devices from the Free hub to the Paid hub. This process is documented at [How to migrate an IoT hub](./migrate-hub-state-cli.md).
+   > You cannot upgrade from a free hub to a paid hub through our upgrade function.  You must create a paid hub and migrate the configurations and devices from the free hub to the paid hub. For more information about this process, see [How to automatically migrate an IoT hub using the Azure CLI](./migrate-hub-state-cli.md).
 
    > [!Tip]
-   > When you are upgrading your IoT Hub to a higher tier, some messages may be received out of order for a short period of time. If your business logic relies on the order of messages, we recommend upgrading during non-business hours.
+   > When you are upgrading your IoT hub to a higher tier, some messages may be received out of order for a short period of time. If your business logic relies on the order of messages, we recommend upgrading during non-business hours.
 
 If you want to downgrade your IoT hub, you can remove units and reduce the size of the IoT hub but you can't downgrade to a lower tier. For example, you can move from the S2 tier to the S1 tier, but not from the S2 tier to the B1 tier. Only one type of [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT hub. For example, you can create an IoT hub with multiple units of S1. However, you can't create an IoT hub with a mix of units from different editions, such as S1 and B3 or S1 and S2.
 
 These examples are meant to help you understand how to adjust your IoT hub as your solution changes. For specific information about each tier's capabilities, you should always refer to [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-Get more details about [How to choose the right IoT Hub tier](iot-hub-scaling.md).
+For more information about tiers and sizes, see [Choose the right IoT Hub tier and size for your solution](iot-hub-scaling.md).
 
 ## Upgrade your existing IoT hub
 
@@ -43,7 +43,7 @@ In the Azure portal, navigate to your IoT hub to view and update its settings.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT hub.
 
-1. Select **Pricing and scale** from the navigation menu.
+1. Select **Pricing and scale** from the resource menu.
 
    :::image type="content" source="./media/iot-hub-upgrade/pricing-scale.png" alt-text="Screenshot that shows the pricing and scale page for an IoT hub.":::
 
@@ -51,7 +51,7 @@ In the Azure portal, navigate to your IoT hub to view and update its settings.
 
 1. To change the size or units for your hub, select **Adjust** on the daily message limit tile.
 
-   On the **Message and pricing options** page, choose the new daily message limit that you want for your IoT hub. Or, if you prefer to choose the specific tier and units combination, select **Advanced options**. For more information, see [Choose the right IoT Hub for your solution](iot-hub-scaling.md).
+   On the **Message and pricing options** page, choose the new daily message limit that you want for your IoT hub. Or, if you prefer to choose the specific tier and units combination, select **Advanced options**. For more information, see [Choose the right IoT Hub tier and size for your solution](iot-hub-scaling.md).
 
    :::image type="content" source="./media/iot-hub-upgrade/message-pricing-advanced-options.png" alt-text="Screenshot that shows how to upgrade the size or units of your IoT hub.":::
 
@@ -71,7 +71,7 @@ For example, the following command updates the IoT hub tier to `S2`, or standard
 az iot hub update --name <HUB_NAME> --sku S2
 ```
 
-For example, the following command sets the number of units for an IoT hub. The type of units in an IoT hub are determined by the size value of the tier (1, 2, or 3) but you can scale up or down by changing the number of units.
+For example, the following command sets the number of units for an IoT hub. The size value of the tier (1, 2, or 3) determines the unit type in an IoT hub, but you can scale up or down by changing the number of units.
 
 ```bash
 az iot hub update -n MyIotHub --unit 2

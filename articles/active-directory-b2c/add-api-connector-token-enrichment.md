@@ -9,12 +9,16 @@ ms.date: 01/17/2023
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 # Customer intent: I want to enrich tokens with claims from external identity data sources using APIs or outbound webhooks.
 
 ---
 
 # Enrich tokens with claims from external sources using API connectors
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 Azure Active Directory B2C (Azure AD B2C) enables identity developers to integrate an interaction with a RESTful API into their user flow using [API connectors](api-connectors-overview.md). It enables developers to dynamically retrieve data from external identity sources. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with APIs to enrich tokens with information from external sources.
 ::: zone pivot="b2c-user-flow"
@@ -78,10 +82,10 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
+ "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
- "client_id": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
+ "client_id": "00001111-aaaa-2222-bbbb-3333cccc4444",
  "step": "PreTokenIssuance",
  "ui_locales":"en-US"
 }
@@ -169,7 +173,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 </ClaimType>
 ```
 ## Add the RESTful API technical profile 
-A [Restful technical profile](restful-technical-profile.md) provides support for interfacing with your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element in your <em>**`TrustFrameworkExtensions.xml`**</em> file and add a new claims provider as follows:
+A [RESTful technical profile](restful-technical-profile.md) provides support for interfacing with your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element in your <em>**`TrustFrameworkExtensions.xml`**</em> file and add a new claims provider as follows:
 ```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
@@ -280,8 +284,8 @@ Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensi
   "exp": 1584961516,
   "nbf": 1584957916,
   "ver": "1.0",
-  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
-  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "iss": "https://contoso.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/",
+  "aud": "11112222-bbbb-3333-cccc-4444dddd5555",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
   "iat": 1584957916,

@@ -5,16 +5,18 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a developer configuring token lifetimes in Azure Active Directory B2C, I want to understand the options and settings available for token lifetime and compatibility, so that I can customize them to fit the needs of my application and ensure secure access to resources.
 
 ---
 
 # Configure tokens in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -233,7 +235,7 @@ The OutputClaim element contains the following attributes:
 
 When using the [OAuth 2.0 authorization code flow](authorization-code-flow.md), the app can use the authorization code to request an access token for a target resource. Authorization codes are short-lived that expire after about 10 minutes. The authorization code lifetime can't be configured. Make sure your application redeems the authorization codes within 10 minutes. 
 
-## Next steps
+## Related content
 
 - Learn more about how to [request access tokens](access-tokens.md).
 - Learn how to build [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json).

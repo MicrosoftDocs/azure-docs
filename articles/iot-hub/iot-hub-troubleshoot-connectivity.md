@@ -1,13 +1,20 @@
 ---
 title: Monitor and troubleshoot device connectivity to Azure IoT Hub
 description: Learn to monitor and troubleshoot common errors with device connectivity for Azure IoT Hub.
-author: kgremban
+author: cwatson-cat
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: cwatson
+ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 07/30/2024
-ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]
+ms.custom:
+  - mqtt
+  - 'Role: Cloud Development'
+  - 'Role: IoT Device'
+  - 'Role: Technical Support'
+  - fasttrack-edit
+  - iot
+  - sfi-image-nochange
 
 #Customer intent: As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---
@@ -42,7 +49,10 @@ Consider the following issues when deciding whether to use Event Grid or Azure M
 
 ## Event Grid: Monitor connect and disconnect events
 
-To monitor device connect and disconnect events in production, we recommend subscribing to the [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) in Event Grid to trigger alerts and monitor device connection state. Event Grid provides lower event latency than Azure Monitor, and you can monitor on a per-device basis. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
+Event Grid provides lower event latency than Azure Monitor, and you can monitor on a per-device basis. These factors make Event Grid the preferred method for monitoring critical devices and infrastructure.
+
+> [!NOTE]
+> To monitor device connect and disconnect events in production, we recommend subscribing to the [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) in Event Grid to trigger alerts and monitor device connection state.
 
 When you use Event Grid to monitor or trigger alerts on device disconnects, make sure you build in a way of filtering out the periodic disconnects due to SAS token renewal on devices that use the Azure IoT SDKs. To learn more, see [MQTT device disconnect behavior with Azure IoT SDKs](#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
 
@@ -77,7 +87,7 @@ After you create a diagnostic setting to route IoT Hub resource logs to Azure Mo
 
 Use the following problem resolution guides for help with the most common errors:
 
-* [400027 ConnectionForcefullyClosedOnNewConnection](troubleshoot-error-codes.md#400027-connection-forcefully-closed-on-new-connection)
+* [400027 ConnectionForcefullyClosedOnNewConnection](troubleshoot-error-codes.md#400xxx-bad-request-errors)
 
 * [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)
 
@@ -161,7 +171,7 @@ If the previous steps didn't help, try:
 
 * Verify that your devices are **Enabled** in the Azure portal > your IoT hub > IoT devices.
 
-* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 * Get help from [Microsoft Q&A question page for Azure IoT Hub](/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
 
@@ -169,4 +179,4 @@ If the previous steps didn't help, try:
 
 * To learn more about resolving transient issues, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
-* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot/concepts-manage-device-reconnections.md#retry-patterns).
+* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](concepts-manage-device-reconnections.md#retry-patterns).

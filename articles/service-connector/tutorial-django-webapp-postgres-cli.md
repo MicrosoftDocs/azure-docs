@@ -2,17 +2,21 @@
 title: 'Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework, the app is hosted on Azure App Service on Linux, and the App Service and Database is connected with Service Connector.
 ms.devlang: python
-ms.custom: devx-track-azurecli, devx-track-python, linux-related-content
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 09/10/2024
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-python
+  - linux-related-content
+  - sfi-ropc-nochange
 ---
 # Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service
 
 > [!NOTE]
-> In this tutorial, you use Service Connector to connect a web app to a database service. This tutorial is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md), so you may see some similarities. Look into section [Create a passwordless connector to Postgres database](#create-a-passwordless-connector-to-postgres-database) to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
+> In this tutorial, you use Service Connector to connect a web app to a database service. This tutorial is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app-django.md), so you may see some similarities. Look into section [Create a passwordless connector to Postgres database](#create-a-passwordless-connector-to-postgres-database) to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
 
 This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](../app-service/overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](/azure/postgresql/flexible-server/) database.
 
@@ -29,7 +33,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 ## Set up your initial environment
 
 ### [CloudShell](#tab/cloudshell)
-Launch from  [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure Portal and install the service connector passwordless extension for the Azure CLI.
+Launch from  [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure portal and install the service connector passwordless extension for the Azure CLI.
 
 ```terminal
 az extension add --name serviceconnector-passwordless --upgrade
@@ -200,21 +204,22 @@ In this section, you create app host in App Service app, connect this app to the
 
 ### Create a passwordless connector to Postgres database
 
-With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure. The app code expects to find database information in an environment variable named `AZURE_POSTGRESQL_CONNECTIONSTRING` for PostgresSQL flexible server and an environment variable named `AZURE_STORAGEBLOB_RESOURCEENDPOINT` for Azure Storage account.
+With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure. The app code expects to find database information in an environment variable named `AZURE_POSTGRESQL_CONNECTIONSTRING` for PostgreSQL flexible server and an environment variable named `AZURE_STORAGEBLOB_RESOURCEENDPOINT` for Azure Storage account.
 
 The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use managed identity and Azure role-based access control. The commands create app settings in the App Service that connect your web app to these resources. The output from the commands lists the service connector actions taken to enable passwordless capability.
 
-1. Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command. The system-assigned managed identity is used to authenticate the web app to the target resource, PostgreSQL in this case.
-    ```azurecli
-    az webapp connection create postgres-flexible \
-      --resource-group $RESOURCE_GROUP_NAME \
-      --name $APP_SERVICE_NAME \
-      --target-resource-group $RESOURCE_GROUP_NAME \
-      --server $DB_SERVER_NAME \
-      --database restaurant \
-      --client-type python \
-      --system-identity
-    ```
+Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command. The system-assigned managed identity is used to authenticate the web app to the target resource, PostgreSQL in this case.
+
+```azurecli
+az webapp connection create postgres-flexible \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --name $APP_SERVICE_NAME \
+  --target-resource-group $RESOURCE_GROUP_NAME \
+  --server $DB_SERVER_NAME \
+  --database restaurant \
+  --client-type python \
+  --system-identity
+```
 
 > [!NOTE]
 > If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again.

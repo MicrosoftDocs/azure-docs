@@ -5,10 +5,12 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/14/2022
 ms.author: alkohli
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how install the password reset extension on virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
 # Install the password reset extension on VMs for your Azure Stack Edge Pro GPU device
@@ -172,7 +174,7 @@ Etag                    : null
 Publisher               : Microsoft.Compute 
 ExtensionType           : VMAccessAgent 
 TypeHandlerVersion      : 2.4 
-Id                      : /subscriptions/04a485ed-7a09-44ab-6671-66db7f111122/resourceGroups/myasepro2rg/provi 
+Id                      : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasepro2rg/provi 
                           ders/Microsoft.Compute/virtualMachines/mywindowsvm/extensions/windowsVMAccessExt 
 PublicSettings          : { 
                             "username": "azureuser" 
@@ -211,7 +213,7 @@ Etag                    : null
 Publisher               : Microsoft.OSTCExtensions 
 ExtensionType           : VMAccessForLinux 
 TypeHandlerVersion      : 1.5 
-Id                      : /subscriptions/04a485ed-7a09-44ab-6671-66db7f111122/resourceGroups 
+Id                      : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups 
                           /myasepro2rg/providers/Microsoft.Compute/virtualMachines/mylinuxvm 
                           5/extensions/linuxVMAccessExt 
 PublicSettings          : {} 

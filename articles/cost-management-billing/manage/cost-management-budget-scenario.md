@@ -1,13 +1,14 @@
 ---
 title: Azure billing and cost management budget scenario
 description: Learn how to use Azure Automation to shut down VMs based on specific budget thresholds.
-author: bandersmsft
-ms.reviewer: adwise
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 06/26/2025
+ms.author: vikdesai
+ms.custom: sfi-image-nochange
 ---
 
 # Manage costs with budgets
@@ -32,13 +33,16 @@ These actions included in this tutorial allow you to:
 
 [Azure Automation](../../automation/automation-intro.md) is a service that enables you to script most of your resource management tasks and run those tasks as either scheduled or on-demand. As part of this scenario, you create an [Azure Automation runbook](../../automation/automation-runbook-types.md) that stops VMs. You use the [Stop Azure V2 VMs](https://github.com/azureautomation/stop-azure-v2-vms) graphical runbook from the [Azure Automation gallery](https://github.com/azureautomation) to build this scenario. By importing this runbook into your Azure account and publishing it, you can stop VMs when a budget threshold is reached.
 
+> [!NOTE]
+> You can create a budget in Azure Cost Management and link it to an Azure Automation runbook to automatically stop resources when a specified threshold is reached.
+
 ### Create an Azure Automation account
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account credentials.
 2. Select the **Create a resource** button found on the upper left corner of Azure.
 3. Select **Management Tools** > **Automation**.
    > [!NOTE]
-   > If you don't have an Azure account, you can create a [free account](https://azure.microsoft.com/free/).
+   > If you don't have an Azure account, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 4. Enter your account information. For **Create Azure Run As account**, choose **Yes** to automatically enable the settings needed to simplify authentication to Azure.
 5. When complete, select **Create**, to start the Automation account deployment.
 
@@ -84,7 +88,7 @@ You should now have two configured webhooks that are each available using the UR
 
 You completed the Azure Automation setup. You can test the webhooks with a simple API test to validate that the webhook works. Some popular ways to query the API are:
 
-- [Visual studio](/aspnet/core/test/http-files)
+- [Visual Studio](/aspnet/core/test/http-files)
 - [Insomnia](https://insomnia.rest/)
 - [Bruno](https://www.usebruno.com/)
 - PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
@@ -269,7 +273,7 @@ You can create a budget in the Azure portal using the [Budget feature](../costs/
 
 Next, you create a budget by calling the Azure Consumption REST APIs. You need a way to interact with APIs. Some popular ways to query the API are:
 
-- [Visual studio](/aspnet/core/test/http-files)
+- [Visual Studio](/aspnet/core/test/http-files)
 - [Insomnia](https://insomnia.rest/)
 - [Bruno](https://www.usebruno.com/)
 - PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)

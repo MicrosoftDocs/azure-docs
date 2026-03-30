@@ -6,9 +6,10 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 01/07/2026
 ms.author: mbender 
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+# Customer intent: As a cloud administrator, I want to configure and manage backend pools for a load balancer by IP address and virtual network, so that I can ensure proper resource allocation and traffic distribution for my applications.
 ---
 
 # Backend pool management
@@ -17,9 +18,9 @@ The backend pool is a critical component of the load balancer. The backend pool 
 
 There are two ways of configuring a backend pool:
 
-* Network Interface Card (NIC)
+1. Network Interface Card (NIC)
 
-* IP address
+1. IP address
 
 To preallocate a backend pool with an IP address range that will contain virtual machines and Virtual Machine Scale Sets, configure the pool by IP address and virtual network ID.
 This article focuses on configuration of backend pools by IP addresses.
@@ -214,20 +215,21 @@ az vm create \
 ```
 
 ### Limitations
-  * IP based backends can only be used for Standard Load Balancers
-  * The backend resources must be in the same virtual network as the load balancer for IP based LBs
-  * IP-based load balancers backend instances must still be virtual machines or virtual machine scale sets. Attaching other PaaS services to the backend pool of an IP based Load Balancer is not supported. 
-  * A load balancer with IP based Backend Pool can’t function as a Private Link service
-  * [Private endpoint resources](../private-link/private-endpoint-overview.md) can't be placed in an IP based backend pool
-  * IP-based load balancers doesn't support ACI containers
-  * Load balancers or services such as Application Gateway can’t be placed in the backend pool of the load balancer
-  * Inbound NAT Rules can’t be specified by IP address
-  * You can configure IP based and NIC based backend pools for the same load balancer. You can’t create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
-  * A virtual machine in the same virtual network as an internal load balancer can't access the frontend of the ILB and its backend VMs simultaneously.
-  * Internet routing preference IPs are currently not supported with IP based backend pools. Any Internet routing preference IPs in IP based backend pools will be billed and routed via the default Microsoft global network.
-  * If backend pools are constantly changing (due to the constant addition or removal of backend resources). This may cause reset signals sent back to the source from the backend resource. As a workaround, you can use retries.
+  1. IP based backends can only be used for Standard Load Balancers
+  1. The backend resources must be in the same virtual network as the load balancer for IP based LBs
+  1. IP-based load balancers backend instances must still be virtual machines or virtual machine scale sets. Attaching other PaaS services to the backend pool of an IP based Load Balancer isn't supported. 
+  1. A load balancer with IP based Backend Pool can't function as a Private Link service
+  1. [Private endpoint resources](../private-link/private-endpoint-overview.md) can't be placed in an IP based backend pool
+  1. IP-based load balancers don't support ACI containers
+  1. Load balancers or services such as Application Gateway can't be placed in the backend pool of the load balancer
+  1. Inbound NAT Rules can't be specified by IP address
+  1. You can configure IP based and NIC based backend pools for the same load balancer. You can't create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
+  1. A virtual machine in the same virtual network as an internal load balancer can't access the frontend of the ILB and its backend VMs simultaneously.
+  1. Internet routing preference IPs are currently not supported with IP based backend pools. Any Internet routing preference IPs in IP based backend pools will be billed and routed via the default Microsoft global network.
+  1. Performing move-related operations on VNETs that are attached to IP-based backend pools isn't supported
+  1. If backend pools are constantly changing (due to the constant addition or removal of backend resources). This can cause reset signals sent back to the source from the backend resource. As a workaround, you can use retries.
 
->[!Important]
+> [!IMPORTANT]
 > When a backend pool is configured by IP address, it will behave as a Basic Load Balancer with default outbound enabled. For secure by default configuration and applications with demanding outbound needs, configure the backend pool by NIC.
 
 ## Next steps

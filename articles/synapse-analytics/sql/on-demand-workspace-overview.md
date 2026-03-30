@@ -8,7 +8,6 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 09/12/2024
 ms.author: fipopovi
-ms.reviewer: whhender
 ---
 # Serverless SQL pool in Azure Synapse Analytics
 

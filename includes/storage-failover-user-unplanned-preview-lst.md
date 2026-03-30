@@ -18,7 +18,7 @@ ms.custom: "include file", references_regions
 >
 > Because user activities such as creating, modifying, or deleting objects can trigger snapshot creation, any account on which these activities occur after planned failover will not require additional attention. However, accounts having no snapshots or user activity may continue to display a `Null` LST value until system snapshot creation is triggered.
 >
->If necessary, perform one of the following activities **for each share within a storage account** to trigger snapshot creation. Upon completion, your account should display a valid LST value within 30 minutes' time.
+> If necessary, perform one of the following activities **for each share within a storage account** to trigger snapshot creation. Upon completion, your account should display a valid LST value within 30 minutes' time.
 >
 >   - Mount the share, then open any file for reading.
 >   - Upload a test or sample file to the share.

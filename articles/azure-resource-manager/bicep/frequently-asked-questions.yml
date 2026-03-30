@@ -3,6 +3,7 @@ metadata:
   title: Bicep frequently asked questions
   description: Answers to common questions about using Bicep to deploy resources to Azure.
   ms.topic: faq
+  ms.date: 01/21/2022
 
 title: Frequently asked questions for Bicep
 summary: |

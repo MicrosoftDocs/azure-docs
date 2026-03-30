@@ -3,14 +3,15 @@
 metadata:
   title: Change contact information for an Azure billing account
   description: Describes how to change the contact information of your Azure billing account
-  author: bandersmsft
-  ms.author: banders
-  ms.reviewer: judupont
-  ms.date: 09/17/2024
+  author: jkinma39
+  ms.author: jkinma
+  ms.reviewer: jkinma
+  ms.date: 02/27/2026
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
   ms.custom:
+    - sfi-image-nochange
     - ge-structured-content-pilot
 
 title: |
@@ -66,6 +67,19 @@ procedureSection:
           ![Screenshot that shows updating the sold-to address for an MCA account.](./media/change-azure-account-profile/update-sold-to-save-mca.png)
           > [!IMPORTANT]
           > Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you would be asked to contact Azure support.
+  - title: |
+      View agreement details for an MCA billing account
+    summary: |
+      Follow these steps:
+    steps:  
+      - |
+        Sign in to the Azure portal using the email address, which has an owner or a contributor role on the billing account for a Microsoft Customer Agreement.
+      - |
+        Search for **Cost Management + Billing**.  
+      - |
+        Select **Properties** from the left-hand side and then select **View Microsoft Customer Agreement**. 
+      - |
+        This view will show details of the agreement including the MCA effective date and who signed it.  Note: Not all agreements are available to view online.  
   - title: |
       Update an MCA billing account address
     summary: |
@@ -145,7 +159,7 @@ procedureSection:
       **To update billing account information**
     steps: 
       - |
-        Sign in to the [Microsoft Store for Business](https://businessstore.microsoft.com/) or [Microsoft Store for Education](https://educationstore.microsoft.com/).
+        Sign in to the [Microsoft Store for Education](https://www.microsoft.com/store/b/education).
       - |  
         Select **Manage**, and then select **Billing accounts**.
       - |  
@@ -153,7 +167,6 @@ procedureSection:
       - |  
         Make your updates, and then select **Save**.
         
-        [Learn more about how to update your billing account settings](/microsoft-store/update-microsoft-store-for-business-account-settings).
   - title: |
       Service and marketing emails
     summary: |

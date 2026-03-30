@@ -1,13 +1,14 @@
 ---
 title: Use the Azure Storage Emulator for development and testing (deprecated)
 description: The Azure Storage Emulator (deprecated) provides a free local development environment for developing and testing your Azure Storage applications.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 07/14/2021
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a developer, I want to use a local storage emulator for developing and testing my Azure storage applications, so that I can avoid costs and subscriptions while ensuring compatibility before deploying to the cloud."
 ---
 
 # Use the Azure Storage Emulator for development and testing (deprecated)
@@ -97,7 +98,7 @@ For more information on connection strings, see [Configure Azure Storage connect
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using [Storage Explorer](https://storageexplorer.com/) or another application that supports Shared Key authentication.
+You can create a SAS token using [Storage Explorer](https://storageexplorer.com/) or another application that supports Shared Key authentication.
 
 You can also generate a SAS token by using Azure PowerShell. The following example generates a SAS token with full permissions to a blob container:
 

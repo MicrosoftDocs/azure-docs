@@ -1,12 +1,9 @@
 ---
 title: Monitoring data reference for Azure Resource Manager
 description: This article contains important reference material you need when you monitor Azure Resource Manager.
-ms.date: 07/25/2024
+ms.date: 10/29/2025
 ms.custom: horz-monitor, devx-track-arm-template
 ms.topic: reference
-author: mumian
-ms.author: jgao
-ms.service: azure-resource-manager
 ---
 
 # Azure Resource Manager monitoring data reference

@@ -1,11 +1,11 @@
 ---
 author: chriswhilar
-title: Azure Communication Services Web Calling SDK - Web push notifications
-description: Find the quickstart for setting up Azure Communication Services Web Calling SDK push notifications.
+title: Web push notifications
+description: Azure Communication Services Web Calling SDK push notifications.
 ms.service: azure-communication-services
 ms.subservice: web calling sdk
 ms.topic: include
-ms.date: 03/20/2023
+ms.date: 06/28/2025
 ms.author: chwhilar
 ---
 

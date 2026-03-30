@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 07/21/2023
-ms.author: cshoe
+author: cjk7989
+ms.author: jikunchen
 ---
 
 ::: zone pivot="github"

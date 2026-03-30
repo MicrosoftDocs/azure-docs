@@ -3,10 +3,10 @@ title: "Data migration, ETL, and load for Netezza migrations"
 description: Learn how to plan your data migration from Netezza to Azure Synapse Analytics to minimize the risk and impact on users. 
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 author: ajagadish-24
 ms.author: ajagadish
-ms.reviewer: wiassaf
+
 ms.date: 06/01/2022
 ---
 

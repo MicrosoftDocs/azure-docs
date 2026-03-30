@@ -18,7 +18,7 @@ ms.custom: devx-track-js
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-To facilitate better business to customer communications the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--page) provides JavaScript bundles to try out cross-platform solutions for using the UI Library. This tutorial is the fastest way from getting into a call using the UI library and Teams.
+To facilitate better business to customer communications the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs) provides JavaScript bundles to try out cross-platform solutions for using the UI Library. This tutorial is the fastest way from getting into a call using the UI library and Teams.
 
 Following this tutorial will:
 
@@ -158,8 +158,8 @@ Next you want to open `index.html` in VS Code and add the following snippet.
 </body>
 ```
 
-[!IMPORTANT]
-It's important here to note that this file `index.html` and the JavaScript bundle `outboundCallComposite.js` need to be in the same folder if you wish to not edit any of the importing in this file.
+> [!IMPORTANT]
+> It's important here to note that this file `index.html` and the JavaScript bundle `outboundCallComposite.js` need to be in the same folder if you wish to not edit any of the importing in this file.
 
 #### 3. Setting up Azure Communication Services and your Teams Voice Application
 
@@ -197,12 +197,12 @@ npx http-server@latest -p 3000
 ```
 This script using Node starts an HTTP server and hosts the `index.html` file and JavaScript bundle. In a browser open http://localhost:3000. You should see a white page with a button, and when you click it you should see the following screen.
 
-[!IMPORTANT]
-Note, if you try to go to the page not using local host, your calling experience won't work due to security reasons.
+> [!IMPORTANT]
+> Note, if you try to go to the page not using local host, your calling experience won't work due to security reasons.
 
 [![Screenshot of js bundle sample app homescreen.](../media/calling-widget/js-bundle-splash.png)](../media/calling-widget/js-bundle-splash.png#lightbox)
 
-Click the `start call` button seen in the [UI Library `CallComposite`](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example) to initiate a call to your Teams voice app.
+Click the `start call` button seen in the [UI Library `CallComposite`](https://azure.github.io/communication-ui-library/?path=/story/composites-callcomposite-basic-example--basic-example) to initiate a call to your Teams voice app.
 
 ## Taking to Production
 Currently this tutorial and the JS bundles are in public preview. If you are excited about Click to Call and wanting to see how you can use the `CallComposite` to create Click to Call experiences for your product today, we have a discussion post in our [GitHub repo](https://github.com/Azure/communication-ui-library) that will show you how to integrate the UI library on other Node Frameworks. The steps of the tutorial you just did directly translate to what is outlined in this show and tell on [loading the UI library composites in other frameworks than React](https://github.com/Azure/communication-ui-library/discussions/4723).

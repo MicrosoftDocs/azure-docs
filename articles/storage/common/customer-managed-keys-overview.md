@@ -7,11 +7,12 @@ author: normesta
 
 ms.service: azure-storage
 ms.date: 05/11/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to implement customer-managed keys for Azure Storage encryption, so that I can maintain control over data encryption and access policies while enhancing security and flexibility for my organization."
 ---
 
 # Customer-managed keys for Azure Storage encryption
@@ -50,7 +51,7 @@ The managed identity that is associated with the storage account must have these
 
 For more information about key permissions, see [Key types, algorithms, and operations](/azure/key-vault/keys/about-keys-details#key-access-control).
 
-Azure Policy provides a built-in policy to require that storage accounts use customer-managed keys for Blob Storage and Azure Files workloads. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+Azure Policy provides a built-in policy to require that storage accounts use customer-managed keys for Blob Storage and Azure Files workloads. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 ## Customer-managed keys for queues and tables
 
@@ -177,9 +178,9 @@ To revoke access to customer-managed keys, use [PowerShell](./customer-managed-k
 - [Copy File](/rest/api/storageservices/copy-file)
 - [Rename File](/rest/api/storageservices/rename-file)
 
-## Customer-managed keys for Azure managed disks
+## Customer-managed keys for Azure Managed Disks
 
-Customer-managed keys are also available for managing encryption of Azure managed disks. Customer-managed keys behave differently for managed disks than for Azure Storage resources. For more information, see [Server-side encryption of Azure managed disks](/azure/virtual-machines/disk-encryption) for Windows or [Server side encryption of Azure managed disks](/azure/virtual-machines/disk-encryption) for Linux.
+Customer-managed keys are also available for managing encryption of Azure Managed Disks. Customer-managed keys behave differently for managed disks than for Azure Storage resources. For more information, see [Server-side encryption of Azure Managed Disks](/azure/virtual-machines/disk-encryption) for Windows or [Server side encryption of Azure Managed Disks](/azure/virtual-machines/disk-encryption) for Linux.
 
 ## Next steps
 

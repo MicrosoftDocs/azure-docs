@@ -7,9 +7,10 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 01/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
+# Customer intent: "As a cloud administrator, I want to initiate a failover for my storage account, so that I can ensure data availability during service outages or conduct disaster recovery tests."
 ---
 
 # Initiate a storage account failover
@@ -17,8 +18,6 @@ ms.subservice: storage-common-concepts
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages might occasionally occur. To help minimize downtime, Azure Storage supports customer-managed failover to keep your data available during both partial and complete outages.
 
 This article shows how to initiate an account failover for your storage account using the Azure portal, PowerShell, or the Azure CLI. To learn more about account failover, see [Azure storage disaster recovery planning and failover](storage-disaster-recovery-guidance.md).
-
-[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
 ## Prerequisites
 
@@ -62,7 +61,7 @@ Complete the following steps to initiate an account failover using the Azure por
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare-failover-unplanned-sml.png" alt-text="Screenshot showing the failover option selected on the Prepare for failover window." lightbox="media/storage-initiate-account-failover/portal-failover-prepare-failover-unplanned-lrg.png":::
 
-    **If you select `Planned failover`** (preview):
+    **If you select `Planned failover`**:
 
     The **Last Sync Time** value is displayed. Failover doesn't occur until after all data is synchronized to the secondary region, preventing data from being lost.
 
@@ -81,19 +80,19 @@ Complete the following steps to initiate an account failover using the Azure por
 To get the current redundancy and failover information for your storage account, and then initiate a failover, follow these steps:
 
 > [!div class="checklist"]
-> - [Install the Azure Storage preview module for PowerShell](#install-the-azure-storage-preview-module-for-powershell)
+> - [Install the Azure Storage module for PowerShell](#install-the-azure-storage-module-for-powershell)
 > - [Get the current status of the storage account with PowerShell](#get-the-current-status-of-the-storage-account-with-powershell)
 > - [Initiate a failover of the storage account with PowerShell](#initiate-a-failover-of-the-storage-account-with-powershell)
 
-### Install the Azure Storage preview module for PowerShell
+### Install the Azure Storage module for PowerShell
 
-To use PowerShell to initiate and monitor a **planned** customer-managed account failover (preview) in addition to a customer-initiated failover, install the [Az.Storage 5.2.2-preview module](https://www.powershellgallery.com/packages/Az.Storage/5.2.2-preview). Earlier versions of the module support customer-managed failover (unplanned), but not planned failover. The preview version supports the new `FailoverType` parameter. Valid values include either `planned` or `unplanned`.
+To use PowerShell to initiate and monitor a **planned** customer-managed account failover in addition to a customer-initiated failover, install the [Az.Storage 5.2.2-preview module](https://www.powershellgallery.com/packages/Az.Storage/5.2.2-preview). Earlier versions of the module support customer-managed failover (unplanned), but not planned failover. The preview version supports the new `FailoverType` parameter. Valid values include either `planned` or `unplanned`.
 
-#### Installing and running the preview module on PowerShell 5.1
+#### Installing and running the module on PowerShell 5.1
 
 Recommended best practices include the installation and use of the latest version of PowerShell. If you're having trouble installing the preview module using older PowerShell versions, you might need to [update PowerShellGet to the latest version](/powershell/gallery/powershellget/update-powershell-51) before installing the Az.Storage 5.2.2 preview module.
 
-To install the latest version of PowerShellGet and the Az.Storage preview module, perform the following steps:
+To install the latest version of PowerShellGet and the Az.Storage module, perform the following steps:
 
 1. Use the following cmdlet to update PowerShellGet:
 
@@ -102,7 +101,7 @@ To install the latest version of PowerShellGet and the Az.Storage preview module
     ```
 
 1. Close and reopen PowerShell
-1. Install the Az.Storage preview module using the following cmdlet:
+1. Install the Az.Storage module using the following cmdlet:
 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 5.2.2-preview -AllowPrerelease
@@ -196,11 +195,6 @@ Complete the following steps to get the current redundancy and failover informat
     ```azurecli
     az extension add -n storage-preview
     ```
-
-    > [!IMPORTANT]
-    > The Azure CLI storage preview extension adds support for features or arguments that are currently in PREVIEW.
-    >
-    > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Get the current status of the storage account with Azure CLI
 

@@ -5,6 +5,7 @@ ms.subservice: sap-monitor
 ms.topic: include
 ms.date: 05/25/2022
 ms.author: akak
+# Customer intent: "As an IT administrator exploring monitoring solutions, I want to access insights in the monitoring tool for SAP systems, so that I can evaluate its capabilities and prepare for future implementation."
 ---
 
 > [!IMPORTANT]

@@ -3,10 +3,10 @@ title: Authentication - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Learn about authentication mitigation in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 author: jegeib
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: azure-information-protection
+ms.subservice: azure-information-protection-policy
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/26/2026
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ---
@@ -224,7 +224,7 @@ ms.custom: devx-track-csharp
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [IdentityServer3 - The Big Picture](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
+| **References**              | N/A |
 | **Steps** | <p>Below are the typical interactions supported by Identity Server:</p><ul><li>Browsers communicate with web applications</li><li>Web applications communicate with web APIs (sometimes on their own, sometimes on behalf of a user)</li><li>Browser-based applications communicate with web APIs</li><li>Native applications communicate with web APIs</li><li>Server-based applications communicate with web APIs</li><li>Web APIs communicate with web APIs (sometimes on their own, sometimes on behalf of a user)</li></ul>|
 
 ## <a id="override-token"></a>Override the default Identity Server token cache with a scalable alternative
@@ -235,7 +235,7 @@ ms.custom: devx-track-csharp
 | **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Identity Server Deployment - Caching](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
+| **References**              | N/A |
 | **Steps** | <p>IdentityServer has a simple built-in in-memory cache. While this is good for small scale native apps, it does not scale for mid tier and backend applications for the following reasons:</p><ul><li>These applications are accessed by many users at once. Saving all access tokens in the same store creates isolation issues and presents challenges when operating at scale: many users, each with as many tokens as the resources the app accesses on their behalf, can mean huge numbers and very expensive lookup operations</li><li>These applications are typically deployed on distributed topologies, where multiple nodes must have access to the same cache</li><li>Cached tokens must survive process recycles and deactivations</li><li>For all the above reasons, while implementing web apps, it is recommended to override the default Identity Server's token cache with a scalable alternative such as Azure Cache for Redis</li></ul>|
 
 ## <a id="binaries-signed"></a>Ensure that deployed application's binaries are digitally signed
@@ -352,7 +352,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Token cache serialization in MSAL.NET](/entra/msal/dotnet/how-to/token-cache-serialization)  |
-| **Steps** | <p>The default cache that MSAL (Microsoft Authentication Library) uses is an in-memory cache, and is scalable. However there are different options available that you can use as an alternative, such as a distributed token cache. These have L1/L2 mechanisms, where L1 is in memory and L2 is the distributed cache implementation. These can be accordingly configured to limit L1 memory, encrypt or set eviction policies. Other alternatives include Redis, SQL Server or Azure Comsos DB caches. An implementation of a distributed token cache can be found in the following [Tutorial: Get started with ASP.NET Core MVC](/aspnet/core/tutorials/first-mvc-app/start-mvc).</p>|
+| **Steps** | <p>The default cache that MSAL (Microsoft Authentication Library) uses is an in-memory cache, and is scalable. However there are different options available that you can use as an alternative, such as a distributed token cache. These have L1/L2 mechanisms, where L1 is in memory and L2 is the distributed cache implementation. These can be accordingly configured to limit L1 memory, encrypt or set eviction policies. Other alternatives include Redis, SQL Server or Azure Cosmos DB caches. An implementation of a distributed token cache can be found in the following [Tutorial: Get started with ASP.NET Core MVC](/aspnet/core/tutorials/first-mvc-app/start-mvc).</p>|
 
 ## <a id="tokenreplaycache-msal"></a>Ensure that TokenReplayCache is used to prevent the replay of MSAL authentication tokens
 
@@ -447,10 +447,12 @@ MSAL also maintains a token cache and refreshes tokens for you when they're clos
 | ----------------------- | ------------ |
 | **Component**               | IoT Cloud Gateway |
 | **SDL Phase**               | Build |
-| **Applicable Technologies** | Generic, C#, Node.JS,  |
+| **Applicable Technologies** | Generic, C#, Node.js,  |
 | **Attributes**              | N/A, Gateway choice - Azure IoT Hub |
-| **References**              | N/A, [Azure IoT hub with .NET](../../iot/tutorial-send-telemetry-iot-hub.md?pivots=programming-language-csharp), [Getting Started with IoT hub and Node JS](../../iot/tutorial-send-telemetry-iot-hub.md?pivots=programming-language-nodejs), [Securing IoT with SAS and certificates](../../iot-hub/iot-hub-dev-guide-sas.md), [Git repository](https://github.com/Azure/azure-iot-sdks/) |
-| **Steps** | <ul><li>**Generic:** Authenticate the device using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Microsoft Entra ID, Oauth.</li><li>**C#:** When creating a DeviceClient instance, by default, the Create method creates a DeviceClient instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the Create method that enables you to specify the protocol. If you use the HTTPS protocol, you should also add the `Microsoft.AspNet.WebApi.Client` NuGet package to your project to include the `System.Net.Http.Formatting` namespace.</li></ul>|
+| **References**              | N/A, [Azure IoT hub with .NET](/previous-versions/azure/iot/tutorial-send-telemetry-iot-hub?pivots=programming-language-csharp), [Getting Started with IoT hub and Node JS](/previous-versions/azure/iot/tutorial-send-telemetry-iot-hub?pivots=programming-language-nodejs), [Securing IoT with SAS and certificates](../../iot-hub/iot-hub-dev-guide-sas.md), [Git repository](https://github.com/Azure/azure-iot-sdks/) |
+
+| **Steps** | <ul><li>**Generic:** Authenticate the device using Transport Layer Security (TLS) or IPsec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Microsoft Entra ID, OAuth.</li><li>**C#:** When creating a DeviceClient instance, by default, the Create method creates a DeviceClient instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the Create method that enables you to specify the protocol. If you use the HTTPS protocol, you should also add the `Microsoft.AspNet.WebApi.Client` NuGet package to your project to include the `System.Net.Http.Formatting` namespace.</li></ul>|
+
 
 ### Example
 ```csharp
@@ -468,7 +470,7 @@ await deviceClient.SendEventAsync(message);
 ```
 
 ### Example
-**Node.JS: Authentication**
+**Node.js: Authentication**
 #### Symmetric key
 * Create an IoT hub on Azure
 * Create an entry in the device identity registry
@@ -481,7 +483,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
-    var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
+    var connectionString = 'HostName=<host-name>DeviceId=<device-id>SharedAccessKey=<shared-access-key>';
     var client = clientFromConnectionString(connectionString);
     ```
   #### SAS Token
@@ -490,7 +492,7 @@ await deviceClient.SendEventAsync(message);
 * Create a sas token :
     ```javascript
     resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
-    var deviceName = "<deviceName >";
+    var deviceName = "<device-name>";
     var expires = (Date.now() / 1000) + expiresInMins * 60;
     var toSign = resourceUri + '\n' + expires;
     // using crypto
@@ -513,13 +515,13 @@ await deviceClient.SendEventAsync(message);
 * Generate a self signed X509 certificate using any tool such as OpenSSL to generate a .cert and .key files to store the certificate and the key respectively
 * Provision a device that accepts secured connection using certificates.
     ```javascript
-    var connectionString = '<connectionString>';
+    var connectionString = '<connection-string>';
     var registry = iothub.Registry.fromConnectionString(connectionString);
-    var deviceJSON = {deviceId:"<deviceId>",
+    var deviceJSON = {deviceId:"<device-id>",
     authentication: {
         x509Thumbprint: {
-        primaryThumbprint: "<PrimaryThumbprint>",
-        secondaryThumbprint: "<SecondaryThumbprint>"
+        primaryThumbprint: "<primary-thumbprint>",
+        secondaryThumbprint: "<secondary-thumbprint>"
         }
     }}
     var device = deviceJSON;
@@ -529,7 +531,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     var Protocol = require('azure-iot-device-http').Http;
     var Client = require('azure-iot-device').Client;
-    var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>x509=true';
+    var connectionString = 'HostName=<host-name>DeviceId=<device-id>x509=true';
     var client = Client.fromConnectionString(connectionString, Protocol);
     var options = {
         key: fs.readFileSync('./key.pem', 'utf8'),

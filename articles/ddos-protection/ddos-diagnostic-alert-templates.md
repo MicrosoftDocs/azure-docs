@@ -5,8 +5,9 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 07/17/2024
+ms.date: 03/17/2026
 ms.author: abell
+# Customer intent: "As a network administrator, I want to configure DDoS protection diagnostic logging alerts so that I can receive timely notifications and take action during potential DDoS attacks to protect my resources."
 ---
 
 # Tutorial: Configure Azure DDoS Protection diagnostic logging alerts
@@ -20,7 +21,7 @@ DDoS Protection diagnostic logging alerts provide visibility into DDoS attacks a
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 - In order to use diagnostic logging, you must first create a [Log Analytics workspace with diagnostic settings enabled](ddos-configure-log-analytics-workspace.md). 
 - DDoS Protection monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. 
@@ -88,11 +89,7 @@ You can keep your resources for the next guide. If no longer needed, delete the 
 
 1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.
 
-    :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-protection-alert-rule.png" alt-text="Screenshot of Alerts page." lightbox="./media/ddos-diagnostic-alert-templates/ddos-protection-alert-rule.png":::
-
 1. Select **Alert rules**, then in the Alert rules page, select your subscription.
-
-     :::image type="content" source="./media/ddos-diagnostic-alert-templates/ddos-protection-delete-alert-rules.png" alt-text="Screenshot of Alert rules page." lightbox="./media/ddos-diagnostic-alert-templates/ddos-protection-delete-alert-rules.png":::
 
 1. Select the alerts created in this guide, then select **Delete**. 
 

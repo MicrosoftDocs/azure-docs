@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 11/07/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
 

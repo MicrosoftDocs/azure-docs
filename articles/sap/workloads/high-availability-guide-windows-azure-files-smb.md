@@ -11,6 +11,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 12/01/2021
 ms.author: stmuelle
+ms.custom: sfi-image-nochange
+# Customer intent: As an SAP system administrator, I want to install high availability for SAP NetWeaver using Azure Files premium SMB, so that I can ensure reliable and efficient access to necessary file shares and meet the required configurations for optimal performance.
 ---
 
 # Install HA SAP NetWeaver with Azure Files SMB
@@ -19,7 +21,7 @@ Microsoft and SAP now fully support Azure Files premium Server Message Block (SM
 
 There are special requirements for sizing Azure Files premium SMB shares. This article contains specific recommendations on how to distribute workloads, choose an adequate storage size, and meet minimum installation requirements for Azure Files premium SMB.
 
-High-availability (HA) SAP solutions need a highly available file share for hosting *sapmnt*, *transport*, and *interface* directories. Azure Files premium SMB is a simple Azure platform as a service (PaaS) solution for shared file systems for SAP on Windows environments. You can use Azure Files premium SMB with availability sets and availability zones. You can also use Azure Files premium SMB for disaster recovery (DR) scenarios to another region.  
+High-availability (HA) SAP solutions need a highly available file share for hosting *sapmnt*, *transport*, and *interface* directories. Azure Files premium SMB is a simple Azure platform as a service (PaaS) solution for shared file systems for SAP on Windows environments. You can use Azure Files premium SMB with availability sets and availability zones. You can also use Azure Files premium SMB for disaster recovery (DR) scenarios to another region.
 
 > [!NOTE]
 > Clustering SAP ASCS/SCS instances by using a file share is supported for SAP systems with SAP Kernel 7.22 (and later). For details, see SAP Note [2698948](https://launchpad.support.sap.com/#/notes/2698948).
@@ -66,7 +68,7 @@ Here are prerequisites for the installation of SAP NetWeaver HA systems on Azure
 
 The Active Directory administrator should create, in advance, three domain users with Local Administrator rights and one global group in the local Windows Server Active Directory instance.
 
-`SAPCONT_ADMIN@SAPCONTOSO.local` has Domain Administrator rights and is used to run *SAPinst*, *\<sid>adm*, and *SAPService\<SID>* as SAP system users and the *SAP_\<SAPSID>_GlobalAdmin* group. The SAP Installation Guide contains the specific details required for these accounts.  
+`SAPCONT_ADMIN@SAPCONTOSO.local` has Domain Administrator rights and is used to run *SAPinst*, *\<sid>adm*, and *SAPService\<SID>* as SAP system users and the *SAP_\<SAPSID>_GlobalAdmin* group. The SAP Installation Guide contains the specific details required for these accounts.
 
 > [!NOTE]
 > SAP user accounts should not be Domain Administrator. We generally recommend that you don't use *\<sid>adm* to run SAPinst.
@@ -80,7 +82,7 @@ The Active Directory administrator or Azure administrator should check Synchroni
 The Azure administrator should complete the following tasks:
 
 1. On the **Basics** tab, create a storage account with either premium zone-redundant storage (ZRS) or locally redundant storage (LRS). Customers with zonal deployment should choose ZRS. Here, the administrator needs to make the choice between setting up a **Standard** or **Premium** account.
-  
+
    ![Screenshot of the Azure portal that shows basic information for creating a storage account.](media/virtual-machines-shared-sap-high-availability-guide/create-storage-account-1.png)
 
    > [!IMPORTANT]
@@ -98,7 +100,7 @@ The Azure administrator should complete the following tasks:
 
       ![Screenshot of the Azure portal that shows options for private endpoint definition.](media/virtual-machines-shared-sap-high-availability-guide/create-sa-3.png)
 
-   1. If necessary, add a DNS A record into Windows DNS for `<storage_account_name>.file.core.windows.net`. (This might need to be in a new DNS zone.) Discuss this topic with the DNS administrator. The new zone should not update outside an organization.  
+   1. If necessary, add a DNS A record into Windows DNS for `<storage_account_name>.file.core.windows.net`. (This might need to be in a new DNS zone.) Discuss this topic with the DNS administrator. The new zone should not update outside an organization.
 
       ![Screenshot of DNS Manager that shows private endpoint DNS definition.](media/virtual-machines-shared-sap-high-availability-guide/pe-dns-1.png)
 
@@ -114,15 +116,15 @@ The Azure administrator should complete the following tasks:
    * Before the user runs the script, confirm that this Active Directory domain user account is synchronized with Microsoft Entra ID. An example of this would be to open the Azure portal and go to Microsoft Entra users, check that the user `SAPCONT_ADMIN@SAPCONTOSO.local` exists, and verify the Microsoft Entra user account.
    * Grant the Contributor role-based access control (RBAC) role to this Microsoft Entra user account for the resource group that contains the storage account that holds the file share. In this example, the user `SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com` is granted the Contributor role to the respective resource group.
    * The user should run the script while logged on to a Windows Server instance by using an Active Directory domain user account with the permission as specified earlier.
-  
+
    In this example scenario, the Active Directory administrator would log on to the Windows Server instance as `SAPCONT_ADMIN@SAPCONTOSO.local`. When the administrator is using the PowerShell command `Connect-AzAccount`, the administrator connects as user `SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com`. Ideally, the Active Directory administrator and the Azure administrator should work together on this task.
-  
+
    ![Screenshot of the PowerShell script that creates a local Active Directory account.](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)
 
    ![Screenshot of the Azure portal after successful PowerShell script execution.](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)
 
    > [!IMPORTANT]
-   > When a user is running the PowerShell script command `Connect-AzAccount`, we highly recommend entering the Microsoft Entra user account that corresponds and maps to the Active Directory domain user account that was used to log on to a Windows Server instance. 
+   > When a user is running the PowerShell script command `Connect-AzAccount`, we highly recommend entering the Microsoft Entra user account that corresponds and maps to the Active Directory domain user account that was used to log on to a Windows Server instance.
 
    After the script runs successfully, go to **Storage** > **File Shares** and verify that **Active Directory: Configured** appears.
 
@@ -136,7 +138,7 @@ The Azure administrator should complete the following tasks:
 
    ![Screenshot of Windows Server that shows adding the cluster name to the local Active Directory instance.](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-2.png)
 
-   You can find the *DOMAIN\CLUSTER_NAME$* account by selecting **Computers** under **Object types**.  
+   You can find the *DOMAIN\CLUSTER_NAME$* account by selecting **Computers** under **Object types**.
 
    ![Screenshot of selecting an object type for an Active Directory computer account.](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-3.png)
 
@@ -159,8 +161,8 @@ An SAP Basis administrator should complete these tasks:
 
 1. [Install the Windows cluster on ASCS/ERS nodes and add the cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#install-and-configure-windows-failover-cluster).
 2. The first cluster node installation asks for the Azure Files SMB storage account name. Enter the FQDN `<storage_account_name>.file.core.windows.net`. If SAPinst doesn't accept more than 13 characters, the SWPM version is too old.
-3. [Modify the SAP profile of the ASCS/SCS instance](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761).
-4. [Update the probe port for the SAP \<SID> role in Windows Server Failover Cluster (WSFC)](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761).
+3. [Modify the SAP profile of the ASCS/SCS instance](sap-high-availability-installation-wsfc-shared-disk.md#add-a-probe-port).
+4. [Update the probe port for the SAP \<SID> role in Windows Server Failover Cluster (WSFC)](sap-high-availability-installation-wsfc-shared-disk.md#add-a-probe-port).
 5. Continue with SWPM installation for the second ASCS/ERS node. SWPM requires only the path of the profile directory. Enter the full UNC path to the profile directory.
 6. Enter the UNC profile path for the database and for the installation of the primary application server (PAS) and additional application server (AAS).
 7. The PAS installation asks for the *transport* host name. Provide the FQDN of a separate storage account name for the *transport* directory.

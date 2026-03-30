@@ -4,10 +4,11 @@ titleSuffix: Azure NAT Gateway
 description: In this tutorial, learn how to integrate a NAT gateway with a public load Balancer using the Azure portal.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: tutorial
-ms.date: 01/30/2024
+ms.date: 09/11/2025
 ms.custom: template-tutorial, linux-related-content
+# Customer intent: "As a cloud architect, I want to integrate a NAT gateway with a public load balancer, so that I can ensure secure and efficient outbound connectivity for my backend resources."
 ---
 
 # Tutorial: Integrate a NAT gateway with a public load balancer using the Azure portal
@@ -30,13 +31,149 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-## Sign in to Azure
+## Create a resource group
 
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+Create a resource group to contain all resources for this quickstart.
 
-[!INCLUDE [virtual-network-create-with-nat-bastion.md](../../includes/virtual-network-create-with-nat-bastion.md)]
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal enter **Resource group**. Select **Resource groups** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a resource group**, enter, or select the following information.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription|
+    | Resource group | test-rg |
+    | Region | **East US 2** |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+## Create the virtual network
+
+1. In the search box at the top of the Azure portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+1. Select **Create**.
+
+1. Enter or select the following information in the **Basics** tab of **Create virtual network**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg** or your resource group. |
+    | **Instance details** |  |
+    | Name | Enter **vnet-1**. |
+    | Region | Select your region. This example uses **East US 2**. |
+
+1. Select the **IP Addresses** tab, or select **Next: Security**, then **Next: IP Addresses**.
+
+1. In **Subnets** select the **default** subnet.
+
+1. Enter or select the following information in **Edit subnet**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subnet purpose | Leave the default. |
+    | Name | Enter **subnet-1**. |
+
+1. Leave the rest of the settings as default, then select **Save**.
+
+1. Select **+ Add a subnet**.
+
+1. In **Add a subnet** enter or select the following information.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subnet purpose | Select **Azure Bastion**. |
+
+1. Leave the rest of the settings as default, then select **Add**.
+
+1. Select **Review + create**, then select **Create**.
+
+## Create Azure Bastion host
+
+Create an Azure Bastion host to securely connect to the virtual machine.
+
+1. In the search box at the top of the Azure portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **Create**.
+
+1. Enter or select the following information in the **Basics** tab of **Create a Bastion**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg** or your resource group. |
+    | **Instance details** |  |
+    | Name | Enter **bastion**. |
+    | Region | Select your region. This example uses **East US 2**. |
+    | Tier | Select **Developer**. |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **AzureBastionSubnet**. |
+
+1. Select **Review + create**, then select **Create**.
+
+## Create a NAT gateway
+
+1. In the search box at the top of the Azure portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
+
+1. Select **Create**.
+
+1. Enter the following information in **Create public IP address**.
+
+   | Setting | Value |
+   | ------- | ----- |
+   | Subscription | Select your subscription. |
+   | Resource group | Select your resource group. The example uses **test-rg**. |
+   | Region | Select a region. This example uses **East US 2**. |
+   | Name | Enter **public-ip-nat**. |
+   | IP version | Select **IPv4**. |
+   | SKU | Select **Standard**. |
+   | Availability zone | Select **Zone-redundant**. |
+   | Tier | Select **Regional**. |
+
+1. Select **Review + create** and then select **Create**.
+
+1. In the search box at the top of the Azure portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+
+1. Select **Create**.
+
+1. Enter or select the following information in the **Basics** tab of **Create network address translation (NAT) gateway**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg** or your resource group. |
+    | **Instance details** |  |
+    | NAT gateway name | Enter **nat-gateway**. |
+    | Region | Select your region. This example uses **East US 2**. |
+    | SKU | Select **Standard**. |
+    | TCP idle timeout (minutes) | Leave the default of **4**. |
+
+1. Select **Next**.
+
+1. In the **Outbound IP** tab, select **+ Add public IP addresses or prefixes**.
+
+1. In **Add public IP addresses or prefixes**, select **Public IP addresses**. Select the public IP address you created earlier, **public-ip-nat**.
+
+1. Select **Next**.
+
+1. In the **Networking** tab, in **Virtual network**, select **vnet-1**.
+
+1. Leave the checkbox for **Default to all subnets** unchecked.
+
+1. In **Select specific subnets**, select **subnet-1**.
+
+1. Select **Review + create**, then select **Create**.
 
 [!INCLUDE [load-balancer-public-create-http.md](../../includes/load-balancer-public-create-http.md)]
 
@@ -74,7 +211,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
     ```output
     azureuser@vm-1:~$ curl ifconfig.me
-    20.7.200.36
+    203.0.113.25
     ```
 
 1. Close the bastion connection to **vm-1**.

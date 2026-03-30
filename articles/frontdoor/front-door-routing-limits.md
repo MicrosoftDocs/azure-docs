@@ -2,15 +2,16 @@
 title: Routing limits
 titleSuffix: Azure Front Door
 description: This article helps you understand the composite limits around routing for Azure Front Door.
-services: front-door
-author: duongau
-ms.service: azure-frontdoor
-ms.topic: conceptual
-ms.date: 12/28/2023
+author: halkazwini
 ms.author: jodowns
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 09/25/2025
 ---
 
 # Front Door routing limits
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
@@ -21,7 +22,7 @@ Your Front Door profile's composite route metric is derived from the number of r
 The composite route metric for each Front Door profile can't exceed 5000.
 
 > [!TIP]
-> Most Front Door profiles don't approach the composite route limit. However, if you have a large Front Door profiles, consider whether you could exceed the limit and plan accordingly.
+> Most Front Door profiles don't approach the composite route limit. However, if you have a large Front Door profile, consider whether you could exceed the limit and plan accordingly.
 
 The number of origin groups, origins, and endpoints don't affect your composite routing limit. However, there are other limits that apply to these resources. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits).
 
@@ -74,6 +75,7 @@ If your profile's composite route metric exceed 5000, consider the following mit
 - Use [wildcard domains](front-door-wildcard-domain.md) instead of specifying subdomains individually, which might help to reduce the number of domains in your profile.
 - Require HTTPS for inbound traffic, which reduces the number of HTTP routes in your profile and also improves your solution's security.
 
-## Next steps
+## Next step
 
-Learn how to [create a Front Door](quickstart-create-front-door.md).
+> [!div class="nextstepaction"]
+> [Create a Front Door](quickstart-create-front-door.md)

@@ -3,6 +3,9 @@ title: Optimize Apache Hive with Apache Ambari in Azure HDInsight
 description: Use the Apache Ambari web UI to configure and optimize Apache Hive.
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: sairamyeturi
 ms.date: 09/06/2024
 ---
 
@@ -220,7 +223,7 @@ The default join type in Hive is a *shuffle join*. In Hive,  special mappers rea
 | Join Type | When | How | Hive settings | Comments |
 | --- | --- | --- | --- | --- |
 | Shuffle Join | <ul><li>Default choice</li><li>Always works</li></ul> | <ul><li>Reads from part of one of the tables</li><li>Buckets and sorts on Join key</li><li>Sends one bucket to each reduce</li><li>Join is done on the Reduce side</li></ul> | No significant Hive setting needed | Works every time |
-| Map Join | <ul><li>One table can fit in memory</li></ul> | <ul><li>Reads small table into memory hash table</li><li>Streams through part of the large file</li><li>Joins each record from hash table</li><li>Joins are by the mapper alone</li></ul> | `hive.auto.confvert.join=true` | Fast, but limited |
+| Map Join | <ul><li>One table can fit in memory</li></ul> | <ul><li>Reads small table into memory hash table</li><li>Streams through part of the large file</li><li>Joins each record from hash table</li><li>Joins are by the mapper alone</li></ul> | `hive.auto.convert.join=true` | Fast, but limited |
 | Sort Merge Bucket | If both tables are: <ul><li>Sorted the same</li><li>Bucketed the same</li><li>Joining on the sorted/bucketed column</li></ul> | Each process: <ul><li>Reads a bucket from each table</li><li>Processes the row with the lowest value</li></ul> | `hive.auto.convert.sortmerge.join=true` | Efficient |
 
 ### Execution engine optimizations

@@ -1,29 +1,40 @@
 ---
-title: Overview of Azure Native ISV Services
-description: Introduction to the Azure Native ISV Services.
-author: flang-msft
+title: Overview of Azure Native Integrations
+description: Learn about Azure Native Integrations, including their features and supported solution areas.
+ms.topic: overview
+ms.date: 08/06/2025
+ai-usage: ai-assisted
 
-ms.topic: conceptual
-ms.date: 04/08/2024
-ms.author: franlanglois
 ---
+# What are Azure Native Integrations?
 
-# Azure Native ISV Services overview
+Azure Native Integrations are services that Microsoft and software development companies jointly develop and natively integrate into the Azure platform. Customers manage and operate these services through Azure, which provides a consistent experience for deployment, management, and monitoring.
 
-Azure Native ISV Services enable you to easily provision, manage, and tightly integrate *independent software vendor (ISV)* software and services on Azure. Azure Native ISV Services is developed and managed by Microsoft and the ISV. Currently, several services are publicly available across these areas: observability, data, networking, and storage. For a list of all our current ISV partner services, see [Extend Azure with Azure Native ISV Services](partners.md).
+## Purpose
 
-## Features of Azure Native ISV Services
+Customers use Azure Native Integrations to deploy and manage partner solutions directly within Azure. Azure Native Integrations enable unified operations without requiring custom integration or other infrastructure.
 
-A list of features of any Azure Native ISV Service listed follows.
+## Features
 
-### Unified operations
+Azure Native Integrations provide:
 
-- Integrated onboarding: Use ARM template, SDK, CLI, and the Azure portal to create and manage services.
-- Unified management: Manage entire lifecycle of these ISV services through the Azure portal.
-- Unified access: Use Single Sign-on (SSO) through Microsoft Entra ID--no need for separate ISV authentications for subscribing to the service.
+- Integrated onboarding through Azure Resource Manager templates, SDKs, the Azure CLI, and the Azure portal.
+- Automatic resource discovery for monitoring.
+- Integration of logs and metrics with Azure Monitor.
+- Centralized management through the Azure portal.
+- Single sign-on (SSO) with Microsoft Entra ID.
+- Consolidated billing through Azure Marketplace.
+- Security features such as private data plane access and virtual network injection.
+- Operational consistency via Azure tools and processes.
 
-### Integrations
+## Available solution areas
 
-- Logs and metrics: Seamlessly direct logs and metrics from Azure Monitor to the Azure Native ISV Service using just a few gestures. You can configure autodiscovery of resources to monitor, and set up automatic log forwarding and metrics shipping. You can easily do the setup in Azure, without needing to create more infrastructure or write custom code.
-- Virtual network injection: Provides private data plane access to Azure Native ISV services from customers’ virtual networks.
-- Unified billing: Engage with a single entity, Microsoft Azure Marketplace, for billing. No separate license purchase is required to use Azure Native ISV Services.
+Azure Native Integrations are available in the following areas:
+
+- **AI**: Integrate advanced AI capabilities.
+- **Observability**: Gain insights into application and infrastructure performance.
+- **Data and storage**: Manage and analyze data at scale.
+- **Networks**: Enhance connectivity and network management.
+- **Security**: Strengthen security posture.
+
+For a complete list of available partner services, see [Azure Native Integrations partner solutions](partners.md).

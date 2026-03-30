@@ -4,10 +4,11 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/25/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
+# Customer intent: As a data engineer, I want to upload files and directories to Azure Blob storage using AzCopy, so that I can efficiently manage and transfer large amounts of data in my cloud environment.
 ---
 
 # Upload files to Azure Blob storage by using AzCopy
@@ -21,16 +22,16 @@ To see examples for other types of tasks such as downloading blobs, synchronizin
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
+> The examples in this article assume that you provide authorization credentials by using Microsoft Entra ID.
 >
-> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> If you want to use a SAS token to authorize access to blob data, append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## Create a container
 
-You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a container.
+Use the [azcopy make](storage-ref-azcopy-make.md) command to create a container.
 
 > [!TIP]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> These examples enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you use a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 **Syntax**
 
@@ -52,10 +53,10 @@ For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
 
 ## Upload a file
 
-Upload a file by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Upload a file by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> These examples enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you use a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 **Syntax**
 
@@ -77,12 +78,12 @@ You can also upload a file by using a wildcard symbol (*) anywhere in the file p
 
 ## Upload a directory
 
-Upload a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Upload a directory by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
-This example copies a directory (and all of the files in that directory) to a blob container. The result is a directory in the container by the same name.
+This example copies a directory (and all of the files in that directory) to a blob container. The result is a directory in the container with the same name.
 
 > [!TIP]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> These examples enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you use a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 **Syntax**
 
@@ -114,14 +115,14 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/myc
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive
 ```
 
-If you specify the name of a directory that doesn't exist in the container, AzCopy creates a new directory by that name.
+If you specify the name of a directory that doesn't exist in the container, AzCopy creates a new directory with that name.
 
 ## Upload directory contents
 
-Upload the contents of a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command. Use the wildcard symbol (*) to upload the contents without copying the containing directory itself.
+Upload the contents of a directory by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command. Use the wildcard symbol (*) to upload the contents without copying the containing directory itself.
 
 > [!TIP]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> These examples enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you use a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 **Syntax**
 
@@ -150,7 +151,7 @@ You can upload specific files by using complete file names, partial names with w
 
 ### Specify multiple complete file names
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
 
 **Syntax**
 
@@ -170,11 +171,11 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/myco
 
 In this example, AzCopy transfers the `C:\myDirectory\photos` directory and the `C:\myDirectory\documents\myFile.txt` file. Include the `--recursive` option to transfer all files in the `C:\myDirectory\photos` directory.
 
-You can also exclude files by using the `--exclude-path` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+You can also exclude files by using the `--exclude-path` option. To learn more, see [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 ### Use wildcard characters
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolon (`;`).
 
 **Syntax**
 
@@ -192,13 +193,13 @@ azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/myc
 azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
 ```
 
-You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `-recursive` option to get the entire directory tree, and then use the `-include-pattern` and specify `*.txt` to get all of the text files.
 
 ### Upload files that were modified before or after a date and time
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (for example: `2020-08-19T15:04:00Z`).
 
 The following examples upload files that were modified on or after the specified date.
 
@@ -218,23 +219,23 @@ azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/m
 azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'
 ```
 
-For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+For detailed reference, see the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 ## Upload with index tags
 
 You can upload a file and add [blob index tags](../blobs/storage-manage-find-blobs.md) to the target blob.
 
-If you're using Microsoft Entra authorization, your security principal must be assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, or it must be given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role. If you're using a Shared Access Signature (SAS) token, that token must provide access to the blob's tags via the `t` SAS permission.
+If you use Microsoft Entra authorization, assign the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role to your security principal, or give it permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) through a custom Azure role. If you use a Shared Access Signature (SAS) token, the token must provide access to the blob's tags through the `t` SAS permission.
 
-To add tags, use the `--blob-tags` option along with a URL encoded key-value pair. 
-For example, to add the key `my tag` and a value `my tag value`, you would add `--blob-tags='my%20tag=my%20tag%20value'` to the destination parameter.
+To add tags, use the `--blob-tags` option with a URL encoded key-value pair. 
+For example, to add the key `my tag` and the value `my tag value`, include `--blob-tags='my%20tag=my%20tag%20value'` in the destination parameter.
 
-Separate multiple index tags by using an ampersand (`&`).  For example, if you want to add a key `my second tag` and a value `my second tag value`, the complete option string would be `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
+Separate multiple index tags with an ampersand (`&`). For example, to add the key `my second tag` and the value `my second tag value`, the complete option string is `--blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`.
 
 The following examples show how to use the `--blob-tags` option.
 
 > [!TIP]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> These examples enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you use a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 **Upload a file**
 
@@ -255,7 +256,7 @@ azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/m
 ```
 
 > [!NOTE]
-> If you specify a directory for the source, all the blobs that are copied to the destination will have the same tags that you specify in the command.
+> If you specify a directory for the source, all the blobs that you copy to the destination have the same tags that you specify in the command.
 
 ## Upload with optional flags
 
@@ -266,7 +267,18 @@ You can tweak your upload operation by using optional flags. Here's a few exampl
 |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
 
-For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
+
+## Specify source and destination types
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection might fail - such as in piping scenarios or emulators. This parameter helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `LocalBlob`            | Upload from local file system to Azure Blob Storage                                   |
+| `LocalBlobFS`          | Upload from local file system to Azure Data Lake Gen2 (BlobFS)                        |
+| `PipeBlob`             | Stream data from a pipe to Azure Blob Storage                                         |
+| `PipeFile`             | Stream data from a pipe to Azure File Storage                                         |
 
 ## Next steps
 
@@ -278,7 +290,6 @@ Find more examples in these articles:
 - [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
 - [Examples: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Examples: Azure Files](storage-use-azcopy-files.md)
-- [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 See these articles to configure settings, optimize performance, and troubleshoot issues:
 

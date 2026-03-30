@@ -6,17 +6,21 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: tutorial
-ms.custom: b2c-docs-improvements
-ms.date: 09/11/2024
+ms.date: 04/18/2025
 ms.reviewer: yoelh
 ms.author: kengaderdus
 ms.subservice: b2c
+ms.custom:
+  - b2c-docs-improvements
+  - sfi-image-nochange
+  - sfi-ga-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to manage administrator accounts, add new administrators (work and guest accounts), assign roles to user accounts, remove role assignments, delete administrator accounts, and protect administrative accounts with multifactor authentication, so that I can control access and ensure security in my Azure AD B2C tenant.
 ---
 
 # Manage administrator accounts in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In Azure Active Directory B2C (Azure AD B2C), a tenant represents your directory of consumer, work and guest accounts. With an administrator role, work and guest accounts can manage the tenant.  
 
@@ -48,9 +52,10 @@ To create a new administrative account, follow these steps:
 1. On the **User** page, enter information for this user:
 
   
-   - **User name**. *Required*. The user name of the new user. For example, `mary@contoso.com`.
+   - **User principal name**. *Required*. The user name of the new user. For example, `mary@contoso.com`.
      The domain part of the user name must use either the initial default domain name, *\<tenant name>.onmicrosoft.com* or your [custom domain](custom-domain.md) such as `contoso.com`.
-   - **Name**. *Required*. The first and last name of the new user. For example, *Mary Parker*.
+   - **Display Name**. *Required*. The first and last name of the new user. For example, *Mary Parker*.
+   - **Password**. *Required*. The default setting is to auto-generate a password, but you have the option to enter your desired password.
    - **Groups**. *Optional*. You can add the user to one or more existing groups. You can also add the user to groups at a later time. 
    - **Directory role**: If you require Microsoft Entra administrative permissions for the user, you can add them to a Microsoft Entra role. You can assign the user to be a Global administrator or one or more of the limited administrator roles in Microsoft Entra ID. For more information about assigning roles, see [Use roles to control resource access](roles-resource-access-control.md).
    - **Job info**: You can add more information about the user here, or do it later. 
@@ -73,7 +78,6 @@ To invite a user, follow these steps:
 1. Select **New guest account**.
 1. On the **User** page, enter information for this user:
 
-   - **Name**. *Required*. The first and last name of the new user. For example, *Mary Parker*.
    - **Email address**. *Required*. The email address of the user you would like to invite, which must be a Microsoft account. For example, `mary@contoso.com`.   
    - **Personal message**: You add a personal message that will be included in the invite email.
    - **Groups**. *Optional*. You can add the user to one or more existing groups. You can also add the user to groups at a later time.

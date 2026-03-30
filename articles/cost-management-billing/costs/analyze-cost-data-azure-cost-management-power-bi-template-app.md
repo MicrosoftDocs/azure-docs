@@ -1,25 +1,27 @@
 ---
 title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Cost Management Power BI App.
-author: bandersmsft
-ms.author: banders
-ms.date: 05/08/2024
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 06/26/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: benshy
+ms.reviewer: vikdesai
+ms.custom: sfi-image-nochange
 ---
 
-# Analyze cost with the Cost Management Power BI App for Enterprise Agreements (EA)
+# Analyze cost with the Cost Management Power BI app for Enterprise Agreements (EA)
 
 This article explains how to install and use the Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-The Cost Management Power BI app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/). Sovereign clouds, including Azure Government, Azure China, and Azure Germany, aren't supported by any Power BI template apps.
+The Cost Management Power BI app currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/). Power BI template apps aren't supported in Azure Government, Azure China 21 Vianet, and Azure Germany.
 
-The app limits customizability. If you want to modify and extend the default filters, views, and visualizations to customize for your needs, use [Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) instead. With the Cost Management connector you can join additional data from other sources to create customized reports to get holistic views of your overall business cost. The connector also supports Microsoft Customer Agreements.
+The app limits customizability. If you want to modify and extend the default filters, views, and visualizations to customize for your needs, use [Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) instead. With the Cost Management connector, you can join other data from other sources to create customized reports to get holistic views of your overall business cost. The connector also supports Microsoft Customer Agreements.
 
 > [!NOTE]
-> Power BI template apps don't support downloading the PBIX file.
+> - Power BI template apps don't support downloading the PBIX file. However, you can download the template app PBIX file from the FinOps toolkit. For more information, see [Cost Management template app for Enterprise Agreement accounts](/cloud-computing/finops/toolkit/power-bi/template-app).
+> - The Cost Management Power BI app supports up to an estimated maximum of $2 million of raw cost details. To evaluate alternatives based on your needs, review the [Choose a Power Bi data source article](/cloud-computing/finops/toolkit/power-bi/help-me-choose).
 
 ## Prerequisites
 
@@ -49,11 +51,11 @@ To install the app:
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Screenshot showing the Connect to Cost Management App dialog box with default values to connect with." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
 1. The final dialog connects to Azure and gets data. *Leave the default values as configured* and select **Sign in and connect**.  
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Screenshot showing the Connect to Cost Management App dialog box with default values." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
-1. You are prompted to authenticate with your EA enrollment. Authenticate with Power BI. After you're authenticated, a Power BI data refresh starts.
+1. You're prompted to authenticate with your EA enrollment. Authenticate with Power BI. After you're authenticated, a Power BI data gets refreshed.
     > [!NOTE]
     > The data refresh process might take quite a while to complete. The length depends on the number of months specified and the amount of data needed to sync.
 
-After the data refresh is complete, select the Cost Management App to view the pre-created reports.
+After the data refresh is complete, select the Cost Management App to view the precreated reports.
 
 ## Reports available with the app
 
@@ -68,11 +70,10 @@ The following reports are available in the app.
 - Azure Marketplace charges
 - Overages and total charges
 
-
 >[!NOTE]
 >The **Select date range** selector doesn’t affect or change overview tiles. Instead, the overview tiles show the costs for the current billing month. This behavior is intentional.
 
-Data shown in the bar graph is determined by the date selection.
+Data shown in the bar graph is based on the date selection.
 
 Here's how values in the overview tiles are calculated.
 
@@ -95,13 +96,13 @@ The Power BI template app includes Adjustments, Service Overage, Charges billed 
 
 :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" alt-text="Screenshot showing the full Azure Hybrid Benefits report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" :::
 
-The report also identifies Windows VMs where Hybrid Benefit is **enabled** but there are _fewer than_ 8 vCPUs. It also shows where Hybrid Benefit is **not enabled** that have 8 _or more_ vCPUs. This information helps you fully use your Hybrid Benefit. Apply the benefit to your most expensive virtual machines to maximize your potential savings.
+The report also identifies Windows VMs where Hybrid Benefit is **enabled** but there are _fewer than_ 8 vCPUs. It also shows where Hybrid Benefit is **not enabled** that have 8 _or more_ vCPUs. This information helps you fully use your Hybrid Benefit. To maximize your potential savings, apply the benefit to your most expensive virtual machines.
 
 :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" alt-text="Screenshot showing the Less than 8 vCPUs and vCPUs not enabled area of the Azure Hybrid Benefits report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" :::
 
 **RI Chargeback** - The report helps you understand where and how much of a reserved instance (RI) benefit is applied per region, subscription, resource group, or resource. The report uses amortized usage data to show the view.
 
-You can apply a filter on _chargetype_ to view RI underutilization data.
+You can apply a filter on `chargetype` to view RI underutilization data.
 
 For more information about amortized data, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).
 
@@ -116,17 +117,17 @@ For more information about amortized data, see [Get Enterprise Agreement reserva
 You can use the amortized usage data to build on the data.
 
 <a name="shared-recommendation"></a>
-**VM RI Coverage (shared recommendation)** - The report is split between on-demand VM usage and RI VM usage over the selected period. It provides recommendations for VM RI purchases at a shared scope.
+**VM RI Coverage (shared recommendation)** - The report is split between on-demand virtual machine (VM) usage and RI VM usage over the selected period. It provides recommendations for VM RI purchases at a shared scope.
 
 To use the report, select the drill-down filter.
 
-:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" alt-text="Screenshot showing the select drill down option in the VM RI coverage report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" :::
+:::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" alt-text="Screenshot showing the select drill option in the VM RI coverage report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-drill-down2.png" :::
 
 Select the region that you want to analyze. Then select the instance size flexibility group, and so on.
 
 For each drill-down level, the following filters are applied to the report:
 
-- The coverage data on the right is the filter showing how much usage is charged using the on-demand rate vs. how much is covered by the reservation.
+- The coverage data is the filter showing how much usage is charged using the on-demand rate vs. how much is covered by the reservation.
 - Recommendations are also filtered.
 
 The recommendations table provides recommendations for the reservation purchase, based on the VM sizes used.
@@ -164,7 +165,7 @@ The default **Scope** value of `Enrollment Number` was changed in the connection
 
 #### Solution
 
-Reconnect to Cost Management and set the **Scope** value to `Enrollment Number`. Do not enter your organization's enrollment number, instead type `Enrollment Number` exactly as it appears in the following image.
+Reconnect to Cost Management and set the **Scope** value to `Enrollment Number`. Don't enter your organization's enrollment number, instead type `Enrollment Number` exactly as it appears in the following image.
 
 :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" alt-text="Screenshot showing that the default text of Enrollment Number must not change." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number-troubleshoot.png" :::
 
@@ -217,8 +218,8 @@ The following information summarizes the data available through the app.
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) | Budget details to view actual costs or usage against existing budget targets. |
 | **Pricesheets** | Applicable meter rates for the provided billing profile or EA enrollment. |
 | **RI charges** | Charges associated to your reserved instances over the last 24 months. |
-| **RI recommendations (shared)** | Reserved instance purchase recommendations based on all your subscription usage trends for the last 7 days. |
-| **RI recommendations (single)** | Reserved instance purchase recommendations based on your single subscription usage trends for the last 7 days. |
+| **RI recommendations (shared)** | Reserved instance purchase recommendations based on all your subscription usage trends for the last seven days. |
+| **RI recommendations (single)** | Reserved instance purchase recommendations based on your single subscription usage trends for the last seven days. |
 | **RI usage details** | Consumption details for your existing reserved instances over the last month. |
 | [**RI usage summary**](/rest/api/consumption/reservationssummaries/list) | Daily Azure reservation usage percentage. |
 | **Usage details** | A breakdown of consumed quantities and estimated charges for the given billing profile in the EA enrollment. |
@@ -226,7 +227,7 @@ The following information summarizes the data available through the app.
 
 ## Next steps
 
-For more information about configuring data, refresh, sharing reports, and additional report customization see the following articles:
+For more information about configuring data, refresh, sharing reports, and other report customization see the following articles:
 
 - [Configure scheduled refresh](/power-bi/refresh-scheduled-refresh)
 - [Share Power BI dashboards and reports with coworkers and others](/power-bi/service-share-dashboards)

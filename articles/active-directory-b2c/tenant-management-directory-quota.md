@@ -20,6 +20,7 @@ ms.subservice: b2c
 ---
 
 # Manage directory size quota of your Azure Active Directory B2C tenant
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 It's important that you monitor how you use your Azure AD B2C directory quota. Directory quota has a size that's expressed in number of objects. These objects include user accounts, app registrations, groups, etc. When the number of objects in your tenant reach quota size, the directory will generate an error when trying to create a new object.
 

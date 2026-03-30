@@ -2,8 +2,10 @@
 title: Azure Service Bus JMS 2.0 developer guide
 description: How to use the Java Message Service (JMS) 2.0 API to communicate with Azure Service Bus
 ms.topic: article
-ms.custom: devx-track-extended-java
-ms.date: 05/02/2023
+ms.date: 06/16/2025
+ms.custom:
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
 # Azure Service Bus JMS 2.0 developer guide
@@ -48,6 +50,10 @@ The below building blocks are available to communicate with the JMS application.
 >
 
 ### Connection factory
+
+> [!NOTE]
+> The `azure-servicebus-jms` library is available in two variants: `com.azure:azure-servicebus-jms` (version 2.0.0+) for **Jakarta EE** (`jakarta.jms.*`) and `com.microsoft.azure:azure-servicebus-jms` (version 1.0.x) for **Java EE** (`javax.jms.*`). For guidance on choosing the right artifact, see [Jakarta EE and javax support](how-to-use-java-message-service-20.md#jakarta-ee-and-javax-support).
+
 The connection factory object is used by the client to connect with the JMS provider. The connection factory encapsulates a set of connection configuration parameters that are defined by the administrator.
 
 Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionFactory`, or `TopicConnectionFactory` interface.
@@ -55,7 +61,7 @@ Each connection factory is an instance of `ConnectionFactory`, `QueueConnectionF
 To simplify connecting with Azure Service Bus, these interfaces are implemented through `ServiceBusJmsConnectionFactory`, `ServiceBusJmsQueueConnectionFactory`, or `ServiceBusJmsTopicConnectionFactory` respectively.
 
 > [!IMPORTANT]
-> Java applications leveraging JMS 2.0 API can connect to Azure Service Bus using the connection string, or using a `TokenCredential` for leveraging Microsoft Entra backed authentication. When using Microsoft Entra backed authentication, ensure to [assign roles and permissions](service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) to the identity as needed.
+> Java applications leveraging JMS 2.0 API can connect to Azure Service Bus using the connection string, or using a `TokenCredential` for leveraging Microsoft Entra backed authentication. When using Microsoft Entra backed authentication, ensure to [assign roles and permissions](service-bus-managed-service-identity.md#assign-a-service-bus-role-to-the-managed-identity) to the identity as needed.
 
 # [System Assigned Managed Identity](#tab/system-assigned-managed-identity-backed-authentication)
 
@@ -114,7 +120,7 @@ TokenCredential tokenCredential = new ClientSecretCredentialBuilder()
                 .tenantId("")
                 .clientId("")
                 .clientSecret("")
-                .build();;
+                .build();
 ```
 
 The Connection factory can then be instantiated with the below parameters.
@@ -294,7 +300,7 @@ QueueBrowser browser = context.createBrowser(queue);
 > [!NOTE]
 > JMS API doesn't provide an API to browse a topic.
 >
-> This is because the topic itself doesn't store the messages. As soon as the message is sent to the topic, it is forwarded to the appropriate subscriptions.
+> This is because the topic itself doesn't store the messages. As soon as the message is sent to the topic, it's forwarded to the appropriate subscriptions.
 >
 
 ### JMS Message selectors
@@ -306,7 +312,11 @@ Selectors can be utilized when creating any of the below consumers -
    * Unshared durable subscription
    * Shared non-durable subscription
    * Unshared non-durable subscription
+   * Queue consumer
    * Queue browser
+
+> [!NOTE]
+> Service Bus selectors don't support "LIKE" and "BETWEEN" SQL keywords.
 
 ## AMQP disposition and Service Bus operation mapping
 

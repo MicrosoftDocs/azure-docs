@@ -1,14 +1,15 @@
 ---
-title: Webhooks as event handler for namespace topics' push delivery
-description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics'push delivery.
-ms.topic: conceptual
+title: Webhook event handler for namespace topics' push delivery
+description: Describes how you can use webhooks as event handlers for Azure Event Grid namespace topics' push delivery.
+ms.topic: concept-article
 ms.custom:
-  - build-2024
-ms.date: 05/21/2024
+  - ignite-2024
+ms.date: 11/18/2024
 ms.author: robece
+# Customer intent: As a developer, I want to whether I can push events from a namespace topic to a Webhook.
 ---
 
-# Webhook event handler for namespace topic's push delivery (Preview)
+# Webhook event handler for namespace topics' push delivery
 
 You can set up a webhook endpoint to handle events on a specific namespace topic by subscribing to it. Any public endpoint can be used as an event handler if it uses encryption in transit (`HTTPS`), can read events that use a supported [CloudEvents metadata format](namespaces-cloud-events.md), and handle the webhook validation. 
 
@@ -20,14 +21,14 @@ If your webhook endpoint is known by malicious actors, they could exploit attack
 
 >[!IMPORTANT]
 >Event Grid doesn't support the following functionality when [validating webhooks](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#41-validation-request):
->- `WebHook-Request-Callback`. That means that you or your webhook cannot respond asyncronously to Event Grid's validation request.
+>- `WebHook-Request-Callback`. That means that you or your webhook cannot respond asynchronously to Event Grid's validation request.
 >- `WebHook-Request-Rate`. That is, Event Grid does not request a data rate at which it communicates with your webhook endpoint. If your webhook responds with a `WebHook-Allowed-Rate`header, it is ignored.
 
 ## Webhooks
 See [Deliver events to webhooks using namespace topics - Azure CLI](publish-deliver-events-with-namespace-topics-webhook.md), which provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model.
 
 
-## Next steps
+## Related content
 
 - See Event Grid's [push delivery and retry](namespace-delivery-retry.md) to understand the event retry schedule in case your webhook isn't available.
 - [Deliver events to webhooks using namespace topics](publish-deliver-events-with-namespace-topics-webhook.md)

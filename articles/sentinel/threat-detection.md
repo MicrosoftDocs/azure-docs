@@ -1,14 +1,14 @@
 ---
 title: Threat detection in Microsoft Sentinel | Microsoft Docs
 description: Understand how threat detection works in Microsoft Sentinel. Learn about different types of analytics rules and templates, and the generation of alerts and incidents.
-author: yelevin
-ms.author: yelevin
-ms.topic: conceptual
+author: guywi-ms
+ms.author: guywild
+ms.topic: concept-article
 ms.custom: devx-track-arm-template
-ms.date: 05/23/2024
+ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -17,6 +17,9 @@ ms.collection: usx-security
 ---
 
 # Threat detection in Microsoft Sentinel
+
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
 
 After [setting up Microsoft Sentinel to collect data from all over your organization](connect-data-sources.md), you need to constantly dig through all that data to detect security threats to your environment. To accomplish this task, Microsoft Sentinel provides threat detection rules that run regularly, querying the collected data and analyzing it to discover threats. These rules come in a few different flavors and are collectively known as **analytics rules**.
 
@@ -49,7 +52,7 @@ Besides the preceding rule types, there are some other specialized template type
 
 ### Scheduled rules 
 
-By far the most common type of analytics rule, **Scheduled** rules are based on [Kusto queries](kusto-overview.md) that are configured to run at regular intervals and examine raw data from a defined "lookback" period. If the number of results captured by the query passes the threshold configured in the rule, the rule produces an alert.
+By far the most common type of analytics rule, **Scheduled** rules are based on [Kusto queries](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) that are configured to run at regular intervals and examine raw data from a defined "lookback" period. If the number of results captured by the query passes the threshold configured in the rule, the rule produces an alert.
 
 The queries in [scheduled rule templates](create-analytics-rule-from-template.md) were written by security and data science experts, either from Microsoft or from the vendor of the solution providing the template. Queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events.
 
@@ -86,7 +89,7 @@ While scheduled and NRT rules automatically create incidents for the alerts they
 > [!IMPORTANT]
 > Microsoft security rules are **not available** if you have:
 > - Enabled [**Microsoft Defender XDR incident integration**](microsoft-365-defender-sentinel-integration.md), or 
-> - Onboarded Microsoft Sentinel to the [**unified security operations platform**](microsoft-sentinel-defender-portal.md).
+> - Onboarded Microsoft Sentinel to the [**Defender portal**](microsoft-sentinel-defender-portal.md).
 >
 > In these scenarios, Microsoft Defender XDR creates the incidents instead.
 >
@@ -109,7 +112,7 @@ The Fusion engine can also correlate alerts produced by [scheduled analytics rul
 > [!IMPORTANT]
 > The *Advanced multistage attack detection* rule type is **not available** if you have:
 > - Enabled [**Microsoft Defender XDR incident integration**](microsoft-365-defender-sentinel-integration.md), or 
-> - Onboarded Microsoft Sentinel to the [**unified security operations platform**](microsoft-sentinel-defender-portal.md).
+> - Onboarded Microsoft Sentinel to the [**Defender portal**](microsoft-sentinel-defender-portal.md).
 >
 > In these scenarios, Microsoft Defender XDR creates the incidents instead.
 >

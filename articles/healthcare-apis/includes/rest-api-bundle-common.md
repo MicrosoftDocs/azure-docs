@@ -69,12 +69,13 @@ For a transaction bundle, all interactions or operations either succeed or fail 
 
 Transaction bundles don't support:
 - Conditional delete
-- Search operations using _search 
+- Search operations using _search
+- Hard delete
 
 ### Bundle parallel processing 
 
 Batch and transaction bundles are executed serially in the FHIR service. To improve performance and throughput, we enabled parallel processing of bundles.
 
 To use parallel batch bundle processing:
-- Set header `x-bundle-processing-logic` value to 1parallel`.
+- Set header `x-bundle-processing-logic` value to `parallel`.
 - Ensure there's no overlapping resource ID that executes on DELETE, POST, PUT, or PATCH operations in the same bundle.

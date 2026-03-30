@@ -6,9 +6,10 @@ author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security analyst, I want to authenticate playbooks to Microsoft Sentinel so that I can automate and orchestrate security tasks efficiently.
 

@@ -2,7 +2,9 @@
 title: Integrate Apache Kafka Connect on Azure Event Hubs with Debezium for Change Data Capture
 description: This article provides information on how to use Debezium with Azure Event Hubs for Kafka.
 ms.topic: how-to
+ms.subservice: kafka
 ms.date: 10/18/2021
+ms.custom: sfi-ropc-nochange
 ---
 
 # Integrate Apache Kafka Connect support on Azure Event Hubs with Debezium for Change Data Capture
@@ -26,10 +28,10 @@ In this tutorial, you take the following steps:
 ## Prerequisites
 To complete this walk through, you require:
 
-- Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- Linux/MacOS
+- Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- Linux/macOS
 - Kafka release (version 1.1.1, Scala version 2.11), available from [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
-- Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-kafka-overview.md) introduction article
+- Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-apache-kafka-overview.md) introduction article
 
 ## Create an Event Hubs namespace
 An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating an event hub](event-hubs-create.md) for instructions to create a namespace and an event hub. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
@@ -55,7 +57,7 @@ Follow the latest instructions in the [Debezium documentation](https://debezium.
 Minimal reconfiguration is necessary when redirecting Kafka Connect throughput from Kafka to Event Hubs. The following `connect-distributed.properties` sample illustrates how to configure Connect to authenticate and communicate with the Kafka endpoint on Event Hubs:
 
 > [!IMPORTANT]
-> - Debezium will auto-create a topic per table and a bunch of metadata topics. Kafka **topic** corresponds to an Event Hubs instance (event hub). For Apache Kafka to Azure Event Hubs mappings, see [Kafka and Event Hubs conceptual mapping](azure-event-hubs-kafka-overview.md#apache-kafka-and-azure-event-hubs-conceptual-mapping). 
+> - Debezium auto-creates a topic per table and a bunch of metadata topics. Kafka **topic** corresponds to an Event Hubs instance (event hub). For Apache Kafka to Azure Event Hubs mappings, see [Kafka and Event Hubs conceptual mapping](azure-event-hubs-apache-kafka-overview.md#apache-kafka-and-azure-event-hubs-conceptual-mapping). 
 > - There are different **limits** on number of event hubs in an Event Hubs namespace depending on the tier (Basic, Standard, Premium, or Dedicated). For these limits, See [Quotas](compare-tiers.md#quotas).
 
 ```properties
@@ -106,14 +108,14 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 ### Run Kafka Connect
 In this step, a Kafka Connect worker is started locally in distributed mode, using Event Hubs to maintain cluster state.
 
-1. Save the above `connect-distributed.properties` file locally.  Be sure to replace all values in braces.
+1. Save the `connect-distributed.properties` file locally. Be sure to replace all values in braces.
 2. Navigate to the location of the Kafka release on your machine.
 3. Run `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties` and wait for the cluster to start.
 
 > [!NOTE]
 > Kafka Connect uses the Kafka AdminClient API to automatically create topics with recommended configurations, including compaction. A quick check of the namespace in the Azure portal reveals that the Connect worker's internal topics have been created automatically.
 >
-> Kafka Connect internal topics **must use compaction**.  The Event Hubs team is not responsible for fixing improper configurations if internal Connect topics are incorrectly configured.
+> Kafka Connect internal topics **must use compaction**. The Event Hubs team isn't responsible for fixing improper configurations if internal Connect topics are incorrectly configured.
 
 ### Configure and start the Debezium PostgreSQL source connector
 
@@ -179,7 +181,7 @@ The connector should now spring into action and send change data events to an Ev
 
 **Check Event Hubs topic**
 
-Let's introspect the contents of the topic to make sure everything is working as expected. The below example uses [`kafkacat`](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat), but you can also [create a consumer using any of the options listed here](apache-kafka-developer-guide.md).
+Let's introspect the contents of the topic to make sure everything is working as expected. The following example uses [`kafkacat`](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat), but you can also [create a consumer using any of the options listed here](apache-kafka-developer-guide.md).
 
 Create a file named `kafkacat.conf` with the following contents:
 
@@ -220,7 +222,7 @@ You should see the JSON payloads representing the change data events generated i
         "source": {
             "version": "1.2.0.Final",
             "connector": "postgresql",
-            "name": "fullfillment",
+            "name": "fulfillment",
             "ts_ms": 1593018069944,
             "snapshot": "last",
             "db": "postgres",

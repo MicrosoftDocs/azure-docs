@@ -2,10 +2,10 @@
 title: Include file - Java
 description: Java Audio Streaming quickstart
 services: azure-communication-services
-author: Alvin
+author: alvin-l-han
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 07/15/2024
+ms.date: 11/26/2024
 ms.topic: include
 ms.topic: Include file
 ms.author: alvinhan
@@ -13,144 +13,164 @@ ms.author: alvinhan
 
 ## Prerequisites
 
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp).
 - A new web service application created using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
-- [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
+- [Java Development Kit](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 17 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Set up a websocket server
 Azure Communication Services requires your server application to set up a WebSocket server to stream audio in real-time. WebSocket is a standardized protocol that provides a full-duplex communication channel over a single TCP connection. 
-You can optionally use Azure services Azure WebApps that allows you to create an application to receive audio streams over a websocket connection. Follow this [quickstart](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/).
 
-## Establish a call
-Establish a call and provide streaming details
+You can review documentation [here](https://azure.microsoft.com/blog/introduction-to-websockets-on-windows-azure-web-sites/) to learn more about WebSockets and how to use them.
+
+## Receiving and sending audio streaming data
+There are multiple ways to start receiving audio stream, which can be configured using the `startMediaStreaming` flag in the `mediaStreamingOptions` setup. You can also specify the desired sample rate used for receiving or sending audio data using the `audioFormat` parameter. Currently supported formats are PCM 24K mono and PCM 16K mono, with the default being PCM 16K mono.
+
+To enable bidirectional audio streaming, where you're sending audio data into the call, you can enable the `EnableBidirectional` flag. For more details, refer to the [API specifications](/rest/api/communication/callautomation/answer-call/answer-call?view=rest-communication-callautomation-2024-06-15-preview&preserve-view=true&tabs=HTTP#mediastreamingoptions).
+
+### Start streaming audio to your webserver at time of answering the call
+Enable automatic audio streaming when the call is established by setting the flag `startMediaStreaming: true`.
+ 
+This setting ensures that audio streaming starts automatically as soon as the call is connected.
 
 ``` Java
-CallInvite callInvite = new CallInvite(target, caller);  
-              
-            CallIntelligenceOptions callIntelligenceOptions = new CallIntelligenceOptions().setCognitiveServicesEndpoint(appConfig.getCognitiveServiceEndpoint());  
-            MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(appConfig.getWebSocketUrl(), MediaStreamingTransport.WEBSOCKET, MediaStreamingContentType.AUDIO, MediaStreamingAudioChannel.UNMIXED);  
-            mediaStreamingOptions.setStartMediaStreaming(false);  
-          
-            CreateCallOptions createCallOptions = new CreateCallOptions(callInvite, appConfig.getCallBackUri());  
-            createCallOptions.setCallIntelligenceOptions(callIntelligenceOptions);  
-            createCallOptions.setMediaStreamingOptions(mediaStreamingOptions);  
-  
-            Response<CreateCallResult> result = client.createCallWithResponse(createCallOptions, Context.NONE);  
-            return result.getValue().getCallConnectionProperties().getCallConnectionId();  
+MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(appConfig.getTransportUrl(), MediaStreamingTransport.WEBSOCKET, MediaStreamingContent.AUDIO, MediaStreamingAudioChannel.MIXED, true).setEnableBidirectional(true).setAudioFormat(AudioFormat.PCM_24K_MONO);
+options = new AnswerCallOptions(data.getString(INCOMING_CALL_CONTEXT), callbackUri).setCallIntelligenceOptions(callIntelligenceOptions).setMediaStreamingOptions(mediaStreamingOptions);
+Response answerCallResponse = client.answerCallWithResponse(options, Context.NONE);
 ```
+When Azure Communication Services receives the URL for your WebSocket server, it establishes a connection to it. Once the connection is successfully made, streaming is initiated.
 
-## Start audio streaming
 
-How to start audio streaming:
+### Start streaming audio to your webserver while a call is in progress
+To start media streaming during the call, you can use the API. To do so, set the `startMediaStreaming` parameter to `false` (which is the default), and later in the call, you can use the start API to enable media streaming.
+
 ``` Java 
-StartMediaStreamingOptions startOptions = new StartMediaStreamingOptions()  
-                                                        .setOperationContext("startMediaStreamingContext")  
-                                                        .setOperationCallbackUrl(appConfig.getBasecallbackuri());  
-         client.getCallConnection(callConnectionId)  
-                     .getCallMedia()  
-                     .startMediaStreamingWithResponse(startOptions, Context.NONE);      
-```
-When Azure Communication Services receives the URL for your WebSocket server, it creates a connection to it. Once Azure Communication Services successfully connects to your WebSocket server and streaming is started, it will send through the first data packet, which contains metadata about the incoming media packets.
+MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(MediaStreamingAudioChannel.UNMIXED);
+mediaStreamingOptions.setTransportUrl(appConfig.getTransportUrl());
+mediaStreamingOptions.setStartMediaStreaming(true);
+mediaStreamingOptions.setEnableDtmfTones(true); // Allow receiving DTMF tones
+mediaStreamingOptions.setEnableBidirectional(true);
+mediaStreamingOptions.setAudioFormat(AudioFormat.PCM_24K_MONO);
 
-The metadata packet will look like this:
-``` Code
-{ 
-    "kind": <string> // What kind of data this is, e.g. AudioMetadata, AudioData. 
-    "audioMetadata": { 
-        "subscriptionId": <string>, // unique identifier for a subscription request 
-        "encoding":<string>, // PCM only supported 
-        "sampleRate": <int>, // 16000 default 
-        "channels": <int>, // 1 default 
-        "length": <int> // 640 default 
-    } 
-} 
-```
+options = new AnswerCallOptions(data.getString(INCOMING_CALL_CONTEXT), callbackUri)
+    .setCallIntelligenceOptions(callIntelligenceOptions)
+    .setMediaStreamingOptions(mediaStreamingOptions);
 
+Response answerCallResponse = client.answerCallWithResponse(options, Context.NONE);
+
+StartMediaStreamingOptions mediaStreamingOptions = new StartMediaStreamingOptions();
+mediaStreamingOptions.setOperationContext("StartMediaStreamingContext");
+
+client.getCallConnection(callConnectionId)
+      .getCallMedia()
+      .startMediaStreamingWithResponse(mediaStreamingOptions, Context.NONE);    
+```
 
 ## Stop audio streaming
-How to stop audio streaming
+To stop receiving audio streams during a call, you can use the **Stop streaming API**. This allows you to stop the audio streaming at any point in the call. There are two ways that audio streaming can be stopped;
+- **Triggering the Stop streaming API:** Use the API to stop receiving audio streaming data while the call is still active.
+- **Automatic stop on call disconnect:** Audio streaming automatically stops when the call is disconnected.
+
 ``` Java
-StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions()  
-                                                        .setOperationCallbackUrl(appConfig.getBasecallbackuri());  
-         client.getCallConnection(callConnectionId)  
-                     .getCallMedia()  
-                     .stopMediaStreamingWithResponse(stopOptions, Context.NONE);
+StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions();
+stopOptions.setOperationContext("StopMediaStreamingContext");
+
+client.getCallConnection(callConnectionId)
+      .getCallMedia()
+      .stopMediaStreamingWithResponse(stopOptions, Context.NONE);
 ```
 
-## Handling media streams in your websocket server
-The sample below demonstrates how to listen to media stream using your websocket server.  There will be two files that need to be run: App.java and WebSocketServer.java
+## Handling audio streams in your websocket server
+This sample demonstrates how to listen to audio streams using your websocket server.
 
-``` App.java
-package com.example;
+``` Java
+@OnMessage
+public void onMessage(String message, Session session) {
+  System.out.println("Received message: " + message);
+  var parsedData = StreamingData.parse(message);
+  if (parsedData instanceof AudioData) {
+    var audioData = (AudioData) parsedData;
+    sendAudioData(session, audioData.getData());
+  }
+}
+```
 
-import org.glassfish.tyrus.server.Server;
+The first packet you receive contains metadata about the stream, including audio settings such as encoding, sample rate, and other configuration details.
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+### Additional Headers
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`. These are sent when Azure Communication Services tries to connect to your endpoint.
 
-public class App {
-    public static void main(String[] args) {
+``` json
+{
+  "kind": "AudioMetadata",
+  "audioMetadata": {
+    "subscriptionId": "89e8cb59-b991-48b0-b154-1db84f16a077",
+    "encoding": "PCM",
+    "sampleRate": 16000,
+    "channels": 1,
+    "length": 640
+  }
+}
+```
 
-        Server server = new Server("localhost", 8081, "/ws", null, WebSocketServer.class);
+After sending the metadata packet, Azure Communication Services (ACS) will begin streaming audio media to your WebSocket server.
 
+``` json
+{
+  "kind": "AudioData",
+  "audioData": {
+    "timestamp": "2024-11-15T19:16:12.925Z",
+    "participantRawID": "8:acs:3d20e1de-0f28-41c5…",
+    "data": "5ADwAOMA6AD0A…",
+    "silent": false
+  }
+}
+```
+
+#### DTMF example 
+When DTMF is enabled Azure Communication Services sends a `DtmfData` type.
+
+``` json
+{
+  "kind": "DtmfData",
+  "dtmfData": {
+    "data": "3"
+  }
+}
+```
+
+## Sending audio streaming data to Azure Communication Services
+If bidirectional streaming is enabled using the `EnableBidirectional` flag in the `MediaStreamingOptions`, you can stream audio data back to Azure Communication Services, which plays the audio into the call.
+
+Once Azure Communication Services begins streaming audio to your WebSocket server, you can relay the audio to your AI services. After your AI service processes the audio content, you can stream the audio back to the ongoing call in Azure Communication Services.
+
+The example demonstrates how another service, such as Azure OpenAI or other voice-based Large Language Models, processes and transmits the audio data back into the call.
+
+``` Java
+private void sendAudioData(Session session, byte[] binaryData) {
+    System.out.println("Data buffer---> " + binaryData.getClass().getName());
+    if (session.isOpen()) {
         try {
-            server.start();
-            System.out.println("Web socket running on port 8081...");
-            System.out.println("wss://localhost:8081/ws/server");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            reader.readLine();
-        } catch (Exception e) {
+            var serializedData = OutStreamingData.getStreamingDataForOutbound(binaryData);
+            session.getAsyncRemote().sendText(serializedData);
+        } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            server.stop();
         }
     }
 }
 ```
-``` WebSocketServer.java
-package com.example;
 
-import javax.websocket.OnMessage;
-import javax.websocket.Session;
-import javax.websocket.server.ServerEndpoint;
+You can also control the playback of audio in the call when streaming back to Azure Communication Services, based on your logic or business flow. For example, when voice activity is detected and you want to stop the queued up audio, you can send a stop message via the WebSocket to stop the audio from playing in the call.
 
-import com.azure.communication.callautomation.models.streaming.StreamingData;
-import com.azure.communication.callautomation.models.streaming.StreamingDataParser;
-import com.azure.communication.callautomation.models.streaming.media.AudioData;
-import com.azure.communication.callautomation.models.streaming.media.AudioMetadata;
-
-@ServerEndpoint("/server")
-public class WebSocketServer {
-    @OnMessage
-    public void onMessage(String message, Session session) {
-
-        // System.out.println("Received message: " + message);
-
-        StreamingData data = StreamingDataParser.parse(message);
-
-        if (data instanceof AudioMetadata) {
-            AudioMetadata audioMetaData = (AudioMetadata) data;
-            System.out.println("----------------------------------------------------------------");
-            System.out.println("SUBSCRIPTION ID:-->" + audioMetaData.getMediaSubscriptionId());
-            System.out.println("ENCODING:-->" + audioMetaData.getEncoding());
-            System.out.println("SAMPLE RATE:-->" + audioMetaData.getSampleRate());
-            System.out.println("CHANNELS:-->" + audioMetaData.getChannels());
-            System.out.println("LENGTH:-->" + audioMetaData.getLength());
-            System.out.println("----------------------------------------------------------------");
-        }
-        if (data instanceof AudioData) {
-            System.out.println("----------------------------------------------------------------");
-            AudioData audioData = (AudioData) data;
-            System.out.println("DATA:-->" + audioData.getData());
-            System.out.println("TIMESTAMP:-->" + audioData.getTimestamp());
-            // System.out.println("PARTICIPANT:-->" + audioData.getParticipant().getRawId()
-            // != null
-            // ? audioData.getParticipant().getRawId()
-            // : "");
-            System.out.println("IS SILENT:-->" + audioData.isSilent());
-            System.out.println("----------------------------------------------------------------");
+``` Java
+private void stopAudio(Session session) {
+    if (session.isOpen()) {
+        try {
+            var serializedData = OutStreamingData.getStopAudioForOutbound();
+            session.getAsyncRemote().sendText(serializedData);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

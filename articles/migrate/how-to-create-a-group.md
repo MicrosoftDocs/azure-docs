@@ -1,13 +1,12 @@
 ---
 title: Group servers for assessment with Azure Migrate | Microsoft Docs
 description: Describes how to group servers before you run an assessment with the Azure Migrate service.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
+ms.reviewer: v-uhabiba
 ms.date: 08/21/2024
 ms.custom: engagement-fy25
+# Customer intent: As a cloud migration planner, I want to group servers for assessment in Azure Migrate, so that I can evaluate their suitability and obtain accurate sizing and cost estimates for a successful migration to the cloud.
 ---
 
 # Create a group for assessment
@@ -32,11 +31,11 @@ You can create a group at the same time that you [create an assessment](how-to-c
 
 If you want to create a group manually outside of creating an assessment, do the following:
 
-1. In the Azure Migrate project > **Overview**, click **Assess and migrate servers**. In **Azure Migrate: Discovery and assessment**, click **Groups**
-    - If you haven't yet added the Azure Migrate: Discovery and assessment tool, click to add it. [Learn more](how-to-assess.md).
+1. In the Azure Migrate project > **Overview**, select **Assess and migrate servers**. In **Azure Migrate: Discovery and assessment**, select **Groups**
+    - If you haven't yet added the Azure Migrate: Discovery and assessment tool, select to add it. [Learn more](how-to-assess.md).
     - If you haven't yet created an Azure Migrate project, [learn more](./create-manage-projects.md).
 
-2. Click the **Group** icon.
+2. Select the **Group** icon.
 3. In **Create group**, specify a group name, and in **Appliance name**, select the Azure Migrate appliance you're using for server discovery.
 4. From the server list, select the servers you want to add to the group > **Create**.
 
@@ -54,19 +53,19 @@ If you've already [set up dependency mapping](how-to-create-group-machine-depend
 
 1. In the **Servers, databases and web apps** tab, in **Azure Migrate: Discovery and assessment** tile, select **Groups**.
 2. Select the group you want to refine.
-    - If you haven't yet set up dependency mapping, the **Dependencies** column will show a **Requires installation** status. For each server for which you want to visualize dependencies, click **Requires installation**. Install a couple of agents on each server, before you can map the server dependencies. [Learn more](how-to-create-group-machine-dependencies.md).
+    - If you haven't yet set up dependency mapping, the **Dependencies** column will show a **Requires installation** status. For each server for which you want to visualize dependencies, select **Requires installation**. Install a couple of agents on each server, before you can map the server dependencies. [Learn more](how-to-create-group-machine-dependencies.md).
 
         ![Add dependency mapping](./media/how-to-create-a-group/add-dependency-mapping.png)
 
-    - If you've already set up dependency mapping, on the group page, click **View dependencies** to open the group dependency map.
+    - If you've already set up dependency mapping, on the group page, select **View dependencies** to open the group dependency map.
 
-3. After clicking **View dependencies**, the group dependency map shows the following:
+3. After selecting **View dependencies**, the group dependency map shows the following:
 
     - Inbound (clients) and outbound (servers) TCP connections to and from all servers in the group that have the dependency agents installed.
     - Dependent servers that don't have the dependency agents installed are grouped by port numbers.
     - Dependent servers with dependency agents installed are shown as separate boxes.
     - Processes running inside the server. Expand each server box to view the processes.
-    - Server properties (including FQDN, operating system, MAC address). Click on each server box to view the details.
+    - Server properties (including FQDN, operating system, MAC address). Select each server box to view the details.
 
 4. To view dependencies in a time interval of your choice, modify the time range (an hour by default) by specifying  start and end dates, or the duration.
 

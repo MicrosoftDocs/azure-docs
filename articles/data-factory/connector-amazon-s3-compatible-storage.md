@@ -5,9 +5,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
+ms.topic: how-to
 ms.date: 10/20/2023
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from Amazon S3 Compatible Storage by using Azure Data Factory or Synapse Analytics

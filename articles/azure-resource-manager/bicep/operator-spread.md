@@ -1,9 +1,9 @@
----
+﻿---
 title: Bicep spread operator
 description: Describes Bicep spread operator.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 08/07/2024
+ms.date: 10/30/2025
 ---
 
 # Bicep spread operator
@@ -74,6 +74,24 @@ In this usage, comma isn't used between the two lines.  Output from the example:
 |------|------|-------|
 | `objCombined` | object | { color: 'white', shape: 'circle' } |
 
+The following example shows how to conditionally add an array element:
+
+```bicep
+@allowed(['white', 'black'])
+param color string = 'black'
+
+var colorWhite = { color: 'white' }
+var colorBlack = { color: 'black' }
+
+output objB object = ((color == 'white')? { shape: 'circle', ...colorWhite} : { shape: 'circle', ...colorBlack})
+```
+
+Output from the example:
+
+| Name | Type | Value |
+|------|------|-------|
+| `objB` | object | { shape: 'circle', color: 'black' } |
+
 The spread operation can be used to avoid setting an optional property. In the following example, _accessTier_ is set only if the parameter _tier_ isn't an empty string.
 
 ```bicep
@@ -83,7 +101,7 @@ param tier string = 'Hot'
 var storageAccountName = uniqueString(resourceGroup().id)
 var accessTier = tier != '' ? {accessTier: tier} : {}
 
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -104,7 +122,7 @@ param tier string = 'Hot'
 
 var storageAccountName = uniqueString(resourceGroup().id)
 
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -112,7 +130,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   }
   kind: 'StorageV2'
   properties: {
-    ...(tier != '' ? {accesssTier: tier} : {})
+    ...(tier != '' ? {accessTier: tier} : {})
   } 
 }
 ```
@@ -125,7 +143,7 @@ param storageProperties {
   accessTier: string?
 }
 
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueString(resourceGroup().id)
   location: location
   sku: {
@@ -144,3 +162,4 @@ resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 - To run the examples, use Azure CLI or Azure PowerShell to [deploy a Bicep file](./quickstart-create-bicep-use-visual-studio-code.md#deploy-the-bicep-file).
 - To create a Bicep file, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - For information about how to resolve Bicep type errors, see [Any function for Bicep](./bicep-functions-any.md).
+

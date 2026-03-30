@@ -4,8 +4,8 @@ description: Azure PowerShell Samples - Scripts to help you create and manage da
 ms.custom: devx-track-azurepowershell
 author: ssabat
 ms.author: susabat
-ms.reviewer: jburchel
-ms.topic: conceptual
+ms.reviewer: whhender
+ms.topic: reference
 ms.date: 05/15/2024
 ---
 

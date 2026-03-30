@@ -9,11 +9,15 @@ ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 # Customer intent: I'm a developer, and I need to understand how to build a global identity solution using a funnel-based approach, so I can implement it in my organization's Azure AD B2C environment.
 ---
 
 # Build a global identity solution with funnel-based approach
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this article, we describe the scenarios for funnel-based design approach. Before starting to design, it's recommended that you review the [capabilities](b2c-global-identity-solutions.md#capabilities-and-considerations), and [performance](b2c-global-identity-solutions.md#performance) of both funnel and region-based design approach. This article will further help determine which design may fit best for your organization.
 

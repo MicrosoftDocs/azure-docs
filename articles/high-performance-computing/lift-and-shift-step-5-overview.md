@@ -1,15 +1,20 @@
 ---
-title: "Deployment step 5: end-user entry point - overview"
-description: Learn about production-level environment migration deployment step five.
+title: Enable user access and job submission for Azure HPC
+description: Configure end-user entry points including VPN, Bastion, web portals, and remote visualization for HPC job submission on Azure.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
+# Customer intent: "As an HPC architect, I want to migrate end-user entry points to the cloud, so that I can ensure a seamless user experience while minimizing latency disruptions during the transition from on-premises infrastructure."
 ---
 
-# Deployment step 5: end-user entry point - overview
+# Enable user access and job submission for Azure HPC
 
 Providing a consistent end-user entry point is crucial for ensuring a smooth transition from on-premises to the cloud in an HPC environment. Whether users access resources through an SSH sign-in node or a web portal, maintaining a familiar experience helps minimize disruptions.
 

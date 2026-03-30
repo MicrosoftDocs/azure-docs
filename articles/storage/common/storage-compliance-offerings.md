@@ -4,10 +4,11 @@ description: Read a summary of compliance offerings on Azure Storage for nationa
 services: storage
 author: fhryo-msft
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/28/2023
 ms.author: fryu
 ms.subservice: storage-common-concepts
+# Customer intent: "As a compliance officer, I want to understand the Azure Storage compliance offerings, so that I can ensure our data collection and usage meets national and industry-specific regulatory requirements."
 ---
 
 # Azure Storage compliance offerings

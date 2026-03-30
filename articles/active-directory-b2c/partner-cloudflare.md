@@ -1,38 +1,40 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with Cloudflare Web Application Firewall
+title: Configure Azure Active Directory B2C with Cloudflare Web Application Firewall
 titleSuffix: Azure AD B2C
-description: Tutorial to configure Azure Active Directory B2C with Cloudflare Web application firewall and protect applications from malicious attacks 
+description: Configure Azure Active Directory B2C with Cloudflare Web application firewall and protect applications from malicious attacks 
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/30/2025
 ms.author: gasinh
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer configuring Azure AD B2C with Cloudflare WAF. I need to enable and configure the Web Application Firewall, so I can protect my application from malicious attacks such as SQL Injection and cross-site scripting (XSS).
 ---
-# Tutorial: Configure Cloudflare Web Application Firewall with Azure Active Directory B2C
+# Configure Cloudflare Web Application Firewall with Azure Active Directory B2C
 
-In this tutorial, you can learn how to configure the [Cloudflare Web Application Firewall (WAF)](https://www.cloudflare.com/application-services/products/waf/) solution for Azure Active Directory B2C (Azure AD B2C) tenant with custom domain. Use Cloudflare WAF to help protect organizations from malicious attacks that can exploit vulnerabilities such as SQL Injection, and cross-site scripting (XSS).
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+In this article, you can learn how to configure the [Cloudflare Web Application Firewall (WAF)](https://www.cloudflare.com/application-services/products/waf/) solution for Azure Active Directory B2C (Azure AD B2C) tenant with custom domain. Use Cloudflare WAF to help protect organizations from malicious attacks that can exploit vulnerabilities such as SQL Injection, and cross-site scripting (XSS).
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An Azure subscription 
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
-- [An Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription
-- A [Cloudflare](https://dash.cloudflare.com/sign-up) account
+- An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [An Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription.
+- A [Cloudflare](https://dash.cloudflare.com/sign-up) account.
 
 ## Scenario description
 
 Cloudflare WAF integration includes the following components:
 
-- **Azure AD B2C tenant** – The authorization server that verifies user credentials using the custom policies defined in the tenant. It's known as the identity provider
+- **Azure AD B2C tenant** – The authorization server that verifies user credentials using the custom policies defined in the tenant, known as the identity provider.
 - [**Azure Front Door**](../frontdoor/front-door-overview.md) – Enables custom domains for Azure B2C tenant. Traffic from Cloudflare WAF is routed to Azure Front Door before arriving at Azure AD B2C tenant.
-- **Cloudflare** – The web application firewall that manages traffic sent to the authorization server
+- **Cloudflare** – The web application firewall that manages traffic sent to the authorization server.
 
 ## Integrate with Azure AD B2C
 
@@ -55,6 +57,9 @@ On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-
 The settings appear in the following image.
 
    ![Screenshot of proxied status.](./media/partner-cloudflare/select-proxied.png)
+
+> [!NOTE]
+> Azure Front Door-managed certificates aren't automatically renewed if your custom domain’s CNAME record points to a DNS record other than the Azure Front Door endpoint’s domain (for example, when using a third-party DNS service like Cloudflare). To renew the certificate in such cases, follow the instructions in the [Renew Azure Front Door-managed certificates](../frontdoor/domain.md#renew-azure-front-door-managed-certificates) article.
 
 ### Configure the Web Application Firewall
 

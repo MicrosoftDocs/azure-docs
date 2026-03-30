@@ -3,7 +3,7 @@ title: Send cross-platform notifications to users with Azure Notification Hubs (
 description: Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms.
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 editor: thsomasu
 
 ms.service: azure-notification-hubs

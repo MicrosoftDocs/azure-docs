@@ -6,12 +6,13 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 03/07/2023
+ms.date: 11/26/2024
 ms.author: normesta
 ms.reviewer: sumameh
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-csharp
+# Customer intent: "As a data engineer, I want to implement an event-driven solution to update a Delta table in Databricks, so that I can automate data ingestion from files uploaded to Azure Data Lake Storage."
 ---
 
 # Tutorial: Implement the data lake capture pattern to update a Databricks Delta table
@@ -40,7 +41,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 - Create a service principal, create a client secret, and then grant the service principal access to the storage account.
 
   See [Tutorial: Connect to Azure Data Lake Storage](/azure/databricks/getting-started/connect-to-azure-storage) (Steps 1 through 3). After completing these steps, make sure to paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a sales order
 
@@ -306,7 +307,7 @@ Create an Azure Function that runs the Job.
       }
     ```
 
-   This code parses information about the storage event that was raised, and then creates a request message with url of the file that triggered the event. As part of the message, the function passes a value to the **source_file** widget that you created earlier. the function code sends the message to the Databricks Job and uses the token that you obtained earlier as authentication.
+   This code parses information about the storage event that was raised, and then creates a request message with url of the file that triggered the event. As part of the message, the function passes a value to the **source_file** widget that you created earlier. The function code sends the message to the Databricks Job and uses the token that you obtained earlier as authentication.
 
 ## Create an Event Grid subscription
 

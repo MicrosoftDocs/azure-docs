@@ -8,6 +8,8 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/06/2024
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network administrator, I want to create and manage a custom IPv6 address prefix in the cloud, so that I can use my owned IP range while ensuring it is advertised correctly on the Internet."
 ---
 
 # Create a custom IPv6 address prefix in Azure
@@ -26,12 +28,12 @@ For this article, choose between the Azure portal, Azure CLI, or Azure PowerShel
 
 # [Azure portal](#tab/azureportal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A customer owned IPv6 range to provision in Azure. A sample customer range (2a05:f500:2::/48) is used for this example, but wouldn't be validated by Azure; you need to replace the example range with yours.
 
 # [Azure CLI](#tab/azurecli/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - This tutorial requires version 2.37 or later of the Azure CLI (you can run az version to determine which you have). If using Azure Cloud Shell, the latest version is already installed.
 - Sign in to Azure CLI and ensure you've selected the subscription with which you want to use this feature using `az account`.
 - A customer owned IPv6 range to provision in Azure.
@@ -39,7 +41,7 @@ For this article, choose between the Azure portal, Azure CLI, or Azure PowerShel
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure PowerShell installed locally or Azure Cloud Shell.
 - Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 - Ensure your Az.Network module is 5.1.1 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name "Az.Network"` if necessary.
@@ -56,12 +58,18 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range. Refer to the [IPv4 instructions](create-custom-ip-address-prefix-portal.md#pre-provisioning-steps) for details. All these steps should be completed for the IPv6 global (parent) range.
 
+> [!NOTE]
+> When hexadecimal IPv6 characters (a-f) are used in an IPv6 Prefix (CIDR), the case of the Custom IP Prefix IPv6 Prefix (CIDR) used in the Custom IP Prefix object must match the case of the IPv6 prefix as generated for your Custom IP Prefix Signed message.
+
 ## Provisioning for IPv6
 
 The following steps display the modified steps for provisioning a sample global (parent) IPv6 range (2a05:f500:2::/48) and regional (child) IPv6 ranges. Some of the steps have been abbreviated or condensed from the [IPv4 instructions](create-custom-ip-address-prefix-portal.md) to focus on the differences between IPv4 and IPv6.
 
 > [!NOTE]
 > Clean up or delete steps aren't shown on this page given the nature of the resource. For information on removing a provisioned custom IP prefix, see [Manage custom IP prefix](manage-custom-ip-address-prefix.md).
+
+> [!IMPORTANT]
+> Ensure that no leading zeros are present in any of the IPv6 addresses during global or regional provisioning process. For example, use **2a05:f500:2:1::/64** instead of **2a05:f500:0002:0001::/64**
 
 # [Azure portal](#tab/azureportal)
 

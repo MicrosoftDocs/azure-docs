@@ -4,6 +4,7 @@
  ms.topic: include
  ms.date: 10/08/2024
  ms.author: cherylmc
+ ms.custom: sfi-image-nochange
 
 #Note that Audience values are not sensitive data. 
 ---
@@ -36,7 +37,7 @@
     ```
 
    > [!NOTE]
-   > If you're using a Cloud Applicaion Administrator account that is not native to the Microsoft Entra tenant to provide consent, replace "common" with the Microsoft Entra tenant ID in the URL. You may also have to replace "common" with your tenant ID in certain other cases as well. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
+   > If you're using a Cloud Application Administrator account that is not native to the Microsoft Entra tenant to provide consent, replace "common" with the Microsoft Entra tenant ID in the URL. You may also have to replace "common" with your tenant ID in certain other cases as well. For help with finding your tenant ID, see [How to find your Microsoft Entra tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
    >
 
 1. Select the account that has the **Cloud Application Administrator** role if prompted.

@@ -1,108 +1,187 @@
 ---
 title: Understand message schemas
-description: Learn how schema registry handles message schemas to work with Azure IoT Operations components including dataflows.
-author: kgremban
-ms.author: kgremban
-ms.topic: conceptual
-ms.date: 09/23/2024
+description: Learn how the schema registry stores and manages message schemas for data flows in Azure IoT Operations.
+author: sethmanheim
+ms.author: sethm
+ms.topic: concept-article
+ms.date: 03/19/2026
+ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 
-#CustomerIntent: As an operator, I want to understand how I can use message schemas to filter and transform messages.
+#CustomerIntent: As an operator, I want to understand how I can use message schemas to work with data flows.
+ms.custom:
+  - build-2025
 ---
 
 # Understand message schemas
 
-Schema registry, a feature provided by Azure Device Registry Preview, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI or using ARM/Bicep templates.
+The schema registry, a feature of Azure Device Registry, is a synchronized repository in the cloud and at the edge. It stores definitions of messages coming from edge assets and exposes an API to access those schemas at the edge.
 
-Edge services use message schemas to filter and transform messages as they're routed across your industrial edge scenario.
+Data flows use schemas in three places:
 
-*Schemas* are documents that describe the format of a message and its contents to enable processing and contextualization.
+- **Source**: Optionally specify a schema to describe incoming messages. The operations experience uses it to display available fields.
+- **Transformation**: The operations experience uses the source schema as a starting point when you build transformations.
+- **Destination**: Specify an output schema and serialization format when sending data to storage endpoints.
 
-## Message schema definitions
+> [!NOTE]
+> For data flow graphs, schemas are configured differently. See [Use schemas in data flow graphs](concept-dataflow-graphs-schema.md).
 
-Schema registry expects the following required fields in a message schema:
+## Schema formats
 
-| Required field | Definition |
-| -------------- | ---------- |
-| `$schema` | Either `http://json-schema.org/draft-07/schema#` or `Delta/1.0`. In dataflows, JSON schemas are used for source endpoints and Delta schemas are used for destination endpoints. |
-| `type` | `Object` |
-| `properties` | The message definition. |
+The schema registry supports two formats:
 
-### Sample schemas
+| Format | `$schema` value | Used for |
+|--------|----------------|----------|
+| JSON | `http://json-schema.org/draft-07/schema#` | Source endpoints (MQTT, Kafka) |
+| Delta | `Delta/1.0` | Destination endpoints (storage: ADLS, Fabric, ADX, local) |
 
-The following sample schemas provide examples for defining message schemas in each format.
+Both formats require `type: "object"` and a `properties` field that defines the message structure.
 
-JSON:
+### JSON schema example
 
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "name": "foobarbaz",
-  "description": "A representation of an event",
   "type": "object",
-  "required": [ "dtstart", "summary" ],
   "properties": {
-    "summary": {
-      "type": "string"
-    },
-    "location": {
-      "type": "string"
-    },
-    "url": {
-      "type": "string"
-    },
-    "duration": {
-      "type": "string",
-      "description": "Event duration"
-    }
+    "temperature": { "type": "number" },
+    "humidity": { "type": "number" },
+    "deviceId": { "type": "string" },
+    "timestamp": { "type": "string" }
   }
 }
 ```
 
-Delta:
+### Delta schema example
 
-```delta
+```json
 {
-    "$schema": "Delta/1.0",
-    "type": "object",
-    "properties": {
-        "type": "struct",
-        "fields": [
-            { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "asset_name", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "location", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "manufacturer", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "production_date", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "serial_number", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "temperature", "type": "double", "nullable": false, "metadata": {} }
-        ]
-    }
+  "$schema": "Delta/1.0",
+  "type": "object",
+  "properties": {
+    "type": "struct",
+    "fields": [
+      { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
+      { "name": "temperature", "type": "double", "nullable": false, "metadata": {} },
+      { "name": "timestamp", "type": "string", "nullable": false, "metadata": {} }
+    ]
+  }
 }
 ```
 
-## How dataflows use message schemas
+### Generate a schema
 
-Message schemas are used in all three phases of a dataflow: defining the source input, applying data transformations, and creating the destination output.
+To generate a schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
 
-### Input schema
+For a tutorial that uses the schema generator, see [Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2](./tutorial-opc-ua-to-data-lake.md).
 
-Each dataflow source can optionally specify a message schema. If a schema is defined for a dataflow source, any incoming messages that don't match the schema are dropped. 
+## Configure a source schema
 
-Asset sources have a predefined message schema that was created by the connector for OPC UA.
+Each data flow source can optionally specify a message schema. Currently, data flows don't perform runtime validation on source schemas. The schema is used by the operations experience to display available fields when you build transformations.
 
-Schemas can be uploaded for MQTT sources. Currently, Azure IoT Operations supports JSON for source schemas, also known as input schemas. In the operations experience, you can select an existing schema or upload one while defining an MQTT source:
+Asset sources have a predefined schema created by the connector for OPC UA. For message broker sources, you can upload a JSON schema in the operations experience or reference one in your configuration.
 
-:::image type="content" source="./media/concept-schema-registry/upload-schema.png" alt-text="Screenshot that shows uploading a message schema in the operations experience portal.":::
+:::image type="content" source="./media/concept-schema-registry/upload-schema.png" alt-text="Screenshot that shows uploading a message schema in the operations experience web UI.":::
 
-### Transformation
+To reference a schema in your data flow source configuration, use the `schemaRef` field. For more information, see [Configure a data flow source](howto-configure-dataflow-source.md#specify-source-schema).
 
-The operations experience uses the input schema as a starting point for your data, making it easier to select transformations based on the known input message format.
+## Configure an output schema
 
-### Output schema
+Output schemas control how data is serialized before it reaches the destination. Storage endpoints (ADLS Gen2, Fabric OneLake, Azure Data Explorer, local storage) require a schema and support Parquet and Delta serialization formats. MQTT and Kafka destinations use JSON by default.
 
-Output schemas are associated with dataflow destinations are only used for dataflows that select local storage, Fabric, Azure Storage (ADLS Gen2), or Azure Data Explorer as the destination endpoint. Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
+In the operations experience, when you select a storage destination, the UI applies any transformations to the source schema and generates a Delta schema automatically. The generated schema is stored in the schema registry and referenced by the data flow.
 
-Note: The Delta schema format is used for both Parquet and Delta output.
+For Bicep or Kubernetes deployments, specify the schema and serialization format in the transformation settings. For more information, see [Configure a data flow destination](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 
-For these dataflows, the operations experience applies any transformations to the input schema then creates a new schema in Delta format. When the dataflow custom resource (CR) is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry.
+## Upload a schema
+
+You can upload schemas through the operations experience UI, the Azure CLI, or a Bicep deployment.
+
+### Upload with the Azure CLI
+
+Use the [az iot ops schema](/cli/azure/iot/ops/schema) command group to create and manage schemas.
+
+Create a schema from a file:
+
+```azurecli
+az iot ops schema create -n myschema -g myresourcegroup --registry myregistry --format json --type message --version-content myschema.json
+```
+
+Create a schema from inline content with a specific version:
+
+```azurecli
+az iot ops schema create -n myschema -g myresourcegroup --registry myregistry --format delta --type message --version-content '{"hello": "world"}' --ver 14
+```
+
+> [!TIP]
+> If you don't know your registry name, use the `schema registry list` command:
+>
+> ```azurecli
+> az iot ops schema registry list -g myresourcegroup --query "[].{Name:name}" -o tsv
+> ```
+
+After the command completes, a blob appears in your storage account container with the schema content. The blob name follows the format `schema-namespace/schema/version`.
+
+### Upload with Bicep
+
+Define the schema content as a variable and create the schema resource:
+
+```bicep
+param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
+param schemaName string = 'sensor-data-delta'
+param schemaVersion string = '1'
+
+var schemaContent = '''
+{
+  "$schema": "Delta/1.0",
+  "type": "object",
+  "properties": {
+    "type": "struct",
+    "fields": [
+      { "name": "temperature", "type": "double", "nullable": true, "metadata": {} },
+      { "name": "humidity", "type": "double", "nullable": true, "metadata": {} },
+      { "name": "deviceId", "type": "string", "nullable": false, "metadata": {} }
+    ]
+  }
+}
+'''
+
+resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2025-10-01' existing = {
+  name: schemaRegistryName
+}
+
+resource schema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2025-10-01' = {
+  parent: schemaRegistry
+  name: schemaName
+  properties: {
+    displayName: 'Sensor Data Delta Schema'
+    description: 'Delta schema for sensor telemetry'
+    format: 'Delta/1.0'
+    schemaType: 'MessageSchema'
+  }
+}
+
+resource version 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2025-10-01' = {
+  parent: schema
+  name: schemaVersion
+  properties: {
+    description: 'Initial version'
+    schemaContent: schemaContent
+  }
+}
+```
+
+Deploy the Bicep file:
+
+```azurecli
+az deployment group create --resource-group <RESOURCE_GROUP> --template-file schema.bicep
+```
+
+## Related content
+
+- [Use schemas in data flow graphs](concept-dataflow-graphs-schema.md)
+- [Configure a data flow source](howto-configure-dataflow-source.md)
+- [Configure a data flow destination](howto-configure-dataflow-destination.md)
+- [Create a data flow](howto-create-dataflow.md)

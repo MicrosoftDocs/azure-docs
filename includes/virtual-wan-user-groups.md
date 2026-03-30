@@ -4,6 +4,7 @@ ms.author: cherylmc
 ms.date: 10/15/2024
 ms.service: azure-virtual-wan
 ms.topic: include
+ms.custom: sfi-image-nochange
 
 #This article is used for both Virtual WAN and VPN Gateway. Any updates to the article must work for both of these services. Otherwise, update the VWAN or VPNGW article directly.
 ---
@@ -38,7 +39,7 @@ The following table summarizes the available setting types and acceptable values
 |---|---|---|---|
 Microsoft Entra ID|AADGroupID|Microsoft Entra group Object ID	| {object ID value} |
 |RADIUS|AzureRADIUSGroupID|Vendor-specific Attribute Value (hexadecimal) (must begin with 6ad1bd)|6ad1bd23|
-|Certificate|AzureCertificateID|Certificate Common Name domain name (CN=user@red.com)|red|
+|Certificate|AzureCertificateID|Certificate Common Name domain name (CN=user@red.com)|red.com|
 
 <a name='azure-active-directory-authentication-openvpn-only'></a>
 
@@ -56,10 +57,10 @@ You can also identify whether or not a user is external by looking at the user's
 
 Gateways that use Certificate-based authentication use the **domain name** of user certificate Common Names (CN) to determine which group a connecting user is in. Common Names must be in one of the following formats:
 
-* domain/username
+* DOMAIN\username
 * username@domain.com
 
-Make sure that the **domain** is the input as a group member.
+Make sure that the **domain.com** is the input as a group member.
 
 #### RADIUS server (OpenVPN and IKEv2)
 

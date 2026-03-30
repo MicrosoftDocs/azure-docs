@@ -1,16 +1,17 @@
 ---
-title: Create a virtual network with encryption - Azure portal
+title: Create a virtual network with encryption
 titleSuffix: Azure Virtual Network
-description: Learn how to create an encrypted virtual network by using the Azure portal. A virtual network lets Azure resources communicate with each other and the internet.
+description: Learn how to create an encrypted virtual network. A virtual network lets Azure resources communicate with each other and the internet.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/15/2024
 ms.author: allensu
 
+# Customer intent: As a network administrator, I want to create an encrypted virtual network, so that I can secure internal communication between Azure resources while maintaining performance and scalability.
 ---
 
-# Create a virtual network with encryption by using the Azure portal
+# Create a virtual network with encryption
 
 Azure Virtual Network encryption is a feature of Azure Virtual Network. With Virtual Network encryption, you can seamlessly encrypt and decrypt internal network traffic over the wire, with minimal effect to performance and scale. Virtual Network encryption protects data that traverses your virtual network from virtual machine to virtual machine.
 
@@ -18,20 +19,23 @@ Azure Virtual Network encryption is a feature of Azure Virtual Network. With Vir
 
 ### [Portal](#tab/portal)
 
-An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
 - Install Azure PowerShell locally or use Azure Cloud Shell.
+
 - Sign in to Azure PowerShell and select the subscription with which you want to use this feature. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
 - Ensure that your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name Az.Network`. If the module requires an update, use the command `Update-Module -Name Az.Network`, if necessary.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ### [CLI](#tab/cli)
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -256,5 +260,5 @@ az group delete \
 
 ## Related content
 
-- For more information about Virtual Network, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview).
-- For more information about Virtual Network encryption, see [What is Azure Virtual Network encryption?](virtual-network-encryption-overview.md).
+- For more information about Virtual Network, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- For more information about Virtual Network encryption, see [What is Azure Virtual Network encryption?](virtual-network-encryption-overview.md)

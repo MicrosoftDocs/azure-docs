@@ -6,6 +6,7 @@ author: dandennis
 ms.service: defender-easm
 ms.date: 3/1/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Asset modification overview
@@ -64,7 +65,7 @@ You should modify assets from the inventory list page if you want to update nume
 
 1. On the leftmost pane of your Microsoft Defender External Attack Surface Management (Defender EASM) resource, select **Inventory**.
 
-2. Apply filters to produce your intended results. In this example, we're looking for domains that expire within 30 days that require renewal. The applied label helps you more quickly access any expiring domains to simplify the remediation process. You can apply as many filters as necessary to obtain the specific results that are needed. For more information on filters, see [Inventory filters overview](inventory-filters.md). For instances where you'd like to mark CVEs as non-applicable, the relevant dashbaord chart drilldown provides a link that directly routes you to this Inventory page with the correct filters applied. 
+2. Apply filters to produce your intended results. In this example, we're looking for domains that expire within 30 days that require renewal. The applied label helps you more quickly access any expiring domains to simplify the remediation process. You can apply as many filters as necessary to obtain the specific results that are needed. For more information on filters, see [Inventory filters overview](inventory-filters.md). For instances where you'd like to mark CVEs as non-applicable, the relevant dashboard chart drilldown provides a link that directly routes you to this Inventory page with the correct filters applied. 
 
    ![Screenshot that shows the inventory list view with the Add filter dropdown opened to display the query editor.](media/labels-2.png)
 

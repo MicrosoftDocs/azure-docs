@@ -3,13 +3,14 @@ title: Use Azure CLI to create a user delegation SAS for a container or blob
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS with Microsoft Entra credentials by using Azure CLI.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.reviewer: dineshm
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to create a user delegation SAS for containers or blobs using the Azure CLI, so that I can securely manage access permissions with Microsoft Entra credentials."
 ---
 
 # Create a user delegation SAS for a container or blob with the Azure CLI

@@ -1,18 +1,22 @@
 ---
 title: Create incidents from alerts in Microsoft Sentinel | Microsoft Docs
 description: Learn how to create incidents from alerts in Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
-ms.custom: mvc
-ms.date: 05/29/2024
-ms.author: yelevin
-
+ms.date: 10/16/2024
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 
 #Customer intent: As a security analyst, I want to automatically create incidents from security alerts so that I can streamline incident management and improve response times.
 
 ---
 
 # Automatically create incidents from Microsoft security alerts
+
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
 
 Alerts triggered in Microsoft security solutions that are connected to Microsoft Sentinel, such as Microsoft Defender for Cloud Apps and Microsoft Defender for Identity, do not automatically create incidents in Microsoft Sentinel. By default, when you connect a Microsoft solution to Microsoft Sentinel, any alert generated in that service will be ingested and stored in the *SecurityAlert* table in your Microsoft Sentinel workspace. You can then use that data like any other raw data you ingest into Microsoft Sentinel.
 
@@ -21,11 +25,11 @@ You can easily configure Microsoft Sentinel to automatically create incidents ev
 > [!IMPORTANT]
 > **This article does not apply** if you have:
 > - Enabled [**Microsoft Defender XDR incident integration**](microsoft-365-defender-sentinel-integration.md), or 
-> - Onboarded Microsoft Sentinel to the [**unified security operations platform**](microsoft-sentinel-defender-portal.md).
+> - Onboarded Microsoft Sentinel to the [**Microsoft Defender portal**](microsoft-sentinel-defender-portal.md).
 >
 > In these scenarios, Microsoft Defender XDR [creates incidents from alerts](/defender-xdr/alerts-incidents-correlation) generated in Microsoft services.
 >
-> If you use incident creation rules for other Microsoft security solutions or products not integrated into Defender XDR, such as Microsoft Purview Insider Risk Management, and you plan to onboard to the unified security operations platform in the Defender portal, replace your incident creation rules with [scheduled analytics rules](scheduled-rules-overview.md).
+> If you use incident creation rules for other Microsoft security solutions or products not integrated into Defender XDR, such as Microsoft Purview Insider Risk Management, and you plan to onboard to the Defender portal, replace your incident creation rules with [scheduled analytics rules](scheduled-rules-overview.md).
 
 ## Prerequisites
 
@@ -43,7 +47,7 @@ The most direct way to automatically create incidents from alerts generated from
 
    > [!IMPORTANT]
    >
-   > If you don't see this section as shown, you most likely have enabled incident integration in your Microsoft Defender XDR connector, or you have onboarded Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal.
+   > If you don't see this section as shown, you most likely have enabled incident integration in your Microsoft Defender XDR connector, or you have onboarded Microsoft Sentinel to the Defender portal.
    >
    > In either case, this article does not apply to your environment, since your incidents are created by the Microsoft Defender correlation engine instead of by Microsoft Sentinel.
 
@@ -83,5 +87,5 @@ You can create more than one **Microsoft Security** analytics rule per **Microso
 
 ## Next steps
 
-- To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
+- To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md), and [get visibility into your data and potential threats](get-visibility.md).

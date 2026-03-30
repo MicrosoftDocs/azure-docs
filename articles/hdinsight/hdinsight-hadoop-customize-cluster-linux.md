@@ -4,6 +4,9 @@ description: Add custom components to HDInsight clusters by using script actions
 ms.service: azure-hdinsight
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.topic: how-to
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---
 
@@ -74,7 +77,7 @@ Someone with at least Contributor access to the Azure subscription must have pre
 Get more information on working with access management:
 
 - [Get started with access management in the Azure portal](../role-based-access-control/overview.md)
-- [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal)
 
 ## Methods for using script actions
 

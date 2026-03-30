@@ -32,7 +32,7 @@ npm install azure-maps-control
 
 This package includes a minified version of the source code, CSS Style Sheet, and the TypeScript definitions for the Azure Maps map control.
 
-You would also need to embed the CSS Style Sheet for various controls to display correctly. If you're using a JavaScript bundler to bundle the dependencies and package your code, refer to your bundler's documentation on how it's done. For [Webpack], it's commonly done via a combination of `style-loader` and `css-loader` with documentation available at [style-loader].
+You would also need to embed the CSS Style Sheet for various controls to display correctly. If you're using a JavaScript bundler to bundle the dependencies and package your code, refer to your bundler's documentation on how it's done. For [webpack], it's commonly done via a combination of `style-loader` and `css-loader` with documentation available at [style-loader].
 
 To begin, install `style-loader` and `css-loader`:
 
@@ -46,7 +46,7 @@ Inside your source file, import _atlas.min.css_:
 import "azure-maps-control/dist/atlas.min.css";
 ```
 
-Then add loaders to the module rules portion of the Webpack config:
+Then add loaders to the module rules portion of the webpack config:
 
 ```js
 module.exports = {
@@ -81,7 +81,7 @@ Embed a map in a web page using the map control npm package.
     npm install azure-maps-control
     ```
 
-3. Install Webpack and other dev dependencies.
+3. Install webpack and other dev dependencies.
 
     ```powershell
     npm install --save-dev webpack webpack-cli style-loader css-loader
@@ -113,7 +113,7 @@ Embed a map in a web page using the map control npm package.
     }
     ```
 
-5. Create a Webpack config file named _webpack.config.js_ in the project's root folder. Include these settings in the config file.
+5. Create a webpack config file named _webpack.config.js_ in the project's root folder. Include these settings in the config file.
 
     ```js
     module.exports = {
@@ -208,7 +208,6 @@ Embed a map in a web page using the map control npm package.
 
 Azure Maps offers other modules as npm packages that can be integrated into your application. These modules include:
 - [azure-maps-drawing-tools]
-- [azure-maps-indoor]
 - [azure-maps-spatial-io]
 
 The following sample shows how to import a module and use it in your application. This sample uses [azure-maps-spatial-io] to read a `POINT(-122.34009 47.60995)` string as GeoJSON and renders it on the map using a bubble layer.
@@ -265,7 +264,7 @@ The following sample shows how to import a module and use it in your application
     document.body.onload = onload;
     ```
 
-4. Webpack 5 may throw errors about not being able to resolve some node.js core modules. Add these settings to your Webpack config file to fix the problem.
+4. Webpack 5 may throw errors about not being able to resolve some node.js core modules. Add these settings to your webpack config file to fix the problem.
 
    ```js
    module.exports = {
@@ -305,8 +304,7 @@ Learn best practices and see samples:
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [authentication options]: /javascript/api/azure-maps-control/atlas.authenticationoptions
-[Webpack]: https://webpack.js.org/
+[webpack]: https://webpack.js.org/
 [style-loader]: https://webpack.js.org/loaders/style-loader/
 [azure-maps-drawing-tools]: ./set-drawing-options.md
-[azure-maps-indoor]: ./how-to-use-indoor-module.md
 [azure-maps-spatial-io]: ./how-to-use-spatial-io-module.md

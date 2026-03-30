@@ -1,13 +1,23 @@
 ---
-title: 'Set up Azure Arc for App Service, Functions, and Logic Apps'
+title: 'Set Up Azure Arc for App Service, Functions, and Logic Apps'
 description: For your Azure Arc-enabled Kubernetes clusters, learn how to enable App Service apps, function apps, and logic apps.
 author: msangapu-msft
 ms.author: msangapu
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 09/23/2024
+ms.date: 10/07/2025
+ROBOTS: NOINDEX
+ms.service: azure-app-service
+
+# Customer intent: As a developer, I want to set up an Azure Arc-enabled Kubernetes cluster so that I can deploy App Service apps, function apps, and logic apps to it. 
+
+ 
 ---
+
 # Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
+
+> [!IMPORTANT]
+> [Azure App Service on Arc enabled Kubernetes will be **retired on March 31, 2026**](https://azure.microsoft.com/updates/?id=500016). From September 30, 2025, customers will no longer be able to install the extension. We request you [migrate to other solutions such as Azure Container Apps on Arc enabled Kubernetes](migrate-app-service-arc.md), migrating also allows you to take advantage of [Logic Apps Hybrid](/azure/logic-apps/set-up-standard-workflows-hybrid-deployment-requirements) for your integration workloads.
 
 If you have an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview), you can use it to create an [App Service enabled custom location](overview-arc-integration.md) and deploy web apps, function apps, and logic apps to it.
 
@@ -15,9 +25,8 @@ Azure Arc-enabled Kubernetes lets you make your on-premises or cloud Kubernetes 
 
 ## Prerequisites
 
-If you don't have an Azure account, [sign up today](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) for a free account.
-
-Review the [requirements and limitations](overview-arc-integration.md) of the public preview. Of particular importance are the cluster requirements.
+- If you don't have an Azure account, [sign up today](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) for a free account.
+- Review the [requirements and limitations](overview-arc-integration.md) of the public preview. Of particular importance are the cluster requirements.
 
 <!-- ## Prerequisites
 
@@ -59,6 +68,8 @@ az extension add --upgrade --yes --name appservice-kube
 
 > [!NOTE]
 > This tutorial uses [Azure Kubernetes Service (AKS)](/azure/aks/) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you will likely not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. The steps will help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
+
+To create a connected cluster: 
 
 1. Create a cluster in Azure Kubernetes Service with a public IP address. Replace `<group-name>` with the resource group name you want.
 
@@ -209,6 +220,8 @@ While a [Log Analytic workspace](/azure/azure-monitor/logs/quick-create-workspac
 
 ## Install the App Service extension
 
+To install the App Service extension:
+
 1. Set the following environment variables for the desired name of the [App Service extension](overview-arc-integration.md), the cluster namespace in which resources should be provisioned, and the name for the App Service Kubernetes environment. Choose a unique name for `<kube-environment-name>`, because it is part of the domain name for app created in the App Service Kubernetes environment.
 
     # [bash](#tab/bash)
@@ -297,7 +310,7 @@ While a [Log Analytic workspace](/azure/azure-monitor/logs/quick-create-workspac
     | `appsNamespace` | The namespace to provision the app definitions and pods. **Must** match that of the extension release namespace. |
     | `clusterName` | The name of the App Service Kubernetes environment that is created against this extension. |
     | `keda.enabled` | Whether [KEDA](https://keda.sh/) should be installed on the Kubernetes cluster. Accepts `true` or `false`. |
-    | `buildService.storageClassName` | The [name of the storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) for the build service to store build artifacts. A value like `default` specifies a class named `default`, and not [any class that is marked as default](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/). Default is a valid storage class for AKS and AKS HCI but it may not be for other distrubtions/platforms. |
+    | `buildService.storageClassName` | The [name of the storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) for the build service to store build artifacts. A value like `default` specifies a class named `default`, and not [any class that is marked as default](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/). Default is a valid storage class for AKS and AKS on Azure Local but it may not be for other distributions/platforms. |
     | `buildService.storageAccessMode` | The [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use with the named storage class. Accepts `ReadWriteOnce` or `ReadWriteMany`. |
     | `customConfigMap` | The name of the config map that will be set by the App Service Kubernetes environment. Currently, it must be `<namespace>/kube-environment-config`, replacing `<namespace>` with the value of `appsNamespace`. |
     | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | The name of the resource group in which the Azure Kubernetes Service cluster resides. Valid and required only when the underlying cluster is Azure Kubernetes Service.  |
@@ -468,7 +481,7 @@ Before you can start creating apps on the custom location, you need an [App Serv
     ```
     
 
-## Next steps
+## Related content
 
 - [Quickstart: Create a web app on Azure Arc](quickstart-arc.md)
 - [Create your first function on Azure Arc](../azure-functions/create-first-function-arc-cli.md)

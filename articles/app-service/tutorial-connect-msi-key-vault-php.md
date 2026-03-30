@@ -8,8 +8,9 @@ ms.date: 10/26/2021
 author: cephalin
 ms.author: cephalin
 
-ms.reviewer: madsd 
+ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, AppServiceConnectivity
+ms.service: azure-app-service
 ---
 
 # Tutorial: Secure Cognitive Service connection from PHP App Service using Key Vault
@@ -32,7 +33,7 @@ appName=<app-name>
 
 az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region
 az webapp create --resource-group $groupName --plan $appName --name $appName
-az webapp deployment source config-zip --resource-group $groupName --name $appName --src ./default.zip
+az webapp deploy --resource-group $groupName --name $appName --src-path ./default.zip
 ```
 
 ## Configure secrets as app settings

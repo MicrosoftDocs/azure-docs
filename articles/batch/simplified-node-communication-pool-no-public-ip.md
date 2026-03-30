@@ -2,8 +2,9 @@
 title: Create a simplified node communication pool without public IP addresses
 description: Learn how to create an Azure Batch simplified node communication pool without public IP addresses.
 ms.topic: how-to
-ms.date: 8/14/2023
+ms.date: 01/12/2026
 ms.custom: references_regions, devx-track-arm-template, linux-related-content
+# Customer intent: "As a cloud architect, I want to create a Batch pool without public IP addresses so that I can enhance security and reduce the discoverability of compute nodes while managing compute resources efficiently."
 ---
 
 # Create a simplified node communication pool without public IP addresses
@@ -53,7 +54,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. Pools without public IP addresses must use Virtual Machine Configuration and not Cloud Services Configuration.
 1. [Custom endpoint configuration](pool-endpoint-configuration.md) for Batch compute nodes doesn't work with pools without public IP addresses.
 1. Because there are no public IP addresses, you can't [use your own specified public IP addresses](create-pool-public-ip.md) with this type of pool.
-1. The [task authentication token](/rest/api/batchservice/task/add?tabs=HTTP#request-body) for Batch task is not supported. The workaround is to use [Batch pool with managed identities](managed-identity-pools.md).
+1. The [task authentication token](/rest/api/batchservice/tasks/create-task) for Batch task is not supported. The workaround is to use [Batch pool with managed identities](managed-identity-pools.md).
 
 ## Create a pool without public IP addresses in the Azure portal
 
@@ -75,7 +76,7 @@ IP addresses.
 
 ## Use the Batch REST API to create a pool without public IP addresses
 
-The following example shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
+The following example shows how to use the [Batch Service REST API](/rest/api/batchservice/pools/create-pool) to create a pool that uses public IP addresses.
 
 ### REST API URI
 
@@ -143,7 +144,7 @@ In a pool without public IP addresses, your virtual machines won't be able to ac
 Another way to provide outbound connectivity is to use a user-defined route (UDR). This method lets you route traffic to a proxy machine that has public internet access, for example [Azure Firewall](../firewall/overview.md).
 
 > [!IMPORTANT]
-> There is no extra network resource (load balancer, network security group) created for simplified node communication pools without public IP addresses. Since the compute nodes in the pool are not bound to any load balancer, Azure may provide [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md). However, Default Outbound Access is not suitable for production workloads, and will be retired on September 30, 2025 (see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/)). So if your workloads do require internet outbound access, or your pool doesn't use private endpoint to access Batch node management endpoint, you must provide your own solution to enable internet outbound access.
+> There is no extra network resource (load balancer, network security group) created for simplified node communication pools without public IP addresses. Since the compute nodes in the pool are not bound to any load balancer, Azure may provide [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md). However, Default Outbound Access is not suitable for production workloads, and will be retired on March 31, 2026 (see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/)). So if your workloads do require internet outbound access, or your pool doesn't use private endpoint to access Batch node management endpoint, you must provide your own solution to enable internet outbound access.
 
 ## Troubleshooting
 
@@ -165,7 +166,7 @@ If you created node management private endpoint in the virtual network for your 
 
 ```
 # Windows
-Test-TcpConnection -ComputeName <nodeManagementEndpoint> -Port 443
+Test-NetConnection -ComputerName <nodeManagementEndpoint> -Port 443 -InformationLevel Detailed -Verbose
 # Linux
 nc -v <nodeManagementEndpoint> 443
 ```

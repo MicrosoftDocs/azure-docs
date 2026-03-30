@@ -17,12 +17,33 @@ SAP BTP is a cloud-based solution that provides a wide range of tools and servic
 
 The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP Business Technology Platform (BTP) system by collecting audits and activity logs from the BTP infrastructure and BTP based apps, and detecting threats, suspicious activities, illegitimate activities, and more.
 
+## What SAP services are covered
+
+The Microsoft Sentinel Solution for SAP BTP covers all SAP BTP services that log security-relevant events to the [SAP Audit Log Management service](https://help.sap.com/docs/btp/sap-business-technology-platform/security-events-logged-by-cf-services). See [SAP's official documentation](https://help.sap.com/docs/btp/sap-business-technology-platform/security-events-logged-by-cf-services) for the latest list of supported services and logged events.
+
+Among the supported services are, but not limited to:
+
+- **SAP Cloud Integration - Integration Suite**: A service that enables you to connect different SAP applications and systems, both on-premises and in the cloud, to facilitate data exchange and integration processes.
+- **SAP Cloud Identity Service - Identity Authentication**: A service that provides secure and seamless access to SAP applications and services through single sign-on (SSO), multi-factor authentication (MFA) and proxy scenarios with Microsoft Entra ID.
+- **SAP Business Application Studio (BAS)**: A cloud-based development environment that provides tools and services for building, testing, and deploying applications on SAP BTP using low-code and pro-code approaches.
+- **SAP Build Apps**: A low-code development platform that allows you to create custom business applications quickly and easily using visual modeling and prebuilt components, without requiring extensive coding knowledge.
+- **SAP Build Work Zone**: A unified point of access to SAP applications (such as SAP S/4HANA), custom-built, and third party applications and extensions, both on the cloud and on premise.
+- **SAP Datasphere - SAP Business Data Cloud**: A cloud-based data management and analytics platform that enables you to collect, store, process, and analyze large volumes of data from various sources, including SAP and non-SAP systems.
+- **SAP AI Core**: A service that allows you to build, deploy, and manage AI models and applications on SAP BTP, leveraging machine learning and deep learning techniques to enhance business processes and decision-making.
+- **SAP Event Mesh**: A service that enables event-driven architecture and real-time data processing on SAP BTP, allowing you to create, publish, and subscribe to events across different applications and systems.
+
+
 ## Solution architecture
 
-The following image illustrates how Microsoft Sentinel retrieves the complete BTP's audit log information. The Microsoft Sentinel solution for SAP BTP provides built-in analytics rules and detections for selected scenarios, which you can extend to cover more of the audit log information and events.
+The following image illustrates how Microsoft Sentinel retrieves the complete BTP's audit log information using SAP Audit Log Management service. The Microsoft Sentinel solution for SAP BTP provides built-in analytics rules and detections for selected scenarios, which you can extend to cover more of the audit log information and events.
 
 :::image type="content" source="media/deploy-sap-btp-solution/sap-btp-solution-overview.png" alt-text="Diagram that shows an SAP BTP landscape integrated with Microsoft Sentinel." lightbox="media/deploy-sap-btp-solution/sap-btp-solution-overview.png" border="false":::
 
+
+Learn more about the built-in events that SAP BTP logs automatically via their service from the [SAP documentation](https://help.sap.com/docs/btp/sap-business-technology-platform/security-events-logged-by-cf-services).
+
+> [!NOTE]
+> Custom apps developed on SAP BTP using the Cloud Foundry environment, SAP Cloud Application Programming (CAP) Model, etc. don't write to the SAP Audit Log Management service by default. Audit relevant events on custom apps internal logic need to be implemented by the app developer. See [this SAP documentation](https://cap.cloud.sap/docs/guides/data-privacy/audit-logging#use-sap-audit-log-service) for details on how to do it with CAP.
 
 ## Why it's important to monitor BTP activity
 

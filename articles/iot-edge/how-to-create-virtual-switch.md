@@ -1,14 +1,15 @@
 ---
 title: Create virtual switch for Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Installations for creating a virtual switch for Azure IoT Edge for Linux on Windows
-author: PatAltimore
-ms.reviewer: fcabrera
-ms.service: iot-edge
-ms.custom: linux-related-content
+author: sethmanheim
+ms.author: sethm
+ms.service: azure-iot-edge
 services: iot-edge
-ms.topic: conceptual
-ms.date: 11/30/2021
-ms.author: patricka
+ms.topic: concept-article
+ms.date: 01/21/2025
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Azure IoT Edge for Linux on Windows virtual switch creation
@@ -61,7 +62,7 @@ Note that if you're using an Azure VM, the virtual switch can't be **External**.
 
     Take note of the interface index value, as you'll need to use it in future steps.
     
-6. The resulting virtual switch IP address will be different for each environment. Note that for the rest of the commands in this guide you will make use of IP addresses that are derived from the *172.20.X.Y* family. However, you can you use your own address family and IP addresses.
+1. The resulting virtual switch IP address will be different for each environment. Note that for the rest of the commands in this guide you will make use of IP addresses that are derived from the *172.20.X.Y* family. However, you can use your own address family and IP addresses.
 
     You'll create and use the following IP addresses:
     
@@ -123,7 +124,7 @@ The switch is now created. Next, you'll set up the DNS.
 
     You'll receive the following warning messages while the DHCP server is starting up: `WARNING: Waiting for service 'DHCP Server (dhcpserver)' to start...`
 
-1. To configure the DHCP server range of IPs to be made available, you'll need to set an IP address as the **start IP** and an IP address as the **end IP**. This range is defined by the **StartRange** and the **EndRange** parameters in the [Add-DhcpServerv4Scope](/powershell/module/dhcpserver/add-dhcpserverv4scope) command. You'll also need to set the subnet mask when running this command, which will be 255.255.255.0. Based on the IP address templates and examples in the table from the previous section, setting the **StartRange** as 169.254.229.100 and the **EndRange** as 169.254.229.200 will make 100 IP addresses available. Run the following command, replacing the placeholders with your own values:
+1. To configure the DHCP server range of IPs to be made available, you'll need to set an IP address as the **start IP** and an IP address as the **end IP**. This range is defined by the **StartRange** and the **EndRange** parameters in the [Add-DhcpServerv4Scope](/powershell/module/dhcpserver/add-dhcpserverv4scope) command. You'll also need to set the subnet mask when running this command, which will be 255.255.255.0. Based on the IP address templates and examples in the table from the previous section, setting the **StartRange** as 172.20.0.100 and the **EndRange** as 172.20.0.200 will make 100 IP addresses available. Run the following command, replacing the placeholders with your own values:
 
     ```powershell
     Add-DhcpServerV4Scope -Name "AzureIoTEdgeScope" -StartRange {startIp} -EndRange {endIp} -SubnetMask 255.255.255.0 -State Active

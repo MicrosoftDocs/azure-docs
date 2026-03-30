@@ -2,12 +2,12 @@
 title: Azure built-in roles for Integration - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Integration category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -395,6 +395,9 @@ Has read access to entities in the workspace and read and write access to entiti
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/diagnostics/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/loggers/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -426,7 +429,10 @@ Has read access to entities in the workspace and read and write access to entiti
         "Microsoft.ApiManagement/service/workspaces/certificates/*",
         "Microsoft.ApiManagement/service/workspaces/diagnostics/*",
         "Microsoft.ApiManagement/service/workspaces/loggers/*",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -455,6 +461,9 @@ Has read access to entities in the workspace and read and write access to entiti
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/tags/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/notifications/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -479,7 +488,10 @@ Has read access to entities in the workspace and read and write access to entiti
         "Microsoft.ApiManagement/service/workspaces/groups/*",
         "Microsoft.ApiManagement/service/workspaces/tags/*",
         "Microsoft.ApiManagement/service/workspaces/notifications/*",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -503,6 +515,9 @@ Can manage the workspace and view, but not modify its members. This role should 
 > | --- | --- |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -522,7 +537,10 @@ Can manage the workspace and view, but not modify its members. This role should 
     {
       "actions": [
         "Microsoft.ApiManagement/service/workspaces/*",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -546,6 +564,9 @@ Has read-only access to entities in the workspace. This role should be assigned 
 > | --- | --- |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/*/read |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/*/read |  |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
+> | [Microsoft.insights](../permissions/monitor.md#microsoftinsights)/logs/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -565,7 +586,10 @@ Has read-only access to entities in the workspace. This role should be assigned 
     {
       "actions": [
         "Microsoft.ApiManagement/service/workspaces/*/read",
-        "Microsoft.Authorization/*/read"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/diagnosticSettings/*/read",
+        "Microsoft.insights/logs/read",
+        "Microsoft.insights/logs/ApiManagementGatewayLogs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -580,7 +604,7 @@ Has read-only access to entities in the workspace. This role should be assigned 
 
 ## App Configuration Contributor
 
-Grants permission for all management operations, except purge, for App Configuration resources.
+Grants permission for all management operations, except purge, for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -602,7 +626,7 @@ Grants permission for all management operations, except purge, for App Configura
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants permission for all management operations, except purge, for App Configuration resources.",
+  "description": "Grants permission for all management operations, except purge, for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/fe86443c-f201-4fc4-9d2a-ac61149fbda0",
   "name": "fe86443c-f201-4fc4-9d2a-ac61149fbda0",
   "permissions": [
@@ -645,7 +669,7 @@ Allows full access to App Configuration data.
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/delete |  |
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/action |  |
 > | **NotDataActions** |  |
-> | *none* |  |
+> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/useSasAuth/action |  |
 
 ```json
 {
@@ -665,7 +689,9 @@ Allows full access to App Configuration data.
         "Microsoft.AppConfiguration/configurationStores/*/delete",
         "Microsoft.AppConfiguration/configurationStores/*/action"
       ],
-      "notDataActions": []
+      "notDataActions": [
+        "Microsoft.AppConfiguration/configurationStores/useSasAuth/action"
+      ]
     }
   ],
   "roleName": "App Configuration Data Owner",
@@ -717,7 +743,7 @@ Allows read access to App Configuration data.
 
 ## App Configuration Reader
 
-Grants permission for read operations for App Configuration resources.
+Grants permission for read operations for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -739,7 +765,7 @@ Grants permission for read operations for App Configuration resources.
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants permission for read operations for App Configuration resources.",
+  "description": "Grants permission for read operations for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/175b81b9-6e0d-490a-85e4-0d422273c10c",
   "name": "175b81b9-6e0d-490a-85e4-0d422273c10c",
   "permissions": [
@@ -764,7 +790,7 @@ Grants permission for read operations for App Configuration resources.
 
 ## Azure API Center Compliance Manager
 
-Allows managing API compliance in Azure API Center service.
+Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project. Applies for new Foundry resources.
 
 [Learn more](/azure/api-center/enable-api-analysis-linting)
 
@@ -822,6 +848,7 @@ Allows for access to Azure API Center data plane read operations.
 > | **DataActions** |  |
 > | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/*/read |  |
 > | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/search/action | Search workspace for relevant results. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -839,7 +866,8 @@ Allows for access to Azure API Center data plane read operations.
       "notActions": [],
       "dataActions": [
         "Microsoft.ApiCenter/services/*/read",
-        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action"
+        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action",
+        "Microsoft.ApiCenter/services/workspaces/search/action"
       ],
       "notDataActions": []
     }
@@ -858,6 +886,7 @@ Allows managing Azure API Center service.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/* |  |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/deletedServices/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -882,6 +911,7 @@ Allows managing Azure API Center service.
     {
       "actions": [
         "Microsoft.ApiCenter/services/*",
+        "Microsoft.ApiCenter/deletedServices/*",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
@@ -1088,11 +1118,14 @@ Lets you create system topics and event subscriptions on all system topics expos
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToResources/action | Permission to perform creation and event subscription creation on a Resources system topic |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToHealthResources/action | Permission to perform creation and event subscription creation on a HealthResources system topic |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToMaintenanceResources/action | Permission to perform creation and event subscription creation on a MaintenanceResources system topic |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeResources/action | Permission to perform creation and event subscription creation on a ComputeResources system topic |
-> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a ComputeScheduleResources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToResources/action | Permission to perform creation and event subscription creation on a resources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToHealthResources/action | Permission to perform creation and event subscription creation on a healthresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToMaintenanceResources/action | Permission to perform creation and event subscription creation on a maintenanceresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeResources/action | Permission to perform creation and event subscription creation on a computeresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a computescheduleresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToContainerServiceEventResources/action | Permission to perform creation and event subscription creation on a containerserviceeventresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToImpactReportingResources/action | Permission to perform creation and event subscription creation on a impactreportingresources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToAksResources/action | Permission to perform creation and event subscription creation on a aksresources system topic |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/eventSubscriptions/write | Create or update an eventSubscription |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/systemTopics/eventSubscriptions/write | Create or update a SystemTopic eventSubscription |
 > | **NotActions** |  |
@@ -1118,6 +1151,9 @@ Lets you create system topics and event subscriptions on all system topics expos
         "Microsoft.ResourceNotifications/systemTopics/subscribeToMaintenanceResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeScheduleResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToImpactReportingResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToAksResources/action",
         "Microsoft.EventGrid/eventSubscriptions/write",
         "Microsoft.EventGrid/systemTopics/eventSubscriptions/write"
       ],
@@ -1315,118 +1351,6 @@ Lets you manage BizTalk services, but not access to them.
     }
   ],
   "roleName": "BizTalk Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Chamber Admin
-
-Lets you manage everything under your Modeling and Simulation Workbench chamber.
-
-[Learn more](/azure/modeling-simulation-workbench/how-to-guide-manage-users)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/*/read |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/* |  |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | **NotActions** |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/fileRequests/manage/action | manage fileRequests |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/connector/setCopyPaste/action |  |
-> | **DataActions** |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/upload/action |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/files/* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Lets you manage everything under your Modeling and Simulation Workbench chamber.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/4e9b8407-af2e-495b-ae54-bb60a55b1b5a",
-  "name": "4e9b8407-af2e-495b-ae54-bb60a55b1b5a",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.ModSimWorkbench/*/read",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/*",
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
-      ],
-      "notActions": [
-        "Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/manage/action",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/connector/setCopyPaste/action"
-      ],
-      "dataActions": [
-        "Microsoft.ModSimWorkbench/workbenches/chambers/upload/action",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/files/*"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Chamber Admin",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Chamber User
-
-Lets you view everything under your Modeling and Simulation Workbench chamber, but not make any changes.
-
-[Learn more](/azure/modeling-simulation-workbench/how-to-guide-manage-users)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/*/read |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/workloads/* |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/getUploadUri/action | getUploadUri chambers |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/fileRequests/getDownloadUri/action | getDownloadUri fileRequests |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/upload/action |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Lets you view everything under your Modeling and Simulation Workbench chamber, but not make any changes.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/4447db05-44ed-4da3-ae60-6cbece780e32",
-  "name": "4447db05-44ed-4da3-ae60-6cbece780e32",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.ModSimWorkbench/workbenches/chambers/*/read",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/workloads/*",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/getUploadUri/action",
-        "Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/getDownloadUri/action",
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
-      ],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.ModSimWorkbench/workbenches/chambers/upload/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Chamber User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1681,6 +1605,131 @@ Read and search DICOM data.
     }
   ],
   "roleName": "DICOM Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Durable Task Data Contributor
+
+Durable Task role for all data access operations.
+
+[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Durable Task role for all data access operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0ad04412-c4d5-4796-b79c-f76d14c8d402",
+  "name": "0ad04412-c4d5-4796-b79c-f76d14c8d402",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DurableTask/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Durable Task Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Durable Task Data Reader
+
+Read all Durable Task Scheduler data.
+
+[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/read | Gets or list orchestrations metadata, including payloads |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read all Durable Task Scheduler data.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/d6a5505f-6ebb-45a4-896e-ac8274cfc0ac",
+  "name": "d6a5505f-6ebb-45a4-896e-ac8274cfc0ac",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read",
+        "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/metadata/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Durable Task Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Durable Task Worker
+
+Used by worker applications to interact with the Durable Task service
+
+[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DurableTask](../permissions/integration.md#microsoftdurabletask)/schedulers/taskhubs/orchestrations/execute/action | Get orchestration and activity work-items and post results |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Used by worker applications to interact with the Durable Task service",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/80d0d6b0-f522-40a4-8886-a5a11720c375",
+  "name": "80d0d6b0-f522-40a4-8886-a5a11720c375",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DurableTask/schedulers/taskhubs/orchestrations/execute/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Durable Task Worker",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1991,6 +2040,77 @@ Lets you subscribe messages on topicspaces.
     }
   ],
   "roleName": "EventGrid TopicSpaces Subscriber",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## FHIR Data Bulk Operator
+
+Role allows user or principal to perform bulk operations
+
+[Learn more](/azure/healthcare-apis/fhir/fhir-bulk-update)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/write | Write FHIR resources (includes create and update). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/delete | Delete FHIR resources (soft delete). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/reindex/action | Allows user to run Reindex job to index any search parameters that haven't yet been indexed. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/import/action | Import FHIR resources in batch. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/hardDelete/action | Hard Delete (including version history). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/bulkOperator/action | Allows user to perform bulk operations |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/write | Write FHIR resources (includes create and update). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/delete | Delete FHIR resources (soft delete). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/export/action | Export operation ($export). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/reindex/action | Allows user to run Reindex job to index any search parameters that haven't yet been indexed. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/import/action | Import FHIR resources in batch. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/hardDelete/action | Hard Delete (including version history). |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/bulkOperator/action | Allows user to perform bulk operations |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user or principal to perform bulk operations",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/804db8d3-32c7-4ad4-a975-3f6f90d5f5f5",
+  "name": "804db8d3-32c7-4ad4-a975-3f6f90d5f5f5",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/services/fhir/resources/read",
+        "Microsoft.HealthcareApis/services/fhir/resources/write",
+        "Microsoft.HealthcareApis/services/fhir/resources/delete",
+        "Microsoft.HealthcareApis/services/fhir/resources/export/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/reindex/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/import/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/bulkOperator/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/write",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/delete",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/export/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/reindex/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/bulkOperator/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "FHIR Data Bulk Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -2308,8 +2428,12 @@ Role allows user to access FHIR Service according to SMART on FHIR specification
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
-> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/readById/action | Read FHIR resource by Id |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/search/action | Search FHIR Resource |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/smart/action | Allows user to access FHIR Service according to SMART on FHIR specification. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/readById/action | Read FHIR resource by Id |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/search/action | Search FHIR Resource |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/smart/action | Allows user to access FHIR Service according to SMART on FHIR specification. |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -2328,8 +2452,12 @@ Role allows user to access FHIR Service according to SMART on FHIR specification
       "notActions": [],
       "dataActions": [
         "Microsoft.HealthcareApis/services/fhir/resources/read",
-        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/services/fhir/resources/readById/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/search/action",
         "Microsoft.HealthcareApis/services/fhir/resources/smart/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/readById/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/search/action",
         "Microsoft.HealthcareApis/workspaces/fhirservices/resources/smart/action"
       ],
       "notDataActions": []

@@ -19,6 +19,8 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 ## Azure App Service
 
+[!INCLUDE [app-service-resources-list-resources](../includes/samples-by-category/query/app-service-resources-list-resources.md)]
+
 [!INCLUDE [app-service-resources-tls-version](../includes/samples-by-category/query/app-service-resources-tls-version.md)]
 
 ## Azure Arc
@@ -58,11 +60,6 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 [!INCLUDE [azure-monitor-data-collection-rules-resources-table](../includes/samples-by-category/query/resources-monitor-data-collection-rules.md)]
 
 [!INCLUDE [azure-monitor-data-collection-rules-insight-resources-table](../includes/samples-by-category/query/insight-resources-monitor-data-collection-rules.md)]
-
-
-## Azure Orbital Ground Station
-
-[!INCLUDE [azure-orbitals-contacts-samples](../includes/samples-by-category/query/orbital-resources-contacts.md)]
 
 ## Azure Policy
 
@@ -129,6 +126,10 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 ## Resource health
 
 [!INCLUDE [azure-resource-graph-samples-cat-resource-health](../includes/samples-by-category/resource-health.md)]
+
+## Service Groups 
+
+[!INCLUDE [azure-resource-graph-cat-service-groups](../includes/samples-by-category/service-groups.md)]
 
 ## Tags
 

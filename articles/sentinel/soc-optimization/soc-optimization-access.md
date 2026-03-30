@@ -1,16 +1,17 @@
 ---
 title: Optimize security operations
 description: Use Microsoft Sentinel SOC optimization recommendations to optimize your security operations center (SOC) team activities.
-ms.author: bagol
-author: batamig
-manager: raynew
+ms.author: abbyweisberg
+author: AbbyMSFT
+manager: orpsod
 ms.collection:
   - usx-security
 ms.topic: how-to
-ms.date: 07/01/2024
+ms.date: 05/06/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a SOC analyst, I want to optimize security controls and data ingestion so that I can enhance threat detection and reduce costs without compromising coverage.
@@ -19,17 +20,15 @@ appliesto:
 
 # Optimize your security operations
 
-Security operations center (SOC) teams actively look for opportunities to optimize both processes and outcomes. You want to ensure that you have all the data you need to take action against risks in your environment, while also ensuring that you're not paying to ingest *more* data than you need. At the same time, your teams must regularly adjust security controls as threat landscapes and business priorities change, adjusting quickly and efficiently to keep your return on investments high.
+Security operations center (SOC) teams look for ways to improve processes and outcomes and ensure you have the data needed to address risks without extra ingestion costs. SOC teams want to make sure that you have all the necessary data to act against risks, without paying for *more* data than needed. At the same time, SOC teams must also adjust security controls as threats and business priorities change, doing so quickly and efficiently to maximize your return on investment.
 
-SOC optimization surfaces ways you can optimize your security controls, gaining more value from Microsoft security services as time goes on.
-
-SOC optimizations are high-fidelity and actionable recommendations to help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing. SOC optimizations are tailored to your environment and based on your current coverage and threat landscape.
+SOC optimizations are actionable recommendations that surface ways that you can optimize your security controls, gaining more value from Microsoft security services as time goes on.  Recommendations help you reduce costs without affecting SOC needs or coverage, and can help you add security controls and data where needed. These optimizations are tailored to your environment and based on your current coverage and threat landscape.
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
-Watch the following video for an overview and demo of SOC optimization in the Defender portal. If you just want a demo, jump to minute 8:14. <br><br>
+Watch the following video for an overview and demo of SOC optimization in the Microsoft Defender portal. If you just want a demo, jump to minute 8:14. <br><br>
 
 > [!VIDEO https://www.youtube.com/embed/b0rbPZwBuc0?si=DuYJQewK8IZz8T0Y]
 
@@ -37,23 +36,23 @@ Watch the following video for an overview and demo of SOC optimization in the De
 
 - SOC optimization uses standard Microsoft Sentinel roles and permissions. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
 
-- To use SOC optimization in the Microsoft Defender portal, you must have Microsoft Sentinel integrated with Microsoft Defender XDR. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
+- To use SOC optimization in the Defender portal, onboard Microsoft Sentinel to the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Access the SOC optimization page
 
-Use one of the following tabs, depending on whether you're working in the unified SOC operations platform or in the Azure portal:
+Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal. When your workspace is onboarded to the Defender portal, SOC optimizations include coverage from across Microsoft security services.
+
+### [Defender portal](#tab/defender-portal)
+
+In the Defender portal, select **SOC optimization**.
+
+:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
 
 ### [Azure portal](#tab/azure-portal)
 
 In Microsoft Sentinel in the Azure portal, under **Threat management**, select **SOC optimization**.
 
 :::image type="content" source="media/soc-optimization-access/soc-optimization-azure.png" alt-text="Screenshot of the SOC optimization page in the Azure portal.":::
-
-### [Defender portal](#tab/defender-portal)
-
-In the unified SOC operations platform in the Microsoft Defender portal, select **SOC optimization**.
-
-:::image type="content" source="media/soc-optimization-access/soc-optimization-xdr.png" alt-text="Screenshot of the SOC optimization page in Microsoft Defender XDR." lightbox="media/soc-optimization-access/soc-optimization-xdr.png":::
 
 ---
 
@@ -63,6 +62,15 @@ Optimization metrics shown at the top of the **Overview** tab give you a high le
 
 Supported metrics at the top of the **Overview** tab include:
 
+### [Defender portal](#tab/defender-portal)
+
+|Title  | Description |
+|---------|---------|
+|**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
+|**Data ingested**     | Shows the total data ingested in your workspace over the last 90 days. |
+|**Threat-based coverage optimizations**     |  Shows one of the following coverage indicators, based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team: <br>- **High**: Over 75% of recommended rules are activated <br>- **Medium**: 30%-74% of recommended rules are activated <br>- **Low**: 0%-29% of recommended rules are activated. <br><br>Select **View all threat scenarios** to view the full list of relevant threat and risk-based scenarios, active and recommended detections, and coverage levels. Then, select a threat scenario to drill down for more details about the recommendation on a separate, threat scenario details page. |
+|**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
+
 ### [Azure portal](#tab/azure-portal)
 
 |Title  |Description |
@@ -70,20 +78,17 @@ Supported metrics at the top of the **Overview** tab include:
 | **Ingested data over the last 3 months** | Shows the total data ingested in your workspace over the last three months. |
 |**Optimizations status**    | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 
-Select **See all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels.
-
-### [Defender portal](#tab/defender-portal)
-
-|Title  | Description |
-|---------|---------|
-|**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
-|**Ingested data**     | Shows the total data ingested in your workspace over the last 90 days. |
-|**Threat-based coverage optimizations**     |   Shows coverage levels for relevant threats. <br>Coverage levels are based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team. <br><br>Supported coverage levels include:<br>- **Best**: 	90% to 100% of recommended rules are found<br>- **Better**: 60% to 89% of recommended rules were created<br>- **Good**: 40% to 59% of recommended rules were created<br>- **Moderate**: 20% to 39% of recommended rules were created<br>- **None**: 0% to 19% of recommended rules were created<br><br>Select **View all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels.    |
-|**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
+Select **See all threat scenarios** to view the full list of relevant threat and risk-based scenarios, percentages of active and recommended analytics rules, and coverage levels.
 
 ---
 
 ## View and manage optimization recommendations
+
+### [Defender portal](#tab/defender-portal)
+
+In the Defender portal, SOC optimization recommendations are listed in the **Your Optimizations** area on the **SOC optimizations** tab. 
+
+:::image type="content" source="media/soc-optimization-access/soc-optimization-overview-defender.png" alt-text="Screenshot of the SOC optimization Overview tab in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-overview-defender.png":::
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -93,44 +98,61 @@ For example:
 
 :::image type="content" source="media/soc-optimization-access/soc-optimization-overview-azure.png" alt-text="Screenshot of the SOC optimization Overview tab in the Azure portal." lightbox="media/soc-optimization-access/soc-optimization-overview-azure.png":::
 
-
-### [Defender portal](#tab/defender-portal)
-
-In the Defender portal, SOC optimization recommendations are listed in the **Your Optimizations** area on the **SOC optimizations** tab. 
-
-:::image type="content" source="media/soc-optimization-access/soc-optimization-overview-defender.png" alt-text="Screenshot of the SOC optimization Overview tab in the Defender portal." lightbox="media/soc-optimization-access/soc-optimization-overview-defender.png":::
-
 ---
 
-Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
-
-> [!NOTE]
-> SOC optimization recommendations are calculated every 24 hours.
+SOC optimization recommendations are calculated every 24 hours. Each optimization card includes the status, title, the date it was created, a high-level description, and the workspace it applies to.
 
 ### Filter optimizations
 
 Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the side. Optimization types include:
 
-- **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps for various types of attacks.
-
+- **Coverage** : Includes recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. Coverage recommendations include:
+    - **Threat-based recommendations** for adding security controls to help close coverage gaps for various types of attacks.
+    - **AI MITRE ATT&CK recommendations** for adding tagging recommendations to help close coverage gaps for various types of attacks, based on the MITRE ATT&CK framework.
+    - **Risk-based recommendations** for adding security controls to help close coverage gaps for various types of business risks.
 - **Data value**: Includes recommendations that suggest ways to improve your data usage for maximizing security value from ingested data, or suggest a better data plan for your organization.
 
 ### View optimization details and take action
 
-In each optimization card, select **View full details** to see a full description of the observation that led to the recommendation, and the value you see in your environment when that recommendation is implemented.
+Select one of the following tabs, depending on the portal you're using:
+
+### [Defender portal](#tab/defender-portal)
+
+1. In each optimization card, select **View details** to see a full description of the observation that led to the recommendation, and the value you see in your environment when that recommendation is implemented.
+
+1. For threat-based coverage optimizations:
+
+    - Toggle between the spider charts to understand your coverage across different tactics and techniques, based on the user-defined and out-of-the-box detections active in your environment.
+    - Select **View threat scenario in MITRE ATT&CK** to jump to the [**MITRE ATT&CK** page in Microsoft Sentinel](../mitre-coverage.md?tabs=defender-portal), prefiltered for your threat scenario. For more information, see [Understand security coverage by the MITRE ATT&CK® framework].
+
+1. Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
+
+- If an optimization includes recommendations to add analytics rules, select **Go to Content Hub**.
+- If an optimization includes recommendations to move a table to basic logs, select **Change plan**.
+- For threat-based coverage optimizations, select **View full threat scenario** to see the full list of relevant threats, active and recommended detections, and coverage levels. From there you can jump directly to the **Content hub** to activate any recommended detections, or to the **MITRE ATT&CK** page to view the [full MITRE ATT&CK coverage for the selected scenario](../mitre-coverage.md?tabs=defender-portal#view-current-mitre-coverage). For example:
+
+    :::image type="content" source="media/soc-optimization-access/threat-scenario-page.png" alt-text="Screenshot of the SOC optimization threat scenario page." lightbox="media/soc-optimization-access/threat-scenario-page.png":::
+
+### [Azure portal](#tab/azure-portal)
+
+In each optimization card, select **View details** to see a full description of the observation that led to the recommendation, and the value you see in your environment when that recommendation is implemented.
 
 Scroll down to the bottom of the details pane for a link to where you can take the recommended actions. For example:
 
 - If an optimization includes recommendations to add analytics rules, select **Go to Content Hub**.
 - If an optimization includes recommendations to move a table to basic logs, select **Change plan**.
 
-If you choose to install an analytics rule template from the Content Hub, and you don't already have the solution installed, only the analytics rule template that you install is shown in the solution when you're done. Install the full solution to see all available content items from the selected solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
+---
+
+If you install an analytics rule template from the Content hub without the solution installed, only the installed template appears in the solution.
+
+Install the full solution to see all available content items from the selected solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 
 ### Manage optimizations
 
 By default, optimization statuses are **Active**. Change their statuses as your teams progress through triaging and implementing recommendations. 
 
-Either select the options menu or select **View full details** to take one of the following actions:
+Either select the options menu or select **View details** to take one of the following actions:
 
 |Action |Description  |
 |---------|---------|
@@ -141,7 +163,7 @@ Either select the options menu or select **View full details** to take one of th
 
 ## View completed and dismissed optimizations
 
-If you marked a specific optimization as *Completed* or *Dismissed*, or if an optimization was automatically completed, it's listed on the **Completed** and **Dismissed** tabs, respectively.
+If you marked a specific optimization as *Completed* or *Dismissed*, or if an optimization is automatically completed, it's listed on the **Completed** and **Dismissed** tabs, respectively.
 
 From here, either select the options menu or select **View full details** to take one of the following actions:
 
@@ -164,7 +186,7 @@ This section provides a sample flow for using SOC optimizations, from either the
 
       - Add analytics rules to use the table for enhanced protection. To use this option, select **Go to the Content Hub** to view and configure specific out-of-the-box analytic rule templates that use the selected table. In the Content hub, you don't need to search for the relevant rule, as you're taken directly to the relevant rule.
 
-        If new analytic rules require additional log sources, consider ingesting them to improve threat coverage.
+        If new analytic rules require extra log sources, consider ingesting them to improve threat coverage.
 
         For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md) and [Detect threats out-of-the-box](../detect-threats-built-in.md).
 

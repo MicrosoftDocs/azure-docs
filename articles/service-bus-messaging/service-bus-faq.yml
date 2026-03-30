@@ -3,7 +3,7 @@ metadata:
   title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
   description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
   ms.topic: faq
-  ms.date: 12/13/2023
+  ms.date: 01/16/2025
 title: Azure Service Bus - Frequently asked questions (FAQ)
 summary: |
   This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
@@ -105,12 +105,12 @@ sections:
           3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
           
               > [!NOTE]
-              > The IP address returned by the `nslookup` command isn't a static IP address. It remains constant until the underlying deployment is deleted or moved to a different cluster, however using IN addresses is not recommended or supported, and you will need to keep track of changes to the IP addresses.
+              > The IP address returned by the `nslookup` command isn't a static IP address. It remains constant until the underlying deployment is deleted or moved to a different cluster, however using IP addresses isn't recommended or supported, and you'll need to keep track of changes to the IP addresses.
           
       - question: |
           Where can I find the IP address of the client sending/receiving messages to/from a namespace? 
         answer: |
-          We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients will fail to authenticate and review [Azure role-based access control (Azure RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 
+          We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients fail to authenticate and review [Azure role-based access control (Azure RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 
           
           If you're using a **premium** namespace, use [IP filtering](service-bus-ip-filtering.md), [virtual network service endpoints](service-bus-service-endpoints.md), and [private endpoints](private-link-service.md) to limit access to the namespace. 
           
@@ -142,12 +142,12 @@ sections:
       - question: |
           How do you charge for Service Bus?
         answer: |
-          For complete information about Service Bus pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/). In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned.
+          For complete information about Service Bus pricing, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/). In addition to the prices noted, you're charged for associated data transfers for egress outside of the data center in which your application is provisioned.
           
       - question: |
           What usage of Service Bus is subject to data transfer? What isn't?
         answer: |
-          Any data transfer within a given Azure region is provided at no charge, as well as any inbound data transfer. Data transfer outside a region is subject to egress charges, which can be found [here](https://azure.microsoft.com/pricing/details/bandwidth/).
+          Any data transfer within a given Azure region is provided at no charge, and any inbound data transfer. Data transfer outside a region is subject to egress charges, which can be found [here](https://azure.microsoft.com/pricing/details/bandwidth/).
           
       - question: |
           Does Service Bus charge for storage?
@@ -199,7 +199,7 @@ sections:
       - question: |
           Portal
         answer: |
-          To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
+          To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-azure-portal). 
           
       - question: |
           PowerShell

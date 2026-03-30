@@ -5,9 +5,11 @@ description: Learn how to change IP address prefixes and configure BGP Settings 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 12/13/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
+# Customer intent: As a network administrator, I want to modify the IP address prefixes and BGP settings of my local network gateway, so that I can ensure it accurately reflects the current network configuration and maintains connectivity.
 ---
 # Modify local network gateway settings using the Azure portal
 
@@ -19,19 +21,17 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 > * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 
->[!NOTE]
+> [!NOTE]
 > Making changes to a local network gateway that has a connection may cause tunnel disconnects and downtime.
 >
 
 ## <a name="configure-lng"></a>Local network gateway configuration
 
-The screenshot below shows the **Configuration** page of a local network gateway resource using public IP address endpoint. **BGP Settings** is selected to reveal available settings.
+When you configure a local network gateway, you select either an IP address or a Fully Qualified Domain Name (FQDN) as the endpoint. The endpoint is the public IP address or FQDN of the VPN device to which you want to connect.
+
+The following screenshot shows the **Configuration** page of a **local network gateway** resource. In this screenshot, **BGP Settings** is selected to reveal available settings.
 
 :::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/settings.png" alt-text="Screenshot of the portal page for local network gateway configuration settings." lightbox="./media/vpn-gateway-modify-local-network-gateway-portal/settings.png":::
-
-This is the configuration page with an FQDN endpoint:
-
-:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/domain-name.png" alt-text="Screenshot of the portal page for local network gateway configuration settings using F Q D N." lightbox="./media/vpn-gateway-modify-local-network-gateway-portal/domain-name.png":::
 
 ## <a name="ip"></a>To modify the gateway IP address or FQDN
 

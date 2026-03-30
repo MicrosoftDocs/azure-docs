@@ -7,6 +7,7 @@ ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: manage-account
+ms.custom: sfi-image-nochange
 ---
 
 # Manage your Azure Maps account
@@ -68,5 +69,5 @@ Learn how to see the API usage metrics for your Azure Maps account:
 [Manage a pricing tier]: how-to-manage-pricing-tier.md
 [Manage authentication]: how-to-manage-authentication.md
 [managed identities for Azure resources]: ../active-directory/managed-identities-azure-resources/overview.md
-[sign up for a free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[sign up for a free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [View usage metrics]: how-to-view-api-usage.md

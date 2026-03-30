@@ -2,11 +2,12 @@
 title: Deploy Microsoft Connected Cache on a gateway
 titleSuffix:  Device Update for Azure IoT Hub
 description: Update disconnected devices with Device Update using the Microsoft Connected Cache module on IoT Edge gateways
-author: andyrivMSFT
-ms.author: andyriv
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 04/14/2023
 ms.topic: how-to
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Deploy the Microsoft Connected Cache module on a single gateway (preview)

@@ -4,11 +4,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The For Each Activity defines a repeating control flow in an Azure Data Factory or Azure Synapse Analytics pipeline. The For Each Activity is used for iterating over a collection to execute actions on each item in the collection individually.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 09/26/2024
+ms.topic: how-to
+ms.date: 03/20/2025
 ---
 
 # ForEach activity in Azure Data Factory and Azure Synapse Analytics
@@ -20,7 +20,7 @@ The ForEach Activity defines a repeating control flow in an Azure Data Factory o
 
 To use a ForEach activity in a pipeline, complete the following steps:
 
-1. You can use any array type variable or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions) as the input for your ForEach activity.  To create an array variable, select the background of the pipeline canvas and then select the **Variables** tab to add an array type variable as shown below.
+1. You can use any array type variable or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters) as the input for your ForEach activity.  To create an array variable, select the background of the pipeline canvas and then select the **Variables** tab to add an array type variable as shown below.
 
    :::image type="content" source="media/control-flow-activities-common/pipeline-array-variable.png" alt-text="Shows an empty pipeline canvas with an array type variable added to the pipeline.":::
 
@@ -214,7 +214,7 @@ In the ForEach activity, provide an array to be iterated over for the property *
 ```
 
 ## Iterate over multiple activities
-It's possible to iterate over multiple activities (for example: copy and web activities) in a ForEach activity. In this scenario, we recommend that you abstract out multiple activities into a separate pipeline. Then, you can use the [ExecutePipeline activity](control-flow-execute-pipeline-activity.md) in the pipeline with ForEach activity to invoke the separate pipeline with multiple activities. 
+It's possible to iterate over multiple activities (for example: copy and web activities) in a ForEach activity. In this scenario, we recommend that you abstract out multiple activities into a separate pipeline. Then, you can use the [ExecutePipeline activity](control-flow-execute-pipeline-activity.md) in the pipeline with ForEach activity to invoke the separate pipeline with multiple activities. If you iterate over multiple activities, there is potential delay in exiting the loop because of aggregation and cleanup work performed by the pipeline. 
 
 
 ### Syntax

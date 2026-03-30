@@ -7,6 +7,7 @@ cloud: gov
 ms.service: azure-government
 ms.topic: article
 ms.date: 12/05/2016
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Government cybersecurity: Monitoring and securing your assets with Azure Monitor logs

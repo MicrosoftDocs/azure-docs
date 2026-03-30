@@ -1,8 +1,8 @@
 ---
-author: bandersmsft
+author: KennyDay
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 11/28/2023
+ms.date: 02/06/2025
 ms.author: amberb
 ---
 

@@ -9,6 +9,7 @@ ms.date: 05/05/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to Create a Distributed HA SAP system with custom resource names so that I can use the system with Azure Center for SAP solutions.
+# Customer intent: As a developer, I want to install software for a Distributed High-Availability SAP system using Azure CLI, so that I can deploy and manage SAP solutions with custom resource names on Azure efficiently.
 ---
 # Quickstart:  Install software for a Distributed High-Availability (HA) SAP system and customized resource names with Azure Center for SAP solutions using Azure CLI
 
@@ -29,7 +30,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 ## Prerequisites
 - An Azure subscription.
 - An Azure account with **Azure Center for SAP solutions administrator** and **Managed Identity Operator** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Subscription or atleast all resource groups (Compute, Network,Storage). 
+- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Subscription or at least all resource groups (Compute, Network,Storage). 
 - A storage account where you would store the SAP Media
 - **Reader and Data Access** role to the **User-assigned managed identity** on the storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).
@@ -37,7 +38,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 - The SSH private key for the virtual machines in the SAP system. You generated this key during the infrastructure deployment.
 - You should have the SAP installation media available in a storage account. For more information, see [how to download the SAP installation media](get-sap-installation-media.md).
 - The *json* configuration file that you used to create infrastructure in the [previous step](tutorial-create-high-availability-name-custom.md) for SAP system using PowerShell or Azure CLI. 
-- As you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see [Use Azure CLI to create a Microsoft Entra app and configure it to access Media Services API](/azure/media-services/previous/media-services-cli-create-and-configure-aad-app). 
+- As you're installing a Highly Available (HA) SAP system, get the Service Principal identifier (SPN ID) and password to authorize the Azure fence agent (fencing device) against Azure resources. For more information, see Use Azure CLI to create a Microsoft Entra app and configure it to access Media Services API. 
     - For an example, see the Red Hat documentation for [Creating a Microsoft Entra Application](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/deploying_red_hat_enterprise_linux_7_on_public_cloud_platforms/configuring-rhel-high-availability-on-azure_cloud-content#azure-create-an-azure-directory-application-in-ha_configuring-rhel-high-availability-on-azure).
     - To avoid frequent password expiry, use the Azure Command-Line Interface (Azure CLI) to create the Service Principal identifier and password instead of the Azure portal.
 

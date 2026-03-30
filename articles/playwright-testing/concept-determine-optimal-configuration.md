@@ -1,12 +1,14 @@
 ---
 title: Optimal test suite configuration
 description: Learn about the factors that affect test completion time in Microsoft Playwright Testing. Get practical steps to determine the optimal Playwright test project configuration.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/04/2023
 ms.custom: playwright-testing-preview
 ---
 
 # Determine the optimal test suite configuration
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Microsoft Playwright Testing Preview enables you to speed up your Playwright test execution by increasing parallelism at cloud scale. Several factors affect the completion time for your test suite. Determining the optimal configuration for reducing test suite completion time is application-specific and requires experimentation. This article explains the different levels to configure parallelism for your tests, the factors that influence test duration, and how to determine your optimal configuration to minimize test completion time.
 

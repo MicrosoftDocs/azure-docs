@@ -1,11 +1,12 @@
 ---
 title: Use Azure HPC Cache and Azure NetApp Files
 description: How to use Azure HPC Cache to improve access to data stored with Azure NetApp Files
-author: femila
+author: ronhogue
 ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 05/05/2021
-ms.author: femila
+ms.author: rohogue
+# Customer intent: "As a cloud architect, I want to integrate Azure HPC Cache with Azure NetApp Files, so that I can optimize data access and improve performance for large-scale workloads in the cloud."
 ---
 
 # Use Azure HPC Cache with Azure NetApp Files

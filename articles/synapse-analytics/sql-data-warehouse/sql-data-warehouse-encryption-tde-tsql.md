@@ -1,12 +1,12 @@
 ---
 title: Transparent data encryption (T-SQL)
 description: Transparent data encryption (TDE) in Azure Synapse Analytics (T-SQL)
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 04/30/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Get started with Transparent Data Encryption (TDE)

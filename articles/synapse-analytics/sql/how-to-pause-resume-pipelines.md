@@ -4,11 +4,13 @@ description: Learn to automate pause and resume for a dedicated SQL pool with Sy
 author: kromerm
 ms.author: makromer
 ms.service: azure-synapse-analytics
-ms.reviewer: wiassaf
+
 ms.subservice: sql
 ms.topic: how-to 
 ms.date: 08/12/2021
-ms.custom: template-how-to 
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 
 # Pause and resume dedicated SQL pools with Synapse Pipelines

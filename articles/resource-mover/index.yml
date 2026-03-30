@@ -8,9 +8,9 @@ metadata:
   ms.service: azure-resource-mover
   ms.topic: landing-page
 
-  author: ankitaduttaMSFT
-  ms.author: ankitadutta
-  ms.date: 08/23/2023
+  author: RochakSingh-blr
+  ms.author: v-rochak2
+  ms.date: 07/31/2025
   keywords: azure resource mover, azure regions, move across regions
 
 landingContent:
@@ -20,8 +20,8 @@ landingContent:
         links:
           - text: What is Resource Mover
             url: ./overview.md
-          - text: Select a tool to move resources
-            url: ./select-move-tool.md
+          - text: Select options to move resources
+            url: ./select-options-to-move-resources.md
           - text: Common questions
             url: ./common-questions.md
 

@@ -10,6 +10,7 @@ ms.date: 10/14/2024
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating a REST API within an Azure AD B2C user flow, I want to learn how to secure my REST API endpoint with authentication, so that only authorized services like Azure AD B2C can make calls to the endpoint.
@@ -17,6 +18,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Secure APIs used for API connectors in Azure AD B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 When integrating a REST API within an Azure AD B2C user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD B2C, can make calls to your endpoint. This article explores how to secure REST API. 
 
@@ -243,7 +245,7 @@ Authorization: Bearer <token>
 
 A bearer token is an opaque string. It can be a JWT access token or any string that the REST API expects Azure AD B2C to send in the authorization header. Azure AD B2C supports the following types:
 
-- **Bearer token**. To be able to send the bearer token in the Restful technical profile, your policy needs to first acquire the bearer token and then use it in the RESTful technical profile.  
+- **Bearer token**. To be able to send the bearer token in the RESTful technical profile, your policy needs to first acquire the bearer token and then use it in the RESTful technical profile.  
 - **Static bearer token**. Use this approach when your REST API issues a long-term access token. To use a static bearer token, create a policy key and make a reference from the RESTful technical profile to your policy key. 
 
 ## Using OAuth2 Bearer  
@@ -587,5 +589,5 @@ The following XML snippet is an example of a RESTful technical profile configure
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-- Learn more about the [Restful technical profile](restful-technical-profile.md) element in the custom policy reference.
+- Learn more about the [RESTful technical profile](restful-technical-profile.md) element in the custom policy reference.
 ::: zone-end

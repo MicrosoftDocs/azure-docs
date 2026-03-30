@@ -1,17 +1,19 @@
 ---
 title: Handle ingestion delay in Microsoft Sentinel | Microsoft Docs
 description:  Handle ingestion delay in Microsoft Sentinel scheduled analytics rules.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 01/09/2023
-ms.author: yelevin
-
 
 #Customer intent: As a security analyst, I want to handle data ingestion delays in scheduled analytics rules so that I can ensure accurate and timely threat detection.
 
 ---
 
 # Handle ingestion delay in scheduled analytics rules
+
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
 
 While Microsoft Sentinel can ingest data from [various sources](connect-data-sources.md), ingestion time for each data source may differ in different circumstances.
 
@@ -82,6 +84,10 @@ CommonSecurityLog
 | where ingestion_time() > ago(rule_look_back)
 ```
 
+See more information on the following items used in the preceding example, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
 
 ## Calculate ingestion delay
 

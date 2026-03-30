@@ -1,48 +1,43 @@
 ---
-title: 'Create a virtual network gateway: PowerShell'
+title: Create a virtual network gateway - PowerShell
 titleSuffix: Azure VPN Gateway
-description: Learn how to create a route-based virtual network gateway for a VPN connection to your on-premises network, or to connect virtual networks.
+description: Learn how to create a virtual network gateway for VPN Gateway connections using PowerShell.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 11/19/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a network engineer, I want to create a VPN gateway using PowerShell, so that I can establish secure connections between my Azure virtual network and on-premises resources or other virtual networks.
 ---
 
 # Create a VPN gateway using PowerShell
 
-This article helps you create an Azure VPN gateway using PowerShell. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets. For more comprehensive information about some of the settings in this article, see [Create a VPN gateway - portal](tutorial-create-gateway-portal.md).
+This article helps you create an Azure VPN gateway using PowerShell. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect virtual networks. For more comprehensive information about some of the settings in this article, see [Create a VPN gateway - portal](tutorial-create-gateway-portal.md).
 
 :::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram that shows a virtual network and a VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
-
-A VPN gateway is one part of a connection architecture to help you securely access resources within a virtual network.
 
 * The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
 * You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
 
-The steps in this article create a virtual network, a subnet, a gateway subnet, and a route-based, zone-redundant active-active VPN gateway (virtual network gateway) using the Generation 2 VpnGw2AZ SKU. If you want to create a VPN gateway using the **Basic** SKU instead, see [Create a Basic SKU VPN gateway](create-gateway-basic-sku-powershell.md). Once the gateway creation completes, you can then create connections.
+The steps in this article create a virtual network, a subnet, a gateway subnet, and a route-based, zone-redundant active-active mode VPN gateway (virtual network gateway) using the Generation 2 VpnGw2AZ SKU. Once the gateway is created, you can configure connections.
 
-Active-active gateways differ from active-standby gateways in the following ways:
+* If you want to create a VPN gateway using the **Basic** SKU instead, see [Create a Basic SKU VPN gateway](create-gateway-basic-sku-powershell.md).
+* We recommend that you create an active-active mode VPN gateway when possible. Active-active mode VPN gateways provide better availability and performance than standard mode VPN gateways. For more information about active-active gateways, see [About active-active mode gateways](about-active-active-gateways.md).
+* For information about availability zones and zone redundant gateways, see [What are availability zones](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvpn-gateway%2Ftoc.json&tabs=azure-cli#availability-zones)?
 
-* Active-active gateways have two Gateway IP configurations and two public IP addresses.
-* Active-active gateways have active-active setting enabled.
-* The virtual network gateway SKU can't be Basic or Standard.
-
-For more information about active-active gateways, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
-For more information about availability zones and zone redundant gateways, see [What are availability zones](/azure/reliability/availability-zones-overview?toc=%2Fazure%2Fvpn-gateway%2Ftoc.json&tabs=azure-cli#availability-zones)?
+> [!NOTE]
+> [!INCLUDE [AZ SKU region support note](../../includes/vpn-gateway-az-regions-support-include.md)]
 
 ## Before you begin
 
-These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-### Working with Azure PowerShell
-
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [About PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. If you're running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
+Create an Azure resource group using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed. If you're running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS
@@ -50,7 +45,9 @@ New-AzResourceGroup -Name TestRG1 -Location EastUS
 
 ## <a name="vnet"></a>Create a virtual network
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named **VNet1** in the **EastUS** location:
+If you don't already have a virtual network, create one with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). When you create a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network. If a duplicate address range exists on both sides of the VPN connection, traffic doesn't route the way you might expect it to. Additionally, if you want to connect this virtual network to another virtual network, the address space can't overlap with other virtual network. Take care to plan your network configuration accordingly.
+
+The following example creates a virtual network named **VNet1** in the **EastUS** location:
 
 ```azurepowershell-interactive
 $virtualnetwork = New-AzVirtualNetwork `
@@ -60,11 +57,11 @@ $virtualnetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.1.0.0/16
 ```
 
-Create a subnet configuration using the [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet.
+Create a subnet configuration using the [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet. The FrontEnd subnet isn't used in this exercise. You can substitute your own subnet name.
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name Frontend `
+  -Name FrontEnd `
   -AddressPrefix 10.1.0.0/24 `
   -VirtualNetwork $virtualnetwork
 ```
@@ -77,7 +74,9 @@ $virtualnetwork | Set-AzVirtualNetwork
 
 ## <a name="gwsubnet"></a>Add a gateway subnet
 
-The gateway subnet contains the reserved IP addresses that the virtual network gateway services use. Use the following examples to add a gateway subnet:
+[!INCLUDE [About GatewaySubnet with links](../../includes/vpn-gateway-about-gwsubnet-include.md)]
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 Set a variable for your virtual network.
 
@@ -97,15 +96,19 @@ Set the subnet configuration for the virtual network using the [Set-AzVirtualNet
 $vnet | Set-AzVirtualNetwork
 ```
 
-## <a name="PublicIP"></a>Request a public IP address
+## <a name="PublicIP"></a>Request public IP addresses
 
-Each VPN gateway must have an allocated public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. In this exercise, we create an active-active zone-redundant VPN gateway environment. That means that two Standard public IP addresses are required, one for each gateway, and we must also specify the Zone setting. This example specifies a zone-redundant configuration because it specifies all 3 regional zones.
+A VPN gateway must have a public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. For active-active mode gateways, each gateway instance has its own public IP address resource. You first request the IP address resource, and then refer to it when creating your virtual network gateway. Additionally, for any gateway SKU ending in *AZ*, you must also specify the Zone setting. This example specifies a zone-redundant configuration because it specifies all three regional zones.
 
-Use the following examples to request a public IP address for each gateway.  The allocation method must be **Static**.
+The IP address is assigned to the resource when the VPN gateway is created. The only time the public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
+
+Use the following examples to request a static public IP address for each gateway instance.
 
 ```azurepowershell-interactive
 $gw1pip1 = New-AzPublicIpAddress -Name "VNet1GWpip1" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Static -Sku Standard -Zone 1,2,3
-   ```
+```
+
+To create an active-active gateway (recommended), request a second public IP address:
 
 ```azurepowershell-interactive
 $gw1pip2 = New-AzPublicIpAddress -Name "VNet1GWpip2" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Static -Sku Standard -Zone 1,2,3
@@ -125,9 +128,9 @@ $gwipconfig2 = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig2 -SubnetId $
 
 ## <a name="CreateGateway"></a>Create the VPN gateway
 
-Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Once the gateway is created, you can create a connection between your virtual network and another virtual network. Or, create a connection between your virtual network and an on-premises location.
+Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Once the gateway is created, you can create connection between your virtual network and your on-premises location. Or, create a connection between your virtual network and another virtual network.
 
-Create a VPN gateway using the [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet. Notice in the examples that both public IP addresses are referenced and the gateway is configured as active-active. In the example, we add the optional `-Debug` switch.
+Create a VPN gateway using the [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet. Notice in the examples that both public IP addresses are referenced and the gateway is configured as active-active using the `EnableActiveActiveFeature` switch. In the example, we add the optional `-Debug` switch. If you want to create a gateway using a different SKU, see [About Gateway SKUs](about-gateway-skus.md) to determine the SKU that best fits your configuration requirements.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
@@ -143,9 +146,9 @@ You can view the VPN gateway using the [Get-AzVirtualNetworkGateway](/powershell
 Get-AzVirtualNetworkGateway -Name Vnet1GW -ResourceGroup TestRG1
 ```
 
-## <a name="viewgwpip"></a>View the public IP addresses
+## <a name="viewgwpip"></a>View gateway IP addresses
 
-To view the public IP address for your VPN gateway, use the [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress) cmdlet. Example:
+Each VPN gateway instance is assigned a public IP address resource. To view the IP address associated with the resource, use the [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress) cmdlet. Repeat for each gateway instance. Active-active gateways have a different public IP address assigned to each instance.
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -Name VNet1GWpip1 -ResourceGroupName TestRG1
@@ -161,8 +164,8 @@ Remove-AzResourceGroup -Name TestRG1
 
 ## Next steps
 
-Once the gateway has finished creating, you can create a connection between your virtual network and another virtual network. Or, create a connection between your virtual network and an on-premises location.
+Once the gateway is created, you can configure connections.
 
-* [Create a site-to-site connection](vpn-gateway-create-site-to-site-rm-powershell.md)<br><br>
-* [Create a point-to-site connection](vpn-gateway-howto-point-to-site-rm-ps.md)<br><br>
-* [Create a connection to another VNet](vpn-gateway-vnet-vnet-rm-ps.md)
+* [Create a site-to-site connection](vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Create a point-to-site connection](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Create a connection to another virtual network](vpn-gateway-vnet-vnet-rm-ps.md)

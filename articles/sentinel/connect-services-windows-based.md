@@ -1,11 +1,10 @@
 ---
 title: Connect Microsoft Sentinel to other Microsoft services with a Windows agent-based data connector
 description: Learn how to connect Microsoft Sentinel to Microsoft services with Windows agent-based connections.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 10/06/2024
-ms.author: yelevin
-
 
 #Customer intent: As a security engineer, I want to connect Microsoft Sentinel to various data sources using Windows agent-based connectors so that I can efficiently ingest and manage security event data for comprehensive threat detection and response.
 
@@ -86,7 +85,7 @@ You'll see all your data collection rules, including those [created through the 
 
 ## Create data collection rules using the API
 
-You can also create data collection rules using the API, which can make life easier if you're creating many rules, such as if you're an MSSP. Here's an example (for the [Windows Security Events via AMA](./data-connectors/windows-security-events-via-ama.md) connector) that you can use as a template for creating a rule:
+You can also create data collection rules using the API, which can make life easier if you're creating many rules, such as if you're an MSSP. Here's an example (for the [Windows Security Events via AMA](./data-connectors-reference.md#windows-security-events-via-ama) connector) that you can use as a template for creating a rule:
 
 **Request URL and header**
 

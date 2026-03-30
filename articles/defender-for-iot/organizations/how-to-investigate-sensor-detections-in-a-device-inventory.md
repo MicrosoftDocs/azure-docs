@@ -3,6 +3,7 @@ title: Manage your OT device inventory from a sensor console
 description: Learn how to view and manage OT devices (assets) from the Device inventory page on a sensor console.
 ms.date: 12/19/2023
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Manage your OT device inventory from a sensor console
@@ -12,7 +13,7 @@ Use the **Device inventory** page from a sensor console to manage all OT and IT 
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
 > [!TIP]
-> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+> Alternately, view your device inventory from [the Azure portal](how-to-manage-device-inventory-for-organizations.md).
 >
 
 ## View the device inventory
@@ -129,7 +130,7 @@ On the **Device inventory** page:
 
 You may want to delete devices from your device inventory, such as if they've been [merged incorrectly](#merge-devices), or are [inactive](#view-inactive-devices).
 
-Deleted devices are removed from the **Device map** and the device inventories on the Azure portal and on-premises management console, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.
+Deleted devices are removed from the **Device map** and the device inventories on the Azure portal, and aren't calculated when generating reports, such as Data Mining, Risk Assessment, or Attack Vector reports.
 
 **To delete one or more devices**:
 

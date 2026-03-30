@@ -1,20 +1,26 @@
 ---
 title: Tutorial - Provision X.509 devices to Azure IoT Hub using a DPS enrollment group
 description: This tutorial shows how to use X.509 certificates to provision multiple devices through an enrollment group in your Azure IoT Hub Device Provisioning Service (DPS) instance. 
-author: kgremban
-ms.author: kgremban
-ms.date: 03/12/2024
+author: cwatson-cat
+ms.author: cwatson
+ms.date: 08/12/2025
 ms.topic: tutorial
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps 
-ms.custom: mvc, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want provision groups of devices using X.509 certificate chains and the Azure IoT device SDK.
+ms.subservice: azure-iot-hub-dps
+ms.custom:
+  - mvc
+  - devx-track-extended-java
+  - devx-track-python
+  - devx-track-js
+  - sfi-image-nochange
 ---
 
 # Tutorial: Provision multiple X.509 devices using enrollment groups
 
-In this tutorial, you learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the Azure IoT SDK will be executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
+In this tutorial, you learn how to provision groups of IoT devices that use X.509 certificates for authentication. Sample device code from the Azure IoT SDK is executed on your development machine to simulate provisioning of X.509 devices. On real devices, device code would be deployed and run from the IoT device.
 
 The Azure IoT Hub Device Provisioning Service supports two types of enrollments for provisioning devices:
 
@@ -27,7 +33,7 @@ The Azure IoT Hub Device Provisioning Service supports three forms of authentica
 * Trusted platform module (TPM)
 * Symmetric keys
 
-In production scenarios, a [Hardware Security Module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is recommended to help protect sensitive information like your device certificate's private key.
+In production scenarios, a [hardware security module (HSM)](./concepts-service.md#hardware-security-module) is used for secure, hardware-based storage of device secrets. An HSM can be used with symmetric key, X.509 certificate, or TPM attestation to provide secure storage for secrets. Hardware-based storage of device secrets is recommended to help protect sensitive information like your device certificate's private key.
 
 In this tutorial, you complete the following objectives:
 
@@ -40,9 +46,9 @@ In this tutorial, you complete the following objectives:
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+* Complete the steps in [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 ::: zone pivot="programming-language-ansi-c"
 
@@ -53,7 +59,7 @@ The following prerequisites are for a Windows development environment used to si
 * Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
 
     >[!IMPORTANT]
-    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this tutorial. Make sure to use the latest version of CMake.
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, older versions of the CMake build system fail to generate the solution file used in this tutorial. Make sure to use the latest version of CMake.
 
 ::: zone-end
 
@@ -95,12 +101,12 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone-end
 
-* Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window.
+* Install the latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window.
 
 * Make sure that [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
 
   >[!NOTE]
-  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
+  > Unless you're familiar with OpenSSL and it's already installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 ## Prepare your development environment
 
@@ -110,7 +116,7 @@ In this section, you prepare a development environment used to build the [Azure 
 
 1. In a web browser, go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
-1. Copy the tag name for the latest release of the Azure IoT C SDK, for example: `lts_03_2024`.
+1. Copy the tag name for the latest release of the Azure IoT C SDK, for example: `lts_03_2025`.
 
 1. Open a Windows command prompt and run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step.
 
@@ -138,7 +144,7 @@ In this section, you prepare a development environment used to build the [Azure 
     ```
 
     >[!TIP]
-    >If `cmake` doesn't find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+    >If `cmake` doesn't find your C++ compiler, you might get build errors while running the previous command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 1. When the build succeeds, the last few output lines look similar to the following output:
 
@@ -216,15 +222,15 @@ In this section, you generate an X.509 certificate chain of three certificates f
 
 *Root certificate* You upload and verify the root certificate with DPS. This verification enables DPS to trust that certificate and verify certificates signed by it.
 
-*Intermediate certificate*: It's common to use intermediate certificates to group devices logically by product lines, company divisions, or other criteria. This tutorial uses a certificate chain with one intermediate certificate, but in a production scenario you may have several. The intermediate certificate in this chain is signed by the root certificate. This certificate is provided to the enrollment group created in DPS. This configuration allows managing a whole group of devices that have device certificates signed by the same intermediate certificate.
+*Intermediate certificate*: It's common to use intermediate certificates to group devices logically by product lines, company divisions, or other criteria. This tutorial uses a certificate chain with one intermediate certificate, but in a production scenario you might have several. The intermediate certificate in this chain is signed by the root certificate. This certificate is provided to the enrollment group created in DPS. This configuration allows managing a whole group of devices that have device certificates signed by the same intermediate certificate.
 
-*Device certificates*: A device certificates (sometimes called a leaf certificate) is signed by the intermediate certificate and stored on the device along with its private key. Ideally these sensitive items would be stored securely with an HSM. Multiple device certificates can be signed by the same intermediate certificate. Each device presents its certificate and private key, along with the certificate chain, when attempting provisioning.
+*Device certificates*: A device certificates (sometimes called a leaf certificate) is signed by the intermediate certificate and stored on the device along with its private key. Ideally these sensitive items would be stored securely with an HSM. The same intermediate certificate can sign multiple device certificates. Each device presents its certificate and private key, along with the certificate chain, when attempting provisioning.
 
 For more information about certificate chains, see [X.509 certificate attestation](concepts-x509-attestation.md).
 
 ### Set up the X.509 OpenSSL environment
 
-In this section, you create the Openssl configuration files, directory structure, and other files used by the Openssl commands.
+In this section, you create the OpenSSL configuration files, directory structure, and other files used by the OpenSSL commands.
 
 1. Open a Git Bash command prompt and navigate to a folder where you want to generate the X.509 certificates and keys for this tutorial.
 
@@ -681,12 +687,12 @@ In this section, you create two device certificates and their full chain certifi
     > The extra forward slash given for the subject name (`//CN=$registration_id`) is only required to escape the string with Git on Windows platforms. On Linux platforms, provide the subject name with a single forward slash (`/CN=$registration_id`).
 
     >[!NOTE]
-    > This script uses the registration ID as the base filename for the private key and certificate files. If your registration ID contains characters that aren't valid filename characters, you'll need to modify the script accordingly.
+    > This script uses the registration ID as the base filename for the private key and certificate files. If your registration ID contains characters that aren't valid filename characters, you need to modify the script accordingly.
 
     > [!WARNING]
     > The text for the certificates only contains public key information.
     >
-    > However, the device must also have access to the private key for the device certificate. This is necessary because the device must perform verification using that key at runtime when it attempts to provision. The sensitivity of this key is one of the main reasons it is recommended to use hardware-based storage in a real HSM to help secure private keys.
+    > However, the device must also have access to the private key for the device certificate. This is necessary because the device must perform verification using that key at runtime when it attempts to provision. The sensitivity of this key is one of the main reasons it's recommended to use hardware-based storage in a real HSM to help secure private keys.
 
 You use the following files in the rest of this tutorial:
 
@@ -723,7 +729,7 @@ For DPS to be able to validate the device's certificate chain during authenticat
 
 On non-Windows devices, you can pass the certificate chain from the code as the certificate store.
 
-On Windows-based devices, you must add the signing certificates (root and intermediate) to a Windows [certificate store](/windows/win32/secauthn/certificate-stores). Otherwise, the signing certificates won't be transported to DPS by a secure channel with Transport Layer Security (TLS).
+On Windows-based devices, you must add the signing certificates (root and intermediate) to a Windows [certificate store](/windows/win32/secauthn/certificate-stores). Otherwise, the signing certificates aren't transported to DPS by a secure channel with Transport Layer Security (TLS).
 
 > [!TIP]
 > It's also possible to use OpenSSL instead of secure channel (Schannel) with the C SDK. For more information on using OpenSSL, see [Using OpenSSL in the SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#using-openssl-in-the-sdk).
@@ -806,9 +812,9 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 ### Configure the custom HSM stub code
 
-The specifics of interacting with actual secure hardware-based storage vary depending on the device hardware. The certificate chains used by the simulated devices in this tutorial will be hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage.
+The specifics of interacting with actual secure hardware-based storage vary depending on the device hardware. The certificate chains used by the simulated devices in this tutorial are hardcoded in the custom HSM stub code. In a real-world scenario, the certificate chain would be stored in the actual HSM hardware to provide better security for sensitive information. Methods similar to the stub methods used in this sample would then be implemented to read the secrets from that hardware-based storage.
 
-While HSM hardware isn't required, it's recommended to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This is only done in this tutorial to assist with learning.
+While HSM hardware isn't required, we recommend it to protect sensitive information like the certificate's private key. If an actual HSM was being called by the sample, the private key wouldn't be present in the source code. Having the key in the source code exposes the key to anyone that can view the code. This inclusion is only done in this tutorial to assist with learning.
 
 To update the custom HSM stub code to simulate the identity of the device with ID `device-01`:
 
@@ -974,9 +980,9 @@ In the rest of this section, use your Windows command prompt.
     ```
 
    >[!NOTE]
-   > If you don't specify certificate and password on the command line, the certificate file will default to *./certificate.pfx* and you'll be prompted for your password.
+   > If you don't specify certificate and password on the command line, the certificate file defaults to *./certificate.pfx* and you're prompted for your password.
    >
-   > Additional parameters can be passed to change the TransportType (-t) and the GlobalDeviceEndpoint (-g). For a full list of parameters type `dotnet run -- --help`.
+   > Other parameters can be passed to change the TransportType (-t) and the GlobalDeviceEndpoint (-g). For a full list of parameters, type `dotnet run -- --help`.
 
 5. To register your second device, rerun the sample using its full chain certificate.
 
@@ -1118,7 +1124,7 @@ In the following steps, use your Windows command prompt.
 
 1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
 
-1. Run the sample. The sample connects to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample sends some test messages to the IoT hub.
+1. Run the sample. The sample connects to DPS, which provisions the device to an IoT hub. After the device is provisioned, the sample sends some test messages to the IoT hub.
 
     ```cmd
     python provision_x509.py
@@ -1181,7 +1187,7 @@ In the following steps, you use both your Windows command prompt and your Git Ba
     cd .\azure-iot-sdk-java\provisioning\provisioning-device-client-samples\provisioning-X509-sample
     ```
 
-1. Enter the provisioning service and X.509 identity information in the sample code. This is used during provisioning, for attestation of the simulated device, prior to device registration.
+1. Enter the provisioning service and X.509 identity information in the sample code. This information is used during provisioning, for attestation of the simulated device, before device registration.
 
     1. Open the file `.\src\main\java\samples\com\microsoft\azure\sdk\iot\ProvisioningX509Sample.java` in your favorite editor.
 
@@ -1293,7 +1299,7 @@ In the following steps, you use both your Windows command prompt and your Git Ba
         ```
 
         > [!NOTE]
-        > The order that the signing certificates are added is important. The sample will fail if it's changed.
+        > The order that the signing certificates are added is important. The sample fails if the order changes.
 
     1. Save your changes.
 
@@ -1304,7 +1310,7 @@ In the following steps, you use both your Windows command prompt and your Git Ba
     cd target
     ```
 
-1. The build outputs .jar file in the `target` folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. Execute the .jar file. You may need to replace the version in the following command.
+1. The build outputs .jar file in the `target` folder with the following file format: `provisioning-x509-sample-{version}-with-deps.jar`; for example: `provisioning-x509-sample-1.8.1-with-deps.jar`. Execute the .jar file. You might need to replace the version in the following command.
 
     ```cmd
     java -jar ./provisioning-x509-sample-1.8.1-with-deps.jar
@@ -1343,11 +1349,11 @@ In the following steps, you use both your Windows command prompt and your Git Ba
     2022-10-21 10:41:31,536 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
     2022-10-21 10:41:31,537 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
     Sending message from device to IoT Hub...
-    2022-10-21 10:41:31,539 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] )
+    2022-10-21 10:41:31,539 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
     Press any key to exit...
-    2022-10-21 10:41:31,540 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] )
-    2022-10-21 10:41:31,844 DEBUG (MQTT Call: device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] )
-    2022-10-21 10:41:31,846 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [4d8d39c8-5a38-4299-8f07-3ae02cdc3218] ) with status OK
+    2022-10-21 10:41:31,540 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
+    2022-10-21 10:41:31,844 DEBUG (MQTT Call: device-01) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] )
+    2022-10-21 10:41:31,846 DEBUG (contoso-hub-2.azure-devices.net-device-01-d7c67552-Cxn0bd73809-420e-46fe-91ee-942520b775db-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [aaaa0000-bb11-2222-33cc-444444dddddd] ) with status OK
     Message sent!
     ```
 
@@ -1370,7 +1376,7 @@ Examine the registration records of the enrollment group to see the registration
 
 1. Select **Enrollment groups**. The X.509 enrollment group entry that you created previously should appear in the list.
 
-1. Select the enrollment entry. Then select **Details** next to the **Registration status** to see the devices that have been registered through the enrollment group. The IoT hub that each of your devices was assigned to, their device IDs, and the dates and times they were registered appear in the list.
+1. Select the enrollment entry. Then select **Details** next to the **Registration status** to see the devices that are registered through the enrollment group. The IoT hub that each of your devices was assigned to, their device IDs, and the dates and times they were registered appear in the list.
 
     :::image type="content" source="./media/how-to-unprovision-devices/view-registration-records.png" alt-text="Screenshot that shows the registration status details for the enrollment group on Azure portal.":::
 
@@ -1394,46 +1400,50 @@ When you're finished testing and exploring this device client sample, use the fo
 
 ### Delete your enrollment group
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
+1. From the portal menu in the Azure portal, select **All resources**.
 
 1. Select your DPS instance.
 
-1. In the **Settings** menu, select **Manage enrollments**.
+1. In the service menu, under **Settings**, select **Manage enrollments**.
 
-1. Select the **Enrollment groups** tab.
+1. In the working pane, select the **Enrollment groups** tab.
 
 1. Select the enrollment group you used for this tutorial.
 
-1. On the **Enrollment details** page, select **Details** next to the **Registration status**. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete** at the top of the page to delete the registration records.
+1. On the **Enrollment details** page, select **Details** next to the **Registration status** label. 
+
+1. On the **Enrollment group registrations** page, select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete** from the command bar to delete the registration records.
 
     > [!IMPORTANT]
-    > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
+    > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
 
 1. Go back to the **Manage enrollments** page and make sure the **Enrollment groups** tab is selected.
 
 1. Select the check box next to the group name of the enrollment group you used for this tutorial.
 
-1. At the top of the page, select  **Delete**.
+1. Select **Delete** from the command bar.
 
 ### Delete registered CA certificates from DPS
 
-1. Select **Certificates** from the left-hand menu of your DPS instance. For each certificate you uploaded and verified in this tutorial, select the certificate and select **Delete** and confirm your choice to remove it.
+1. In the service menu of your DPS instance, under **Settings**, select **Certificates**.
+
+1.  For each certificate you uploaded and verified in this tutorial, select the certificate, then select **Delete** from the command bar and confirm your choice to remove it.
 
 ### Delete device registrations from IoT Hub
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
+1. From the portal menu in the Azure portal, select **All resources**.
 
 2. Select your IoT hub.
 
-3. In the **Explorers** menu, select **IoT devices**.
+3. In the service menu, under **Device management**, select **Devices**.
 
 4. Select the check box next to the device ID of the devices you registered in this tutorial. For example, *device-01* and *device-02*.
 
-5. At the top of the page, select  **Delete**.
+5. Select **Delete** from the command bar.
 
 ## Next steps
 
 In this tutorial, you provisioned multiple X.509 devices to your IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Manage IoT hub assignment with custom allocation policies](tutorial-custom-allocation-policies.md)
+> [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md)

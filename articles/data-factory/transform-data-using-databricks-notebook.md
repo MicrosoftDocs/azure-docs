@@ -4,7 +4,7 @@ description: "Learn how you can use the Databricks Notebook Activity in an Azure
 ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
-ms.date: 10/03/2024
+ms.date: 01/15/2025
 ms.subservice: orchestration
 ---
 
@@ -24,11 +24,10 @@ You perform the following steps in this tutorial:
 
   - Monitor the pipeline run.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-For an eleven-minute introduction and demonstration of this feature, watch the following video:
-
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
+>[!NOTE]
+>For full details on how to use the Databricks Notebook Activity, including using libraries and passing input and output parameters, refer to the [Databricks Notebook Activity](transform-data-databricks-notebook.md) documentation.
 
 ## Prerequisites
 
@@ -38,7 +37,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 
-1. Select **Create a resource** on the Azure portal menu, select **Integration**, and then select **Data Factory**.
+1. Select **Create a resource** on the Azure portal menu, then select **Analytics** > **Data Factory** :
 
     :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Screenshot showing Data Factory selection in the New pane.":::
 
@@ -60,7 +59,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
     
     The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (For example, use **&lt;yourname&gt;ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](./naming-rules.md) article.
 
-    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Screenshot showing the Error when a name is not available.":::
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Screenshot showing the Error when a name isn't available.":::
 
 1. For **Version**, select **V2**.
 
@@ -94,11 +93,11 @@ In this section, you author a Databricks linked service. This linked service con
     
     1.  For **Name**, enter ***AzureDatabricks\_LinkedService***.
     
-    1.  Select the appropriate **Databricks workspace** that you will run your notebook in.
+    1.  Select the appropriate **Databricks workspace** that you'll run your notebook in.
 
     1.  For **Select cluster**, select **New job cluster**.
     
-    1.  For **Databrick Workspace URL**, the information should be auto-populated.
+    1.  For **Databricks Workspace URL**, the information should be autopopulated.
 
     1.  For **Authentication type**, if you select  **Access Token**, generate it from Azure Databricks workplace. You can find the steps [here](https://docs.databricks.com/administration-guide/access-control/tokens.html). For **Managed  service identity** and  **User Assigned Managed Identity**,  grant **Contributor role** to both identities  in Azure Databricks resource's *Access control* menu. 
 
@@ -142,13 +141,7 @@ In this section, you author a Databricks linked service. This linked service con
 
        1. Create a **New Folder** in Workplace and call it as **adftutorial**.
 
-          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png" alt-text="Screenshot showing how to create a new folder.":::        
-
-       1. [Screenshot showing how to create a new notebook.](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder, click **Create.**
-
-          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png" alt-text="Screenshot showing how to create a new notebook.":::  
-
-          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png" alt-text="Screenshot showing how to set the properties of the new notebook.":::
+       1. [Create a new notebook](https://docs.databricks.com/notebooks/notebooks-manage.html#create-a-notebook-in-any-folder), let’s call it **mynotebook**. Right-click the **adftutorial** Folder, and select **Create.**
 
        1. In the newly created notebook "mynotebook'" add the following code:
 
@@ -160,8 +153,6 @@ In this section, you author a Databricks linked service. This linked service con
            print ("Param -\'input':")
            print (y)
            ```
-
-          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png" alt-text="Screenshot showing how to create widgets for parameters."::: 
 
        1. The **Notebook Path** in this case is **/adftutorial/mynotebook**.
 
@@ -207,15 +198,11 @@ The **Pipeline run** dialog box asks for the **name** parameter. Use **/path/fil
 
 ## Verify the output
 
-You can log on to the **Azure Databricks workspace**, go to **Clusters** and you can see the **Job** status as *pending execution, running, or terminated*.
+You can log on to the **Azure Databricks workspace**, go to **Job Runs** and you can see the **Job** status as *pending execution, running, or terminated*.
 
-:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png" alt-text="Screenshot showing how to view the job cluster and the job."::: 
+You can select the **Job name** and navigate to see further details. On successful run, you can validate the parameters passed and the output of the Python notebook.
 
-You can click on the **Job name** and navigate to see further details. On successful run, you can validate the parameters passed and the output of the Python notebook.
-
-:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-output.png" alt-text="Screenshot showing how to view the run details and output."::: 
-
-## Related content
+## Summary
 
 The pipeline in this sample triggers a Databricks Notebook activity and passes a parameter to it. You learned how to:
 

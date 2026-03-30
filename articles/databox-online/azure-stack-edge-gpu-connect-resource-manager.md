@@ -8,7 +8,10 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 04/10/2024
 ms.author: alkohli
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-arm-template
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
 
@@ -474,10 +477,10 @@ Set the Azure Resource Manager environment and verify that your device to client
             ```powershell
             $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
             $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
-            Connect-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
+            Connect-AzAccount -EnvironmentName AzASE -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee -credential $cred
             ```
 
-            Use the tenant ID c0257de7-538f-415c-993a-1b87a031879d as in this instance it's hard coded.
+            Use the tenant ID aaaabbbb-0000-cccc-1111-dddd2222eeee as in this instance it's hard coded.
             Use the following username and password.
 
             - **Username** - *EdgeArmUser*
@@ -491,23 +494,23 @@ Set the Azure Resource Manager environment and verify that your device to client
             ```output
             PS C:\windows\system32> $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
             PS C:\windows\system32> $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
-            PS C:\windows\system32> Connect-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
+            PS C:\windows\system32> Connect-AzAccount -EnvironmentName AzASE -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee -credential $cred
 
             Account       SubscriptionName   TenantId            Environment
             -------       ----------------   --------            -----------
-            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzASE
+            EdgeArmUser@localhost Default Provider Subscription aaaabbbb-0000-cccc-1111-dddd2222eeee AzASE
 
             PS C:\windows\system32>
             ```
 
             An alternative way to sign in is to use the `login-AzAccount` cmdlet.
 
-            `login-AzAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
+            `login-AzAccount -EnvironmentName <Environment Name> -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee`
 
             Here's an example output.
 
             ```output
-            PS C:\WINDOWS\system32> login-AzAccount -EnvironmentName AzASE -TenantId c0257de7-538f-415c-993a-1b87a031879d
+            PS C:\WINDOWS\system32> login-AzAccount -EnvironmentName AzASE -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee
 
             Account               SubscriptionName              TenantId
             -------               ----------------              --------
@@ -584,7 +587,7 @@ Set the Azure Resource Manager environment and verify that your device to client
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
 
-    For more information, go to [Set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
+    For more information, go to [Set-AzureRMEnvironment](/previous-versions/powershell/module/azurerm.profile/set-azurermenvironment).
 
     - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge device.
 
@@ -596,7 +599,7 @@ Set the Azure Resource Manager environment and verify that your device to client
 
     2. You can connect via `login-AzureRMAccount` or via `Connect-AzureRMAccount` command.
 
-        1. To sign in, type the following command. The tenant ID in this instance is hard coded - c0257de7-538f-415c-993a-1b87a031879d. Use the following username and password.
+        1. To sign in, type the following command. The tenant ID in this instance is hard coded - aaaabbbb-0000-cccc-1111-dddd2222eeee. Use the following username and password.
 
             - **Username** - *EdgeArmUser*
 
@@ -605,11 +608,11 @@ Set the Azure Resource Manager environment and verify that your device to client
             ```output
             PS C:\windows\system32> $pass = ConvertTo-SecureString "<Your password>" -AsPlainText -Force;
             PS C:\windows\system32> $cred = New-Object System.Management.Automation.PSCredential("EdgeArmUser", $pass)
-            PS C:\windows\system32> Connect-AzureRmAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d -credential $cred
+            PS C:\windows\system32> Connect-AzureRmAccount -EnvironmentName AzDBE -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee -credential $cred
 
             Account       SubscriptionName   TenantId            Environment
             -------       ----------------   --------            -----------
-            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE
+            EdgeArmUser@localhost Default Provider Subscription aaaabbbb-0000-cccc-1111-dddd2222eeee AzDBE
 
             PS C:\windows\system32>
             ```
@@ -617,16 +620,16 @@ Set the Azure Resource Manager environment and verify that your device to client
 
             An alternative way to sign in is to use the `login-AzureRmAccount` cmdlet.
 
-            `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
+            `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee`
 
             Here's a sample output of the command.
 
             ```output
-            PS C:\Users\Administrator> login-AzureRMAccount -EnvironmentName AzDBE -TenantId c0257de7-538f-415c-993a-1b87a031879d
+            PS C:\Users\Administrator> login-AzureRMAccount -EnvironmentName AzDBE -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee
 
             Account         SubscriptionName  TenantId              Environment
             -------         ----------------  --------              -------
-            EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE
+            EdgeArmUser@localhost Default Provider Subscription aaaabbbb-0000-cccc-1111-dddd2222eeee AzDBE
             PS C:\Users\Administrator>
             ```
 ---
@@ -670,7 +673,7 @@ Name               : Default Provider Subscription (...) - EdgeArmUser@localhost
 Account            : EdgeArmUser@localhost​
 Environment        : AzDBE2​
 Subscription       : ...​
-Tenant             : c0257de7-538f-415c-993a-1b87a031879d​
+Tenant             : aaaabbbb-0000-cccc-1111-dddd2222eeee​
 TokenCache         : Microsoft.Azure.Commands.Common.Authentication.ProtectedFileTokenCache​
 VersionProfile     :​
 ExtendedProperties : {}​
@@ -684,12 +687,12 @@ PS C:\WINDOWS\system32> Disconnect-AzAccount​
 ​​
 Id                    : EdgeArmUser@localhost​
 Type                  : User​
-Tenants               : {c0257de7-538f-415c-993a-1b87a031879d}​
+Tenants               : {aaaabbbb-0000-cccc-1111-dddd2222eeee}​
 AccessToken           :​
 Credential            :​
 TenantMap             : {}​
 CertificateThumbprint :​
-ExtendedProperties    : {[Subscriptions, ...], [Tenants, c0257de7-538f-415c-993a-1b87a031879d]}
+ExtendedProperties    : {[Subscriptions, ...], [Tenants, aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e]}
 ```
 
 Sign into the other environment. The sample output is shown below.
@@ -699,7 +702,7 @@ PS C:\WINDOWS\system32> Login-AzAccount -Environment "AzDBE1" -TenantId $ArmTena
 ​
 Account     SubscriptionName   TenantId        Environment​
 -------     ----------------   --------        -----------​
-EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE1
+EdgeArmUser@localhost Default Provider Subscription aaaabbbb-0000-cccc-1111-dddd2222eeee AzDBE1
 ```
 ​
 Run this cmdlet to confirm which environment you're connected to.
@@ -711,7 +714,7 @@ Name               : Default Provider Subscription (...) - EdgeArmUser@localhost
 Account            : EdgeArmUser@localhost​
 Environment        : AzDBE1​
 Subscription       : ...
-Tenant             : c0257de7-538f-415c-993a-1b87a031879d​
+Tenant             : aaaabbbb-0000-cccc-1111-dddd2222eeee​
 TokenCache         : Microsoft.Azure.Commands.Common.Authentication.ProtectedFileTokenCache​
 VersionProfile     :​
 ExtendedProperties : {}
@@ -748,7 +751,7 @@ Name               : Default Provider Subscription (A4257FDE-B946-4E01-ADE7-6747
 Account            : EdgeArmUser@localhost​
 Environment        : AzDBE2​
 Subscription       : ...​
-Tenant             : c0257de7-538f-415c-993a-1b87a031879d​
+Tenant             : aaaabbbb-0000-cccc-1111-dddd2222eeee​
 TokenCache         : Microsoft.Azure.Commands.Common.Authentication.ProtectedFileTokenCache​
 VersionProfile     :​
 ExtendedProperties : {}​
@@ -762,12 +765,12 @@ PS C:\WINDOWS\system32> Disconnect-AzureRmAccount​
 ​​
 Id                    : EdgeArmUser@localhost​
 Type                  : User​
-Tenants               : {c0257de7-538f-415c-993a-1b87a031879d}​
+Tenants               : {aaaabbbb-0000-cccc-1111-dddd2222eeee}​
 AccessToken           :​
 Credential            :​
 TenantMap             : {}​
 CertificateThumbprint :​
-ExtendedProperties    : {[Subscriptions, ...], [Tenants, c0257de7-538f-415c-993a-1b87a031879d]}
+ExtendedProperties    : {[Subscriptions, ...], [Tenants, aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e]}
 ```
 
 Sign into the other environment. The sample output is shown below.
@@ -777,7 +780,7 @@ PS C:\WINDOWS\system32> Login-AzureRmAccount -Environment "AzDBE1" -TenantId $Ar
 ​
 Account     SubscriptionName   TenantId        Environment​
 -------     ----------------   --------        -----------​
-EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d AzDBE1
+EdgeArmUser@localhost Default Provider Subscription aaaabbbb-0000-cccc-1111-dddd2222eeee AzDBE1
 ```
 ​
 Run this cmdlet to confirm which environment you're connected to.
@@ -789,7 +792,7 @@ Name               : Default Provider Subscription (...) - EdgeArmUser@localhost
 Account            : EdgeArmUser@localhost​
 Environment        : AzDBE1​
 Subscription       : ...​
-Tenant             : c0257de7-538f-415c-993a-1b87a031879d​
+Tenant             : aaaabbbb-0000-cccc-1111-dddd2222eeee​
 TokenCache         : Microsoft.Azure.Commands.Common.Authentication.ProtectedFileTokenCache​
 VersionProfile     :​
 ExtendedProperties : {}

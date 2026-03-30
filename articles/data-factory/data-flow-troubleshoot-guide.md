@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 01/05/2024
+ms.date: 06/03/2025
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory (ADF)
@@ -322,7 +322,7 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Broadcast has a default timeout of 60 seconds on debug runs and 300 seconds on job runs. The stream chosen for broadcast is too large to produce data within this limit.
 - **Recommendation**: Check the **Optimize** tab on your data flow transformations for join, exists, and lookup. The default option for broadcast is **Auto**. If **Auto** is set, or if you're manually setting the left or right side to broadcast under **Fixed**, you can either set a larger Azure integration runtime (IR) configuration or turn off broadcast. For the best performance in data flows, we recommend that you allow Spark to broadcast by using **Auto** and use a memory-optimized Azure IR.
 
-  If you're running the data flow in a debug test execution from a debug pipeline run, you might run into this condition more frequently. The more frequent occurence of the error is because Azure Data Factory throttles the broadcast timeout to 60 seconds to maintain a faster debugging experience. You can extend the timeout to the 300-second timeout of a triggered run. To do so, you can use the **Debug** > **Use Activity Runtime** option to use the Azure IR defined in your Execute Data Flow pipeline activity.
+  If you're running the data flow in a debug test execution from a debug pipeline run, you might run into this condition more frequently. The more frequent occurrence of the error is because Azure Data Factory throttles the broadcast timeout to 60 seconds to maintain a faster debugging experience. You can extend the timeout to the 300-second timeout of a triggered run. To do so, you can use the **Debug** > **Use Activity Runtime** option to use the Azure IR defined in your Execute Data Flow pipeline activity.
 
 - **Message**: Broadcast join timeout error. You can choose 'Off' of broadcast option in join/exists/lookup transformation to avoid this issue. If you intend to broadcast join option to improve performance, then make sure broadcast stream can produce data within 60 secs in debug runs and 300 secs in job runs.
 - **Cause**: Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for broadcast is too large to produce data within this limit. If a broadcast join isn't used, the default broadcast by dataflow can reach the same limit.
@@ -1115,7 +1115,7 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 ### Error code: 4502
 
 - **Message**: There are substantial concurrent MappingDataflow executions that are causing failures due to throttling under Integration Runtime.
-- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
 - **Recommendation**: If you want to run more Data Flow activities in parallel, distribute them across multiple integration runtimes.
 
 ### Error code: 4503
@@ -1158,6 +1158,11 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 - **Message**: java.sql.SQLTransactionRollbackException. Deadlock found when trying to get lock; try restarting transaction. If the problem persists, please contact Azure Support
 - **Cause**: Transient error
 - **Recommendation**: Retry the request after a wait period.
+
+### Error code: SystemErrorSynapseSparkJobFailed (Ongoing)
+- **Message**: Job failed during run time with state=[dead]. Credentials were not provided for the WASB URI.
+- **Cause**: Data flow is unsupported in Synapse workspaces using Spark version 3.4 when DEP (Data Exfiltration Protection) is enabled by selecting "Allow outbound data traffic only to approved targets" during workspace network configuration.
+- **Recommendation**: Disable the above settings during workspace creation. For more information, see this [document](/azure/synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection) 
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.
@@ -1287,6 +1292,6 @@ For more help with troubleshooting, see these resources:
 
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)

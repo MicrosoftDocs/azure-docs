@@ -19,7 +19,7 @@ This tutorial shows how to set up an account with Azure Maps, then use the Maps 
 >
 > * Create an Azure Maps account
 > * Retrieve the subscription key for your Maps account
-> * Create a new web page using the map control API
+> * Create a new web page using the Map Control API
 > * Use the Maps search service to find a nearby point of interest
 
 ## Prerequisites
@@ -150,7 +150,7 @@ The Map Control API is a convenient client library. This API allows you to easil
 
 ## Add search capabilities
 
-This section shows how to use the Maps [Search API] to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address.
+This section shows how to use the Maps [Search API] to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns latitude and longitude information to a specified address.
 
 > [!TIP]
 >
@@ -207,7 +207,7 @@ At this point, the MapSearch page can display the locations of points of interes
 
 ## Add interactive data
 
-The map so far only looks at the longitude/latitude data for the search results. However, the raw JSON that the Maps Search service returns contains additional information about each gas station. Including the name and street address. You can incorporate that data into the map with interactive popup boxes.
+The map so far only looks at the longitude/latitude data for the search results. However, the raw JSON that the Maps Search service returns contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive popup boxes.
 
 1. Add the following lines of code in the map `ready` event handler after the code to query the fuzzy search service. This code creates an instance of a Popup and adds a mouseover event to the symbol layer.
 
@@ -264,7 +264,7 @@ The next tutorial demonstrates how to display a route between two locations.
 > [Route to a destination]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Fuzzy Search service]: /rest/api/maps/search/get-search-fuzzy?view=rest-maps-1.0&preserve-view=true
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Route to a destination]: tutorial-route-location.md

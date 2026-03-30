@@ -3,9 +3,9 @@ title: Historical query storage and analysis in Azure Synapse Analytics
 description: Historic query analysis is one of the crucial needs of data engineers. Azure Synapse Analytics supports four main ways to analyze query history and performance. These include Query Store, DMVs, Azure Log Analytics, and Azure Data Explorer.
 author: mariyaali
 ms.author: mariyaali
-ms.reviewer: wiassaf
+
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/28/2021
 ms.custom: template-concept
 ---

@@ -5,10 +5,11 @@ description: Learn about limitations and known issues of Azure Data Lake Storage
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
-ms.date: 11/02/2023
+ms.topic: concept-article
+ms.date: 11/15/2024
 ms.author: normesta
 ms.reviewer: jamesbak
+# Customer intent: As a data engineer, I want to understand the limitations and known issues of Azure Data Lake Storage so that I can effectively manage my data workflows and avoid potential pitfalls when using various APIs and integrations.
 ---
 
 # Known issues with Azure Data Lake Storage
@@ -55,6 +56,7 @@ These Blob REST APIs aren't supported:
 - [Get Page Ranges](/rest/api/storageservices/get-page-ranges)
 - [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
 - [Put Page from URL](/rest/api/storageservices/put-page-from-url)
+- [Append Blob Seal](/rest/api/storageservices/append-blob-seal)
 
 Unmanaged VM disks aren't supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 

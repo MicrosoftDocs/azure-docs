@@ -1,41 +1,45 @@
 ---
-title: Troubleshoot Azure Database for MySQL - Flexible Server backup using Azure Backup
-description: Troubleshooting information for backing up Azure Database for MySQL - Flexible server.
+title: Troubleshoot Azure Database for MySQL - Flexible Server Backup by Using Azure Backup
+description: Get troubleshooting information for backing up Azure Database for MySQL - Flexible Server.
 ms.topic: troubleshooting
-ms.date: 03/29/2024
+ms.date: 11/13/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to troubleshoot backup issues for Azure Database for MySQL - Flexible Server, so that I can ensure reliable data protection and recovery."
 ---
 
 # Troubleshoot Azure Database for MySQL - Flexible Server backup (preview)
 
-This article provides the recommended actions to troubleshoot the issues you might encounter during the backup or restore of Azure Database for MySQL - Flexible server.
+[!INCLUDE [Azure Database for MySQL - Flexible Server backup advisory](../../includes/backup-mysql-flexible-server-advisory.md)]
 
-## Common errors for the backup and restore operations
+This article provides recommended actions to troubleshoot issues that you might encounter during the backup or restore of Azure Database for MySQL - Flexible Server.
 
+## Common errors for MySQL - Flexible Server backup
 
-### MySQLFlexOperationFailedUserError
-
-**Error code**: MySQLFlexOperationFailedUserError
-
-**Inner error code**: ResourceGroupNotFound
-
-**Recommended action**: Check if the resource group of the backed-up server is deleted. We recommend you to stop protection for the backup instance to avoid failures.
+This section lists common errors that you might encounter while backing up Azure Database for MySQL - Flexible Server.
 
 ### MySQLFlexOperationFailedUserError
 
-**Error code**: MySQLFlexOperationFailedUserError
+**Error code**: `MySQLFlexOperationFailedUserError`
 
-**Inner error code**: ResourceNotFound
+**Inner error code**: `ResourceGroupNotFound`
 
-**Recommended action**: Check if the resource being backed up is deleted. We recommend you to stop protection for the backup instance to avoid failures.
+**Recommended action**: Check if the resource group of the backed-up server is deleted. We recommend that you stop protection for the backup instance to avoid failures.
 
 ### MySQLFlexOperationFailedUserError
 
-**Error code**: MySQLFlexOperationFailedUserError
+**Error code**: `MySQLFlexOperationFailedUserError`
 
-**Inner error code**: AuthorizationFailed
+**Inner error code**: `ResourceNotFound`
+
+**Recommended action**: Check if the resource that you're backing up is deleted. We recommend that you stop protection for the backup instance to avoid failures.
+
+### MySQLFlexOperationFailedUserError
+
+**Error code**: `MySQLFlexOperationFailedUserError`
+
+**Inner error code**: `AuthorizationFailed`
 
 **Cause**: Required permissions aren't present to perform the backup operation.
 
@@ -43,34 +47,38 @@ This article provides the recommended actions to troubleshoot the issues you mig
 
 ### MySQLFlexClientError
 
-**Error code**: MySQLFlexClientError
+**Error code**: `MySQLFlexClientError`
 
-**Inner error code**: BackupAlreadyRunningForServer
+**Inner error code**: `BackupAlreadyRunningForServer`
 
 **Cause**: A backup operation is already running on the server.
 
-**Recommended action**: Wait for the previous operation to finish before triggering the next backup operation.
+**Recommended action**: Wait for the previous operation to finish before you trigger the next backup operation.
 
 ### UserErrorMaxConcurrentOperationLimitReached
 
-**Error code**: UserErrorMaxConcurrentOperationLimitReached
+**Error code**: `UserErrorMaxConcurrentOperationLimitReached`
 
-**Inner error code**: UserErrorMaxConcurrentOperationLimitReached
+**Inner error code**: `UserErrorMaxConcurrentOperationLimitReached`
 
-**Cause**: The count to perform backups on the server reached the maximum limit.
+**Cause**: The count to perform backups on the server reached the limit.
 
-**Recommended action**: Try to trigger a backup once the current running backup job finishes.
+**Recommended action**: Try to trigger a backup after the currently running backup job finishes.
+
+## Common errors for MySQL - Flexible Server restore
+
+This section lists common error that you might encounter while restoring Azure Database for MySQL - Flexible Server.
 
 ### UserErrorMSIMissingPermissions
 
-**Error code**: UserErrorMSIMissingPermissions
+**Error code**: `UserErrorMSIMissingPermissions`
 
-**Inner error code**: UserErrorMSIMissingPermissions
+**Inner error code**: `UserErrorMSIMissingPermissions`
 
 **Cause**: The required set of permissions isn't present to perform the restore operation.
 
-**Recommended action**: Assign the [appropriate permissions](backup-azure-mysql-flexible-server-about.md#permissions-for-an-azure-database-for-mysql---flexible-server-backup) and retrigger backup operation.
+**Recommended action**: Assign the [appropriate permissions](backup-azure-mysql-flexible-server-about.md#permissions-for-an-azure-database-for-mysql---flexible-server-backup) and retrigger the backup operation.
 
-## Next steps
+## Related content
 
-- [About long-term retention for Azure Database for MySQL - Flexible Server by using Azure Backup (preview)](backup-azure-mysql-flexible-server-about.md). 
+- [Long-term retention for Azure Database for MySQL - Flexible Server by using Azure Backup (preview)](backup-azure-mysql-flexible-server-about.md)

@@ -15,5 +15,4 @@ ms.custom: include file
 > - [.NET](../../articles/storage/blobs/storage-blob-lease.md)
 > - [Java](../../articles/storage/blobs/storage-blob-lease-java.md)
 > - [JavaScript](../../articles/storage/blobs/storage-blob-lease-javascript.md)
-> - [TypeScript](../../articles/storage/blobs/storage-blob-lease-typescript.md)
 > - [Python](../../articles/storage/blobs/storage-blob-lease-python.md)

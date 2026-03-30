@@ -2,11 +2,12 @@
 title: Azure Firewall rule processing logic
 description: Azure Firewall has NAT rules, network rules, and applications rules. The rules are processed according to the rule type.
 services: firewall
-author: vhorne
+author: varunkalyana
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 07/02/2024
-ms.author: victorh
+ms.date: 05/07/2025
+ms.author: varunkalyana
+# Customer intent: "As a network administrator, I want to configure Azure Firewall rules and understand their processing logic, so that I can effectively manage traffic flow and maintain network security."
 ---
 
 # Configure Azure Firewall rules
@@ -45,7 +46,7 @@ Here's an example policy:
 Assuming BaseRCG1 is a rule collection group priority (200) that contains the rule collections: DNATRC1, DNATRC3,NetworkRC1.\
 BaseRCG2 is a rule collection group priority (300) that contains the rule collections: AppRC2, NetworkRC2.\
 ChildRCG1 is a rule collection group priority (300) that contains the rule collections: ChNetRC1, ChAppRC1.\
-ChildRCG2 is a rule collection group that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
+ChildRCG2 is a rule collection group priority (650) that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
 
 As per following table:
 
@@ -66,14 +67,14 @@ As per following table:
 |ChAppRC2      |     Application rule collection    |2000         |7         |-|
 |ChDNATRC3     | DNAT rule collection        | 3000        |  2       |-|
 
-Initial Processing:
+Initial Iteration for DNAT Rules:
 
 The process begins by examining the rule collection group (RCG) with the lowest number, which is BaseRCG1 with a priority of 200. Within this group, it searches for DNAT rule collections and evaluates them according to their priorities. In this case, DNATRC1 (priority 600) and DNATRC3 (priority 610) are found and processed accordingly.\
-Next, it moves to the next RCG, BaseRCG2 (priority 200), but finds no DNAT rule collection.\
+Next, it moves to the next RCG, BaseRCG2 (priority 300), but finds no DNAT rule collection.\
 Following that, it proceeds to ChildRCG1 (priority 300), also without a DNAT rule collection.\
 Finally, it checks ChildRCG2 (priority 650) and finds the ChDNATRC3 rule collection (priority 3000).
 
-Iteration Within Rule Collection Groups:
+Iteration for NETWORK Rules:
 
 Returning to BaseRCG1, the iteration continues, this time for NETWORK rules. Only NetworkRC1 (priority 800) is found.\
 Then, it moves to BaseRCG2, where NetworkRC2 (priority 1300) is located.\
@@ -91,7 +92,7 @@ Finally, in ChildRCG2, it locates ChAppRC2 (priority 2000) as the APPLICATION ru
 
 This process involves analyzing rule collection groups by priority, and within each group, ordering the rules according to their priorities for each rule type (DNAT, NETWORK, and APPLICATION).
 
-So first all the DNAT rules are processed from all the rule collection groups, analysing the rule collection groups by order of priority and ordering the DNAT rules within each rule collection group by order of priority. Then the same process for NETWORK rules, and finally for APPLICATION rules.
+First, all the DNAT rules are processed from all the rule collection groups, analyzing the rule collection groups by order of priority and ordering the DNAT rules within each rule collection group by order of priority. Then the same process for NETWORK rules, and finally for APPLICATION rules.
 
 For more information about Firewall Policy rule sets, see [Azure Firewall Policy rule sets](policy-rule-sets.md).
 
@@ -108,6 +109,12 @@ When IDPS is configured in *Alert and Deny* mode, the IDPS engine is inlin
 Session drops done by IDPS blocks the flow silently. So no RST is sent on the TCP level. Since IDPS inspects traffic always after the Network/Application rule has been matched (Allow/Deny) and marked in logs, another *Drop* message may be logged where IDPS decides to deny the session because of a signature match. 
 
 When TLS inspection is enabled both unencrypted and encrypted traffic is inspected.  
+
+### Implicit return traffic support (stateful TCP/UDP)
+ 
+User may configure firewall rules to allow traffic in one direction only. For example, Azure Firewall may allow connections initiated from an **on‑premises network** to an **Azure virtual network**, while requiring that new connections initiated from the **Azure virtual network** to **on‑premises** be blocked. To enforce this policy, user may add an **explicit Deny** rule for traffic from the **Azure virtual network** to the **on‑premises** network.
+ 
+Azure Firewall supports this configuration. Azure Firewall is stateful and return traffic for an established TCP/UDP connection (for example, the SYN‑ACK/ACK packets for a connection initiated from on‑premises) is allowed even when an explicit Deny rule exists in the reverse direction. The explicit Deny rule continues to block new connections initiated from the Azure virtual network to on‑premises.
 
 ## Outbound connectivity
 
@@ -126,7 +133,21 @@ In both HTTP and TLS inspected HTTPS cases, the firewall ignores the packet's de
 
 When an application rule contains TLS inspection, the firewall rules engine process SNI, Host Header, and also the URL to match the rule. 
 
-If still no match is found within application rules, then the packet is evaluated against the infrastructure rule collection. If there's still no match, then the packet is denied by default. 
+If still no match is found within application rules, then the packet is evaluated against the infrastructure rule collection. If there's still no match, then the packet is denied by default.
+
+### Infrastructure rule collection
+
+Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. The infrastructure rule collection is processed after application rules and before the final deny-all rule.
+
+The following services are included in the built-in infrastructure rule collection:
+
+- Compute access to storage Platform Image Repository (PIR)
+- Managed disks status storage access
+- Azure Diagnostics and Logging (MDS)
+
+#### Overriding the infrastructure rule collection
+
+You can override this built-in infrastructure rule collection by creating a deny all application rule collection that is processed last. It will always be processed before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
 
 > [!NOTE]
 > Network rules can be configured for *TCP*, *UDP*, *ICMP*, or *Any* IP protocol. Any IP protocol includes all the IP protocols as defined in the Internet Assigned Numbers Authority (IANA) Protocol Numbers document. If a destination port is explicitly configured, then the rule is translated to a TCP+UDP rule. Before November 9, 2020, *Any* meant TCP, or UDP, or ICMP. So, you might have configured a rule before that date with **Protocol = Any**, and **destination ports = '*'**. If you don't intend to allow any IP protocol as currently defined, then modify the rule to explicitly configure the protocol(s) you want (TCP, UDP, or ICMP). 
@@ -135,7 +156,7 @@ If still no match is found within application rules, then the packet is evaluate
 
 ### DNAT rules and Network rules
 
-Inbound Internet or intranet (preview) connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
+Inbound Internet or intranet connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
 
 Application rules aren't applied for inbound connections. So, if you want to filter inbound HTTP/S traffic, you should use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md)?
 

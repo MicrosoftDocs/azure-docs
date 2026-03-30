@@ -1,0 +1,46 @@
+items:
+- name: Azure Storage Discovery documentation
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: What is Azure Storage Discovery?
+    href: overview.md  
+  expanded: true
+- name: Concepts
+  items:
+  - name: Planning for deployment
+    href: deployment-planning.md
+  - name: Management components
+    href: management-components.md  
+  - name: Pricing
+    href: pricing.md
+  - name: Reliability
+    href: /azure/reliability/reliability-storage-discovery?toc=/azure/storage-discovery/toc.json
+- name: Tutorials
+  items:
+  - name: Deploy Storage Discovery and access insights
+    href: get-storage-estate-insights.md
+- name: How-To
+  items: 
+  - name: Deploy
+    items:
+    - name: Create a Storage Discovery workspace
+      href: create-workspace.md
+    - name: Bicep template for creating a workspace
+      href: create-workspace-bicep.md
+  - name: Explore insights
+    items:
+    - name: Get Started on Storage Discovery reports
+      href: get-started-reports.md
+    - name: Access your insights through Azure Copilot
+      href: /azure/copilot/discover-storage-estate-insights?toc=/azure/storage-discovery/toc.json
+  - name: Manage
+    items:
+    - name: Move resources to other locations in Azure
+      href: resource-move.md
+- name: Resources
+  items:
+  - name: Release notes
+    href: release-notes.md
+  - name: Frequently Asked Questions
+    href: frequently-asked-questions.md

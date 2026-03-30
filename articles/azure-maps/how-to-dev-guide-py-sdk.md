@@ -354,9 +354,9 @@ if __name__ == '__main__':
 ```
 
 
-## Using V1 SDKs for Search and Render
+## Using v1 SDKs for Search and Render
 
-To use Search V1 and Render V1 SDK, please refer to Search V1 SDK [package](https://pypi.org/project/azure-maps-search/1.0.0b2/) page and Render V1 SDK [package](https://pypi.org/project/azure-maps-render/1.0.0b2/) for more information.
+To use Search v1 and Render v1 SDK, please refer to Search v1 SDK [package](https://pypi.org/project/azure-maps-search/1.0.0b2/) page and Render v1 SDK [package](https://pypi.org/project/azure-maps-render/1.0.0b2/) for more information.
 
 
 ## Additional information

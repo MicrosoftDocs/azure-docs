@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 To complete this tutorial, you need an Azure subscription. If you don't have one, create a
-[free account](https://azure.microsoft.com/free/) before you begin.
+[free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Write an Azure Resource Graph query
 
@@ -55,7 +55,7 @@ Within the Azure portal, navigate to the Logic App you created. Select **Identit
 
 ### Add Role Assignments to your Managed Identity
 
-To give the newly created Managed Identity ability to query across your subscriptions, resource groups, and resources so your queries - you need to assign access via Role Assignments. For details on how to assign Role Assignments for Managed Identities, reference: [Assign Azure roles to a managed identity](../../../role-based-access-control/role-assignments-portal-managed-identity.yml)
+To give the newly created Managed Identity ability to query across your subscriptions, resource groups, and resources so your queries - you need to assign access via Role Assignments. For details on how to assign Role Assignments for Managed Identities, reference: [Assign Azure roles to a managed identity](/azure/role-based-access-control/role-assignments-portal-managed-identity)
 
 ## Configure and Run Your Logic App
 

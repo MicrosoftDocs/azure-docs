@@ -1,12 +1,12 @@
 ---
 title: Web application firewall exclusion lists in Azure Front Door
 description: This article provides information on exclusion list configuration in Azure Front Door.
-services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 03/07/2023
-ms.author: victorh
-ms.topic: conceptual
+# Customer intent: As a web application administrator, I want to configure exclusion lists in my web application firewall, so that I can prevent legitimate requests from being blocked by false positives.
 ---
 
 # Web Application Firewall with Azure Front Door exclusion lists
@@ -23,11 +23,14 @@ You can create exclusions at the following scopes:
 - **Rule group**: These exclusions apply to all the rules of a particular category within a rule set. For example, you can configure an exclusion that applies to all the SQL injection rules.
 - **Rule**: These exclusions apply to a single rule.
 
+> [!TIP]
+> It's a good practice to make exclusions as narrow and specific as possible, to avoid accidentally leaving room for attackers to exploit your system. When you need to add an exclusion rule, use per-rule exclusions wherever possible.
+
 ## Exclusion selectors
 
 Exclusion selectors identify the parts of requests to which the exclusion applies. The WAF ignores any detections that it finds in the specified parts of the request. You can specify multiple exclusion selectors in a single exclusion.
 
-Each exclusion selector specified a match variable, an operator, and a selector.
+Each exclusion selector specified a match variable, an operator, and a selector. Multiple matches in a single exclusion are treated as "OR" statements. 
 
 ### Match variables
 

@@ -4,11 +4,12 @@ description: Overview of the control plane deployment process in SAP Deployment 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 12/15/2023
+ms.date: 03/15/2026
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud engineer, I want to deploy the control plane for the SAP Deployment Automation Framework, so that I can automate the management of SAP workloads in the cloud effectively.
 ---
 
 # Deploy the control plane
@@ -22,12 +23,21 @@ The control plane deployment for [SAP Deployment Automation Framework](deploymen
 
 ## Prepare the deployment credentials
 
-SAP Deployment Automation Framework uses service principals for deployments. To create a service principal for the control plane deployment, use an account that has permissions to create service principals:
+SAP Deployment Automation Framework uses eithe managed identities (recommended) or service principals for deployments. To create a service principal for the control plane deployment, use an account that has permissions to create service principals:
 
 ```azurecli
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
   
 ```
+
+To create a managed identity use the following script:
+
+```azurecli
+az identity create --name "<environment>-Deployment-Identity" --resource-group $ResourceGroupName --location $Location  --query "{id:id, principalId:principalId, clientId:clientId}" 
+
+az role assignment create --assignee-object-id <principalId> --role "Contributor" --scope /subscriptions/<subscriptionID>  
+```
+
 
 > [!IMPORTANT]
 > The name of the service principal must be unique.
@@ -37,7 +47,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
    > - password
    > - tenant
 
-Optionally, assign the following permissions to the service principal:
+Optionally, assign the following permissions to the service principal or managed identity:
 
 ```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>
@@ -87,7 +97,7 @@ management_subnet_address_prefix = "10.10.20.64/28"
 
 # management_firewall_subnet_address_prefix is the address prefix for the firewall subnet
 management_firewall_subnet_address_prefix = "10.10.20.0/26"
-firewall_deployment = false
+firewall_deployment = true
 
 # management_bastion_subnet_address_prefix is the address prefix for the bastion subnet
 management_bastion_subnet_address_prefix = "10.10.20.128/26"
@@ -103,13 +113,13 @@ deployer_count = 1
 use_service_endpoint = true
 
 # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
-use_private_endpoint = false
+use_private_endpoint = true
 
 # enable_firewall_for_keyvaults_and_storage defines that the storage accounts and key vaults have firewall enabled
 enable_firewall_for_keyvaults_and_storage = false
 
 # public_network_access_enabled controls if storage account and key vaults have public network access enabled
-public_network_access_enabled = true
+public_network_access_enabled = false
 
 ```
 
@@ -125,9 +135,9 @@ location = "westeurope"
 
 #Defines the DNS suffix for the resources
 dns_label = "azure.contoso.net"
-
+        
 # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
-use_private_endpoint = false
+use_private_endpoint = true
 ```
 
 
@@ -136,6 +146,18 @@ Note the Terraform variable file locations for future edits during deployment.
 Run the following command to create the deployer and the SAP library. The command adds the service principal details to the deployment key vault.
 
 # [Linux](#tab/linux)
+
+Set the environment variables for managed identity:
+
+```bash
+
+export ARM_SUBSCRIPTION_ID="<subscriptionId>"
+export       ARM_CLIENT_ID="<managedIdentityAppId>"
+export       ARM_TENANT_ID="<tenantId>"
+
+```
+
+
 
 Set the environment variables for the service principal:
 
@@ -161,7 +183,10 @@ export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
 export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
 az logout
-az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
+az login --identity --client-id "${ARM_CLIENT_ID}"
+
+# Uncomment next line for service principal based login
+# az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
 
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
@@ -169,6 +194,14 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
 library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
 
+#When using managed identity use:
+${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
+    --deployer_parameter_file "${deployer_parameter_file}"         \
+    --library_parameter_file "${library_parameter_file}"            \
+    --subscription "${ARM_SUBSCRIPTION_ID}"                        \
+    --msi
+
+#When using a service principal use:
 ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
     --deployer_parameter_file "${deployer_parameter_file}"         \
     --library_parameter_file "${library_parameter_file}"            \

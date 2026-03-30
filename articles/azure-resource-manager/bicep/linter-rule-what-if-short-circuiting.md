@@ -3,7 +3,7 @@ title: Linter rule - what-if short circuiting
 description: Linter rule - what-if short circuiting
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 09/19/2024
+ms.date: 12/22/2025
 ---
 
 # Linter rule - what-if short circuiting
@@ -26,7 +26,7 @@ This rule checks for runtime values used to determine resource IDs within module
 **main.bicep**
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'storageAccountName'
   location: 'eastus'
   sku: {
@@ -62,7 +62,7 @@ module appServiceTest 'modules/appService.bicep' = {
 ```bicep
 param appServiceName string
 
-resource appServiceApp 'Microsoft.Web/sites@2023-12-01' = {
+resource appServiceApp 'Microsoft.Web/sites@2025-03-01' = {
   name: appServiceName
   location: 'eastus'
   properties: {

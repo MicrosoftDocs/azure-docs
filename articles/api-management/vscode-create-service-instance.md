@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Create Azure API Management instance - VS Code
+title: Quickstart - Create Azure API Management Instance - Visual Studio Code
 description: Use this quickstart to create an Azure API Management instance with the API Management extension for Visual Studio Code.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: quickstart
-ms.date: 12/12/2023
+ms.date: 10/14/2025
 ms.custom: mode-api, devdivchpfy22
 ---
 
@@ -21,7 +21,7 @@ This quickstart describes the steps to create a new API Management instance usin
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-Also, ensure you've installed the following:
+Also, ensure that you install:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -37,7 +37,7 @@ Select **Sign in to Azure...** to launch a browser window and sign in to your Mi
 
 ## Create an API Management instance
 
-Once you're signed in to your Microsoft account, the *Azure: API Management* Explorer pane will list your Azure subscription(s). You can enable and disable this Explorer pane in the  *Azure API Management Extension Settings*.
+Once you're signed in to your Microsoft account, the *Azure: API Management* Explorer pane lists your Azure subscriptions. You can enable and disable this Explorer pane in the  *Azure API Management Extension Settings*.
 
 Right-click on the subscription you'd like to use, and select **Create API Management in Azure**.
 
@@ -45,7 +45,7 @@ Right-click on the subscription you'd like to use, and select **Create API Manag
 
 In the pane that opens, supply a name for the new API Management instance. It must be globally unique within Azure and consist of 1-50 alphanumeric characters and/or hyphens. It should also start with a letter and end with an alphanumeric character.
 
-A new API Management instance (and parent resource group) will be created with the specified name. By default, the instance is created in the *West US* region with *Consumption* tier.
+A new API Management instance and parent resource group are created with the specified name. By default, the instance is created in the *West US* region with *Consumption* tier.
 
 > [!TIP]
 > If you enable **Advanced Creation** in the *Azure API Management Extension Settings*, you can also specify an [API Management tier](https://azure.microsoft.com/pricing/details/api-management/), Azure region, and [resource group](../azure-resource-manager/management/overview.md) to deploy your API Management instance.

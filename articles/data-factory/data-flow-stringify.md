@@ -4,7 +4,7 @@ description: Stringify complex data types
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
 ---
 
@@ -14,7 +14,7 @@ ms.date: 05/15/2024
 
 Use the stringify transformation to turn complex data types into strings. This can be useful when you need to store or send column data as a single string entity that may originate as a structure, map, or array type.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMTs9]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=811ea298-48a2-4757-be16-8cfaef79a8b3]
 
 ## Configuration
 

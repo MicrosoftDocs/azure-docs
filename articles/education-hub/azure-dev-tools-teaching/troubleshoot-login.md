@@ -6,6 +6,7 @@ ms.author: rymend
 ms.topic: troubleshooting
 ms.service: azure-education
 ms.date: 06/30/2020
+ms.custom: sfi-image-nochange
 ---
 
 # Resolve student sign-in problems

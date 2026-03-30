@@ -6,9 +6,10 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: azure-virtual-wan
-ms.topic: conceptual
-ms.date: 04/27/2021
+ms.topic: concept-article
+ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Scenario: Custom Isolation for Virtual Networks and Branches

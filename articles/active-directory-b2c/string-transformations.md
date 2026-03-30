@@ -435,18 +435,18 @@ The following example generates an error message when an account is already in t
 
   <LocalizedResources Id="api.localaccountsignup.en">
     <LocalizedStrings>
-      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessage_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
       </LocalizedStrings>
     </LocalizedResources>
   <LocalizedResources Id="api.localaccountsignup.es">
     <LocalizedStrings>
-      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessage_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
     </LocalizedStrings>
   </LocalizedResources>
 </Localization>
 ```
 
-The claims transformation creates a response message based on the localized string. The message contains the user's email address embedded into the localized sting *ResponseMessge_EmailExists*.
+The claims transformation creates a response message based on the localized string. The message contains the user's email address embedded into the localized string *ResponseMessage_EmailExists*.
 
 ```xml
 <ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
@@ -454,7 +454,7 @@ The claims transformation creates a response message based on the localized stri
     <InputClaim ClaimTypeReferenceId="email" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessage_EmailExists" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
@@ -465,7 +465,7 @@ The claims transformation creates a response message based on the localized stri
 - Input claims:
   - **inputClaim**: sarah@contoso.com
 - Input parameters:
-  - **stringFormat**:  ResponseMessge_EmailExists
+  - **stringFormat**:  ResponseMessage_EmailExists
 - Output claims:
   - **outputClaim**: The email 'sarah@contoso.com' is already an account in this organization. Select Next to sign in with that account.
 

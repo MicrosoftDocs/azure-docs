@@ -4,11 +4,10 @@ description: This document describes how to manage cost of serverless SQL pool a
 services: synapse analytics 
 author: filippopovic 
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
-ms.reviewer: whhender
 ---
 
 # Cost management for serverless SQL pool in Azure Synapse Analytics

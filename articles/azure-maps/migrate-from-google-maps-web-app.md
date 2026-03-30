@@ -11,7 +11,7 @@ ms.subservice: web-sdk
 
 # Tutorial: Migrate a web app from Google Maps
 
-Most web apps, which use Google Maps, are using the Google Maps V3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can run your app on both web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. This tutorial demonstrates:
+Most web apps, which use Google Maps, are using the Google Maps v3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can run your app on both web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. This tutorial demonstrates:
 
 > [!div class="checklist"]
 > * Load a map
@@ -56,7 +56,7 @@ If you don't have an Azure subscription, create a [free account] before you begi
 
 ## Key features support
 
-The table lists key API features in the Google Maps V3 JavaScript SDK and the supported API feature in the Azure Maps Web SDK.
+The table lists key API features in the Google Maps v3 JavaScript SDK and the supported API feature in the Azure Maps Web SDK.
 
 | Google Maps feature     | Azure Maps Web SDK support |
 |-------------------------|:--------------------------:|
@@ -73,7 +73,7 @@ The table lists key API features in the Google Maps V3 JavaScript SDK and the su
 | Directions service      | ✓                          |
 | Distance Matrix service | ✓                          |
 
-## Notable differences in the web SDKs
+## Notable differences in the Web SDKs
 
 The following are some key differences between the Google Maps and Azure Maps Web SDKs, to be aware of:
 
@@ -89,7 +89,7 @@ The following are some key differences between the Google Maps and Azure Maps We
 
 ## Web SDK side-by-side examples
 
-This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as another option through an [npm module].
+This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps v3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as another option through an [npm module].
 
 **Topics**
 
@@ -189,7 +189,7 @@ Load a map with the same view in Azure Maps along with a map style control and z
 
         function initMap() {
             map = new atlas.Map('myMap', {
-                center: [-73.985, 40.747],  //Format coordinates as longitude, latitude.
+                center: [-73.985, 40.74],  //Format coordinates as longitude, latitude.
                 zoom: 11,   //Subtract the zoom level by one.
 
                 //Specify authentication information when loading the map.
@@ -242,7 +242,7 @@ If your audience is spread across multiple countries/regions or speak different 
 To localize Google Maps, add language and region parameters.
 
 ```html
-<script type="text/javascript" src=" https://maps.googleapis.com/maps/api/js?callback=initMap&key={api-Key}& language={language-code}&region={region-code}" async defer></script>
+<script type="text/javascript" src=" https://maps.googleapis.com/maps/api/js?callback=initMap&key={api-Key}&language={language-code}&region={region-code}" async defer></script>
 ```
 
 Here's an example of Google Maps with the language set to "fr-FR".
@@ -286,7 +286,7 @@ Here's an example of Azure Maps with the language set to "fr" and the user regio
 Dynamic maps in both Azure and Google Maps can be programmatically moved to new geographic locations. To do so, call the appropriate functions in JavaScript. The examples show how to make the map display satellite aerial imagery, center the map over a location, and change the zoom level to 15 in Google Maps. The following location coordinates are used: longitude: -111.0225 and latitude: 35.0272.
 
 > [!NOTE]
-> Google Maps uses tiles that are 256 pixels in dimensions, while Azure Maps uses a larger 512-pixel tile. Thus, Azure Maps requires less number of network requests to load the same map area as Google Maps. Due to the way tile pyramids work in map controls, you need to subtract the zoom level used in Google Maps by the number one when using Azure Maps. This arithmetic operation ensures that larger tiles in Azure Maps render that same map area as in Google Maps,
+> Google Maps uses 256-pixel tiles, whereas Azure Maps uses larger 512-pixel tiles. Consequently, Azure Maps requires fewer network requests to load the same map area as Google Maps. Due to the tile pyramid structure in map controls, you need to subtract one from the zoom level used in Google Maps when using Azure Maps. This adjustment ensures that the larger tiles that Azure Maps renders will use the same map area as used in Google Maps.
 
 #### Before: Google Maps
 
@@ -709,7 +709,6 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 }));
 ```
 
-![Azure Maps polygon](media/migrate-google-maps-web-app/azure-maps-polygon.jpg)
 :::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-polygon.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-polyline.jpg" alt-text="A screenshot of an Azure Maps map with a solid red line forming a triangle filled with semi-transparent green shown to demonstrate a polygon.":::
 
 **More resources:**
@@ -733,21 +732,45 @@ Instantiate an info window using the
 `google.maps.InfoWindow` constructor.
 
 ```javascript
-//Add a marker in which to display an infowindow for.
-var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(47.6, -122.33),
-    map: map
-});
+<!-- Google Maps Script Reference -->
+<script async src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}&loading=async"></script>
 
-//Create an infowindow.
-var infowindow = new google.maps.InfoWindow({
-    content: '<div style="padding:5px"><b>Hello World!</b></div>'
-});
+<script type='text/javascript'>
 
-//Add a click event to the marker to open the infowindow.
-marker.addListener('click', function () {
-    infowindow.open(map, marker);
-});
+    async function initMap() {
+        // Request needed libraries.
+        const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker",);
+
+        const map = new Map(document.getElementById("myMap"), {
+            zoom: 12,
+            center: { lat: 47.608458, lng: -122.335077 },
+            disableDefaultUI: true,
+            mapId: "4504f8b37365c3d0",
+        });
+
+        // Create an info window to share between markers.
+        const infoWindow = new InfoWindow();
+
+        // Create the marker.
+        const pin = new PinElement();
+        const marker = new AdvancedMarkerElement({
+            position: { lat: 47.608458, lng: -122.335077 },
+            map,
+            title: "<B>Hello World!</B>",
+            content: pin.element,
+            gmpClickable: true,
+        });
+
+        // Add a click listener for each marker, and set up the info window.
+        marker.addListener("click", ({ domEvent, latLng }) => {
+            const { target } = domEvent;
+            infoWindow.close();
+            infoWindow.setContent(marker.title);
+            infoWindow.open(marker.map, marker);
+        });
+    }
+</script>
 ```
 
 ![Google Maps popup](media/migrate-google-maps-web-app/google-maps-popup.png)
@@ -979,13 +1002,14 @@ Use the MarkerCluster library to cluster markers. Cluster icons are limited to i
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <script type='text/javascript'>
-        var map;
         var earthquakeFeed = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson';
 
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('myMap'), {
+        async function initMap() {
+            const AdvancedMarkerElement = await google.maps.importLibrary("marker");
+            const map = new google.maps.Map(document.getElementById('myMap'), {
                 center: new google.maps.LatLng(20, -160),
-                zoom: 2
+                zoom: 2,
+                mapId: "DEMO_MAP_ID", // Map ID is required for advanced markers.
             });
 
             //Download the GeoJSON data.
@@ -993,28 +1017,26 @@ Use the MarkerCluster library to cluster markers. Cluster icons are limited to i
                 .then(function (response) {
                     return response.json();
                 }).then(function (data) {
+
                     //Loop through the GeoJSON data and create a marker for each data point.
                     var markers = [];
-
                     for (var i = 0; i < data.features.length; i++) {
-
-                        markers.push(new google.maps.Marker({
+                        markers.push(new google.maps.marker.AdvancedMarkerElement({
                             position: new google.maps.LatLng(data.features[i].geometry.coordinates[1], data.features[i].geometry.coordinates[0])
                         }));
                     }
 
                     //Create a marker clusterer instance and tell it where to find the cluster icons.
-                    var markerCluster = new MarkerClusterer(map, markers,
-                        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+                    var markerCluster = new markerClusterer.MarkerClusterer({map, markers});
                 });
         }
     </script>
 
     <!-- Load the marker cluster library. -->
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}&loading=async"></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1148,7 +1170,6 @@ Directly import GeoJSON data using the `importDataFromUrl` function on the `Data
 </html>
 ```
 
-![Azure Maps clustering](media/migrate-google-maps-web-app/azure-maps-clustering.jpg)
 :::image type="content" source="./media/migrate-google-maps-web-app/azure-maps-clustering.jpg" lightbox="./media/migrate-google-maps-web-app/azure-maps-clustering.jpg" alt-text="A screenshot of an Azure Maps map of the world with various sized red, green and yellow circles with numbers in them. Created using three layers, a bubble layer for drawing scaled colored circles based on the size of the clusters. A symbol layer to render the cluster size as text and a second symbol layer for rendering the unclustered points.":::
 
 **More resources:**
@@ -1179,7 +1200,7 @@ To create a heat map, load the "visualization" library by adding `&libraries=vis
 
     <script type='text/javascript'>
         var map;
-        var earthquakeFeed = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson';
+        var url = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson';
 
         function initMap() {
 
@@ -1555,9 +1576,9 @@ Running this code in a browser displays a map that looks like the following imag
 
 #### After: Azure Maps
 
-In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial data formats can be easily integrated in using the [spatial IO module]. This module has functions for both reading and writing spatial data and also includes a simple data layer that can easily render data from any of these spatial data formats. To read the data in a spatial data file, pass in a URL, or raw data as string or blob into the `atlas.io.read` function. This returns all the parsed data from the file that can then be added to the map. KML is a bit more complex than most spatial data format as it includes a lot more styling information. The `SpatialDataLayer` class supports most of these styles, however icons images have to be loaded into the map before loading the feature data, and ground overlays have to be added as layers to the map separately. When loading data via a URL, it should be hosted on a CORs enabled endpoint, or a proxy service should be passed in as an option into the read function.
+In Azure Maps, GeoJSON is the main data format used in the Web SDK, more spatial data formats can be easily integrated in using the [spatial IO module]. This module has functions for both reading and writing spatial data and also includes a simple data layer that can easily render data from any of these spatial data formats. To read the data in a spatial data file, pass in a URL, or raw data as string or blob into the `atlas.io.read` function. This returns all the parsed data from the file that can then be added to the map. KML is a bit more complex than most spatial data format as it includes a lot more styling information. The `SpatialDataLayer` class supports most of these styles, however icons images have to be loaded into the map before loading the feature data, and ground overlays have to be added as layers to the map separately. When loading data via a URL, it should be hosted on a CORs enabled endpoint, or a proxy service should be passed in as an option into the read function.
 
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -1605,7 +1626,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial
 
                         //Check to see if there are any icons in the data set that need to be loaded into the map resources.
                         if (r.icons) {
-                            //For each icon image, create a promise to add it to the map, then run the promises in parrallel.
+                            //For each icon image, create a promise to add it to the map, then run the promises in parallel.
                             var imagePromises = [];
 
                             //The keys are the names of each icon image.
@@ -1669,11 +1690,11 @@ The following are some more code samples related to Google Maps migration:
 * [Search for points of interest]
 * [Get information from a coordinate (reverse geocode)]
 * [Show directions from A to B]
-* [Search Autosuggest with JQuery UI]
+* [Search Autosuggest with jQuery UI]
 
-## Google Maps V3 to Azure Maps Web SDK class mapping
+## Google Maps v3 to Azure Maps Web SDK class mapping
 
-The following appendix provides a cross reference of the commonly used classes in Google Maps V3 and the equivalent Azure Maps Web SDK.
+The following appendix provides a cross reference of the commonly used classes in Google Maps v3 and the equivalent Azure Maps Web SDK.
 
 ### Core Classes
 
@@ -1709,7 +1730,7 @@ The Azure Maps Web SDK includes a services module, which can be loaded separatel
 | Google Maps            | Azure Maps                 |
 |------------------------|----------------------------|
 | `google.maps.Geocoder` | [atlas.service.SearchUrl]  |
-| `google.maps.GeocoderRequest` | [atlas.SearchAddressOptions]<br>[atlas.SearchAddressRevrseOptions]<br>[atlas.SearchAddressReverseCrossStreetOptions]<br>[atlas.SearchAddressStructuredOptions]<br>[atlas.SearchAlongRouteOptions]<br>[atlas.SearchFuzzyOptions]<br>[atlas.SearchInsideGeometryOptions]<br>[atlas.SearchNearbyOptions]<br>[atlas.SearchPOIOptions]<br>[atlas.SearchPOICategoryOptions] |
+| `google.maps.GeocoderRequest` | [atlas.SearchAddressOptions]<br>[atlas.SearchAddressReverseOptions]<br>[atlas.SearchAddressReverseCrossStreetOptions]<br>[atlas.SearchAddressStructuredOptions]<br>[atlas.SearchAlongRouteOptions]<br>[atlas.SearchFuzzyOptions]<br>[atlas.SearchInsideGeometryOptions]<br>[atlas.SearchNearbyOptions]<br>[atlas.SearchPOIOptions]<br>[atlas.SearchPOICategoryOptions] |
 | `google.maps.DirectionsService` | [atlas.service.RouteUrl] |
 | `google.maps.DirectionsRequest` | [atlas.CalculateRouteDirectionsOptions] |
 | `google.maps.places.PlacesService` | [f] |
@@ -1815,7 +1836,7 @@ Learn more about migrating to Azure Maps:
 [Drawing tools module]: set-drawing-options.md
 [Drawing tools]: map-add-drawing-toolbar.md
 [f]: /javascript/api/azure-maps-rest/atlas.service.searchurl
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Get information from a coordinate (reverse geocode)]: map-get-information-from-coordinate.md
 [Heat map layer class]: /javascript/api/azure-maps-control/atlas.layer.heatmaplayer
 [Heat map layer options]: /javascript/api/azure-maps-control/atlas.heatmaplayeroptions
@@ -1849,7 +1870,7 @@ Learn more about migrating to Azure Maps:
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
 [road tiles]: /rest/api/maps/render/get-map-tile
 [satellite tiles]: /rest/api/maps/render/get-map-static-image
-[Search Autosuggest with JQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
+[Search Autosuggest with jQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
 [Search for points of interest]: map-search-location.md
 [Setting the map view]: #setting-the-map-view
 [Show directions from A to B]: map-route.md

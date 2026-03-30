@@ -21,13 +21,15 @@ In this tutorial, you learn how to:
 > * Run the sample functions locally
 > * Deploy the function to Azure Function App
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 # [JavaScript Model v4](#tab/javascript-v4)
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+* [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 
@@ -39,7 +41,7 @@ In this tutorial, you learn how to:
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+* [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 
@@ -67,7 +69,7 @@ In this tutorial, you learn how to:
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 
-* [Python](https://www.python.org/downloads/) (v3.7+). See [supported Python versions](../azure-functions/functions-reference-python.md#python-version).
+* [Python](https://www.python.org/downloads/) (v3.7+). See [supported Python versions](../azure-functions/functions-reference-python.md#supported-python-versions).
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (V4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
@@ -635,6 +637,8 @@ In this tutorial, you learn how to:
 
 7. Configure and run the Azure Function app
 
+    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
     - In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
     - Select **Keys** and copy out the connection string.
 
@@ -658,7 +662,7 @@ In this tutorial, you learn how to:
     And checking the running logs, you can visit your local host static page by visiting: `http://localhost:7071/api/index`.
     
     > [!NOTE]
-    > Some browers automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
+    > Some browsers automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
 
 ## Deploy Function App to Azure
 
@@ -731,7 +735,7 @@ Use the following commands to create these items.
     ```
 
     > [!NOTE]
-    > Here we are deploying local settings `local.settings.json` together with command parameter `--publish-local-settings`. If you're using Microsoft Azure Storage Emulator, you can type `no` to skip overwriting this value on Azure following the prompt message: `App setting AzureWebJobsStorage is different between azure and local.settings.json, Would you like to overwrite value in azure? [yes/no/show]`. Besides, you can update Function App settings in **Azure Portal** -> **Settings** -> **Configuration**.
+    > Here we are deploying local settings `local.settings.json` together with command parameter `--publish-local-settings`. If you're using Microsoft Azure Storage Emulator, you can type `no` to skip overwriting this value on Azure following the prompt message: `App setting AzureWebJobsStorage is different between azure and local.settings.json, Would you like to overwrite value in azure? [yes/no/show]`. Besides, you can update Function App settings in **Azure portal** -> **Settings** -> **Configuration**.
 
 1. Now you can check your site from Azure Function App by navigating to URL: `https://<FUNCIONAPP_NAME>.azurewebsites.net/api/index`.
 

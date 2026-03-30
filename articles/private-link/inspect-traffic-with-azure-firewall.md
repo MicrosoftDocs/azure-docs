@@ -4,10 +4,13 @@ titleSuffix: Azure Private Link
 description: Learn about different scenarios to inspect traffic destined to a private endpoint using Azure Firewall.
 author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
-ms.date: 08/14/2023
+ms.topic: concept-article
+ms.date: 03/25/2025
 ms.author: abell
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
+# Customer intent: "As a network administrator, I want to configure Azure Firewall to inspect and control traffic to private endpoints, so that I can enhance security and comply with organizational policies for data access and network safety."
 ---
 
 # Azure Firewall scenarios to inspect traffic destined to a private endpoint
@@ -99,4 +102,4 @@ In this article, you explored different scenarios that you can use to restrict t
 
 For a tutorial on how to configure Azure Firewall to inspect traffic destined to a private endpoint, see [Tutorial: Inspect private endpoint traffic with Azure Firewall](tutorial-inspect-traffic-azure-firewall.md)
 
-To learn more about private endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
+To learn more about private endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md)

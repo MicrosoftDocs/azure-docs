@@ -1,12 +1,20 @@
 ---
 title: Azure App Containerization Java; Containerization and migration of Java web applications to Azure Kubernetes.
 description: Tutorial:Containerize & migrate Java web applications to Azure Kubernetes Service.
-author: anraghun
-ms.author: anraghun
-ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java
+author: habibaum
+ms.author: v-uhabiba
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 09/19/2024
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - migration-java
+  - subject-rbac-steps
+  - devx-track-extended-java
+  - sfi-image-nochange
+  - sfi-ga-nochange
+# Customer intent: "As a software developer, I want to containerize my Java web applications using Azure Migrate so that I can efficiently deploy them to Azure Kubernetes Service and improve management and resource utilization without rewriting existing code."
 ---
 # Java web app containerization and migration to Azure Kubernetes Service
 
@@ -79,9 +87,9 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Access control (IAM)**.
 
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+1. Select **Add** > **Add role assignment** to go to the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |
@@ -122,7 +130,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
    Alternately, you can open the app from the desktop by selecting the app shortcut.
 
-2. If you see a warning stating that says your connection isn’t private, click Advanced and choose to proceed to the website. This warning appears as the web interface uses a self-signed TLS/SSL certificate.
+2. If you see a warning stating that says your connection isn’t private, select Advanced and choose to proceed to the website. This warning appears as the web interface uses a self-signed TLS/SSL certificate.
 3. At the sign-in screen, use the local administrator account on the machine to sign-in.
 4. Select **Java web apps on Tomcat** as the type of application you want to containerize.
 5. To specify target Azure service, select **Containers on Azure Kubernetes Service**.
@@ -132,20 +140,20 @@ If you just created a free Azure account, you're the owner of your subscription.
 1. Accept the **license terms**, and read the third-party information.
 6. In the tool web app > **Set up prerequisites**, do the following steps:
    - **Connectivity**: The tool checks that the Windows machine has internet access. If the machine uses a proxy:
-     - Click on **Set up proxy** to specify the proxy address (in the form IP address or FQDN) and listening port.
+     - Select on **Set up proxy** to specify the proxy address (in the form IP address or FQDN) and listening port.
      - Specify credentials if the proxy needs authentication.
      - Only HTTP proxy is supported.
-     - If you've added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
+     - If you've added proxy details or disabled the proxy and/or authentication, select on **Save** to trigger connectivity check again.
    - **Install updates**: The tool will automatically check for latest updates and install them. You can also manually install the latest version of the tool from [here](https://go.microsoft.com/fwlink/?linkid=2134571).
    - **Enable Secure Shell (SSH)**: The tool will inform you to ensure that Secure Shell (SSH)  is enabled on the application servers running the Java web applications to be containerized.
 
 
 ## Sign in to Azure
 
-Click **Sign in** to log in to your Azure account.
+Select **Sign in** to log in to your Azure account.
 
-1. You'll need a device code to authenticate with Azure. Clicking on sign in will open a modal with the device code.
-2. Click on **Copy code & sign in** to copy the device code and open an Azure sign in prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+1. You'll need a device code to authenticate with Azure. Selecting on sign in will open a modal with the device code.
+2. Select **Copy code & sign in** to copy the device code and go to an Azure sign in prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 
     ![Modal showing device code.](./media/tutorial-containerize-apps-aks/login-modal.png)
 
@@ -162,11 +170,11 @@ The App Containerization helper tool connects remotely to the application server
     - For domain accounts (the user must be an administrator on the application server), prefix the username with the domain name in the format *<domain\username>*.
     - You can run application discovery for upto five servers at a time.
 
-2. Click **Validate** to verify that the application server is reachable from the machine running the tool and that the credentials are valid. Upon successful validation, the status column will show the status as **Mapped**.  
+2. Select **Validate** to verify that the application server is reachable from the machine running the tool and that the credentials are valid. Upon successful validation, the status column will show the status as **Mapped**.  
 
     ![Screenshot for server IP and credentials.](./media/tutorial-containerize-apps-aks/discovery-credentials.png)
 
-3. Click **Continue** to start application discovery on the selected application servers.
+3. Select **Continue** to start application discovery on the selected application servers.
 
 4. Upon successful completion of application discovery, you can select the list of applications to containerize.
 
@@ -178,9 +186,9 @@ The App Containerization helper tool connects remotely to the application server
 
 ### Parameterize application configurations
 Parameterizing the configuration makes it available as a deployment time parameter. This allows you to configure this setting while deploying the application as opposed to having it hard-coded to a specific value in the container image. For example, this option is useful for parameters like database connection strings.
-1. Click **app configurations** to review detected configurations.
+1. Select **app configurations** to review detected configurations.
 2. Select the checkbox to parameterize the detected application configurations.
-3. Click **Apply** after selecting the configurations to parameterize.
+3. Select **Apply** after selecting the configurations to parameterize.
 
    ![Screenshot for app configuration parameterization ASP.NET application.](./media/tutorial-containerize-apps-aks/discovered-app-configs.png)
 
@@ -188,15 +196,15 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
  You can add other folders that your application uses. Specify if they should be part of the container image or are to be externalized through persistent volumes on Azure file share. Using persistent volumes works great for stateful applications that store state outside the container or have other static content stored on the file system. [Learn more](/azure/aks/concepts-storage)
 
-1. Click **Edit** under App Folders to review the detected application folders. The detected application folders have been identified as mandatory artifacts needed by the application and will be copied into the container image.
+1. Select **Edit** under App Folders to review the detected application folders. The detected application folders have been identified as mandatory artifacts needed by the application and will be copied into the container image.
 
-2. Click **Add folders** and specify the folder paths to be added.
+2. Select **Add folders** and specify the folder paths to be added.
 3. To add multiple folders to the same volume, provide comma (`,`) separated values.
 4. Select **Persistent Volume** as the storage option if you want the folders to be stored outside the container on a Persistent Volume.
-5. Click **Save** after reviewing the application folders.
+5. Select **Save** after reviewing the application folders.
    ![Screenshot for app volumes storage selection.](./media/tutorial-containerize-apps-aks/discovered-app-volumes.png)
 
-6. Click **Continue** to proceed to the container image build phase.
+6. Select **Continue** to proceed to the container image build phase.
 
 ## Build container image
 
@@ -206,15 +214,15 @@ Parameterizing the configuration makes it available as a deployment time paramet
     ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-java-app.png)
 
 
-2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
+2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Select **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
 
 3. **Configure Application Insights**: You can enable monitoring for your Java apps running on App Service without instrumenting your code. The tool will install the Java standalone agent as part of the container image. Once configured during deployment, the Java agent will automatically collect a multitude of requests, dependencies, logs, and metrics for your application that can be used for monitoring with Application Insights. This option is enabled by default for all Java applications.  
 
-4. **Trigger build process**: Select the applications to build images for and click **Build**. Clicking build will start the container image build for each application. The tool keeps monitoring the build status continuously and will let you proceed to the next step upon successful completion of the build.
+4. **Trigger build process**: Select the applications to build images for and select **Build**. Selecting build will start the container image build for each application. The tool keeps monitoring the build status continuously and will let you proceed to the next step upon successful completion of the build.
 
-5. **Track build status**: You can also monitor progress of the build step by clicking the **Build in Progress** link under the status column. The link takes a couple of minutes to be active after you've triggered the build process.  
+5. **Track build status**: You can also monitor progress of the build step by selecting the **Build in Progress** link under the status column. The link takes a couple of minutes to be active after you've triggered the build process.  
 
-6. Once the build is completed, click **Continue** to specify deployment settings.
+6. Once the build is completed, select **Continue** to specify deployment settings.
 
     ![Screenshot for app container image build completion.](./media/tutorial-containerize-apps-aks/build-java-app-completed.png)
 
@@ -230,41 +238,41 @@ Once the container image is built, the next step is to deploy the application as
            ``` Azure CLI
            az aks update -n <cluster-name> -g <cluster-resource-group> --attach-acr <acr-name>
            ```  
-     - If you don’t have an AKS cluster or would like to create a new AKS cluster to deploy the application to, you can choose to create on from the tool by clicking **Create new AKS cluster**.      
+     - If you don’t have an AKS cluster or would like to create a new AKS cluster to deploy the application to, you can choose to create on from the tool by selecting **Create new AKS cluster**.      
           - The AKS cluster created using the tool will be created with a Linux node pool. The cluster will be configured to allow it to pull images from the Azure Container Registry that was created earlier (if create new registry option was chosen).
-     - Click **Continue** after selecting the AKS cluster.
+     - Select **Continue** after selecting the AKS cluster.
 2. **Specify secret store and monitoring workspace**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or Kubernetes Secrets for managing your application secrets.
 
-     - If you've selected Kubernetes secrets for managing secrets, then click **Continue**.
+     - If you've selected Kubernetes secrets for managing secrets, then select **Continue**.
      - If you'd like to use an Azure Key Vault for managing your application secrets, then specify the Azure Key Vault that you'd want to use.     
-         - If you don’t have an Azure Key Vault or would like to create a new Key Vault, you can choose to create on from the tool by clicking **Create new**.
+         - If you don’t have an Azure Key Vault or would like to create a new Key Vault, you can choose to create on from the tool by selecting **Create new**.
          - The tool will automatically assign the necessary permissions for managing secrets through the Key Vault.
     - **Monitoring workspace**: If you'd selected to enabled monitoring with Application Insights, then specify the Application Insights resource that you'd want to use. This option won't be visible if you had disabled monitoring integration.
-         - If you don’t have an Application Insights resource or would like to create a new resource, you can choose to create on from the tool by clicking **Create new**.
+         - If you don’t have an Application Insights resource or would like to create a new resource, you can choose to create on from the tool by selecting **Create new**.
 
 2. **Specify Azure file share**: If you had added more folders and selected the Persistent Volume option, then specify the Azure file share that should be used by Azure Migrate: App Containerization tool during the deployment process. The tool will create new directories in this Azure file share to copy over the application folders that are configured for Persistent Volume storage. Once the application deployment is complete, the tool will clean up the Azure file share by deleting the directories it had created.
 
-     - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by clicking **Create new Storage Account and file share**.  
+     - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by selecting **Create new Storage Account and file share**.  
 
-3. **Application deployment configuration**: Once you've completed the steps above, you'll need to specify the deployment configuration for the application. Click **Configure** to customize the deployment for the application. In the configure step you can provide the following customizations:
+3. **Application deployment configuration**: Once you've completed the steps above, you'll need to specify the deployment configuration for the application. Select **Configure** to customize the deployment for the application. In the configure step you can provide the following customizations:
      - **Prefix string**: Specify a prefix string to use in the name for all resources that are created for the containerized application in the AKS cluster.
      - **Replica Sets**: Specify the number of application instances (pods) that should run inside the containers.
      - **Load balancer type**: Select *External* if the containerized application should be reachable from public networks.
      - **Application Configuration**: For any application configurations that were parameterized, provide the values to use for the current deployment.
      - **Storage**: For any application folders that were configured for Persistent Volume storage, specify whether the volume should be shared across application instances or should be initialized individually with each instance in the container. By default, all application folders on Persistent Volumes are configured as shared.
-     - Click **Apply** to save the deployment configuration.
-     - Click **Continue** to deploy the application.
+     - Select **Apply** to save the deployment configuration.
+     - Select **Continue** to deploy the application.
 
     ![Screenshot for deployment app configuration.](./media/tutorial-containerize-apps-aks/deploy-java-app-config-aks.png)
 
 4. **Deploy the application**: Once the deployment configuration for the application is saved, the tool will generate the Kubernetes deployment YAML for the application.
-     - Click **Review** to review and customize the Kubernetes deployment YAML for the applications.
+     - Select **Review** to review and customize the Kubernetes deployment YAML for the applications.
      - Select the application to deploy.
-     - Click **Deploy** to start deployments for the selected applications
+     - Select **Deploy** to start deployments for the selected applications
 
          ![Screenshot for app deployment configuration.](./media/tutorial-containerize-apps-aks/deploy-java-app-deploy-aks.png)
 
-     - Once the application is deployed, you can click the *Deployment status* column to track the resources that were deployed for the application.
+     - Once the application is deployed, you can select the *Deployment status* column to track the resources that were deployed for the application.
 
 ## Download generated artifacts
 
@@ -282,4 +290,4 @@ To troubleshoot any issues with the tool, you can look at the log files on the W
 - Containerizing ASP.NET web apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
 - Containerizing ASP.NET web apps and deploying them on Windows containers on Azure App Service. [Learn more](./tutorial-app-containerization-aspnet-app-service.md)
 - What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service? [Learn more](/azure/virtual-machines/workloads/oracle/weblogic-aks)
-- Open Liberty and WebSphere Liberty on AKS. [Learn more](/azure/developer/java/ee/websphere-family#open-liberty-and-websphere-liberty-on-aks)
+- Go to Liberty and WebSphere Liberty on AKS. [Learn more](/azure/developer/java/ee/websphere-family#open-liberty-and-websphere-liberty-on-aks)

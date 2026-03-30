@@ -22,7 +22,7 @@ This article demonstrates how to deploy an existing container to Azure Container
 ## Prerequisites
 
 - Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 ## Setup
 
 Begin by signing in to the [Azure portal](https://portal.azure.com).

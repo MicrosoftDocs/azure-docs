@@ -4,16 +4,18 @@ description: Learn how to copy data from Magento to supported sink data stores u
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
-ms.date: 09/04/2024
+ms.topic: how-to
+ms.date: 01/26/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 # Copy data from Magento using Azure Data Factory or Synapse Analytics(Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!IMPORTANT]
-> This connector will be deprecated on **December 31, 2024**. You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver before that date. 
+> This connector is at [End of Support stage](connector-deprecation-plan.md). You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Magento. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 

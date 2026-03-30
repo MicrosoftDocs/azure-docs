@@ -2,14 +2,20 @@
 title: Apply the Key Vault VM extension in Azure Cloud Services (extended support) 
 description: Learn about the Key Vault VM extension for Windows and how to enable it in Azure Cloud Services.
 ms.topic: how-to
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-cloud-services-classic
 author: msmbaldwin
 ms.author: mbaldwin
 ms.reviewer: gachandw
-ms.date: 07/24/2024
+ms.date: 04/23/2025
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support
+# Customer intent: As an IT administrator, I want to configure the Key Vault VM extension for Azure Cloud Services, so that I can automate certificate management and ensure timely updates for secured operations.
 ---
 
 # Apply the Key Vault Virtual Machine (VM) extension to Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This article provides basic information about the Azure Key Vault VM extension for Windows and shows you how to enable it in Azure Cloud Services.
 

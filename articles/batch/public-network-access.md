@@ -2,7 +2,9 @@
 title: Configure public network access with Azure Batch accounts
 description: Learn how to configure public network access with Azure Batch accounts, for example enable, disable, or manage network rules for public network access.
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 11/21/2024
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to configure public network access for my Batch account, so that I can control which IP addresses can access the Batch endpoints for enhanced security.
 ---
 
 # Configure public network access with Azure Batch accounts
@@ -36,7 +38,6 @@ You can configure public network access to Batch account endpoints with the foll
 1. Under **Settings**, select **Networking**.
 1. On the **Public access** tab, select to allow public access from **Selected networks**.
 1. Under access for each endpoint, enter a public IP address or address range in CIDR notation one by one.
-   :::image type="content" source="media/public-access/configure-public-access.png" alt-text="Screenshot of public access with Batch account.":::
 1. Select **Save**.
 
 > [!NOTE]

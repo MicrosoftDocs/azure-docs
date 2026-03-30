@@ -2,13 +2,17 @@
 title: Upload files from devices to Azure IoT Hub (Python)
 titleSuffix: Azure IoT Hub
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Python. Uploaded files are stored in an Azure storage blob container.
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: include
-ms.date: 07/01/2024
-ms.custom: mqtt, devx-track-python, py-fresh-zinc
+ms.date: 12/12/2024
+ms.custom:
+  - mqtt
+  - devx-track-python
+  - py-fresh-zinc
+  - sfi-ropc-nochange
 ---
 
 ## Install packages
@@ -29,13 +33,6 @@ pip install azure.storage.blob
 
 This section describes how to upload a file from a device to an IoT hub using the [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class from the Azure IoT SDK for Python.
 
-Follow this procedure to upload a file from a device to IoT hub:
-
-1. Connect to the device
-1. Get Blob Storage information
-1. Upload the file to Blob Storage
-1. Notify IoT hub of upload status
-
 ### Import libraries
 
 ```python
@@ -45,12 +42,22 @@ from azure.core.exceptions import AzureError
 from azure.storage.blob import BlobClient
 ```
 
-### Connect to the device
+### Connect a device to IoT Hub
 
-To connect to the device:
+A device app can authenticate with IoT Hub using the following methods:
+
+* X.509 certificate
+* Shared access key
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-python](iot-hub-howto-auth-device-cert-python.md)]
+
+#### Authenticate using a shared access key
+
+To connect a device to IoT Hub:
 
 1. Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to add the device primary connection string.
-
 1. Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client.
 
 For example:

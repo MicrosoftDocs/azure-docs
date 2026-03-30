@@ -2,12 +2,12 @@
 title: Import and export device identities
 titleSuffix: Azure IoT Hub
 description: Use the Azure IoT service SDK to import and export device identities so that you can create, update, and delete device identities in bulk.
-author: kgremban
+author: cwatson-cat
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: cwatson
+ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 01/25/2024
+ms.date: 08/13/2025
 ms.custom: devx-track-csharp, references_regions
 ---
 
@@ -16,16 +16,16 @@ ms.custom: devx-track-csharp, references_regions
 Each IoT hub has an identity registry that you can use to create device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry, using the ImportExportDeviceSample sample included with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main). For more information about how you can use this capability when migrating an IoT hub to a different region, see [How to manually migrate an Azure IoT hub using an Azure Resource Manager template](migrate-hub-arm.md).
 
 > [!NOTE]
-> IoT Hub recently added virtual network support in a limited number of regions. This feature secures import and export operations and eliminates the need to pass keys for authentication. Currently, virtual network support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about virtual network support and the API calls to implement it, see [IoT Hub Support for virtual networks](virtual-network-support.md).
+> IoT Hub recently added virtual network support in a limited number of regions. This feature secures import and export operations and eliminates the need to pass keys for authentication. Currently, virtual network support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about virtual network support and the API calls to implement it, see [IoT Hub support for virtual networks with Azure Private Link](virtual-network-support.md).
 
 Import and export operations take place in the context of *jobs* that enable you to execute bulk service operations against an IoT hub.
 
 The **RegistryManager** class in the SDK includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub identity registry.
 
-This article discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs. To learn more, see the [provisioning service documentation](../iot-dps/index.yml).
+This article discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs. To learn more, see [Azure IoT Hub Device Provisioning Service Documentation](../iot-dps/index.yml).
 
 > [!NOTE]
-> Some of the code snippets in this article are included from the ImportExportDevicesSample service sample provided with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main). The sample is located in the `/iothub/service/samples/how to guides/ImportExportDevicesSample` folder of the SDK and, where specified, code snippets are included from the `ImportExportDevicesSample.cs` file for that SDK sample. For more information about the ImportExportDevicesSample sample and other service samples included in the Azure IoT SDK for.NET, see [Azure IoT hub service samples for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/how%20to%20guides).
+> Some of the code snippets in this article are included from the ImportExportDevicesSample service sample provided with the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main). The sample is located in the `/iothub/service/samples/how to guides/ImportExportDevicesSample` folder of the SDK and, where specified, code snippets are included from the `ImportExportDevicesSample.cs` file for that SDK sample. For more information about the ImportExportDevicesSample sample and other service samples included in the Azure IoT SDK for.NET, see [Azure IoT Hub service samples for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/how%20to%20guides).
 
 ## What are jobs?
 
@@ -67,7 +67,7 @@ To find the connection string for your IoT hub, in the Azure portal:
 
 1. Copy the connection string for that policy.
 
-The following C# code snippet, from the **WaitForJobAsync** method in the SDK sample, shows how to poll every five seconds to see if the job has finished executing:
+The following C# code snippet, from the **WaitForJobAsync** method in the SDK sample, shows how to poll every five seconds to see if the job is finished executing:
 
 ```csharp
 // Wait until job is finished
@@ -195,7 +195,7 @@ The **ImportDevicesAsync** method in the **RegistryManager** class enables you t
 Take care using the **ImportDevicesAsync** method because in addition to provisioning new devices in your identity registry, it can also update and delete existing devices.
 
 > [!WARNING]
-> An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your identity registry.
+> An import operation can't be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your identity registry.
 
 The **ImportDevicesAsync** method takes two parameters:
 
@@ -213,7 +213,7 @@ The **ImportDevicesAsync** method takes two parameters:
    ```
 
 > [!NOTE]
-> The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires additional permissions.
+> The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires more permissions.
 
 The following C# code snippet shows how to initiate an import job:
 
@@ -249,11 +249,11 @@ Use the optional **importMode** property in the import serialization data for ea
 * **UpdateTwin**
 * **UpdateTwinIfMatchETag**
 
-For details about each of these import mode options, see [ImportMode](/dotnet/api/microsoft.azure.devices.importmode)
+For more information about each of these import mode options, see [ImportMode Enum](/dotnet/api/microsoft.azure.devices.importmode).
 
 ## Troubleshoot import jobs
 
-Using an import job to create devices might fail with a quota issue when it's close to the device count limit of the IoT hub. This failure can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota.”
+Using an import job to create devices might fail with a quota issue when it's close to the device count limit of the IoT hub. This failure can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota."
 
 If you get this error, you can use the following query to return the total number of devices registered on your IoT hub:
 
@@ -261,7 +261,7 @@ If you get this error, you can use the following query to return the total numbe
 SELECT COUNT() as totalNumberOfDevices FROM devices
 ```
 
-For information about the total number of devices that can be registered to an IoT hub, see [IoT Hub limits](iot-hub-devguide-quotas-throttling.md#other-limits).
+For information about the total number of devices that can be registered to an IoT hub, see [Other limits](iot-hub-devguide-quotas-throttling.md#other-limits).
 
 If there's still quota available, you can examine the job output blob for devices that failed with the **IotHubQuotaExceeded (403002)** error. You can then try adding these devices individually to the IoT hub. For example, you can use the **AddDeviceAsync** or **AddDeviceWithTwinAsync** methods. Don't try to add the devices using another job as you might encounter the same error.
 
@@ -475,4 +475,4 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## Next steps
 
-In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Many of these operations, including how to move devices from one hub to another, are used in the **Manage devices registered to the IoT hub** section of [How to manually migrate an Azure IoT hub using an Azure Resource Manager template](migrate-hub-arm.md#manage-the-devices-registered-to-the-iot-hub).
+In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Many of these operations, including how to move devices from one hub to another, are used in the **Manage the devices registered to the IoT hub** section of [How to manually migrate an Azure IoT hub using an Azure Resource Manager template](migrate-hub-arm.md#manage-the-devices-registered-to-the-iot-hub).

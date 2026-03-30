@@ -7,9 +7,15 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 06/18/2024
+ms.date: 02/18/2026
 ms.author: radeltch
+ms.custom:
+  - devx-track-python
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: As an SAP administrator, I want to establish high availability for SAP HANA on Azure Virtual Machines using Red Hat Enterprise Linux, so that I can ensure continuous system uptime and reliability for my critical applications.
 ---
 
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
@@ -28,8 +34,6 @@ ms.author: radeltch
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
 [2009879]:https://launchpad.support.sap.com/#/notes/2009879
 [3108302]:https://launchpad.support.sap.com/#/notes/3108302
-
-[sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 
 For on-premises development, you can use either HANA System Replication or shared storage to establish high availability (HA) for SAP HANA. On Azure Virtual Machines, HANA System Replication on Azure is currently the only supported HA function.
 
@@ -98,7 +102,7 @@ Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for the H
 
 ### Configure Azure load balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of HANA database.
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to set up standard load balancer for high availability setup of HANA database.
 
 #### [Azure portal](#tab/lb-portal)
 
@@ -190,9 +194,11 @@ The steps in this section use the following prefixes:
 
    Next, create `fstab` entries for the three logical volumes by inserting the following lines in the `/etc/fstab` file:
 
+   ```bash
    /dev/mapper/vg_hana_data_HN1-hana_data    /hana/data    xfs  defaults,nofail  0  2
    /dev/mapper/vg_hana_log_HN1-hana_log    /hana/log    xfs  defaults,nofail  0  2
    /dev/mapper/vg_hana_shared_HN1-hana_shared    /hana/shared    xfs  defaults,nofail  0  2
+   ```
 
    Finally, mount the new volumes all at once:
 
@@ -204,57 +210,21 @@ The steps in this section use the following prefixes:
 
    You can either use a DNS server or modify the `/etc/hosts` file on all nodes by creating entries for all nodes like this in `/etc/hosts`:
 
+   ```bash
    10.0.0.5 hn1-db-0
    10.0.0.6 hn1-db-1
+   ```
 
 1. **[A]** Perform RHEL for HANA configuration.
 
    Configure RHEL as described in the following notes:
-   * [2447641 - Additional packages required for installing SAP HANA SPS 12 on RHEL 7.X](https://access.redhat.com/solutions/2447641)
-   * [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
-   * [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
-   * [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
-   * [2593824 - Linux: Running SAP applications compiled with GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824)
-   * [2886607 - Linux: Running SAP applications compiled with GCC 9.x](https://launchpad.support.sap.com/#/notes/2886607)
+   * [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://me.sap.com/notes/2292690)
+   * [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782)
+   * [3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302)
+   * [3562919 - SAP HANA DB: Recommended OS Settings for RHEL 10](https://me.sap.com/notes/3562919)
+   * [3057467 - Which compat-sap-c++ package do I need for SAP on RHEL?](https://me.sap.com/notes/3057467)
 
-1. **[A]** Install the SAP HANA.
-
-   To install SAP HANA System Replication, see [Automating SAP HANA Scale-Up System Replication using the RHEL HA Add-On](https://access.redhat.com/articles/3004101).
-
-   Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
-   1. Choose installation: Enter **1**.
-   1. Select additional components for installation: Enter **1**.
-   1. Enter **Installation Path** [/hana/shared]: Select Enter.
-   1. Enter **Local Host Name [..]**: Select Enter.
-   1. **Do you want to add additional hosts to the system? (y/n)** [n]: Select Enter.
-   1. Enter **SAP HANA System ID**: Enter the SID of HANA, for example: **HN1**.
-   1. Enter **Instance Number** [00]: Enter the HANA Instance number. Enter **03** if you used the Azure template or followed the manual deployment section of this article.
-   1. Select **Database Mode / Enter Index** [1]: Select Enter.
-   1. Select **System Usage / Enter Index** [4]: Select the system usage value.
-   1. Enter **Location of Data Volumes** [/hana/data]: Select Enter.
-   1. Enter **Location of Log Volumes** [/hana/log]: Select Enter.
-   1. **Restrict maximum memory allocation?** [n]: Select Enter.
-   1. Enter **Certificate Host Name For Host '...'** [...]: Select Enter.
-   1. Enter **SAP Host Agent User (sapadm) Password**: Enter the host agent user password.
-   1. Confirm **SAP Host Agent User (sapadm) Password**: Enter the host agent user password again to confirm.
-   1. Enter **System Administrator (hdbadm) Password**: Enter the system administrator password.
-   1. Confirm **System Administrator (hdbadm) Password**: Enter the system administrator password again to confirm.
-   1. Enter **System Administrator Home Directory** [/usr/sap/HN1/home]: Select Enter.
-   1. Enter **System Administrator Login Shell** [/bin/sh]: Select Enter.
-   1. Enter **System Administrator User ID** [1001]: Select Enter.
-   1. Enter **ID of User Group (sapsys)** [79]: Select Enter.
-   1. Enter **Database User (SYSTEM) Password**: Enter the database user password.
-   1. Confirm **Database User (SYSTEM) Password**: Enter the database user password again to confirm.
-   1. **Restart system after machine reboot?** [n]: Select Enter.
-   1. **Do you want to continue? (y/n)**: Validate the summary. Enter **y** to continue.
-
-1. **[A]** Upgrade the SAP Host Agent.
-
-   Download the latest SAP Host Agent archive from the [SAP Software Center][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded:
-
-   ```bash
-   sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent>;
-   ```
+1. **[A]** Install SAP HANA, following [SAP's documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/2c1988d620e04368aa4103bf26f17727/2d4de94c8bf14cda8d37278647fff8ab.html).
 
 1. **[A]** Configure the firewall.
 
@@ -278,14 +248,11 @@ The steps in this section use the following prefixes:
    Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication and client traffic to database SYSTEMDB, HN1, and NW1.
 
    ```bash
-    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp --permanent
-    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp
-
+    sudo firewall-cmd --zone=public --add-port={1128,1129,40302,40301,40307,40306,40303,40340,30340,30341,30342}/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port={1128,1129,40302,40301,40307,40306,40303,40340,30340,30341,30342}/tcp
    ```
 
 1. **[1]** Create the tenant database.
-
-   If you're using SAP HANA 2.0 or MDC, create a tenant database for your SAP NetWeaver system. Replace **NW1** with the SID of your SAP system.
 
    Run the following command as <hanasid\>adm:
 
@@ -302,6 +269,9 @@ The steps in this section use the following prefixes:
    hdbsql -d HN1 -u SYSTEM -p "<passwd>" -i 03 "BACKUP DATA USING FILE ('initialbackupHN1')"
    hdbsql -d NW1 -u SYSTEM -p "<passwd>" -i 03 "BACKUP DATA USING FILE ('initialbackupNW1')"
    ```
+
+   > [!NOTE]
+   > When using Local Secure Store (LSS), SAP HANA backups are self-contained and require you to set a backup password for the encryption root keys. Refer to SAP Note [3571561](https://me.sap.com/notes/0003571561) for detailed instructions. The password must be set for SYSTEMDB and individual tenant database.
 
    Copy the system PKI files to the secondary site:
 
@@ -323,6 +293,14 @@ The steps in this section use the following prefixes:
    ```bash
    sapcontrol -nr 03 -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
+   ```
+
+1. **[2]** Start HANA.
+
+   Run the following command as <hanasid\>adm to start HANA:
+
+   ```bash
+   sapcontrol -nr 03 -function StartSystem
    ```
 
 1. **[1]** Check replication status.
@@ -350,77 +328,6 @@ The steps in this section use the following prefixes:
    # site name: SITE1
    ```
 
-## Configure SAP HANA 1.0 System Replication
-
-The steps in this section use the following prefixes:
-
-* **[A]**: The step applies to all nodes.
-* **[1]**: The step applies to node 1 only.
-* **[2]**: The step applies to node 2 of the Pacemaker cluster only.
-
-1. **[A]** Configure the firewall.
-
-   Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication. Adapt it to your SAP HANA 1.0 installation.
-
-   ```bash
-   sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40302/tcp
-   ```
-
-1. **[1]** Create the required users.
-
-   Run the following command as root. Make sure to replace the values for HANA System ID (for example, **HN1**), instance number (**03**), and any usernames, with the values of your SAP HANA installation:
-
-   ```bash
-   PATH="$PATH:/usr/sap/HN1/HDB03/exe"
-   hdbsql -u system -i 03 'CREATE USER hdbhasync PASSWORD "passwd"'
-   hdbsql -u system -i 03 'GRANT DATA ADMIN TO hdbhasync'
-   hdbsql -u system -i 03 'ALTER USER hdbhasync DISABLE PASSWORD LIFETIME'
-   ```
-
-1. **[A]** Create the keystore entry.
-
-   Run the following command as root to create a new keystore entry:
-
-   ```bash
-   PATH="$PATH:/usr/sap/HN1/HDB03/exe"
-   hdbuserstore SET hdbhaloc localhost:30315 hdbhasync passwd
-   ```
-
-1. **[1]** Back up the database.
-
-   Back up the databases as root:
-
-   ```bash
-   PATH="$PATH:/usr/sap/HN1/HDB03/exe"
-   hdbsql -d SYSTEMDB -u system -i 03 "BACKUP DATA USING FILE ('initialbackup')"
-   ```
-
-   If you use a multitenant installation, also back up the tenant database:
-
-   ```bash
-   hdbsql -d HN1 -u system -i 03 "BACKUP DATA USING FILE ('initialbackup')"
-   ```
-
-1. **[1]** Configure system replication on the first node.
-
-   Create the primary site as <hanasid\>adm:
-
-   ```bash
-   su - hdbadm
-   hdbnsutil -sr_enable –-name=SITE1
-   ```
-
-1. **[2]** Configure system replication on the secondary node.
-
-   Register the secondary site as <hanasid\>adm:
-
-   ```bash
-   HDB stop
-   hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
-   HDB start
-   ```
-
 ## Create a Pacemaker cluster
 
 Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this HANA server.
@@ -430,11 +337,11 @@ Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](
 >
 > When using HA solutions to manage SAP HANA system replication in combination with systemd-enabled SAP HANA instances (refer to SAP Note [3189534](https://me.sap.com/notes/3189534)), additional steps are necessary to ensure that the HA cluster can manage the SAP instance without systemd interference. So, for SAP HANA system integrated with systemd, additional steps outlined in [Red Hat KBA 7029705](https://access.redhat.com/solutions/7029705) must be followed on all cluster nodes.
 
-## Implement the Python system replication hook SAPHanaSR
+## Implement SAP HANA system replication hooks
 
-This important step optimizes the integration with the cluster and improves the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook.
+This important step optimizes the integration with the cluster and improves the detection when a cluster failover is needed. It is mandatory for correct cluster operation to enable the SAPHanaSR hook. We highly recommend that you configure both SAPHanaSR and ChkSrv Python hooks. 
 
-1. **[A]** Install the SAP HANA resource agents on **all nodes**. Make sure to enable a repository that contains the package. You don't need to enable more repositories, if you're using an RHEL 8.x HA-enabled image.
+1. **[A]** Install the SAP HANA resource agents on **all nodes**. Make sure to enable a repository that contains the package. You don't need to enable more repositories, if you're using an RHEL 8.x or higher HA-enabled image.
 
    ```bash
    # Enable repository that contains SAP HANA resource agents
@@ -443,18 +350,10 @@ This important step optimizes the integration with the cluster and improves the 
    sudo yum install -y resource-agents-sap-hana
    ```
 
-1. **[A]** Install the HANA `system replication hook`. The hook needs to be installed on both HANA DB nodes.
+   > [!NOTE]
+   > For RHEL 8.x and RHEL 9.x, verify that the installed resource-agents-sap-hana package is version 0.162.3-5 or later.
 
-   > [!TIP]
-   > The Python hook can only be implemented for HANA 2.0.
-
-   1. Prepare the hook as `root`.
-
-       ```bash
-        mkdir -p /hana/shared/myHooks
-        cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
-        chown -R hn1adm:sapsys /hana/shared/myHooks
-       ```
+1. **[A]** Install the HANA `system replication hooks`. The configuration for the replication hooks needs to be installed on both HANA DB nodes.
 
    1. Stop HANA on both nodes. Run as <sid\>adm.
 
@@ -467,12 +366,23 @@ This important step optimizes the integration with the cluster and improves the 
        ```output
        [ha_dr_provider_SAPHanaSR]
        provider = SAPHanaSR
-       path = /hana/shared/myHooks
+       path = /usr/share/SAPHanaSR/srHook
        execution_order = 1
-        
+
+       [ha_dr_provider_chksrv]
+       provider = ChkSrv
+       path = /usr/share/SAPHanaSR/srHook
+       execution_order = 2
+       action_on_lost = kill
+    
        [trace]
        ha_dr_saphanasr = info
+       ha_dr_chksrv = info
        ```
+
+   If you point parameter `path` to the default `/usr/share/SAPHanaSR/srHook` location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like `/hana/shared/myHooks`, you can decouple OS updates from the hook version that HANA will use.
+
+   You can adjust the behavior of `ChkSrv` hook by using the `action_on_lost` parameter. Valid values are [ `ignore` | `stop` | `kill` ].
 
 1. **[A]** The cluster requires `sudoers` configuration on each cluster node for <sid\>adm. In this example, that's achieved by creating a new file. Use the `visudo` command to edit the `20-saphana` drop-in file as `root`.
 
@@ -497,7 +407,7 @@ This important step optimizes the integration with the cluster and improves the 
     sapcontrol -nr 03 -function StartSystem 
     ```
 
-1. **[1]** Verify the hook installation. Run as <sid\>adm on the active HANA system replication site.
+1. **[1]** Verify the SRHanaSR hook installation. Run as <sid\>adm on the active HANA system replication site.
 
     ```bash
      cdtrace
@@ -511,55 +421,66 @@ This important step optimizes the integration with the cluster and improves the 
      # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
     ```
 
-For more information on the implementation of the SAP HANA System Replication hook, see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).
+1. **[1]** Verify the ChkSrv hook installation. Run as <sid\>adm on the active HANA system replication site.
+
+    ```bash
+     cdtrace
+     tail -20 nameserver_chksrv.trc
+    ```
+
+For more information on the implementation of the SAP HANA hooks, see [Enabling the SAP HANA srConnectionChanged() hook](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html-single/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index#con_enable_hook_automating-sap-hana-scale-up-system-replication) and [Enabling the SAP HANA srServiceStateChanged() hook for hdbindexserver process failure action (optional)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/8/html-single/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index#con_enable_hdbindexserver_automating-sap-hana-scale-up-system-replication).
 
 ## Create SAP HANA cluster resources
 
 Create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes. Throughout these instructions, be sure to substitute your instance number, HANA system ID, IP addresses, and system names, where appropriate.
 
-   ```bash
+```bash
 sudo pcs property set maintenance-mode=true
 
 sudo pcs resource create SAPHanaTopology_HN1_03 SAPHanaTopology SID=HN1 InstanceNumber=03 \
  op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600 \
  clone clone-max=2 clone-node-max=1 interleave=true
-   ```
+```
 
 Next, create the HANA resources.
 
 > [!NOTE]
 > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-If you're building a cluster on **RHEL 7.x**, use the following commands:
+### [RHEL 10.x](#tab/rhel10)
+
+If you're building a cluster on **RHEL 10.x**, use the following commands:
 
 ```bash
 sudo pcs resource create SAPHana_HN1_03 SAPHana SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
   op start timeout=3600 op stop timeout=3600 \
-  op monitor interval=61 role="Slave" timeout=700 \
-  op monitor interval=59 role="Master" timeout=700 \
+  op monitor interval=61 role="Unpromoted" timeout=700 \
+  op monitor interval=59 role="Promoted" timeout=700 \
   op promote timeout=3600 op demote timeout=3600 \
-  master notify=true clone-max=2 clone-node-max=1 interleave=true
+  promotable meta notify=true clone-max=2 clone-node-max=1 interleave=true
 
 sudo pcs resource create vip_HN1_03 IPaddr2 ip="10.0.0.13"
 sudo pcs resource create nc_HN1_03 azure-lb port=62503
 sudo pcs resource group add g_ip_HN1_03 nc_HN1_03 vip_HN1_03
 
-sudo pcs constraint order SAPHanaTopology_HN1_03-clone then SAPHana_HN1_03-master symmetrical=false
-sudo pcs constraint colocation add g_ip_HN1_03 with master SAPHana_HN1_03-master 4000
+sudo pcs constraint order SAPHanaTopology_HN1_03-clone then SAPHana_HN1_03-clone symmetrical=false
+sudo pcs constraint colocation add g_ip_HN1_03 with Promoted SAPHana_HN1_03-clone score=4000
 
-sudo pcs resource defaults resource-stickiness=1000
-sudo pcs resource defaults migration-threshold=5000
+sudo pcs resource defaults update resource-stickiness=1000
+sudo pcs resource defaults update migration-threshold=5000
 
 sudo pcs property set maintenance-mode=false
 ```
+
+### [RHEL 8.x/9.x](#tab/rhel8-9)
 
 If you're building a cluster on **RHEL 8.x/9.x**, use the following commands:
 
 ```bash
 sudo pcs resource create SAPHana_HN1_03 SAPHana SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
   op start timeout=3600 op stop timeout=3600 \
-  op monitor interval=61 role="Slave" timeout=700 \
-  op monitor interval=59 role="Master" timeout=700 \
+  op monitor interval=61 role="Secondary" timeout=700 \
+  op monitor interval=59 role="Primary" timeout=700 \
   op promote timeout=3600 op demote timeout=3600 \
   promotable notify=true clone-max=2 clone-node-max=1 interleave=true
 
@@ -576,10 +497,37 @@ sudo pcs resource defaults update migration-threshold=5000
 sudo pcs property set maintenance-mode=false
 ```
 
+### [RHEL 7.x](#tab/rhel7)
+
+If you're building a cluster on **RHEL 7.x**, use the following commands:
+
+```bash
+sudo pcs resource create SAPHana_HN1_03 SAPHana SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
+  op start timeout=3600 op stop timeout=3600 \
+  op monitor interval=61 role="Secondary" timeout=700 \
+  op monitor interval=59 role="Primary" timeout=700 \
+  op promote timeout=3600 op demote timeout=3600 \
+  master notify=true clone-max=2 clone-node-max=1 interleave=true
+
+sudo pcs resource create vip_HN1_03 IPaddr2 ip="10.0.0.13"
+sudo pcs resource create nc_HN1_03 azure-lb port=62503
+sudo pcs resource group add g_ip_HN1_03 nc_HN1_03 vip_HN1_03
+
+sudo pcs constraint order SAPHanaTopology_HN1_03-clone then SAPHana_HN1_03-master symmetrical=false
+sudo pcs constraint colocation add g_ip_HN1_03 with master SAPHana_HN1_03-master 4000
+
+sudo pcs resource defaults resource-stickiness=1000
+sudo pcs resource defaults migration-threshold=5000
+
+sudo pcs property set maintenance-mode=false
+```
+
+---
+
 To configure `priority-fencing-delay` for SAP HANA (applicable only as of pacemaker-2.0.4-6.el8 or higher), the following commands need to be executed.
 
 > [!NOTE]
-> If you have a two-node cluster, you can configure the `priority-fencing-delay` cluster property. This property introduces a delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
+> If you have a two-node cluster, you can configure the `priority-fencing-delay` cluster property. This property introduces a delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521)
 >
 > The property `priority-fencing-delay` is applicable for pacemaker-2.0.4-6.el8 version or higher. If you're setting up `priority-fencing-delay` on an existing cluster, make sure to unset the `pcmk_delay_max` option in the fencing device.
 
@@ -612,9 +560,9 @@ Use the command `sudo pcs status` to check the state of the cluster resources cr
 # azure_fence     (stonith:fence_azure_arm):      Started hn1-db-0
 #  Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
 #      Started: [ hn1-db-0 hn1-db-1 ]
-#  Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-#      Masters: [ hn1-db-0 ]
-#      Slaves: [ hn1-db-1 ]
+#  Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+#      Primaries: [ hn1-db-0 ]
+#      Secondaries: [ hn1-db-1 ]
 #  Resource Group: g_ip_HN1_03
 #      nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
 #      vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -639,22 +587,17 @@ To proceed with more steps on provisioning a second virtual IP, make sure that y
 1. For a **standard** load balancer, follow these steps on the same load balancer that you created in an earlier section.
 
    a. Create a second front-end IP pool:
-
    * Open the load balancer, select **frontend IP pool**, and select **Add**.
    * Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
    * Set **Assignment** to **Static** and enter the IP address (for example, **10.0.0.14**).
    * Select **OK**.
    * After the new front-end IP pool is created, note the pool IP address.
-
    b. Create a health probe:
-
    * Open the load balancer, select **health probes**, and select **Add**.
    * Enter the name of the new health probe (for example, **hana-secondaryhp**).
    * Select **TCP** as the protocol and port **62603**. Keep the **Interval** value set to **5** and the **Unhealthy threshold** value set to **2**.
    * Select **OK**.
-
    c. Create the load-balancing rules:
-
    * Open the load balancer, select **load balancing rules**, and select **Add**.
    * Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
    * Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend**, and **hana-secondaryhp**).
@@ -676,21 +619,64 @@ hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMo
 
 The second virtual IP and the appropriate colocation constraint can be configured with the following commands:
 
+### [RHEL 10.x](#tab/rhel10)
+
 ```bash
 pcs property set maintenance-mode=true
 
 pcs resource create secvip_HN1_03 ocf:heartbeat:IPaddr2 ip="10.40.0.16"
-
 pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
-
 pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
 
-pcs constraint location g_secip_HN1_03 rule score=INFINITY hana_hn1_sync_state eq SOK and hana_hn1_roles eq 4:S:master1:master:worker:master
+pcs constraint location g_secip_HN1_03 rule score=INFINITY "hana_hn1_sync_state eq SOK and hana_hn1_roles eq 4:S:master1:master:worker:master"
+pcs constraint location g_secip_HN1_03 rule score=4000 "hana_hn1_sync_state eq PRIM and hana_hn1_roles eq 4:P:master1:master:worker:master"
 
-pcs constraint location g_secip_HN1_03 rule score=4000 hana_hn1_sync_state eq PRIM and hana_hn1_roles eq 4:P:master1:master:worker:master
+# Set the priority to primary IPaddr2 and azure-lb resource if priority-fencing-delay is configured
+sudo pcs resource update vip_HN1_03 meta priority=5
+sudo pcs resource update nc_HN1_03 meta priority=5
 
 pcs property set maintenance-mode=false
 ```
+
+### [RHEL 8.x/9.x](#tab/rhel8-9)
+
+```bash
+pcs property set maintenance-mode=true
+
+pcs resource create secvip_HN1_03 ocf:heartbeat:IPaddr2 ip="10.40.0.16"
+pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
+pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
+
+pcs constraint location g_secip_HN1_03 rule score=INFINITY hana_hn1_sync_state eq SOK and hana_hn1_roles eq 4:S:master1:master:worker:master
+pcs constraint location g_secip_HN1_03 rule score=4000 hana_hn1_sync_state eq PRIM and hana_hn1_roles eq 4:P:master1:master:worker:master
+
+# Set the priority to primary IPaddr2 and azure-lb resource if priority-fencing-delay is configured
+sudo pcs resource update vip_HN1_03 meta priority=5
+sudo pcs resource update nc_HN1_03 meta priority=5
+
+pcs property set maintenance-mode=false
+```
+
+### [RHEL 7.x](#tab/rhel7)
+
+```bash
+pcs property set maintenance-mode=true
+
+pcs resource create secvip_HN1_03 ocf:heartbeat:IPaddr2 ip="10.40.0.16"
+pcs resource create secnc_HN1_03 ocf:heartbeat:azure-lb port=62603
+pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
+
+pcs constraint location g_secip_HN1_03 rule score=INFINITY hana_hn1_sync_state eq SOK and hana_hn1_roles eq 4:S:master1:master:worker:master
+pcs constraint location g_secip_HN1_03 rule score=4000 hana_hn1_sync_state eq PRIM and hana_hn1_roles eq 4:P:master1:master:worker:master
+
+# Set the priority to primary IPaddr2 and azure-lb resource if priority-fencing-delay is configured
+sudo pcs resource update vip_HN1_03 meta priority=5
+sudo pcs resource update nc_HN1_03 meta priority=5
+
+pcs property set maintenance-mode=false
+```
+
+---
 
 Make sure that the cluster status is okay and that all the resources are started. The second virtual IP runs on the secondary site along with the SAPHana secondary resource.
 
@@ -704,8 +690,8 @@ sudo pcs status
 #   Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]:
 #     Started: [ hn1-db-0 hn1-db-1 ]
 #   Clone Set: SAPHana_HN1_03-clone [SAPHana_HN1_03] (promotable):
-#     Masters: [ hn1-db-0 ]
-#     Slaves: [ hn1-db-1 ]
+#     Primaries: [ hn1-db-0 ]
+#     Secondaries: [ hn1-db-1 ]
 #   Resource Group: g_ip_HN1_03:
 #     nc_HN1_03         (ocf::heartbeat:azure-lb):      Started hn1-db-0
 #     vip_HN1_03        (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -741,9 +727,9 @@ Resource state before starting the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-0 ]
-    Slaves: [ hn1-db-1 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-0 ]
+    Secondaries: [ hn1-db-1 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -751,22 +737,35 @@ Resource Group: g_ip_HN1_03
 
 You can migrate the SAP HANA master node by running the following command as root:
 
+### [RHEL 10.x](#tab/rhel10)
+
 ```bash
-# On RHEL 7.x
-pcs resource move SAPHana_HN1_03-master
-# On RHEL 8.x
+pcs resource move SAPHana_HN1_03-clone --Promoted
+```
+
+### [RHEL 8.x/9.x](#tab/rhel8-9)
+
+```bash
 pcs resource move SAPHana_HN1_03-clone --master
 ```
 
-The cluster would migrate the SAP HANA master node and the group containing virtual IP address to `hn1-db-1`. 
+### [RHEL 7.x](#tab/rhel7)
+
+```bash
+pcs resource move SAPHana_HN1_03-master
+```
+
+---
+
+The cluster would migrate the SAP HANA master node and the group containing virtual IP address to `hn1-db-1`.
 
 After the migration is done, the `sudo pcs status` output looks like:
 
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
     Stopped: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
@@ -791,9 +790,9 @@ Monitor the state of the HANA resource by using `pcs status`. After HANA is star
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
-    Slaves: [ hn1-db-0 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
+    Secondaries: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
@@ -806,9 +805,9 @@ Resource state before starting the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
-    Slaves: [ hn1-db-0 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
+    Secondaries: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
@@ -842,15 +841,15 @@ Resource state before starting the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
-    Slaves: [ hn1-db-0 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
+    Secondaries: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Master. For a description on how to simulate a network failure, see [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523).
+You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Primary. For a description on how to simulate a network failure, see [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523).
 
 In this example, we use the `net_breaker` script as root to block all access to the network:
 
@@ -882,9 +881,9 @@ Resource state after the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-0 ]
-    Slaves: [ hn1-db-1 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-0 ]
+    Secondaries: [ hn1-db-1 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -897,9 +896,9 @@ Resource state before starting the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-0 ]
-    Slaves: [ hn1-db-1 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-0 ]
+    Secondaries: [ hn1-db-1 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -938,9 +937,9 @@ Resource state after the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
-     Slaves: [ hn1-db-0 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
+     Secondaries: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1

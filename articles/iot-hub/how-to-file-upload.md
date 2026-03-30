@@ -2,12 +2,12 @@
 title: Upload files from your device to the cloud with Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: How to upload files from a device to the cloud using the Azure IoT SDKs for C#, Python, Java, and Node.js.
-author: kgremban
-ms.author: kgremban
+author: cwatson-cat
+ms.author: cwatson
 manager: lizross
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 07/01/2024
+ms.date: 11/11/2025
 zone_pivot_groups: iot-hub-howto-c2d-1
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 ---
@@ -35,8 +35,6 @@ For more information, see:
 * [Overview of file uploads with IoT Hub](iot-hub-devguide-file-upload.md)
 * [Introduction to Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
-
-[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## Prerequisites
 

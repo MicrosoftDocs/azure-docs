@@ -2,10 +2,10 @@
 title: How to migrate an IoT hub
 titleSuffix: Azure IoT Hub
 description: Use the Azure CLI iot hub state command group to migrate an IoT hub to a new region, a new tier, or a new configuration
-author: kgremban
+author: cwatson-cat
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: cwatson
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/14/2023
@@ -32,14 +32,14 @@ The outcome of this article is similar to [How to migrate an Azure IoT hub using
   * Migrates your device registry, your routing and endpoint information, and other configuration details like IoT Edge deployments or automatic device management configurations.
   * Is easier for migrating small numbers of devices (for example, up to 10,000).
   * Doesn't require an Azure Storage account.
-  * Collects connection strings for routing and file upload endpoints and includes them in the ARM template output.
+  * Collects connection strings for routing and file upload endpoints that use key-based authentication and includes them in the ARM template output.
 
 * The manual process:
 
   * Migrates your device registry and your routing and endpoint information. You have to manually recreate other configuration details in the new IoT hub.
   * Is faster for migrating large numbers of devices (for example, more than 100,000).
   * Uses an Azure Storage account to transfer the device registry.
-  * Scrubs connection strings for routing and file upload endpoints from the ARM template output, and you need to manually add them back in.
+  * Scrubs connection strings for routing and file upload endpoints that use key-based authentication from the ARM template output, and you need to manually add them back in.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ When we talk about migrating the state of an IoT hub, we're referring to a combi
   * Device identities and twins
   * Module identities and twins
 
-Any IoT Hub property or configuration not listed here may not be exported or imported correctly.
+Any IoT Hub property or configuration not listed here might not be exported or imported correctly.
 
 ## Export the state of an IoT hub
 
@@ -165,7 +165,7 @@ If you include the `--replace` flag in the import command, then the following Io
 
 * **ARM**: Any uploaded certificates on the destination hub are deleted. If a certificate is present, it needs an etag to be updated.
 * **Devices**: All devices and modules, edge and non-edge, are deleted.
-* **Configurations**: All ADM configurations and IoT Edge deployments are deleted.
+* **Configurations**: All device management configurations and IoT Edge deployments are deleted.
 
 ## Migrate an IoT hub
 
@@ -173,7 +173,7 @@ Use the [az iot hub state migrate](/cli/azure/iot/hub/state#az-iot-hub-state-mig
 
 This command wraps the export and import steps into a single command, but has no output files. All of the guidance and limitations described in the [Export the state of an IoT hub](#export-the-state-of-an-iot-hub) and [Import the state of an IoT hub](#import-the-state-of-an-iot-hub) sections apply to the `state migrate` command as well.
 
-If you're migrating a device registry with many devices (for example, a few hundred or a few thousand) you may find it easier and faster to run the export and import commands separately rather than running the migrate command.
+If you're migrating a device registry with many devices (for example, a few hundred or a few thousand) it might be easier and faster to run the export and import commands separately rather than running the migrate command.
 
 | Parameter | Details |
 | --------- | ------- |

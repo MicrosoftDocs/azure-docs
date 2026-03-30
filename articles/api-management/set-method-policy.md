@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 03/18/2024
 ms.author: danlep
 ---
@@ -29,7 +29,7 @@ The value of the element specifies the HTTP method, such as `POST`, `GET`, and s
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

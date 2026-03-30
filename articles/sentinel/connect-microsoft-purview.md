@@ -1,10 +1,11 @@
 ---
 title: Stream data from Microsoft Purview Information Protection to Microsoft Sentinel 
 description: Stream data from Microsoft Purview Information Protection (formerly Microsoft Information Protection) to Microsoft Sentinel so you can analyze and report on data from the Microsoft Purview labeling clients and scanners.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 05/31/2023
-ms.author: yelevin
+
 #Customer intent: As a security engineer, I want to get specific labeling data from Microsoft Purview, so analysts can track, analyze, report on the data and use it for compliance purposes.
 ---
 
@@ -97,14 +98,23 @@ To disconnect the Azure Information Protection connector:
      '"MySensitivityLabelId": "MyLabel3"'
      '}');
      MicrosoftPurviewInformationProtection
-     | extend SensitivityLabelName = iif(isnotempty(SensitivityLabelId), 
+     | extend SensitivityLabelName = iff(isnotempty(SensitivityLabelId), 
     tostring(labelsMap[tostring(SensitivityLabelId)]), "")
-     | extend OldSensitivityLabelName = iif(isnotempty(OldSensitivityLabelId), 
+     | extend OldSensitivityLabelName = iff(isnotempty(OldSensitivityLabelId), 
     tostring(labelsMap[tostring(OldSensitivityLabelId)]), "")
     ```
  
 - The `MicrosoftPurviewInformationProtection` table and the `OfficeActivity` table might include some duplicated events.
- 
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***parse_json()*** function](/kusto/query/parse-json-function?view=microsoft-sentinel&preserve-view=true)
+- [***iff()*** function](/kusto/query/iff-function?view=microsoft-sentinel&preserve-view=true)
+- [***tostring()*** function](/kusto/query/tostring-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+
 ## Next steps
 
 In this article, you learned how to set up the Microsoft Purview Information Protection connector to track, analyze, report on the data, and use it for compliance purposes. To learn more about Microsoft Sentinel, see the following articles:

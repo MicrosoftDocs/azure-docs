@@ -5,15 +5,18 @@ keywords: hdinsight,hadoop,HBase
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive, mode-other
 ms.topic: quickstart
-ms.date: 01/04/2024
-#Customer intent: As a HBase user, I want learn HBase shell so that I can run queries.
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  01/02/2025
+#Customer intent: As an HBase user, I want learn HBase shell so that I can run queries.
 ---
 
 # Quickstart: Query Apache HBase in Azure HDInsight with HBase Shell
 
 In this quickstart, you learn how to use Apache HBase Shell to create an HBase table, insert data, and then query the table.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

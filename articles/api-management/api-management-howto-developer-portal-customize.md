@@ -6,14 +6,14 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: tutorial
-ms.date: 03/29/2024
+ms.date: 05/28/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 
 # Tutorial: Access and customize the developer portal
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 The *developer portal* is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, and request access.
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 For more information about developer portal features and options, see [Azure API Management developer portal overview](developer-portal-overview.md).
 
-:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Screenshot of the API Management developer portal - administrator mode." border="false":::
+:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Screenshot of the API Management developer portal - administrator mode." :::
 
 ## Prerequisites
 
@@ -42,12 +42,14 @@ For more information about developer portal features and options, see [Azure API
 Follow these steps to access the managed version of the developer portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. If you created your instance in a v2 service tier that supports the developer portal, first enable the developer portal. 
+1. If you created your instance in a v2 service tier, first enable the developer portal. 
     1. In the left menu, under **Developer portal**, select **Portal settings**. 
     1. In the **Portal settings** window, select **Enabled**. Select **Save**. 
     
     It might take a few minutes to enable the developer portal.
 1. In the left menu, under **Developer portal**, select **Portal overview**. Then select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
+
+[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
 
 ## Understand the portal's administrative interface
 
@@ -70,7 +72,7 @@ You'll want to use your own images and other media content in the developer port
 
 A placeholder logo is provided in the top left corner of the navigation bar. You can replace it with your own logo to match your organization's branding.
 
-1. In the developer portal, select the default **Contoso** logo in the top left of the navigation bar. 
+1. In the developer portal, select the default logo in the top left of the navigation bar. 
 1. Select **Edit**. 
 1. In the **Picture** pop-up, under **Main**, select **Source**.
 1. In the **Media** pop-up, select one of the following:
@@ -218,5 +220,5 @@ Advance to the next tutorial:
 See related content about the developer portal:
 
 - [Azure API Management developer portal overview](developer-portal-overview.md)
-- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Microsoft Entra ID](api-management-howto-aad.md), or [Azure AD B2C](api-management-howto-aad-b2c.md).
+- Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Microsoft Entra ID](api-management-howto-aad.md), or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
 - Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.

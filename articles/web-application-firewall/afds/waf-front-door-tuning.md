@@ -1,14 +1,15 @@
 ---
 title: Tune Azure Web Application Firewall for Azure Front Door
 description: In this article, you learn how to tune Azure Web Application Firewall for Azure Front Door.
-services: web-application-firewall
 author: mohitkusecurity
-ms.service: azure-web-application-firewall
-ms.topic: conceptual
-ms.date: 08/28/2022
 ms.author: mohitku
-ms.reviewer: victorh 
+ms.reviewer: halkazwini 
+ms.service: azure-web-application-firewall
+ms.topic: concept-article
+ms.date: 08/28/2022
 zone_pivot_groups: front-door-tiers
+ms.custom: sfi-image-nochange
+# Customer intent: As a web application security administrator, I want to tune the web application firewall rules for Azure Front Door, so that I can prevent unauthorized access while allowing legitimate traffic to flow without interruption.
 ---
 
 # Tune Azure Web Application Firewall for Azure Front Door
@@ -314,8 +315,6 @@ Disabling a rule is a global setting that applies to all front-end hosts associa
 
 If you want to use Azure PowerShell to disable a managed rule, see the [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject) object documentation. If you want to use the Azure CLI, see the [`az network front-door waf-policy managed-rules override`](/cli/azure/network/front-door/waf-policy/managed-rules/override) documentation.
 
-![Screenshot that shows WAF rules.](../media/waf-front-door-tuning/waf-rules.png)
-
 > [!TIP]
 > Document any changes you make to your WAF policy. Include example requests to illustrate the false positive detection. Explain why you added a custom rule, disabled a rule or rule set, or added an exception. If you redesign your application in the future, you might need to verify that your changes are still valid. Or you might be audited or need to justify why you reconfigured the WAF policy from its default settings.
 
@@ -440,6 +439,9 @@ If the request contains cookies, select the **Cookies** tab to view them in Fidd
 If you see rule ID 949110 during the process of tuning your WAF, its presence indicates that the request was blocked by the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring-mode) process.
 
 Review the other WAF log entries for the same request by searching for the log entries with the same tracking reference. Look at each of the rules that were triggered. Tune each rule by following the guidance in this article.
+
+   > [!WARNING]
+   > When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules and policy settings will remain unaffected during the new ruleset assignment.
 
 ## Next steps
 

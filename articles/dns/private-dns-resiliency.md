@@ -2,11 +2,13 @@
 title: Azure Private DNS zone resiliency
 description: In this article, learn about resiliency in Azure Private DNS zones.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 06/09/2023
-ms.author: greglin
+ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network administrator, I want to understand the resiliency features of Private DNS zones, so that I can ensure continuous name resolution during regional outages and maintain service availability across my network infrastructure."
 ---
 
 # Azure Private DNS zone resiliency
@@ -23,13 +25,12 @@ In this example:
 - The private zone azure.contoso.com is linked to VNets in three different regions. Autoregistration is enabled in two regions.
 - A temporary outage occurs in region A.
 - Regions B and C are still able to successfully query DNS names in the private zone, including names that are autoregistered from region A (ex: VM1).
-- Region B can add, edit, or delete records from the private DNS zone as needed.
 - Service interruption in region A doesn't affect name resolution in the other regions.
 
 The example shown here doesn't illustrate a disaster recovery scenario, however the global nature of private zones also makes it possible to recreate VM1 in another VNet and assume its workload.
 
 > [!NOTE]
-> Azure Private DNS is an availability zone foundational, zone-reduntant service. For more information, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support). 
+> Azure Private DNS is a zone-redundant service. For more information, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support). 
 
 ## Next steps
 - To learn more about Private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md).

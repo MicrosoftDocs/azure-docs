@@ -5,7 +5,7 @@ description: Learn about the mapping data flow New Branch Transformation in Azur
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
 ms.date: 05/15/2024
 ---
@@ -22,7 +22,7 @@ You can combine n-number of streams in the settings table by selecting the "+" i
 
 Here is a short video walk-through of the union transformation in the mapping data flow:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vngz]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=b2efaa0d-096d-44e5-9ce0-71d6b68f3924]
 
 :::image type="content" source="media/data-flow/union.png" alt-text="Union transformation":::
 

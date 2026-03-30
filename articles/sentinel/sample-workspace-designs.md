@@ -1,9 +1,9 @@
 ---
 title: Sample Microsoft Sentinel workspace designs
 description: Learn from samples of Microsoft Sentinel architecture designs with multiple tenants, clouds or regions.
-author: cwatson-cat
-ms.author: cwatson
-ms.topic: conceptual
+author: EdB-MSFT
+ms.author: edbaynash
+ms.topic: best-practice
 ms.date: 08/27/2024
 
 #Customer intent: As a security architect, I want to design an optimal workspace architecture for multi-tenant and multi-region environments so that I can ensure compliance, cost efficiency, and effective data segregation.
@@ -30,7 +30,7 @@ The Contoso Corporation is a multinational business with headquarters in London.
 
 Due to an acquisition several years ago, Contoso has two Microsoft Entra tenants: `contoso.onmicrosoft.com` and `wingtip.onmicrosoft.com`. Each tenant has its own Office 365 instance and multiple Azure subscriptions, as shown in the following image:
 
-:::image type="content" source="media/best-practices/contoso-tenants.png" alt-text="Diagram of Contoso tenants, each with separate sets of subscriptions." border="false":::
+:::image type="content" source="media/best-practices/contoso-tenants.png" alt-text="Diagram of Contoso tenants, each with separate sets of subscriptions." border="false" lightbox="media/best-practices/contoso-tenants.png":::
 
 ### Contoso compliance and regional deployment
 
@@ -75,7 +75,7 @@ Constoso's solution includes the following considerations:
 
 The resulting workspace design for Contoso is illustrated in the following image:
 
-:::image type="content" source="media/best-practices/contoso-solution.png" alt-text="Diagram of Contoso's solution, with a separate workspace for the Ops team." border="false":::
+:::image type="content" source="media/best-practices/contoso-solution.png" alt-text="Diagram of Contoso's solution, with a separate workspace for the Ops team." border="false" lightbox="media/best-practices/contoso-solution.png":::
 
 The suggested solution includes:
 
@@ -147,7 +147,7 @@ Fabrikam's solution includes the following considerations:
 
 The resulting workspace design for Fabrikam is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
-:::image type="content" source="media/best-practices/fabrikam-solution.png" alt-text="Diagram of Fabrikam's solution, with a separate workspace for the Ops team." border="false" :::
+:::image type="content" source="media/best-practices/fabrikam-solution.png" alt-text="Diagram of Fabrikam's solution, with a separate workspace for the Ops team." border="false" lightbox="media/best-practices/fabrikam-solution.png":::
 
 The suggested solution includes:
 
@@ -209,7 +209,7 @@ The Adventure Works solution includes the following considerations:
 
 The resulting workspace design for Adventure Works is illustrated in the following image, including only key log sources for the sake of design simplicity:
 
-:::image type="content" source="media/best-practices/adventure-works-solution.png" alt-text="Diagram of Adventure Works's solution, with separate workspaces for each Azure AD tenant." border="false":::
+:::image type="content" source="media/best-practices/adventure-works-solution.png" alt-text="Diagram of Adventure Works's solution, with separate workspaces for each Azure AD tenant." border="false" lightbox="media/best-practices/adventure-works-solution.png":::
 
 The suggested solution includes:
 

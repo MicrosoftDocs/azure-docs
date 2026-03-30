@@ -16,6 +16,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-messaging.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-messages-construct",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide.md",
+      "redirect_url": "/azure/iot-hub",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-translator.md",
       "redirect_url": "/azure/iot/tutorial-devkit-mxchip-az3166-iot-hub",
       "redirect_document_id": false
@@ -162,7 +172,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-architecture.md",
-      "redirect_url": "/azure/iot/iot-security-architecture",
+      "redirect_url": "/azure/well-architected/service-guides/azure-iot-hub#security",
       "redirect_document_id": false
     },
     {
@@ -177,7 +187,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-ground-up.md",
-      "redirect_url": "/azure/iot/iot-security-architecture",
+      "redirect_url": "/azure/well-architected/service-guides/azure-iot-hub#security",
       "redirect_document_id": false
     },
     {
@@ -298,11 +308,31 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-auto-device-config.md",
       "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-auto-device-config-cli.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management-cli",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-auto-device-management-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-automatic-device-management-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-configure-file-upload-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-configure-file-upload",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-configure-file-upload-powershell.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-configure-file-upload",
       "redirect_document_id": true
     },
     {
@@ -328,6 +358,11 @@
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-sdk-c-iothubclient.md",
       "redirect_url": "/azure/iot/tutorial-connect-device?pivots=programming-language-ansi-c",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-no-sdk.md",
+      "redirect_url": "/azure/iot-hub/",
       "redirect_document_id": false
     },
     {
@@ -358,6 +393,11 @@
     {
       "source_path_from_root": "/articles/iot-hub/quickstart-device-streams-proxy-c.md",
       "redirect_url": "/azure/iot-hub/iot-hub-device-streams-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-preview-mode.md",
+      "redirect_url": "/azure/iot-hub/",
       "redirect_document_id": false
     },
     {
@@ -937,13 +977,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/tls-1.2-everywhere.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-support",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-tls.md",
       "redirect_url": "/azure/iot-hub/iot-hub-tls-support",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md",
@@ -1387,13 +1427,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-5-reference.md",
-      "redirect_url": "/azure/iot/iot-mqtt-5-preview-reference",
-      "redirect_document_id": true
+      "redirect_url": "/previous-versions/azure/iot/iot-mqtt-5-preview-reference",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-5.md",
-      "redirect_url": "/azure/iot/iot-mqtt-5-preview",
-      "redirect_document_id": true
+      "redirect_url": "/previous-versions/azure/iot/iot-mqtt-5-preview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-support.md",
@@ -1536,8 +1576,83 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-support",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/device-twins-node.md",
       "redirect_url": "/azure/iot-hub/how-to-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-management-dotnet.md",
+      "redirect_url": "/azure/iot-hub/how-to-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-management-java.md",
+      "redirect_url": "/azure/iot-hub/how-to-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-management-python.md",
+      "redirect_url": "/azure/iot-hub/how-to-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-management-node.md",
+      "redirect_url": "/azure/iot-hub/how-to-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-management-cli.md",
+      "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/module-twins-dotnet.md",
+      "redirect_url": "/azure/iot-hub/how-to-module-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/module-twins-java.md",
+      "redirect_url": "/azure/iot-hub/how-to-module-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/module-twins-python.md",
+      "redirect_url": "/azure/iot-hub/how-to-module-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/module-twins-node.md",
+      "redirect_url": "/azure/iot-hub/how-to-module-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/schedule-jobs-dotnet.md",
+      "redirect_url": "/azure/iot-hub/how-to-schedule-broadcast-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/schedule-jobs-java.md",
+      "redirect_url": "/azure/iot-hub/how-to-schedule-broadcast-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/schedule-jobs-python.md",
+      "redirect_url": "/azure/iot-hub/how-to-schedule-broadcast-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-ha-dr.md",
+      "redirect_url": "/azure/iot-hub/how-to-schedule-broadcast-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/schedule-jobs-node.md",
+      "redirect_url": "/azure/reliability/reliability-iot-hub?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json",
       "redirect_document_id": false
     }
   ]

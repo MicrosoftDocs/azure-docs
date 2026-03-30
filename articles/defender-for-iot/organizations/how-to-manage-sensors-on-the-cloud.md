@@ -3,7 +3,9 @@ title: Manage sensors with Defender for IoT in the Azure portal
 description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
 ms.date: 12/19/2023
 ms.topic: how-to
-ms.custom: enterprise-iot
+ms.custom:
+  - enterprise-iot
+  - sfi-image-nochange
 ---
 
 # Manage sensors with Defender for IoT in the Azure portal
@@ -15,7 +17,6 @@ This article describes how to view and manage sensors with [Microsoft Defender f
 Before you can use the procedures in this article, you need to have network sensors onboarded to Defender for IoT. For more information, see:
 
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
-- [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
 
 ## View your sensors
 
@@ -81,7 +82,6 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 |Task |Description  |
 |---------|---------|
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-recover.png" border="false"::: **Recover a OT sensor password**     | Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page. Enter the secret identifier obtained on the sensor's sign-in screen.      |
-| **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](legacy-central-management/how-to-manage-the-on-premises-management-console.md). |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Download an activation file**     |   Individual, OT sensors only. <br><br>Available from the **...** options menu or a sensor details page.      |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-edit.png" border="false"::: **Edit a sensor zone**     |    For individual sensors only, from the **...** options menu or a sensor details page.  <br><br>Select **Edit**, and then select a new zone from the **Zone** menu or select **Create new zone**. Select **Submit** to save your changes.    |
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB health monitoring on an OT sensor](how-to-set-up-snmp-mib-monitoring.md).|
@@ -92,7 +92,7 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 
 |Task |Description  |
 |---------|---------|
-| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-settings.png" border="false"::: **Sensor settings (Preview)** | OT sensors only. <br><br> Define selected sensor settings for one or more cloud-connected OT network sensors. For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md). <br><br>Other settings are also available directly from the [OT sensor console](how-to-manage-individual-sensors.md), or the [on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md).|
+| :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-settings.png" border="false"::: **Sensor settings (Preview)** | OT sensors only. <br><br> Define selected sensor settings for one or more cloud-connected OT network sensors. For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensor-settings-portal.md). <br><br>Other settings are also available directly from the [OT sensor console](how-to-manage-individual-sensors.md).|
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-export.png" border="false"::: **Export sensor data**     |  Available from the **Sites and sensors** toolbar only, to download a CSV file with details about all the sensors listed.       |
 |:::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-delete.png" border="false"::: **Delete a sensor**    |   For individual sensors only, from the **...** options menu or a sensor details page.      |
 | :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/icon-diagnostics.png" border="false"::: **Send diagnostic files to support** | Individual, locally managed OT sensors only. <br><br>Available from the **...** options menu. <br><br>For more information, see [Upload a diagnostics log for support](#upload-a-diagnostics-log-for-support).|
@@ -145,7 +145,7 @@ This procedure describes how to view sensor health data from the Azure portal. S
     - Sensor fails regular sanity tests
     - No traffic detected by the sensor
     - Sensor software version is no longer supported
-    - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-ot-sensors) fails
+    - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-ot-sensors-with-the-latest-ot-monitoring-software) fails
 
     For more information, see our [Sensor health message reference](sensor-health-messages.md).
 

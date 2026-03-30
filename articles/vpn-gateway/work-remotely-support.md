@@ -4,10 +4,11 @@ titleSuffix: Azure VPN Gateway
 description: Learn how you can use VPN Gateway point-to-site connections in order to work remotely.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
-ms.date: 07/10/2024
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.author: cherylmc
 
+# Customer intent: As a remote worker, I want to establish a point-to-site VPN connection, so that I can securely access Azure resources and on-premises data centers from home or during travel.
 ---
 # Remote work using Azure VPN Gateway VPN connections
 
@@ -32,7 +33,7 @@ At a high level, the following steps are needed to enable users to connect to Az
 1. Create a virtual network gateway (if one doesn't exist).
 1. Configure point-to-site VPN on the gateway.
 
-   * For certificate authentication, see [Configure point-to-site certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+   * For certificate authentication, see [Configure point-to-site certificate authentication](point-to-site-certificate-gateway.md).
    * For Microsoft Entra ID authentication, see [Configure point-to-site Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
    * For troubleshooting point-to-site connections, see [Troubleshooting: Azure point-to-site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 1. Download and distribute the VPN client configuration.
@@ -58,7 +59,7 @@ To learn how to set up a site-to-site VPN tunnel, see [Create a site-to-site VPN
 ## Next Steps
 
 * [Configure a P2S connection - Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
-* [Configure a P2S connection - Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a P2S connection - Certificate authentication](point-to-site-certificate-gateway.md)
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 * [About VPN Gateway point-to-site VPN](point-to-site-about.md)
 * [About point-to-site VPN routing](vpn-gateway-about-point-to-site-routing.md)

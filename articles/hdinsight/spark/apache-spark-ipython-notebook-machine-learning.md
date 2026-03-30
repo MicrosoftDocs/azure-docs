@@ -3,8 +3,15 @@ title: 'Tutorial: Build Spark machine learning app - Azure HDInsight'
 description: Tutorial - Step-by-step instructions on how to build Apache Spark machine learning application in HDInsight Spark clusters using Jupyter Notebook.
 ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc, devx-track-python
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 09/06/2024
+ms.custom:
+  - hdinsightactive
+  - mvc
+  - devx-track-python
+  - sfi-image-nochange
 
 # Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
 ---

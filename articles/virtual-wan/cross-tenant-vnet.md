@@ -25,7 +25,7 @@ In this article, you learn how to:
 The steps for this configuration use a combination of the Azure portal and PowerShell. However, the feature itself is available in PowerShell and the Azure CLI only.
 
 >[!NOTE]
-> You can manage cross-tenant virtual network connections only through PowerShell or the Azure CLI installed on your local machine. Because Azure Portal does not support cross-tenant operations, you can't manage cross-tenant virtual network connections through Azure portal or Azure portal CloudShell (both PowerShell and CLI).
+> You can manage cross-tenant virtual network connections only through PowerShell or the Azure CLI installed on your local machine. Because Azure portal does not support cross-tenant operations, you can't manage cross-tenant virtual network connections through Azure portal or Azure portal CloudShell (both PowerShell and CLI).
 
 ## Before you begin
 
@@ -49,7 +49,7 @@ Make sure that the virtual network address space in the remote tenant doesn't ov
    You can use either PowerShell or the Azure portal to assign this role. See the following articles for steps:
 
    * [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-   * [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
+   * [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 
 1. Run the following command to add the remote tenant subscription and the parent tenant subscription to the current session of PowerShell. If you're signed in to the parent, you need to run the command for only the remote tenant.
 
@@ -166,6 +166,8 @@ In the following steps, you'll use commands to add a static route to the virtual
 * Verify that the metadata in `$remote` (from the [preceding section](#connect)) matches the information from the Azure portal.
 * Verify permissions by using the IAM settings of the remote tenant resource group, or by using Azure PowerShell commands (`Get-AzSubscription`).
 * Make sure quotes are included around the names of resource groups or any other environment-specific variables (for example, `"VirtualHub1"` or `"VirtualNetwork1"`).
+* If utilizing the Azure Network SDK or a direct Rest API request, it is required that the primary "Hub" Tenant's authorization token be passed in the "Authorization" header and an additional authorization token for the second "VNet" Tenant be passed in the special "x-ms-authorization-auxiliary" header.
+    * See documentation: [Authenticate requests across tenants](../azure-resource-manager/management/authenticate-multi-tenant.md)
 
 ## Next steps
 

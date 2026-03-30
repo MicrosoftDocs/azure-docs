@@ -47,7 +47,7 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 The following service APIs aren't currently available in Azure Maps:
 
 * Geolocation - Azure Maps does have a service called Geolocation, but it provides IP Address to location information, but doesn't currently support cell tower or WiFi triangulation.
-* Places details and photos - Phone numbers and website URL are available in the Azure Maps search API.
+* Places details and photos - Phone numbers and website URL are available in the Azure Maps Search API.
 * Map URLs
 * Nearest Roads - Achievable using the Web SDK as demonstrated in the [Basic snap to road logic] sample, but isn't currently available as a service.
 * Static street view
@@ -216,7 +216,7 @@ The table cross-references the Google Maps API parameters with the comparable AP
 | `waypoints`                    | `query`                            |
 
 > [!TIP]
-> By default, the Azure Maps route API only returns a summary. It returns the distance and times and the coordinates for the route path. Use the `instructionsType` parameter to retrieve turn-by-turn instructions. And, use the `routeRepresentation` parameter to filter out the summary and route path.
+> By default, the Azure Maps Route API only returns a summary. It returns the distance and times and the coordinates for the route path. Use the `instructionsType` parameter to retrieve turn-by-turn instructions. And, use the `routeRepresentation` parameter to filter out the summary and route path.
 
 Azure Maps routing API has other features that aren't available in Google Maps. When migrating your app, consider using these features:
 
@@ -265,7 +265,7 @@ The table cross-references the Google Maps API parameters with the comparable AP
 
 For more information, see [Render custom data on a raster map].
 
-In addition to being able to generate a static map image, the Azure Maps render service enables direct access of map tiles in raster (PNG) and vector format:
+In addition to being able to generate a static map image, the Azure Maps Render service enables direct access of map tiles in raster (PNG) and vector format:
 
 * [Get Map Static Image]: Retrieve raster (PNG) and vector tiles for the base maps (roads, boundaries, background).
 * [Get Map Tile]: Retrieve aerial and satellite imagery tiles.
@@ -423,9 +423,9 @@ This table cross-references the Google Maps API parameters with the comparable A
 
 | Google Maps API parameter      | Comparable Azure Maps API parameter  |
 |--------------------------------|--------------------------------------|
-| `arrivial_time`                | `arriveAt`                           |
+| `arrival_time`                 | `arriveAt`                           |
 | `avoid`                        | `avoid`                              |
-| `depature_time`                | `departAt`                           |
+| `departure_time`               | `departAt`                           |
 | `destinations`                 | `destination` – specify in the `POST` request body as GeoJSON. |
 | `key`                          | `subscription-key` – For more information, see [Authentication with Azure Maps]. |
 | `language`                     | `language` – For more information, see [Localization support in Azure Maps].  |
@@ -493,7 +493,7 @@ Learn more about Azure Maps REST services:
 [best practices for routing]: how-to-use-best-practices-for-routing.md
 [best practices for search]: how-to-use-best-practices-for-search.md
 [Calculate routes and directions]: #calculate-routes-and-directions
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Get Map Static Image]: /rest/api/maps/render/get-map-static-image
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
@@ -530,10 +530,8 @@ Learn more about Azure Maps REST services:
 [Route]: /rest/api/maps/route
 [Search for a location using Azure Maps Search services]: how-to-search-for-address.md
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
-[Spatial operations]: /rest/api/maps/spatial
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported map styles]: supported-map-styles.md
 [supported search categories]: supported-search-categories.md
 [supporting points]: /rest/api/maps/route/post-route-directions#request-body
 [Timezone]: /rest/api/maps/timezone
-[Traffic]: /rest/api/maps/traffic

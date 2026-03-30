@@ -28,6 +28,10 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 
 :::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Picture of the dust filter of the DELL XE4 SFF." border="false":::
 
+> [!Note]
+>
+> For this appliance to operate properly, install a secondary NIC. For more information, see [optional port expansion](#optional-port-expansion).
+
 ## Specifications
 
 |Component|Technical specifications|
@@ -39,14 +43,14 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 |Memory |8 GB (1x8GB) DDR4 Non-ECC Memory |
 |Storage |M.2 2280 512-GB PCIe NVMe Class 40 Solid State Drive |
 |Network controller |Built-in 1x1Gbps  |
-|Power Adapter |300 W internal power supply unit (PSU), 92% Efficient PSU, 80 Plus Platinum |
-|PWS |300 W internal power supply unit (PSU), 92% Efficient, 80 Plus Platinum, V3, TCO9 |
+|Power Adapter |300-W internal power supply unit (PSU), 92% Efficient PSU, 80 Plus Platinum |
+|PWS |300-W internal power supply unit (PSU), 92% Efficient, 80 Plus Platinum, V3, TCO9 |
 |Temperature |5°C to 45°C (41°F to 113°F) |
 |Dust Filter |Dell XE4 optional dust filter fits over the front of the chassis and safeguards internal components in areas such as factory, warehouse, and retail environments without impeding air flow. |
 |Humidity |20% to 80% (non-condensing, Max dew point temperature = 26°C) |
 |Vibration |0.26 GRMS random at 5 Hz to 350 Hz |
 |Shock |Bottom/Right half-sine pulse 40G, 2 ms |
-|EMC |Product Safety, EMC and Environmental Datasheets <br><https://www.dell.com/learn/us/en/uscorp1/product-info-datasheets-safety-emc-environmental> |
+|EMC |Product Safety, EMC, and Environmental Datasheets <br><https://www.dell.com/learn/us/en/uscorp1/product-info-datasheets-safety-emc-environmental> |
 
 ## DELL XE4 SFF - Bill of materials
 
@@ -54,7 +58,7 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 |----|---|----|----|
 |Processor|12th Generation Intel Core i5-12600 (6 Cores/18MB/12T/3.3GHz to 4.8GHz/65W) |338-CCYL|1|
 |Memory| 8 GB (1x8GB) DDR4 Non-ECC Memory |370-AGFP |1 |
-|Storage |M.2 2280 512 GB PCIe NVMe Class 40 Solid State Drive |400-BMWH |1 |
+|Storage |M.2 2280 512-GB PCIe NVMe Class 40 Solid State Drive |400-BMWH |1 |
 |Storage |M.2 22x30 Thermal Pad |412-AAQT |1 |
 |Storage |M2X3.5 Screw for SSD/DDPE |773-BBBC |1 |
 |Speakers |Internal Speaker |520-AARD |1 |
@@ -70,7 +74,7 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 |Add-in Cards |No Additional Add In Cards |382-BBHX |1 |
 |Additional Storage Devices - Media Reader |No Media Card Reader |385-BBCR |1|
 |Dust Protection |Dust Filter |325-BDSX |1 |
-|Chassis Options |300 W internal power supply unit (PSU), 92% Efficient, 80 Plus Platinum, V3, TCO9 |329-BJVV |1 |
+|Chassis Options |300-W internal power supply unit (PSU), 92% Efficient, 80 Plus Platinum, V3, TCO9 |329-BJVV |1 |
 |Systems Management |In-Band Systems Management |631-ADFK |1|
 |EPEAT 2018 |EPEAT 2018 Registered (Silver) |379-BDTO |1 |
 |ENERGY STAR |ENERGY STAR Qualified |387-BBLW |1 |
@@ -100,11 +104,13 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 
 ## Optional port expansion
 
+For this appliance to operate properly, install one of these secondary NICs.
+
 Optional modules for port expansion include:
 
 |Description| PN|Quantity|
 |--------------|--------------|---------|
-|Dell Intel Ethernet i350 Quad Port 1 GbE Base-T Adapter PCIe Full Height |540-BDLF |1|
+|Dell Intel Ethernet i350 Quad Port 1-GbE Base-T Adapter PCIe Full Height |540-BDLF |1|
 |Intel 1 GB Single Port PCIe Network card (half height) |540-BBMO |1 |
 |Intel X710 Dual Port 10 GbE SFP+ Adapter | 540-BDQZ |1|
 
@@ -161,4 +167,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

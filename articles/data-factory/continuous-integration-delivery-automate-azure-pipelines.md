@@ -2,12 +2,11 @@
 title: Automate continuous integration
 description: Learn how to automate continuous integration in Azure Data Factory with Azure Pipelines pipelines releases.
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
-ms.reviewer: jburchel
-ms.topic: conceptual
-ms.date: 09/25/2024
-ms.custom:
+author: kromerm
+ms.author: makromer
+ms.reviewer: whhender
+ms.topic: how-to
+ms.date: 01/29/2025
 ---
 
 # Automate continuous integration using Azure Pipelines releases

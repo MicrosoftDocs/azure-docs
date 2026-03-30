@@ -5,10 +5,13 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 05/12/2025
 ms.author: mbender
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - build-2025
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
+# Customer intent: As a network architect, I want to create a cross-subscription internal load balancer, so that I can efficiently manage traffic between virtual networks across different subscriptions.
 ---
 
 # Create a cross-subscription internal load balancer
@@ -16,8 +19,6 @@ ms.custom: devx-track-azurepowershell
 In this how-to guide, you learn how to create a cross-subscription internal load balancer by connecting a virtual network in a subscription to a load balancer in a different subscription.
 
 A [cross-subscription internal load balancer (ILB)](cross-subscription-overview.md) can reference a virtual network that resides in a different subscription other than the load balancers. This feature allows you to deploy a load balancer in one subscription and reference a virtual network in another subscription. 
-
-[!INCLUDE [load-balancer-cross-subscription-preview](../../includes/load-balancer-cross-subscription-preview.md)]
 
 [!INCLUDE [load-balancer-cross-subscription-prerequisites](../../includes/load-balancer-cross-subscription-prerequisites.md)]
 
@@ -40,7 +41,7 @@ With Azure PowerShell, you'll:
 ```azurepowershell
 # Create a load balancer
 
-$tags = @{
+$tag = @{
 'IsRemoteFrontend'= 'true'
 }
 
@@ -49,7 +50,7 @@ $loadbalancer = @{
     Name = 'myLoadBalancer'
     Location = 'westus'
     Sku = 'Standard'
-    Tags = $tags
+    Tag = $tag
 }
 
 $LB = New-AzLoadBalancer @loadbalancer

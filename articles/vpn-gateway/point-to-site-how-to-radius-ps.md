@@ -1,23 +1,23 @@
 ---
-title: 'Connect to a virtual network using P2S and RADIUS authentication: PowerShell'
+title: Connect to a virtual network using P2S and RADIUS authentication - PowerShell
 titleSuffix: Azure VPN Gateway
 description: Learn how to connect VPN clients securely to a virtual network using P2S and RADIUS authentication.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 12/06/2024
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
+# Customer intent: As a network administrator, I want to configure point-to-site connections with RADIUS authentication using PowerShell, so that I can securely connect VPN clients to the virtual network.
 ---
 # Configure P2S VPN Gateway server settings - RADIUS authentication
 
-This article helps you create a point-to-site (P2S) connection that uses RADIUS authentication. You can create this configuration using either PowerShell, or the Azure portal. If you want to authenticate using a different method, see the following articles:
+This article helps you create a point-to-site (P2S) connection that uses RADIUS authentication. You can create this configuration using either PowerShell, or the Azure portal. If you have an active-active mode VPN gateway, at this time we advise you to use the [Azure portal](point-to-site-radius-gateway.md) article to configure the RADIUS server settings. P2S VPN gateways require an additional IP address when the gateway is in active-active mode.
 
-* [Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-* [Microsoft Entra ID authentication](openvpn-azure-ad-tenant.md)
-
-For more information about point-to-site VPN connections, see [About P2S VPN](point-to-site-about.md).
+For more information about point-to-site VPN connections, see [About point-to-site VPN](point-to-site-about.md).
 
 This type of connection requires:
 
@@ -27,14 +27,14 @@ This type of connection requires:
 
 Limitations:
 
-* If you are using IKEv2 with RADIUS, only EAP-based authentication is supported.
+* If you're using IKEv2 with RADIUS, only EAP-based authentication is supported.
 * An ExpressRoute connection can't be used to connect to an on-premises RADIUS server.
 
 ## <a name="aboutad"></a>About Active Directory (AD) Domain Authentication for P2S VPNs
 
 AD Domain authentication allows users to sign in to Azure using their organization domain credentials. It requires a RADIUS server that integrates with the AD server. Organizations can also use their existing RADIUS deployment.
 
-The RADIUS server can reside on-premises, or in your Azure VNet. During authentication, the VPN gateway acts as a pass-through and forwards authentication messages back and forth between the RADIUS server and the connecting device. It's important for the VPN gateway to be able to reach the RADIUS server. If the RADIUS server is located on-premises, then a VPN site-to-site connection from Azure to the on-premises site is required.
+The RADIUS server can reside on-premises, or in your Azure virtual network. During authentication, the VPN gateway acts as a pass-through and forwards authentication messages back and forth between the RADIUS server and the connecting device. It's important for the VPN gateway to be able to reach the RADIUS server. If the RADIUS server is located on-premises, then a VPN site-to-site connection from Azure to the on-premises site is required.
 
 Apart from Active Directory, a RADIUS server can also integrate with other external identity systems. This opens up plenty of authentication options for P2S VPNs, including MFA options. Check your RADIUS server vendor documentation to get the list of identity systems it integrates with.
 
@@ -60,11 +60,11 @@ You can use the example values to create a test environment, or refer to these v
   * **Subnet address range: 10.254.1.0/24**
 * **Subnet name: GatewaySubnet**<br>The Subnet name *GatewaySubnet* is mandatory for the VPN gateway to work.
   * **GatewaySubnet address range: 10.1.255.0/27**
-* **VPN client address pool: 172.16.201.0/24**<br>VPN clients that connect to the VNet using this P2S connection receive an IP address from the VPN client address pool.
-* **Subscription:** If you've more than one subscription, verify that you're using the correct one.
+* **VPN client address pool: 172.16.201.0/24**<br>VPN clients that connect to the virtual network using this P2S connection receive an IP address from the VPN client address pool.
+* **Subscription:** If you have more than one subscription, verify that you're using the correct one.
 * **Resource Group: TestRG1**
 * **Location: East US**
-* **DNS Server: IP address** of the DNS server that you want to use for name resolution for your VNet. (optional)
+* **DNS Server: IP address** of the DNS server that you want to use for name resolution for your virtual network. (optional)
 * **GW Name: Vnet1GW**
 * **Public IP name: VNet1GWPIP**
 * **VpnType: RouteBased**
@@ -133,13 +133,13 @@ Before you create and configure the virtual network gateway, your RADIUS server 
 
 1. If you don’t have a RADIUS server deployed, deploy one. For deployment steps, refer to the setup guide provided by your RADIUS vendor.  
 1. Configure the VPN gateway as a RADIUS client on the RADIUS. When adding this RADIUS client, specify the virtual network GatewaySubnet that you created.
-1. Once the RADIUS server is set up, get the RADIUS server's IP address and the shared secret that RADIUS clients should use to talk to the RADIUS server. If the RADIUS server is in the Azure VNet, use the CA IP of the RADIUS server VM.
+1. Once the RADIUS server is set up, get the RADIUS server's IP address and the shared secret that RADIUS clients should use to talk to the RADIUS server. If the RADIUS server is in the Azure virtual network, use the CA IP of the RADIUS server VM.
 
 The [Network Policy Server (NPS)](/windows-server/networking/technologies/nps/nps-top) article provides guidance about configuring a Windows RADIUS server (NPS) for AD domain authentication.
 
 ## <a name="creategw"></a>Create the VPN gateway
 
-In this step, you configure and create the virtual network gateway for your VNet. For more complete information about authentication and tunnel type, see [Specify tunnel and authentication type](vpn-gateway-howto-point-to-site-resource-manager-portal.md#type) in the Azure portal version of this article.
+In this step, you configure and create the virtual network gateway for your virtual network. For more complete information about authentication and tunnel type, see [Specify tunnel and authentication type](point-to-site-certificate-gateway.md#type) in the Azure portal version of this article.
 
 * The -GatewayType must be 'Vpn' and the -VpnType must be 'RouteBased'.
 * A VPN gateway can take 45 minutes or more to build, depending on the [Gateway SKU](about-gateway-skus.md) you select.
@@ -151,14 +151,17 @@ Create the virtual network gateway with the gateway type "Vpn" using [New-AzVirt
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name "VNet1GW" -ResourceGroupName "TestRG1" `
 -Location "EastUS" -IpConfigurations $gwipconfig -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw2AZ -VpnGatewayGeneration "Generation2"
 ```
 
 ## <a name="addradius"></a>Add the RADIUS server
 
 * The -RadiusServer can be specified by name or by IP address. If you specify the name and the server resides on-premises, then the VPN gateway might not be able to resolve the name. If that’s the case, then it's better to specify the IP address of the server.
 * The -RadiusSecret should match what is configured on your RADIUS server.
-* The -VpnClientAddressPool is the range from which the connecting VPN clients receive an IP address. Use a private IP address range that doesn't overlap with the on-premises location that you'll connect from, or with the VNet that you want to connect to. Ensure that you have a large enough address pool configured.  
+* The -VpnClientAddressPool is the range from which the connecting VPN clients receive an IP address. Use a private IP address range that doesn't overlap with the on-premises location that you'll connect from, or with the virtual network that you want to connect to. Ensure that you have a large enough address pool configured.
+
+> [!NOTE]
+> If your VPN gateway is in active-active mode, use the [Azure portal](point-to-site-radius-gateway.md) article steps to specify the RADIUS server settings. P2S configurations require an additional IP address when the gateway is in active-active mode.
 
 1. Create a secure string for the RADIUS secret.
 
@@ -228,7 +231,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $actual -VpnClientAddressPool
 
 ## <a name="vpnclient"></a>Configure the VPN client and connect
 
-The VPN client profile configuration packages contain the settings that help you configure VPN client profiles for a connection to the Azure VNet.
+The VPN client profile configuration packages contain the settings that help you configure VPN client profiles for a connection to the Azure virtual network.
 
 To generate a VPN client configuration package and configure a VPN client, see one of the following articles:
 
@@ -262,9 +265,9 @@ To troubleshoot a P2S connection, see [Troubleshooting Azure point-to-site conne
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
-* Verify that the VPN client configuration package was generated after the DNS server IP addresses were specified for the VNet. If you updated the DNS server IP addresses, generate and install a new VPN client configuration package.
+* Verify that the VPN client configuration package was generated after the DNS server IP addresses were specified for the virtual network. If you updated the DNS server IP addresses, generate and install a new VPN client configuration package.
 
-* Use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you're connecting. If the IP address is within the address range of the VNet that you're connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network.
+* Use 'ipconfig' to check the IPv4 address assigned to the Ethernet adapter on the computer from which you're connecting. If the IP address is within the address range of the virtual network that you're connecting to, or within the address range of your VPNClientAddressPool, this is referred to as an overlapping address space. When your address space overlaps in this way, the network traffic doesn't reach Azure, it stays on the local network.
 
 ## <a name="faq"></a>FAQ
 

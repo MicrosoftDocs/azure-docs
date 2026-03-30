@@ -2,9 +2,13 @@
 title: Template deployment what-if
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.date: 04/28/2025
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # ARM template deployment what-if operation
@@ -16,6 +20,8 @@ You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API 
 ### Training resources
 
 To learn more about what-if, and for hands-on guidance, see [Preview Azure deployment changes by using what-if](/training/modules/arm-template-whatif).
+
+## Prerequisites
 
 [!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
@@ -390,7 +396,7 @@ You see the expected changes and can confirm that you want the deployment to run
 
 You can use the what-if operation through the Azure SDKs.
 
-- For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations).
+- For Python, use [what-if](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.models.deploymentwhatif).
 - For Java, use [DeploymentWhatIf Class](/java/api/com.azure.resourcemanager.resources.models.deploymentwhatif).
 
 - For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).

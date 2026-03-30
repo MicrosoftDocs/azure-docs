@@ -3,19 +3,20 @@ title: Configure an expiration policy for shared access signatures (SAS)
 titleSuffix: Azure Storage
 description: Configure a policy on the storage account that defines the length of time that a shared access signature (SAS) should be valid. Learn how to monitor policy violations to remediate security risks. 
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/29/2024
+ms.date: 07/30/2025
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
+# Customer intent: As a storage administrator, I want to configure an expiration policy for shared access signatures (SAS), so that I can enhance security by limiting the validity period and monitoring compliance with best practices.
 ---
 
 # Configure an expiration policy for shared access signatures
 
-You can use a shared access signature (SAS) to delegate access to resources in your Azure Storage account. A SAS token includes the targeted resource, the permissions granted, and the interval over which access is permitted. Best practices recommend that you limit the interval for a SAS in case it's compromised. By setting a SAS expiration policy for your storage accounts, you can provide a recommended upper expiration limit when a user creates a user delegation SAS, a service SAS, or an account SAS.
+You can use a shared access signature (SAS) to delegate access to resources in your Azure Storage account. A SAS token includes the targeted resource, the permissions granted, and the interval over which access is permitted. Best practices recommend that you limit the interval for a SAS in case it's compromised. By setting a SAS expiration policy for your storage accounts, you can recommend or enforce an upper expiration limit (maximum validity interval) when a user creates a user delegation SAS, a service SAS, or an account SAS.
 
 For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
 
@@ -24,24 +25,38 @@ For more information about shared access signatures, see [Grant limited access t
 
 ## About SAS expiration policies
 
-You can configure a SAS expiration policy on the storage account. The SAS expiration policy specifies the recommended upper limit for the signed expiry field on a user delegation SAS, a service SAS, or an account SAS. The recommended upper limit is specified as a date/time value that is a combined number of days, hours, minutes, and seconds.
+You can configure a SAS expiration policy on the storage account. The SAS expiration policy specifies the upper limit for the validity interval on a user delegation SAS, a service SAS, or an account SAS. The upper limit is specified as a date/time value that is a combined number of days, hours, minutes, and seconds.
 
 The validity interval for the SAS is calculated by subtracting the date/time value of the signed start field from the date/time value of the signed expiry field. If the resulting value is less than or equal to the recommended upper limit, then the SAS is in compliance with the SAS expiration policy.
 
-After you configure the SAS expiration policy, any user who creates a SAS with an interval that exceeds the recommended upper limit will see a warning.
-
-A SAS expiration policy doesn't prevent a user from creating a SAS with an expiration that exceeds the limit recommended by the policy. When a user creates a SAS that violates the policy, they see a warning, along with the recommended maximum interval. If you've configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user *uses* a SAS that expires after the recommended interval. The message indicates that the validity interval of the SAS exceeds the recommended interval.
-
 When a SAS expiration policy is in effect for the storage account, the signed start field is required for every SAS. If the signed start field isn't included on the SAS, and you've configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user *uses* a SAS without a value for the signed start field.
+
+After you configure the SAS expiration policy, any user who creates a SAS with an interval that exceeds the recommended upper limit will see a warning, along with the recommended maximum interval.
+
+## Define the SAS Expiration Action
+
+SAS expiration policy supports two actions: 
+
+- **[Default] Log:** Requests made with out-of-policy SAS are allowed. If you've configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user *uses* a SAS that expires after the recommended interval. The message indicates that the validity interval of the SAS exceeds the recommended interval. This option is recommended for monitoring and auditing access without disrupting workflows. 
+
+- **Block:** Requests made with out-of-policy SAS are denied. This is your strictest option for enforcing access controls in line with your organizational requirements. 
+
+Out-of-policy SAS are those which do not have a signed start or have a validity interval larger than the upper limit. 
+
+Start by reviewing your current SAS token usage and setting an appropriate expiration policy for your storage accounts. We recommend starting with **Log** action to monitor your diagnostic logs for policy violations. We strongly recommend using **Block** action to ensure that if a SAS token has passed the validity of the expiration period set on the storage account, then access to storage must be blocked.
+
+> [!IMPORTANT]
+> SAS Expiration Action is not supported for user delegation SAS through the HDFS endpoint or service-level shared access signatures with a stored access policy.
 
 ## Configure a SAS expiration policy
 
 When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS: user delegation SAS, service SAS, and account SAS. Service SAS and account SAS types are signed with the account key, while user delegation SAS is signed with Microsoft Entra credentials.
 
-> [!NOTE]
-> A user delegation SAS is signed with a user delegation key, which is obtained using Microsoft Entra credentials. The user delegation key has its own expiry interval which isn't subject to the SAS expiration policy. The SAS expiration policy applies only to the user delegation SAS, not the user delegation key it's signed with.
->
-> A user delegation SAS has a maximum expiry interval of 7 days, regardless of the SAS expiration policy. If the SAS expiration policy is set to a value greater than 7 days, then the policy has no effect for a user delegation SAS. If the user delegation key expires, then any user delegation SAS signed with that key is invalid and any attempt to use the SAS returns an error.
+A user delegation SAS is signed with a user delegation key, which is obtained using Microsoft Entra credentials. The user delegation key has its own expiry interval which isn't subject to the SAS expiration policy. The SAS expiration policy applies only to the user delegation SAS, not the user delegation key it's signed with.
+
+A user delegation SAS has a maximum expiry interval of 7 days, regardless of the SAS expiration policy. If the SAS expiration policy is set to a value greater than 7 days, then the policy has no effect for a user delegation SAS. If the user delegation key expires, then any user delegation SAS signed with that key is invalid and any attempt to use the SAS returns an error.
+
+Azure File Sync requires a minimum SAS expiry interval of 3 days. Configuring the **Upper limit for SAS expiry interval** to less than 3 days prevents the File Sync agent from renewing its SAS token, which interrupts sync and cloud recall operations. Set the upper limit to 3 days or greater.
 
 ### Do I need to rotate the account access keys first?
 
@@ -57,27 +72,31 @@ To configure a SAS expiration policy in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Under **Settings**, select **Configuration**.
-1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**.
+1. Locate the setting for **Shared access signature (SAS) expiration policy**, and set it to **Enabled**.
 
-    > [!NOTE]
-    > If the setting is grayed out and you see the message shown in the image below, then [you will need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set the **Recommended upper limit for SAS expiry interval** values:
-    >
-    > :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png" alt-text="Screenshot showing the option to configure a SAS expiration policy is grayed out in the Azure portal." lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png":::
+   > [!NOTE]
+   > If the setting is grayed out, [you may need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set an expiration policy.
+   > 
+   
+1. Specify a time value under **Upper limit for SAS expiry interval** for the desired maximum interval for new shared access signatures that are created on resources in this storage account.
 
-1. Specify the time values under **Recommended upper limit for SAS expiry interval** for the recommended interval for any new shared access signatures that are created on resources in this storage account.
-
-    :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal." lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png":::
+1. [Optional] Define the expiration action. The default **Log** action helps you detect trends and investigate access without disrupting users, while **Block** action lets you enforce zero-tolerance for out-of-policy SAS tokens.
 
 1. Select **Save** to save your changes.
+
+ :::image type="content" source="media/sas-expiration-policy/policy-portal-configuration.jpeg" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal." lightbox="media/sas-expiration-policy/policy-portal-configuration.jpeg":::
 
 #### [PowerShell](#tab/azure-powershell)
 
 To configure a SAS expiration policy, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command, and then set the `-SasExpirationPeriod` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `-SasExpirationPeriod` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it's signed, then you would use the string `1.12:05:06`.
 
+[Optional] Set the `-SasExpirationAction` parameter to the desired action for out-of-policy SAS. Acceptable values include **Log** or **Block**.
+
 ```powershell
 $account = Set-AzStorageAccount -ResourceGroupName <resource-group> `
     -Name <storage-account-name> `
     -SasExpirationPeriod <days>.<hours>:<minutes>:<seconds>
+	-SasExpirationAction <action>
 ```
 
 > [!TIP]
@@ -101,11 +120,14 @@ The SAS expiration period appears in the console output.
 
 To configure a SAS expiration policy, use the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command, and then set the `--key-exp-days` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `--key-exp-days` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it's signed, then you would use the string `1.12:05:06`.
 
+[Optional] Set the `--sas-expiration-action` parameter to the desired action for out-of-policy SAS. Acceptable values include **Log** or **Block**.
+
 ```azurecli-interactive
 az storage account update \
   --name <storage-account> \
   --resource-group <resource-group> \
   --sas-exp <days>.<hours>:<minutes>:<seconds>
+  --sas-expiration-action <action>
 ```
 
 > [!TIP]
@@ -150,7 +172,7 @@ StorageBlobLogs
 
 ## Use a built-in policy to monitor compliance
 
-You can monitor your storage accounts with Azure Policy to ensure that storage accounts in your subscription have configured SAS expiration policies. Azure Storage provides a built-in policy for ensuring that accounts have this setting configured. For more information about the built-in policy, see **Storage accounts should have shared access signature (SAS) policies configured** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+You can monitor your storage accounts with Azure Policy to ensure that storage accounts in your subscription have configured SAS expiration policies. Azure Storage provides a built-in policy for ensuring that accounts have this setting configured. For more information about the built-in policy, see **Storage accounts should have shared access signature (SAS) policies configured** in [List of built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 ### Assign the built-in policy for a resource scope
 
@@ -185,3 +207,4 @@ To bring a storage account into compliance, configure a SAS expiration policy fo
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create a service SAS](/rest/api/storageservices/create-service-sas)
 - [Create an account SAS](/rest/api/storageservices/create-account-sas)
+

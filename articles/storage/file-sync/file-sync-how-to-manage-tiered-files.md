@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/10/2024
 ms.author: kendownie
+# Customer intent: As an IT administrator, I want to manage cloud tiering settings and file exclusions in Azure File Sync, so that I can optimize storage usage and ensure important files remain accessible locally.
 ---
 
 # How to manage tiered files
@@ -51,35 +52,47 @@ There are several ways to check whether a file has been tiered to your Azure fil
         fsutil reparsepoint query <your-file-name>
         ```
 
-       If the file has a reparse point, you can expect to see **Reparse Tag Value: 0x8000001e**. This hexadecimal value is the reparse point value that is owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
+       If the file has a reparse point, you can expect to see **Reparse Tag Value: 0x8000001e**. This hexadecimal value is the reparse point value that's owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
 
         > [!WARNING]
         > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Don't execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss.
 
 ## How to exclude files or folders from being tiered
 
-If you want to exclude files or folders from being tiered and remain local on the Windows Server, you can configure the **GhostingExclusionList** registry setting under `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`. You can exclude files by file name, file extension or path.
+If you want to exclude files or folders from being tiered and remain local on the Windows Server, you can configure the **GhostingExclusionList** registry setting under `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`. You can exclude files by file name, file extension, or path.
 
-To exclude files or folders from cloud tiering, perform the following steps:
+To exclude files or folders from cloud tiering, follow these steps:
 
 1. Open an elevated command prompt.
+
 2. Run one of the following commands to configure exclusions:
 
-	To exclude certain file extensions from tiering (for example, .one, .lnk, .log), run the following command:  
-	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d .one|.lnk|.log /f**
+   To exclude certain file extensions from tiering (for example, .one, .lnk, .log), run the following command:  
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d .one|.lnk|.log /f**
 
-	To exclude a specific file name from tiering (for example, FileName.vhd), run the following command:  
-	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d FileName.vhd /f**
+   To exclude a specific file name from tiering (for example, FileName.vhd), run the following command:  
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d FileName.vhd /f**
 
-	To exclude all files under a folder from tiering (for example, D:\ShareRoot\Folder\SubFolder), run the following command:
-	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
+   To exclude all files under a folder from tiering (for example, D:\ShareRoot\Folder\SubFolder), run the following command:
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
 
-	To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
-	**reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
+   To exclude all files under a folder path that contains one or more special characters (see note below regarding escaping), (for example, D:\\+\$Folder\SubFolder), run the following command:
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\\\\\+\\\$Folder\\\\SubFolder /f****
+  
+   To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
 
-3. For the cloud tiering exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:  
+3. For the cloud tiering exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:
+
 	**net stop filesyncsvc**  
 	**net start filesyncsvc**
+
+> [!NOTE]
+> When specifying folder paths that include special characters, you must prefix each instance of the following characters with an escape character (`\`):
+>
+> `^ $ ( ) [ ] { } +`
+>
+> If you don't escape these characters, the exclusion policy won't work correctly for any folder path that contains them.
 
 ### Tiered downloads
 
@@ -149,7 +162,7 @@ When the cloud tiering feature is enabled, cloud tiering automatically tiers fil
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
+Invoke-StorageSyncCloudTiering -Path "file-or-directory-to-be-tiered"
 ```
 
 ## How to recall a tiered file to disk
@@ -160,14 +173,24 @@ The easiest way to recall a file to disk is to open the file. The Azure File Syn
 > If a shortcut file is brought down to the server as a tiered file, there might be an issue when accessing the file over SMB. To mitigate this, there is a task that runs every three days that will recall any shortcut files. However, if you want shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this at the desired frequency:
 > ```powershell
 > Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll" 
-> Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Pattern *.lnk
+> Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint" -Pattern *.lnk
 > ```
 
+Parameters:
+
+- `-Path` The -Path parameter in the `Invoke-StorageSyncFileRecall` command specifies where the recalled files should be restored on the local server. This path must be the server endpoint configured for Azure File Sync.
+	* If you're unsure of the server endpoint path, navigate to your Azure File Sync agent → Select your Storage Sync Service → Open your Sync Group.
+	* You can also run the following command via PowerShell:
+ ```powershell
+Get-StorageSyncServerEndpoint
+```
+- `-Pattern` The -Pattern parameter in `Invoke-StorageSyncFileRecall` is used to filter which files should be recalled from Azure File Sync. It allows you to specify file types or names using wildcards.
+  
 To ensure that a file is fully downloaded to local disk, you must use PowerShell to force a file to be fully recalled. This option might also be useful if you want to recall multiple files at once, such as all the files in a folder. Open a PowerShell session to the server node where Azure File Sync is installed, and then run the following PowerShell commands:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint"
 ```
 
 Optional parameters:
@@ -183,7 +206,7 @@ Example:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
+Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint" -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
 ```
 
 > [!NOTE]  

@@ -1,13 +1,15 @@
 ---
 title: Protect tenants and subscriptions from abuse and fraud attacks
 description: Learn how to protect your tenants and subscriptions from abuse and fraud attacks.
-author: bandersmsft
-ms.reviewer: macyso
+author: Nicholak-MS
+ms.author: nicholak
+ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 07/30/2024
-ms.author: banders
+ms.topic: how-to
+ms.date: 12/29/2025
+ms.custom:
+- build-2025
 ---
 
 # Protect tenants and subscriptions from abuse and fraud attacks

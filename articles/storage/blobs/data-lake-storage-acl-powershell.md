@@ -6,11 +6,12 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 11/26/2024
 ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a data engineer, I want to manage access control lists (ACLs) for directories and files in Azure Data Lake Storage using PowerShell, so that I can efficiently configure permissions for users and groups across my storage environment.
 ---
 
 # Use PowerShell to manage ACLs in Azure Data Lake Storage
@@ -31,11 +32,9 @@ ACL inheritance is already available for new child items that are created under 
 
 - One of the following security permissions:
 
-  - A provisioned Microsoft Entra ID [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription..
+  - A provisioned Microsoft Entra ID [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, scoped to the target container, storage account, parent resource group, or subscription.
 
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
-
-  - Storage account key.
 
 ## Install the PowerShell module
 
@@ -57,24 +56,14 @@ ACL inheritance is already available for new child items that are created under 
 
 ## Connect to the account
 
-Choose how you want your commands to obtain authorization to the storage account.
-
-<a name='option-1-obtain-authorization-by-using-azure-active-directory-ad'></a>
-
-### Option 1: Obtain authorization by using Microsoft Entra ID
-
-> [!NOTE]
-> If you're using Microsoft Entra ID to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control model in Azure Data Lake Storage](./data-lake-storage-access-control-model.md).
-
-With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions.
-
-1. Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+1. Open a Windows PowerShell command window, and then sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
 
    ```powershell
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to the subscription of the storage account that you 
+want to operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>
@@ -86,17 +75,9 @@ With this approach, the system ensures that your user account has the appropriat
    $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
    ```
 
-### Option 2: Obtain authorization by using the storage account key
-
-With this approach, the system doesn't check Azure RBAC or ACL permissions. Get the storage account context by using an account key.
-
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
-```
-
 ## Get ACLs
 
-Get the ACL of a directory or file by using the `Get-AzDataLakeGen2Item`cmdlet.
+Get the ACL of a directory or file by using the [Get-AzDataLakeGen2Item](/powershell/module/az.storage/get-azdatalakegen2item) cmdlet.
 
 This example gets the ACL of the root directory of a **container** and then prints the ACL to the console.
 
@@ -131,7 +112,7 @@ In this example, the owning user has read, write, and execute permissions. The o
 
 ## Set ACLs
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.
+When you *set* an ACL, you **replace** the entire ACL including all of its entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.
 
 If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities).
 
@@ -142,7 +123,7 @@ This section shows you how to:
 
 ### Set an ACL
 
-Use the `Set-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Update-AzDataLakeGen2Item` cmdlet to commit the ACL.
+Use the [Set-AzDataLakeGen2ItemAclObject](/powershell/module/az.storage/set-azdatalakegen2itemaclobject) cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the [Update-AzDataLakeGen2Item](/powershell/module/az.storage/update-azdatalakegen2item) cmdlet to commit the ACL.
 
 This example sets the ACL on the root directory of a **container** for the owning user, owning group, or other users, and then prints the ACL to the console.
 
@@ -170,7 +151,7 @@ $dir.ACL
 ```
 
 > [!NOTE]
-> If you want to set a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+> If you want to set a **default** ACL entry, use the **-DefaultScope** parameter when you run the [Set-AzDataLakeGen2ItemAclObject](/powershell/module/az.storage/set-azdatalakegen2itemaclobject) command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
 This example sets the ACL on a **file** for the owning user, owning group, or other users, and then prints the ACL to the console.
 
@@ -196,7 +177,7 @@ In this example, the owning user and owning group have only read and write permi
 
 ### Set ACLs recursively
 
-Set ACLs recursively by using the **Set-AzDataLakeGen2AclRecursive** cmdlet.
+Set ACLs recursively by using the [Set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) cmdlet.
 
 This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object ID "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
@@ -215,7 +196,7 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 ```
 
 > [!NOTE]
-> If you want to set a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+> If you want to set a **default** ACL entry, use the **-DefaultScope** parameter when you run the [Set-AzDataLakeGen2ItemAclObject](/powershell/module/az.storage/set-azdatalakegen2itemaclobject) command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
 To see an example that sets ACLs recursively in batches by specifying a batch size, see the [Set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) reference article.
 
@@ -230,7 +211,7 @@ This section shows you how to:
 
 ### Update an ACL
 
-First, get the ACL. Then, use the `Set-AzDataLakeGen2ItemAclObject` cmdlet to add or update an ACL entry. Use the `Update-AzDataLakeGen2Item` cmdlet to commit the ACL.
+First, get the ACL. Then, use the [Set-AzDataLakeGen2ItemAclObject](/powershell/module/az.storage/set-azdatalakegen2itemaclobject) cmdlet to add or update an ACL entry. Use the [Update-AzDataLakeGen2Item](/powershell/module/az.storage/update-azdatalakegen2item) cmdlet to commit the ACL.
 
 This example creates or updates the ACL on a **directory** for a user.
 
@@ -238,16 +219,16 @@ This example creates or updates the ACL on a **directory** for a user.
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
 $acl = (Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname).ACL
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID xxxxxxxx-xxxx-xxxxxxxxxxx -Permission r-x -InputObject $acl
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID aaaaaaaa-bbbb-cccc-1111-222222222222 -Permission r-x -InputObject $acl
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
 ```
 
 > [!NOTE]
-> If you want to update a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID xxxxxxxx-xxxx-xxxxxxxxxxx -Permission r-x -DefaultScope`.
+> If you want to update a **default** ACL entry, use the **-DefaultScope** parameter when you run the [Set-AzDataLakeGen2ItemAclObject](/powershell/module/az.storage/set-azdatalakegen2itemaclobject) command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityID aaaaaaaa-bbbb-cccc-1111-222222222222 -Permission r-x -DefaultScope`.
 
 ### Update ACLs recursively
 
-Update ACLs recursively by using the **Update-AzDataLakeGen2AclRecursive** cmdlet.
+Update ACLs recursively by using the [Update-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/update-azdatalakegen2aclrecursive) cmdlet.
 
 This example updates an ACL entry with write permission.
 
@@ -299,7 +280,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed.
 
-Remove ACL entries by using the **Remove-AzDataLakeGen2AclRecursive** cmdlet.
+Remove ACL entries by using the [Remove-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) cmdlet.
 
 This example removes an ACL entry from the root directory of the container.
 
@@ -313,7 +294,7 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 ```
 
 > [!NOTE]
-> If you want to remove a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
+> If you want to remove a **default** ACL entry, use the **-DefaultScope** parameter when you run the [Set-AzDataLakeGen2ItemAclObject](/powershell/module/az.storage/set-azdatalakegen2itemaclobject) command. For example: `$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
 
 To see an example that removes ACLs recursively in batches by specifying a batch size, see the [Remove-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) reference article.
 

@@ -3,16 +3,17 @@ title: Script Sample - Configuring Backup for on-premises Windows server
 description: Learn how to use a script to configure Backup for on-premises Windows server.
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.date: 06/23/2021
+ms.date: 12/04/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to configure backup for my on-premises Windows server using a PowerShell script, so that I can automate the backup process and ensure data protection efficiently."
 ---
 
 # PowerShell Script to configure Backup for on-premises Windows server
 
 This script helps you to configure Backup for your on-premises Windows server, right from creating a vault to configuring MARS agent and policy.
 
-## Sample
+## Sample script for backup configuration of on-premises Windows server
 
 ```azurepowershell
 # Create Recovery Services Vault (RSV)
@@ -37,8 +38,8 @@ $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 $dt = $(Get-Date).ToString("M-d-yyyy")
 $cert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -FriendlyName 'test-vaultcredentials' -subject "Windows Azure Tools" -KeyExportPolicy Exportable -NotAfter $(Get-Date).AddHours(48) -NotBefore $(Get-Date).AddHours(-24) -KeyProtection None -KeyUsage None -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2") -Provider "Microsoft Enhanced Cryptographic Provider v1.0"
-$certficate = [convert]::ToBase64String($cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx))
-$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certficate
+$certificate = [convert]::ToBase64String($cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx))
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certificate
 $Env:PSModulePath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
 Import-Module -Name 'C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup'
 Start-OBRegistration -VaultCredentials $CredsFilename.FilePath -Confirm:$false
@@ -51,7 +52,7 @@ Set-OBMachineSetting -NoThrottle
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
 Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>" #NOTE: You must generate a security pin by selecting Generate, under Settings > Properties > Security PIN in the Recovery Services vault section of the Azure portal. 
 # See: https://learn.microsoft.com/rest/api/backup/securitypins/get 
-# See: https://learn.microsoft.com/powershell/module/azurerm.keyvault/Add-AzureKeyVaultKey?view=azurermps-6.13.0 
+# See: https://learn.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultkey 
 
 # Back up files and folders
 $NewPolicy = New-OBPolicy

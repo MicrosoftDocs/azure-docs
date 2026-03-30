@@ -6,15 +6,17 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: overview
-ms.date: 01/24/2024
+ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 #Customer Intent: As an IT administrator or developer, I want to understand what Azure Active Directory B2C is and how it can be used for customer identity access management, so that I can determine if it is the right solution for authenticating end users to my web/mobile applications and managing access to API resources.
 
 ---
 
 # What is Azure Active Directory B2C?
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C provides business-to-customer identity as a service. Your customers can use their preferred social, enterprise, or local account identities to get single sign-on access to your applications and APIs.
 

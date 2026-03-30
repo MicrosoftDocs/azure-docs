@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # General claims transformations
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article provides examples for using general claims transformations of the Azure Active Directory B2C (Azure AD B2C) custom policy. For more information, see [claims transformations](claimstransformations.md).
 

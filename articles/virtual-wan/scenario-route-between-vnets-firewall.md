@@ -4,9 +4,10 @@ titleSuffix: Azure Virtual WAN
 description: Learn about routing scenarios to route traffic between VNets directly, but use Azure Firewall for VNet -> Internet/Branch and Branch to VNet traffic flows.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
-ms.date: 02/13/2023
+ms.topic: concept-article
+ms.date: 03/26/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Scenario: Azure Firewall - custom
@@ -15,7 +16,7 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 
 ## <a name="design"></a>Design
 
-In order to figure out how many route tables will be needed, you can build a connectivity matrix, where each cell represents whether a source (row) can communicate to a destination (column). The connectivity matrix in this scenario is trivial, but be consistent with other scenarios, we can still look at it.
+In order to figure out how many route tables will be needed, you can build a connectivity matrix, where each cell represents whether a source (row) can communicate to a destination (column). The connectivity matrix in this scenario is trivial, but to be consistent with other scenarios, we can still look at it.
 
 **Connectivity matrix**
 

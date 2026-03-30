@@ -4,10 +4,13 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create custom activities by using .NET, and then use the activities in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: nabhishek
 ms.author: abnarain
-ms.topic: conceptual
-ms.custom: synapse, devx-track-dotnet
-ms.date: 10/03/2024
+ms.topic: how-to
+ms.date: 03/27/2025
 ms.subservice: orchestration
+ms.custom:
+  - synapse
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline
@@ -30,7 +33,7 @@ See following articles if you are new to Azure Batch service:
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 > [!IMPORTANT]
-> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
+> When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'.  
 
 ## Add custom activities to a pipeline with UI
 
@@ -103,7 +106,7 @@ The following JSON snippet defines a pipeline with a simple Custom Activity. The
 }
 ```
 
-In this sample, the helloworld.exe is a custom application stored in the customactv2/helloworld folder of the Azure Storage account used in the resourceLinkedService. The Custom activity submits this custom application to be executed on Azure Batch. You can replace the command to any preferred application that can be executed on the target Operation System of the Azure Batch Pool nodes.
+In this sample, the helloworld.exe is a custom application stored in the customactv2/helloworld folder of the Azure Storage account used in the resourceLinkedService. The Custom activity submits this custom application to be executed on Azure Batch. You can replace the command to any preferred application that can be executed on the target Operating System of the Azure Batch Pool nodes.
 
 The following table describes names and descriptions of properties that are specific to this activity.
 

@@ -3,12 +3,53 @@ title: Bicep functions - files
 description: Describes the functions to use in a Bicep file to load content from a file.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 09/17/2025
 ---
 
 # File functions for Bicep
 
 This article describes the Bicep functions for loading content from external files.
+
+## loadDirectoryFileInfo
+
+`loadDirectoryFileInfo(directoryPath, [searchPattern])`
+
+Loads basic information about a directory's files as Bicep object. File loading occurs during compilation, not at runtime.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| directoryPath | Yes | string | The path is relative to the Bicep file invoking this function. It can use variables, provided they are compile-time constants, but it cannot use parameters. |
+| searchPattern | No | string | The search pattern to use when loading files. This can include wildcards. |
+
+### Return value
+
+An array of objects, each representing a file in the directory. Each object contains the following properties:
+
+| Property | Type | Description |
+|:--- |:--- |:--- |
+| baseName | string | The name of the file. |
+| extension | string | The file's extension. |
+| relativePath | string | The relative path to the current template. |
+
+### Examples
+
+The following example loads the file information for all Bicep files in the `./modules/` directory.
+
+```bicep
+var dirFileInfo = loadDirectoryFileInfo('./modules/', '*.bicep')
+
+output dirFileInfoOutput object[] = dirFileInfo
+```
+
+The folder only contains one file named `appService.bicep`. The output is:
+
+```json
+[{"relativePath":"modules/appService.bicep","baseName":"appService.bicep","extension":".bicep"}]
+```
 
 ## loadFileAsBase64
 
@@ -91,7 +132,7 @@ param location string = resourceGroup().location
 
 var nsgconfig = loadJsonContent('nsg-security-rules.json')
 
-resource newNSG 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+resource newNSG 'Microsoft.Network/networkSecurityGroups@2025-01-01' = {
   name: 'example-nsg'
   location: location
   properties: {
@@ -160,7 +201,7 @@ param location string = resourceGroup().location
 
 var nsgconfig = loadYamlContent('nsg-security-rules.yaml')
 
-resource newNSG 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+resource newNSG 'Microsoft.Network/networkSecurityGroups@2025-01-01' = {
   name: 'example-nsg'
   location: location
   properties: {
@@ -221,7 +262,7 @@ resource exampleScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     }
   }
   properties: {
-    azPowerShellVersion: '8.3'
+    azPowerShellVersion: '14.0'
     scriptContent: loadTextContent('myscript.ps1')
     retentionInterval: 'P1D'
   }

@@ -8,7 +8,10 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to configure different routing preferences for a virtual machine's network interfaces, so that I can optimize network performance based on specific application requirements.
 ---
 
 # Tutorial: Configure both routing preference options for a virtual machine using the Azure portal
@@ -26,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create the virtual machine
 
@@ -60,8 +63,6 @@ In this section, you'll create a virtual machine and public IP address. During t
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Leave the default of **RDP (3389)**. </br> _**Opening port 3389 from the internet is not recommended for production workloads**_. |
 
-    :::image type="content" source="./media/routing-preference-mixed-network-adapter-portal/create-virtual-machine.png" alt-text="Screenshot of create virtual machine.":::
-
 5. Select **Next: Disks** then **Next: Networking**, or select the **Networking** tab.
 
 6. In the networking tab, enter or select the following information.
@@ -72,8 +73,6 @@ In this section, you'll create a virtual machine and public IP address. During t
     | Virtual network | Leave the default of **(new) TutorVMMixRoutePref-rg-vnet**. |
     | Subnet | Leave the default of **(new) default (10.1.0.0/24)**. |
     | Public IP | Select **Create new**. </br> In **Name**, enter **myPublicIP**. </br> Select **Standard** in **SKU**. </br> In **Routing preference**, select **Microsoft network**. </br> Select **OK**. |
-
-    :::image type="content" source="./media/routing-preference-mixed-network-adapter-portal/create-public-ip-ms-rp.png" alt-text="Screenshot of create public IP address with Microsoft routing preference.":::
 
 7. Select **Review + create**.
 
@@ -101,8 +100,6 @@ In this section, you'll create a public IP address with the **Internet** routing
     | Resource group | Select **TutorVMMixRoutePref-rg**. |
     | Location | Select **West US 2**. |
 
-    :::image type="content" source="./media/routing-preference-mixed-network-adapter-portal/create-public-ip-internet-rp.png" alt-text="Screenshot of create public IP address with Internet routing preference.":::
-
 4. Select **Create**.
 
 ## Create the secondary NIC
@@ -126,8 +123,6 @@ In this section, you'll create a secondary network interface for the virtual mac
     | Subnet | Select **TutorVMMixRoutePref-rg-vnet/default (10.1.0.0/24)**. |
     | Network security group | Select **myVM-nsg**. |
 
-    :::image type="content" source="./media/routing-preference-mixed-network-adapter-portal/create-network-interface.png" alt-text="Screenshot of create secondary network interface.":::
-
 4. Select the **Review + create** tab, or select the **Review + create** button at the bottom of the page.
 
 5. Select **Create**.
@@ -142,13 +137,9 @@ In this section, you'll associate the **Internet** routing preference public IP 
 
 3. In the **Overview** page of **myPublic-IR**, select **Associate**.
 
-    :::image type="content" source="./media/routing-preference-mixed-network-adapter-portal/associate-public-ip.png" alt-text="Screenshot of myPublicIP-IR overview page with associate button.":::
-
 4. In **Associate public IP address**, select **Network interface** in the **Resource type** pull-down box.
 
 5. Select **myVMNic2** in the **Network interface** pull-down box.
-
-    :::image type="content" source="./media/routing-preference-mixed-network-adapter-portal/select-ip-association-resource.png" alt-text="Screenshot of selecting resource to associate to public IP address.":::
 
 6. Select **OK**.
 
@@ -166,11 +157,7 @@ In this section, you'll attach the secondary network interface you created previ
 
 5. In **Networking** of **myVM**, select **Attach network interface**.
 
-    :::image type="content" source="./media/routing-preference-mixed-network-adapter-portal/attach-nic-01.png" alt-text="Screenshot of myVM networking overview page.":::
-
 6. In **Attach network interface**, select **myVMNic2** in the pull-down box.
-
-    :::image type="content" source="./media/routing-preference-mixed-network-adapter-portal/attach-nic-02.png" alt-text="Screenshot of attach network interface.":::
 
 7. Select **OK**.
 

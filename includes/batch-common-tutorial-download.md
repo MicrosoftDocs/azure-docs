@@ -4,6 +4,7 @@ ms.service: azure-batch
 ms.topic: include
 ms.date: 04/20/2022
 ms.author: prkannap
+ms.custom: sfi-image-nochange
 ---
 ### Retrieve output files
 

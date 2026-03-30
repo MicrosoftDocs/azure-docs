@@ -21,7 +21,7 @@ In this article, you learn how to use Python, TensorFlow, and Azure Functions wi
 
 ## Prerequisites 
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python 3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 and Python 3.6.x are verified with Azure Functions; Python 3.8 and later versions are not yet supported.)
 - The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/)
@@ -29,7 +29,7 @@ In this article, you learn how to use Python, TensorFlow, and Azure Functions wi
 ### Prerequisite check
 
 1. In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or later.
-1. Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.7.x.
+1. Run `python --version` (Linux/macOS) or `py --version` (Windows) to check your Python version reports 3.7.x.
 
 ## Clone the tutorial repository
 
@@ -134,7 +134,7 @@ To modify the `classify` function to classify an image based on its contents, yo
 To build your own model using the free tier of the Custom Vision Service, follow the instructions in the [sample project repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
 > [!TIP]
-> If you want to host your TensorFlow model independent of the function app, you can instead mount a file share containing your model to your Linux function app. To learn more, see [Mount a file share to a Python function app using Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md).
+> If you want to host your TensorFlow model independent of the function app, you can instead mount a file share containing your model to your Linux function app. To learn more, see [Mount file shares](storage-considerations.md#mount-file-shares).
 
 1. In the *start* folder, run following command to copy the model files into the *classify* folder. Be sure to include `\*` in the command. 
 
@@ -203,7 +203,7 @@ To build your own model using the free tier of the Custom Vision Service, follow
     On Windows, you may encounter the error, "Could not install packages due to an EnvironmentError: [Errno 2] No such file or directory:" followed by a long pathname to a file like *sharded_mutable_dense_hashtable.cpython-37.pyc*. Typically, this error happens because the depth of the folder path becomes too long. In this case, set the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` to `1` to enable long paths. Alternately, check where your Python interpreter is installed. If that location has a long path, try reinstalling in a folder with a shorter path.
 
 > [!TIP]
-> When calling upon *predict.py* to make its first prediction, a function named `_initialize` loads the TensorFlow model from disk and caches it in global variables. This caching speeds up subsequent predictions. For more information on using global variables, refer to the [Azure Functions Python developer guide](functions-reference-python.md#global-variables).
+> When calling upon *predict.py* to make its first prediction, a function named `_initialize` loads the TensorFlow model from disk and caches it in global variables. This caching speeds up subsequent predictions.
 
 ## Update the function to run predictions
 
@@ -295,4 +295,4 @@ See also:
 
 - [Deploy the function to Azure using Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
 - [Azure Functions Python Developer Guide](./functions-reference-python.md)
-- [Mount a file share to a Python function app using Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md)
+- [Azure CLI: Mount a file share to a Python function app](https://github.com/Azure-Samples/azure-cli-samples/tree/master/azure-functions/functions-cli-mount-files-storage-linux)

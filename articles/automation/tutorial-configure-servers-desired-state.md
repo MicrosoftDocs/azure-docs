@@ -4,14 +4,18 @@ description: This article tells how to configure machines to a desired state usi
 services: automation
 ms.subservice: desired-state-config
 ms.topic: tutorial
-ms.date: 09/10/2024
+ms.date: 11/17/2025
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Configure machines to a desired state
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](./includes/automation-dsc-linux-retirement-announcement.md)]
 
 Azure Automation State Configuration allows you to specify configurations for your servers and
 ensure that those servers are in the specified state over time.
@@ -91,7 +95,7 @@ $importAzAutomationDscConfigurationSplat = @{
     SourcePath = 'C:\DscConfigs\TestConfig.ps1'
     ResourceGroupName = 'MyResourceGroup'
     AutomationAccountName = 'myAutomationAccount'
-    Published = $ture
+    Published = $true
 }
 Import-AzAutomationDscConfiguration @importAzAutomationDscConfigurationSplat
 ```
@@ -231,7 +235,7 @@ $reports[0]
 <!-- link references -->
 [01]: ./automation-security-overview.md
 [02]: /azure/virtual-machines/windows/quick-create-portal
-[03]: /powershell/azure/azurerm/install-azurerm-ps
+[03]: /powershell/azure/install-azure-powershell
 [04]: /powershell/dsc/configurations/configurations
 [05]: /powershell/dsc/managing-nodes/metaConfig
 [06]: /powershell/dsc/overview
@@ -244,7 +248,7 @@ $reports[0]
 [13]: /powershell/module/Az.Automation/Import-AzAutomationDscConfiguration
 [14]: /powershell/module/Az.Automation/Register-AzAutomationDscNode
 [15]: /powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob
-[16]: /powershell/module/azurerm.automation/register-azurermautomationdscnode
+[16]: /powershell/module/az.automation/register-azautomationdscnode
 [17]: automation-dsc-cd-chocolatey.md
 [18]: automation-dsc-compile.md
 [19]: automation-dsc-getting-started.md

@@ -3,22 +3,18 @@ title: Install a Private package
 description: This article provides step-by-step instructions on how to install a private package in a Workflow Orchestration Manager runtime.
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 09/23/2023
+ms.date: 02/13/2025
 ---
 
 # Install a Private package
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-> [!NOTE]
-> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
-A python package is a way to organize related Python modules into a single directory hierarchy. A package is typically represented as a directory that contains a special file called `__init__.py`. Inside a package directory, you can have multiple Python module files (.py files) that define functions, classes, and variables.
-In the context of Workflow Orchestration Manager, you can create packages to add your custom code.
-
-This guide provides step-by-step instructions on installing `.whl` (Wheel) file, which serve as a binary distribution format for Python package in your Workflow Orchestration Manager.
+A python package is a way to organize related Python modules into a single directory hierarchy. A package is typically represented as a directory that contains a special file called `__init__.py`. Inside a package directory, you can have multiple Python module files (.py files) that define functions, classes, and variables. In the context of Workflow Orchestration Manager, you can create packages to add your custom code.
 
 For illustration purpose, I create a simple custom operator as python package that can be imported as a module inside dags file.
 

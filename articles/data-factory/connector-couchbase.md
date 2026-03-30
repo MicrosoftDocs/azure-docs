@@ -4,16 +4,19 @@ description: Learn how to copy data from Couchbase to supported sink data stores
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
-ms.date: 10/12/2024
+ms.topic: how-to
+ms.date: 01/26/2025
 ms.author: jianleishen
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Copy data from Couchbase using Azure Data Factory (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!IMPORTANT]
-> This connector will be deprecated on **December 31, 2024**. You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver before that date. 
+> This connector is at [End of Support stage](connector-deprecation-plan.md). You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Couchbase. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -31,6 +34,8 @@ This Couchbase connector is supported for the following capabilities:
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+
+The connector supports the Couchbase version higher than 6.0. 
 
 ## Prerequisites
 

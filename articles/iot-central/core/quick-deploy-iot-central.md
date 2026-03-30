@@ -3,9 +3,9 @@ title: Quickstart - Connect a device to Azure IoT Central
 description: In this quickstart, you learn how to connect your first device to a new IoT Central application. This quickstart uses a smartphone app as an IoT device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 02/14/2025
 ms.topic: quickstart
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: mode-other, iot-central-frontdoor
 # Customer intent: As a new user of IoT Central, I want to learn how to get started with an IoT Central application and an IoT device.
@@ -26,7 +26,7 @@ In this quickstart, you:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
     You should have at least **Contributor** access in your Azure subscription. If you created the subscription yourself, you're automatically an administrator with sufficient access. To learn more, see [What is Azure role-based access control?](../../role-based-access-control/overview.md).
 

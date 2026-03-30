@@ -5,9 +5,10 @@ description: Learn about best practice guidelines that help you use access tiers
 author: normesta
 
 ms.author: normesta
-ms.date: 08/10/2023
+ms.date: 11/03/2025
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
+# Customer intent: "As a cloud storage manager, I want to optimize blob data access tiers, so that I can reduce storage costs and improve data accessibility based on usage patterns."
 ---
 
 # Best practices for using blob access tiers
@@ -16,18 +17,20 @@ This article provides best practice guidelines that help you use access tiers to
 
 ## Choose the most cost-efficient access tiers
 
-You can reduce costs by placing blob data into the most cost-efficient access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the hot tier has a higher storage cost but lower read cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you plan to read data less frequently, the cool, cold or archive tier might make the most sense because it raises the cost of reading data while reducing the cost of storing data.
+You can reduce costs by placing blob data into the most cost-efficient access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the hot tier has a higher storage cost but lower read cost. Therefore, if you plan to access data frequently, the hot tier might be the most cost-efficient choice. If you read data less often, the cool, cold, or archive tier may be best because it lowers storage costs but raises read costs.
 
-To identify the most optimal access tier, try to estimate what percentage of the data will be read on a monthly basis. The following chart shows the impact on monthly spending given various read percentages. 
+To find the most optimal access tier, estimate what percentage of the data reads each month. The following chart shows the impact on monthly spending given various read percentages. 
 
 > [!div class="mx-imgBorder"]
 > ![Chart that shows a bar for each tier which represents the monthly cost based on percentage read pattern](./media/access-tiers-best-practices/read-pattern-access-tiers.png)
 
-To model and analyze the cost of using cool or cold versus archive storage, see [Archive versus cold and cool](archive-cost-estimation.md#archive-versus-cold-and-cool). You can apply similar modeling techniques to compare the cost of hot to cool, cold or archive.
+To model and analyze the cost of using cool or cold versus archive storage, see [Archive versus cold and cool](archive-cost-estimation.md#archive-versus-cold-and-cool). You can apply similar modeling techniques to compare the cost of hot to cool, cold, or archive.
 
+## Apply smart tier to optimize costs automatically
+If you aren't aware of the most optimal access tier for every object or do not want to manage the placement of these objects, Smart tier might be great option to choose. The automatic down tiering of inactive data can lead to large cost savings over time. While charging a small monitoring fee, it provides additional simplification to the billing model by not charging tier transitions, early deletes or capacity rehydration. See [Optimize costs with smart tier](access-tiers-smart.md) for details.
 ## Migrate data directly to the most cost-efficient access tiers
 
-Choosing the most optimal tier up front can reduce costs. If you change the tier of a block blob that you've already uploaded, then you'll pay the cost of writing to the initial tier when you first upload the blob, and then pay the cost of writing to the desired tier. If you change tiers by using a lifecycle management policy, then that policy will require a day to take effect and a day to complete execution. You'll also incur the capacity cost of storing data in the initial tier prior to the tier change.
+Choosing the most optimal tier up front can reduce costs. If you change the tier of a block blob you upload, you pay for writing to the initial tier when you upload it and then pay for writing to the new tier. If you change tiers by using a lifecycle management policy, then that policy requires a day to take effect and a day to complete execution. You also pay the capacity cost of storing data in the initial tier before the tier changes.
 
 - For guidance about how to upload to a specific access tier, see [Set a blob's access tier](access-tiers-online-manage.md). 
 
@@ -35,9 +38,9 @@ Choosing the most optimal tier up front can reduce costs. If you change the tier
 
 ## Move data into the most cost-efficient access tiers
 
-After data is uploaded, you should periodically analyze your containers and blobs to understand how they are stored, organized, and used in production. Then, use lifecycle management policies to move data to the most cost-efficient tiers. For example, data that has not been accessed for more than 30 days might be more cost efficient if placed into the cool tier. Consider archiving data that has not been accessed for over 180 days. 
+After data is uploaded, you should periodically analyze your containers and blobs to understand how they're stored, organized, and used in production. Then, use lifecycle management policies to move data to the most cost-efficient tiers. For example, data not accessed for more than 30 days might be more cost-efficient if placed in the cool tier. Consider archiving data that hasn't been accessed for over 180 days. 
 
-To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enable [last access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking). Analyze use patterns based on the last access time by using tools such as Azure Synapse or Azure Databricks. To learn about ways to analyze your data, see any of these articles:
+To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enable [last access time tracking](lifecycle-management-policy-configure.md#enable-access-time-tracking). Analyze use patterns based on the last access time by using tools such as Azure Synapse or Azure Databricks. To learn about ways to analyze your data, see any of these articles:
 
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 
@@ -47,7 +50,7 @@ To gather telemetry, enable [blob inventory reports](blob-inventory.md) and enab
 
 ## Tier append and page blobs
 
-Your analysis might reveal append or page blobs that are not actively used. For example, you might have log files (append blobs) that are no longer being read or written to, but you'd like to store them for compliance reasons. Similarly, you might want to back up disks or disk snapshots (page blobs). You can move these blobs into cooler tiers as well.  However, you must first convert them to block blobs. 
+Your analysis might reveal append or page blobs that aren't actively used. For example, you might have log files (append blobs) that are no longer being read or written to, but you'd like to store them for compliance reasons. Similarly, you might want to back up disks or disk snapshots (page blobs). You can move these blobs into cooler tiers as well.  However, you must first convert them to block blobs. 
 
 For information about how to convert append and page blobs to block blobs, see [Convert append blobs and page blobs to block blobs](convert-append-and-page-blobs-to-block-blobs.md).
 

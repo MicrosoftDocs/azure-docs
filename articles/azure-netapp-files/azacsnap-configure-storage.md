@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: phjensen
+# Customer intent: As a cloud administrator, I want to configure storage for the Application Consistent Snapshot tool with Azure NetApp Files, so that I can ensure reliable and secure snapshot capabilities for my cloud applications.
 ---
 
 # Configure storage for Azure Application Consistent Snapshot tool
@@ -116,10 +117,10 @@ az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --
 
     ```output
     {
-      "clientId": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
-      "clientSecret": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
-      "subscriptionId": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
-      "tenantId": "00aa000a-aaaa-0000-00a0-00aa000aaa0a",
+      "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+      "clientSecret": "Dd4Ee~5Ff6.-Gg7Hh8Ii9Jj0Kk1Ll2_Mm3Nn4Oo5",
+      "subscriptionId": "cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a",
+      "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
       "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
       "resourceManagerEndpointUrl": "https://management.azure.com/",
       "activeDirectoryGraphResourceId": "https://graph.windows.net/",
@@ -138,7 +139,7 @@ az role assignment create --assignee ${PRINCIPAL_ID} --role "AzAcSnap on ANF" --
 # [Azure Large Instances (bare metal)](#tab/azure-large-instance)
 
 > [!IMPORTANT]
-> From AzAcSnap 10, communicatoin with Azure Large Instance storage is using the REST API over HTTPS.  Versions prior to AzAcSnap 10 use the CLI over SSH.
+> From AzAcSnap 10, communication with Azure Large Instance storage is using the REST API over HTTPS.  Versions prior to AzAcSnap 10 use the CLI over SSH.
 
 ### Azure Large Instance REST API over HTTPS
 

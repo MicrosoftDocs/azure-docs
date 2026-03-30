@@ -8,7 +8,11 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-ansible, devx-track-azurecli
+ms.custom:
+  - devx-track-ansible
+  - devx-track-azurecli
+  - sfi-ropc-nochange
+# Customer intent: "As a system administrator, I want to configure and automate the SAP system installation using Ansible playbooks, so that I can streamline the deployment process and ensure consistent environments across my infrastructure."
 ---
 
 # Get started with Ansible configuration

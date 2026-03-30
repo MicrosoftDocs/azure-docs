@@ -4,6 +4,9 @@ description: Learn how to use Azure Monitor logs to monitor jobs running in a HD
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, references_regions, devx-track-azurecli
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 10/15/2024
 ROBOTS: NOINDEX
 ---
@@ -16,7 +19,7 @@ Learn how to enable Azure Monitor logs to monitor Hadoop cluster operations in H
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 #### [New Azure monitor experience](#tab/new)
 

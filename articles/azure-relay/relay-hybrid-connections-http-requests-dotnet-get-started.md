@@ -1,12 +1,13 @@
 ---
-title: Azure Relay Hybrid Connections - HTTP requests in .NET
-description: Write a C# console application for Azure Relay Hybrid Connections HTTP requests in .NET.
+title: Hybrid Connections - HTTP requests in .NET
+description: Provides step-by-step instructions to create a C# console application for Azure Relay Hybrid Connections HTTP requests in .NET.
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mode-ui, mode-api, devx-track-dotnet
-ms.date: 08/10/2023
+ms.date: 01/24/2026
+# Customer intent: I want to learn how to create a .NET app to send and receive messages by using the HTTP protocol. 
 ---
 
-# Get started with Relay Hybrid Connections HTTP requests in .NET
+# Tutorial: Get started with Relay Hybrid Connections HTTP requests in .NET
 [!INCLUDE [relay-selector-hybrid-connections](./includes/relay-selector-hybrid-connections.md)]
 
 In this quickstart, you create .NET sender and receiver applications that send and receive messages by using the HTTP protocol. The applications use Hybrid Connections feature of Azure Relay. To learn about Azure Relay in general, see [Azure Relay](relay-what-is-it.md). 
@@ -24,7 +25,7 @@ In this quickstart, you take the following steps:
 To complete this tutorial, you need the following prerequisites:
 
 * [Visual Studio 2019 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2022.
-* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a namespace
 [!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
@@ -52,9 +53,8 @@ In Visual Studio, write a C# console application to send messages to the relay.
 1. Run the client application. You see `hello!` in the client window. The client sent an HTTP request to the server, and server responded with a `hello!`. 
 3. Now, to close the console windows, press **ENTER** in both the console windows. 
 
-Congratulations, you've created a complete Hybrid Connections application!
 
-## Next steps
+## Related content
 
 In this quickstart, you created .NET client and server applications that used HTTP to send and receive messages. The Hybrid Connections feature of Azure Relay also supports using WebSockets to send and receive messages. To learn how to use WebSockets with Azure Relay Hybrid Connections, see the [WebSockets quickstart](relay-hybrid-connections-dotnet-get-started.md).
 

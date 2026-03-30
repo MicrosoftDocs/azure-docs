@@ -6,8 +6,9 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: quickstart
-ms.date: 10/13/2023
+ms.date: 07/23/2025
 ms.author: buchvarun
+ms.custom: sfi-image-nochange
 ---
 
 # Get started using DICOM data in analytics workloads
@@ -109,17 +110,17 @@ Data Factory pipelines are a collection of _activities_ that perform a task, lik
 
 If you created the DICOM service with Azure Data Lake Storage, instead of using the template from the template gallery, you need to use a custom template to include a new `fileName` parameter in the metadata pipeline. To configure the pipeline follow these steps.
 
-1. Download the [template](https://github.com/microsoft/dicom-server/blob/main/samples/templates/Copy%20DICOM%20Metadata%20Changes%20to%20ADLS%20Gen2%20in%20Delta%20Format.zip) from GitHub. The template file is a compressed (zipped) folder. You don't need to extract the files because they're already uploaded in compressed form.  
+1. Download the template from GitHub. The template file is a compressed (zipped) folder. You don't need to extract the files because they're already uploaded in compressed form.  
 
-1. In Azure Data Factory, select **Author** from the left menu. On the **Factory Resources** pane, select the plus sign (+) to add a new resource. Select **Pipeline** and then select **Import from pipeline template**.
+2. In Azure Data Factory, select **Author** from the left menu. On the **Factory Resources** pane, select the plus sign (+) to add a new resource. Select **Pipeline** and then select **Import from pipeline template**.
 
-1. In the **Open** window, select the template that you downloaded. Select **Open**.
+3. In the **Open** window, select the template that you downloaded. Select **Open**.
 
-1. In the **Inputs** section, select the linked services created for the DICOM service and Azure Data Lake Storage Gen2 account.
+4. In the **Inputs** section, select the linked services created for the DICOM service and Azure Data Lake Storage Gen2 account.
 
    :::image type="content" source="media/data-factory-create-pipeline.png" alt-text="Screenshot showing the Inputs section with linked services selected." lightbox="media/data-factory-create-pipeline.png":::
 
-1. Select **Use this template** to create the new pipeline.
+5. Select **Use this template** to create the new pipeline.
 
 ## Schedule a pipeline
 

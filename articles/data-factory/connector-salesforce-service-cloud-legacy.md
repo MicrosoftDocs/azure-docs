@@ -1,23 +1,24 @@
 ---
-title: Copy data from and to Salesforce Service Cloud using legacy
+title: Copy data from and to Salesforce Service Cloud V1
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Salesforce Service Cloud to supported sink data stores, or from supported source data stores to Salesforce Service Cloud, using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from Salesforce Service Cloud V1 to supported sink data stores, or from supported source data stores to Salesforce Service Cloud V1, using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 10/15/2024
+ms.topic: how-to
+ms.date: 05/07/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
-# Copy data from and to Salesforce Service Cloud using Azure Data Factory or Synapse Analytics (legacy)
-
+# Copy data from and to Salesforce Service Cloud V1 using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Salesforce Service Cloud. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!IMPORTANT]
->The new Salesforce Service Cloud connector provides improved native Salesforce Service Cloud support. If you are using the legacy Salesforce Service Cloud connector in your solution, you are recommended to [upgrade your Salesforce Service Cloud connector](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) at your earliest convenience. Refer to this [section](connector-salesforce-service-cloud.md#differences-between-salesforce-service-cloud-and-salesforce-service-cloud-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The Salesforce Service Cloud V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Salesforce Service Cloud connector](connector-salesforce-service-cloud.md#differences-between-salesforce-service-cloud-and-salesforce-service-cloud-legacy) from V1 to V2.
 
 ## Supported capabilities
 

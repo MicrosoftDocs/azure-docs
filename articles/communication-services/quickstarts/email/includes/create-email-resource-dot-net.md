@@ -8,12 +8,12 @@ ms.author: v-vprasannak
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Get the latest version of the [.NET Identity SDK](/dotnet/api/azure.identity).
 - Get the latest version of the [.NET Management SDK](../../../concepts/sdk-options.md).
 
-## Installing the SDK
+## Install the SDK
 
 First, include the Communication Services Management SDK in your C# project:
 
@@ -23,15 +23,15 @@ using Azure.ResourceManager.Communication;
 
 ## Subscription ID
 
-You'll need to know the ID of your Azure subscription. This can be acquired from the portal:
+You need to know the ID of your Azure subscription. You can acquire the ID from the portal:
 
-1.  Login into your Azure account
-2.  Select Subscriptions in the left sidebar
-3.  Select whichever subscription is needed
-4.  Click on Overview
-5.  Select your Subscription ID
+1.  Sign in into your Azure account.
+2.  Select Subscriptions in the left sidebar.
+3.  Select whichever subscription is needed.
+4.  Click Overview.
+5.  Select your Subscription ID.
 
-In this quickstart, we'll assume that you've stored the subscription ID in an environment variable called `AZURE_SUBSCRIPTION_ID`.
+In this quickstart, we assume that you stored the subscription ID in an environment variable called `AZURE_SUBSCRIPTION_ID`.
 
 ## Authentication
 
@@ -39,9 +39,9 @@ To communicate with Azure Communication Services, you must first authenticate yo
 
 ### Authenticate the Client
 
-The default option to create an authenticated client is to use DefaultAzureCredential. Since all management APIs go through the same endpoint, in order to interact with resources, only one top-level ArmClient has to be created.
+The default option to create an authenticated client is to use `DefaultAzureCredential`. Since all management APIs go through the same endpoint, in order to interact with resources, you only need to create one top-level `ArmClient`.
 
-To authenticate to Azure and create an ArmClient, do the following code:
+To authenticate to Azure and create an `ArmClient`, do the following code:
 
 ```csharp
 using System;
@@ -51,6 +51,7 @@ using Azure.Core;
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.Communication;
+using Azure.ResourceManager.Communication.Models;
 using Azure.ResourceManager.Resources;
 ...
 // get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/dotnet/azure/sdk/authentication?tabs=command-line
@@ -59,24 +60,25 @@ TokenCredential cred = new DefaultAzureCredential();
 ArmClient client = new ArmClient(cred);
 ```
 
-## Interacting with Azure resources
+## Interact with Azure resources
 
 Now that you're authenticated.
 
-For each of the following examples, we'll be assigning our Email Services resources to an existing resource group.
+For each of the following examples, we assign our Email Services resources to an existing resource group.
 
 If you need to create a resource group, you can do so by using the [Azure portal](../../../../azure-resource-manager/management/manage-resource-groups-portal.md) or the [Azure Resource Manager SDK](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ## Create an Email Services resource
 
-When creating an Email Services resource, you'll specify the resource group name and resource name. 
+When creating an Email Services resource, specify the resource group name and resource name.
+
 >[!Note]
 >The `Location` property is always `global`, and during public preview the `DataLocation` value must be `UnitedStates`.
 
 ```csharp
 // this example assumes you already have this ResourceGroupResource created on azure
 // for more information of creating ResourceGroupResource, please refer to the document of ResourceGroupResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
 ResourceGroupResource resourceGroupResource = client.GetResourceGroupResource(resourceGroupResourceId);
@@ -108,7 +110,7 @@ Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ...
 // this example assumes you already have this EmailServiceResource created on azure
 // for more information of creating EmailServiceResource, please refer to the document of EmailServiceResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 ResourceIdentifier emailServiceResourceId = EmailServiceResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName);
@@ -137,7 +139,7 @@ Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```csharp
 // this example assumes you already have this ResourceGroupResource created on azure
 // for more information of creating ResourceGroupResource, please refer to the document of ResourceGroupResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 ResourceIdentifier resourceGroupResourceId = ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName);
 ResourceGroupResource resourceGroupResource = client.GetResourceGroupResource(resourceGroupResourceId);
@@ -163,7 +165,7 @@ Console.WriteLine($"Succeeded");
 ```csharp
 // this example assumes you already have this SubscriptionResource created on azure
 // for more information of creating SubscriptionResource, please refer to the document of SubscriptionResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 ResourceIdentifier subscriptionResourceId = SubscriptionResource.CreateResourceIdentifier(subscriptionId);
 SubscriptionResource subscriptionResource = client.GetSubscriptionResource(subscriptionResourceId);
 
@@ -185,7 +187,7 @@ Console.WriteLine($"Succeeded");
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
 // for more information of creating EmailServiceResource, please refer to the document of EmailServiceResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 ResourceIdentifier emailServiceResourceId = EmailServiceResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName);
@@ -197,4 +199,4 @@ await emailServiceResource.DeleteAsync(WaitUntil.Completed);
 Console.WriteLine($"Succeeded");
 ```
 > [!NOTE]
-> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
+> Resource deletion is **permanent** and no data, including Event Grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.

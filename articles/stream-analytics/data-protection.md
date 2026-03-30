@@ -6,6 +6,7 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 07/19/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Data protection in Azure Stream Analytics 
@@ -28,7 +29,7 @@ Azure Stream Analytics persists the following metadata and data in order to run:
 
 ## In-Region Data Residency
 
-Azure Stream Analytics stores customer data and other metadata described earlier. Azure Stream Analytics stores customer data in a single region by default, so this service automatically satisfies region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+Azure Stream Analytics stores customer data and other metadata described earlier. Azure Stream Analytics stores customer data in a single region by default, so this service automatically satisfies region data residency requirements including the ones specified in the [Trust Center](https://www.microsoft.com/trust-center/product-overview).
 Additionally, you can choose to store all data assets (customer data and other metadata) related to your stream analytics job in a single region by encrypting them in a storage account of your choice.
 
 ## Encrypt your data

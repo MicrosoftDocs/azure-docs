@@ -1,11 +1,12 @@
 ---
 title: Regional redundancy and failover recovery with Azure HPC Cache
 description: Techniques to provide failover capabilities for disaster recovery with Azure HPC Cache 
-author: femila
+author: ronhogue
 ms.service: azure-hpc-cache
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/19/2021
-ms.author: femila
+ms.author: rohogue
+# Customer intent: "As a data architect, I want to implement a regional failover strategy for Azure HPC Cache, so that I can ensure continuous workflow and minimize disruptions during regional outages."
 ---
 
 # Use multiple caches for regional failover recovery

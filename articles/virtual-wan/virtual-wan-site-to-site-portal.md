@@ -5,8 +5,9 @@ description: Learn how to use Azure Virtual WAN to create a site-to-site VPN con
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: tutorial
-ms.date: 01/31/2024
+ms.date: 03/10/2025
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
 # Tutorial: Create a site-to-site connection using Azure Virtual WAN
@@ -29,7 +30,7 @@ In this tutorial you learn how to:
 > * View or edit your VPN gateway
 
 > [!NOTE]
-> If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
+> If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you're comfortable with networking and proficient at configuring your own VPN device.
 >
 
 ## Prerequisites
@@ -62,7 +63,7 @@ In this section, you configure site-to-site connectivity settings, and then crea
 
 In this section, you create a site. Sites correspond to your physical locations. Create as many sites as you need. These sites contain your on-premises VPN device endpoints.
 
-For example, if you have a branch office in NY, a branch office in London, and a branch office in LA, you'd create three separate sites. You can create up to 1000 sites per virtual hub in a virtual WAN. If you have multiple virtual hubs, you can create 1000 per each virtual hub.
+For example, if you have a branch office in NY, a branch office in London, and a branch office in LA, you'd create three separate sites. You can create up to 1,000 sites per virtual hub in a virtual WAN. If you have multiple virtual hubs, you can create 1000 per each virtual hub.
 
 If you have a Virtual WAN partner CPE device, check with them to learn about their automation to Azure. Typically, automation implies a simple click experience to export large-scale branch information into Azure, and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
 
@@ -98,7 +99,7 @@ Use the VPN device configuration file to configure your on-premises VPN device. 
 
 The device configuration file contains the settings to use when configuring your on-premises VPN device. When you view this file, notice the following information:
 
-* **vpnSiteConfiguration -** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public IP address of the branch device.
+* **vpnSiteConfiguration -** This section denotes the device details configured as a site connecting to the virtual WAN. It includes the name and public IP address of the branch device.
 * **vpnSiteConnections -** This section provides information about the following settings:
 
     * **Address space** of the virtual hub(s) virtual network.<br>Example:
@@ -117,7 +118,7 @@ The device configuration file contains the settings to use when configuring your
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Vpngateway connection configuration details** such as BGP, preshared key etc. The PSK is the preshared key that is automatically generated for you. You can always edit the connection in the **Overview** page for a custom PSK.
+    * **Vpngateway connection configuration details** such as BGP, preshared key, etc. The PSK is the preshared key that is automatically generated for you. You can always edit the connection in the **Overview** page for a custom PSK.
   
 ### Example device configuration file
 
@@ -226,8 +227,8 @@ The device configuration file contains the settings to use when configuring your
 
 ### <a name="vpn-device"></a>Configuring your VPN device
 
->[!NOTE]
-> If you are working with a Virtual WAN partner solution, VPN device configuration automatically happens. The device controller obtains the configuration file from Azure and applies to the device to set up connection to Azure. This means you don't need to know how to manually configure your VPN device.
+> [!NOTE]
+> If you're working with a Virtual WAN partner solution, VPN device configuration automatically happens. The device controller obtains the configuration file from Azure and applies to the device to set up connection to Azure. This means you don't need to know how to manually configure your VPN device.
 >
 
 If you need instructions to configure your device, you can use the instructions on the [VPN device configuration scripts page](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts) with the following caveats:
@@ -252,8 +253,6 @@ On the **Edit VPN Gateway** page, you can see the following settings:
 * **Private IP Address**: Assigned by Azure.
 * **Default BGP IP Address**: Assigned by Azure.
 * **Custom BGP IP Address**: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP. Users can specify multiple custom BGP IP addresses for each instance. The same custom BGP IP address shouldn't be used for both instances. 
-
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/edit-gateway.png" alt-text="Screenshot shows the Edit VPN Gateway page with the Edit button highlighted." lightbox="media/virtual-wan-site-to-site-portal/edit-gateway.png":::
 
 ## <a name="cleanup"></a>Clean up resources
 

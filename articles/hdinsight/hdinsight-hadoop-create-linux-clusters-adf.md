@@ -3,8 +3,11 @@ title: 'Tutorial: On-demand clusters in Azure HDInsight with Data Factory'
 description: Tutorial - Learn how to create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory.
 ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell, linux-related-content
 ms.date: 06/15/2024
+ms.custom:
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 ---
 
@@ -26,7 +29,7 @@ This tutorial covers the following tasks:
 > * Monitor a pipeline
 > * Verify the output
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

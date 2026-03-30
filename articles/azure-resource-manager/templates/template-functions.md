@@ -3,7 +3,7 @@ title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 05/10/2024
+ms.date: 07/10/2025
 ---
 
 # ARM template functions
@@ -29,6 +29,7 @@ The [any function](../bicep/bicep-functions-any.md) is available in Bicep to hel
 <a id="createarray" aria-hidden="true"></a>
 <a id="empty" aria-hidden="true"></a>
 <a id="first" aria-hidden="true"></a>
+<a id="indexfromend" aria-hidden="true"></a>
 <a id="indexof" aria-hidden="true"></a>
 <a id="intersection" aria-hidden="true"></a>
 <a id="last" aria-hidden="true"></a>
@@ -39,6 +40,7 @@ The [any function](../bicep/bicep-functions-any.md) is available in Bicep to hel
 <a id="range" aria-hidden="true"></a>
 <a id="skip" aria-hidden="true"></a>
 <a id="take" aria-hidden="true"></a>
+<a id="tryindexfromend" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
 
 ## Array functions
@@ -51,6 +53,7 @@ Resource Manager provides several functions for working with arrays.
 * [createArray](template-functions-array.md#createarray)
 * [empty](template-functions-array.md#empty)
 * [first](template-functions-array.md#first)
+* [indexFromEnd](template-functions-array.md#indexfromend)
 * [indexOf](template-functions-array.md#indexof)
 * [intersection](template-functions-array.md#intersection)
 * [last](template-functions-array.md#last)
@@ -61,6 +64,8 @@ Resource Manager provides several functions for working with arrays.
 * [range](template-functions-array.md#range)
 * [skip](template-functions-array.md#skip)
 * [take](template-functions-array.md#take)
+* [tryGet](template-functions-array.md#tryget)
+* [tryIndexFromEnd](template-functions-array.md#tryindexfromend)
 * [union](template-functions-array.md#union)
 
 For Bicep files, use the [array](../bicep/bicep-functions-array.md) functions.
@@ -122,6 +127,7 @@ For Bicep files, use the [date](../bicep/bicep-functions-date.md) functions.
 
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
+* [deployer](template-functions-deployment.md#deployer)
 * [deployment](template-functions-deployment.md#deployment)
 * [environment](template-functions-deployment.md#environment)
 * [parameters](template-functions-deployment.md#parameters)
@@ -221,9 +227,10 @@ Resource Manager provides several functions for working with objects.
 * [items](template-functions-object.md#items)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
-* [objectKeys](template-functions-object.md#objectkeys)
 * [null](template-functions-object.md#null)
+* [objectKeys](template-functions-object.md#objectkeys)
 * [shallowMerge](template-functions-object.md#shallowmerge)
+* [tryGet](template-functions-object.md#tryget)
 * [union](template-functions-object.md#union)
 
 For Bicep files, use the [object](../bicep/bicep-functions-object.md) functions.

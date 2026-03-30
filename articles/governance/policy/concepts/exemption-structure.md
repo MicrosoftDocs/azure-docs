@@ -1,13 +1,13 @@
 ---
 title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
-ms.date: 09/05/2024
-ms.topic: conceptual
+ms.date: 03/04/2025
+ms.topic: reference
 ---
 
 # Azure Policy exemption structure
 
-The Azure Policy exemptions feature is used to _exempt_ a resource hierarchy or an individual resource from evaluation of initiatives or definitions. Resources that are _exempt_ count toward overall compliance, but can't be evaluated or have a temporary waiver. For more information, see [Understand applicability in Azure Policy](./policy-applicability.md). Azure Policy exemptions also work with the following [Resource Manager modes](./definition-structure.md#resource-manager-modes): `Microsoft.Kubernetes.Data`, `Microsoft.KeyVault.Data`, and `Microsoft.Network.Data`.
+The Azure Policy exemptions feature is used to _exempt_ a resource hierarchy or an individual resource from evaluation of initiatives or definitions. Resources that are _exempt_ count toward overall compliance, but can't be evaluated or have a temporary waiver. For more information, see [Understand applicability in Azure Policy](./policy-applicability.md). Azure Policy exemptions also work with the following [Resource Manager modes](./definition-structure-basics.md#resource-manager-modes): `Microsoft.Kubernetes.Data`, `Microsoft.KeyVault.Data`, and `Microsoft.Network.Data`.
 
 You use JavaScript Object Notation (JSON) to create a policy exemption. The policy exemption contains elements for:
 
@@ -118,7 +118,41 @@ Exemptions support an optional property `resourceSelectors` that works the same 
 }
 ```
 
-Regions can be added or removed from the `resourceLocation` list in the example. Resource selectors allow for greater flexibility of where and how exemptions can be created and managed.
+The follow resource selectors `kinds` are supported in the policy exemptions object:
+- resourceLocation: This property is used to select resources based on their type. Can't be used in the same resource selector as resourceWithoutLocation.
+- resourceType: This property is used to select resources based on their type.
+- resourceWithoutLocation: This property is used to select resources at the subscription level that don't have a location. Currently only supports subscriptionLevelResources. Can't be used in the same resource selector as resourceLocation.
+- in: The list of allowed values for the specified kind. Can't be used with notIn. Can contain up to 50 values.
+- notIn: The list of not-allowed values for the specified kind. Can't be used with in. Can contain up to 50 values.
+- userPrincipalId: the list of the allowed user object IDs can be exempt in the request. This can be associated with an individual user, an MSI, or a service principal. 
+- groupPrincipalId: the list of the allowed security group IDs can be exempt in the request. A resource selector can contain multiple selectors. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, up to 10 resourceSelectors can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
+
+
+### Identity based exemptions (preview)
+
+You can leverage selector kinds userPrincipalId and groupPrincipalId within the exemption structure to enable a specific service principal, MSI, user, or security group to bypass a policy assignment's enforcement.
+
+Take an example where you want to assign the built-in policy definition `Allowed virtual machine size SKUs` in your subscription to ensure that only A-family VMs can be deployed, with the exception of a high privileged group. You can use identity based conditions to exempt this group in your organization from this enforcement. 
+
+This is an example of an identity-based exemption:
+
+```json
+"properties": {   
+  "policyAssignmentId": "/subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/CostMgmt",   
+  "resourceSelectors": [{    
+      "name": "AllowedGroups",   
+      "selectors": [{   
+          "kind": "groupPrincipalId",   
+          "in": [ "<HighPrivEngGroupId>" ]   
+        },      
+      ]   
+    }   
+  ],   
+  "exemptionCategory": "Waiver",   
+  "displayName": "Exempt high SKU VM",   
+  "description": "Exempt high SKU VM for business need"   
+}   
+```
 
 ## Assignment scope validation (preview)
 
@@ -160,7 +194,7 @@ Regularly revisit your exemptions to ensure that all eligible items are appropri
 
 ## Next steps
 
-- Learn about [Azure Resource Graph queries on exemptions](../samples/resource-graph-samples.md#azure-policy-exemptions).
+- Learn about [Azure Resource Graph queries on exemptions](/azure/governance/policy/samples/resource-graph-samples#azure-policy-exemptions).
 - Learn about [the difference between exclusions and exemptions](./scope.md#scope-comparison).
 - Review the [Microsoft.Authorization policyExemptions resource type](/azure/templates/microsoft.authorization/policyexemptions?tabs=json).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

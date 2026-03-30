@@ -1,6 +1,6 @@
 ---
 title: "ClaimsSchema: Azure Active Directory B2C"
-description: Specify the ClaimsSchema element of a custom policy in Azure Active Directory B2C.
+description: Specify the ClaimsSchema element of a custom policy in Azure AD B2C. Define and manage claim types for user attributes and input controls.
 
 author: kengaderdus
 manager: CelesteDG
@@ -8,10 +8,12 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As a policy administrator or developer, I want to understand the structure and attributes of the ClaimsSchema element, so that I can define and manage claim types in the policy effectively.
@@ -19,6 +21,7 @@ ms.custom: "b2c-support"
 ---
 
 # ClaimsSchema
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -110,11 +113,11 @@ In the following example, when the Identity Experience Framework interacts with 
 </ClaimType>
 ```
 
-As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
+As a result, the JWT issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
 
 ```json
 {
-  "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
+  "sub": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "auth_time": 1535013501,
   "given_name": "David",
   "family_name": "Williams",
@@ -325,7 +328,7 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 
 The **RadioSingleSelect** user input type is used to provide a collection of radio buttons that allows the user to select one option.
 
-![Using claim type with radiodsingleselect](./media/claimsschema/radiosingleselect.png)
+![Using claim type with radiosingleselect](./media/claimsschema/radiosingleselect.png)
 
 ```xml
 <ClaimType Id="color">

@@ -1,11 +1,12 @@
 ---
-title: NFS FAQs for Azure NetApp Files | Microsoft Docs
+title: NFS FAQs for Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about the NFS protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 05/21/2024
+ms.date: 12/08/2025
+# Customer intent: As a cloud administrator, I want to configure NFS volume mounts for Azure Virtual Machines, so that I can ensure persistent access to data upon VM startup or reboot.
 ---
 # NFS FAQs for Azure NetApp Files
 
@@ -45,11 +46,7 @@ The same file path can be used for:
 * volumes deployed in different regions
 * volumes deployed to different availability zones within the same region
 
-If you are using:
-* regional volumes (without availability zones) or
-* volumes within the same availability zone,
-
-the same file path can be used, however the file path must be unique within each delegated subnet or assigned to different delegated subnets. 
+If you are using regional volumes (without availability zones) _or_ volumes within the same availability zone, the same file path can be used, however the file path must be unique within each delegated subnet or assigned to different delegated subnets. 
 
 For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
@@ -79,7 +76,11 @@ To learn more about file locking in Azure NetApp Files, see [file locking](under
 
 ## Why is the `.snapshot` directory not visible in an NFSv4.1 volume, but it's visible in an NFSv3 volume?
 
-By design, the .snapshot directory is never visible to NFSv4.1 clients. By default, the `.snapshot `directory is visible to NFSv3 clients. To hide the `.snapshot` directory from NFSv3 clients, edit the properties of the volume to [hide the snapshot path](snapshots-edit-hide-path.md).
+By design, the `.snapshot` directory is never visible to NFSv4.1 clients. By default, the `.snapshot `directory is visible to NFSv3 clients. To hide the `.snapshot` directory from NFSv3 clients, edit the properties of the volume to [hide the snapshot path](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option).
+
+## Will the access time automatically update when reading files?
+
+No, access time will not be updated when reading files. This behavior ensures low-latency and high-performance access to your data.
 
 ## Oracle dNFS
 
@@ -95,7 +96,7 @@ This corruption is neither a bug on ONTAP nor the Azure NetApp Files service its
 Oracle publishes [document 1495104.1](https://support.oracle.com/knowledge/Oracle%20Cloud/1495104_1.html), which is continually updated with recommended dNFS patches. If your database uses dNFS, ensure the DBA team is checking for updates in this document.
 
 >[!IMPORTANT]
-> Customers using Oracle dNFS with NFSv4.1 on Azure NetApp Files volumes must ensure to take actions mentioned under [Are there any patches required for use of Oracle dNFS with NFSv4.1?](#are-there-any-patches-required-for-use-of-oracle-dnfs-with-nfsv41).
+> Customers using Oracle dNFS with NFSv4.1 on Azure NetApp Files volumes must ensure to take actions mentioned under [Are there any patches required for use of Oracle dNFS with NFSv4.1?](#are-there-any-patches-required-for-use-of-oracle-dnfs-with-nfsv41)
 
 ### Are there any patches required for use of Oracle dNFS with NFSv4.1?
 >[!IMPORTANT]

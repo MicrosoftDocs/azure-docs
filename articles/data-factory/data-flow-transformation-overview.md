@@ -6,8 +6,8 @@ author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 05/15/2024
+ms.topic: reference
+ms.date: 02/13/2025
 ---
 
 # Mapping data flow transformation overview

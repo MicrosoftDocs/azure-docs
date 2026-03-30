@@ -4,10 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory and Azure Synapse Analytics pipelines. 
 author: lrtoyou1223
 ms.subservice: integration-runtime
-ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.author: lle
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Troubleshoot self-hosted integration runtime
@@ -314,9 +316,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
     * You've imported a PFX file to the certificate store.
     * When you selected the certificate through the IR Configuration Manager UI, you received the following error message:
     
-       "Failed to change intranet communication encryption mode. It is likely that certificate '\<*certificate name*>' may not have a private key that is capable of key exchange or the process may not have access rights for the private key. Please see inner exception for detail."
-    
-        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png" alt-text="Screenshot of the Integration Runtime Configuration Manager Settings pane, displaying a &quot;private key missing&quot; error message.":::
+      "Failed to change intranet communication encryption mode. It is likely that certificate '\<*certificate name*>' may not have a private key that is capable of key exchange or the process may not have access rights for the private key. Please see inner exception for detail.""
 
 - **Cause**  
 
@@ -586,10 +586,8 @@ To generate the error report ID for Microsoft Support, follow these instructions
 - **Symptoms**  
 
     When you install a self-hosted IR via Microsoft Integration Runtime Configuration Manager, a certificate with a trusted certificate authority (CA) is generated. The certificate couldn't be applied to encrypt communication between two nodes, and the following error message is displayed: 
-    
+
     "Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate '\<*certificate name*>'. Error code 103"
-    
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png" alt-text="Screenshot displaying the error message &quot;... Failed to grant Integration Runtime service account certificate access&quot;.":::
 
 - **Cause**  
 
@@ -932,7 +930,7 @@ For more help with troubleshooting, try the following resources:
 
 *  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 *  [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [X information about Data Factory](https://x.com/hashtag/DataFactory)

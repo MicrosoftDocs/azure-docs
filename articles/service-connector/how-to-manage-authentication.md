@@ -3,11 +3,13 @@ title: Manage authentication in Service Connector
 description: Learn how to select and manage authentication parameters in Service Connector.
 author: maud-lv
 ms.service: service-connector
+ms.topic: how-to
+ms.date: 05/12/2025
+ms.author: malev
 ms.custom:
   - build-2024
-ms.topic: how-to
-ms.date: 10/25/2023
-ms.author: malev
+  - build-2025
+  - sfi-image-nochange
 ---
 # Manage authentication within Service Connector
 
@@ -15,7 +17,7 @@ In this guide, learn about the different authentication options available in Ser
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure App Service, Azure Container Apps or Azure Spring Apps instance.
 - This guide assumes that you already know how the basics of connecting services using Service Connector. To review our quickstarts, go to [App Service](quickstart-portal-app-service-connection.md), [Container Apps](quickstart-portal-container-apps.md) or [Azure Spring Apps](quickstart-portal-spring-cloud-connection.md).
 
@@ -37,7 +39,7 @@ Service Connector offers the following authentication options:
 
 | Target resource                               | System assigned managed identity | User assigned managed identity (Workload identity) | Connection string | Service principal |
 |-----------------------------------------------|----------------------------------|--------------------------------|-------------------|-------------------|
-| Azure AI services                             | Yes                              | Yes                            | Yes               | Yes               |
+| Foundry Tools                                 | Yes                              | Yes                            | Yes               | Yes               |
 | Azure App Configuration                       | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Blob Storage                            | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Cache for Redis                         | No                               | No                             | Yes               | No                |
@@ -48,9 +50,9 @@ Service Connector offers the following authentication options:
 | Azure Cosmos DB for NoSQL                     | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Cosmos DB for Table                     | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Database for MySQL single server        | Yes                              | No                             | No                | No                |
-| Azure Database for MySQL flexible server      | Yes                              | No                             | Yes               | No                |
+| Azure Database for MySQL Flexible Server      | Yes                              | No                             | Yes               | No                |
 | Azure Database for PostgreSQL single server   | Yes                              | No                             | Yes               | No                |
-| Azure Database for PostgreSQL flexible server | Yes                              | No                             | Yes               | No                |
+| Azure Database for PostgreSQL Flexible Server | Yes                              | No                             | Yes               | No                |
 | Azure Event Hubs                              | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Files                                   | No                               | No                             | Yes               | No                |
 | Azure Key Vault                               | Yes                              | Yes                            | No                | Yes               |
@@ -60,6 +62,7 @@ Service Connector offers the following authentication options:
 | Azure SQL Database                            | Yes                              | No                             | Yes               | No                |
 | Azure Table Storage                           | No                               | No                             | Yes               | No                |
 | Azure Web PubSub                              | Yes                              | Yes                            | Yes               | Yes               |
+| MongoDB Atlas                       | No                               | No                             | Yes               | No                |
 
 ## Review or update authentication configuration
 

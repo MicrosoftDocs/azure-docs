@@ -3,8 +3,15 @@ title: 'Quickstart: Create Apache Spark cluster on Azure HDInsight with Azure Po
 description: This quickstart shows how to use Azure PowerShell to create an Apache Spark cluster in Azure HDInsight, and run Spark SQL query.
 ms.service: azure-hdinsight
 ms.topic: quickstart
-ms.date: 11/28/2023
-ms.custom: mvc, devx-track-azurepowershell, mode-api
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
+ms.date: 11/25/2024
+ms.custom:
+  - mvc
+  - devx-track-azurepowershell
+  - mode-api
+  - sfi-image-nochange
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster and query some data.
 ---
 
@@ -18,13 +25,13 @@ If you're using multiple clusters together, you can create a virtual network, an
 
 ## Prerequisite
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The [PowerShell Az module](/powershell/azure/install-azure-powershell).
 
 ## Create an Apache Spark cluster in HDInsight
 
 > [!IMPORTANT]  
-> Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
+> Billing for HDInsight clusters is prorated per minute, whether you're using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
 
 Creating an HDInsight cluster includes creating the following Azure objects and resources:
 
@@ -36,7 +43,7 @@ You use a PowerShell script to create the resources.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-When you run the PowerShell script, you are prompted to enter the following values:
+When you run the PowerShell script, you're prompted to enter the following values:
 
 |Parameter|Value|
 |------|------|
@@ -188,7 +195,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 ## Clean up resources
 
-HDInsight saves your data in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. If you plan to work on the tutorial listed in [Next steps](#next-steps) immediately, you might want to keep the cluster.
+HDInsight saves your data in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use. If you plan to work on the tutorial listed in [Next steps](#next-steps) immediately, you might want to keep the cluster.
 
 Switch back to the Azure portal, and select **Delete**.
 

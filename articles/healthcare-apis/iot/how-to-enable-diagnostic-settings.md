@@ -6,11 +6,14 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 8/18/2025
 ms.author: chrupa
+ms.custom: sfi-image-nochange
 ---
 
 # How to enable diagnostic settings for the MedTech service
+
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 In this article, learn how to enable diagnostic settings for the MedTech service to:
 

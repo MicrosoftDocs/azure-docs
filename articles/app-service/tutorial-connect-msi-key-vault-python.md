@@ -8,8 +8,9 @@ ms.date: 08/23/2024
 author: cephalin
 ms.author: cephalin
 
-ms.reviewer: madsd 
+ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, devx-track-python, AppServiceConnectivity
+ms.service: azure-app-service
 ---
 
 # Tutorial: Secure Cognitive Service connection from Python App Service using Key Vault
@@ -30,7 +31,7 @@ zip -r default.zip .
 appName=<app-name>
 
 az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region --is-linux
-az webapp create --resource-group $groupName --plan $appName --name $appName --runtime "python:3.11"
+az webapp create --resource-group $groupName --plan $appName --name $appName --runtime "python:3.14"
 az webapp config appsettings set --resource-group $groupName --name $appName --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
 az webapp deploy --resource-group $groupName --name $appName --src-path ./default.zip
 ```
@@ -38,7 +39,7 @@ az webapp deploy --resource-group $groupName --name $appName --src-path ./defaul
 The preceding commands:
 
 * Create a linux app service plan
-* Create a web app for Python 3.11
+* Create a web app for Python 3.14
 * Configure the web app to install the python packages on deployment
 * Upload the zip file, and install the python packages
 

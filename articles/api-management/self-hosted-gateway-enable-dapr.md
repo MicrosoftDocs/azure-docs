@@ -1,12 +1,12 @@
 ---
-title: Enable Dapr support in self-hosted gateway | Azure API Management
-description: Learn now to enable Dapr support in the self-hosted gateway of Azure API Management to expose and manage Dapr microservices as APIs. 
+title: Enable Dapr Support in Self-Hosted Gateway | Azure API Management
+description: Learn now to enable Dapr support in the self-hosted gateway of Azure API Management for exposing and managing Dapr microservices as APIs. 
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 05/01/2023
+ms.topic: how-to
+ms.date: 10/08/2025
 ms.author: danlep
 ---
 
@@ -18,7 +18,7 @@ Dapr integration in API Management enables operations teams to directly expose D
 
 ## About Dapr
 
-Dapr is a portable runtime for building stateless and stateful microservices-based applications with any language or framework. It codifies the common microservice patterns, like service discovery and invocation with build-in retry logic, publish-and-subscribe with at-least-once delivery semantics, or pluggable binding resources to ease composition using external services. Go to [dapr.io](https://dapr.io) for detailed information and instruction on how to get started with Dapr.
+Dapr is a portable runtime for building stateless and stateful microservices-based applications with any language or framework. It codifies the common microservice patterns, like service discovery and invocation with built-in retry logic, publish-and-subscribe with at-least-once delivery semantics, or pluggable binding resources to ease composition using external services. Go to [dapr.io](https://dapr.io) for detailed information and instruction on how to get started with Dapr.
 
 ## Enable Dapr support
 
@@ -40,6 +40,6 @@ template:
 
 API Management provides specific [policies](api-management-policies.md#integration-and-external-communication) to interact with Dapr APIs exposed through the self-hosted gateway.
 
-## Next steps
+## Related content
 
-* Learn more about [Dapr integration in API Management](https://cloudblogs.microsoft.com/opensource/2020/09/22/announcing-dapr-integration-azure-api-management-service-apim/)
+- Learn more about [Dapr integration in API Management](https://cloudblogs.microsoft.com/opensource/2020/09/22/announcing-dapr-integration-azure-api-management-service-apim/)

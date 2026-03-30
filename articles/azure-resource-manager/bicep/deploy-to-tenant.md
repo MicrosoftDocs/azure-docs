@@ -2,17 +2,22 @@
 title: Use Bicep to deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in a Bicep file.
 ms.topic: how-to
-ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 12/10/2025
+ms.custom:
+  - devx-track-bicep
+  - sfi-ga-nochange
 ---
 
 # Tenant deployments with Bicep file
 
 As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Microsoft Entra tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
 
-### Training resources
+**What you'll learn:**
 
-If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/training/modules/deploy-resources-scopes-bicep/).
+- How to deploy resources at the tenant scope
+- Required permissions and setup steps
+- Deployment commands for tenant-level resources
+- Examples for creating management groups and role assignments
 
 ## Supported resources
 
@@ -20,31 +25,31 @@ Not all resource types can be deployed to the tenant level. This section lists w
 
 For Azure role-based access control (Azure RBAC), use:
 
-* [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+- [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 
 For nested templates that deploy to management groups, subscriptions, or resource groups, use:
 
-* [deployments](/azure/templates/microsoft.resources/deployments)
+- [deployments](/azure/templates/microsoft.resources/deployments)
 
 For creating management groups, use:
 
-* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+- [managementGroups](/azure/templates/microsoft.management/managementgroups)
 
 For creating subscriptions, use:
 
-* [aliases](/azure/templates/microsoft.subscription/aliases)
+- [aliases](/azure/templates/microsoft.subscription/aliases)
 
 For managing costs, use:
 
-* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
-* [billingRoleAssignments](/azure/templates/microsoft.billing/billingaccounts/billingroleassignments)
-* [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
-* [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
-* [policies](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/policies)
+- [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+- [billingRoleAssignments](/azure/templates/microsoft.billing/billingaccounts/billingroleassignments)
+- [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+- [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+- [policies](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/policies)
 
 For configuring the portal, use:
 
-* [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
+- [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
 Built-in policy definitions are tenant-level resources, but you can't deploy custom policy definitions at the tenant. For an example of assigning a built-in policy definition to a resource, see [tenantResourceId example](./bicep-functions-resource.md#tenantresourceid).
 
@@ -106,9 +111,9 @@ New-AzTenantDeployment `
 
 For more detailed information about deployment commands and options for deploying ARM templates, see:
 
-* [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
-* [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
-* [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
+- [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
+- [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
+- [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
 ## Deployment location and name
 
@@ -120,18 +125,18 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 ## Deployment scopes
 
-When deploying to a tenant, you can deploy resources to:
+In a Bicep file, all resources declared with the [`resource`](./resource-declaration.md) keyword must be deployed at the same scope as the deployment. For a tenant deployment, this means all `resource` declarations in the Bicep file must be deployed to the same tenant or as a child or extension resource of a resource in the same tenant as the deployment.  
 
-* the tenant
-* management groups within the tenant
-* subscriptions
-* resource groups
+However, this restriction doesn't apply to [`existing`](./existing-resource.md) resources. You can reference existing resources at a different scope than the deployment.  
 
-An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
+To deploy resources at multiple scopes within a single deployment, use [modules](./modules.md). Deploying a module triggers a "nested deployment," allowing you to target different scopes. The user deploying the parent Bicep file must have the necessary permissions to initiate deployments at those scopes.
 
-The user deploying the template must have access to the specified scope.
+You can deploy a resource from within a tenant scope Bicep file at the following scopes:
 
-This section shows how to specify different scopes. You can combine these different scopes in a single template.
+- [The tenant](#scope-to-tenant)
+- [The management group](#scope-to-management-group)
+- [The subscription](#scope-to-subscription)
+- [The resource group](#scope-to-resource-group)
 
 ### Scope to tenant
 
@@ -141,7 +146,7 @@ Resources defined within the Bicep file are applied to the tenant.
 targetScope = 'tenant'
 
 // create resource at tenant
-resource mgName_resource 'Microsoft.Management/managementGroups@2023-04-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2024-02-01-preview' = {
   ...
 }
 ```
@@ -203,7 +208,7 @@ The following template creates a management group.
 targetScope = 'tenant'
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource mgName_resource 'Microsoft.Management/managementGroups@2023-04-01' = {
+resource mgName_resource 'Microsoft.Management/managementGroups@2024-02-01-preview' = {
   name: mgName
   properties: {}
 }
@@ -237,8 +242,8 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
 
 ## Next steps
 
-To learn about other scopes, see:
+Now that you understand tenant deployments, explore these related deployment scopes:
 
-* [Resource group deployments](deploy-to-resource-group.md)
-* [Subscription deployments](deploy-to-subscription.md)
-* [Management group deployments](deploy-to-management-group.md)
+- **[Resource group deployments](deploy-to-resource-group.md)** - Deploy resources to a specific resource group
+- **[Subscription deployments](deploy-to-subscription.md)** - Deploy resources at the subscription level
+- **[Management group deployments](deploy-to-management-group.md)** - Deploy resources to management groups

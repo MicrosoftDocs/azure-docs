@@ -1,12 +1,14 @@
 ---
 title: Troubleshoot Azure Backup Server
-description: Troubleshoot installation, registration of Azure Backup Server, and backup and restore of application workloads.
+description: Troubleshoot installation, registration of Azure Backup Server, and back up and restore application workloads.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 04/26/2022
+ms.date: 09/09/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+ms.custom: sfi-ropc-nochange
+# Customer intent: As a system administrator, I want to troubleshoot installation and operational issues of Azure Backup Server, so that I can ensure backup and restore processes are running smoothly and efficiently.
 ---
 
 # Troubleshoot Azure Backup Server
@@ -76,7 +78,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Backup | Online recovery point creation failed | **Error Message**: Windows Azure Backup Agent was unable to create a snapshot of the selected volume. <br> **Workaround**: Try increasing the space in replica and recovery point volume.<br> <br> **Error Message**: The Windows Azure Backup Agent can't connect to the OBEngine service <br> **Workaround**: verify that the OBEngine exists in the list of running services on the computer. If the OBEngine service isn't running, use the "net start OBEngine" command to start the OBEngine service. <br> <br> **Error Message**: The encryption passphrase for this server isn't set. Please configure an encryption passphrase. <br> **Workaround**: Try configuring an encryption passphrase. If it fails, take the following steps: <br> <ol><li>Verify that the scratch location exists. This is the location that's mentioned in the registry **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, with the name **ScratchLocation** should exist.</li><li> If the scratch location exists, try re-registering by using the old passphrase. *Whenever you configure an encryption passphrase, save it in a secure location.*</li><ol>|
+| Backup | Online recovery point creation failed | **Error Message**: Windows Azure Backup Agent was unable to create a snapshot of the selected volume. <br> **Workaround**: Try increasing the space in replica and recovery point volume.<br> <br> **Error Message**: The Windows Azure Backup Agent can't connect to the `OBEngine` service <br> **Workaround**: verify that the `OBEngine` exists in the list of running services on the computer. If the `OBEngine` service isn't running, use the "net start OBEngine" command to start the `OBEngine` service. <br> <br> **Error Message**: The encryption passphrase for this server isn't set. Please configure an encryption passphrase. <br> **Workaround**: Try configuring an encryption passphrase. If it fails, take the following steps: <br> <ol><li>Verify that the scratch location exists. This is the location that's mentioned in the registry **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config**, with the name **ScratchLocation** should exist.</li><li> If the scratch location exists, try re-registering by using the old passphrase. *Whenever you configure an encryption passphrase, save it in a secure location.*</li><ol>|
 
 ## The original and external DPM servers must be registered to the same vault
 
@@ -100,7 +102,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operation | Error details | Workaround |
 |-----------|---------------|------------|
-|Installation | Setup could not update registry metadata. This update failure could lead to overusage of storage consumption. To avoid this update the ReFS Trimming registry entry. | Adjust the registry key **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**. Set the value Dword to 1. |
+|Installation | Setup could not update registry metadata. This update failure could lead to overusage of storage consumption. To avoid this update the ReFS Trimming registry entry. | Adjust the registry key **SYSTEM\CurrentControlSet\Control\FileSystem\RefsEnableInlineTrim**. Set the value `Dword` to 1. |
 |Installation | Setup could not update registry metadata. This update failure could lead to overusage of storage consumption. To avoid this, update the Volume SnapOptimization registry entry. | Create the registry key **SOFTWARE\Microsoft Data Protection Manager\Configuration\VolSnapOptimization\WriteIds** with an empty string value. |
 
 ## Registration and agent-related issues
@@ -108,7 +110,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | Operation | Error details | Workaround |
 | --- | --- | --- |
 | Pushing agent(s) to protected servers | The credentials that are specified for the server are invalid. | **If the recommended action that's shown in the product doesn't work, take the following steps**: <br> Try to install the protection agent manually on the production server as specified in [this article](/system-center/dpm/deploy-dpm-protection-agent).|
-| Azure Backup Agent was unable to connect to the Azure Backup service (ID: 100050) | The Azure Backup Agent was unable to connect to the Azure Backup service. | **If the recommended action that's shown in the product doesn't work, take the following steps**: <br>1. Run the following command from an elevated prompt: **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. This opens the Internet Explorer window. <br/> 2. Go to **Tools** > **Internet Options** > **Connections** > **LAN settings**. <br/> 3. Change the settings to use a proxy server. Then provide the proxy server details.<br/> 4. If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs](install-mars-agent.md#verify-internet-access) and [IP address](install-mars-agent.md#verify-internet-access).|
+| Azure Backup Agent was unable to connect to the Azure Backup service (ID: 100050) | The Azure Backup Agent was unable to connect to the Azure Backup service. | **If the recommended action that's shown in the product doesn't work, take the following steps**: <br>1. Run the following command from an elevated prompt: `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe`. This opens the Internet Explorer window. <br/> 2. Go to **Tools** > **Internet Options** > **Connections** > **LAN settings**. <br/> 3. Change the settings to use a proxy server. Then provide the proxy server details.<br/> 4. If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs](install-mars-agent.md#verify-internet-access) and [IP address](install-mars-agent.md#verify-internet-access).|
 | Azure Backup Agent installation failed | The Microsoft Azure Recovery Services installation failed. All changes that were made to the system by the Microsoft Azure Recovery Services installation were rolled back. (ID: 4024) | Manually install Azure Agent.
 | Server registration status verification with Microsoft Azure Backup failed. | The server registration status could not be verified with Microsoft Azure Backup. Verify that you are connected to the internet and that the proxy settings are configured correctly. | You'll encounter this issue when the MARS agent can't contact Azure services. To resolve this issue: <br><br> - Ensure network connectivity and proxy settings. <br><br> - Ensure that you are running the latest MARS agent. <br><br> - [Ensure your server is running on TLS 1.2](transport-layer-security.md). |
 

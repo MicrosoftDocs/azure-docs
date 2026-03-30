@@ -1,12 +1,12 @@
 ---
-title: Tutorial - add outputs to template
-description: Add outputs to your Azure Resource Manager template (ARM template) to simplify the syntax.
-ms.date: 06/20/2024
+title: Tutorial - Add outputs to your Azure Resource Manager template
+description: Learn how to add outputs to your Azure Resource Manager template to simplify the syntax.
+ms.date: 10/29/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
 
-# Tutorial: Add outputs to your ARM template
+# Tutorial: Add outputs to your Azure Resource Manager template
 
 In this tutorial, you learn how to return a value from your Azure Resource Manager template (ARM template). You use outputs when you need a value for a resource you deploy. This tutorial takes **7 minutes** to complete.
 
@@ -14,13 +14,61 @@ In this tutorial, you learn how to return a value from your Azure Resource Manag
 
 We recommend that you complete the [tutorial about variables](template-tutorial-add-variables.md), but it's not required.
 
-You need to have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/) and either Azure PowerShell or the Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 
 At the end of the previous tutorial, your template had the following JSON:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 11
+    },
+    "storageSKU": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS",
+        "Premium_LRS",
+        "Premium_ZRS",
+        "Standard_GZRS",
+        "Standard_RAGZRS"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[variables('uniqueStorageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ]
+}
+```
 
 It deploys a storage account, but it doesn't return any information about it. You might need to capture properties from your new resource so they're available later for reference.
 
@@ -28,9 +76,63 @@ It deploys a storage account, but it doesn't return any information about it. Yo
 
 You can use outputs to return values from the template. It might be helpful, for example, to get the endpoints for your new storage account.
 
-The following example highlights the change to your template to add an output value. Copy the whole file and replace your template with its contents.
+The following example highlights the change to your template to add an output value. Copy the whole file, and replace your template with its contents:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json" range="1-53" highlight="47-52":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 11
+    },
+    "storageSKU": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS",
+        "Premium_LRS",
+        "Premium_ZRS",
+        "Standard_GZRS",
+        "Standard_RAGZRS"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[variables('uniqueStorageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ],
+  "outputs": {
+    "storageEndpoint": {
+      "type": "object",
+      "value": "[reference(variables('uniqueStorageName')).primaryEndpoints]"
+    }
+  }
+}
+```
 
 There are some important items to note about the output value you added.
 
@@ -46,7 +148,7 @@ You're ready to deploy the template and look at the returned value.
 
 If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -59,7 +161,7 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
-To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of the Azure CLI.
 
 ```azurecli
 az deployment group create \

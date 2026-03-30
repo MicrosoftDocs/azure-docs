@@ -51,7 +51,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Android Studio](https://developer.android.com/studio) running on your computer
 - An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md).
 - An Azure Function running the [Authentication Endpoint](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
@@ -80,7 +80,7 @@ With additional configuration, this sample supports connecting to an **Microsoft
    - [Register your app under Microsoft Entra ID (using Android platform settings)](/entra/identity-platform/tutorial-v2-android) 
    - [Configure your App Service or Azure Functions app to use Microsoft Entra login](../../../app-service/configure-authentication-provider-aad.md)
 
-2. Go to your registered app overview page under Microsoft Entra App Registrations. Take note of the `Package name`, `Signature hash`, `MSAL Configutaion`.
+2. Go to your registered app overview page under Microsoft Entra App Registrations. Take note of the `Package name`, `Signature hash`, `MSAL Configuration`.
 
 :::image type="content" source="../media/calling/aad-overview-android.png" alt-text="Microsoft Entra configuration on Azure portal.":::
 

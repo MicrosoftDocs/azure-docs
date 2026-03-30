@@ -6,13 +6,14 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a network administrator, I want to understand delegated subnet limits for Oracle Database@Azure, so that I can effectively manage and plan my cloud network resources.
 ---
 
 # Delegated subnet limits 
 
 In this article, you learn about delegated subnet limits for Oracle Database@Azure.
 
-Oracle Database@Azure infrastructure resources are connected to your Azure virtual network using a virtual NIC from your [delegated subnets](/azure/virtual-network/subnet-delegation-overview) (delegated to `Oracle.Database/networkAttachement`). By default, the Oracle Database@Azure service can use up to five delegated subnets. If you need more delegated subnet capacity, you can request a service limit increase.
+Oracle Database@Azure infrastructure resources are connected to your Azure virtual network using a virtual NIC from your [delegated subnets](/azure/virtual-network/subnet-delegation-overview) (delegated to `Oracle.Database/networkAttachment`). By default, the Oracle Database@Azure service can use up to five delegated subnets. If you need more delegated subnet capacity, you can request a service limit increase.
 
 ## Service limits in the OCI Console
 

@@ -1,16 +1,21 @@
 ---
-title: Create workflows with multiple Azure services
-description: Learn to build an automated workflow using Azure Logic Apps, Azure Functions, and Azure Storage.
+title: Create Workflows with Multiple Azure Services
+description: Build an automated workflow that integrates Azure Functions and Azure Storage by using Azure Logic Apps.
 services: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
-ms.custom: "mvc, devx-track-csharp"
-ms.date: 08/07/2024
+ms.update-cycle: 180-days
+ms.date: 01/31/2026
+ms.custom:
+  - mvc
+  - devx-track-csharp
+  - sfi-image-nochange
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn how to integrate more than one service in a logic app workflow.
 ---
 
-# Tutorial: Create workflows that process emails using Azure Logic Apps, Azure Functions, and Azure Storage
+# Tutorial: Create an automated workflow that processes emails by using Azure Functions and Azure Storage in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
@@ -18,7 +23,7 @@ This tutorial shows how to build an example workflow that integrates Azure Funct
 
 When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot shows example Consumption high-level workflow." lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
+:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot that shows a high-level example Consumption workflow." lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
 
 > [!TIP]
 >
@@ -35,7 +40,7 @@ You can create a similar workflow with a Standard logic app resource where some 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An email account from an email provider supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
@@ -183,9 +188,7 @@ The following steps create an Azure function that your workflow calls to remove 
 
 ## Create function to remove HTML
 
-The following steps create an Azure function that removes HTML from each incoming email by using the sample code snippet. This function makes the email content cleaner and easier to process. You can call this function from your workflow.
-
-For more information, see [Create your first function in the Azure portal](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-function). For expanded function creation, you can also [create your function locally](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-your-functions-locally).
+The following steps create an Azure function in C# that removes HTML from each incoming email by using the sample code snippet. This function makes the email content cleaner and easier to process. You can call this function from your workflow.
 
 1. In the [Azure portal](https://portal.azure.com), open your function app, if not already open.
 
@@ -193,20 +196,18 @@ For more information, see [Create your first function in the Azure portal](../az
 
 1. On the function app menu, select **Overview**. On the **Functions** tab, select **Create**.
 
-1. On the **Create function** pane, select **HTTP trigger: C#** > **Next**.
-
    > [!NOTE]
    >
-   > If you don't see the C# version, make sure to 
+   > If you don't see the **Create** button, [you must instead create your function locally](../azure-functions/functions-develop-local.md#local-development-environments).
 
-1. Provide the following information for your function, and select **Create**:
+1. [Follow these generic steps to create your function in C# using the **HTTP trigger** template](../azure-functions/functions-create-http-endpoint.md?pivots=programming-language-csharp#create-function), and provide the following information for your function:
 
    | Parameter | Value |
    |-----------|-------|
    | **Function name** | **RemoveHTMLFunction** |
    | **Authorization level** | **Function** |
 
-1. On the **Code + Test** tab, enter the following sample code, which removes HTML and returns the results to the caller.
+1. On the **Code + Test** tab, enter the following C# sample code, which removes HTML and returns the results to the caller.
 
    ```csharp
    #r "Newtonsoft.Json"
@@ -271,8 +272,8 @@ After you confirm that your function works, create your logic app resource and w
    > [!NOTE]
    >
    > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
-   > [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
-   > For more information, see [Reliability in Azure Functions](../reliability/reliability-functions.md#availability-zone-support) and 
+   > [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support). 
+   > For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#resilience-to-availability-zone-failures) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
 1. When you're ready, select **Review + create**. After Azure validates the information about your logic app resource, select **Create**.

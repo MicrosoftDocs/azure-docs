@@ -5,9 +5,10 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/25/2021
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 # Kubernetes storage management on your Azure Stack Edge Pro GPU device
 

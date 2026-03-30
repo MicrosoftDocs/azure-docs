@@ -1,15 +1,14 @@
 ---
 title: Fail back Hyper-V VMs from Azure with Azure Site Recovery 
 description: How to fail back Hyper-V VMs to an on-premises site from Azure with Azure Site Recovery.
-services: site-recovery
-author: ankitaduttaMSFT
-manager: gaggupta
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/14/2023
-ms.author: ankitadutta
+ms.date: 08/29/2025
+ms.author: v-gajeronika
 ms.custom: engagement-fy23
 
+# Customer intent: "As a system administrator, I want to fail back Hyper-V VMs from Azure to an on-premises site, so that I can ensure minimal downtime and maintain data consistency while transitioning workloads back to local infrastructure."
 ---
 
 # Run a failback for Hyper-V VMs
@@ -22,7 +21,7 @@ This article describes how to fail back Azure VMs that were created after failov
 
 ## Before you start
 
-1. [Review the types of failback](failover-failback-overview.md#hyper-v-reprotectionfailback) you can use - original location recovery and alternate location recovery.
+1. [Review the types of failback](concepts-types-of-failback.md) you can use - original location recovery and alternate location recovery.
 2. Ensure that the Azure VMs are using managed disks. Failback of Hyper-V virtual machines, that failed over to Azure machines using managed disks, is supported. It is not recommended to use storage accounts, as they will be [fully retired on September 30, 2025](/azure/virtual-machines/unmanaged-disks-deprecation).
 3. Check that the on-premises Hyper-V host (or System Center VMM server if you're using with Site Recovery) is running and connected to Azure. 
 4. Make sure that failover and commit are complete for the VMs. You don't need to set up any specific Site Recovery components for failback of Hyper-V VMs from Azure.
@@ -31,11 +30,15 @@ This article describes how to fail back Azure VMs that were created after failov
 >[!NOTE]
 > Failing back to alternate location is not possible when using recovery plans. 
 
+>[!NOTE]
+> **Failback not supported when VM metadata is not present in VMM database**
+If the VM metadata doesn't exist in VMM database then failback will fail. In other words, for failback from Azure to VMM, we expect the metadata of the VM to be present in the VMM database.
+
 ## Fail back to the original location
 
 To fail back Hyper-V VMs in Azure to the original on-premises VM, run a planned failover from Azure to the on-premises site as follows:
 
-1. In the vault > **Replicated items**, select the VM. Right-click the VM > **Planned Failover**. If you're failing back a recovery plan, select the plan name and click **Failover** > **Planned Failover**.
+1. In the vault > **Replicated items**, select the VM. Right-click the VM > **Planned Failover**. If you're failing back a recovery plan, select the plan name and select **Failover** > **Planned Failover**.
 2. In **Confirm Planned Failover**, choose the source and target locations. Note the failover direction. If the failover from primary worked as expected and all virtual machines are in the secondary location this is for information only.
 3. In **Data Synchronization**, select an option:
 	- **Synchronize data before failover (synchronize delta changes only)**—This option minimizes downtime for VMs as it synchronizes without shutting them down.
@@ -47,13 +50,13 @@ To fail back Hyper-V VMs in Azure to the original on-premises VM, run a planned 
 
 4. For VMM only, if data encryption is enabled for the cloud, in **Encryption Key**, select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
 5. Initiate the failover. You can follow the failover progress on the **Jobs** tab.
-6. If you selected the option to synchronize the data before the failover, after the initial data synchronization is complete and you're ready to shut down the virtual machines in Azure, click **Jobs** > job name > **Complete Failover**. This does the following:
+6. If you selected the option to synchronize the data before the failover, after the initial data synchronization is complete and you're ready to shut down the virtual machines in Azure, select **Jobs** > job name > **Complete Failover**. This does the following:
     - Shuts down the Azure machine.
 	- Transfers the latest changes to the on-premises VM.
 	- Starts the on-premises VM.
 7. You can now sign into the on-premises VM machine to check that it's available as expected.
-8. The virtual machine is in a commit pending state. Click **Commit** to commit the failover.
-9. To complete the failback, click **Reverse Replicate** to start replicating the on-premises VM to Azure again.
+8. The virtual machine is in a commit pending state. Select **Commit** to commit the failover.
+9. To complete the failback, select **Reverse Replicate** to start replicating the on-premises VM to Azure again. You can [failback to original location](hyper-v-azure-failback.md#fail-back-to-the-original-location).
 
 
 
@@ -70,11 +73,11 @@ Fail back to an alternate location as follows:
 	- **Phase 1**: Takes snapshot of the Azure VM and copies it to the on-premises Hyper-V host. The machine continues running in Azure.
 	- **Phase 2**: Shuts down the Azure VM so that no new changes occur there. The final set of changes is transferred to the on-premises server and the on-premises virtual machine is started up.
 	
-7. Click the checkmark to begin the failover (failback).
-8. After the initial synchronization finishes and you're ready to shut down the Azure VM, click **Jobs** > \<planned failover job> > **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises VM, and starts it.
+7. Select the checkmark to begin the failover (failback).
+8. After the initial synchronization finishes and you're ready to shut down the Azure VM, select **Jobs** > \<planned failover job> > **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises VM, and starts it.
 9. You can sign into the on-premises VM to verify that everything is working as expected.
-10. Click **Commit** to finish the failover. Commit deletes the Azure VM and its disks, and prepares the on-premises VM to be protected again.
-10. Click **Reverse Replicate** to start replicating the on-premises VM to Azure. Only the delta changes since the VM was turned off in Azure will be replicated.
+10. Select **Commit** to finish the failover. Commit deletes the Azure VM and its disks, and prepares the on-premises VM to be protected again.
+11. Select **Reverse Replicate** to start replicating the on-premises VM to Azure. Only the delta changes since the VM was turned off in Azure will be replicated. You can now [fail back to the alternate location](hyper-v-azure-failback.md#fail-back-to-an-alternate-location).
 
     > [!NOTE]
     > - If you cancel the failback job during data synchronization, the on-premises VM will be in a corrupted state. This is because data synchronization copies the latest data from Azure VM disks to the on-premises data disks, and until the synchronization completes, the disk data may not be in a consistent state. If the on-premises VM starts after data synchronization is canceled, it might not boot. In this case, rerun the failover to complete data synchronization.

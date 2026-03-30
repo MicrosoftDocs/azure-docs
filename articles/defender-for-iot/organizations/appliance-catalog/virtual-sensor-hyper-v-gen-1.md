@@ -23,7 +23,7 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 
 ## Prerequisites
 
-The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
+Before you begin the installation, make sure you have the following items:
 
 - Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational. For more information, see [Introduction to Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/about).
 
@@ -76,7 +76,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select **BIOS**, in **Startup order** move **IDE** to the top of the list, select **Apply** and then select **OK**.
 
-1. Connect the management console's ISO image to a virtual DVD drive.
+1. Connect the OT sensor's ISO image to a virtual DVD drive.
 
 1. Start the virtual machine.
 
@@ -97,4 +97,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

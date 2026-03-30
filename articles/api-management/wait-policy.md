@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -42,7 +42,7 @@ May contain as child elements only `send-request`, `cache-lookup-value`, and `ch
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
@@ -50,11 +50,15 @@ May contain as child elements only `send-request`, `cache-lookup-value`, and `ch
 
 In the following example, there are two `choose` policies as immediate child policies of the `wait` policy. Each of these `choose` policies executes in parallel. Each `choose` policy attempts to retrieve a cached value. If there is a cache miss, a backend service is called to provide the value. In this example the `wait` policy does not complete until all of its immediate child policies complete, because the `for` attribute is set to `all`. In this example the context variables (`execute-branch-one`, `value-one`, `execute-branch-two`, and `value-two`) are declared outside of the scope of this example policy.
 
+> [!NOTE]
+> [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
+
 ```xml
 <wait for="all">
   <choose>
     <when condition="@((bool)context.Variables["execute-branch-one="])">
       <cache-lookup-value key="key-one" variable-name="value-one" />
+      <rate-limit calls="10" renewal-period="60" />
       <choose>
         <when condition="@(!context.Variables.ContainsKey("value-one="))">
           <send-request mode="new" response-variable-name="value-one">
@@ -68,6 +72,7 @@ In the following example, there are two `choose` policies as immediate child pol
   <choose>
     <when condition="@((bool)context.Variables["execute-branch-two="])">
       <cache-lookup-value key="key-two" variable-name="value-two" />
+      <rate-limit calls="10" renewal-period="60" />
       <choose>
         <when condition="@(!context.Variables.ContainsKey("value-two="))">
           <send-request mode="new" response-variable-name="value-two">

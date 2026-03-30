@@ -6,35 +6,21 @@
 title: Understand Device Update for Azure IoT Hub TLS download capabilities
 description: Key concepts to understand for TLS download of update content from Device Update for IoT Hub.
 author:      andrewbrownmsft # GitHub alias
-ms.author: andbrown
-ms.service: iot-hub-device-update
+ms.author: cwatson
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date:     06/07/2024
+ms.subservice: device-update
 ---
 
 # How to understand and use the Transport Layer Security (TLS) download feature in Device Update for IoT Hub (Preview)
 
-When a device downloads an update from the Device Update service, the connection between the Device Update service and the device is HTTP-based. If a TLS connection (HTTPS) between the Device Update service and the device is preferred, this capability can be enabled upon request.
+When a device downloads an update from the Device Update service, the connection between the Device Update service and the device is HTTP-based. If a TLS connection (HTTPS) between the Device Update service and the device is preferred, this capability is currently under consideration.
 
->[!NOTE]
->The TLS download feature is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!NOTE]
+> The TLS download feature preview is currently closed. This page is being maintained for existing preview customers. The page will be updated if the preview is re-opened for additional customers.
 
-## How to enable the TLS download feature
-
-Obtain your Azure Subscription ID and your Device Update for IoT Hub *account*, *instance*, and *Azure region* information. Here's how to find that information:
-
-- Azure Subscription ID:
-  - See this article: [https://aka.ms/get-subscription-id](https://aka.ms/get-subscription-id)
-    
-- Device Update for IoT Hub information:
-  - Go to the [Azure portal](https://portal.azure.com/).
-  - Search for "Device Update for IoT Hubs" and select the **Device Update for IoT Hubs** option.
-  - Select your Device Update account. The *account name* is at the top of the screen.
-  - Select the **Overview** view from the left-hand navigation pane. Look for the "Location" field (such as "West US 2"). This field is your *Azure region*.
-  - Under the **Instance Management** heading in the left-hand navigation bar, select **Instances**. You'll see your *instance name*.
-  - Use [this link](https://nam.dcv.ms/dBgKOpqIL7) to submit the information. You'll receive a reply when your Device Update instance is enabled for the preview TLS download feature.
-    
-## Additional changes if using FreeRTOS
+## Additional considerations if using FreeRTOS
 
 If you're using FreeRTOS, the [Azure IoT Middleware for FreeRTOS](https://github.com/Azure/azure-iot-middleware-freertos) and [FreeRTOS samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples) available from Microsoft currently support HTTP URLs and need to be modified for TLS (HTTPS) URLs:
 
@@ -54,6 +40,8 @@ Finally, you may also need to make changes to your own implementation, such as c
 ## Certificate information
 
 The certificate used to enable the TLS connection is issued by: **Microsoft Azure RSA TLS Issuing CA 03**. Devices that download content over TLS from the Device Update service will need to be provisioned with one or more certificates that have Microsoft Azure RSA TLS Issuing CA 03 as their root.
+
+RSA certificates are supported, but the client needs to specify cipher TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 on TLS1.2. If possible, using an ECC certificate backed by DigiCert Global Root G3 is recommended instead.
 
 ## Next steps
 

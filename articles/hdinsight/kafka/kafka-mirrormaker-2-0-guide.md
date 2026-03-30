@@ -3,8 +3,13 @@ title: Apache Kafka MirrorMaker 2.0 guide - Azure HDInsight
 description: How to use Kafka MirrorMaker 2.0 in data migration/replication and the use-cases.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 05/09/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-ropc-nochange
 ---
 
 # How to use Kafka MirrorMaker 2.0 in data migration, replication and the use-cases
@@ -42,7 +47,7 @@ The summary of the broker setup process is as follows:
 
 **MirrorCheckpointConnector:**
 
-  1. Consumes offset-syncsr.
+  1. Consumes offset-syncs.
   1. Emits checkpoints to enable failover points.
   
 **MirrorHeartBeatConnector:**

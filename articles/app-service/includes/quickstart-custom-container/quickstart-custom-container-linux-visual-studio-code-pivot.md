@@ -4,196 +4,176 @@ ms.service: azure-app-service
 ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart
-ms.date: 06/30/2022
+ms.date: 03/18/2025
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, PHP, Node.js and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from an [Azure Container Registry (ACR)](/azure/container-registry/) to App Service.
+In this quickstart, you learn how to deploy an image from [Azure Container Registry](/azure/container-registry/) to Azure App Service.
 
-> [!NOTE]
-> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
->
+[App Service](../../overview.md) on Linux provides predefined application stacks on Linux with support for languages like .NET, Java, Node.js, and PHP. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure.
 
-To complete this quickstart, you need:
+For more information about containerized applications in a serverless environment, see [Container apps](../../../container-apps/overview.md).
 
-* An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-* [Docker](https://www.docker.com/community-edition)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* The [Azure App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). You can use this extension to create, manage, and deploy Linux Web Apps on the Azure Platform as a Service (PaaS).
-* The [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). You can use this extension to simplify the management of local Docker images and commands and to deploy built app images to Azure.
+## Prerequisites
 
-## 1 - Create a container registry
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Docker](https://www.docker.com/community-edition).
+- [VS Code](https://code.visualstudio.com/).
+- The [Azure App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). You can use this extension to create, manage, and deploy Linux web apps with Azure platform as a service (PaaS).
+- The [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). You can use this extension to simplify the management of local Docker images and commands and to deploy built app images to Azure.
 
-This quickstart uses Azure Container Registry as the registry of choice. You're free to use other registries, but the steps may differ slightly.
+## Create a container registry
 
-Create a container registry by following the instructions in [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal).
+This quickstart uses Azure Container Registry as the registry. You can use other registries, but the steps might differ slightly.
+
+Create a container registry by following the instructions in [Quickstart: Create a private container registry by using the Azure portal](/azure/container-registry/container-registry-get-started-portal).
 
 > [!IMPORTANT]
-> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#vi-configure-the-web-app).
+> Be sure to set the **Admin User** option to **Enable** when you create the container registry. You can also set it from the **Access keys** section of your registry pane in the Azure portal. You need this setting to access App Service. For a managed identity, see [Deploy from Azure Container Registry](../../tutorial-custom-container.md?pivots=container-linux#configure-the-web-app).
 
-## 2 - Sign in
+## Sign in
 
-1. Launch Visual Studio Code. 
-1. Select the **Azure** logo in the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), navigate to the **APP SERVICE** explorer, then select **Sign in to Azure** and follow the instructions.
+1. Open VS Code.
 
-    ![Screenshot of signing into Azure in Visual Studio Code.](../../media/quickstart-docker/sign-in.png)
+1. Select the **Azure** logo on the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and then go to **ACCOUNTS & TENANTS**. Select **Sign in to Azure** and follow the instructions.
 
-1. In the [Status Bar](https://code.visualstudio.com/docs/getstarted/userinterface) at the bottom, verify your Azure account email address. In the **APP SERVICE** explorer, your subscription should be displayed.
+   :::image type="content" source="../../media/quickstart-docker/sign-in.png" alt-text="Screenshot that shows how to sign in to Azure in VS Code.":::
 
-1. In the Activity Bar, select the **Docker** logo. In the **REGISTRIES** explorer, verify that the container registry you created appears.
+1. In the [status bar](https://code.visualstudio.com/docs/getstarted/userinterface) at the bottom, verify that your Azure account email address is correct. Your subscription should be displayed in the **APP SERVICE** explorer.
 
-    ![Screenshot shows the Registries value with Azure expanded.](../../media/quickstart-docker/registries.png)
+1. In the activity bar, select the **Docker** logo. In the **REGISTRIES** explorer, verify that the container registry you created appears.
 
-## 3 - Check prerequisites
+   :::image type="content" source="../../media/quickstart-docker/registries.png" alt-text="Screenshot that shows the Registries value with Azure expanded.":::
 
-Verify that you have Docker installed and running. The following command will display the Docker version if it's running.
+## Check prerequisites
+
+Verify that Docker is installed and running. If Docker is running, the following command displays the Docker version:
 
 ```bash
 docker --version
 ```
 
-## 4 - Create and build image
+## Create and build image
 
-1. In Visual Studio Code, open an empty folder and add a file called `Dockerfile`. In the Dockerfile, paste in the content based on your desired language framework:
+1. In VS Code, open an empty folder and add a file called `Dockerfile`. In the file, paste the content based on your desired language framework:
 
-# [.NET](#tab/dotnet)
+   # [.NET](#tab/dotnet)
 
-<!-- https://mcr.microsoft.com/v2/appsvc%2Fdotnetcore/tags/list -->
-```dockerfile
-FROM mcr.microsoft.com/appsvc/dotnetcore:lts
+   In this file, the parent image is one of the built-in .NET containers of App Service.
 
-ENV PORT 8080
-EXPOSE 8080
+   <!-- https://mcr.microsoft.com/v2/appsvc%2Fdotnetcore/tags/list -->
+   ```dockerfile
+   FROM mcr.microsoft.com/appsvc/dotnetcore:lts
 
-ENV ASPNETCORE_URLS "http://*:${PORT}"
+   ENV PORT 8080
+   EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
-```
+   ENV ASPNETCORE_URLS "http://*:${PORT}"
 
-In this Dockerfile, the parent image is one of the built-in .NET containers of App Service.
+   ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
+   ```
 
-# [Node.js](#tab/node)
+   # [Java](#tab/java)
 
-<!-- https://mcr.microsoft.com/v2/appsvc%2Fnode/tags/list -->
-```dockerfile
-FROM mcr.microsoft.com/appsvc/node:10-lts
+   In this file, the parent image is one of the built-in Java containers of App Service. You can find the source files at [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts that app.
 
-ENV HOST 0.0.0.0
-ENV PORT 8080
-EXPOSE 8080
+   <!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
+   ```dockerfile
+   FROM mcr.microsoft.com/azure-app-service/java:11-java11_stable
 
-ENTRYPOINT ["pm2", "start", "--no-daemon", "/opt/startup/default-static-site.js"]
-```
+   ENV PORT 80
+   EXPOSE 80
 
-In this Dockerfile, the parent image is one of the built-in Node.js containers of App Service.
+   ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
+   ```
 
-# [Python](#tab/python)
+   # [Node.js](#tab/node)
 
-<!-- https://mcr.microsoft.com/v2/appsvc%2Fpython/tags/list -->
-```dockerfile
-FROM mcr.microsoft.com/appsvc/python:latest
+   In this Dockerfile, the parent image is one of the built-in Node.js containers of App Service.
 
-ENV PORT 8080
-EXPOSE 8080
+   <!-- https://mcr.microsoft.com/v2/appsvc%2Fnode/tags/list -->
+   ```dockerfile
+   FROM mcr.microsoft.com/appsvc/node:10-lts
 
-ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
-```
+   ENV HOST 0.0.0.0
+   ENV PORT 8080
+   EXPOSE 8080
 
-In this Dockerfile, the parent image is one of the built-in Python containers of App Service.
+   ENTRYPOINT ["pm2", "start", "--no-daemon", "/opt/startup/default-static-site.js"]
+   ```
 
-# [Java](#tab/java)
+   # [Python](#tab/python)
 
-<!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
-```dockerfile
-FROM mcr.microsoft.com/azure-app-service/java:11-java11_stable
+   In this Dockerfile, the parent image is one of the built-in Python containers of App Service.
 
-ENV PORT 80
-EXPOSE 80
+   <!-- https://mcr.microsoft.com/v2/appsvc%2Fpython/tags/list -->
+   ```dockerfile
+   FROM mcr.microsoft.com/appsvc/python:latest
 
-ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
-```
+   ENV PORT 8080
+   EXPOSE 8080
 
-In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it [in the Azure-App-Service/java GitHub repository, under java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile simply starts that app.
+   ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
+   ```
+   ---
 
----
+1. [Open the command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and then type **Docker Images: Build Image**. Select **Enter** to run the command.
 
-2. [Open the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and type **Docker Images: Build Image**. Type **Enter** to run the command.
+1. In the image tag box, specify the tag you want in the following format: `<acr-name>.azurecr.io/<image-name>:<tag>`, where `<acr-name>` is the name of the container registry you created. Select **Enter**.
 
-3. In the image tag box, specify the tag you want in the following format: `<acr-name>.azurecr.io/<image-name>:<tag>`, where `<acr-name>` is the name of the container registry you created. Press **Enter**.
+1. When the image finishes building, select **Refresh** at the top of the **IMAGES** explorer and verify that the image built successfully.
 
-4. When the image finishes building, click **Refresh** at the top of the **IMAGES** explorer and verify that the image is built successfully.
+   :::image type="content" source="../../media/quickstart-docker/built-image.png" alt-text="Screenshot that shows the built image with tag.":::
 
-    ![Screenshot shows the built image with tag.](../../media/quickstart-docker/built-image.png)
+## Deploy to container registry
 
-## 5 - Deploy to container registry
+1. In the activity bar, select the **Docker** icon. In the **IMAGES** explorer, find the image you built.
+1. Expand the image, right-click on the tag you want, and select **Push**.
+1. Make sure the image tag begins with `<acr-name>.azurecr.io` and select **Enter**.
+1. When VS Code finishes pushing the image to your container registry, select **Refresh** at the top of the **REGISTRIES** explorer and verify that the image was pushed successfully.
 
-1. In the Activity Bar, click the **Docker** icon. In the **IMAGES** explorer, find the image you built.
-1. Expand the image, right-click on the tag you want, and click **Push**.
-1. Make sure the image tag begins with `<acr-name>.azurecr.io` and press **Enter**.
-1. When Visual Studio Code finishes pushing the image to your container registry, click **Refresh** at the top of the **REGISTRIES** explorer and verify that the image is pushed successfully.
+   :::image type="content" source="../../media/quickstart-docker/image-in-registry.png" alt-text="Screenshot that shows the image deployed to Azure Container Registry.":::
 
-    ![Screenshot shows the image deployed to Azure container registry.](../../media/quickstart-docker/image-in-registry.png)
+## Deploy to App Service
 
-##  6 - Deploy to App Service
-
-1. In the **REGISTRIES** explorer, expand the image, right-click the tag, and select **Deploy image to Azure App Service**.
-1. Follow the prompts to choose a subscription, a globally unique app name, a resource group, and an App Service plan. Choose **B1 Basic** for the pricing tier, and a region near you.
+1. In the **REGISTRIES** explorer, expand the image, right-click the tag, and then select **Deploy Image to Azure App Service**.
+1. Follow the prompts to select a subscription, a globally unique app name, a resource group, and an App Service plan. Select **B1 Basic** for the pricing tier, and a region near you.
 
 After deployment, your app is available at `http://<app-name>.azurewebsites.net`.
 
-A **Resource Group** is a named collection of all your application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
+A resource group is a named collection of all your application's resources in Azure. For example, a resource group can contain a reference to a website, a database, and an Azure function.
 
-An **App Service Plan** defines the physical resources that will be used to host your website. This quickstart uses a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. If you start with the **Basic** plan, you can use the Azure portal to scale up so that yours is the only site running on a machine. For pricing, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux).
+An App Service plan defines the physical resources to use to host your website. This quickstart uses the Basic hosting plan on Linux infrastructure, which means the site is hosted on a Linux machine alongside other websites. If you start with the Basic plan, you can use the Azure portal to scale up so that a machine runs only your site. For pricing, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux).
 
-## 7 - Browse the website
+## Browse the website
 
-The **Output** panel shows the status of the deployment operations. When the operation completes, select **Open Site** in the pop-up notification to open the site in your browser.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
-
-## 8 - Clean up resources
-
-[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
-
-## Next steps
-
-Congratulations, you've successfully completed this quickstart.
+The **Output** panel shows the status of the deployment operations. When the operation finishes, select **Open Site** in the pop-up notification to open the site in your browser.
 
 The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
-> [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
+To troubleshoot, go to [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app).
 
-> [!div class="nextstepaction"]
-> [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
+## Clean up resources
 
-> [!div class="nextstepaction"]
-> [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
+[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
 
-> [!div class="nextstepaction"]
-> [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
+## Related content
 
-> [!div class="nextstepaction"]
-> [Azure Monitor overview](/azure/azure-monitor/overview)
-
-> [!div class="nextstepaction"]
-> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
-
-> [!div class="nextstepaction"]
-> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
-
-> [!div class="nextstepaction"]
-> [Configure custom container](../../configure-custom-container.md)
-
-> [!div class="nextstepaction"]
-> [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)
-
+- [Secure with a custom domain and certificate](../../tutorial-secure-domain-certificate.md)
+- [Migrate to a Windows container in Azure](../../tutorial-custom-container.md)
+- [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
+- [Use private endpoints for App Service apps](../../networking/private-endpoint.md)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+- [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
+- [Configure custom container](../../configure-custom-container.md)
+- [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)
 
 Other Azure extensions:
 
-* [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
-* [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-* [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
-* [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-* [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack includes all the extensions above.
+- [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+- [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+- [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+- [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+- [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack includes all the extensions in this list.
+

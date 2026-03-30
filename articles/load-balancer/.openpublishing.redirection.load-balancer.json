@@ -156,6 +156,56 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/load-balancer/basic/ipv6-configure-template-json.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/basic/overview.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/basic/quickstart-basic-internal-load-balancer-cli.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/basic/quickstart-basic-internal-load-balancer-portal.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/basic/quickstart-basic-internal-load-balancer-powershell.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/basic/quickstart-basic-public-load-balancer-cli.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/basic/quickstart-basic-public-load-balancer-portal.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/basic/quickstart-basic-public-load-balancer-powershell.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/basic/virtual-network-ipv4-ipv6-dual-stack-cli.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/basic/virtual-network-ipv4-ipv6-dual-stack-powershell.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-basic-upgrade-guidance",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md",
             "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
             "redirect_document_id": false
@@ -373,6 +423,50 @@
         {
             "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-cli.md",
             "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/upgrade-internalbasic-to-publicstandard.md",
+            "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-gateway-portal.md",
+            "redirect_url": "/azure/load-balancer/tutorial-create-gateway-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-gateway-cli.md",
+            "redirect_url": "/azure/load-balancer/tutorial-create-gateway-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-gateway-powershell.md",
+            "redirect_url": "/azure/load-balancer/tutorial-create-gateway-load-balancer",
+            "redirect_document_id": false
+        },
+        {            "source_path_from_root": "/articles/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md",
+        "redirect_url": "/azure/load-balancer/deploy-ipv4-ipv6-dual-stack-standard-load-balancer",
+        "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md",
+            "redirect_url": "/azure/load-balancer/deploy-ipv4-ipv6-dual-stack-standard-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/ipv6-configure-standard-load-balancer-template-json.md",
+            "redirect_url": "/azure/load-balancer/deploy-ipv4-ipv6-dual-stack-standard-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-multiple-ip-cli.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-multiple-ip-powershell.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip",
             "redirect_document_id": false
         }
     ]

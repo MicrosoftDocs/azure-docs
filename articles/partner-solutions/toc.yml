@@ -1,34 +1,60 @@
 items:
-- name: Azure Native ISV Services documentation
+- name: Azure Native Integrations documentation
   items:
-  - name: Overview of Azure Native ISV Services
+  - name: Overview
     href: overview.md
   - name: Partner services
     href: partners.md
+  - name: Frequently asked questions
+    href: faq.yml
 - name: Partner services documentation
   expanded: true
   items:
-  - name: Datadog - An Azure Native ISV Service
-    href: ./datadog/index.yml
-  - name: Elastic
-    href: ./elastic/index.yml
-  - name: Logz.io
-    href: ./logzio/index.yml
-  - name: Azure Native Dynatrace Service
-    href: ./dynatrace/index.yml
-  - name: Azure Native New Relic Service
-    href: ./new-relic/index.yml
-  - name: Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service
-    href: ./apache-kafka-confluent-cloud/index.yml
-  - name: Azure Native Qumulo Scalable File Service 
-    href: ./qumulo/index.yml
-  - name: NGINXaaS - Azure Native ISV Service
-    href: ./nginx/index.yml
-  - name: Cloud NGFW by Palo Alto Networks - Azure Native ISV Service
-    href: ./palo-alto/index.yml
-  - name: Apache Airflow on Astro - An Azure Native ISV Service
-    href: ./astronomer/index.yml
-  - name: Informatica Intelligent Data Management Cloud (Preview) - Azure Native ISV Service
-    href: ./informatica/index.yml
-  - name: Split Experimentation
-    href: ./split-experimentation/index.yml
+  - name: AI partners
+    items: 
+    - name: Arize AI
+      href: ./arize-ai/index.yml
+    - name: LambdaTest - HyperExecute
+      href: ./lambda-test/index.yml
+  - name: Observability partners
+    items:
+    - name: Datadog
+      href: ./datadog/index.yml
+    - name: Dynatrace
+      href: ./dynatrace/index.yml
+    - name: Elastic
+      href: ./elastic/index.yml
+    - name: New Relic
+      href: ./new-relic/index.yml
+    - name: Features
+      items: 
+      - name: Metrics and logs
+        href: metrics-logs.md
+  - name: Data and storage partners
+    items:
+    - name: Astro
+      href: ./astronomer/index.yml
+    - name: Confluent
+      href: ./apache-kafka-confluent-cloud/index.yml
+    - name: Dell PowerScale Preview
+      href: ./dell/index.yml
+    - name: Informatica 
+      href: ./informatica/index.yml
+    - name: MongoDB Atlas
+      href: ./mongo-db/index.yml
+    - name: Neon Serverless Postgres
+      href: ./neon/index.yml 
+    - name: Pure Storage Cloud
+      href: ./pure-storage/index.yml
+    - name: Qumulo 
+      href: ./qumulo/index.yml
+  - name: Network and security partners
+    items:
+    - name: F5
+      href: ./nginx/index.yml
+    - name: Palo Alto Network
+      href: ./palo-alto/index.yml
+
+
+
+

@@ -1,11 +1,10 @@
 ---
 title: Microsoft Sentinel SOAR content catalog | Microsoft Docs
 description: This article displays and details the content provided by Microsoft Sentinel for security orchestration, automation, and response (SOAR), including playbooks and Logic Apps connectors.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 10/18/2021
-ms.author: yelevin
-
 
 #Customer intent: As a security analyst, I want to integrate various security tools and automate threat responses using SOAR capabilities, so that I can enhance incident management and streamline security operations.
 

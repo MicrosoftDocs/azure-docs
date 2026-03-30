@@ -2,31 +2,35 @@
 title: Soft delete for virtual machines
 description: Learn how soft delete for virtual machines makes backups more secure.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 09/24/2025
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to utilize soft delete for virtual machine backups, so that I can recover accidentally deleted backup data within a 14-day window and enhance data resilience against unintentional deletions.
 ---
 # Soft delete for virtual machines
-
-Soft delete for VMs protects the backups of your VMs from unintended deletion. Even after the backups are deleted, they're preserved in soft-delete state for 14 more days.
+This article describes how soft delete for virtual machines (VMs) in Azure Backup helps safeguard your backup data against accidental or malicious deletion. When a VM backup is deleted, the backup data is retained in a soft-delete state for 14 days, allowing you to recover it if needed. This feature enhances data resilience and ensures that you have a window to restore critical backup data before it's permanently removed.
 
 > [!NOTE]
 > Soft delete only protects deleted backup data. If a VM is deleted without a backup, the soft delete feature won't preserve the data. All resources should be protected with Azure Backup to ensure full resilience.
 >
 
-## Supported regions
+## Supported regions for soft delete of Azure VM backups
 
 Soft delete is available in all Azure Public and National regions.
 
-## Soft delete for VMs using Azure portal
+## Soft delete Azure VM backups
+
+**Choose a client**:
+
+# [Azure portal](#tab/azure-portal)
 
 1. To delete the backup data of a Virtual Machine (VM), the backup must be stopped. In the Azure portal, go to your Recovery Services vault, right-click on the backup item and choose **Stop backup**.
 
    ![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. In the following window, you're given a choice to delete or retain the backup data. If you choose **Retain backup data** and then **Stop backup**, the VM backup won't be permanently deleted. Rather, this stops all scheduled backup jobs and retains backup data. In this scenario, retention range set in the policy does not apply to the backup data. It continues the pricing as is until you remove the data manually. If **Delete backup data** is chosen, a delete email alert is sent to the configured email ID informing the user that 14 days remain of extended retention for backup data. Also, an email alert is sent on the 12th day informing that there are two more days left to resurrect the deleted data. The deletion is deferred until the 15th day, when permanent deletion will occur and a final email alert is sent informing about the permanent deletion of the data.
+2. In the following window, you can choose to delete or retain the backup data. If you choose **Retain backup data** and then **Stop backup**, the VM backup won't be permanently deleted. Rather, this stops all scheduled backup jobs and retains backup data. In this scenario, retention range set in the policy doesn't apply to the backup data. It continues the pricing as is until you remove the data manually. If **Delete backup data** is chosen, a delete email alert is sent to the configured email ID informing the user that 14 days remain of extended retention for backup data. Also, an email alert is sent on the 12th day informing that there are two more days left to resurrect the deleted data. The deletion is deferred until the 15th day, when permanent deletion will occur and a final email alert is sent informing about the permanent deletion of the data.
 
    ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
@@ -56,7 +60,7 @@ Soft delete is available in all Azure Public and National regions.
 
    ![Screenshot of Azure portal, Resume backup option](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-## Soft delete for VMs using Azure PowerShell
+# [PowerShell](#tab/powershell)
 
 > [!IMPORTANT]
 > The Az.RecoveryServices version required to use soft-delete using Azure PowerShell is minimum 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` to get the latest version.
@@ -75,7 +79,7 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
-The 'DeleteState' of the backup item will change from 'NotDeleted' to 'ToBeDeleted'. The backup data will be retained for 14 days. If you wish to revert the delete operation, then undo-delete should be performed.
+The **DeleteState'**of the backup item changes from `NotDeleted` to `ToBeDeleted`. The backup data will be retained for 14 days. If you wish to revert the delete operation, then undo-delete should be performed.
 
 ### Undoing the deletion operation using Azure PowerShell
 
@@ -102,16 +106,14 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
 ```
 
-The 'DeleteState' of the backup item will revert to 'NotDeleted'. But the protection is still stopped. [Resume the backup](./backup-azure-vms-automation.md#change-policy-for-backup-items) to re-enable the protection.
+The **DeleteState** of the backup item will revert to `NotDeleted`. But the protection is still stopped. [Resume the backup](./backup-azure-vms-automation.md#change-policy-for-backup-items) to re-enable the protection.
 
-## Soft delete for VMs using REST API
+# [REST API](#tab/rest-api)
 
 - Delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 - If you wish to undo these delete operations, refer to steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
-## How to disable soft delete
-
-Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
+---
 
 ## Next steps
 

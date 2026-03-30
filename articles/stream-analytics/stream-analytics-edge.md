@@ -4,7 +4,7 @@ description: Create edge jobs in Azure Stream Analytics and deploy them to devic
 ms.service: azure-stream-analytics
 author: an-emma
 ms.author: raan
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/18/2020
 ---
 
@@ -88,10 +88,6 @@ Supported stream output types are:
 * Blob Storage/ADLS Gen2
 
 Reference input supports reference file type. Other outputs can be reached using a cloud job downstream. For example, a Stream Analytics job hosted in Edge sends output to Edge Hub, which can then send output to IoT Hub. You can use a second cloud-hosted Azure Stream Analytics job with input from IoT Hub and output to Power BI or another output type.
-
-## License and third-party notices
-* [Azure Stream Analytics on IoT Edge license](https://go.microsoft.com/fwlink/?linkid=862827). 
-* [Third-party notice for Azure Stream Analytics on IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## Azure Stream Analytics module image information 
 

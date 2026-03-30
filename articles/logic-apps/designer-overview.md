@@ -1,78 +1,300 @@
 ---
-title: About Standard logic app workflow designer
-description: Learn how the designer in single-tenant Azure Logic Apps helps you visually create workflows through the Azure portal. Discover the benefits and features in this latest version.
+title: Navigate the Standard Workflow Designer
+description: Learn to open and navigate the designer in the Azure portal so you can create and run Standard workflows in single-tenant Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 01/04/2024
+ms.reviewers: estfan, azla
+ms.topic: how-to
+ms.date: 11/18/2025
+ms.custom: sfi-image-nochange
+#Customer intent: As an integration developer working with Azure Logic Apps, I want to learn how to navigate the designer and complete basic tasks for creating and managing for Standard workflows.
 ---
 
-# About the Standard logic app workflow designer in single-tenant Azure Logic Apps
+# Navigate the Standard workflow designer in single-tenant Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-When you work with Azure Logic Apps in the Azure portal, you can edit your [*workflows*](logic-apps-overview.md#logic-app-concepts) visually or programmatically. After you open a [*logic app* resource](logic-apps-overview.md#logic-app-concepts) in the portal, on the resource menu under **Developer**, you can select between [**Code** view](#code-view) and **Designer** view. When you want to visually develop, edit, and run your workflow, select the designer view. You can switch between the designer view and code view at any time.
+This guide summarizes common tasks for using the designer to create, edit, and run Standard workflows in the Azure portal. You can also find highlights and key changes between the classic designer and preview designer.
 
-> [!IMPORTANT]
-> Currently, the latest version of the designer is available only for *Standard* logic app resources, which run in the 
-> *single-tenant* Azure Logic Apps environment. For more information about different resource types and runtime 
-> environments in Logic Apps, review [Single-tenant versus multi-tenant in Azure Logic Apps](single-tenant-overview-compare.md).
+For example, the preview designer has the following key changes:
 
-:::image type="content" source="./media/designer-overview/choose-developer-view.png" alt-text="Screenshot of a logic app resource page in the Azure portal, showing the sidebar options to view a workflow in Code or Designer view.":::
+- The designer now shows and saves your workflow as a *draft* version, not the production version. 
 
-When you select the **Designer** view, your workflow opens in the workflow designer.
+- The designer toolbar options are now consolidated. The workflow sidebar no longer exists.
 
-:::image type="content" source="./media/logic-apps-overview/example-enterprise-workflow.png" alt-text="Screenshot that shows the workflow designer and a sample enterprise workflow that uses switches and conditions." lightbox="./media/logic-apps-overview/example-enterprise-workflow.png":::
+  Instead, commonly used options now appear at the designer top and bottom. Other options appear in the vertical ellipsis menu (**⋮**), next to the **Publish** button.
+
+For more detailed changes, see [Differences in the preview designer](#differences-in-the-preview-designer).
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
-- A *Standard* logic app resource [in single-tenant Azure Logic Apps](single-tenant-overview-compare.md). For more information, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps using the Azure portal](create-single-tenant-workflows-azure-portal.md).
-- A workflow for your Standard logic app resource.
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-## Latest version features
+- A Standard logic app resource in single-tenant Azure Logic Apps. This logic app can have either no workflows or existing workflows.
 
-The latest workflow designer offers a new experience with noteworthy features and benefits, for example:
+  For more information, see [Create a Standard logic app workflow with the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-- A new layout engine that supports more complicated workflows.
+## Differences in the preview designer
 
-- You can create and view complicated workflows cleanly and easily, thanks to the new layout engine, a more compact canvas, and updates to the card-based layout.
+To help you quickly learn the preview designer layout, this section summarizes the key differences from classic designer.
 
-- Add and edit steps using panels separate from the workflow layout. This change gives you a cleaner and clearer canvas to view your workflow layout. For more information, review [Add steps to workflows](#add-steps-to-workflows).
+- By default, the designer now shows and saves your workflow as a *draft* version, not the production version.
 
-- Move between steps in your workflow on the designer using keyboard navigation.
+- Your production workflow stays unchanged until you publish your draft workflow.
 
-  - Move to the next card: **Ctrl** + **Down Arrow (&darr;)**
+- When you run the workflow from the designer, the draft workflow runs, not the production workflow.
 
-  - Move to the previous card: **Ctrl** + **Up Arrow (&uarr;)**
+- To view the production workflow, in the designer upper-right corner, open the vertical ellipsis menu (**⋮**), and select **Switch to published version**.
 
-## Add steps to workflows
+  The production workflow opens in read-only view.
 
-The workflow designer provides a visual way to add, edit, and delete steps in your workflow. As the first step in your workflow, always add a [*trigger*](logic-apps-overview.md#logic-app-concepts). Then, complete your workflow by adding one or more [*actions*](logic-apps-overview.md#logic-app-concepts).
+- The preview designer moves many familiar actions to new locations:
 
-To add a trigger or an action to your Standard workflow, see [Build a workflow with a trigger or action in Azure Logic Apps](create-workflow-with-trigger-or-action.md).
+  - To open different views for your workflow, at the designer top, on the [view selector](#switch-between-designer-code-and-run-history-views), select **Workflow**, **Code**, or **Run history**.
 
-1. Configure your trigger or action as needed.
+  - To run your draft workflow, use the **Run** and **Run with payload** options at the designer bottom.
 
-   1. Mandatory fields have a red asterisk (&ast;) in front of the name.
+  - In the designer upper-right corner, the new vertical ellipsis menu (**⋮**) appears next to the new **Publish** button. This menu contains other actions that appeared on the workflow sidebar and workflow toolbar.
 
-   1. Some triggers and actions might require you to create a connection to another service. You might need to sign into an account, or enter credentials for a service. For example, if you want to use the Office 365 Outlook connector to send an email, you need to authorize your Outlook email account.
+- The workflow assistant is available only in the classic designer.
 
-   1. Some triggers and actions use dynamic content, where you can select variables instead of entering information or expressions.
+## Open the workflow designer
 
-1. Select **Save** in the toolbar to save your changes. This step also verifies that your workflow is valid.
+Follow these steps to open the workflow designer.
 
-## Code view
+### [Classic designer](#tab/classic)
 
-The **Code** view allows you to directly edit the workflow definition file in JSON format. Make sure to select **Save** to save any changes you make in this view. 
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-> [!TIP]
-> The **Code** view is also an easy way to find and copy the workflow definition, instead of using the Azure CLI or other methods.
+1. On the logic app sidebar, under **Workflows**, select **Workflows**.
 
-:::image type="content" source="./media/designer-overview/code-view.png" alt-text="Screenshot of a Logic Apps workflow in Code view, showing the JSON workflow definition being edited in the Azure portal.":::
+   From here, you can [create a new workflow](#create-a-new-workflow) or [open an existing workflow in the designer](#open-an-existing-workflow-in-the-designer).
 
-## Next steps
+### [Preview designer](#tab/preview)
 
-> [!div class="nextstepaction"]
-> [Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal](create-single-tenant-workflows-azure-portal.md)
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the logic app sidebar, under **Workflows**, select **Workflows**.
+
+    From here, you can [create a new workflow](#create-a-new-workflow) or [open an existing workflow in the designer](#open-an-existing-workflow-in-the-designer).
+
+1. To open the preview designer, in the banner, select **Enable preview**.
+   
+   :::image type="content" source="media/designer-overview/enable-preview.png" alt-text="A screenshot of the Workflows options in the working pane of the Azure portal with the Enable preview button emphasized. ":::
+
+---
+
+## Create a new workflow
+
+### [Classic designer](#tab/classic)
+
+Follow these steps to create a new workflow in your logic app.
+
+1. On the **Workflows** page toolbar, select **+ Create**.
+
+   The **Create workflow** pane appears and shows the available workflow types.
+
+1. For **Workflow name**, enter a name for your workflow.
+
+1. Select from the following workflow types:
+
+   | Workflow type | Description |
+   |---------------|-------------|
+   | **Autonomous agents** | Stateful workflows that use AI agents to complete tasks. They can start with any trigger, such as an event, schedule, or API call. |
+   | **Conversational agents** | Stateful workflows that use AI agents to complete tasks through chat interactions. |
+   | **Stateful** | Workflows that include run history. You can add agents to build intelligent automation integrations. |
+   | **Stateless** | Workflows that don't include run history. Optimized for speed and ideal for request-response and processing IoT events. |
+
+1. When you're done, select **Create**.
+
+   The designer opens and shows an empty workflow or a partial workflow, based on your selection. In most cases, the workflow includes a prompt to add a trigger.
+
+### [Preview designer](#tab/preview)
+
+Follow these steps to create a new workflow in your logic app.
+
+1. On the **Workflows** page toolbar, select **+ Create**.
+
+   The **Create workflow** pane appears and shows the available workflow types.
+
+   :::image type="content" source="media/designer-overview/create-workflow.png" alt-text="Screenshot shows workflow types available in preview experience." lightbox="media/designer-overview/create-workflow.png":::   
+
+1. For **Workflow name**, enter a name for your workflow.
+
+1. Select from the following workflow types:
+
+   | Workflow type | Description |
+   |---------------|-------------|
+   | **Stateful** | Workflows that include run history. You can also create autonomous or conversational agent workflows to build intelligent automation integrations. |
+   | **Stateless** | Workflows that don't include run history. Optimized for speed and ideal for request-response and processing IoT events. |
+   | **Start from template** | Select a prebuilt workflow template that supports a common automation pattern or scenario. |
+
+   > [!IMPORTANT]
+   >
+   > To create agent workflows, make sure that you select **Stateful**.
+
+1. When you're done, select **Create**.
+
+   The designer opens and shows an empty workflow or a partial workflow, based on your selection. In most cases, the workflow includes a prompt to add a trigger.
+
+---
+
+## Open an existing workflow in the designer
+
+Follow these steps to open an existing workflow in your logic app.
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the logic app sidebar, under **Workflows**, select **Workflows**.
+
+1. On the **Workflows** page, select your workflow.
+
+   The designer opens and shows the selected workflow so that you can edit the steps, run the draft workflow, view the workflow run history, view the JSON workflow definition in code view, or other tasks.
+
+## Add a trigger or action to a workflow
+
+The designer provides a visual way to add, edit, and delete steps in your workflow. As the first step, always start by adding a [*trigger*](logic-apps-overview.md#logic-app-concepts) to start your workflow. You can then continue building the workflow by adding one or multiple [*actions*](logic-apps-overview.md#logic-app-concepts) that run after the trigger fires.
+
+To add a trigger or an action to your Standard workflow, see [Build a workflow with a trigger or action in Azure Logic Apps](create-workflow-with-trigger-or-action.md). Then, configure your trigger or action as needed.
+
+- Required parameters show a red asterisk (&ast;) next to the parameter name.
+
+- Some triggers and actions might require you to create a connection for a service or product. You might need to sign in to an account, or enter user credentials. For example, to use the Office 365 Outlook connector action for sending an email, you need to authorize your Outlook email account.
+
+- Some trigger or action parameters let you provide expressions or dynamic content, which are outputs from previous steps, rather than hardcoded or static values.
+
+## Save your changes
+
+### [Classic designer](#tab/classic)
+
+You must manually save your changes. On the designer toolbar, select **Save**.
+
+### [Preview designer](#tab/preview)
+
+No separate **Save** option exists. As you edit the workflow, your changes are automatically saved as a draft.
+
+---
+
+If validation errors happen when save operations, the designer shows validation messages.
+
+## Switch between designer, code, and run history views
+
+### [Classic designer](#tab/classic)
+
+On the workflow sidebar, under **Tools**, you can choose from the following views: **Workflow**, **Code**, and **Run history**.
+
+- To build, edit, and run your workflow, select **Workflow**.
+
+- To edit the workflow definition in JSON, select **Code**.
+
+  > [!TIP]
+  >
+  > **Code** view is an easy way to find and copy the workflow definition, rather than use Azure CLI or other methods.
+
+- To view your workflow run history, chronological execution, operation status, inputs, and outputs, select **Run history**.
+
+### [Preview designer](#tab/preview)
+
+At the designer top, you can choose from the following views: **Workflow**, **Code**, and **Run history**.
+
+:::image type="content" source="media/designer-overview/view-selector.png" alt-text="Screenshot shows the preview designer and the view selector at the top." lightbox="media/designer-overview/view-selector.png":::
+
+- To build, edit, and run your workflow, select **Workflow**.
+
+- To edit the workflow definition in JSON, select **Code**.
+
+   You can switch between designer view and code view anytime. The preview experience automatically saves your workflow.
+
+    > [!TIP]
+    >
+    > **Code** view is an easy way to find and copy the workflow definition, rather than use Azure CLI or other methods.
+
+- To view your workflow run history, chronological execution, operation status, inputs, and outputs, select **Run history**.
+
+---
+
+## Run workflow
+
+### [Classic designer](#tab/classic)
+
+To run your workflow, on the designer toolbar, select **Run** or **Run with payload**.
+
+### [Preview designer](#tab/preview)
+
+To run your workflow, at the designer bottom, select **Run** or **Run with payload**.
+
+> [!NOTE]
+>
+> If you run the production workflow in read-only view, the Azure portal returns you to the classic designer.
+
+---
+
+## Validate changes and deploy to production
+
+### [Classic designer](#tab/classic)
+
+When you save your workflow, the Azure portal automatically validates and publishes your changes to production.
+
+### [Preview designer](#tab/preview)
+
+In the designer upper-right corner, select **Publish**.
+
+---
+
+## Return to classic designer
+
+To go back to using the classic designer, in the preview designer upper-right corner, from the vertical ellipsis menu (**⋮**), select **Revert to previous experience**.
+
+## Other tasks
+
+You can perform other tasks on your workflow. You'll find the options for these tasks in different locations, based on the classic designer or preview designer.
+
+### [Classic designer](#tab/classic)
+
+You can find other actions either on the workflow toolbar or workflow sidebar.
+
+The workflow toolbar includes these additional options:
+
+| Options | Description |
+|---------|-------------|
+| **Discard** | Discard changes since the last manual save. |
+| **Parameters** | Create workflow parameters across environments. See [Create cross-environment parameters for workflow inputs](create-parameters-workflows.md). |
+| **Connections** | View connections in your workflow. |
+| **Errors** | View workflow validation errors. |
+| **AI** > **Assistant** | Open the workflow assistant. See [Get AI-powered help about Standard workflows in Azure Logic Apps](workflow-assistant-standard.md). |
+| **AI** > **Download workflow summary** | Generate a Markdown file that summaries the workflow's purpose and tasks. |
+| **Info** > **File a bug** | Create a bug in the GitHub issues for Azure Logic Apps. |
+
+The workflow sidebar includes these options under **Configuration**:
+
+| Options | Description |
+|---------|-------------|
+| **Access keys** | View or regenerate workflow access keys. |
+| **Settings** | View workflow state or change the state between **Enabled** and **Disabled**. |
+| **Properties** | View workflow health, version, and other information. |
+
+### [Preview designer](#tab/preview)
+
+The preview designer moves many other options into the vertical ellipsis menu (**⋮**), which you can find next to the **Publish** button in the designer's upper-right corner.
+
+:::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot shows the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
+
+ The vertical ellipsis menu (**:**) includes these options:
+
+| Options | Description |
+|---------|-------------|
+| **Discard changes** | Discard any changes since the last automatic save. |
+| **Switch to published version** | View the production workflow, which opens in read-only view. |
+| **Parameters** | Create workflow parameters across environments. See [Create cross-environment parameters for workflow inputs](create-parameters-workflows.md). |
+| **Connections** | View connections in your workflow. |
+| **Errors** | View workflow validation errors. |
+| **Disable workflow** or **Enable workflow** | Change the workflow state between enabled and disabled. |
+| **Info** | View workflow health, version, and other information. |
+| **Settings** | View or regenerate workflow access keys. |
+| **Send feedback** | Provide feedback using the Microsoft survey pane. |
+
+---
+
+## Related content
+
+- [Create Standard workflows in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)

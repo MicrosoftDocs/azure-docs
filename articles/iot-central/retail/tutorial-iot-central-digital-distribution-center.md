@@ -3,7 +3,7 @@ title: Tutorial - Azure IoT Digital Distribution Center
 description: This tutorial shows you how to deploy and use the digital distribution center application template for IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.topic: tutorial
 ms.date: 10/14/2024
 ---
@@ -49,7 +49,7 @@ In this tutorial, you learn how to,
 
 ## Prerequisites
 
-An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create digital distribution center application template
 

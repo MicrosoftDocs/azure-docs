@@ -1,14 +1,16 @@
 ---
 title: Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell script
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro device using an Azure PowerShell script.
+description: Describes how to create and manage virtual machines (VMs) on an Azure Stack Edge Pro device using an Azure PowerShell script.
 services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/24/2022
 ms.author: alkohli
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using an Azure PowerShell script so that I can efficiently manage my VMs.
 ---
 
@@ -47,7 +49,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
         <device IP> management.<appliance name>.<DNS domain>
         <device IP> <storage name>.blob.<appliance name>.<DNS domain>
         ```
-        For the storage account, you can provide a name that you want the script to use later to create a new storage account. The script does not check if that storage account is existing.
+        For the storage account, you can provide a name that you want the script to use later to create a new storage account. The script doesn't check if that storage account is existing.
 
     3. Use the following image for reference. Save the **hosts** file.
 
@@ -69,7 +71,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     `Uninstall-Module -Name Azure.Storage`
 
-5. [Download AzCopy 10](../storage/common/storage-use-azcopy-v10.md#download-azcopy) to your Windows client. Make a note of this location as you will pass it as a parameter while running the script.
+5. [Download AzCopy 10](../storage/common/storage-use-azcopy-v10.md#download-azcopy) to your Windows client. Make a note of this location as you'll pass it as a parameter while running the script.
 
 6. Make sure that your Windows client is running TLS 1.2 or later.
 
@@ -78,14 +80,14 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 1. Run PowerShell as an administrator.
 1. Go to the folder where you downloaded the script on your client.
-1. Before you run the script, make sure you are still connected to the local Azure Resource Manager of the device and the connection has not expired.
+1. Before you run the script, make sure you're still connected to the local Azure Resource Manager of the device and the connection hasn't expired.
 
     ```powershell
-    PS C:\windows\system32> login-AzureRMAccount -EnvironmentName aztest1 -TenantId c0257de7-538f-415c-993a-1b87a031879d
+    PS C:\windows\system32> login-AzureRMAccount -EnvironmentName aztest1 -TenantId aaaabbbb-0000-cccc-1111-dddd2222eeee
 
     Account               SubscriptionName              TenantId                             Environment
     -------               ----------------              --------                             -----------
-    EdgeArmUser@localhost Default Provider Subscription c0257de7-538f-415c-993a-1b87a031879d aztest1
+    EdgeArmUser@localhost Default Provider Subscription aaaabbbb-0000-cccc-1111-dddd2222eeee aztest1
 
     PS C:\windows\system32> cd C:\Users\v2
     PS C:\Users\v2>
@@ -100,7 +102,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     **For a Windows VM:**
 
-    Here is a sample output for a Windows VM that was created.
+    Here's a sample output for a Windows VM that was created.
 
     ```powershell
     PS C:\Users\v2> .\ArmPowershellClient.ps1 -VHDPath \\asefs\Logs\vmvhd -VHDFile WindowsServer2016Datacenter.vhd -StorageAccountName myasesatest -OS Windows -VMSize Standard_D1_v2 -VMUserName Administrator -VMPassword Password1 -AzCopy10Path C:\Users\AzCopy10\AzCopy.exe
@@ -169,7 +171,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     DiskSizeGB         : 13
     EncryptionSettings :
     ProvisioningState  : Succeeded
-    Id                 : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Compute/disks/ld201221071831
+    Id                 : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Compute/disks/ld201221071831
     Name               : ld201221071831
     Type               : Microsoft.Compute/disks
     Location           : DBELocal
@@ -195,7 +197,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     SourceVirtualMachine :
     StorageProfile       : Microsoft.Azure.Management.Compute.Models.ImageStorageProfile
     ProvisioningState    : Succeeded
-    Id                   : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Compute/images/ig201221071831
+    Id                   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Compute/images/ig201221071831
     Name                 : ig201221071831
     Type                 : Microsoft.Compute/images
     Location             : dbelocal
@@ -203,9 +205,9 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
      Created a new Image
     
-     Using Vnet /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
+     Using Vnet /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
     
-     Creating a new Newtork Interface
+     Creating a new Network Interface
     WARNING: The output object type of this cmdlet will be modified in a future release.
     
     VirtualMachine              :
@@ -222,11 +224,11 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
                                     {
                                       "Name": "ip201221071831",
                                       "Etag": "W/\"27785dd5-d12a-4d73-9495-ffad7847261a\"",
-                                      "Id": "/subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831/ipConfigurations/ip201221071831",
+                                      "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831/ipConfigurations/ip201221071831",
                                       "PrivateIpAddress": "10.57.51.61",
                                       "PrivateIpAllocationMethod": "Dynamic",
                                       "Subnet": {
-                                        "Id": "/subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
+                                        "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
                                         "ResourceNavigationLinks": [],
                                         "ServiceEndpoints": []
                                       },
@@ -253,7 +255,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     TagsTable                   :
     Name                        : nic201221071831
     Etag                        : W/"27785dd5-d12a-4d73-9495-ffad7847261a"
-    Id                          : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831
+    Id                          : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831
     
      Created Network Interface
     
@@ -265,9 +267,9 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
     
      Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine = Set-AzureRmVMOSDisk -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Name osld201221071831 -Caching ReadWrite -CreateOption FromImage -Windows -StorageAccountType StandardLRS
     
-     Add-AzureRmVMNetworkInterface -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Id /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831.Id
+     Add-AzureRmVMNetworkInterface -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Network/networkInterfaces/nic201221071831.Id
     
-     Set-AzureRmVMSourceImage -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Id /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/rg201221071831/providers/Microsoft.Compute/images/ig201221071831
+     Set-AzureRmVMSourceImage -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg201221071831/providers/Microsoft.Compute/images/ig201221071831
     
      New-AzureRmVM -ResourceGroupName rg201221071831 -Location DBELocal -VM Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine -Verbose
     WARNING: Since the VM is created using premium storage or managed disk, existing standard storage account, myasesa1, is used for boot
@@ -296,7 +298,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
     **For a Linux VM:**
 
-    Here is the sample of the command that was used to create a Linux VM.
+    Here's the sample of the command that was used to create a Linux VM.
 
     ```powershell
     .\ArmPowershellClient.ps1 -VHDPath \\asefs\Logs\vmvhd -VHDFile ubuntu13.vhd -StorageAccountName myasesatest -OS Linux -VMSize Standard_D1_v2 -VMUserName Administrator -VMPassword Password1 -AzCopy10Path C:\Users\AzCopy10\AzCopy.exe

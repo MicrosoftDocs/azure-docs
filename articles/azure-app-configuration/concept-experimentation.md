@@ -1,13 +1,14 @@
 ---
 title: Experimentation in Azure App Configuration
-description: This document introduces experimentation in Azure App Configuration, scenarios for using Split Experimentation, and more.
+description: This document introduces experimentation in Azure App Configuration.
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.custom:
   - build-2024
-ms.topic: conceptual
-ms.date: 05/08/2024
+ms.topic: concept-article
+ms.date: 11/21/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -20,27 +21,13 @@ Experimentation is the process of systematically testing hypotheses or changes t
 - **Observation** of the results measured by the metrics defined in the previous step,
 - **Drawing a conclusion** regarding whether the hypothesis was validated or invalidated.
 
-[Check this video](https://aka.ms/eshopSplitDemo) for a quick demonstration of Experimentation in App Configuration, highlighting the user experience optimization use case to boost your business metrics.
-
-## Experimentation in Azure App Configuration (preview)
-
-In Azure App Configuration, the experimentation feature allows developers to easily test different variants of a feature and monitor the impact at the feature-level. Once configured, users are able to analyze new features, compare different variants of a feature, and promptly assess relevant metrics for new product changes. This capability empowers development teams with measurable insights, facilitating quicker and safer product deployments. Microsoft partners with Split Software to deliver the experimentation feature in Azure App Configuration. The Split Experimentation Workspace (preview) is a [Azure Native ISV resource](../partner-solutions/split-experimentation/index.yml) for the integration between Microsoft and Split Software.
-
-High-level data flow for experimentation in Azure.
-
-:::image type="content" source="./media/concept-experimentation/experimentation-data-flow.png" alt-text="Diagram of data flow for experimentation in Azure." lightbox="./media/concept-experimentation/experimentation-data-flow.png":::
-
-To start an experimentation, first you need to identify the feature and its variations that you want to experiment on. Next are the metrics that form the basis of the feature evaluation. To get started on your first experiment in Azure, follow the steps outlined in this [tutorial](./run-experiments-aspnet-core.md).
-
 ### Concepts related to experimentation
 
 - **Variant Feature Flags**: Represent different versions or configurations of a feature. In an experiment, the variant feature flags are compared in relevance to the metrics you're interested in and the traffic allocated for the application audience.
 
-- **Telemetry**: Telemetry is the data for the variations of a feature and the related metrics to evaluate the feature. For the setup in Azure, the feature flag evaluation/assignment data flows to the telemetry provider. Application Insights is the telemetry provider for the experimentation setup. Data for the defined metrics also flow to the same Application Insights instance.
+- **Telemetry**: Telemetry is the data for the variations of a feature and the related metrics to evaluate the feature.
 
-- **A/B testing**: A/B testing, also known as split testing, is an industry-standard method for evaluating the impact of potential changes within a technology stack.
-
-- **Sampling size**: Sampling size is the size of the sample of users under experiment. It's the number of events sent for any variation of the feature that you're experimenting on.
+- **A/B testing**: A/B testing, also known as experimentation, is an industry-standard method for evaluating the impact of potential changes within a technology stack.
 
 - **Minimum sampling size**: is the minimum number of events required per variation of the feature for the experiment to show you statistically significant results. The larger the sample size, better the statistical significance of the experiment's results.
 
@@ -88,12 +75,12 @@ Benefits:
   
 ### A/B testing
 
-Objective: Optimize business metrics by comparing different UI variations and determining the most effective design.
+Objective: Optimize business metrics by comparing different UX variations and determining the most effective design.
 
-Approach: Conduct A/B tests using experimentation to test UI elements, measure user interactions, and analyze performance metrics.
+Approach: Conduct A/B tests using experimentation with different user experiences, measure user interactions, and analyze performance metrics.
 
 Benefits:
-* Improves user experience by implementing UI changes based on empirical evidence.
+* Improves user experience by implementing UX changes based on empirical evidence.
 * Increases conversion rates, engagement levels, and overall effectiveness of digital products or services.
  
 ### For intelligent applications (for example, AI-based features)
@@ -129,45 +116,3 @@ Benefits:
 
 * Enhances application scalability, reliability, and responsiveness through proactive performance improvements.
 * Optimizes resource utilization and infrastructure costs by implementing efficient optimizations.
-
-## Experiment operations
-
-- **Create experiment**: Experiment can be created on a variant feature flag emitting telemetry. Once an experiment is created, an experiment version is created with the experiment as well. Any further edits to the feature flag result in a new experiment version getting created for that experiment.
-
-- **Archive experiment**: Archiving an experiment puts it in an archived state. While an experiment is archived, no calculations are performed on the experiment. You can always restore the experiment later to resume the calculations and go back to active state.
-
-- **Recover experiment**: Recovering an experiment puts an archived experiment in an active state, and calculations are resumed for the experiment.
-
-- **Delete experiment**: Deleting an experiment deletes the experiment in Split and all of its related data. It's an irreversible operation so there's no restore after deleting.
-
-- **Check experiment results**: Checking the results of an active experiment allows you to see how each variant in the experiment is performing.
-
-## Access requirements for experiment operations
-
-The following sections detail the roles required to perform experiment-related operations with Microsoft Entra ID.
-
-### Set up experimentation
-
-To set up experimentation with the required resources, including the Split Experimentation Workspace, either the Azure subscription Owner role or the combination of subscription Contributor and User Access Administrator roles is required.
-
-### Create or update experiment
-
-To create, update, archive, or delete an experiment you would need App Configuration Data Owner role on the App Configuration store. It also requires the role of ExperimentationDataOwner in the Enterprise app managing the data access to the connected Split Experimentation Workspace.
-
-### Read experiment results
-
-To check experiments, their versions, and results, you would need App Configuration Data Reader role on the App Configuration store. It also requires the role of an ExperimentationDataReader or an ExperimentationDataOwner in the Enterprise app managing the data access to the connected Split Experimentation Workspace.
-
-## Billing considerations and limits
-
-App Configuration doesn't bill specifically for experiments. Experimentation is provided via an integration with [Split Experimentation Workspace (preview)](../partner-solutions/split-experimentation/index.yml). Check the pricing plan <!--link to be updated --> for Split Experimentation for Azure App Configuration.
-
-Minimum sample size required for Split experimentation is 30 per variant. An experiment is required to have the minimum sample size to get the experiment results or results show "No data" in the **outcome**.
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./run-experiments-aspnet-core.md)
-
-> [!div class="nextstepaction"]
-> [Split Experimentation quickstart](../partner-solutions/split-experimentation/create.md)

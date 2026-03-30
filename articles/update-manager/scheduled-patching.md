@@ -1,41 +1,37 @@
 ---
-title: Scheduling recurring updates in Azure Update Manager
+title: Scheduling Recurring Updates in Azure Update Manager
 description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 06/24/2024
+ms.date: 08/21/2025
 ms.topic: how-to
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
+# Customer intent: "As an IT administrator, I want to schedule recurring updates for my virtual machines using Azure Update Manager, so that I can ensure they are consistently maintained and secure without manual intervention."
 ---
 
 # Schedule recurring updates for machines by using the Azure portal and Azure Policy
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-> [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules** by **June 30, 2023**. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md). 
+Azure Update Manager uses Maintenance Configurations to control and manage updates for many Azure VM resources. See the [Guest](/azure/virtual-machines/maintenance-configurations#guest) documentation for more details.
 
-You can use Azure Update Manager to create and save recurring deployment schedules. You can create a schedule on a daily, weekly, or hourly cadence. You can specify the machines that must be updated as part of the schedule and the updates to be installed.
-
-This schedule then automatically installs the updates according to the created schedule for a single VM and at scale.
-
-Update Manager uses a maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
+**Concept** You can use Azure Update Manager to create and save recurring deployment schedules. You can create a schedule on a daily, weekly, or hourly cadence. You can specify the machines that must be updated as part of the schedule and the updates to be installed. These are saved as Maintenance Configurations.
 
 ## Prerequisites for scheduled patching
 
 1. See [Prerequisites for Update Manager](prerequisites.md).
-1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
+2. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**.
 
-	> [!NOTE]
-	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](prerequisites.md).
+**Note** For Azure Arc-enabled machines, it is not a requirement.
 
-## Schedule patching in an availability set
+## Scheduled patching in an availability set
 
 All VMs in a common [availability set](/azure/virtual-machines/availability-set-overview) aren't updated concurrently.
 
-VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently. 
+VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently.
 
-In scenarios where machines from the same availability set are being patched at the same time in different schedules, it is likely that they might not get patched or could potentially fail if the maintenance window exceeds. To avoid this, we recommend that you either increase the maintenance window or split the machines belonging to the same availability set across multiple schedules at different times. 
+In scenarios where machines from the same availability set are being patched at the same time in different schedules, it is likely that they might not get patched or could potentially fail if the maintenance window exceeds. To avoid this, we recommend that you either increase the maintenance window or split the machines belonging to the same availability set across multiple schedules at different times.
 
 
 ## Configure reboot settings
@@ -44,16 +40,14 @@ The registry keys listed in [Configure Automatic Updates by editing the registry
 
 ## Service limits
 
-We recommend the following limits for the indicators.
-
-| Indicator    | Public Cloud Limit          | Mooncake/Fairfax Limit |
+| Component    | Public Cloud Limit          | Mooncake/Fairfax Limit |
 |----------|----------------------------|--------------------------|
 | Number of schedules per subscription per region     | 250  | 250 |
 | Total number of resource associations to a schedule | 3,000 | 3,000 |
 | Resource associations on each dynamic scope    | 1,000 | 1,000 |
 | Number of dynamic scopes per resource group or subscription per region     | 250  | 250  |
-| Number of dynamic scopes per schedule   | 200  | 30  |
-| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 30  |
+| Number of dynamic scopes per schedule   | 200  | 100  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 100  |
 
 For more information, see the [service limits for Dynamic scope](dynamic-scope-overview.md#service-limits).
 
@@ -74,7 +68,7 @@ To schedule recurring updates on a single VM:
 1. On the **Basics** page, select **Subscription**, **Resource Group**, and all options in **Instance details**.
     - Select **Maintenance scope** as **Guest (Azure VM, Azure Arc-enabled VMs/servers)**.
 	- Select **Add a schedule**. In **Add/Modify schedule**, specify the schedule details, such as:
-	
+
 		- **Start on**
 		- **Maintenance window** (in hours). The upper maintenance window is 3 hours 55 minutes.
 		- **Repeats** (monthly, daily, or weekly)
@@ -134,7 +128,7 @@ You can schedule updates from the **Overview** or **Machines** pane.
 
 1. On the **Basics** tab, select **Subscription**, **Resource Group**, and all options in **Instance details**.
 	- Select **Add a schedule**. In **Add/Modify schedule**, specify the schedule details, such as:
-	
+
 		- **Start on**
 		- **Maintenance window** (in hours)
 		- **Repeats** (monthly, daily, or weekly)
@@ -234,7 +228,7 @@ Azure Policy allows you to assign standards and assess compliance at scale. For 
 	- On the **Available Definitions** pane, select **Built in** for **Type**. In **Search**, enter **Schedule recurring updates using Azure Update Manager** and click **Select**.
 
 	  :::image type="content" source="./media/scheduled-updates/dynamic-scoping-defintion.png" alt-text="Screenshot that shows how to select the definition.":::
-	
+
 	- Ensure that **Policy enforcement** is set to **Enabled**, and then select **Next**.
 1. On the **Parameters** tab, by default, only the **Maintenance configuration ARM ID** is visible.
 
@@ -280,8 +274,8 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 
 | **Update Type** | **Details** |
 | ---------- | ------------- |
-| Service Pack | If you are installing a Service Pack, you need 20 mins left in the maintenance window for the updates to be successfully installed, else the update is skipped. </br> In this example, you must finish installing the service pack by 5:40 PM. |  
-| Other updates | If you are installing any other update besides Service Pack, you need to have 15 mins left in the maintenance window, else it is skipped. </br> In this example, you must finish installing the other updates by 5:45 PM.| 
+| Service Pack | If you are installing a Service Pack, you need 20 mins left in the maintenance window for the updates to be successfully installed, else the update is skipped. </br> In this example, you must finish installing the service pack by 5:40 PM. |
+| Other updates | If you are installing any other update besides Service Pack, you need to have 15 mins left in the maintenance window, else it is skipped. </br> In this example, you must finish installing the other updates by 5:45 PM.|
 | Reboot | If the machine(s) needs a reboot, you need to have 10 minutes left in the maintenance window, else the reboot is skipped. </br> In this example, you must start the reboot by 5:50 PM. </br> **Note**: For Azure virtual machines and Arc-enabled servers, Azure Update Manager waits for a maximum of 15 minutes for Azure VMs and 25 minutes for Arc servers after a reboot to complete the reboot operation before marking it as failed. |
 
 #### [Linux](#tab/linux-maintenance)
@@ -295,14 +289,92 @@ For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the fo
 
 > [!NOTE]
 > - Azure Update Manager doesn't stop installing the new updates if it's approaching the end of the maintenance window.
-> - Azure Update Manger doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed . 
+> - Azure Update Manager doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed.
 > - If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
 
+## Use ARG to get assignments
 
+```
+<#
+.SYNOPSIS
+Get a list of Azure VMs and Arc machines assigned to a specific Maintenance Configuration using Azure Resource Graph.
+
+.PARAMETER SubscriptionId
+The Azure subscription ID to query.
+
+.PARAMETER ConfigName
+The name of the maintenance configuration.
+
+.PARAMETER ExportCsv
+Optional path to export results to CSV.
+#>
+
+param(
+    [Parameter(Mandatory = $true)][string]$SubscriptionId,
+    [Parameter(Mandatory = $true)][string]$ConfigName,
+    [Parameter(Mandatory = $false)][string]$ExportCsv
+)
+
+$cfgQuery = @"
+resources
+| where type =~ 'microsoft.maintenance/maintenanceconfigurations'
+| where name =~ '$ConfigName'
+| project id
+"@
+
+$cfgResult = Search-AzGraph -Query $cfgQuery -Subscription $SubscriptionId
+
+if (-not $cfgResult -or $cfgResult.Count -eq 0) {
+    Write-Error "Maintenance configuration '$ConfigName' not found in subscription '$SubscriptionId'."
+    return
+}
+
+$maintenanceConfigId = $cfgResult[0].id
+Write-Host "Resolved configuration ID: $maintenanceConfigId`n"
+
+$assignQuery = @"
+maintenanceresources
+| where type =~ 'microsoft.maintenance/configurationassignments'
+| where properties.maintenanceConfigurationId =~ '$maintenanceConfigId'
+| project MachineId = properties.resourceId, AssignmentName = name
+"@
+
+$machines = Search-AzGraph -Query $assignQuery -Subscription $SubscriptionId
+
+if (-not $machines -or $machines.Count -eq 0) {
+    Write-Host "No machines assigned to configuration '$ConfigName'."
+    return
+}
+
+$resources = Search-AzGraph -Query "resources | project id, name, resourceGroup" -Subscription $SubscriptionId
+
+
+$results = $machines | ForEach-Object {
+    $mach = $_
+    $res = $resources | Where-Object { $_.id -eq $mach.MachineId }
+    [PSCustomObject]@{
+        MachineName    = if ($res) { $res.name } else { $mach.MachineId }
+        ResourceGroup  = if ($res) { $res.resourceGroup } else { "" }
+        AssignmentName = $mach.AssignmentName
+        MachineId      = $mach.MachineId
+        Kind           = if ($res -and $res.id -match 'Microsoft\.Compute/virtualMachines') { "AzureVM" } else { "Arc" }
+    }
+}
+
+Write-Host "Machines assigned to configuration '$ConfigName':`n"
+$results | Format-Table -AutoSize
+
+# --------------------------------------------
+# Optional: export to CSV
+# --------------------------------------------
+if ($ExportCsv) {
+    $results | Export-Csv -Path $ExportCsv -NoTypeInformation
+    Write-Host "`nResults exported to $ExportCsv"
+}
+```
 
 ## Next steps
 
 * Learn more about [Dynamic scope](dynamic-scope-overview.md), an advanced capability of schedule patching.
-* Learn more about how to [Configure schedule patching on Azure VMs for business continuity](prerequsite-for-schedule-patching.md).
 * Follow the instructions on how to [manage various operations of Dynamic scope](manage-dynamic-scoping.md)
 * Learn about [pre and post events](pre-post-scripts-overview.md) to automatically perform tasks before and after a scheduled maintenance configuration.

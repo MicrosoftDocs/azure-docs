@@ -2,11 +2,12 @@
 title: URL Rewrite for Azure Application Gateway for Containers - Gateway API
 description: Learn how to rewrite URLs in Gateway API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
-ms.date: 09/16/2024
-ms.author: greglin
+ms.topic: how-to
+ms.date: 11/05/2024
+ms.author: mbender
+# Customer intent: As a cloud architect, I want to configure URL rewriting for an Application Gateway for Containers, so that I can map incoming requests to appropriate backend services based on specified paths.
 ---
 
 # URL Rewrite for Azure Application Gateway for Containers - Gateway API
@@ -27,14 +28,14 @@ The following figure illustrates an example of a request destined for _contoso.c
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
-2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
+2. If following the ALB managed deployment strategy, ensure you provision your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application:
 
    Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate traffic splitting / weighted round robin support.
 
     ```bash
-    kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
     ```
   
    This command creates the following on your cluster:
@@ -324,4 +325,4 @@ Via the response we should see:
 }
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and used filtering to rewrite the client requested URL, prior to traffic being set to the target on Application Gateway for Containers.
+Congratulations, you have installed ALB Controller and deployed a backend application that includes filtering to rewrite the client requested URL. The target on Application Gateway for Containers is ready to receive traffic.

@@ -3,14 +3,15 @@ title: Create a blob container with Python
 titleSuffix: Azure Storage
 description: Learn how to create a blob container in your Azure Storage account using the Python client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a developer using Python, I want to create a blob container in Azure Storage, so that I can organize and manage my data effectively before uploading blobs.
 ---
 
 # Create a blob container with Python

@@ -9,6 +9,7 @@ ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Configure a packet capture for Virtual WAN site-to-site VPN: Azure portal
@@ -16,8 +17,6 @@ ms.author: cherylmc
 This article helps you create a packet capture for an Azure Virtual WAN site-to-site VPN gateway using the Azure portal. Packet capture helps you narrow down the scope of a problem to certain parts of the network. It can help you determine whether the problem is on the on-premises side or the Azure side. By narrowing down the problem, you can more efficiently debug and take remedial action.
 
 While some commonly available packet capture tools do exist, getting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. The filtering capabilities provided by the Virtual WAN packet capture are a major differentiator. The Virtual WAN packet capture can be used along with commonly available packet capture tools.
-
-[!INCLUDE [Portal rollout](../../includes/virtual-wan-portal-feature-rollout.md)]
 
 ## Prerequisites
 
@@ -45,7 +44,6 @@ To generate the SAS URL for your storage container:
 1. At the bottom of the page, click the **Generate SAS token and URL** button.
 1. Click to copy the **Blob SAS URL** link that is generated to your clipboard.
 
-   :::image type="content" source="./media/packet-capture-site-to-site-portal/generate-url.png" alt-text="Shared access tokens page with both Read and Write selected." lightbox="./media/packet-capture-site-to-site-portal/generate-url-expand.png":::
 
 ## <a name="start"></a> Start a packet capture
 
@@ -54,8 +52,6 @@ In this section, you start the packet capture on the virtual hub.
 1. Navigate to the virtual hub.
 1. Click **VPN (Site to site)**.
 1. On the **VPN (Site to site)** page, click the **Packet Capture** button at the top of the page.
-
-   :::image type="content" source="./media/packet-capture-site-to-site-portal/packet-capture.png" alt-text="Graphic showing the Start Capture page." lightbox="./media/packet-capture-site-to-site-portal/packet-capture-expand.png":::
 1. On the **Packet Capture** page, click **Start**.
 1. On the **Start Packet Capture page**, modify settings, if needed. See the [Filters](#filters) section for options.
 1. Click the **Start** button to start the packet capture. We recommend letting the packet capture run for at least 600 seconds. Due to sync issues among multiple components on the path, shorter packet captures might not provide complete data.
@@ -66,7 +62,7 @@ To simplify your packet captures, you can specify filters on your packet capture
 
 | Parameter | Description | Default values | Available values |
 |---|---|---|---|
-|TracingFlags|	Integer that determines what types of packets are captured|	11 (ESP, IKE, OVPN)	|ESP = 1 IKE = 2 OPVN = 8|
+|TracingFlags|	Integer that determines what types of packets are captured|	11 (ESP, IKE, OVPN)	|ESP = 1 IKE = 2 OVPN = 8|
 |TCPFlags|	Integer that determines which types of TCP Packets are captured	|0 (none)|	FIN = 1, SYN = 2, RST = 4, PSH = 8, ACK = 16,URG = 32, ECE = 64, CWR = 128|
 |MaxPacketBufferSize|	Maximum size of a captured packet in bytes. Packets are truncated if larger than the provided value.	|120	|Any|
 |MaxFileSize |	Maximum capture file size in Mb. Captures are stored in a circular buffer so overflow is handled in a FIFO manner (older packets removed first)|	100|	Any|
@@ -79,7 +75,7 @@ To simplify your packet captures, you can specify filters on your packet capture
 
 
 > [!NOTE]
-> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.
+> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OVPN packets, specify a TracingFlag value of 8+1 = 9.
 >
 
 ## Stop a packet capture
@@ -87,11 +83,9 @@ To simplify your packet captures, you can specify filters on your packet capture
 This section helps you stop or abort a packet capture.
 
 1. On the virtual hub page, click the **Packet Capture** button to open the **Packet Capture** page, then click **Stop**. This opens the **Stop Packet Capture** page. At this point, the packet capture isn't yet stopped.
-   :::image type="content" source="./media/packet-capture-site-to-site-portal/packet-stop.png" alt-text="Graphic showing the Stop button." lightbox="./media/packet-capture-site-to-site-portal/packet-stop-expand.png":::
 
 1. On the **Stop Packet Capture** page, paste the *SaS URL* for the storage container that you created earlier into the **Output Sas Url** field. This is the location where the packet capture files will be stored.
 
-   :::image type="content" source="./media/packet-capture-site-to-site-portal/output.png" alt-text="Graphic showing where to paste the Output Sas Url." lightbox="./media/packet-capture-site-to-site-portal/output-expand.png":::
 1. Next, click **Stop**. The packet capture will stop and the PCAP file is created and saved to the storage account. This can take a few minutes to complete.
 
 ### To abort a packet capture

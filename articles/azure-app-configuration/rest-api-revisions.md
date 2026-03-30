@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/02/2024
+ms.date: 06/04/2025
 zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
@@ -13,7 +13,7 @@ zone_pivot_groups: appconfig-data-plane-api-version
 
 # Key-value revisions
 
-A *key-value revision* defines the historical representation of a key-value resource. Revisions expire after 7 days for Free tier stores, or 30 days for Standard tier stores. Revisions support the `List` operation.
+A *key-value revision* defines the historical representation of a key-value resource. Revisions expire after 7 days for Free and Developer tier stores, or 30 days for Standard and Premium tier stores. Revisions support the `List` operation.
 
 For all operations, ``key`` is an optional parameter. If omitted, it implies any key.
 

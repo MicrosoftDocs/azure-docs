@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/18/2022
+ms.date: 10/10/2025
 ms.author: kesheth
 ---
 # Overview of FHIR search
@@ -22,15 +22,15 @@ GET {{FHIR_URL}}/Patient
 
 You can also search using `POST`. To search using `POST`, the search parameters are delivered in the body of the request. This makes it easier to send queries with longer, more complex series of parameters.
 
-With either `POST` or `GET`, if the search request is successful, you receive a FHIR `searchset` bundle containing the resource instances returned from the search. If the search fails, you’ll find the error details in an `OperationOutcome` response.
+With either `POST` or `GET`, if the search request is successful, you receive a FHIR `searchset` bundle containing the resource instances returned from the search. If the search fails, the error details are in the `OperationOutcome` response.
 
-In the following sections, we cover the various aspects of querying resources in FHIR. Once you’ve reviewed these topics, refer to the [FHIR search samples page](search-samples.md), which features examples of different FHIR search methods.
+In the following sections, we cover the various aspects of querying resources in FHIR. Once you review these topics, refer to the [FHIR search samples page](search-samples.md), which features examples of different FHIR search methods.
 
 ## Search parameters
 
 When you do a search in FHIR, you're searching the database for resources that match certain criteria. The FHIR API specifies a rich set of search parameters for fine-tuning search criteria. Each resource in FHIR carries information as a set of elements, and search parameters work to query the information in these elements. In a FHIR search API call, if a positive match is found between the request's search parameters and corresponding element values stored in a resource instance, then the FHIR server returns a bundle containing the resource instances whose elements satisfied the search criteria. 
 
-For each search parameter, the FHIR specification defines the [data type](https://www.hl7.org/fhir/search.html#ptypes) that can be used. Support in the FHIR service for the various data types is outlined below.
+For each search parameter, the FHIR specification defines the [data type](https://www.hl7.org/fhir/search.html#ptypes) that can be used. Support in the FHIR service for the various data types is outlined in the following.
 
 
 | **Search parameter type**  | **FHIR service in Azure Health Data Services** | **Azure API for FHIR** | **Comment**|
@@ -128,21 +128,96 @@ FHIR specifies a set of search result parameters to help manage the information 
 | **Search result parameters** | **FHIR service in Azure Health Data Services** | **Azure API for FHIR** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | `_elements`                     | Yes                  | Yes                       | |
-| `_count`                        | Yes                  | Yes                       | `_count` is limited to 1000 resources. If it's set higher than 1000, only 1000 are returned and a warning will be included in the bundle.                               |
-| `_include`                      | Yes                  | Yes                       | Items retrieved with `_include` are limited to 100. `_include` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
-| `_revinclude`                   | Yes                  | Yes                       |Items retrieved with `_revinclude` are limited to 100. `_revinclude` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). There's also an incorrect status code for a bad request: [#1319](https://github.com/microsoft/fhir-server/issues/1319).                            |
+| `_count`                        | Yes                  | Yes                       | `_count` is limited to 1000 resources. If it's set higher than 1000, only 1000 are returned and a warning will be included in the bundle. |
+| `_include`                      | Yes                  | Yes                       | `_include` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). |
+| `_revinclude`                   | Yes                  | Yes                       | `_revinclude` on PaaS and OSS on Azure Cosmos DB doesn't support `:iterate` [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). There's also an incorrect status code for a bad request: [#1319](https://github.com/microsoft/fhir-server/issues/1319). |
 | `_summary`                      | Yes             | Yes                   | |
-| `_total`                        | Partial              | Partial                   | `_total=none` and `_total=accurate`                               |
-| `_sort`                         | Partial              | Partial                   | `sort=_lastUpdated` is supported on the FHIR service. For the FHIR service and the OSS SQL DB FHIR servers, sorting by strings and dateTime fields are supported. For Azure API for FHIR and OSS Azure Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date.             |
+| `_total`                        | Partial              | Partial                   | `_total=none` and `_total=accurate` |
+| `_sort`                         | Partial              | Partial                   | `sort=_lastUpdated` is supported on the FHIR service. For the FHIR service and the OSS SQL DB FHIR servers, sorting by strings and dateTime fields are supported. For Azure API for FHIR and OSS Azure Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date. |
 | `_contained`                    | No                   | No                        | |
 | `_containedType`                | No                   | No                        | |
 | `_score`                        | No                   | No                        | |
+| `_not-referenced`			      | Yes                  | No                        | `_not-referenced=*:*` to search for resources that are not referenced by other resources. For example, `/Patient?_not-referenced=*:*` is used to search for Patient resources that are not referenced by any other resources. `/Patient?_not-referenced=Encounter:subject` is used to search for Patient resources that are not referenced by Encounter resources that list them as a subject. A list can also be used for multiple referenced fields, for example, `/Patient/$bulk-delete?_not-referenced=Encounter:subject&_not-referenced=DiagnosticReport:subject` is used to search for Patient resources that are not referenced by Encounter and DiagnosticReport resources. |
 
 Note:
 1. By default, `_sort` arranges records in ascending order. You can also use the prefix `-` to sort in descending order. The FHIR service only allows you to sort on a single field at a time.
 1. FHIR service supports wild card searches with revinclude. Adding a "*.*" query parameter in a revinclude query directs the FHIR service to reference all the resources mapped to the source resource.
 
 By default, the FHIR service in Azure Health Data Services is set to lenient handling. This means that the server ignores any unknown or unsupported parameters. If you want to use strict handling, you can include the `Prefer` header and set `handling=strict`.
+
+#### _include and _revinclude searches
+
+The FHIR service support search queries using the `_include` and `_revinclude` parameters. These parameters allow for the retrieval of reference resources in the search results.  
+
+The `_include` search parameter enables the retrieval of a particular FHIR resource, as well as any other FHIR resources that are referenced by it. When used in a query, the `_include` parameter returns the specified resource and resources *it references*. The `_revinclude` search parameter operates in the reverse, allowing the retrieval of a resource, along with any other resources that *reference it*, providing a way to search for resources based on their relationships with other resources. For detailed information on include and revinclude in search parameters, refer to the [FHIR Search Documentation](https://www.hl7.org/fhir/R4/search.html#revinclude).
+
+##### Request parameters
+
+When executing a search request with `_include` and `_revinclude` parameters, the following optional parameters can be used to control the count.
+
+| **Name** | **Value** | **Description** |
+| -------------------------  | -------------------- | ------------------------- |
+| `_count` | Default value: 10 Max value: 1000 | The value represents the number of targeted resources to be retrieved per request. The value can be set up to 1000. When the parameter is not provided, it is set to 10. |
+| `_includesCount` | Default value: 1000 | The value represents the number of matches resources referenced by target resources to be retrieved per request. |
+
+A maximum of 1000 items are included in the response from `_include` and `_revinclude` searches. If there are more than 1,000 matched items, a link is provided allowing you to navigate the complete result set. 
+
+In the following example, a search request for Observations is made for Patient with Identifier 123.
+
+```
+GET {{FHIR_URL}}/Observation?subject.identifier=123&_include=Observation:subject&_includesCount=10
+```
+
+The response will have Observation data for Patient 123. The matched resources are provided 10 per page, with a link provided to navigate the complete result set.
+
+```
+          { 
+
+  	"resourceType": "Bundle", 
+
+ 	 "id": "b5491e39-8f8f-4405-a4cf-2a6716755d73", 
+
+  	"meta": { 
+
+    	"lastUpdated": "2025-04-10T21:09:42.6517693+00:00" 
+
+  	}, 
+
+  	"type": "searchset", 
+
+  "	link": [ 
+
+    	{ 
+
+      	"relation": "next", 
+
+      	"url": "{{FHIR_URL}}/Observation?subject.identifier=123&_include=Observation:subject&_includesCount=10&ct=er97f5lRTbShgbGOqaGhgbGlsZGFmaWJiYWBgYGpSSwAAAD%2F%2Fw%3D%3D" 
+
+    	}, 
+
+   	 { 
+
+    	  "relation": "related", 
+
+      	"url": "{{FHIR_URL}}/Observation/$include?subject.identifier=123&_include=Observation:subject&_includesCount=10&includesCt=er97f5lRTbShgbGOqaGhgbGlsZGFmaWJiYWBgYGhAaaYqYmOqQUWYaNYAAAAAP%2F%2F" 
+
+   	 }, 
+
+    	{ 
+
+    	  "relation": "self", 
+
+     	 "url": "{{FHIR_URL}}/Observation?subject.identifier=123&_include=Observation:subject&_includesCount=10” 
+
+    	} 
+
+  	], 
+
+  "entry": [….] 
+
+}
+```
+
 
  ## Chained & reverse chained searching
 
@@ -162,11 +237,13 @@ Currently, the FHIR service in Azure Health Data Services only supports the `nex
 
 ## FAQ
 
-What does "partial support" mean in
-[R4 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/R4/unsupported-search-parameters.json)?
+### What does "partial support" mean in [R4 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/R4/unsupported-search-parameters.json)?
 
 Some of the resource-specific search parameters cover more than one data type, and the FHIR service in Azure Health Data Services may only support that search parameter on one of those data types. For example, Condition-abatement-age and Condition-onset-age cover two different data types, Age and Range; however, the FHIR service in Azure Health Data Services supports those two search parameters on Range, but not on Age.
 
+### Is the $lastn operation for Observations supported?
+
+This is not supported. The alternative approach would be to use _count to restrict resources returned per page and _sort to provide results in descending order.
 
 ## Next steps
 

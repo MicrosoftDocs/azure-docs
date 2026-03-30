@@ -5,10 +5,14 @@ author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 05/09/2025
+ms.custom:
+  - references_regions
+  - ignite-2024
+  - sfi-image-nochange
 ---
 
-# Run your Azure Stream Analytics job in an Azure Virtual Network (Public preview) 
+# Run your Azure Stream Analytics job in an Azure Virtual Network
 This article describes how to run your Azure Stream Analytics (ASA) job in an Azure virtual network. 
 
 ## Overview 
@@ -18,11 +22,16 @@ Virtual network support enables you to lock down access to Azure Stream Analytic
 - [Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), which connect your data sources to your virtual network injected ASA job. 
 - [Service tags](../virtual-network/service-tags-overview.md), which allow or deny traffic to Azure Stream Analytics. 
 
-## Availability 
-Currently, this capability is only available in select regions: **West US**, **Central Canada**, **East US**, **East US 2**, **Central US**, **West Europe**, and **North Europe**.
-If you're interested in enabling virtual network integration in your region, **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**.    
+## Available Regions 
+Virtual network integration is currently supported in the following regions:
 
-## Requirements for virtual network integration support 
+**East US, East US 2, West US, West US 2, Central US, North Central US, Central Canada, West Europe, North Europe, Southeast Asia, Brazil South, Japan East, UK South, Central India, Australia East, France Central, Germany West Central, and UAE North.**
+
+If your region is not listed and you're interested in using this capability, please **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**. 
+
+We evaluate requests based on demand and feasibility, and will notify you if we are able to support your region.
+
+## Prerequisites 
 
 - A **General purpose V2 (GPV2) Storage account** is required for virtual network injected ASA jobs.   
     - Virtual network injected ASA jobs require access to metadata such as checkpoints to be stored in Azure tables for operational purposes.   
@@ -31,24 +40,38 @@ If you're interested in enabling virtual network integration in your region, **f
     - If you wish to protect storage accounts from public IP based access, consider configuring it using Managed Identity and Trusted Services as well. 
     
         For more information on storage accounts, see [Storage account overview](../storage/common/storage-account-overview.md) and [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal.md).  
-- An existing **Azure Virtual Network** or [create one](../virtual-network/quick-create-portal.md). 
-
+- An **Azure Virtual Network**, you can use existing or [create one](../virtual-network/quick-create-portal.md). 
+- An operational [**Azure Nat Gateway**](../nat-gateway/quickstart-create-nat-gateway-portal.md), see IMPORTANT note below.
+   
     > [!IMPORTANT]
-    > ASA virtual network injected jobs use an internal container injection technology provided by Azure networking.  As per networking requirements, Azure NAT Gateway must be configured for virtual network injected ASA jobs for security and reliability purposes.   
+    > ASA virtual network injected jobs use an internal container injection technology provided by Azure networking.
+    >
+    > To enhance the security and reliability of your Azure Stream Analytics jobs, you will need to either:
+    >
+    > - Configure a NAT Gateway: This will ensure that all outbound traffic from your VNET is routed through a secure and consistent public IP address.
+    > 
+    > - Disable Default Outbound Access: This will prevent any unintended outbound traffic from your VNET, enhancing the security of your network.
     > 
     > Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service.  When configured on a subnet, all outbound connectivity uses the NAT gateway's static public IP addresses.
     :::image type="content" source="./media/run-job-in-virtual-network/vnet-nat.png" alt-text="Diagram showing the architecture of the virtual network.":::
     
     For more information about Azure NAT Gateway, see [Azure NAT Gateway](../nat-gateway/nat-overview.md). 
 
-## Subnet Requirements 
-Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet consumes five IPs from the start.  
+- When configuring Azure IoT Hub with private endpoints, ensure that you also configure a private endpoint and corresponding DNS settings for the built-in Event Hubs-compatible endpoint. IoT Hub utilizes this endpoint to route messages, and without proper DNS resolution, services like Azure Stream Analytics may fail to connect.
+- For guidance on setting up private endpoints and DNS for IoT Hub and Event Hubs, refer to the following resources:
 
-You must take into consideration the IP range associated with your delegated subnet as you think about future needs required to support your ASA workload. Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your job might reach. 
+    - [IoT Hub support for virtual networks with Azure Private Link](../iot-hub/virtual-network-support.md)
+    - [Integrate Azure Event Hubs with Azure Private Link Service](../event-hubs/private-link-service.md)
+    - [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md)
+
+## Subnet Considerations 
+Virtual network integration depends on a dedicated subnet. 
+
+When configuring your delegated subnet, it is crucial to consider the IP range to accommodate both current and future requirements for your ASA workload. Since the subnet size cannot be modified once established, it is recommended to select a subnet size that can support the potential scale of your job. Additionally, be aware that Azure Networking reserves the first five IP addresses within the subnet range for internal use.
 
 The scale operation affects the real, available supported instances for a given subnet size.  
 
-### Considerations for estimating IP ranges 
+**Considerations for estimating IP ranges**:
 
 - Make sure the subnet range doesn't collide with ASA’s subnet range. Avoid IP range 10.0.0.0 to 10.0.255.255 as it's used by ASA. 
 - Reserve: 
@@ -56,13 +79,21 @@ The scale operation affects the real, available supported instances for a given 
     - **One** IP address is required to facilitate features such as sample data, test connection, and metadata discovery for jobs associated with this subnet. 
     - **Two** IP addresses are required for every six streaming unit (SU) or one SU V2 (ASA’s V2 pricing structure is launching July 1, 2023, see [here](https://aka.ms/AzureStreamAnalyticsisLaunchingaNewCompetitivePricingModel) for details)  
 
-When you indicate virtual network integration with your Azure Stream Analytics job, Azure portal automatically delegates the subnet to the ASA service. Azure portal undelegates the subnet in the following scenarios: 
+**Subnet Delegation and Release Behavior**:
 
-- You inform us that virtual network integration is no longer needed for the [last job](#last-job) associated with specified subnet via the ASA portal (see the how-to section). 
-- You delete the [last job](#last-job) associated with the specified subnet. 
+- When you enable virtual network integration for an Azure Stream Analytics (ASA) job, the Azure portal automatically delegates the specified subnet to the ASA service.
 
-### Last job 
-Several Stream Analytics jobs can utilize the same subnet. The last job here refers to no other jobs utilizing the specified subnet. When the last job has been deleted or removed by associated, Azure Stream Analytics releases the subnet as a resource, which was delegated to ASA as a service. Allow several minutes for this action to be completed. 
+- ASA will automatically undelegate the subnet in either of the following cases:
+    - You disable virtual network integration for the last ASA job using that subnet via the Azure portal.
+    - You delete the last ASA job associated with the subnet.
+
+Note: Multiple ASA jobs can share the same subnet. The "last job" refers to the point when no other ASA jobs are using that subnet. Once the last job is removed, ASA releases the delegated subnet. This may take a few minutes to complete.
+
+**Subnet Must Allow Intra-Subnet Traffic**:
+
+- The subnet configuration must enable intra-subnet network traffic.
+- This means that it must allow inbound and outbound traffic where both the source and destination IP addresses reside within the same subnet. Learn more [here](../virtual-network/network-security-group-how-it-works.md#intra-subnet-traffic).
+
 
 ## Set up virtual network integration  
 

@@ -1,0 +1,28 @@
+- name: Azure Change Tracking and Inventory documentation
+  href: index.yml
+- name: Overview
+  href: overview-monitoring-agent.md
+- name: Get started  
+  items:
+    - name: Azure Change Tracking and Inventory release notes
+      href: extension-version-details.md
+    - name: Support matrix for Azure Change Tracking and Inventory
+      href: change-tracking-inventory-support-matrix.md
+- name: Quickstarts
+  items:
+    - name: Enable Azure Change Tracking and Inventory
+      href: quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md
+- name: Tutorials
+  items:
+    - name: Change a workspace and configure Data Collection Rule
+      href: tutorial-change-workspace-configure-data-collection-rule.md
+- name: Manage Change Tracking and Inventory
+  items:
+    - name: Create Data Collection Rule
+      href: create-data-collection-rule.md
+    - name: Enable Azure CTI at scale using Azure portal
+      href: enable-change-tracking-at-scale-machines-blade.md
+    - name: Enable Azure CTI at scale using Azure policy
+      href: enable-change-tracking-at-scale-policy.md
+    - name: Disable Change Tracking and Inventory
+      href: disable-azure-change-tracking-inventory-monitoring-agent.md

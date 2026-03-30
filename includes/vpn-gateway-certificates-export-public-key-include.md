@@ -4,6 +4,7 @@
  ms.topic: include
  ms.date: 06/19/2024
  ms.author: cherylmc
+ ms.custom: sfi-image-nochange
 
  # this include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
@@ -21,11 +22,7 @@ After you create a self-signed root certificate, export the root certificate .ce
 
 1. Select **No, do not export the private key**, and then select **Next**.
 
-   :::image type="content" source="./media/vpn-gateway-certificates-export-public-key-include/not-private-key.png" alt-text="Screenshot shows Do not export the private key." lightbox="./media/vpn-gateway-certificates-export-public-key-include/not-private-key.png":::
-
 1. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER).**, and then select **Next**.
-
-   :::image type="content" source="./media/vpn-gateway-certificates-export-public-key-include/base-64.png" alt-text="Screenshot shows export Base-64 encoded." lightbox="./media/vpn-gateway-certificates-export-public-key-include/base-64.png":::
 
 1. For **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, select **Next**.
 

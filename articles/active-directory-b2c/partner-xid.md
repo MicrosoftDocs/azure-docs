@@ -15,13 +15,15 @@ ms.subservice: b2c
 
 # Configure xID with Azure Active Directory B2C for passwordless authentication
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with the xID digital ID solution. The xID app provides users with passwordless, secure, multifactor authentication. The My Number Card, the digital ID card issued by the Japanese government, verifies xID-authenticated user identities. For their users, organizations can get verified Personal Identification Information (customer content) through the xID API. Furthermore, the xID app generates a private key in a secure area in user mobile devices, making them digital signing devices.
 
 ## Prerequisites
 
 * An Azure subscription
 
-  * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md)
 * Your xID client information provided by xID inc. 
@@ -132,7 +134,7 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
           <Metadata>
             <Item Key="METADATA">https://oidc-uat.x-id.io/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the X-ID Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid verification</Item>
             <Item Key="response_mode">query</Item>

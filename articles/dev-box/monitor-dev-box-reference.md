@@ -34,7 +34,7 @@ For a list of all Azure Monitor log categories and links to associated schemas, 
 
 ## Azure Monitor Logs tables
 
-A dev center uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables that a dev center uses, see the [Azure Monitor Logs table reference organized by resource type](/azure/azure-monitor/reference/tables/tables-resourcetype#dev-centers).
+A dev center uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables that a dev center uses, see the [Azure Monitor Logs table reference organized by resource type](/azure/azure-monitor/logs/manage-logs-tables).
 
 ## Related content
 

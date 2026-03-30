@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -37,7 +37,7 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 
 | Attribute         | Description                                            | Required | Default |
 |---|--|--|--|
-| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise.<br/><br/>Policy expressions aren't allowed. | No       | `prefer-external` |
+| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise.<br/><br/>Policy expressions aren't allowed. | No       | `prefer-external` |
 | default-value    | A value that will be assigned to the variable if the cache key lookup resulted in a miss. If this attribute is not specified, `null` is assigned. Policy expressions are allowed.                                                                                                                                                                                                          | No       | `null`            |
 | key              | Cache key value to use in the lookup. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                      | Yes      | N/A               |
 | variable-name    | Name of the [context variable](api-management-policy-expressions.md#ContextVariables) the looked up value will be assigned to, if lookup is successful. If lookup results in a miss, the variable will not be set. Policy expressions aren't allowed.                                      | Yes      | N/A               |
@@ -45,16 +45,33 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
+
+### Usage notes
+
+- API Management only caches responses to HTTP GET requests.
+- This policy can only be used once in a policy section.
+- This policy is not supported inside a policy fragment.
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
+
 ## Example
+
+This example shows how to use the `cache-lookup-value` policy to retrieve a user profile from the cache. The key for the cache lookup is constructed using a policy expression that combines a string with the value of the `enduserid` context variable.
+
+> [!NOTE]
+> [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
+
+See a [cache-store-value](cache-store-value-policy.md#example) example to store the user profile in the cache.
+
 
 ```xml
 <cache-lookup-value
     key="@("userprofile-" + context.Variables["enduserid"])"
     variable-name="userprofile" />
+<rate-limit calls="10" renewal-period="60" />
 ```
 
 For more information and examples of this policy, see [Custom caching in Azure API Management](./api-management-sample-cache-by-key.md).

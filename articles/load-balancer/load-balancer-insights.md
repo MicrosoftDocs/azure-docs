@@ -4,10 +4,10 @@ description: Use the load balancer insights to achieve rapid fault localization 
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
+# Customer intent: "As a network engineer, I want to utilize the load balancer insights and metrics dashboard, so that I can effectively monitor performance, diagnose faults, and make informed configuration decisions for my cloud infrastructure."
 ---
 
 # Using Insights to monitor and configure your Azure Load Balancer
@@ -26,6 +26,9 @@ You can access this view by visiting the Insights page of your Load Balancer res
 :::image type="content" source="./media/load-balancer-insights/load-balancer-functional-dependency-visual.png" alt-text="Diagram of the functional dependency view showing connections." border="true":::
 
 For Standard Load Balancers, your backend pool resources are color-coded with Health Probe status indicating the current availability of your backend pool to serve traffic. Alongside the above topology you're presented with a time-wise graph of health status, giving a snapshot view of the health of your application.
+
+> [!NOTE]
+> If you intentionally probe down a backend pool instance (such as in active/passive scenarios), Insights will show that instance as down with a red status indicator. This is expected behavior and reflects the actual health probe status rather than indicating a fault.
 
 [!INCLUDE [Resource Graph](~/reusable-content/ce-skilling/azure/includes/network-watcher-resource-graph-topology.md)]
 

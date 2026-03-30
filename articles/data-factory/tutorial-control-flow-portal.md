@@ -3,10 +3,11 @@ title: Copy data and send email notifications on success and failure
 description: Learn how to control flow of data in Azure Data Factory pipeline by using the Azure portal.
 author: ssabat
 ms.author: susabat
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: orchestration
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data and send email notifications on success and failure
@@ -34,7 +35,7 @@ This tutorial uses Azure portal. You can use other mechanisms to interact with A
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 * **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one.
 * **Azure SQL Database**. You use the database as **sink** data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article for steps to create one.
 
@@ -121,11 +122,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Expand the menu at the top left and select **Create a resource**.  Then select > **Integration** > **Data Factory**:
+1. Expand the menu at the top left and select **Create a resource**.  Then select **Analytics** > **Data Factory** :
 
-   :::image type="content" source="./media/tutorial-control-flow-portal/create-resource.png" alt-text="Shows a screenshot of the &quot;Create a resource&quot; button in the Azure portal.":::
-
-   :::image type="content" source="./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png" alt-text="Shows a screenshot of the Data Factory selection in the &quot;New&quot; pane.":::
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Shows a screenshot of the Data Factory selection in the &quot;New&quot; pane.":::
 
 1. In the **New data factory** page, enter **ADFTutorialDataFactory** for the **name**.
 

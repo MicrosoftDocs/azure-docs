@@ -4,7 +4,7 @@ description: Learn how to use input bindings to connect to Azure Cache for Redis
 author: flang-msft
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
 ms.date: 07/12/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -16,17 +16,27 @@ When a function runs, the Azure Cache for Redis input binding retrieves data fro
 
 For information on setup and configuration details, see the [overview](functions-bindings-cache.md).
 
+## Scope of availability for functions bindings
+
+| Binding Type    | Azure Managed Redis | Azure Cache for Redis |
+|---------|:-----:|:-----------------:|
+| Input | Yes   | Yes               |
+
+> [!IMPORTANT]
+> When using Azure Managed Redis or the Enterprise tiers of Azure Cache for Redis, use port 10000 rather than port 6380 or 6379.
+>
+
 ::: zone pivot="programming-language-javascript"  
 <!--- Replace with the following when Node.js v4 is supported:
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
 -->
 [!INCLUDE [functions-nodejs-model-tabs-redis-preview](../../includes/functions-nodejs-model-tabs-redis-preview.md)]  
 ::: zone-end  
-::: zone pivot="programming-language-python"   
+::: zone pivot="programming-language-python"
 <!--- Replace with the following when Python v2 is supported:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
-[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)]
 ::: zone-end  
 
 ## Example
@@ -125,6 +135,7 @@ public class SetGetter {
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
 ### [Model v3](#tab/nodejs-v3)
 
 This function.json defines both a pub/sub trigger and an input binding to the GET message on an Azure Cache for Redis instance:
@@ -151,8 +162,7 @@ This function.json defines both a pub/sub trigger and an input binding to the GE
 }
 ```
 
-This JavaScript code (from index.js) retrives and logs the cached value related to the key provided by the pub/sub trigger. 
-
+This JavaScript code (from index.js) retrieves and logs the cached value related to the key provided by the pub/sub trigger.
 
 ```javascript
 
@@ -198,7 +208,7 @@ This function.json defines both a pub/sub trigger and an input binding to the GE
 }
 ```
 
-This PowerShell code (from run.ps1) retrieves and logs the cached value related to the key provided by the pub/sub trigger. 
+This PowerShell code (from run.ps1) retrieves and logs the cached value related to the key provided by the pub/sub trigger.
 
 ```powershell
 param($key, $value, $TriggerMetadata)
@@ -235,7 +245,7 @@ This function.json defines both a pub/sub trigger and an input binding to the GE
 }
 ```
 
-This Python code (from \_\_init\_\_.py) retrives and logs the cached value related to the key provided by the pub/sub trigger:
+This Python code (from \_\_init\_\_.py) retrieves and logs the cached value related to the key provided by the pub/sub trigger:
 
 ```python
 
@@ -253,14 +263,14 @@ The [configuration](#configuration) section explains these properties.
 <!--- Replace with the following when Python v2  is supported:
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 -->
-[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)] 
+[!INCLUDE [functions-python-model-tabs-redis-preview](../../includes/functions-python-model-tabs-redis-preview.md)]
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-    
+
 > [!NOTE]
 > Not all commands are supported for this binding. At the moment, only read commands that return a single output are supported. The full list can be found [here](https://github.com/Azure/azure-functions-redis-extension/blob/main/src/Microsoft.Azure.WebJobs.Extensions.Redis/Bindings/RedisAsyncConverter.cs#L63)
 
@@ -271,17 +281,20 @@ The [configuration](#configuration) section explains these properties.
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
+
 ## Annotations
 
-The `RedisInput` annotation supports these properties: 
+The `RedisInput` annotation supports these properties:
 
 | Property | Description                            |
 |----------|---------------------------------------------------|
 | `name` | The name of the specific input binding. |
 | `connection`   | The name of the [application setting](functions-how-to-use-azure-function-app-settings.md#settings) that contains the cache connection string, such as: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command` | The redis-cli command to be executed on the cache with all arguments separated by spaces, such as:  `GET key` or `HGET key field`. |
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -292,7 +305,7 @@ The following table explains the binding configuration properties that you set i
 | `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces, such as:  `GET key`, `HGET key field`. |
 
 > [!NOTE]
-> Python v2 and Node.js v4 for Functions don't use function.json to define the function. Both of these new language versions aren't currently supported by Azure Redis Cache bindings. 
+> Python v2 and Node.js v4 for Functions don't use function.json to define the function. Both of these new language versions aren't currently supported by Azure Redis Cache bindings.
 
 ::: zone-end  
 
@@ -302,12 +315,14 @@ See the [Example section](#example) for complete examples.
 
 The input binding expects to receive a string from the cache.
 ::: zone pivot="programming-language-csharp"  
-When you use a custom type as the binding parameter, the extension tries to deserialize a JSON-formatted string into the custom type of this parameter.   
+When you use a custom type as the binding parameter, the extension tries to deserialize a JSON-formatted string into the custom type of this parameter.
 ::: zone-end  
+
+[!INCLUDE [functions-azure-redis-cache-authentication-note](../../includes/functions-azure-redis-cache-authentication-note.md)]
 
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
+- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)

@@ -4,7 +4,9 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/21/2024
 ms.author: glenga
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 # [Functions 2.x+](#tab/functionsv2)

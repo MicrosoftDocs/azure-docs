@@ -5,10 +5,10 @@ description: With this article, learn about Azure Load Balancer with bidirection
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/31/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
+# Customer intent: "As a network administrator, I want to enable TCP resets on idle timeout for load balancer rules, so that I can enhance application responsiveness by promptly notifying endpoints of closed connections."
 ---
 
 # Load Balancer TCP Reset and Idle Timeout
@@ -21,9 +21,9 @@ You can use [Standard Load Balancer](./load-balancer-overview.md) to create a mo
 
 You change this default behavior and enable sending TCP Resets on idle timeout on inbound NAT rules, load balancing rules, and [outbound rules](./load-balancer-outbound-connections.md#outboundrules). When enabled per rule, Load Balancer sends bidirectional TCP Resets (TCP RST packets) to both client and server endpoints at the time of idle timeout for all matching flows.
 
-Endpoints receiving TCP rest packets close the corresponding socket immediately. This provides an immediate notification to the endpoint's connection release and any future communication on the same TCP connection will fail. Applications can purge connections when the socket closes and reestablish connections as needed without waiting for the TCP connection to eventually time out.
+Endpoints receiving TCP RST packets close the corresponding socket immediately. This provides an immediate notification to the endpoint's connection release and any future communication on the same TCP connection will fail. Applications can purge connections when the socket closes and reestablish connections as needed without waiting for the TCP connection to eventually time out.
 
-For many scenarios, TCP reset can reduce the need to send TCP (or application layer) keepalives to refresh the idle timeout of a flow. 
+For many scenarios, a TCP reset can reduce the need to send TCP (or application layer) keepalives to refresh the idle timeout of a flow. 
 
 If your idle durations exceed configuration limits or your application shows an undesirable behavior with TCP Resets enabled, you can still need to use TCP keepalives, or application layer keepalives, to monitor the liveness of the TCP connections. Further, keepalives can also remain useful for when the connection is proxied somewhere in the path, particularly application layer keepalives. 
 
@@ -31,7 +31,7 @@ By carefully examining the entire end to end scenario, you can determine the ben
 
 ## Configurable TCP idle timeout
 
-Azure Load Balancer Standard has a 4 minutes to 100-minutes timeout range for load balancer rules, outbound rules, and inbound NAT rules. The default is 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service. Azure Load Balancer Basic has up to a 30 minute timeout range.
+Azure Load Balancer Standard has a 4 minutes to 100-minutes timeout range for load balancer rules, outbound rules, and inbound NAT rules. The default is 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service. Azure Load Balancer Basic has up to a 60 minute timeout range.
 
 When the connection is closed, your client application can receive the following error message: "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server."
 
@@ -60,8 +60,9 @@ It's important to take into account how the idle timeout values set for differen
 ## Limitations
 
 - TCP reset only sent during TCP connection in ESTABLISHED state.
-- TCP idle timeout doesn't affect load balancing rules on UDP protocol.
+- Idle timeout is not supported for UDP load balancing rules.
 - TCP reset isn't supported for Internal Load Balancer HA ports when a network virtual appliance is in the path. A workaround could be to use outbound rule with TCP reset from Network Virtual Appliance.
+- TCP idle timeout isn't supported for Internal Load Balancer (ILB) HA ports when a User Defined Route (UDR) is used to forward traffic to the ILB.  
 
 ## Next steps
 

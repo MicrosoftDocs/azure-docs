@@ -1,102 +1,110 @@
 ---
-title: Enable backup when you create an Azure VM
-description: Describes how to enable backup when you create an Azure VM with Azure Backup.
+title: Enable Backup During Azure VM Creation by Using Azure Backup
+description: This article describes how to enable backup when you create an Azure VM with Azure Backup.
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 05/16/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud administrator, I want to enable backup during the creation of a virtual machine so that I can ensure that data protection and recovery points are established from the outset.
 ---
 
-# Enable backup when you create an Azure VM
+# Enable backup during Azure VM creation by using Azure Backup
 
-Use the Azure Backup service to back up Azure virtual machines (VMs). VMs are backed up according to a schedule specified in a backup policy, and recovery points are created from backups. Recovery points are stored in Recovery Services vaults.
+This article describes how to enable backup when you create a virtual machine (VM) in the Azure portal.  
 
-This article details how to enable backup when you create a virtual machine (VM) in the Azure portal.  
+You can use Azure Backup to protect VMs during creation. Backups follow a predefined schedule in a backup policy and generate recovery points stored in Recovery Services vaults.
 
-## Before you start
+## Prerequisite
 
-- [Check](backup-support-matrix-iaas.md#supported-backup-actions) which operating systems are supported if you enable backup when you create a VM.
+Before you create an Azure VM, review the [supported operating systems for Azure Backup](backup-support-matrix-iaas.md#supported-backup-actions).
 
-## Sign in to Azure
+## Sign in to the Azure portal
 
 If you aren't already signed in to your account, sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a VM with Backup configured
+## Create a VM with Backup configuration
+
+To create a VM and configure backup, follow these steps:
 
 1. In the Azure portal, select **Create a resource**.
 
-2. In Azure Marketplace, select **Compute**, and then select a VM image.
+1. In Azure Marketplace, select **Compute**, and then select a VM image.
 
-   >[!Note]
-   >To create a VM from a non-Marketplace image or swap the OS disk of a VM with a non-Marketplace image, remove the plan information from the VM. This helps in seamless VM restore.
+   >[!NOTE]
+   >To create a VM from a non-Marketplace image or swap the OS disk of a VM with a non-Marketplace image, remove the plan information from the VM. This step helps with seamless VM restore.
 
-3. Set up the VM in accordance with the [Windows](/azure/virtual-machines/windows/quick-create-portal) or [Linux](/azure/virtual-machines/linux/quick-create-portal) instructions.
+1. Set up the VM in accordance with the [Windows](/azure/virtual-machines/windows/quick-create-portal) or [Linux](/azure/virtual-machines/linux/quick-create-portal) instructions.
 
-4. On the **Management** tab, in **Enable backup**, select **On**.
-5. Azure Backup backups to a Recovery Services vault. Select **Create New** if you don't have an existing vault.
-6. Accept the suggested vault name or specify your own.
-7. Specify or create a resource group in which the vault will be located. The resource group vault can be different from the VM resource group.
+1. On the **Management** tab, for **Enable backup**, select **On**.
+1. Azure Backup backs up to a Recovery Services vault. Select **Create New** if you don't have an existing vault.
+1. Accept the suggested vault name or specify your own.
+1. Specify or create a resource group in which the vault is located. The resource group vault can be different from the VM resource group.
 
-    ![Enable backup for a VM](./media/backup-during-vm-creation/enable-backup.png)
+    :::image type="content" source="./media/backup-during-vm-creation/enable-backup.png" alt-text="Screenshot that shows how to enable backup for a VM.":::
 
-8. Accept the default backup policy, or modify the settings.
-    - A backup policy specifies how frequently to take backup snapshots of the VM, and how long to keep those backup copies.
-    - The default policy backs up the VM once a day.
-    - You can customize your own backup policy for an Azure VM to take backups daily or weekly.
+1. Accept the default backup policy or modify the settings:
+    - Specify how frequently to take backup snapshots of the VM and how long to keep those backup copies via a backup policy.
+    - Back up the VM once a day with the default policy.
+    - Customize your own backup policy for an Azure VM to take backups daily or weekly.
     - [Learn more](backup-azure-vms-introduction.md#backup-and-restore-considerations) about backup considerations for Azure VMs.
-    - [Learn more](backup-instant-restore-capability.md) about the instant restore functionality.
+    - [Learn more](backup-instant-restore-capability.md) about the Instant Restore functionality.
 
-      ![Default backup policy](./media/backup-during-vm-creation/daily-policy.png)
+      :::image type="content" source="./media/backup-during-vm-creation/daily-policy.png" alt-text="Screenshot that shows the default backup policy.":::
 
 >[!NOTE]
->- [SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
->- Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
+>- [Server-side encryption and platform-managed keys are the default encryption methods](backup-encryption.md) for Azure VMs. Backup supports backup and restore of these Azure VMs.
+>- Azure Backup now supports the migration to the Enhanced policy for the Azure VM backups by using the Standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
 
-## Azure Backup resource group for Virtual Machines
+## Azure Backup resource group for virtual machines
 
-The Backup service creates a separate resource group (RG), different than the resource group of the VM to store the restore point collection (RPC). The RPC houses the instant recovery points of managed VMs. The default naming format of the resource group created by the Backup service is: `AzureBackupRG_<Geo>_<number>`. For example: *AzureBackupRG_northeurope_1*. You now can customize the Resource group name created by Azure Backup.
+Azure Backup creates a separate resource group, different than the resource group of the VM, to store the restore point collection (RPC). The RPC houses the instant recovery points of managed VMs. The default naming format of the resource group created by Azure Backup is `AzureBackupRG_<Geo>_<number>`. An example is *AzureBackupRG_northeurope_1*. You can now customize the resource group name that Azure Backup created.
 
 Points to note:
 
-1. You can use default name of RG or customize the name according to organizational requirements.
+- Use the default name of the resource group or customize the name according to organizational requirements.
 
-   >[!Note]
-   >When Azure Backup creates an RG, a numeric is appended to the name of RG and used for restore point collection.
+  When Azure Backup creates a resource group, a numeric is appended to the name of the resource group and used for restore point collection.
 
-1. You provide the RG name pattern as input during VM backup policy creation. The RG name should be of the following format:
-              `<alpha-numeric string>* n <alpha-numeric string>`. 'n' is replaced with an integer (starting from 1) and is used for scaling out if the first RG is full. One RG can have a maximum of 600 RPCs today.
-              ![Choose name when creating policy](./media/backup-during-vm-creation/create-policy.png)
-1. The pattern should follow the RG naming rules below and the total length shouldn't exceed the maximum allowed RG name length.
-    1. Resource group names only allow alphanumeric characters, periods, underscores, hyphens, and parenthesis. They can't end in a period.
-    2. Resource group names can contain up to 74 characters, including the name of the RG and the suffix.
-1. The first `<alpha-numeric-string>` is mandatory while the second one after 'n' is optional. This applies only if you give a customized name. If you don't enter anything in either of the textboxes, the default name is used.
-1. You can edit the name of the RG by modifying the policy if and when required. If the name pattern is changed, new RPs will be created in the new RG. However, the old RPs will still reside in the old RG and won't be moved, as RP Collection doesn't support resource move. Eventually the RPs will get garbage collected as the points expire.
-![Change name when modifying policy](./media/backup-during-vm-creation/modify-policy.png)
-1. It's advised not to lock the resource group created for use by the Backup service.
+- Provide the resource group name pattern as input during VM backup policy creation. Use the following format for the resource group name:
 
-To configure the Azure Backup resource group for Virtual Machines using PowerShell, refer to [Creating Azure Backup resource group during snapshot retention](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
+    `<alpha-numeric string>* n <alpha-numeric string>`. The `n` is replaced with an integer (starting from 1) and is used for scaling out if the first resource group is full. One resource group can have a maximum of 600 RPCs today.
 
-## Start a backup after creating the VM
+   :::image type="content" source="./media/backup-during-vm-creation/create-policy.png" alt-text="Screenshot that shows the selection of a name when you create a policy.":::
+- Follow resource group naming rules for the pattern. The total length shouldn't exceed the maximum-allowed resource group name length.
+  - Resource group names allow only alphanumeric characters, periods, underscores, hyphens, and parentheses. They can't end in a period.
+  - Resource group names can contain up to 74 characters, including the name of the resource group and the suffix.
+- Remember that the first `<alpha-numeric-string>` is mandatory. The second one after `n` is optional. This naming pattern applies only if you give a customized name. If you don't enter anything in either of the text boxes, the default name is used.
+- Edit the name of the resource group by modifying the policy if and when required. If the name pattern is changed, new recovery points (RPs) are created in the new resource group. The old RPs still reside in the old resource group and aren't moved because RP collection doesn't support moving resources. Eventually, the RPs get garbage collected as the points expire.
 
-Your VM backup will run in accordance with your backup policy. However, we recommend that you run an initial backup.
+   :::image type="content" source="./media/backup-during-vm-creation/modify-policy.png" alt-text="Screenshot that shows the change of name when you modify a policy." lightbox="./media/backup-during-vm-creation/modify-policy.png":::
 
-After the VM is created, do the following:
+- Don't lock the resource group created for use by Azure Backup.
 
-1. In the VM properties, select **Backup**. The VM status is Initial Backup Pending until the initial backup runs.
-2. Select **Back up now** to run an on-demand backup.
+To configure the Azure Backup resource group for VMs by using PowerShell, see [Create an Azure Backup resource group during snapshot retention](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
-    ![Run an on-demand backup](./media/backup-during-vm-creation/run-backup.png)
+## Run an on-demand backup after VM creation
 
-## Use a Resource Manager template to deploy a protected VM
+Your VM backup runs in accordance with your backup policy. We recommend that you run an initial backup.
 
-The previous steps explain how to use the Azure portal to create a virtual machine and protect it in a Recovery Services vault. To quickly deploy one or more VMs and protect them in a Recovery Services vault, see the template [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/).
+To run an on-demand backup after the VM is created, follow these steps:
 
-## Next steps
+1. In the VM properties, select **Backup**. The VM status is **Initial Backup Pending** until the initial backup runs.
+1. Select **Back up now** to run an on-demand backup.
 
-Now that you've protected your VM, learn how to manage and restore them.
+    :::image type="content" source="./media/backup-during-vm-creation/run-backup.png" alt-text="Screenshot that shows how to run an on-demand backup.":::
+
+## Deploy a protected VM by using a Resource Manager template
+
+The previous steps explain how to use the Azure portal to create a VM and protect it in a Recovery Services vault. To quickly deploy one or more VMs and protect them in a Recovery Services vault, see the template [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/).
+
+## Related content
+
+After the VM protection is finished, learn how to manage and restore them:
 
 - [Manage and monitor VMs](backup-azure-manage-vms.md)
-- [Restore VM](backup-azure-arm-restore-vms.md)
+- [Restore VMs](backup-azure-arm-restore-vms.md)
 
-If you encounter any issues, [review](backup-azure-vms-troubleshoot.md) the troubleshooting guide.
+If you encounter any issues, see [Troubleshooting backup failures on Azure virtual machines](backup-azure-vms-troubleshoot.md).

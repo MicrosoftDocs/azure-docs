@@ -1,11 +1,15 @@
 ---
-title: Configure GitHub authentication
+title: Configure GitHub Authentication
 description: Learn how to configure GitHub authentication as an identity provider for your App Service or Azure Functions app.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/01/2022
 ms.custom: AppServiceIdentity
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+# customer intent: As a developer, I want to configure GitHub authentication so that I can use it as an identity provider for an App Service or Azure Functions app. 
+
+ 
 ---
 
 # Configure your App Service or Azure Functions app to use GitHub login
@@ -18,6 +22,8 @@ To complete the procedure in this article, you need a GitHub account. To create 
 
 ## <a name="register"> </a>Register your application with GitHub
 
+To register your application with GitHub: 
+
 1. Sign in to the [Azure portal] and go to your application. Copy your **URL**. You'll use it to configure your GitHub app.
 1. Follow the instructions for [creating an OAuth app on GitHub](https://docs.github.com/developers/apps/building-oauth-apps/creating-an-oauth-app). In the **Authorization callback URL** section, enter the HTTPS URL of your app and append the path `/.auth/login/github/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/github/callback`.
 1. On the application page, make note of the **Client ID**, which you will need later.
@@ -28,6 +34,8 @@ To complete the procedure in this article, you need a GitHub account. To create 
    > The client secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
 
 ## <a name="secrets"> </a>Add GitHub information to your application
+
+To add GitHub information to your application: 
 
 1. Sign in to the [Azure portal] and navigate to your app.
 1. Select **Authentication** in the menu on the left. Click **Add identity provider**.

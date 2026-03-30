@@ -6,26 +6,23 @@ author: cherylmc
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/01/2023
+ms.date: 03/11/2025
 ms.author: cherylmc
 ---
-# Configure customer-controlled gateway maintenance for Virtual WAN (Preview)
+# Configure customer-controlled gateway maintenance for Virtual WAN
 
-This article helps you configure customer-controlled maintenance windows for Virtual WAN site-to-site VPN gateways and Virtual WAN ExpressRoute gateways. Learn how to schedule customer-controlled maintenance for your gateways using the Azure portal or PowerShell.
+This article helps you configure customer-controlled maintenance windows for Virtual WAN site-to-site VPN gateways, Virtual WAN user VPN (or point-to-site VPN) gateways and Virtual WAN ExpressRoute gateways. Learn how to schedule customer-controlled maintenance for your gateways using the Azure portal or PowerShell.
+
+>[!NOTE]
+> You can also configure customer-controlled maintenance windows for Azure Firewall in secured hubs. For more information, see [Configure customer-controlled maintenance for Azure Firewall](../firewall/customer-controlled-maintenance.md).
 
 [!INCLUDE [Overview](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-overview.md)]
 
 For more information on limitations and frequently asked questions related to customer-controlled maintenance, see the [Virtual WAN FAQ](virtual-wan-faq.md).
 
-[!INCLUDE [Preview rollout](../../includes/vpn-gateway-customer-controlled-maintenance-rollout-note.md)]
-
 ## Azure portal steps
 
 [!INCLUDE [Portal steps](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-portal.md)]
-
-   Example:
-
-   :::image type="content" source="./media/customer-controlled-gateway-maintenance/select-resources.png" alt-text="Screenshot showing the select resources page." lightbox="./media/customer-controlled-gateway-maintenance/select-resources.png":::
 
 [!INCLUDE [View add remove](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-view-add-remove.md)]
 

@@ -1,16 +1,17 @@
 ---
 title: Understand Device Update for Azure IoT Hub compliance
 description: Understand how Device Update for Azure IoT Hub measure device update compliance.
-author: vimeht
-ms.author: vimeht
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 2/11/2021
 ms.topic: concept-article
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Device Update compliance
 
-In Device Update for IoT Hub, compliance measures how many devices are running the latest available version. A device is compliant if it has installed the highest available version update that is compatible for it.
+In Device Update for IoT Hub, compliance measures the number of devices running the latest available version. A device is compliant when it runs the highest available version update compatible with its model.
 
 For example, consider an instance of Device Update with the following updates:
 
@@ -20,7 +21,7 @@ For example, consider an instance of Device Update with the following updates:
 | Update2     | 1.0            | Model2                  |
 | Update3     | 2.0            | Model1                  |
 
-Let’s say the following deployments have been created:
+Let’s say the following deployments are created:
 
 | Deployment name | Update name | Targeted group |
 |-----------------|-------------|----------------|
@@ -39,10 +40,10 @@ Now, consider the following devices, with their group memberships and installed 
 
 Device1 and Device4 aren't compliant because they have version 1.0 installed even though there’s a higher version update, Update3, compatible for their model in the Device Update instance. Device2 and Device3 are both compliant because they have the highest version updates compatible for their models installed.
 
-Compliance doesn't consider whether an update is deployed to a device’s group or not; it looks at any updates published to Device Update. So in the example above, even though Device1 has installed the update deployed to it, it's considered non-compliant. Device1 will continue being considered non-compliant until it successfully installs Update3. The compliance status can help you identify whether new deployments are needed.
+Compliance doesn't depend on whether an update has been deployed to a device’s group; it considers any updates published to Device Update. In the example, Device1 installs the update deployed to it, but it remains non-compliant. Device1 stays non-compliant until it installs Update3. The compliance status helps identify when new deployments are necessary.
 
-As shown above, there are three compliance states in Device Update for IoT Hub:
+There are three compliance states in Device Update for IoT Hub:
 
-* **On latest update** – the device has installed the highest compatible version update published to Device Update.
-* **Update in progress** – an active deployment is in the process of delivering the highest compatible version update to the device.
-* **New updates available** – a device hasn't yet installed the highest compatible version update and isn't in an active deployment for that update.
+* **On latest update** – the device runs the highest compatible version update published to Device Update.
+* **Update in progress** – an active deployment is delivering the highest compatible version update to the device.
+* **New updates available** – the device does not run the highest compatible version update and is not in an active deployment for that update.

@@ -3,21 +3,28 @@ title: Get started with Azure Blob Storage and .NET
 titleSuffix: Azure Storage
 description: Get started developing a .NET application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 02/12/2025
 ms.devlang: csharp
-ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
+ms.custom:
+  - template-how-to
+  - devguide-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
+# Customer intent: "As a .NET developer, I want to integrate Azure Blob Storage into my application, so that I can securely manage and access large amounts of unstructured data through a robust cloud storage solution."
 ---
 
 # Get started with Azure Blob Storage and .NET
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for .NET. Once connected, use the [developer guides](#build-your-app) to learn how your code can operate on containers, blobs, and features of the Blob Storage service.
+
+If you're looking to start with a complete example, see [Quickstart: Azure Blob Storage client library for .NET](storage-quickstart-blobs-dotnet.md).
 
 [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
@@ -70,7 +77,7 @@ To authorize with Microsoft Entra ID, you'll need to use a security principal. T
 | --- | --- | --- |
 | Local machine (developing and testing) | Service principal | To learn how to register the app, set up a Microsoft Entra group, assign roles, and configure environment variables, see [Authorize access using developer service principals](/dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
 | Local machine (developing and testing) | User identity | To learn how to set up a Microsoft Entra group, assign roles, and sign in to Azure, see [Authorize access using developer credentials](/dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
-| Hosted in Azure | Managed identity | To learn how to enable managed identity and assign roles, see [Authorize access from Azure-hosted apps using a managed identity](/dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
+| Hosted in Azure | Managed identity | To learn how to enable a managed identity and assign roles, see the guidance for authorizing access using a [system-assigned managed identity](/dotnet/azure/sdk/authentication/system-assigned-managed-identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) or a [user-assigned managed identity](/dotnet/azure/sdk/authentication/user-assigned-managed-identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 | Hosted outside of Azure (for example, on-premises apps) | Service principal | To learn how to register the app, assign roles, and configure environment variables, see [Authorize access from on-premises apps using an application service principal](/dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 
 #### Authorize access using DefaultAzureCredential
@@ -91,6 +98,8 @@ public BlobServiceClient GetBlobServiceClient(string accountName)
 ```
 
 If you know exactly which credential type you'll use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
+
+You can also register the client for dependency injection in your .NET app. For more information, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
 
 ## [SAS token](#tab/sas-token)
 
@@ -176,4 +185,5 @@ The following guides show you how to access data and perform specific actions us
 | [Performance tuning for data transfers](storage-blobs-tune-upload-download.md) | Optimize performance for data transfer operations. |
 | [Set or change a blob's access tier](storage-blob-use-access-tier-dotnet.md) | Set or change the access tier for a block blob. |
 | [Upload blobs](storage-blob-upload.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
+
 

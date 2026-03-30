@@ -3,9 +3,9 @@ title: Tutorial - Deploy an Azure IoT in-store analytics app
 description: This tutorial shows how to create and deploy an in-store analytics retail application in IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/27/2024
+ms.date: 08/07/2025
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Connect devices to your application
 > * Add rules and actions to monitor conditions
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -330,4 +330,4 @@ To add an action to the rule:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Customize the dashboard](./tutorial-in-store-analytics-customize-dashboard.md)
+> [Tutorial: Customize the dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md)

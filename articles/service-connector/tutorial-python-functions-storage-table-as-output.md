@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Python function with Azure Table Storage as output'
-description: Learn how you can connect a Python function to a storage table as output using Service Connector
+title: Configure Python function with Azure Table Storage output
+description: Learn how you can configure a Python function to use a storage table as output with Service Connector.
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 11/14/2023
+ms.date: 12/18/2024
 ---
-# Tutorial: Python function with Azure Table Storage as output
+# Tutorial: Configure a Python function with Azure Table Storage output
 
-In this tutorial, you learn how to configure a Python function with Storage Table as output by completing the following tasks.
+In this tutorial, you learn how to configure a Python function to use Azure Table Storage as an output binding by completing the following tasks.
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create a Python function project.
@@ -41,7 +41,7 @@ An overview of the function project components in this tutorial:
 
 ## Create a Python function project
 
-Follow the [tutorial to create a local Azure Functions project](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#create-an-azure-functions-project), and provide the following information at the prompts:
+Follow the [tutorial to create a local Azure Functions project](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-python?pivots=python-mode-configuration#create-an-azure-functions-project), and provide the following information at the prompts:
 
 | Prompt                                                                | Selection                                                                                                        |
 | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -93,7 +93,7 @@ def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
 
 ## Run the function locally
 
-Follow the [tutorial](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#run-the-function-locally) to run the function locally and verify the table output.
+Follow the [tutorial](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-python?pivots=python-mode-configuration#run-the-function-locally) to run the function locally and verify the table output.
 
 1. Select the Storage Account you chose when creating the Azure Function resource if you're prompted to connect to a storage account. This value is used for Azure Function runtime's. It isn't necessarily the same storage account you use for the output.
 1. To start the function locally, press `<kbd>`F5 `</kbd>` or select the **Run and Debug** icon in the left-hand side Activity bar.
@@ -110,7 +110,7 @@ In last step, you verified the function project locally. Now you'll learn how to
 az functionapp connection create storage-table --source-id "<your-function-resource-id>" --target-id "<your-storage-table-resource-id>" --secret
 ```
 
-* `--source-id` format: `/subscriptions/{subscription}/resourceG roups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
+* `--source-id` format: `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`
 * `--target-id` format: `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/tableServices/default`
 
 You've created a Service Connector resource that configures an `AZURE_STORAGETABLE_CONNECTIONSTRING` variable in the function's App Settings. This app setting will then be consumed by the function binding to connect to the storage, so that the function can write to the storage table. You can learn more about [how Service Connector helps Azure Functions connect to services](./how-to-use-service-connector-in-function.md).
@@ -119,12 +119,12 @@ You've created a Service Connector resource that configures an `AZURE_STORAGETAB
 
 Now you can deploy your function to Azure and verify the storage table output binding works.
 
-1. Follow this [Azure Functions tutorial](../azure-functions/create-first-function-vs-code-python.md?pivots=python-mode-configuration#deploy-the-project-to-azure) to deploy your function to Azure.
+1. Follow this [Azure Functions tutorial](../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-python?pivots=python-mode-configuration#deploy-the-project-to-azure) to deploy your function to Azure.
 1. To verify the function can write to the table, right click `Execute Function Now...` on the function in the Visual Studio Code **RESOURCES** view, and check the function response. The response message should contain the `rowKey` the function just wrote to your table.
 
 ## Troubleshoot
 
-If there are any errors related with storage host, such as `No such host is known (<acount-name>.table.core.windows.net:443)`, you need check whether the connection string you use to connect to Azure Storage contains the table endpoint or not. If it doesn't, go to Azure Storage portal, copy the connection string from the `Access keys` blade, and replace the values.
+If there are any errors related with storage host, such as `No such host is known (<account-name>.table.core.windows.net:443)`, you need check whether the connection string you use to connect to Azure Storage contains the table endpoint or not. If it doesn't, go to Azure Storage portal, copy the connection string from the `Access keys` blade, and replace the values.
 
 If this error happens when you start the project locally, check the `local.settings.json` file.
 

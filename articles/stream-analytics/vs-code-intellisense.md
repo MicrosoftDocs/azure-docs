@@ -31,7 +31,7 @@ The VS Code IntelliSense provides different types of completions, including lang
 |Completion     |  Type       |
 | ----- | ------- |
 | Keywords | `keyword`
-| Functions | `build-in function`, `user defined function`  |
+| Functions | `built-in function`, `user defined function`  |
 | Data Set Name| `input`, `output`, `intermediate result set`|
 | Data Set Column Name|`input`, `intermediate result set`|
 

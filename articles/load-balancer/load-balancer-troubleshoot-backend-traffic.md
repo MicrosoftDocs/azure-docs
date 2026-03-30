@@ -6,9 +6,10 @@ author: mbender-ms
 manager: dcscontentpm
 ms.service: azure-load-balancer
 ms.topic: troubleshooting
-ms.date: 02/23/2024
+ms.date: 03/05/2025
 ms.author: mbender
 ms.custom: engagement-fy23
+# Customer intent: As a cloud engineer, I want to troubleshoot Azure Load Balancer traffic issues, so that I can ensure proper distribution and connectivity for backend virtual machines in my network.
 ---
 
 # Troubleshoot Azure Load Balancer backend traffic responses
@@ -29,7 +30,7 @@ Using source persistence distribution mode can cause an uneven distribution of t
 
 Clients that run behind proxies might be seen as one unique client application from the load balancer's point of view.
 
-## VMs behind a load balancer aren't responding to traffic on the configured data port
+## Virtual machines behind a load balancer aren't responding to traffic on the configured data port
 
 If a backend pool VM is listed as healthy and responds to the health probes, but is still not participating in the load balancing, or isn't responding to the data traffic, it may be due to any of the following reasons:
 
@@ -105,9 +106,12 @@ A side effect is that if an outbound flow from a VM in the backend pool attempts
 
 When the flow maps back to itself, the outbound flow appears to originate from the VM to the front end, and the corresponding inbound flow appears to originate from the VM to itself. From the guest operating system's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack won't recognize these halves of the same flow as being part of the same flow. The source and destination don't match. When the flow maps to any other VM in the backend pool, the halves of the flow do match and the VM can respond to the flow.
 
-The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend that originated the flow. Common workarounds include insertion of a proxy layer behind the internal load balancer and using Direct Server Return (DSR) style rules. For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).
+The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend that originated the flow. While you could use a public load balancer to mitigate this issue, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md). Avoid this second approach unless carefully managed.
 
-You can combine an internal load balancer with any third-party proxy or use internal [Application Gateway](../application-gateway/overview.md) for proxy scenarios with HTTP/HTTPS. While you could use a public load balancer to mitigate this issue, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md). Avoid this second approach unless carefully managed.
+## Virtual machines removed from a load balancer are receiving traffic
+
+It is by design that existing TCP connections will continue to a virtual machine even after a backend is removed from a load balancer. Once a connection is routed to a backend instance by the load balancer, traffic is established directly between the client and the backend instance. Connections will continue untl the virtual machine is stopped or deallocated.
+
 
 ## Next steps
 

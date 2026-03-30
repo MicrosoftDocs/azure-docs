@@ -2,18 +2,38 @@
 title: Get started with Azure IoT Hub device twins (Python)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Python to create device and backend service application code for device twins.
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: include
 ms.date: 07/12/2024
-ms.custom: mqtt, devx-track-python, py-fresh-zinc
+ms.custom:
+  - mqtt
+  - devx-track-python
+  - py-fresh-zinc
+  - sfi-ropc-nochange
 ---
+
+  * Python SDK - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
 
 ## Overview
 
 This article describes how to use the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) to create device and backend service application code for device twins.
+
+## Install packages
+
+The **azure-iot-device** library must be installed to create device applications.
+
+```cmd/sh
+pip install azure-iot-device
+```
+
+The **azure-iot-hub** library must be installed to create backend service applications.
+
+```cmd/sh
+pip install azure-iot-hub
+```
 
 ## Create a device application
 
@@ -26,27 +46,44 @@ This section describes how to create device application code that:
 * Retrieves a device twin and examine reported properties
 * Patch reported device twin properties
 
-### Connect to a device
+### Device import statement
 
-This section shows how to connect an application to a device using a device primary key that includes a shared access key.
-
-To connect an application to a device:
-1. Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to add the device connection string
-1. Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client to an Azure IoT hub
+Add this code to import the `IoTHubDeviceClient` functions from the azure.iot.device SDK.
 
 ```python
-# import the device client library
-import asyncio
-from azure.iot.device.aio import IoTHubDeviceClient
-
-# substitute the device connection string in conn_str
-# and add it to the IoTHubDeviceClient object
-conn_str = "{IOT hub device connection string}"
-device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
-
-# connect the application to the device
-await device_client.connect()
+from azure.iot.device import IoTHubDeviceClient
 ```
+
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
+
+To connect a device to IoT Hub:
+
+1. Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to add the device primary connection string.
+1. Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client.
+
+For example:
+
+```python
+# Add your IoT hub primary connection string
+CONNECTION_STRING = "{Device primary connection string}"
+device_client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+
+# Connect the client
+device_client.connect()
+```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-python](iot-hub-howto-auth-device-cert-python.md)]
 
 ### Retrieve a device twin and examine reported properties
 
@@ -134,7 +171,16 @@ The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregist
 
 ### Connect to IoT hub
 
-Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). As a parameter, supply the **IoT Hub service connection string** that you created in the prerequisites section.
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). Your application needs the **service connect** permission to modify desired properties of a device twin, and it needs **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one if a one does not already exist. Supply this shared access policy connection string as a parameter to `fromConnectionString`. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 For example:
 
@@ -148,6 +194,10 @@ from azure.iot.hub.models import Twin, TwinProperties, QuerySpecification, Query
 IOTHUB_CONNECTION_STRING = "{IoT hub service connection string}"
 iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CONNECTION_STRING)
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-python](iot-hub-howto-connect-service-iothub-entra-python.md)]
 
 ### Update twin tags and desired properties
 

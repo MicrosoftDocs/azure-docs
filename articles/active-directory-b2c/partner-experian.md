@@ -15,6 +15,8 @@ ms.subservice: b2c
 ---
 # Tutorial: Configure Experian with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Experian CrossCore, a service that verifies user identification. It does risk analysis based on information provided by the user during sign-up. CrossCore permits users to sign in, or not.
 
 Learn more about [Experian](https://www.experian.com/business/products/crosscore) solutions, services, etc. 
@@ -38,7 +40,7 @@ In this tutorial, you can use the following attributes in CrossCore risk analysi
 To get started, you'll need:
 
 - A Microsoft Entra subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
 ## Scenario description
@@ -125,10 +127,10 @@ In the partner-integration [custom policies](https://github.com/azure-ad-b2c/par
 | --- | --- | --- |
 | {your_tenant_name} | Your tenant short name | "yourtenant" from yourtenant.onmicrosoft.com |
 | {your_trustframeworkbase_policy} | Azure AD B2C name of your TrustFrameworkBase policy| B2C_1A_experian_TrustFrameworkBase|
-| {your_tenant_IdentityExperienceFramework_appid} |App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant| 01234567-89ab-cdef-0123-456789abcdef|
-| {your_tenant_ ProxyIdentityExperienceFramework_appid}| App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef|
-| {your_tenant_extensions_appid} | App ID of your tenant storage application| 01234567-89ab-cdef-0123-456789abcdef|
-| {your_tenant_extensions_app_objectid}| Object ID of your tenant storage application| 01234567-89ab-cdef-0123-456789abcdef|
+| {your_tenant_IdentityExperienceFramework_appid} |App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant| 00001111-aaaa-2222-bbbb-3333cccc4444|
+| {your_tenant_ ProxyIdentityExperienceFramework_appid}| App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant | 00001111-aaaa-2222-bbbb-3333cccc4444|
+| {your_tenant_extensions_appid} | App ID of your tenant storage application| 00001111-aaaa-2222-bbbb-3333cccc4444|
+| {your_tenant_extensions_app_objectid}| Object ID of your tenant storage application| aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb|
 | {your_api_username_key_name}| Username key name, made in **Create API policy keys**| B2C\_1A\_RestApiUsername|
 | {your_api_password_key_name}| Password key name, made in **Create API policy keys**| B2C\_1A\_RestApiPassword|
 | {your_app_service_URL}| App service URL you set up| `https://yourapp.azurewebsites.net`|

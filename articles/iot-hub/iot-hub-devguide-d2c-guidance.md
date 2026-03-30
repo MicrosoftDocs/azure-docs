@@ -1,16 +1,19 @@
 ---
 title: Azure IoT Hub device-to-cloud options
 description: This article provides guidance on when to use device-to-cloud messages, reported properties, or file upload for cloud-to-device communications. 
-author: kgremban
-
-ms.author: kgremban
-ms.service: iot-hub
+author: cwatson-cat
+ms.author: cwatson
+ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 12/27/2022
+ms.date: 05/22/2025
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Device-to-cloud communications guidance
+
+This article helps you choose the appropriate device-to-cloud communication option in Azure IoT Hub based on your scenario requirements. IoT Hub supports three primary options for device-to-cloud communication: device-to-cloud messages, device twin's reported properties, and file uploads.
+
+## Ways to communicate from device to cloud
 
 IoT Hub exposes three options for sending information from the device app to the solution back end:
 
@@ -22,7 +25,9 @@ IoT Hub exposes three options for sending information from the device app to the
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Here's a detailed comparison of the various device-to-cloud communication options.
+## Comparison of device-to-cloud communication options
+
+The following table compares the various device-to-cloud communication options in IoT Hub based on common factors.
 
 | Factor | Device-to-cloud messages | Device twin's reported properties | File uploads |
 | ---- | ------- | ---------- | ---- |
@@ -32,9 +37,9 @@ Here's a detailed comparison of the various device-to-cloud communication option
 | Frequency | High. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). | Medium. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). | Low. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). |
 | Protocol | Available on all protocols. | Available using MQTT or AMQP. | Available when using any protocol, but requires HTTPS on the device. |
 
-An application may need to send information both as a telemetry time series or alert and make it available in the device twin. In this scenario, you can choose one of the following options:
+An application might need to send information both as a telemetry time series or alert and make it available in the device twin. In this scenario, you can choose one of the following options:
 
 * The device app sends a device-to-cloud message and reports a property change.
 * The solution back end can store the information in the device twin's tags when it receives the message.
 
-Since device-to-cloud messages enable a much higher throughput than device twin updates, it's sometimes desirable to avoid updating the device twin for every device-to-cloud message.
+Since device-to-cloud messages enable higher throughput than device twin updates, it's sometimes desirable to avoid updating the device twin for every device-to-cloud message.

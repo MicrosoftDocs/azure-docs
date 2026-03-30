@@ -3,8 +3,9 @@ title: Run tasks concurrently to maximize usage of Batch compute nodes
 description: Learn how to increase efficiency and lower costs by using fewer compute nodes and parallelism in an Azure Batch pool.
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017, devx-track-csharp, devx-track-dotnet
-ms.date: 05/24/2023
+ms.date: 01/05/2026
 ms.devlang: csharp
+# Customer intent: "As a cloud engineer, I want to configure my batch pool to run tasks concurrently on fewer compute nodes so that I can optimize resource usage and reduce operational costs."
 ---
 # Run tasks concurrently to maximize usage of Batch compute nodes
 
@@ -25,7 +26,7 @@ Instead of using Standard\_D1 nodes that have one CPU core, you could use [Stand
 
 ## Enable parallel task execution
 
-You configure compute nodes for parallel task execution at the pool level. With the Batch .NET library, set the [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) property when you create a pool. If you're using the Batch REST API, set the [taskSlotsPerNode](/rest/api/batchservice/pool/add) element in the request body during pool creation.
+You configure compute nodes for parallel task execution at the pool level. With the Batch .NET library, set the [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool.taskslotspernode) property when you create a pool. If you're using the Batch REST API, set the [taskSlotsPerNode](/rest/api/batchservice/pools/create-pool) element in the request body during pool creation.
 
 > [!NOTE]
 > You can set the `taskSlotsPerNode` element and [TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) property only at pool creation time. They can't be modified after a pool has already been created.
@@ -33,7 +34,7 @@ You configure compute nodes for parallel task execution at the pool level. With 
 Azure Batch allows you to set task slots per node up to (4x) the number of node cores. For example, if the pool is configured with nodes of size "Large" (four cores), then `taskSlotsPerNode` may be set to 16. However, regardless of how many cores the node has, you can't have more than 256 task slots per node. For details on the number of cores for each of the node sizes, see [Sizes for Cloud Services (classic)](../cloud-services/cloud-services-sizes-specs.md). For more information on service limits, see [Batch service quotas and limits](batch-quota-limit.md).
 
 > [!TIP]
-> Be sure to take into account the `taskSlotsPerNode` value when you construct an [autoscale formula](/rest/api/batchservice/pool/enableautoscale) for your pool. For example, a formula that evaluates `$RunningTasks` could be dramatically affected by an increase in tasks per node. For more information, see [Create an automatic formula for scaling compute nodes in a Batch pool](batch-automatic-scaling.md).
+> Be sure to take into account the `taskSlotsPerNode` value when you construct an [autoscale formula](/rest/api/batchservice/pools/enable-pool-auto-scale) for your pool. For example, a formula that evaluates `$RunningTasks` could be dramatically affected by an increase in tasks per node. For more information, see [Create an automatic formula for scaling compute nodes in a Batch pool](batch-automatic-scaling.md).
 
 ## Specify task distribution
 
@@ -132,7 +133,7 @@ The following [Batch REST](/rest/api/batchservice/) API code snippets show how t
 
 This snippet shows a request to create a pool that contains two large nodes with a maximum of four tasks per node.
 
-For more information on adding pools by using the REST API, see [Add a pool to an account](/rest/api/batchservice/pool/add).
+For more information on adding pools by using the REST API, see [Add a pool to an account](/rest/api/batchservice/pools/create-pool).
 
 ```json
 {

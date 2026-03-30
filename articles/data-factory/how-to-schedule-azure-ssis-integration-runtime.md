@@ -3,11 +3,14 @@ title: Schedule an Azure-SSIS integration runtime
 description: This article describes how to schedule starting and stopping an Azure-SSIS integration runtime by using Azure Data Factory.
 ms.subservice: integration-services
 ms.devlang: powershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu
-ms.custom: subject-rbac-steps, devx-track-azurepowershell
+ms.custom:
+  - subject-rbac-steps
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 # Start and stop an Azure-SSIS integration runtime on a schedule
 
@@ -120,7 +123,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
 
    1. On your Data Factory page in the Azure portal, select **Access control (IAM)**.
    1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
       | Setting | Value |
       | --- | --- |
@@ -357,7 +360,7 @@ The following steps don't provide the complete details for creating a runbook. F
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png" alt-text="Screenshot of the pane for parameters in starting a runbook.":::
 
-6. On the **Job** pane, select the **Output** tile. On the **Output** pane, wait for the message **##### Completed #####** after you see **##### Starting #####**. Starting an Azure-SSIS IR takes about 20 minutes. Close the **Job** pane and get back to the **Runbook** page.
+6. On the **Job** pane, select the **Output** tile. On the **Output** pane, wait for the message **##### Completed #####** after you see **##### Starting #####**. Close the **Job** pane and get back to the **Runbook** page.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png" alt-text="Screenshot that shows the output pane.":::
 

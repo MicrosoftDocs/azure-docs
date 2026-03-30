@@ -17,10 +17,12 @@ In this article, you'll use Azure SignalR Service, Azure Functions, and Java to 
 > [!NOTE]
 > The code in this article is available on [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/java).
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Prerequisites
 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-- An Azure account with an active subscription. If you don't already have an account, [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. If you don't already have an account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Used to run Azure Function apps locally.
 
   - The required SignalR Service bindings in Java are only supported in Azure Function Core Tools version 2.4.419 (host version 2.0.12332) or above.
@@ -219,7 +221,9 @@ Make sure you have Azure Function Core Tools, Java (version 11 in the sample), a
 
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copy the primary connection string, and then run the following command:
+    1. Copy the primary connection string, and then run the following command.
+
+        [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
         ```bash
         func settings add AzureSignalRConnectionString "<signalr-connection-string>"
@@ -251,4 +255,4 @@ In this quickstart, you built and ran a real-time serverless application in the 
 > [Bi-directional communicating in Serverless](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat)
 
 > [!div class="nextstepaction"]
-> [Create your first function with Java and Maven](../azure-functions/create-first-function-cli-csharp.md?pivots=programming-language-java%2cprogramming-language-java)
+> [Create your first function with Java and Maven](../azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-java)

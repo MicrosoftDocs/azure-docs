@@ -2,11 +2,12 @@
 title: Understanding pricing - Application Gateway for Containers
 description: Learn how Azure Application Gateway for Containers is billed.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
-ms.date: 5/9/2024
-ms.author: greglin
+ms.topic: concept-article
+ms.date: 11/10/2025
+ms.author: mbender
+# Customer intent: As a cloud architect, I want to understand how Azure Application Gateway pricing works, so that I can accurately budget for my application infrastructure costs.
 ---
 
 # Understanding Pricing for Application Gateway for Containers
@@ -25,10 +26,13 @@ This article describes the costs associated with each billable component of Appl
 ## Billing Meters
 
 Application Gateway for Containers consists of four billable items: 
+
 - Application Gateway for Containers resource
 - Frontend resource 
 - Association resource 
 - Capacity units
+
+When you enable Web Application Firewall (WAF) on your Application Gateway for Containers resource, you're billed at the higher WAF rates for each meter and will incur higher capacity unit usage to run the WAF.
 
 #### Application Gateway for Containers hour
 
@@ -56,12 +60,12 @@ The parameter with the highest utilization is internally used for calculating ca
 
 Estimated costs are used for the East US 2 region. 
 
-| Meter | Price |
-| ----- | ----- |
-| Application Gateway for Container | $0.017 per application gateway for container-hour |
-| Frontend | $0.01 per frontend-hour |
-| Association | $0.12 per association-hour |
-| Capacity Unit | $0.008 per capacity unit-hour |
+| Meter | Price | Price with WAF |
+| ----- | ----- | ----- |
+| Application Gateway for Container | $0.017 per application gateway for container-hour | $0.031 per application gateway for container WAF-hour |
+| Frontend | $0.01 per frontend-hour | $0.018 per frontend WAF-hour |
+| Association | $0.12 per association-hour | $0.216 per association WAF-hour |
+| Capacity Unit | $0.008 per capacity unit-hour | $0.014 per capacity unit WAF-hour |
 
 For the latest pricing information according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 

@@ -7,7 +7,13 @@ ms.date: 06/29/2023
 ms.topic: quickstart
 ms.service: azure-queue-storage
 ms.devlang: java
-ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - mode-api
+  - passwordless-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
+# Customer intent: "As a Java developer, I want to utilize the Queue Storage client library to create and manage queues, so that I can efficiently store and process large numbers of messages in my applications."
 ---
 
 # Quickstart: Azure Queue Storage client library for Java
@@ -31,7 +37,7 @@ Use the Azure Queue Storage client library for Java to:
 
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 - [Apache Maven](https://maven.apache.org/download.cgi)
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
 
 ## Setting up

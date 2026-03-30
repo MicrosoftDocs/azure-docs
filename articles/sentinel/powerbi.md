@@ -1,10 +1,10 @@
 ---
 title: Create a Power BI report from Microsoft Sentinel data
 description: Learn how to create a Power BI report using an exported query from Microsoft Sentinel. Share your report with others in the Power BI service and a Teams channel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
-ms.date: 05/19/2024
+ms.date: 10/16/2024
 
 
 #Customer intent: As a security analyst, I want to create and share Power BI reports from Microsoft Sentinel data so that I can provide insights to stakeholders without granting them direct access to Microsoft Sentinel.
@@ -46,18 +46,31 @@ To complete the steps in this article, you need:
 
 Create, run, and export a KQL query from Microsoft Sentinel.
 
-1. To create a simple query, in Microsoft Sentinel, select **Logs**. If your workspace is onboarded to the unified security operations platform, select **General > Logs**. 
+1. To create a simple query, in Microsoft Sentinel, select **Logs**. If your workspace is onboarded to the Microsoft Defender portal, select **General > Logs**. 
 
 1. In the query editor, under **New Query 1**, enter the following query, or any other Microsoft Sentinel query for your data:
    
    ```kusto
    SigninLogs
-   |  where TimeGenerated >ago(7d)
+   | where TimeGenerated >ago(7d)
    | summarize Attempts = count(), Failed=countif(ResultType !=0), Succeeded = countif(ResultType ==0) by AppDisplayName
-   |  top 10 by Failed
+   | top 10 by Failed
    | sort by Failed
    ```
-      
+
+   See more information on the following items used in the preceding example, in the Kusto documentation:
+   - [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+   - [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+   - [***top*** operator](/kusto/query/top-operator?view=microsoft-sentinel&preserve-view=true)
+   - [***sort*** operator](/kusto/query/sort-operator?view=microsoft-sentinel&preserve-view=true)
+   - [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+   - [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+   - [***countif()*** aggregation function](/kusto/query/countif-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+    [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+
+
+
 1. Select **Run** to run the query and generate results.
    
     :::image type="content" source="media/powerbi/query.png" alt-text="Screenshot showing the KQL query and results.":::

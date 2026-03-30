@@ -6,19 +6,19 @@ author: alexwolfmsft
 ms.author: alexwolf
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 10/29/2023
+ms.date: 11/06/2025
 ms.custom: vscode-azure-extension-update-completed, devx-track-dotnet
 ---
 
 # Quickstart: Deploy to Azure Container Apps using Visual Studio Code
 
-Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you get the benefits of running containers without the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
-In this tutorial, you'll deploy a containerized application to Azure Container Apps using Visual Studio Code.
+In this tutorial, you deploy a containerized application to Azure Container Apps by using Visual Studio Code.
 
 ## Prerequisites
 
-- An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't already have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Visual Studio Code, available as a [free download](https://code.visualstudio.com/).
 - The following Visual Studio Code extensions installed:
     - The [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
@@ -56,7 +56,7 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 
 ## Create and deploy to Azure Container Apps
 
-The Azure Container Apps extension for Visual Studio Code enables you to choose existing Container Apps resources, or create new ones to deploy your applications to. In this scenario, you create a new Container App environment and container app to host your application. After installing the Container Apps extension, you can access its features under the Azure control panel in Visual Studio Code.
+The Azure Container Apps extension for Visual Studio Code enables you to choose an existing Container Apps resource or create new ones to deploy your applications. In this scenario, you create a new Container App environment and container app to host your application. After installing the Container Apps extension, you can access its features under the Azure control panel in Visual Studio Code.
 
 1. Select <kbd>F1</kbd> to open the command palette and run the **Azure Container Apps: Deploy Project from Workspace** command.
 
@@ -72,7 +72,7 @@ The Azure Container Apps extension for Visual Studio Code enables you to choose 
 
     The Azure activity log panel opens and displays the deployment progress. This process might take a few minutes to complete.
 
-1. Once this process finishes, Visual Studio Code displays a notification. Select **Browse** to open the deployed app in a browser.
+1. When the process finishes, Visual Studio Code displays a notification. Select **Browse** to open the deployed app in a browser.
 
     In the browser's location bar, append the `/albums` path at the end of the app URL to view data from a sample API request.
 
@@ -80,9 +80,9 @@ Congratulations! You successfully created and deployed your first container app 
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services at once by removing the resource group.
+If you don't plan to use this application, you can delete the Azure Container Apps instance and all the associated services at once by removing the resource group.
 
-Follow these steps in the Azure portal to remove the resources you created:
+To remove the resources you created, follow these steps in the Azure portal:
 
 1. Select the **my-container-app** resource group from the *Overview* section.
 1. Select the **Delete resource group** button at the top of the resource group *Overview*.

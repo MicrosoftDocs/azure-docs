@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 06/06/2024
 ms.author: kendownie
 author: khdownie
+# Customer intent: As a cloud administrator, I want to migrate files between Azure file shares using Azure File Sync, so that I can efficiently manage storage and ensure data accessibility during the transition.
 ---
 
 # Migrate files from one Azure file share to another when using Azure File Sync

@@ -2,12 +2,14 @@
 title: Tutorial - Set up DNS failover using private resolvers
 description: A tutorial on how to configure regional failover using the Azure DNS Private Resolver
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 11/30/2023
-ms.author: greglin
+ms.author: allensu
+ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to avoid having a single point of failure for DNS resolution.
+# Customer intent: As a network administrator, I want to configure DNS failover using Azure DNS private resolvers, so that I can ensure continuous DNS resolution and eliminate single points of failure in our network.
 ---
 
 # Tutorial: Set up DNS failover using private resolvers
@@ -17,7 +19,7 @@ This article details how to eliminate a single point of failure in your on-premi
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Resolve Azure Private DNS zones using on-premises conditional fowarders and Azure DNS private resolvers.
+> * Resolve Azure Private DNS zones using on-premises conditional forwarders and Azure DNS private resolvers.
 > * Enable on-premises DNS failover for your Azure Private DNS zones.
 
 The following diagram shows the failover scenario discussed in this article.
@@ -38,7 +40,7 @@ Outbound endpoints and DNS forwarding rulesets aren't needed for the failover sc
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Two [Azure virtual networks](../virtual-network/quick-create-portal.md) in two regions
 - A [VPN](../vpn-gateway/tutorial-site-to-site-portal.md) or [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) link from on-premises to each virtual network
 - An [Azure DNS Private Resolver](dns-private-resolver-get-started-portal.md) in each virtual network

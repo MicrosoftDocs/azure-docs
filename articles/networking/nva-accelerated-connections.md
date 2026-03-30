@@ -3,27 +3,28 @@ title: Accelerated connections network performance optimization on NVAs and VMs
 description: Learn how Accelerated Connections improves networking performance for NVAs and VMs.
 author: steveesp
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/01/2023
 ms.author: steveesp
 
+# Customer intent: As a network administrator, I want to enable Accelerated Connections on virtual network interfaces for NVAs and VMs, so that I can optimize networking performance and improve the efficiency of handling high numbers of simultaneous connections without upgrading to larger VM sizes.
 ---
 
 # Accelerated connections on NVAs or other VMs (Limited GA)
 
-This article helps you understand the **Accelerated Connections** feature. When Accelerated Connections is enabled on the virtual network interface (vNIC) with Accelerated Networking, this feature significantly improves networking efficiency, resulting in enhanced overall performance. This high-performance feature offers industry leading performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. The feature also improves the number of Total Active Connections for network intensive workloads. Accelerated Connections is configured at the network interface level to allow flexibility to size the performance at vNIC. This especially benefits smaller VM sizes. These benefits are available for  Network Virtual Appliances (NVAs) as well as Virtual Machines (VMs) with a large number of connections. To access this feature during limited General Availability (limited GA), use the [sign-up form](https://go.microsoft.com/fwlink/?linkid=2223706).
+This article helps you understand the **Accelerated Connections** feature. When Accelerated Connections is enabled on the virtual network interface (vNIC) with Accelerated Networking, this feature significantly improves networking efficiency, resulting in enhanced overall performance. This high-performance feature offers industry leading performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. The feature also improves the number of Total Active Connections for network intensive workloads. Accelerated Connections is configured at the network interface level to allow flexibility to size the performance at vNIC. This especially benefits smaller VM sizes. These benefits are available for Network Virtual Appliances (NVAs) and Virtual Machines (VMs) with a large number of connections. To access this feature during limited General Availability (limited GA), use the [sign-up form](https://go.microsoft.com/fwlink/?linkid=2223706).
 
 > [!IMPORTANT]
 > This feature is currently in limited General Availability (GA) and customer sign-up is needed to use it.
 >
 
-Accelerated Connections supports the workloads that utilize large amounts of active connections simultaneously. It supports these connections bursts with negligible degradation to Virtual Machine (VM) throughput, latency or Connections Per Second (CPS) performance. The data path for the network traffic is highly optimized to offload the Software-defined networks (SDN) policies evaluation. The goal is to eliminate any bottlenecks in the cloud implementation and networking performance.
+Accelerated Connections supports the workloads that utilize large amounts of active connections simultaneously. It supports these connections bursts with negligible degradation to Virtual Machine (VM) throughput, latency, or Connections Per Second (CPS) performance. The data path for the network traffic is highly optimized to offload the Software-defined networks (SDN) policies evaluation. The goal is to eliminate any bottlenecks in the cloud implementation and networking performance.
 
 Feature enablement is at the vNIC level and irrespective of the VM size, making it available for VMs as small as four vCPUs. After enabling the feature, a performance improvement of up to twenty-five times (x25) in terms of Connections Per Second (CPS) can be achieved, especially for high numbers of simultaneous active connections. This essentially allows users to enhance existing VM’s network capabilities without resizing to a larger VM size.
 
 There are a total of four performance tiers at vNIC level which gives the flexibility to control the networking capability. All tiers have different networking capabilities. Instructions on how to select performance tier based on VM sizes will be provided after a customer sign up for the feature.
 
-Accelerated Connections is implemented at the network interface level to allow maximum flexibility of network capacity. Multiple vNICs can be configured with this enhancement, the number depends on the supported VM family. VM families up to v4 will be the first workloads to be offered this ground-breaking feature.
+Accelerated Connections is implemented at the network interface level to allow maximum flexibility of network capacity. Multiple vNICs can be configured with this enhancement. The number depends on the supported VM family. VM families up to v4 will be the first workloads to be offered this ground-breaking feature.
 
 Network Virtual Appliances (NVAs) with the largest scale workloads requiring virtual firewalls, virtual switches, load balancers and other critical network features, as well as Virtual Machines (VMs) with high connection workloads will experience dramatically improved CPS performance with Accelerated Connections. 
 
@@ -48,7 +49,7 @@ Network Virtual Appliances (NVAs) with the largest scale workloads requiring vir
 * This feature can be enabled and is supported only on new deployments.
 * Feature support may vary as per the NVAs available on Marketplace.
 * Detaching and attaching a network interface on a VM requires stop-deallocate first. 
-* Marketplace portal isn't supported for the limited GA. Other tools such as templates, CLI, Terraform and other multi-cloud tools are supported. 
+* Marketplace portal isn't supported for the limited GA. Other tools such as templates, CLI, Terraform, and other multi-cloud tools are supported. 
   
 ## Prerequisites
 
@@ -81,7 +82,7 @@ This list will be updated as more regions become available. The following region
 
 ## Supported SKUs
 
-This feature is supported on all SKUs supported by [Accelerated Networking](../virtual-network/accelerated-networking-overview.md) except the Dv5 VM family, which isn't yet supported during limited GA.
+This feature is supported on all SKUs supported by [Accelerated Networking](../virtual-network/accelerated-networking-overview.md) up to the v5 VM series.
 
 ## Supported enablement methods
 

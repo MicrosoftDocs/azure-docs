@@ -1,11 +1,10 @@
 ---
 title: Connect Microsoft Sentinel to other Microsoft services with an API-based data connector
 description: Learn how to connect Microsoft Sentinel to Microsoft services with API-based connections.
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 02/24/2023
-ms.author: yelevin
-
 
 #Customer intent: As a security engineer, I want to connect various Microsoft services to Microsoft Sentinel using API-based data connectors so that I can centralize and streamline security event monitoring and incident management.
 
@@ -28,18 +27,18 @@ This article presents information that is common to the group of API-based data 
   |Data connector  |Licensing, costs, and other prerequisites  |
   |---------|---------|
   |Microsoft Entra ID Protection   | - [Microsoft Entra ID P2 subscription](https://azure.microsoft.com/pricing/details/active-directory/)<br> - Other charges may apply      |
-  |Dynamics 365     | - [Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<br>- At least one user assigned a Microsoft/Office 365 [E1 or greater](/power-platform/admin/enable-use-comprehensive-auditing#requirements) license. <br>- Audit logging enabled in Microsoft Purview. See [Turn auditing on or off](/purview/audit-log-enable-disable). <br>- Audit logging enabled in your Microsoft Dataverse environment. See [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing). <br>- Other charges may apply.   |
+  |Dynamics 365     | - [Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<br>- At least one user assigned a Microsoft/Office 365 [E1 or greater](/power-platform/admin/enable-use-comprehensive-auditing#requirements) license. <br>- Audit logging enabled in [Microsoft Purview](/purview/purview). See [Turn auditing on or off](/purview/audit-log-enable-disable). <br>- Audit logging enabled in your Microsoft Dataverse environment. See [Microsoft Dataverse and model-driven apps activity logging](/power-platform/admin/enable-use-comprehensive-auditing). <br>- Other charges may apply.   |
   |Microsoft Defender for Cloud Apps|For Cloud Discovery logs, [enable Microsoft Sentinel as your SIEM in Microsoft Defender for Cloud Apps](/cloud-app-security/siem-sentinel)|
   |Microsoft Defender for Endpoint|Valid license for [Microsoft Defender for Endpoint deployment](/microsoft-365/security/defender-endpoint/production-deployment)|
   |Microsoft Defender for Office 365|Valid license for [Office 365 ATP Plan 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2)|
-  |Microsoft Office 365|- Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>- Other charges may apply.|
+  |Microsoft 365|- Your Microsoft 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>- Other charges may apply.|
   |Microsoft Power BI|- Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>- Other charges may apply.|
   |Microsoft Purview Information Protection|- Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>- Other charges may apply.|
   |Microsoft Purview Insider Risk Management (IRM)    |- Valid subscription for Microsoft 365 E5/A5/G5, or their accompanying Compliance or IRM add-ons.<br>- [Microsoft Purview Insider Risk Management](/microsoft-365/compliance/insider-risk-management) fully onboarded, and [IRM policies](/microsoft-365/compliance/insider-risk-management-policies) defined and producing alerts.<br>- [Microsoft 365 IRM configured](/microsoft-365/compliance/insider-risk-management-settings#export-alerts-preview) to enable the export of IRM alerts to the Office 365 Management Activity API in order to receive the alerts through the Microsoft Sentinel connector. |
 
 
 
-## Instructions
+## Connect to Microsoft services via API-based connectors
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
@@ -51,7 +50,7 @@ This article presents information that is common to the group of API-based data 
 
 You can find and query the data for each service using the table names that appear in the section for the service's connector in the [Data connectors reference](data-connectors-reference.md) page.
 
-## Next steps
+## Related content
 
 For more information, see:
 

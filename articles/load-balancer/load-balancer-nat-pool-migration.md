@@ -5,8 +5,9 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 08/22/2024
+ms.date: 01/28/2025
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to migrate inbound NAT rules from version 1 to version 2 in Azure Load Balancer, so that I can ensure compliance with the upcoming retirement timeline and leverage improved deployment efficiency and optimized updates for my backend infrastructure.
 ---
 
 # Migrate from Inbound NAT rules version 1 to version 2
@@ -18,7 +19,7 @@ An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a lo
 
 ## NAT rule version 1 
 
-[Version 1](inbound-nat-rules.md) is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Rules are applied to the backend instance’s network interface card (NIC). For Azure Virtual Machine Scale Sets (VMSS) instances, inbound NAT rules are automatically created/deleted as new instances are scaled up/down. For VMSS instanes use the `Inbound NAT Pools` property to manage Inbound NAT rules version 1. 
+[Version 1](inbound-nat-rules.md) is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Rules are applied to the backend instance’s network interface card (NIC). For Azure Virtual Machine Scale Sets (VMSS) instances, inbound NAT rules are automatically created/deleted as new instances are scaled up/down. For VMSS instances use the `Inbound NAT Pools` property to manage Inbound NAT rules version 1. 
 
 ## NAT rule version 2 
 
@@ -31,7 +32,15 @@ An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a lo
 
 ## How do I know if I’m using version 1 of Inbound NAT rules? 
 
-The easiest way to identify if your deployments are using version 1 of the feature is by inspecting the load balancer’s configuration. If either the `InboundNATPools` property or the `backendIPConfiguration` property within the `InboundNATRule` configuration is populated, then the deployment is version 1 of Inbound NAT rules.  
+The easiest way to identify if your deployments are using version 1 of the feature is by inspecting the load balancer’s configuration. Version 1 nat rules will have a **Type** value of *Azure Virtual Machine* with a defined **Target virtual machine** value.
+
+:::image type="content" source="media/load-balancer-nat-pool-migration/nat-rule-version-1.png" alt-text="Screenshot of NAT rule version 1 configuration in Azure portal.":::
+
+For version 2 NAT rules, the **Type** value will be *Backend pool* with a defined **Target backend pool** value.
+
+:::image type="content" source="media/load-balancer-nat-pool-migration/nat-rule-version-2.png" alt-text="Screenshot of NAT rule version 2 configuration in Azure portal.":::
+
+To programmatically determine if a deployment is using version 1 of Inbound NAT rules, inspect the load balancer’s configuration using the Azure CLI or PowerShell. If either the `backendIPConfiguration` property within the `InboundNATRule` configuration is populated, then the deployment is version 1 of Inbound NAT rules. Version 2 rules will have the `backendAddressPool` property instead of the `backendIPConfiguration` property.
 
 ## How to migrate from version 1 to version 2?  
 

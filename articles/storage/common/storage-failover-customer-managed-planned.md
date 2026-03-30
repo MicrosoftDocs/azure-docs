@@ -1,16 +1,17 @@
 ---
 title: How customer-managed planned failover works
 titleSuffix: Azure Storage
-description: Azure Storage supports account failover of geo-redundant storage accounts for disaster recovery testing and planning. Learn what happens to your storage account and storage services during a customer-managed planned failover (preview) to the secondary region to perform disaster recovery testing and planning.
+description: Azure Storage supports account failover of geo-redundant storage accounts for disaster recovery testing and planning. Learn what happens to your storage account and storage services during a customer-managed planned failover to the secondary region to perform disaster recovery testing and planning.
 services: storage
 author: stevenmatthew
 
 ms.service: azure-storage
-ms.topic: conceptual
-ms.date: 07/23/2024
+ms.topic: concept-article
+ms.date: 03/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
+# Customer intent: As a storage admin, I want to initiate a planned failover and failback of my storage account, so that I can test disaster recovery processes and maintain data availability without loss during outages or planned maintenance.
 ---
 
 <!--
@@ -18,22 +19,18 @@ Initial: 87 (1697/22)
 Current: 98 (1470/0)
 -->
 
-# How customer-managed planned failover (preview) works
+# How customer-managed planned failover works
 
-Customer managed planned failover can be useful in scenarios such as disaster and recovery planning and testing, proactive remediation of anticipated large-scale disasters, and nonstorage related outages.
+Customer managed planned failover can be useful in scenarios such as disaster and recovery planning and testing, proactive remediation of anticipated large-scale disasters, and non-storage related outages.
 
 During the planned failover process, your storage account's primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary while the original secondary region is promoted and becomes the new primary. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
 This article describes what happens during a customer-managed planned failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md).
 
 <br>
-<iframe width="560" height="315" src="
-https://www.youtube-nocookie.com/embed/lcQfwWsck58?si=I92_-lGOLcr4pUSk"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5lHyDgJffhs" title="Azure Storage Planned Failover - Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-[!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
-
-[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
+<!--[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]-->
 
 ## Redundancy management during planned failover and failback
 
@@ -63,11 +60,12 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ### The planned failover process (GRS/RA-GRS)
 
-Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
+Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-1. The original primary region becomes read only.
-1. Replication of all data from the primary region to the secondary region completes.
-1. DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
+- The storage account in both the primary and secondary region will experience a temporary loss of both read and write access.
+
+- Replication of all data from the primary region to the secondary region completes.
+- DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
 
 The failover typically takes about an hour.
 
@@ -78,14 +76,17 @@ After the failover is complete, the original primary region becomes the new seco
 :::image type="content" source="media/storage-failover-customer-managed-common/post-failover-geo-redundant.png" alt-text="Diagram that shows the storage account status post-failover to secondary region." lightbox="media/storage-failover-customer-managed-common/post-failover-geo-redundant.png":::
 
 While in the failover state, perform your disaster recovery testing.
+> [!NOTE]
+> Azure Files maintains stateful connections, which means applications may need to remount file shares or restart after a failover to continue accessing data.
 
 ### The planned failback process (GRS/RA-GRS)
 
 After testing is complete, perform another failover to failback to the original primary region. During the failover process, as shown in the following image:
 
-1. The original primary region becomes read only.
-1. All data finishes replicating from the current primary region to the current secondary region.
-1. The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
+- The storage account in both the primary and secondary region will experience a temporary loss of both read and write access.
+
+- All data finishes replicating from the current primary region to the current secondary region.
+- The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
 The failback typically takes about an hour.
 
@@ -103,11 +104,12 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ### The planned failover process (GZRS/RA-GZRS)
 
-Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
+Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-1. The current primary region becomes read only.
-1. All data finishes replicating from the primary region to the secondary region.
-1. Storage service endpoint DNS entries are switched. Your storage account's endpoints in the secondary region become your new primary endpoints.
+- The storage account in both the primary and secondary region will experience a temporary loss of both read and write access.
+
+- All data finishes replicating from the primary region to the secondary region.
+- Storage service endpoint DNS entries are switched. Your storage account's endpoints in the secondary region become your new primary endpoints.
 
 The failover typically takes about an hour.
 
@@ -123,9 +125,10 @@ While in the failover state, perform your disaster recovery testing.
 
 When testing is complete, perform another failover to fail back to the original primary region. The following image illustrates the steps involved in the failover process.
 
-1. The current primary region becomes read only.
-1. All data finishes replicating from the current primary region to the current secondary region.
-1. The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
+- The storage account in both the primary and secondary region will experience a temporary loss of both read and write access.
+
+- All data finishes replicating from the current primary region to the current secondary region.
+- The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
 The failback typically takes about an hour.
 

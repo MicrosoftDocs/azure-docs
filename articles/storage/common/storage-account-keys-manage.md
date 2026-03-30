@@ -3,18 +3,22 @@ title: Manage account access keys
 titleSuffix: Azure Storage
 description: Learn how to view, manage, and rotate your storage account access keys.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 11/12/2024
 ms.reviewer: nachakra 
-ms.custom: engagement-fy23, devx-track-azurecli
+ms.custom:
+  - engagement-fy23
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to manage and rotate storage account access keys, so that I can ensure secure and uninterrupted access to my storage resources."
 ---
 
 # Manage storage account access keys
 
-When you create a storage account, Azure generates two 512-bit storage account access keys for that account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.
+In this article, you learn how to view, manage, and rotate storage account access keys. When you create a storage account, Azure generates two 512-bit storage account access keys for the account. These keys can be used to authorize access to data in your storage account via Shared Key authorization, or via SAS tokens that are signed with the shared key.
 
 Microsoft recommends that you use Azure Key Vault to manage your access keys, and that you regularly rotate and regenerate your keys. Using Azure Key Vault makes it easy to rotate your keys without interruption to your applications. You can also manually rotate your keys.
 
@@ -32,7 +36,7 @@ To view and copy your storage account access keys or connection string from the 
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 
-2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+2. From the resource menu under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
 
 3. Select **Show keys** to show your access keys and connection strings and to enable buttons to copy the values.
 
@@ -257,7 +261,7 @@ The key expiration period appears in the console output.
 
 ## Check for key expiration policy violations
 
-You can monitor your storage accounts with Azure Policy to ensure that account access keys have been rotated within the recommended period. Azure Storage provides a built-in policy for ensuring that storage account access keys are not expired. For more information about the built-in policy, see **Storage account keys should not be expired** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+You can monitor your storage accounts with Azure Policy to ensure that account access keys have been rotated within the recommended period. Azure Storage provides a built-in policy for ensuring that storage account access keys are not expired. For more information about the built-in policy, see **Storage account keys should not be expired** in [List of built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 ### Assign the built-in policy for a resource scope
 

@@ -2,11 +2,11 @@
 title: Collect device debug logs
 titleSuffix: Azure IoT Hub
 description: To troubleshoot device issues, it's sometimes useful to collect low-level debug logs from the devices. This article shows how to use the device SDKs to generate debug logs.
-author: kgremban
-ms.author: kgremban
-ms.date: 01/20/2023
+author: cwatson-cat
+ms.author: cwatson
+ms.date: 08/13/2025
 ms.topic: how-to
-ms.service: iot-hub
+ms.service: azure-iot-hub
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 services: iot-hub
 zone_pivot_groups: programming-languages-set-twenty-seven
@@ -55,7 +55,7 @@ else if ((iothubClientResult = IoTHubDeviceClient_LL_SetOption(deviceClient, OPT
 
 The trace output is written to `stdout`.
 
-To learn more about capturing and viewing trace data from the C SDK, see [IoT Hub device and module client options](https://github.com/Azure/azure-iot-sdk-c/blob/main/doc/Iothub_sdk_options.md#iot-hub-device-and-module-client-options).
+To learn more about capturing and viewing trace data from the C SDK, see [IoT Hub Device and Module Client Options](https://github.com/Azure/azure-iot-sdk-c/blob/main/doc/Iothub_sdk_options.md#iot-hub-device-and-module-client-options).
 
 :::zone-end
 
@@ -65,7 +65,7 @@ To learn more about capturing and viewing trace data from the C SDK, see [IoT Hu
 
 On Windows, the Azure IoT SDK for .NET exports trace data by using Event Tracing for Windows (ETW). The SDK repository includes [PowerShell scripts to start and stop a capture](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/tools/CaptureLogs).
 
-Run the following scripts in an elevated PowerShell prompt on the device. The *iot_providers.txt* file lists the [GUIDs for the IoT SDK providers](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/tools/CaptureLogs#azure-iot-sdk-providers). To start capturing trace data in a file called *iot.etl*:
+Run the following scripts in an elevated PowerShell prompt on the device. The *iot_providers.txt* file lists the [GUIDs for the Azure IoT SDK providers](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/tools/CaptureLogs#azure-iot-sdk-providers). To start capturing trace data in a file called *iot.etl*:
 
 ```powershell
 .\iot_startlog.ps1 -Output iot.etl -ProviderFile .\iot_providers.txt -TraceName IotTrace
@@ -123,7 +123,7 @@ To learn more about capturing and viewing trace data from the .NET SDK, see [Cap
 
 :::zone pivot="programming-language-java"
 
-The Azure IoT SDK for Java exports trace data by using [SLF4j](http://www.slf4j.org/faq.html). The samples included in the SDK configure SLF4j by using a property file: *src/main/resources/log4j2.properties*. The property file in each sample configures logging to the console:
+The Azure IoT SDK for Java exports trace data by using [SLF4J](http://www.slf4j.org/faq.html). The samples included in the SDK configure SLF4J by using a property file: *src/main/resources/log4j2.properties*. The property file in each sample configures logging to the console:
 
 ```properties
 status = error
@@ -197,13 +197,13 @@ To capture just the trace data to a file called *trace.log*, use a command such 
 node pnp_temperature_controller.js 2> trace.log
 ```
 
-To learn more about capturing and viewing trace data from the Node.js SDK, see [Troubleshooting guide - devices](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices).
+To learn more about capturing and viewing trace data from the Node.js SDK, see [Troubleshooting Guide - Devices](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices).
 
 :::zone-end
 
 :::zone pivot="programming-language-python"
 
-The Azure IoT SDK for Python uses the [logging](https://docs.python.org/3/library/logging.html) module to capture trace logs. You control the trace by using a logging configuration file. If you're using one of the samples in the SDK, you may need to modify the code to load a logging configuration from a file:
+The Azure IoT SDK for Python uses the [logging](https://docs.python.org/3/library/logging.html) module to capture trace logs. You control the trace by using a logging configuration file. If you're using one of the samples in the SDK, you might need to modify the code to load a logging configuration from a file:
 
 Replace the following line:
 
@@ -288,7 +288,7 @@ static void write_log_message(az_log_classification classification, az_span mess
 }
 ```
 
-To learn more about capturing and filtering trace data in the Embedded C SDK, see [Logging SDK operations](https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/docs/core#logging-sdk-operations).
+To learn more about capturing and filtering trace data in the Embedded C SDK, see [Logging SDK Operations](https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/docs/core#logging-sdk-operations).
 
 :::zone-end
 

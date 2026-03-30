@@ -1,13 +1,12 @@
 ---
 title: Assess large numbers of servers in Hyper-V environment for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess large numbers of servers in Hyper-V environment for migration to Azure using the Azure Migrate service.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 02/06/2025
 
+# Customer intent: As a cloud architect, I want to assess a large number of Hyper-V servers for migration to Azure using a discovery and assessment tool, so that I can effectively plan and execute the migration process while ensuring optimal resource allocation.
 ---
 
 # Assess large numbers of servers in Hyper-V environment for migration to Azure
@@ -52,7 +51,7 @@ Use the limits summarized in this table for planning.
 ## Other planning considerations
 
 - To start discovery from the appliance, you must select each Hyper-V host. 
-- If you're running a multi-tenant environment, you can't currently discover only servers that belong to a specific tenant. 
+- If you're running a multitenant environment, you can't currently discover only servers that belong to a specific tenant. 
 
 ## Prepare for assessment
 

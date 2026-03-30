@@ -6,11 +6,12 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 10/17/2023
+ms.date: 01/13/2025
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: py-fresh-zinc
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
+# Customer intent: As a data scientist, I want to connect Azure Databricks to Azure Data Lake Storage so that I can efficiently run analytics and transform unstructured data into a more query-friendly format.
 ---
 
 # Tutorial: Azure Data Lake Storage, Azure Databricks & Spark
@@ -23,7 +24,7 @@ In this tutorial, you will:
 > - Ingest unstructured data into a storage account
 > - Run analytics on your data in Blob storage
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -39,13 +40,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
   See [Tutorial: Connect to Azure Data Lake Storage](/azure/databricks/getting-started/connect-to-azure-storage) (Steps 1 through 3). After completing these steps, make sure to paste the tenant ID, app ID, and client secret values into a text file. You use them later in this tutorial.
 
-## Create an Azure Databricks workspace, cluster, and notebook
+## Create an Azure Databricks workspace and notebook
 
 1. Create an Azure Databricks workspace. See [Create an Azure Databricks workspace](/azure/databricks/getting-started/#--create-an-azure-databricks-workspace).
 
-2. Create a cluster. See [Create a cluster](/azure/databricks/getting-started/quick-start#step-1-create-a-cluster).
-
-3. Create a notebook. See [Create a notebook](/azure/databricks/notebooks/notebooks-manage#--create-a-notebook). Choose Python as the default language of the notebook.
+2. Create a notebook. See [Create a notebook](/azure/databricks/notebooks). Choose Python as the default language of the notebook.
 
 Keep your notebook open. You use it in the following sections.
 
@@ -109,7 +108,7 @@ In this section, you mount your Azure Data Lake Storage cloud object storage to 
 
    1. In the notebook you created previously, select the **Connect** button in the upper right corner of the [notebook toolbar](/azure/databricks/notebooks/notebook-ui#--notebook-toolbar-icons-and-buttons). This button opens the compute selector. (If you've already connected your notebook to a cluster, the name of that cluster is shown in the button text rather than **Connect**).
 
-   1. In the cluster dropdown menu, select the cluster you previously created.
+   1. In the cluster dropdown menu, select any cluster you've previously created.
 
    1. Notice that the text in the cluster selector changes to *starting*. Wait for the cluster to finish starting and for the name of the cluster to appear in the button before continuing.
 
@@ -234,7 +233,7 @@ print("Number of flights in the database: ", flight_df.count())
 flight_df.show(25, False)
 
 # You can also use the DataFrame to run simple queries. Results are returned in a DataFrame.
-# Show the first 25 rows of the results of a query that returns selected colums for all flights originating from airports in Texas
+# Show the first 25 rows of the results of a query that returns selected columns for all flights originating from airports in Texas
 flight_df.select("FlightDate", "Reporting_Airline", "Flight_Number_Reporting_Airline", "OriginCityName", "DepTime", "DestCityName", "ArrTime", "ArrDelay").filter("OriginState = 'TX'").show(258, False)
 
 # Use display to run visualizations
@@ -293,7 +292,7 @@ In this tutorial, you:
 
 - Created Azure resources, including an Azure Data Lake Storage storage account and Azure AD service principal, and assigned permissions to access the storage account.
 
-- Created an Azure Databricks workspace, notebook, and compute cluster.
+- Created an Azure Databricks workspace and notebook.
 
 - Used AzCopy to upload unstructured *.csv* flight data to the Azure Data Lake Storage storage account.
 

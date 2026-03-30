@@ -2,11 +2,12 @@
 title: Perform actions using Backup center in Azure Backup
 description: This article explains how to perform actions using Backup center
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 08/22/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to use the Backup center to manage backup actions for various data sources, so that I can efficiently configure, restore, and monitor backups from a centralized interface without navigating multiple vaults.
 ---
 # Perform actions using Backup center
 
@@ -26,6 +27,8 @@ Backup center allows you to perform key backup-related actions from a central in
 * Backup center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, and Azure Database for PostgreSQL Server backup.
 * Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
+[!INCLUDE [How to open the Backup center.](../../includes/backup-center-open-console.md)]
+
 ## Configure backup
 
 If you're backing up Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs or Azure Files, you should use a Recovery Services vault. If you're backing up Azure Databases for PostgreSQL Server, you should use a Backup vault. 
@@ -38,7 +41,7 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
 To configure backup to a Recovery Services vault, follow these steps:
 
-1. Go to the **Backup center** and select **+ Backup** at the top of the **Overview** tab.
+1. On the **Backup center**, select **+ Backup** at the top of the **Overview** tab.
 
     ![Backup Center overview](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
@@ -52,7 +55,7 @@ To configure backup to a Recovery Services vault, follow these steps:
 
 To configure backup to a Backup vault, follow these steps:
 
-1. Go to the **Backup center** and select **+ Backup** at the top of the **Overview** tab.
+1. On the **Backup center**, select **+ Backup** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL server in this case).
 
     ![Select datasource to configure Azure Database for PostgreSQL Server backup](./media/backup-center-actions/backup-select-datasource-type-postgresql.png)
@@ -71,7 +74,7 @@ Depending on the type of datasource you wish to restore, follow the appropriate 
 
 To restore data from a Recovery Services vault, follow these steps:
 
-1. Go to the **Backup center** and select **Restore** at the top of the **Overview** tab.
+1. On the **Backup center**, select **Restore** at the top of the **Overview** tab.
 
     ![Backup Center Overview to restore VM](./media/backup-center-actions/backup-center-overview-restore.png)
 
@@ -85,7 +88,7 @@ To restore data from a Recovery Services vault, follow these steps:
 
 To restore data from a Backup vault, follow these steps:
 
-1. Go to the Backup center and select **Restore** at the top of the **Overview** tab.
+1. On the **Backup center**, select **Restore** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to restore (Azure Database for PostgreSQL Server in this case).
 
     ![Select datasource for Azure Database for PostgreSQL Server restore](./media/backup-center-actions/restore-select-datasource-postgresql.png)
@@ -113,7 +116,7 @@ Depending on the type of datasource you wish to back up, follow the appropriate 
 
 To create a backup policy for backing up to a Recovery Services vault, follow these steps:
 
-1. Go to the **Backup center** and select **+ Policy** at the top of the **Overview** tab.
+1. On the **Backup center**, select **+ Policy** at the top of the **Overview** tab.
 
     ![Backup Center Overview for backup policy](./media/backup-center-actions/backup-center-overview-policy.png)
 
@@ -127,7 +130,7 @@ To create a backup policy for backing up to a Recovery Services vault, follow th
 
 To create a backup policy for  backing up to a Backup vault, follow these steps:
 
-1. Go to the Backup center and select **+ Policy** at the top of the **Overview** tab.
+1. On the **Backup center**, select **+ Policy** at the top of the **Overview** tab.
 2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL Server in this case).
 
     ![Select datasource for policy for Azure Database for PostgreSQL Server backup](./media/backup-center-actions/policy-select-datasource-postgresql.png)
@@ -152,7 +155,7 @@ To stop protection, go to the Backup center and select the **Backup Instances** 
 
 There are scenarios when you might want to stop backup for a backup instance, such as when the underlying resource being backed up doesn’t exist anymore.
 
-To stop protection, navigate to the Backup center and select the **Backup Instances** menu item. Select this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Stop Backup** option to stop backup for the backup instance.
+To stop protection, go to the Backup center and select the **Backup Instances** menu item. Select this lets you view details of all the backup instances that you have access to. You can search for the backup instance you wish to back up. Right-clicking on an item in the grid opens up a list of available actions. Select the **Stop Backup** option to stop backup for the backup instance.
 
 ![Stop protection](./media/backup-center-actions/backup-center-stop-protection.png)
 
@@ -171,7 +174,7 @@ You can resume backup for your workloads if you have retained data during **Stop
 
 To configure replication on Backup center, follow these steps:
 
-1. Go to the **Backup center** and select **Overview** > **Backup instances** tile > **View ASR Replicated items**.
+1. On the **Backup center**, select **Overview** > **Backup instances** tile > **View ASR Replicated items**.
 
    :::image type="content" source="./media/backup-center-actions/backup-center-view-replication-item-inline.png" alt-text="Screenshot shows how to view an item for replication." lightbox="./media/backup-center-actions/backup-center-view-replication-item-expanded.png":::
 

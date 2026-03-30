@@ -2,8 +2,10 @@
 title: Bicep functions - arrays
 description: Describes the functions to use in a Bicep file for working with arrays.
 ms.topic: reference
-ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 10/30/2025
+ms.custom:
+  - devx-track-bicep
+  - sfi-ropc-nochange
 ---
 
 # Array functions for Bicep
@@ -158,7 +160,7 @@ The output from the preceding example with the default values is:
 
 `empty(itemToTest)`
 
-Determines if an array, object, or string is empty.
+Determines if an array, object, or string is empty or null.
 
 Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
@@ -166,11 +168,11 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it's empty. |
+| itemToTest |Yes |array, object, or string |The value to check if it's empty or null. |
 
 ### Return value
 
-Returns **True** if the value is empty; otherwise, **False**.
+Returns **True** if the value is empty or null; otherwise, **False**.
 
 ### Example
 
@@ -180,10 +182,12 @@ The following example checks whether an array, object, and string are empty.
 param testArray array = []
 param testObject object = {}
 param testString string = ''
+param testNullString string?
 
 output arrayEmpty bool = empty(testArray)
 output objectEmpty bool = empty(testObject)
 output stringEmpty bool = empty(testString)
+output stringNull bool = empty(testNullString)
 ```
 
 The output from the preceding example with the default values is:
@@ -193,6 +197,7 @@ The output from the preceding example with the default values is:
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
+| stringNull | Bool | True |
 
 ### Quickstart examples
 
@@ -204,7 +209,7 @@ param dnsServers array = []
 
 ...
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: vnetName
   location: location
   properties: {
@@ -647,7 +652,7 @@ param availabilityZones array = [
   '2'
 ]
 
-resource exampleApim 'Microsoft.ApiManagement/service@2023-05-01-preview' = {
+resource exampleApim 'Microsoft.ApiManagement/service@2024-10-01-preview' = {
   name: apiManagementName
   location: location
   sku: {
@@ -797,7 +802,7 @@ The following example is extracted from a quickstart template, [Two VMs in VNET 
 ...
 var numberOfInstances = 2
 
-resource networkInterface 'Microsoft.Network/networkInterfaces@2023-11-01' = [for i in range(0, numberOfInstances): {
+resource networkInterface 'Microsoft.Network/networkInterfaces@2025-01-01' = [for i in range(0, numberOfInstances): {
   name: '${networkInterfaceName}${i}'
   location: location
   properties: {
@@ -805,7 +810,7 @@ resource networkInterface 'Microsoft.Network/networkInterfaces@2023-11-01' = [fo
   }
 }]
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = [for i in range(0, numberOfInstances): {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = [for i in range(0, numberOfInstances): {
   name: '${vmNamePrefix}${i}'
   location: location
   properties: {

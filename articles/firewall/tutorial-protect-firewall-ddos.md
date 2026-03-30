@@ -9,6 +9,7 @@ ms.date: 06/06/2023
 ms.author: allensu
 ms.custom: template-tutorial
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
+# Customer intent: As a network administrator, I want to deploy Azure Firewall with DDoS Protection so that I can secure my virtual network and control outbound access for my resources effectively.
 ---
 
 # Tutorial: Deploy a firewall with Azure DDoS Protection
@@ -16,7 +17,7 @@ ms.custom: template-tutorial
 This article helps you create an Azure Firewall with a DDoS protected virtual network. Azure DDoS Protection enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your firewall from large scale DDoS attacks.
 
 > [!IMPORTANT]
-> Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
+> Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
 
 For this tutorial, you create a simplified single VNet with two subnets for easy deployment. Azure DDoS Network Protection is enabled for the virtual network.
 
@@ -42,7 +43,7 @@ If you prefer, you can complete this procedure using [Azure PowerShell](deploy-p
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Set up the network
 
@@ -142,7 +143,7 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 1. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Workload-SN**.
 1. For **Public IP**, select **None**.
 1. Accept the other defaults and select **Next: Management**.
-1. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
+1. Under **Management** tab, select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
 1. Review the settings on the summary page, and then select **Create**.
 1. After the deployment completes, select the **Srv-Work** resource and note the private IP address for later use.
 

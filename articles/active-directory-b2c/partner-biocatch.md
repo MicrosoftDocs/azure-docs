@@ -17,6 +17,8 @@ ms.subservice: b2c
 
 # Tutorial: Configure BioCatch with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with BioCatch technology to augment your Customer Identity and Access Management (CIAM) security posture. BioCatch products analyze user physical and cognitive digital behaviors for insights that help distinguish legitimate customers.
 
 Go to biocatch.com to learn more [BioCatch](https://www.biocatch.com/)
@@ -26,7 +28,7 @@ Go to biocatch.com to learn more [BioCatch](https://www.biocatch.com/)
 To get started, you need:
 
 * An Azure subscription
-  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
 * Go to the biocatch.com [Contact Us](https://www.biocatch.com/contact-us) page to request an account
@@ -381,9 +383,9 @@ For the following instructions, see [Tutorial: Register a web application in Azu
 
       "iss": "https://tenant.b2clogin.com/12345678-1234-1234-1234-123456789012/v2.0/", 
 
-      "sub": "12345678-1234-1234-1234-123456789012", 
+      "sub": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb", 
 
-      "aud": "12345678-1234-1234-1234-123456789012", 
+      "aud": "00001111-aaaa-2222-bbbb-3333cccc4444", 
 
       "acr": "b2c_1a_signup_signin_biocatch_policy", 
 
@@ -405,7 +407,7 @@ For the following instructions, see [Tutorial: Register a web application in Azu
 
       "score": 275, 
 
-      "tid": "12345678-1234-1234-1234-123456789012" 
+      "tid": "bbbbcccc-1111-dddd-2222-eeee3333ffff" 
 
     }.[Signature]  
 

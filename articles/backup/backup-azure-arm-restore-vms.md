@@ -3,10 +3,11 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 07/02/2024
+ms.date: 01/23/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As an Azure administrator, I want to restore Azure virtual machines from recovery points using the portal, so that I can recover data and configurations efficiently after a failure or data loss."
 ---
 # How to restore Azure VM data in Azure portal
 
@@ -20,13 +21,13 @@ Azure Backup provides several ways to restore a VM.
 --- | ---
 **Create a new VM** | Quickly creates and gets a basic VM up and running from a restore point.<br/><br/> You can specify a name for the VM and select the resource group and virtual network (VNet) in which it will be placed. The new VM must be created in the same region as the source VM.<br><br>If a VM restore fails because an Azure VM SKU wasn't available in the specified region of Azure, or because of any other issues, Azure Backup still restores the disks in the specified resource group.
 **Restore disk** | Restores a VM disk, which can then be used to create a new VM.<br/><br/> Azure Backup provides a template to help you customize and create a VM. <br/><br> The restore job generates a template that you can download and use to specify custom VM settings, and create a VM.<br/><br/> The disks are copied to the Resource Group you specify.<br/><br/> Alternatively, you can attach the disk to an existing VM, or create a new VM using PowerShell.<br/><br/> This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup, or add settings that must be configured using the template or PowerShell.
-**Replace existing** | You can restore a disk, and use it to replace a disk on the existing VM.<br/><br/> The current VM must exist. If it's been deleted, this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is copied to the vault and retained in accordance with the retention policy.　<br/><br/> When you choose a Vault-Standard recovery point, a VHD file with the content of the chosen recovery point is also created in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point. <br/><br/> After the replace disk operation, the original disk is retained in the resource group. You can choose to manually delete the original disks if they aren't needed. <br/><br/>Replace existing is supported for unencrypted managed VMs, including VMs [created using custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). It's unsupported for classic VMs, unmanaged VMs, and [generalized VMs](/azure/virtual-machines/windows/upload-generalized-managed).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM configuration.<br><br> Replace existing is also supported for VMs with linked resources, like [user-assigned managed-identity](../active-directory/managed-identities-azure-resources/overview.md) or [Key Vault](/azure/key-vault/general/overview).
-**Cross Region (secondary region)** | Cross Region restore can be used to restore Azure VMs in the secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).<br><br> You can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region.<br><br> During the backup, snapshots aren't replicated to the secondary region. Only the data stored in the vault is replicated. So secondary region restores are only [vault tier](about-azure-vm-restore.md#concepts) restores. The restore time for the secondary region will be almost the same as the vault tier restore time for the primary region.  <br><br> This feature is available for the options below:<br><br> - [Create a VM](#create-a-vm) <br> - [Restore Disks](#restore-disks) <br><br> We don't currently support the [Replace existing disks](#replace-existing-disks) option.<br><br> Permissions<br> The restore operation on secondary region can be performed by Backup Admins and App admins.
-**Cross Subscription Restore** | Allows you to restore Azure Virtual Machines or disks to a different subscription within the same tenant as the source subscription (as per the Azure RBAC capabilities) from restore points.  <br><br> Allowed only if the [Cross Subscription Restore property](backup-azure-arm-restore-vms.md#cross-subscription-restore-for-azure-vm) is enabled for your Recovery Services vault.  <br><br>  Works with [Cross Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) and [Cross Zonal Restore](backup-azure-arm-restore-vms.md#create-a-vm).   <br><br>   You can trigger Cross Subscription Restore for managed virtual machines only. <br><br> Cross Subscription Restore is supported for [Restore with Managed System Identities (MSI)](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities). <br><br> It's unsupported for [snapshots tier](backup-azure-vms-introduction.md#snapshot-creation) recovery points. <br><br>  It's unsupported for [unmanaged VMs](#restoring-unmanaged-vms-and-disks-as-managed) and [ADE encrypted VMs](backup-azure-vms-encryption.md#encryption-support-using-ade).
-**Cross Zonal Restore** |	Allows you to restore Azure Virtual Machines or disks pinned to any zone to different available zones (as per the Azure RBAC capabilities) from restore points. Note that when you select a zone to restore, it selects the [logical zone](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services) (and not the physical zone) as per the Azure subscription you will use to restore to.           <br><br> You can trigger Cross Zonal Restore for managed virtual machines only. <br><br> Cross Zonal Restore is supported for [Restore with Managed System Identities (MSI)](#restore-vms-with-managed-identities). <br><br> Cross Zonal Restore supports restore of an Azure zone pinned/non-zone pinned VM from a vault with Zonal-redundant storage (ZRS) enabled. Learn [how to set Storage Redundancy](backup-create-rs-vault.md#set-storage-redundancy). <br><br> It's supported to restore an Azure zone pinned VM only from a [vault with Cross Region Restore (CRR)](backup-create-rs-vault.md#set-storage-redundancy) (if the secondary region supports zones) or Zone Redundant Storage (ZRS) enabled. <br><br> Cross Zonal Restore is supported from [secondary regions](#restore-in-secondary-region). <br><br> It's unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) restore point. <br><br> It's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
+**Replace existing** | You can restore a disk, and use it to replace a disk on the existing VM.<br/><br/> The current VM must exist. If it's been deleted, this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is copied to the vault and retained in accordance with the retention policy.　<br/><br/> When you choose a Vault-Standard recovery point, a VHD file with the content of the chosen recovery point is also created in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point. <br/><br/> After the disk replacement operation is complete, the original disk is retained in the resource group. You can choose to manually delete the original disks if they aren't needed. <br/><br/>Replace existing is supported for unencrypted managed VMs, including VMs [created using custom images](/azure/virtual-machines/windows/tutorial-custom-images). It's unsupported for classic VMs, unmanaged VMs, and [generalized VMs](/azure/virtual-machines/windows/upload-generalized-managed).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM configuration.<br><br> Replace existing is also supported for VMs with linked resources, like [user-assigned managed-identity](../active-directory/managed-identities-azure-resources/overview.md) or [Key Vault](/azure/key-vault/general/overview).
+**Cross Region (secondary region)** | Cross Region restore can be used to restore Azure VMs in the secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).<br><br> You can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region.<br><br> During the backup, snapshots aren't replicated to the secondary region. Only the data stored in the vault is replicated. So secondary region restores are only [vault tier](about-azure-vm-restore.md#key-concepts-for-azure-vm-restore) restores. The restore time for the secondary region will be almost the same as the vault tier restore time for the primary region.  <br><br> This feature is available for the options below:<br><br> - [Create a VM](#create-a-vm) <br> - [Restore Disks](#restore-disks) <br><br> If the source machine has more than 16 disks, VHDs won't be created in Cross Region Restore. <br><br> We don't currently support the [Replace existing disks](#replace-existing-disks) option.<br><br> Permissions<br> The restore operation on secondary region can be performed by Backup Admins and App admins.
+**Cross Subscription Restore** | Allows you to restore Azure Virtual Machines or disks to a different subscription within the same tenant as the source subscription (as per the Azure RBAC capabilities) from restore points.  <br><br> Additionally, Cross Zone Restore supports restoring Azure non-zone pinned VMs from a Recovery Services vault configured with Zone-Redundant Storage (ZRS), enabling enhanced resiliency and flexibility in disaster recovery scenarios.  <br><br> Allowed only if the [Cross Subscription Restore property](backup-azure-arm-restore-vms.md#cross-subscription-restore-for-azure-vm) is enabled for your Recovery Services vault.  <br><br>  Works with [Cross Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) and [Cross Zonal Restore](backup-azure-arm-restore-vms.md#create-a-vm).   <br><br>   You can trigger Cross Subscription Restore for managed virtual machines only. <br><br> Cross Subscription Restore is supported for [Restore with Managed System Identities (MSI)](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities). <br><br> It's unsupported for [snapshots tier](backup-azure-vms-introduction.md#snapshot-creation) recovery points. <br><br>  It's unsupported for [unmanaged VMs](#restoring-unmanaged-vms-and-disks-as-managed) and [ADE encrypted VMs](backup-azure-vms-encryption.md#encryption-support-by-using-ade).
+**Cross Zonal Restore** |	Allows you to restore Azure Virtual Machines or disks pinned to any zone to different available zones (as per the Azure RBAC capabilities) from restore points. Note that when you select a zone to restore, it selects the [logical zone](/azure/reliability/availability-zones-overview#zonal-and-zone-redundant-services) (and not the physical zone) as per the Azure subscription you will use to restore to.           <br><br> You can trigger Cross Zonal Restore for managed virtual machines only. <br><br> Cross Zonal Restore is supported for [Restore with Managed System Identities (MSI)](#restore-vms-with-managed-identities). <br><br> Cross Zonal Restore supports restore of an Azure zone pinned/non-zone pinned VM from a vault with Zonal-redundant storage (ZRS) enabled. Learn [how to set Storage Redundancy](backup-create-rs-vault.md#set-storage-redundancy). <br><br> It's supported to restore an Azure zone pinned VM only from a [vault with Cross Region Restore (CRR)](backup-create-rs-vault.md#set-storage-redundancy) (if the secondary region supports zones) or Zone Redundant Storage (ZRS) enabled. <br><br> Cross Zonal Restore is supported from [secondary regions](#restore-in-secondary-region). <br><br> It's unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) restore point. <br><br> It's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 >[!Tip]
->To receive alerts/notifications when a restore operation fails, use [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup). This helps you to monitor such failures and take necessary actions to remediate the issues.
+>To receive alerts/notifications when a restore operation fails, use [Azure Monitor alerts for Azure Backup](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup). This helps you to monitor such failures and take necessary actions to remediate the issues.
 
 >[!NOTE]
 >You can also recover specific files and folders on an Azure VM. [Learn more](backup-azure-restore-files-from-vm.md).
@@ -35,12 +36,12 @@ Azure Backup provides several ways to restore a VM.
 
 Some details about storage accounts:
 
-- **Create VM**: When you create a new VM with managed disks, nothing is placed in the storage account you specify. If using unmanaged disks, the VHD files for the VM's disks will be placed in the storage account you specify.
-- **Restore disk**: The restore job generates a template that you can download and use to specify custom VM settings. This template is placed in the specified storage account. VHD files are also copied to the storage account, when you restore managed disks of size less than 4 TB, from a Vault-Standard recovery point, or when you restore unmanaged disks. The files are then copied to Managed storage. To avoid unnecessary charge, delete the VHD files from the Staging Storage Account. 
-- **Replace disk**: When you replace a managed disk from a Vault-Standard recovery point and the disk size is less than 4 TB, a VHD file with the data from the chosen recovery point is created in the specified storage account. After the replace disk operation, the disks of the source Azure VM are left in the specified Resource group for your operation and the VHDs are stored in the specified storage account. You can choose to delete or retain these VHDs and disks.
+- **Create VM**: When you create a new VM, VHD files are also copied when restoring VMs with disks < 4 TB or VMs containing < 16 disks from a Vault-Standard recovery point. These files are then moved to Managed storage. To prevent extra charges, delete VHDs from the Staging Storage Account.
+- **Restore disk**: The VM restore job generates a template, which you can download and use to specify custom VM settings. VHD files are also copied when restoring managed disks **< 4 TB** or VMs containing **< 16 disks** from a Vault-Standard recovery point, or when restoring unmanaged disks. These files are then moved to Managed storage. To prevent extra charges, delete VHDs from the Staging Storage Account.
+- **Replace disk**: When replacing a managed disk from a Vault-Standard recovery point that's **< 4 TB** or a VM containing **< 16 disks**, a VHD file is created in the specified storage account. After replacement, source VM disks remain in the designated Resource Group, and VHDs stay in the storage account; you can delete or retain the source disk and the VHDs as needed.
 - **Storage account location**: The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
-- **Storage type**: Blob storage isn't supported.
-- **Storage redundancy**: Zone redundant storage (ZRS) isn't supported. The replication and redundancy information for the account is shown in parentheses after the account name.
+- **Storage type**: Blob Storage account isn't supported because the Premium Storage account  it requires is excluded for cost optimization.
+- **Storage redundancy**: Zone redundant storage (ZRS) is supported. The replication and redundancy information for the account is shown in parentheses after the account name.
 - **Premium storage**:
   - When you restore non-premium VMs, premium storage accounts aren't supported.
   - When you restore managed VMs, premium storage accounts configured with network rules aren't supported.
@@ -51,24 +52,27 @@ To restore a VM (create a new VM), make sure you have the correct Azure role-bas
 
 If you don't have permissions, you can [restore a disk](#restore-disks), and then after the disk is restored, you can [use the template](#use-templates-to-customize-a-restored-vm) that was generated as part of the restore operation to create a new VM.
 
-[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+[!INCLUDE [resiliency.md](../../includes/resiliency.md)]
 
 ## Select a restore point
 
-1. Navigate to **Backup center** in the Azure portal and click **Restore** from the **Overview** tab.
+To select a restore point for a VM restore, follow these steps:
 
-    ![Navigate to restore](./media/backup-azure-arm-restore-vms/select-restore.png)
+1. Go to **Resiliency** in the [Azure portal](https://portal.azure.com/) and select **Recover**.
 
-1. Select **Azure Virtual machines** as the **Datasource type**, and then  select a Backup instance.
+    :::image type="content" source="./media/backup-azure-arm-restore-vms/select-recover.png" alt-text="Screenshot shows how to start VM restore." lightbox="./media/backup-azure-arm-restore-vms/select-recover.png":::
 
-    ![Selecting datasource type](./media/backup-azure-arm-restore-vms/virtual-machine-as-datasource.png)
+1. On the **Recover** pane, select **Datasource type** as **Azure Virtual machines**, and then under **Protected item**, click **Select**.
 
-1. Select a VM and click **Continue**.
-1. In the next screen that appears, select a restore point to use for the recovery.
+    :::image type="content" source="./media/backup-azure-arm-restore-vms/virtual-machine-as-datasource.png" alt-text="Screenshot shows the selection of datasource type." lightbox="./media/backup-azure-arm-restore-vms/virtual-machine-as-datasource.png":::
 
-    ![Select restore point for a virtual machine](./media/backup-azure-arm-restore-vms/restore-point.png)
+1. On the **Select Protected item** pane, select a protected VM from the list, and then click **Select**.
+1. On the **Recover** pane, select **Continue**.
+1. On the **Restore Virtual Machine** pane, under **Restore point**, click **Select**.
 
+    :::image type="content" source="./media/backup-azure-arm-restore-vms/restore-point.png" alt-text="Screenshot shows how to select restore point for a virtual machine." lightbox="./media/backup-azure-arm-restore-vms/restore-point.png":::
 
+1. On the **Select restore point** pane, select a restore point from the list, and then select **OK** to use for recovery.
 
 ## Choose a VM restore configuration
 
@@ -82,6 +86,7 @@ If you don't have permissions, you can [restore a disk](#restore-disks), and the
 
 >[!Note]
 >Use the **Replace existing** option only when the **Transfer Data to Vault** subtask in the job details shows successfully completed. Otherwise, use the **Create New** option for the latest recovery point restoration.
+>For more information about backup phases and progress interpretation, see [Verify the backup job status](backup-azure-arm-vms-prepare.md#verify-the-backup-job-status).
 
 ## Create a VM
 
@@ -121,7 +126,8 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 1. Select **Restore** to trigger the restore operation.
 
 >[!Note]
->Before you modify any NSG settings, ensure the VM restore operation is complete. Learn about [tracking the restore operation](#track-the-restore-operation).
+>- Before you modify any NSG settings, ensure the VM restore operation is complete. Learn about [tracking the restore operation](#track-the-restore-operation).
+>- During an Alternate Location Restore (Create new VM), the restored VM retains the same SKU as the original VM at the time of the recovery point creation. Any SKU changes made after the backup date don't reflect in the restored VM.
 
 ## Restore disks
 
@@ -131,11 +137,11 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 - [Attach restored disks](/azure/virtual-machines/windows/attach-managed-disk-portal) to an existing VM.
 - [Create a new VM](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) from the restored disks using PowerShell.
 
-1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**. 
-1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
-1. In **Staging location**, specify the storage account. The template file is stored here, and VHD files are also created in some scenarios. [Learn more](#storage-accounts).
+1. Under **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**. 
+1. Under **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
+1. On **Staging location**, specify the storage account. The template file is stored here, and VHD files are also created in some scenarios. [Learn more](#storage-accounts).
 
-   :::image type="content" source="./media/backup-azure-arm-restore-vms/trigger-restore-operation-disks.png" alt-text="Screenshot showing to select Resource disks.":::
+   :::image type="content" source="./media/backup-azure-arm-restore-vms/trigger-restore-operation-disks.png" alt-text="Screenshot shows how to select Resource disks.":::
 
 1. Choose the required subscription from the **Subscription** drop-down list to restore the VM disks to a different subscription.
 
@@ -162,11 +168,15 @@ While you restore disks for a Managed VM from a Vault-Standard recovery point, i
 
 After the disk is restored, use the template that was generated as part of the restore operation to customize and create a new VM:
 
-1. In **Backup Jobs**, select the relevant restore job.
+1. Go to the **Recovery Services vault**, and then select **Monitoring** > **Backup Jobs**.
+
+   Alternatively, you can go to **Resiliency**, and then select **Monitoring + Reporting** > **Jobs**. 
+
+1. On the **Backup Jobs** pane, select the relevant restore job.
 
 1. In **Restore**, select **Deploy Template** to initiate template deployment.
 
-    ![Restore job drill-down](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
+    :::image type="content" source="./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png" alt-text="Screenshot shows the restore job drill-down details." lightbox="./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png":::
    
    >[!Note]
    >For a shared access signature (SAS) that has **Allow storage account key access** set to disabled, the template won't deploy when you select **Deploy Template**.
@@ -186,7 +196,7 @@ After the disk is restored, use the template that was generated as part of the r
 As one of the [restore options](#restore-options), you can replace an existing VM disk with the selected restore point. [Review](#restore-options) all restore options.
 
 1. In **Restore configuration**, select **Replace existing**.
-1. In **Restore Type**, select **Replace disk/s**. This is the restore point that will be used replace existing VM disks.
+1. In **Restore Type**, select **Replace disk/s**. This is the restore point that will be used to replace existing VM disks.
 1. In **Staging Location**, specify a storage account. VHD files are created here in some scenarios. [Learn more](#storage-accounts).
 
    ![Restore configuration wizard Replace Existing](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
@@ -218,7 +228,7 @@ To begin using the feature, read the [Before You Begin section](./backup-create-
 To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore).
 
 >[!Note]
->Cross-region restore is currently not supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
+>Cross-region restore is currently not supported for machines running on Ultra Disks. [Learn more about Ultra Disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
 
 ### View backup items in secondary region
 
@@ -236,13 +246,13 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 ### Restore in secondary region
 
-The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
+The secondary region restore user experience is similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you're  prompted to provide only secondary region parameters.
 
 Currently, secondary region [RPO](azure-backup-glossary.md#recovery-point-objective-rpo) is _36 hours_. This is because the RPO in the primary region is _24 hours_ and can take up to _12 hours_ to replicate the backup data from the primary to the secondary region.
 
-![Choose VM to restore](./media/backup-azure-arm-restore-vms/sec-restore.png)
+:::image type="content" source="./media/backup-azure-arm-restore-vms/secondary-region-restore.png" alt-text="{alt-text}":::Screenshot shows how to start secondary region restore of a VM. ":::
 
-![Select restore point](./media/backup-azure-arm-restore-vms/sec-rp.png)
+:::image type="content" source="./media/backup-azure-arm-restore-vms/secondary-region-restore-recovery-point.png" alt-text="Screenshot shows a restore point is selected for secondary region restore.":::
 
 - To restore and create a VM, refer to [Create a VM](#create-a-vm).
 - To restore as a disk, refer to [Restore disks](#restore-disks).
@@ -251,15 +261,15 @@ Currently, secondary region [RPO](azure-backup-glossary.md#recovery-point-object
 >
 >- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which aren't backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
 >- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
->- While restoring an Azure VM, Azure Backup configures the virtual network settings in the secondary region automatically. If you are [restoring disks](#restore-disks) while deploying the template, ensure to provide the virtual network settings, corresponding to the secondary region.
+>- When you restore an Azure VM, Azure Backup configures the virtual network settings in the secondary region automatically. If you are [restoring disks](#restore-disks) while deploying the template, ensure to provide the virtual network settings, corresponding to the secondary region.
 >- If VNet/Subnet is not available in the primary region or is not configured in the secondary region, Azure portal doesn't auto-populate any default values during restore operation.
->- For Cross Region Restores, the **Staging Location** (that is the storage account location) must be in the region that the Recovery Services vault treats as the *secondary* region. For example, a Recovery Services vault is located in East US 2 region (with Geo-Redundancy and Cross Region Restore enabled). This means that the *secondary* region would be *Central US*. Therefore, you need to create a storage account in *Central US* to perform a Cross Region Restore of the VM. <br> Learn more about [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md).
+>- For Cross Region Restores, the **Staging Location** (that is the storage account location) must be in the region that the Recovery Services vault treats as the *secondary* region. For example, a Recovery Services vault is located in East US 2 region (with Geo-Redundancy and Cross Region Restore enabled). This means that the *secondary* region would be *Central US*. Therefore, you need to create a storage account in *Central US* to perform a Cross Region Restore of the VM. <br> Learn more about [Azure cross-region replication pairings for all geographies](/azure/reliability/cross-region-replication-azure).
 
 
 
-[Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) can be restored in any [availability zones](../availability-zones/az-overview.md) of the same region.
+[Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) can be restored in any [availability zones](/azure/reliability/availability-zones-overview) of the same region.
 
-In the restore process, you'll see the option **Availability Zone.** You'll see your default zone first. To choose a different zone, choose the number of the zone of your choice. If the pinned zone is unavailable, you won't be able to restore the data to another zone because the backed-up data isn't zonally replicated. The restore in availability zones is possible from recovery points in vault tier only.
+In the restore process, you'll see the option **Availability Zone.** You'll see your default zone first. To choose a different zone, choose the number of the zone of your choice. If the pinned zone is unavailable, you won't be able to restore the data to another zone because the backed-up data isn't replicated across zones. The restore in availability zones is possible from recovery points in vault tier only.
 
 In summary, the **Availability Zone** will only appear when
  - The source VM is zone pinned and is NOT encrypted
@@ -309,8 +319,8 @@ There are many common scenarios in which you might need to restore VMs.
 **Restore VMs using Hybrid Use Benefit** | If a Windows VM uses [Hybrid Use Benefit (HUB) licensing](/azure/virtual-machines/windows/hybrid-use-benefit-licensing), restore the disks, and create a new VM using the provided template (with **License Type** set to **Windows_Server**), or PowerShell.  This setting can also be applied after creating the VM.
 **Restore VMs during an Azure datacenter disaster** | If the vault uses GRS and the primary datacenter for the VM goes down, Azure Backup supports restoring backed-up VMs to the paired datacenter. You select a storage account in the paired datacenter, and restore as normal. Azure Backup uses the compute service in the paired region to create the restored VM. [Learn more](/azure/architecture/resiliency/recovery-loss-azure-region) about datacenter resiliency.<br><br> If the vault uses GRS, you can choose the new feature, [Cross Region Restore](#cross-region-restore). This lets you restore to a second region in either full or partial outage scenarios, or even if there's no outage at all.
 **Bare-metal restore** | The major difference between Azure VMs and on-premises hypervisors is that there's no VM console available in Azure. A console is required for certain scenarios, such as recovering by using a bare-metal recovery (BMR)-type backup. However, VM restore from the vault is a full replacement for BMR.
-**Restore VMs with special network configurations** | Special network configurations include VMs using internal or external load balancing, using multiple NICS, or multiple reserved IP addresses. You restore these VMs by using the [restore disk option](#restore-disks). This option makes a copy of the VHDs into the specified storage account, and you can then create a VM with an [internal](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md) or [external](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) load balancer, [multiple NICS](/azure/virtual-machines/windows/multiple-nics), or [multiple reserved IP addresses](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md), in accordance with your configuration.
-**Network Security Group (NSG) on NIC/Subnet** | Azure VM backup supports Backup and Restore of NSG information at vnet, subnet, and NIC level.
+**Restore VMs with special network configurations** | Special network configurations include VMs using internal or external load balancing, using multiple NICS, or multiple reserved IP addresses. You restore these VMs by using the [restore disk option](#restore-disks). This option makes a copy of the VHDs into the specified storage account, and you can then create a VM with an [internal](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md) or [external](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) load balancer, [multiple NICS](/azure/virtual-machines/windows/multiple-nics), or [multiple reserved IP addresses](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md), in accordance with your configuration. <br><br> To restore VMs with special network configurations, you should use the **Restore Disk** option. This option creates a copy of the virtual hard disks (VHDs) into the specified storage account. Once the VHDs are copied, you can proceed to create a VM that matches your required network configuration, whether it involves internal or external load balancing, multiple NICs, or multiple reserved IP addresses.   <br><br> Note that VM NICs won't be created if the machine has Public IP and NAT gateway. Consider this limitation when you plan to restore VMs with special network configurations. 
+**Network Security Group (NSG) on NIC/Subnet** | Azure VM backup supports backing up and restoring NSG information at vnet, subnet, and NIC level.
 **Zone Pinned VMs** | If you back up an Azure VM that's pinned to a zone (with Azure Backup), then you can restore it in the same zone where it was pinned. [Learn more](../availability-zones/az-overview.md)
 **Restore VM in any availability set** | When you restore a VM from the portal, there's no option to choose an availability set. A restored VM doesn't have an availability set. If you use the restore disk option, then you can [specify an availability set](/azure/virtual-machines/windows/tutorial-availability-sets) when you create a VM from the disk using the provided template or PowerShell.
 **Restore special VMs such as SQL VMs** | If you're backing up a SQL VM using Azure VM backup and then use the restore VM option or create a VM after restoring disks, then the newly created VM must be registered with the SQL provider as mentioned [here](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm?tabs=azure-cli%2cbash). This will convert the restored VM into a SQL VM.
@@ -330,34 +340,68 @@ For more information, see [Back up and restore Active Directory domain controlle
 
 Managed identities eliminate the need for the user to maintain the credentials. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication.  
 
-Azure Backup offers the flexibility to restore the managed Azure VM with [managed identities](../active-directory/managed-identities-azure-resources/overview.md). You can choose to select [system-managed identities](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** blade](#create-a-vm) of Azure VM. Managed identities used as one of the input parameters is only used for accessing the storage accounts, which are used as staging location during restore and not for any other Azure resource controlling. These managed identities have to be associated to the vault.
+Azure Backup offers the flexibility to restore the managed Azure VM with [managed identities](../active-directory/managed-identities-azure-resources/overview.md). You can choose to select [system-managed identities](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** pane](#create-a-vm) of Azure VM. Managed identities are used for accessing the storage accounts and automated cleanup of any resources created during restore process. These managed identities have to be associated to the vault.
 
 :::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="Screenshot for choice to select system-managed identities or user-managed identities.":::
 
-If you choose to select system-assigned or user-assigned managed identities, check for the below actions for managed identity on the target staging Storage Account.
+If you choose to select system-assigned or user-assigned managed identities, check for the below actions for managed identity on the target staging Storage Account and Resource Group.
 
 ```json
 "permissions": [
-  {
-    "actions": [
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-        "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-    ],
-    "notActions": [],
-    "dataActions": [
-      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
-      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
-    ],
-    "notDataActions": []
-  }
-]
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Compute/disks/read",
+                    "Microsoft.Compute/disks/write",
+                    "Microsoft.Compute/disks/delete",
+                    "Microsoft.Compute/disks/beginGetAccess/action",
+                    "Microsoft.Compute/disks/endGetAccess/action",
+                    "Microsoft.Compute/locations/diskOperations/read",
+                    "Microsoft.Compute/virtualMachines/read",
+                    "Microsoft.Compute/virtualMachines/write",
+                    "Microsoft.Compute/virtualMachines/delete",
+                    "Microsoft.Compute/virtualMachines/instanceView/read",
+                    "Microsoft.Compute/virtualMachines/extensions/read",
+                    "Microsoft.Compute/virtualMachines/extensions/write",
+                    "Microsoft.Compute/virtualMachines/extensions/delete",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.Network/locations/operationResults/read",
+                    "Microsoft.Network/locations/operations/read",
+                    "Microsoft.Network/locations/usages/read",
+                    "Microsoft.Network/networkInterfaces/delete",
+                    "Microsoft.Network/networkInterfaces/ipconfigurations/read",
+                    "Microsoft.Network/networkInterfaces/join/action",
+                    "Microsoft.Network/networkInterfaces/read",
+                    "Microsoft.Network/networkInterfaces/write",
+                    "Microsoft.Network/networkSecurityGroups/read",
+                    "Microsoft.Network/networkSecurityGroups/securityRules/read",
+                    "Microsoft.Network/publicIPAddresses/delete",
+                    "Microsoft.Network/publicIPAddresses/join/action",
+                    "Microsoft.Network/publicIPAddresses/read",
+                    "Microsoft.Network/publicIPAddresses/write",
+                    "Microsoft.Network/virtualNetworks/read",
+                    "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    "Microsoft.Network/virtualNetworks/subnets/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Storage/checkNameAvailability/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+                    "Microsoft.Storage/storageAccounts/read",
+                    "Microsoft.Storage/storageAccounts/write"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+                ],
+
 ```
 
-Or, add the role assignment on the staging location (Storage Account) to have [Storage account Backup Contributor](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) and [Storage Blob data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) for the successful restore operation.
+Or, add the **VM restore operator** role assignment on the staging location (Storage Account) and target Resource Group for the successful restore operation.
 
 :::image type="content" source="./media/backup-azure-arm-restore-vms/add-role-assignment-on-staging-location.png" alt-text="Screenshot for adding the role assignment on the staging location.":::
 
@@ -395,6 +439,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 There are a few things to note after restoring a VM:
 
 - Extensions present during the backup configuration are installed, but not enabled. If you see an issue, reinstall the extensions. In the case of disk replacement, reinstallation of extensions is not required.
+- When you choose Create a new VM (or restore disks and then create a VM), the restored VM is a new resource. RBAC role assignments that were scoped to the original VM do not carry over; reassign roles on the new VM as needed.
 - If the backed-up VM had a static IP address, the restored VM will have a dynamic IP address to avoid conflict. You can [add a static IP address to the restored VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).
 - A restored VM doesn't have an availability set. If you use the restore disk option, then you can [specify an availability set](/azure/virtual-machines/windows/tutorial-availability-sets) when you create a VM from the disk using the provided template or PowerShell.
 - If you use a cloud-init-based Linux distribution, such as Ubuntu, for security reasons the password is blocked after the restore. Use the `VMAccess` extension on the restored VM to [reset the password](/troubleshoot/azure/virtual-machines/reset-password). We recommend using SSH keys on these distributions, so you don't need to reset the password after the restore.

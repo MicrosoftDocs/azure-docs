@@ -8,7 +8,13 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a network administrator, I want to configure IP addresses for an Azure network interface, so that I can manage connectivity and communication for virtual machines within Azure and ensure they can reach the Internet as necessary.
 ---
 
 # Configure IP addresses for an Azure network interface
@@ -19,7 +25,7 @@ If you need to create, change, or delete a network interface, read the [Manage a
 
 ## Prerequisites
 
-If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
+If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Complete one of these tasks before starting the remainder of this article:
 
 - **Portal users**: Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -45,8 +51,6 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
 
 3. Under **Settings**, select **IP configurations** and then select **+ Add**.
 
-   :::image type="content" source="./media/virtual-network-network-interface-addresses/ip-configurations.png" alt-text="Screenshot of I P configurations page in Azure portal.":::
-
 4. Specify the following, then select **OK**:
 
    | Setting | Value | Details |
@@ -60,8 +64,6 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
    | **Public IP address settings** |  |  |
    | Public IP address | Select **Disassociate** or **Associate**. | **Disassociate**: No public IP address with this IP configuration. <br> **Associate**: When selecting this option, a new or existing Public IP address can be added to the IP configuration. To learn more, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address).|
    | Public IP address | Select a public IP address or create a new one. | This option is available if you select **Associate** for the public address. |
-
-   :::image type="content" source="./media/virtual-network-network-interface-addresses/add-ip-configuration.png" alt-text="Screenshot of Add I P configuration page in Azure portal.":::
 
 # [**PowerShell**](#tab/nic-address-powershell)
 
@@ -104,8 +106,6 @@ Situations arise where you need to change the allocation method of an IPv4 addre
 2. From the list of network interfaces, select the network interface that you want to view or change IP address settings for.
 
 3. Under **Settings**, select **IP configurations** and then select the IP configuration you want to modify.
-
-   :::image type="content" source="./media/virtual-network-network-interface-addresses/change-ip-configuration.png" alt-text="Screenshot of change I P configuration page in Azure portal.":::
 
 4. Change the settings, as desired, using the information about the settings in step 4 of [Add an IP configuration](#add-ip-addresses).
 
@@ -153,8 +153,6 @@ You can remove [private](#private) and [public](#public) IP addresses from a net
 2. From the list of network interfaces, select the network interface that you want to remove an IP address from.
 
 3. Under **Settings**, select **IP configurations** and then select the **...** of the [secondary](#secondary) IP configuration that you want to delete (you can't delete the [primary](#primary) IP configuration using the Azure portal).
-
-   :::image type="content" source="./media/virtual-network-network-interface-addresses/delete-ip-configuration.png" alt-text="Screenshot of delete an I P configuration in Azure portal.":::
 
 4. Select **Delete**, then select **Yes**, to confirm the deletion. If the configuration had a public IP address resource associated to it, the resource is dissociated from the IP configuration, but the resource isn't deleted.
 

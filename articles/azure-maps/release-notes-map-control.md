@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 3/15/2023
+ms.date: 12/17/2025
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -16,7 +16,63 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.4.0] (CDN: September 30, 2024, npm: October 2)
+### [3.7.2] (CDN: December 15, 2025, npm: December 17, 2025)
+
+#### New features
+- Added support for the following languages:
+  - Basque (eu-ES)
+  - Catalan (ca-ES)
+  - Croatian (hr-HR)
+  - Estonian (et-EE)
+  - Galician (gl-ES)
+  - Hebrew (he-IL)
+  - Hindi (hi-IN)
+  - Japanese (ja-JP)
+  - Kazakh (kk-KZ)
+  - Latvian (lv-LV)
+  - Romanian (ro-RO)
+  - Serbian (Cyrillic) (sr-CYRL-RS)
+  - Serbian (Latin) (sr-LATN-RS)
+  - Ukrainian (uk-UA)
+  - Vietnamese (vi-VN)
+
+#### Bug fixes
+- Fixed an issue where custom markers (user images) of Symbol layer would disappear from the map after switching the map style.
+- Resolved an issue on touch devices where the Style Picker control required a double-tap to activate instead of a single tap.
+- Fixed type definition errors to ensure smoother compilation in strict TypeScript environments.
+
+### [3.7.1] (CDN: October 20, 2025, npm: October 22, 2025)
+
+#### New features
+- Add support for zoom level 0, allowing users to view the entire globe within a small map canvas.
+
+### [3.6.1] (CDN: April 7, 2025, npm: April 9, 2025)
+
+#### Bug fixes
+* Fix the issue where `maxBounds` wasn't included in `map.getCamera()`, causing it to be unset when `setCamera()` is called.
+
+### [3.6.0] (CDN: February 18, 2025, npm: February 20, 2025)
+
+#### New features
+* Add a new option `StyleOptions.styleOverrides` which controls the visibility of various map elements, including `countryRegion`, `adminDistrict`, `adminDistrict2`, `buildingFootprint`, and `roadDetails`.
+* Add `auto` option to `StyleOptions.language` and `atlas.setLanguage` which sets the language option to match the browser's Accept-Language header.
+
+#### Bug fixes
+* Resolve the issue where clicking the close button of a popup within a form element triggers the form submission.
+* Fix the issue where `ImageLayer.setOptions()` potentially causing abort errors if the image is large and the request has not completed.
+
+#### Other changes
+* Disable the telemetry by default.
+
+### [3.5.0] (CDN: November 4, 2024, npm: November 7, 2024)
+
+#### New features
+- Add support for fullscreen control.
+
+#### Bug fixes
+- Expose new type on `PolygonExtrusionLayerOptions.fillPattern` to support `DataDrivenPropertyValueSpecification<string>`.
+
+### [3.4.0] (CDN: September 30, 2024, npm: October 2, 2024)
 
 #### New features
 - Add support for PMTiles.
@@ -111,7 +167,7 @@ This document contains information about new features and other changes to the M
 
 #### Other changes
 
-- The accessibility feature for screen reader has been upgraded to utilize the Search V2 API (reverse geocoding).
+- The accessibility feature for screen reader has been upgraded to utilize the Search v2 API (reverse geocoding).
 
 - Enhanced accessibility in the Compass and Pitch controls.
 
@@ -448,15 +504,6 @@ The preview is available on [npm][3.0.0-preview.1].
 
 This update is the first preview of the upcoming 3.0.0 release. The underlying [maplibre-gl] dependency has been upgraded from `1.14` to `3.0.0-pre.1`, offering improvements in stability and performance.
 
-#### Bug fixes
-
-- Fixed a regression issue that prevents IndoorManager from removing a tileset:
-
-  ```js
-  indoorManager.setOptions({
-      tilesetId: undefined
-  })
-  ```
 
 ## v2
 
@@ -487,7 +534,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Other changes
 
-- The accessibility feature for screen reader has been upgraded to utilize the Search V2 API (reverse geocoding).
+- The accessibility feature for screen reader has been upgraded to utilize the Search v2 API (reverse geocoding).
 
 ### [2.3.4] (November 1, 2023)
 
@@ -632,6 +679,11 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.7.2]: https://www.npmjs.com/package/azure-maps-control/v/3.7.2
+[3.7.1]: https://www.npmjs.com/package/azure-maps-control/v/3.7.1
+[3.6.1]: https://www.npmjs.com/package/azure-maps-control/v/3.6.1
+[3.6.0]: https://www.npmjs.com/package/azure-maps-control/v/3.6.0
+[3.5.0]: https://www.npmjs.com/package/azure-maps-control/v/3.5.0
 [3.4.0]: https://www.npmjs.com/package/azure-maps-control/v/3.4.0
 [3.3.0]: https://www.npmjs.com/package/azure-maps-control/v/3.3.0
 [3.2.1]: https://www.npmjs.com/package/azure-maps-control/v/3.2.1

@@ -1,12 +1,11 @@
 ---
 title: Manage your SOC better with incident metrics in Microsoft Sentinel | Microsoft Docs
 description: Use information from the Microsoft Sentinel incident metrics screen and workbook to help you manage your Security Operations Center (SOC).
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 11/09/2021
-ms.author: yelevin
-
 
 #Customer intent: As a security operations manager, I want to analyze incident metrics using customizable workbooks and queries so that I can monitor and improve my team's performance and efficiency.
 
@@ -26,7 +25,7 @@ The **SecurityIncident** table is built into Microsoft Sentinel. You'll find it 
 
 Every time you create or update an incident, a new log entry will be added to the table. This allows you to track the changes made to incidents, and allows for even more powerful SOC metrics, but you need to be mindful of this when constructing queries for this table as you may need to remove duplicate entries for an incident (dependent on the exact query you are running). 
 
-For example, if you wanted to return a list of all incidents sorted by their incident number but only wanted to return the most recent log per incident, you could do this using the KQL [summarize operator](/azure/data-explorer/kusto/query/summarizeoperator) with the `arg_max()` [aggregation function](/azure/data-explorer/kusto/query/arg-max-aggfunction):
+For example, if you wanted to return a list of all incidents sorted by their incident number but only wanted to return the most recent log per incident, you could do this using the KQL [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true) with the [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true):
 
 ```Kusto
 SecurityIncident
@@ -48,6 +47,7 @@ SecurityIncident
 ```
 
 Closure time by percentile:
+
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -57,6 +57,7 @@ SecurityIncident
 ```
 
 Triage time by percentile:
+
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -93,5 +94,5 @@ You can use the template to create your own custom workbooks tailored to your sp
 
 ## Next steps
 
-- To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
+- To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](get-visibility.md).

@@ -3,13 +3,14 @@ title: View and manage alerts on your OT sensor - Microsoft Defender for IoT
 description: Learn about viewing and managing alerts on an OT network sensor.
 ms.date: 10/10/2024
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # View and manage alerts on your OT sensor
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md).
+This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md).
 
 For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
@@ -24,6 +25,9 @@ For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ## View alerts on an OT sensor
+
+> [!NOTE]
+> When you view alerts in the Azure portal **Alerts** page, some alerts may not correlate with alerts on specific sensors. For more information, see [Investigate alerts that don't correlate with specific sensors](respond-ot-alert.md#investigate-alerts-that-dont-correlate-with-a-specific-sensor).
 
 1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
@@ -176,6 +180,27 @@ If your admin has [created custom comments](how-to-accelerate-alert-incident-res
     :::image type="content" source="media/alerts/add-comment-sensor.png" alt-text="Screenshot of the Comments section on an alert details page on the sensor.":::
 
 For more information, see [Accelerating OT alert workflows](alerts.md#accelerating-ot-alert-workflows).
+
+## Remediate aggregated alert violations
+
+To reduce alert fatigue, multiple versions of the same alert violation with identical parameters are listed as one alert item in the Alerts page. As you investigate alerts, an aggregated alert is identified by the *Multiple violations* message that appears under the Source device IP. Use the **Violations** tab to investigate further and the **Take action** tab to remediate the alerts.
+
+1. Sign into your OT sensor console and select the **Alerts** page on the left.
+
+    1. For an aggregated alert the *Multiple violations* message appears underneath the Source device IP address, and the **Violations** tab is displayed.  <!-- add OT sensor image :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab.":::-->
+
+1. Select the **Violations** tab.
+
+    An inventory table displays the first 10 alerts from this aggregated alert group.
+
+1. Select **Export** to download the CSV data file. Open the file and examine the data.
+
+1. Select the **Take action** tab. Follow the **Remediation steps**.
+
+1. Select **Learn**, if needed. For more information, see [learning an alert](alerts.md#alert-statuses-and-triaging-options).
+
+> [!NOTE]
+> An alert with specific violations does not prevent new alerts with different violations from appearing. After you learn an alert, the same alert might be triggered again if the new alert has different violation parameters. To check why the alert was triggered, review the list of violations in the alert list (for the first 10 alerts) or the CSV file you downloaded in step 3.
 
 ## Next steps
 

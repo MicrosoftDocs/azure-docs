@@ -1,18 +1,27 @@
 ---
 title: Troubleshooting guide for Azure Synapse Link creation for Azure SQL Database 
 description: Learn how to troubleshoot Azure Synapse Link creation for Azure SQL Database
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: imotiwala
+author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: wiassaf, yexu
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 12/22/2022
+ms.date: 10/31/2025
+ms.update-cycle: 1825-days
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot: Azure Synapse Link creation for Azure SQL Database 
 
 This article is a guide to troubleshooting issues creating the Azure Synapse Link for Azure SQL Database.
+
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Cosmos DB, Oracle, Snowflake, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
 
 ## Symptom 1
 

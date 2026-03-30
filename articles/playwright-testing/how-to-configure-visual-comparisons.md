@@ -8,6 +8,8 @@ ms.custom: playwright-testing-preview
 
 # Configure visual comparisons with Microsoft Playwright Testing Preview
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to properly configure Playwright's visual comparison tests when using Microsoft Playwright Testing Preview. Unexpected test failures may occur because Playwright's snapshots differ between local and remote browsers.
 
 > [!IMPORTANT]

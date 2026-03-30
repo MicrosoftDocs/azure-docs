@@ -6,8 +6,10 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
-ms.date: 10/04/2024
+ms.date: 06/24/2025
+ms.custom: sfi-image-nochange
 
+# Customer intent: "As a network administrator, I want to create and manage a VPN gateway using the cloud portal, so that I can securely connect our on-premises resources to our virtual network."
 ---
 
 # Tutorial: Create and manage a VPN gateway using the Azure portal
@@ -18,42 +20,35 @@ This tutorial helps you create and manage a virtual network gateway (VPN gateway
 
 * The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
 * You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
-
-If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about Azure VPN Gateway, see [What is Azure VPN Gateway](vpn-gateway-about-vpngateways.md). These steps create an [active-active mode](about-active-active-gateways.md) [zone-redundant](about-zone-redundant-vnet-gateways.md) gateway. If you want to create a Basic SKU gateway instead, see [Create a Basic SKU VPN gateway](create-gateway-basic-sku-powershell.md).
+* For more information about Azure VPN Gateway, see [What is Azure VPN Gateway](vpn-gateway-about-vpngateways.md)? If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network.
-> * Create an active-active mode VPN gateway.
+> * Create an active-active mode zone-redundant VPN gateway.
 > * View the gateway public IP address.
-> * Resize a VPN gateway (resize SKU).
+> * Upgrade a VPN gateway SKU.
 > * Reset a VPN gateway.
 
-[!INCLUDE [Availability zones](../../includes/vpn-gateway-az-regions-support-include.md)]
+> [!NOTE]
+> [!INCLUDE [AZ SKU region support note](../../includes/vpn-gateway-az-regions-support-include.md)]
 
 ## Prerequisites
 
-You need an Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+You need an Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-## <a name="CreatVNet"></a>Create a virtual network
+## <a name="CreateVNet"></a>Create a virtual network
 
-Create a virtual network using the following example values:
+This article uses the Azure portal to create a virtual network. You can also use a different tool or method to create a virtual network. For more information or steps, see [Create a virtual network](../virtual-network/quick-create-portal.md). For this exercise, the virtual network doesn't require the configuration of additional services, such as [Azure Bastion](../bastion/bastion-overview.md) or [DDoS Protection](../ddos-protection/ddos-protection-overview.md). However, you can add these services if you want to use them.
 
-* **Resource group:** TestRG1
-* **Name:** VNet1
-* **Region:** (US) East US (or region of your choosing)
-* **IPv4 address space:** 10.1.0.0/16
-* **Subnet name:** FrontEnd
-* **Subnet address space:** 10.1.0.0/24
+[!INCLUDE [Virtual network values](../../includes/vpn-gateway-virtual-network-values.md)]
 
-[!INCLUDE [Create a VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
-
-After you create your virtual network, you can optionally configure Azure DDoS Protection. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS Protection, see [What is Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md).
+[!INCLUDE [Create a VNet](../../includes/vpn-gateway-virtual-network-steps.md)]
 
 ## Create a gateway subnet
 
-The virtual network gateway requires a specific subnet named **GatewaySubnet**. The gateway subnet is part of the IP address range for your virtual network and contains the IP addresses that the virtual network gateway resources and services use. Specify a gateway subnet that's /27 or larger.
+[!INCLUDE [About GatewaySubnet with links](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
 [!INCLUDE [Create gateway subnet](../../includes/vpn-gateway-create-gateway-subnet-portal-include.md)]
 
@@ -61,49 +56,31 @@ The virtual network gateway requires a specific subnet named **GatewaySubnet**. 
 
 ## <a name="VNetGateway"></a>Create a VPN gateway
 
-In this section, you create the virtual network gateway (VPN gateway) for your virtual network. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
+In this section, you create the virtual network gateway (VPN gateway) for your virtual network. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Use the following steps to create a VPN gateway. Note that the VPN Gateway Basic SKU is only available in [PowerShell](create-gateway-basic-sku-powershell.md) or CLI.
 
-Create a gateway using the following values:
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gateway-portal.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal.md)]
 
-* **Name**: VNet1GW
-* **Gateway type**: VPN
-* **SKU**: VpnGw2AZ
-* **Generation**: Generation 2
-* **Virtual network**: VNet1
-* **Gateway subnet address range**: 10.1.255.0/27
-* **Public IP address**: Create new
-* **Public IP address name:** VNet1GWpip1
-* **Public IP address SKU:** Standard
-* **Assignment:** Static
-* **Second Public IP address name:** VNet1GWpip2
-
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-azgw-portal-include.md)]
-[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-azgw-pip-portal-include.md)]
-
-A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the **Overview** page for your gateway. After the gateway is created, you can view the IP address assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+You can see the deployment status on the **Overview** page for your gateway. Once the gateway is created, you can view the IP address assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
 ## <a name="view"></a>View public IP address
 
 To view public IP addresses associated to your virtual network gateway, navigate to your gateway in the portal.
 
-1. On the portal page for your virtual network gateway, under **Settings**, open the **Properties** page.
+1. On the **Virtual network gateway** portal page, under **Settings**, open the **Properties** page.
 1. To view more information about the IP address object, click the associated IP address link.
 
-## <a name="resize"></a>Resize a gateway SKU
+## <a name="resize"></a>Upgrade a gateway SKU
 
-There are specific rules for resizing versus changing a gateway SKU. In this section, you resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
-
-The basic steps are:
+There are specific rules for upgrading a gateway SKU. Not all SKUs can be upgraded. For more information, see [Upgrade a gateway SKU](gateway-sku-upgrade.md).
 
 1. Go to the **Configuration** page for your virtual network gateway.
-1. On the right side of the page, select the dropdown arrow to show a list of available SKUs. Notice that the list only populates SKUs that you're able to use to resize your current SKU. If you don't see the SKU you want to use, instead of resizing, you have to change to a new SKU.
+1. On the right side of the page, select the dropdown arrow to show a list of available SKUs. Notice that the list only populates SKUs that you're able to select.
 1. Select the SKU from the dropdown list and save your changes.
 
 ## <a name="reset"></a>Reset a gateway
 
 Gateway resets behave differently, depending on your gateway configuration. For more information, see [Reset a VPN gateway or a connection](reset-gateway.md).
-
-The basic steps are:
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
@@ -124,4 +101,7 @@ After you create a VPN gateway, you can configure more gateway settings and conn
 > [Site-to-site VPN connections](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
-> [Point-to-site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Point-to-site - Certificate authentication VPN connections](point-to-site-certificate-gateway.md)
+
+> [!div class="nextstepaction"]
+> [Point-to-site - Microsoft Entra ID authentication VPN connections](point-to-site-entra-gateway.md)

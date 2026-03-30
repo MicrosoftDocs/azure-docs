@@ -1,0 +1,53 @@
+---
+title: Service Plans and Quotas for Azure Spring Apps
+description: Learn about service quotas and service plans for Azure Spring Apps.
+author: KarlErickson
+ms.service: azure-spring-apps
+ms.topic: limits-and-quotas
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.author: karler
+ms.custom: devx-track-java
+---
+
+# Quotas and service plans for Azure Spring Apps
+
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
+**This article applies to:** ✅ Java ✅ C#
+
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
+
+All Azure services set default limits and quotas for resources and features. Azure Spring Apps offers three pricing plans: Basic, Standard, and Enterprise.
+
+## Azure Spring Apps service plans and limits
+
+The following table defines limits for the pricing plans in Azure Spring Apps.
+
+| Resource                            | Scope                                  | Basic              | Standard                                        | Enterprise                                      |
+|-------------------------------------|----------------------------------------|--------------------|-------------------------------------------------|-------------------------------------------------|
+| vCPU                                | per app instance                       | 1                  | 4                                               | 8                                               |
+| Memory                              | per app instance                       | 2 GB               | 8 GB                                            | 32 GB                                           |
+| Azure Spring Apps service instances | per region per subscription            | 10                 | 10                                              | 10                                              |
+| Total app instances                 | per Azure Spring Apps service instance | 25                 | 500                                             | 1000                                            |
+| Custom Domains for app              | per Azure Spring Apps service instance | 0                  | 500                                             | 500                                             |
+| Custom Domains for app              | per app instance                       | 0                  | 5                                               | 5                                               |
+| Custom Domains for Tanzu Component  | per Tanzu Component                    | N/A                | N/A                                             | 5                                               |
+| Persistent volumes                  | per Azure Spring Apps service instance | 1 GB/app x 10 apps | 50 GB/app x 10 apps                             | 50 GB/app x 10 apps                             |
+| Inbound Public Endpoints            | per Azure Spring Apps service instance | 10 <sup>1</sup>    | 10 <sup>1</sup>                                 | 10 <sup>1</sup>                                 |
+| Outbound Public IPs                 | per Azure Spring Apps service instance | 1 <sup>2</sup>     | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> | 2 <sup>2</sup> <br> 1 if using VNet<sup>2</sup> |
+| User-assigned managed identities    | per app instance                       | 20                 | 20                                              | 20                                              |
+| Requests per second/Throughput      | per Azure Spring Apps service instance | 5000 <sup>3</sup>  | 10000 <sup>3</sup>                              | 20000 <sup>3</sup>                              |
+
+<sup>1</sup> You can increase this limit via support request to a maximum of 1 per app.
+
+<sup>2</sup> You can increase this limit via support request to a maximum of 10.
+
+<sup>3</sup> This limit only applies to customers without an Enterprise Agreement subscription. You can increase this limit based on your workload size via raising a support ticket. For customers with an Enterprise Agreement subscription, Azure Spring Apps automatically adjusts underlying resource to support application traffic.
+
+> [!TIP]
+> Limits listed apply for apps and deployments in any state, including apps in a stopped state. These limits include total app instances and per service instances. Be sure to delete apps and deployments that aren't being used.
+
+## Next steps
+
+Some default limits can be increased. For more information, see [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).

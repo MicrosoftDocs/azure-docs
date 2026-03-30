@@ -3,10 +3,10 @@ title: Transform data with Databricks Jar
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to process or transform data by running a Databricks Jar within an Azure Data Factory or Synapse Analytics pipeline.
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: abnarain
 author: nabhishek
-ms.date: 10/03/2024
+ms.date: 01/16/2025
 ms.subservice: orchestration
 ---
 
@@ -119,17 +119,17 @@ For more information, see the [Databricks documentation](/azure/databricks/dev-t
 
 ### You can use the Workspace UI:
 
-1. [Use the Databricks workspace UI](/azure/databricks/libraries/#create-a-library)
+1. [Use the Databricks workspace UI](/azure/databricks/libraries/cluster-libraries#install-a-library-on-a-cluster)
 
-2. To obtain the dbfs path of the library added using UI, you can use [Databricks CLI](/azure/databricks/dev-tools/cli/#install-the-cli).
+2. To obtain the dbfs path of the library added using UI, you can use [Databricks CLI](/azure/databricks/dev-tools/cli/reference/fs-commands#databricks-fs-ls).
 
    Typically the Jar libraries are stored under dbfs:/FileStore/jars while using the UI. You can list all through the CLI: *databricks fs ls dbfs:/FileStore/job-jars*
 
 ### Or you can use the Databricks CLI:
 
-1. Follow [Copy the library using Databricks CLI](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)
+1. Follow [Copy the library using Databricks CLI](/azure/databricks/dev-tools/cli/reference/fs-commands#databricks-fs-cp)
 
-2. Use Databricks CLI [(installation steps)](/azure/databricks/dev-tools/cli/#install-the-cli)
+2. Use Databricks CLI [(installation steps)](/azure/databricks/dev-tools/cli/commands#compute-commands)
 
    As an example, to copy a JAR to dbfs:
    `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`

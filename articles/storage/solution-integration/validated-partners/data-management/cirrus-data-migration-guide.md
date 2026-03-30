@@ -6,9 +6,12 @@ author: dukicn
 ms.author: nikoduki
 ms.date: 06/10/2022
 ms.topic: how-to
-ms.custom: kr2b-contr-experiment
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+ms.custom:
+  - kr2b-contr-experiment
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to seamlessly migrate block data to Azure without downtime, so that I can ensure continuous operation of applications during the transition.
 ---
 
 # Migrate your block data to Azure with Cirrus Migrate Cloud

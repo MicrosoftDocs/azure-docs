@@ -1,8 +1,9 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 06/27/2024
-ms.topic: conceptual
+ms.date: 01/06/2026
+ms.topic: concept-article
+# Customer intent: As a cloud solution architect, I want to implement best practices for Azure Batch services, so that I can optimize performance, ensure reliability, and enhance security for my batch processing workloads.
 ---
 
 # Azure Batch best practices
@@ -35,7 +36,7 @@ node communication model. The classic node communication model will be
 
 - **Images with impending end-of-life (EOL) dates:** It's strongly recommended to avoid images with impending Batch support
 end of life (EOL) dates. These dates can be discovered via the
-[`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
+[`ListSupportedImages` API](/rest/api/batchservice/pools/list-supported-images),
 [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or
 [Azure CLI](/cli/azure/batch/pool/supported-images). It's your responsibility to periodically refresh your view of the EOL
 dates pertinent to your pools and migrate your workloads before the EOL date occurs. If you're using a custom image with a
@@ -64,6 +65,10 @@ supported indefinitely. An EOL date may be added or updated in the future at any
 #### Isolation boundary
 
 For the purposes of isolation, if your scenario requires isolating jobs or tasks from each other, do so by having them in separate pools. A pool is the security isolation boundary in Batch, and by default, two pools aren't visible or able to communicate with each other. Avoid using separate Batch accounts as a means of security isolation unless the larger environment from which the Batch account operates in requires isolation.
+
+If desired, proper access control must be applied on the Batch account and APIs to prevent access to all pools under the Batch account.
+It's recommended to disable shared key access and only allow Entra-based authentication to enable
+[role-based access control](batch-role-based-access-control.md).
 
 #### Batch Node Agent updates
 
@@ -116,7 +121,7 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 ### Third-party images
 
-Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
+Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/az.marketplaceordering/set-azmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
 
 ### Container pools
 
@@ -151,14 +156,13 @@ Avoid designing a Batch solution that requires thousands of simultaneously activ
 
 A Batch job has an indefinite lifetime until it's deleted from the system. Its state designates whether it can accept more tasks for scheduling or not.
 
-A job doesn't automatically move to completed state unless explicitly terminated. This action can be automatically triggered through the [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete) property or [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
+A job doesn't automatically move to completed state unless explicitly terminated. This action can be automatically triggered through the [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete) property or [maxWallClockTime](/rest/api/batchservice/jobs/create-job#batchjobconstraints).
 
 There's a default [active job and job schedule quota](batch-quota-limit.md#resource-quotas). Jobs and job schedules in completed state don't count towards this quota.
 
 Delete jobs when they're no longer needed, even if in completed state. Although completed jobs don't count towards
 active job quota, it's beneficial to periodically clean up completed jobs. For example,
-[listing jobs](/rest/api/batchservice/job/list) will be more efficient when the total number of jobs is a smaller
-set (even if proper filters are applied to the request).
+[listing jobs](/rest/api/batchservice/jobs/list-jobs) will be more efficient when the total number of jobs is a smaller set (even if proper filters are applied to the request).
 
 ## Tasks
 
@@ -187,7 +191,7 @@ Deleting tasks accomplishes two things:
 
 ### Submit large numbers of tasks in collection
 
-Tasks can be submitted on an individual basis or in collections. Submit tasks in [collections](/rest/api/batchservice/task/addcollection) of up to 100 at a time when doing bulk submission of tasks to reduce overhead and submission time.
+Tasks can be submitted on an individual basis or in collections. Submit tasks in [collections](/rest/api/batchservice/tasks/create-task-collection) of up to 100 at a time when doing bulk submission of tasks to reduce overhead and submission time.
 
 ### Set max tasks per node appropriately
 
@@ -252,7 +256,7 @@ Batch relies on VM temporary disks, for Batch-compatible VM sizes, to store meta
 execution on this temporary disk. Examples of these temporary disk mount points or directories are: `/mnt/batch`, `/mnt/resource/batch`, and `D:\batch\tasks`.
 Replacing, remounting, junctioning, symlinking, or otherwise redirecting these mount points and directories or any of the parent directories
 isn't supported and can lead to instability. If you require more disk space, consider using a VM size or family that has temporary
-disk space that meets your requirements or [attaching data disks](/rest/api/batchservice/pool/add#datadisk). For more information, see the next
+disk space that meets your requirements or [attaching data disks](/rest/api/batchservice/pools/create-pool#datadisk). For more information, see the next
 section about attaching and preparing data disks for compute nodes.
 
 ### Attaching and preparing data disks

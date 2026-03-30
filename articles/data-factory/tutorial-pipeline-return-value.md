@@ -4,11 +4,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Set Variable activity to send information from child pipeline to main pipeline.
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/26/2024
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ---
 
 # Set Pipeline Return Value in Azure Data Factory and Azure Synapse Analytics

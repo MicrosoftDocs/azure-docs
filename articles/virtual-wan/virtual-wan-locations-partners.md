@@ -4,11 +4,11 @@ description: This article contains a list of Azure Virtual WAN partners and avai
 author: cherylmc
 
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/05/2024
 ms.author: cherylmc
 ms.custom: references_regions
-# Customer intent: As someone with a networking background, I want to learn more aobut Branch IPsec connectivity automation
+# Customer intent: As someone with a networking background, I want to learn more about Branch IPsec connectivity automation
 ---
 # Virtual WAN Branch IPsec connectivity automation 
 

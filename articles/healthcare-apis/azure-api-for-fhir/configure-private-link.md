@@ -6,8 +6,9 @@ author: outinyman
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 09/27/2023
+ms.date: 11/20/2025
 ms.author: ounyman
+ms.custom: sfi-image-nochange
 ---
 
 # Configure private link
@@ -88,7 +89,7 @@ You can add more VNet links if needed, and view all VNet links you added from th
   
 From the Overview blade you can view the private IP addresses of the FHIR server and the VMs connected to peered virtual networks.
 
-  :::image type="content" source="media/private-link/private-link-dns-zone.png" alt-text="Private Link FHIR and VM Private IP Addresses." lightbox="media/private-link/private-link-dns-zone.png":::
+  :::image type="content" source="media/private-link/private-link-dns-zone-fix-nov-24.png" alt-text="Screenshot of Private Link FHIR and VM Private IP Addresses." lightbox="media/private-link/private-link-dns-zone-fix-nov-24.png":::
 
 ## Manage private endpoint
 
@@ -106,7 +107,7 @@ Private endpoints can only be deleted from the Azure portal from the **Overview*
 
 ## Test and troubleshoot private link and VNet peering
 
-To ensure that your FHIR server isn't receiving public traffic after disabling public network access, select the /metadata endpoint for your server from your computer. You should receive a 403 Forbidden. 
+To ensure that your FHIR server isn't receiving public traffic after disabling public network access, select the metadata endpoint for your server from your computer. You should receive a 403 Forbidden. 
 
 > [!NOTE]
 > It can take up to 5 minutes after updating the public network access flag before public traffic is blocked.

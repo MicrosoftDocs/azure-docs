@@ -1,11 +1,13 @@
 items:
-- name: Datadog - An Azure Native ISV Service
+- name: Datadog
   href: index.yml
 - name: Overview
   items:
-  - name: What is Datadog - An Azure Native ISV Service?
+  - name: What is Datadog?
     href: overview.md
     displayName: Datadog, Monitoring
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:
@@ -22,7 +24,7 @@ items:
   - name: Troubleshoot
     items:
     - name: Get support
-      href: get-support.md
+      href: https://www.datadoghq.com/support
     - name: Fix common errors
       href: troubleshoot.md
 - name: Reference

@@ -3,7 +3,7 @@ title: Mapping data flow performance and tuning guide
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
@@ -18,7 +18,7 @@ Mapping data flows in Azure Data Factory and Synapse pipelines provide a code-fr
 
 Watch the following video to see shows some sample timings transforming data with data flows.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=0c322fbc-bcd2-4698-b031-4a51b1d9d129]
 
 ## Monitoring data flow performance
 

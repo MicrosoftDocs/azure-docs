@@ -3,6 +3,7 @@ title: Manage your IoT devices with the cloud device inventory
 description: Learn how to manage your IoT devices with the device inventory.
 ms.date: 01/01/2023
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Manage your IoT devices with the device inventory

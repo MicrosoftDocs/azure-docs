@@ -1,18 +1,15 @@
 ---
 title: Microsoft Sentinel data connectors
 description: Learn about supported data connectors, like Microsoft Defender XDR (formerly Microsoft 365 Defender), Microsoft 365 and Office 365, Microsoft Entra ID, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
-author: yelevin
-ms.topic: conceptual
-ms.date: 03/02/2024
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
+ms.topic: concept-article
+ms.date: 11/06/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-
-
-#Customer intent: As a security eningeer, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
-
+#Customer intent: As a security engineer, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
 ---
 
 # Microsoft Sentinel data connectors
@@ -21,7 +18,27 @@ After you onboard Microsoft Sentinel into your workspace, use data connectors to
 
 Built-in connectors enable connection to the broader security ecosystem for non-Microsoft products. For example, use Syslog, Common Event Format (CEF), or REST APIs to connect your data sources with Microsoft Sentinel.
 
-[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+> [!NOTE]
+> For information about feature availability in US Government clouds, see the Microsoft Sentinel tables in [Cloud feature availability for US Government customers](/azure/security/fundamentals/feature-availability).
+
+> [!IMPORTANT]
+> As per the [2024 announcement](/azure/azure-monitor/logs/custom-logs-migrate), after September 14, 2026, the legacy HTTP Data Collector API will no longer be supported. Data sources, custom integrations, or connectors that use the HTTP Data Collector API should transition to a supported alternative to avoid potential ingestion interruptions after this date.
+>
+> If you're currently using the HTTP Data Collector API, we recommend that you start planning your migration to the [Logs Ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview) or the [Codeless Connector Framework (CCF)](/azure/sentinel/create-codeless-connector) to ensure uninterrupted data ingestion, improved reliability, scalability, and long-term support.
+
+## Data management considerations for Microsoft Sentinel data lake
+
+The following considerations must be factored into your compliance and data management planning:
+
++ **GDPR and Data Retention**
+    + Tenant admins can exercise GDPR rights using the Purge feature for the analytics tier. This doesn't affect the data lake tier. 
+    + Specific records can't be purged from the Sentinel data lake. The data lake retains ingested data for the defined retention period, even if the data is deleted at the source or in the analytics tier.
+
++	**Purview Integration**. Changes to Purview settings don't have any effect on data stored in the Sentinel data lake.
+
++   **Storage Location** Sentinel data lake storage locations are selected by the tenant admin and may differ from the primary storage location of the source services.
+
+
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -35,13 +52,13 @@ Microsoft Sentinel solutions provide packaged security content, including data c
 
 The Microsoft Sentinel **Data connectors** page lists the installed or in-use data connectors.
 
-#### [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/connect-data-sources/data-connector-list.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list.png":::
-
 #### [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/connect-data-sources/data-connector-list-defender.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list-defender.png":::
+
+#### [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/connect-data-sources/data-connector-list.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list.png":::
 
 ---
 
@@ -53,28 +70,14 @@ To add more data connectors, install the solution associated with the data conne
 - [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md)
 - [Advanced Security Information Model (ASIM) based domain solutions for Microsoft Sentinel](domain-based-essential-solutions.md)
 
-## REST API integration for data connectors
+## Create custom connectors
 
-Many security technologies provide a set of APIs for retrieving log files. Some data sources can use those APIs to connect to Microsoft Sentinel.
+If you're unable to connect your data source to Microsoft Sentinel using any of the existing solutions available, consider creating your own data source connector. For example, many security solutions provide a set of APIs for retrieving log files and other security data from their product or service. Those APIs connect to Microsoft Sentinel with one of the following methods:
 
-Data connectors that use APIs either integrate from the provider side or integrate using Azure Functions, as described in the following sections.
+- The data source APIs are configured with the [Codeless Connector Framework](create-codeless-connector.md).
+- The data connector uses the Log Ingestion API for Azure Monitor as part of an [Azure Function](connect-azure-functions-template.md) or [Logic App](create-custom-connector.md#connect-with-logic-apps).
 
-### Integration on the provider side
-
-An API integration built by the provider connects with the provider data sources and pushes data into Microsoft Sentinel custom log tables by using the Azure Monitor Data Collector API. For more information, see [Send log data to Azure Monitor by using the HTTP Data Collector API](/azure/azure-monitor/logs/data-collector-api?branch=main&tabs=powershell).
-
-To learn about REST API integration, read your provider documentation and [Connect your data source to Microsoft Sentinel's REST-API to ingest data](connect-rest-api-template.md).
-
-### Integration using Azure Functions
-
-Integrations that use Azure Functions to connect with a provider API first format the data, and then send it to Microsoft Sentinel custom log tables using the Azure Monitor Data Collector API.
-
-For more information, see:
--  [Send log data to Azure Monitor by using the HTTP Data Collector API](/azure/azure-monitor/logs/data-collector-api?branch=main&tabs=powershell)
-- [Use Azure Functions to connect your data source to Microsoft Sentinel](connect-azure-functions-template.md)
-- [Azure Functions documentation](../azure-functions/index.yml)
-
-Integrations that use Azure Functions might have extra data ingestion costs, because you host Azure Functions in your Azure organization. Learn more about [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+You can also use Azure Monitor Agent directly or Logstash to create your custom connector. For more information, see [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).
 
 ## Agent-based integration for data connectors
 

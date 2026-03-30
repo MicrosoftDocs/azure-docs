@@ -1,12 +1,11 @@
 ---
 title: Protocol support for HTTP headers in Azure Front Door
 description: This article describes HTTP header protocols that Front Door supports.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 03/27/2024
-ms.author: duau
+ms.date: 04/30/2025
 ---
 
 # Protocol support for HTTP headers in Azure Front Door
@@ -16,9 +15,9 @@ This article outlines the protocol that Front Door supports with parts of the ca
 :::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Diagram showing client making request to Azure Front Door, which is forwarded to the backend. The response is sent from Azure Front Door to the client." border="false":::
 
 > [!IMPORTANT]
-> Azure Front Door doesn't certify any HTTP headers that aren't documented here.
+> Azure Front Door doesn't certify any HTTP headers that aren't documented in this article.
 
-## From client to Azure Front Door
+## From the client to the Front Door
 
 Azure Front Door accepts most headers for the incoming request without modifying them. Some reserved headers are removed from the incoming request if sent, including headers with the `X-FD-*` prefix.
 
@@ -40,6 +39,7 @@ Azure Front Door includes headers for an incoming request unless they're removed
 | X-Forwarded-Host | `X-Forwarded-Host: contoso.azurefd.net` </br> The X-Forwarded-Host HTTP header field is a common method used to identify the original host requested by the client in the Host HTTP request header. This is because the host name from Azure Front Door might differ for the backend server handling the request. Any previous value is overridden by Azure Front Door. |
 | X-Forwarded-Proto | `X-Forwarded-Proto: http` </br> The `X-Forwarded-Proto` HTTP header field is often used to identify the originating protocol of an HTTP request. Front Door based on configuration might communicate with the backend by using HTTPS. This is true even if the request to the reverse proxy is HTTP. Any previous value will be overridden by Front Door. |
 | X-FD-HealthProbe | `X-FD-HealthProbe` HTTP header field is used to identify the health probe from Front Door. If this header is set to 1, the request is from the health probe. It can be used to restrict access from Front Door with a particular value for the `X-Forwarded-Host` header field. |
+| X-Azure-JA4-Fingerprint | `X-Azure-JA4-Fingerprint` HTTP header field is used to uniquely identify client behavior based on TLS client hello attributes. It enables better detection of bots, anomalies, and malicious traffic across sessions.|
 
 ## From the Front Door to the client
 
@@ -60,7 +60,7 @@ You need to send `X-Azure-DebugInfo: 1` request header to enable the following o
 | X-Azure-InternalError | This header contains the error code that Azure Front Door comes across when processing the request. This error indicates the issue is internal to the Azure Front Door service/infrastructure. Report issue to support.  |
 | X-Azure-ExternalError | `X-Azure-ExternalError: 0x830c1011, The certificate authority is unfamiliar` </br> This header shows the error code that Front Door servers come across while establishing connectivity to the backend server to process a request. This header helps identify issues in the connection between Front Door and the backend application. This header includes a detailed error message to help you identify connectivity issues to your backend (for example, DNS resolution, invalid cert, and so on.). |
 
-## Next steps
+## Related content
 
-* Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md).
-* Learn about [how Azure Front Door works](front-door-routing-architecture.md).
+- Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md)
+- Learn about [how Azure Front Door works](front-door-routing-architecture.md)

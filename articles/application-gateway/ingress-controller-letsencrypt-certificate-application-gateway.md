@@ -1,13 +1,13 @@
 ---
 title: Use Let's Encrypt certificates with Application Gateway
-description: This article provides information on how to obtain a certificate from Let's Encrypt and use it on your Application Gateway instance for AKS clusters.
+description: This article provides information on how to obtain a certificate from Let's Encrypt and use it on your Application Gateway deployment for AKS clusters.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
-ms.custom:
 ms.topic: how-to
-ms.date: 08/01/2023
-ms.author: greglin
+ms.date: 02/28/2025
+ms.author: mbender
+# Customer intent: "As a DevOps engineer, I want to configure Let's Encrypt certificates on my AKS cluster's Application Gateway, so that I can ensure secure TLS/SSL termination for my applications with automated certificate management."
 ---
 
 # Use Let's Encrypt certificates on Application Gateway for AKS clusters
@@ -15,6 +15,10 @@ ms.author: greglin
 You can configure your Azure Kubernetes Service (AKS) instance to use [Let's Encrypt](https://letsencrypt.org/) and automatically obtain a TLS/SSL certificate for your domain. The certificate is installed on Azure Application Gateway, which performs TLS/SSL termination for your AKS cluster.
 
 The setup that this article describes uses the [cert-manager](https://github.com/jetstack/cert-manager) Kubernetes add-on, which automates the creation and management of certificates.
+
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+
 
 ## Install the add-on
 
@@ -30,7 +34,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     #!/bin/bash
 
     # Install the CustomResourceDefinition resources separately
-    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.crds.yaml
+    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.16.1/cert-manager.crds.yaml
 
     # Create the namespace for cert-manager
     kubectl create namespace cert-manager
@@ -49,7 +53,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     helm install \
       cert-manager jetstack/cert-manager \
       --namespace cert-manager \
-      --version v1.10.1 \
+      --version v1.17.1 \
       # --set installCRDs=true
 
     # To automatically install and manage the CRDs as part of your Helm release,
@@ -91,15 +95,19 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
         # you prove ownership of a domain by ensuring that a particular
         # file is present at the domain
         solvers:
-          - http01:
-               ingress:
-                  ingressclassName: azure/application-gateway
+        - http01:
+            ingress:
+              # class: azure/application-gateway
+              ingressTemplate:
+                metadata:
+                  annotations:
+                    kubernetes.io/ingress.class: azure/application-gateway
     EOF
     ```
 
-3. Create an ingress resource to expose the `guestbook` application by using the Application Gateway instance with the Let's Encrypt certificate.
+3. Create an ingress resource to expose the `guestbook` application by using the Application Gateway deployment with the Let's Encrypt certificate.
 
-    Ensure that your Application Gateway instance has a public front-end IP configuration with a DNS name. Use the default `azure.com` domain, or provision an Azure DNS zone and then assign your own custom domain. The annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging` tells cert-manager to process the tagged ingress resource.
+    Ensure that your Application Gateway deployment has a public frontend IP configuration with a DNS name. Use the default `azure.com` domain, or provision an Azure DNS zone and then assign your own custom domain. The annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging` tells cert-manager to process the tagged ingress resource.
 
     In the following YAML, be sure to replace `<PLACEHOLDERS.COM>` with your own domain or with the Application Gateway domain (for example, `kh-aks-ingress.westeurope.cloudapp.azure.com`).
 
@@ -108,8 +116,8 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
-    name: guestbook-letsencrypt-staging
-    annotations:
+      name: guestbook-letsencrypt-staging
+      annotations:
         kubernetes.io/ingress.class: azure/application-gateway
         cert-manager.io/cluster-issuer: letsencrypt-staging
     spec:
@@ -133,11 +141,12 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
 4. After you successfully set up your staging certificate, you can switch to a production ACME server:
 
-    1. Replace the staging annotation on your ingress resource with `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`.
+    1. Replace the staging annotation on your ingress resource with `cert-manager.io/cluster-issuer: letsencrypt-prod`.
     1. Delete the existing staging `ClusterIssuer` resource that you created earlier. Create a new staging resource by replacing the ACME server from the previous `ClusterIssuer` YAML with `https://acme-v02.api.letsencrypt.org/directory`.
 
 Before the Let's Encrypt certificate expires, `cert-manager` automatically updates the certificate in the Kubernetes secret store. At that point, the Application Gateway Ingress Controller applies the updated secret referenced in the ingress resources that it's using to configure Application Gateway.
 
 ## Related content
 
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)
+- [Application Gateway for Containers - Cert-Manager + Let's Encrypt](./for-containers/how-to-cert-manager-lets-encrypt-gateway-api.md)

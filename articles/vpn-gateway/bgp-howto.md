@@ -5,9 +5,10 @@ description: Learn how to configure BGP for Azure VPN Gateway using the Azure po
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 10/16/2024
 ms.author: cherylmc 
 
+# Customer intent: As a network administrator, I want to configure BGP for my VPN gateway, so that I can enable dynamic routing and enhance connectivity between my on-premises networks and Azure resources.
 ---
 # How to configure BGP for Azure VPN Gateway
 
@@ -125,7 +126,7 @@ Before proceeding, make sure you have enabled BGP for the VPN gateway.
 Configure a local network gateway with BGP settings.
 
 * For information and steps, see the [local network gateway](tutorial-site-to-site-portal.md#LocalNetworkGateway) section in the site-to-site connection article.
-* If you already have a local network gateway, you can modify it.To modify a local network gateway, go to the local network gateway resource **Configuration** page and make any necessary changes.
+* If you already have a local network gateway, you can modify it. To modify a local network gateway, go to the local network gateway resource **Configuration** page and make any necessary changes.
 
 1. When you create the local network gateway, for this exercise, use the following values:
 

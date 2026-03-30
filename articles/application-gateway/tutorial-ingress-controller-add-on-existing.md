@@ -2,17 +2,21 @@
 title: 'Tutorial: Enable ingress controller add-on for existing AKS cluster with existing Azure application gateway'
 description: Use this tutorial to enable the Ingress Controller Add-On for your existing AKS cluster with an existing Application Gateway
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 07/01/2024
-ms.author: greglin
-ms.custom: template-tutorial, devx-track-azurecli
+ms.author: mbender
+ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud architect, I want to enable the application gateway ingress controller add-on for my existing AKS cluster, so that I can manage traffic to my Kubernetes applications effectively through a centralized application gateway."
 ---
 
 # Tutorial: Enable application gateway ingress controller add-on for an existing AKS cluster with an existing application gateway
 
-You can use Azure CLI or portal to enable the [application gateway ingress controller (AGIC)](ingress-controller-overview.md) add-on for an existing [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you'll learn how to use AGIC add-on to expose your Kubernetes application in an existing AKS cluster through an existing application gateway deployed in separate virtual networks. You'll start by creating an AKS cluster in one virtual network and an application gateway in a separate virtual network to simulate existing resources. You'll then enable the AGIC add-on, peer the two virtual networks together, and deploy a sample application that will be exposed through the application gateway using the AGIC add-on. If you're enabling the AGIC add-on for an existing application gateway and existing AKS cluster in the same virtual network, then you can skip the peering step below. The add-on provides a much faster way of deploying AGIC for your AKS cluster than [through Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) and also offers a fully managed experience.  
+You can use the Azure CLI or the Azure portal to enable the [application gateway ingress controller (AGIC)](ingress-controller-overview.md) add-on for an existing [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. In this tutorial, you'll learn how to use AGIC add-on to expose your Kubernetes application in an existing AKS cluster through an existing application gateway deployed in separate virtual networks. You'll start by creating an AKS cluster in one virtual network and an application gateway in a separate virtual network to simulate existing resources. You'll then enable the AGIC add-on, peer the two virtual networks together, and deploy a sample application that will be exposed through the application gateway using the AGIC add-on. If you're enabling the AGIC add-on for an existing application gateway and existing AKS cluster in the same virtual network, then you can skip the peering step below. The add-on provides a much faster way of deploying AGIC for your AKS cluster than [through Helm](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on) and also offers a fully managed experience.  
+
+> [!TIP]
+> For your Kubernetes ingress solution, consider using [Application Gateway for Containers](for-containers/overview.md).
 
 In this tutorial, you learn how to:
 
@@ -53,6 +57,9 @@ To configure more parameters for the above command, see [az aks create](/cli/azu
 
 > [!NOTE]
 > A node resource group will be created with the name **MC_resource-group-name_cluster-name_location**.
+
+>[!WARNING]
+>This document assumes Azure CNI is installed in the AKS cluster. If you are planning on using CNI Overlay, you must ensure Application Gateway and the AKS cluster are part of the same virtual network.
 
 ## Deploy a new application gateway 
 

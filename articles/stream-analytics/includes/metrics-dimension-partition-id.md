@@ -6,7 +6,9 @@ ms.service: azure-stream-analytics
 ms.topic: include
 ms.date: 07/10/2023
 ms.author: spelluru
-ms.custom: "include file"
+ms.custom:
+  - "include file"
+  - sfi-image-nochange
 
 ---
 

@@ -6,7 +6,9 @@ ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 06/27/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 
 # Create an Azure Data Manager for Agriculture support request

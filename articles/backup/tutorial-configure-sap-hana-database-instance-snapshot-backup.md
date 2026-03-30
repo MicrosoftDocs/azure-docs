@@ -2,22 +2,25 @@
 title: Tutorial - Configure SAP HANA database instance snapshot backup 
 description: In this tutorial, learn how to configure the SAP HANA database instance snapshot backup and run an on-demand backup.
 ms.topic: tutorial
-ms.date: 11/02/2023
+ms.date: 11/13/2025
 ms.custom:
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to configure and run on-demand snapshot backups for my SAP HANA instance, so that I can ensure data protection and quick recovery options for my database.
 ---
 
 # Tutorial: Configure SAP HANA database instance snapshot backup
 
 This tutorial describes how to configure backup for SAP HANA database instance snapshot and run an on-demand backup using Azure CLI.
 
-Azure Backup now performs an SAP HANA storage snapshot-based backup of an entire database instance. Backup combines an Azure managed disk full or incremental snapshot with HANA snapshot commands to provide instant HANA backup and restore.
+Azure Backup now performs an SAP HANA storage snapshot-based backup of an entire database instance. Backup combines an Azure Managed Disk full or incremental snapshot with HANA snapshot commands to provide instant HANA backup and restore.
 
 For more information on the supported scenarios, see the [support matrix](./sap-hana-backup-support-matrix.md#scenario-support) for SAP HANA.
 
 ## Before you start
+
+Before you configure the database backup, consider the following prerequisites:
 
 - Ensure that you have the [permissions for the backup operation](sap-hana-database-instances-backup.md#permissions-required-for-backup).
 - [Create a Recovery Services vault](sap-hana-database-instances-backup.md#create-a-recovery-services-vault) for the backup and restore operations.
@@ -28,4 +31,4 @@ For more information on the supported scenarios, see the [support matrix](./sap-
 ## Next steps
 
 - [Learn how to restore an SAP HANA database instance snapshot in Azure VM](sap-hana-database-instances-restore.md).
-- [Troubleshoot common issues with SAP HANA database backups](backup-azure-sap-hana-database-troubleshoot.md).
+- [Troubleshoot common issues with SAP HANA database instance backups](sap-hana-database-instance-troubleshoot.md).

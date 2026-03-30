@@ -1,21 +1,26 @@
 ---
 title: Azure Front Door (classic) retirement FAQ
-titleSuffix:  Azure Front Door
 description: Common questions about the retirement of Azure Front Door (classic).
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: faq
 ms.date: 03/27/2024
-ms.author: duau
 ms.custom: ai-usage
 ---
 
 # Azure Front Door (classic) retirement FAQ
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 Azure Front Door introduced two new tiers named Standard and Premium on March 29, 2022. These tiers offer improvements over the current product offerings of Azure Front Door (Classic), incorporating capabilities such as Azure Private Link integration, Bot management, advanced Web Application Firewall (WAF) enhancements with DRS 2.1, anomaly scoring-based detection and bot management, out-of-the-box reports and enhanced diagnostic logs, a simplified pricing model, and much more.
 
 In our ongoing efforts to provide the best product experience and streamline our portfolio of products and tiers, we're announcing the retirement of the Azure Front Door (Classic) tier. This retirement will affect the public cloud and the Azure Government regions of Arizona and Texas, effective March 31, 2027. We'll communicate retirement plan of Azure Front Door classic in Azure Government regions US DoD Central and US DoD East in a future announcement. We strongly recommend all users of Azure Front Door (classic) to transition to Azure Front Door Standard and Premium.  
+
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding. Migrate to **[AFD Standard and Premium](/azure/frontdoor/tier-migration)** to create new domains or profiles and avoid service disruption. **[Learn more](https://azure.microsoft.com/updates?id=498522)**
+- Starting August 15, 2025, Azure Front Door (classic) will no longer support Managed certificates. To avoid service disruption, either **[switch to Bring Your Own Certificate (BYOC)](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell)** or migrate to **[AFD Standard and Premium](/azure/frontdoor/tier-migration)** by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  **[Learn more](https://azure.microsoft.com/updates?id=498522)**
+
 
 ## Frequently asked questions
 
@@ -75,7 +80,7 @@ Currently, Azure Front Door (classic) retirement affects the public cloud and Az
 
 ### Can I make updates to Azure Front Door (classic) resources?
 
-You can still update your existing Azure Front Door (classic) resources using the Azure portal, Terraform, and all command line tools until March 31, 2027. However, you won't be able to create new Azure Front Door (classic) resources starting April 1, 2025. We strongly recommend you migrate to Azure Front Door Standard or Premium tier as soon as possible. 
+You can still update your existing Azure Front Door (classic) resources using the Azure portal, Terraform, and all command line tools until March 31, 2027. However, you won't be able to create new Azure Front Door (classic) resources starting April 1, 2025. Starting August 15, 2025, Azure Front Door (classic) will no longer support Managed certificates. We strongly recommend you migrate to Azure Front Door Standard or Premium tier as soon as possible. 
 
 ### Can I roll back to Azure Front Door (classic) after migration?
 
@@ -95,8 +100,6 @@ If you have a support plan and you need technical assistance, you can create a [
 * *Resource*, select the **Azure Front Door resource**.
 * *Summary*, describe the problem you’re experiencing with the migration.
 * *Problem type*, select **Migrating Front Door Classic to Front Door Standard or Premium**
-
-:::image type="content" source="./media/classic-retirement-faq/support-request.png" alt-text="Screenshot of a new support request for Azure Front Door (classic) migration issue.":::
 
 ## Next steps
 

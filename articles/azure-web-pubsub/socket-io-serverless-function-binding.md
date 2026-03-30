@@ -6,7 +6,7 @@ author: zackliu
 ms.author: chenyl
 ms.date: 9/1/2024
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Socket.IO Azure Function trigger and binding (Preview)
@@ -26,7 +26,7 @@ This article explains how to use Socket.IO serverless integrate with Azure Funct
 [Samples](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples)
 
 > [!IMPORTANT]
-> Azure Function bindings can only integrate with Web PubSub for Socket.IO in Serverlesse Mode.
+> Azure Function bindings can only integrate with Web PubSub for Socket.IO in Serverless Mode.
 
 ### Authenticate and Connection String
 
@@ -240,7 +240,7 @@ The attribute for trigger binding is `[SocketIOTrigger]`.
 
 #### SocketIOAttribute
 
-`SocketIOAttribute` is an alternative of `ParameterNames`, which simplifies the function definition. For example, the following two definitions have the same effection:
+`SocketIOAttribute` is an alternative of `ParameterNames`, which simplifies the function definition. For example, the following two definitions have the same effect:
 
 ```cs
 [FunctionName("SocketIOTriggerMessage")]

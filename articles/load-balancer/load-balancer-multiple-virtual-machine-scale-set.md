@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 02/14/2024
 ms.custom: template-how-to
+# Customer intent: As a cloud engineer, I want to configure multiple Virtual Machine Scale Sets behind a single load balancer, so that I can ensure efficient traffic distribution and improve the resilience of my applications.
 ---
 
 # Add multiple Virtual Machine Scale Set instances behind one Azure Load Balancer 
@@ -18,7 +19,7 @@ In this article, you’ll learn how to configure multiple Virtual Machine Scale 
 # [Azure portal](#tab/azureportal)
 
 - Access to the Azure portal
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Two or more [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/quick-create-portal)
   - Ensure the upgrade policy is set to automatic.
     - If manual upgrade policy is used, upgrade all virtual machine instances after attaching it to the load balancer.  
@@ -27,7 +28,7 @@ In this article, you’ll learn how to configure multiple Virtual Machine Scale 
 
 # [Azure CLI](#tab/azurecli/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Two or more [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/quick-create-portal)
   - Ensure that the upgrade policy is set to automatic.
     - If manual upgrade policy is used, upgrade all virtual machine instances after attaching it to the load balancer.  

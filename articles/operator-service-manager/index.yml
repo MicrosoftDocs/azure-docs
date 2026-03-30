@@ -28,12 +28,10 @@ landingContent:
             url: release-notes.md
       - linkListType: concept
         links:
-          - text: Helm requirements
-            url: helm-requirements.md
-          - text: Roles and interfaces
+          - text: Role-Based Persona Model
             url: roles-interfaces.md
-          - text: Publisher Tenants, subscriptions, regions and preview management
-            url: publisher-resource-preview-management.md
+          - text: Publisher Tenants, Subscriptions and Regions
+            url: publisher-resource-preview-management.md      
 
   # Card
   - title: Get started with Azure Operator Service Manager
@@ -58,6 +56,8 @@ landingContent:
             url: how-to-delete-operator-resources.md
           - text: Create site network service
             url: how-to-create-site-network-service.md
+          - text: Interrupt a service deployment operation
+            url: how-to-cancel-service-deployments.md
 
   # Card
   - title: Onboard with the Azure Operator Service Manager (AOSM) CLI
@@ -80,7 +80,7 @@ landingContent:
             url: how-to-onboard-azure-resource-manager-resources-cli.md
           - text: Troubleshoot common CLI Issues
             url: troubleshoot-cli-common-issues.md
-
+            
   # Card
   - title: Safe Upgrade Practices
     linkLists:
@@ -92,6 +92,8 @@ landingContent:
         links:
           - text: Control Upgrade Behavior on Failure
             url: safe-upgrades-nf-level-rollback.md
+          - text: Run Tests After Install or Upgrade
+            url: safe-upgrades-helm-test.md
 
  # Card
   - title: Edge Registry and Private Link
@@ -101,14 +103,27 @@ landingContent:
           - text: Get Started with Cluster Registry
             url: get-started-with-cluster-registry.md
           - text: Get Started with Private Link
-            url: get-started-with-private-link.md           
+            url: get-started-with-private-link.md    
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Network Function Operator Extension
+            url: manage-network-function-operator.md
+            
   # Card
   - title: Additional Resources
     linkLists:
       - linkListType: architecture
         links:
-          - text: Best Practices onboard and deploy
+          - text: Helm Package Requirements
+            url: helm-requirements.md 
+          - text: Best Practices Onboard and Deploy
             url: best-practices-onboard-deploy.md
+          - text: Publisher Resource Cleanup Management
+            url: resource-cleanup-management.md
+          - text: Publisher Artifact Store Resiliency
+            url: publisher-artifact-store-resiliency.md 
+          - text: Workload Configuration Management
+            url: configuration-guide.md
       - linkListType: reference
         links:
           - text: Glossary

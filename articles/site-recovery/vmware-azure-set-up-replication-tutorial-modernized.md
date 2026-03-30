@@ -3,12 +3,18 @@ title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery - Mo
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery - Modernized.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 05/23/2024
-ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 04/26/2025
+ms.author: v-gajeronika
+author: Jeronika-MS
+ms.custom:
+  - MVC
+  - sfi-ga-nochange
+# Customer intent: "As an IT administrator managing on-premises VMware VMs, I want to set up disaster recovery to Azure using a replication appliance, so that I can ensure business continuity and protect against data loss in the event of a disaster."
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
+
+> [!IMPORTANT]
+> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.
 
 This article describes how to enable replication for on-premises VMware VMs, for disaster recovery to Azure using the Modernized VMware/Physical machine protection experience.
 
@@ -41,7 +47,7 @@ To create and register the Azure Site Recovery replication appliance, you need a
 
 - Contributor or Owner permissions on the Azure subscription.
 - Permissions to register Microsoft Entra apps.
-- Owner or Contributor and User Access Administrator permissions on the Azure subscription to create a Key Vault, used during agentless VMware migration.
+
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
 
@@ -126,6 +132,9 @@ Follow these steps to enable replication:
 4.	Search the source machine name to protect it. To review the selected machines, select **Selected resources**.
 
 5. After you select the list of VMs, select **Next** to proceed to source settings. Here, select the [replication appliance](#appliance-selection) and VM credentials. These credentials will be used to push mobility agent on the machine by Azure Site Recovery replication appliance to complete enabling Azure Site Recovery. Ensure accurate credentials are chosen.
+
+   >[!TIP]
+   > In addition to automatic installation, Mobility Services agent can be installed manually or through an automated deployment method, such as Configuration Manager. [Learn more](vmware-physical-mobility-service-overview.md). 
 
    >[!NOTE]
    >For Linux OS, ensure to provide the root credentials. For Windows OS, a user account with admin privileges should be added. These credentials will be used to push Mobility Service on to the source machine during enable replication operation.

@@ -4,11 +4,14 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The Until activity in Azure Data Factory and Synapse Analytics pipelines executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
-ms.topic: conceptual
-ms.date: 09/26/2024
-ms.custom: devx-track-azurepowershell, synapse
+ms.topic: how-to
+ms.date: 03/20/2025
+ms.custom:
+  - devx-track-azurepowershell
+  - synapse
+  - sfi-ropc-nochange
 ---
 
 # Until activity in Azure Data Factory and Synapse Analytics
@@ -25,11 +28,13 @@ To use an Until activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-until-activity/until-activity.png" alt-text="Shows the Settings tab of the Until activity in the pipeline canvas.":::
 
-1. Enter an expression that will be evaluated after all child activities defined in the Until activity is executed. If the expression evaluates to false, the Until activity executes all its child activities again. When it evaluates to true, the Until activity completes. The expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions). The example below checks the value of a previously defined pipeline array variable called TestVariable to see if it evaluates to ['done'].
+1. Enter an expression that will be evaluated after all child activities defined in the Until activity is executed. If the expression evaluates to false, the Until activity executes all its child activities again. When it evaluates to true, the Until activity completes. The expression can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters). The example below checks the value of a previously defined pipeline array variable called TestVariable to see if it evaluates to ['done'].
 
    :::image type="content" source="media/control-flow-until-activity/dynamic-content-to-check-variable-value.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; pane with an expression to check a variable for a defined value.":::
 
-2. Define activities that the Until activity executes by selecting the Edit Activities button on the Until activity directly, or by selecting the Activities tab to select it there. A new activities editor pane is displayed where you can add any activities for the Until activity to execute. In this example, a Set Variable activity simply sets the value of the variable referenced in the aforementioned expression to ['done'], so the Until activity's expression will be true the first time it's executed, and the Until activity will stop. In your real-world use, you can check any conditions required and the Until activity will continue to execute its child activities each time the expression is evaluated, until the conditions are met.
+2. Define activities that the Until activity executes by selecting the Edit Activities button on the Until activity directly, or by selecting the Activities tab to select it there. A new activities editor pane is displayed where you can add any activities for the Until activity to execute. In this example, a Set Variable activity sets the value of the referenced variable to 'done'. So the Until activity's expression will be true the first time it's executed, and then the Until activity will stop. 
+You can use similar variables to check any conditions. The Until activity executes its child activities each time the expression is evaluated, until the conditions are met. If you iterate over multiple activities, there's potential delay in exiting the loop because of aggregation and cleanup work performed by the pipeline. 
+
 
    :::image type="content" source="media/control-flow-until-activity/child-activities-editor.png" alt-text="Shows the activities editor for an Until activity with a Set Variable activity defined.":::
 
@@ -258,7 +263,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-These commands assume that you have saved the JSON files into the folder: C:\ADF. 
+These commands assume that you saved the JSON files into the folder: C:\ADF. 
 
 ```powershell
 Connect-AzAccount

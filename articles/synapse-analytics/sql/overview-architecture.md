@@ -1,17 +1,17 @@
 ---
 title: Synapse SQL architecture 
 description: Learn how Azure Synapse SQL combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability. 
-author: WilliamDAssafMSFT 
+author: azaricstefan
 manager: rothja
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: overview
 ms.subservice: sql
-ms.date: 11/01/2022
-ms.author: wiassaf
+ms.date: 01/21/2025
+ms.author: stefanazaric
 ms.custom: engagement-fy23
 ---
 
-# Azure Synapse SQL architecture
+# What is Azure Synapse SQL architecture?
 
 This article describes the architecture components of Synapse SQL. It also explains how Azure Synapse SQL combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.
 
@@ -29,7 +29,7 @@ Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL
 
 The Azure Synapse SQL Control node utilizes a distributed query engine to optimize queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel.
 
-The serverless SQL pool Control node utilizes Distributed Query Processing (DQP) engine to optimize and orchestrate distributed execution of user query by splitting it into smaller queries that will be executed on Compute nodes. Each small query is called task and represents distributed execution unit. It reads file(s) from storage, joins results from other tasks, groups, or orders data retrieved from other tasks. 
+The serverless SQL pool Control node utilizes Distributed Query Processing (DQP) engine to optimize and orchestrate distributed execution of user query by splitting it into smaller queries that will be executed on Compute nodes. Each small query is called task and represents distributed execution unit. It reads files from storage, joins results from other tasks, groups, or orders data retrieved from other tasks. 
 
 The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results. 
 
@@ -69,8 +69,6 @@ In serverless SQL pool, each Compute node is assigned task and set of files to e
 
 Data Movement Service (DMS) is the data transport technology in dedicated SQL pool that coordinates data movement between the Compute nodes. Some queries require data movement to ensure the parallel queries return accurate results. When data movement is required, DMS ensures the right data gets to the right location.
 
-> [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
-
 ## Distributions
 
 A distribution is the basic unit of storage and processing for parallel queries that run on distributed data in dedicated SQL pool. When dedicated SQL pool runs a query, the work is divided into 60 smaller queries that run in parallel.
@@ -83,7 +81,7 @@ A hash distributed table can deliver the highest query performance for joins and
 
 To shard data into a hash-distributed table, dedicated SQL pool uses a hash function to deterministically assign each row to one distribution. In the table definition, one of the columns is designated as the distribution column. The hash function uses the values in the distribution column to assign each row to a distribution.
 
-The following diagram illustrates how a full (non-distributed table) gets stored as a hash-distributed table.
+The following diagram illustrates how a full (nondistributed table) gets stored as a hash-distributed table.
 
 :::image type="content" source="./media/overview-architecture/hash-distributed-table.png" alt-text="Screenshot of a table stored as a hash-distribution." lightbox="./media/overview-architecture/hash-distributed-table.png" :::
 
@@ -109,6 +107,6 @@ The diagram below shows a replicated table that is cached on the first distribut
 
 :::image type="content" source="./media/overview-architecture/replicated-table.png" alt-text="Screenshot of the replicated table cached on the first distribution on each compute node." lightbox="./media/overview-architecture/replicated-table.png" :::
 
-## Next steps
+## Related content
 
-Now that you know a bit about Synapse SQL, learn how to quickly [create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md) and [load sample data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md). Or start [using serverless SQL pool](../quickstart-sql-on-demand.md). If you're new to Azure, you may find the [Azure glossary](../../azure-glossary-cloud-terminology.md) helpful as you encounter new terminology.
+Now that you know a bit about Synapse SQL, learn how to quickly [create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md) and [load sample data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md). Or start [using serverless SQL pool](../quickstart-sql-on-demand.md). If you're new to Azure, you might find the [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) helpful as you encounter new terminology.

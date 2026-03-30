@@ -10,7 +10,10 @@ ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-arm-template
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to migrate my classic storage accounts to the Azure Resource Manager deployment model so that I can access the latest features and ensure compliance before the retirement deadline of August 31, 2024.
 ---
 
 # How to migrate your classic storage accounts to Azure Resource Manager
@@ -98,6 +101,9 @@ For more information about the migration process, see [Understand storage accoun
 > [!NOTE]
 > Accounts left in a **Prepare** migration state more 30 days may have their migrations committed on your behalf. If you need more than 30 days to validate your migration to Azure Resource Manager, you can abort the current migration and restart it when you are ready.
 
+> [!IMPORTANT]
+> After migrating your classic resources to Azure Resource Manager within your subscription, ensure that all Classic Admin role assignments are converted to the Owner role in Azure RBAC. Without an assigned Owner, your subscription may become orphaned. For detailed guidance, refer to [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
+
 You can migrate a classic storage account to the Azure Resource Manager deployment model with the Azure portal or PowerShell.
 
 # [Portal](#tab/azure-portal)
@@ -126,7 +132,7 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 
 # [PowerShell](#tab/azure-powershell)
 
-To migrate a classic storage account to the Azure Resource Manager deployment model with PowerShell, you must use the Azure PowerShell Service Management module. To learn how to install this module, see [Install and configure the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps#checking-the-version-of-azure-powershell). The key steps are included here for convenience.
+To migrate a classic storage account to the Azure Resource Manager deployment model with PowerShell, you must use the Azure PowerShell Service Management module. To learn how to install this module, see [Install and configure the Azure PowerShell Service Management module](https://www.powershellgallery.com/packages/Azure/). The key steps are included here for convenience.
 
 > [!NOTE]
 > The cmdlets in the Azure Service Management module are for managing legacy Azure resources that use Service Management APIs, including classic storage accounts. This module includes the commands needed to migrate a classic storage account to Azure Resource Manager.
@@ -135,21 +141,21 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 
 First, install PowerShellGet if you don't already have it installed. For more information on how to install PowerShellGet, see [Installing PowerShellGet](/powershell/gallery/powershellget/install-powershellget). After you install PowerShellGet, close and reopen the PowerShell console.
 
-Next, install the Azure Service Management module. If you also have the AzureRM module installed, you'll need to include the `-AllowClobber` parameter, as described in [Step 2: Install Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps#step-2-install-azure-powershell). After the installation is complete, import the Azure Service Management module.
+Next, install the Azure Service Management module. If you also have the AzureRM module installed, you'll need to include the `-AllowClobber` parameter, as described in [Step 2: Install Azure PowerShell](https://www.powershellgallery.com/packages/Azure/). After the installation is complete, import the Azure Service Management module.
 
 ```azurepowershell
 Install-Module -Name Azure -AllowClobber
 Import-Module -Name Azure
 ```
 
-Log into your account by running [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount). Then call [Select-AzureSubscription](/powershell/module/servicemanagement/azure/select-azuresubscription) to set your current subscription. Remember to replace the placeholder values in brackets with your subscription name:
+Log into your account by running `Add-AzureAccount`. Then call `Select-AzureSubscription` to set your current subscription. Remember to replace the placeholder values in brackets with your subscription name:
 
 ```azurepowershell
 Add-AzureAccount
 Select-AzureSubscription -SubscriptionName <subscription-name>
 ```
 
-To validate that the account is ready for migration, call the [Move-AzureStorageAccount](/powershell/module/servicemanagement/azure/move-azurestorageaccount) command. Remember to replace the placeholder values in brackets with the name of your classic storage account:
+To validate that the account is ready for migration, call the `Move-AzureStorageAccount` command. Remember to replace the placeholder values in brackets with the name of your classic storage account:
 
 ```azurepowershell
 $accountName = "<storage-account>"

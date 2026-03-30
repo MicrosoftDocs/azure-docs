@@ -2,13 +2,15 @@
 title: How to manually migrate an IoT hub
 titleSuffix: Azure IoT Hub
 description: Use the Azure portal, ARM templates, and service SDKs to manually migrate an Azure IoT hub to a new region or new SKU
-author: kgremban
+author: cwatson-cat
 
-ms.author: kgremban
-ms.service: iot-hub
-ms.custom: devx-track-arm-template
+ms.author: cwatson
+ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 04/14/2023
+ms.date: 12/09/2024
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # How to manually migrate an Azure IoT hub using an Azure Resource Manager template
@@ -22,7 +24,7 @@ The steps in this article are useful if you want to:
 * Export IoT hub state information to have as a backup.
 * Increase the number of [partitions](iot-hub-scaling.md#partitions) for an IoT hub.
 * Set up a hub for a development, rather than production, environment.
-* Enable a custom implementation of multi-hub high availability. For more information, see the [How to achieve cross region HA section of IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md#achieve-cross-region-ha).
+* Enable a custom implementation of multi-hub high availability. For more information, see [Reliability in Azure IoT Hub](/azure/reliability/reliability-iot-hub).
 
 To migrate a hub, you need a subscription with administrative access to the original hub. You can put the new hub in a new resource group and region, in the same subscription as the original hub, or even in a new subscription. You just can't use the same name because the hub name has to be globally unique.
 
@@ -35,14 +37,14 @@ The outcome of this article is similar to [How to automatically migrate an IoT h
   * Migrates your device registry and your routing and endpoint information. You have to manually recreate other configuration details in the new IoT hub.
   * Is faster for migrating large numbers of devices (for example, more than 100,000).
   * Uses an Azure Storage account to transfer the device registry.
-  * Scrubs connection strings for routing and file upload endpoints from the ARM template output, and you need to manually add them back in.
+  * Scrubs connection strings for routing and file upload endpoints that use key-based authentication from the ARM template output, and you need to manually add them back in.
 
 * The Azure CLI process:
 
   * Migrates your device registry, your routing and endpoint information, and other configuration details like IoT Edge deployments or automatic device management configurations.
   * Is easier for migrating small numbers of devices (for example, up to 10,000).
   * Doesn't require an Azure Storage account.
-  * Collects connection strings for routing and file upload endpoints and includes them in the ARM template output.
+  * Collects connection strings for routing and file upload endpoints that use key-based authentication and includes them in the ARM template output.
 
 ## Things to consider
 
@@ -64,6 +66,8 @@ There are several things to consider before migrating an IoT hub.
 
 * You need to update any certificates so you can use them with the new resources. Also, you probably have the hub defined in a DNS table somewhere and need to update that DNS information.
 
+* Endpoints that use system-assigned managed identities for authentication can't be migrated. After migration, you need to give the new IoT hub's system-assigned managed identity access to the endpoint resources and then recreate the endpoints.
+
 ## Methodology
 
 This is the general method we recommend for migrating an IoT hub.
@@ -84,7 +88,7 @@ This is the general method we recommend for migrating an IoT hub.
 
 ## How to handle message routing
 
-If your hub uses [message routing](iot-hub-devguide-messages-d2c.md), exporting the template for the hub includes the routing configuration, but it doesn't include the resources themselves. If you're migrating the IoT hub to a new region, you must choose whether to move the routing resources to the new location as well or to leave them in place and continue to use them "as is". There may be a small performance hit from routing messages to endpoint resources in a different region.
+If your hub uses [message routing](iot-hub-devguide-messages-d2c.md), exporting the template for the hub includes the routing configuration, but it doesn't include the resources themselves. If you're migrating the IoT hub to a new region, you must choose whether to move the routing resources to the new location as well or to leave them in place and continue to use them as-is. There might be a small performance hit from routing messages to endpoint resources in a different region.
 
 If the hub uses message routing, you have two choices.
 
@@ -96,7 +100,7 @@ If the hub uses message routing, you have two choices.
 
   1. Update the resource names and the resource keys in the new hub's template before creating the new hub. The resources should be present when the new hub is created.
 
-* Don't move the resources used for the routing endpoints. Use them "in place".
+* Don't move the resources used for the routing endpoints. Use them in-place.
 
   1. In the step where you edit the template, you need to retrieve the keys for each routing resource and put them in the template before you create the new hub.
 
@@ -222,32 +226,27 @@ You have to make some changes before you can use the template to create the new 
 
 #### Edit the hub name and location
 
-1. Remove the container name parameter section at the top. **ContosoHub** doesn't have an associated container.
+1. In the **parameters** section, remove the **...connectionString** and **...containerName** parameters.
 
     ``` json
-    "parameters": {
-      ...
-        "IotHubs_ContosoHub_containerName": {
-            "type": "SecureString"
-        },
-      ...
+    "IotHubs_ContosoHub_connectionString": {
+        "type": "SecureString"
+    },
+    "IotHubs_ContosoHub_containerName": {
+        "type": "SecureString"
     },
     ```
 
-1. Remove the **storageEndpoints** property.
+1. In the **properties** section, remove the **storageEndpoints** property.
 
     ```json
-    "properties": {
-      ...
-        "storageEndpoints": {
+    "storageEndpoints": {
         "$default": {
             "sasTtlAsIso8601": "PT1H",
             "connectionString": "[parameters('IotHubs_ContosoHub_connectionString')]",
             "containerName": "[parameters('IotHubs_ContosoHub_containerName')]"
         }
-      },
-      ...
-    
+    },
     ```
 
 1. If you're moving the hub to a new region, change the **location** property under **resources**.
@@ -262,28 +261,10 @@ When you export the Resource Manager template for a hub that has routing configu
 
 If you moved the routing resources as well, update the name, ID, and resource group of each endpoint as well.
 
-1. Retrieve the keys required for any of the routing resources and put them in the template. You can retrieve the key(s) from the resource in the [Azure portal](https://portal.azure.com).
-
-   * For example, if you're routing messages to a storage container, find the storage account in the portal. Under the Settings section, select **Access keys**, then copy one of the keys. Here's what the key looks like when you first export the template:
-
-     ```json
-     "connectionString": "DefaultEndpointsProtocol=https;
-     AccountName=fabrikamstorage1234;AccountKey=****",
-     "containerName": "fabrikamresults",
-     ```
-
-     After you retrieve the account key for the storage account, put it in the template in the `AccountKey=****` clause in the place of the asterisks.
-
-   * For service bus queues, get the Shared Access Key matching the SharedAccessKeyName. Here's the key and the `SharedAccessKeyName` in the json:
-
-     ```json
-     "connectionString": "Endpoint=sb://fabrikamsbnamespace1234.servicebus.windows.net:5671/;
-     SharedAccessKeyName=iothubroutes_FabrikamResources;
-     SharedAccessKey=****;
-     EntityPath=fabrikamsbqueue1234",
-     ```
-
-   * The same applies for the Service Bus Topics and Event Hubs connections.
+* For endpoints with *key-based authentication*, retrieve the keys required for any of the routing resources and put them in the template. You can retrieve the key from each resource in the [Azure portal](https://portal.azure.com).
+* For endpoints with *identity-based authentication*:
+  * Those that use a user-assigned managed identity have the **userAssignedIdentity** value populated with the identity ID information as a parameter.
+  * Those that use a system-assigned managed identity can't be migrated. Delete these endpoints and their related routes from the template and make a note to recreate them in the new IoT hub.
 
 ## Create the new hub by loading the template
 
@@ -315,15 +296,13 @@ Create the new hub using the edited template. If you have routing resources that
 
    **Region**: If you selected an existing resource group, the region is filled in for you to match the location of the resource group. If you created a new resource group, this is its location.
 
-   **Connection string**: Fill in the connection string for your hub.
-
    **Hub name**: Give the new hub a name.
 
    :::image type="content" source="./media/migrate-hub-arm/iot-hub-custom-deployment-create.png" alt-text="Screenshot showing the custom deployment page":::
 
 1. Select the **Review + create** button.
 
-1. Select the **Create** button. The portal validates your template and deploys your new hub. If you have routing configuration data, it is included in the new hub, but points at the resources in the prior location.
+1. Select the **Create** button. The portal validates your template and deploys your new hub. If you have routing configuration data, it's included in the new hub, but points at the resources in the prior location.
 
    :::image type="content" source="./media/migrate-hub-arm/iot-hub-custom-deployment-final.png" alt-text="Screenshot showing the final custom deployment page":::
 
@@ -355,15 +334,11 @@ The application targets .NET Core, so you can run it on either Windows or Linux.
 
 ### Download the sample
 
-1. Use the IoT C# samples here: [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp/archive/main.zip). Download the zip file and unzip it on your computer.
-
-1. The pertinent code is in ./iothub/service/samples/how to guides/ImportExportDevicesSample. You don't need to view or edit the code in order to run the application.
-
-1. To run the application, specify three connection strings and five options. You pass this data in as command-line arguments or use environment variables, or use a combination of the two. We're going to pass the options in as command line arguments, and the connection strings as environment variables.
-
-   The reason for this is because the connection strings are long and ungainly, and unlikely to change, but you might want to change the options and run the application more than once. To change the value of an environment variable, you have to close the command window and Visual Studio or Visual Studio Code, whichever you're using.
+Use the IoT C# SDK's [ImportExportDevicesSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/how%20to%20guides/ImportExportDevicesSample). Clone or download the repo to get the sample code.
 
 ### Options
+
+To run the application, specify three connection strings and five options. You pass this data in as command-line arguments or use environment variables, or use a combination of the two. We're going to pass the options in as command line arguments, and the connection strings as environment variables. The reason for this is because the connection strings are long and ungainly, and unlikely to change, but you might want to change the options and run the application more than once. To change the value of an environment variable, you have to close the command window and Visual Studio or Visual Studio Code, whichever you're using.
 
 Here are the five options you specify when you run the application:
 
@@ -371,13 +346,13 @@ Here are the five options you specify when you run the application:
 
 * **copyDevices** (argument 3) - set this option to `True` to copy the devices from one hub to another.
 
-* **deleteSourceDevices** (argument 4) - set this option to `True` to delete all of the devices registered to the source hub. We recommend waiting until you are certain all of the devices have been transferred before you run this. Once you delete the devices, you can't get them back.
+* **deleteSourceDevices** (argument 4) - set this option to `True` to delete all of the devices registered to the source hub. We recommend waiting until you're certain that all of the devices were transferred before you run this. Once you delete the devices, you can't get them back.
 
 * **deleteDestDevices** (argument 5) - set this option to `True` to delete all of the devices registered to the destination hub. You might want to do this if you want to copy the devices more than once.
 
 The basic command is *dotnet run*, which tells .NET to build the local csproj file and then run it. You add your command-line arguments to the end before you run it.
 
-Your command-line will look like these examples:
+Your command-line looks like these examples:
 
 ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
@@ -393,7 +368,7 @@ Your command-line will look like these examples:
 
 ### Use environment variables for the connection strings
 
-1. To run the sample, you need the connection strings to the old and new IoT hubs, and to a storage account you can use for temporary work files. We will store the values for these in environment variables.
+1. To run the sample, you need the connection strings to the old and new IoT hubs, and to a storage account you can use for temporary work files. We'll store the values for these connection strings in environment variables.
 
 1. To get the connection string values, sign in to the [Azure portal](https://portal.azure.com).
 
@@ -438,7 +413,7 @@ Now you have the environment variables in a file with the SET commands, and you 
     dotnet run arg1 arg2 arg3 arg4 arg5
     ```
 
-    The dotnet command builds and runs the application. Because you're passing in the options when you run the application, you can change the values of them each time you run the application. For example, you may want to run it once and create new devices, then run it again and copy those devices to a new hub, and so on. You can also perform all the steps in the same run, although we recommend not deleting any devices until you're certain you're finished with the migration. Here's an example that creates 1000 devices and then copies them to the other hub.
+    The dotnet command builds and runs the application. Because you're passing in the options when you run the application, you can change the values of them each time you run the application. For example, you may want to run it once and create new devices, then run it again and copy those devices to a new hub, and so on. You can also perform all the steps in the same run, although we recommend **not deleting** any devices until you're certain you're finished with the migration. Here's an example that creates 1,000 devices and then copies them to the other hub.
 
     ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
@@ -511,7 +486,7 @@ If you decide to roll back the changes, here are the steps to perform:
 
 * Update each device to change the IoT Hub Hostname to point the IoT Hub Hostname for the old hub. You should do this using the same method you used when you first provisioned the device.
 
-* Change any applications you have that refer to the new hub to point to the old hub. For example, if you're using Azure Analytics, you may need to reconfigure your [Azure Stream Analytics input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* Change any applications you have that refer to the new hub to point to the old hub. For example, if you're using Azure Analytics, you might need to reconfigure your [Azure Stream Analytics input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
 
 * Delete the new hub.
 

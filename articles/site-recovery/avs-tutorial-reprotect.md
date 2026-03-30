@@ -1,13 +1,13 @@
 ---
 title: Reprotect Azure VMs to an Azure VMware Solution private cloud with Azure Site Recovery
 description: Learn how to reprotect Azure VMware Solution VMs after failover to Azure with Azure Site Recovery.
-author: ankitaduttaMSFT
-manager: rochakm
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 09/30/2020
-ms.author: ankitadutta
+ms.date: 02/27/2026
+ms.author: v-gajeronika
 ms.custom: MVC
+# Customer intent: As an IT administrator managing virtual machines, I want to reprotect Azure VMware Solution VMs after failover, so that I can ensure data consistency and maintain disaster recovery capabilities in my cloud environment.
 ---
 
 # Reprotect from Azure to Azure VMware Solution private cloud
@@ -16,11 +16,13 @@ After [failover](avs-tutorial-failover.md) of Azure VMware Solution VMs to Azure
 
 ## Before you begin
 
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+
 1. Follow the steps in [this article](vmware-azure-prepare-failback.md) to prepare for reprotection and failback, including setting up a process server in Azure, and an Azure VMware Solution private cloud master target server, and configuring a site-to-site VPN, or ExpressRoute private peering, for failback.
 2. Make sure that the Azure VMware Solution private cloud configuration server is running and connected to Azure. During failback, the VM must exist in the configuration server database. Otherwise, failback is unsuccessful.
 3. Delete any snapshots on the Azure VMware Solution private cloud master target server. Reprotection won't work if there are snapshots.  The snapshots on the VM are automatically merged during a reprotect job.
 4. If you're reprotecting VMs gathered into a replication group for multi-VM consistency, make sure they all have the same operating system (Windows or Linux) and make sure that the master target server you deploy has the same type of operating system. All VMs in a replication group must use the same master target server.
-5. Open [the required ports](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) for failback.
+5. Open [the required ports](vmware-azure-prepare-failback.md#ports-for-reprotection-and-failback) for failback.
 6. Ensure that the vCenter Server is connected before failback. Otherwise, disconnecting disks and attaching them back to the virtual machine fails.
 7. If a vCenter Server manages the VMs to which you'll fail back, make sure that you have the required permissions. If you perform a read-only user vCenter Server discovery and protect virtual machines, protection succeeds, and failover works. However, during reprotection, failover is unsuccessful because the datastores can't be discovered, and aren't listed during reprotection. To resolve this problem, you can update the vCenter Server credentials with an [appropriate account/permissions](avs-tutorial-prepare-avs.md#prepare-an-account-for-automatic-discovery), and then retry the job. 
 8. If you used a template to create your virtual machines, ensure that each VM has its own UUID for the disks. If the Azure VMware Solution VM UUID clashes with the UUID of the master target server because both were created from the same template, reprotection fails. Deploy from a different template.

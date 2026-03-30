@@ -1,7 +1,7 @@
----
+﻿---
 title: Custom resource proxy reference
 description: Custom resource proxy reference for Azure Custom Resource Providers. This article will go through the requirements for endpoints implementing proxy custom resources.
-ms.topic: conceptual
+ms.topic: article
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2022
@@ -320,3 +320,4 @@ Content-Type: application/json; charset=utf-8
 - [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [Reference: Custom Resource Cache Reference](proxy-cache-resource-endpoint-reference.md)
+

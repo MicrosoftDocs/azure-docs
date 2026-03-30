@@ -5,10 +5,13 @@ services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
-ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: alkohli
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Deploy IoT Edge on an Ubuntu VM on Azure Stack Edge
@@ -51,7 +54,7 @@ Use steps in one of the following sections:
 
 ### Use symmetric key provisioning
 
-To connect your device to IoT Hub without DPS, use the steps in this section to prepare a *cloud-init* script for the VM creation *Advanced* page to deploy the IoT Edge runtime and Nvidia’s container runtime.
+To connect your device to IoT Hub without DPS, use the steps in this section to prepare a *cloud-init* script for the VM creation *Advanced* page to deploy the IoT Edge runtime and NVIDIA’s container runtime.
 
 1. Use an existing IoT Hub or create a new Hub. Use these steps to [create an IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
@@ -79,7 +82,7 @@ runcmd:
         
         if [ $(lspci | grep NVIDIA | wc -l) -gt 0 ]; then
 
-          #install Nvidia drivers
+          #install NVIDIA drivers
 
           apt install -y ubuntu-drivers-common
          ubuntu-drivers devices
@@ -197,7 +200,7 @@ runcmd:
 
       if [ $(lspci | grep NVIDIA | wc -l) -gt 0 ]; then
 
-        #install Nvidia drivers
+        #install NVIDIA drivers
 
         apt install -y ubuntu-drivers-common
         ubuntu-drivers devices
@@ -301,6 +304,6 @@ To update the VM, follow the instructions in [Update IoT Edge](../iot-edge/how-t
 
 To deploy and run an IoT Edge module on your Ubuntu VM, see the steps in [Deploy IoT Edge modules](../iot-edge/how-to-deploy-modules-portal.md?view=iotedge-2020-11&preserve-view=true).
 
-To deploy Nvidia’s DeepStream module, see [Deploy the Nvidia DeepStream module on Ubuntu VM on Azure Stack Edge Pro with GPU](azure-stack-edge-deploy-nvidia-deepstream-module.md).
+To deploy NVIDIA’s DeepStream module, see [Deploy the NVIDIA DeepStream module on Ubuntu VM on Azure Stack Edge Pro with GPU](azure-stack-edge-deploy-nvidia-deepstream-module.md).
 
 To deploy NVIDIA DIGITS, see [Enable a GPU in a prefabricated NVIDIA module](../iot-edge/configure-connect-verify-gpu.md?preserve-view=true&view=iotedge-2020-11#enable-a-gpu-in-a-prefabricated-nvidia-module).

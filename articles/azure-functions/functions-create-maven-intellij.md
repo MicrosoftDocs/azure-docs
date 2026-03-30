@@ -1,12 +1,18 @@
 ---
 title: Create a Java function in Azure Functions using IntelliJ 
 description: Learn how to use IntelliJ to create an HTTP-triggered Java function and then run it in a serverless environment in Azure.
-author: karlerickson
+author: KarlErickson
+ms.author: karler
+ms.reviewer: jialuogan
 ms.topic: quickstart
 ms.date: 05/28/2024
-ms.author: jialuogan
 ms.devlang: java
-ms.custom: mvc, devcenter, devx-track-java, devx-track-extended-java
+ms.custom:
+  - mvc
+  - devcenter
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Create your first Java function in Azure using IntelliJ
@@ -23,8 +29,8 @@ Specifically, this article shows you:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21. (Java 21 is currently only supported in preview on Linux only)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21. (Java 21 is currently supported on Linux only)
 - An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 - [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 - Latest [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)
@@ -57,7 +63,7 @@ To use Azure Toolkit for IntelliJ to create a local Azure Functions project, fol
 
    :::image type="content" source="media/functions-create-first-java-intellij/create-functions-project.png" alt-text="Create function project." lightbox="media/functions-create-first-java-intellij/create-functions-project.png":::
 
-1. Select **Http Trigger**, then select **Next** and follow the wizard to go through all the configurations in the following pages. Confirm your project location, then select **Finish**. Intellj IDEA then opens your new project.
+1. Select **Http Trigger**, then select **Next** and follow the wizard to go through all the configurations in the following pages. Confirm your project location, then select **Finish**. IntelliJ IDEA then opens your new project.
 
    :::image type="content" source="media/functions-create-first-java-intellij/create-functions-project-finish.png" alt-text="Create function project finish." lightbox="media/functions-create-first-java-intellij/create-functions-project-finish.png":::
 

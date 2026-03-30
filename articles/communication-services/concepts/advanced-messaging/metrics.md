@@ -2,11 +2,11 @@
 title: Advanced Messaging metrics definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of Advanced Messaging metrics available in the Azure portal.
-author: memontic-ms
+author: Shamkh
 services: azure-communication-services
-ms.author: memontic
+ms.author: shamkh
 ms.date: 07/18/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---

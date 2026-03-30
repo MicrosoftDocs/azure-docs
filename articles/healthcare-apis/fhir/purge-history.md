@@ -4,8 +4,8 @@ description: This article describes the $purge-history operation for the FHIR se
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 06/06/2022
+ms.topic: how-to
+ms.date: 10/10/2025
 ms.author: kesheth
 ---
 

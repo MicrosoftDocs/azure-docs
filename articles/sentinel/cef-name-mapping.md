@@ -1,11 +1,10 @@
 ---
 title: Common Event Format (CEF) key and CommonSecurityLog field mapping
 description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Microsoft Sentinel.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: reference
 ms.date: 08/12/2024
-
 
 #Customer intent: As a security analyst, I want to understand the mapping between CEF fields and CommonSecurityLog fields so that I can accurately interpret and analyze security events in my SIEM system.
 
@@ -51,7 +50,7 @@ The following tables map Common Event Format (CEF) field names to the names they
 | dmac | DestinationMacAddress | The destination MAC address (FQDN) |
 | dntdom | DestinationNTDomain | The Windows domain name of the destination address.|
 | dpid | DestinationProcessId |The ID of the destination process associated with the event.|
-| dpriv | DestinationUserPrivileges | Defines the destination use's privileges. <br>Valid values: `Admninistrator`, `User`, `Guest` |
+| dpriv | DestinationUserPrivileges | Defines the destination use's privileges. <br>Valid values: `Administrator`, `User`, `Guest` |
 | dproc | DestinationProcessName | The name of the event’s destination process, such as `telnetd` or `sshd.` |
 | dpt | DestinationPort | Destination port. <br>Valid values: `*0` - `65535` |
 | dst | DestinationIP | The destination IpV4 address that the event refers to in an IP network. |
@@ -113,7 +112,7 @@ The following tables map Common Event Format (CEF) field names to the names they
 | requestMethod | RequestMethod | The method used to access a URL. <br><br>Valid values include methods such as `POST`, `GET`, and so on. |
 | rt | ReceiptTime | The time at which the event related to the activity was received. |
 |Severity     |  <a name="logseverity"></a> LogSeverity       |  A string or integer that describes the importance of the event.<br><br> Valid string values: `Unknown` , `Low`, `Medium`, `High`, `Very-High` <br><br>Valid integer values are:<br> - `0`-`3` = Low <br>- `4`-`6` = Medium<br>- `7`-`8` = High<br>- `9`-`10` = Very-High |
-| shost    | SourceHostName        |Identifies the source that event refers to in an IP network. Format should be a fully qualified domain name (DQDN) associated with the source node, when a node is available. For example, `host` or `host.domain.com`. |
+| shost    | SourceHostName        |Identifies the source that event refers to in an IP network. Format should be a fully qualified domain name (FQDN) associated with the source node, when a node is available. For example, `host` or `host.domain.com`. |
 | smac | SourceMacAddress | Source MAC address. |
 | sntdom | SourceNTDomain | The Windows domain name for the source address. |
 | sourceDnsDomain | SourceDnsDomain | The DNS domain part of the complete FQDN. |

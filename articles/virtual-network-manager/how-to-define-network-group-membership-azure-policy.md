@@ -17,7 +17,7 @@ In this article, you learn how to use Azure Policy conditional statements to cre
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - To modify dynamic network groups, you must be [granted access with role-based access control](concept-network-groups.md#network-groups-and-azure-policy). Classic Admin/legacy authorization isn't supported.
 ## <a name="parameters"></a> Parameters and operators
 
@@ -156,7 +156,7 @@ This example uses the **OR** logical operator to separate two conditional statem
 
 * Basic editor:
 
-    :::image type="content" source="./media/how-to-exclude-elements/or-operator.png" alt-text="Screenshot of network group conditional statement using the OR logical operator.":::
+    :::image type="content" source="./media/how-to-define-network-group-membership-azure-policy/or-operator.png" alt-text="Screenshot of network group conditional statement using the OR logical operator.":::
 
 * Advanced operator:
 
@@ -181,7 +181,7 @@ The `"anyOf"` parameter contains both the conditional statements that are separa
 
 * Basic editor:
 
-    :::image type="content" source="./media/how-to-exclude-elements/both-operator.png" alt-text="Screenshot of network group conditional statement using both OR and AND logical operator.":::
+    :::image type="content" source="./media/how-to-define-network-group-membership-azure-policy/both-operator.png" alt-text="Screenshot of network group conditional statement using both OR and AND logical operator.":::
 
 * Advanced editor:
 

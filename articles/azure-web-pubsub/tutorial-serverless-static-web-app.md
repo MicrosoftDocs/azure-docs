@@ -20,6 +20,8 @@ More specifically,  you learn how to:
 > * Work with Web PubSub function input and output bindings
 > * Work with Static Web Apps
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Overview
 
 :::image type="content" source="media/tutorial-serverless-static-web-app/tutorial-serverless-static-web-app.png" alt-text="Diagram showing how Azure Web PubSub works with Azure Static Web Apps." border="false":::
@@ -39,7 +41,7 @@ The sample chat room application provided with this tutorial has the following w
 ## Prerequisites
 
 * A [GitHub](https://github.com/) account.
-* An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An [Azure](https://portal.azure.com/) account. If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * [Azure CLI](/cli/azure/install-azure-cli) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources.
 
 ## Create a Web PubSub resource
@@ -69,6 +71,8 @@ The sample chat room application provided with this tutorial has the following w
     ```
 
 1. Get and hold the access key for later use.
+
+    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
     ```azurecli-interactive
     az webpubsub key show \

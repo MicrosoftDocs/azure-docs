@@ -3,8 +3,10 @@ author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 06/15/2022
-ms.custom: devdivchpfy22
 ms.author: glenga
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure: Open in portal`.

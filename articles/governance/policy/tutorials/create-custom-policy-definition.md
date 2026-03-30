@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: tutorial
 ---
 
@@ -15,7 +15,7 @@ A custom policy definition allows customers to define their own rules for using 
 
 Whatever the business driver for creating a custom policy, the steps are the same for defining the new custom policy.
 
-Before creating a custom policy, check the [policy samples](../samples/index.md) to see whether a policy that matches your needs already exists.
+Before creating a custom policy, check the [policy samples](/azure/governance/policy/samples/index) to see whether a policy that matches your needs already exists.
 
 The approach to creating a custom policy follows these steps:
 
@@ -28,7 +28,7 @@ The approach to creating a custom policy follows these steps:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Identify requirements
 

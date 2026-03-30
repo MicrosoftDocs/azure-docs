@@ -6,20 +6,23 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
-ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 #Customer intent: As a developer, I want to use my own domain name for the sign-in and sign-up experience, so that my users have a seamless experience.
 ---
 
 # Enable custom domains in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). Using a verified custom domain has a number of benefits such as: 
+This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). Using a verified custom domain has the following benefits: 
 
 - It provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
 -  By staying in the same domain for your application during sign-in, you mitigate the impact of [third-party cookie blocking](/entra/identity-platform/reference-third-party-cookies-spas). 
@@ -51,8 +54,8 @@ The following diagram illustrates Azure Front Door integration:
 When using custom domains, consider the following:
 
 - You can set up multiple custom domains. For the maximum number of supported custom domains, see [Microsoft Entra service limits and restrictions](/entra/identity/users/directory-service-limits-restrictions) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-classic-limits) for Azure Front Door.
-- Azure Front Door is a separate Azure service, so extra charges will be incurred. For more information, see [Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor).
-- If you've multiple applications, migrate all of them to the custom domain because the browser stores the Azure AD B2C session under the domain name currently being used.
+- Azure Front Door is a separate Azure service, so extra charges are incurred. For more information, see [Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor).
+- If you have multiple applications, migrate all of them to the custom domain because the browser stores the Azure AD B2C session under the domain name currently being used.
 - After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *&lt;tenant-name&gt;.b2clogin.com*. You need to block access to the default domain so that attackers can't use it to access your apps or run distributed denial-of-service (DDoS) attacks. [Submit a support ticket](find-help-open-support-ticket.md) to request for the  blocking of access to the default domain.
 
 > [!WARNING]
@@ -108,7 +111,7 @@ Follow these steps to create an Azure Front Door:
 
 1. To choose the directory that contains the Azure subscription that you’d like to use for Azure Front Door and *not* the directory containing your Azure AD B2C tenant select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
     
-1. Follow the steps in [Create Front Door profile - Quick Create](../frontdoor/create-front-door-portal.md#create-front-door-profile---quick-create) to create a Front Door for your Azure AD B2C tenant using the following settings: 
+1. Follow the steps in [Create Front Door profile - Quick Create](../frontdoor/create-front-door-portal.md#create-an-azure-front-door-profile) to create a Front Door for your Azure AD B2C tenant using the following settings: 
 
     
     |Key  |Value  |
@@ -124,7 +127,7 @@ Follow these steps to create an Azure Front Door:
     Leave the **Caching** and **WAF policy** empty.
 
      
-1. Once the Azure Front Door resource is created, select **Overview**, and copy the **Endpoint hostname**. You will need this later on. It will look something like `b2cazurefrontdoor-ab123e.z01.azurefd.net`. 
+1. Once the Azure Front Door resource is created, select **Overview**, and copy the **Endpoint hostname**. You need this later on. It looks something like `b2cazurefrontdoor-ab123e.z01.azurefd.net`. 
 
 1. Make sure the **Host name** and **Origin host header** of your origin have the same value: 
     1. Under **Settings**, select **Origin groups**. 
@@ -202,7 +205,7 @@ To create a CNAME record for your custom domain:
 The **default-route** routes the traffic from the client to Azure Front Door. Then, Azure Front Door uses your configuration to send the traffic to Azure AD B2C. Follow these steps to enable the default-route.
 
 1. Select **Front Door manager**.
-1. To add enable the **default-route**, first expand an endpoint from the list of endpoints in the Front Door manager. Then, select the **default-route**. 
+1. To enable the **default-route**, first expand an endpoint from the list of endpoints in the Front Door manager. Then, select the **default-route**. 
 
     The following screenshot shows how to select the default-route.
 
@@ -213,7 +216,7 @@ The **default-route** routes the traffic from the client to Azure Front Door. Th
 
 ## Step 4: Configure CORS
 
-If you are using a custom HTML template to [customize the Azure AD B2C user interface](customize-ui-with-html.md), you need to [Configure CORS](customize-ui-with-html.md?pivots=b2c-user-flow.md#3-configure-cors) with your custom domain.
+If you're using a custom HTML template to [customize the Azure AD B2C user interface](customize-ui-with-html.md), you need to [Configure CORS](customize-ui-with-html.md?pivots=b2c-user-flow.md#3-configure-cors) with your custom domain.
 
 Configure Azure Blob storage for Cross-Origin Resource Sharing with the following steps:
 
@@ -238,18 +241,18 @@ Configure Azure Blob storage for Cross-Origin Resource Sharing with the followin
 
     :::image type="content" source="./media/custom-domain/user-flow-run-now.png" alt-text="Screenshot of the Run user flow page from the Azure portal with the copy button for the Run userflow endpoint text box highlighted.":::
 
-1. To simulate a sign in with your custom domain, open a web browser and use the URL you just copied. Replace the Azure AD B2C domain (_&lt;tenant-name&gt;_.b2clogin.com) with your custom domain.
+1. To simulate a sign in with your custom domain, open a web browser and use the URL you copied. Replace the Azure AD B2C domain (_&lt;tenant-name&gt;_.b2clogin.com) with your custom domain.
 
     For example, instead of:
 
     ```http
-    https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login
+    https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=00001111-aaaa-2222-bbbb-3333cccc4444&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login
     ```
 
     use:
 
     ```http
-    https://login.contoso.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login    
+    https://login.contoso.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=00001111-aaaa-2222-bbbb-3333cccc4444&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login    
     ```
 
 1. Verify that the Azure AD B2C is loaded correctly. Then, sign in with a local account.
@@ -359,11 +362,11 @@ When using custom domains, consider the following points:
 - **Possible causes** - This issue could be related to the Azure Front Door route configuration.
 - **Resolution**: Check the status of the **default-route**. If it's disabled, [Enable the route](#33-enable-the-route). The following screenshot shows how the default-route should look like:
 
-    :::image type="content" source="./media/custom-domain/azure-front-door-route-status.png" alt-text="Screenshot of the Front Door manager page from the Azure portal with the default route, Status and Provisioning state items highlighted.":::
+    :::image type="content" source="./media/custom-domain/azure-front-door-route-status.png" alt-text="Screenshot of the Front Door manager page from the Azure portal with the default route, Status, and Provisioning state items highlighted.":::
 
 ### Azure AD B2C returns the resource you're looking for has been removed, had its name changed, or is temporarily unavailable.
 
-- **Symptom** - You configure a custom domain, but when you try to sign in with the custom domain, you get *the resource you are looking for has been removed, had its name changed, or is temporarily unavailable* error message.
+- **Symptom** - You configure a custom domain, but when you try to sign in with the custom domain, you get *the resource you're looking for has been removed, had its name changed, or is temporarily unavailable* error message.
 - **Possible causes** - This issue could be related to the Microsoft Entra custom domain verification. 
 - **Resolution**:  Make sure the custom domain is [registered and **successfully verified**](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) in your Azure AD B2C tenant.
 
@@ -381,10 +384,10 @@ Copy the URL, change the domain name manually, and then paste it back to your br
 
 ### Which IP address is presented to Azure AD B2C? The user's IP address, or the Azure Front Door IP address?
 
-Azure Front Door passes the user's original IP address. It's the IP address that you'll see in the audit reporting or your custom policy.
+Azure Front Door passes the user's original IP address. It's the IP address that you see in the audit reporting or your custom policy.
 
 > [!IMPORTANT]
-> If the client sends an `x-forwarded-for` header to Azure Front Door, Azure AD B2C will use the originator's `x-forwarded-for` as the user's IP address for [Conditional Access Evaluation](./conditional-access-identity-protection-overview.md) and the `{Context:IPAddress}` [claims resolver](./claim-resolver-overview.md).
+> If the client sends an `x-forwarded-for` header to Azure Front Door, Azure AD B2C uses the originator's `x-forwarded-for` as the user's IP address for [Conditional Access Evaluation](./conditional-access-identity-protection-overview.md) and the `{Context:IPAddress}` [claims resolver](./claim-resolver-overview.md).
 
 ### Can I use a third-party Web Application Firewall (WAF) with B2C?
 
@@ -394,10 +397,8 @@ Yes, Azure AD B2C supports BYO-WAF (Bring Your Own Web Application Firewall). Ho
     
 Yes, Azure Front Door can be in a different subscription.
     
-## See also
+## Related content
 
 * Learn about [OAuth authorization requests](protocols-overview.md).
 * Learn about [OpenID Connect authorization requests](openid-connect.md).
 * Learn about [authorization code flow](authorization-code-flow.md).
-
-

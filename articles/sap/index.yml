@@ -9,8 +9,8 @@ metadata:
   description: Learn about solutions for SAP on Azure, including SAP workloads on Azure VMs, Azure Center for SAP solutions, Azure Monitor for SAP solutions, SAP on Azure Large Instances, and the SAP on Azure deployment automation framework.
   ms.service: sap-on-azure
   ms.topic: hub-page
-  author: ju-shim
-  ms.author: jushiman
+  author: jjaygbay1 
+  ms.author: jacobjaygbay
   ms.date: 07/22/2024
 
 
@@ -142,27 +142,6 @@ additionalContent:
     - title: SAP on Azure Large Instances / SAP and Microsoft integrations
       items:
       #card
-      - title: ALI - overview
-        links:
-        - text: What is SAP HANA on Azure Large Instances?
-          url: ./large-instances/hana-overview-architecture.md
-      #card
-      - title: ALI - concept
-        links:
-          - text: Certifications for Large Instances
-            url: ./large-instances/hana-certification.md 
-          - text: Supported scenarios for Large Instances
-            url: ./large-instances/hana-supported-scenario.md      
-          - text: Available SKUs for Large Instances
-            url: ./large-instances/hana-available-skus.md 
-          - text: Architecture for Large Instances
-            url: ./large-instances/hana-architecture.md 
-      #card
-      - title: ALI - How-to-guide
-        links:
-          - text: How to install SAP HANA on Azure Large Instances
-            url: ./large-instances/hana-example-installation.md
-      #card
       - title: Integrations - overview 
         links:
           - text: What scenarios are available and how do I get started?
@@ -173,11 +152,11 @@ additionalContent:
       - title: Integrations - How-to-guide
         links:
           - text: Enable SAP Principal Propagation and SSO for Power Platform
-            url: ./workloads/expose-sap-odata-to-power-platform.md
+            url: /power-platform/sap/connect/entra-id-apim-oauth
           - text: How to configure M365 Exchange Online for SAP
             url: ./workloads/exchange-online-integration-sap-email-outbound.md
-          - text: How to expose SAP Process Orchestration on Azure securely
-            url: ./workloads/expose-sap-process-orchestration-on-azure.md
+          - text: How to onboard SAP Edge Integration Cell with Azure
+            url: ./workloads/sap-edge-integration-cell-with-azure.md
           - text: How to configure SAP printing with Microsoft Universal Print
             url: ./workloads/universal-print-sap-frontend.md
       #card

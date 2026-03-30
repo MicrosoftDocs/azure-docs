@@ -8,7 +8,7 @@ manager: mvivion
 
 services: azure-communication-services
 ms.date: 7/10/2023
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
@@ -21,6 +21,10 @@ Before you read this article, become familiar with overview information about ca
 
 - Voice and video calling: [Azure Communication Services Calling SDK overview](calling-sdk-features.md)
 - Phone calling: [Public Switched Telephone Network (PSTN) integration concepts](../telephony/telephony-concept.md)
+
+## Stay up to date with the most recent SDKs
+
+To see if your SDK is recent you can refer to Azure Advisor in your Azure portal. See, [Azure Advisor for Azure Communication Services](../advisor-overview.md) to learn more.
 
 ## Prepare your network and prioritize important network traffic by using QoS
 

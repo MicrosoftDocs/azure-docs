@@ -5,8 +5,14 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 06/13/2023
-ms.custom: template-quickstart, mode-ui, engagement-fy23, devx-track-azurepowershell, devx-track-bicep
+ms.date: 04/09/2025
+ms.custom:
+  - template-quickstart
+  - mode-ui
+  - engagement-fy23
+  - devx-track-azurepowershell
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager by using Bicep
@@ -17,9 +23,9 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 :::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager." lightbox="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png":::
 
-## Bicep Template Modules
+## Bicep File Modules
 
-The Bicep solution for this sample is broken down into modules to enable deployments at both a resource group and subscription scope. The template sections detailed below are the unique components for Virtual Network Manager. In addition to the sections detailed below, the solution deploys Virtual Networks, a User Assigned Identity, and a Role Assignment. 
+The Bicep solution for this sample is broken down into modules to enable deployments at both a resource group and subscription scope. The file sections detailed below are the unique components for Virtual Network Manager. In addition to the sections detailed below, the solution deploys Virtual Networks, a User Assigned Identity, and a Role Assignment.
 
 ### Virtual Network Manager, Network Groups, and Connectivity Configurations
 
@@ -118,7 +124,7 @@ resource connectivityConfigurationMesh 'Microsoft.Network/networkManagers/connec
 
 #### Deployment Script
 
-In order to deploy the configuration to the target network group, a Deployment Script is used to call the `Deploy-AzNetworkManagerCommit`​ PowerShell command. The Deployment Script needs an identity with sufficient permissions to execute the PowerShell script against the Virtual Network Manager, so the Bicep template creates a User Managed Identity and grants it the 'Contributor' role on the target resource group. For more information on Deployment Scripts and associated identities, see [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
+In order to deploy the configuration to the target network group, a Deployment Script is used to call the `Deploy-AzNetworkManagerCommit`​ PowerShell command. The Deployment Script needs an identity with sufficient permissions to execute the PowerShell script against the Virtual Network Manager, so the Bicep file creates a User Managed Identity and grants it the 'Contributor' role on the target resource group. For more information on Deployment Scripts and associated identities, see [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
 
 ```bicep
 @description('Create a Deployment Script resource to perform the commit/deployment of the Network Manager connectivity configuration.')
@@ -151,7 +157,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
       # string with comma-separated list of deployment target regions
       [parameter(mandatory=$true)][string[]]$targetLocations,
 
-      # configuration type to deploy. must be either connecticity or securityadmin
+      # configuration type to deploy. must be either connectivity or securityadmin
       [parameter(mandatory=$true)][ValidateSet('Connectivity','SecurityAdmin')][string]$configType,
 
       # AVNM resource group name
@@ -232,7 +238,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01'
 
 ### Deployment Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Permissions to create a Policy Definition and Policy Assignment at the target subscription scope (this is required when using the deployment parameter `networkGroupMembershipType=Dynamic` to deploy the required Policy resources for Network Group membership. The default is `static`, which does not deploy a Policy.
 
 #### Download the Bicep Solution
@@ -327,59 +333,11 @@ Use the **Network Manager** section for each virtual network to verify that you 
 
 ## Clean up resources
 
-If you no longer need Azure Virtual Network Manager, you can remove it after you remove all configurations, deployments, and network groups:
+If you no longer need Azure Virtual Network Manager and the associated virtual networks, you can remove it by deleting the resource group and its resources.
 
-1. To remove all configurations from a region, start in Virtual Network Manager and select **Deploy configurations**. Select the following settings, and then select **Next**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/none-configuration.png" alt-text="Screenshot of the tab for configuring a goal state for network resources, with the option for removing existing connectivity configurations selected.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Configurations** | Select **Include connectivity configurations in your goal state**. |
-    | **Connectivity configurations** | Select **None - Remove existing connectivity configurations**. |
-    | **Target regions** | Select **East US** as the deployed region. |
-
-1. Select **Deploy** to complete the deployment removal.
-
-1. To delete a configuration, go to the left pane of Virtual Network Manager. Under **Settings**, select **Configurations**. Select the checkbox next to the configuration that you want to remove, and then select **Delete** at the top of the resource pane.
-
-1. On the **Delete a configuration** pane, select the following options, and then select **Delete**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/configuration-delete-options.png" alt-text="Screenshot of the pane for deleting a configuration.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Delete option** | Select **Force delete the resource and all dependent resources**. |
-    | **Confirm deletion** | Enter the name of the configuration. In this example, it's **cc-learn-prod-eastus-001**. |
-
-1. To delete a network group, go to the left pane of Virtual Network Manager. Under **Settings**, select **Network groups**. Select the checkbox next to the network group that you want to remove, and then select **Delete** at the top of the resource pane.
-
-1. On the **Delete a network group** pane, select the following options, and then select **Delete**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-delete-options.png" alt-text="Screenshot of Network group to be deleted option selection." lightbox="./media/create-virtual-network-manager-portal/network-group-delete-options.png":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Delete option** | Select **Force delete the resource and all dependent resources**. |
-    | **Confirm deletion** | Enter the name of the network group. In this example, it's **ng-learn-prod-eastus-001**. |
-
-1. Select **Yes** to confirm the network group deletion.
-
-1. After you remove all network groups, go to the left pane of Virtual Network Manager. Select **Overview**, and then select **Delete**.
-
-1. On the **Delete a network manager** pane, select the following options, and then select **Delete**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-delete.png" alt-text="Screenshot of the pane for deleting a network manager.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Delete option** | Select **Force delete the resource and all dependent resources**. |
-    | **Confirm deletion** | Enter the name of the Virtual Network Manager instance. In this example, it's **vnm-learn-eastus-001**. |
-
-1. Select **Yes** to confirm the deletion.
-
-1. To delete the resource group and virtual networks, locate resource group you created during the deployment and select **Delete resource group**. Confirm that you want to delete by entering the name in the text box, and then select **Delete**.
-
+1. In the **Azure portal**, browse to your resource group - **resource-group**.
+1. Select **resource-group** and select **Delete resource group**.
+1. In the **Delete a resource group** window, confirm that you want to delete by entering **resource-group** in the text box, and then select **Delete**. 
 1. If you used **Dynamic Network Group Membership**, delete the deployed Azure Policy Definition and Assignment by navigating to the Subscription in the Portal and selecting the **Policies**. In Policies, find the **Assignment** named `AVNM quickstart dynamic group membership Policy` and delete it, then do the same for the **Definition** named `AVNM quickstart dynamic group membership Policy`.
 
 ## Next steps

@@ -4,9 +4,14 @@ description: Learn how to build a multi-region app on Azure App Service that can
 keywords: azure app service, web app, multiregion, multi-region, multiple regions
 author: seligj95
 ms.topic: tutorial
-ms.custom: devx-track-azurecli, devx-track-bicep
-ms.date: 2/8/2023
+ms.date: 02/08/2023
 ms.author: jordanselig
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Create a highly available multi-region app in Azure App Service
@@ -45,7 +50,7 @@ To complete this tutorial:
 
 ## Create two instances of a web app
 
-You need two instances of a web app that run in different Azure regions for this tutorial. You use the [region pair](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) East US/West US as your two regions and create two empty web apps. Feel free to choose your own regions if needed.
+You need two instances of a web app that run in different Azure regions for this tutorial. You use the [region pair](/azure/reliability/cross-region-replication-azure#azure-paired-regions) East US/West US as your two regions and create two empty web apps. Feel free to choose your own regions if needed.
 
 To make management and clean-up simpler, you use a single resource group for all resources in this tutorial. Consider using separate resource groups for each region/resource to further isolate your resources in a disaster recovery situation.
 
@@ -67,7 +72,7 @@ az appservice plan create --name <app-service-plan-west-us> --resource-group myr
 
 ### Create web apps
 
-Once the App Service plans are created, run the following commands to create the web apps. Replace the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with two globally unique names (valid characters are `a-z`, `0-9`, and `-`) and be sure to pay attention to the `--plan` parameter so that you place one app in each plan (and therefore in each region). Replace the `<runtime>` parameter with the language version of your app. Run `az webapp list-runtimes` for the list of available runtimes. If you plan on using the sample Node.js app given in this tutorial in the following sections, use `NODE:18-lts` as your runtime.
+Once the App Service plans are created, run the following commands to create the web apps. Replace the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with two globally unique names (valid characters are `a-z`, `0-9`, and `-`) and be sure to pay attention to the `--plan` parameter so that you place one app in each plan (and therefore in each region). Replace the `<runtime>` parameter with the language version of your app. Run `az webapp list-runtimes` for the list of available runtimes. If you plan on using the sample Node.js app given in this tutorial in the following sections, use `NODE:24-lts` as your runtime.
 
 ```azurecli-interactive
 az webapp create --name <web-app-east-us> --resource-group myresourcegroup --plan <app-service-plan-east-us> --runtime <runtime>
@@ -265,7 +270,7 @@ This command might take a few minutes to run.
 
 ## Deploy from ARM/Bicep
 
-The resources you created in this tutorial can be deployed using an ARM/Bicep template. The [Highly available multi-region web app Bicep template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-multi-region-front-door) allows you to create a secure, highly available, multi-region end to end solution with two web apps in different regions behind Azure Front Door.
+The resources you created in this tutorial can be deployed using an ARM/Bicep template. The [Highly available multi-region web app Bicep file](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-multi-region-front-door) allows you to create a secure, highly available, multi-region end to end solution with two web apps in different regions behind Azure Front Door.
 
 To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bicep and Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
 
@@ -287,7 +292,7 @@ You already created the baseline infrastructure for this scenario. Now, you crea
 
 For the remaining steps in this tutorial, you should have an app ready to deploy to your App Services. If you need a sample app, you can use the [Node.js Hello World sample app](https://github.com/Azure-Samples/nodejs-docs-hello-world). Fork that repository so you have your own copy.
 
-Be sure to set the App Service stack settings for your apps. Stack settings refer to the language or runtime used for your app. This setting can be configured using the Azure CLI with the `az webapp config set` command or in the portal with the following steps. If you use the Node.js sample, set the stack settings to **Node 18 LTS**.
+Be sure to set the App Service stack settings for your apps. Stack settings refer to the language or runtime used for your app. This setting can be configured using the Azure CLI with the `az webapp config set` command or in the portal with the following steps. If you use the Node.js sample, set the stack settings to **Node 24 LTS**.
 
 1. Going to your app and selecting **Configuration** in the left-hand table of contents.
 1. Select the **General settings** tab.
@@ -332,7 +337,7 @@ A default workflow file that uses a publish profile to authenticate to App Servi
 
 ### How do I disable basic authentication on App Service?
 
-Consider [disabling basic authentication](configure-basic-auth-disable.md), which limits access to the FTP and SCM endpoints to users that are backed by Microsoft Entra ID. If using a continuous deployment tool to deploy your application source code, disabling basic authentication requires [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you can't use a publish profile since  it doesn't use Microsoft Entra credentials. Instead, you need to use either a [service principal or OpenID Connect](deploy-github-actions.md#1-generate-deployment-credentials).
+Consider [disabling basic authentication](configure-basic-auth-disable.md), which limits access to the FTP and SCM endpoints to users that are backed by Microsoft Entra ID. If using a continuous deployment tool to deploy your application source code, disabling basic authentication requires [extra steps to configure continuous deployment](deploy-github-actions.md). For example, you can't use a publish profile since  it doesn't use Microsoft Entra credentials. Instead, you need to use either a [service principal or OpenID Connect](deploy-github-actions.md#generate-deployment-credentials).
 
 To disable basic authentication for your App Service, run the following commands for each app and slot by replacing the placeholders for `<web-app-east-us>` and `<web-app-west-us>` with your app names. The first set of commands disables FTP access for the production sites and staging slots, and the second set of commands disables basic auth access to the WebDeploy port and SCM site for the production sites and staging slots.
 
@@ -387,7 +392,7 @@ To configure continuous deployment with GitHub Actions and a service principal, 
 
 #### Create the GitHub Actions workflow
 
-Now that you have a service principal that can access your App Service apps, edit the default workflows that were created for your apps when you configured continuous deployment. Authentication must be done using your service principal instead of the publish profile. For sample workflows, see the "Service principal" tab in [Add the workflow file to your GitHub repository](deploy-github-actions.md?tabs=userlevel#3-add-the-workflow-file-to-your-github-repository). The following sample workflow can be used for the Node.js sample app that was provided.
+Now that you have a service principal that can access your App Service apps, edit the default workflows that were created for your apps when you configured continuous deployment. Authentication must be done using your service principal instead of the publish profile. For sample workflows, see the "Service principal" tab in [Add the workflow file to your GitHub repository](deploy-github-actions.md?tabs=userlevel#add-the-workflow-file-to-your-github-repository). The following sample workflow can be used for the Node.js sample app that was provided.
 
 1. Open your app's GitHub repository and go to the `<repo-name>/.github/workflows/` directory. You should see the autogenerated workflows.
 1. For each workflow file, select the "pencil" button in the top right to edit the file. Replace the contents with the following text, which assumes you created the GitHub secrets earlier for your credential. Update the placeholder for `<web-app-name>` under the "env" section, and then commit directly to the main branch. This commit triggers the GitHub Action to run again and deploy your code, this time using the service principal to authenticate.
@@ -404,7 +409,7 @@ Now that you have a service principal that can access your App Service apps, edi
     
     env:
       AZURE_WEBAPP_NAME: <web-app-name>   # set this to your application's name
-      NODE_VERSION: '18.x'                # set this to the node version to use
+      NODE_VERSION: '24.x'                # set this to the node version to use
       AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
       AZURE_WEBAPP_SLOT_NAME: stage       # set this to your application's slot name
     
@@ -413,10 +418,10 @@ Now that you have a service principal that can access your App Service apps, edi
         runs-on: ubuntu-latest
     
         steps:
-          - uses: actions/checkout@v2
+          - uses: actions/checkout@v4
             
           - name: Set up Node.js version
-            uses: actions/setup-node@v1
+            uses: actions/setup-node@v4
             with:
               node-version: ${{ env.NODE_VERSION }}
     
@@ -426,7 +431,7 @@ Now that you have a service principal that can access your App Service apps, edi
               npm run build --if-present
     
           - name: Upload artifact for deployment job
-            uses: actions/upload-artifact@v2
+            uses: actions/upload-artifact@v4
             with:
               name: node-app
               path: .
@@ -440,11 +445,11 @@ Now that you have a service principal that can access your App Service apps, edi
     
         steps:
           - name: Download artifact from build job
-            uses: actions/download-artifact@v2
+            uses: actions/download-artifact@v4
             with:
               name: node-app
 
-          - uses: azure/login@v1
+          - uses: azure/login@v2
             with:
               creds: |
                 {
@@ -456,7 +461,7 @@ Now that you have a service principal that can access your App Service apps, edi
     
           - name: 'Deploy to Azure Web App'
             id: deploy-to-webapp
-            uses: azure/webapps-deploy@v2
+            uses: azure/webapps-deploy@v3
             with:
               app-name: ${{ env.AZURE_WEBAPP_NAME }}
               slot-name: ${{ env.AZURE_WEBAPP_SLOT_NAME }}

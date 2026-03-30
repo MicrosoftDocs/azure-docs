@@ -5,7 +5,7 @@ author: wanlwanl
 ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 05/15/2023
-ms.author: wanl
+ms.author: jixin
 ---
 
 # Use resource logs to monitor SignalR Service
@@ -19,6 +19,8 @@ You can enable other types of data collection after some configuration. This art
 - For more information about monitoring Azure SignalR Service, see [Monitor Azure SignalR Service](monitor-signalr.md).
 - For a detailed listing of the metrics and logs collected for Azure SignalR Service, see [Azure SignalR Service monitoring data reference](monitor-signalr-reference.md).
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Prerequisites
 
 To enable resource logs, you need to set up a place to store your log data, such as Azure Storage or Log Analytics.
@@ -28,7 +30,7 @@ To enable resource logs, you need to set up a place to store your log data, such
 
 ## Enable resource logs
 
-Azure SignalR Service supports connectivity logs, messaging logs, and Http request logs. For more details about these types of logs, see [Resource log categories](monitor-signalr.md#resource-log-categories). Logs are stored in the Storage account configured in the **Diagnostics logs** pane. For more details about the storage format and fields, see [Data storage](monitor-signalr.md#data-storage).
+Azure SignalR Service supports connectivity logs, messaging logs, and HTTP request logs. For more details about these types of logs, see [Resource log categories](monitor-signalr.md#resource-log-categories). Logs are stored in the Storage account configured in the **Diagnostics logs** pane. For more details about the storage format and fields, see [Data storage](monitor-signalr.md#data-storage).
 
 ### Create diagnostic settings
 
@@ -174,7 +176,7 @@ Class Chat : Hub
     public void JoinAndSendGroup(string name, string groupName)
     {
         Groups.AddToGroupAsync(Context.ConnectionId, groupName); // join group
-        Clients.Group(groupName).SendAsync("ReveiceGroupMessage", name, "I'm in group"); // send group message
+        Clients.Group(groupName).SendAsync("ReceiveGroupMessage", name, "I'm in group"); // send group message
     }
 }
 ```
@@ -241,7 +243,9 @@ To enable this behavior, uncheck the checkbox for a specific log type in the **T
 
 ##### Server side
 
-Also set up `ServiceOptions.DiagnosticClientFilter` to define a filter of diagnostic clients based on the http context comes from clients. For example, make client with hub URL `<HUB_URL>?diag=yes`, then set up `ServiceOptions.DiagnosticClientFilter` to filter the diagnostic client. If it returns `true`, the client is marked as diagnostic client. Otherwise, it stays as normal client. The `ServiceOptions.DiagnosticClientFilter` can be set in your startup class like this:
+Also set up `ServiceOptions.DiagnosticClientFilter` to define a filter of diagnostic clients based on the http context comes from clients. For example, make client with hub URL `<HUB_URL>?diag=yes`, then set up `ServiceOptions.DiagnosticClientFilter` to filter the diagnostic client. If it returns `true`, the client is marked as diagnostic client. Otherwise, it stays as normal client. The following example show how to use the `ServiceOptions.DiagnosticClientFilter` in your startup class.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 ``` C#
 // sample: mark a client as diagnostic client when it has query string "?diag=yes" in hub URL

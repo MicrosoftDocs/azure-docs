@@ -4,10 +4,10 @@ description: Learn in greater depth how to give your playbooks access to the inf
 ms.topic: concept-article
 author: batamig
 ms.author: bagol
-ms.date: 03/14/2024
+ms.date: 08/21/2025
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to understand the supported triggers and actions in Microsoft Sentinel playbooks so that I can automate incident response and threat management effectively.
 
@@ -59,6 +59,10 @@ The **Incident** object received from **Microsoft Sentinel incident** includes t
 |**Alerts**     | An array of the following alert properties, shown as *Alert: \<field name>*.  <br><br>Since each incident can include multiple alerts, selecting an alert property automatically generates a *for each* loop to cover all alert in the incident. |
 |**Entities**     |  An array of all the alert's entities       |
 |**Workspace info fields**     | Details about the Microsoft Sentinel workspace where the incident was created, including: <br><br>- Subscription ID<br>  - Workspace name <br>- Workspace ID <br>  - Resource group name    |
+
+### Known issues and limitations
+
+Renaming a trigger in a Logic App is currently not supported. Changing the trigger name breaks integrations with automation workflows and Microsoft Sentinel, as these services rely on the original trigger name for connectivity.
 
 ## Supported Microsoft Sentinel actions
 

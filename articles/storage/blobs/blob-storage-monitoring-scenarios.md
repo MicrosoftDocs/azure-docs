@@ -4,10 +4,13 @@ description: Learn best practice guidelines and how to them when using metrics a
 recommendations: false
 author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.date: 05/10/2023
-ms.custom: "monitoring"
+ms.custom:
+  - "monitoring"
+  - sfi-image-nochange
+# Customer intent: "As a storage administrator, I want to implement best practices for monitoring Azure Blob Storage, so that I can effectively analyze usage metrics and logs for improved performance, security, and cost management."
 ---
 
 # Best practices for monitoring Azure Blob Storage
@@ -109,7 +112,7 @@ You can find the friendly name of that security principal by taking the value of
 
 ### Auditing data plane operations
 
-Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#analyzing-logs). You can [configure Diagnostic setting](/azure/azure-monitor/platform/diagnostic-settings) to export logs to Log Analytics workspace for a native query experience.
+Data plane operations are captured in [Azure resource logs for Storage](monitor-blob-storage.md#azure-monitor-resource-logs). You can [configure Diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings) to export logs to Log Analytics workspace for a native query experience.
 
 Here's a Log Analytics query that retrieves the "when", "who", "what", and "how" information in a list of log entries.
 

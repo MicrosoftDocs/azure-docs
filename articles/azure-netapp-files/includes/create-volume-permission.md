@@ -9,6 +9,7 @@ ms.author: anfdocs
 # azure-netapp-files-create-volumes-smb.md
 # create-volumes-dual-protocol.md
 
+# Customer intent: "As a cloud administrator, I want to ensure I have the correct permissions configured in my custom role, so that I can successfully create or update a volume in Azure NetApp Files."
 ---
 
 >[!IMPORTANT]

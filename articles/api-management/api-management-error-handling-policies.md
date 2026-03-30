@@ -2,12 +2,11 @@
 title: Error handling in Azure API Management policies | Microsoft Docs
 description: Learn how to respond to error conditions that may occur during the processing of requests in Azure API Management.
 author: dlepow
-manager: erikre
-ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 01/10/2020
+ms.topic: concept-article
+ms.date: 01/06/2025
 ms.author: danlep
+ms.custom: sfi-image-nochange
 ---
 
 # Error handling in API Management policies
@@ -77,9 +76,9 @@ When an error occurs and control jumps to the `on-error` policy section, the err
 | `Source`   | string | Names the element where the error occurred. Could be either policy or a built-in pipeline step name.      | Yes      |
 | `Reason`   | string | Machine-friendly error code, which could be used in error handling.                                       | No       |
 | `Message`  | string | Human-readable error description.                                                                         | Yes      |
-| `Scope`    | string | Name of the scope where the error occurred and could be one of "global", "product", "api", or "operation" | No       |
+| `Scope`    | string | Name of the [scope](api-management-howto-policies.md#scopes) where the error occurred. | No       |
 | `Section`  | string | Section name where error occurred. Possible values: "inbound", "backend", "outbound", or "on-error".      | No       |
-| `Path`     | string | Specifies nested policy, for example "choose[3]/when[2]".                                                 | No       |
+| `Path`     | string | Specifies nested policy hierarchy, for example "choose[3]\\when[2]". Multiple instances of a nested policy are indexed from 1.                                         | No       |
 | `PolicyId` | string | Value of the `id` attribute, if specified by the customer, on the policy where error occurred             | No       |
 
 > [!TIP]
@@ -115,13 +114,13 @@ The following errors are predefined for error conditions that can occur during p
 | ip-filter    | Caller IP is in blocked list                                    | CallerIpBlocked           | Caller IP address is blocked. Access denied.                                                                                         |
 | check-header | Required header not presented or value is missing               | HeaderNotFound            | Header {header-name} was not found in the request. Access denied.                                                                    |
 | check-header | Required header not presented or value is missing               | HeaderValueNotAllowed     | Header {header-name} value of {header-value} is not allowed. Access denied.                                                          |
-| validate-jwt | Jwt token is missing in request                                 | TokenNotPresent             | JWT not present.                                                                                         |
+| validate-jwt | JWT is missing in request                                 | TokenNotPresent             | JWT not present.                                                                                         |
 | validate-jwt | Signature validation failed                                     | TokenSignatureInvalid     | <message from jwt library\>. Access denied.                                                                                          |
 | validate-jwt | Invalid audience                                                | TokenAudienceNotAllowed   | <message from jwt library\>. Access denied.                                                                                          |
 | validate-jwt | Invalid issuer                                                  | TokenIssuerNotAllowed     | <message from jwt library\>. Access denied.                                                                                          |
 | validate-jwt | Token expired                                                   | TokenExpired              | <message from jwt library\>. Access denied.                                                                                          |
 | validate-jwt | Signature key was not resolved by ID                            | TokenSignatureKeyNotFound | <message from jwt library\>. Access denied.                                                                                          |
-| validate-jwt | Required claims are missing from token                          | TokenClaimNotFound        | JWT token is missing the following claims: <c1\>, <c2\>, … Access denied.                                                            |
+| validate-jwt | Required claims are missing from token                          | TokenClaimNotFound        | JWT is missing the following claims: <c1\>, <c2\>, … Access denied.                                                            |
 | validate-jwt | Claim values mismatch                                           | TokenClaimValueNotAllowed | Claim {claim-name} value of {claim-value} is not allowed. Access denied.                                                             |
 | validate-jwt | Other validation failures                                       | JwtInvalid                | <message from jwt library\>                                                                                                          |
 | forward-request or send-request | HTTP response status code and headers were not received from the backend within the configured timeout | Timeout | multiple |
@@ -175,11 +174,4 @@ and sending an unauthorized request will result in the following response:
 
 ![Unauthorized error response](media/api-management-error-handling-policies/error-response.png)
 
-## Next steps
-
-For more information working with policies, see:
-
--   [Policies in API Management](api-management-howto-policies.md)
--   [Transform APIs](transform-api.md)
--   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

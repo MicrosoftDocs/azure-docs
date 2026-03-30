@@ -1,0 +1,142 @@
+---
+title: Inject API Management in virtual network - Premium v2
+description: Learn how to deploy (inject) an Azure API Management instance in the Premium v2 tier in a virtual network to isolate inbound and outbound traffic.
+author: dlepow
+ms.author: danlep
+ms.service: azure-api-management
+ms.topic: how-to 
+ms.date: 10/08/2025
+ms.custom:
+  - build-2025
+---
+
+# Inject an Azure API Management instance in a private virtual network - Premium v2 tier
+
+[!INCLUDE [api-management-availability-premiumv2](../../includes/api-management-availability-premiumv2.md)] 
+
+This article guides you through the requirements to inject your Azure API Management Premium v2 instance in a virtual network. 
+
+> [!NOTE]
+> To inject a classic Developer or Premium tier instance in a virtual network, the requirements and configuration are different. [Learn more](virtual-network-injection-resources.md).
+
+When an API Management Premium v2 instance is injected in a virtual network: 
+
+* The API Management gateway endpoint is accessible through the virtual network at a private IP address.
+* API Management can make outbound requests to API backends that are isolated in the network or any peered network, as long as network connectivity is properly configured. 
+
+This configuration is recommended for scenarios where you want to isolate network traffic to both the API Management instance and the backend APIs.
+
+:::image type="content" source="./media/inject-vnet-v2/vnet-injection.png" alt-text="Diagram of injecting an API Management instance in a virtual network to isolate inbound and outbound traffic."  :::
+
+If you want to enable *public* inbound access to an API Management instance in the Standard v2 or Premium v2 tier, but limit outbound access to network-isolated backends, see [Integrate with a virtual network for outbound connections](integrate-vnet-outbound.md).
+
+
+> [!IMPORTANT]
+> * Virtual network injection described in this article is available only for API Management instances in the Premium v2 tier. For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
+> * Currently, you can inject a Premium v2 instance into a virtual network only when the instance is **created**. You can't inject an existing Premium v2 instance into a virtual network. However, you can update the subnet settings for injection after the instance is created.
+> * Currently, you can't switch between virtual network injection and virtual network integration for a Premium v2 instance.
+
+## Prerequisites
+
+- An Azure API Management instance in the [Premium v2](v2-service-tiers-overview.md) pricing tier.
+- A virtual network where your client apps and your API Management backend APIs are hosted. See the following sections for requirements and recommendations for the virtual network and subnet used for the API Management instance.
+
+### Network location
+
+* The virtual network must be in the same region and Azure subscription as the API Management instance.
+
+### Dedicated subnet
+
+* The subnet used for virtual network injection can only be used by a single API Management instance. It can't be shared with another Azure resource.
+
+### Subnet size 
+
+* Minimum: /27 (32 addresses)
+* Recommended: /24 (256 addresses) - to accommodate scaling of API Management instance
+
+#### Examples
+
+The following table shows subnet sizing examples for API Management virtual network injection, illustrating how different CIDR blocks affect the number of scale-out units possible:
+
+| Subnet CIDR | Total IP addresses | Azure reserved IPs | API Management instance IPs | Internal load balancer IP | Remaining IPs for scale-out | Max scale-out units | Total max units |
+|-------------|---------------------|---------------------|------------------------------|----------------------------|-----------------------------|----------------------|------------------|
+| /27         | 32                  | 5                   | 2                            | 1                          | 24                          | 12                   | 13               |
+| /26         | 64                  | 5                   | 2                            | 1                          | 56                          | 28                   | 29               |
+| /25         | 128                 | 5                   | 2                            | 1                          | 120                         | 30*                  | 30*              |
+
+<sup>*</sup> Premium v2 limit
+
+#### Key points
+
+- **Minimum subnet size**: /27 (provides 24 usable IP addresses for API Management)
+- **Azure reserved IPs**: 5 addresses per subnet (first and last for protocol conformance, plus 3 for Azure services)
+- **Scale-out requirement**: Each scale-out unit requires 2 IP addresses
+- **Internal load balancer**: Only required when API Management is deployed in internal virtual network mode
+- **Premium V2 limit**: Currently supports up to 30 units maximum.
+
+> [!IMPORTANT]
+> - API Management is a member of Azure Integration Services and is typically deployed as a pivotal service in enterprise architectures. It is prudent to err on the higher side of available IPs for the API Management subnet as changing it later can have far-reaching impact.
+> - The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
+
+### Network security group
+
+[!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
+
+### Subnet delegation
+
+The subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** service.
+
+:::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-internal.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/hostingEnvironments in the portal.":::
+
+[!INCLUDE [api-management-virtual-network-v2-delegation-requirement](../../includes/api-management-virtual-network-v2-delegation-requirement.md)]
+
+### Permissions
+
+You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network injection:
+
+| Action | Description |
+|-|-|
+| Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
+| Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
+
+## Inject API Management in a virtual network
+
+When you [create](get-started-create-service-instance.md) a Premium v2 instance using the Azure portal, you can optionally configure settings for virtual network injection. 
+
+1. In the **Create API Management service** wizard, select the **Networking** tab.
+1. In **Connectivity type**, select **Virtual network**.
+1. In **Type**, select **Virtual Network injection**. 
+1. In **Configure virtual networks**, select the virtual network and the delegated subnet that you want to inject. 
+1. Complete the wizard to create the API Management instance.
+
+## DNS settings for access to private IP address
+
+When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to API Management. 
+
+[!INCLUDE [api-management-virtual-network-dns-resolver](../../includes/api-management-virtual-network-dns-resolver.md)]
+
+### Endpoint access on default hostname
+
+When you create an API Management instance in the Premium v2 tier, the following endpoint is assigned a default hostname:
+
+* **Gateway** - example: `contoso-apim.azure-api.net`
+
+### Configure DNS record
+
+Create an A record in your DNS server to access the API Management instance from within your virtual network. Map the endpoint record to the private VIP address of your API Management instance.
+
+For testing purposes, you might update the hosts file on a virtual machine in a subnet connected to the virtual network in which API Management is deployed. Assuming the private virtual IP address for your API Management instance is 10.1.0.5, you can map the hosts file as shown in the following example. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). For example:
+
+| Internal virtual IP address | Gateway hostname |
+| ----- | ----- |
+| 10.1.0.5 | `contoso-apim.portal.azure-api.net` |
+
+## Related content
+
+* [Use a virtual network with Azure API Management](virtual-network-concepts.md)
+* [Configure a custom domain name for your Azure API Management instance](configure-custom-domain.md)
+
+
+
+

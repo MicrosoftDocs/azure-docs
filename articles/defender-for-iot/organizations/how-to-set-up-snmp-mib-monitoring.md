@@ -7,28 +7,28 @@ ms.topic: how-to
 
 # Set up SNMP MIB health monitoring on an OT sensor
 
-This article describes how to configure your OT sensors for health monitoring via an authorized SNMP monitoring server. SNMP queries are polled up to 50 times a second, using UDP over port 161.
+This article describes how to configure your OT sensors for health monitoring via an authorized Simple Network Management Protocol (SNMP) monitoring server. SNMP queries are polled up to 50 times a second, using UDP over port 161.
 
 Setup for SNMP monitoring includes configuring settings on your OT sensor and on your SNMP server. To define Defender for IoT sensors on your SNMP server, either define your settings manually or use a predefined SNMP MIB file downloaded from the Azure portal.
 
 ## Prerequisites
 
-Before you perform the procedures in this article, make sure that you have the following:
+Before you perform the procedures in this article, make sure you have:
 
-- **An SNMP monitoring server**, using SNMP versions 2 or 3. If you're using SNMP version 3 and want to use AES and 3-DES encryption, you must also have:
+- **An SNMP monitoring server**, using SNMP versions 2 or 3. 
+    - If you're using SNMP version 3 with AES and 3-DES encryption, you also need:
+        - A network management station (NMS) that supports SNMP version 3
+        - An understanding of SNMP terminology, and the SNMP architecture in your organization
+        - The UDP port 161 must be open in your firewall. 
 
-    - A network management station (NMS) that supports SNMP version 3
-    - An understanding of SNMP terminology, and the SNMP architecture in your organization
-    - The UDP port 161 open in your firewall
+**The following SNMP server details:**
 
-    Have the following details of your SNMP server ready:
-
-    - IP address
-    - Username and password
-    - Authentication type: MD5 or SHA
-    - Encryption type: DES or AES
-    - Secret key
-    - SNMP v2 community string
+- IP address
+- Username and password
+- Authentication type: MD5 or SHA
+- Encryption type: DES or AES
+- Secret key
+- SNMP v2 community string
 
 - **An OT sensor** [installed](ot-deploy/install-software-ot-sensor.md) and [activated](ot-deploy/activate-deploy-sensor.md), with access as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -39,6 +39,8 @@ To download a predefined SNMP MIB file from the Azure portal, you need access to
 1. Sign into your OT sensor and select **System settings > Sensor management > Health and troubleshooting > SNMP MIB monitoring**.
 
 1. In the **SNMP MIB monitoring configuration** pane, select **+ Add host** and enter the following details:
+
+    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/simple-network-management-protocol-configuration.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page.":::
 
     - **Host 1**: Enter the IP address of your SNMP monitoring server. Select **+ Add host** again if you have multiple servers, as many times as needed.
 
@@ -61,20 +63,33 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 
 **To download the SNMP MIB file** from [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
 
+## Query SNMP configuration on the sensor
+
+> [!NOTE]
+> - You can query the SNMP configuration on the sensor in version **25.2.1 or later.**
+
+To validate and query the SNMP MIB monitoring configuration in the OT sensor:
+
+1. In the OT sensor, go to **System settings > Sensor management**
+1. To [access the Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md#defender-for-iot-cli-access), sign in to your OT or Enterprise IoT sensor as the *cyberx* user, using a terminal emulator and SSH.
+1. Run the following query depending on what SNMP version was configured and update the variables accordingly:
+- For version 2 type: `snmpwalk -v 2c -c<community-string> <sensor-ip> isa`
+- For version 3 type: `snmpwalk -v 3 -aMD5|SHA -xDES|AES -A<password> -X<secret-key> -u<username> -|autoPriv <sensor-ip> isa`
+
 ## OT sensor OIDs for manual SNMP configurations
 
 If you're configuring Defender for IoT sensors on your SNMP monitoring system manually, use the following table for reference regarding sensor object identifier values (OIDs):
 
-| Management console and sensor | OID | Format | Description |
+| OT sensor | OID | Format | Description |
 |--|--|--|--|
 | **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | Returns ```Microsoft Defender for IoT``` |
-| **Platform** |   1.3.6.1.2.1.1.1.0 | STRING | Sensor or on-premises management console |
+| **Platform** |   1.3.6.1.2.1.1.1.0 | STRING | Sensor  |
 | **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | Returns the private MIB allocation, for example ```1.3.6.1.4.1.53313.1.1``` is the private OID root for 1.3.6.1.4.1.53313  |
 | **sysUpTime** |   1.3.6.1.2.1.1.3  | DISPLAYSTRING  | Returns the sensor uptime in hundredths of a second |
 | **sysContact**  | 1.3.6.1.2.1.1.4   | DISPLAYSTRING  | Returns the textual name of the admin user for this sensor   |
 | **Vendor** |      1.3.6.1.2.1.1.4.0 | STRING | Microsoft Support (support.microsoft.com) |
 | **sysName**   | 1.3.6.1.2.1.1.5   | DISPLAYSTRING  | Returns the appliance name  |
-| **Appliance name** | 1.3.6.1.2.1.1.5.0 | STRING | Appliance name for the on-premises management console |
+| **Appliance name** | 1.3.6.1.2.1.1.5.0 | STRING | Appliance name for the sensor |
 | **sysLocation** | 1.3.6.1.2.1.1.6  | DISPLAYSTRING | Returns the default location Portal.azure.com  |
 | **sysServices** | 1.3.6.1.2.1.1.7   | INTEGER   | Returns a value indicating the service this entity offers, for example, ```7``` signifies “applications” |
 | **ifIndex** |     1.3.6.1.2.1.2.2.1.1  | GAUGE32  | Returns the sequential ID numbers for each network card |
@@ -88,14 +103,14 @@ If you're configuring Defender for IoT sensors on your SNMP monitoring system ma
 | **CPU temperature** | 1.3.6.1.4.1.53313.3.2 | STRING | Celsius indication for zero to 100 based on Linux input. <br><br>  Any machine that has no actual physical temperature sensor (for example VMs) returns "No sensors found" |
 | **Memory usage** | 1.3.6.1.4.1.53313.3.3 | GAUGE32 | Indication for zero to 100 |
 | **Disk Usage** | 1.3.6.1.4.1.53313.3.4 | GAUGE32 | Indication for zero to 100 |
-| **Service Status** | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components has failed |
+| **Service Status** | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components failed |
 | **Locally/cloud connected** | 1.3.6.1.4.1.53313.6   |STRING | Activation mode of this appliance: Cloud Connected / Locally Connected |
 | **License status** | 1.3.6.1.4.1.53313.7  |STRING | Activation period of this appliance: Active / Expiration Date / Expired |
 
-Note that:
+> [!NOTE]
+> - Nonexisting keys respond with null, HTTP 200.
+> - Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be non applicable.
 
-- Nonexisting keys respond with null, HTTP 200.
-- Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be non applicable.
 
 ## Next steps
 

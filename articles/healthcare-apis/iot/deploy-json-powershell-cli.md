@@ -6,11 +6,13 @@ ms.service: azure-health-data-services
 ms.subservice: medtech-service
 ms.custom: devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 07/05/2023
+ms.date: 08/18/2025
 ms.author: chrupa
 ---
 
 # Quickstart: Deploy the MedTech service using an Azure Resource Manager template and Azure PowerShell or the Azure CLI
+
+[!INCLUDE [IoT deprecation](../includes/iot-deprecation.md)]
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 

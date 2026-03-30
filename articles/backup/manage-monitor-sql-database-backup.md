@@ -2,26 +2,26 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 02/13/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to manage and monitor SQL Server databases on Azure VMs, so that I can ensure reliable backups and recoveries while maintaining optimal performance and reducing downtime."
 ---
 
-# Manage and monitor backed up SQL Server databases
+# Manage and monitor backed up SQL Server databases using Azure portal
 
-This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. You'll learn how to monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
+This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service using Azure portal. You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [REST API](manage-azure-sql-vm-rest-api.md) to manage SQL database backups. You can monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
->[!Note]
->See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
-## Monitor backup jobs in the portal
+## Monitor backup jobs in the Azure portal
 
-Azure Backup shows all scheduled and on-demand operations under **Backup jobs** in **Backup center** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal includes database discovery and registration, configure backup, and backup and restore operations.
+Azure Backup shows all scheduled and on-demand operations under **Jobs** in **Resiliency** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal includes database discovery and registration, configure backup, and backup and restore operations.
 
-:::image type="content" source="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-inline.png" alt-text="Screenshot showing the Backup jobs under Backup jobs." lightbox="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-expanded.png":::
+:::image type="content" source="./media/backup-azure-sql-database/monitor-sql-database-backup-operations.png" alt-text="Screenshot shows the Backup jobs in Resiliency." lightbox="./media/backup-azure-sql-database/monitor-sql-database-backup-operations.png":::
 
 For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -35,73 +35,67 @@ Azure Backup raises built-in alerts via Azure Monitor for the following SQL data
 - Workload extension unhealthy
 - Deletion of backup data
 
-For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#azure-monitor-alerts-for-azure-backup).
+For more information on the supported alert scenarios, see [Azure Monitor alerts for Azure Backup](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 
 To monitor database backup alerts, follow these steps:
 
-1. In the Azure portal, go to **Backup center** and filter for **SQL in Azure VM** data source type.
+1. In the Azure portal, go to **Resiliency** select **Monitoring + Reporting** > **Alerts**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts-inline.png" alt-text="Screenshot showing the Backup alerts menu item." lightbox="./media/backup-azure-sql-database/sql-alerts-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/alerts-list.png" alt-text="Screenshot shows the list of alerts." lightbox="./media/backup-azure-sql-database/alerts-list.png":::
 
-1. Select the **Alerts** menu item to view the list of all alerts that were fired for SQL database backups in the selected time period.
+1. On the **Alerts** pane, select the **Alert rule** for the SQL database to view the resources for which the alerts are triggered.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts-list-inline.png" alt-text="Screenshot showing the Backup alerts list." lightbox="./media/backup-azure-sql-database/sql-alerts-list-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alerts.png" alt-text="Screenshot shows the failed Backup alerts list." lightbox="./media/backup-azure-sql-database/sql-alerts.png":::
 
 1. To configure notifications for these alerts, you must create an alert processing rule.
 
-   Learn about [Configure notifications for alerts](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#configuring-notifications-for-alerts).
+   Learn about [Configure notifications for alerts](backup-azure-monitor-alerts-notification.md#configure-notifications-for-alerts).
 
 ## Stop protection for a SQL Server database
 
-You can stop backing up a SQL Server database in a couple of ways:
+Azure Backup provides the following options to stop protection of a SQL Server database:
 
-- Stop all future backup jobs, and delete all recovery points.
-- Stop all future backup jobs, and leave the recovery points intact.
-
-If you choose to leave recovery points, keep these details in mind:
-
-- All recovery points will remain intact forever, and all pruning will stop at stop protection with retain data.
-- You'll be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
-- If you delete a data source without stopping backups, new backups will fail. Old recovery points will expire according to the policy, but the most recent recovery point will always be kept until you stop the backups and delete the data.
+- **Stop protection and retain backup data (Retain forever)**: Stops all future backup jobs from protecting a SQL Server database and retains the existing backup data in the Recovery Services vault forever. This retention incurs a storage fee as per [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). If needed, you can use the backup data to restore the SQL Server database and use the **Resume backup** option to resume protection.
+- **Stop protection and retain backup data (Retain as per policy)**: Stops all future backup jobs from protecting a SQL Server database and retains the existing backup data in the Recovery Services vault as per policy. However, the latest recovery point is retained forever. This retention incurs a storage fee as per [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). If needed, you can use the backup data to restore the SQL Server database and use the **Resume backup** option to resume protection.
+- **Stop protection and delete backup data**: Stops future backup jobs for a SQL Server database and deletes all backup data. You can't restore the SQL Server database or use the **Resume backup** option.
 
 To stop protection for a database:
 
-1. Go to **Backup center** and click **Backup Instances** from the menu.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
-2. Select **SQL in Azure VM** as the datasource type.
+   :::image type="content" source="./media/backup-azure-sql-database/protected-items.png" alt-text="Screenshot shows how to select a protected SQL database item." lightbox="./media/backup-azure-sql-database/protected-items.png":::
+2. On the **Protected items** pane, select **SQL in Azure VM** as the datasource type, and then select a protected item from the list.
 
-   :::image type="content" source="./media/backup-azure-sql-database/backup-center-instance-inline.png" alt-text="Screenshot showing to select SQL in Azure VM." lightbox="./media/backup-azure-sql-database/backup-center-instance-expanded.png":::
+3. On the selected **protected item** pane, select the database instance for which you want to stop protection.
 
-3. Select the database for which you want to stop protection.
+   :::image type="content" source="./media/backup-azure-sql-database/sql-select-instance.png" alt-text="Screenshot shows how to select the database to stop protection." lightbox="./media/backup-azure-sql-database/sql-select-instance.png":::
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-select-instance-inline.png" alt-text="Screenshot showing to select the database to stop protection." lightbox="./media/backup-azure-sql-database/sql-select-instance-expanded.png":::
+4. On the selected **database instance** pane, select **Stop backup**.
 
-4. On the database menu, select **Stop backup**.
+   You can also right-click a particular row in the database instances view and select **Stop Backup**.
 
-   You can also right-click a particular row in the Backup Instances view and select **Stop Backup**.
+   :::image type="content" source="./media/backup-azure-sql-database/sql-stop-backup.png" alt-text="Screenshot shows the selection of Stop backup." lightbox="./media/backup-azure-sql-database/sql-stop-backup.png":::
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-stop-backup-inline.png" alt-text="Screenshot showing to select Stop backup." lightbox="./media/backup-azure-sql-database/sql-stop-backup-expanded.png":::
+5. On the **Stop Backup** pane, select whether to retain or delete data. If you want, provide a reason and comment.
 
-5. On the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
-
-    ![Retain or delete data on the Stop Backup menu](./media/backup-azure-sql-database/stop-backup-button.png)
+    :::image type="content" source="./media/backup-azure-sql-database/stop-backup.png" alt-text="Screenshot shows the options to retain or delete data on the Stop Backup pane.":::
 
 6. Select **Stop backup**.
 
 > [!NOTE]
 >
->For more information about the delete data option, see the FAQ below:
+>For more information about the delete data option, see the following FAQs:
 >
 >- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
 >- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-ve-changed-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 >
 >
 
-## Resume protection for an SQL database
+## Resume protection for a SQL database
 
 When you stop protection for the SQL database, if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backup data, you can't resume protection.
 
-To resume protection for an SQL database, follow these steps:
+To resume protection for a SQL database, follow these steps:
 
 1. Open the backup item and select **Resume backup**.
 
@@ -122,7 +116,7 @@ You can run different types of on-demand backups:
 >The retention period of this backup is determined by the type of on-demand backup you have run.
 >
 >- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
->- *On-demand copy only full* accepts any value for retaintion.
+>- *On-demand copy only full* accepts any value for retention.
 >- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
 >- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 
@@ -134,12 +128,16 @@ Modify policy to change backup frequency or retention range.
 
 > [!NOTE]
 > Any change in the retention period will be applied retrospectively to all the older recovery points besides the new ones.
+>
+> When you reduce the retention period for differential backups, keep in mind that differential backups are dependent on the previous full backup for recovery. The full backup is retained until the retention of the last differential backup that depends on it expires. For example, if you reduce the differential backup retention from 30 days to 15 days, existing differential backups are cleaned up after 15 days from their creation. However, the full backup that these differentials depend on is retained until all those differentials expire.
+>
+> If differential backups are in a soft-deleted state when a retention policy change is applied, the same dependency rules apply. Soft-deleted backups are retained for an additional 14 days beyond their retention expiry before being permanently deleted.
 
 In the vault dashboard, go to **Manage** > **Backup Policies** and choose the policy you want to edit.
 
   ![Manage backup policy](./media/backup-azure-sql-database/modify-backup-policy.png)
 
-  ![Modify backup policy](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
+  :::image type="content" source="./media/backup-azure-sql-database/modify-backup-policy-impact.png" alt-text="Screenshot that shows the impact of modifying a backup policy on associated backup items." lightbox="./media/backup-azure-sql-database/modify-backup-policy-impact.png":::
 
 Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 
@@ -201,3 +199,11 @@ Different           | Same or different        | Same or different     | Same or
 ## Next steps
 
 For more information, see [Troubleshoot backups on a SQL Server database](backup-sql-server-azure-troubleshoot.md).
+
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
+

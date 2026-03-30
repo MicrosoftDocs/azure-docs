@@ -1,20 +1,25 @@
 ---
-title: "Quickstart - Monitoring Azure Spring Apps apps with logs, metrics, and tracing"
+title: "Quickstart - Monitoring Azure Spring Apps Apps with Logs, Metrics, and Tracing"
 description: Use log streaming, log analytics, metrics, and tracing to monitor PetClinic sample apps on Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/27/2024
-ms.custom: devx-track-java, devx-track-extended-java, mode-other
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 zone_pivot_groups: programming-languages-spring-apps
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 
@@ -241,7 +246,7 @@ Navigate to the **Performance** page:
 
 Navigate to the **Dependencies** tab, where you can see the performance number for dependencies, particularly SQL calls:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page with the Depencies table highlighted." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page with the Dependencies table highlighted." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg":::
 
 Select a SQL call to see the end-to-end transaction in context:
 
@@ -279,5 +284,5 @@ az config set defaults.group=
 To explore more monitoring capabilities of Azure Spring Apps, see:
 
 > [!div class="nextstepaction"]
-> [Analyze logs and metrics with diagnostics settings](../enterprise/diagnostic-services.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
-> [Stream Azure Spring Apps app logs in real-time](../enterprise/how-to-log-streaming.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+> [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
+> [Stream Azure Spring Apps app logs in real-time](how-to-log-streaming.md)

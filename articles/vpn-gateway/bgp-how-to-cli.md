@@ -4,10 +4,13 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to configure BGP for VPN gateways using CLI.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: "As a network administrator, I want to configure BGP for Azure VPN gateways using CLI, so that I can facilitate efficient routing and connectivity between on-premises and virtual networks."
 ---
 # How to configure BGP for Azure VPN Gateway: CLI
 
@@ -274,7 +277,7 @@ az network vnet-gateway show -n VNet1GW -g TestRG1
 Example value for the gateway resource:
 
 ```
-"/subscriptions/<subscripion ID value>/resourceGroups/TestRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW"
+"/subscriptions/<subscription ID value>/resourceGroups/TestRG2/providers/Microsoft.Network/virtualNetworkGateways/VNet2GW"
 ```
 
 #### 2. Get the resource ID of VNet2GW

@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 08/30/2023
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: template-tutorial, fasttrack-edit, template-tutorial, linux-related-content
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Create an Azure SQL server and private endpoint.
 > * Test connectivity to the SQL server private endpoint.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ In this section, you create a SQL server in Azure.
 
 1. In **SQL databases**, select **+ Create**.
 
-1. In the **Basics** tab of **Create SQL Database**, enter or select the following information:
+1. In the **Basics** tab of **Create SQL Database**, enter, or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -64,7 +64,7 @@ In this section, you create a SQL server in Azure.
 
 1. Select **Next: Networking**.
 
-1. In the **Networking** tab of **Create SQL Database**, enter or select the following information:
+1. In the **Networking** tab of **Create SQL Database**, enter, or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -92,7 +92,7 @@ In this section, you create a SQL server in Azure.
 1. Select **Create**.
 
 > [!IMPORTANT]
-> When adding a Private endpoint connection, public routing to your Azure SQL server is not blocked by default. The setting "Deny public network access" under the "Firewall and virtual networks" blade is left unchecked by default. To disable public network access ensure this is checked.
+> When adding a Private endpoint connection, public routing to your Azure SQL server isn't blocked by default. The setting "Deny public network access" under the "Firewall and virtual networks" blade is left unchecked by default. To disable public network access, ensure this is checked.
  
 ## Disable public access to Azure SQL logical server
 
@@ -102,7 +102,7 @@ For this scenario, assume you would like to disable all public access to your Az
 
 1. Select **sql-server-1**.
 
-1. On the **Networking** page, select **Public access** tab, then select **Disable** for **Public network access**.
+1. in **Security**, select **Networking** tab, then select **Disable** for **Public network access**.
     
 1. Select **Save**.
 
@@ -129,8 +129,8 @@ In this section, you use the virtual machine you created in the previous steps t
     You receive a message similar to the following example. The IP address returned is the private IP address of the private endpoint.
 
     ```output
-    Server:    127.0.0.53
-    Address:   127.0.0.53#53
+    Server:    unknown
+    Address:   172.0.0.53
 
     Non-authoritative answer:
     sql-server-8675.database.windows.netcanonical name = sql-server-8675.privatelink.database.windows.net.
@@ -169,6 +169,6 @@ In this tutorial, you learned how to create:
 
 You used the virtual machine to test connectivity privately and securely to the SQL server across the private endpoint.
 
-As a next step, you may also be interested in the **Web app with private connectivity to Azure SQL Database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
+As a next step, review the **Web app with private connectivity to Azure SQL Database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 > [!div class="nextstepaction"]
 > [Web app with private connectivity to Azure SQL Database](/azure/architecture/example-scenario/private-web-app/private-web-app)

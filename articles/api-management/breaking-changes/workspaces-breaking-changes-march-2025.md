@@ -5,13 +5,16 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/10/2024
+ms.date: 08/19/2025
 ms.author: danlep
 ---
 
 # Workspaces breaking changes, part 2 (March 2025)
 
 [!INCLUDE [api-management-availability-premium](../../../includes/api-management-availability-premium.md)]
+
+> [!IMPORTANT]
+> In August 2025, we announced that some of the workspaces-related breaking changes described in this article have been rescinded. [See the announcement for details](https://aka.ms/apim/workspaces/built-in-gateway-changes)
 
 > [!IMPORTANT]
 > These breaking changes apply only to *preview* workspaces in Azure API Management. If you created workspaces after the generally available release in August 2024 and use workspaces with workspace gateways, your workspaces shouldn't be affected by these changes.
@@ -65,14 +68,14 @@ The following are abbreviated steps to add a workspace gateway to a workspace. F
 
 > [!NOTE]
 > * The workspace gateway incurs additional charges. For more information, see [API Management pricing](https://aka.ms/apimpricing).
-> * API Management currently supports a dedicated gateway per workspace only. If this is impacting your migration plans, see the workspaces roadmap in the [workspaces GA announcement](https://aka.ms/apim/workspaces/ga-announcement).
+> * We're introducing the ability to associate multiple workspaces with a workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024 and it may not be available to all eligible services before January. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Workspaces**.
 1. Select a workspace.
 1. In the left menu, under **Deployment + infrastructure**, select **Gateways** > **+ Add**.
-1. Complete the wizard to create a gateway. Currently, provisioning of the gateway can take from several minutes to up to 3 hours or longer.
-1. After your gateway is provisioned, go to the gateway's **Overview** page. Note the value of **Runtime hostname**. Use this value to update your client apps that call your workspace's APIs.
+1. Complete the wizard to create a new gateway or associate an existing gateway. Currently, provisioning a new gateway can take from several minutes to up to 3 hours or longer.
+1. After adding a gateway, go to the gateway's **Overview** page. Note the value of **Runtime hostname**. Use this value to update your client apps that call your workspace's APIs.
 1. Repeat the preceding steps for your remaining workspaces.
 
 ### Update client apps to use the new gateway hostname

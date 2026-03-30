@@ -1,24 +1,27 @@
 ---
-title: Copy data from and to Salesforce using legacy
+title: Copy data from and to Salesforce V1
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from Salesforce V1 to supported sink data stores or from supported source data stores to Salesforce V1 by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 10/15/2024
+ms.topic: how-to
+ms.date: 05/07/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
-# Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics (legacy)
+# Copy data from and to Salesforce V1 using Azure Data Factory or Azure Synapse Analytics 
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!IMPORTANT]
->The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, you are recommended to [upgrade your Salesforce connector](connector-salesforce.md#upgrade-the-salesforce-linked-service) at your earliest convenience. Refer to this [section](connector-salesforce.md#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The Salesforce V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Salesforce connector](connector-salesforce.md#differences-between-salesforce-and-salesforce-legacy) from V1 to V2.
+
 
 ## Supported capabilities
 

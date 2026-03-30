@@ -1,13 +1,16 @@
 ---
 title: Azure IoT Hub IP filters
 description: How to use IP filtering to allow connections from specific IP addresses for to your Azure IoT hub.
-author: kgremban
+author: cwatson-cat
 
-ms.author: kgremban 
-ms.service: iot-hub
+ms.author: cwatson 
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 09/17/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use IP filters
@@ -141,7 +144,7 @@ Your IoT Hub's IP filters can be retrieved and set through [Azure PowerShell](/p
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
-$iothubResource = Get-AzResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+$iothubResource = Get-AzResource -ResourceGroupName <resourceGroupName> -ResourceName <iotHubName> -ExpandProperties
 
 # Access existing IP filter rules
 $iothubResource.Properties.networkRuleSets.ipRules |% { Write-host $_ }

@@ -1,19 +1,21 @@
 ---
-title: Quickstart - Deploy your first Java Native Image application to Azure Spring Apps
+title: Quickstart - Deploy Your First Java Native Image Application to Azure Spring Apps
 description: Describes how to deploy a Java Native Image application to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 08/28/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions
-ms.author: yili7
+ms.author: karler
+ms.reviewer: yili7
 ---
 
 # Quickstart: Deploy your first Java Native Image application to Azure Spring Apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows how to deploy a Spring Boot application to Azure Spring Apps as a Native Image.
 
@@ -25,11 +27,10 @@ The sample project is the Spring Petclinic application. The following screenshot
 
 ## 1. Prerequisites
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
 
 [!INCLUDE [deploy-to-azure-spring-apps-enterprise-plan](includes/quickstart-deploy-java-native-image-app/deploy-enterprise-plan.md)]
 
@@ -126,19 +127,19 @@ az group delete --name ${RESOURCE_GROUP}
 > [How to deploy Java Native Image apps in the Azure Spring Apps Enterprise plan](./how-to-enterprise-deploy-polyglot-apps.md#deploy-java-native-image-applications-preview)
 
 > [!div class="nextstepaction"]
-> [Structured application log for Azure Spring Apps](./structured-app-log.md)
+> [Structured application log for Azure Spring Apps](../basic-standard/structured-app-log.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](../basic-standard/how-to-custom-domain.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+> [Set up Azure Spring Apps CI/CD with GitHub Actions](../basic-standard/how-to-github-actions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
+> [Set up Azure Spring Apps CI/CD with Azure DevOps](../basic-standard/how-to-cicd.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
+> [Use managed identities for applications in Azure Spring Apps](../basic-standard/how-to-use-managed-identities.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
 > [Create a service connection in Azure Spring Apps with the Azure CLI](../../service-connector/quickstart-cli-spring-cloud-connection.md)

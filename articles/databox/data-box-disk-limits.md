@@ -5,9 +5,10 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-data-box-disk
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/10/2024
 ms.author: shaas
+# Customer intent: As a cloud administrator, I want to understand the limits and requirements for deploying Azure Data Box Disk, so that I can ensure compliance and optimize data transfer to Azure storage.
 ---
 # Azure Data Box Disk limits
 
@@ -61,7 +62,7 @@ Here are the limits on the size of data that can be copied into a storage accoun
 
 | Type of data             | Default limit          |
 |--------------------------|------------------------|
-| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Azure standard storage scale targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), and [Azure Files scale targets](../storage/files/storage-files-scale-targets.md). <br /><br /> The limits include data from all the sources, including Data Box Disk.|
+| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Azure standard storage scale targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts-and-disk-access-resources), and [Azure Files scale targets](../storage/files/storage-files-scale-targets.md). <br /><br /> The limits include data from all the sources, including Data Box Disk.|
 
 ## Azure object size limits
 

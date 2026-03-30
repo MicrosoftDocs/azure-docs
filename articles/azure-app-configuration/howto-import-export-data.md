@@ -14,7 +14,7 @@ ms.author: malev
 
 Azure App Configuration supports data import and export operations. Use these operations to work with configuration data in bulk and exchange data between your App Configuration store and code project. For example, you can set up one App Configuration store for testing and another one for production. You can copy application settings between them so that you don't have to enter data twice.
 
-This article provides a guide for importing and exporting data using either the [Azure portal](https://portal.azure.com) or the [Azure CLI](./scripts/cli-import.md). If you have adopted [Configuration as Code](./howto-best-practices.md#configuration-as-code) and manage your configurations in GitHub or Azure DevOps, you can set up ongoing configuration file import using [GitHub Actions](./push-kv-github-action.md) or use the [Azure Pipeline Push Task](./push-kv-devops-pipeline.md).
+This article provides a guide for importing and exporting data using either the [Azure portal](https://portal.azure.com) or the [Azure CLI](./scripts/cli-import.md). If you have adopted [Configuration as Code](./howto-best-practices.md#configuration-as-code) and manage your configurations in GitHub or Azure DevOps, you can set up ongoing configuration file import using [GitHub Actions](./push-kv-github-action.md) or use the [Azure Pipeline Import Task](./azure-pipeline-import-task.md).
 
 ## Import data
 
@@ -22,9 +22,10 @@ Import brings configuration data into an App Configuration store from an existin
 
 This guide shows how to import App Configuration data:
 
-- [from a configuration file in Json, Yaml or Properties](#import-data-from-a-configuration-file)
+- [from a configuration file in JSON, YAML or Properties](#import-data-from-a-configuration-file)
 - [from an App Configuration store](#import-data-from-an-app-configuration-store)
 - [from Azure App Service](#import-data-from-azure-app-service)
+- [from Azure Kubernetes Service ConfigMaps](#import-data-from-azure-kubernetes-service-configmaps)
 
 ### Import data from a configuration file
 
@@ -44,7 +45,7 @@ From the Azure portal, follow these steps:
 
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
-    | File type    | Select the file type for import: YAML, Properties, or JSON. | *Json*   |
+    | File type    | Select the file type for import: YAML, Properties, or JSON. | *JSON*   |
 
 1. Click the **Browse** button, and select the file to import.
 
@@ -53,7 +54,7 @@ From the Azure portal, follow these steps:
 
     | Parameter    | Description                                                                                                                                                                                                                             | Example                   |
     |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | File content profile    | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file schema widely adopted by existing programming frameworks or systems, supports JSON, Yaml, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                       |
+    | File content profile    | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file schema widely adopted by existing programming frameworks or systems, supports JSON, YAML, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                       |
     | Import mode    | The import mode is used to determine whether to ignore identical key-values. With the *Ignore match* option, any key-values in the store that are the same as those in the configuration file are ignored. With the *All* option, all key-values in the configuration file are updated.   | *Ignore match*                       |
     | Exclude feature flag    | If checked, feature flags will not be imported. | *Unchecked*                       |
     | Strict    | If the box is checked, any key-values in the store with the specified prefix and label that are not included in the configuration file are deleted when the File content profile is set to Default. When the File content profile is set to KVSet, any key-values in the store that are not included in the configuration file are deleted. If the box is unchecked, no key-values in the store will be deleted.  | *Unchecked*                       |
@@ -85,7 +86,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     | Parameter        | Description                                                                                                                                                                                                                                              | Example            |
     |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-    | `--separator`    | Optional. The separator is the delimiter for flattening the key-values to Json/Yaml. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`              |
+    | `--separator`    | Optional. The separator is the delimiter for flattening the key-values to JSON/YAML. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`              |
     | `--prefix`       | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store. This prefix will be appended to the front of the "key" property of each imported key-value.                                                               | `TestApp:`         |
     | `--label`        | Optional. Enter a label that will be assigned to your imported key-values.                                                                                                                                                                               | `prod`             |
     | `--content-type` | Optional. Enter `appconfig/kvset` or `application/json` to state that the imported content consists of a Key Vault reference or a JSON file.                                                                                                      | `application/json` |
@@ -259,13 +260,64 @@ For more optional parameters and examples, go to [az appconfig kv import](/cli/a
 
 ---
 
+### Import data from Azure Kubernetes Service ConfigMaps
+
+Follow the steps below to import key-values from Azure Kubernetes Service ConfigMaps. Portal support for this feature is in development, please use Azure CLI to import from AKS.
+
+#### [Portal](#tab/azure-portal)
+
+The Azure portal support for this feature is in development.
+
+#### [Azure CLI](#tab/azure-cli)
+
+From the Azure CLI, follow the steps below. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md).
+
+1. Enter the import command `az appconfig kv import` and add the following parameters:
+
+    | Parameter              | Description                                                                                                                                      | Example                                                                                                                |
+    |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+    | `--name`               | Enter the name of the App Configuration store you want to import data to.                                                                        | `my-app-config-store`                                                                                                  |
+    | `--source`             | Enter `aks` to indicate that you're importing app configuration data from Azure Kubernetes Service.                                              | `aks`                                                                                                                  |
+    | `--aks-cluster`        | Enter the Azure Kubernetes Service's ARM ID or use the name of the Azure Kubernetes Service, if it's in the same subscription and resource group as the App Configuration. | `/subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster` or `my-aks-cluster` |
+    | `--configmap-namespace`| Enter the namespace of the ConfigMap you want to import.                                                                                          | `default`                                                                                                              |
+    | `--configmap-name`     | Enter the name of the ConfigMap you want to import.                                                                                               | `my-configmap`                                                                                                         |
+
+1. Optionally also add the following parameters:
+
+    | Parameter        | Description                                                                                                                                                                                       | Example                   |
+    |------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+    | `--prefix`       | Optional. A key prefix is the beginning part of a key-value's "key" property. Prefixes can be used to manage groups of key-values in a configuration store. This prefix will be appended to the front of the "key" property of each imported key-value.        | `TestApp:`                 |
+    | `--label`        | Optional. Enter a label that will be assigned to your imported key-values. If you don't specify a label, the null label will be assigned to your key-values.                                      | `test`                    |
+    | `--content-type` | Optional. Enter appconfig/kvset or application/json to state that the imported content consists of a Key Vault reference or a JSON file.                                                   | `application/json` |
+    | `--format`       | Optional. Enter yaml, properties, or json to indicate the format of ConfigMap you're importing. | `json`                              |
+    | `--separator`    | Optional. The separator is the delimiter for flattening the key-values. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`              |
+
+
+    To get the value for `--aks-cluster`, use the command `az aks show --resource-group <resource-group> --name <aks-cluster-name>`.
+
+    Example: import all settings from your AKS Configmap as key-values with the label "test", to your App Configuration store, and add a "TestApp:" prefix.
+
+    ```azurecli
+    az appconfig kv import --name my-app-config-store --source aks --aks-cluster /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster --configmap-namespace default --configmap-name my-configmap --label test --prefix TestApp:
+    ```
+
+1. The command line displays a list of the coming changes. Confirm the import by selecting `y`.
+
+    :::image type="content" source="./media/import-export/continue-import-aks-prompt.png" alt-text="Screenshot of the CLI. Import from AKS confirmation prompt.":::
+
+You imported all settings from your AKS ConfigMap as key-values, assigned them the label "test", and added a "TestApp:" prefix.
+
+For more optional parameters and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
+
+---
+
 ## Export data
 
 Export writes configuration data stored in App Configuration to another destination. Use the export function, for example, to save data from an App Configuration store to a file that can be embedded in your application code during deployment.
 
 This guide shows how to export App Configuration data:
 
-- [to a configuration file in Json, Yaml or Properties](#export-data-to-a-configuration-file)
+- [to a configuration file in JSON, YAML or Properties](#export-data-to-a-configuration-file)
 - [to an App Configuration store](#export-data-to-an-app-configuration-store)
 - [to an Azure App Service resource](#export-data-to-azure-app-service)
 
@@ -289,7 +341,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
     | Parameter          | Description  | Example                  |
     |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
     | File type          | Select the file type for export: YAML, Properties, or JSON. | *JSON*                   | 
-    | File content profile   | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file schema widely adopted by existing programming frameworks or systems, supports JSON, Yaml, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                   |
+    | File content profile   | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file schema widely adopted by existing programming frameworks or systems, supports JSON, YAML, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                   |
     | Selection mode          | Select whether to export from regular key-values, which is the default option, or from a snapshot.   | *Default*                   | 
     | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.    |      Starts with *TestApp:*              |
     | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values. | *07/28/2022 12:00:00 AM* |
@@ -323,7 +375,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     | Parameter        | Description                                                                                                                                                                                                                                             | Example                   |
     |------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | `--separator`    | Optional. The separator is the delimiter for flattening the key-values to Json/Yaml. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`                     |
+    | `--separator`    | Optional. The separator is the delimiter for flattening the key-values to JSON/YAML. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`                     |
     | `--prefix`       | Optional. Prefix to be trimmed from each key-value's "key" property. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store. Prefix will be ignored for feature flags.                                                | `TestApp:`                |
 
     Example: export all key-values and feature flags with label "prod" to a JSON file.
@@ -335,6 +387,8 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 1. The command line displays a list of key-values getting exported to the file. Confirm the export by selecting `y`.
 
     :::image type="content" source="./media/import-export/continue-export-file-prompt.png" alt-text="Screenshot of the CLI. Export to a file confirmation prompt.":::
+
+Variant feature flags are exported to a file using the [Microsoft Feature Management schema](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json), while other feature flags are exported using the [.NET Feature Management schema](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json) for compatibility. To export feature flags exclusively using the Microsoft Feature Management schema, set the environment variable AZURE_APPCONFIG_FM_COMPATIBLE to False.
 
 You've exported key-values and feature flags that have the "prod" label to a configuration file, and have trimmed the prefix "TestApp". Values are separated by ";" in the file.
 

@@ -3,6 +3,7 @@ title: Configure proxy connections from your OT sensor to Azure
 description: Learn how to configure proxy settings on your OT sensors to connect to Azure.
 ms.topic: how-to
 ms.date: 05/17/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Configure proxy settings on an OT sensor

@@ -5,7 +5,7 @@ author: chetanmsft
 ms.author: chetang
 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/18/2019
 ---
 # Increase throughput performance to Azure SQL Database from Azure Stream Analytics

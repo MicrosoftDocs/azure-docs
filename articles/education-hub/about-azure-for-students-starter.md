@@ -4,7 +4,7 @@ description: Learn about the purpose of the Azure for Students Starter program, 
 author: vinnieangel
 ms.author: vangellotti
 ms.topic: overview
-ms.date: 10/20/2023
+ms.date: 03/28/2025
 ms.service: azure-education
 ---
 
@@ -13,6 +13,10 @@ ms.service: azure-education
 [Azure for Students Starter](https://azure.microsoft.com/pricing/offers/ms-azr-0144p/) is a Microsoft program that gives students free access to various Azure cloud services and resources.
 
 You don't need a credit card to join the program. The free services include Azure App Service, Azure Functions, Azure Notification Hubs, and many others. You can upgrade to a pay-as-you-go subscription to deploy more resources.
+
+## Subscription Duration
+
+Your subscription lasts for one year. After that, you will need to [renew it](https://go.microsoft.com/fwlink/?linkid=2062408) to continue accessing the free services.
 
 ## Prerequisites
 

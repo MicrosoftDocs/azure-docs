@@ -3,6 +3,9 @@ title: Overview of enterprise security in Azure HDInsight
 description: Learn the various methods to ensure enterprise security in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: overview
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf 
 ms.date: 07/23/2024
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
@@ -51,7 +54,7 @@ To access Apache Ranger and Ambari audit logs, and ssh access logs, [enable Azur
 
 Protecting data is important for meeting organizational security and compliance requirements. Along with restricting access to data from unauthorized employees, you should encrypt it.
 
-HDInsight supports data encryption at rest with both platform managed and [customer managed keys](../disk-encryption.md). Encryption of data in transit is handled with both TLS and IPSec. See [Encryption in transit for Azure HDInsight](encryption-in-transit.md) for more information.
+HDInsight supports data encryption at rest with both platform managed and [customer managed keys](../disk-encryption.md). Encryption of data in transit is handled with both TLS and IPsec. See [Encryption in transit for Azure HDInsight](encryption-in-transit.md) for more information.
 
 ### Compliance
 
@@ -71,7 +74,7 @@ The following table provides links to resources for each type of security soluti
 |  | Enable the ["Secure transfer required"](../../storage/common/storage-require-secure-transfer.md) property on storage accounts. | Customer |
 |  | Configure [Azure Storage firewalls](../../storage/common/storage-network-security.md) and virtual networks | Customer |
 |  | Configure [Azure virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Cosmos DB and [Azure SQL DB](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) | Customer |
-|  | Ensure that the [Encryption in transit](./encryption-in-transit.md) feature is enabled to use TLS and IPSec for intra-cluster communication. | Customer |
+|  | Ensure that the [Encryption in transit](./encryption-in-transit.md) feature is enabled to use TLS and IPsec for intra-cluster communication. | Customer |
 |  | Configure [customer-managed keys](../../storage/common/customer-managed-keys-configure-key-vault.md) for Azure Storage encryption | Customer |
 |  | Control access to your data by Azure support using [Customer lockbox](../../security/fundamentals/customer-lockbox-overview.md) | Customer |
 | Application and middleware security | Integrate with Microsoft Entra Domain Services and [Configure ESP](apache-domain-joined-configure-using-azure-adds.md) or use [HIB for OAuth Authentication](identity-broker.md)| Customer |
@@ -83,7 +86,7 @@ The following table provides links to resources for each type of security soluti
 | Network security | Configure a [virtual network](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Configure [Inbound network security group (NSG) rules](../control-network-traffic.md) or [private link](../hdinsight-private-link.md) | Customer |
 |  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall | Customer |
-|  | Configure [IPSec encryption in transit](encryption-in-transit.md) between cluster nodes | Customer |
+|  | Configure [IPsec encryption in transit](encryption-in-transit.md) between cluster nodes | Customer |
 | Virtualized infrastructure | N/A | HDInsight (Cloud provider) |
 | Physical infrastructure security | N/A | HDInsight (cloud provider) |
 

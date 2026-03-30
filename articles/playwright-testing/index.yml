@@ -9,8 +9,8 @@ metadata:
   ms.service: playwright-testing
   ms.topic: landing-page
 
-  ms.author: vanshsingh
-  author: vvs11
+  ms.author: johnsta
+  author: johnsta
   ms.date: 08/23/2023
   ms.custom: playwright-testing-preview
 
@@ -36,6 +36,8 @@ landingContent:
             url: quickstart-run-end-to-end-tests.md
           - text: Set up continuous end-to-end testing
             url: quickstart-automate-end-to-end-testing.md
+          - text: Troubleshoot using rich reports and artifacts 
+            url: quickstart-generate-rich-reports-for-tests.md
       - linkListType: concept
         links:
           - text: Determine optimal test suite configuration

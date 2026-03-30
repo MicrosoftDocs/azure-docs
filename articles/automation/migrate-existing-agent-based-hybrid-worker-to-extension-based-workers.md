@@ -3,11 +3,17 @@ title: Migrate an existing agent-based hybrid workers to extension-based-workers
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/04/2024
-ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-azurepowershell
+ms.date: 04/07/2025
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - devx-track-azurepowershell
+  - build-2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers
@@ -48,14 +54,14 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 - Two cores
 - 4 GB of RAM
-- **Non-Azure machines** must have the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+- **Non-Azure machines** must have the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the installation process through the Azure portal.
 
 ### Supported operating systems
 
 | Windows (x64)  | Linux (x64) |
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro| &#9679; Debian GNU/Linux 8,9,10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br> &#9679; SUSE Linux Enterprise Server (SLES) 15 <br> &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7 and 8 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*. |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709, and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro <br> &#9679; Windows 11 Enterprise (including multi-session) and Pro | &#9679; Debian GNU/Linux 8, 9, 10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, 15.3, 15.4, 15.5, and 15.6 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br>  &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7, 8, and 9 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*.|
 
 ### Other Requirements
 
@@ -69,7 +75,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 | Required package | Description | Minimum version |
 |--------------------- | --------------------- | ------------------- |
 | Glibc |GNU C Library | 2.5-12 |
-| Openssl | OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported) |
+| OpenSSL | OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported) |
 | Curl | cURL web client | 7.15.5 |
 | Python-ctypes | Foreign function library for Python | Python 2.x or Python 3.x are required |
 | PAM | Pluggable Authentication Modules |       |
@@ -77,6 +83,11 @@ The purpose of the Extension-based approach is to simplify the installation and 
 | Optional package | Description | Minimum version |
 | --------------------- | --------------------- | ------------------- |
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
+
+> [!NOTE]
+> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
+> 
+> - We strongly recommend that you never configure Hybrid Worker extension on a Virtual machine hosting domain controller. Security best practices don't advise such a setup due to the high-risk nature of exposing domain controllers to potential attack vectors via Azure Automation jobs. Domain controllers should be highly secured and isolated from non-essential services to prevent unauthorized access and maintain the integrity of the Active Directory Domain Services (ADDS) environment.
 
 ### Permissions for Hybrid worker credentials
 
@@ -101,7 +112,7 @@ To install Hybrid worker extension on an existing agent based hybrid worker, ens
 
 1. Under **Process Automation**, select **Hybrid worker groups**, and then select your existing hybrid worker group to go to the **Hybrid worker group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers** > **+ Add** to go to the **Add machines as hybrid worker** page.
-1. Select the checkbox next to the existing Agent based (V1) Hybrid worker. If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers, or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+1. Select the checkbox next to the existing Agent based (V1) Hybrid worker. If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers, or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 
    :::image type="content" source="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-inline.png" alt-text="Screenshot of adding machines as hybrid worker." lightbox="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-expanded.png":::
 
@@ -116,9 +127,9 @@ For at-scale migration of multiple Agent based Hybrid Workers, you can also use 
 
 ## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, Azure CLI, and PowerShell
 
-#### [Bicep template](#tab/bicep-template)
+#### [Bicep file](#tab/bicep-file)
 
-You can use the Bicep template to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](../azure-resource-manager/bicep/overview.md).
+You can use the Bicep file to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](../azure-resource-manager/bicep/overview.md).
 
 Follow the steps mentioned below as an example:
 

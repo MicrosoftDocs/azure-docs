@@ -1,17 +1,17 @@
 ---
-title: Integrate Application Insights to developer portal
+title: Integrate Application Insights to Developer Portal
 titleSuffix: Azure API Management
 description: Learn how to integrate Application Insights into your managed or self-hosted developer portal.
 author: dlepow
 ms.author: danlep
-ms.date: 08/16/2022
+ms.date: 10/03/2025
 ms.service: azure-api-management
 ms.topic: how-to
 ---
 
 # Integrate Application Insights to developer portal
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 A popular feature of Azure Monitor is Application Insights. It's an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your developer portal and detect performance anomalies. Application Insights includes powerful analytics tools to help you learn what users actually do while visiting your developer portal.
 
@@ -20,7 +20,7 @@ A popular feature of Azure Monitor is Application Insights. It's an extensible A
 Follow these steps to plug Application Insights into your managed or self-hosted developer portal.
 
 > [!IMPORTANT]
-> Steps 1 -3 are not required for managed portals. If you have a managed portal, skip to step 4.
+> Steps 1 -3 aren't required for managed portals. If you have a managed portal, skip to step 4.
 
 1. Set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 
@@ -71,7 +71,7 @@ Follow these steps to plug Application Insights into your managed or self-hosted
     }
     ```
 
-1. Extend the site configuration from the previous step with Application Insights configuration. Update the configuration using the [Content Item - Create or Update](/rest/api/apimanagement/current-ga/content-item/create-or-update) REST API. Pass the Application Insights instrumentation key in an `integration` node in the request body.
+1. Extend the site configuration from the previous step with Application Insights configuration. Update the configuration using the [Content Item - Create Or Update](/rest/api/apimanagement/current-ga/content-item/create-or-update) REST API. Pass the Application Insights instrumentation key in an `integration` node in the request body.
 
 
     ```http
@@ -100,7 +100,7 @@ Follow these steps to plug Application Insights into your managed or self-hosted
 
 1. After you update the configuration, [republish the portal](developer-portal-overview.md#publish-the-portal) for the changes to take effect.
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 

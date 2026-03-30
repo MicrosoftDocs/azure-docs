@@ -1,13 +1,13 @@
 ---
 title: SQL IaaS extension registration options for Cost Management administrators
 description: This article explains the SQL IaaS extension registration options available to Cost Management administrators.
-author: bandersmsft
-ms.author: banders
-ms.date: 03/21/2024
-ms.topic: conceptual
+author: pri-mittal
+ms.author: primittal
+ms.date: 03/19/2026
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
-ms.reviewer: chrisrin
+ms.reviewer: primittal
 ---
 
 # SQL IaaS extension registration options for Cost Management administrators

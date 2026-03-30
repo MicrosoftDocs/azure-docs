@@ -2,13 +2,13 @@
 title: Enable geo-replication
 description: Learn how to use Azure App Configuration geo replication to create, delete, and manage replicas of your configuration store. 
 services: azure-app-configuration
-author: mrm9084
+author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
-# ms.devlang: csharp, java
+# ms.devlang: csharp, java, python, javascript
 ms.topic: how-to
-ms.date: 09/09/2024
-ms.author: mametcal
+ms.date: 02/11/2026
+ms.author: zhiyuanliang
 ms.custom: devx-track-azurecli
 
 #Customer intent: I want to be able to list, create, and delete the replicas of my configuration store. 
@@ -22,7 +22,7 @@ To learn more about the concept of geo-replication, see [Geo-replication in Azur
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free)
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
 
 ## Create and list a replica
@@ -116,7 +116,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-Specify the `replicaDiscoveryEnabled` property in the `bootstrap.properties` file of your application.
+Specify the `replicaDiscoveryEnabled` property in the `application.properties` file of your application.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
@@ -132,7 +132,7 @@ spring.cloud.azure.appconfiguration.stores[0].replica-discovery-enabled=false
 
 Update the `AzureAppConfigurationProvider` resource of your Azure App Configuration Kubernetes Provider. Add a `replicaDiscoveryEnabled` property and set it to `false`.
 
-``` yaml
+```yaml
 apiVersion: azconfig.io/v1
 kind: AzureAppConfigurationProvider
 metadata:
@@ -158,6 +158,37 @@ config = load(endpoint=endpoint, credential=credential, replica_discovery_enable
 
 > [!NOTE]
 > The automatic replica discovery support is available if you use version **1.3.0** or later.
+
+### [JavaScript](#tab/javascript)
+
+Specify the `AzureAppConfigurationOptions.replicaDiscoveryEnabled` property when loading the configuration store and set it to `false`.
+
+
+```javascript
+const config = load(endpoint, credential, {
+    replicaDiscoveryEnabled: false
+});
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **2.0.0** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
+> The feature is not available for browser-based applications due to the restriction of browser security sandbox.
+
+### [Go](#tab/go)
+
+Specify the `azureappconfiguration.Options.ReplicaDiscoveryEnabled` property when loading the configuration store and set it to `false`.
+
+```golang
+replicaDiscoveryEnabled := false
+options := azureappconfiguration.Options{
+    ReplicaDiscoveryEnabled: &replicaDiscoveryEnabled,
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **1.2.0** or later of [azureappconfiguration](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration).
 
 ---
 
@@ -215,7 +246,7 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 
 ### [Java Spring](#tab/spring)
 
-Edit the `endpoints` or `connection-strings` properties in the `bootstrap.properties` file of your application.
+Edit the `endpoints` or `connection-strings` properties in the `application.properties` file of your application.
 
 **Connect with Microsoft Entra ID**
 
@@ -244,6 +275,14 @@ The Azure App Configuration Kubernetes Provider supports failover with automatic
 ### [Python](#tab/python)
 
 The Azure App Configuration Python Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery isn't disabled. It doesn't support or require user-provided replicas.
+
+### [JavaScript](#tab/javascript)
+
+The Azure App Configuration JavaScript Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery isn't disabled. It doesn't support or require user-provided replicas.
+
+### [Go](#tab/go)
+
+The Azure App Configuration Go Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery isn't disabled. It doesn't support or require user-provided replicas.
 
 ---
 
@@ -275,24 +314,78 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 ```
 
 > [!NOTE]
-> Load balancing support is available if you use version **8.0.0-preview.3** or later of any of the following packages.
+> Load balancing support is available if you use version **8.0.0** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
 ### [Java Spring](#tab/spring)
 
-This feature isn't yet supported in the Azure App Configuration Java Spring Provider.
+Specify the `loadBalancingEnabled` property in the `application.properties` file of your application.
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].load-balancing-enabled=true
+```
+
+> [!NOTE]
+> Load balancing support is available if you use version **6.1.0** or later
 
 ### [Kubernetes](#tab/kubernetes)
 
-This feature isn't yet supported in the Azure App Configuration Kubernetes Provider.
+Update the `AzureAppConfigurationProvider` resource of your Azure App Configuration Kubernetes Provider. Add a `loadBalancingEnabled` property and set it to `true`.
+
+```yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  loadBalancingEnabled: true
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+```
+
+> [!NOTE]
+> Load balancing support is available if you use version **2.1.0** or later of [Azure App Configuration Kubernetes Provider](./quickstart-azure-kubernetes-service.md).
 
 ### [Python](#tab/python)
 
 This feature isn't yet supported in the Azure App Configuration Python Provider.
 
+### [JavaScript](#tab/javascript)
+
+Set `AzureAppConfigurationOptions.loadBalancingEnabled` to `true` while loading configuration from App Configuration.
+
+```javascript
+const config = load(endpoint, credential, {
+    loadBalancingEnabled: true
+});
+```
+
+> [!NOTE]
+> Load balancing support is available if you use version **2.0.0** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
+
+### [Go](#tab/go)
+
+Set `azureappconfiguration.Options.LoadBalancingEnabled` to `true` while loading configuration from App Configuration.
+
+```golang
+options := azureappconfiguration.Options{
+    LoadBalancingEnabled: true,
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+> [!NOTE]
+> Load balancing support is available if you use version **1.2.0** or later of [azureappconfiguration](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration).
+
 ---
+
+## Use geo-replication with Azure Front Door
+
+Replica discovery and load balancing cannot be enabled at the application level when using Azure Front Door. To use geo-replication with Azure Front Door, add replicas to your Azure Front Door origin group. For more information, refer to [Failover and Load Balancing](./concept-hyperscale-client-configuration.md#failover-and-load-balancing).
+
 
 ## Next steps
 

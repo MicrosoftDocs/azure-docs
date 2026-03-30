@@ -14,7 +14,7 @@ This article explains how to enable Microsoft Defender for IoT on an Azure IoT h
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The ability to create a standard tier IoT Hub.
 
@@ -123,7 +123,7 @@ To allow access to the IoT Hub:
 
 #### Set up access control for the IoT hub
 
-1. In your IoT hub, from the left menu bar, select **Access control (IAM)**, and from the top menu, select **Add > Add role assignment**.
+1. In your IoT hub's resource group, from the left menu bar, select **Access control (IAM)**, and from the top menu, select **Add > Add role assignment**.
 
 1. In the **Role tab**, select the **Privileged administrator roles** tab, and select the **Contributor** role. 
 

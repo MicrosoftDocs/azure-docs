@@ -1,14 +1,20 @@
 ---
 title: "Quickstart: Azure Blob storage library - JavaScript"
 description: In this quickstart, you learn how to use the Azure Blob Storage for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api, passwordless-js, devx-track-extended-azdevcli
 zone_pivot_groups: azure-blob-storage-quickstart-options
+ms.custom:
+  - devx-track-js
+  - mode-api
+  - passwordless-js
+  - devx-track-extended-azdevcli
+  - sfi-ropc-nochange
+# Customer intent: "As a JavaScript developer, I want to quickly set up and manage Azure Blob Storage, so that I can efficiently store and retrieve unstructured data within my applications."
 ---
 
 # Quickstart: Azure Blob Storage client library for Node.js
@@ -48,16 +54,16 @@ In this article, you use the [Azure Developer CLI](/azure/developer/azure-develo
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [Create a storage account](../common/storage-account-create.md)
-- [Node.js LTS](https://nodejs.org/en/download/)
+- [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 
 ::: zone-end
 
 ::: zone pivot="blob-storage-quickstart-template"
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Node.js LTS](https://nodejs.org/en/download/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
 ::: zone-end
@@ -489,3 +495,4 @@ You'll be prompted to confirm the deletion of the resources. Enter `y` to confir
 
 > [!div class="nextstepaction"]
 > [Azure Storage samples and developer guides for JavaScript and TypeScript](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json)
+

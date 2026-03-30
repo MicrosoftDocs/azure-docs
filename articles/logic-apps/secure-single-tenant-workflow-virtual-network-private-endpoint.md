@@ -1,14 +1,14 @@
 ---
-title: Secure traffic between Standard workflows and virtual networks
-description: Secure traffic between Standard logic app workflows and virtual networks in Azure using private endpoints.
+title: Secure Traffic between Standard Workflows and Virtual Networks
+description: Secure traffic between Standard logic app workflows in Azure Logic Apps and virtual networks in Azure by using private endpoints.
 services: azure-logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.custom: engagement-fy23
-ms.date: 08/09/2024
-# Customer intent: As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to secure traffic between my Standard workflows and virtual networks by using private endpoints and virtual network integration.
 ---
 
 # Secure traffic between Standard logic apps and Azure virtual networks using private endpoints
@@ -88,9 +88,9 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 ### Copy the endpoint URL
 
-1. On the workflow menu, select **Overview**.
+1. On the workflow menu, under **Configuration**, select **Properties**.
 
-1. On the **Overview** page, copy and save the **Workflow URL** for later use.
+1. On the **Properties** page, copy and save the **Workflow URL** for later use.
 
 1. To test the URL and trigger the workflow, send an HTTP request to the URL by using your HTTP request tool and its instructions.
 
@@ -132,6 +132,7 @@ To secure outbound traffic from your logic app, you can integrate your logic app
   |-------------|------------------|--------|-------------|----------|---------|
   | * | 443 | Subnet integrated with Standard logic app | Storage account | TCP | Storage account |
   | * | 445 | Subnet integrated with Standard logic app | Storage account | TCP | Server Message Block (SMB) File Share |
+  | * | 20000-30000 | Subnet integrated with Standard logic app | Worker process | TCP | Communication between App Service Plan and Standard logic app nodes |
 
 - For Azure-hosted managed connectors to work, you need to have an uninterrupted connection to the managed API service. With virtual network integration, make sure that no firewall or network security policy blocks these connections. If your virtual network uses a network security group (NSG), user-defined route table (UDR), or a firewall, make sure that the virtual network allows outbound connections to [all managed connector IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in the corresponding region. Otherwise, Azure-managed connectors won't work.
 
@@ -177,6 +178,6 @@ For more information, review the following documentation:
 
    The HTTP action now runs successfully.
 
-## Next steps
+## Related content
 
 - [Logic Apps Anywhere: Networking possibilities with Logic Apps (single-tenant)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)

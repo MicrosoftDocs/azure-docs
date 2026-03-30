@@ -7,20 +7,20 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 10/03/2024
 ms.subservice: security
+ms.custom: sfi-image-nochange
 ---
 
 # Add a Kubernetes secret to access a private container registry
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article explains how to add a Kubernetes secret to pull a custom image from a private Azure Container Registry within the Azure Data Factory Workflow Orchestration Manager environment.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
-> [!NOTE]
-> Workflow Orchestration Manager for Azure Data Factory relies on the open-source Apache Airflow application. You can find documentation and more tutorials for Airflow on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) webpages.
+This article explains how to add a Kubernetes secret to pull a custom image from a private Azure Container Registry within the Azure Data Factory Workflow Orchestration Manager environment.
 
 ## Prerequisites
 
-- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - **Azure Storage account**: If you don't have a storage account, see [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
 - **Azure Container Registry**: Configure an [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) with the custom Docker image you want to use in the directed acyclic graph (DAG). For more information on push and pull container images, see [Push and pull container image - Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli).
 

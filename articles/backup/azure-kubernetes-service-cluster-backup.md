@@ -3,36 +3,45 @@ title: Back up Azure Kubernetes Service by using Azure Backup
 description: Learn how to back up Azure Kubernetes Service (AKS) by using Azure Backup.
 ms.topic: how-to
 ms.service: azure-backup
-ms.custom:
-  - ignite-2023
-ms.date: 01/03/2024
+ms.date: 03/16/2026
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a DevOps engineer, I want to configure and manage Azure Backup for my AKS clusters so that I can ensure data protection and restore capabilities for my containerized applications."
 ---
 
 # Back up Azure Kubernetes Service by using Azure Backup
 
-This article describes how to configure and back up Azure Kubernetes Service (AKS).
+This article describes how to configure and back up Azure Kubernetes Service (AKS) using Azure portal. You can also backup AKS [using Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md).
 
 You can use Azure Backup to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) by using the Backup extension, which must be installed in the cluster. The Backup vault communicates with the cluster via the Backup extension to perform backup and restore operations.
 
-> [!NOTE]
-> Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
+## Prerequisites
 
-## Before you begin
+Things to ensure before you configure backup for AKS cluster:
 
-- Currently, AKS Backup supports only Azure Disk Storage-based persistent volumes enabled by CSI driver. The backups are stored in an operational datastore only (backup data is stored in your tenant and isn't moved to a vault). The Backup vault and AKS cluster must be in the same region.
-- AKS Backup uses a blob container and a resource group to store the backups. The blob container holds the AKS cluster resources. Persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must be in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
-- Currently, AKS Backup supports once-a-day backups. It also supports more frequent backups (in 4-hour, 8-hour, and 12-hour intervals) per day. This solution allows you to retain your data for restore for up to 360 days. Learn how to [create a backup policy](#create-a-backup-policy).
+- AKS Backup supports Azure Disk and Azure SMB Files based persistent volumes enabled by CSI driver. Backup data including Azure Disk and Files based volume snapshots can be stored as snapshots in Operational Tier and only Azure Disk based volume snapshots can be moved to Vault Tier for long term storage. The Backup vault and AKS cluster can be in different subscriptions within same tenant and region.
+  - For Azure Files-based volumes, CSI Driver version 1.32 or higher is required.
+  - Azure Files volumes with private network endpoints are not supported; only file shares with publicly accessible endpoints are supported.
+  - Only file shares with 25,000 files or fewer are supported.
+  - Azure Files using NFS protocol is not supported; only SMB protocol is supported.
+
+- AKS Backup uses a blob container and a resource group to store the backups. The blob container holds the AKS cluster resources. Persistent volume snapshots are stored in the resource group for Azure Disk-based volumes. For Azure Files-based volumes, snapshots are stored alongside the file share in the same storage account. The AKS cluster and the storage locations must be in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
+
+- Currently, AKS Backup supports once-a-day backups. It also supports more frequent backups (in 4-hour, 8-hour, and 12-hour intervals) per day. This solution allows you to retain your data for restore for up to 360 days for Azure Disk-based volumes. For Azure Files-based volumes, backup retention is limited to a maximum of 30 days. Learn how to [create a backup policy](#create-a-backup-policy).
+
+- For Azure Files-based volumes, we recommend creating persistent volumes with the Reclaim Policy set to **Retain** to ensure that snapshots remain available even if the PVC is deleted. You can set the reclaim policy with: `kubectl patch pv <your-pv-name> --patch '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'`
+
 - You need to [install the Backup extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations for an AKS cluster. Learn more [about the Backup extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
+
 - Make sure you have `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and `Microsoft.ContainerService` registered for your subscription before you initiate backup configuration and restore operations.
+
 - Make sure you complete [all prerequisites](azure-kubernetes-service-cluster-backup-concept.md) before you initiate a backup or restore operation for AKS Backup.
 
 For more information on supported scenarios, limitations, and availability, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
 
 ## Create a Backup vault
 
-A Backup vault is a management entity that stores recovery points treated over time. A Backup vault also provides an interface to do the backup operations. Operations include taking on-demand backups, doing restores, and creating backup policies. AKS Backup requires the Backup vault and the AKS cluster to be in the same region. Learn [how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
+A Backup vault is a management entity that stores recovery points treated over time. A Backup vault also provides an interface to do the backup operations. Operations include taking on-demand backups, doing restores, and creating backup policies. AKS Backup requires the Backup Vault and the AKS cluster to be located in the same region. However, they can reside in different subscriptions as long as they are within the same tenant.  Learn [how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
 > [!NOTE]
 > A Backup vault is a new resource that's used to back up newly supported datasources. A Backup vault is different from a Recovery Services vault.
@@ -61,11 +70,10 @@ To create a backup policy:
 1. On the **Schedule + retention** tab, define the *backup schedule*.
 
    - **Backup Frequency**: Select the *backup frequency* (hourly or daily), and then choose the *retention duration* for the backups.
-   - **Retention Setting**: A new backup policy has the *Default* rule defined by default. You can edit this rule and can’t delete it. The default rule defines the retention duration for all the operational tier backups taken. You can also create additional retention rules to store backups for a longer duration that are taken daily or weekly.
-
+   - **Retention Setting**: A new backup policy has the *Default* rule defined by default. You can edit this rule and can’t delete it. The default rule defines the retention duration for all the operational tier backups taken. You can also create additional retention rules to store backups for a longer duration that are taken daily or weekly.   
+   > [!IMPORTANT]
+   > For Azure Files-based volumes, backup retention is limited to 30 days maximum. Vault Tier backup is not supported for Azure Files volumes. If you need to back up both Azure Disk and Azure Files volumes with different backup targets (Vault and Snapshot), create separate backup instances—one for each resource type.
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-rules.png" alt-text="Screenshot that shows the retention settings." lightbox="./media/azure-kubernetes-service-cluster-backup/retention-rules.png":::
-
-   You can also create extra retention rules to store backups for a longer duration that are taken daily or weekly.
 
    > [!NOTE]
    >
@@ -112,15 +120,18 @@ To configure backups for an AKS cluster:
 
    Learn more about [backup configurations](azure-kubernetes-service-backup-overview.md).
 
-1. For **Snapshot resource group**, select the resource group to use to store the persistent volume (Azure Disk Storage) snapshots, and then select **Validate**.
+1. For **Snapshot resource group**, select the resource group to use to store Azure Disk snapshots, and then select **Validate**. This resource group is required even if you're only backing up Azure Files volumes (Azure Files snapshots are stored alongside the file share in the storage account).
 
-   When validation is finished, if required roles aren't assigned to the vault in the snapshot resource group, an error appears:
+   When validation is finished, if required roles aren't assigned to the vault in the snapshot resource group or on the storage account (for Azure Files volumes), an error appears:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-permissions-not-assigned.png" alt-text="Screenshot that shows a validation error when required permissions aren't assigned.":::
 
    To resolve the error, under **Datasource name**, select the checkbox for the datasource, and then select **Assign missing roles**.
 
 1. When the role assignment completes, select **Next** > **Configure backup**.
+
+   > [!NOTE]
+   > For Azure Files-based volumes, the Backup vault automatically assigns the **Storage File Data Privileged Contributor** role to the AKS cluster on the storage account for dynamically provisioned volumes. For statically provisioned volumes, you must assign this role manually.
 
 ### Backup configurations
 
@@ -135,11 +146,37 @@ Azure Backup for AKS allows you to define the application boundary within AKS cl
 1. Expand **Additional Resource Settings** to see filters that you can use to choose cluster resources to back up. You can choose to back up resources based on the following categories:
 
    - **Labels**: You can filter AKS resources by using [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) that you assign to types of resources. Enter labels in the form of key/value pairs. You can combine multiple labels using `AND` logic. For example, if you enter the labels `env=prod;tier!=web`, the process selects resources that have a label with the `env` key and the `prod` value, and a label with the `tier` key for which the value isn't `web`.
+
    - **API groups**: You can also include resources by providing the AKS API group and kind. For example, you can choose for backup AKS resources like Deployments. You can access the list of Kubernetes defined API Groups [here](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/).
+   
    - **Other options**: You can enable or disable backup for cluster-scoped resources, persistent volumes, and secrets. Cluster-scoped resources and persistent volumes are enabled by default.
+   
+     - **Volume Type**: To back up Azure Files-based volumes, select **Azure SMB Fileshares** from the **Volume Type** dropdown. By default, only Azure Disk volumes are selected.
+     - **Secrets**: Enable **Include Secrets** if you're using Kubernetes secrets to store storage account keys for Azure Files volumes. This is required for successful restore operations of Azure Files-based volumes.
 
   > [!NOTE]
   > You should add the labels to every single YAML file that is deployed and to be backed up. This includes namespace-scoped resources like persistent volume claims, and cluster-scoped resources like persistent volumes.
+  >
+  > If you want to exclude specific Persistent Volume Claims from your backups, add the annotation `velero.io/exclude-from-backup=true`. This Velero annotation is supported by Azure Backup for AKS.
+
+## Verify backup and snapshots
+
+After configuring backup, you can verify that backups are running successfully and snapshots are being created:
+
+1. In the Azure portal, go to your **Backup vault**.
+
+2. Select **Backup instances** under **Manage** to view your AKS cluster backup instance status.
+
+3. Select **Backup Jobs** to view completed and in-progress backup operations.
+
+4. To verify Azure Files snapshots:
+   - Go to the storage account containing your Azure Files file share.
+   - Navigate to the file share used by your persistent volume.
+   - Select **Snapshots** to view the backup snapshots created by Azure Backup.
+
+5. To verify Azure Disk snapshots:
+   - Go to the snapshot resource group you specified during backup configuration.
+   - View the disk snapshots that correspond to your Azure Disk-based persistent volumes.
 
 ## Use hooks during AKS Backup
 
@@ -215,6 +252,6 @@ To enable a backup hook as part of the backup configuration flow to back up MySQ
 
 ## Next steps
 
-- [Restore an Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
+- Restore an Azure Kubernetes Service cluster using [Azure portal](azure-kubernetes-service-cluster-restore.md), [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)

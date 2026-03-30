@@ -1,15 +1,20 @@
 ---
-title: "Deployment step 4: compute nodes - VM images component"
-description: Learn about the configuration of virtual machine (VM) images during migration deployment step four.
+title: Configure Azure HPC VM images (AlmaLinux, Ubuntu HPC)
+description: Deploy and customize Azure HPC VM images with pre-installed drivers, MPI libraries, and GPU support for HPC workloads.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
+# Customer intent: "As an HPC system administrator, I want to configure VM images with the necessary libraries and drivers, so that I can ensure optimal performance for high-performance computing applications during migration."
 ---
 
-# Deployment step 4: compute nodes - VM images component
+# Configure Azure HPC VM images
 
 A Virtual Machine (VM) image is a snapshot of a virtual machine's operating system, software, configurations, and data stored at a specific point in time. It's a valuable asset that encapsulates most of what is required to enable virtual machines to run end-user jobs.
 

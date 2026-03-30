@@ -6,8 +6,9 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 02/21/2024
+ms.date: 11/05/2025
 ms.author: alkohli
+ms.custom: sfi-ropc-nochange
 ---
 # Manage an Azure Stack Edge Pro GPU device via Windows PowerShell
 
@@ -62,7 +63,7 @@ If the compute role is configured on your device, you can also get the GPU drive
 
 ## Enable Multi-Process Service (MPS)
 
-A Multi-Process Service (MPS) on Nvidia GPUs provides a mechanism where GPUs can be shared by multiple jobs, where each job is allocated some percentage of the GPU's resources. MPS is a preview feature on your Azure Stack Edge Pro GPU device. To enable MPS on your device, follow these steps:
+A Multi-Process Service (MPS) on NVIDIA GPUs provides a mechanism where GPUs can be shared by multiple jobs, where each job is allocated some percentage of the GPU's resources. MPS is a preview feature on your Azure Stack Edge Pro GPU device. To enable MPS on your device, follow these steps:
 
 [!INCLUDE [Enable MPS](../../includes/azure-stack-edge-gateway-enable-mps.md)]
 
@@ -91,7 +92,7 @@ If the compute role is configured on your device, you can also get the compute l
     - `Credential`: Provide the username for the network share. When you run this cmdlet, you will need to provide the share password.
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
 
-## Change Kubernetes workload profiles
+<!-- ## Change Kubernetes workload profiles
 
 After you have formed and configured a cluster and you have created new virtual switches, you can add or delete virtual networks associated with your virtual switches. For detailed steps, see [Configure virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-virtual-switches-1).
 
@@ -124,7 +125,7 @@ After virtual switches are created, you can enable the switches for Kubernetes c
     [10.100.10.10]: PS>KubernetesPlatform : AKS
     [10.100.10.10]: PS>KubernetesWorkloadProfile : AP5GC
     [10.100.10.10]: PS>
-    ```
+    ``` -->
 
 ## Change Kubernetes pod and service subnets
 

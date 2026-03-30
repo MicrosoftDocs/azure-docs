@@ -1,11 +1,12 @@
 ---
-title: Create an Azure File Sync server endpoint
+title: Create an Azure File Sync Server Endpoint
 description: Understand the options during server endpoint creation and how to best apply them to your situation.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 07/16/2025
 ms.author: kendownie
+# Customer intent: As an IT admin deploying Azure File Sync, I want to create a server endpoint, so that I can synchronize files between my registered server and Azure cloud storage.
 ---
 
 # Create an Azure File Sync server endpoint
@@ -27,6 +28,7 @@ To create a server endpoint, you must first ensure that the following criteria a
 - Ensure that a Storage Sync Service has been deployed. See [How to deploy Azure File Sync](file-sync-deployment-guide.md) for details on how to deploy a Storage Sync Service. 
 - Ensure that a sync group has been deployed. Learn how to [Create a sync group](file-sync-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint).
 - Ensure that the server is connected to the internet and that Azure is accessible. Azure File Sync uses port 443 for all communication between the server and cloud service.
+- Ensure that you're within the allowed limits for creating endpoints. See [Azure File Sync Scale Targets](../file-sync/file-sync-scale-targets.md) for details on scalability and performance targets.
 
 ## Create a server endpoint
 
@@ -56,10 +58,10 @@ There are two fundamentally different initial sync behaviors:
     :::column:::
         Merge is the standard option and selected by default. You should leave the selection on **Merge** unless for certain migration scenarios. 
 * When joining a server location, in most scenarios either the server location or the cloud share is empty. In these cases, **Merge** is the right behavior and will lead to expected results. 
-* When both locations contain files and folders, the namespaces will merge. If there are files or folder names on the server that also exist in the cloud share, there will be a sync conflict. [Conflicts are automatically resolved](../files/storage-files-faq.md#afs-conflict-resolution). </br> </br> Within the **Merge** option, there is a selection to be made for how content from the Azure file share will initially arrive on the server. This selection has no impact if the Azure file share is empty. You can find more details in the upcoming paragraph: [Initial download](#initial-download-section)
+* When both locations contain files and folders, the namespaces will merge. If there are files or folder names on the server that also exist in the cloud share, there will be a sync conflict. [Conflicts are automatically resolved](../files/storage-files-faq.md#afs-conflict-resolution). </br> </br> Within the **Merge** option, you can select how content from the Azure file share will initially arrive on the server. This selection has no impact if the Azure file share is empty. You can find more details in the [Initial download section](#initial-download-section).
     :::column-end:::
     :::column:::
-        **Authoritative upload** is an initial sync option reserved for a specific migration scenario. Syncing the same server path that was also used to seed the cloud share with for instance Azure Data Box. In this case, the cloud and the server locations have mostly the same data but the server is slightly newer. Users kept making changes while Data Box was in transport. This migration scenario then calls for updating the cloud seamlessly with the changes on the server (newer) without producing any conflicts. So the server is the authority of the shape of the namespace and Data Box was used to avoid large-scale initial upload from the server. Server authoritative upload enables a zero-downtime adoption of the cloud, even when an offline data transport mechanism was used to seed the cloud storage.
+        **Authoritative upload** is an initial sync option reserved for a specific migration scenario. It syncs the same server path that was also used to seed the cloud share with for instance Azure Data Box. In this case, the cloud and the server locations have mostly the same data, but the server is slightly newer. Users kept making changes while Data Box was in transport. This migration scenario then calls for updating the cloud seamlessly with the changes on the server (newer) without producing any conflicts. So the server is the authority of the shape of the namespace and Data Box was used to avoid large-scale initial upload from the server. Server authoritative upload enables a zero-downtime adoption of the cloud, even when an offline data transport mechanism was used to seed the cloud storage.
     :::column-end:::
 :::row-end:::
 
@@ -77,20 +79,20 @@ The **Initial download** section is available for the second and any more server
 > [!NOTE]
 > Selecting an initial download option has no impact if the Azure file share is empty.
 
-As part of this section, a choice can be made for how content from the Azure file share will initially arrive on the server:
+As part of this section, you choose how content from the Azure file share will initially arrive on the server.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/file-sync-server-endpoint-create/initial-download-options.png" alt-text="An image describing the options in the create server endpoint Azure portal wizard." lightbox="media/file-sync-server-endpoint-create/initial-download-options-expanded.png":::
-    :::column-end:::
-    :::column:::
-* **Namespace only** </br> Will bring only the file and folder structure from the Azure file share to the local server. None of the file content is downloaded. This option is the default if you previously enabled cloud tiering for this new server endpoint.
-* **Namespace first, then content** </br> For a faster availability of the data, your namespace is brought down first, independent of your cloud tiering setting. Once the namespace is available on the server, the file content is then recalled from the cloud to the server. Recall happens based on the last-modified timestamp on each file. If the free space on server volume is less than 10%, the remaining files will remain tiered files. This option is the default if you didn't turn on cloud tiering for this server endpoint.
-* **Avoid tiered files** </br> This option will download each file in its entirety before the file shows up in the folder on server. This option avoids a tiered file to ever exist on the server. A namespace item and file content are always present at the same time. Avoid this option if fast disaster recovery from the cloud is your reason for creating a server endpoint. If you have applications that require full files to be present and can't tolerate tiered files in their namespace, this is ideal. This option isn't available if you're using cloud tiering for your new server endpoint.
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/file-sync-server-endpoint-create/initial-download-options.png" alt-text="An image describing the options in the create server endpoint Azure portal wizard." lightbox="media/file-sync-server-endpoint-create/initial-download-options-expanded.png":::
 
-Once you select an initial download option, you can't change it after you confirm to create the server endpoint. 
+|  | Download the namespace first | Download the namespace only | Avoid tiered files |
+|:----------------:|-----------|------------|------------|
+| **Description** | Downloads the entire namespace first. File content is recalled from the cloud as a background activity to the server based on the heat map, which recalls recent accessed data sooner. If the free space on server volume is less than 10%, the remaining files will remain tiered files. | Only the namespace (file and folder structure) is downloaded. No file content is brought to the server. | Downloads each file in its entirety before the file shows up in the folder on server. This option avoids a tiered file to ever exist on the server. A namespace item and file content are always present at the same time. |
+| **Default settings** | Default if cloud tiering isn't enabled for this server endpoint. | Default if cloud tiering is enabled for this server endpoint. | Not selected as a default option. This option is only available when cloud tiering isn't enabled. |
+| **Behavior when tiering is enabled** | When cloud tiering is enabled, the background recall of the tiered files will stop as soon as it meets the criteria for the specified cloud tiering policy (respects volume free policy and date policy too, if present). | Only the namespace (file and folder structure) is downloaded. No file content is brought to the server. | Option not available. |
+| **Behavior when tiering isn't enabled** | When cloud tiering isn't enabled, the intent is to recall all the data to the server endpoint via background recall. You would need to provision a volume that is large enough to accommodate all of the data. If the volume doesn't have enough free space, some files will be left as tiered even when cloud tiering is disabled. | Only the namespace (file and folder structure) is downloaded. No file content is brought to the server. | Downloads each file in its entirety before the file shows up in the folder on server. |
+| **When to use** | <ul><li>When users need quick access to recent files soon after the namespace is downloaded, and most data is present in the Azure file share at provisioning time. Customers with low bandwidth may also benefit from the background recall after initial provisioning.  For more details on recalling tiered files, see [How to manage Azure File Sync tiered files](file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).</li><li>Best suited for Azure File Sync server-side disaster recovery scenarios where server path starts out as empty folder, for example a new server endpoint in branch office.</li></ul> | Ideal for applications that need to recall data less often or only small amount of data on-demand. | <ul><li>When all data must always be available locally without relying on tiering.</li><li>Ideal for applications requiring access to all the files at all times.</li><li>Useful in low bandwidth servers where we do not want tiered files for data access performance issues.</li></ul> |
+| **Implications** | The CPU/memory should be sized based on the namespace scale and resource needs to avoid I/O performance issues. For details, see [Recommended System Resources for Azure File Sync](file-sync-planning.md#recommended-system-resources) | - | <ul><li>Volume should have enough space to store all the data. Initial download will likely take much longer due to the need for downloading all file content.</li><li>Not suitable for fast disaster recovery as this is slower than the first two options.</li></ul> |
+
+After you select an initial download option, you can't change it after you confirm to create the server endpoint. 
 
 > [!NOTE]
 > When adding a server endpoint and files exist in the Azure file share, if you choose to download the namespace first, files will show up as tiered until they're downloaded locally. Files are downloaded using a single thread by default to limit network bandwidth usage. To improve the file download performance, use the [Invoke-StorageSyncFileRecall](file-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) cmdlet with a thread count greater than 1.
@@ -117,16 +119,17 @@ Currently, provisioning steps are only displayed when the new server endpoint be
 #### Provisioning status
 
 Here are the different statuses that are displayed when server endpoint provisioning is in progress and what they mean:
-* In progress: SEP isn't ready for user access.
+
+* In progress: The server endpoint isn't ready for user access.
 * Ready (sync not functional): Users can access data, but changes won't sync to cloud file share.
-* Ready (sync functional): Users can access data and changes will be synced to the cloud share making the endpoint fully functional.
+* Ready (sync functional): Users can access data and changes will be synced to the cloud share, making the endpoint fully functional.
 * Failed: Provisioning failed because of an error.
 
 The provisioning steps tab is only visible in the Azure portal for supported scenarios. It won't be available or visible for unsupported scenarios.
 
 ## Next steps
 
-There's more to discover about Azure file shares and Azure File Sync. The following articles will help you understand advanced options and best practices. They also provide help with troubleshooting. These articles contain links to the [Azure file share documentation](../files/storage-files-introduction.md) where appropriate.
+There's more to discover about Azure file shares and Azure File Sync. The following articles will help you understand advanced options, best practices, and troubleshooting.
 
 * [Migration overview](../files/storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)

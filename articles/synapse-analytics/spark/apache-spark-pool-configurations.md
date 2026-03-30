@@ -1,14 +1,13 @@
 ---
 title: Apache Spark pool concepts
 description: Introduction to Apache Spark pool sizes and configurations in Azure Synapse Analytics.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.custom: references_regions
-author: guyhay
-ms.author: guyhay
-ms.reviewer: whhender
-ms.date: 09/07/2022 
+author: ajagadish-24
+ms.author: ajagadish
+ms.date: 12/06/2024
 ---
 
 # Apache Spark pool configurations in Azure Synapse Analytics
@@ -53,7 +52,7 @@ Autoscale for Apache Spark pools allows automatic scale up and down of compute r
 Apache Spark pools now support elastic pool storage. Elastic pool storage allows the Spark engine to monitor worker node temporary storage and attach extra disks if needed. Apache Spark pools utilize temporary disk storage while the pool is instantiated. Spark jobs write shuffle map outputs, shuffle data and spilled data to local VM disks. Examples of operations that could utilize local disk are sort, cache, and persist. When temporary VM disk space runs out, Spark jobs could fail due to “Out of Disk Space” error (java.io.IOException: No space left on device). With “Out of Disk Space” errors, much of the burden to prevent jobs from failing shifts to the customer to reconfigure the Spark jobs (for example, tweak the number of partitions) or clusters (for example, add more nodes to the cluster). These errors might not be consistent, and the user might end up experimenting heavily by running production jobs. This process can be expensive for the user in multiple dimensions:
 
 * Wasted time. Customers are required to experiment heavily with job configurations via trial and error and are expected to understand Spark’s internal metrics to make the correct decision.
-* Wasted resources. Since production jobs can process varying amount of data, Spark jobs can fail non-deterministically if resources aren't over-provisioned. For instance, consider the problem of data skew, which could result in a few nodes requiring more disk space than others. Currently in Synapse, each node in a cluster gets the same size of disk space and increasing disk space across all nodes isn't an ideal solution and leads to tremendous waste.
+* Wasted resources. Since production jobs can process varying amount of data, Spark jobs can fail nondeterministically if resources aren't over-provisioned. For instance, consider the problem of data skew, which could result in a few nodes requiring more disk space than others. Currently in Synapse, each node in a cluster gets the same size of disk space and increasing disk space across all nodes isn't an ideal solution and leads to tremendous waste.
 * Slowdown in job execution. In the hypothetical scenario where we solve the problem by autoscaling nodes (assuming costs aren't an issue to the end customer), adding a compute node is still expensive (takes a few minutes) as opposed to adding storage (takes a few seconds).
 
 No action is required by you, plus you should see fewer job failures as a result.
@@ -65,7 +64,7 @@ No action is required by you, plus you should see fewer job failures as a result
 
 The automatic pause feature releases resources after a set idle period, reducing the overall cost of an Apache Spark pool. The number of minutes of idle time can be set once this feature is enabled. The automatic pause feature is independent of the autoscale feature. Resources can be paused whether the autoscale is enabled or disabled. This setting can be altered after pool creation although active sessions will need to be restarted.
 
-## Next steps
+## Related content
 
 * [Azure Synapse Analytics](../index.yml)
 * [Apache Spark Documentation](https://spark.apache.org/docs/3.2.1/)

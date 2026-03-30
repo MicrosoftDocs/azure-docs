@@ -2,12 +2,12 @@
 title: TLS support with DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Best practices in using secure TLS connections for devices and services communicating with the IoT Device Provisioning Service (DPS)
-author: kgremban
-
-ms.author: kgremban
-ms.service: iot-dps
+author: cwatson-cat
+ms.author: cwatson
+ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 09/15/2022
+ms.date: 11/27/2024
+ms.subservice: azure-iot-hub-dps
 ---
 
 # TLS support in Azure IoT Hub Device Provisioning Service (DPS)
@@ -58,7 +58,7 @@ az deployment group create -g <your resource group name> --template-file templat
 
 For more information on creating DPS resources with Resource Manager templates, see, [Set up DPS with an Azure Resource Manager template](quick-setup-auto-provision-rm.md).
 
-The DPS resource created using this configuration will refuse devices that attempt to connect using TLS versions 1.0 and 1.1.
+The DPS resource created using this configuration refuses devices that attempt to connect using TLS versions 1.0 and 1.1.
 
 > [!NOTE]
 > The `minTlsVersion` property is read-only and cannot be changed once your DPS resource is created. It is therefore essential that you properly test and validate that *all* your IoT devices are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
@@ -76,7 +76,7 @@ DPS instances enforce the use of the following recommended and legacy cipher sui
 
 ### Legacy cipher suites
 
-These cipher suites are currently still supported by DPS but will be depreciated. Use the recommended cipher suites above if possible.
+These cipher suites are still supported by DPS but will be depreciated. Use the recommended cipher suites if possible.
 
 | Option #1 (better security) |
 | :--- |
@@ -90,9 +90,36 @@ These cipher suites are currently still supported by DPS but will be depreciated
 
 When DPS enrollments are configured for X.509 authentication, mutual TLS (mTLS) is supported by DPS.
 
-## Certificate pinning
+## Server TLS certificate
 
-[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (aka leaf certificates) and intermediate certificates associated with DPS endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
+During a TLS handshake, DPS presents RSA-keyed server certificates to connecting clients. All DPS instances in the global Azure cloud use the TLS certificate issued by the DigiCert Global Root G2 certificate. 
+
+We also recommend adding the Microsoft RSA Root Certificate Authority 2017 certificates to your devices to prevent disruptions in case the DigiCert Global Root G2 is retired unexpectedly. Although root CA migrations are rare, for resilience in the modern security landscape you should prepare your IoT scenario for the unlikely event that a root CA is compromised or an emergency root CA migration is necessary.
+
+We strongly recommend that all devices trust the following root CAs:
+
+* DigiCert Global G2 root CA
+* Microsoft RSA root CA 2017
+
+For links to download these certificates, see [Azure Certificate Authority details](../security/fundamentals/azure-CA-details.md).
+
+### Certificate trust in the SDKs
+
+The [Azure IoT device SDKs](../iot-hub/iot-hub-devguide-sdks.md) connect and authenticate devices to Azure IoT services. The different SDKs manage certificates in different ways depending on the language and version, but most rely on the device's trusted certificate store rather than pinning certificates directly in the codebase. This approach provides flexibility and resilience to handle future changes in root certificates. 
+
+The following table summarizes which SDK versions support the trusted certificate store:
+
+| Azure IoT device SDK | Supported versions |
+| -------------------- | ------------------ |
+| C | All currently supported versions |
+| C# | All currently supported versions |
+| Java | Version 2.x.x and higher |
+| Node.js | All currently supported versions |
+| Python | All currently supported versions |
+
+### Certificate pinning
+
+[Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates (also known as leaf certificates) and intermediate certificates associated with DPS endpoints is discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates.
 
 ## Use TLS 1.2 in the IoT SDKs
 
@@ -104,11 +131,11 @@ Use the links below to configure TLS 1.2 and allowed ciphers in the Azure IoT cl
 | Python   | Version 2.0.0 or newer             | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
 | C#       | Version 1.21.4 or newer            | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
 | Java     | Version 1.19.0 or newer            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Version 1.12.2 or newer            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
+| Node.js   | Version 1.12.2 or newer            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 ## Use TLS 1.2 with IoT Hub
 
-IoT Hub can be configured to use TLS 1.2 when communicating with devices. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md).
+IoT Hub can be configured to use TLS 1.2 when communicating with devices. For more information, see [IoT Hub TLS enforcement](../iot-hub/iot-hub-tls-support.md#enforce-iot-hub-to-use-tls-12-and-strong-cipher-suites).
 
 ## Use TLS 1.2 with IoT Edge
 

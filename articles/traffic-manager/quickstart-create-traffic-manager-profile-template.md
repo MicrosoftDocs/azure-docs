@@ -2,12 +2,13 @@
 title: 'Quickstart: Create a Traffic Manager by using Azure Resource Manager template (ARM template)'
 description: This quickstart article describes how to create an Azure Traffic Manager profile by using Azure Resource Manager template (ARM template).
 services: traffic-manager
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.date: 02/19/2023
 ms.topic: quickstart
 ms.service: azure-traffic-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to create a Traffic Manager profile using an ARM template, so that I can efficiently manage traffic routing with external endpoints across regions."
 ---
 
 # Quickstart: Create a Traffic Manager profile using an ARM template
@@ -22,7 +23,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 

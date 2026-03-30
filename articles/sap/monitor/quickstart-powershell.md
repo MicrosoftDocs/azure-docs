@@ -18,7 +18,7 @@ In this quickstart, get started with Azure Monitor for SAP solutions by using th
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module. Connect to your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps). Alternately, you can use [Azure Cloud Shell](../../cloud-shell/overview.md).
 
   Install the **Az.Workloads** PowerShell module by running this command:
@@ -31,7 +31,7 @@ In this quickstart, get started with Azure Monitor for SAP solutions by using th
 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet:
 
   ```azurepowershell-interactive
-  Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+  Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
   ```
 
 - Create or choose a virtual network for Azure Monitor for SAP solutions that has access to the source SAP system's virtual network.
@@ -57,10 +57,10 @@ To create an SAP monitor, use the [New-AzWorkloadsMonitor](/powershell/module/az
 ```azurepowershell-interactive
 $monitor_name = 'Contoso-AMS-Monitor'
 $rg_name = 'Contoso-AMS-RG'
-$subscription_id = '00000000-0000-0000-0000-000000000000'
+$subscription_id = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 $location = 'eastus'
 $managed_rg_name = 'MRG_Contoso-AMS-Monitor'
-$subnet_id = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ams-vnet-rg/providers/Microsoft.Network/virtualNetworks/ams-vnet-eus/subnets/Contoso-AMS-Monitor'
+$subnet_id = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ams-vnet-rg/providers/Microsoft.Network/virtualNetworks/ams-vnet-eus/subnets/Contoso-AMS-Monitor'
 $route_all = 'RouteAll'
 
 New-AzWorkloadsMonitor -Name $monitor_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id -Location $location -AppLocation $location -ManagedResourceGroupName $managed_rg_name -MonitorSubnet $subnet_id -RoutingPreference $route_all
@@ -79,13 +79,13 @@ Get-AzWorkloadsMonitor -ResourceGroupName Contoso-AMS-RG -Name Contoso-AMS-Monit
 To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a NetWeaver provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
-Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
 In the following code, `hostname` is the host name or IP address for SAP Web Dispatcher or the application server. `SapHostFileEntry` is the IP address, fully qualified domain name, or host name of every instance listed in [GetSystemInstanceList](./provider-netweaver.md#adding-netweaver-provider) point 6 (xi).
 
 ```azurepowershell-interactive
-$subscription_id = '00000000-0000-0000-0000-000000000000'
+$subscription_id = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 $rg_name = 'Contoso-AMS-RG'
 $monitor_name = 'Contoso-AMS-Monitor'
 $provider_name = 'Contoso-AMS-Monitor-NW'
@@ -109,7 +109,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 To create an SAP HANA provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a HANA provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
-$subscription_id = '00000000-0000-0000-0000-000000000000'
+$subscription_id = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 $rg_name = 'Contoso-AMS-RG'
 $monitor_name = 'Contoso-AMS-Monitor'
 $provider_name = 'Contoso-AMS-Monitor-HANA'
@@ -130,7 +130,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 To create an operating system provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates an operating system provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
-$subscription_id = '00000000-0000-0000-0000-000000000000'
+$subscription_id = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 $rg_name = 'Contoso-AMS-RG'
 $monitor_name = 'Contoso-AMS-Monitor'
 $provider_name = 'Contoso-AMS-Monitor-OS'
@@ -147,7 +147,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 To create a high-availability cluster provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a high-availability cluster provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
-$subscription_id = '00000000-0000-0000-0000-000000000000'
+$subscription_id = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 $rg_name = 'Contoso-AMS-RG'
 $monitor_name = 'Contoso-AMS-Monitor'
 $provider_name = 'Contoso-AMS-Monitor-HA'
@@ -166,7 +166,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 To create a Microsoft SQL Server provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates a SQL Server provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
-$subscription_id = '00000000-0000-0000-0000-000000000000'
+$subscription_id = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 $rg_name = 'Contoso-AMS-RG'
 $monitor_name = 'Contoso-AMS-Monitor'
 $provider_name = 'Contoso-AMS-Monitor-SQL'
@@ -186,7 +186,7 @@ New-AzWorkloadsProviderInstance -MonitorName $monitor_name -Name $provider_name 
 To create an IBM Db2 provider, use the [New-AzWorkloadsProviderInstance](/powershell/module/az.workloads/new-azworkloadsproviderinstance) cmdlet. The following example creates an IBM Db2 provider for the specified subscription, resource group, and resource name:
 
 ```azurepowershell-interactive
-$subscription_id = '00000000-0000-0000-0000-000000000000'
+$subscription_id = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 $rg_name = 'Contoso-AMS-RG'
 $monitor_name = 'Contoso-AMS-Monitor'
 $provider_name = 'Contoso-AMS-Monitor-DB2'
@@ -226,7 +226,7 @@ To remove a provider instance, use the
 [Remove-AzWorkloadsProviderInstance](/powershell/module/az.workloads/remove-azworkloadsproviderinstance) cmdlet. The following example deletes an IBM DB2 provider instance for the specified subscription, resource group, SAP monitor name, and resource name:
 
 ```azurepowershell-interactive
-$subscription_id = '00000000-0000-0000-0000-000000000000'
+$subscription_id = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 $rg_name = 'Contoso-AMS-RG'
 $monitor_name = 'Contoso-AMS-Monitor'
 $provider_name = 'Contoso-AMS-Monitor-DB2'
@@ -241,7 +241,7 @@ To remove an SAP monitor, use the [Remove-AzWorkloadsMonitor](/powershell/module
 ```azurepowershell
 $monitor_name = 'Contoso-AMS-Monitor'
 $rg_name = 'Contoso-AMS-RG'
-$subscription_id = '00000000-0000-0000-0000-000000000000'
+$subscription_id = 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 
 Remove-AzWorkloadsMonitor -Name $monitor_name -ResourceGroupName $rg_name -SubscriptionId $subscription_id
 ```

@@ -6,7 +6,7 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 06/06/2022
+ms.date: 06/02/2025
 ms.author: chrupa
 ---
 
@@ -23,7 +23,7 @@ View and download the [CLI scripts](https://github.com/microsoft/healthcare-apis
 ## Role assignments with CLI
 
 You can list application roles by using role names or GUID IDs. Include the role name in double quotes when there are spaces in it. For more information, see
-[List Azure role definitions](./../role-based-access-control/role-definitions-list.yml#azure-cli).
+[List Azure role definitions](/azure/role-based-access-control/role-definitions-list#azure-cli).
 
 ```
 az role definition list --name "FHIR Data Contributor"

@@ -1,8 +1,9 @@
 ---
 title: Creating and using resource files 
 description: Learn how to create Batch resource files from various input sources. This article covers a few common methods on how to create and place them on a VM.
-ms.date: 08/18/2021
+ms.date: 02/07/2025
 ms.topic: how-to
+# Customer intent: As a cloud engineer, I want to create and manage resource files for Azure Batch tasks, so that I can efficiently provide the necessary data for processing on virtual machines.
 ---
 
 # Creating and using resource files
@@ -120,7 +121,7 @@ ResourceFile inputFile = ResourceFile.FromUrl(yourURLFromAzureStorage,
 ```
 
 > [!Note]
-> Managed identity authentication will only work with files in Azure Storage. The nanaged identity needs the `Storage Blob Data Reader` role assignment for the container the file is in, and it must also be [assigned to the Batch pool](managed-identity-pools.md).
+> Managed identity authentication will only work with files in Azure Storage. The managed identity needs the `Storage Blob Data Reader` role assignment for the container the file is in, and it must also be [assigned to the Batch pool](managed-identity-pools.md).
 
 ## Tips and suggestions
 

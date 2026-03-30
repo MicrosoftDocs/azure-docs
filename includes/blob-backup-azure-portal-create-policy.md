@@ -2,17 +2,17 @@
 author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
-ms.date: 05/30/2024
+ms.date: 06/18/2025
 ms.author: v-abhmallick
 ---
 
 ## Create a backup policy
 
-A backup policy defines the schedule and frequency of the recovery points creation, and its retention duration in the Backup vault. You can use a single backup policy for your vaulted backup, operational backup, or both. You can use the same backup policy to configure backup for multiple storage accounts to a vault.
+A backup policy defines the schedule and frequency of the recovery points creation, and its retention duration in the Backup vault. You can use the same backup policy to configure backup for multiple storage accounts to a vault.
 
 To create a backup policy, follow these steps:
 
-1. Go to **Backup center** > **Overview**, and then select **+ Policy**.
+1. Go to **Resiliency** > **Protection policies**, and then select **+ Create Policy** > **Create Backup Policy**.
 
    :::image type="content" source="./media/blob-backup-azure-portal-create-policy/add-policy.png" alt-text="Screenshot shows how to initiate adding backup policy for vaulted blob backup." lightbox="./media/blob-backup-azure-portal-create-policy/add-policy.png":::
 

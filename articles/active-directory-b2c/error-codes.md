@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/13/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -19,12 +19,13 @@ ms.subservice: b2c
 ---
 
 # Error codes: Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The following errors can be returned by the Azure Active Directory B2C service.
 
 | Error code | Message | Notes |
 | ---------- | ------- | ----- |
-| `AADB2C90001` | This user already exists, and profile '{0}' does not allow the same user to be created again. | [Sign-up flow](add-sign-up-and-sign-in-policy.md) |
+| `AADB2C90001` | The server hosting resource '{0}' is not enabled for CORS requests. Ensure that the 'Access-Control-Allow-Origin' header has been configured. | |
 | `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. | [Hosting the page content](customize-ui-with-html.md#hosting-the-page-content) |
 | `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client ID '{1}'. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90007` | The application associated with client ID '{0}' has no registered redirect URIs. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
@@ -52,7 +53,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90040` | User journey '{0}' does not contain a send claims step. | [User journey orchestration steps](userjourneys.md#orchestrationsteps) |
 | `AADB2C90043` | The prompt included in the request contains invalid values. Expected 'none', 'login', 'consent' or 'select_account'. |  |
 | `AADB2C90044` | The claim '{0}' is not supported by the claim resolver '{1}'. | [Claim resolvers](claim-resolver-overview.md) |
-| `AADB2C90046` | We are having trouble loading your current state. You might want to try starting your session over from the beginning. |  |
+| `AADB2C90046` |We are having trouble signing you in. You might want to try starting your session over from the beginning. |  |
 | `AADB2C90047` | The resource '{0}' contains script errors preventing it from being loaded. | [Configure CORS](customize-ui-with-html.md#3-configure-cors) |
 | `AADB2C90048` | An unhandled exception has occurred on the server. |
 | `AADB2C90051` | No suitable claims providers were found. |
@@ -65,7 +66,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C99059` | The supplied request must present a code_challenge. Required for single-page apps using the authorization code flow.| [Authorization code flow](authorization-code-flow.md) |
 | `AADB2C90067` | The post logout redirect URI '{0}' has an invalid format. Specify an https based URL such as 'https://example.com/return' or for native clients use the IETF native client URI 'urn:ietf:wg:oauth:2.0:oob'. | [Send a sign-out request](openid-connect.md#send-a-sign-out-request) |
 | `AADB2C90068` | The provided application with ID '{0}' is not valid against this service. Please use an application created via the B2C portal and try again. | [Register a web application in Azure AD B2C](tutorial-register-applications.md) |
-| `AADB2C90073` | KeyContainer with 'id': '{0}' cannot be found in the directory '{1}' |
+| `AADB2C90073` | {0} with {1}: '{2}' cannot be found in the directory '{3}'. |
 | `AADB2C90075` | The claims exchange '{0}' specified in step '{1}' returned HTTP error response with Code '{2}' and Reason '{3}'. |
 | `AADB2C90077` | User does not have an existing session and request prompt parameter has a value of '{0}'. |
 | `AADB2C90079` | Clients must send a client_secret when redeeming a confidential grant. | [Create a web app client secret](configure-authentication-sample-web-app-with-api.md#step-24-create-a-web-app-client-secret) |
@@ -114,7 +115,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90205` | This application does not have sufficient permissions against this web resource to perform the operation. | [Register web API and configure scopes](configure-authentication-sample-web-app-with-api.md#step-2-register-web-applications) |
 | `AADB2C90206` | A time out has occurred initialization the client. |  |
 | `AADB2C90208` | The provided id_token_hint parameter is expired. Please provide another token and try again. | [Token format](id-token-hint.md#token-format) |
-| `AADB2C90209` | The provided id_token_hint parameter does not contain an accepted audience. Valid audience values: '{0}'. Please provide another token and try again. |[Token format](id-token-hint.md#token-format) |
+| `AADB2C90209` | The provided id_token_hint parameter does not contain an accepted audience. Please provide another token and try again. |[Token format](id-token-hint.md#token-format) |
 | `AADB2C90210` | The provided id_token_hint parameter could not be validated. Please provide another token and try again. |[Token format](id-token-hint.md#token-format), [Issue a token with symmetric keys](id-token-hint.md#how-to-guide) |
 | `AADB2C90211` | The request contained an incomplete state cookie. |
 | `AADB2C90212` | The request contained an invalid state cookie. |
@@ -123,18 +124,18 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90224` | Resource owner flow has not been enabled for the application. | [Register a ROPC flow enabled application](add-ropc-policy.md#register-an-application) |
 | `AADB2C90225` | The username or password provided in the request are invalid. |
 | `AADB2C90226` | The specified token exchange is only supported over HTTP POST. |[Token format](id-token-hint.md#token-format) |
-| `AADB2C90232` | The provided id_token_hint parameter does not contain an accepted issuer. Valid issuers: '{0}'. Please provide another token and try again. |
+| `AADB2C90232` | The provided id_token_hint parameter does not contain an accepted issuer. Please provide another token and try again. |
 | `AADB2C90233` | The provided id_token_hint parameter failed signature validation. Please provide another token and try again. | [Issue a token with symmetric keys](id-token-hint.md#how-to-guide) |
-| `AADB2C90235` | The provided id_token is expired. Please provide another token and try again. | [Token format](id-token-hint.md#token-format) |
-| `AADB2C90237` | The provided id_token does not contain a valid audience. Valid audience values: '{0}'. Please provide another token and try again. | [Token format](id-token-hint.md#token-format) |
-| `AADB2C90238` | The provided id_token does not contain a valid issuer. Valid issuer values: '{0}'. Please provide another token and try again. | [Token format](id-token-hint.md#token-format) |
-| `AADB2C90239` | The provided id_token failed signature validation. Please provide another token and try again. | [Issue a token with symmetric keys](id-token-hint.md#how-to-guide) |
-| `AADB2C90240` | The provided id_token is malformed and could not be parsed. Please provide another token and try again. | [Issue a token with symmetric keys](id-token-hint.md#how-to-guide) |
+| `AADB2C90235` | The provided token is expired. Please provide another token and try again. | [Token format](id-token-hint.md#token-format) |
+| `AADB2C90237` | The provided token does not contain a valid audience. Please provide another token and try again. | [Token format](id-token-hint.md#token-format) |
+| `AADB2C90238` | The provided token does not contain a valid issuer. Please provide another token and try again. | [Token format](id-token-hint.md#token-format) |
+| `AADB2C90239` | The provided token failed signature validation. Please provide another token and try again. | [Issue a token with symmetric keys](id-token-hint.md#how-to-guide) |
+| `AADB2C90240` | The provided token is malformed and could not be parsed. Please provide another token and try again. | [Issue a token with symmetric keys](id-token-hint.md#how-to-guide) |
 | `AADB2C90242` | The SAML technical profile '{0}' specifies PartnerEntity CDATA which cannot be loaded for reason '{1}'. | [Configure the SAML technical profile](identity-provider-generic-saml.md#configure-the-saml-technical-profile) |
 | `AADB2C90243` | The IDP's client key/secret is not properly configured. | [Add an IDP to your Azure AD B2C tenant](add-identity-provider.md) |
 | `AADB2C90244` | There are too many requests at this moment. Please wait for some time and try again. | [Azure AD B2C service limits and restrictions](service-limits.md) |
 | `AADB2C90248` | Resource owner flow can only be used by applications created through the B2C admin portal. | [Register a ROPC flow enabled application](add-ropc-policy.md#register-an-application) |
-| `AADB2C90250` | The generic login endpoint is not supported. |  [Supported and unsupported SAML modalities](saml-service-provider.md#supported-and-unsupported-saml-modalities) |
+| `AADB2C90250` | SAML IDP initiated SSO is not enabled for this policy. |  [Supported and unsupported SAML modalities](saml-service-provider.md#supported-and-unsupported-saml-modalities) |
 | `AADB2C90255` | The claims exchange specified in technical profile '{0}' did not complete as expected. You might want to try starting your session over from the beginning. |
 | `AADB2C90261` | The claims exchange '{0}' specified in step '{1}' returned HTTP error response that could not be parsed. |
 | `AADB2C90272` | The id_token_hint parameter has not been specified in the request. Please provide token and try again. | [Issue a token with symmetric keys](id-token-hint.md#how-to-guide) |
@@ -145,16 +146,16 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90279` | The provided client ID '{0}' does not match the client ID that issued the grant. | [Web sign-in with OpenID Connect](openid-connect.md) |
 | `AADB2C90284` | The application with identifier '{0}' has not been granted consent and is unable to be used for local accounts. | [Register a web application in Azure AD B2C](tutorial-register-applications.md) |
 | `AADB2C90285` | The application with identifier '{0}' was not found. | [Register a web application in Azure AD B2C](tutorial-register-applications.md) |
-| `AADB2C90288` | UserJourney with ID '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
 | `AADB2C90287` | The request contains invalid redirect URI '{0}'.| [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
+| `AADB2C90288` | UserJourney with ID '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
 | `AADB2C90289` | We encountered an error connecting to the identity provider. Please try again later. |  [Add an IDP to your Azure AD B2C tenant](add-identity-provider.md) |
-| `AADB2C90289` | We encountered an 'invalid_client' error connecting to the identity provider. Please try again later. | Make sure the application secret is correct or it hasn't expired. Learn how to [Register apps](register-apps.md).|
+| `AADB2C90289` | We encountered an '{0}' error connecting to the identity provider. Please try again later. | Make sure the application secret is correct or it hasn't expired. Learn how to [Register apps](register-apps.md).|
 | `AADB2C90296` | Application has not been configured correctly. Please contact administrator of the site you are trying to access. | [Register a web application](tutorial-register-applications.md) |
+| `AADB2C99002` | This user does not exist and profile '{0}' requires the user to have already been created. |
 | `AADB2C99005` | The request contains an invalid scope parameter which includes an illegal character '{0}'. | [Web sign-in with OpenID Connect](openid-connect.md) | 
-| `AADB2C99006` | Azure AD B2C cannot find the extensions app with app ID '{0}'. Please visit https://go.microsoft.com/fwlink/?linkid=851224 for more information. | [Azure AD B2C extensions app](extensions-app.md) |
+| `AADB2C99006` | Azure AD cannot find the extensions app with app id '{0}'. Please visit https://go.microsoft.com/fwlink/?linkid=851224 for more information. | [Azure AD B2C extensions app](extensions-app.md) |
 | `AADB2C99011` | The metadata value '{0}' has not been specified in TechnicalProfile '{1}' in policy '{2}'. | [Custom policy Technical profiles](technicalprofiles.md) |
 | `AADB2C99013` | The supplied grant_type [{0}] and token_type [{1}] combination is not supported. |
 | `AADB2C99015` | Profile '{0}' in policy '{1}' in tenant '{2}' is missing all InputClaims required for resource owner password credential flow. | [Create a resource owner policy](add-ropc-policy.md#create-a-resource-owner-policy) |
-|`AADB2C99002`| User doesn't exist. Please sign up before you can sign in. |
 | `AADB2C99027` | Policy '{0}' does not contain an AuthorizationTechnicalProfile with a corresponding ClientAssertionType. | [Client credentials flow](client-credentials-grant-flow.md) |
-|`AADB2C90229`|Azure AD B2C throttled traffic if too many requests are sent from the same source in a short period of time| [Best practices for Azure Active Directory B2C](best-practices.md#testing) |
+|`AADB2C90229`|Your request is throttled temporarily. Please retry after the time specified in the additional information of the error message. | [Best practices for Azure Active Directory B2C](best-practices.md#testing) |

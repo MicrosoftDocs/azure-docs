@@ -2,16 +2,20 @@
 title: Expose a WebSocket server to Application Gateway
 description: This article provides information on how to expose a WebSocket server to Application Gateway with an ingress controller for AKS clusters. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 08/01/2023
-ms.author: greglin
+ms.date: 02/28/2025
+ms.author: mbender
+# Customer intent: "As a cloud architect, I want to expose a WebSocket server through an application gateway using Kubernetes, so that I can ensure real-time communication capabilities are accessible and properly managed within my AKS cluster."
 ---
 
 # Expose a WebSocket server to Application Gateway
 
 Azure Application Gateway v2 [provides native support for the WebSocket and HTTP/2 protocols](features.md#websocket-and-http2-traffic). Both Application Gateway and the Kubernetes ingress don't have a user-configurable setting to selectively enable or disable WebSocket support.
+
+> [!TIP]
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## YAML for WebSocket server deployment
 
@@ -73,7 +77,7 @@ spec:
               servicePort: 80
 ```
 
-Assuming that all the prerequisites are fulfilled, and you have an Application Gateway instance controlled by a Kubernetes ingress in Azure Kubernetes Service (AKS), the preceding deployment would result in a WebSocket server exposed on port 80 of your Application Gateway instance's public IP address and the `ws.contoso.com` domain.
+Assuming that all the prerequisites are fulfilled, and you have an Application Gateway deployment controlled by a Kubernetes ingress in Azure Kubernetes Service (AKS), the preceding deployment would result in a WebSocket server exposed on port 80 of your Application Gateway deployment's public IP address and the `ws.contoso.com` domain.
 
 The following cURL command would test the WebSocket server deployment:
 
@@ -98,4 +102,5 @@ To avoid the `502 Bad Gateway` error, you might need to add an HTTP `GET` handle
 
 ## Related content
 
-- [What is Application Gateway for Containers?](for-containers/overview.md)
+- [Application Gateway for Containers](for-containers/overview.md)
+- [Application Gateway for Containers - WebSocket support](for-containers/websockets.md)

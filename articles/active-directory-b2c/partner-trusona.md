@@ -10,13 +10,16 @@ ms.date: 10/11/2024
 ms.author: gasinh
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 # Customer intent: I'm a developer integrating Azure AD B2C authentication with Trusona Authentication Cloud. I want to configure Trusona Authentication Cloud as an identity provider (IdP) in Azure AD B2C, so I can enable passwordless authentication and provide a better user experience for my web application users.
 ---
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C
 
-In this sample tutorial, you learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+In this sample tutorial, you learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/white-papers). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
 
 Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 -	Deliver strong authentication with a better user experience
@@ -39,7 +42,7 @@ Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 To get started, you need:
 
 - A Trusona Authentication Cloud trial account. To request an account, [contact Trusona](mailto:info@trusona.com).
-- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ::: zone pivot="b2c-custom-policy"
@@ -73,7 +76,7 @@ In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to
 
 ## Step 1: Onboard with Trusona Authentication Cloud
 
-1.	Sign in to the [Trusona Portal](https://portal.trusona.io).
+1.	Sign in to the [Trusona Portal](https://portal.trusona.com/).
 2.	From the left navigation panel, select **Settings**
 3.	In the Settings menu, select the slider to **Enable OIDC**.
 4.	Select the appropriate **Inputs** and provide the **Redirect URL** `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.
@@ -271,19 +274,19 @@ Use the following steps to add Trusona as a claims provider:
         <Item Key="METADATA">https://authcloud.trusona.net/.well-known/openid-configuration</Item>
         <Item Key="scope">openid profile email</Item>
          <!-- Update the Client ID to the Trusona Authentication Cloud Application ID -->
-         <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+         <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
         <Item Key="response_types">code</Item>
         <Item Key="response_mode">form_post</Item>
         <Item Key="HttpBinding">POST</Item>
         <Item Key="UsePolicyInRedirectUri">false</Item>
         <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
         <!-- trying to add additional claim-->
-        <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->
-        <Item Key="11111111-1111-1111-1111-111111111111"></Item>
-        <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-        <Item Key="11111111-1111-1111-1111-111111111111"></Item>
+        <!--Insert b2c-extensions-app application ID here, for example: 00001111-aaaa-2222-bbbb-3333cccc4444-->
+        <Item Key="00001111-aaaa-2222-bbbb-3333cccc4444"></Item>
+        <!--Insert b2c-extensions-app application ObjectId here, for example: aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb-->
+        <Item Key="00001111-aaaa-2222-bbbb-3333cccc4444"></Item>
         <!-- The key allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs for each tenant. -->
-        <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/187f16e9-81ab-4516-8db7-1c8ef94ffeca,https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>-->
+        <!--<Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/187f16e9-81ab-4516-8db7-1c8ef94ffeca,https://login.microsoftonline.com/00001111-aaaa-2222-bbbb-3333cccc4444</Item>-->
         <!-- The commented key specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
         <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item>
         
@@ -495,7 +498,7 @@ For additional information, review the following articles:
 
 - [Azure AD B2C docs](solution-articles.md)
 
-- [Ask your question on Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+- [Ask your question on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 
 - [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 

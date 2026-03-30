@@ -3,23 +3,28 @@ title: Install your custom Apache Hadoop applications on Azure HDInsight
 description: Learn how to install HDInsight applications for Apache Hadoop clusters in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
-ms.date: 01/04/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 01/02/2025
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
 ---
 
 # Install custom Apache Hadoop applications on Azure HDInsight
 
 In this article, you'll learn how to install an [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight, which hasn't been published to the Azure portal. The application you'll install in this article is [Hue](https://gethue.com/).
 
-An HDInsight application is an application that users can install on an HDInsight cluster.  These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself.  
+An HDInsight application is an application that users can install on a HDInsight cluster.  These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself.  
 
 ## Prerequisites
 
-If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md). You can also install HDInsight applications when you create an HDInsight cluster.
+If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md). You can also install HDInsight applications when you create a HDInsight cluster.
 
 ## Install HDInsight applications
 
-HDInsight applications can be installed when you create a cluster or to an existing HDInsight cluster. For defining Azure Resource Manager templates, see [MSDN: Install an HDInsight application](/rest/api/hdinsight/hdinsight-application).
+HDInsight applications can be installed when you create a cluster or to an existing HDInsight cluster. For defining Azure Resource Manager templates, see [MSDN: Install a HDInsight application](/rest/api/hdinsight/hdinsight-application).
 
 The files needed for deploying this application (Hue):
 
@@ -101,13 +106,13 @@ If an application installation failed, you can see the error messages and debug 
 
     Open the cluster from the portal, and select Applications from Settings:
 
-    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text="hdinsight applications application installation error.":::
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text=" Screenshot of HDInsight application installation error.":::
 
 * HDInsight script action: If the HDInsight Applications' error message indicates a script action failure, more details about the script failure will be presented in the script actions pane.
 
     Select Script Action from Settings. Script action history shows the error messages
 
-    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text="hdinsight applications script action error.":::
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text=" Screenshot of HDInsight applications script action error.":::
 
 * Apache Ambari Web UI: If the install script was the cause of the failure, use Ambari Web UI to check full logs about the install scripts.
 

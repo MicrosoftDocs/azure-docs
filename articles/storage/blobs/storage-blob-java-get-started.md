@@ -3,26 +3,32 @@ title: Get started with Azure Blob Storage client library for Java
 titleSuffix: Azure Storage
 description: Get started developing a Java application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
 services: storage
-author: pauljewellmsft
-
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 10/02/2024
-ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+ms.date: 10/18/2024
+ms.custom:
+  - devx-track-java
+  - devguide-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
+# Customer intent: "As a Java developer, I want to integrate my application with Azure Blob Storage, so that I can effectively manage and interact with large amounts of unstructured data."
 ---
 
 # Get started with Azure Blob Storage and Java
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Java. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Java. Once connected, use the [developer guides](#build-your-app) to learn how your code can operate on containers, blobs, and features of the Blob Storage service.
+
+If you're looking to start with a complete example, see [Quickstart: Azure Blob Storage client library for Java](storage-quickstart-blobs-java.md).
 
 [API reference](/java/api/overview/azure/storage-blob-readme) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Samples](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 - [Apache Maven](https://maven.apache.org/download.cgi) is used for project management in this example
@@ -177,6 +183,20 @@ For information about how to obtain account keys and best practice guidelines fo
 > The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 ---
+
+## Configure the JVM TTL for DNS name lookups
+
+The Java Virtual Machine (JVM) caches responses from successful DNS name lookups for a specified period of time, known as time-to-live (TTL). The default TTL value for many JVMs is `-1`, which means that the JVM caches the response indefinitely, or until the JVM is restarted.
+
+Because Azure resources use DNS name entries that can change, we recommend that you set the JVM TTL value to 10 seconds. This configuration ensures that an updated IP address for a resource is returned with the next DNS query.
+
+To change the TTL value globally for all applications using the JVM, set the `networkaddress.cache.ttl` property in the `java.security` file.
+
+```plaintext
+networkaddress.cache.ttl=10
+```
+
+For Java 8, the `java.security` file is located in the `$JAVA_HOME/jre/lib/security` directory. For Java 11 and higher, the file is located in the `$JAVA_HOME/conf/security` directory.
 
 ## Build your app
 

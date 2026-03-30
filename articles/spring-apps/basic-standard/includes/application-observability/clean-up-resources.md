@@ -3,11 +3,12 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 10/02/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--
-For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal.
+For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure portal.
 [!INCLUDE [clean-up-resources-portal](includes/application-observability/clean-up-resources.md)]
 -->
 

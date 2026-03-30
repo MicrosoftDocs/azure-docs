@@ -3,10 +3,13 @@ title: Configure custom domain suffix for App Service Environment
 description: Configure a custom domain suffix for the Azure App Service Environment.
 author: seligj95
 ms.topic: tutorial
-ms.custom: devx-track-arm-template
 ms.date: 05/06/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-environment-portal-arm
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Custom domain suffix for App Service Environments
@@ -14,10 +17,6 @@ zone_pivot_groups: app-service-environment-portal-arm
 An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. The DNS settings for your App Service Environment's default domain suffix don't restrict your apps to only being accessible by those names. Custom domain suffix is an internal load balancer (ILB) App Service Environment feature that allows you to use your own domain suffix to access the apps in your App Service Environment.
 
 If you don't have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
-
-> [!NOTE]
-> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
-> 
 
 The custom domain suffix defines a root domain used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*. For ILB App Service Environments, the default root domain is *appserviceenvironment.net*. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of *internal.contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing *APP-NAME.internal.contoso.com*.
 
@@ -110,14 +109,14 @@ You need to configure the managed identity and ensure it exists before assigning
     "identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity"
+            "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity"
         }
     },
     "properties": {
         "customDnsSuffixConfiguration": {
             "dnsSuffix": "antares-test.net",
             "certificateUrl": "https://kv-sample-key-vault.vault.azure.net/secrets/wildcard-antares-test-net",
-            "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity"
+            "keyVaultReferenceIdentity": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/asev3-cdns-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-cdns-managed-identity"
         },
         "internalLoadBalancingMode": "Web, Publishing",
         etc...
@@ -185,10 +184,10 @@ To configure DNS in Azure DNS private zones:
 :::image type="content" source="./media/custom-domain-suffix/private-dns-zone-vnet-link.png" alt-text="Screenshot of a sample virtual network link for private DNS zone.":::
 1. Optionally create an A record in that zone that points *.scm to the inbound IP address used by your App Service Environment.
 
-For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#dns-configuration).
+For more information on configuring DNS for your domain, see [Use an App Service Environment](./using.md#configure-dns).
 
 > [!NOTE]
-> In addition to configuring DNS for your custom domain suffix, you should also consider [configuring DNS for the default domain suffix](./using.md#dns-configuration) to ensure all App Service features function as expected.
+> In addition to configuring DNS for your custom domain suffix, you should also consider [configuring DNS for the default domain suffix](./using.md#configure-dns) to ensure all App Service features function as expected.
 > 
 
 ## Access your apps
@@ -210,7 +209,7 @@ The App Service platform periodically checks if your App Service Environment can
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Using an App Service Environment v3](using.md)
+> [Host an app in an App Service Environment](using.md)
 
 > [!div class="nextstepaction"]
 > [App Service Environment v3 Networking](networking.md)

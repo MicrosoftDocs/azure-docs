@@ -1,0 +1,49 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Native Pure Storage Cloud FAQ
+  description: Frequently asked questions about developer resources and tools for Azure Native Pure Storage Cloud.
+  ms.topic: faq
+  ms.date: 12/10/2025
+
+title: "FAQ: Azure Native Pure Storage Cloud"
+summary: |
+  This FAQ provides answers to common questions about resources and developer tools available for Azure Native Pure Storage Cloud. Use this guide to maximize the success of your Pure Storage Cloud deployment.
+
+sections:
+  - name: Pure Storage Cloud resources
+    questions:
+      - question: Where can I learn about Pure Storage Cloud design on Azure?
+        answer: |
+          For architecture and design guidance, visit the [Pure Storage Cloud Design](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/design/c_psc_design.html) documentation.
+
+      - question: How can I understand the cost model for Pure Storage Cloud?
+        answer: |
+          To learn about pricing and billing, review the [Pure Storage Cost model](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/design/c_cost_model.html).
+
+      - question: Where is information about encryption in Pure Storage Cloud?
+        answer: |
+          For security and encryption details, see the [Pure Storage Encryption model](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/design/c_encryption_in_psc.html).
+
+  - name: Getting started and management
+    questions:
+      - question: How do I deploy Pure Storage Cloud on Azure?
+        answer: |
+          For step-by-step instructions, follow the [Pure Storage deployment guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/deployment/c_psc_deployment.html).
+
+      - question: What resources are available for managing Pure Storage Cloud?
+        answer: |
+          > [!IMPORTANT]
+          > **After you connect:**  
+          > See the [Pure Storage Resource Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html) to learn how to manage your datastores and volumes.
+
+      - question: Who should I contact for support with Pure Storage Cloud?
+        answer: |
+          Pure Storage is the first point of contact for support. Azure Support is engaged as needed. For assistance, visit [Pure Storage's support site](https://pure1.purestorage.com).
+      
+      - question: Where can I find troubleshooting help?
+        answer: |
+          For solutions to common issues, access the [Troubleshooting guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html).
+
+      - question: Are there additional resources for optimizing Pure Storage Cloud?
+        answer: |
+          Yes. For best practices and advanced guidance, see [Resources in Pure Storage Cloud](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Pure_Cloud_Block_Store/Azure_Native_Pure_Storage_Cloud/design/c_resources_in_psc.html).

@@ -1,14 +1,8 @@
 ---
- title: include file
- description: include file
- author: spelluru
- ms.service: azure-event-grid
- ms.topic: include
- ms.date: 11/15/2023
- ms.author: spelluru
-ms.custom:
-  - include file
-  - ignite-2023
+title: Event handlers in Azure Event Grid
+description: Learn how to integrate Azure Event Grid with various services like Webhooks, Azure Functions, and Service Bus queues for seamless event handling.
+ms.date: 02/17/2026
+ms.topic: include
 ---
 
 - [Webhooks](../handler-webhooks.md). Azure Automation runbooks and Logic Apps are supported via webhooks.

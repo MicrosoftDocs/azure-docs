@@ -13,16 +13,18 @@ ms.custom: devx-track-js, mode-api
 
  In this article, you use Azure SignalR Service, Azure Functions, and JavaScript to build a serverless application to broadcast messages to clients.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Prerequisites
 
 This quickstart can be run on macOS, Windows, or Linux.
 
 | Prerequisite | Description |
 | --- | --- |
-| An Azure subscription |If you don't have a subscription, create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|
+| An Azure subscription |If you don't have a subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)|
 | A code editor | You need a code editor such as [Visual Studio Code](https://code.visualstudio.com/). |
 | [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)| Requires version 4.0.5611 or higher to run Node.js v4 programming model.|
-|[Node.js LTS](https://nodejs.org/en/download/)| See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md#node-version).|
+|[Node.js LTS](https://nodejs.org/en/download/package-manager/)| See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md#node-version).|
 | [Azurite](../storage/common/storage-use-azurite.md)| SignalR binding needs Azure Storage. You can use a local storage emulator when a function is running locally. |
 | [Azure CLI](/cli/azure/install-azure-cli)| Optionally, you can use the Azure CLI to create an Azure SignalR Service instance. 
 
@@ -135,7 +137,9 @@ You're almost done now. The last step is to set the SignalR Service connection s
 
     :::image type="content" source="media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png" alt-text="Screenshot of Azure SignalR service Keys page.":::
 
-1. Copy the primary connection string, and execute the command:
+1. Copy the primary connection string, and execute the command.
+
+    [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
     ```bash
     func settings add AzureSignalRConnectionString "<signalr-connection-string>"

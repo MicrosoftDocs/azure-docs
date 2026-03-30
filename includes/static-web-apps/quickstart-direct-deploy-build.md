@@ -1,6 +1,6 @@
 ---
-author: craigshoemaker
-ms.author: cshoe
+author: cjk7989
+ms.author: jikunchen
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 07/02/2024

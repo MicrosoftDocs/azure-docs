@@ -1,9 +1,9 @@
----
+﻿---
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 08/05/2025
 ---
 
 # Outputs in ARM templates
@@ -13,15 +13,13 @@ This article describes how to define output values in your Azure Resource Manage
 The format of each output value must resolve to one of the [data types](data-types.md).
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [outputs](../bicep/outputs.md).
+> [Bicep](../bicep/overview.md) is recommended since it offers the same capabilities as ARM templates, and the syntax is easier to use. To learn more, see [outputs](../bicep/outputs.md).
 
-You are limited to 64 outputs in a template. For more information, see [Template limits](./best-practices.md#template-limits).
+You are limited to 64 outputs in a template. For more information, see [template limits](./best-practices.md#template-limits).
 
 ## Define output values
 
-The following example shows how to return a property from a deployed resource.
-
-Add the `outputs` section to the template. The output value gets the fully qualified domain name for a public IP address.
+The following example shows how to return a property from a deployed resource. Add the **outputs** section to the template. The output value gets the fully qualified domain name for a public IP address:
 
 ```json
 "outputs": {
@@ -56,7 +54,7 @@ If you need to output a property that has a hyphen in the name, use brackets aro
 
 ## Conditional output
 
-You can use the `condition` element to conditionally return a value. Typically, you use a conditional output when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
+You can use the `condition` element to conditionally return a value. Typically, you use a conditional output when you've [conditionally deployed](conditional-resource-deployment.md) a resource. The following example shows how to conditionally return the resource ID for a public IP address based on if a new one was deployed:
 
 ```json
 "outputs": {
@@ -72,7 +70,7 @@ For a simple example of conditional output, see [conditional output template](ht
 
 ## Dynamic number of outputs
 
-In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using iterative output. Add the `copy` element to iterate an output.
+In some scenarios, you don't know the number of instances of a value you need to return when creating the template. You can return a variable number of values by using iterative output. Add the `copy` element to iterate an output:
 
 ```json
 "outputs": {
@@ -86,17 +84,17 @@ In some scenarios, you don't know the number of instances of a value you need to
 }
 ```
 
-For more information, see [Output iteration in ARM templates](copy-outputs.md).
+For more information, see [output iteration in ARM templates](copy-outputs.md).
 
 ## Linked templates
 
-You can deploy related templates by using [linked templates](linked-templates.md). To retrieve the output value from a linked template, use the [reference](template-functions-resource.md#reference) function in the parent template. The syntax in the parent template is:
+You can deploy related templates by using [linked templates](linked-templates.md). To retrieve the output value from a linked template, use the [`reference`](template-functions-resource.md#reference) function in the parent template. The syntax in the parent template is:
 
 ```json
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
 ```
 
-The following example shows how to set the IP address on a load balancer by retrieving a value from a linked template.
+The following example shows how to set the IP address on a load balancer by retrieving a value from a linked template:
 
 ```json
 "publicIPAddress": {
@@ -112,15 +110,44 @@ If the property name has a hyphen, use brackets around the name instead of dot n
 }
 ```
 
-You can't use the `reference` function in the outputs section of a [nested template](linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+You can't use the `reference` function in the **outputs** section of a [nested template](linked-templates.md#nested-template). To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
-The [Public IP address template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) creates a public IP address and outputs the resource ID. The [Load balancer template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) links to the preceding template. It uses the resource ID in the output when creating the load balancer.
+- The [public-IP-address template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) creates a public IP address and outputs the resource ID.
+- The [load-balancer template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) links to the preceding template. It uses the resource ID in the output when creating the load balancer.
 
 ## Example template
 
-The following template doesn't deploy any resources. It shows some ways of returning outputs of different types.
+The following template doesn't deploy any resources. It shows some ways of returning outputs of different types:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/outputs.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "stringOutput": {
+      "type": "string",
+      "value": "[deployment().name]"
+    },
+    "integerOutput": {
+      "type": "int",
+      "value": "[length(environment().authentication.audiences)]"
+    },
+    "booleanOutput": {
+      "type": "bool",
+      "value": "[contains(deployment().name, 'demo')]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[environment().authentication.audiences]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[subscription()]"
+    }
+  }
+}
+```
 
 ## Get output values
 
@@ -147,10 +174,10 @@ az deployment group show \
 
 ---
 
-## Object sorting in outputs
+## Sort objects in outputs
 
 [!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
 
 ## Next steps
 
-* To learn about the available properties for outputs, see [Understand the structure and syntax of ARM templates](./syntax.md).
+To learn about the available properties for outputs, see [the structure and syntax of ARM templates](./syntax.md).

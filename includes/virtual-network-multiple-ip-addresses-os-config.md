@@ -21,7 +21,7 @@ Connect and sign in to a VM you created with multiple private IP addresses. You 
 
 1. Open a command prompt or PowerShell.
 
-2. Enter **`ipconfig /all`** at the command line. You'll see the **Primary** private IP address that was assigned through DHCP.
+2. Enter **`ipconfig /all`** at the command line. You see the **Primary** private IP address that was assigned through DHCP.
 
 3. Enter **`ncpa.cpl`** at the command line to open the **Network Connections** configuration.
 
@@ -49,7 +49,7 @@ Connect and sign in to a VM you created with multiple private IP addresses. You 
 
 10. Enter the private **IP address** you added to the Azure network interface. Enter the corresponding **Subnet mask**. Select **Add**.
 
-11. Repeat the previous steps to add any additional private IP addresses that you added to the Azure network interface.
+11. Repeat the previous steps to add any more private IP addresses that you added to the Azure network interface.
 
 > [!IMPORTANT]
 > You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system. When you manually set the IP address within the operating system, ensure that it's the same address as the private IP address assigned to the Azure network interface. Failure to assign the address correctly can cause loss of connectivity to the virtual machine. For more information, see [Change IP address settings](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings).
@@ -58,13 +58,13 @@ For more information about private IP addresses, see [Private IP address](../art
 
 12. Select **OK** to close the secondary IP address settings.
 
-13. Select **OK** to close the adapter settings. Your RDP connection will re-establish.
+13. Select **OK** to close the adapter settings. Your RDP connection re-establishes.
 
 14. Open a command prompt or PowerShell.
 
 15. Enter **`ipconfig /all`** at the command line.
 
-16. Verify the primary and secondary private IP addresses have been added to the configuration.
+16. Verify the primary and secondary private IP addresses are present in the configuration.
 
     ```powershell
     PS C:\Users\azureuser> ipconfig /all
@@ -109,7 +109,7 @@ ping -S 10.1.0.5 outlook.com
 ```
  
 > [!NOTE]
-> For secondary IP configurations, you can ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+> For secondary IP configurations, you can ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
 </details>
 
@@ -118,7 +118,7 @@ ping -S 10.1.0.5 outlook.com
 <details>
   <summary>Expand</summary>
  
-SUSE-based distributions use the <code>cloud-netconfig</code> plugin from the <code>cloud-netconfig-azure</code> package to manage additional IP addresses. No manual configuration is required on the part of the administrator. The first IP address of an interface set on the platform is assigned via DHCP. The cloud-netconfig plugin then probes the Azure Instance Metadata Service API continuously (once per minute) for additional IP addresses assigned to the interface and adds/removes them as secondary IP addresses automatically.
+SUSE-based distributions use the <code>cloud-netconfig</code> plugin from the <code>cloud-netconfig-azure</code> package to manage the IP configuration. No manual steps are required on the part of the administrator. The first IP address of an interface set on the platform is assigned via DHCP. The cloud-netconfig plugin then probes the Azure Instance Metadata Service API continuously (once per minute) for more IP addresses assigned to the interface and adds/removes them as secondary IP addresses automatically.
 
 This plugin should be installed and enabled on new images by default.  Configuration steps for old workloads can be found here: https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/.
 
@@ -143,7 +143,7 @@ We recommend looking at the latest documentation for your Linux distribution.
 
    * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
    
-   * Add a configuration for an additional static IP address with the following commands:
+   * Add a configuration for another static IP address with the following commands:
 
      ```bash
      cd /etc/network/interfaces.d/
@@ -167,7 +167,7 @@ We recommend looking at the latest documentation for your Linux distribution.
    netmask 255.255.255.0
    ```
     
-    To add additional private IP addresses, edit the file and add the new private IP addresses on subsequent lines:
+    To add other private IP addresses, edit the file and add the new private IP addresses on subsequent lines:
 
     ```bash
     iface eth0 inet static
@@ -224,9 +224,9 @@ ping -I 10.1.0.5 outlook.com
 ```
 
 > [!NOTE]
-> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
-For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. See appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. See appropriate documentation for your Linux distribution. The following method to accomplish this goal:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -250,7 +250,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
 <details>
   <summary>Expand</summary>
 
-Ubuntu 18.04 and above have changed to **`netplan`** for OS network management. We recommend looking at the latest documentation for your Linux distribution. 
+Starting on 18.04, **`netplan`** is used in Ubuntu for network management. We recommend looking at the latest documentation for your Linux distribution. 
 
 1. Open a terminal window.
 
@@ -276,7 +276,7 @@ Ubuntu 18.04 and above have changed to **`netplan`** for OS network management. 
                 addresses:
                     - 10.1.0.5/24
     ```
-    To add additional private IP addresses, edit the file and add the new private IP addresses on subsequent lines:
+    To add private IP addresses, edit the file and add the new private IP addresses on subsequent lines:
 
     ```bash
     network:
@@ -294,14 +294,14 @@ Ubuntu 18.04 and above have changed to **`netplan`** for OS network management. 
     :wq
     ```
 
-6. Test the changes with [netplan try](https://manpages.ubuntu.com/manpages/kinetic/en/man8/netplan-try.8.html) to confirm syntax:
+6. Test the changes with [netplan try](https://manpages.ubuntu.com/manpages/questing/en/man8/netplan-try.8.html) to confirm syntax:
 
     ```bash
     netplan try
     ```
 
     > [!NOTE]
-    > `netplan try` will apply the changes temporarily and roll the changes back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds, and then reconnect. At that time, the changes will have been rolled back.
+    > `netplan try` will apply the changes temporarily and roll back the changes after 120 seconds. If there's a loss of connectivity, wait 2 minutes, and then reconnect. At that time, the changes will have been rolled back.
 
 7. Assuming no issues with **`netplan try`**, apply the configuration changes:
 
@@ -341,7 +341,7 @@ ping -I 10.1.0.5 outlook.com
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
-For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. Follow the appropriate documentation for your Linux distribution. The following method is one way to accomplish this goal:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -365,6 +365,9 @@ ip route add default via 10.1.0.1 dev eth2 table custom
 <details>
   <summary>Expand</summary>
 
+>[!NOTE]
+>To configure the extra IP addresses in RHEL10.x, it's enough to restart NetworkManger with: `systemctl restart NetworkManger.service` or reboot the system. No other steps are required.
+
 1. Open a terminal window.
 
 2. Ensure you're the root user. If you aren't, enter the following command:
@@ -387,7 +390,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
 
     You should see **ifcfg-eth0** as one of the files.
 
-5. To add an IP address, create a configuration file for it as shown below. Note that one file must be created for each IP configuration.
+5. Create a new configuration file for each IP added to the system.
 
     ```bash
     touch ifcfg-eth0:0
@@ -399,7 +402,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
     vi ifcfg-eth0:0
     ```
 
-7. Add content to the file, **eth0:0** in this case, with the following command. Replace **`10.1.0.5`** with your additional private IP address and subnet mask.
+7. Add content to the file, **eth0:0** in this case, with the following command. Replace **`10.1.0.5`** with your new private IP address and subnet mask.
 
     ```bash
     DEVICE=eth0:0
@@ -415,7 +418,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
     :wq
     ```
 
-9. To add additional private IP addresses to the network configuration, create additional config files and add the IP information into the file.
+9. Create a config file per IP address to add with their corresponding values:
 
     ```bash
     touch ifcfg-eth0:1
@@ -474,9 +477,9 @@ To ensure you're able to connect to the internet from your secondary IP configur
 ping -I 10.0.0.5 outlook.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
-For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. See the appropriate documentation for your Linux distribution. The following method to accomplish this goal:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -515,7 +518,7 @@ We recommend looking at the latest documentation for your Linux distribution.
 
    * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
    
-   * Add a configuration for an additional static IP address with the following commands:
+   * Add a configuration for each static IP address using the following commands:
 
      ```bash
      cd /etc/network/interfaces.d/
@@ -539,7 +542,7 @@ We recommend looking at the latest documentation for your Linux distribution.
    netmask 255.255.255.0
    ```
     
-    To add additional private IP addresses, edit the file and add the new private IP addresses on subsequent lines:
+    Add the new IP addresses information in the configuration file:
 
     ```bash
     iface eth0 inet static
@@ -556,7 +559,7 @@ We recommend looking at the latest documentation for your Linux distribution.
    :wq
    ```
 
-7. Restart networking services for the changes to take effect. For Debian 8 and above, this can be done using below command :
+7. Restart networking services for the changes to take effect. For Debian 8 and above, use:
 
    ```bash
    systemctl restart networking
@@ -597,9 +600,9 @@ ping -I 10.1.0.5 outlook.com
 ```
 
 > [!NOTE]
-> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
-For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. See appropriate documentation for your Linux distribution. The following is one method to accomplish this:
+For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. See appropriate documentation for your Linux distribution. The following method to accomplish this goal:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 

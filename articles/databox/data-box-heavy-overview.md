@@ -8,9 +8,12 @@ ms.service: azure-data-box-heavy
 ms.topic: overview
 ms.date: 05/30/2024
 ms.author: shaas
+# Customer intent: "As a data engineer, I want to utilize a secure and efficient method for transferring hundreds of terabytes of data to Azure, so that I can perform large-scale data migrations without impacting network performance."
 ---
 
 # What is Azure Data Box Heavy?
+
+[!INCLUDE [data-box-heavy-retirement](includes/data-box-heavy-retirement.md)]
 
 Azure Data Box Heavy is a service that allows you to transfer hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable way. 
 
@@ -56,13 +59,13 @@ Data Box Heavy is designed to move massive amounts of data to Azure with little 
 
 Previous releases of Data Box, Data Box Disk, and Data Box Heavy didn’t support cross-region data transfer. With the exception of transfers both originating and terminating between the United Kingdom (UK) and the European Union (EU), data couldn’t cross commerce boundaries.
 
-Data Box cross-region data transfer capabilities, now in preview, support offline seamless cross-region data transfers between many regions. This capability allows you to copy your data from a local source and transfer it to a destination within a different country, region, or boundary. It's important to note that the Data Box device isn't shipped across commerce boundaries. Instead, it's transported to an Azure data center within the originating country or region. Data transfer between the source country and the destination region takes place using the Azure network and incurs no additional cost.
+Data Box cross-region data transfer capabilities, now in preview, support offline seamless cross-region data transfers between many regions. This capability allows you to copy your data from a local source and transfer it to a destination within a different country, region, or boundary. It's important to note that the Data Box device isn't shipped across commerce boundaries. Instead, it's transported to an Azure data center within the originating country or region. Data transfer between the source country/region and the destination region takes place using the Azure network and incurs no additional cost.
 
 Although cross-region data transfer doesn't incur additional costs, the functionality is currently in preview and subject to change. Note, too, that some data transfer scenarios take place over large geographic areas. Higher than normal latencies might be encountered during such transfers.
 
 Cross-region transfers are currently supported between the following countries and regions:
 
-| Source Country |  Destination Region |
+| Source Country/Region |  Destination Region |
 |----------------|---------------------|
 | US<sup>1</sup> | EU<sup>2</sup>      |
 | EU<sup>2</sup> | US<sup>1</sup>      |

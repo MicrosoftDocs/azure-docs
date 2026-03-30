@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 2/15/2023
 ms.author: kianaharris
+# Customer intent: "As a cloud architect, I want to ensure my environment meets all prerequisites for Azure HPC Cache deployment, so that I can successfully set up and optimize high-performance computing resources for data-intensive applications."
 ---
 
 # Prerequisites for Azure HPC Cache
@@ -121,7 +122,7 @@ There are two ways to provide access:
 
   Refer to the security rule tips in [NTP access](#ntp-access) for more information.
 
-  This command lists the CRL and OSCP servers that need to be permitted access. These servers must be resolvable by DNS and reachable on port 80 from the cache subnet.
+  This command lists the CRL and OCSP servers that need to be permitted access. These servers must be resolvable by DNS and reachable on port 80 from the cache subnet.
 
   ```bash
 

@@ -1,15 +1,15 @@
 ---
 title: Customize activities on Microsoft Sentinel entity timelines | Microsoft Docs
 description: Add customized activities to those Microsoft Sentinel tracks and displays on the timeline of entity pages
-author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
-ms.date: 03/16/2024
-ms.author: yelevin
+ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a security analyst, I want to customize activity tracking on entity timelines so that I can monitor specific events and behaviors relevant to my organization's security needs.
 
@@ -33,7 +33,7 @@ In addition to the activities tracked and presented in the timeline by Microsoft
 ## Getting started
 
 - Users of Microsoft Sentinel in the Azure portal, select the **Azure portal** tab below.
-- Users of the unified security operations platform in the Microsoft Defender portal, select the **Defender portal** tab.
+- Users of the Microsoft Defender portal, select the **Defender portal** tab.
 
 # [Azure portal](#tab/azure)
 
@@ -191,13 +191,13 @@ Add any of the following parameters to your query:
 
     The `count` parameter adds the following command to your query in the background, even though it's not displayed fully in the editor:
 
-    ```kql
+    ```kusto
     Summarize count() by <each parameter you’ve projected in the activity>
     ```
 
     Then, when you use the **Bucket Size** filter in the entity pages, the following command is also added to the query that's run in the background:
 
-    ```kql
+    ```kusto
     Summarize count() by <each parameter you’ve projected in the activity>, bin (TimeGenerated, Bucket in Hours)
     ```
 
@@ -206,6 +206,15 @@ For example:
 :::image type="content" source="./media/customize-entity-activities/new-activity-title.png" alt-text="Screenshot - See the available values for your activity title":::
 
 When you are satisfied with your query and activity title, select **Next : Review**.
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***bin()*** function](/kusto/query/bin-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ### Review and create tab
 

@@ -3,14 +3,18 @@ title: Troubleshoot Azure Automation State Configuration issues
 description: This article tells how to troubleshoot and resolve Azure Automation State Configuration issues.
 services: automation
 ms.subservice:
-ms.date: 10/17/2022
+ms.date: 10/22/2024
 ms.topic: troubleshooting
 ms.custom: linux-related-content
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Troubleshoot Azure Automation State Configuration issues
 
 [!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
+
+[!INCLUDE [automation-dsc-linux-retirement-announcement](../includes/automation-dsc-linux-retirement-announcement.md)]
 
 This article provides information on troubleshooting and resolving issues that occur while you
 compile or deploy configurations in Azure Automation State Configuration. For general information
@@ -306,8 +310,8 @@ configuration name. This enables the node but doesn't assign a node configuratio
 
 ### Issue
 
-When you register a node by using [Register-AzAutomationDSCNode][14] or
-[Register-AzureRMAutomationDSCNode][18], you receive the following error:
+When you register a node by using [Register-AzAutomationDSCNode][14], you receive the following
+error:
 
 ```error
 One or more errors occurred.
@@ -448,7 +452,6 @@ channels:
 [15]: /powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration
 [16]: /powershell/module/Az.Automation/Set-AzAutomationDscNode
 [17]: /powershell/module/az.compute/invoke-azvmruncommand
-[18]: /powershell/module/azurerm.automation/register-azurermautomationdscnode
 [19]: /powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager
 [20]: /powershell/scripting/overview
 [21]: /powershell/scripting/wmf/known-issues/known-issues-dsc

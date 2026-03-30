@@ -1,8 +1,8 @@
 ---
 title: Details of the policy definition structure parameters
 description: Describes how policy definition parameters are used to establish conventions for Azure resources in your organization.
-ms.date: 04/01/2024
-ms.topic: conceptual
+ms.date: 03/04/2025
+ms.topic: reference
 ---
 
 # Azure Policy definition structure parameters
@@ -20,14 +20,15 @@ Parameters can't be removed from a policy definition because there might be an a
 A parameter uses the following properties in a policy definition:
 
 - `name`: The name of your parameter. Used by the `parameters` deployment function within the policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
-- `type`: Determines if the parameter is a `string`, `array`, `object`, `boolean`,  `integer`, `float`, or `dateTime`.
+- `type`: Determines if the parameter is a `string`, `array`, `object`, `boolean`, `integer`, `float`, or `dateTime`. (Where `dateTime` parameters should be in ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ` format.)
+
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly information:
   - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
   - `displayName`: The friendly name shown in the portal for the parameter.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope. There's one role assignment per role definition in the policy (or per role definition in all of the initiative's policies). The parameter value must be a valid resource or scope.
   - `deprecated`: A boolean flag to indicate whether a parameter is deprecated in a built-in definition.
-- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For oject-type parameters, the value must match the appropriate schema.
+- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned. For object-type parameters, the value must match the appropriate schema.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during assignment.
   - Case sensitivity: Allowed value comparisons are case-sensitive when assigning a policy, meaning that the selected parameter values in the assignment must match the casing of values in the `allowedValues` array in the definition. However, once values are selected for the assignment, evaluation of string comparisons might be case insensitive depending on the [condition](./definition-structure-policy-rule.md#conditions) used. For example, if the parameter specifies `Dev` as an allowed tag value in an assignment, and this value is compared to an input string using the `equals` condition, then Azure Policy would later evaluate a tag value of `dev` as a match even though it's lowercase because `notEquals` is case insensitive.
   - For object-type parameters, the values must match the appropriate schema.
@@ -69,7 +70,7 @@ In a more advanced scenario, you could define a policy that requires Kubernetes 
 ```json
 "parameters": {
   "labelSelector": {
-    "type": "Object",
+    "type": "object",
     "metadata": {
       "displayName": "Kubernetes label selector",
       "description": "Label query to select Kubernetes resources for policy evaluation. An empty label selector matches all Kubernetes resources."
@@ -192,8 +193,8 @@ The non _resource type_ allowed values for `strongType` are:
 
 - For more information about policy definition structure, go to [basics](./definition-structure-basics.md), [policy rule](./definition-structure-policy-rule.md), and [alias](./definition-structure-alias.md).
 - For initiatives, go to [initiative definition structure](./initiative-definition-structure.md).
-- Review examples at [Azure Policy samples](../samples/index.md).
-- Review [Understanding policy effects](effects.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
+- Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

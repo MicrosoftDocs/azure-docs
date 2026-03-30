@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
 ms.date: 03/12/2024
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to connect a classic virtual network to a Resource Manager virtual network using PowerShell, so that I can enable communication between resources across different deployment models.
 ---
 # Connect virtual networks from different deployment models using PowerShell
 
@@ -39,7 +40,7 @@ These steps assume that you have a legacy classic VNet and a Resource Manager VN
 
   While it's possible to perform a few of the PowerShell commands using the Azure Cloud Shell environment, you need to install both versions of the cmdlets to create the connections properly.
 
-  * [Service Management (classic) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps?). When you install the Service Management cmdlets, you might need to modify the [Execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?) in order to install the classic version of the Azure module.
+  * [Service Management (classic) PowerShell cmdlets](https://www.powershellgallery.com/packages/Azure/). When you install the Service Management cmdlets, you might need to modify the [Execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?) in order to install the classic version of the Azure module.
 
   * [AZ PowerShell cmdlets for Resource Manager](/powershell/azure/install-az-ps?)
 

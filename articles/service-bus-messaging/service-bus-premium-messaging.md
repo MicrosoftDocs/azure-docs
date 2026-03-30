@@ -1,9 +1,9 @@
 ---
 title: Azure Service Bus premium messaging tier
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-extended-java
-ms.date: 07/22/2024
+ms.date: 05/28/2025
 ---
 
 # Service Bus premium messaging tier
@@ -72,7 +72,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 >
 >  * **Reactive**: If additional workloads are identified by studying the resource usage metrics, then additional resources can be allocated to the namespace to incorporate increasing demand.
 >
-> The billing meters for Service Bus are hourly. In the case of scaling up, you only pay for the additional resources for the hours that these were used.
+> The billing meters for Service Bus are hourly. When scaling up, you only pay for the additional resources for the hours that these were used.
 >
 
 ## Get started with premium messaging
@@ -95,7 +95,6 @@ Here are some considerations when sending large messages on Azure Service Bus -
 - While 100-MB message payloads are supported, we recommend that you keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
 - The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
 - Batching isn't supported. 
-- Service Bus Explorer doesn't support sending or receiving large messages. 
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
@@ -132,33 +131,24 @@ There are some differences between the standard and premium tiers when it comes 
 
 For more information, see [Partitioning in Service Bus](service-bus-partitioning.md).
 
-## Geo-disaster and recovery
+## High availability
 
 Azure Service Bus spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service continues to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. A premium namespace can have two or more messaging units and these messaging units are spread across multiple failure domains within a datacenter, supporting an all-active Service Bus cluster model. 
 
-For a premium tier namespace, the outage risk is further spread across three physically separated facilities availability zones, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of a datacenter. The all-active Azure Service Bus cluster model within a failure domain along with the availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against. 
+For a Service Bus namespace, the outage risk is further spread across three physically separated facilities availability zones, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of a datacenter. The all-active Azure Service Bus cluster model within a failure domain along with the availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against. 
 
-The Service Bus Geo-disaster recovery (Geo-DR) feature is designed to make it easier to recover from a disaster of this magnitude and abandon a failed Azure region for good without having to change your application configurations. Abandoning an Azure region typically involves several services and this feature primarily aims at helping to preserve the integrity of the composite application configuration. The feature is globally available for the Service Bus premium tier.  
-
-The Geo-Disaster Recovery feature ensures that the entire configuration of a namespace (entities, configuration, properties) is continuously replicated from a primary namespace to a secondary namespace with which it's paired, and it allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move repoints the chosen alias name for the namespace to the secondary namespace and then breaks the pairing. The failover is nearly instantaneous once initiated. 
-
-For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md).
-
-## Geo-replication
-The Geo-Replication feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), providing replication of both metadata (entities, configuration, properties) and data (message data and message property / state changes), whereas the Geo-DR feature described in the previous section replicates only the metadata. 
-
-The Geo-Replication feature ensures that the metadata and data of a namespace are continuously replicated from a primary region to one or more secondary regions.
+Furthermore, the Geo-Replication feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), providing replication of both metadata (entities, configuration, properties) and data (message data and message property / state changes). The Geo-Replication feature ensures that the metadata and data of a namespace are continuously replicated from a primary region to one or more secondary regions.
 
 - Queues, topics, subscriptions, filters.
-- Data, which reside in the entities.
+- Data residing in the entities.
 - All state changes and property changes executed against the messages within a namespace.
 - Namespace configuration.
 
-This feature allows promoting any secondary region to primary, at any time. Promoting a secondary repoints the name for the namespace to the selected secondary region, and switches the roles between the primary and secondary region. The promotion is nearly instantaneous once initiated. 
+This feature allows promoting any secondary region to primary, at any time. Promoting a secondary repoints the name for the namespace to the selected secondary region, and switches the roles between the primary and secondary region. The promotion is nearly instantaneous once initiated.
 
+For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-replication.md).
 
-
-## Java Message Service (JMS) support
+## Java Message Service (JMS) 
 The premium tier supports JMS 1.1 and JMS 2.0. For more information, see [How to use JMS 2.0 with Azure Service Bus Premium](how-to-use-java-message-service-20.md).
 
 The standard tier supports only JMS 1.1 subset focused on queues. For more information, see [Use Java Message Service 1.1 with Azure Service Bus standard](service-bus-java-how-to-use-jms-api-amqp.md).

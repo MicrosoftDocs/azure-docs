@@ -5,8 +5,8 @@ description: This topic describes how to deal with JSON format in Azure Data Fac
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 05/15/2024
+ms.topic: reference
+ms.date: 02/13/2025
 ms.author: jianleishen
 ---
 

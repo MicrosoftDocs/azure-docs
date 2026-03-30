@@ -1,20 +1,25 @@
 ---
-title:  How to monitor Spring Boot apps with Dynatrace Java OneAgent
+title:  How to Monitor Spring Boot Apps with Dynatrace Java OneAgent
 description: How to use Dynatrace Java OneAgent to monitor Spring Boot applications in Azure Spring Apps
-author:  KarlErickson
+author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.devlang: azurecli
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # How to monitor Spring Boot apps with Dynatrace Java OneAgent
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌️ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎️ Enterprise
 
 This article shows you how to use Dynatrace OneAgent to monitor Spring Boot applications in Azure Spring Apps.
 
@@ -43,7 +48,7 @@ The following sections describe how to activate Dynatrace OneAgent.
 ### Prepare your Azure Spring Apps environment
 
 1. Create an instance of Azure Spring Apps.
-1. Create an application that you want to report to Dynatrace by running the following command. Replace the placeholders *\<...>* with your own values.
+1. Create an application that you want to report to Dynatrace by running the following command. Replace the placeholders `<...>` with your own values.
    ```azurecli
    az spring app create \
        --resource-group <your-resource-group-name> \
@@ -64,7 +69,7 @@ You can add the environment variable key/value pairs to your application using e
 
 #### Option 1: Azure CLI
 
-To add the key/value pairs using the Azure CLI, run the following command, replacing the placeholders *\<...>* with the values determined in the previous steps.
+To add the key/value pairs using the Azure CLI, run the following command, replacing the placeholders `<...>` with the values determined in the previous steps.
 
 ```azurecli
 az spring app deploy \
@@ -98,7 +103,7 @@ Using Terraform, Bicep, or Azure Resource Manager template (ARM template), you c
 
 ### Automate provisioning using Terraform
 
-To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
 ```terraform
 environment_variables = {
@@ -111,7 +116,7 @@ environment_variables = {
 
 ### Automate provisioning using a Bicep file
 
-To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
+To configure the environment variables in a Bicep file, add the following code to the file, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
 
 ```bicep
 environmentVariables: {
@@ -124,7 +129,7 @@ environmentVariables: {
 
 ### Automate provisioning using an ARM template
 
-To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
+To configure the environment variables in an ARM template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
 ```json
 "environmentVariables": {
@@ -180,7 +185,7 @@ You can find **Backtrace** from **Databases/Details/Backtrace**:
 
 ## View Dynatrace OneAgent logs
 
-By default, Azure Spring Apps prints the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the `info` level logs of the Dynatrace OneAgent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the Dynatrace agent from the following locations:
 
@@ -202,7 +207,7 @@ The Dynatrace OneAgent auto-upgrade is disabled and is upgraded quarterly with t
 
 ## Virtual network injection instance outbound traffic configuration
 
-For a virtual network injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](../enterprise/vnet-customer-responsibilities.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+For a virtual network injection instance of Azure Spring Apps, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. For information about how to get `communicationEndpoints`, see [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/). For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
 
 ## Dynatrace support model
 
@@ -210,4 +215,4 @@ For information about limitations when deploying Dynatrace OneAgent in applicati
 
 ## Next steps
 
-[Use Application Insights Java In-Process Agent in Azure Spring Apps](../enterprise/how-to-application-insights.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+[Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md?pivots=sc-standard)

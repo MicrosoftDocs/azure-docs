@@ -4,7 +4,7 @@ description: This article describes how to integrate an Azure Stream Analytics j
 author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
@@ -26,7 +26,7 @@ Complete the following steps before you add a machine learning model as a functi
 
 You can add Azure Machine Learning functions to your Stream Analytics job directly from the Azure portal or Visual Studio Code.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4RMir]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=7ee6ffaf-c26e-434b-aa4c-718d4c42fd6e]
 
 ### Azure portal
 

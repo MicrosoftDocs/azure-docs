@@ -1,18 +1,25 @@
 ---
-title: 'Tutorial: Access data with managed identity in Java JBoss EAP'
+title: Access data with managed identity in Java JBoss EAP
 description: Secure Azure Database for MySQL connectivity with managed identity from a sample Java JBoss EAP app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/14/2023
+ms.date: 12/18/2024
 ms.service: service-connector
 author: xfz11
 ms.author: xiaofanzhou
-ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java
+ms.custom:
+  - passwordless-java
+  - service-connector
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - sfi-ga-nochange
 ---
 
 # Tutorial: Connect to a MySQL Database from Java JBoss EAP App Service with passwordless connection
 
-[Azure App Service](../app-service/overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](../app-service/overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](/azure/mysql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
+[Azure App Service](../app-service/overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](../app-service/overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](/azure/mysql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. 
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a MySQL database.
@@ -42,18 +49,18 @@ cd Passwordless-Connections-for-Java-Apps/JakartaEE/jboss-eap/
 
 ## Create an Azure Database for MySQL
 
-Follow these steps to create an Azure Database for MySQL in your subscription. The Spring Boot app connects to this database and store its data when running, persisting the application state no matter where you run the application.
+Follow these steps to create an Azure Database for MySQL resource in your subscription. The Spring Boot app connects to this database and store its data when running, persisting the application state no matter where you run the application.
 
 1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
 
-   ```azurecli-interactive
+   ```azurecli
    az login
    az account set --subscription <subscription-ID>
    ```
 
-1. Create an Azure Resource Group, noting the resource group name.
+1. Create an Azure resource group.
 
-   ```azurecli-interactive
+   ```azurecli
    export RESOURCE_GROUP=<resource-group-name>
    export LOCATION=eastus
 
@@ -64,6 +71,7 @@ Follow these steps to create an Azure Database for MySQL in your subscription. T
 
    ```azurecli-interactive
    export MYSQL_ADMIN_USER=azureuser
+
    # MySQL admin access rights won't be used because Azure AD authentication is leveraged to administer the database.
    export MYSQL_ADMIN_PASSWORD=<admin-password>
    export MYSQL_HOST=<mysql-host-name>
@@ -99,6 +107,7 @@ Create an Azure App Service resource on Linux. JBoss EAP requires Premium SKU.
 ```azurecli-interactive
 export APPSERVICE_PLAN=<app-service-plan>
 export APPSERVICE_NAME=<app-service-name>
+
 # Create an App Service plan
 az appservice plan create \
     --resource-group $RESOURCE_GROUP \
@@ -119,49 +128,48 @@ az webapp create \
 
 Next, connect the database using [Service Connector](../service-connector/overview.md).
 
-Install the Service Connector passwordless extension for the Azure CLI:
+1. Install the Service Connector passwordless extension for the Azure CLI:
 
-```azurecli
-az extension add --name serviceconnector-passwordless --upgrade
-```
+    ```azurecli
+    az extension add --name serviceconnector-passwordless --upgrade
+    ```
 
-Then, use the following command to create a user-assigned managed identity for Microsoft Entra authentication. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+1. Create a user-assigned managed identity for Microsoft Entra authentication using the following command. For more information, see [Set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
 
-```azurecli
-export USER_IDENTITY_NAME=<your-user-assigned-managed-identity-name>
-export IDENTITY_RESOURCE_ID=$(az identity create \
-    --name $USER_IDENTITY_NAME \
-    --resource-group $RESOURCE_GROUP \
-    --query id \
-    --output tsv)
-```
+    ```azurecli
+    export USER_IDENTITY_NAME=<your-user-assigned-managed-identity-name>
+    export IDENTITY_RESOURCE_ID=$(az identity create \
+        --name $USER_IDENTITY_NAME \
+        --resource-group $RESOURCE_GROUP \
+        --query id \
+        --output tsv)
+    ```
 
-> [!IMPORTANT]
-> After creating the user-assigned identity, ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions for this identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
-
-Then, connect your app to a MySQL database with a system-assigned managed identity using Service Connector. To make this connection, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-mysql-flexible) command.
-
-```azurecli-interactive
-az webapp connection create mysql-flexible \
-    --resource-group $RESOURCE_GROUP \
-    --name $APPSERVICE_NAME \
-    --target-resource-group $RESOURCE_GROUP \
-    --server $MYSQL_HOST \
-    --database $DATABASE_NAME \
-    --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
-    --client-type java
-```
-
-This Service Connector command does the following tasks in the background:
-
-* Enable system-assigned managed identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
-* Set the Microsoft Entra admin to the current signed-in user.
-* Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. You can get the user name from the connection string in the output from the previous command.
-* Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`.
-
-  > [!NOTE]
-  > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, then run the connection command again.
-
+1. Ask your *Global Administrator* or *Privileged Role Administrator* to grant the following permissions to the new user-assigned identity: `User.Read.All`, `GroupMember.Read.All`, and `Application.Read.ALL`. For more information, see the [Permissions](/azure/mysql/flexible-server/concepts-azure-ad-authentication#permissions) section of [Active Directory authentication](/azure/mysql/flexible-server/concepts-azure-ad-authentication).
+    
+1. Connect your app to a MySQL database with a system-assigned managed identity using Service Connector. To make this connection, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-mysql-flexible) command.
+    
+    ```azurecli
+    az webapp connection create mysql-flexible \
+        --resource-group $RESOURCE_GROUP \
+        --name $APPSERVICE_NAME \
+        --target-resource-group $RESOURCE_GROUP \
+        --server $MYSQL_HOST \
+        --database $DATABASE_NAME \
+        --system-identity mysql-identity-id=$IDENTITY_RESOURCE_ID \
+        --client-type java
+    ```
+    
+    This Service Connector command does the following tasks in the background:
+    
+    * Enable system-assigned managed identity for the app `$APPSERVICE_NAME` hosted by Azure App Service.
+    * Set the Microsoft Entra admin to the current signed-in user.
+    * Add a database user for the system-assigned managed identity in step 1 and grant all privileges of the database `$DATABASE_NAME` to this user. You can get the user name from the connection string in the output from the previous command.
+    * Add a connection string to App Settings in the app named `AZURE_MYSQL_CONNECTIONSTRING`.
+    
+      > [!NOTE]
+      > If you see the error message `The subscription is not registered to use Microsoft.ServiceLinker`, run the command `az provider register --namespace Microsoft.ServiceLinker` to register the Service Connector resource provider, then run the connection command again.
+    
 ## Deploy the application
 
 Follow these steps to prepare data in a database and deploy the application.
@@ -274,7 +282,7 @@ curl https://${WEBAPP_URL}/checklist/1
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## Next steps
+## Next step
 
 Learn more about running Java apps on App Service on Linux in the developer guide.
 

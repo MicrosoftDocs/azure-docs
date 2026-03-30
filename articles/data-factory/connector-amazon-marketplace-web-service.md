@@ -3,11 +3,13 @@ title: Copy data from AWS Marketplace
 description: Learn how to copy data from Amazon Marketplace Web Service to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: archived
 ms.author: jianleishen
 author: jianleishen
-ms.custom: synapse
 ms.date: 07/12/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from Amazon Marketplace Web Service using Azure Data Factory or Synapse Analytics (Deprecated)
@@ -17,7 +19,7 @@ ms.date: 07/12/2024
 ## Deprecation
 
 >[!Note]
->This connector is deprecated because Amazon Marketplace Web Service is no longer available since **March 31, 2024**. For more information, see [Amazon Marketplace Web Service website](https://docs.developer.amazonservices.com/en_US/dev_guide/index.html).
+>This connector is deprecated because Amazon Marketplace Web Service is no longer available since **March 31, 2024**. For more information, see [Amazon Marketplace Web Service website](https://developer.amazonservices.com/docs/dev-guide/dg_index.html).
 
 
 ## Related content

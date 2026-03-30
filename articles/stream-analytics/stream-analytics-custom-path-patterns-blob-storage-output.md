@@ -4,8 +4,9 @@ description: This article describes the custom DateTime path patterns and the cu
 author: an-emma
 ms.author: raan
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/15/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Stream Analytics custom blob output partitioning

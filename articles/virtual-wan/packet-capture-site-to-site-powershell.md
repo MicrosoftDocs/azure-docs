@@ -5,10 +5,12 @@ services: virtual-wan
 titleSuffix: Azure Virtual WAN
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 ---
 
 # Configure a packet capture for Virtual WAN site-to-site VPN: PowerShell
@@ -69,8 +71,6 @@ This section helps you start a packet capture for your site-to-site VPN gateway 
 
 1. To run a packet capture, you need the **-Name** value of the site-to-site VPN gateway. To find the **-Name** value, in the Azure portal, navigate to your virtual hub, under **Connectivity**, click **VPN (Site-to-site)**.
 
-   :::image type="content" source="./media/packet-capture-site-to-site-powershell/vpn-gateway-name.png" alt-text="Image of Virtual WAN gateway name." lightbox="./media//packet-capture-site-to-site-powershell/vpn-gateway-name.png":::
-
 1. To start a packet capture, run the following command:
 
    ```azurepowershell-interactive
@@ -82,11 +82,11 @@ This section helps you start a packet capture for your site-to-site VPN gateway 
 To simplify your packet captures, you can specify filters on your packet capture to focus on specific behaviors.
 
 >[!NOTE]
-> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you wish to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.  
+> For TracingFlags and TCPFlags, you can specify multiple protocols by adding up the numerical values for the protocols you wish to capture (same as a logical OR). For example, if you want to capture only ESP and OVPN packets, specify a TracingFlag value of 8+1 = 9.  
 
 | Parameter | Description | Default values | Available values|
 |--- |--- | --- | ---|
-| TracingFlags | Integer that determines what types of packets are captured | 11 (ESP, IKE, OVPN) | ESP = 1 IKE  = 2 OPVN = 8 |
+| TracingFlags | Integer that determines what types of packets are captured | 11 (ESP, IKE, OVPN) | ESP = 1 IKE  = 2 OVPN = 8 |
 | TCPFlags | Integer that determines which types of TCP Packets are captured | 0 (none) | FIN = 1, SYN = 2, RST = 4, PSH = 8, ACK = 16,URG = 32, ECE = 64, CWR = 128| 
 | MaxPacketBufferSize|Maximum size of a captured packet in bytes. Packets are truncated if larger than the provided value. |120|Any|
 | MaxFileSize |Maximum capture file size in Mb. Captures are stored in a circular buffer so overflow is handled in a FIFO manner (older packets removed first)|100|Any|

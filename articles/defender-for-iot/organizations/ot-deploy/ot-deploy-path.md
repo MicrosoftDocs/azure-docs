@@ -32,7 +32,7 @@ The following image shows the steps included in the planning and preparing phase
 
 :::image type="content" source="../media/deployment-paths/plan-prepare.png" alt-text="Diagram of the steps included in the planning and preparing stage." border="false" :::
 
-#### Plan your OT monitoring system
+### Plan your OT monitoring system
 
 Plan basic details about your monitoring system, such as:
 
@@ -44,10 +44,7 @@ Plan basic details about your monitoring system, such as:
 
 For more information, see [Plan your OT monitoring system with Defender for IoT](../best-practices/plan-corporate-monitoring.md).
 
-> [!TIP]
-> If you're using several locally managed sensors, you may also want to deploy an [on-premises management console](air-gapped-deploy.md) for central visibility and management.
->
-#### Prepare for an OT site deployment
+### Prepare for an OT site deployment
 
 Define additional details for each site planned in your system, including:
 
@@ -67,7 +64,7 @@ The following image shows the step included in the onboard sensors phase. Sensor
 
 :::image type="content" source="../media/deployment-paths/onboard-sensors.png" alt-text="Diagram of the onboard sensors phase."border="false" :::
 
-#### Onboard OT sensors on the Azure portal
+### Onboard OT sensors on the Azure portal
 
 Onboard as many OT sensors to Defender for IoT as you've planned. Make sure to download the activation files provided for each OT sensor and save them in a location that will be accessible from your sensor machines.
 
@@ -79,9 +76,11 @@ The following image shows the steps included in the site networking setup phrase
 
 :::image type="content" source="../media/deployment-paths/site-networking-setup.png" alt-text="Diagram of the site networking setup phase." border="false":::
 
-#### Configure traffic mirroring in your network
+### Configure traffic mirroring in your network
 
 Use the plans you'd created [earlier](#prepare-for-an-ot-site-deployment) to configure traffic mirroring at the places in your network where you'll be deploying OT sensors and mirroring traffic to Defender for IoT.
+
+A brief summary of the information needed to choose the best location for your OT sensor and deploy it on your network is available in [traffic mirroring set up overview](../traffic-mirroring/set-up-traffic-mirroring.md).
 
 For more information, see:
 
@@ -92,11 +91,11 @@ For more information, see:
 - [Configure traffic mirroring with a ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md)
 - [Configure traffic mirroring with a Hyper-V vSwitch](../traffic-mirroring/configure-mirror-hyper-v.md)
 
-#### Provision for cloud management
+### Provision for cloud management
 
 Configure any firewall rules to ensure that your OT sensor appliances will be able to access Defender for IoT on the Azure cloud. If you're planning to connect via a proxy, you'll configure those settings only after installing your sensor.
 
-Skip this step for any OT sensor that is planned to be air-gapped and managed locally, either directly on the sensor console, or via an [on-premises management console](air-gapped-deploy.md).
+Skip this step for any OT sensor that is planned to be air-gapped and managed locally directly on the sensor console.
 
 For more information, see [Provision OT sensors for cloud management](provision-cloud-management.md).
 
@@ -106,7 +105,7 @@ The following image shows the steps included in the sensor deployment phase. OT 
 
 :::image type="content" source="../media/deployment-paths/deploy-sensors.png" alt-text="Diagram of the OT sensor deployment phase." border="false":::
 
-#### Install your OT sensors
+### Install your OT sensors
 
 If you're installing Defender for IoT software on your own appliances, download installation software from the Azure portal and install it on your OT sensor appliance.
 
@@ -119,22 +118,22 @@ For more information, see:
 
 Skip these steps if you're purchasing [pre-configured appliances](../ot-pre-configured-appliances.md).
 
-#### Activate your OT sensors and initial setup
+### Activate your OT sensors and initial setup
 
 Use an initial setup wizard to confirm network settings, activate the sensor, and apply SSH/TLS certificates.
 
 For more information, see [Configure and activate your OT sensor](activate-deploy-sensor.md).
 
-#### Configure proxy connections
+### Configure proxy connections
 
 If you've decided to use a proxy to connect your sensors to the cloud, set up your proxy and configure settings on your sensor. For more information, see [Configure proxy settings on an OT sensor](../connect-sensors.md).
 
 Skip this step in the following situations:
 
 - For any OT sensor where you're connecting directly to Azure, without a proxy
-- For any sensor that is planned to be air-gapped and managed locally, either directly on the sensor console, or via an [on-premises management console](air-gapped-deploy.md).
+- For any sensor that is planned to be air-gapped and managed locally directly on the sensor console.
 
-#### Configure optional settings
+### Configure optional settings
 
 We recommend that you configure an Active Directory connection for managing on-premises users on your OT sensor, and also setting up sensor health monitoring via SNMP.
 
@@ -151,19 +150,19 @@ The following image shows the steps involved in calibrating and fine-tuning OT m
 
 :::image type="content" source="../media/deployment-paths/calibrate-fine-tune.png" alt-text="Diagram of the calibrate and fine-tuning phase." border="false":::
 
-#### Control OT monitoring on your sensor
+### Control OT monitoring on your sensor
 
 By default, your OT sensor may not detect the exact networks that you want to monitor, or identify them in precisely the way you'd like to see them displayed. Use the [lists you'd created earlier](#prepare-for-an-ot-site-deployment) to verify and manually configure the subnets, customize port and VLAN names, and configure DHCP address ranges as needed.
 
 For more information, see [Control the OT traffic monitored by Microsoft Defender for IoT](../how-to-control-what-traffic-is-monitored.md).
 
-#### Verify and update your detected device inventory
+### Verify and update your detected device inventory
 
-After your devices are fully detected, review the device inventory and modify the device details as needed. For example, you might identify duplicate device entries that can be merged, device types or other properties to modify, and more.
+After your devices are fully detected, review the device inventory and modify the device details as needed. For example, you might identify device types or other properties to modify, and more.
 
 For more information, see [Verify and update your detected device inventory](update-device-inventory.md).
 
-#### Learn OT alerts to create a network baseline
+### Learn OT alerts to create a network baseline
 
 The alerts triggered by your OT sensor may include several alerts that you'll want to regularly ignore, or *Learn*, as authorized traffic.
 
@@ -180,7 +179,7 @@ Your OT sensors will remain in *Learning mode* for as long as new traffic is det
 When baseline learning ends, the OT monitoring deployment process is complete, and you'll continue on in operational mode for ongoing monitoring. In operational mode, any activity that differs from your baseline data will trigger an alert.
 
 > [!TIP]
-> [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) if you feel that the current alerts in Defender for IoT reflect your network traffic accurately, and learning mode hasn't already ended automatically.
+> [Turn off learning mode manually](../how-to-manage-individual-sensors.md#turn-off-learning-mode-manually) when the current alerts in Defender for IoT reflect your network traffic accurately.
 >
 
 ## Connect Defender for IoT data to your SIEM
@@ -188,6 +187,8 @@ When baseline learning ends, the OT monitoring deployment process is complete, a
 Once Defender for IoT has been deployed, send security alerts and manage OT/IoT incidents by integrating Defender for IoT with your security information and event management (SIEM) platform and existing SOC workflows and tools.
 Integrate Defender for IoT alerts with your organizational SIEM by [integrating with Microsoft Sentinel](../iot-advanced-threat-monitoring.md) and leveraging the out-of-the-box Microsoft Defender for IoT solution, or by [creating forwarding rules](../how-to-forward-alert-information-to-partners.md) to other SIEM systems.
 Defender for IoT integrates out-of-the-box with Microsoft Sentinel, as well as [a broad range of SIEM systems](../integrate-overview.md), such as Splunk, IBM QRadar, LogRhythm, Fortinet, and more.
+
+A brief summary of the information needed to choose the best location for your OT sensor and deploy it on your network is available in [traffic mirroring set up overview](../traffic-mirroring/set-up-traffic-mirroring.md).
 
 For more information, see:
 
@@ -202,7 +203,7 @@ After integrating Defender for IoT alerts with a SIEM, we recommend the followin
 - Identify and define relevant IoT/OT security threats and SOC incidents you would like to monitor based on your specific OT needs and environment.
 
 - Create detection rules and severity levels in the SIEM. Only relevant incidents will be triggered, thus reducing unnecessary noise. For example, you would define PLC code changes performed from unauthorized devices, or outside of work hours, as a high severity incident due to the high fidelity of this specific alert.
-    
+
     In Microsoft Sentinel, the Microsoft Defender for IoT solution includes [a set of out-of-the-box detection rules](../iot-advanced-threat-monitoring.md#detect-threats-out-of-the-box-with-defender-for-iot-data), which are built specifically for Defender for IoT data, and help you fine-tune the incidents created in Sentinel.
 
 - Define the appropriate workflow for mitigation, and create automated investigation playbooks for each use case. In Microsoft Sentinel, the Microsoft Defender for IoT solution includes [out-of-the-box playbooks for automated response to Defender for IoT alerts](../iot-advanced-threat-monitoring.md#automate-response-to-defender-for-iot-alerts).

@@ -2,10 +2,11 @@
 title: Complete a proxy update by using Device Update for Azure IoT Hub | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub by using the Device Update binary agent for proxy updates.
 author: eshashah
-ms.author: eshashah
+ms.author: cwatson
 ms.date: 1/26/2022
 ms.topic: tutorial
-ms.service: iot-hub-device-update
+ms.service: azure-iot-hub
+ms.subservice: device-update
 ---
 
 # Tutorial: Complete a proxy update by using Device Update for Azure IoT Hub

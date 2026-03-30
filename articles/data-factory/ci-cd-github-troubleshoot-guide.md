@@ -6,9 +6,11 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.subservice: ci-cd
-ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 05/15/2024
+ms.custom:
+  - synapse
+  - sfi-ropc-nochange
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -191,12 +193,12 @@ You can't connect to GIT Enterprise because of permission issues. You can see er
 
 #### Cause
 
-* You haven't configured Oauth for the service. 
+* You haven't configured OAuth for the service. 
 * Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true)
 
 #### Resolution 
 
-You  grant  Oauth access to the service at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, the service tries *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* at first and fail. Then, it tries *https://hostname/api/v3/orgs/&lt;org&gt;/&lt;repo&gt;...*, and succeed. 
+You  grant  OAuth access to the service at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, the service tries *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* at first and fail. Then, it tries *https://hostname/api/v3/orgs/&lt;org&gt;/&lt;repo&gt;...*, and succeed. 
  
 ### Can't recover from a deleted instance
 
@@ -372,6 +374,6 @@ For more help with troubleshooting, try the following resources:
 
 *  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [X information about Data Factory](https://x.com/hashtag/DataFactory)

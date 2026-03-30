@@ -5,23 +5,21 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/19/2024
+ms.date: 03/10/2026
 ms.author: kendownie
 ms.custom: monitoring, devx-track-azurepowershell
+# Customer intent: "As a storage administrator, I want to analyze Azure Files metrics using Azure Monitor, so that I can optimize workload performance by monitoring availability, latency, and utilization of file shares."
 ---
 
 # Use Azure Monitor to Analyze Azure Files metrics
 
+:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
+
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+
 Understanding how to monitor file share performance is critical to ensuring that your application is running as efficiently as possible. This article shows you how to use [Azure Monitor](/azure/azure-monitor/overview) to analyze Azure Files metrics such as availability, latency, and utilization.
 
 See [Monitor Azure Files](storage-files-monitoring.md) for details on the monitoring data you can collect for Azure Files and how to use it.
-
-## Applies to
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Supported metrics
 
@@ -110,43 +108,42 @@ az monitor metrics list --resource <resource-ID> --metric "Transactions" --inter
 
 ### [.NET](#tab/dotnet) 
 
-Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
- 
-In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Azure Files service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
+Azure Monitor provides the [Azure.Monitor.Query](https://www.nuget.org/packages/Azure.Monitor.Query/) .NET SDK to read metric definitions and values. Use [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) for passwordless authentication with `DefaultAzureCredential`. For more information, see [Passwordless connections for Azure services](/dotnet/azure/sdk/authentication).
 
-Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). 
+First, install the required NuGet packages:
+
+```dotnetcli
+dotnet add package Azure.Identity
+dotnet add package Azure.Monitor.Query
+```
+
+In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Azure Files service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
 ### List the account-level metric definition
 
 The following example shows how to list a metric definition at the account level:
 
 ```csharp
-    public static async Task ListStorageMetricDefinition()
+using Azure;
+using Azure.Identity;
+using Azure.Monitor.Query;
+using Azure.Monitor.Query.Models;
+
+public static async Task ListStorageMetricDefinition()
+{
+    var resourceId = "<resource-ID>";
+    var client = new MetricsQueryClient(new DefaultAzureCredential());
+    
+    AsyncPageable<MetricDefinition> metricDefinitions = client.GetMetricDefinitionsAsync(resourceId, metricsNamespace);
+    
+    await foreach (var metricDefinition in metricDefinitions)
     {
-        var resourceId = "<resource-ID>";
-        var subscriptionId = "<subscription-ID>";
-        var tenantId = "<tenant-ID>";
-        var applicationId = "<application-ID>";
-        var accessKey = "<AccessKey>";
-
-
-        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
-        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
-
-        foreach (var metricDefinition in metricDefinitions)
-        {
-            // Enumerate metric definition:
-            //    Id
-            //    ResourceId
-            //    Name
-            //    Unit
-            //    MetricAvailabilities
-            //    PrimaryAggregationType
-            //    Dimensions
-            //    IsDimensionRequired
-        }
+        Console.WriteLine(metricDefinition.Id);
+        Console.WriteLine(metricDefinition.ResourceId);
+        Console.WriteLine(metricDefinition.Name);
+        Console.WriteLine(metricDefinition.Unit);
     }
-
+}
 ```
 
 ### Reading account-level metric values
@@ -154,98 +151,86 @@ The following example shows how to list a metric definition at the account level
 The following example shows how to read `UsedCapacity` data at the account level:
 
 ```csharp
-    public static async Task ReadStorageMetricValue()
-    {
-        var resourceId = "<resource-ID>";
-        var subscriptionId = "<subscription-ID>";
-        var tenantId = "<tenant-ID>";
-        var applicationId = "<application-ID>";
-        var accessKey = "<AccessKey>";
-
-        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
-
-        Microsoft.Azure.Management.Monitor.Models.Response Response;
-
-        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
-        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
-        string timeSpan = startDate + "/" + endDate;
-
-        Response = await readOnlyClient.Metrics.ListAsync(
-            resourceUri: resourceId,
-            timespan: timeSpan,
-            interval: System.TimeSpan.FromHours(1),
-            metricnames: "UsedCapacity",
-
-            aggregation: "Average",
-            resultType: ResultType.Data,
-            cancellationToken: CancellationToken.None);
-
-        foreach (var metric in Response.Value)
+public static async Task ReadStorageMetricValue()
+{
+    var resourceId = "<resource-ID>";
+    var client = new MetricsQueryClient(new DefaultAzureCredential());
+    
+    Response<MetricsQueryResult> result = await client.QueryResourceAsync(
+        resourceId,
+        new[] { "UsedCapacity" },
+        new MetricsQueryOptions
         {
-            // Enumerate metric value
-            //    Id
-            //    Name
-            //    Type
-            //    Unit
-            //    Timeseries
-            //        - Data
-            //        - Metadatavalues
+            Granularity = TimeSpan.FromHours(1),
+            Aggregations = { MetricAggregationType.Average },
+            TimeRange = new QueryTimeRange(TimeSpan.FromHours(3))
+        });
+    
+    foreach (MetricResult metric in result.Value.Metrics)
+    {
+        Console.WriteLine(metric.Name);
+        Console.WriteLine(metric.Unit);
+        foreach(var item in metric.TimeSeries)
+        {
+            Console.WriteLine("Metadata:");
+            foreach(var metadata in item.Metadata)
+            {
+                Console.WriteLine($"{metadata.Key}: {metadata.Value}");
+            }
+            Console.WriteLine("Values:");
+            foreach(var value in item.Values)
+            {
+                Console.WriteLine($"TimeStamp: {value.TimeStamp}, Average: {value.Average}");
+            }
         }
     }
-
+}
 ```
 
 ### Reading multidimensional metric values
 
 For multidimensional metrics, you need to define metadata filters if you want to read metric data on specific dimension values.
 
-The following example shows how to read metric data on the metric supporting multidimension:
+The following example shows how to read metric data on the metric supporting multidimensional values:
 
 ```csharp
-    public static async Task ReadStorageMetricValueTest()
-    {
-        // Resource ID for Azure Files
-        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default";
-        var subscriptionId = "<subscription-ID}";
-        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
-        var tenantId = "<tenant-ID>";
-        var applicationId = "<application-ID>";
-        var accessKey = "<AccessKey>";
-
-        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
-
-        Microsoft.Azure.Management.Monitor.Models.Response Response;
-
-        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
-        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
-        string timeSpan = startDate + "/" + endDate;
-        // It's applicable to define meta data filter when a metric support dimension
-        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
-        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
-            string.Format("BlobType eq '{0}'", "BlockBlob"));
-
-        Response = readOnlyClient.Metrics.List(
-                        resourceUri: resourceId,
-                        timespan: timeSpan,
-                        interval: System.TimeSpan.FromHours(1),
-                        metricnames: "BlobCapacity",
-                        odataQuery: odataFilterMetrics,
-                        aggregation: "Average",
-                        resultType: ResultType.Data);
-
-        foreach (var metric in Response.Value)
+public static async Task ReadStorageMetricValueTest()
+{
+    // Resource ID for Azure Files
+    var resourceId = "<resource-ID>";
+    var client = new MetricsQueryClient(new DefaultAzureCredential());
+    
+    // Define a dimension filter to read metric data on specific dimension values
+    // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+    Response<MetricsQueryResult> result = await client.QueryResourceAsync(
+        resourceId,
+        new[] { "BlobCapacity" },
+        new MetricsQueryOptions
         {
-            //Enumerate metric value
-            //    Id
-            //    Name
-            //    Type
-            //    Unit
-            //    Timeseries
-            //        - Data
-            //        - Metadatavalues
+            Granularity = TimeSpan.FromHours(1),
+            Aggregations = { MetricAggregationType.Average },
+            TimeRange = new QueryTimeRange(TimeSpan.FromHours(3)),
+            Filter = "BlobType eq 'BlockBlob'"
+        });
+    
+    foreach (MetricResult metric in result.Value.Metrics)
+    {
+        Console.WriteLine(metric.Name);
+        Console.WriteLine(metric.Unit);
+        foreach(var item in metric.TimeSeries)
+        {
+            Console.WriteLine("Metadata:");
+            foreach(var metadata in item.Metadata)
+            {
+                Console.WriteLine($"{metadata.Key}: {metadata.Value}");
+            }
+            Console.WriteLine("Values:");
+            foreach(var value in item.Values)
+            {
+                Console.WriteLine($"TimeStamp: {value.TimeStamp}, Average: {value.Average}");
+            }
         }
     }
-
 ```
 
 ---
@@ -266,7 +251,7 @@ Now you can select a metric depending on what you want to monitor.
 
 In Azure Monitor, the **Availability** metric can be useful when something is visibly wrong from either an application or user perspective, or when troubleshooting alerts.
 
-When using this metric with Azure Files, it’s important to always view the aggregation as **Average** as opposed to **Max** or **Min**. Using **Average** will help you understand what percentage of your requests are experiencing errors, and if they are within the [SLA for Azure Files](https://azure.microsoft.com/support/legal/sla/storage/).
+When using this metric with Azure Files, it's important to always view the aggregation as **Average** as opposed to **Max** or **Min**. Using **Average** shows you what percentage of your requests are experiencing errors, and if they are within the [SLA for Azure Files](https://azure.microsoft.com/support/legal/sla/storage/).
 
 :::image type="content" source="media/analyze-files-metrics/transaction-metrics-menu.png" alt-text="Screenshot showing the available transaction metrics in Azure Monitor." lightbox="media/analyze-files-metrics/transaction-metrics-menu.png":::
 
@@ -276,7 +261,7 @@ The two most important latency metrics are **Success E2E Latency** and **Success
 
 In the following charts, the blue line indicates how much time is spent in total latency (Success E2E Latency), and the pink line indicates time spent only in the Azure Files service (Success Server Latency).
 
-This chart is an example of a client machine that has mounted an Azure file share from an on-premises environment. This will likely represent a typical user connecting from either an office, home, or other remote location. You'll see that the physical distance between the client and Azure region is closely correlated to the corresponding client-side latency, which represents the difference between the E2E and Server latency.
+This chart shows an on-premises client with a mounted Azure file share, representing, for example, a typical user connecting from a remote location. The physical distance between the client and Azure region is closely correlated to the corresponding client-side latency, which represents the difference between the E2E and Server latency.
 
 :::image type="content" source="media/analyze-files-metrics/latency-remote.png" alt-text="Screenshot showing latency metrics with a remote user connecting to an Azure file share." lightbox="media/analyze-files-metrics/latency-remote.png" border="false":::
 
@@ -284,7 +269,7 @@ In comparison, the following chart shows a situation where both the client and t
 
 :::image type="content" source="media/analyze-files-metrics/latency-same-region.png" alt-text="Screenshot showing latency metrics when the client and Azure file share are located in the same region." lightbox="media/analyze-files-metrics/latency-same-region.png" border="false":::
 
-Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the Azure Files [scale limits](storage-files-scale-targets.md) for standard file shares, or an under-provisioned [Azure Files Premium Share](understanding-billing.md#provisioned-v1-model).
+Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the provisioned limit for a provisioned file share (or an overall scale limit a pay-as-you-go file share). See [Understanding Azure Files billing](./understanding-billing.md) and the [Scalability and performance targets for Azure Files](storage-files-scale-targets.md).
 
 For more information, see [Troubleshoot high latency, low throughput, or low IOPS](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json&tabs=windows#high-latency-low-throughput-or-low-iops).
 
@@ -292,7 +277,7 @@ For more information, see [Troubleshoot high latency, low throughput, or low IOP
 
 Utilization metrics that measure the amount of data being transmitted (throughput) or operations being serviced (IOPS) are commonly used to determine how much work is being performed by the application or workload. Transaction metrics can determine the number of operations or requests against the Azure Files service over various time granularity. 
 
-If you're using the **Egress** or **Ingress** metrics to determine the volume of inbound or outbound data, use the **Sum** aggregation to determine the total amount of data being transmitted to and from the file share over a 1 minute to 1 day time granularity. Other aggregations such as **Average**, **Max**, and **Min** only display the value of the individual I/O size. This is why most customers will typically see 1 MiB when using the **Max** aggregation.  While it can be useful to understand the size of your largest, smallest, or even average I/O size, it isn't possible to display the distribution of I/O size generated by the workload's usage pattern.
+If you're using the **Egress** or **Ingress** metrics to determine the volume of inbound or outbound data, use the **Sum** aggregation to determine the total amount of data being transmitted to and from the file share over a 1 minute to 1 day time granularity. Other aggregations such as **Average**, **Max**, and **Min** only display the value of the individual I/O size. This is why most customers typically see 1 MiB when using the **Max** aggregation.  While it can be useful to understand the size of your largest, smallest, or even average I/O size, it isn't possible to display the distribution of I/O size generated by the workload's usage pattern.
 
 You can also select **Apply splitting** on response types (success, failures, errors) or API operations (read, write, create, close) to display additional details as shown in the following chart.
 
@@ -302,11 +287,9 @@ To determine the average I/O per second (IOPS) for your workload, first determin
 
 To determine the average throughput for your workload, take the total amount of transmitted data by combining the **Ingress** and **Egress** metrics (total throughput) and divide that by 60 seconds. For example, 1 GiB total throughput over 1 minute / 60 seconds = 17 MiB average throughput.
 
-### Monitor utilization by maximum IOPS and bandwidth (premium only)
+### Monitor utilization by maximum IOPS and bandwidth (provisioned only)
 
-Because Azure Premium file shares are billed on a provisioned model in which each GiB of storage capacity that you provision entitles you to more IOPS and throughput, it's often useful to determine maximum IOPS and bandwidth. Whereas throughput measures the actual amount of data successfully transmitted, bandwidth refers to the maximum data transfer rate.
-
-With Azure Premium file shares, you can use **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to display what your workload is achieving at peak times. Using these metrics to analyze your workload will help you understand true capability at scale, as well as establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure Premium file share.
+Provisioned file shares provide **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to display what your workload is achieving at peak times. Using these metrics to analyze your workload help you understand true capability at scale, as well as establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure file share.
 
 The following chart shows a workload that generated 2.63 million transactions over 1 hour. When 2.63 million transactions is divided by 3,600 seconds, we get an average of 730 IOPS.
 
@@ -323,6 +306,29 @@ Select **Add metric** to combine the **Ingress** and **Egress metrics** on a sin
 Compared against the **Bandwidth by Max MiB/s**, we achieved 123 MiB/s at peak.
 
 :::image type="content" source="media/analyze-files-metrics/bandwidth-by-max-mibs.png" alt-text="Screenshot showing bandwidth by max MIBS." lightbox="media/analyze-files-metrics/bandwidth-by-max-mibs.png" border="false":::
+
+### Monitor utilization by metadata IOPS
+On Azure file shares scale up to 12K metadata IOPS. This means that running a metadata-heavy workload with a high volume of open, close, or delete operations increases the likelihood of metadata IOPS throttling. This limitation is independent of the file share's overall provisioned IOPS.
+
+Because no two metadata-heavy workloads follow the same usage pattern, it can be challenging for customers to proactively monitor their workload and set accurate alerts.
+
+To address this, we've introduced two metadata-specific metrics for Azure file shares:
+
+- **Success with Metadata Warning:** Indicates that metadata IOPS are approaching their limit and might be throttled if they remain high or continue increasing. A rise in the volume or frequency of these warnings suggests an increasing risk of metadata throttling.
+
+- **Success with Metadata Throttling:** Indicates that metadata IOPS have exceeded the file share's capacity, resulting in throttling. While IOPS operations never fail and eventually succeed after retries, latency is impacted during throttling.
+
+To view in Azure Monitor, select the **Transactions** metric and **Apply splitting** on response types. The Metadata response types only appear in the drop-down if the activity occurs within the timeframe selected.
+
+The following chart illustrates a workload that experienced a sudden increase in metadata IOPS (transactions), triggering Success with Metadata Warnings, which indicates a risk of metadata throttling. In this example, the workload subsequently reduced its transaction volume, preventing metadata throttling from occurring.
+
+:::image type="content" source="media/analyze-files-metrics/metadata-warnings.png" alt-text="Screenshot showing Metadata Warnings by response type." lightbox="media/analyze-files-metrics/metadata-warnings.png" border="false":::
+
+If your workload encounters **Success with Metadata Warnings** or **Success with Metadata Throttling** response types, consider implementing one or more of the following recommendations:
+
+- For SSD SMB file shares, enable [Metadata Caching](smb-performance.md#metadata-caching-for-ssd-file-shares).
+- Distribute (shard) your workload across multiple file shares.
+- Reduce the volume of metadata IOPS.
 
 ## Related content
 

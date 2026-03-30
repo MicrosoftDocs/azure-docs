@@ -2,8 +2,12 @@
 title: Azure deployment templates with Azure CLI – Azure Resource Manager | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to create and deploy resource groups to Azure. The resources are defined in an Azure deployment template.
 ms.topic: how-to
-ms.date: 09/26/2024
-ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template
+ms.date: 04/28/2025
+ms.custom:
+  - devx-track-azurecli
+  - seo-azure-cli
+  - devx-track-arm-template
+  - build-2025
 keywords: azure cli deploy arm template, create resource group azure, azure deployment template, deployment resources, arm template, azure arm template
 ---
 
@@ -20,6 +24,7 @@ If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more i
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [How to deploy resources with Bicep and Azure CLI](../bicep/deploy-cli.md).
 
+## Prerequisites
 
 [!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
@@ -270,7 +275,7 @@ For more information about the parameter file, see [Create Resource Manager para
 
 ### Bicep parameter files
 
-With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch results in an "Only a .bicep template is allowed with a .bicepparam file" error.
+With Azure CLI version 2.53.0 or later, and Bicep CLI version 0.22.6 or later, you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `--template-file` switch when specifying a Bicep parameter file for the `--parameters` switch. Including the `--template-file` switch results in an, "Only a .bicep file is allowed with a .bicepparam file," error.
 
 ```azurecli-interactive
 az deployment group create \
@@ -299,7 +304,7 @@ If you are using Azure CLI with version 2.3.0 or older, you can deploy a templat
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2018-10-01",
+  "apiVersion": "2025-04-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')

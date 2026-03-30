@@ -1,42 +1,67 @@
 ---
-title: Partner services
-description: Learn about services  offered by partners on Azure.
+title: Azure Native Integrations Partner Solutions
+description: Explore Azure Native Integrations partner solutions for observability, data, networking, and storage.
+author: ProfessorKendrick
+ms.author: kkendrick
+ms.service: partner-services
+ms.topic: overview
+ms.date: 10/31/2025
+ai-usage: ai-assisted
 
-ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-ms.date: 04/08/2024
+#customer intent: As a customer, I want to discover Azure Native Integrations partner solutions so that I can extend Azure capabilities with trusted partner services.
+
 ---
 
-# Extend Azure with Azure Native ISV Services
+# Azure Native Integrations partner solutions
 
-Partner organizations use Azure Native ISV Services to offer solutions that you can use in Azure to enhance your cloud infrastructure. These Azure Native ISV Services is fully integrated into Azure. You work with these solutions in much the same way you would work with solutions from Microsoft. You use a resource provider, resource types, and SDKs to manage the solution.
+Azure Native Integrations enable the use of trusted partner solutions as managed Azure resources. You deploy, manage, and support these integrations directly from the Azure portal, the Azure CLI, or SDKs.
 
-Azure Native ISV Services is available through the Marketplace.
+You can subscribe to Azure Native Integrations services through [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
-## Observability
+## AI partners
 
-|Partner  |Description  | Portal link | Get started on|
-|---------|-------------|----------------|----|
-|[Datadog - An Azure Native ISV Service](datadog/overview.md) |  Monitoring and analytics platform for large scale applications. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview) |
-|[Elastic](elastic/overview.md) | Build modern search experiences and maximize visibility into health, performance, and security of your infrastructure, applications, and data.  | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview) |
-|[Azure Native Dynatrace Service](dynatrace/dynatrace-overview.md)   | Provides deep cloud observability, advanced AIOps, and continuous runtime application security.  | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview) |
-|[Azure Native New Relic Service](new-relic/new-relic-overview.md)    |  A cloud-based end-to-end observability platform for analyzing and troubleshooting the performance of applications, infrastructure, logs, real-user monitoring, and more.   | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview) |
-|[Logz.io](logzio/overview.md)     | Observability platform that centralizes log, metric, and tracing analytics. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Logz%2Fmonitors) |  |
-|[Split Experimentation](split-experimentation/overview.md)     | Split Experimentation allows you to run A/B tests for your applications and gather feedback for new features. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResourceBlade/resourceType/SplitIO.Experimentation%2FexperimentationWorkspaces) | [Azure Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/splitio1614896174525.azure-experimentation)|
+The following Azure Native Integrations partners provide advanced machine learning, automation, and testing capabilities to enhance your AI workloads.
 
-## Data and storage
+| Partner name                  | Solution description |
+|-------------------------------|-------------|
+| **Arize AI**                  | [Azure Native Arize AI Cloud Service](arize-ai/overview.md) is a platform for machine learning observability that helps teams monitor, troubleshoot, and improve their AI models. It provides tools for understanding model performance, detecting issues, and optimizing model behavior. |
+| **LambdaTest** | [LambdaTest - HyperExecute](lambda-test/overview.md) is a managed AI-powered platform for test execution and automation that enables teams to run tests at scale across various environments. It provides capabilities for parallel test execution, real-time analytics, and integration with continuous integration and continuous delivery (CI/CD) pipelines. |
 
-|Partner  |Description  |Portal link | Get started on|
-|---------|-------------|---------------|----|
-|[Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service](apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview) |
-|[Azure Native Qumulo Scalable File Service](qumulo/qumulo-overview.md) |  Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.  | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Qumulo.Storage%2FfileSystems) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp?tab=Overview) |
-| [Apache Airflow on Astro - An Azure Native ISV Service](astronomer/astronomer-overview.md) | Deploy a fully managed and seamless Apache Airflow on Astro on Azure. | [Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Astronomer_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Astronomer.Astro%2Forganizations) | [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/astronomer1591719760654.astronomer?tab=Overview) |
- | [Intelligent Data Management Cloud (Preview) - Azure Native ISV Service](informatica/informatica-overview.md) | A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy and master data management. | <!--[Azure portal](https://ms.portal.azure.com/?Azure_Marketplace_Informatica_assettypeoptions=%7B%22Astronomer%22%3A%7B%22options%22%3A%22%22%7D%7D#browse/Informatica.Astro%2Forganizations) --> | <!-- [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/informatica1591719760654.informatica?tab=Overview) --> |
+## Observability partners
 
-## Networking and security
+The following Azure Native Integrations partners deliver observability and monitoring solutions to help you gain insights into your applications, infrastructure, and security posture.
 
-|Partner  |Description  |Portal link | Get started on |
-|---------|-------------|---------------|----|
-|[NGINXaaS - Azure Native ISV Service](nginx/nginx-overview.md) | Use NGINXaaS as a reverse proxy within your Azure environment. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NGINX.NGINXPLUS%2FnginxDeployments) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-nginx-for-azure?tab=Overview) |
-|[Cloud NGFW by Palo Alto Networks](palo-alto/palo-alto-overview.md) | Use Palo Alto Networks as a firewall in the Azure environment. | [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/PaloAltoNetworks.Cloudngfw%2Ffirewalls) | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.pan_swfw_cloud_ngfw?tab=Overview) |
+| Partner name   | Solution description |
+|----------------|-------------|
+| **Datadog**    | [Datadog](datadog/overview.md) delivers observability and security for cloud and hybrid workloads. It enables monitoring, troubleshooting, and securing applications and infrastructure. |
+| **Dynatrace**  | [Azure Native Dynatrace Service](dynatrace/overview.md) provides cloud observability, AI for IT operations (AIOps), and application security to help organizations optimize performance and ensure reliability. |
+| **Elastic**    | [Elastic in Azure](elastic/overview.md) offers search, monitoring, and security solutions for infrastructure and applications to support operational visibility and threat detection. |
+| **New Relic**  | [Azure Native New Relic Service](new-relic/overview.md) delivers observability for applications, infrastructure, and logs. It empowers teams to analyze and improve system performance. |
+
+## Data and storage partners
+
+The following Azure Native Integrations partners provide data management, integration, and storage solutions for your cloud workloads.
+
+| Partner name                  | Solution description |
+|-------------------------------|-------------|
+| **Astro**                     | [Apache Airflow on Astro](astronomer/overview.md) is a managed service for workflow orchestration. It helps enable scalable and reliable data pipelines. |
+| **Confluent Cloud**                 | [Apache Kafka & Apache Flink on Confluent Cloud](apache-kafka-confluent-cloud/overview.md) provides managed Apache Kafka for real-time data streaming. It supports event-driven architectures and data integration. |
+|**Dell PowerScale** Preview|[Dell PowerScale Preview](dell/overview.md) is an enterprise-class, high-performance software-defined file storage solution that brings PowerScale OneFS software to Azure.|
+| **Informatica**               | [Informatica Intelligent Data Management Cloud](informatica/overview.md) enables the management of an Informatica organization in Azure. Informatica delivers solutions that help organizations manage and secure their cloud data assets. |
+| **MongoDB**    | [MongoDB Atlas](mongo-db/overview.md) is a managed document database with vector search capabilities. It supports modern application development. |
+| **Neon (retired)**  | [Neon Serverless Postgres](neon/overview.md) offers a serverless Postgres database service that enables scalable and cost-effective relational data storage. |
+| **Pure Storage Cloud** | [Pure Storage Cloud](pure-storage/overview.md) provides managed block storage to help organizations manage their storage and compute resources. |
+| **Qumulo**                    | [Azure Native Qumulo](qumulo/overview.md) is a service that provisions a Qumulo file system that supports multiple protocols. It helps organizations efficiently manage unstructured data. |
+
+## Network and security partners
+
+The following Azure Native Integrations partners provide solutions for secure connectivity, application delivery, and protection of your cloud resources.
+
+| Partner name         | Solution description |
+|----------------------|-------------|
+| **F5**            | [NGINXaaS Cloud-Native Observability Platform](nginx/overview.md) provides load balancing and application delivery to help enhance performance, scalability, and security for web applications. |
+| **Palo Alto Networks** | [Cloud Next-Generation Firewall by Palo Alto Networks](palo-alto/overview.md) offers a cloud-integrated firewall and security solution to help protect workloads and data across cloud environments. |
+
+## Related content
+
+- [What are Azure Native Integrations?](overview.md)

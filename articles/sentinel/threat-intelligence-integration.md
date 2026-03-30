@@ -1,13 +1,13 @@
 ---
 title: Threat intelligence integration in Microsoft Sentinel
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
-author: austinmccollum
+author: guywi-ms
 ms.topic: concept-article
 ms.date: 03/14/2024
-ms.author: austinmc
+ms.author: guywild
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -68,7 +68,7 @@ One component of Cyware's TIP, CTIX, is to make intel actionable with a TAXII fe
 
 ### IntSights
 
-- Learn more about the [IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel).
+- Learn more about the [IntSights integration with Microsoft Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/intsights.41547b1e-f1e4-44b5-85de-55becff4cd64?tab=overview).
 - Connect Microsoft Sentinel to the IntSights TAXII server. Obtain the API root, collection ID, username, and password from the IntSights portal after you configure a policy of the data that you want to send to Microsoft Sentinel.
 
 ### Kaspersky
@@ -117,6 +117,11 @@ To connect to TIP feeds, see [Connect threat intelligence platforms to Microsoft
 
 - EclecticIQ Platform integrates with Microsoft Sentinel to enhance threat detection, hunting, and response. Learn more about the [benefits and use cases](https://www.eclecticiq.com/resources/microsoft-sentinel-and-eclecticiq-intelligence-center) of this two-way integration.
 
+### Filigran OpenCTI
+
+- [Filigran OpenCTI](https://filigran.io/solutions/open-cti/) can send threat intelligence to Microsoft Sentinel via either a [dedicated connector](https://filigran.notion.site/Microsoft-Sentinel-934a09d3736c403e88a8944ec6badfc9) which runs in realtime, or by acting as a TAXII 2.1 server that Sentinel will poll regularly. It can also receive structured incidents from Sentinel via the [Microsoft Sentinel Incident connector](https://filigran.notion.site/Microsoft-Sentinel-Incidents-11c8fce17f2a80f1b461c6379265d5d3).
+
+
 ### GroupIB Threat Intelligence and Attribution
 
 - To connect [GroupIB Threat Intelligence and Attribution](https://www.group-ib.com/products/threat-intelligence/) to Microsoft Sentinel, GroupIB makes use of Logic Apps. See the [specialized instructions](https://techcommunity.microsoft.com/t5/azure-sentinel/group-ib-threat-intelligence-and-attribution-connector-azure/ba-p/2252904) that are necessary to take full advantage of the complete offering.
@@ -133,7 +138,7 @@ To connect to TIP feeds, see [Connect threat intelligence platforms to Microsoft
 
 ### Recorded Future security intelligence platform
 
-- Learn how [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://www.recordedfuture.com/integrations/microsoft) necessary to take full advantage of the complete offering.
+- Learn how [Recorded Future](https://www.recordedfuture.com/blog/microsoft-azure-sentinel-integration) makes use of Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://www.recordedfuture.com/integrations/microsoft) necessary to take full advantage of the complete offering.
 
 ### ThreatConnect Platform
 
@@ -161,12 +166,12 @@ For more information about how to find and manage the solutions, see [Discover a
 
 ### Recorded Future Security Intelligence Platform
 
-- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with `RecordedFuture_`.
+- Find and enable incident enrichment playbooks for [Recorded Future](https://www.recordedfuture.com/blog/microsoft-azure-sentinel-integration) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with `RecordedFuture_`.
 - See the Recorded Future Logic Apps [connector documentation](/connectors/recordedfuturev2/).
 
 ### ReversingLabs TitaniumCloud
 
-- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/file-reputation-service) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/).
+- Find and enable incident enrichment playbooks for [ReversingLabs](https://www.reversinglabs.com/products/spectra-intelligence) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/ReversingLabs/Playbooks/).
 - See the ReversingLabs TitaniumCloud Logic Apps [connector documentation](/connectors/reversinglabstitaniu/).
 
 ### RiskIQ PassiveTotal

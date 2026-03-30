@@ -1,5 +1,5 @@
 ---
-title: Quickstart for Azure App Configuration with ASP.NET Core | Microsoft Docs
+title: Quickstart for Azure App Configuration with ASP.NET Core
 description: Create an ASP.NET Core app with Azure App Configuration to centralize storage and management of application settings for an ASP.NET Core application.
 services: azure-app-configuration
 author: zhenlan
@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, engagement-fy23
 ms.topic: quickstart
-ms.date: 02/20/2024
+ms.date: 11/21/2025
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
@@ -17,8 +17,8 @@ In this quickstart, you'll use Azure App Configuration to externalize storage an
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
 
 > [!TIP]
@@ -42,36 +42,103 @@ Use the [.NET command-line interface (CLI)](/dotnet/core/tools) to create a new 
 Run the following command to create an ASP.NET Core web app in a new *TestAppConfig* folder:
 
 ```dotnetcli
-dotnet new webapp --output TestAppConfig --framework net6.0
+dotnet new webapp --output TestAppConfig
 ```
 
 ## Connect to the App Configuration store
 
-1. Navigate into the project's directory *TestAppConfig*, and run the following command to add a [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) NuGet package reference:
+Connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
+
+1. Navigate into the project's directory *TestAppConfig*, and run the following command to add NuGet package references.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+    dotnet add package Azure.Identity
     ```
 
-1. Run the following command. The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string under **Access Keys** of your App Configuration store in the Azure portal.
+    ### [Connection string](#tab/connection-string)
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+    ```
+    ---
+
+1. Create a user secret for the application by navigating into the *TestAppConfig* folder and running the following command.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+        
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `Endpoints:AppConfiguration`, which stores the endpoint for your App Configuration store. Replace the `<your-App-Configuration-endpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
+    
+    ```dotnetcli
+    dotnet user-secrets init
+    dotnet user-secrets set Endpoints:AppConfiguration "<your-App-Configuration-endpoint>"
+    ```
+    
+    ### [Connection string](#tab/connection-string)
+
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfiguration`, which stores the connection string for your App Configuration store. Replace the `<your-App-Configuration-connection-string>` placeholder with your App Configuration store's read-only connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init
-    dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
+    dotnet user-secrets set ConnectionStrings:AppConfiguration "<your-App-Configuration-connection-string>"
     ```
 
     > [!TIP]
     > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
-
+    
     Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Microsoft Entra identities](./concept-enable-rbac.md).
+    
+    ---
 
-1. Open *Program.cs* and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
+1. Open *Program.cs* and add the following namespaces:
+
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Azure.AppConfiguration.AspNetCore;
+    using Azure.Identity;
+    ```
+
+    ### [Connection string](#tab/connection-string)
+    ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Azure.AppConfiguration.AspNetCore;
+    ```
+    ---
+
+1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
+ 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args); 
+    
+    // Retrieve the endpoint
+    string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration")
+        ?? throw new InvalidOperationException("The setting `Endpoints:AppConfiguration` was not found.");
+
+    // Load configuration from Azure App Configuration 
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+    });
+    
+    // The rest of existing code in program.cs
+    // ... ...    
+    ```
+
+    ### [Connection string](#tab/connection-string)
 
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
 
     // Retrieve the connection string
-    string connectionString = builder.Configuration.GetConnectionString("AppConfig");
+    string connectionString = builder.Configuration.GetConnectionString("AppConfiguration")
+        ?? throw new InvalidOperationException("The connection string 'AppConfiguration' was not found.");
 
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(connectionString);
@@ -79,8 +146,10 @@ dotnet new webapp --output TestAppConfig --framework net6.0
     // The rest of existing code in program.cs
     // ... ...
     ```
+    ---
 
-    This code will connect to your App Configuration store using a connection string and load *all* key-values that have *no labels*. For more information on the App Configuration provider, see the [App Configuration provider API reference](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
+    This code loads *all* key-values that have *no label* from your App Configuration store. For more information on loading data from App Configuration, see the [App Configuration provider API reference](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfigurationExtensions).
+
 
 ## Read from the App Configuration store
 

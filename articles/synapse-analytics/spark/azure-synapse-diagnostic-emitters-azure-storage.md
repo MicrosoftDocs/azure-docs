@@ -3,7 +3,6 @@ title: Collect your Apache Spark applications logs and metrics using Azure Stora
 description: This article shows how to use the Synapse Spark diagnostic emitter extension to collect logs, event logs and metrics.cluster and learn how to integrate the Grafana dashboards.
 author: jejiang
 ms.author: jejiang
-ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark

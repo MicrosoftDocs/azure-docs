@@ -4,8 +4,18 @@ description: This article shows you how to migrate your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 07/31/2023
-ms.custom: template-how-to-pattern, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-dotnet, devx-track-azurecli, ignite-2023, linux-related-content, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - template-how-to-pattern
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-dotnet
+  - devx-track-azurecli
+  - ignite-2023
+  - linux-related-content
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # <a name="top"></a>Migrate apps from Azure Functions version 1.x to version 4.x 
@@ -36,8 +46,7 @@ zone_pivot_groups: programming-languages-set-functions
 > [!IMPORTANT]
 > Python isn't supported by version 1.x of the Azure Functions runtime. Perhaps you're instead looking to [migrate your Python app from version 3.x to version 4.x](./migrate-version-3-version-4.md). If you're migrating a version 1.x function app, select either C# or JavaScript above.
 
-::: zone-end
-
+::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-csharp"
 
 > [!IMPORTANT]
@@ -49,30 +58,35 @@ If you are running version 1.x of the runtime in Azure Stack Hub, see [Considera
 
 ## Identify function apps to migrate
 
-Use the following PowerShell script to generate a list of function apps in your subscription that currently target version 1.x:
+Run the following PowerShell script in Azure Cloud Shell to generate a list of function apps in your subscription that currently target version 1.x:
 
-```powershell
-$Subscription = '<YOUR SUBSCRIPTION ID>' 
- 
-Set-AzContext -Subscription $Subscription | Out-Null
-
+```azurepowershell-interactive
 $FunctionApps = Get-AzFunctionApp
 
 $AppInfo = @{}
 
 foreach ($App in $FunctionApps)
 {
-     if ($App.ApplicationSettings["FUNCTIONS_EXTENSION_VERSION"] -like '*1*')
+     $AppSettings = Get-AzFunctionAppSetting -Name $App.Name -ResourceGroupName $App.ResourceGroupName
+     if ($AppSettings.FUNCTIONS_EXTENSION_VERSION -like '*1*')
      {
-          $AppInfo.Add($App.Name, $App.ApplicationSettings["FUNCTIONS_EXTENSION_VERSION"])
+          $AppInfo.Add($App.Name, $AppSettings.FUNCTIONS_EXTENSION_VERSION)
      }
 }
 
 $AppInfo
 ```
 
-::: zone-end
+If you run outside of Cloud Shell, you must first set the active subscription:
 
+```azurepowershell
+$Subscription = '<SUBSCRIPTION_ID>' 
+ 
+Set-AzContext -Subscription $Subscription | Out-Null
+```
+
+In this example, replace '<SUBSCRIPTION_ID>' with the ID of your subscription.  
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
 ## Choose your target .NET version
@@ -86,7 +100,7 @@ On version 1.x of the Functions runtime, your C# function app targets .NET Frame
 >
 > Although you can choose to instead use the in-process model, this is not recommended if it can be avoided. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-This guide doesn't present specific examples for .NET 6. If you need to target that version, you can adapt the .NET 8 examples.
+This guide doesn't present specific examples for .NET 10 (preview) or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
 
 ::: zone-end
 
@@ -343,7 +357,7 @@ Some key classes changed names between version 1.x and version 4.x. These change
 
 # [.NET 8 (in-process model)](#tab/net8-in-proc)
 
-| Version 1.x | .NET 6 (in-process) | 
+| Version 1.x | .NET 8 (in-process) | 
 | --- | --- | 
 | `FunctionName` (attribute) | `FunctionName` (attribute) | 
 | `TraceWriter` | `ILogger<T>`, `ILogger`  |
@@ -509,7 +523,7 @@ To update your project to Azure Functions 4.x:
 
     [!INCLUDE [functions-extension-bundles-json-v3](../../includes/functions-extension-bundles-json-v3.md)]
  
-    The `extensionBundle` element is required because after version 1.x, bindings are maintained as external packages. For more information, see [Extension bundles](functions-bindings-register.md#extension-bundles).
+    The `extensionBundle` element is required because after version 1.x, bindings are maintained as external packages. For more information, see [Extension bundles](extension-bundles.md).
 
 1. Update your local.settings.json file so that it has at least the following elements:
 

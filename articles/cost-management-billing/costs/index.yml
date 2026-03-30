@@ -8,9 +8,9 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: cost-management
   ms.topic: landing-page
-  author: bandersmsft
-  ms.author: banders
-  ms.date: 03/21/2024
+  author: vikramdesai01
+  ms.author: vikdesai
+  ms.date: 7/08/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -74,7 +74,7 @@ landingContent:
       - text: Pricing calculator
         url: https://azure.microsoft.com/pricing/calculator
       - text: TCO calculator
-        url: https://azure.microsoft.com/pricing/tco/calculator/
+        url: https://aka.ms/tco-blog
       - text: Azure Migrate
         url: ../../migrate/index.yml
 

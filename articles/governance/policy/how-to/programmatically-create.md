@@ -1,7 +1,7 @@
 ---
 title: Programmatically create policies
 description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -58,7 +58,7 @@ The first step toward better visibility of your resources is to create and assig
    }
    ```
 
-   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure.md).
+   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure-basics.md).
 
 1. Run the following command to create a policy definition using the _AuditStorageAccounts.json_ file.
 
@@ -137,7 +137,7 @@ Use the following procedure to create a policy definition.
 
    Replace the preceding `{subscriptionId}` with the ID of your subscription or `{managementGroupId}` with the ID of your [management group](../../management-groups/overview.md).
 
-   For more information about the structure of the query, see [Azure Policy Definitions - Create or Update](/rest/api/policy/policy-definitions/create-or-update) and [Policy Definitions - Create or Update At Management Group](/rest/api/policy/policy-definitions/create-or-update-at-management-group).
+   For more information about the structure of the query, see [Azure Policy Definitions - Create or Update](/rest/api/policy-authorization/policy-definitions/create-or-update) and [Policy Definitions - Create or Update At Management Group](/rest/api/policy-authorization/policy-definitions/create-or-update-at-management-group).
 
 Use the following procedure to create a policy assignment and assign the policy definition at the resource group level.
 
@@ -191,7 +191,7 @@ To create a policy definition, use the following procedure:
    }
    ```
 
-   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure.md).
+   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure-basics.md).
 
 1. Run the following command to create a policy definition:
 

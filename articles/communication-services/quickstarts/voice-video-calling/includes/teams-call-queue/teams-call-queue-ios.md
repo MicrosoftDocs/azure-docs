@@ -4,9 +4,8 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/26/2024
 ms.author: jiyoonlee
+ms.custom: sfi-ropc-nochange
 ---
-
-[!INCLUDE [public-preview-note](../../../../includes/public-preview-include.md)]
 
 In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Call Queue. You are going to achieve it with the following steps:
 
@@ -49,7 +48,7 @@ To use in the calling App, we need to add a prefix to this ID. Currently, the fo
 
 ## Prerequisites
 
-- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
@@ -59,7 +58,7 @@ To use in the calling App, we need to add a prefix to this ID. Currently, the fo
   ```
 
   For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
-- Minimum support for Teams calling applications: 2.14.0-beta.1
+- Minimum support for Teams calling applications: 2.15.0
 
 ## Setting up
 
@@ -82,7 +81,7 @@ In Xcode, create a new iOS project and select the **App** template. This tutoria
    use_frameworks!
 
    target 'AzureCommunicationCallingSample' do
-     pod 'AzureCommunicationCalling', '~> 2.14.0-beta.1'
+     pod 'AzureCommunicationCalling', '~> 2.15.0'
    end
    ```
 

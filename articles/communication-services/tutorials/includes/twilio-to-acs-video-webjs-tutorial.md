@@ -8,12 +8,14 @@ author: sloanster
 ms.author: micahvivion
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-1.  **Azure Account:** Make sure that your Azure account is active. New users can create a free account at [Microsoft Azure](https://azure.microsoft.com/free/).
+1.  **Azure Account:** Make sure that your Azure account is active. New users can create a free account at [Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 2.  **Node.js 18:** Ensure Node.js 18 is installed on your system. Download from [Node.js](https://nodejs.org/en).
 3.  **Communication Services Resource:** Set up a [Communication Services Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) via your Azure portal and note your connection string.
 4.  **Azure CLI:** Follow the instructions to [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows?tabs=azure-cli)..
@@ -416,7 +418,7 @@ call.off('isLocalVideoStartedChanged', () => {
 As soon as a Remote Participant publishes a Video Track, it needs to be attached. The `trackSubscribed` event on Room or Remote Participant enables you to detect when the track can be attached:
 
 ```javascript
-twilioRoom.on('participantConneted', (participant) => {
+twilioRoom.on('participantConnected', (participant) => {
  participant.on('trackSubscribed', (track) => {
    const remoteVideoElement = track.attach();
    const remoteVideoContainer = document.getElementById(remoteVideoContainerId + participant.identity);
@@ -683,7 +685,7 @@ localAudioContainer.appendChild(audioElement);
 And by Remote Participant:
 
 ```javascript
-twilioRoom.on('participantConneted', (participant) => {
+twilioRoom.on('participantConnected', (participant) => {
  participant.on('trackSubscribed', (track) => {
    const remoteAudioElement = track.attach();
    const remoteAudioContainer = document.getElementById(remoteAudioContainerId + participant.identity);
@@ -861,12 +863,12 @@ const mediaStatsFeature = call.feature(Features.MediaStats);
 ```
 
 
-To receive the media statistics data, you can subscribe `sampleReported` event or `summmaryReported` event:
+To receive the media statistics data, you can subscribe `sampleReported` event or `summaryReported` event:
 
 - `sampleReported` event triggers every second. Suitable as a data source for UI display or your own data pipeline.
-- `summmaryReported` event contains the aggregated values of the data over intervals. Useful when you just need a summary.
+- `summaryReported` event contains the aggregated values of the data over intervals. Useful when you just need a summary.
 
-If you want control over the interval of the `summmaryReported` event, you need to define `mediaStatsCollectorOptions` of type `MediaStatsCollectorOptions`. Otherwise, the SDK uses default values.
+If you want control over the interval of the `summaryReported` event, you need to define `mediaStatsCollectorOptions` of type `MediaStatsCollectorOptions`. Otherwise, the SDK uses default values.
 ```javascript
 const mediaStatsCollectorOptions: SDK.MediaStatsCollectorOptions = {
     aggregationInterval: 10,
@@ -1020,11 +1022,11 @@ You can learn more about ensuring precall readiness in [Pre-Call diagnostics](..
 ### Twilio
 
 ```javascript
-twilioRoom.on('participantConneted', (participant) => { 
+twilioRoom.on('participantConnected', (participant) => { 
 // Participant connected 
 }); 
 
-twilioRoom.on('participantDisconneted', (participant) => { 
+twilioRoom.on('participantDisconnected', (participant) => { 
 // Participant Disconnected 
 });
 

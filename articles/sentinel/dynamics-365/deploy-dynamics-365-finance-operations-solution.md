@@ -1,36 +1,32 @@
 ---
-title: Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations
-description: This article introduces you to the process of deploying the Microsoft Sentinel Solution for Dynamics 365 Finance and Operations
+title: Connect Microsoft Dynamics 365 Finance and Operations to Microsoft Sentinel
+description: Learn how to deploy the Microsoft Sentinel solution for Business Applications with Microsoft Dynamics 365 Finance and Operations.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 02/12/2024
+ms.date: 11/14/2024
+ms.custom: sfi-image-nochange
 
 
-#Customer intent: As a security administrator, I want to deploy a monitoring solution for Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities in real-time.
+#Customer intent: As a security administrator, I want to deploy a monitoring solution for Microsoft Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities in real-time.
 
 ---
 
-# Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations
+# Deploy for Dynamics 365 Finance and Operations
 
-This article describes how to deploy the Microsoft Sentinel solution for Dynamics 365 Finance and Operations. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
-
-> [!IMPORTANT]
-> - The Microsoft Sentinel solution for Dynamics 365 Finance and Operations is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
+This article describes how to deploy the Dynamics 365 Finance and Operations content within the Microsoft Sentinel solution for Microsoft Business Applications. The solution monitors and protects your Dynamics 365 Finance and Operations system: It collects audits and activity logs from the Dynamics 365 Finance and Operations environment, and detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](dynamics-365-finance-operations-solution-overview.md).
 
 ## Prerequisites
 
 Before you begin, verify that:
 
-- The Microsoft Sentinel solution is enabled. 
+- The Microsoft Sentinel solution for Microsoft Business Applications solution is enabled. 
+
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
 - [Microsoft Dynamics 365 Finance version 10.0.33 or above](/dynamics365/finance/get-started/whats-new-changed-changed-10-0-33) is enabled and you have administrative access to the monitored environments.  
-- You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites`, `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
 - You can create [Data Collection Rules/Endpoints](/azure/azure-monitor/essentials/data-collection-rule-overview) with the permissions:
-    - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`.
-    - Assign the Monitoring Metrics Publisher role to the Azure Function. 
-
+  - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`
+    
 ## Collect the environment URL from your Finance and Operations cloud environment
 
 1. Open your Dynamics 365 project in [Microsoft Dynamics Lifecycle Services (LCS)](https://lcs.dynamics.com) and select the specific Finance and Operations environment you want to monitor with Microsoft Sentinel. 
@@ -38,7 +34,7 @@ Before you begin, verify that:
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png" alt-text="Screenshot of the Finance and Operations environment version information." lightbox="media/deploy-dynamics-365-finance-operations-solution/environment-version-information.png":::
 
-1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: ``` https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com ```. 
+1. To collect your environment URL, select **Log on to environment** and save the URL in the browser to use [when you deploy the ARM template](#deploy-the-data-connector). For example: `https://sentineldevc055b257489f70f5devaos.axcloud.dynamics.com`. 
 
     > [!NOTE]
     > The URL may look different, depending on the environment you use, for example, you could be using a sandbox, or a cloud hosted environment. Remove any trailing slashes: `/`. 
@@ -48,8 +44,8 @@ Before you begin, verify that:
 ## Deploy the solution and enable the data connector
 
 1. Navigate to the **Microsoft Sentinel** service.
-1. Select **Content hub**, and in the search bar, search for *Dynamics 365 Finance and Operations*.
-1. Select **Dynamics 365 Finance and Operations**.
+1. Select **Content hub**, and in the search bar, search for *Microsoft Business Applications*.
+1. Select **Microsoft Business Applications**.
 1. Select **Install**.
 
     For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](../sentinel-solutions-deploy.md).
@@ -58,7 +54,7 @@ Before you begin, verify that:
 
 1. Once the solution deployment is complete, return to your Sentinel workspace and select **Data connectors**. 
 
-1. In the search bar, type *Dynamics 365 F&O*, and select **Dynamics 365 F&O (Using Azure Function)**. 
+1. In the search bar, type *Dynamics 365,* and select **Dynamics 365 Finance and Operations**. 
 
 1. Select **Open connector page**.
 
@@ -66,25 +62,24 @@ In the connector page, make sure that you meet the required prerequisites and co
 
 ## Configure the data connector
 
-> [!NOTE]
-> This connector uses Azure Functions to connect to Dynamics Finance and Operations to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details. 
 
-### Deploy the Azure Resource Manager (ARM) template
-
-1. Select **Deploy to Azure**.
-
-1. Follow the installation wizard to complete deployment. The **Finance Operations API Host** parameter in the deployment wizard refers to the environment URL collected in [this step](#collect-the-environment-url-from-your-finance-and-operations-cloud-environment). 
+To enable data collection, you create a new role in Finance and Operations with permissions to view the Database Log entity. The role is then assigned to a dedicated Finance and Operations user, mapped to the Microsoft Entra client ID of an app registration.
 
 ### Enable data collection
-
-To enable data collection, you create a new role in Finance and Operations with permissions to view the Database Log entity. The role is then assigned to a dedicated Finance and Operations user, mapped to the Microsoft Entra client ID of the Function App's system assigned managed identity.
 
 To collect the managed identity application ID from Microsoft Entra ID:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to **Microsoft Entra ID** > **Enterprise applications**.
-1. Change the application type filter to **Managed Identities**.
-1. Search for and open the Function App created in the [previous step](#deploy-the-azure-resource-manager-arm-template). Copy the Application ID and save it for later use. 
+1. Browse to **Microsoft Entra ID** > **App registrations**.
+1. Create a new registration and enter a name for the app registration.
+
+1. Select Accounts in this organization only (single tenant) and click register.
+
+1. From the overview page of the new app registration, take note of the **tenant ID** and **application (Client) ID** for use in the next steps.
+
+1. Within the Certificates & Secrets menu, create a new client secret.
+
+1. Store the **client secret** in a secure location for use in the next steps.
 
 ### Create a role for data collection in Finance and Operations 
 
@@ -104,12 +99,12 @@ To collect the managed identity application ID from Microsoft Entra ID:
 
 1. Create a new user and assign the role you [created in the previous step](#create-a-role-for-data-collection-in-finance-and-operations) to the user. 
 
-#### Register the managed identity in Finance and Operations
+#### Register the app registration in Finance and Operations
 
 1. In the Finance and Operations portal, navigate to **System administration > Setup > Microsoft Entra ID** applications.
 
 1. Create a new entry in the table:
-    - For the **Client Id**, type the application ID of the managed identity.
+    - For the **Client Id**, type the application ID of the app registration.
     - For the **Name**, type a name for the application. 
     - For the **User ID**, type the user ID created in the [previous step](#create-a-user-for-data-collection-in-finance-and-operations). 
 
@@ -137,6 +132,12 @@ Enable auditing on tables using the **Database log setup** wizard in the Finance
 For more information, see [Set up database logging](/dynamics365/fin-ops-core/dev-itpro/sysadmin/configure-manage-database-log#set-up-database-logging).
 
 
+### Enable data collection
+
+1. Navigate to the data connectors blade in Microsoft Sentinel, search for **Dynamics 365 Finance and Operations**.
+
+1. Using the **Tenant ID**, **Client ID, Client Secret** and **Environment URL**, connect the data connector.
+
 ### Verify that the data connector is ingesting logs to Microsoft Sentinel 
 
 To verify that log ingestion is working:
@@ -148,9 +149,10 @@ To verify that log ingestion is working:
 
     :::image type="content" source="media/deploy-dynamics-365-finance-operations-solution/query-finance-operations-table.png" alt-text="Screenshot of viewing a new Finance and Operations incident in Microsoft Sentinel.":::
 
-## Next steps
+## Related content
 
-In this article, you learned how to deploy the Microsoft Sentinel solution for Dynamics 365 Finance and Operations.
- 
+In this article, you learned how to deploy Dynamics 365 Finance and Operations features included in the Microsoft Sentinel solution for Microsoft Business Applications.
+
 - [Learn how to enable the security content](../sentinel-solutions-deploy.md#analytics-rule)
 - [Review the solution's security content](dynamics-365-finance-operations-security-content.md)
+

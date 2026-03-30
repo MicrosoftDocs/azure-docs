@@ -5,10 +5,11 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 3/9/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-terraform
+# Customer intent: "As a cloud architect, I want to configure workload zones using Terraform in the SAP Deployment Automation Framework, so that I can effectively manage the infrastructure for multiple SAP application tiers."
 ---
 
 # Workload zone configuration in the SAP automation framework
@@ -24,7 +25,7 @@ The workload zone provides shared services to all of the SAP Systems in the work
 - Shared Azure Storage Account for installation media
 - Azure NetApp Files account and capacity pool (optional)
 
-The workload zone is typically deployed in a spoke subscription and the deployment of all the artifacts in the workload zone is done using unique service principal. 
+The workload zone is typically deployed in a spoke subscription and the deployment of all the artifacts in the workload zone is done using unique service principal.
 
 ## Workload zone deployment configuration
 
@@ -51,7 +52,7 @@ This table contains the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |  
+> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |
 > | `resourcegroup_arm_id`  | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated with the resource group            | Optional   |
 
@@ -69,33 +70,33 @@ This table contains the networking parameters.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                           | Type      | Notes                        |
 > | -------------------------------- | --------------------------------------------------------------------- | --------- | ---------------------------- |
-> | `network_logical_name`           | The logical name of the network, for example, `SAP01`                 | Required  | Used for resource naming     |       
-> | `network_name`                   | The name of the network                                               | Optional  |                              |       
+> | `network_logical_name`           | The logical name of the network, for example, `SAP01`                 | Required  | Used for resource naming     |
+> | `network_name`                   | The name of the network                                               | Optional  |                              |
 > | `network_arm_id`                 | The Azure resource identifier for the virtual network                 | Optional  | For brown-field deployments  |
 > | `network_address_space`          | The address range for the virtual network                             | Mandatory | For green-field deployments  |
 > |                                  |                                                                       |           |                              |
 > | `admin_subnet_address_prefix`    | The address range for the `admin` subnet                              | Mandatory | For green-field deployments  |
-> | `admin_subnet_arm_id`	           | The Azure resource identifier for the `admin` subnet                  | Mandatory | For brown-field deployments  |
+> | `admin_subnet_arm_id`            | The Azure resource identifier for the `admin` subnet                  | Mandatory | For brown-field deployments  |
 > | `admin_subnet_name`              | The name of the `admin` subnet                                        | Optional  |                              |
-> | `admin_subnet_nsg_name`          | The name of the `admin`network security group                         | Optional	 |                              |
+> | `admin_subnet_nsg_name`          | The name of the `admin`network security group                         | Optional  |                              |
 > | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the `admin` network security group  | Mandatory | For brown-field deployments  |
 > |                                  |                                                                       |           |                              |
 > | `db_subnet_address_prefix`       | The address range for the `db` subnet                                 | Mandatory | For green-field deployments  |
-> | `db_subnet_arm_id`	             | The Azure resource identifier for the `db` subnet                     | Mandatory | For brown-field deployments  |
+> | `db_subnet_arm_id`               | The Azure resource identifier for the `db` subnet                     | Mandatory | For brown-field deployments  |
 > | `db_subnet_name`                 | The name of the `db` subnet                                           | Optional  |                              |
-> | `db_subnet_nsg_name`             | The name of the `db` network security group                           | Optional	 |                              |
+> | `db_subnet_nsg_name`             | The name of the `db` network security group                           | Optional  |                              |
 > | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the `db` network security group     | Mandatory | For brown-field deployments  |
 > |                                  |                                                                       |           |                              |
 > | `app_subnet_address_prefix`      | The address range for the `app` subnet                                | Mandatory | For green-field deployments  |
-> | `app_subnet_arm_id`	             | The Azure resource identifier for the `app` subnet                    | Mandatory | For brown-field deployments  |
+> | `app_subnet_arm_id`              | The Azure resource identifier for the `app` subnet                    | Mandatory | For brown-field deployments  |
 > | `app_subnet_name`                | The name of the `app` subnet                                          | Optional  |                              |
 > | `app_subnet_nsg_name`            | The name of the `app` network security group                          | Optional  |                              |
 > | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the `app` network security group    | Mandatory | For brown-field deployments  |
 > |                                  |                                                                       |           |                              |
 > | `web_subnet_address_prefix`      | The address range for the `web` subnet                                | Mandatory | For green-field deployments  |
-> | `web_subnet_arm_id`	             | The Azure resource identifier for the `web` subnet                    | Mandatory | For brown-field deployments  |
+> | `web_subnet_arm_id`              | The Azure resource identifier for the `web` subnet                    | Mandatory | For brown-field deployments  |
 > | `web_subnet_name`                | The name of the `web` subnet                                          | Optional  |                              |
-> | `web_subnet_nsg_name`            | The name of the `web` network security group                          | Optional	 |                              |
+> | `web_subnet_nsg_name`            | The name of the `web` network security group                          | Optional  |                              |
 > | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the `web` network security group    | Mandatory | For brown-field deployments  |
 
 This table contains the networking parameters if Azure NetApp Files is used.
@@ -115,7 +116,7 @@ This table contains the networking parameters if iSCSI devices are hosted from t
 > | Variable                         | Description                                                          | Type      | Notes                              |
 > | -------------------------------- | -------------------------------------------------------------------- | --------- | ---------------------------------- |
 > | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet                             | Mandatory | For green-field deployments        |
-> | `iscsi_subnet_arm_id`	           | The Azure resource identifier for the `iscsi` subnet                 | Mandatory | For brown-field deployments        |
+> | `iscsi_subnet_arm_id`            | The Azure resource identifier for the `iscsi` subnet                 | Mandatory | For brown-field deployments        |
 > | `iscsi_subnet_name`              | The name of the `iscsi` subnet                                       | Optional  |                                    |
 > | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` network security group | Mandatory | For brown-field deployments        |
 > | `iscsi_subnet_nsg_name`          | The name of the `iscsi` network security group                       | Optional  |                                    |
@@ -126,7 +127,7 @@ This table contains the networking parameters if Azure Monitor for SAP is hosted
 > | Variable                         | Description                                                          | Type      | Notes                              |
 > | -------------------------------- | -------------------------------------------------------------------- | --------- | ---------------------------------- |
 > | `ams_subnet_address_prefix`      | The address range for the `iscsi` subnet                             | Mandatory | For green-field deployments        |
-> | `ams_subnet_arm_id`	             | The Azure resource identifier for the `iscsi` subnet                 | Mandatory | For brown-field deployments        |
+> | `ams_subnet_arm_id`              | The Azure resource identifier for the `iscsi` subnet                 | Mandatory | For brown-field deployments        |
 > | `ams_subnet_name`                | The name of the `iscsi` subnet                                       | Optional  |                                    |
 > | `ams_subnet_nsg_arm_id`          | The Azure resource identifier for the `iscsi` network security group | Mandatory | For brown-field deployments        |
 > | `ams_subnet_nsg_name`            | The name of the `iscsi` network security group                       | Optional  |                                    |
@@ -151,7 +152,6 @@ network_address_space = "10.110.0.0/16"
 
 db_subnet_address_prefix = "10.110.96.0/19"
 app_subnet_address_prefix = "10.110.32.0/19"
-
 ```
 
 ### Authentication parameters
@@ -161,7 +161,7 @@ This table defines the credentials used for defining the virtual machine authent
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                                              | Type      | Notes               |
 > | ---------------------------------- | ---------------------------------------------------------------------------------------- | --------- | ------------------- |
-> | `automation_username`              | Administrator account name                                                               | Optional  |	Default: `azureadm` |   
+> | `automation_username`              | Administrator account name                                                               | Optional  | Default: `azureadm` |
 > | `automation_password`              | Administrator password                                                                   | Optional  |                     |
 > | `automation_path_to_public_key`    | Path to existing public key                                                              | Optional  |                     |
 > | `automation_path_to_private_key`   | Path to existing private key                                                             | Optional  |                     |
@@ -171,7 +171,6 @@ This table defines the credentials used for defining the virtual machine authent
 
 ```terraform
 automation_username = "azureadm"
-
 ```
 
 ## Key vault parameters
@@ -181,9 +180,9 @@ This table defines the parameters used for defining the key vault information.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                         | Description                                                                    | Type         | Notes                               |
 > | ------------------------------------------------ | ------------------------------------------------------------------------------ | ------------ | ----------------------------------- |
-> | `spn_keyvault_id`                                | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional	   |                                     | 
-> | `user_keyvault_id`	                             | Azure resource identifier for existing system credentials key vault            | Optional	   |                                     | 
-> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment key vault access policies   | Optional	   |                                     | 
+> | `spn_keyvault_id`                                | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional     |                                     |
+> | `user_keyvault_id`                               | Azure resource identifier for existing system credentials key vault            | Optional     |                                     |
+> | `additional_users_to_add_to_keyvault_policies`   | A list of user object IDs to add to the deployment key vault access policies   | Optional     |                                     |
 > | `enable_purge_control_for_keyvaults`             | Disables the purge protection for Azure key vaults                             | Optional     | Use only for test environments.     |
 > | `enable_rbac_authorization_for_keyvault`         | Enables RBAC on key vaults                                                     | Optional     |                                     |
 > | `soft_delete_retention_days`                     | The number of days that items should be retained in the soft delete period     | Optional     |                                     |
@@ -192,12 +191,12 @@ This table defines the parameters used for defining the key vault information.
 ## Private DNS
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                                 | Type        | 
-> | ---------------------------------- | --------------------------------------------------------------------------- | ----------- | 
-> | `dns_label`                        | If specified, is the DNS name of the private DNS zone                       | Optional    | 
-> | `dns_resource_group_name`          | The name of the resource group that contains the private DNS zone           | Optional    | 
-> | `register_virtual_network_to_dns`  | Controls if the SAP Virtual Network is registered with the private DNS zone | Optional    | 
-> | `dns_server_list`                  | If specified, a list of DNS Server IP addresses                             | Optional    | 
+> | Variable                           | Description                                                                 | Type        |
+> | ---------------------------------- | --------------------------------------------------------------------------- | ----------- |
+> | `dns_label`                        | If specified, is the DNS name of the private DNS zone                       | Optional    |
+> | `dns_resource_group_name`          | The name of the resource group that contains the private DNS zone           | Optional    |
+> | `register_virtual_network_to_dns`  | Controls if the SAP Virtual Network is registered with the private DNS zone | Optional    |
+> | `dns_server_list`                  | If specified, a list of DNS Server IP addresses                             | Optional    |
 
 ## NFS support
 
@@ -229,7 +228,6 @@ This table defines the parameters used for defining the key vault information.
 ```terraform
 NFS_provider              = "AFS"
 use_private_endpoint      = true
-
 ```
 
 ### Azure NetApp Files support
@@ -263,7 +261,6 @@ use_private_endpoint      = true
 NFS_provider              = "ANF"
 anf_subnet_address_prefix = "10.110.64.0/27"
 ANF_service_level         = "Ultra"
-
 ```
 
 ### DNS support
@@ -271,10 +268,10 @@ ANF_service_level         = "Ultra"
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                            | Description                                                              | Type     |
 > | ----------------------------------- | ------------------------------------------------------------------------ | -------- |
-> | `dns_label`	                        | DNS name of the private DNS zone.                                        | Optional |
-> | `management_dns_resourcegroup_name`	| Resource group that contains the private DNS zone.                       | Optional |
+> | `dns_label`                         | DNS name of the private DNS zone.                                        | Optional |
+> | `management_dns_resourcegroup_name` | Resource group that contains the private DNS zone.                       | Optional |
 > | `management_dns_subscription_id`    | Subscription ID for the subscription that contains the private DNS zone. | Optional |
-> | `use_custom_dns_a_registration`	    | Use an existing private DNS zone.                                        | Optional |
+> | `use_custom_dns_a_registration`     | Use an existing private DNS zone.                                        | Optional |
 
 
 ### NAT support
@@ -283,12 +280,12 @@ ANF_service_level         = "Ultra"
 > | Variable                              | Description                                                              | Type     |
 > | ------------------------------------- | ------------------------------------------------------------------------ | -------- |
 > | `deploy_nat_gateway`                  | If set, deploys a NAT gateway.                                           | Optional |
-> | `nat_gateway_name`                  	| The name of the NAT Gateway.                                             | Optional |
+> | `nat_gateway_name`                    | The name of the NAT Gateway.                                             | Optional |
 > | `nat_gateway_arm_id`                  | The Azure resource identifier of the NAT Gateway.                        | Optional |
-> | `nat_gateway_public_ip_zones`	        | The zones for the NAT Gateway public IP address                          | Optional |
-> | `nat_gateway_public_ip_arm_id`        | TThe Azure resource identifier for the NAT Gateway public IP address     | Optional |
-> | `nat_gateway_idle_timeout_in_minutes`	| The idle timeout in minutes for the NAT Gateway (default=4)              | Optional |
-> | `nat_gateway_public_ip_tags`	        | Tags for the public IP resource                                          | Optional |
+> | `nat_gateway_public_ip_zones`         | The zones for the NAT Gateway public IP address                          | Optional |
+> | `nat_gateway_public_ip_arm_id`        | The Azure resource identifier for the NAT Gateway public IP address      | Optional |
+> | `nat_gateway_idle_timeout_in_minutes` | The idle timeout in minutes for the NAT Gateway (default=4)              | Optional |
+> | `nat_gateway_public_ip_tags`          | Tags for the public IP resource                                          | Optional |
 
 
 ## Other parameters
@@ -311,9 +308,9 @@ ANF_service_level         = "Ultra"
 > | -------------------------------- | ------------------------------------------------------------------------- | --------- | -------------------------------------- |
 > | `iscsi_authentication_type`      | Defines the default authentication for the iSCSI virtual machines         | Optional  |                                        |
 > | `iscsi_authentication_username`  | Administrator account name                                                | Optional  |                                        |
-> | `iscsi_count`                    | The number of iSCSI virtual machines                                      | Optional  |                                        |   
-> | `iscsi_size`                     | The size of iSCSI virtual machines                                        | Optional  |                                        |   
-> | `iscsi_image`	                   | Defines the virtual machine image to use (next table)                     | Optional  |                                        |
+> | `iscsi_count`                    | The number of iSCSI virtual machines                                      | Optional  |                                        |
+> | `iscsi_size`                     | The size of iSCSI virtual machines                                        | Optional  |                                        |
+> | `iscsi_image`                    | Defines the virtual machine image to use (next table)                     | Optional  |                                        |
 > | `iscsi_nic_ips`                  | IP addresses for the iSCSI virtual machines                               | Optional  | Ignored if `iscsi_use_DHCP` is defined |
 > | `iscsi_use_DHCP`                 | Controls whether to use dynamic IP addresses provided by the Azure subnet | Optional  |                                        |
 > | `iscsi_vm_zones`                 | Availability zones for the iSCSI Virtual Machines                         | Optional  |                                        |
@@ -362,7 +359,7 @@ The virtual machine and the operating system image are defined by using the foll
 This table contains the Terraform parameters. These parameters need to be entered manually if you're not using the deployment scripts.
 
 | Variable                | Description                                                                                                        | Type     |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------ | -------- | 
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------ | -------- |
 | `tfstate_resource_id`   | The Azure resource identifier for the storage account in the SAP library that contains the Terraform state files.  | Required |
 | `deployer_tfstate_key`  | The name of the state file for the deployer.                                                                       | Required |
 

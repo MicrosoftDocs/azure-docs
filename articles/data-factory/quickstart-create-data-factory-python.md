@@ -1,14 +1,17 @@
 ---
 title: 'Quickstart: Create an Azure Data Factory using Python'
 description: Use a data factory to copy data from one location in Azure Blob storage to another location.
-author: ssabat
-ms.author: susabat
-ms.reviewer: jburchel
+author: whhender
+ms.author: whhender
+ms.reviewer: susabat
 ms.subservice: data-movement
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/15/2024
-ms.custom: devx-track-python, mode-api
+ms.date: 02/13/2025
+ms.custom:
+  - devx-track-python
+  - mode-api
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a data factory and pipeline using Python
@@ -24,7 +27,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * [Python 3.6+](https://www.python.org/downloads/).
 
@@ -133,7 +136,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ClientSecretCredential(client_id='<Application (client) ID>', client_secret='<client secret value>', tenant_id='<tenant ID>') 
         
-        # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
+        # Specify following for Sovereign Clouds, import right cloud constant and then use it to connect.
         # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD
         # credentials = DefaultAzureCredential(authority=CLOUD.endpoints.active_directory, tenant_id=tenant_id)
         

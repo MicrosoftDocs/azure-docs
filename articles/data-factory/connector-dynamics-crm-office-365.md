@@ -3,11 +3,15 @@ title: Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics.
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: jianleishen
 author: jianleishen
-ms.custom: synapse
-ms.date: 08/02/2024
+ms.date: 07/25/2025
+ai-usage: ai-assisted
+ms.custom:
+  - synapse
+  - build-2025
+  - sfi-image-nochange
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -49,7 +53,7 @@ Refer to the following table of supported authentication types and configuration
 >With the [deprecation of regional Discovery Service](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated), the service has upgraded to leverage [global Discovery Service](/powerapps/developer/data-platform/webapi/discover-url-organization-web-api#global-discovery-service) while using Office 365 Authentication.
 
 > [!IMPORTANT]
->If your tenant and user is configured in Microsoft Entra ID for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you will not be able to use Office 365 Authentication type. For those situations, you must use a Microsoft Entra service principal authentication.
+>If your tenant and user is configured in Microsoft Entra ID for [conditional access](../active-directory/conditional-access/overview.md) and/or multifactor authentication is required, you won't be able to use Office 365 Authentication type. For those situations, you must use a Microsoft Entra service principal authentication.
 
 For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Sales
@@ -66,7 +70,7 @@ This connector doesn't support other application types like Finance, Operations,
 This Dynamics connector is built on top of [Dynamics XRM tooling](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## Prerequisites
-To use this connector with Microsoft Entra service principal authentication, you must set up server-to-server (S2S) authentication in Dataverse or Dynamics. First register the application user (Service Principal) in Microsoft Entra ID. You can find out how to do this [here](../active-directory/develop/howto-create-service-principal-portal.md). During application registration you will need to create that user in Dataverse or Dynamics and grant permissions. Those permissions can either be granted directly or indirectly by adding the application user to a team which has been granted permissions in Dataverse or Dynamics. You can find more information on how to set up an application user to authenticate with Dataverse [here](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
+To use this connector with Microsoft Entra service principal authentication, you must set up server-to-server (S2S) authentication in Dataverse or Dynamics. First register the application user (Service Principal) in Microsoft Entra ID. You can find out how to do this [here](../active-directory/develop/howto-create-service-principal-portal.md). During application registration you'll need to create that user in Dataverse or Dynamics and grant permissions. Those permissions can either be granted directly or indirectly by adding the application user to a team which has been granted permissions in Dataverse or Dynamics. You can find more information on how to set up an application user to authenticate with Dataverse [here](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
 
 
 ## Get started
@@ -77,7 +81,7 @@ To use this connector with Microsoft Entra service principal authentication, you
 
 Use the following steps to create a linked service to Dynamics 365 in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the **Manage** tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select **New**:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -114,7 +118,7 @@ The following properties are supported for the Dynamics linked service.
 | serviceUri | The service URL of your Dynamics instance, the same one you access from browser. An example is "https://\<organization-name>.crm[x].dynamics.com". | Yes |
 | authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal", "Office365" and "ManagedIdentity". | Yes |
 | servicePrincipalId | The client ID of the Microsoft Entra application. | Yes when authentication is "AADServicePrincipal" |
-| servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". <br/><br/>Note: It's recommended to use ServicePrincipalKey. There's known limitation for ServicePrincipalCert credential type where the service may encounter transient issue of failing to retrieve secret from the key vault.| Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". <br/><br/>Note: It's recommended to use ServicePrincipalKey. There's known limitation for ServicePrincipalCert credential type where the service could encounter transient issue of failing to retrieve secret from the key vault.| Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes when authentication is "AADServicePrincipal" |
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
 | password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
@@ -229,7 +233,7 @@ The following properties are supported for the Dynamics linked service.
 ```
 ### Dynamics 365 and Dynamics CRM on-premises with IFD
 
-Additional properties that compare to Dynamics online are **hostName** and **port**.
+More properties that compare to Dynamics online are **hostName** and **port**.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -324,7 +328,7 @@ To copy data from Dynamics, the copy activity **source** section supports the fo
 
 > [!IMPORTANT]
 >- When you copy data from Dynamics, explicit column mapping from Dynamics to sink is optional. But we highly recommend the mapping to ensure a deterministic copy result.
->- When the service imports a schema in the authoring UI, it infers the schema. It does so by sampling the top rows from the Dynamics query result to initialize the source column list. In that case, columns with no values in the top rows are omitted. The same behavior also applies to data preview and copy executions if there is no explicit mapping. You can review and add more columns into the mapping, which are honored during copy runtime.
+>- When the service imports a schema in the authoring UI, it infers the schema. It does so by sampling the top rows from the Dynamics query result to initialize the source column list. In that case, columns with no values in the top rows are omitted. The same behavior also applies to data preview and copy executions if there's no explicit mapping. You can review and add more columns into the mapping, which are honored during copy runtime.
 
 #### Example
 
@@ -389,7 +393,9 @@ To copy data to Dynamics, the copy activity **sink** section supports the follow
 | alternateKeyName | The alternate key name defined on your entity to do an upsert. | No. |
 | writeBatchSize | The row count of data written to Dynamics in each batch. | No. The default value is 10. |
 | ignoreNullValues | Whether to ignore null values from input data other than key fields during a write operation.<br/><br/>Valid values are **TRUE** and **FALSE**:<ul><li>**TRUE**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.</li><li>**FALSE**: Update the data in the destination object to a null value when you do an upsert or update operation. Insert a null value when you do an insert operation.</li></ul> | No. The default value is **FALSE**. |
-| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections. | No |
+| bypassBusinessLogicExecution | Bypass custom business logic to disable custom plug-ins and workflows except:<br><br>&nbsp;• Plug-ins that are part of the core Microsoft Dataverse system or part of a solution where Microsoft is the publisher.<br>&nbsp;• Workflows included in a solution where Microsoft is the publisher.<br><br>The value can be `CustomSync`, `CustomAsync`, `CustomSync,CustomAsync`. You can also manually input GUIDs (separated by commas) as the value to specify which registered plug-in steps to bypass. This allows you to bypass the specified plug-in step instead of all synchronous and asynchronous custom logic.<br><br>Note that you must have the `prvBypassCustomBusinessLogic` privilege. By default, only users with the system administrator security role have this privilege. Any Dataverse user who belongs to a Dataverse team with an owner type automatically inherits the privileges associated with the team's security roles. For more information, see this [article](/power-apps/developer/data-platform/bypass-custom-business-logic?tabs=sdk). | No |
+| bypassPowerAutomateFlows | Bypass Power Automate flows. For more information, see this [article](/power-apps/developer/data-platform/bypass-power-automate-flows?tabs=sdk). | No |
 
 >[!NOTE]
 >The default value for both the sink **writeBatchSize** and the copy activity **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** for the Dynamics sink is 10. Therefore, 100 records are concurrently submitted by default to Dynamics.
@@ -432,11 +438,15 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
 ]
 ```
 
+When you select an [elastic tables](/power-apps/developer/data-platform/elastic-tables#partitioning-and-horizontal-scaling) in the copy activity sink, the connector mapping supports the `partitionid` column. You can map your source data column to the sink's `partitionid` column. If not mapped, the primary key value is used as the default value for the `partitionid` column.
+
+`partitionid` can be used in Dataverse alternate keys or primary key scenarios on the write path. Each elastic table contains a system-defined `partitionid` column and has an alternate key named `KeyForNoSqlEntityWithPKPartitionId`, which combines the primary key of the table with the `partitionid` column. For more information, see this [article](/power-apps/developer/data-platform/elastic-tables).
+
 ## Retrieving data from views
 
 To retrieve data from Dynamics views, you need to get the saved query of the view, and use the query to get the data.
 
-There are two entities which store different types of view: "saved query" stores system view and "user query" stores user view. To get the information of the views, refer to the following FetchXML query and replace the "TARGETENTITY" with `savedquery` or `userquery`. Each entity type has more available attributes that you can add to the query based on your need. Learn more about [savedquery entity](/dynamics365/customer-engagement/web-api/savedquery) and [userquery entity](/dynamics365/customer-engagement/web-api/userquery).
+There are two entities that store different types of view: "saved query" stores system view and "user query" stores user view. To get the information of the views, refer to the following FetchXML query and replace the "TARGETENTITY" with `savedquery` or `userquery`. Each entity type has more available attributes that you can add to the query based on your need. Learn more about [savedquery entity](/dynamics365/customer-engagement/web-api/savedquery) and [userquery entity](/dynamics365/customer-engagement/web-api/userquery).
 
 ```xml
 <fetch top="5000" >
@@ -460,7 +470,7 @@ You can also add filters to filter the views. For example, add the following fil
 
 ## Data type mapping for Dynamics
 
-When you copy data from Dynamics, the following table shows mappings from Dynamics data types to interim data types within the service. To learn how a copy activity maps to a source schema and a data type maps to a sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from Dynamics, the following table shows mappings from Dynamics data types to interim data types within the service. To learn how a copy activity maps to a source schema and a data type map to a sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 Configure the corresponding interim data type in a dataset structure that is based on your source Dynamics data type by using the following mapping table:
 
@@ -492,13 +502,36 @@ Configure the corresponding interim data type in a dataset structure that is bas
 
 To write data into a lookup field with multiple targets like Customer and Owner, follow this guidance and example:
 
+# [Azure Data Factory](#tab/data-factory)
+
 1. Make your source contains both the field value and the corresponding target entity name.
    - If all records map to the same target entity, ensure one of the following conditions:
       - Your source data has a column that stores the target entity name.
+      - You've added an extra column in the copy activity source to define the target entity.
+   - If different records map to different target entities, make sure your source data has a column that stores the corresponding target entity name.
+
+1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+1. Make your source contains both the field value and the corresponding target entity schema name.
+   - If all records map to the same target entity, ensure one of the following conditions:
+      - Your source data has a column that stores the target entity schema name.
       - You've added an additional column in the copy activity source to define the target entity.
    - If different records map to different target entities, make sure your source data has a column that stores the corresponding target entity name.
 
 1. Map both the value and entity-reference columns from source to sink. The entity-reference column must be mapped to a virtual column with the special naming pattern `{lookup_field_name}@EntityReference`. The column doesn't actually exist in Dynamics. It's used to indicate this column is the metadata column of the given multitarget lookup field.
+
+---
+
+### Setting the Owner field
+
+When setting the Owner field in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, it's important to provide a valid reference. The valid options for the `@EntityReference` are:
+
+- `systemuser`: This refers to an individual user within the system.
+- `team`: This refers to a team of users within the organization.
+
+Ensure that the value provided corresponds to one of these options to avoid errors during data transformation.
 
 For example, assume the source has these two columns:
 
@@ -514,13 +547,15 @@ In copy-activity column mapping, map the two columns as follows:
 
 :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png" alt-text="Dynamics lookup-field column mapping":::
 
-If all of your source records map to the same target entity and your source data doesn't contain the target entity name, here is a shortcut: in the copy activity source, add an additional column. Name the new column by using the pattern `{lookup_field_name}@EntityReference`, set the value to the target entity name, then proceed with column mapping as usual. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
+If all of your source records map to the same target entity and your source data doesn't contain the target entity schema name, here's a shortcut: in the copy activity source, add another column. Name the new column by using the pattern `{lookup_field_name}@EntityReference`, set the value to the target entity name, then proceed with column mapping as usual. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
 
 :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png" alt-text="Dynamics lookup-field adding an entity-reference column":::
 
 ## Writing data to a lookup field via alternative keys
 
 To write data into a lookup field using alternate key columns, follow this guidance and example: 
+
+# [Azure Data Factory](#tab/data-factory)
 
 1. Ensure your source contains all the lookup key columns. 
 
@@ -540,6 +575,24 @@ To write data into a lookup field using alternate key columns, follow this guida
 
 > [!Note]
 > Currently this is only supported when you use inline mode in the sink transformation of mapping data flows.
+
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+1. Ensure your source contains all the lookup key columns.
+
+2. The alternate key columns must be mapped to the column with the special naming pattern `{lookup_field_schema_name}@{alternate_key_column_name}`. The column doesn't exist in Dynamics. It's used to indicate that this column is used to look up the record in the target entity.
+
+4. Pass your value to the column with a structure like this: _"/{entity name}s(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx)"_
+
+    >[!IMPORTANT]    
+    > Your the entity name should be plural and lowercase.
+    >[!TIP]
+    > To generate this value, you can use the **Derived Column** block, for example, putting `"/{entity name}s(" + {dynamic lookup entity name} + ")"` into the expression field.
+> [!Note]
+> Currently this is only supported when you use inline mode in the sink transformation of mapping data flows.
+
+---
 
 ## Mapping data flow properties
 

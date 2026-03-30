@@ -2,7 +2,7 @@
 title: Stages of a blueprint deployment
 description: Learn the security and artifact-related steps the Azure Blueprints services goes through while creating a blueprint assignment.
 ms.date: 09/07/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 # Stages of a blueprint deployment
 
@@ -39,7 +39,7 @@ principal varies by tenant. Use
 [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)
 and REST endpoint [servicePrincipals](/graph/api/resources/serviceprincipal) to get the service
 principal. Then, grant the Azure Blueprints the _Owner_ role through the
-[Portal](../../../role-based-access-control/role-assignments-portal.yml),
+[Portal](/azure/role-based-access-control/role-assignments-portal),
 [Azure CLI](../../../role-based-access-control/role-assignments-cli.md),
 [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md),
 [REST API](../../../role-based-access-control/role-assignments-rest.md), or an

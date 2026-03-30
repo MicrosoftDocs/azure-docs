@@ -6,17 +6,21 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
-ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 #Customer Intent: As a developer integrating Azure Active Directory B2C into my application, I want to set up a sign-up and sign-in flow, so that users can sign up and sign in with local or social accounts, and reset their passwords if needed.
 
 ---
 
 # Set up a sign-up and sign-in flow in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -37,7 +41,7 @@ Watch this video to learn how the user sign-up and sign-in policy works.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ::: zone pivot="b2c-user-flow"

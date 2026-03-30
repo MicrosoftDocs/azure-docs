@@ -5,20 +5,22 @@ author: RogerBestMSFT
 ms.service: azure-lab-services
 ms.date: 07/04/2022
 ms.topic: how-to
-ms.custom: devdivchpfy22
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 # Cost management for Azure Lab Services
 
 [!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
-For Azure Lab Services, cost management can be broken down into two distinct areas: cost estimation and cost analysis. Cost estimation occurs when you're setting up the lab to make sure that the initial structure of the lab will fit within the expected budget. Cost analysis usually occurs at the end of the month to determine the necessary actions for the next month.
+For Azure Lab Services, cost management can be broken down into two distinct areas: cost estimation and cost analysis. Cost estimation occurs when you're setting up the lab to make sure that the initial structure of the lab fits within the expected budget. Cost analysis usually occurs at the end of the month to determine the necessary actions for the next month.
 
 ## Estimate the lab costs
 
-Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab will cost for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedule), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-manage-lab-users.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#change-lab-capacity) when calculating the cost estimate.  Changes to the number of quota hours, schedules or lab capacity will affect the cost estimate value.
+Each lab dashboard has a **Costs & Billing** section that lays out a rough estimate of what the lab costs for the lab. The estimate uses the number [schedules](classroom-labs-concepts.md#schedule), [quota hours](classroom-labs-concepts.md#quota), [extra quota for individual students](how-to-manage-lab-users.md#set-additional-quotas-for-specific-users), and [lab capacity](how-to-manage-vm-pool.md#change-lab-capacity) when calculating the cost estimate. Changes to the number of quota hours, schedules, or lab capacity affect the cost estimate value.
 
-If users don't consume their assigned quota hours, you are only charged for the quota hours that lab users consumed.
+If users don't consume their assigned quota hours, you're only charged for the quota hours that lab users consumed.
 
 This estimate might not show all the possible costs. A few resources aren't included:
 
@@ -33,12 +35,12 @@ This estimate might not show all the possible costs. A few resources aren't incl
 
 The cost analysis is for reviewing the previous month's usage to help you determine any adjustments you need to make for a lab. You can find the breakdown of past costs in the [subscription cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md). 
 
-1. In the [Azure portal](https://portal.azure.com), select **All services**.  Select **Cost management** from the quick access list or select **Cost management + billing** from the **General** category.
+1. In the [Azure portal](https://portal.azure.com), select **All services**. Select **Cost management** from the quick access list or select **Cost management + billing** from the **General** category.
 
-    :::image type="content" source="./media/cost-management-guide/all-services-cost-management.png" alt-text="Screenshot that shows the All services page.  The Cost management icon and Cost manage plus billing icon are highlighted.":::
+    :::image type="content" source="./media/cost-management-guide/all-services-cost-management.png" alt-text="Screenshot that shows the All services page. The Cost management icon and Cost manage plus billing icon are highlighted.":::
 1. Select the **Subscription** page and select subscription you wish to analyze.
 
-    :::image type="content" source="./media/cost-management-guide/subscription-select.png" alt-text="Screenshot that shows the Subscriptions page in Cost Management + Billing.  The Subscriptions menu is highlighted.":::
+    :::image type="content" source="./media/cost-management-guide/subscription-select.png" alt-text="Screenshot that shows the Subscriptions page in Cost Management + Billing. The Subscriptions menu is highlighted.":::
 
 1. Select **Cost analysis** in the left pane under the **Cost management** heading.
 
@@ -46,27 +48,27 @@ The cost analysis is for reviewing the previous month's usage to help you determ
 
 The Cost analysis dashboard allows in-depth cost analysis, including the ability to export to different file types on a schedule. For more information, see [Cost Management + Billing overview](../cost-management-billing/cost-management-billing-overview.md).
 
-You can filter by service or resource type. To see only costs associated with Azure Lab Services, set the **service name** filter equal to **azure lab services**.  If filtering on **resource type**, include `Microsoft.Labservices/labaccounts` resource type.  If you're using [lab plans](concept-lab-accounts-versus-lab-plans.md), also include the `Microsoft.LabServices/labs` resource type.
+You can filter by service or resource type. To see only costs associated with Azure Lab Services, set the **service name** filter equal to **azure lab services**. If filtering on **resource type**, include `Microsoft.Labservices/labaccounts` resource type. If you're using [lab plans](concept-lab-accounts-versus-lab-plans.md), also include the `Microsoft.LabServices/labs` resource type.
 
 ### Understand the entries
 
-Changing the view on **Cost Analysis** page to **Cost by resource** shows the individual charges.  By default, there are six columns: **Resource**, **Resource type**, **Location**, **Resource group name**, **Tags**, and **Cost**.   The **Resource** column contains the information about the lab plan, lab name, and VM. If the cost is associated with a template VM, the resource will be in the form `{lab account}/{lab name}/default`.  If the cost is associated with a student lab VM, the resource will be in the form `{lab account}/{lab name}/default/{vm name}`.
+Changing the view on **Cost Analysis** page to **Cost by resource** shows the individual charges.  By default, there are six columns: **Resource**, **Resource type**, **Location**, **Resource group name**, **Tags**, and **Cost**.   The **Resource** column contains the information about the lab plan, lab name, and VM. If the cost is associated with a template VM, the resource is in the form `{lab account}/{lab name}/default`.  If the cost is associated with a student lab VM, the resource is in the form `{lab account}/{lab name}/default/{vm name}`.
 
-In this example, adding the first and second rows (both start with "aaalab / dockerlab") will give you the total cost for the lab "dockerlab" in the "aaalab" lab account or lab plan.
+In this example, adding the first and second rows (both start with "aaalab / dockerlab") gives you the total cost for the lab "dockerlab" in the "aaalab" lab account or lab plan.
 
 :::image type="content" source="./media/cost-management-guide/cost-analysis.png" alt-text="Screenshot that shows an example cost analysis for a subscription for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis.png":::
 
-If you're using [lab plans](concept-lab-accounts-versus-lab-plans.md), the entries are formatted differently.  The **Resource** column will show entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using lab plans.
+If you're using [lab plans](concept-lab-accounts-versus-lab-plans.md), the entries are formatted differently. The **Resource** column shows entries in the form `{lab name}/{number}` for Azure Lab Services. Some tags are added automatically to each entry when using lab plans.
 
 | Tag name | Value |
 | -------- | ----- |
-| ms-istemplate | Set to true if cost associated with a template VM in a lab.  Set to false, otherwise. |
+| ms-istemplate | Set to true if cost associated with a template VM in a lab. Set to false, otherwise. |
 | ms-labname | Name of the lab. |
 | ms-labplanid | Full resource ID of the lab plan used when creating the lab. |
 
 :::image type="content" source="./media/cost-management-guide/cost-analysis-2.png" alt-text="Screenshot that shows an example cost analysis for a subscription using lab plans for Azure Lab Services associated costs." lightbox="./media/cost-management-guide/cost-analysis-2.png":::
 
-To get the cost for the entire lab, don't forget to include external resources.  Azure Compute Gallery related charges are under the `Microsoft.Compute` namespace.  The advanced networking charges are under the `Microsoft.Network` namespace.
+To get the cost for the entire lab, don't forget to include external resources. Azure Compute Gallery related charges are under the `Microsoft.Compute` namespace. The advanced networking charges are under the `Microsoft.Network` namespace.
 
 > [!NOTE]
 > A compute gallery and virtual network can be connected to multiple labs.
@@ -75,7 +77,7 @@ To get the cost for the entire lab, don't forget to include external resources. 
 
 Since cost entries are tied to the lab account, some schools use the lab account and the resource group as ways to separate the classes. Each class has its own lab plan and resource group.
 
-In the cost analysis pane, add a filter based on the resource group name for the class. Then, only the costs for that class will be visible. Grouping by resource group allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
+In the cost analysis pane, add a filter based on the resource group name for the class. Then, only the costs for that class will be visible. Grouping by resource group allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-improved-exports.md) feature of the cost analysis to download the costs of each class in separate files.
 
 With [lab plans](concept-lab-accounts-versus-lab-plans.md):
 
@@ -90,7 +92,7 @@ Depending on the type of class, there are ways to manage costs to reduce instanc
 
 ### Automatic shutdown settings for cost control
 
-Anytime a machine is **Running**, costs are being incurred, even if no one is connected to the VM.  You can enable several auto-shutdown features to avoid extra costs when the VMs aren't being used.  The are three auto-shutdown policies available in Azure Lab Services.
+Anytime a machine is **Running**, costs are being incurred, even if no one is connected to the VM.  You can enable several auto-shutdown features to avoid extra costs when the VMs aren't being used. The are three auto-shutdown policies available in Azure Lab Services.
 
 - Disconnect idle virtual machines.
 - Shut down virtual machines when students disconnect from the virtual machine.
@@ -102,14 +104,14 @@ For more information, see [Configure automatic shutdown of VMs for a lab plan](h
 
 [Schedules](classroom-labs-concepts.md#schedule) and [Quota](classroom-labs-concepts.md#quota) are two ways of allowing access to the lab VMs.
 
-In the schedule, you can add a stop-only event type that will stop all machines at a specific time. Some lab owners have set a stop-only event for every day at midnight to reduce the cost and quota usage. The downside to this type of event is that all VMs will be shut down, even if a student is using a VM.
+In the schedule, you can add a stop-only event type that stops all machines at a specific time. Some lab owners set a stop-only event for every day at midnight to reduce the cost and quota usage. The downside to this type of event is that all VMs shut down, even if a student is using a VM.
 
 ### Other costs related to labs
 
-Some costs aren't rolled into Lab Services but can be tied to a lab service. You can [connect a compute gallery](how-to-attach-detach-shared-image-gallery.md) to a lab, but it won't show under the Lab Services costs and does have costs. To help keep overall costs down, you should remove any unused images from the gallery because the images have associated storage costs.
+Some costs aren't rolled into Lab Services but can be tied to a lab service. You can [connect a compute gallery](how-to-attach-detach-shared-image-gallery.md) to a lab, but it doesn't show under the Lab Services costs and does have costs. To help keep overall costs down, you should remove any unused images from the gallery because the images have associated storage costs.
 
 Labs can have connections to other Azure resources through a virtual network is using [advanced networking](how-to-connect-vnet-injection.md). When a lab is removed, you should remove the virtual network and the other resources.
 
 ## Conclusion
 
-Hopefully, the information in this article has given you a better understanding of the tools that can help you reduce usage costs.
+Hopefully, the information in this article gives you a better understanding of the tools that can help you reduce usage costs.

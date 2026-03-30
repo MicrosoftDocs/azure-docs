@@ -2,11 +2,11 @@
 title: API support in Azure Static Web Apps with Azure App Service
 description: Learn how to use Azure App Service with Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
+author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  how-to
 ms.date: 06/14/2022
-ms.author: cshoe
+ms.author: jikunchen
 ---
 
 # API support in Azure Static Web Apps with Azure App Service

@@ -1,8 +1,8 @@
 ---
 title: Design Azure Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-ms.date: 08/17/2021
-ms.topic: conceptual
+ms.date: 03/04/2025
+ms.topic: how-to
 ---
 # Design Azure Policy as Code workflows
 
@@ -29,7 +29,7 @@ before it's too late and they're attempting to deploy in production.
 
 Before getting into the details of Azure Policy as Code workflow, it's important to understand some fundamental concepts, like how to author policy definitions and initiative definitions, and how to leverage exemptions on assignments of those definitions:
 
-- [Policy definition](./definition-structure.md)
+- [Policy definition](./definition-structure-basics.md)
 - [Initiative definition](./initiative-definition-structure.md)
 - [Policy exemption](./exemption-structure.md)
 
@@ -43,7 +43,7 @@ The file names correspond with certain portions of policy or initiative definiti
 | `policyset-v#.parameters.json`   | The `properties.parameters` portion of the initiative definition           |
 | `policy-v#.rules.json`           | The `properties.policyRule` portion of the policy definition               |
 | `policyset-v#.definitions.json`  | The `properties.policyDefinitions` portion of the initiative definition    |
-| `exemptionName.json`          | The policy exemption that targets a particular resource or scope  | 
+| `exemptionName.json`          | The policy exemption that targets a particular resource or scope  |
 
 
 ## Workflow overview
@@ -56,7 +56,7 @@ The recommended general workflow of Azure Policy as Code looks like this diagram
 
 ### Source control
 
-Existing [policy and initiative definitions can be exported](../how-to/export-resources.md) different ways such as through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops). 
+Existing [policy and initiative definitions can be exported](../how-to/export-resources.md) different ways such as through PowerShell, CLI, or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries. The source control management environment of choice to store these definitions can be one of many options, including a [GitHub](https://www.github.com) or [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops).
 
 ### Create and update policy definitions
 
@@ -146,8 +146,8 @@ the update to the object in Azure, it's time to test the changes that were made.
 or the initiative(s) it's part of should then be assigned to resources in the environment farthest
 from production. This environment is typically _Dev_.
 
->[!NOTE] 
-> In this step, we are conducting integration testing of the policy definition within your Azure environment, this is seperate from [verfying the functionality of the policy definition](./evaluate-impact.md#test-your-policys-effectiveness) which should occur during the definition creation process.
+>[!NOTE]
+> In this step, we are conducting integration testing of the policy definition within your Azure environment, this is separate from [verifying the functionality of the policy definition](./evaluate-impact.md#test-your-policys-effectiveness) which should occur during the definition creation process.
 
 The assignment should use [enforcementMode](./assignment-structure.md#enforcement-mode) of
 _disabled_ so that resource creation and updates aren't blocked, but that existing resources are
@@ -162,7 +162,7 @@ specifically for validating policies.
 > the resource.
 
 After the assignment is deployed, use the Azure Policy SDK, the
-[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy), or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries (see [samples](../samples/resource-graph-samples.md)) to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
+[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy), or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries (see [samples](/azure/governance/policy/samples/resource-graph-samples)) to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
 used to test the policies and assignments should have resources with varying compliance states.
 Like a good unit test for code, you want to test that resources are evaluated as expected with no false-positives or false-negatives. If you test and validate only for what you expect, there
 may be unexpected and unidentified impact from the policy. For more information, see
@@ -171,8 +171,8 @@ may be unexpected and unidentified impact from the policy. For more information,
 ### Enable remediation tasks
 
 If validation of the assignment meets expectations, the next step is to validate remediation.
-Policies that use either [deployIfNotExists](./effects.md#deployifnotexists) or
-[modify](./effects.md#modify) can have an associated remediation task triggered to correct resources from a non-compliant state and bring them into compliance.
+Policies that use either [deployIfNotExists](./effect-deploy-if-not-exists.md) or
+[modify](./effect-modify.md) can have an associated remediation task triggered to correct resources from a non-compliant state and bring them into compliance.
 
 The first step to remediating resources is to grant the policy assignment the role assignment
 defined in the policy definition. This role assignment gives the policy assignment managed identity
@@ -221,10 +221,9 @@ supports scripted steps and automation based on triggers.
 
 ## Next steps
 
-- Learn about the [policy definition structure](./definition-structure.md).
+- Learn about the [policy definition structure](./definition-structure-basics.md).
 - Learn about the [policy assignment structure](./assignment-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Under how to [follow policy safe deployment practices](../how-to/policy-safe-deployment-practices.md)
-  

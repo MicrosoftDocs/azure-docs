@@ -2,12 +2,14 @@
 title: 'Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network'
 description: In this quickstart, learn how to use the Azure content delivery network to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 02/28/2026
 ms.custom: mvc, mode-other
+ROBOTS: NOINDEX
+# Customer intent: As a web developer, I want to integrate an Azure Storage account with a content delivery network, so that I can efficiently deliver high-bandwidth content by caching blobs and improving access speeds for users worldwide.
 ---
 
 # Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network
@@ -17,11 +19,11 @@ ms.custom: mvc, mode-other
 In this quickstart, you enable [Azure Content Delivery Network](cdn-overview.md) to cache content from Azure Storage. Azure Content Delivery Network offers developers a global solution for delivering high-bandwidth content. It can cache blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia, and South America.
 
 > [!NOTE]  
-> Azure Content Delivery Network provides permanent access to Azure Storage resources and removing access requires manual steps.
+> Azure Content Delivery Network provides permanent access to Azure Storage resources and removing the access requires manual steps.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to the Azure portal
 
@@ -36,8 +38,6 @@ To create a storage account, you must be either the service administrator or a c
 1. In the Azure portal, select **Create a resource** on the upper left. The **Create a resource** pane appears.
 
 1. Search for **Storage account** and select **Storage account** from the list. Then select **Create**:
-
-    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png" alt-text="Screenshot of create a storage account.":::
 
 1. In the **Create storage account pane**, enter the following details:
 
@@ -71,11 +71,6 @@ To create a storage account, you must be either the service administrator or a c
     | **Pricing tier** | Select one of the options, such as **Microsoft CDN (classic)**. |
 
 1. Select **Create**. After the endpoint is created, it appears in the endpoint list.
-
-	[ ![Screenshot of a storage new content delivery network endpoint.](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png).](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png#lightbox)
-
-> [!TIP]
-> If you want to specify advanced configuration settings for your content delivery network endpoint, such as [large file download optimization](cdn-optimization-overview.md#large-file-download), you can instead use the [Azure Content Delivery Network extension](cdn-create-new-endpoint.md) to create a content delivery network profile and endpoint.
 
 <a name='enable-additional-cdn-features'></a>
 

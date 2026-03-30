@@ -8,7 +8,9 @@ ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to configure VPN on my Azure Stack Edge Mini R device so that I can have a second layer of encryption for my data-in-flight.
 ---
 
@@ -48,9 +50,9 @@ The detailed steps are provided in the following sections.
 
 ## Configure prerequisites
 
-- You should have access to an Azure Stack Edge Mini R device that is installed as per the instructions in [Install your Azure Stack Edge Mini R device](azure-stack-edge-mini-r-deploy-install.md). This device will be establishing a P2S connection with Azure. 
+- You should have access to an Azure Stack Edge Mini R device that's installed as per the instructions in [Install your Azure Stack Edge Mini R device](azure-stack-edge-mini-r-deploy-install.md). This device will be establishing a P2S connection with Azure. 
 
-- You should have access to a valid Azure Subscription that is enabled for Azure Stack Edge service in Azure. Use this subscription to create a corresponding resource in Azure to manage your Azure Stack Edge Mini R device.  
+- You should have access to a valid Azure Subscription that's enabled for Azure Stack Edge service in Azure. Use this subscription to create a corresponding resource in Azure to manage your Azure Stack Edge Mini R device.  
 
 - You have access to a Windows client that you'll use to access your Azure Stack Edge Mini R device. You'll use this client to programmatically create the configuration in the cloud.
 
@@ -66,7 +68,7 @@ The detailed steps are provided in the following sections.
         Connect-AzAccount 
         Set-AzContext -Subscription "<Your subscription name>"
         ```
-        Provide the Azure subscription name you are using with your Azure Stack Edge Mini R device to configure VPN.
+        Provide the Azure subscription name you're using with your Azure Stack Edge Mini R device to configure VPN.
 
     3. [Download the script](https://aka.ms/ase-vpn-deployment) required to create configuration in the cloud. The script will:
         
@@ -77,11 +79,11 @@ The detailed steps are provided in the following sections.
         - Create an Azure Firewall and add network rules, app rules.
         - Create an Azure Routing table and add routes to it.
 
-    4. Create the resource group in the Azure portal under which you want the Azure resources to be created. Go to the list of services in Azure portal, select **Resource group** and then select **+ Add**. Provide the subscription information and the name for your resource group and then select **Create**. If you go to this resource group, it should not have any resources under it at this time.
+    4. Create the resource group in the Azure portal under which you want the Azure resources to be created. Go to the list of services in Azure portal, select **Resource group** and then select **+ Add**. Provide the subscription information and the name for your resource group and then select **Create**. If you go to this resource group, it shouldn't have any resources under it at this time.
 
         ![Azure resource group](media/azure-stack-edge-mini-r-configure-vpn-powershell/azure-resource-group-1.png)
     
-    5. You will need to have a Base 64 encoded certificate in `.cer` format for your Azure Stack Edge Mini R device. This certificate should be uploaded to your Azure Stack Edge device as `pfx` with a private key. This certificate also needs to be installed in the trusted root of the store on the client that is trying to establish the P2S connection.
+    5. You need to have a Base 64 encoded certificate in `.cer` format for your Azure Stack Edge Mini R device. This certificate should be uploaded to your Azure Stack Edge device as `pfx` with a private key. This certificate also needs to be installed in the trusted root of the store on the client that's trying to establish the P2S connection.
 
 ## Use the script
 
@@ -99,7 +101,7 @@ You may already have a `ServiceTags.json` file in the folder where you downloade
 
 The first step would be to modify the `parameters-p2s.json` file and save the changes. 
 
-For the Azure resources that you create, you'll provide the following names:
+For the Azure resources that you create, you provide the following names:
 
 |Parameter name  |Description  |
 |---------|---------|
@@ -120,7 +122,7 @@ Provide the following IP addresses and address spaces for the Azure resources th
 |DefaultSubnetIPv4AddressSpace    |This is the address space associated with the `Default` subnet for your virtual network.         |
 |FirewallSubnetIPv4AddressSpace    |This is the address space associated with the `Firewall` subnet for your virtual network.          |
 |GatewaySubnetIPv4AddressSpace    |This is the address space associated with the `GatewaySubnet` for your virtual network.          |
-|GatewaySubnetIPv4bgpPeeringAddress    | This is the IP address that is reserved for BGP communication and is based off the address space associated with the `GatewaySubnet` for your virtual network.          |
+|GatewaySubnetIPv4bgpPeeringAddress    | This is the IP address that's reserved for BGP communication and is based off the address space associated with the `GatewaySubnet` for your virtual network.          |
 |ClientAddressPool    | This IP address is used for the address pool in the P2S configuration in Azure portal.         |
 |PublicCertData     | Public certificate data is used by the VPN Gateway to authenticate P2S clients connecting to it. To get the certificate data, install the root certificate. Make sure the certificate is Base-64 encoded with a .cer extension. Open this certificate and copy the text in the certificate between ==BEGIN CERTIFICATE== and ==END CERTIFICATE== in one continuous line.     |
 
@@ -139,7 +141,7 @@ Follow these steps to use the modified `parameters-p2s.json` and run the script 
     > [!NOTE]
     > In this release, the script works in East US location only.
 
-    You will need to input the following information when you run the script:
+    You need to input the following information when you run the script:
 
     
     |Parameter  |Description  |
@@ -174,7 +176,7 @@ Follow these steps to use the modified `parameters-p2s.json` and run the script 
 
     > [!IMPORTANT]
     > - The script takes approximately 90 minutes to run. Make sure to sign into your network right before the script starts.
-    > - If for any reason there is a failed session with the script, make sure to delete the resource group to delete all the resources created under it.
+    > - If for any reason there's a failed session with the script, make sure to delete the resource group to delete all the resources created under it.
   
     
     After the script is complete, a deployment log is generated in the same folder where the script resides.
@@ -200,16 +202,16 @@ After you've successfully run the script, verify that all the resources were cre
 
 3.  On the **Point-to-site configuration** blade:
 
-    1. You'll add the client address pool. This pool is a range of private IP addresses that you specify. The clients that connect over a P2S VPN dynamically receive an IP address from this range. Use a private IP address range that does not overlap with the on-premises location that you connect from, or the VNet that you want to connect to. 
-    2. You can select the tunnel type. For the VPN tunnel, you will use the IKEv2 protocol. 
-    3. You will now define the type of authentication. Before Azure accepts a P2S VPN connection, the user has to be authenticated first. In this case, you authenticate using the native Azure certificate authentication. Set **Authentication type** to **Azure certificate**.
-    4. You will now create and upload the certificates to Azure and your client. You will need to install a root certificate on your VPN gateway. The VPN gateway validates the client certificates when the P2S connection is being established by the client. The root certificate is required for the validation and must be uploaded to Azure.
+    1. Add the client address pool. This pool is a range of private IP addresses that you specify. The clients that connect over a P2S VPN dynamically receive an IP address from this range. Use a private IP address range that does not overlap with the on-premises location that you connect from, or the VNet that you want to connect to. 
+    2. You can select the tunnel type. For the VPN tunnel, use the IKEv2 protocol. 
+    3. You'll now define the type of authentication. Before Azure accepts a P2S VPN connection, the user has to be authenticated first. In this case, you authenticate using the native Azure certificate authentication. Set **Authentication type** to **Azure certificate**.
+    4. You'll now create and upload the certificates to Azure and your client. You need to install a root certificate on your VPN gateway. The VPN gateway validates the client certificates when the P2S connection is being established by the client. The root certificate is required for the validation and must be uploaded to Azure.
     
         The clients trying to establish the P2S connection will have a client certificate that authenticates the connecting user.  To create these certificates, follow the steps in [Generate and export certificates for Point-to-Site using PowerShell](../vpn-gateway/vpn-gateway-certificates-point-to-site.md). 
 
         To install the root certificate, make sure the certificate is Base-64 encoded with a .cer extension. Open this certificate and copy the text in the certificate between ==BEGIN CERTIFICATE== and ==END CERTIFICATE== in one continuous line in the public certificate data under Root certificates.
 
-        To upload the root certificates, follow the detailed steps in [Upload the root certificate public certificate data](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+        To upload the root certificates, follow the detailed steps in [Upload the root certificate public certificate data](../vpn-gateway/point-to-site-certificate-gateway.md#uploadfile).
     
     5. Save the configuration.
 
@@ -217,7 +219,7 @@ After you've successfully run the script, verify that all the resources were cre
 
 ## Download phone book for VPN profile
 
-In this step, you will download the VPN profile for your device.
+In this step, you download the VPN profile for your device.
 
 1. In the Azure portal, go to the resource group and then select the virtual network gateway that you created in the earlier step.
 
@@ -243,7 +245,7 @@ In this step, you will download the VPN profile for your device.
 
     `.\VpnClientSetupAmd64.exe /Q /C /T:"C:\NewTemp\vnet\tmp"`
 
-5. The temporary path will have new files. Here is a sample output:
+5. The temporary path will have new files. Here's a sample output:
 
     ```powershell
     
@@ -270,7 +272,7 @@ In this step, you will download the VPN profile for your device.
     PS C:\NewTemp\vnet>
     ```
 
-6. The *.pbk* file is the phone book for the VPN profile. You will use this in the local UI.
+6. The *.pbk* file is the phone book for the VPN profile. You'll use this in the local UI.
 
 
 ## VPN configuration on the device
@@ -311,7 +313,7 @@ To confirm that VPN is working, copy data to an SMB share. Follow the steps in [
 
     3. In the right-pane, choose the **Scope** as your VPN gateway, **Metric** as Gateway P2S bandwidth, and **Aggregation** as Avg.
 
-    4. As the data is being copied, you will see an increase in the bandwidth utilization and when the data copy is complete, the bandwidth utilization will drop.
+    4. As the data is being copied, you'll see an increase in the bandwidth utilization and when the data copy is complete, the bandwidth utilization will drop.
 
         ![Azure vpn metrics](media/azure-stack-edge-mini-r-configure-vpn-powershell/vpn-metrics-1.png)
 
