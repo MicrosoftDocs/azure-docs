@@ -3,7 +3,7 @@ title: Manage settings for your Dynatrace resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Dynatrace resource via Azure portal.
 
 ms.topic: how-to
-ms.date: 10/21/2025
+ms.date: 03/30/2026
 
 ---
 
@@ -61,16 +61,26 @@ You can install Dynatrace OneAgents on virtual machines, App Service extensions,
 
 To monitor resources for virtual machines, select **Dynatrace environment config > Virtual Machines** from the Resource pane.
 
-> [!IMPORTANT]
->
-> - If the virtual machine is stopped, installing the Dynatrace OneAgent is disabled. Dynatrace OneAgent can only be installed on virtual machines that are running.    
-> - If a virtual machine shows that a OneAgent is installed and the option Uninstall extension is disabled, another resource configured the agent. To make changes, go to the other Dynatrace resource in the Azure subscription.
+The **Install Extension** button is enabled when all of the following conditions are met:
+
+- The virtual machine is **Running** (not stopped or deallocated).
+- The Dynatrace OneAgent is **not already installed** on the virtual machine.
+- You have **Owner** or **Contributor** permissions on the subscription where the virtual machine resides. Users with only **Reader** (or lower) permissions can't install the extension.
+
+> [!NOTE]
+> If a virtual machine shows that a OneAgent is installed and the option **Uninstall extension** is disabled, another Dynatrace resource configured the agent. To make changes, go to the other Dynatrace resource in the Azure subscription.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
 #### [App Service](#tab/app-service)
 
 To monitor resources for App Service, select **Dynatrace environment config > App Service** from the Resource pane.
+
+The **Install Extension** button is enabled when all of the following conditions are met:
+
+- The App Service resource is **Running** (not stopped or deallocated).
+- The Dynatrace OneAgent is **not already installed** on the App Service resource.
+- You have **Owner** or **Contributor** permissions on the subscription where the App Service resource resides. Users with only **Reader** (or lower) permissions can't install the extension.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
