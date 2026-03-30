@@ -59,7 +59,7 @@ You can create a backup policy while configuring backup, or create it directly i
 
 1.  For **Full Snapshot backup** and **Log backup**, select **Edit** corresponding to each backup type and enter the backup schedule and retention periods.  
 
-    You can schedule **Full Snapshot backup** from every 6 hours to every 24 hours. For **Log backup**, you can schedule from every 15 mins to 24 hours. Scheduling snapshot **Copy only full** backups isn’t supported; you can trigger the backup operation only by selecting **Backup now** after the backup [configuration](#configure-backup-for-the-sql-server-instance). Learn [how to run an on-demand backup](#run-an-on-demand-backup-of-sql-instance)
+    You can schedule **Full Snapshot backup** from every 6 hours to every 24 hours. For **Log backup**, you can schedule from every 15 mins to 24 hours. Scheduling snapshot **Copy only full** backups isn’t supported; you can trigger the backup operation only by selecting **Backup now** after the backup [configuration](#configure-backup-for-the-sql-server-instance). Learn [how to run an on-demand backup](#run-an-on-demand-backup-of-sql-instance).
 
     :::image type="content" source="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png" alt-text="Screenshot that shows the  policy types for SQL server in Azure VM backup." lightbox="./media/back-up-sql-server-instance-snapshot/create-backup-policy.png":::
 

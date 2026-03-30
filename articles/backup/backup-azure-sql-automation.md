@@ -275,7 +275,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload 
 
 ### Fetch the relevant restore time
 
-As outlined previously, you can restore the backed-up SQL DB to a full/differential copy **OR** to a log-point-in-time.
+As outlined previously, you can restore the backed-up SQL DB to a full/differential copy **OR** to a log point-in-time.
 
 #### Fetch distinct recovery points
 
@@ -550,7 +550,7 @@ As documented [above](#determine-recovery-configuration) for the normal SQL rest
 Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $FullRPFromSec[0] -TargetItem $secSQLInstance -AlternateWorkloadRestore -VaultId $vault.ID -TargetContainer $secContainer
 ```
 
-##### For log point in time restores from secondary region
+##### For log point-in-time restores from secondary region
 
 ```powershell
 Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $secondaryBkpItems[0] -TargetItem $secSQLInstance  -AlternateWorkloadRestore -VaultId $vault.ID -TargetContainer $secContainer
