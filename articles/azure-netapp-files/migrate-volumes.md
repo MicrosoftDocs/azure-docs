@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
 
-With Azure NetApp Files' migration assistant, you can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The migration assistant is generally available with the REST API and in preview for the Azure portal.
+With Azure NetApp Files' migration assistant, you can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. 
 
 ## Requirements 
 
@@ -242,8 +242,6 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     Finalizing replication removes all the peering information on Azure NetApp Files. Manually confirm that all replication data is removed on the ONTAP cluster. If any peering information remains, run the `cluster peer delete` command. 
 
 # [Azure portal](#tab/portal)
-
-The portal version of the migration assistant is currently in preview.
 
 1.	From your NetApp account view, select **Migration assistant**.
     
