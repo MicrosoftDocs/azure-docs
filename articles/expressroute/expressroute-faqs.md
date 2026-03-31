@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: faq
-ms.date: 01/10/2025
+ms.date: 03/31/2026
 ms.author: duau
 
 ---
@@ -66,6 +66,17 @@ If you're using a dual-stack circuit, there's a maximum of 100 IPv6 prefixes on 
 ### What happens if the prefix limit on an ExpressRoute connection gets exceeded?
 
 The connection between the ExpressRoute circuit and the gateway disconnects including peered virtual network using gateway transit. Connectivity re-establishes when the prefix limit is no longer exceeded.
+
+### How can I reduce the number of prefixes advertised from Azure to on-premises?
+
+ExpressRoute private peering has a maximum number of IPv4 prefixes that can be advertised on a single ExpressRoute connection (for example, 1,000 IPv4 prefixes and 100 IPv6 prefixes).
+
+For hub-and-spoke topologies, the default behavior is to advertise the hub address space and peered spoke address spaces to on-premises. To reduce the number of prefixes advertised from Azure to on-premises, configure advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. When populated, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes instead and suppress advertisement of covered spoke address spaces.
+
+> [!NOTE]
+> The `summarizedGatewayPrefixes` property only affects virtual networks with a gateway subnet.
+
+For more information, see [Advertised gateway prefixes overview](/azure/virtual-network/advertised-gateway-prefixes-overview).
 
 ## How can I adjust the number of prefixes advertised to the gateway to ensure it's within the maximum limitation?
 

@@ -96,6 +96,8 @@
       href: subnet-delegation-overview.md
     - name: Subnet extension
       href: subnet-extension.md
+    - name: Advertised gateway prefixes
+      href: advertised-gateway-prefixes-overview.md
     - name: Virtual network peering
       href: virtual-network-peering-overview.md
     - name: What is IP address 168.63.129.16?
