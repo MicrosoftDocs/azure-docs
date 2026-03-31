@@ -9,7 +9,7 @@ ms.date: 04/06/2026
 ms.topic: how-to
 ---
 
-# Restore SQL Server instance or database in Azure VM from snapshot backup by using Azure portal(preview)
+# Restore SQL Server instance or database in Azure VM from snapshot backup by using Azure portal (preview)
 
 This article describes how to restore a [SQL Server instance or an individual database in an Azure virtual machine (VM) by using snapshot backups (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview). It provides step‑by‑step guidance for instance‑level and database‑level restores.
 

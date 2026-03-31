@@ -20,6 +20,64 @@ To view the backup and restore scenarios that we support today, see the [support
 >[!NOTE]
 >SQL Server instance snapshot backup management isn't supported with [Resiliency](../resiliency/resiliency-overview.md). [Learn more about the supported and unsupported scenarios for SQL Server instance snapshot backup (preview)](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
 
+## Configure simultaneous backups
+
+You can configure SQL Server streaming backups to store recovery points and transaction logs simultaneously in local storage and a Recovery Services vault.
+
+To configure simultaneous backups, follow these steps:
+
+1. Go to the `C:\Program Files\Azure Workload Backup\bin\plugins` location, and then create the file **PluginConfigSettings.json**, if it's not present.
+2. Add the comma separated key value entities, with keys `EnableLocalDiskBackupForBackupTypes` and `LocalDiskBackupFolderPath` to the JSON file.
+
+   - Under `EnableLocalDiskBackupForBackupTypes`, list the backup types that you want to store locally.
+
+     For example, if you want to store the *Full* and *Log* backups, mention `["Full", "Log"]`. To store only the log backups, mention `["Log"]`.
+
+   - Under `LocalDiskBackupFolderPath`, mention the *path to the local folder*. Ensure that you use the *double forward slash* while mentioning the path in the JSON file.
+   
+     For example, if the preferred path for local backup is `E:\LocalBackup`, mention the path in JSON as `E:\\LocalBackup`.
+
+     The final JSON should appear as:
+ 
+     ```json
+     {
+        "EnableLocalDiskBackupForBackupTypes": ["Log"],
+        "LocalDiskBackupFolderPath": "E:\\LocalBackup",
+     }
+     ```
+
+     If there are other prepopulated entries in the JSON file, add the preceding two entries at the bottom of the JSON file *just before the closing curly bracket*.
+
+3. For the changes to take effect immediately instead of regular one hour, go to **TaskManager** > **Services**, right-click **AzureWLbackupPluginSvc**, and then select **Stop**.
+
+   >[!Caution]
+   >This action cancels all the ongoing backup jobs.
+
+   The naming convention of the stored backup file and the folder structure for the SQL Server database is `{LocalDiskBackupFolderPath}\{SQLInstanceName}\{DatabaseName}`.
+
+   For example, if you have a database `Contoso` under the SQL instance `MSSQLSERVER`, the files are located at in `E:\LocalBackup\MSSQLSERVER\Contoso`.
+
+   The name of the file is the `VDI device set guid`, which is used for the backup operation.
+
+4. Check if the target location under `LocalDiskBackupFolderPath` has *read* and *write* permissions for `NT Service\AzureWLBackupPluginSvc`.
+
+   >[!Note]
+   >For a folder on the local VM disks, right-click the folder and configure the required permissions for `NT Service\AzureWLBackupPluginSvc` on the **Security** tab.
+   
+   If you're using a network or SMB share, configure the permissions by running the following PowerShell cmdlets from a user console that already has the permission to access the share:
+
+   ```azurepowershell
+   $cred = Get-Credential
+   New-SmbGlobalMapping -RemotePath <FileSharePath> -Credential $cred -LocalPath <LocalDrive>:  -FullAccess @("<Comma Separated list of accounts>") -Persistent $true
+   ```
+
+   **Example**:
+   
+   ```azurepowershell
+   $cred = Get-Credential
+   New-SmbGlobalMapping -RemotePath \\i00601p1imsa01.file.core.windows.net\rsvshare -Credential $cred -LocalPath Y:  -FullAccess @("NT AUTHORITY\SYSTEM","NT Service\AzureWLBackupPluginSvc") -Persistent $true
+   ```
+
 ## View backup items for SQL database and SQL Server instance (preview)
 
 After you configure snapshot backup for a SQL Server instance, Azure Backup shows the backup items in the Azure portal. Azure creates one backup item for the protected SQL instance, which you use for instance-level actions. These items appear under **SQL Server in Azure VM (Snapshot backup)**.
@@ -36,11 +94,11 @@ To view the database backup items, follow these steps:
 
 1. On the selected datasource backup items pane, view the backup items for the database.
 
-   - **SQL Database in Azure VM**: Allows you to back up individual databases. Selection of this datasource shows the list of all database‑level backup items, with the Backup type field indicating whether each database uses streaming or snapshot backups.
+   - **SQL Database in Azure VM**: Shows the list of all database‑level backup items, with the Backup type field indicating whether each database uses streaming or snapshot backups.
 
      :::image type="content" source="media/manage-monitor-sql-database-backup/sql-database-backup-items.png" alt-text="Screenshot that shows the list of SQL database backup items." lightbox="media/manage-monitor-sql-database-backup/sql-database-backup-items.png":::
 
-   - **SQL Server in Azure VM (Snapshot) (Preview)**: Allows you to back up entire SQL instances in an Azure VM using snapshot. Selection of this datasource shows the list of all available instance‑level snapshots.
+   - **SQL Server in Azure VM (Snapshot) (Preview)**: Shows the list of all available instance‑level snapshots.
 
      :::image type="content" source="media/manage-monitor-sql-database-backup/sql-instance-backup-items.png" alt-text="Screenshot that shows the list of SQL instance backup items." lightbox="media/manage-monitor-sql-database-backup/sql-instance-backup-items.png":::
 
@@ -138,7 +196,16 @@ You can stop and resume snapshot backups at both the database and instance level
 
 - **Stop backup at database level**: When you stop backup at the database level, only the selected database stops backing up. Azure deletes or retains restore points based on your selection. Other databases in the instance and instance-level backups remain unaffected.
 
-[Learn how to stop backup for SQL in Azure VM](#stop-protection-for-a-sql-database).
+To stop backup for SQL Server instance in Azure VM, follow these steps:
+
+1. On the **Recovery Services vault**, select **Protected items** > **Backup items**.
+1. On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup)(Preview)**.
+1. On the **Backup Items (SQL Server in Azure VM (Snapshot backup)(Preview))** pane, select **View details** corresponding to the database instance for which you want to stop protection.
+1. On the selected database instance pane, select **Stop backup**.
+1. On the **Stop Backup** pane, for **Database(s)** you want to specify stop protection, select **View DBs** and choose the databases from the list.
+1. For **Stop backup level**, select **Retain backup data** or **Delete backup data**.
+1. For **Reason**, select an appropriate option from the list.
+1. Select **Stop backup** to initiate the stop protection process.
 
 ## Resume protection for a SQL database
 
