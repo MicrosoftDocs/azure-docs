@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 11/14/2025
+ms.date: 03/31/2026
 ms.author: danlep 
 ms.custom:
   - devx-track-azurepowershell
@@ -35,7 +35,6 @@ API Management provides two options for managing certificates that are used to s
 
 [!INCLUDE [api-management-workspace-key-vault-availability](../../includes/api-management-workspace-key-vault-availability.md)]
 
-
 We recommend that you use key vault certificates because doing so improves API Management security:
 
 * Certificates stored in key vaults can be reused across services.
@@ -49,14 +48,11 @@ We recommend that you use key vault certificates because doing so improves API M
 * If you haven't created an API Management instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 * Configure your backend service client certificate authentication. For information about configuring certificate authentication in Azure App Service, see [Configure TLS mutual authentication in App Service][to configure certificate authentication in Azure WebSites refer to this article]. 
 * Ensure that you have access to the certificate and the password for management in an Azure key vault, or a certificate to upload to the API Management service. The certificate must be in PFX format. Self-signed certificates are allowed. 
-* If you use a self-signed certificate or other custom CA certificate and your API Management instance is in one of the classic tiers, install the corresponding root and intermediate CA certificates in API Management to enable validation of the backend service certificate. For more information, see [How to add a custom CA certificate in Azure API Management](api-management-howto-ca-certificates.md)
-
-    If you don't install the CA certificates, API Management can't validate the backend service certificate, and requests to the backend service fail unless you disable certificate chain validation. See [Disable certificate chain validation for self-signed certificates](#disable-certificate-chain-validation-for-self-signed-certificates) later in this article.
-
-    [!INCLUDE [api-management-ca-certificate-v2-tiers](../../includes/api-management-ca-certificate-v2-tiers.md)]
+* If you use a self-signed certificate and your API Management instance is in one of the classic tiers, disable certificate chain validation. See [Disable certificate chain validation for self-signed certificates](#disable-certificate-chain-validation-for-self-signed-certificates) later in this article.
 
     > [!NOTE]
-    > CA certificates for certificate validation aren't supported in the Consumption tier.
+    > When a client certificate is used by API Management for **outbound authentication** (for example, when API Management presents the certificate to a backend service), you don't need to upload the root or intermediate CA certificates to the API Management CA store. In this scenario, API Management *presents* the client certificate and doesn't perform certificate chain validation.<br/><br/>
+    > Uploading trusted root or intermediate CA certificates is only required when API Management must *validate* a certificate chain, such as during inbound client certificate authentication.
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
 

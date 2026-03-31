@@ -1,6 +1,6 @@
 ---
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: 03/30/2026
 ms.service: azure-sql-database
 ms.topic: include

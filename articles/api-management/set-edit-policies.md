@@ -1,12 +1,12 @@
 ---
-title: How to set or edit Azure API Management policies | Microsoft Docs
-description: Configure policies at different scopes in an Azure API Management instance using the policy editor in the Azure portal.
+title: Set or Edit Azure API Management Policies
+description: Configure policies at different scopes in Azure API Management by using the policy editor in the Azure portal.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/06/2025
+ms.date: 03/13/2026
 ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
@@ -19,7 +19,7 @@ This article shows you how to configure policies in your API Management instance
 
 The policy editor in the portal provides guided forms for API publishers to add and edit policies in policy definitions. You can also edit the XML directly in the policy code editor.
 
-More information about policies:
+For more information about policies, see the following articles:
 
 * [Policy overview](api-management-howto-policies.md)
 * [Policy reference](api-management-policies.md) for a full list of policy statements and their settings
@@ -32,8 +32,8 @@ More information about policies:
 
 If you don't already have an API Management instance and a backend API, see:
 
-- [Create an Azure API Management instance](get-started-create-service-instance.md)
-- [Import and publish an API](import-and-publish.md)
+- Create an [Azure API Management instance](get-started-create-service-instance.md).
+- [Import and publish an API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -47,51 +47,60 @@ The following example shows how to configure a policy using two options in the p
 In this example, the policy filters requests from certain incoming IP addresses. It's scoped to a selected API.
 
 > [!NOTE]
-> You can configure policies at other [scopes](api-management-howto-policies.md#scopes), such as for all APIs, a product, or a single API operation. See [Configure scope](#configure-policies-at-different-scopes), later in this article, for other examples.
+> You can configure policies at other [scopes](api-management-howto-policies.md#scopes), such as for all APIs, a product, or a single API operation. For other examples, see [Configure policies at different scopes](#configure-policies-at-different-scopes) later in this article.
 
 To configure a policy:
 
 # [Form](#tab/form)
 
-1. In the left navigation of your API Management instance, select **APIs**.
+1. In the sidebar menu of your API Management instance, under **APIs**, select **APIs**.
+
 1. Select an API that you previously imported.
+
 1. Select the **Design** tab.
+
 1. To apply the policy to all operations, select **All operations**.
+
 1. In the **Inbound processing** section, select **+ Add policy**.
 
-
-    :::image type="content" source="media/set-edit-policies/form-editor.png" alt-text="Add policy in API Management":::
+    :::image type="content" source="media/set-edit-policies/form-editor.png" alt-text="Screenshot showing the button to Add policy in API Management." lightbox="media/set-edit-policies/form-editor.png":::
 
 1. In **Add inbound policy**, select a policy to add. For example, select **Filter IP addresses**.
-    
-    :::image type="content" source="media/set-edit-policies/filter-ip-addresses.png" alt-text="Filter IP addresses policy":::
+
+    :::image type="content" source="media/set-edit-policies/filter-ip-addresses.png" alt-text="Screenshot showing the Filter IP addresses policy tile.":::
 
     > [!TIP]
-    > * Policies shown are scoped to the policy section you're configuring - in this case, for inbound processing.
-    > * If you don't see a policy you want, select the **Other policies** tile. This will open the XML code editor and display a complete list of policies for that section and scope.
+    > * Policies shown are filtered for the policy section you're configuring, in this case, for inbound processing.
+    > * If you don't see a policy you want, select the **Other policies** tile. This opens the XML code editor and display a complete list of policies for that section and scope.
+
 1. Select **Allowed IPs** > **+ Add IP filter** and add the first and last IP addresses of a range of incoming addresses that are allowed to make API requests. Add other IP address ranges, if needed.
 
-    :::image type="content" source="media/set-edit-policies/configure-ip-filter.png" alt-text="Configure allowed IP addresses":::
+    :::image type="content" source="media/set-edit-policies/configure-ip-filter.png" alt-text="Screenshot showing the allowed IPs button.":::
+
 1. Select **Save** to propagate changes to the API Management gateway immediately.
 
     The **ip-filter** policy now appears in the **Inbound processing** section.
 
 # [Code](#tab/editor)
 
-1. In the left navigation of your API Management instance, select **APIs**.
+1. In the sidebar menu of your API Management instance, select **APIs**.
+
 1. Select an API that you previously imported.
+
 1. Select the **Design** tab.
+
 1. To apply the policy to all operations, select **All operations**.
+
 1. In the **Inbound processing** section, select the **</>** (code editor) icon.
 
-
-    :::image type="content" source="media/set-edit-policies/code-editor.png" alt-text="Add policy in API Management":::
+    :::image type="content" source="media/set-edit-policies/code-editor.png" alt-text="Screenshot showing the code editor icon to add a policy." lightbox="media/set-edit-policies/code-editor.png":::
 
 1. To see available policy XML code snippets, select **Show snippets**. For example, select **Restrict caller IPs**.
 
     :::image type="content" source="media/set-edit-policies/insert-policy-snippet.png" alt-text="Insert policy snippet":::
 
-1. Paste or enter the desired policy code snippet into one of the appropriate blocks, and complete the policy configuration. 
+1. Paste or enter the desired policy code snippet into one of the appropriate blocks, and complete the policy configuration.
+
     ```xml
     <policies>
         <inbound>
@@ -124,7 +133,7 @@ To configure a policy:
 API Management gives you flexibility to configure policy definitions at multiple [scopes](api-management-howto-policies.md#scopes), in each of the policy sections.
 
 > [!IMPORTANT]
-> Not all policies can be applied at each scope or policy section. If the policy that you want to add isn't enabled, ensure that you are in a supported policy section and scope for that policy. To review the policy sections and scopes for a policy, check the **Usage** section in the [Policy reference](api-management-policies.md) topics.
+> Not all policies can be applied at each scope or policy section. If the policy that you want to add isn't enabled, ensure that you are in a supported policy section and scope for that policy. To review the policy sections and scopes for a policy, check the **Usage** section in the [Policy reference](api-management-policies.md).
 
 > [!NOTE]
 > The **Backend** policy section can only contain one policy element. By default, API Management configures the [`forward-request`](forward-request-policy.md) policy in the **Backend** section at the global scope, and the `base` element at other scopes.
@@ -133,52 +142,57 @@ API Management gives you flexibility to configure policy definitions at multiple
 
 Global scope is configured for **All APIs** in your API Management instance.
 
-1. In the left navigation of your API Management instance, select **APIs** > **All APIs**.
+1. In the sidebar menu of your API Management instance, select **APIs** > **All APIs**.
+
 1. Select the **Design** tab.
 
-    :::image type="content" source="media/set-edit-policies/global-scope-policy.png" alt-text="Configure policy at product scope":::
+1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly.
 
-1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
+    :::image type="content" source="media/set-edit-policies/global-scope-policy.png" alt-text="Screenshot showing how to configure policy at global scope." lightbox="media/set-edit-policies/global-scope-policy.png":::
 
 1. Select **Save** to propagate changes to the API Management gateway immediately.
 
 ### Product scope
 
-Product scope is configured for a selected product.
+Product scope is configured for a selected product, if one is configured.
 
-1. In the left menu, select **Products**, and then select a product to which you want to apply policies.
+1. In the sidebar menu, select **Products**, and then select a product to which you want to apply policies.
+
 1. In the product window, select **Policies**.
 
-    :::image type="content" source="media/set-edit-policies/product-scope-policy.png" alt-text="Configure policy at global scope":::
+    :::image type="content" source="media/set-edit-policies/product-scope-policy.png" alt-text="Screenshot showing how to configure policy at product scope.":::
+
 1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
 1. Select **Save** to propagate changes to the API Management gateway immediately.
-
-
 
 ### API scope
 
 API scope is configured for **All operations** of the selected API.
 
-1. In the left navigation of your API Management instance, select **APIs**, and then select the API that you want to apply policies to.
+1. In the sidebar menu of your API Management instance, select **APIs**, and then select the API that you want to apply policies to.
+
 1. Select the **Design** tab.
+
 1. Select **All operations**.
 
-    :::image type="content" source="media/set-edit-policies/api-scope-policy.png" alt-text="Configure policy at API scope":::
+    :::image type="content" source="media/set-edit-policies/api-scope-policy.png" alt-text="Screenshot showing how to configure policy at API scope.":::
 
 1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
-6. Select **Save** to propagate changes to the API Management gateway immediately.
+1. Select **Save** to propagate changes to the API Management gateway immediately.
 
 ### Operation scope 
 
 Operation scope is configured for a selected API operation.
 
-1. In the left navigation of your API Management instance, select **APIs**.
-1. Select the **Design** tab.
-1. Select  the operation to which you want to apply policies.
+1. In the sidebar menu of your API Management instance, select **APIs**.
 
-    :::image type="content" source="media/set-edit-policies/operation-scope-policy.png" alt-text="Configure policy at operation scope":::
+1. Select the **Design** tab.
+
+1. Select the operation to which you want to apply policies.
+
+    :::image type="content" source="media/set-edit-policies/operation-scope-policy.png" alt-text="Screenshot showing how to configure policy at operation scope.":::
 
 1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
@@ -201,9 +215,10 @@ In API Management, determine the policy evaluation order by placement of the `ba
 
 To modify the policy evaluation order using the policy editor:
 
-1. Begin with the definition at the most *narrow* scope you configured, which API Management will apply first.
+1. Begin with the definition at the most *narrow* scope you configured, which API Management applies first.
 
     For example, when using policy definitions configured at the global scope and the API scope, begin with the configuration at the API scope.
+
 1. Place the `base` element within a section to determine where to inherit all policies from the corresponding section at the parent scope. 
  
     For example, in an `inbound` section configured at the API scope, place a `base` element to control where to inherit policies configured in the `inbound` section at the global scope. In the following example, policies inherited from the global scope are applied before the `ip-filter` policy.
@@ -222,7 +237,7 @@ To modify the policy evaluation order using the policy editor:
   
     > [!NOTE]
     > * You can place the `base` element before or after any policy element in a section.
-    > * If you want to prevent inheriting policies from the parent scope, remove the `base` element. In most cases, this isn't recommended. However, it may be useful in certain situations, such as when you want to apply different policies to a specific operation than are configured for the API (all operations) scope.
+    > * If you want to prevent inheriting policies from the parent scope, remove the `base` element. In most cases, this isn't recommended. However, it might be useful in certain situations, such as when you want to apply different policies to a specific operation than are configured for the API (all operations) scope.
 
 1. Continue to configure the `base` element in policy definitions at successively broader scopes.
 
