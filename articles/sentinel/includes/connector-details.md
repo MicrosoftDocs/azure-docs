@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 03/23/2026
+ms.date: 03/30/2026
 
 # This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
@@ -403,7 +403,7 @@ The [Atlassian Jira](https://www.atlassian.com/software/jira) Audit data connect
 
  ---
    
-<a name="atlassian-jira-audit-using-rest-api"></a><details><summary>**Atlassian Jira Audit (using REST API)**</summary>
+<a name="atlassian-jira-audit-via-codeless-connector-framework"></a><details><summary>**Atlassian Jira Audit (via Codeless Connector Framework)**</summary>
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
@@ -446,7 +446,7 @@ The [Auth0 Access Management](https://auth0.com/access-management) data connecto
 
  ---
    
-<a name="auth0-logs"></a><details><summary>**Auth0 Logs**</summary>
+<a name="auth0-logsvia-codeless-connector-framework"></a><details><summary>**Auth0 Logs(via Codeless Connector Framework)**</summary>
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
@@ -909,10 +909,10 @@ This connector uses Azure Functions to pull data from the BeyondTrust PM Cloud A
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|`BeyondTrustPM_ActivityAudits_CL`|No|No|
-|`BeyondTrustPM_ClientEvents_CL`|No|No|
+|`BeyondTrustPM_ActivityAudits_CL`|Yes|Yes|
+|`BeyondTrustPM_ClientEvents_CL`|Yes|Yes|
 
-**Data collection rule support:** Not currently supported
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
 
 **Prerequisites:**
 
@@ -2131,7 +2131,7 @@ When critical systems fail or security incidents happen, SIGNL4 bridges the ‘l
    
 <a name="digital-shadows-searchlight-using-azure-functions"></a><details><summary>**Digital Shadows Searchlight (using Azure Functions)**</summary>
 
-**Supported by:** [Digital Shadows](https://reliaquest.com/solutions/digital-shadows/)
+**Supported by:** [Digital Shadows](https://www.digitalshadows.com/contact-us/)
 
 The Digital Shadows data connector provides ingestion of the incidents and alerts from Digital Shadows Searchlight into the Microsoft Sentinel using the REST API. The connector will provide the incidents and alerts information such that it helps to examine, diagnose and analyse the potential security risks and threats.
 
@@ -3328,11 +3328,13 @@ Use this data connector to integrate with InfoSec Crypto Analytics and get data 
 
  ---
    
-<a name="ionix-security-logs"></a><details><summary>**IONIX Security Logs**</summary>
+<a name="ionix-security-logs-via-codeless-connector-framework"></a><details><summary>**IONIX Security Logs (via Codeless Connector Framework)**</summary>
 
-**Supported by:** [IONIX](https://cyberpion.com/)
+**Supported by:** [IONIX](https://ionix.io/)
 
-The IONIX Security Logs data connector, ingests logs from the IONIX system directly into Sentinel. The connector allows users to visualize their data, create alerts and incidents and improve security investigations.
+The IONIX connector allows you to ingest action items from your IONIX Attack Surface Management platform into Microsoft Sentinel using the Codeless Connector Framework (CCF). Action items represent security findings and vulnerabilities that require remediation.
+
+**This connector automatically polls the IONIX API and writes data to the CyberpionActionItems_CL table.**
 
 **Log Analytics table(s):**  
 
@@ -3344,7 +3346,7 @@ The IONIX Security Logs data connector, ingests logs from the IONIX system direc
 
 **Prerequisites:**
 
-- **IONIX Subscription**: A subscription and account is required for IONIX logs. [One can be acquired here.](https://azuremarketplace.microsoft.com/en/marketplace/apps/cyberpion1597832716616.cyberpion)<br><br>
+- **IONIX API Token**: An API token from IONIX Portal is required. Create one in **Settings > API** in your [IONIX Portal](https://portal.ionix.io/).<br><br>
 </details> 
 
  ---
@@ -6136,7 +6138,7 @@ The [Sophos Endpoint Protection](https://www.sophos.com/en-us/products/endpoint-
 
  ---
    
-<a name="sophos-endpoint-protection-using-rest-api"></a><details><summary>**Sophos Endpoint Protection (using REST API)**</summary>
+<a name="sophos-endpoint-protection-via-codeless-connector-platform"></a><details><summary>**Sophos Endpoint Protection (via Codeless Connector Framework)**</summary>
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
 
@@ -6804,7 +6806,7 @@ The [VMware Carbon Black Cloud](https://www.broadcom.com/products/carbon-black/t
 
  ---
    
-<a name="vmware-carbon-black-cloud-via-aws-s3"></a><details><summary>**VMware Carbon Black Cloud via AWS S3**</summary>
+<a name="vmware-carbon-black-cloud-via-aws-s3-via-codeless-connector-framework"></a><details><summary>**VMware Carbon Black Cloud via AWS S3 (via Codeless Connector Framework)**</summary>
 
 **Supported by:** [Microsoft](https://support.microsoft.com/)
 

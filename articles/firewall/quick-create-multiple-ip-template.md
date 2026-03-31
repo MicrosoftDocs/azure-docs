@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Resource Manager template'
 description: In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to create an Azure Firewall with multiple public IP addresses.
-services: firewall
 author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
+ms.date: 03/29/2026
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 10/19/2023
-ms.author: duau
 # Customer intent: As a network engineer, I want to use an Azure Resource Manager template to deploy an Azure Firewall with multiple public IP addresses, so that I can effectively manage remote connections to my virtual machines.
 ---
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+In this quickstart, use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+
 
 :::image type="content" source="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png" alt-text="Diagram showing the network configuration for this quickstart." lightbox="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png":::
 
@@ -21,7 +21,7 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 For more information about Azure Firewall with multiple public IP addresses, see [Deploy an Azure Firewall with multiple public IP addresses using Azure PowerShell](deploy-multi-public-ip-powershell.md).
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffw-docs-qs%2Fazuredeploy.json":::
 
@@ -31,13 +31,13 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-This template creates an Azure Firewall with two public IP addresses, along with the necessary resources to support the Azure Firewall.
+This template creates an Azure Firewall with two public IP addresses, along with the resources needed to support the Azure Firewall.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/fw-docs-qs/azuredeploy.json":::
 
-Multiple Azure resources are defined in the template:
+The template defines multiple Azure resources, including:
 
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups?pivots=deployment-language-arm-template)
 - [**Microsoft.Network/publicIPPrefix**](/azure/templates/microsoft.network/publicipprefixes?pivots=deployment-language-arm-template)
@@ -57,14 +57,14 @@ Deploy the ARM template to Azure:
 
    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffw-docs-qs%2Fazuredeploy.json":::
 
-2. In the portal, on the **Create an Azure Firewall with multiple IP public addresses** page, type or select the following values:
-   - Subscription: Select from existing subscriptions
-   - Resource group:  Select from existing resource groups or select **Create new**, and select **OK**.
-   - Location: Select a location
-   - Admin Username: Type username for the administrator user account
-   - Admin Password: Type an administrator password or key
+1. In the portal, on **Create an Azure Firewall with multiple IP public addresses**, enter or select the following values:
+   - **Subscription**: Select from existing subscriptions.
+   - **Resource group**: Select from existing resource groups or select **Create new**, and select **OK**.
+   - **Location**: Select a location.
+   - **Admin Username**: Enter a username for the administrator user account.
+   - **Admin Password**: Enter an administrator password or key.
 
-3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
+1. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
 
 ## Validate the deployment
 

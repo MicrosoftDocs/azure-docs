@@ -1,6 +1,6 @@
 ---
-title: Encrypt disks with customer-managed keys in an Azure Extended Zone
-description: Learn how to use Azure Key Vault, Disk Encryption Sets, and Azure CLI to encrypt disks for virtual machines deployed in an Azure Extended Zone
+title: Encrypt Disks with Customer-Managed Keys in an Azure Extended Zone
+description: Learn how to use Azure Key Vault, Disk Encryption Sets, and the Azure CLI to encrypt disks for virtual machines deployed in an Azure extended zone.
 author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
@@ -8,70 +8,71 @@ ms.topic: how-to
 ms.date: 03/04/2026
 ---
 
-# Encrypt disks with customer-managed keys in an Azure Extended Zone
+# Encrypt disks with customer-managed keys in an Azure extended zone
 
-In this article, you learn how to encrypt Azure managed disks with **customer-managed keys (CMK)** for virtual machines deployed in an **Azure Extended Zone**.
+In this article, you learn how to encrypt Azure managed disks with customer-managed keys (CMKs) for virtual machines (VMs) deployed in an Azure extended zone.
 
-The process uses **Azure Key Vault** and a **Disk Encryption Set (DES)**. 
+The process uses Azure Key Vault and a disk encryption set (DES).
 
 > [!NOTE]
-> While Key Vault and Disk Encryption Sets (DES) can be created using either the Azure portal or Azure CLI, assigning a Disk Encryption Set to disks for Azure Extended Zone workloads is currently supported only via Azure CLI.
+> You can create a key vault and a DES by using either the Azure portal or the Azure CLI. Assigning a DES to disks for Azure Extended Zones workloads is currently supported only via the Azure CLI.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- Access to an extended zone. For more information, see [Request access to an Azure extended zone](request-access.md).
+- The Azure CLI installed (version 2.26 or later). [Install the Azure CLI](/cli/azure/install-azure-cli).
+- A basic understanding of Azure Key Vault and disk encryption concepts. For more information, see [Azure Key Vault documentation](/azure/key-vault/general/overview) and [Azure Disk Encryption documentation](/azure/virtual-machines/windows/disk-encryption-overview).
 
-- Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
+## High-level architecture context
 
-- Azure CLI installed (version 2.26 or later). [Install Azure CLI](/cli/azure/install-azure-cli).
+When you use CMKs with Azure Extended Zones resources:
 
-- Basic understanding of Azure Key Vault and disk encryption concepts. For more information, see [Azure Key Vault documentation](/azure/key-vault/general/overview) and [Azure Disk Encryption documentation](/azure/virtual-machines/windows/disk-encryption-overview).
+- Control plane operations (Azure Resource Manager, Key Vault metadata, and DES) run in the parent Azure region.
+- Data plane resources (VMs and disks) run in the extended zone location.
+- Disk encryption is enforced at the managed disk level (data plane) by using a DES.
 
-## High-level architecture context 
+## Create a key vault, encryption key, and DES in an Azure extended zone's parent region
 
-When using customer-managed keys with Azure Extended Zones resources:
-- Control plane operations (Azure Resource Manager, Key Vault metadata, DES) run in the parent Azure region.
-- Data plane resources (virtual machines and disks) run in the Extended Zone location.
-- Disk encryption is enforced at the managed disk level (data plane) using a Disk Encryption Set.
+In this section, you create a key vault, an encryption key, and DES in the parent region of an extended zone.
 
-## Create a Key Vault, encryption key and Disk Encryption Set in an Azure Extended Zone's parent region
+For this example, you choose which tool to use to create the encryption tools. Disk creation and encryption work only via the Azure CLI.
 
-In this section, you create a Key Vault, encryption key and Disk Encryption Set in the parent region of an Extended Zone. 
+### Create a key vault and an encryption key
 
-For this example, you have flexibility as to which tool to use to create the encryption tools, but the disk creation and encryption will only work via Azure CLI. 
+To encrypt resources in an Azure extended zone, you must first create an Azure key vault and an RSA key *in the parent Azure region associated with your extended zone*. You can do this task by using the Azure portal. You can also use the Azure CLI or Azure PowerShell. When you create the key vault, ensure that the following tasks occurred:
 
-### Create a Key Vault and encryption key
-To encrypt resources in an Azure Extended Zone, you must first create an Azure Key Vault and an RSA key **in the parent Azure region associated with your Extended Zone**. You can do this using the Azure portal, or Azure CLI / PowerShell. When creating the Key Vault, ensure the following:
 - All the resources belong to the same resource group.
-- Azure role-based access control (RBAC) is enabled.
+- Azure role-based access control is enabled.
 - Purge protection is enabled.
-- You create or import an RSA key (2048-bit or higher).
+- An RSA key (2048-bit or later) is created or imported.
 
+## Create a disk encryption set
 
-## Create a Disk Encryption Set (DES)
-Next, create a Disk Encryption Set that references the Key Vault key. The Disk Encryption Set must:
-- Be created in the same parent region as the Key Vault.
+Next, create a DES that references the Key Vault key. The DES must:
+
+- Be created in the same parent region as the key vault.
 - Use a system-assigned managed identity.
 
-Grant the Disk Encryption Set access to the Key Vault key by assigning it the Key Vault Crypto Service Encryption User role. 
+Grant the DES access to the Key Vault key by assigning it the Key Vault Crypto Service Encryption User role.
 
-## Deploy a virtual machine in an Azure Extended Zone
-When deploying a virtual machine in an Azure Extended Zone, you must specify:
+## Deploy a virtual machine in an Azure extended zone
 
---location: the parent Azure region
+When you deploy a VM in an Azure extended zone, you must specify:
 
---edge-zone: the Extended Zone name
+* `--location`: The parent Azure region.
+* `--edge-zone`: The extended zone name.
 
-The following example creates a Windows Server 2022 VM in the Los Angeles Extended Zone, using West US as the parent region.
+The following example creates a Windows Server 2022 VM in the Los Angeles extended zone by using West US as the parent region.
 
 ```cli
 az vm create --resource-group 'myResourceGroup' --name 'myVM' --image Win2022Datacenter --size Standard_DS4_v2 --admin-username 'username' --admin-password 'password' --edge-zone losangeles --location westus 
 
 ```
 
-## Create an encrypted managed disk using a Disk Encryption Set (CLI only)
+## Create an encrypted managed disk by using a DES (CLI only)
 
-After creating the VM, create a managed disk encrypted with your Disk Encryption Set. This step explicitly applies customer-managed keys to the disk.
+After you create the VM, create a managed disk encrypted with your DES. This step explicitly applies CMKs to the disk.
 
 ```cli
 az disk create --resource-group 'myResourceGroup' --name 'myDisk' --edge-zone losangeles --location westus --size 64 --sku Premium_LRS --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set DES_ID
@@ -79,27 +80,31 @@ az disk create --resource-group 'myResourceGroup' --name 'myDisk' --edge-zone lo
 
 ### Verify disk encryption
 
-Use the following command to confirm that the disk is encrypted with a customer-managed key and associated with the correct Disk Encryption Set:
+Use the following command to confirm that the disk is encrypted with a CMK and associated with the correct DES:
 
 ``` cli
 az disk show -g 'myResourceGroup' -n 'myDisk' --query "{encryptionType:encryption.type, desId:encryption.diskEncryptionSetId}" -o json
 ```
+
 ### Attach the encrypted disk to the VM
 
-Finally, once verified, attach the encrypted disk to the VM using the following command:
+After verification, attach the encrypted disk to the VM by using the following command:
+
 ```cli
 az vm disk attach --resource-group 'myResourceGroup' --vm-name 'myVM' --name 'myDisk'
 ```
 
 ## Clean up resources
-If you're done working with resources from this tutorial, use the following instructions to delete the resource group and all resources it contains:
+
+If you're finished working with resources from this tutorial, follow these instructions to delete the resource group and all the resources that it contains:
 
 ```cli
 az group delete --name 'myResourceGroup' --yes --no-wait
 ```
 
 ## Related content
+
 - [Azure Key Vault documentation](/azure/key-vault/general/overview)
 - [What is Azure Extended Zones?](overview.md)
-- [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md)
+- [Deploy a virtual machine in an extended zone](deploy-vm-portal.md)
 - [Frequently asked questions](faq.md)

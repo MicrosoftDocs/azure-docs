@@ -112,14 +112,24 @@ If you have a basic Azure function created from the Azure portal, set up authent
     1. **Issuer URL**: Add the issuer URL in the form `https://login.microsoftonline.com/<tenantid>/v2.0`.
 
         :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/identity-provider-first-settings.png" alt-text="Screenshot that shows the Add an identity provider with Microsoft as an identity provider." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/identity-provider-first-settings.png":::
-1. For **Allowed token audiences**, add the **Application ID URI** value of the Microsoft Entra app that you noted earlier.
-1. In the **Additional checks** section, for **Client application development**, select **Allow requests from specific client applications**.
-1. On the **Allowed client applications** pane, enter the client ID of the system-assigned managed identity used to generate the token. You can find this ID in the enterprise app of the Microsoft Entra ID resource.
+1. In the **Token allowed audiences** section, enter allowed token audiences. To be specific, enter the Application ID URI of the Microsoft Entra app that you noted earlier. The token audience is used to validate the incoming token from Event Grid. 
+1. In the **Additional checks** section, follow these steps:
+    1. For **Client application requirement**, select **Allowed requestions from specific client applications**, and then enter the application ID you noted earlier. 
+    1. For **Identity requirement**, select **Allow requests from any identity**.    
+    
+        :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/token-audience-additional-checks.png" alt-text="Screenshot that shows the Add an identity provider with token audience and additional checks." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/token-audience-additional-checks.png":::        
+1. In the **App Service authentication settings** section, follow these steps:
+    1. For **Restrict access**, select **Require authentication**.
+    1. For **Unauthenticated requests**, select **Return HTTP 401 Unauthorized**.
+
+        :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/app-service-authentication-settings.png" alt-text="Screenshot that shows the App Service authentication settings." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/app-service-authentication-settings.png":::        
 1. Choose other settings based on your specific requirements, and then select **Add**.
+
+### Generate and use the Microsoft Entra ID token
 
 Now, generate and use the Microsoft Entra ID token.
 
-1. Generate a Microsoft Entra ID token by using the managed identity with the application ID URI as the resources.
+1. Generate a Microsoft Entra ID token by using the managed identity with the application ID URI (`api://<ClientID>`) as the resource.
 1. Use this token to invoke the Azure function by including it in the request header.
 
 ## Configure custom webhook authentication settings on your Event Grid namespace

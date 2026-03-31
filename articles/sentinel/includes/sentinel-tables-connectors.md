@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 03/23/2026    
+ms.date: 03/30/2026    
 # This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
 
@@ -52,7 +52,7 @@ ms.date: 03/23/2026
 |[AuditLogs](/azure/azure-monitor/reference/tables/AuditLogs)|[Microsoft Entra ID](/azure/sentinel/data-connectors-reference#microsoft-entra-id)|Yes|Yes|
 |Audits_Data_CL|[Vectra XDR (using Azure Functions)](/azure/sentinel/data-connectors-reference#vectra-xdr-using-azure-functions)|Yes|Yes|
 |Auth0AM_CL|[Auth0 Access Management (using Azure Functions)](/azure/sentinel/data-connectors-reference#auth0-access-management-using-azure-functions)|No|No|
-|Auth0Logs_CL|[Auth0 Logs](/azure/sentinel/data-connectors-reference#auth0-logs)|Yes|Yes|
+|Auth0Logs_CL|[Auth0 Logs(via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#auth0-logsvia-codeless-connector-framework)|Yes|Yes|
 |Awareness_Performance_Details_CL|[Mimecast Awareness Training](/azure/sentinel/data-connectors-reference#mimecast-awareness-training)|Yes|Yes|
 |Awareness_SafeScore_Details_CL|[Mimecast Awareness Training](/azure/sentinel/data-connectors-reference#mimecast-awareness-training)|Yes|Yes|
 |Awareness_User_Data_CL|[Mimecast Awareness Training](/azure/sentinel/data-connectors-reference#mimecast-awareness-training)|Yes|Yes|
@@ -84,8 +84,8 @@ ms.date: 03/23/2026
 |BetterMTDDeviceLog_CL|[BETTER Mobile Threat Defense (MTD)](/azure/sentinel/data-connectors-reference#better-mobile-threat-defense-mtd)|No|No|
 |BetterMTDIncidentLog_CL|[BETTER Mobile Threat Defense (MTD)](/azure/sentinel/data-connectors-reference#better-mobile-threat-defense-mtd)|No|No|
 |BetterMTDNetflowLog_CL|[BETTER Mobile Threat Defense (MTD)](/azure/sentinel/data-connectors-reference#better-mobile-threat-defense-mtd)|No|No|
-|BeyondTrustPM_ActivityAudits_CL|[BeyondTrust PM Cloud](/azure/sentinel/data-connectors-reference#beyondtrust-pm-cloud)|No|No|
-|BeyondTrustPM_ClientEvents_CL|[BeyondTrust PM Cloud](/azure/sentinel/data-connectors-reference#beyondtrust-pm-cloud)|No|No|
+|BeyondTrustPM_ActivityAudits_CL|[BeyondTrust PM Cloud](/azure/sentinel/data-connectors-reference#beyondtrust-pm-cloud)|Yes|Yes|
+|BeyondTrustPM_ClientEvents_CL|[BeyondTrust PM Cloud](/azure/sentinel/data-connectors-reference#beyondtrust-pm-cloud)|Yes|Yes|
 |BigIDDSPMCatalog_CL|[BigID DSPM connector](/azure/sentinel/data-connectors-reference#bigid-dspm-connector)|Yes|Yes|
 |BitglassLogs_CL|[Bitglass (using Azure Functions)](/azure/sentinel/data-connectors-reference#bitglass-using-azure-functions)|No|No|
 |BitsightAlerts_data_CL|[Bitsight data connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#bitsight-data-connector-using-azure-functions)|Yes|Yes|
@@ -102,7 +102,7 @@ ms.date: 03/23/2026
 |BitwardenEventLogs|[Bitwarden Event Logs](/azure/sentinel/data-connectors-reference#bitwarden-event-logs)|No|No|
 |BoxEvents_CL|[Box (using Azure Functions)](/azure/sentinel/data-connectors-reference#box-using-azure-functions)|No|No|
 |BoxEventsV2_CL|[Box Events (CCP)](/azure/sentinel/data-connectors-reference#box-events-ccp)|Yes|Yes|
-|CarbonBlack_Alerts_CL|[VMware Carbon Black Cloud via AWS S3](/azure/sentinel/data-connectors-reference#vmware-carbon-black-cloud-via-aws-s3)|No|No|
+|CarbonBlack_Alerts_CL|[VMware Carbon Black Cloud via AWS S3 (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#vmware-carbon-black-cloud-via-aws-s3-via-codeless-connector-framework)|No|No|
 |CarbonBlackAuditLogs_CL|[VMware Carbon Black Cloud (using Azure Functions)](/azure/sentinel/data-connectors-reference#vmware-carbon-black-cloud-using-azure-functions)|No|No|
 |CarbonBlackEvents_CL|[VMware Carbon Black Cloud (using Azure Functions)](/azure/sentinel/data-connectors-reference#vmware-carbon-black-cloud-using-azure-functions)|No|No|
 |CarbonBlackNotifications_CL|[VMware Carbon Black Cloud (using Azure Functions)](/azure/sentinel/data-connectors-reference#vmware-carbon-black-cloud-using-azure-functions)|No|No|
@@ -145,7 +145,7 @@ ms.date: 03/23/2026
 |[CrowdStrikeAlerts](/azure/azure-monitor/reference/tables/CrowdStrikeAlerts)|[CrowdStrike API Data Connector (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#crowdstrike-api-data-connector-via-codeless-connector-framework)|Yes|Yes|
 |CrowdStrikeReplicatorV2|[CrowdStrike Falcon Data Replicator (CrowdStrike Managed AWS-S3) (using Azure Functions)](/azure/sentinel/data-connectors-reference#crowdstrike-falcon-data-replicator-crowdstrike-managed-aws-s3-using-azure-functions)|No|No|
 |CyberArk_AuditEvents_CL|[CyberArk Audit](/azure/sentinel/data-connectors-reference#cyberark-audit)<br>[CyberArkAudit (using Azure Functions)](/azure/sentinel/data-connectors-reference#cyberarkaudit-using-azure-functions)|Yes|Yes|
-|CyberpionActionItems_CL|[IONIX Security Logs](/azure/sentinel/data-connectors-reference#ionix-security-logs)|No|No|
+|CyberpionActionItems_CL|[IONIX Security Logs (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#ionix-security-logs-via-codeless-connector-framework)<br>[[DEPRECATED] IONIX Security Logs (Push)](/azure/sentinel/data-connectors-reference#deprecated-ionix-security-logs-push)|No|No|
 |CyberSixgill_Alerts_CL|[Cybersixgill Actionable Alerts (using Azure Functions)](/azure/sentinel/data-connectors-reference#cybersixgill-actionable-alerts-using-azure-functions)|No|No|
 |CybleVisionAlerts_CL|[Cyble Vision Alerts](/azure/sentinel/data-connectors-reference#cyble-vision-alerts)|No|No|
 |CyeraAssets_CL|[Cyera DSPM Microsoft Sentinel Data Connector](/azure/sentinel/data-connectors-reference#cyera-dspm-microsoft-sentinel-data-connector)|No|No|
@@ -328,7 +328,7 @@ ms.date: 03/23/2026
 |jamfprotectunifiedlogs_CL|[Jamf Protect Push Connector](/azure/sentinel/data-connectors-reference#jamf-protect-push-connector)|Yes|Yes|
 |JBossEvent_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|No|No|
 |Jira_Audit_CL|[Atlassian Jira Audit (using Azure Functions)](/azure/sentinel/data-connectors-reference#atlassian-jira-audit-using-azure-functions)|No|No|
-|Jira_Audit_v2_CL|[Atlassian Jira Audit (using REST API)](/azure/sentinel/data-connectors-reference#atlassian-jira-audit-using-rest-api)|Yes|Yes|
+|Jira_Audit_v2_CL|[Atlassian Jira Audit (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#atlassian-jira-audit-via-codeless-connector-framework)|Yes|Yes|
 |JuniperIDP_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|Yes|Yes|
 |KeeperSecurityEventNewLogs_CL|[Keeper Security Push Connector](/azure/sentinel/data-connectors-reference#keeper-security-push-connector)|Yes|Yes|
 |LastPassNativePoller_CL|[LastPass Enterprise - Reporting (Polling CCP)](/azure/sentinel/data-connectors-reference#lastpass-enterprise---reporting-polling-ccp)|No|No|
@@ -451,7 +451,7 @@ ms.date: 03/23/2026
 |SOCPrimeAuditLogs_CL|[SOC Prime Platform Audit Logs Data Connector](/azure/sentinel/data-connectors-reference#soc-prime-platform-audit-logs-data-connector)|Yes|Yes|
 |Sonrai_Tickets_CL|[Sonrai Data Connector](/azure/sentinel/data-connectors-reference#sonrai-data-connector)|No|No|
 |SophosEP_CL|[Sophos Endpoint Protection (using Azure Functions)](/azure/sentinel/data-connectors-reference#sophos-endpoint-protection-using-azure-functions)|Yes|Yes|
-|SophosEPEvents_CL|[Sophos Endpoint Protection (using REST API)](/azure/sentinel/data-connectors-reference#sophos-endpoint-protection-using-rest-api)|Yes|Yes|
+|SophosEPEvents_CL|[Sophos Endpoint Protection (via Codeless Connector Platform)](/azure/sentinel/data-connectors-reference#sophos-endpoint-protection-via-codeless-connector-platform)|Yes|Yes|
 |SquidProxy_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|Yes|Yes|
 |[StorageBlobLogs](/azure/azure-monitor/reference/tables/StorageBlobLogs)|[Azure Storage Account](/azure/sentinel/data-connectors-reference#azure-storage-account)|Yes|Yes|
 |[StorageFileLogs](/azure/azure-monitor/reference/tables/StorageFileLogs)|[Azure Storage Account](/azure/sentinel/data-connectors-reference#azure-storage-account)|Yes|Yes|

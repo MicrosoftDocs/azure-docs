@@ -62,4 +62,4 @@ Follow the instructions at [Connect to Azure Managed Redis](https://redis.io/doc
 
 ### [Other](#tab/other)
 
-For other languages, you can use the Azure Identity client library (and connection information that Service Connector sets to the environment variables) to connect to Azure Cache for Redis.
+For other languages, you can use the Azure Identity client library (and connection information that Service Connector sets to the environment variables) to connect to Azure Managed Redis.

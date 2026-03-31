@@ -179,6 +179,11 @@
       "source_path_from_root": "/articles/iot/iot-mqtt-connect-to-iot-dps.md",
       "redirect_url": "/azure/iot-dps/iot-mqtt-connect-to-iot-dps",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot/concepts-iot-device-development.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-devguide-sdks",
+      "redirect_document_id": false
     }
   ]
 }

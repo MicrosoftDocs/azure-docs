@@ -62,7 +62,7 @@ conceptualContent:
         - url: ../iot-hub/iot-sdks.md#device-sdks
           itemType: reference
           text: Device SDKs reference
-        - url: ./concepts-iot-device-development.md
+        - url: ../iot-hub/iot-hub-devguide-sdks.md
           itemType: concept
           text: Device development for IoT Hub
         - url: /previous-versions/azure/iot/tutorial-send-telemetry-iot-hub
