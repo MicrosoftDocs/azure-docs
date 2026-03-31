@@ -14,11 +14,11 @@ ms.custom: template-concept
 
 Advertised gateway prefixes let you specify summarized (aggregated) CIDR prefixes that Azure hybrid gateways advertise to on-premises networks instead of advertising all individual virtual network and spoke CIDRs. This feature helps reduce the number of advertised routes in large hub-and-spoke designs.
 
-Azure virtual networks support a property named `summarizedGatewayPrefixes` that allows you to provide a list of CIDR prefixes to be advertised in place of the default advertisement behavior. This feature minimizes the number of routes advertised to on-premises.
+Azure virtual networks support a property named `summarizedGatewayPrefixes` that you use to provide a list of CIDR prefixes to advertise in place of the default advertisement behavior. This feature minimizes the number of routes advertised to on-premises.
 
 ## When should I use advertised gateway prefixes?
 
-Use advertised gateway prefixes when:
+Use advertised gateway prefixes when all the following conditions are true:
 
 - You have a hub-and-spoke topology where the default behavior would advertise many spoke prefixes to on-premises.
 
@@ -34,7 +34,7 @@ By default, Azure VPN Gateway and ExpressRoute Gateway advertise all address spa
 
 ### Behavior when summarizedGatewayPrefixes is set
 
-When `summarizedGatewayPrefixes` is populated:
+When you set `summarizedGatewayPrefixes`:
 
 - Azure VPN Gateway and ExpressRoute Gateway ignore the address space of the virtual network with the gateway (hub) and publish the summarized prefixes instead.
 
@@ -42,27 +42,27 @@ When `summarizedGatewayPrefixes` is populated:
 
 ## Prerequisites and applicability
 
-The `summarizedGatewayPrefixes` property can be set even if there's no gateway subnet or gateway at the moment, but it won't have effect until a gateway subnet and gateway exist in the virtual network.
+You can set the `summarizedGatewayPrefixes` property even if the virtual network doesn't have a gateway subnet or gateway. However, this property doesn't take effect until the virtual network has a gateway subnet and gateway.
 
 ## Important considerations
 
 ### Prefix list rules and shape
 
-- The advertised gateway prefixes list is an independent value. It can be outside what is specified as the virtual network's address space.
+- The advertised gateway prefixes list is an independent value. It can be outside the virtual network's specified address space.
 
-- Overlap shouldn't be used among prefixes within the list.
+- Don't use overlapping prefixes within the list.
 
-- Overlap with peered virtual networks is allowed and is expected in hub-and-spoke designs.
+- Overlap with peered virtual networks is allowed and expected in hub-and-spoke designs.
 
 ## FAQ
 
 ### Can I set this property before I create a gateway subnet?
 
-Yes. The `summarizedGatewayPrefixes` property can be set, but it won't have effect until a gateway subnet and gateway exist in the virtual network.
+Yes. You can set the `summarizedGatewayPrefixes` property, but it doesn't take effect until the virtual network has a gateway subnet and gateway.
 
 ### What happens if I set this value on a spoke virtual network?
 
-The `summarizedGatewayPrefixes` property is only read from the hub virtual network that contains the gateway subnet. If this property is set on spoke (peered) virtual networks, it's ignored.
+The hub virtual network that contains the gateway subnet is the only virtual network that reads the `summarizedGatewayPrefixes` property. If you set this property on spoke (peered) virtual networks, it's ignored.
 
 ### What happens to spoke virtual networks that are covered by my summarized prefixes?
 
