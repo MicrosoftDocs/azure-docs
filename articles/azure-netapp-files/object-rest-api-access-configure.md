@@ -9,13 +9,10 @@ ms.date: 10/29/2025
 ms.author: anfdocs
 ---
 
-# Configure object REST API in Azure NetApp Files (preview)
+# Configure object REST API in Azure NetApp Files 
 
 Azure NetApp Files supports access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API feature, you can connect to services including Azure AI Search, Microsoft Foundry, Azure Databricks, OneLake, and others.
 
-## Register the feature 
-
-The object REST API feature in Azure NetApp Files is currently in preview. You must submit a [waitlist request](https://aka.ms/ANF-object-REST-API-signup) to use the object REST API feature. Activation takes approximately one week. An email notification is sent to confirm your enrollment in the preview. 
 
 ## Create the self-signed certificate
 
