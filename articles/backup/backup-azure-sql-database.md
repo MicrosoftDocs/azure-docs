@@ -89,7 +89,7 @@ Before you start the SQL Server backup, verify the following requirements:
 
 If you didn't create the SQL Server VM in Azure Marketplace or if you're on SQL 2008 or 2008 R2, you might receive a **UserErrorSQLNoSysadminMembership** error.
 
-For giving permissions to **SQL 2008** and **2008 R2** running on Windows 2008 R2, see [this section](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+For giving permissions to **SQL 2008** and **2008 R2** running on Windows 2008 R2, see [this section](#assign-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
 For all other versions, fix permissions with the following steps:
 
@@ -205,6 +205,7 @@ Backup of SQL in Azure VM snapshot incurs the following charges:
 
 ## Next steps
 
+* [Configure simultaneous backups](manage-monitor-sql-database-backup.md#configure-simultaneous-backups).
 * [Back up SQL Server databases running on an Azure VM](backup-sql-server-database-azure-vms.md).
 * [Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
 * [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
