@@ -10,14 +10,14 @@ ms.date: 4/07/2025
 
 # Install VMware Cloud Director with Azure VMware Solution
 
-This article explains how to install VMware Cloud Director to enable Enterprise and hosters to use Azure VMware Solution private cloud underlying resources for virtual datacenters.
+This article explains how to install VMware Cloud Director to enable Enterprise customers to use Azure VMware Solution private cloud underlying resources for virtual datacenters.
 
 [VMware Cloud director](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/overview.html) is a cloud services platform that delivers secure, isolated, and elastic virtual data center compute, network, storage, and security in a self-service model. VMware Cloud Director obtains its resources from an underlying virtual infrastructure.
 
 > [!Note]
-> VMware Cloud Director on Azure VMware Solution is currently available for eligible hosters and select Enterprise customers only. Contact your account team for more information.
+> VMware Cloud Director on Azure VMware Solution is currently available for eligible Enterprise customers only. Contact your account team for more information.
 
-Eligible Enterprise and hoster can install VMware Cloud director on Azure VMware solution and integrate it with Azure VMware Solution private cloud datacenter to enable multitenancy, using its underlying resources to deliver the secure, isolated virtual datacenters that VMware Cloud Director offers.
+Eligible Enterprise customers can install VMware Cloud director on Azure VMware solution and integrate it with Azure VMware Solution private cloud datacenter to enable multitenancy, using its underlying resources to deliver the secure, isolated virtual datacenters that VMware Cloud Director offers.
 
 
 ## VMware Cloud Director on Azure VMware Solution architecture overview
@@ -137,7 +137,7 @@ Learn about [VMware Cloud Director Network scenarios on Azure VMware Solution](e
 
 ### How do I Install and configure VMware Cloud Director on Microsoft Azure VMware Solutions?
 
-Eligible Enterprise and hosters can self-install and self-managed VMware Cloud Director on Azure VMware Solution. Use **CloudAdmin** role to integrate VMware Cloud Director with Azure VMware solution vCenter and NSX-T. 
+Eligible Enterprise customers can self-install and self-managed VMware Cloud Director on Azure VMware Solution. Use **CloudAdmin** role to integrate VMware Cloud Director with Azure VMware solution vCenter and NSX-T. 
 
 ### What limitations does Azure VMware Solution CloudAdmin role have for VMware Cloud Director?
 
@@ -145,7 +145,7 @@ Azure VMware Solution CloudAdmin Role is a restricted role, and it currently doe
 
 ### How is VMware Cloud Director supported on Azure VMware Solution?
 
-VMware Cloud Director on Azure VMware solution is supported for eligible enterprise customers and hosters only. BYOL (Bring your own license) VMware Cloud Director customers must open a support ticket directly with Broadcom for VMware Cloud Director issues. Non-BYOL customers open all support tickets to Microsoft support. Broadcom and Microsoft support teams collaborate as necessary to address and resolve VMware Cloud Director issues on Azure VMware Solution. Contact your account team to learn more.
+VMware Cloud Director on Azure VMware solution is supported for eligible enterprise customers only. Customers must open a support ticket directly with Broadcom for VMware Cloud Director issues. Broadcom and Microsoft support teams collaborate as necessary to address and resolve VMware Cloud Director issues on Azure VMware Solution. Contact your account team to learn more.
 
 ### VMware Cloud Director responsibility matrix on Azure VMware Solution
 
