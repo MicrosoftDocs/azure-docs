@@ -4,7 +4,7 @@ description: Learn which IP addresses you must allow inbound traffic from, in or
 ms.author: lle
 author: lrtoyou1223
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/13/2025
 ---
 

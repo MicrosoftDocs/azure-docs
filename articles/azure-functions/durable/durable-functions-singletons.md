@@ -2,7 +2,7 @@
 title: Singleton orchestrators - Azure Durable Functions and Durable Task SDKs
 description: Learn how to implement singleton orchestrations that ensure only one instance runs at a time using Durable Functions or the Durable Task SDKs.
 author: cgillum
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/30/2026
 ms.author: azfuncdf
 reviewer: hhunter-ms
@@ -26,7 +26,7 @@ For background jobs, you often need to ensure that only one instance of a partic
 
 ::: zone pivot="durable-functions"
 
-The following example shows an HTTP-trigger function that creates a singleton background job orchestration. The code ensures that only one instance exists for a specified instance ID.
+The following example shows an HTTP-trigger function that creates a singleton background job orchestration. The code attempts to ensure that only one active instance exists for a specified instance ID.
 
 # [C#](#tab/csharp)
 
@@ -42,7 +42,7 @@ public static async Task<HttpResponseData> RunSingle(
     ILogger logger = executionContext.GetLogger("HttpStartSingle");
 
     // Check if an instance with the specified ID already exists or an existing one stopped running(completed/failed/terminated).
-    OrchestrationMetadata? existingInstance = await starter.GetInstancesAsync(instanceId);
+    OrchestrationMetadata? existingInstance = await starter.GetInstanceAsync(instanceId, getInputsAndOutputs: false);
     if (existingInstance == null 
     || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Completed 
     || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Failed 
@@ -68,6 +68,9 @@ public static async Task<HttpResponseData> RunSingle(
 > The previous C# code is for the isolated worker model, which is the recommended model for .NET apps. For more information about the differences between the in-process and isolated worker models, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
+
+> [!NOTE]
+> This JavaScript example uses the Node.js programming model v3, which uses *function.json*. If you're using the Node.js programming model v4, use the v4 code-first pattern instead.
 
 **function.json**
 
@@ -130,57 +133,37 @@ module.exports = async function(context, req) {
 
 # [Python](#tab/python)
 
-**function.json**
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "function",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "route": "orchestrators/{functionName}/{instanceId}",
-      "methods": ["post"]
-    },
-    {
-      "name": "starter",
-      "type": "orchestrationClient",
-      "direction": "in"
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    }
-  ]
-}
-```
-
-**__init__.py**
+**function_app.py**
 
 ```python
 import logging
 import azure.functions as func
 import azure.durable_functions as df
 
-async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
-    client = df.DurableOrchestrationClient(starter)
-    instance_id = req.route_params['instanceId']
-    function_name = req.route_params['functionName']
+app = df.DFApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.route(route="orchestrators/{functionName}/{instanceId}", methods=["POST"])
+@app.durable_client_input(client_name="client")
+async def http_start_single(req: func.HttpRequest, client):
+        instance_id = req.route_params["instanceId"]
+        function_name = req.route_params["functionName"]
 
     existing_instance = await client.get_status(instance_id)
 
-    if existing_instance.runtime_status in [df.OrchestrationRuntimeStatus.Completed, df.OrchestrationRuntimeStatus.Failed, df.OrchestrationRuntimeStatus.Terminated, None]:
+        if not existing_instance or existing_instance.runtime_status in [
+                df.OrchestrationRuntimeStatus.Completed,
+                df.OrchestrationRuntimeStatus.Failed,
+                df.OrchestrationRuntimeStatus.Terminated,
+        ]:
         event_data = req.get_body()
-        instance_id = await client.start_new(function_name, instance_id, event_data)
+                instance_id = await client.start_new(function_name, instance_id, event_data)
         logging.info(f"Started orchestration with ID = '{instance_id}'.")
         return client.create_check_status_response(req, instance_id)
-    else:
-        return {
-            'status': 409,
-            'body': f"An instance with ID '${existing_instance.instance_id}' already exists"
-        }
+
+        return func.HttpResponse(
+                body=f"An instance with ID '{instance_id}' already exists.",
+                status_code=409,
+        )
 
 ```
 
@@ -250,7 +233,7 @@ public HttpResponseMessage runSingle(
 
 ::: zone pivot="durable-task-sdks"
 
-The following example shows how to create a singleton orchestration using the Durable Task SDKs. The code ensures that only one instance exists for a specified instance ID.
+The following example shows how to create a singleton orchestration using the Durable Task SDKs. The code attempts to ensure that only one active instance exists for a specified instance ID.
 
 # [C#](#tab/csharp)
 

@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/10/2026
+ms.date: 03/16/2026
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -21,7 +21,7 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
+- A supported [Java Development Kit SDK](/java/azure/jdk) with version 17.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Add a feature flag
@@ -40,7 +40,7 @@ To create a new Spring Boot project:
 1. Specify the following options:
 
    * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version that's equal to or greater than 2.0.
+   * Specify a **Spring Boot** version that's equal to or greater than 3.0.
    * Specify the **Group** and **Artifact** names for your application. This article uses `com.example` and `demo`.
    * Add the **Spring Web** dependency.
 
@@ -71,7 +71,7 @@ To create a new Spring Boot project:
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>7.0.0</version>
+        <version>7.1.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -84,7 +84,7 @@ To create a new Spring Boot project:
 
 ## Connect to an App Configuration store
 
-1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file doesn't exist, create it.
+1. Navigate to the `resources` directory of your app and open the `application.properties` or `application.yaml` file. If the file doesn't exist, create it.
 
     You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
     
@@ -94,7 +94,7 @@ To create a new Spring Boot project:
         If you're using a properties file, use the following code:
         ```properties
         spring.config.import=azureAppConfiguration
-        spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+        spring.cloud.azure.appconfiguration.stores[0].endpoint= ${AZURE_APPCONFIG_ENDPOINT}
         spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
         ```
         
@@ -107,60 +107,18 @@ To create a new Spring Boot project:
             azure:
               appconfiguration:
                 stores:
-                    -
+                  - endpoint: ${AZURE_APPCONFIG_ENDPOINT}
                     feature-flags:
-                        enabled: true
-                    endpoint: ${APP_CONFIGURATION_ENDPOINT}
+                      enabled: true
         ```
 
         You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
-
-    1. Add the following code to your project, unless you want to use Managed Identity. Create a new file named `AppConfigCredential.java`:
-    
-        ```java
-        import com.azure.data.appconfiguration.ConfigurationClientBuilder;
-        import com.azure.identity.DefaultAzureCredentialBuilder;
-        import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
-        
-        public class AppConfigCredential implements ConfigurationClientCustomizer {
-        
-            @Override
-            public void customize(ConfigurationClientBuilder builder, String endpoint) {
-                builder.credential(new DefaultAzureCredentialBuilder().build());
-            }
-        }
-        ```
-    
-    1. Create a new file named `MyConfiguration.java` and add the following lines:
-    
-        ```java
-        import org.springframework.context.annotation.Bean;
-        import org.springframework.context.annotation.Configuration;
-        
-        @Configuration
-        public class MyConfiguration {
-        
-        
-            @Bean
-            public AppConfigCredential clientSetup() {
-                return new AppConfigCredential();
-            }
-            
-        }
-        ```
-
-    1. Add configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyConfiguration` with your application package:
-
-        ```factories
-        org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-        com.example.MyConfiguration
-        ```
 
     ### [Connection string](#tab/connection-string)
    If you are using a properties file, use the following code:
    ```properties
     spring.config.import=azureAppConfiguration
-    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIG_CONNECTION_STRING}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
@@ -172,10 +130,10 @@ To create a new Spring Boot project:
       cloud:
         azure:
           appconfiguration:
-            stores[0]:
-              feature-flags:
-                enabled: 'true'
-              connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
+            stores:
+              - connection-string: ${APP_CONFIG_CONNECTION_STRING}
+                feature-flags:
+                  enabled: true
     ```
     ---
 
@@ -217,10 +175,8 @@ To create a new Spring Boot project:
         <title>Feature Management with Spring Cloud Azure</title>
 
         <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     </head>
@@ -229,13 +185,13 @@ To create a new Spring Boot project:
         <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">TestFeatureFlags</a>
-            <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-target="#navbarCollapse" data-toggle="collapse">
+            <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-bs-target="#navbarCollapse" data-bs-toggle="collapse">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav me-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>
                 </li>
                 <li class="nav-item" th:if="${Beta}">
                 <a class="nav-link" href="#">Beta</a>
@@ -254,13 +210,12 @@ To create a new Spring Boot project:
         </div>
         <footer class="footer">
             <div class="container">
-            <span class="text-muted">&copy; 2019 - Projects</span>
+            <span class="text-muted">&copy; 2026 - Projects</span>
         </div>
 
         </footer>
     </body>
     </html>
-
     ```
 
 1. Create a new folder named CSS under `static` and inside of it a new CSS file named *main.css*.
@@ -301,46 +256,46 @@ To create a new Spring Boot project:
 1. Set an environment variable.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    Set the environment variable named **APP_CONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+    Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx APP_CONFIGURATION_ENDPOINT "endpoint-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_ENDPOINT "endpoint-of-your-app-configuration-store"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
     ### [Connection string](#tab/connection-string)
 
-    Set the environment variable named **APP_CONFIGURATION_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
+    Set the environment variable named **APP_CONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx APP_CONFIGURATION_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    setx APP_CONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:APP_CONFIGURATION_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    $Env:APP_CONFIG_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export APP_CONFIGURATION_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    export APP_CONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
     ```
     ---
 

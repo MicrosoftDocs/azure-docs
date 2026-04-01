@@ -3,18 +3,18 @@ title: Disaster recovery solutions for Azure VMware Solution virtual machines
 description: Learn about leading disaster recovery solutions for your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/12/2023
+ms.date: 3/05/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud administrator, I want to implement a disaster recovery plan for my Azure VMware Solution virtual machines, so that I can ensure data availability and business continuity in the event of a failure."
 ---
 
 # Third party backup and disaster recovery solutions for Azure VMware: Limitations, compatibility, and known issues
 
-One of the most important aspects of any Azure VMware Solution deployment is disaster recovery. You can create disaster recovery plans between different Azure VMware Solution regions or between Azure and an on-premises vSphere environment. Azure VMware Solution makes use of dynamic "run command" modules which require both Microsoft and Partner input to run effectively.  
+One of the most important aspects of any Azure VMware Solution deployment is disaster recovery. You can create disaster recovery plans between different Azure VMware Solution regions or between Azure and an on-premises vSphere environment. Azure VMware Solution makes use of dynamic "run command" modules that require both Microsoft and Partner input to run effectively.  
 
-In this article, you'll discover critical known issues related to vSphere upgrades, Azure VMware Solution, Microsoft security enhancements, and other key technical considerations. This information is essential for you to evaluate before selecting a vendor and as the platform continues to evolve.
+In this article, you discover critical known issues related to vSphere upgrades, Azure VMware Solution, Microsoft security enhancements, and other key technical considerations. This information is essential for you to evaluate before selecting a vendor and as the platform continues to evolve.
 
-Azure VMware Solution currently offers [VMware Live Site Recovery](disaster-recovery-using-vmware-site-recovery-manager.md) and several third party partner solutions.
+Azure VMware Solution currently offers [VMware Live Site Recovery](disaster-recovery-using-vmware-site-recovery-manager.md) and several other non-Microsoft partner solutions.
 
 You can find more information about their solutions in the following links:
 - [VMware Live Site Recovery](/azure/azure-vmware/disaster-recovery-using-vmware-site-recovery-manager)
@@ -22,7 +22,7 @@ You can find more information about their solutions in the following links:
 - [JetStream](https://www.jetstreamsoft.com/2020/09/28/disaster-recovery-for-avs/)
 
 > [!IMPORTANT]
-> You **must** contact your partner's technical team directly. Microsoft does **not** provide direct support for partner products. Do not create support tickets with Microsoft.
+> You **must** contact your partner's technical team directly. Microsoft does **not** provide direct support for partner products. Don't create support tickets with Microsoft.
 
 
 ## Compatibility overview
@@ -36,7 +36,7 @@ You can find more information about their solutions in the following links:
 |Refer to Backup Recovery Partner Compatibility Guidance |Refer to Backup Recovery Partner Compatibility Guidance                     | [Backup solutions for Azure VMware Solution VMs](/azure/azure-vmware/ecosystem-back-up-vms) | Kindly reach out to the Backup and Recovery Product team for all support cases.                                                            |
 
 > [!NOTE] 
-> The preview means that the product is in preview mode due to known issues, limited functionality, or specific restrictions. For assistance, reach out to the third-party partners directly.
+> The preview means that the product is in preview mode due to known issues, limited functionality, or specific restrictions. For assistance, reach out to the non-Microsoft partners directly.
 
 Customers aren't permitted to open Microsoft support tickets for partner product-related issues, including error messages or run commands
 
@@ -48,7 +48,7 @@ Customers aren't permitted to open Microsoft support tickets for partner product
 | **VMware Live Site Recovery** | Array-based replication and storage policy protection groups <br> VMware vVOLs Protection Groups<br> VMware SRM IP customization using SRM command-line tools <br> Shared Site Recovery (One-to-Many and Many-to-One topologies) <br> Custom VMware SRM plug-in identifier or extension ID <br> Encrypted VMs unsupported <br> Enhanced replication supported in Gen2 only<br> Azure VMware Solution-Live Site Recovery currently supports vSAN datastores. Support for external datastores is under testing.<br> Currently, Live Site Recovery for Stretched cluster is not supported|
 | **Zerto on Azure VMware Solution**  | Zerto supports version Zerto 10.8 onwards<br> DNS and network configuration changes for Zerto Virtual Machine aren't supported after installation.<br> Azure resource group modifications aren't supported after Zerto installation.<br> SSH or web console access for ZVML Virtual machine is restricted.<br> Service account credentials aren't shared with customers<br> A minimum of four hosts per cluster is required.<br> Backup and Snapshot features are unavailable for ZVML VM. <br> Customers are advised to coordinate directly with Zerto for timelines any fixes<br> Stretched cluster is not supported|
 | **JetStream on Azure VMware Solution**| Requires a minimum of four hosts per cluster for upgrade                                                                               |
-| **Backup and Recovery Partners**|[Azure VMware Solution third Party BCDR](/azure/azure-vmware/ecosystem-back-up-vms) has been tested with the cloudadmin role. Azure VMware Solution can't provide more than [Cloudadmin Privilege](/azure/azure-vmware/architecture-identity). For further support, Contact the respective BCDR partners directly|
+| **Backup and Recovery Partners**|[Azure VMware Solution third Party BCDR](/azure/azure-vmware/ecosystem-back-up-vms) was tested with the CloudAdmin role. Azure VMware Solution can't provide more than [Cloud admin permissions](/azure/azure-vmware/architecture-identity). For further support, Contact the respective BCDR partners directly|
 
 
 

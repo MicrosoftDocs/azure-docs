@@ -4,7 +4,7 @@ description: This article provides an overview of the OSDU services available on
 author: marielherz
 ms.service: azure-data-manager-energy
 ms.author: marielherzog
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/05/2025
 ms.custom: template-concept
 ---

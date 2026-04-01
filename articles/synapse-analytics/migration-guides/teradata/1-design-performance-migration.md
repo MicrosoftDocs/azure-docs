@@ -3,7 +3,7 @@ title: "Design and performance for Teradata migrations"
 description: Learn how Teradata and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 author: ajagadish-24
 ms.author: ajagadish
 

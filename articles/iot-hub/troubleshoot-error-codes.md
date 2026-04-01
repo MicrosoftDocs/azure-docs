@@ -285,7 +285,7 @@ This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-
 
 Some other possibilities include:
 
-* The device lost underlying network connectivity longer than the [MQTT keep-alive](../iot/iot-mqtt-connect-to-iot-hub.md#default-keep-alive-time-out), resulting in a remote idle time-out. The MQTT keep-alive setting can be different per device.
+* The device lost underlying network connectivity longer than the [MQTT keep-alive](iot-mqtt-connect-to-iot-hub.md#default-keep-alive-time-out), resulting in a remote idle time-out. The MQTT keep-alive setting can be different per device.
 * The device sent a TCP/IP-level reset but didn't send an application-level `MQTT DISCONNECT`. Basically, the device abruptly closed the underlying socket connection. Sometimes, bugs in older versions of the Azure IoT SDK might cause this issue.
 * The device side application crashed.
 
@@ -299,7 +299,7 @@ To resolve this error:
 * See the guidance for [500xxx Internal errors](#500xxx-internal-server-errors).
 
 > [!NOTE]
-> We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage device reconnections to create resilient applications](../iot/concepts-manage-device-reconnections.md)
+> We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage device reconnections to create resilient applications](concepts-manage-device-reconnections.md)
 
 ### 4043xx Configuration NotFound errors
 
@@ -498,7 +498,7 @@ You might see that your requests to IoT Hub fail with an error that begins with 
 
 There can be many causes for a `500xxx` error response. In all cases, the issue is most likely transient. While the IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error.
 
-To mitigate `5000xx` errors, issue a retry from the device. To [automatically manage retries](../iot/concepts-manage-device-reconnections.md#connection-and-retry), make sure you use the latest version of the [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md). For more information about best practices for transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+To mitigate `5000xx` errors, issue a retry from the device. To [automatically manage retries](concepts-manage-device-reconnections.md#connection-and-retry), make sure you use the latest version of the [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md). For more information about best practices for transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 If the problem persists, check [Resource Health](iot-hub-azure-service-health-integration.md#check-iot-hub-health-with-azure-resource-health) and [Azure Status](https://azure.status.microsoft/) to see if IoT Hub has a known problem. You can also use the [manual failover feature](tutorial-manual-failover.md).
 

@@ -154,7 +154,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
+| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) that use managed disks. Not supported for legacy recovery points from VMs that used unmanaged disks or for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
 | MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
 | DPM/MABS | No                        |                      N/A                   |

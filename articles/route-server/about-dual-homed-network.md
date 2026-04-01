@@ -62,7 +62,9 @@ As shown in the following diagram, the dual-homed topology requires:
 - **Virtual network peering**: Configured between the spoke and each hub virtual network
 - **BGP peering**: Established between the route server and each NVA
 
-:::image type="content" source="./media/about-dual-homed-network/dual-homed-topology.png" alt-text="Diagram showing Azure Route Server in a dual-homed network topology with multiple hub virtual networks.":::
+In the following diagram, the spoke virtual network (top) contains the Azure Route Server and workload virtual machines. The two hub virtual networks (bottom) each contain an NVA. Virtual network peering connects the spoke to each hub, and BGP sessions are established between the route server and each NVA.
+
+:::image type="content" source="./media/about-dual-homed-network/dual-homed-topology.png" alt-text="Diagram of a dual-homed network showing the spoke virtual network at the top with Azure Route Server and workload VMs, connected through VNet peering to two hub virtual networks at the bottom, each containing an NVA.":::
 
 ### Configuration steps
 
@@ -117,7 +119,9 @@ To integrate ExpressRoute with your dual-homed network, you need:
 - **Route exchange**: Enable route exchange between ExpressRoute gateways and route servers in hub virtual networks
 - **Peering configuration**: Disable "Use Remote Gateway or Remote Route Server" in the spoke virtual network peering configuration
 
-:::image type="content" source="./media/about-dual-homed-network/dual-homed-topology-expressroute.png" alt-text="Diagram showing Azure Route Server in a dual-homed network topology with ExpressRoute connectivity.":::
+In the following diagram, the spoke virtual network (top) contains the Azure Route Server and workload VMs. Each hub virtual network (bottom) contains an NVA, a route server, and an ExpressRoute gateway that connects to on-premises networks.
+
+:::image type="content" source="./media/about-dual-homed-network/dual-homed-topology-expressroute.png" alt-text="Diagram of a dual-homed network with ExpressRoute, showing the spoke virtual network at the top connected to two hub virtual networks at the bottom, each containing an NVA, a route server, and an ExpressRoute gateway.":::
 
 ### How ExpressRoute integration works
 

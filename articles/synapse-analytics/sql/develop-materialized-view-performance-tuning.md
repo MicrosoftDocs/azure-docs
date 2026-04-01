@@ -7,7 +7,7 @@ ms.reviewer: nibruno
 ms.date: 03/01/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Performance tuning with materialized views using dedicated SQL pool in Azure Synapse Analytics

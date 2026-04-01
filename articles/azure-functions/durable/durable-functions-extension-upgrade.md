@@ -2,7 +2,7 @@
 title: Upgrade Durable Functions extension version
 description: Learn why it's important to use the latest version of the Durable Functions extension and how to upgrade to the latest.
 author: lilyjma
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-dotnet
 ms.date: 02/15/2023
 ms.author: azfuncdf

@@ -53,7 +53,7 @@ The following services support server-side encryption with customer managed keys
 | [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) | Yes | Yes | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
 | [Azure Stream Analytics](/azure/stream-analytics/) | Yes* | Yes | [Data protection in Azure Stream Analytics](/azure/stream-analytics/data-protection) |
 | [Azure Synapse Analytics](/azure/synapse-analytics/) | Yes (RSA 3072-bit) | Yes | [Configure encryption at rest with customer-managed keys](/azure/synapse-analytics/security/workspaces-encryption) |
-| [Microsoft Fabric](/fabric) | Yes | | [Customer-managed key (CMK) encryption and Microsoft Fabric](/fabric/security/security-scenario#customer-managed-key-cmk-encryption-and-microsoft-fabric) |
+| [Microsoft Fabric](/fabric) | Yes | Yes | [Customer-managed key (CMK) encryption and Microsoft Fabric](/fabric/security/security-scenario#customer-managed-key-cmk-encryption-and-microsoft-fabric) |
 | [Power BI Embedded](/power-bi) | Yes | | [Using your own key for Power BI encryption (Preview)](/power-bi/enterprise/service-encryption-byok) |
 
 ## Containers

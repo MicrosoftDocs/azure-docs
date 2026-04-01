@@ -4,7 +4,7 @@ description: Get step-by-step guidance on how to ingest satellite data.
 author: BlackRider97
 ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/17/2023
 ms.custom: template-concept
 show_latex: true

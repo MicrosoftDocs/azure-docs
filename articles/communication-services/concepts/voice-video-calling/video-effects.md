@@ -6,7 +6,7 @@ author: sloanster
 ms.author: micahvivion
 services: azure-communication-services
 ms.date: 6/20/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: sfi-ropc-nochange

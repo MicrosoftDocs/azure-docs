@@ -25,7 +25,7 @@ Azure API Center provides a centralized platform for discovering, registering, a
 
 **Governance and Security**: Addresses shadow IT and uncontrolled AI tool adoption by providing a governed channel for accessing AI agents, improving security and compliance.
 
-**Integration with API Management**: AI agents can be placed behind an API Management gateway for private endpoints, enhanced security, and controlled access.
+**Integration with API Management**: AI agents can be placed behind an API Management gateway for private endpoints, enhanced security, and controlled access.  A2A agent APIs in a linked API Management instance synchronize automatically to API Center.
 
 **Customizable Metadata**: Organizations can define and store relevant metadata for each registered AI agent, facilitating filtering and searching.
 

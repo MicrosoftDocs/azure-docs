@@ -1,26 +1,26 @@
 ---
 title: Incident Response Plans in Azure SRE Agent
-description: Learn how to route incidents to specialized subagents with the right tools, investigation depth, and autonomy level automatically.
-ms.topic: conceptual
+description: Learn how to route incidents to specialized custom agents with the right tools, investigation depth, and autonomy level automatically.
+ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/04/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
-ms.custom: incident, response-plans, incident-triggers, routing, filters, automation, subagents, severity, priority
-#customer intent: As an SRE, I want to route incidents to specialized subagents automatically so that the right expertise handles each incident type without human routing at 3 AM.
+ms.custom: incident, response-plans, incident-triggers, routing, filters, automation, custom-agents, severity, priority
+#customer intent: As an SRE, I want to route incidents to specialized custom agents automatically so that the right expertise handles each incident type without human routing at 3 AM.
 ---
 
 # Incident response plans in Azure SRE Agent
-Response plans automatically route incidents to specialized subagents with the right tools, investigation depth, and autonomy level. The right subagent handles each incident type without human intervention.
+Response plans automatically route incidents to specialized custom agents with the right tools, investigation depth, and autonomy level. The right custom agent handles each incident type without human intervention.
 
 > [!VIDEO <VIDEO_URL>/Automated_Incident_Response.mp4]
 
 > [!TIP]
-> - The right subagent handles each incident type automatically - no human routing at 3 AM.
+> - The right custom agent handles each incident type automatically - no human routing at 3 AM.
 > - Filter by severity, service, title, and type to match precisely the incidents you care about.
-> - Select multiple severity levels per plan instead of creating separate plans for each.
-> - See your routing visually on the Subagent builder canvas.
+> - Turn any plan on or off with one action by pausing routing during maintenance without deleting.
+> - See all plans, statuses, and custom agent mappings in a unified grid.
 
 ## The problem: one playbook for every fire
 
@@ -30,16 +30,16 @@ Yet most automation treats all incidents identically with the same investigation
 
 ## How response plans work
 
-Response plans connect incident filters to subagents. When an incident arrives, your agent evaluates it against active response plans and routes it to the right subagent automatically.
+Response plans connect incident filters to custom agents. When an incident arrives, your agent evaluates it against active response plans and routes it to the right custom agent automatically.
 
-:::image type="content" source="media/incident-response-plans/incident-trigger-canvas.png" alt-text="Screenshot of the Subagent builder canvas showing incident trigger nodes connected to a subagent with edges.":::
+:::image type="content" source="media/incident-response-plans/incident-trigger-canvas.png" alt-text="Screenshot of the Agent Canvas showing incident trigger nodes connected to a custom agent with edges.":::
 
 Each response plan has two parts:
 
 | Part | What it controls | Example |
 |---|---|---|
 | **Incident filter** | Which incidents to match | P1 and P2 incidents on `api-gateway` service |
-| **Subagent handler** | How to respond | Use `api-expert` subagent in Review mode |
+| **Custom agent handler** | How to respond | Use `api-expert` custom agent in Review mode |
 
 ### Filter criteria
 
@@ -54,34 +54,27 @@ Define which incidents a response plan matches by using the following filter cri
 
 Select **multiple severity levels** in a single plan. Your agent matches incidents at any of the selected levels.
 
-### Subagent configuration
+### Custom agent configuration
 
 Each plan specifies how your agent responds.
 
 | Setting | Options | Default |
 |---|---|---|
-| **Response subagent** | Any configured subagent | Pre-selected when creating from graph |
-| **Agent autonomy level** | Autonomous, Review | Review |
+| **Response custom agent** | Any configured custom agent | Preselected when creating from graph |
+| **Agent autonomy level** | Autonomous, Review | Autonomous |
 
-- **Autonomous** — Your agent analyzes incidents and independently performs mitigation or resource modifications by using the required permissions.
-- **Review** — Your agent diagnoses incidents, then mitigates or modifies resources only after its proposed actions are reviewed and approved.
+- **Autonomous**: Your agent analyzes incidents and independently performs mitigation or resource modifications by using the required permissions.
+- **Review**: Your agent diagnoses incidents, then mitigates or modifies resources only after its proposed actions are reviewed and approved.
 
-## What makes this different
+## What makes this approach different
 
 Response plans differ from other automation approaches in several key ways.
 
-**Unlike static alert rules**, response plans route to specialized agents. Each plan can point to a different subagent with different tools and expertise. Database incidents get a database expert, and API incidents get a deployment-aware investigator.
+**Unlike static alert rules**, response plans route to specialized agents. Each plan can point to a different custom agent with different tools and expertise. Database incidents get a database expert, and API incidents get a deployment-aware investigator.
 
 **Unlike manual runbook selection**, your agent makes the routing decision automatically. The right expertise matches the right problem without human judgment at 3 AM.
 
 **Unlike one-size-fits-all automation**, response plans let you tune investigation depth per incident type. Use autonomous mode for P1 outages. Use review mode for lower-severity alerts. Match your response to the severity of the problem.
-
-| Capability | What it contributes |
-|---|---|
-| [Subagents](sub-agents.md) | Specialized agents for different incident types |
-| [Run modes](run-modes.md) | Control autonomy per response plan |
-| [Connectors](connectors.md) | Data sources your agents query during investigation |
-| [Memory](memory.md) | Your agent learns from past resolutions per incident category |
 
 ## Before and after
 
@@ -90,21 +83,55 @@ The following table compares manual incident routing with response plan automati
 |  | Before | After |
 |---|---|---|
 | **Incident routing** | Human decides which playbook to follow | Agent matches incident to specialized response plan |
-| **Tool selection** | Engineer opens relevant dashboards manually | Right subagent with right tools handles it |
+| **Tool selection** | Engineer opens relevant dashboards manually | Right custom agent with right tools handles it |
 | **Investigation depth** | Same approach for P1 and P4 | Autonomous for critical, review for low-severity |
-| **Severity handling** | One rule per severity level | Multiple severities per plan |
+| **Pausing a plan** | Delete the plan, recreate later | Select **Turn off**. The configuration is preserved |
+| **Plan visibility** | Navigate between multiple pages | One grid shows plans, statuses, and custom agent mappings |
 
-## Create a response plan
+## How to create a response plan
 
-Create response plans from the **Subagent builder** canvas. This graph view shows you exactly which triggers route to which subagents.
+You can create and manage response plans in two places:
 
-Go to **Builder** > **Subagent builder**, select the **+** button on the subagent you want to handle matching incidents, and select **Add incident trigger**.
+| Path | Best for |
+|---|---|
+| **Builder** > **Incident response plans** | Managing all plans in a grid with filtering, search, and one-select enable or disable |
+| **Builder** > **Agent Canvas** (canvas) | Visualizing, which triggers route to which custom agents |
+
+From either path, select **New incident response plan** (or the **+** button on a custom agent node in the canvas) to open the create wizard.
 
 > [!WARNING]
-> When you connect an incident platform, the system automatically creates a default **quickstart** response plan. If you create your own triggers through the Subagent builder, delete the quickstart plan from **Builder** > **Incident response plans**. Overlapping plans can cause incidents to be routed to the wrong subagent or processed twice.
+> When you first connect an incident platform, the portal automatically creates a default **quickstart** response plan. If you create your own plans, delete the quickstart plan from **Builder** > **Incident response plans**. Overlapping plans can cause the portal to route incidents to the wrong custom agent or process incidents twice.
 
-> [!NOTE]
-> You might also see an **Incident response plans** section under Builder. Use the **Subagent builder** path instead. It provides the same functionality with a visual graph that shows your trigger-to-subagent routing at a glance.
+## Enable and disable plans
+
+You can turn any response plan on or off without deleting it. This feature is useful during maintenance windows, testing, or when you want to temporarily stop routing certain incident types.
+
+1. Go to **Builder** > **Incident response plans**.
+1. Select the plan by selecting its checkbox.
+1. Select **Turn off** in the toolbar, then a confirmation dialog appears.
+1. Select **Yes** to disable the plan.
+
+The plan's status changes to **Off** and the scanner stops matching incidents against it. The portal preserves your filter configuration.
+
+To re-enable, select the plan and select **Turn on**. The plan takes effect immediately with no confirmation needed.
+
+You can also toggle plans from **Builder** > **Agent Canvas** > **Table view** > **Incident response plans** tab, which provides the same controls in the unified grid.
+
+## Unified grid view
+
+The **Table view** in the Agent Canvas shows all your response plans alongside custom agents, scheduled tasks, and tools. Switch to the **Incident response plans** tab to see:
+
+| Column | What it shows |
+|---|---|
+| **Response plan name** | Plan identifier |
+| **Status** | On (green) or Off (red) badge |
+| **Custom agent name** | Which custom agent handles matched incidents |
+| **Severity** | Severity levels the plan filters on |
+| **Incident type** | Type classification |
+| **Impacted service** | Service filter |
+| **Title contains** | Keyword filter |
+
+Use the **Status** filter to quickly find disabled plans, and use the search box to find plans by name.
 
 ## Example: route database vs. API incidents
 
@@ -112,18 +139,16 @@ Your team runs two services: `api-gateway` and `postgres-primary`. API incidents
 
 You create two response plans:
 
-| Trigger | Filter | Subagent | Mode |
+| Trigger | Filter | Custom agent | Mode |
 |---|---|---|---|
 | `api-high-sev` | P1 + P2 on `api-gateway` | `DeploymentAnalyzer` | Review |
 | `db-critical` | P1 on `postgres-primary` | `DatabaseExpert` | Autonomous |
 
-When a P1 database incident fires, the `DatabaseExpert` subagent investigates immediately by using its Kusto tools which means that no human decides which playbook to follow. When a P2 API incident fires, the `DeploymentAnalyzer` subagent checks recent deployments and proposes a fix for your review.
-
-Each incident gets specialized handling, and the routing is visible on the Subagent builder canvas.
-
 ## Get started
 
-For a step-by-step guide, see [Tutorial: Set up an incident trigger](response-plan.md).
+| Resource | What you'll learn |
+|---|---|
+| [Set up an incident trigger](response-plan.md) | Configure response plans to automate incident handling |
 
 ## Default settings
 
@@ -145,7 +170,7 @@ You can test both new and existing incident response plans.
 
 # [New plan](#tab/new-plan)
 
-When creating a new incident response plan, follow these steps:
+When you create a new incident response plan, follow these steps:
 
 1. Select the **Add custom instructions** checkbox.
 1. Enter your custom instructions into the **Custom instructions** box.
@@ -171,13 +196,10 @@ To test an existing incident response plan:
 
 ---
 
-## Next step
+## Related capabilities
 
-> [!div class="nextstepaction"]
-> [Set up an incident trigger](./response-plan.md)
-
-## Related content
-
-- [Incident response](incident-response.md)
-- [Root cause analysis](root-cause-analysis.md)
-- [Subagents](sub-agents.md)
+| Resource | Description |
+|---|---|
+| [Incident response](incident-response.md) | Broader incident automation capability |
+| [Root cause analysis](root-cause-analysis.md) | Hypothesis-driven investigation |
+| [Custom agents](sub-agents.md) | Create specialized agents that work together |

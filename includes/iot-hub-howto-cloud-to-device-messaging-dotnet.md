@@ -110,7 +110,7 @@ After the device receives a message, the device application calls the [CompleteA
 
 #### Message abandon, reject, or timeout
 
-With AMQP and HTTP version 1 protocols, but not the [MQTT protocol](../articles/iot/iot-mqtt-connect-to-iot-hub.md), the device can also:
+With AMQP and HTTP version 1 protocols, but not the [MQTT protocol](../articles/iot-hub/iot-mqtt-connect-to-iot-hub.md), the device can also:
 
 * Abandon a message by calling [AbandonAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.abandonasync). This results in IoT Hub retaining the message in the device queue for future consumption.
 * Reject a message by calling [RejectAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.rejectasync). This permanently removes the message from the device queue.

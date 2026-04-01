@@ -1,5 +1,5 @@
 ---
-title: View Azure savings plan cost and usage
+title: View savings plan cost and usage
 titleSuffix: Microsoft Cost Management
 description: Learn how to view savings plan cost and usage details.
 author: nwokolo
@@ -7,11 +7,11 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
-# View Azure savings plan cost and usage details
+# View savings plan cost and usage details
 
 Enhanced data for savings plan costs and usage is available for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) usage in Cost management. This article helps you:
 
@@ -148,4 +148,4 @@ Group by **Charge Type** to see a breakdown of usage, purchases, and refunds; or
 
 ## Next steps
 
-- Learn more about how to [Charge back Azure savings plan costs](charge-back-costs.md).
+- Learn more about how to [Charge back savings plan costs](charge-back-costs.md).

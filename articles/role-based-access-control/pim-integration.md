@@ -3,7 +3,7 @@ title: Eligible and time-bound role assignments in Azure RBAC
 description: Learn about the integration of Azure role-based access control (Azure RBAC) and Microsoft Entra Privileged Identity Management (PIM) to create eligible and time-bound role assignments.
 author: rolyon
 ms.service: role-based-access-control
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 12/12/2024
 ms.author: rolyon
 ms.custom: sfi-ga-nochange

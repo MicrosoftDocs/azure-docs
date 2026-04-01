@@ -5,7 +5,7 @@ description: Asset data in security data lake
 author: mberdugo  
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform  
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/04/2025
 ms.author: monaberdugo  
 ms.collection: ms-security

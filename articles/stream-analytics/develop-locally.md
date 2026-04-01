@@ -3,7 +3,7 @@ title: Develop and debug Azure Stream Analytics jobs locally
 description: Learn how to develop and test Azure Stream Analytics jobs on your local computer before you run them in Azure portal.
 ms.author: zhenxilin
 author: alexlzx
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/27/2022
 ms.service: azure-stream-analytics
 ---

@@ -4,7 +4,7 @@ description: Learn how to control the build process for Azure Static Web Apps.
 services: static-web-apps
 author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/04/2024
 ms.author: jikunchen
 zone_pivot_groups: static-web-apps-ci-cd

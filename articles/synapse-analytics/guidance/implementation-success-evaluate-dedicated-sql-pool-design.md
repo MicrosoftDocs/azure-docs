@@ -4,7 +4,7 @@ description: "Learn how to evaluate your dedicated SQL pool design to identify i
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 05/31/2022
 ---
 

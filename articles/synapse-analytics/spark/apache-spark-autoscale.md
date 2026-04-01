@@ -4,7 +4,7 @@ description: Use the Azure Synapse Analytics autoscale feature to automatically 
 author: ajagadish-24
 ms.author: ajagadish
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: spark
 ms.date: 03/11/2024
 ---

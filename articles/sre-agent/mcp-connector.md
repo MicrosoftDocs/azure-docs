@@ -1,18 +1,18 @@
 ---
 title: "Tutorial: Set Up the MCP Connector in Azure SRE Agent"
-description: Connect your SRE agent to external tools using the Model Context Protocol (MCP), then add those tools to subagents individually or all at once with the wildcard pattern.
+description: Connect your SRE agent to external tools using the Model Context Protocol (MCP), then select tools for your agent to use directly in chat.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 ms.custom: mcp, model context protocol, connector, tools, extension, wildcard, add all tools
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
-#customer intent: As an SRE, I want to connect my agent to external tools through MCP so that my subagents can use those tools during investigations.
+#customer intent: As an SRE, I want to connect my agent to external tools through MCP so that I can use those tools during investigations.
 ---
 
 # Tutorial: Set up the MCP connector in Azure SRE Agent
-In this tutorial, you connect your SRE agent to an external tool or service through the Model Context Protocol (MCP), then add the available tools to your subagents. You can add tools individually or use the wildcard pattern to include all tools from a connection at once.
+In this tutorial, you connect your SRE agent to an external tool server by using the Model Context Protocol (MCP), select tools for your agent, and test them in chat. This tutorial uses the GitHub MCP server as an example&mdash;the same steps work for Datadog, Splunk, New Relic, and any partner connector.
 
 **Estimated time**: 10 minutes
 
@@ -20,9 +20,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Add an MCP connector to your agent
-> - Verify the connection status
-> - Add MCP tools to a subagent individually or with the wildcard pattern
-> - Test the subagent in the playground
+> - Select tools for your agent
+> - Test tools in chat
 
 ## Prerequisites
 
@@ -34,7 +33,7 @@ In this tutorial, you learn how to:
 > [!TIP]
 > For your first MCP connector, try one of the verified servers from [Azure MCP Center](https://mcp.azure.com). Many provide simple setup instructions and work out of the box.
 
-## Add an MCP connector
+## Step 1: Add the MCP connector
 
 Register the MCP server as a connector in the SRE Agent portal.
 
@@ -45,78 +44,40 @@ Register the MCP server as a connector in the SRE Agent portal.
 1. Enter the MCP server URL and the required authentication. The authentication method varies by server (API key, OAuth token, or managed identity).
 1. Select **Add**.
 
-Your new connector appears in the connectors list. The status shows **Initializing** briefly, then changes to **Connected** (green checkmark). The connection name shown in the list is your **connection ID**, which you use when adding tools to subagents.
+You should see your connector appear in the connectors list. The status shows **Initializing** briefly, then changes to **Connected** (green checkmark). The connection name shown in the list is your **connection ID**, which you use when referencing tools.
 
 > [!TIP]
 > If the status shows **Failed** or **Disconnected**, check your server URL, authentication credentials, and network configuration. For more information, see the MCP connector health monitoring section in [Connectors](connectors.md).
 
-## Add MCP tools to a subagent
+## Step 2: Select tools for your agent
 
-After the connector is active, add the MCP tools to a subagent. A subagent is a specialized agent with focused tools and expertise.
+During connector setup (or by editing the connector afterward), select which tools your agent can use directly in chat.
 
-Navigate to **Builder** > **Subagent builder** and create or edit a subagent. You can add tools through the portal UI or by editing the subagent YAML definition.
+1. After the connector shows **Connected**, select **Edit** on the connector.
+1. In the **MCP Tools** section, check the tools you want available, or select **Select all** to add everything.
+1. Select **Save**.
 
-### Select tools in the portal
-
-Use the portal tool picker to choose individual tools or select all tools from a connection.
-
-1. In the subagent configuration dialog, scroll to **Advanced settings**.
-1. Under **Tools**, select **Choose tools**.
-1. In the tool picker panel, find the tools grouped by MCP connection.
-1. Check the box next to individual tools, or select the **Select all** checkbox for a connection group to add every tool from one server.
-1. Close the panel and save your subagent.
-
-The tool picker groups tools by connection. MCP connections (such as `KustoTool`, `githubconn`, and `grafanamcp-v`) appear alongside built-in tool categories (such as Azure Operation, Diagnostics, and Log Query).
-
-Your subagent configuration now shows the selected MCP tools in the **Tools** section. The tool count badge updates to reflect your selection.
-
-### Add all tools by using the wildcard pattern in YAML
-
-**Applies to**: version 26.2.9.0 and later
-
-Use a wildcard pattern to add all tools from a single MCP server. Switch to the **YAML** tab in the subagent builder and use the `{connection-id}/*` pattern:
-
-```yaml
-api_version: azuresre.ai/v1
-kind: AgentConfiguration
-spec:
-  name: kusto_expert
-  system_prompt: You analyze database performance and query optimization...
-  agent_type: Review
-  mcp_tools:
-    - kusto-mcp/*
-```
-
-The `{connection-id}/*` pattern adds every tool from the specified MCP connection. Your agent expands the wildcard at startup, so you don't need to list each tool individually. Use the connection name shown in **Builder** > **Connectors** as the connection ID.
-
-You can also mix wildcards with individual tool names:
-
-```yaml
-mcp_tools:
-  - kusto-mcp/*            # All Kusto tools
-  - grafana-mcp_dashboard  # Just the dashboard tool from Grafana
-```
-
-> [!NOTE]
-> The wildcard pattern must use `{connection-id}/*` with the forward slash before the asterisk. Patterns like `kusto-mcp*` (without the slash) are treated as exact tool names, not wildcards.
+You can now access the selected tools directly in your main chat.
 
 > [!TIP]
-> Use `{connection-id}/*` when you trust the MCP server and want your subagent to access all its tools, including any tools the server adds later. Use individual tool selection when you want precise control over your subagent's capabilities.
+> Your agent can use up to **80 tools** total across all connectors. The tool picker shows a capacity bar so you can manage your tool budget.
 
-## Test the subagent
+> [!TIP]
+> For complex workflows, you can also assign MCP tools to a [custom agent](sub-agents.md) on the Agent Canvas. This approach is useful when you want specialized agents for different platforms or need to control which tools are available in which context.
 
-Verify that the subagent can use the MCP tools by testing it in the playground.
+## Step 3: Test in chat
 
-1. In **Builder** > **Subagent builder**, use the view toggle to switch to **Test playground**.
-1. Select your subagent from the dropdown on the left.
-1. In the chat panel, ask a question that requires the MCP tools. For example: "Query the Kusto database for recent errors."
-1. Verify the subagent uses the MCP tools in its response.
+Verify that your agent can use the MCP tools by testing them in chat.
 
-Tool calls appear in the conversation along with their results. For more information about the testing environment, see [Agent playground](agent-playground.md).
+1. Open a **New chat thread**.
+1. Ask a question that uses the connected tools. For example: "Search for files related to authentication in my repositories."
+1. Press Enter.
+
+Tool call cards show the connection name, tool name, and **Completed** status. For more information about the testing environment, see [Agent playground](agent-playground.md).
 
 ## Example: Connect to the Microsoft Learn MCP server
 
-This example shows how to connect your agent to the Microsoft Learn MCP server. By using this server, your subagents get access to documentation search tools.
+This example shows how to connect your agent to the Microsoft Learn MCP server. By using this server, your agent gets access to documentation search tools.
 
 ### Connect the server
 
@@ -134,14 +95,13 @@ Add the Microsoft Learn MCP server as a connector.
 
 1. Select **Add** and wait for the status to show **Connected**.
 
-### Create a subagent with the MCP tools
+### Select tools from the connector
 
-After the connector is active, create a subagent that uses its tools.
+After the connector is active, select the tools you want to use.
 
-1. Go to **Builder** > **Subagent builder** and create a new subagent.
-1. Give it a name like `docs-researcher` and a system prompt: "You search Microsoft Learn documentation to answer technical questions."
-1. Under **Advanced settings** > **Tools** > **Choose tools**, select the tools from the `MicrosoftLearnMCP` connection.
-1. Save the subagent and test it in the playground.
+1. Select **Edit** on the `MicrosoftLearnMCP` connector.
+1. In the **MCP Tools** section, select the tools from the `MicrosoftLearnMCP` connection.
+1. Select **Save** and test the tools in chat.
 
 ### Find more MCP servers
 
@@ -158,10 +118,10 @@ If you encounter problems, review the following table for common issues and solu
 
 | Issue | Solution |
 |-------|----------|
+| Status shows **Failed** | Check URL, credentials, and network access. |
 | MCP tools don't appear in the tool picker | Verify the connector shows **Connected** status in **Builder** > **Connectors**. |
-| Wildcard matches zero tools | The MCP connection might still be initializing. Your agent defers the subagent and loads it automatically after the connection establishes. |
-| Subagent doesn't use MCP tools | Verify the tools are listed in the subagent's `mcp_tools` configuration. |
-| Invalid wildcard syntax | Use `{connection-id}/*` with the forward slash before the asterisk. |
+| Tool calls fail in chat | Verify tools are selected for the main agent&mdash;edit the connector and check the **MCP Tools** section. |
+| Hit the 80-tool limit | Remove unused tools from other connectors to free capacity. |
 
 ## Next step
 
@@ -171,6 +131,5 @@ If you encounter problems, review the following table for common issues and solu
 ## Related content
 
 - [Connectors](connectors.md)
-- [Subagents](sub-agents.md)
-- [Skills](skills.md)
+- [Custom agents](sub-agents.md)
 - [Agent playground](agent-playground.md)

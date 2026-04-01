@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: bobazile
 ms.date: 06/22/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: pstn
 ms.custom: kr2b-contr-experiment

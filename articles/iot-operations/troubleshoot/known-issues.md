@@ -14,6 +14,26 @@ This article lists the current known issues you might encounter when using Azure
 
 For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
 
+## Azure Device Registry issues
+
+This section lists current known issues for the Azure Device Registry.
+
+### ADR asset resources don't sync
+
+---
+
+Issue ID: 1235
+
+---
+
+Log signature: N/A
+
+---
+
+Azure Device Registry asset resources don't synchronize back if they were created with an older API version.
+
+
+
 ## MQTT broker issues
 
 This section lists current known issues for the MQTT broker.
@@ -118,6 +138,10 @@ This section lists current known issues for the connector for OPC UA.
 ---
 
 Issue ID: 1532
+
+---
+
+Fixed in version 1.3.36 (2603) and later
 
 ---
 
@@ -254,6 +278,10 @@ For more information about data flow graphs, see [Use WebAssembly (WASM) with da
 ---
 
 Issue ID: 1352
+
+---
+
+Fixed in version 1.3.36 (2603) and later
 
 ---
 

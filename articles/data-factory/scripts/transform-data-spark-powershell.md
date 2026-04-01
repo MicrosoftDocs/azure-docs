@@ -4,7 +4,7 @@ description: "This PowerShell script transforms data in the cloud by running Spa
 author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
-ms.topic: conceptual
+ms.topic: sample
 ms.custom: devx-track-azurepowershell
 ms.date: 10/03/2024
 ms.subservice: orchestration

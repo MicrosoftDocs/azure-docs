@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "redirect_url": "/azure/bastion/configure-host-scaling",
+            "source_path_from_root": "/articles/bastion/configure-host-scaling-powershell.md",
+            "redirect_document_id": true
+        }
+    ]
+}

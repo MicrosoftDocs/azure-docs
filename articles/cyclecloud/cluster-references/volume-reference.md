@@ -5,7 +5,7 @@ author: adriankjohnson
 ms.date: 06/30/2025
 ms.update-cycle: 1095-days
 ms.author: adjohnso
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-cyclecloud
 ---
 

@@ -5,7 +5,7 @@ description: Overview for the migration guides that show how to migrate code fro
 author: jkebeck
 ms.author: jokebeck
 ms.date: 05/16/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: general
 ---

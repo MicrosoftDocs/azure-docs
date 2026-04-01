@@ -3,7 +3,7 @@ title: Set an external identity source for VMware NSX
 description: Learn how to use Azure VMware Solution to set an external identity source for VMware NSX.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/29/2024
+ms.date: 3/26/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -14,7 +14,7 @@ ms.custom:
 
 In this article, learn how to set up an external identity source for VMware NSX in an instance of Azure VMware Solution.
 
-You can set up NSX to use an external Lightweight Directory Access Protocol (LDAP) directory service to authenticate users. A user can sign in by using their Windows Server Active Directory account credentials or credentials from a third-party LDAP server. Then, the account can be assigned an NSX role, like in an on-premises environment, to provide role-based access for NSX users.
+You can set up NSX to use an external Lightweight Directory Access Protocol (LDAP) directory service to authenticate users. A user can sign in by using their Windows Server Active Directory account credentials or credentials from a non-Microsoft LDAP server. Then, the account can be assigned an NSX role, like in an on-premises environment, to provide role-based access for NSX users.
 
 :::image type="content" source="media/nsxt/azure-vmware-solution-to-ldap-server.png" alt-text="Screenshot that shows NSX connectivity to the LDAP Windows Server Active Directory server." lightbox="media/nsxt/azure-vmware-solution-to-ldap-server.png":::
 
@@ -22,12 +22,12 @@ You can set up NSX to use an external Lightweight Directory Access Protocol (LDA
 
 - A working connection from your Windows Server Active Directory network to your Azure VMware Solution private cloud.
 - A network path from your Windows Server Active Directory server to the management network of the instance of Azure VMware Solution in which NSX is deployed.
-- A Windows Server Active Directory domain controller that has a valid certificate. The certificate can be issued by a [Windows Server Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or by a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
+- A Windows Server Active Directory domain controller that has a valid certificate. The certificate gets issued by a [Windows Server Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or by a [third-party CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
 
    We recommend that you use two domain controllers that are located in the same Azure region as the Azure VMware Solution software-defined datacenter.
 
    > [!NOTE]
-   > Self-signed certificates are not recommended for production environments.
+   > Self-signed certificates aren't recommended for production environments.
 
 - An account that has Administrator permissions.
 - Azure VMware Solution DNS zones and DNS servers that are correctly configured. For more information, see [Configure NSX DNS for resolution to your Windows Server Active Directory domain and set up DNS forwarder](configure-dns-azure-vmware-solution.md).
@@ -41,7 +41,7 @@ You can set up NSX to use an external Lightweight Directory Access Protocol (LDA
 
    :::image type="content" source="media/nsxt/configure-nsx-t-pic-1.png" alt-text="Screenshot that shows NSX Manager with the options highlighted.":::
 
-1. Enter values for **Name**, **Domain Name (FQDN)**, **Type**, and **Base DN**.  You can add a description (optional).
+1. Enter values for **Name**, **Domain Name (FQDN)**, **Type**, and **Base DN**. You can add a description (optional).
 
    The base DN is the container where your user accounts are kept. The base DN is the starting point that an LDAP server uses when it searches for users in an authentication request. For example, **CN=users,dc=azfta,dc=com**.
 
@@ -50,7 +50,7 @@ You can set up NSX to use an external Lightweight Directory Access Protocol (LDA
 
    :::image type="content" source="media/nsxt/configure-nsx-t-pic-2.png" alt-text="Screenshot that shows the User Management Add Identity Source page in NSX Manager." lightbox="media/nsxt/configure-nsx-t-pic-2.png":::
 
-1. Next, under **LDAP Servers**, select **Set** as shown in the preceding screenshot.
+1. Under **LDAP Servers**, select **Set**, as shown in the previous screenshot.
 
 1. On **Set LDAP Server**, select **Add LDAP Server**, and then enter or select values for the following items:
 
@@ -61,7 +61,7 @@ You can set up NSX to use an external Lightweight Directory Access Protocol (LDA
     | **Port**     | Leave the default secure LDAP port. |
     | **Enabled**              | Leave as **Yes**. |
     | **Use Start TLS**        | Required only if you use standard (unsecured) LDAP. |
-    | **Bind Identity**        | Use your account that has read permissions to directory. For example, `<admin@contoso.com>`. |
+    | **Bind Identity**        | Use your account that read permissions to directory. For example, `<admin@contoso.com>`. |
     | **Password**            | Enter the password for the LDAP server. This password is the one that you use with the example `<admin@contoso.com>` account. |
     | **Certificate**          | Leave empty (see step 6). |
 
@@ -76,7 +76,7 @@ You can set up NSX to use an external Lightweight Directory Access Protocol (LDA
 1. To add a second domain controller or another external identity provider, return to step 1.
 
 > [!NOTE]
-> A recommended practice is to have two domain controllers to act as LDAP servers. You can also put the LDAP servers behind a load balancer.
+> The recommended practice is to have two domain controllers to act as LDAP servers. You can also put the LDAP servers behind a load balancer.
 
 ## Assign roles to Windows Server Active Directory identities
 
@@ -90,7 +90,7 @@ After you add an external identity, you can assign NSX roles to Windows Server A
 
    1. Select the external identity provider that you selected in step 3 in the preceding section. For example, **NSX External Identity Provider**.
 
-   1. Enter the first few characters of the user's name, the user's sign-in ID, or a group name to search the LDAP directory. Then select a user or group from the list of results.
+   1. Search the LDAP directory by entering the first few characters of the user's name, the user's sign-in ID, or a group name. Select a user or group from the list of results.
 
    1. Select a role. In this example, assign the FTAdmin user the CloudAdmin role.
 

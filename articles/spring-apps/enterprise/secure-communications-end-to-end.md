@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: Describes how to secure communications end-to-end or terminate transport-level security at any communication point for Spring Boot apps.
 author: KarlErickson
 ms.service: azure-spring-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.author: karler

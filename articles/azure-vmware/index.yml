@@ -225,6 +225,8 @@ additionalContent:
           links:
             - text: Run Command
               url: using-run-command.md
+            - text: Use Set-ToolsRepo Run Command
+              url: use-set-toolsrepo-run-command.md
             - text: Configure VMware Syslogs
               url: configure-vmware-syslogs.md
             - text: Send syslogs to log management solutions via Azure Logic Apps

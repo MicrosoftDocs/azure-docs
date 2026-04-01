@@ -3,7 +3,7 @@ title: Monitor Azure Event Hubs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Event Hubs. 
 ms.date: 05/20/2025
 ms.custom: horz-monitor, subject-monitoring
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Monitor Azure Event Hubs

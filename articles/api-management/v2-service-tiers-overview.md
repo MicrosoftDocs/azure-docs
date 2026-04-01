@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 02/05/2026
+ms.date: 03/27/2026
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -17,11 +17,11 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-basicv2-standardv2-premiumv2](../../includes/api-management-availability-basicv2-standardv2-premiumv2.md)]
 
-The API Management v2 tiers (SKUs) are built on a new, more reliable and scalable platform and are designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios. The v2 tiers are in addition to the existing classic tiers (Developer, Basic, Standard, and Premium) and the Consumption tier. [See detailed comparison of API Management tiers](api-management-features.md).
+The API Management v2 tiers (SKUs) are built on a new, more reliable and scalable platform. They're designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios. The v2 tiers are in addition to the existing classic tiers (Developer, Basic, Standard, and Premium) and the Consumption tier. [See detailed comparison of API Management tiers](api-management-features.md).
 
 The following v2 tiers are generally available:
 
-* **Basic v2** - The Basic v2 tier is designed for development and testing scenarios, and is supported with an SLA.
+* **Basic v2** - The Basic v2 tier is designed for development and testing scenarios, and it comes with an SLA.
 
 * **Standard v2** - Standard v2 is a production-ready tier with support for network-isolated backends.
 
@@ -33,7 +33,7 @@ The following v2 tiers are generally available:
 
 * **Simplified networking** - The Standard v2 and Premium v2 tiers provide [networking options](#networking-options) to isolate API Management's inbound and outbound traffic.
 
-* **More options for production workloads** - The v2 tiers are all supported with an SLA. 
+* **More options for production workloads** - The v2 tiers all come with an SLA. 
 
 * **Developer portal options** - Enable the [developer portal](api-management-howto-developer-portal.md) when you're ready to let API consumers discover your APIs. 
 
@@ -42,11 +42,11 @@ The following v2 tiers are generally available:
 
 ### API version
 
-The latest capabilities of the v2 tiers are supported in API Management API version **2024-05-01** or later.
+API Management supports the latest capabilities of the v2 tiers in API version **2024-05-01** or later.
 
 ## Networking options
 
-* **Standard v2** and **Premium v2** support **virtual network integration** to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](integrate-vnet-outbound.md).
+* **Standard v2** and **Premium v2** support **virtual network integration**. This feature allows your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
 * **Standard v2** and **Premium v2** also support inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
 
@@ -58,7 +58,7 @@ For a current list of regions where the v2 tiers are available, see [Availabilit
 
 ### Classic feature availability
 
-Most capabilities of the classic API Management tiers are supported directly in the v2 tiers. However, some features have replacements in the v2 tiers, and some currently aren't available. For detailed comparisons, see 
+The v2 tiers support most capabilities of the classic API Management tiers. However, some features have replacements in the v2 tiers, and some features currently aren't available. For detailed comparisons, see: 
 
 * [Feature-based comparison of the Azure API Management tiers](api-management-features.md)
 * [API Management gateways overview](api-management-gateways-overview.md)
@@ -76,7 +76,7 @@ Most capabilities of the classic API Management tiers are supported directly in 
 
 #### Currently unavailable features
 
-The following are currently unavailable in the v2 tiers.
+The following features are currently unavailable in the v2 tiers.
 
 **Infrastructure and configuration**
 * Multi-region deployment 
@@ -111,15 +111,15 @@ The following limits apply to the v2 tiers:
 
 ## Deployment
 
-Deploy a v2 tier instance using the Azure portal or using tools such as the Azure REST API, Azure Resource Manager, Bicep file, or Terraform.
+Deploy a v2 tier instance by using the Azure portal or tools such as the Azure REST API, Azure Resource Manager, Bicep file, or Terraform.
 
 ## Frequently asked questions
 
 ### Q: Can I migrate from my existing API Management instance to a new v2 tier instance?
 
-A: No. Currently you can't migrate an existing API Management instance (in the Consumption, Developer, Basic, Standard, or Premium tier) to a new v2 tier instance. Currently the v2 tiers are available for newly created service instances only.
+A: No. Currently, there's no automated tooling to migrate an existing API Management instance (in the Consumption, Developer, Basic, Standard, or Premium tier) to a new v2 tier instance. The v2 tiers are currently available for newly created service instances only.
 
-### Q: Will I still be able to provision Developer, Basic, Standard, or Premium tier services? 
+### Q: Can I still provision Developer, Basic, Standard, or Premium tier services? 
 
 A: Yes, there are no changes to the classic Developer, Basic, Standard, or Premium tiers. 
 
@@ -135,10 +135,10 @@ A: No, such a deployment is only supported in the Premium and Premium v2 tiers.
 
 ### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
 
-A: They're not related. stv2 is a compute platform version of the Developer, Basic, Standard, and Premium tier service instances. stv2 is a successor to the stv1 compute platform that retired in 2024.
+A: There's no relationship. The stv2 compute platform is a compute platform version of the Developer, Basic, Standard, and Premium tiers only. It's the successor to the stv1 compute platform that retired in 2024.
 
 ## Related content
 
 * Compare the API Management [tiers](api-management-features.md).
-* Learn more about the [API Management gateways](api-management-gateways-overview.md)
+* Learn more about the [API Management gateways](api-management-gateways-overview.md).
 * Learn about [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).

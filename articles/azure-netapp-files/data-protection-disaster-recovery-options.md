@@ -28,7 +28,7 @@ The foundation of data protection solutions including volume restores and clones
 - Restore a snapshot to new volume (clone) in seconds to test or develop with current data  
 - Application-consistent snapshots with [AzAcSnap integration](azacsnap-introduction.md) and third party backup tools 
 
-To learn more, see [How Azure NetApp Files Snapshots work](snapshots-introduction.md) and [Ways to restore data from snapshots](snapshots-introduction.md#ways-to-restore-data-from-snapshots). To create a Snapshot policy, see [Manage Snapshot policies in Azure NetApp Files](snapshots-manage-policy.md). 
+To learn more, see [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md) and [Ways to restore data from snapshots](snapshots-introduction.md#ways-to-restore-data-from-snapshots). To create a Snapshot policy, see [Manage Snapshot policies in Azure NetApp Files](snapshots-manage-policy.md). 
 
 ## Backups
 
@@ -37,7 +37,7 @@ Azure NetApp Files supports a fully managed backup solution for long-term recove
 ### Benefits 
 
 - Increased productivity, reliably integrated service that is easy to manage and can be set once 
-- Application-consistent backups with [AzAcSnap integration](azacsnap-introduction.md), [SnapCenter snapshot and backup orchestration](https://www.netapp.com/snapcenter/), or third-party tools
+- Application-consistent backups with [AzAcSnap integration](azacsnap-introduction.md), or third-party tools (i.e. NetApp [SnapCenter](https://www.netapp.com/snapcenter/), [Commvault](https://documentation.commvault.com/2023e/software/azure_netapp_files.html)). 
 - Retain daily, weekly, monthly backups for extended periods of time on cost-efficient cloud storage without media management 
 
 To learn more, see [How snapshots can be vaulted for long-term retention and cost savings](snapshots-introduction.md#how-snapshots-can-be-vaulted-for-long-term-retention-and-cost-savings). To get started with backups, see [Configure policy-based backups for Azure NetApp Files](backup-configure-policy-based.md).  
@@ -93,7 +93,7 @@ Fast data recovery (whole volume) | Revert volume from snapshot | Revert volume 
 
 ## Next steps
 
-* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+* [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md)
 * [Understand Azure NetApp Files backup](backup-introduction.md)
 * [Understand Azure NetApp Files replication](replication.md)
 * [Reliability in Azure NetApp Files](/azure/reliability/reliability-netapp-files)

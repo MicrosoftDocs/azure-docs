@@ -1,7 +1,7 @@
 ---
 title: Relay Hybrid connection as an event handler for Azure Event Grid events
 description: Describes how you can use Azure Relay hybrid connections as event handlers for Azure Event Grid events.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 09/28/2021
 ---
 

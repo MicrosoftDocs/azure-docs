@@ -78,7 +78,7 @@ Azure Stack Edge works with Azure Backup and other third-party data protection s
 | Microsoft Azure Recovery Services (MARS) agent for Azure Backup | Windows        | [About MARS agent](../backup/backup-azure-about-mars.md)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure Integration, Backup & Recovery solution brief](https://www.cohesity.com/solution/cloud/azure) <br>For details, contact Cohesity.                          |
 | Commvault               | Windows, Linux | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br>For details, contact Commvault.                          |
-| Veritas                 | Windows, Linux | [https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370](https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-Edge-with-NetBackup/ba-p/883370) <br> For details, contact Veritas.                    |
+| Veritas                 | Windows, Linux | [Protecting Microsoft Azure Stack VMs using NetBackup](https://www.veritas.com/support/en_US/doc/132560919-166025146-0/v132561184-166025146) <br> For details, contact Veritas.                    |
 | Veeam                   | Windows, Linux | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 

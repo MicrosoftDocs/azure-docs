@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 03/17/2025
+ms.date: 03/17/2026
 ms.author: abell
 # Customer intent: As a cloud administrator, I want to view DDoS protection alerts in the security management portal so that I can investigate and respond effectively to potential DDoS attacks on our public IP addresses.
 ---

@@ -6,7 +6,7 @@ author: kevinguo-ed
 ms.author: kevinguo
 ms.date: 07/27/2023
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: reference
 ---
 # Unsupported server APIs of Socket.IO
 

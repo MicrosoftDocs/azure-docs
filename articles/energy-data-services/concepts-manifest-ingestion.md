@@ -4,7 +4,7 @@ description: This article describes manifest ingestion concepts
 author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/18/2022
 ms.custom: template-concept
 ---

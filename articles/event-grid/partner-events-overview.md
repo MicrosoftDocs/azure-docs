@@ -2,7 +2,7 @@
 title: Partner Events Overview for Customers - Azure Event Grid
 description: Learn how Azure Event Grid's Partner Events enables seamless event-driven solutions across platforms, connecting Azure services with SaaS or ERP systems.
 #customer intent: As a customer using Azure services, I want to subscribe to events from a partner system so that I can route them to my Azure event handlers.  
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/29/2025
 ms.custom:
   - ai-gen-docs-bap

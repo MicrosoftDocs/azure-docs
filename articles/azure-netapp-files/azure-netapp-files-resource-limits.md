@@ -24,7 +24,7 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
 |  [Regional capacity quota per subscription](regional-capacity-quota.md)   |  25 TiB  |  Yes  |
-|  Number of NetApp accounts per Azure region per subscription  |  10    |  Yes   |
+|  Number of NetApp accounts per Azure region per subscription  |  100    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per subscription   |    500     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
@@ -43,7 +43,7 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](directory-sizes-concept.md#directory-limit).  |    No    |   
-|  Maximum number of `maxfiles` per volume | See [`maxfiles`](maxfiles-concept.md)  | Yes |    
+|  Maximum number of `maxfiles` per volume | See [`maxfiles`](maxfiles-concept.md)  | Yes**** |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Maximum number of quota rules per volume     |   1,000  |    No    | 
 |  Minimum assigned throughput for a manual Quality of Service (QoS) volume     |    1 MiB/s   |    No    |    
@@ -63,6 +63,13 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 \** Extended sizes for [large volumes](large-volumes-requirements-considerations.md) are available on request depending on regional dedicated capacity availability. To explore availability, contact your account team. 
 
 \*** This feature is available [when cool access is enabled and by request](large-volumes-requirements-considerations.md#requirements-and-considerations-for-large-volumes-up-to-72-pib-preview). When enabled, the minimum size of the volume is 2,400 GiB.
+
+\**** Support request to adjust maxfiles limits is appropriate only when the volume is already provisioned at a size that supports the requested file count. While Azure NetApp Files support can adjust maxfiles limits within supported backend thresholds, these adjustments cannot override the fundamental relationship between volume size and inode capacity. If a workload requires a higher maxfiles limit, then the volume must be provisioned at a size that natively supports that file count. Support requests cannot be used to keep a small volume size while enabling a maxfiles limit that is only supported by a much larger volume. Support requests should not be opened in the following situations as support engineers cannot make backend changes to satisfy the request:
+
+* To avoid increasing volume size
+* To request maxfiles limits that exceed what the current volume size supports
+* To request backend exceptions for inode limits
+
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 

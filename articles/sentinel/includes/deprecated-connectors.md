@@ -2,9 +2,9 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 03/02/2026
+ms.date: 03/30/2026
 
-# This file is auto-generated . Do not edit manually. Changes will be overwritten.
+# This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
 
 <a name="deprecated-github-enterprise-audit-log"></a><details><summary>**[Deprecated] GitHub Enterprise Audit Log**</summary>
@@ -52,6 +52,31 @@ This data connector ingests Infoblox SOC Insight CDC logs into your Log Analytic
 |[`CommonSecurityLog`](/azure/azure-monitor/reference/tables/CommonSecurityLog)|Yes|Yes|
 
 **Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)<br><br>
+</details> 
+
+ ---
+   
+<a name="deprecated-ionix-security-logs-push"></a><details><summary>**[Deprecated] IONIX Security Logs (Push)**</summary>
+
+**Supported by:** [IONIX](https://ionix.io/)
+
+⚠️ **This connector is deprecated and will be removed in June 2026.** Please use the new 'IONIX Security Logs (via Codeless Connector Framework)' connector instead, which provides automatic daily polling without requiring manual configuration in the IONIX portal.
+
+---
+
+The IONIX Security Logs data connector ingests logs from the IONIX system directly into Sentinel. The connector allows users to visualize their data, create alerts and incidents and improve security investigations.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|`CyberpionActionItems_CL`|No|No|
+
+**Data collection rule support:** Not currently supported
+
+**Prerequisites:**
+
+- **IONIX Subscription**: A subscription and account is required for IONIX logs. [One can be acquired here.](https://azuremarketplace.microsoft.com/en/marketplace/apps/cyberpion1597832716616.cyberpion)<br><br>
 </details> 
 
  ---

@@ -7,6 +7,8 @@ items:
     href: overview.md
   - name: Resources and developer tools
     href: tools.md
+  - name: FAQ
+    href: faq.yml
 - name: Quickstart
   expanded: true
   items:

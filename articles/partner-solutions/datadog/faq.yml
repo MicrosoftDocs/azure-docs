@@ -1,0 +1,104 @@
+### YamlMime:FAQ
+metadata:
+  title: Datadog on Azure frequently asked questions
+  description: Answers to common questions about using Datadog on Azure, including features, billing, and troubleshooting.
+  ms.service: partner-services
+  ms.topic: faq
+  ai-usage: ai-generated
+  ms.date: 12/17/2025
+
+title: Datadog on Azure FAQ
+summary: |
+  This article answers common questions about using Datadog on Azure.
+
+sections:
+  - name: General
+    questions:
+      - question: What is Datadog on Azure?
+        answer: |
+          Datadog is a monitoring and analytics platform for large-scale applications integrated with Azure. It encompasses infrastructure monitoring, application performance monitoring, log management, and user-experience monitoring. Datadog aggregates data across your entire stack with 400+ integrations for troubleshooting, alerting, and graphing. The Azure integration enables you to manage Datadog directly from the Azure portal as an integrated service. For more information, see [Azure Native Integration for Datadog](https://docs.datadoghq.com/integrations/guide/azure-native-integration/).
+
+      - question: How do I get Datadog on Azure?
+        answer: |
+          You can find Datadog in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview). You need to subscribe to Datadog before creating a resource.
+
+      - question: Can I link to an existing Datadog organization or do I need to create a new one?
+        answer: |
+          You can either [create a new Datadog organization](create.md) or [link to an existing Datadog organization](link-to-existing-organization.md). When you link to an existing organization, Azure authenticates with your Datadog account. By default, Azure links your current Datadog organization to your Datadog resource.
+
+      - question: What are the prerequisites for creating a Datadog resource?
+        answer: |
+          You need Owner access on the Azure subscription to set up the Azure Datadog integration. You must also configure your environment and subscribe to Datadog. For single sign-on functionality, you need to set up an enterprise application, which requires one of these roles: Cloud Application Administrator, Application Administrator, or owner of the service principal.
+
+      - question: How does billing work for Datadog on Azure?
+        answer: |
+          Datadog costs are reported through your Azure monthly bill, providing unified billing. You can choose between available plans when you create your Datadog resource.
+
+  - name: Features and capabilities
+    questions:
+      - question: What monitoring capabilities does Datadog provide?
+        answer: |
+          Datadog provides:
+          - **Infrastructure monitoring** for Azure resources
+          - **Application performance monitoring** for applications
+          - **Log management** with automated log forwarding
+          - **User-experience monitoring** across your stack
+          - **Metrics collection** that automatically sends all Azure resource metrics to Datadog
+          - **Datadog agent deployment** as extensions on virtual machines and Azure App Services
+
+      - question: How do I configure metrics and logs?
+        answer: |
+          You can configure resources to send metrics and logs to Datadog during resource creation or by selecting **Datadog organization configurations** > **Metrics and Logs** from the service menu. Configuration options include:
+          - Silence monitoring for expected Azure virtual machine shutdowns
+          - Collect custom metrics from App Insights
+          - Send subscription activity logs
+          - Send Azure resource logs for all defined sources
+
+      - question: Can I monitor multiple Azure subscriptions with one Datadog resource?
+        answer: |
+          Yes. You can add or remove subscriptions by selecting **Datadog organization configurations** > **Monitored Subscriptions**. To perform these actions, you must have both `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions. When you add subscriptions, the system updates the Monitoring Reader role assignment on the System Managed Identity linked to the resource.
+
+      - question: Does Datadog support single sign-on?
+        answer: |
+          Yes. If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. You configure this feature during resource creation or by selecting **Settings** > **Single sign-on** from the service menu.
+
+      - question: How do I install Datadog agents on Azure resources?
+        answer: |
+          You can install Datadog agents on virtual machines, App Service extensions, Azure Kubernetes Services, and Azure Arc Machines. Select the appropriate option under **Datadog organization configurations** from the service menu. Make sure a default API key is selected, or the installation fails.
+
+  - name: Troubleshooting
+    questions:
+      - question: Why am I unable to create a Datadog resource?
+        answer: |
+          You must have Owner access on the Azure subscription to set up the Azure Datadog integration. Ensure you have the appropriate access before starting the setup.
+
+      - question: Why are my logs not being emitted to Datadog?
+        answer: |
+          Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. To verify:
+          - Check that your resource type supports sending logs
+          - Navigate to Azure diagnostic settings for the specific resource
+          - Confirm there's a Datadog diagnostic setting
+          - Ensure you haven't reached the limit of five diagnostic settings per resource
+
+      - question: Why are my metrics not being emitted to Datadog?
+        answer: |
+          The Datadog resource needs the Monitoring Reader role in your Azure subscription to collect and send metrics. Check the subscription's Access Control (IAM) settings to confirm the Datadog resource has this role assignment.
+
+      - question: Why did my Datadog agent installation fail?
+        answer: |
+          The API key selected as Default Key is used to configure the Datadog agent. If no default key is selected, the installation fails. Select a default key in the API Keys screen, then uninstall and reinstall the agent.
+
+      - question: Why are diagnostic settings still active after disabling the Datadog resource?
+        answer: |
+          If there's a lock on the resources or resource group, it prevents cleanup of diagnostic settings. Remove the lock to stop log forwarding. If the lock is removed after the Datadog resource is deleted, you must clean up the diagnostic settings manually.
+
+      - question: How do I get support for Datadog?
+        answer: |
+          Contact [Datadog support](https://www.datadoghq.com/support) for customer support. You can also request support in the Azure portal by selecting **Support + Troubleshooting** > **New support request** from the service menu.
+
+additionalContent: |
+  ## Related content
+
+  - [Manage Datadog resources](manage.md)
+  - [QuickStart: Get started with Datadog](create.md)
+  - [Troubleshooting for Datadog](troubleshoot.md)

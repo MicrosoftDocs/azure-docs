@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Create an Azure Firewall with Availability Zones - Terraform'
-description: In this quickstart, you deploy Azure Firewall using Terraform. The virtual network has one VNet with three subnets. Two Windows Server virtual machines, a jump box, and a server are deployed.
-services: firewall
+description: In this quickstart, you deploy Azure Firewall using Terraform. The virtual network has one virtual network with three subnets. Two Windows Server virtual machines, a jump box, and a server are deployed.
 author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
+ms.date: 03/28/2026
 ms.custom: devx-track-terraform
-ms.date: 10/15/2023
-ms.author: duau
-content_well_notification: 
+content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 # Customer intent: "As a cloud engineer, I want to deploy Azure Firewall using Terraform, so that I can create a secure network environment with high availability across multiple zones."
@@ -16,11 +15,11 @@ ai-usage: ai-assisted
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - Terraform
 
-In this quickstart, you use Terraform to deploy an Azure Firewall in three Availability Zones.
+In this quickstart, use Terraform to deploy an Azure Firewall in three Availability Zones.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
-The Terraform configuration creates a test network environment with a firewall. The network has one virtual network (VNet) with three subnets: *AzureFirewallSubnet*, *subnet-server*, and *subnet-jump*. The *subnet-server* and *subnet-jump* subnet each have a single two-core Windows Server virtual machine.
+The Terraform configuration creates a test network environment with a firewall. The network has one virtual network with three subnets: *AzureFirewallSubnet*, *subnet-server*, and *subnet-jump*. The *subnet-server* and *subnet-jump* subnets each have a single two-core Windows Server virtual machine.
 
 The firewall is in the *AzureFirewallSubnet* subnet and has an application rule collection with a single rule that allows access to `www.microsoft.com`.
 
@@ -31,23 +30,23 @@ For more information about Azure Firewall, see [Deploy and configure Azure Firew
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create a random value (to be used in the resource group name) using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
-> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
-> * Create an Azure Virtual Network using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
-> * Create three Azure subnets using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
-> * Create an Azure public IP using [azurerm_public_ip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
-> * Create an Azure Firewall Policy using [azurerm_firewall_policy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy)
-> * Create an Azure Firewall Policy Rule Collection Group using [azurerm_firewall_policy_rule_collection_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy_rule_collection_group)
-> * Create an Azure Firewall using [azurerm_firewall](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)
-> * Create a network interface using [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
-> * Create a network security group (to contain a list of network security rules) using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
-> * Create an association between the network interface and the network security group using - [azurerm_network_interface_security_group_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association)
-> * Create a route table using [azurerm_route_table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_table)
-> * Create an association between the route table and the subnet using - [azurerm_subnet_route_table_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_route_table_association)
-> * Create a random value (to be used as the storage name) using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
-> * Create a storage account using [azurerm_storage_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
-> * Create a random password for the Windows VM using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password)
-> * Create an Azure Windows Virtual Machine using [azurerm_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine)
+> * Create a random value (to use in the resource group name) by using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
+> * Create an Azure resource group by using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
+> * Create an Azure Virtual Network by using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
+> * Create three Azure subnets by using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+> * Create an Azure public IP by using [azurerm_public_ip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
+> * Create an Azure Firewall Policy by using [azurerm_firewall_policy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy)
+> * Create an Azure Firewall Policy Rule Collection Group by using [azurerm_firewall_policy_rule_collection_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy_rule_collection_group)
+> * Create an Azure Firewall by using [azurerm_firewall](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)
+> * Create a network interface by using [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
+> * Create a network security group (to contain a list of network security rules) by using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
+> * Create an association between the network interface and the network security group by using [azurerm_network_interface_security_group_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association)
+> * Create a route table by using [azurerm_route_table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_table)
+> * Create an association between the route table and the subnet by using [azurerm_subnet_route_table_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_route_table_association)
+> * Create a random value (to use as the storage name) by using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
+> * Create a storage account by using [azurerm_storage_account](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
+> * Create a random password for the Windows VM by using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password)
+> * Create an Azure Windows Virtual Machine by using [azurerm_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine)
 
 ## Prerequisites
 
@@ -55,12 +54,14 @@ In this article, you learn how to:
 
 ## Implement the Terraform code
 
+
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-azfw-with-avzones). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-azfw-with-avzones/TestRecord.md).
 >
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
-1. Create a directory in which to test the sample Terraform code and make it the current directory.
+
+1. Create a directory to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
 
@@ -127,4 +128,4 @@ In this article, you learn how to:
 Next, you can monitor the Azure Firewall logs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+> [Tutorial: Monitor Azure Firewall logs](./monitor-firewall.md)

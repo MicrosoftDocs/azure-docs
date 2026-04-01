@@ -4,7 +4,7 @@ description: Manage log data in Microsoft Sentinel and with Microsoft Defender X
 ms.reviewer: dzatakovi
 ms.author: guywild
 author: guywi-ms
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2026
 # Customer intent: As a Microsoft Defender Portal administrator or subscription owner, I want to configure log table tiers and data retention settings to optimize security operations needs and cost efficiency.
 ---
@@ -44,7 +44,7 @@ You can retain data in Microsoft Sentinel in one of two tiers:
 
 * **Data lake tier**: In this low-cost "cold" tier, Microsoft Sentinel retains your data in the lake only. Data in the data lake tier isn't available for real-time analytics features and threat hunting. However, you can access data in the lake whenever you need it through [KQL jobs](datalake/kql-jobs.md), analyze trends over time by running scheduled KQL or Spark jobs, and aggregate insights from incoming data at a regular cadence by using summary rules. 
 
-* **XDR data**: By default, Microsoft Defender XDR threat hunting data is always available in the analytics tier for 30 days. You can extend retention of this data in the analytics tier up to 90 days, which would incur ingestion costs. Extending beyond 90 days in the analytics, will also incur storage costs. You can also ingest exclusively into the data lake tier but the data is always available in analytics tier for 30 days. Ingesting XDR data directly into the data lake tier incurs ingestion, storage, and processing costs.
+* **XDR data**: By default, Microsoft Defender XDR threat hunting data is always available in the analytics tier for 30 days. You can extend retention of this data in the analytics tier up to 90 days, which would incur ingestion costs, but storage is free. Extending beyond 90 days in the analytics, will also incur storage costs. You can also ingest exclusively into the data lake tier but the data is always available in analytics tier for 30 days. Ingesting XDR data directly into the data lake tier is more cost effective, but involves ingestion, storage, and processing costs. In this option, customers still get 30 days worth of data in Analytics tier at no additional cost.
 
 For more information about the differences between these two retention types, see [Compare the analytics and data lake tiers](#compare-the-analytics-and-data-lake-tiers).
 

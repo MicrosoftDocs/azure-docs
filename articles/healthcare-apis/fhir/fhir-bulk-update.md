@@ -4,7 +4,7 @@ description: Learn how to bulk update resources from the FHIR service in Azure H
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2025
 ms.author: kesheth
 ---

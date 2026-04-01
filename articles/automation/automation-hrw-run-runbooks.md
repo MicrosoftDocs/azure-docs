@@ -16,10 +16,7 @@ author: RochakSingh-blr
 
 > [!IMPORTANT]
 > - Starting 1st April 2025, all jobs running on agent-based Hybrid Worker will be stopped. 
-> - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
-
-> [!NOTE]
-> Azure Automation Run As Account has retired on September 30, 2023 and is replaced with Managed Identities. Follow the guidelines on [how to start migrating your runbooks to use managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md#sample-scripts).
+> - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md)
 
 
 Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they are used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
@@ -96,7 +93,7 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 
 > [!NOTE]
 >- PowerShell 7.4 and Python 3.10 runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.23 or above.
->- PowerShell 5.1, PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
+>- PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
 >- PowerShell 7.2 runbook is supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
 
 #### Extension-based Hybrid Workers
@@ -224,7 +221,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
     # [VM's user-assigned managed identity](#tab/ua-mi)
 
     1. [Configure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) a User Managed Identity for the VM.
-    1. Grant this identity the [required permissions](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) within the Subscription to perform its tasks.
+    1. Grant this identity the [required permissions](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal) within the Subscription to perform its tasks.
     1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet with the `Identity ` and `AccountID` parameters to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
 
     ```powershell

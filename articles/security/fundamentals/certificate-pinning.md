@@ -4,7 +4,7 @@ titleSuffix: Certificate pinning and Azure services
 description: Information about the history, usage, and risks of certificate pinning.
 ms.service: security
 ms.subservice: security-fundamentals
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/06/2023
 ms.author: sarahlipsey
 author: shlipsey3

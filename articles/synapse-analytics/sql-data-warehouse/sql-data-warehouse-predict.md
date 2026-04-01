@@ -6,7 +6,7 @@ ms.author: midesa
 ms.date: 07/21/2020
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: azure-synapse
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Launch your First Java Microservice Application with Managed Java Components in Azure Container Apps
+title: Launch a Java Microservice Application with Managed Java Components
+titleSuffix: Azure Container Apps
 description: Learn how to deploy a Java microservice project in Azure Container Apps with managed Java components.
 services: container-apps
 author: KarlErickson
@@ -7,18 +8,18 @@ ms.author: karler
 ms.reviewer: yiliu6
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 11/25/2024
+ms.date: 03/26/2026
 ms.custom:
   - devx-track-java
   - sfi-image-nochange
 ---
 
-# Quickstart: Launch your first Java microservice application with managed Java components in Azure Container Apps
+# Quickstart: Launch a Java microservice application with managed Java components
 
-In this quickstart, you learn how to deploy an application in Azure Container Apps that uses Java components to handle configuration management, service discovery, and health and metrics. The sample application used in this example is the Java PetClinic, which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps:
+This article explains how to deploy an application in Azure Container Apps that uses Java components to handle configuration management, service discovery, and health and metrics. The sample application shown in this example is the Java PetClinic, which uses the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps:
 
 :::image type="complex" source="media/java-microservice-get-started/azure-container-apps-pet-clinic-architecture.png" alt-text="Diagram of the relationship between the Java components and the microservice applications." lightbox="media/java-microservice-get-started/azure-container-apps-pet-clinic-architecture.png":::
-   Diagram of an Azure Container Apps environment illustrating the architecture of four microservices-based applications deployed within an Azure resource group. A resource group contains the Azure Container Apps environment. The environment includes three Azure Container Apps managed Java components: a config server, a service registry, and an admin server. The config server fetches configuration data stored as versioned YAML files in a Git repository external to the Azure Container Apps environment. The service registry handles service discovery and registration. The admin server provides a live view of the system. An API gateway routes requests to three microservices: vets service, customers service, and visits service. Each service is linked to its own database for data persistence. The environment supports external interactions through a browser and a mobile app and integrates with monitoring tools via Azure Log Analytics Workspaces for tracking system performance and health.
+   Diagram of an Azure Container Apps environment showing the architecture of four microservices-based applications deployed within an Azure resource group. A resource group contains the Azure Container Apps environment. The environment includes three Azure Container Apps managed Java components: a config server, a service registry, and an admin server. The config server fetches configuration data stored as versioned YAML files in a Git repository external to the Azure Container Apps environment. The service registry handles service discovery and registration. The admin server provides a live view of the system. An API gateway routes requests to three microservices: vets service, customers service, and visits service. Each service is linked to its own database for data persistence. The environment supports external interactions through a browser and a mobile app and integrates with monitoring tools via Azure Log Analytics Workspaces for tracking system performance and health.
 :::image-end:::
 
 The PetClinic application includes the following features:
@@ -44,9 +45,9 @@ By the end of this article, you deploy one web application and three back-end ap
 
 ## Prerequisites
 
-- Azure account: If you don't have an Azure account, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). You need the **Contributor** or **Owner** permission on the Azure subscription to use this quickstart. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
-- Azure CLI: Install the [Azure CLI](/cli/azure/install-azure-cli).  
-- Azure Container Apps CLI extension. Use version 0.3.47 or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version.  
+- An Azure account. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). For this quickstart, you need the **Contributor** or **Owner** role on the Azure subscription. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
+- Install the [Azure CLI](/cli/azure/install-azure-cli).  
+- Azure Container Apps CLI extension, version 0.3.47 or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version.  
 
 ## Setup
 
@@ -55,12 +56,12 @@ To create environment variables, a resource group, and an Azure Container Apps e
 1. The environment variables contain your custom values, so replace the placeholder values surrounded by `<>` with your own values before you run the following commands:
 
     ```bash
-    export RESOURCE_GROUP=<RESOURCE_GROUP>
-    export LOCATION=<LOCATION>
-    export CONTAINER_APP_ENVIRONMENT=<CONTAINER_APPS_ENVIRONMENT>
+    export RESOURCE_GROUP=<your-resource-group>
+    export LOCATION=<region>
+    export CONTAINER_APP_ENVIRONMENT=<container-apps-environment>
     ```
 
-1. Now you create more environment variables that contain the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Azure Container Apps that you use to deploy the microservices. Create these environment variables by using the following commands:
+1. Create more environment variables that contain the settings for your microservices app. These values are used to define the names and configurations of the Java components and the Azure Container Apps that you use to deploy the microservices. Create these environment variables by using the following commands:
 
     ```bash
     export CONFIG_SERVER_COMPONENT=configserver
@@ -104,9 +105,9 @@ To create environment variables, a resource group, and an Azure Container Apps e
 
 Now you create the following Java components that support your app:
 
-* Config server. Used to manage configuration settings for your microservices apps.
-* Eureka server. Used to manage service registry and discovery.
-* Admin server. Used to monitor and manage the health and metrics of your microservices apps.
+* Config server: Manages configuration settings for your microservices apps.
+* Eureka server: Manages service registry and discovery.
+* Admin server: Monitors and manages the health and metrics of your microservices apps.
 
 To create these server components, use the following steps:
 
@@ -146,7 +147,7 @@ To create the three Java components, use the following steps:
 
 1. Open your Container Apps environment in the Azure portal.
 
-1. Go to **Services**, select **Service**, and choose your service.
+1. Under **Services** in the sidebar menu, select **Services**.
 
 1. To create the config server component, use these steps:
 
@@ -154,9 +155,9 @@ To create the three Java components, use the following steps:
 
     1. Use the following table to add the values in the portal window:
 
-       | Setting             | Value                                | Remarks                                                                          |
-       |---------------------|--------------------------------------|----------------------------------------------------------------------------------|
-       | Java component type | Select **Config Server for Spring**. |                                                                                  |
+       | Setting             | Value                                | Remarks                    |
+       |---------------------|--------------------------------------|----------------------------|
+       | Java component type | Select **Config Server for Spring**. |                            |
        | Java component name | Enter **configserver**.              | This value matches what you defined for the `$CONFIG_SERVER_COMPONENT` variable. |
 
     1. In the **Git repositories** section, select **Add**.
@@ -175,9 +176,9 @@ To create the three Java components, use the following steps:
 
     1. Use the following table to add the values in the portal window:
 
-       | Setting             | Value                                | Remarks                                                                          |
-       |---------------------|--------------------------------------|----------------------------------------------------------------------------------|
-       | Java component type | Select **Eureka Server for Spring**. |                                                                                  |
+       | Setting             | Value                                | Remarks                 |
+       |---------------------|--------------------------------------|-------------------------|
+       | Java component type | Select **Eureka Server for Spring**. |                         |
        | Java component name | Enter **eureka**.                    | This value matches what you defined for the `$EUREKA_SERVER_COMPONENT` variable. |
 
     1. Select **Next**.
@@ -290,7 +291,7 @@ Use the `containerapp update` command to create bindings for each app by using t
         --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT $ADMIN_SERVER_COMPONENT
     ```
 
-1. Add bindings to the API gateway. Use the following command to return the URL of the front-end application, and then open this location in your browser:
+1. Add bindings to the API gateway. Use the following command to return the URL of the front-end application:
 
     ```azurecli
     az containerapp update \
@@ -306,13 +307,15 @@ Use the following steps to create bindings for each app:
 
 1. Open your Container Apps environment in the Azure portal.
 
-1. Go to **Services** and select **Service**.
+1. Under **Services** in the sidebar menu, select **Service**.
 
 1. For each of the three components, select the component by name.
 
 1. In the **Bindings** section, add the four apps created in this quickstart.
 
-   :::image type="content" source="media/java-microservice-get-started/azure-container-apps-bindings-section.png" alt-text="Screenshot of the Bindings section. Four apps are listed: customers-service, vets-service, visits-service, and a p i gateway.":::
+   :::image type="content" source="media/java-microservice-get-started/azure-container-apps-bindings-section.png" alt-text="Screenshot of the Bindings section. Four apps are listed: customers-service, vets-service, visits-service, and API gateway.":::
+
+1. To find the URL of the front-end application, search for and select **Container Apps** in the portal, then select **api-gateway**. In the **Overview** section, copy the application URL.
 
 ---
 
@@ -320,7 +323,7 @@ Use the following steps to create bindings for each app:
 
 Use the following steps to verify the app status:
 
-1. Using the URL returned from the API gateway's `az containerapp update` command, view the front-end application in your browser. The application should resemble the following screenshot:
+1. Using the URL that you found in the previous section, view the front-end application in your browser. The application should resemble the following screenshot:
 
    :::image type="content" source="media/java-microservice-get-started/azure-container-apps-petclinic-home-page.png" alt-text="Screenshot of the home page of the pet clinic application." lightbox="media/java-microservice-get-started/azure-container-apps-petclinic-home-page.png":::
 

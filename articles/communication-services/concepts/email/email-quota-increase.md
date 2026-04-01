@@ -7,7 +7,7 @@ manager: daysha-carter
 services: azure-communication-services
 ms.author: raviverm
 ms.date: 03/10/2026
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ---
 

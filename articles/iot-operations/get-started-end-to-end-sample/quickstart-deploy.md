@@ -218,10 +218,10 @@ Run the following CLI commands in your Codespaces terminal.
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
-1. Deploy Azure IoT Operations.
+1. Deploy Azure IoT Operations. This command includes the optional connector for OPC UA that you use in the following quickstarts.
 
    ```azurecli
-   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id) --ns-resource-id $(az iot ops ns show --name myqsnamespace --resource-group $RESOURCE_GROUP -o tsv --query id) --broker-frontend-replicas 1 --broker-frontend-workers 1  --broker-backend-part 1  --broker-backend-workers 1 --broker-backend-rf 2 --broker-mem-profile Low
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id) --ns-resource-id $(az iot ops ns show --name myqsnamespace --resource-group $RESOURCE_GROUP -o tsv --query id) --broker-frontend-replicas 1 --broker-frontend-workers 1  --broker-backend-part 1  --broker-backend-workers 1 --broker-backend-rf 2 --broker-mem-profile Low  --feature opcua.mode=Stable
    ```
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.

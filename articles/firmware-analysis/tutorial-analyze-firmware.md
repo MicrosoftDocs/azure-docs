@@ -9,7 +9,7 @@ ms.service: azure-iot-operations
 #Customer intent: As a device builder, I want to see what vulnerabilities or weaknesses might exist in my firmware image.
 ---
 
-# Tutorial: Analyze an IoT/OT firmware image with firmware analysis 
+# Tutorial: Analyze a firmware image with firmware analysis
 
 This tutorial describes how to use the **firmware analysis** page to upload a firmware image for security analysis and view analysis results.
 

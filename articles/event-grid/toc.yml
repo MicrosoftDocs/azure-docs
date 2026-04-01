@@ -85,6 +85,8 @@ items:
                     href: mqtt-client-microsoft-entra-token-and-rbac.md
                   - name: OAuth 2.0 JSON Web Token authentication and authorization for clients
                     href: mqtt-client-custom-jwt.md
+                  - name: Custom webhook authentication
+                    href: mqtt-client-webhook-authentication.md
                   - name: Transport Layer Security connection with MQTT broker
                     href: mqtt-transport-layer-security-flow.md
               - name: Reliability
@@ -213,6 +215,8 @@ items:
                 href: namespace-event-filtering.md
               - name: Custom domains for namespaces
                 href: custom-domains-namespaces.md
+              - name: Reliability
+                href: /azure/reliability/reliability-event-grid?toc=/azure/event-grid/toc.json
               - name: Security
                 items:
                   - name: Security baseline
@@ -517,7 +521,7 @@ items:
                 href: event-schema-compatibility.md
               - name: Custom delivery properties
                 href: delivery-properties.md
-          - name: Availability zones and disaster recovery
+          - name: Reliability
             href: /azure/reliability/reliability-event-grid?toc=/azure/event-grid/toc.json
           - name: Security
             items:

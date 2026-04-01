@@ -142,61 +142,61 @@ The arrows in the following table show the performative flow direction.
 
 | Client | Service Bus |
 | --- | --- |
-| `--> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link ID}<br/>)` |Client attaches to entity as receiver |
-| Service Bus replies attaching its end of the link |`<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link ID}<br/>)` |
+| <pre>--> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link ID}<br/>)</pre> |Client attaches to entity as receiver |
+| Service Bus replies attaching its end of the link |<pre><-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link ID}<br/>)</pre> |
 
 #### Create message sender
 
 | Client | Service Bus |
 | --- | --- |
-| `--> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>)` |No action |
-| No action |`<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>)` |
+| <pre>--> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>)</pre> |No action |
+| No action |<pre><-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>)</pre> |
 
 #### Create message sender (error)
 
 | Client | Service Bus |
 | --- | --- |
-| `--> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>)` |No action |
-| No action |`<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>)` |
+| <pre>--> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>)</pre> |No action |
+| No action |<pre><-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>)</pre> |
 
 #### Close message receiver/sender
 
 | Client | Service Bus |
 | --- | --- |
-| `--> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)` |No action |
-| No action |`<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)` |
+| <pre>--> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)</pre> |No action |
+| No action |<pre><-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)</pre> |
 
 #### Send (success)
 
 | Client | Service Bus |
 | --- | --- |
-| `--> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |No action |
-| No action |`<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>)` |
+| <pre>--> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)</pre> |No action |
+| No action |<pre><-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>)</pre> |
 
 #### Send (error)
 
 | Client | Service Bus |
 | --- | --- |
-| `--> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |No action |
-| No action |`<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>)` |
+| <pre>--> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)</pre> |No action |
+| No action |<pre><-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>)</pre> |
 
 #### Receive
 
 | Client | Service Bus |
 | --- | --- |
-| `--> flow(<br/>link-credit=1<br/>)` |No action |
-| No action |`< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |
-| `--> disposition(<br/>role=**receiver**,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>)` |No action |
+| <pre>--> flow(<br/>link-credit=1<br/>)</pre> |No action |
+| No action |<pre>< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)</pre> |
+| <pre>--> disposition(<br/>role=**receiver**,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>)</pre> |No action |
 
 #### Multi-message receive
 
 | Client | Service Bus |
 | --- | --- |
-| `--> flow(<br/>link-credit=3<br/>)` |No action |
-| No action |`< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |
-| No action |`< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |
-| No action |`< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)` |
-| `--> disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID+2},<br/>settled=**true**,<br/>state=**accepted**<br/>)` |No action |
+| <pre>--> flow(<br/>link-credit=3<br/>)</pre> |No action |
+| No action |<pre>< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)</pre> |
+| No action |<pre>< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)</pre> |
+| No action |<pre>< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)</pre> |
+| <pre>--> disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID+2},<br/>settled=**true**,<br/>state=**accepted**<br/>)</pre> |No action |
 
 ### Messages
 
@@ -264,10 +264,10 @@ To begin transactional work, the controller must obtain a `txn-id` from the coor
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| `attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>)` | ------> |  |
-|  | <------ | `attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>)` |
-| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}`| ------> |  |
-|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction ID}<br/>))`|
+| <pre>attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>)</pre> | ------> |  |
+|  | <------ | <pre>attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>)</pre> |
+| <pre>transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}</pre>| ------> |  |
+|  | <------ | <pre>disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction ID}<br/>))</pre>|
 
 #### Discharging a transaction
 
@@ -277,11 +277,11 @@ The controller concludes the transactional work by sending a `discharge` message
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}`| ------> |  |
-|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))`|
+| <pre>transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}</pre>| ------> |  |
+|  | <------ | <pre>disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))</pre>|
 | | . . . <br/>Transactional work<br/>on other links<br/> . . . |
-| `transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}`| ------> |  |
-| | <------ | `disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)`|
+| <pre>transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}</pre>| ------> |  |
+| | <------ | <pre>disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)</pre>|
 
 #### Sending a message in a transaction
 
@@ -289,10 +289,10 @@ All transactional work is done with the transactional delivery state `transactio
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}`| ------> |  |
-|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))`|
-| `transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }`| ------> |  |
-| | <------ | `disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))`|
+| <pre>transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}</pre>| ------> |  |
+|  | <------ | <pre>disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))</pre>|
+| <pre>transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }</pre>| ------> |  |
+| | <------ | <pre>disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))</pre>|
 
 #### Disposing a message in a transaction
 
@@ -300,10 +300,10 @@ Message disposition includes operations like `Complete` / `Abandon` / `DeadLette
 
 | Client (Controller) | Direction | Service Bus (Coordinator) |
 | :--- | :---: | :--- |
-| `transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}`| ------> |  |
-|  | <------ | `disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))`|
-| | <------ |`transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }`|  
-| `disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))`| ------> |
+| <pre>transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}</pre>| ------> |  |
+|  | <------ | <pre>disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))</pre>|
+| | <------ |<pre>transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }</pre>|  
+| <pre>disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))</pre>| ------> |
 
 
 ## Advanced Service Bus capabilities
@@ -323,10 +323,10 @@ All those gestures require a request/response interaction between the client and
 
 | Logical Operation | Client | Service Bus |
 | --- | --- | --- |
-| Create Request Response Path |`--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>)` |No action |
-| Create Request Response Path |No action |`\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>)` |
-| Create Request Response Path |`--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>)` | |
-| Create Request Response Path |No action |`\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>)` |
+| Create Request Response Path |<pre>--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>)</pre> |No action |
+| Create Request Response Path |No action |<pre>\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>)</pre> |
+| Create Request Response Path |<pre>--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>)</pre> | |
+| Create Request Response Path |No action |<pre>\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>)</pre> |
 
 Having that pair of links in place, the request/response implementation is straightforward: a request is a message sent to an entity inside the messaging infrastructure that understands this pattern. In that request-message, the *reply-to* field in the *properties* section is set to the *target* identifier for the link onto which to deliver the response. The handling entity processes the request, and then delivers the reply over the link whose *target* identifier matches the indicated *reply-to* identifier.
 
@@ -398,8 +398,8 @@ With this functionality, you create a sender and establish the link to the `via-
 
 | Client | Direction | Service Bus |
 | :--- | :---: | :--- |
-| `attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** )` | ------> | |
-| | <------ | `attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] )` |
+| <pre>attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** )</pre> | ------> | |
+| | <------ | <pre>attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] )</pre> |
 
 ## Related content
 To learn more about AMQP, see [Service Bus AMQP overview](service-bus-amqp-overview.md).

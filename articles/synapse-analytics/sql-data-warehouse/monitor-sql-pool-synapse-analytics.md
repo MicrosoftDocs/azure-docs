@@ -3,7 +3,7 @@ title: Monitor dedicated SQL pool in Azure Synapse Analytics
 description: Start here to learn how to monitor dedicated SQL pool in Azure Synapse Analytics.
 ms.date: 03/25/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: how-to
 author: ajagadish-24
 ms.author: ajagadish
 ms.service: azure-synapse-analytics

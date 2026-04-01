@@ -4,7 +4,7 @@ description: Learn how to handle large messages in workflows with chunking and w
 services: logic-apps
 ms.suite: integration
 ms.topic: how-to
-ms.date: 09/16/2025
+ms.date: 03/15/2026
 #Customer intent: As an integration developer who works with Azure Logic Apps, I need to understand when and how to use chunking to support large messages.
 ---
 
@@ -100,6 +100,13 @@ To reference the data, in the chunking action, use the expression `body('Compose
     "type": "ApiConnection"
 },
 ```
+> [!NOTE]
+>
+> When an action has chunking enabled, the action's outputs contain only the `body` property. Other output properties such as `statusCode` and `headers` are unavailable.
+>
+> If you use tracked properties that reference unavailable properties, for example, `@action()['outputs']['statusCode']` or `@action()['outputs']['headers']`, the action fails with the error message, `TrackedPropertiesEvaluationFailed`. This error happens even when the underlying operation, such as a file download, successfully completes. 
+>
+> To avoid this error, remove any references to unavailable properties from tracked properties in actions that use chunking to process large messages.
 
 <a name="set-up-chunking"></a>
 

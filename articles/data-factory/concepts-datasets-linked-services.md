@@ -6,7 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
 ms.date: 12/16/2024
 ai-usage: ai-assisted

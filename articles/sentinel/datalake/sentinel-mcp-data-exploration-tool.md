@@ -64,7 +64,7 @@ This tool runs a single KQL query against a specified Microsoft Sentinel data la
 This tool lists all Microsoft Sentinel data lake workspace name and ID pairs available to you. Including the workspace name provides you with helpful context to understand which workspace is being used. Run this tool before using any other Microsoft Sentinel tools because those tools need a workspace ID argument to function properly.
 
 
-### Entity analyzer (preview)
+### Entity analyzer
 
 These tools use AI to analyze your organization's data in the Microsoft Sentinel data lake. They provide a verdict and detailed insights on URLs, domains, and user entities. They help eliminate the need for manual data collection and complex integrations typically required for enriching and investigating entities.
 
@@ -96,7 +96,7 @@ While this tool automatically polls for a few minutes until results are ready, i
 
 #### Additional information
 - `analyze_user_entity` supports a maximum time window of seven days to maximize accuracy of the results. 
-- `analyze_user_entity` only works for users with a Microsoft Entra object ID (cloud users). On-premises Active Directory-only users aren't supported for user analysis.
+- `analyze_user_entity` only works for users with a Microsoft Entra object ID (users). On-premises Active Directory-only users aren't supported for user analysis.
 - `analyze_user_entity` requires the following tables to be present in the data lake to ensure accuracy of the analysis:
     - [AlertEvidence](../connect-microsoft-365-defender.md)
     - [SigninLogs](../connect-azure-active-directory.md)

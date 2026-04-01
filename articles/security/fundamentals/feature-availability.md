@@ -150,7 +150,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Microsoft Defender for Foundry Tools](/azure/defender-for-cloud/ai-threat-protection)                                                                                             | GA             | Not Available                  |
 | <li> [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)                                                                            | GA             | Not Available                  |
 | <li> [Microsoft Defender for DNS](/azure/defender-for-cloud/defender-for-dns-introduction)                                                                                            | GA             | GA                             |
-| <li> [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) <sup>[1](#footnote1)</sup>                                                   | GA             | GA                             |
+| <li> [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction)                                                                              | GA             | GA                             |
 | <li> [Microsoft Defender for Azure SQL database servers](/azure/defender-for-cloud/defender-for-sql-introduction)                                                                     | GA             | GA                             |
 | <li> [Microsoft Defender for SQL servers on machines](/azure/defender-for-cloud/defender-for-sql-introduction)                                                                        | GA             | GA                             |
 | <li> [Microsoft Defender for open-source relational databases](/azure/defender-for-cloud/defender-for-databases-introduction)                                                         | GA             | GA                             |
@@ -172,8 +172,6 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Connect AWS account](/azure/defender-for-cloud/quickstart-onboard-aws)                                                                                                          | GA             | Not Available                  |
 | <li> [Connect GCP account](/azure/defender-for-cloud/quickstart-onboard-gcp)                                                                                                          | GA             | Not Available                  |
 |                                                                                                                                                                                      |                |                                |
-
-<sup><a name="footnote1"></a>1</sup> Partially GA: Support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is in public preview and not available on Azure Government. Run-time visibility of vulnerabilities in container images is also a preview feature.
 
 <sup><a name="footnote2"></a>2</sup> Azure DNS Zone isn't supported for malware scanning and sensitive data threat detection.
 

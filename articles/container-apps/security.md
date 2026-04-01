@@ -4,7 +4,7 @@ description: Learn about the security features and best practices for Azure Cont
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 11/04/2025
 ms.author: cshoe
 ---

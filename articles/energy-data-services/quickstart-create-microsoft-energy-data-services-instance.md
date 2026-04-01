@@ -91,7 +91,9 @@ OSDU&reg; is a trademark of The Open Group.
 
    [![Screenshot of the tab for specifying tags in Azure Data Manager for Energy.](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png)](media/quickstart-create-microsoft-energy-data-services-instance/input-tags.png#lightbox)
 
-1. Move to the **Advanced Settings** tab to configure **cross-origin resource sharing** and **reference data values settings**. To learn more about cross-origin resource sharing (CORS), see [Use CORS for resource sharing in Azure Data Manager for Energy](../energy-data-services/how-to-enable-cors.md). To learn more about reference data values, see [Syncing Reference Data Values](../energy-data-services/concepts-reference-data-values.md).
+1. Move to the **Advanced Settings** tab to configure **cross-origin resource sharing**, **upgrade settings**, and, if available to you as a customer in the limited preview for the feature, **reference data values settings**. To learn more about cross-origin resource sharing (CORS), see [Use CORS for resource sharing in Azure Data Manager for Energy](../energy-data-services/how-to-enable-cors.md). To learn more about reference data values, see [Syncing Reference Data Values](../energy-data-services/concepts-reference-data-values.md). To learn more about upgrade settings, see [Manage upgrade settings](../energy-data-services/how-to-manage-upgrade-settings.md).
+
+   In the **Upgrade Settings** section, select either **Automatic** or **Deferred** for the **Upgrade Policy**. When set to **Deferred**, you have up to 30 days to validate new milestone releases before your instance is upgraded.
 
    [![Screenshot of the tab for configuring cross-origin resource sharing in Azure Data Manager for Energy.](media/quickstart-create-microsoft-energy-data-services-instance/advanced-settings-tab.png)](media/quickstart-create-microsoft-energy-data-services-instance/advanced-settings-tab.png#lightbox)
 

@@ -5,7 +5,7 @@ description: Learn about Azure Maps service's geographic mappings
 author: faterceros
 ms.author: aterceros
 ms.date: 04/18/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: general
 ms.custom: mvc, references_regions

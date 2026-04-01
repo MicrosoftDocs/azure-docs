@@ -1,7 +1,7 @@
 ---
 description: Azure Cloud Shell uses Predictive IntelliSense
 ms.date: 10/11/2022
-ms.topic: conceptual
+ms.topic: feature-guide
 title: Predictive IntelliSense in Azure Cloud Shell
 ---
 

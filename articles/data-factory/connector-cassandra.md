@@ -4,7 +4,7 @@ description: Learn how to copy data from Cassandra to supported sink data stores
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/18/2025
 ms.author: jianleishen
 ms.custom:

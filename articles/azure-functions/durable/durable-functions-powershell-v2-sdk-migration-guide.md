@@ -2,7 +2,7 @@
 title: Guide to the standalone Durable Functions PowerShell SDK
 description: Learn about the standalone Durable Functions PowerShell SDK, and how to upgrade to it
 author: davidmrdavid
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 04/10/2023
 ms.reviewer: azfuncdf
 ---

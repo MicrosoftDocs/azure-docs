@@ -6,7 +6,7 @@ ms.author: joanpo
 ms.date: 09/02/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.custom: azure-synapse
 ---
 

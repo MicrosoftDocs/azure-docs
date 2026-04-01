@@ -5,7 +5,7 @@ description: Learn how to transform data in Azure Cosmos DB analytical store usi
 ms.author: noelleli
 author: n0elleli
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
 ms.date: 01/05/2024
 ---

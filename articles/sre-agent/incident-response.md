@@ -1,13 +1,13 @@
 ---
 title: Automate Incident Response in Azure SRE Agent
-description: Learn how your agent monitors, investigates, and resolves incidents automatically — learning from every fix to improve over time.
-ms.topic: conceptual
+description: Learn how your agent monitors, investigates, and resolves incidents automatically which learns from every fix to improve over time.
+ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/06/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
-ms.custom: incidents, pagerduty, servicenow, icm, azure-monitor, alerts, automation, acknowledge, diagnose, mitigate, MTTR
+ms.custom: incidents, pagerduty, servicenow, icm, azure-monitor, alerts, automation, acknowledge, diagnose, mitigate, MTTR, share, deep link, copy link
 #customer intent: As an SRE, I want to automate incident response so that my agent can acknowledge, investigate, and resolve incidents without waking me up at 3 AM.
 ---
 
@@ -21,10 +21,11 @@ Your agent monitors, investigates, and resolves incidents while you sleep. It le
 > - It automatically correlates logs, metrics, deployments, and past incidents.
 > - It proposes fixes or resolves autonomously based on your [run mode](run-modes.md).
 > - Knowledge captured in [memory](memory.md) improves future incident handling.
+> - Shares investigation threads with teammates via deep links.
 
 ## The problem: 3 AM, five tabs, one exhausted engineer
 
-When an alert fires at 3 AM, you're not just woken up - you're forced to switch context. You open PagerDuty to see what's wrong, then Grafana for metrics, then Log Analytics for errors, then Slack to see if anyone else knows anything, then a runbook that was last updated six months ago.
+When an alert fires at 3 AM, you don't just wake up - you switch context. You open PagerDuty to see what's wrong, then Grafana for metrics, then Log Analytics for errors, then Slack to see if anyone else knows anything, then a runbook that was last updated six months ago.
 
 Meanwhile, the clock is ticking on your mean time to resolution (MTTR). The knowledge of how to fix this issue exists either in a past incident, in a teammate's head, or in a runbook nobody reads. But at 3 AM, you can't find it.
 
@@ -37,30 +38,23 @@ Your agent starts working within seconds when an incident occurs.
 The agent follows these steps:
 
 1. **Acknowledges the alert** in your incident platform (PagerDuty, ServiceNow, or Azure Monitor).
-1. **Queries your observability tools** - Azure Monitor, Application Insights, plus any [connected sources](connectors.md) like Kusto or third-party tools via MCP.
-1. **Correlates with deployment history** - if you connected [source control](connectors.md) or built a [deployment-aware subagent](sub-agents.md).
+1. **Queries your observability tools** - Azure Monitor, Application Insights, plus any [connected sources](connectors.md) like Kusto or non-Microsoft tools via MCP.
+1. **Correlates with deployment history** - if you connected [source control](connectors.md) or built a [deployment-aware custom agent](sub-agents.md).
 1. **Checks memory for similar issues** - "We saw this exact error three weeks ago. Here's what fixed it."
 1. **Forms hypotheses** about what went wrong and validates each one with evidence.
 1. **Proposes a fix** or resolves autonomously based on your [run mode](run-modes.md).
 
 By the time you wake up, the incident is either resolved with a full reasoning trail, or you have a clear recommendation waiting for your approval.
 
-## What makes this different
+## What makes this approach different
 
 Your agent improves traditional approaches in several key ways.
 
 **Unlike runbooks**, your agent learns from every incident. When a fix works, it remembers. When you add a runbook to the [knowledge base](memory.md), your agent references it automatically. Runbooks go stale; your agent's memory grows smarter.
 
-**Unlike scripts**, your agent adapts. A script runs the same steps regardless of context. Your agent [reasons about the specific situation](root-cause-analysis.md) works to correlate evidence across all connected sources to understand what's actually wrong.
+**Unlike scripts**, your agent adapts. A script runs the same steps regardless of context. Your agent [reasons about the specific situation](root-cause-analysis.md) and works to correlate evidence across all connected sources to understand what's wrong.
 
 **Unlike dashboards**, your agent acts. Dashboards surface data for you to interpret. Your agent interprets the data, forms hypotheses, and proposes solutions. Once this work is complete, you're reviewing conclusions, not raw metrics.
-
-| Capability | What it contributes |
-|---|---|
-| [Memory](memory.md) | Recalls past fixes and avoids pitfalls that didn't work |
-| [Knowledge base](memory.md) | Grounds responses in your runbooks and procedures |
-| [Connectors](connectors.md) | Pulls data from PagerDuty, GitHub, Kusto, and more |
-| [Run modes](run-modes.md) | Controls how much autonomy your agent has |
 
 ## Before and after
 
@@ -73,14 +67,30 @@ The following table compares manual incident response with agent-assisted incide
 | **Investigation** | Manual correlation across tools | Agent queries all sources automatically |
 | **Knowledge captured** | In engineer's head | Saved to memory |
 | **Sleep interrupted** | Yes | No |
+| **Sharing findings** | Screenshot or describe the navigation path | Copy thread link, paste in Teams |
+
+## Share investigation threads
+
+During an active incident, you need your team aligned on what the agent found. Every investigation thread has a **Copy link to thread** option that generates a shareable deep link. Paste it in Teams or Slack.
+
+To copy a thread link:
+
+1. Open any incident investigation thread.
+2. Select the **⋯** (more options) button next to the thread title.
+3. Select **Copy link to thread**.
+
+The copied URL works across access methods. Recipients with access to your agent select the link and land directly on the investigation thread.
+
+**When to share thread links:**
+- During an incident bridge, share the agent's root cause analysis with the team.
+- In post-incident reviews, link directly to the investigation thread as evidence.
+- Send a specific finding to a teammate for a second opinion.
 
 ## Get started
 
-To set up incident response, follow [Step 4: Set up incident response](tutorial-incident-response.md) in the getting-started guide. You:
-
-1. Connect your incident platform (PagerDuty, ServiceNow, or Azure Monitor).
-1. Create your first response plan.
-1. Watch your agent handle a real incident.
+| Resource | What you'll learn |
+|----------|-------------------|
+| [Automate incident response](incident-response.md) | Connect your incident platform, create response plans, and watch your agent handle a real incident |
 
 ## Next step
 

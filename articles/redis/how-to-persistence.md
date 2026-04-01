@@ -2,7 +2,7 @@
 title: Configure data persistence - Azure Managed Redis
 description: Learn how to configure and manage data persistence your Azure Managed Redis instances
 ms.date: 10/22/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurecli
   - ignite-2024
@@ -29,8 +29,8 @@ appliesto:
 
 You have two options for persistence with Azure Managed Redis: the _Redis database_ (RDB) format and _Append only File_ (AOF) format:
 
-- _RDB persistence_ - When you use RDB persistence, Azure Managed Redis persists a snapshot of your cache in a binary format. The snapshot is saved on a managed disk mounted to the Redis instance. The configurable backup frequency determines how often to persist the snapshot. If a catastrophic event occurs that disables both the primary and replica, the cache is reconstructed automatically using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
-- _AOF persistence_ - When you use AOF persistence, Azure Managed Redis saves every write operation to a log. The log is saved once per second on a managed disk mounted to the Redis instance. If a catastrophic event occurs that disables both the primary and replica caches, the cache is reconstructed automatically using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
+- _RDB persistence_ - When you use RDB persistence, Azure Managed Redis persists a snapshot of your cache in a binary format. The snapshot is saved on a managed disk mounted to the Redis instance. The configurable backup frequency determines how often to persist the snapshot. If a catastrophic event occurs that disables both the primary and replica, the cache is reconstructed automatically using the most recent snapshot. Learn more about the [advantages](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/#rdb-advantages) and [disadvantages](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/#rdb-disadvantages) of RDB persistence.
+- _AOF persistence_ - When you use AOF persistence, Azure Managed Redis saves every write operation to a log. The log is saved once per second on a managed disk mounted to the Redis instance. If a catastrophic event occurs that disables both the primary and replica caches, the cache is reconstructed automatically using the stored write operations. Learn more about the [advantages](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/#aof-advantages) and [disadvantages](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/#aof-disadvantages) of AOF persistence.
 
 > [!IMPORTANT]
 > Azure Managed Redis persistence features are intended to be used to restore data automatically to the same cache after data loss. The RDB/AOF persisted data files can neither be accessed by users nor imported to a new or existing cache. To move data across caches, use the _Import and Export_ feature. For more information, see [Import and Export data in Azure Managed Redis](how-to-import-export-data.md).

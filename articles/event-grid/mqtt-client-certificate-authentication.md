@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid MQTT client certificate authentication
 description: This article describes how MQTT clients are authenticated using certificates - Certificate Authority (CA) signed certificates and self-signed certificates. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu

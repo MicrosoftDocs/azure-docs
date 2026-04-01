@@ -78,5 +78,7 @@ landingContent:
             url: /azure/redis/whats-new
           - text: Azure Managed Redis architecture
             url: /azure/redis/architecture
-          - text: Moving to Azure Managed Redis from Azure Cache for Redis
-            url: /azure/redis/migrate/migrate-overview
+          - text: Migrate Basic, Standard, and Premium tiers to Azure Managed Redis
+            url: /azure/redis/migrate/migrate-basic-standard-premium-overview
+          - text: Migrate Enterprise tier to Azure Managed Redis
+            url: /azure/redis/migrate/migrate-redis-enterprise-overview

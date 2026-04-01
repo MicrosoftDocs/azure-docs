@@ -3,7 +3,7 @@ title: Enable Microsoft Entra authentication for Azure SSIS integration runtime
 description: This article describes how to enable Microsoft Entra authentication with the specified system/user-assigned managed identity for Azure Data Factory to create Azure-SSIS integration runtime.
 ms.subservice: integration-services
 ms.devlang: powershell
-ms.topic: conceptual
+ms.topic: how-to
 author: chugugrace
 ms.author: chugu
 ms.custom: no-azure-ad-ps-ref

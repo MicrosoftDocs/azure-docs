@@ -73,10 +73,9 @@ The following table shows the capacity and scaling characteristics of each SKU:
 
 ## Regional availability
 
-Azure Bastion SKU availability varies by region:
+Azure Bastion SKU availability varies by region. **Basic, Standard, Premium SKUs** are available in all Azure regions where Azure Bastion is supported.
 
-- **Developer SKU**: Available in select regions. For the current list of supported regions, see [Deploy Bastion from the Azure portal](quickstart-host-portal.md).
-- **Basic, Standard, Premium SKUs**: Available in all Azure regions where Azure Bastion is supported.
+[!INCLUDE [regions](../../includes/bastion-developer-regions.md)]
 
 ## Decision framework
 
@@ -88,7 +87,7 @@ Developer SKU is available for development and test environments at no cost. Cho
 
 - You're working in dev/test environments
 - You don't require virtual network peering or concurrent connections
-- You're operating in a [supported region](quickstart-host-portal.md)
+- You're operating in a [supported region](#regional-availability)
 
 For production-level workloads, choose Basic, Standard, or Premium SKU based on the capabilities you need.
 

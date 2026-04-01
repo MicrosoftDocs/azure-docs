@@ -1,14 +1,12 @@
 ---
-title: 'Create S2S VPN Connection Between On-premises Network and Azure Virtual Network - Certificate Authentication: Azure Portal'
+title: 'Create S2S VPN Connection Between On-premises Network and Azure Virtual Network - Certificate Authentication: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for site-to-site configurations - certificate authentication.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 02/24/2026
+ms.date: 03/25/2026
 ms.author: cherylmc
-
-#customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network using certificate authentication and Azure Key Vault.
 
 # Customer intent: "As a network engineer, I want to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
@@ -16,7 +14,9 @@ ms.author: cherylmc
 
 In this article, you use the Azure portal to create a site-to-site (S2S) certificate authentication VPN gateway connection between your on-premises network and your virtual network. The steps for this configuration use Managed Identity, Azure Key Vault, and certificates. For more information about site-to-site certificate authentication, see [About site-to-site VPN connections with certificate authentication](site-to-site-certificate-authentication-gateway-about.md). If you need to create a site-to-site VPN connection that uses a shared key instead, see [Create a S2S VPN connection](tutorial-site-to-site-portal.md).
 
-:::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
+**Site-to-site VPN connection with certificate authentication**
+
+:::image type="content" source="./media/site-to-site-certificate-authentication-gateway-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/site-to-site-certificate-authentication-gateway-portal/diagram.png":::
 
 > [!IMPORTANT]
 > Site-to-site certificate authentication is currently in Preview.
@@ -24,10 +24,10 @@ In this article, you use the Azure portal to create a site-to-site (S2S) certifi
 
 ## Prerequisites
 
-> [!IMPORTANT]
-> Site-to-site certificate authentication isn't supported on Basic SKU VPN gateways. We recommend using VpnGw1AZ or higher.
-
 * You already have a virtual network and a VPN gateway. If you don't, follow the steps to [Create a VPN gateway](tutorial-create-gateway-portal.md), then return to this page to configure your site-to-site certificate authentication connection.
+
+  > [!NOTE]
+  > Site-to-site certificate authentication isn't supported on Basic SKU VPN gateways.
 
 * Make sure you have a compatible VPN device and someone who can configure it. For more information about compatible VPN devices and device configuration, see [About VPN devices](vpn-gateway-about-vpn-devices.md).
 
@@ -41,7 +41,7 @@ This configuration requires a managed identity. For more information about manag
 
 1. In the Azure portal, search for and select **Managed Identities**.
 1. Select **Create**.
-1. Input the required information. When you create the name, use something intuitive. For example, **site-to-site-managed** or **vpngwy-managed**. You need the name for key vault configuration steps. The **Resource group** doesn't have to be the same as the resource group that you use for your VPN gateway.
+1. Input the required information. When you create the name, use something intuitive. For example, **s2s-user-managed** or **vpngw-managed**. You need the name for key vault configuration steps. The **Resource group** doesn't have to be the same as the resource group that you use for your VPN gateway.
 1. Select **Review + create**.
 1. The values validate. When validation completes, select **Create**.
 
@@ -69,6 +69,9 @@ Create a local network gateway by using the following values:
 * **Location**: East US
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
+
+> [!NOTE]
+> When the VPN Gateway is configured in active-active mode (as shown in the network diagram at the beginning of this article), repeat the process to create a second Local Network Gateway. This is required to establish a second IPsec tunnel to the on-premises VPN device using its second public IP address.
 
 ## <a name="generatecert"></a>Certificates
 
@@ -105,14 +108,14 @@ Use PowerShell locally on your computer to generate certificates. The following 
 Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificate. For more information about parameters, see [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate).
 
 1. From a computer running Windows 10 or later, or Windows Server 2016, open a Windows PowerShell console with elevated privileges.
-1. Create a self-signed root certificate. The following example creates a self-signed root certificate named 'VPNRootCA01', which is automatically installed in **Certificates-Current User\Personal\Certificates**. Once the certificate is created, you can view it by opening *certmgr.msc*, or *Manage User Certificates*.
+1. Create a self-signed root certificate. The following example creates a self-signed root certificate named 'AzRootCA1', which is automatically installed in **Certificates-Current User\Personal\Certificates**. Once the certificate is created, you can view it by opening *certmgr.msc*, or *Manage User Certificates*.
 
    Make any needed modifications before using this example. The 'NotAfter' parameter is optional. By default, without this parameter, the certificate expires in one year.
 
    ```powershell
    $params = @{
        Type = 'Custom'
-       Subject = 'CN=VPNRootCA01'
+       Subject = 'CN=AzRootCA1'
        KeySpec = 'Signature'
        KeyExportPolicy = 'Exportable'
        KeyUsage = 'CertSign'
@@ -138,7 +141,7 @@ These examples use the [New-SelfSignedCertificate](/powershell/module/pki/new-se
 
    $params = @{
        Type = 'Custom'
-       Subject = 'CN=Outbound-certificate'
+       Subject = 'CN=az-outbound-cert1'
        KeySpec = 'Signature'
        KeyExportPolicy = 'Exportable'
        KeyLength = 2048
@@ -158,7 +161,7 @@ These examples use the [New-SelfSignedCertificate](/powershell/module/pki/new-se
 
    $params = @{
        Type = 'Custom'
-       Subject = 'CN=Inbound-certificate'
+       Subject = 'CN=on-prem-s2s-1'
        KeySpec = 'Signature'
        KeyExportPolicy = 'Exportable'
        KeyLength = 2048
@@ -224,7 +227,7 @@ This configuration requires Azure Key Vault. The following steps create a key va
 
 1. In the Azure portal, search for **Key Vaults**. On the **Key vaults** page, select **+Create**.
 1. On the **Create a key vault** page, fill out the required information. The resource group doesn't have to be the same as the resource group that you used for your VPN gateway.
-1. On the **Access configuration** tab, for Permission model, select **Vault access policy**.
+1. On the **Access configuration** tab, for Permission model, select **Azure role-based control (recommended)**.
 1. Don't fill out any of the other fields.
 1. Select **Review + create**, then **Create** the key vault.
 
@@ -242,14 +245,18 @@ The following steps help you upload the outbound certificate information to Azur
 1. Input the password used to protect the certificate information.
 1. Select **Create** to upload the certificate file.
 
-## Add the Managed Identity to your key vault
+## Grant the user-assigned managed identity access to the Key Vault using built-in RBAC roles
 
-1. Go to your key vault. In the left pane, open the **Access policies** page.
-1. Select **+Create**.
-1. On the **Create an access policy** page, for **Secret Management Options** and **Certificate Management Operations**, select **Select all**.
-1. Select **Next** to move to the **Principal** page.
-1. On the **Principal** page, search and select the Managed Identity that you created earlier.
-1. Select **Next** and advance to the **Review + create** page. Select **Create**.
+1. Open the Key Vault and select **Access control (IAM)**.
+1. Select **Add**, then choose **Add role assignment**.
+1. In **Search by role name**, enter **Key Vault Secrets User**, select the built-in role, then select **Next**.
+1. On the **Members** tab, for **Assign access to**, select **Managed identity**.
+1. Select **+ Select members**. In **Select managed identities**, set **Managed identity** to **User-assigned managed identity**, then choose the user-assigned managed identity you created earlier.
+1. Select **Next**, review the settings, then select **Review + assign** to apply the role assignment.
+1. Repeat the previous steps to assign the **Key Vault Certificate User** role to the same user-assigned managed identity. This is required; otherwise, the managed identity can't access the outbound certificate stored in Key Vault.
+
+> [!NOTE]
+> RBAC role assignment changes aren't applied immediately to Key Vault. Before proceeding to the next step, verify under **Role assignments** that both built-in roles **Key Vault Secrets User** and **Key Vault Certificate User** are present.
 
 ## <a name="VPNDevice"></a>Configure your VPN device
 
@@ -275,7 +282,7 @@ Before moving forward, gather the following information for the required configu
    1. Click the line for your certificate version.
    1. Copy the path next to **Certificate Identifier**. The path is specific to the certificate.
 
-  Example: `https://s2s-vault1.vault.azure.net/certificates/site-to-site/<certificate-value>`
+  Example: `https://s2s-vault1.vault.azure.net/certificates/az-outbound-cert1/<certificate-value>`
 
 * **Inbound certificate subject name**: This is the CN for the inbound certificate. To locate this value:
 

@@ -142,13 +142,13 @@ Property names in filter, select, and expand strings must reflect their REST API
 | .NET list methods | REST list requests |
 | --- | --- |
 | [CertificateOperations.ListCertificates](/dotnet/api/microsoft.azure.batch.certificateoperations) |[List the certificates in an account](/rest/api/batchmanagement/certificate/list-by-batch-account) |
-| [CloudTask.ListNodeFiles](/dotnet/api/microsoft.azure.batch.cloudtask) |[List the files associated with a task](/rest/api/batchservice/file/listfromtask) |
-| [JobOperations.ListJobPreparationAndReleaseTaskStatus](/dotnet/api/microsoft.azure.batch.joboperations) |[List the status of the job preparation and job release tasks for a job](/rest/api/batchservice/job/listpreparationandreleasetaskstatus) |
+| [CloudTask.ListNodeFiles](/dotnet/api/microsoft.azure.batch.cloudtask) |[List the files associated with a task](/rest/api/batchservice/tasks/list-task-files) |
+| [JobOperations.ListJobPreparationAndReleaseTaskStatus](/dotnet/api/microsoft.azure.batch.joboperations) |[List the status of the job preparation and job release tasks for a job](/rest/api/batchservice/jobs/list-job-preparation-and-release-task-status) |
 | [JobOperations.ListJobs](/dotnet/api/microsoft.azure.batch.joboperations) |[List the jobs in an account](/rest/api/batchservice/jobs/list-jobs-from-schedule) |
-| [JobOperations.ListNodeFiles](/dotnet/api/microsoft.azure.batch.joboperations) |[List the files on a node](/rest/api/batchservice/file/listfromcomputenode) |
+| [JobOperations.ListNodeFiles](/dotnet/api/microsoft.azure.batch.joboperations) |[List the files on a node](/rest/api/batchservice/nodes/list-node-files) |
 | [JobOperations.ListTasks](/dotnet/api/microsoft.azure.batch.joboperations) |[List the tasks associated with a job](/rest/api/batchservice/tasks/list-tasks) |
 | [JobScheduleOperations.ListJobSchedules](/dotnet/api/microsoft.azure.batch.jobscheduleoperations) |[List the job schedules in an account](/rest/api/batchservice/jobschedule/list) |
-| [JobScheduleOperations.ListJobs](/dotnet/api/microsoft.azure.batch.jobscheduleoperations) |[List the jobs associated with a job schedule](/rest/api/batchservice/job/listfromjobschedule) |
+| [JobScheduleOperations.ListJobs](/dotnet/api/microsoft.azure.batch.jobscheduleoperations) |[List the jobs associated with a job schedule](/rest/api/batchservice/jobs/list-jobs-from-schedule) |
 | [PoolOperations.ListComputeNodes](/dotnet/api/microsoft.azure.batch.pooloperations) |[List the compute nodes in a pool](/rest/api/batchservice/nodes/list-nodes) |
 | [PoolOperations.ListPools](/dotnet/api/microsoft.azure.batch.pooloperations) |[List the pools in an account](/rest/api/batchservice/pools/list-pools) |
 
@@ -162,7 +162,7 @@ Property names in filter, select, and expand strings must reflect their REST API
 | [Certificate](/dotnet/api/microsoft.azure.batch.certificate) |[Get information about a certificate](/rest/api/batchmanagement/certificate/get) |
 | [CloudJob](/dotnet/api/microsoft.azure.batch.cloudjob) |[Get information about a job](/rest/api/batchservice/jobs/get-job) |
 | [CloudJobSchedule](/dotnet/api/microsoft.azure.batch.cloudjobschedule) |[Get information about a job schedule](/rest/api/batchservice/jobs/get-job) |
-| [ComputeNode](/dotnet/api/microsoft.azure.batch.computenode) |[Get information about a node](/rest/api/batchservice/computenode/get) |
+| [ComputeNode](/dotnet/api/microsoft.azure.batch.computenode) |[Get information about a node](/rest/api/batchservice/nodes/get-node) |
 | [CloudPool](/dotnet/api/microsoft.azure.batch.cloudpool) |[Get information about a pool](/rest/api/batchservice/pools/get-pool) |
 | [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) |[Get information about a task](/rest/api/batchservice/tasks/get-task) |
 

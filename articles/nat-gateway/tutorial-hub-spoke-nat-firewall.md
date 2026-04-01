@@ -371,6 +371,9 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 1. Select **Review + create** and then select **Create**.
 
+    > [!NOTE]
+    > A Standard V2 Public IP address can only be associated with a Standard V2 NAT Gateway and not any other services.
+
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **+ Create**.
@@ -421,6 +424,9 @@ $ip = @{
 }
 $publicIPIPv4 = New-AzPublicIpAddress @ip
 ```
+
+> [!NOTE]
+> A Standard V2 Public IP address can only be associated with a Standard V2 NAT Gateway and not any other services.
 
 Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
 

@@ -7,7 +7,7 @@ ms.subservice: kubernetes
 ms.custom:
   - build-2024
 ms.date: 05/25/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Event handlers destinations in Event Grid on Kubernetes

@@ -5,7 +5,7 @@ services: databox
 author:   sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/10/2025
 ms.author: sipastak
 ---

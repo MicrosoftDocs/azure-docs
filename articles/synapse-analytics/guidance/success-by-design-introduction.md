@@ -4,7 +4,7 @@ description: Azure Synapse Customer Success Engineering Success by Design reposi
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: hub-page
 ms.date: 05/23/2022
 ---
 

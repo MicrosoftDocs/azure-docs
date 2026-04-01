@@ -1,23 +1,22 @@
 ---
 title: 'Quickstart: Create an Azure Firewall with Availability Zones - Bicep'
-description: In this quickstart, you deploy Azure Firewall using Bicep. The virtual network has one VNet with three subnets. Two Windows Server virtual machines, a jump box, and a server are deployed.
-services: firewall
+description: In this quickstart, you deploy Azure Firewall using Bicep. The virtual network has one virtual network with three subnets. Two Windows Server virtual machines, a jump box, and a server are deployed.
 author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
+ms.date: 03/28/2026
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 06/28/2022
-ms.author: duau
 # Customer intent: "As a cloud administrator, I want to deploy an Azure Firewall using Bicep in a virtual network with multiple subnets, so that I can manage network security effectively and ensure high availability across Availability Zones."
 ---
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - Bicep
 
-In this quickstart, you use Bicep to deploy an Azure Firewall in three Availability Zones.
+In this quickstart, use Bicep to deploy an Azure Firewall in three Availability Zones.
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
-The Bicep file creates a test network environment with a firewall. The network has one virtual network (VNet) with three subnets: *AzureFirewallSubnet*, *ServersSubnet*, and *JumpboxSubnet*. The *ServersSubnet* and *JumpboxSubnet* subnet each have a single, two-core Windows Server virtual machine.
+The Bicep file creates a test network environment with a firewall. The network has one virtual network with three subnets: *AzureFirewallSubnet*, *ServersSubnet*, and *JumpboxSubnet*. The *ServersSubnet* and *JumpboxSubnet* subnets each have a single, two-core Windows Server virtual machine.
 
 The firewall is in the *AzureFirewallSubnet* subnet, and has an application rule collection with a single rule that allows access to `www.microsoft.com`.
 
@@ -37,7 +36,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox/main.bicep":::
 
-Multiple Azure resources are defined in the Bicep file:
+The Bicep file defines multiple Azure resources, including:
 
 - [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
 - [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
@@ -50,8 +49,8 @@ Multiple Azure resources are defined in the Bicep file:
 
 ## Deploy the Bicep file
 
-1. Save the Bicep file as `main.bicep` to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+1. Save the Bicep file as `main.bicep` on your local computer.
+1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
 
@@ -70,9 +69,9 @@ Multiple Azure resources are defined in the Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<admin-user\>** with the administrator login username for the virtual machine. You'll be prompted to enter **adminPassword**.
+    > Replace **\<admin-user\>** with the administrator sign-in username for the virtual machine. You're prompted to enter **adminPassword**.
 
-  When the deployment finishes, you should see a message indicating the deployment succeeded.
+  When the deployment finishes, you see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
@@ -96,7 +95,7 @@ To learn about the syntax and properties for a firewall in a Bicep file, see [Mi
 
 ## Clean up resources
 
-When you no longer need them, use the Azure portal, Azure CLI, or Azure PowerShell to remove the resource group, firewall, and all related resources.
+When you no longer need the resources, use the Azure portal, Azure CLI, or Azure PowerShell to remove the resource group, firewall, and all related resources.
 
 # [CLI](#tab/CLI)
 
@@ -117,4 +116,4 @@ Remove-AzResourceGroup -Name exampleRG
 Next, you can monitor the Azure Firewall logs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+> [Tutorial: Monitor Azure Firewall logs](./monitor-firewall.md)

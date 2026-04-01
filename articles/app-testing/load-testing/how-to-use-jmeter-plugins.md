@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn how to customize your load test with JMeter plugins and Azure Load Testing. Upload a custom plugin JAR file or reference a publicly available plugin.
 services: load-testing
 ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.author: nandinim
+author: nandinimurali
 ms.date: 10/19/2023
 ms.topic: how-to
 

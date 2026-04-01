@@ -198,15 +198,25 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 
 The appliance needs access to the following URLs (directly or via proxy) over and above private link access.
 
-**URL** | **Details**  
+**URL (Mandatory)** | **Details**  
 --- | --- |
-*.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.microsoft.com <br> *.live.com <br> *.office.com <br> *.microsoftonline.com <br> *.microsoftonline-p.com <br> *.microsoftazuread-sso.com  | Used for access control and identity management by Microsoft Entra ID
-management.azure.com |  Used for resource deployments and management operations
-*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
-aka.ms/* (optional) | Allow access to these links; used to download and install the latest updates for appliance services.
-download.microsoft.com/download | Allow downloads from Microsoft download center.
-*.blob.core.windows.net (optional) |  This is optional and is not required if the storage account has a private endpoint attached.
+portal.azure.com  | Required for Azure portal access. The appliance Configuration Manager UI uses the portal URL for time sync checks with internet time server.
+*.msftauth.net <br> *.msauth.net <br> login.windows.net <br> login.microsoftonline.com <br> *.microsoftonline-p.com <br> *.microsoftazuread-sso.com <br> developer.microsoft.com <br> graph.microsoft.com | Used for access control and identity management by Microsoft Entra ID.
+*.live.com <br> *.office.com  |  Required for authentication to Azure (redirection). Used for user login and subscription access. 
+
+You can configure Private Links for the following required URLs using the referenced guidance and update the DNS configuration on your local network to resolve the corresponding private endpoint addresses.
+
+**URL** | **How to configure private link**  
+--- | --- |
+management.azure.com (Used for resource deployments and management operations) | [Create private link for managing resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
+*.blob.core.windows.net (used to upload migration-related data to Azure Storage accounts) | [Connect to a storage account using an Azure Private Endpoint - Azure Private Link](/azure/private-link/tutorial-private-endpoint-storage-portal?tabs=dynamic-ip#create-storage-account-with-a-private-endpoint).
+
+The following URLs are optional. You can choose to skip allowlisting these based on your security requirements but be aware of the impact listed below.  
+
+**URL (Optional)** | **Details**  | **Impact**|
+--- | --- | --- |
+download.microsoft.com/* <br> aka.ms/latestapplianceservices | Download the latest versions of the appliance components (auto-updater). | The appliance cannot automatically check for or update agents to the latest versions. In this scenario [agents must be manually updated](migrate-appliance.md#manually-update-an-older-version) and [auto update must be disabled](migrate-appliance.md#turn-off-auto-update).
+*.services.visualstudio.com <br> *.events.data.microsoft.com | Upload diagnostics logs for appliance components. | Appliance diagnostic logs will not be sent to Microsoft. This may affect Microsoft Support's ability to troubleshoot issues.
 
 ### Government cloud URLs for private link connectivity
 

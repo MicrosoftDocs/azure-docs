@@ -32,7 +32,7 @@ The following versions of Windows support the latest versions of Storage Explore
 
 Other requirements include:
 - Your Windows installation must support 64-bit applications (starting with Storage Explorer 1.30.0).
-- You must have a .NET 8 runtime installed (starting with Storage Explorer 1.34.0) which matches the architecture of your Storage Explorer install. The Storage Explorer installer installs a .NET 8 runtime if you don't already have one installed, but it might not be the latest version available. It is your responsibility to keep your .NET install up to date. You can download the latest .NET 8 runtime from [here](https://dotnet.microsoft.com/download/dotnet/8.0). 
+- You must have a .NET 10 runtime installed (starting with Storage Explorer 1.42.0) which matches the architecture of your Storage Explorer install. The Storage Explorer installer installs a .NET 10 runtime if you don't already have one installed, but it might not be the latest version available. It is your responsibility to keep your .NET install up to date. You can download the latest .NET 10 runtime from [here](https://dotnet.microsoft.com/download/dotnet/10.0). 
 
 # [macOS](#tab/macos)
 
@@ -41,6 +41,9 @@ The following versions of macOS support Storage Explorer:
 * macOS 10.15 Catalina and later versions
 
 Both x64 (Intel) and ARM64 (Apple Silicon) versions of Storage Explorer are available for download starting with Storage Explorer 1.31.0.
+
+Other requirements include:
+- You must have a .NET 10 runtime installed (starting with Storage Explorer 1.42.0) which matches the architecture of your Storage Explorer install. It is your responsibility to keep your .NET install up to date. You can download the latest .NET 10 runtime from [here](https://dotnet.microsoft.com/download/dotnet/10.0). 
 
 # [Ubuntu](#tab/linux-ubuntu)
 

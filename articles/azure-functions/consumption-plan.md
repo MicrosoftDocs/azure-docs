@@ -24,21 +24,6 @@ Billing is based on the number of executions, execution time, and memory used. T
 
 To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
 
-## Create a legacy Consumption plan function app
-
-In Consumption plan hosting, each function app typically runs in its own plan, which the platform creates for you along with the app. In the Azure portal or in code, you might also see the Consumption plan referred to as `Dynamic` or `Y1`.
-
-> [!TIP]
-> For new function apps, consider using the [Flex Consumption plan](flex-consumption-plan.md), which offers faster scaling, virtual network integration, and configurable instance sizes.
-
-Use the following links to learn how to create a serverless function app in a Consumption plan, either programmatically or in the Azure portal:
-
-- [Azure CLI](functions-cli-samples.md#create)
-- [Azure portal](./functions-get-started.md)
-- [Azure Resource Manager template](functions-create-first-function-resource-manager.md)
-
-You can also create function apps in a Consumption plan when you publish a Functions project from [Visual Studio Code](./how-to-create-function-vs-code.md#create-the-function-app-in-azure) or [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
-
 ## Multiple apps in the same plan
 
 The general recommendation is for each function app to have its own Consumption plan. However, if needed, you can assign function apps in the same region to the same Consumption plan. Keep in mind that there's a [limit to the number of function apps that can run in a Consumption plan](functions-scale.md#service-limits). Function apps in the same plan still scale independently of each other.

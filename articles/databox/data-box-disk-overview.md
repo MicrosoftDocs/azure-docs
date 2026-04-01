@@ -78,7 +78,7 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 
 [!INCLUDE [data-box-cross-region](../../includes/data-box-cross-region.md)]
 
-The Data Box Heavy device has the following features in this release.
+The Data Box Disk device has the following features in this release.
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|

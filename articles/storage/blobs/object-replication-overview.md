@@ -86,7 +86,7 @@ Object replication now supports copying index tags from source blobs to destinat
 
 ### Blob tiering
 
-Object replication is supported when the source and destination accounts are in any online tier (hot, cool, or cold). The source and destination accounts might be in different tiers. However, object replication fails if a blob in either the source or destination account is moved to the archive tier. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
+Object replication is supported when the source and destination accounts are in any online tier (hot, cool, or cold). The source and destination accounts might be in different tiers. However, object replication fails if a blob in either the source or destination account is moved to the archive tier. Rehydrating an archived blob does not trigger object replication. Object replication is triggered only when the blob data is updated again after rehydration. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
 
 ### Immutable blobs
 

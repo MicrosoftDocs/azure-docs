@@ -99,4 +99,4 @@ Ensure you choose the workflow for the correct service level.
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
-* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+* [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md)

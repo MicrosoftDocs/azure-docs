@@ -7,7 +7,7 @@ manager: chpalm
 services: azure-communication-services
 ms.author: nmurav
 ms.date: 06/20/2025
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: devx-track-js

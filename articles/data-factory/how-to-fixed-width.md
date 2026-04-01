@@ -3,7 +3,7 @@ title: Process fixed-length text files with mapping data flows in Azure Data Fac
 description: Learn how to process fixed-length text files in Azure Data Factory using mapping data flows.
 author: kromerm
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: makromer
 ---

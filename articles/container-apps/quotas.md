@@ -4,7 +4,7 @@ description: Learn about quotas for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: limits-and-quotas
 ms.date: 04/29/2025
 ms.author: cshoe
 ---

@@ -118,7 +118,7 @@
       href: import-container-app-with-oas.md
     - name: Import a Function App web API
       href: import-function-app-as-api.md
-    - name: Import a Logic App
+    - name: Import a Logic App web API
       href: import-logic-app-as-api.md
     - name: Import a WebSocket API
       href: websocket-api.md

@@ -3,7 +3,7 @@ title: Starter Prompts for Azure SRE Agent
 description: Explore example prompts for interacting with Azure SRE Agent across App Service, Container Apps, AKS, and API Management.
 ms.topic: reference
 ms.service: azure-sre-agent
-ms.date: 03/04/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -260,6 +260,8 @@ Create a security check task that runs every week to review my application's aut
 
 ## Related content
 
-- [Incident response](incident-response.md)
-- [Scheduled tasks](scheduled-tasks.md)
-- [Get started](overview.md)
+| Resource | Description |
+|----------|-------------|
+| [Incident response](incident-response.md) | Start investigating with your agent |
+| [Scheduled tasks](scheduled-tasks.md) | Automate recurring checks |
+| [Get started](overview.md) | Learn about Azure SRE Agent |

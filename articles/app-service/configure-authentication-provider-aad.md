@@ -80,6 +80,8 @@ To use an existing registration, select either:
 
     You can also configure the application to [use an identity instead of a client secret][fic-config]. Support for using an identity is currently in preview.
   - **Issuer URL**. This URL takes the form `<authentication-endpoint>/<tenant-id>/v2.0`. Replace `<authentication-endpoint>` with the authentication endpoint [value that's specific to the cloud environment](/entra/identity-platform/authentication-national-cloud#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use `https://login.microsoftonline.com` as its authentication endpoint.
+
+      You can find this value in the Microsoft Entra admin center. Go to **App registrations**, select your app, and then select **Endpoints**. Copy the **OpenID Connect metadata document** endpoint for your tenant, and then remove `/.well-known/openid-configuration` from the end of the URL. For example, if the metadata endpoint is `https://login.microsoftonline.com/<tenant-id>/v2.0/.well-known/openid-configuration`, use `https://login.microsoftonline.com/<tenant-id>/v2.0` as the issuer URL.
   
     > [!NOTE]
     > If you created your identity provider using the express setup (Option 1), the issuer URL is automatically set to use the legacy `https://sts.windows.net` endpoint. To align with current Microsoft Entra ID best practices, edit your identity provider and update the issuer URL to use `https://login.microsoftonline.com/<tenant-id>/v2.0` instead.
@@ -169,7 +171,7 @@ To use an existing registration, select **Provide the details of an existing app
 
 - **Application (client) ID**
 - **Client secret**
-- **Issuer URL**
+- **Issuer URL**. In the Microsoft Entra admin center, go to **App registrations**, select your app, and then select **Endpoints**. Copy the **OpenID Connect metadata document** endpoint for your tenant, and then remove `/.well-known/openid-configuration` from the end of the URL. For example, if the metadata endpoint is `https://login.microsoftonline.com/<tenant-id>/v2.0/.well-known/openid-configuration`, use `https://login.microsoftonline.com/<tenant-id>/v2.0` as the issuer URL.
 
 If you need to manually create an app registration in an external tenant, see [Register an app in your external tenant](/entra/external-id/customers/how-to-register-ciam-app?tabs=webapp#register-your-web-app).
 
@@ -218,6 +220,8 @@ For **Tenant requirement**, choose whether to:
 - Allow requests only from the same tenant as the app registration.
 - Allow requests from specific tenants.
 - Use default restrictions based on the app registration's tenant.
+
+For **Allowed token audiences**, add any audience values that your app should accept in the `aud` claim of incoming access tokens. You commonly need this setting when clients request tokens by using the app registration's **Application ID URI**, such as `api://<application-client-id>` or a custom URI like `https://contoso.com/api`. The app registration's client ID is already accepted by default, so you typically add values here only if your app accepts another audience format.
 
 Your app might still need to make other authorization decisions in code. For more information, see [Use a built-in authorization policy](#use-a-built-in-authorization-policy) later in this article.
 

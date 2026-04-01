@@ -4,7 +4,7 @@ description: Use different approaches or a combination of techniques to control 
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/14/2022
 ---
 

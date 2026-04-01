@@ -1,7 +1,7 @@
 ---
 title: Fan-out/fan-in scenarios in Durable Functions - Azure
 description: Learn how to implement a fan-out-fan-in scenario using Durable Functions or Durable Task SDKs.
-ms.topic: conceptual
+ms.topic: tutorial
 ms.custom: devx-track-js, devx-track-python
 ms.date: 02/04/2026
 ms.author: azfuncdf
@@ -90,11 +90,61 @@ This orchestrator function does the following:
 
 Here is the code that implements the orchestrator function:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=16-42)]
+<details>
+<summary><b>Isolated model</b></summary>
+
+```csharp
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.DurableTask;
+
+namespace SampleApp;
+
+public static class BackupSiteContent
+{
+    [Function("E2_BackupSiteContent")]
+    public static async Task<long> Run(
+        [OrchestrationTrigger] TaskOrchestrationContext context)
+    {
+        string rootDirectory = context.GetInput<string>()?.Trim();
+        if (string.IsNullOrEmpty(rootDirectory))
+        {
+            rootDirectory = Directory.GetParent(typeof(BackupSiteContent).Assembly.Location)!.FullName;
+        }
+
+        string[] files = await context.CallActivityAsync<string[]>("E2_GetFileList", rootDirectory);
+
+        Task<long>[] tasks = files
+            .Select(file => context.CallActivityAsync<long>("E2_CopyFileToBlob", file))
+            .ToArray();
+
+        long[] results = await Task.WhenAll(tasks);
+        return results.Sum();
+    }
+}
+```
 
 Notice the `await Task.WhenAll(tasks);` line. The code doesn't await the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `Task.WhenAll`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with the Task Parallel Library (TPL) in .NET, this pattern is familiar. The difference is that these tasks could be running on multiple virtual machines concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
 
 After the orchestrator awaits `Task.WhenAll`, all function calls are complete and return values. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded. Calculate the total by adding the return values.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=16-42)]
+
+> [!NOTE]
+> The [in-process model sample](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs) uses deprecated in-process packages. The preceding code shows the recommended .NET isolated worker model.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -319,7 +369,46 @@ The helper activity functions are regular functions that use the `activityTrigge
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated model</b></summary>
+
+```csharp
+using System.IO;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
+namespace SampleApp;
+
+public static class BackupSiteContent
+{
+    [Function("E2_GetFileList")]
+    public static string[] GetFileList(
+        [ActivityTrigger] string rootDirectory,
+        FunctionContext executionContext)
+    {
+        ILogger logger = executionContext.GetLogger("E2_GetFileList");
+        logger.LogInformation("Searching for files under '{RootDirectory}'...", rootDirectory);
+
+        string[] files = Directory.GetFiles(rootDirectory, "*", SearchOption.AllDirectories);
+        logger.LogInformation("Found {FileCount} file(s) under {RootDirectory}.", files.Length, rootDirectory);
+
+        return files;
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=44-54)]
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -378,12 +467,72 @@ Java sample coming soon.
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated model</b></summary>
+
+> [!NOTE]
+> To run the sample code, install the `Azure.Storage.Blobs` NuGet package.
+
+```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
+namespace SampleApp;
+
+public static class BackupSiteContent
+{
+    [Function("E2_CopyFileToBlob")]
+    public static async Task<long> CopyFileToBlob(
+        [ActivityTrigger] string filePath,
+        FunctionContext executionContext)
+    {
+        ILogger logger = executionContext.GetLogger("E2_CopyFileToBlob");
+        long byteCount = new FileInfo(filePath).Length;
+
+        string blobPath = filePath
+            .Substring(Path.GetPathRoot(filePath)!.Length)
+            .Replace('\\', '/');
+        string outputLocation = $"backups/{blobPath}";
+
+        string? connectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
+        if (string.IsNullOrEmpty(connectionString))
+        {
+            throw new InvalidOperationException("AzureWebJobsStorage is not configured.");
+        }
+
+        BlobContainerClient containerClient = new(connectionString, "backups");
+        await containerClient.CreateIfNotExistsAsync();
+        BlobClient blobClient = containerClient.GetBlobClient(blobPath);
+
+        logger.LogInformation("Copying '{FilePath}' to '{OutputLocation}'. Total bytes = {ByteCount}.", filePath, outputLocation, byteCount);
+
+        await using Stream source = File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+        await blobClient.UploadAsync(source, overwrite: true);
+
+        return byteCount;
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=56-81)]
 
 > [!NOTE]
-> To run the sample code, install the `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet package.
+> The in-process model sample requires the `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet package and uses Azure Functions binding features like the [`Binder` parameter](../functions-dotnet-class-library.md#binding-at-runtime).
 
-The function uses Azure Functions binding features like the [`Binder` parameter](../functions-dotnet-class-library.md#binding-at-runtime). You don't need those details for this walkthrough.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 

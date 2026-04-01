@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: kaperla
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-mobile
 ---

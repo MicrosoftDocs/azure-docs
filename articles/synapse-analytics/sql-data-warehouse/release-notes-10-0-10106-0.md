@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 3/24/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: release-notes
 ---
 
 # Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics release notes

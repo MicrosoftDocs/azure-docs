@@ -5,7 +5,7 @@ ms.service: azure-functions
 ms.custom:
   - devx-track-dotnet
   - ignite-2023
-ms.topic: conceptual
+ms.topic: product-comparison
 ms.date: 05/06/2025
 recommendations: false
 #Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.

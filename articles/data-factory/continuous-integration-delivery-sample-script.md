@@ -5,7 +5,7 @@ ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
 ms.reviewer: whhender
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2025
 ms.custom: devx-track-azurepowershell
 ---

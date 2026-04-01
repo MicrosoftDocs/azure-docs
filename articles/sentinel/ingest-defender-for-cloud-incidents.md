@@ -3,7 +3,7 @@ title: Ingest Microsoft Defender for Cloud incidents with Microsoft Defender XDR
 description: Learn how using Microsoft Defender for Cloud's integration with Microsoft Defender XDR lets you ingest Microsoft Defender for Cloud incidents through Microsoft Defender XDR. This lets you add Defender for Cloud incidents to your Microsoft Sentinel incidents queue while seamlessly applying  Defender XDR's strengths to help investigate all your cloud workload security incidents.
 author: guywi-ms
 ms.author: guywild
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2024
 
 #Customer intent: As a security analyst, I want to integrate Microsoft Defender for Cloud with Microsoft Defender XDR so that I can ingest and synchronize incidents and alerts into Microsoft Sentinel for comprehensive threat detection and response.

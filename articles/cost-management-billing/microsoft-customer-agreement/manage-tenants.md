@@ -4,7 +4,7 @@ description: The article helps you understand and manage tenants associated with
 author: baolcsva
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/28/2025
 ms.author: baolcsva
 ms.reviewer: baolcsva

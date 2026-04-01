@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 06/13/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: references_regions, engagement-fy23
 # Customer intent: "As a cloud storage administrator, I want to create and manage lifecycle management policies for blobs, so that I can optimize storage costs by transitioning and deleting blobs based on their usage patterns."
 ---

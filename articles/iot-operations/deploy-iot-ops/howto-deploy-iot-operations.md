@@ -69,6 +69,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
    | **Custom location name** | *Optional*: Replace the default name for the custom location. |
    | **Deployment version**| Select **1.2 (latest)** version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
+   | **Deployment optional components > OPC UA connector** | Choose to deploy the optional connector for OPC UA component. |
 
 1. Select **Next: Configuration**.
 
@@ -168,6 +169,9 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
    > [!TIP]
    > The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.8.0 deployed on it, you can skip this step.
+
+    > [!IMPORTANT]
+    > When you initialize your Azure IoT Operations instance on a VKS cluster with its [pod security admission controller running in restricted mode](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vsphere-supervisor-services-and-standalone-components/latest/managing-vsphere-kuberenetes-service-clusters-and-workloads/managing-security-for-tkg-service-clusters/configure-psa-for-tkr-1-25-and-later.html) you must include the `--cm-config global.telemetry.logs.enabled=false` flag when you run `az iot ops init`.
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 

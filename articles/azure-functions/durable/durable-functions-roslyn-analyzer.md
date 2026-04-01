@@ -2,7 +2,7 @@
 title: Durable Functions Roslyn Analyzer (C# only)
 description: Learn how to use the Durable Task Roslyn Analyzer to detect code constraint violations in your Durable Functions or Durable Task SDK orchestrations.
 author: cgillum
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/18/2026
 ms.author: azfuncdf
 ms.service: azure-functions

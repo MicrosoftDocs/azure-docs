@@ -5,7 +5,7 @@ author: shuaijunye
 ms.author: shuaijunye 
 ms.service: azure-synapse-analytics
 ms.subservice: spark
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.date: 07/07/2022
 ms.custom: sfi-image-nochange
 ---

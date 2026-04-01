@@ -192,8 +192,6 @@ items:
       href: ../../firmware-analysis/quickstart-firmware-analysis-arm.md
     - name: IoT Edge
       href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: IoT Hub
-      href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: IoT Hub Device Provisioning Service
       href: ../../iot-dps/quick-setup-auto-provision-rm.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Management and Governance

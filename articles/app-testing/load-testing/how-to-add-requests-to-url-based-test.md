@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn how to add requests to a URL-based test in Azure Load Testing by using UI fields or cURL commands. Use variables to pass parameters to requests.
 services: load-testing
 ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.author: nandinim
+author: nandinimurali
 ms.date: 10/30/2023
 ms.topic: how-to
 

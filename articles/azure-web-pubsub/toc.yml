@@ -253,6 +253,8 @@
       href: concept-billing-model.md
     - name: Microsoft Entra Authorization
       href: concept-azure-ad-authorization.md
+    - name: Wildcard group role patterns
+      href: concept-wildcard-group-roles.md
     - name: Metrics
       href: concept-metrics.md
     - name: Security

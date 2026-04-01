@@ -32,6 +32,8 @@
       href: secure-application-delivery.md
   - name: Plan and design
     items:
+    - name: Design a secure hub-spoke network
+      href: cross-service-scenarios/design-secure-hub-spoke-network.md
     - name: Support for working remotely
       href: working-remotely-support.md
     - name: Virtual networks
@@ -64,6 +66,18 @@
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
+      - name: Zero Trust network security
+        items:
+        - name: Zero Trust network security recommendations
+          href: security/zero-trust-network-security.md
+        - name: Azure DDoS Protection
+          href: security/zero-trust-ddos-protection.md
+        - name: Azure Firewall
+          href: security/zero-trust-azure-firewall.md
+        - name: Application Gateway WAF
+          href: security/zero-trust-application-gateway-waf.md
+        - name: Azure Front Door WAF
+          href: security/zero-trust-front-door-waf.md
     - name: Virtual networks
       href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Network load balancing

@@ -4,7 +4,7 @@ description: Learn how to import and export data to and from blob storage with y
 
 
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - ignite-2024
 ms.date: 04/29/2025

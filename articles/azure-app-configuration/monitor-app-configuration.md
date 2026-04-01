@@ -237,6 +237,17 @@ The following table lists common and recommended alert rules for App C
 ### Metrics schema
 For details on the metrics schema, see [App Configuration Metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-appconfiguration-configurationstores-metrics)
 
+#### Metrics Dimensions
+| Metric Name | Dimension description |
+|-------|-----|
+| HTTP Incoming Request Count | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication. |
+| HTTP Incoming Request Duration | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication. |
+| Throttled HTTP Request Count | The **Endpoint** of each request is included as a dimension. |
+| Daily Storage Usage | This metric does not have any dimensions. |
+| Request Quota Usage | The supported dimensions are the **OperationType** ("Read" or "Write") and **Endpoint** of each request. |
+| Replication Latency | The **Endpoint** of the replica that data was replicated to is included as a dimension. |
+| Snapshot Storage Size | This metric does not have any dimensions. |
+
 ### Logs schema
 
 #### Activity logs schema

@@ -2,7 +2,7 @@
 title: IP addresses in Azure Functions
 description: Learn how to find inbound and outbound IP addresses for function apps, and what causes them to change.
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/06/2025
 ---
 

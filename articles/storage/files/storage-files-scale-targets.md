@@ -140,11 +140,11 @@ File scale targets apply to individual files stored in classic file shares. Your
 \* The maximum number of concurrent handles per file and directory is a soft limit for classic file shares on the SSD media tier using the SMB protocol. If you need to scale beyond this limit, you can [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature), and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
 ## File share scale targets (Microsoft.FileShares)
-There are two types of limits that apply to file shares:
+Two types of limits apply to file shares created with the `Microsoft.FileShares` resource provider (preview):
 
 - Control plane limits, which are enforced by the `Microsoft.FileShares` resource provider and apply to management requests such as creating, updating, or deleting the file share or child resources such as file share snapshots.
 
-- Data plane limits, which are enforced by the Azure storage platform, and apply to things like creating and deleting files and folders via the NFS file sharing protocol.
+- Data plane limits, which are enforced by the Azure storage platform, and apply to actions like creating and deleting files and folders via the NFS file sharing protocol.
 
 ### Microsoft.FileShares control plane limits
 The following limits apply to the file share and to child resources of the file share such as file share snapshots. 
@@ -160,7 +160,7 @@ The following limits apply to the file share and to child resources of the file 
 <sup>1</sup> `Microsoft.FileShares` uses a similar throttling algorithm for management requests as Azure Resource Manager itself uses. API throttling is managed using a [token bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket). The token bucket represents the maximum number of requests that you can send for each second. When you reach the maximum number of requests, the refill rate determines how quickly new requests are added to the 'bucket'.
 
 ### File share data plane targets
-The following limits apply at the file share level and are enforced at the data plane. File shares use the provisioned v2 billing model.
+The following limits apply at the file share level and are enforced at the data plane. File shares created with the `Microsoft.FileShares` resource provider use the provisioned v2 billing model.
 
 | Attribute | SSD value |
 |-|-|

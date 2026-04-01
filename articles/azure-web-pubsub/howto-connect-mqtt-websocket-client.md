@@ -43,6 +43,8 @@ A client can publish to other clients only when it's *authorized* to do so. A cl
 | `webpubsub.sendToGroup` | The client can publish messages to any group. |
 | `webpubsub.joinLeaveGroup.<group>` | The client can join or leave group `<group>`. |
 | `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`. |
+| `webpubsub.joinLeaveGroups.<pattern>` | The client can join/leave any group whose name matches `<pattern>` (see [Wildcard group role patterns](./concept-wildcard-group-roles.md)). |
+| `webpubsub.sendToGroups.<pattern>` | The client can publish messages to any group whose name matches `<pattern>` (see [Wildcard group role patterns](./concept-wildcard-group-roles.md)). |
 | | |
 
 ## Authentication and authorization

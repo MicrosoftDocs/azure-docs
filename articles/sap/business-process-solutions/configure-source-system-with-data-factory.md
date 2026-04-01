@@ -118,6 +118,6 @@ In this section, we will deploy the self-hosted integration runtime on an Azure 
 
 ## Next steps
 
-Now that you have configured SAP source system with Azure Data Factory in your Business Process Solution item, you can proceed to configure dataset and relationships.
+Now that you have configured SAP source system with Azure Data Factory in your Business Process Solution item, you can proceed to configure insights.
 
-- [Configure Dataset in Business Process Solutions](configure-dataset.md)
+- [Configure Insights in Business Process Solutions](configure-insights.md)

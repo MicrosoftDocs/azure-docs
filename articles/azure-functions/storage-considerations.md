@@ -47,7 +47,7 @@ Storage accounts that you create during the function app creation process in the
 
 - When you create your function app in the Azure portal, you can only choose an existing storage account in the same region as the function app that you create. This requirement is a performance optimization and not a strict limitation. To learn more, see [Storage account location](#storage-account-location).
 
-- When you create your function app on a plan with [availability zone support](/azure/reliability/reliability-functions#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
+- When you create your function app on a plan with [availability zone support](/azure/reliability/reliability-functions#resilience-to-availability-zone-failures) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
 
 When you use deployment automation to create your function app with a network-secured storage account, you must include specific networking configurations in your ARM template or Bicep file. If you don't include these settings and resources, your automated deployment might fail in validation. For ARM template and Bicep guidance, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). For an overview on configuring storage accounts with networking, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
 
@@ -198,9 +198,9 @@ Azure Files is used to enable dynamic scale-out for Functions. Scaling could be 
 
 ## Mount file shares
 
-_This functionality is current only available when running on Linux._ 
+_This functionality is currently only available when running on Linux._
 
-You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can use existing machine learning models or other data in your functions. 
+You can mount Azure Files shares to your Linux function apps, which lets you access existing files, machine learning models, or large binaries in your functions. Storage mounts aren't supported on the [Consumption](./consumption-plan.md) plan. For conceptual guidance on choosing between storage mounts, bindings, and external databases, see [Choose a file access strategy for Azure Functions](./concept-file-access-options.md).
 
 [!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
@@ -223,17 +223,6 @@ In this command, `-ShareName` is the name of the existing Azure Files share. `-M
 For a complete example, see [Create a serverless Python function app and mount file share](create-resources-azure-powershell.md#create-a-serverless-python-function-app-and-mount-file-share). 
 
 ---
-
-Currently, only a `storage-type` of `AzureFiles` is supported. You can only mount five shares to a given function app. Mounting a file share can increase the cold start time by at least 200-300 ms, or even more when the storage account is in a different region.
-
-The mounted share is available to your function code at the `mount-path` specified. For example, when `mount-path` is `/path/to/mount`, you can access the target directory by file system APIs, as in the following Python example:
-
-```python
-import os
-...
-
-files_in_share = os.listdir("/path/to/mount")
-```
 
 ## Related article
 

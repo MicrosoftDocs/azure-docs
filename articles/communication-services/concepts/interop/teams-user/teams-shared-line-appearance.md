@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: jacadd
 ms.date: 2/6/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.custom:

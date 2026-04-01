@@ -373,4 +373,4 @@ To learn more about IoT Hub messaging, see:
 
 * [Understand cloud-to-device messaging from an IoT hub](./iot-hub-devguide-messages-c2d.md)
 * [How an IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md)
-* [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md)
+* [Communicate with an IoT hub using the MQTT protocol](iot-mqtt-connect-to-iot-hub.md)

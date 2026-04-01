@@ -3,7 +3,7 @@ title: Performance optimization for Apache Kafka HDInsight clusters
 description: Provides an overview of techniques for optimizing Apache Kafka workloads on Azure HDInsight.
 ms.service: azure-hdinsight
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: best-practice
 author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf

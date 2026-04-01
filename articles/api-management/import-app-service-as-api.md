@@ -1,12 +1,12 @@
 ---
-title: Import an Azure web app to Azure API Management  | Microsoft Docs
+title: Import an Azure Web App to Azure API Management
 description: Learn how to use Azure API Management to import a web API that's hosted in Azure App Service.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/28/2025
+ms.date: 03/10/2026
 ms.author: danlep
 
 #customer intent: As an API developer, I want to import a web app as an API to API Management so that I can take advantage of the benefits of using this environment.
@@ -15,7 +15,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article shows how to use the Azure portal to import an Azure web app as an API to Azure API Management and test the imported API.
+This article shows how to use the Azure portal to import an Azure web app as an API into Azure API Management and test the imported API.
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
@@ -34,15 +34,15 @@ Using API Management to expose a Web Apps-hosted API provides these benefits:
 * Decouple managing and securing the front end that's exposed to API consumers from managing and monitoring the backend web app.
 * Manage web APIs hosted as web apps in the same environment as your other APIs.
 * Apply [policies](api-management-policies.md) to change API behavior, such as call-rate limiting.
-* Direct API consumers to the customizable API Management [developer portal](api-management-howto-developer-portal.md) so they can discover and learn about your APIs, request access, and try APIs.
+* Direct API consumers to the customizable API Management [developer portal](developer-portal-overview.md) so they can discover and learn about your APIs, request access, and try APIs.
 
-For more information, see [About API Management](api-management-key-concepts.md).
+For more information, see [What is Azure API Management?](api-management-key-concepts.md)
 
 ## OpenAPI definition vs. wildcard operations
 
-API Management supports import of web apps hosted in App Service that include an OpenAPI definition (a Swagger definition). However, an OpenAPI definition isn't required.
+API Management supports the import of web apps hosted in App Service that include an OpenAPI definition (a Swagger definition). However, an OpenAPI definition isn't required.
 
-* If the web app is configured with an OpenAPI definition, API Management will detect that. Alternatively, you can [manually import the definition](import-api-from-oas.md) to API Management. API Management then creates API operations that map directly to the definition, including required paths, parameters, and response types. 
+* If the web app is configured with an OpenAPI definition, API Management detects that. Alternatively, you can [manually import the definition](import-api-from-oas.md) to API Management. API Management then creates API operations that map directly to the definition, including required paths, parameters, and response types. 
 
   Having an OpenAPI definition is recommended, because the API is imported to API Management with high fidelity, giving you the flexibility to validate, manage, secure, and update configurations for each operation separately.
 
@@ -53,27 +53,27 @@ API Management supports import of web apps hosted in App Service that include an
 ### Example
 
 Your backend web app might support two GET operations: 
-*  `https://<app-service>.azurewebsites.net/customer/{id}`
+*  `https://<app-service>.azurewebsites.net/customer/<id>`
 *  `https://<app-service>.azurewebsites.net/customers`
 
 You import the web app to your API Management service at a path like `https://<api>.azureapi.net/store`. The following table shows the operations that are imported to API Management, with or without an OpenAPI specification: 
 
 | Type |Imported operations  |Sample requests |
 |---------|---------|---------|
-|OpenAPI specification    | `GET  /customer/{id}`<br/><br/> `GET  /customers`         |  `GET https://<api>.azureapi.net/store/customer/1`<br/><br/>`GET https://<api>.azureapi.net/store/customers`       |
+|OpenAPI specification    | `GET  /customer/<id>`<br/><br/> `GET  /customers`         |  `GET https://<api>.azureapi.net/store/customer/1`<br/><br/>`GET https://<api>.azureapi.net/store/customers`       |
 |Wildcard     | `GET  /*`         | `GET https://<api>.azureapi.net/store/customer/1`<br/><br/>`GET https://<api>.azureapi.net/store/customers`  |
 
 The wildcard operation allows the same requests to the backend service as the operations in the OpenAPI specification. However, the OpenAPI-specified operations can be managed separately in API Management. 
 
 ## Prerequisites
 
-+ Complete the quickstart [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Create an [Azure API Management instance](get-started-create-service-instance.md).
 + Make sure there's an app service in your subscription. For more information, see [App Service documentation](../app-service/index.yml).
 
   For information about creating an example web API and publishing it as an Azure web app, see:
 
-    * [Tutorial: Create a web API with ASP.NET Core](/aspnet/core/tutorials/first-web-api).
-    * [Publish an ASP.NET Core app to Azure with Visual Studio Code](/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode).
+    * [Tutorial: Create a web API with ASP.NET Core](/aspnet/core/tutorials/first-web-api)
+    * [Publish an ASP.NET Core app to Azure with Visual Studio Code](/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode)
 
 ## Import and publish a backend API
 
@@ -81,17 +81,22 @@ The wildcard operation allows the same requests to the backend service as the op
 > In the following steps, you start the import by using API Management in the Azure portal. You can also link to API Management directly from your web app by selecting **API Management** in the app's **API** menu.  
 
 1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com).
-1. In the left menu, in the **APIs section**, select **APIs**, and then select **+ Add API**.
+
+1. In the sidebar menu, under **APIs**, select **APIs**, and then select **+ Add API**.
+
 1. Select the **App Service** tile:
 
     :::image type="content" source="media/import-app-service-as-api/app-service.png" alt-text="Screeenshot that shows the App Service tile.":::
 
 1. Select **Browse** to see the list of app services in your subscription.
-1. Select an app service and then click the **Select** button. If an OpenAPI definition is associated with the selected web app, API Management fetches it and imports it. 
+
+1. Select an app service and then choose the **Select** button. If an OpenAPI definition is associated with the selected web app, API Management fetches it and imports it. 
 
     If an OpenAPI definition isn't found, API Management exposes the API by generating wildcard operations for common HTTP verbs. 
+
 1. Add an **API URL suffix**. The suffix is a name that identifies the API in the API Management instance. It has to be unique in the API Management instance.
-1. If you want the API to be published and available to developers, switch to the **Full** view and associate the API with a **Product**. This example uses the **Unlimited** product. (You can add your API to a product when you create it or later via the **Settings** tab.)
+
+1. If you want the API to be published and available to developers, switch to the **Full** view, and then associate the API with a **Product**. This example uses the **Unlimited** product. You can add your API to a product when you create it or later via the **Settings** tab.
 
     > [!NOTE]
     > Products are associations of one or more APIs offered to developers via the developer portal. First, developers must subscribe to a product to get access to the API. After they subscribe, they get a subscription key for any API in the product. As creator of the API Management instance, you're an administrator and are subscribed to every product by default.
@@ -110,6 +115,7 @@ The wildcard operation allows the same requests to the backend service as the op
 You can call operations directly from the Azure portal. This method provides a convenient way to view and test the operations of an API. You can also test the API in the [developer portal](api-management-howto-developer-portal.md) or by using your own REST client tools.
 
 1. Select the API you created in the previous step.
+
 1. On the **Test** tab, select an operation.
 
     The page displays fields for query parameters and fields for the headers. One of the headers is `Ocp-Apim-Subscription-Key`. This header is for the subscription key of the product that's associated with the API. If you created the API Management instance, you're an administrator already, so the key is filled in automatically.
@@ -125,6 +131,7 @@ When wildcard operations are generated, the operations might not map directly to
 To test the path `/api/todoItems`:
 
 1. Select the API that you created, and then select an operation.
+
 1. On the **Test** tab, under **Template parameters**, update the value next to the wildcard (*) name. For example, enter **api/todoItems**. This value gets appended to the path `/` for the wildcard operation.
 
     :::image type="content" source="media/import-app-service-as-api/test-wildcard-operation.png" alt-text="Screenshot that shows the steps for testing an operation." lightbox="media/import-app-service-as-api/test-wildcard-operation.png":::

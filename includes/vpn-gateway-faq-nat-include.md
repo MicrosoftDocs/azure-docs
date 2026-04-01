@@ -15,7 +15,7 @@ No.
 
 ### How many NAT rules can I use on a VPN gateway?
 
-You can create up to 100 NAT rules (ingress and egress rules combined) on a VPN gateway.
+You can create up to 500 NAT rules (ingress and egress rules combined) on a VPN gateway.
 
 ### Can I use a slash (/) in a NAT rule name?
 

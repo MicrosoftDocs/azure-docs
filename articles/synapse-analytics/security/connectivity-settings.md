@@ -7,7 +7,7 @@ ms.author: danzhang
 ms.date: 03/18/2025
 ms.service: azure-synapse-analytics
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Azure Synapse Analytics connectivity settings

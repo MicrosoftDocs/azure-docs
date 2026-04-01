@@ -5,7 +5,7 @@ description: Learn about Azure Communication Services IncomingCall notification
 author: sroons
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2022
 ms.author: serooney 
 ---

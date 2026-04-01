@@ -4,7 +4,7 @@ description: Create edge jobs in Azure Stream Analytics and deploy them to devic
 ms.service: azure-stream-analytics
 author: an-emma
 ms.author: raan
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/18/2020
 ---
 

@@ -7,7 +7,7 @@ ms.author: micahvivion
 
 services: azure-communication-services
 ms.date: 06/04/2025
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows

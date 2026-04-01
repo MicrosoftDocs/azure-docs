@@ -3,7 +3,7 @@ title: Log retention tiers in Microsoft Sentinel
 description: Learn about the different log retention plans that are available in Microsoft Sentinel and how they're meant to be used to ensure maximum coverage at minimum expenditure.
 author: guywi-ms
 ms.author: guywild
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/30/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

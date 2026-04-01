@@ -7,10 +7,8 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
-manager: juergent
-author: rdeltcheva
+ms.date: 03/09/2026
 ms.author: radeltch
-ms.date: 03/04/2026
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 # Customer intent: "As a system administrator, I want to implement a multi-SID high availability setup for SAP ASCS/SCS instances using Windows Server Failover Clustering on Azure, so that I can ensure enhanced reliability and performance for my SAP environment."
 ---
@@ -184,6 +182,7 @@ Once the script completes, the results are displayed in the Azure portal, as sho
 ![A screenshot of the new front-end IP address pool in the Azure portal.][sap-ha-guide-figure-6005]
 
 ### Add disks to cluster machines and configure SIOS cluster-share disk
+
 
 You must add a new cluster-share disk for each extra SAP ASCS/SCS instance. For Windows Server 2012 R2, the Windows Server failover cluster share disk currently in use is the SIOS DataKeeper software solution.
 

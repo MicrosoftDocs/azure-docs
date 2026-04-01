@@ -650,7 +650,7 @@ The following example shows a change event record in JSON format that uses event
 
 ```
 
-<a id="conditions"></a>
+- <a id="conditions"></a>If event publishing remains blocked for over six months due to customer configuration errors (such as `KeyVaultNotFound` or authentication failures), the events are automatically deleted and garbage‑collected.
 
 ## Conditions and known issues
 
@@ -663,6 +663,8 @@ This section describes known issues and conditions in the current release of the
 - You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** containers. You can safely ignore these errors.
 - BlobDeleted events are not generated when blob versions or snapshots are deleted. A BlobDeleted event is added only when a base (root) blob is deleted.
 - Event records are added only for changes to blobs that result from requests to the Blob Service endpoint (`blob.core.windows.net`). Changes that result from requests to the Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint aren't logged and won't appear in change feed records.
+
+- If the **`$blobchangefeed`** container is deleted while there are pending events to be published, the system automatically recreates the container. In this scenario, the customer may delete the container later.
 
 ## Frequently asked questions (FAQ)
 

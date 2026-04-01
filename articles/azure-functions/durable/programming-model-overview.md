@@ -2,7 +2,7 @@
 title: Programming model overview - Durable Functions and Durable Task SDKs
 description: Learn about the core programming components in Durable Task, including orchestrators, activities, entities, and client APIs for both Durable Functions and the Durable Task SDKs.
 author: cgillum
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/18/2026
 ms.author: azfuncdf
 ms.reviewer: hannahhunter

@@ -5,7 +5,7 @@ description: Learn what level of coverage Azure Maps provides in various regions
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 06/12/2025
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
 ms.subservice: routing
 ---

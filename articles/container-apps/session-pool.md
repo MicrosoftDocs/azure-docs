@@ -4,7 +4,7 @@ description: Learn to use and manage session pools in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2025
 ms.author: cshoe
 ---

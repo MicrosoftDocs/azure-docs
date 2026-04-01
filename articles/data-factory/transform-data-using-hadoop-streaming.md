@@ -4,7 +4,7 @@ description: Learn how to use Hadoop Streaming Activity in Azure Data Factory or
 titleSuffix: Azure Data Factory & Azure Synapse
 author: nabhishek
 ms.author: abnarain
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
 ms.date: 10/03/2024
 ms.subservice: orchestration

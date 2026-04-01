@@ -3,7 +3,7 @@ title: App Status in Azure Spring Apps
 description: Learn the app status categories in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.author: karler

@@ -1,7 +1,7 @@
 ---
 title: Monitors in Durable Functions - Azure
 description: Learn how to implement a status monitor using Durable Functions or Durable Task SDKs.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-js, devx-track-python
 ms.date: 02/04/2026
 ms.author: azfuncdf

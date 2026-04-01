@@ -214,6 +214,9 @@ For Azure Government Cloud, change the servername to:
 
 If you don't want to mount Azure file shares using the suffix `file.core.windows.net`, you can modify the suffix of the storage account name associated with the Azure file share, and then add a canonical name (CNAME) record to route the new suffix to the endpoint of the storage account. The following instructions are for single-forest AD environments only. To learn how to configure AD environments that have two or more forests, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
+> [!IMPORTANT]
+> If you use custom domain names with Active Directory Domain Services (AD DS), be sure to [upgrade the Kerberos encryption type](storage-files-identity-ad-ds-enable.md#enable-aes-256-encryption-recommended) for your storage account to AES-256.
+
 > [!NOTE]
 > Azure Files only supports configuring CNAMES using the storage account name as a domain prefix. If you don't want to use the storage account name as a prefix, consider using [DFS namespaces](files-manage-namespaces.md).
 

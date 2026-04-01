@@ -44,6 +44,6 @@ Use the following steps to configure your SAP S/4 HANA source system with Open M
 
 ## Next steps
 
-Once this configuration is complete, you can proceed to set up the dataset.
+Once this configuration is complete, you can proceed to configure insights.
 
-- [Configure Dataset in Business Process Solutions](configure-dataset.md)
+- [Configure Insights in Business Process Solutions](configure-insights.md)

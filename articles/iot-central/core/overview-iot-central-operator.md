@@ -4,7 +4,7 @@ description: This guide describes how to manage the IoT devices connected to you
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/14/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
 ms.custom: [mvc, iot-central-frontdoor]

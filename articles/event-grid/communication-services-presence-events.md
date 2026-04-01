@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services - Presence events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for user presence Events.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/15/2021
 author: VikramDhumal
 ms.author: vikramdh

@@ -1,8 +1,8 @@
 ---
 title: Recommended Services
-description: This feature suggests a set of services that are commonly deployed together for your specific app type.
+description: The Azure Recommended services feature suggests a set of services that are commonly deployed together for your specific app type.
 ms.topic: overview
-ms.date: 03/04/2024
+ms.date: 03/13/2026
 author: btardif
 ms.author: byvinyal
 ms.service: azure-app-service
@@ -15,9 +15,9 @@ ms.service: azure-app-service
 
 This feature suggests a set of services that are commonly deployed together for your specific app type. It offers guidance on structuring your app effectively using proven patterns. 
 
-The upcoming version of this feature will provide better smart defaults and greater customization tailored to your app, drawing from successful patterns used by other Azure developers, architects, and DevOps engineers. 
+The upcoming version of this feature draws from successful patterns used by other Azure developers, architects, and DevOps engineers, to provide better smart defaults and greater customization tailored to your app.
 
-Your app will be deployed as:
+Your app is deployed as:
 
 - Secure-by-default 
 - On a new App Service plan

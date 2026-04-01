@@ -120,5 +120,5 @@ Platform decisions are trade‑offs, not absolutes, and should be guided by work
 
 - [Well-Architected Framework: Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning)
 - [Cloud Adoption Framework: HPC landing zone](/azure/cloud-adoption-framework/scenarios/azure-hpc/ready)
-- [Anyscale on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/anaborsa1627581675015.anyscale)
-- [Run:ai on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/run-ai.runai-cluster)
+- [Anyscale on Azure Marketplace](https://marketplace.microsoft.com/product/anyscale1750870039553.anyscale-2025-1)
+- [Run:ai on Azure Marketplace](https://marketplace.microsoft.com/product/runailabsltd1647779544073.runai-quickstart)

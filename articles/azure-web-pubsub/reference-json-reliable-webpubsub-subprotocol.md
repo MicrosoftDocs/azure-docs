@@ -4,7 +4,7 @@ description: The reference describes Azure Web PubSub supported WebSocket subpro
 author: zackliu
 ms.author: chenyl
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
+ms.topic: reference
 ms.date: 01/09/2023
 ---
 

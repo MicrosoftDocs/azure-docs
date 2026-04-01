@@ -2,7 +2,7 @@
 title: HTTP features in Durable Functions - Azure Functions
 description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
 author: cgillum
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 11/11/2024
 ms.author: azfuncdf
 ms.devlang: csharp
@@ -193,6 +193,9 @@ public HttpResponseMessage httpStart(
 ```
 
 ---
+
+> [!TIP]
+> If you have multiple HTTP-triggered starter functions in the same function app, configure a unique `route` for each function to avoid route conflicts. Using a parameterized route like `orchestrators/{functionName}` (as shown in several of the preceding examples) lets a single HTTP starter function start any orchestrator by name, which is often the simplest approach.
 
 Starting an orchestrator function by using the HTTP-trigger functions shown previously can be done using any HTTP client. The following cURL command starts an orchestrator function named `DoWork`:
 

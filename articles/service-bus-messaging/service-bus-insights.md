@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Service Bus with Azure Monitor insights
 description: This article describes the Service Bus insights feature of Azure Monitor that provides Service Bus consumers with a quick understanding of performance issues.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 02/10/2022
 
 ---

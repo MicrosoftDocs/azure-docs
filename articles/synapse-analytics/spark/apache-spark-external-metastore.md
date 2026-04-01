@@ -3,7 +3,7 @@ title: Use external Hive Metastore for Azure Synapse Spark Pool
 description: Learn how to set up external Hive Metastore for Azure Synapse Spark Pool.
 keywords: external Hive Metastore,share,Synapse
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: spark
 author: konjac
 ms.author: kuhuan

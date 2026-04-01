@@ -1,11 +1,11 @@
 ---
 title: Azure Stream Analytics solution patterns
-description: Learn about common solution patterns for Azure Stream Analytics, such as dashboarding, event messaging, data stores, reference data enrichment, and monitoring.
+description: Learn about common solution patterns for Azure Stream Analytics, including dashboarding, event messaging, data stores, Delta Lake, Microsoft Fabric, and monitoring.
 author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: concept-article
-ms.date: 02/19/2025
+ms.date: 03/24/2026
 ---
 
 # Azure Stream Analytics solution patterns
@@ -75,9 +75,9 @@ This pattern can also be used to implement a rules engine where the thresholds o
 
 ## Add Machine Learning to your real-time insights
 
-Azure Stream Analytics' built-in [Anomaly Detection model](stream-analytics-machine-learning-anomaly-detection.md) is a convenient way to introduce Machine Learning to your real-time application. For a wider range of Machine Learning needs, see [Azure Stream Analytics integrates with Azure Machine Learning's scoring service](stream-analytics-machine-learning-integration-tutorial.md).
+Azure Stream Analytics' built-in [Anomaly Detection model](stream-analytics-machine-learning-anomaly-detection.md) is a convenient way to introduce Machine Learning to your real-time application. For a wider range of Machine Learning needs, see [Azure Stream Analytics integration with Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md). You can deploy models from Azure Machine Learning and call them as user-defined functions (UDFs) in your Stream Analytics queries.
 
-For advanced users who want to incorporate online training and scoring into the same Stream Analytics pipeline, see this example of how do that with [linear regression](stream-analytics-high-frequency-trading.md).
+For advanced users who want to incorporate online training and scoring into the same Stream Analytics pipeline, see this example of how to do that with [linear regression](stream-analytics-high-frequency-trading.md).
 
 :::image type="content" source="media/stream-analytics-solution-patterns/machine-learning-app.png" alt-text="Diagram that shows an Azure Stream Analytics job using an ML scoring model.":::
 
@@ -89,7 +89,7 @@ Another common pattern is real-time data warehousing, also called streaming data
 
 ## Archiving real-time data for analytics
 
-Most data science and analytics activities still happen offline. You can archive data in Azure Stream Analytics through Azure Data Lake Store Gen2 output and Parquet output formats. This capability removes the friction to feed data directly into Azure Data Lake Analytics, Azure Databricks, and Azure HDInsight. Azure Stream Analytics is used as a near real-time Extract-Transform-Load (ETL) engine in this solution. You can explore archived data in Data Lake using various compute engines.
+Most data science and analytics activities still happen offline. You can archive data in Azure Stream Analytics through Azure Data Lake Store Gen2 output and Parquet output formats. This capability removes the friction to feed data directly into Azure Synapse Analytics, Azure Databricks, Microsoft Fabric, and Azure HDInsight. Azure Stream Analytics is used as a near real-time Extract-Transform-Load (ETL) engine in this solution. You can explore archived data in Data Lake using various compute engines.
 
 :::image type="content" source="media/stream-analytics-solution-patterns/offline-analytics.png" alt-text="Diagram that shows archiving of real-time data from a Stream Analytics job.":::
 
@@ -105,9 +105,38 @@ If you combine the offline analytics pattern with the near real-time application
 
 :::image type="content" source="media/stream-analytics-solution-patterns/insights-operationalization.png" alt-text="Diagram that shows both cold path and hot path in a Stream Analytics solution.":::
 
+## Apache Kafka integration
+
+Stream Analytics supports [Apache Kafka](../event-hubs/azure-event-hubs-kafka-overview.md) as both input and output through Azure Event Hubs with Kafka endpoint. This pattern enables:
+
+- Migration from existing Kafka-based architectures to Azure
+- Hybrid scenarios connecting on-premises Kafka clusters to Azure
+- Integration with Apache Kafka ecosystem tools and connectors
+
+## Delta Lake output for lakehouse architectures
+
+For modern lakehouse architectures, Stream Analytics can write directly to [Delta Lake format](write-to-delta-lake.md) in Azure Data Lake Storage Gen2. Delta Lake provides:
+
+- ACID transactions for reliable data ingestion
+- Schema enforcement and evolution
+- Time travel capabilities for data versioning
+- Unified batch and streaming data access
+
+### Choosing the right pattern
+
+Use this table to help select the appropriate pattern for your scenario:
+
+| Scenario | Recommended pattern | Key benefit |
+|----------|-------------------|-------------|
+| Real-time dashboards | Power BI streaming dataset | Lowest latency |
+| Complex reporting | SQL Database + Power BI | Full BI capabilities |
+| Event-driven alerts | Event Hubs + Azure Functions | Flexible integration |
+| Data lake analytics | Delta Lake output | ACID transactions |
+| Kafka workloads | Event Hubs Kafka endpoint | Protocol compatibility |
+
 ## How to monitor ASA jobs
 
-An Azure Stream Analytics job can be run 24/7 to process incoming events continuously in real time. Its uptime guarantee is crucial to the health of the overall application. While Stream Analytics is the only streaming analytics service in the industry that offers a  [99.9% availability guarantee](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), you still incur some level of down time. Over the years, Stream Analytics has introduced metrics, logs, and job states to reflect the health of the jobs. All of them are surfaced through Azure Monitor service and can be further exported to OMS. For more information, see [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md).
+An Azure Stream Analytics job can be run 24/7 to process incoming events continuously in real time. Its uptime guarantee is crucial to the health of the overall application. While Stream Analytics is the only streaming analytics service in the industry that offers a  [99.9% availability guarantee](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), you still incur some level of down time. Over the years, Stream Analytics has introduced metrics, logs, and job states to reflect the health of the jobs. All of them are surfaced through the Azure Monitor service and can be exported to a Log Analytics workspace for deeper analysis. For more information, see [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md).
 
 :::image type="content" source="media/stream-analytics-solution-patterns/monitoring.png" alt-text="Diagram that shows monitoring of Stream Analytics jobs.":::
 
@@ -120,6 +149,22 @@ There are two key things to monitor:
 - [Watermark delay metrics](./stream-analytics-job-analysis-with-metric-dimensions.md)
 
     This metric reflects how far behind your processing pipeline is in wall clock time (seconds). Some of the delay is attributed to the inherent processing logic. As a result, monitoring the increasing trend is much more important than monitoring the absolute value. The steady state delay should be addressed by your application design, not by monitoring or alerts.
+
+### Set up alerts and dashboards
+
+Configure Azure Monitor alerts for proactive monitoring:
+
+1. **SU utilization** - Alert when sustained above 80% to prevent job failures
+2. **Watermark delay** - Alert on increasing trends that indicate processing lag
+3. **Input/Output events** - Monitor for sudden drops indicating connectivity issues
+4. **Runtime errors** - Track deserialization and data conversion failures
+
+For centralized observability, export Stream Analytics metrics and logs to a Log Analytics workspace. This enables:
+
+- Cross-job correlation and analysis
+- Custom Kusto queries for deep diagnostics
+- Integration with Azure dashboards and workbooks
+
 
 Upon failure, activity logs and [diagnostics logs](stream-analytics-job-diagnostic-logs.md) are the best places to begin looking for errors.
 
@@ -174,8 +219,10 @@ The key is to design your system in composable patterns, so each subsystem can b
 
 ## Next steps
 
-You now have seen various solution patterns using Azure Stream Analytics. Next, you can dive deep and create your first Stream Analytics job:
+You've learned about various solution patterns using Azure Stream Analytics. Next, you can dive deep and create your first Stream Analytics job:
 
-* [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md).
-* [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md).
-* [Create a Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md).
+* [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Build a no-code stream processing pipeline](no-code-stream-processing.md)
+* [Output to Delta Lake format](write-to-delta-lake.md)
+* [Use managed identities to secure your job](stream-analytics-managed-identities-overview.md)
+* [Monitor Stream Analytics jobs](stream-analytics-monitoring.md)

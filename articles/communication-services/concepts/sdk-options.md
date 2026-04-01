@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: micahvivion
 ms.date: 06/04/2024
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ---
 # SDKs and REST APIs

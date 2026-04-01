@@ -5,7 +5,7 @@ description: Learn how to use the Get Metadata activity in an Azure Data Factory
 author: jianleishen
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ms.author: jianleishen
 ---

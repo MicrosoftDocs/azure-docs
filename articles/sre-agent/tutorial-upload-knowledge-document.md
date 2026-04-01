@@ -1,9 +1,9 @@
 ---
 title: "Tutorial: Upload Knowledge Documents to Azure SRE Agent"
-description: Upload knowledge documents to your Azure SRE Agent knowledge base through conversation and the portal UI so the agent can reference them in future investigations.
+description: Upload knowledge documents to your Azure SRE Agent's Knowledge settings through conversation and the portal UI so the agent can reference them in future investigations.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -12,14 +12,14 @@ ms.custom: knowledge-base, upload, documents, runbooks, knowledge-management
 ---
 
 # Tutorial: Upload knowledge documents to Azure SRE Agent
-In this tutorial, you upload knowledge documents to your Azure SRE Agent's knowledge base using two methods: by asking the agent to create a runbook from an investigation, and by uploading a file through the portal UI.
+In this tutorial, you upload knowledge documents to your Azure SRE Agent's Knowledge settings by using two methods: asking the agent to create a runbook from an investigation and uploading a file through the portal UI.
 
-Your agent can capture knowledge discovered during investigations and store it for future use, building institutional knowledge automatically. For more information, see [Upload knowledge documents](upload-knowledge-document.md).
+Your agent can capture knowledge discovered during investigations and store it for future use, so it automatically builds institutional knowledge. For more information, see [Upload knowledge documents](upload-knowledge-document.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Turn an investigation into a structured runbook and save it to the knowledge base
+> - Turn an investigation into a structured runbook and save it to Knowledge settings
 > - Upload a file manually through the portal UI
 > - Verify that uploaded documents are indexed and available
 > - Confirm that the agent retrieves uploaded knowledge in new conversations
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, make sure you have the following:
+Before you begin, make sure you have the following resources and permissions:
 
 - An Azure SRE Agent in **Running** state.
 - Write permissions on the agent.
@@ -47,67 +47,55 @@ If you don't have an investigation thread yet, start a new chat and ask your age
 Investigate high memory usage on our container apps
 ```
 
-Wait for the investigation to complete, then continue with the next step.
+Wait for the investigation to complete, and then continue with the next step.
 
 ## Create a runbook from the investigation
 
-In the same investigation thread, ask your agent to turn its findings into a runbook and save it to the knowledge base. Be specific about the filename.
+In the same investigation thread, ask your agent to turn its findings into a runbook and save it to Knowledge settings. Be specific about the filename.
 
 ```text
 Create a runbook from the investigation we just did. Include the root cause
 analysis, the diagnostic steps, mitigations, and escalation triggers.
-Save it to the knowledge base as high-memory-runbook.md
+Save it to Knowledge settings as high-memory-runbook.md
 ```
 
 Your agent performs the following actions:
 
 1. Synthesizes the investigation context into a structured runbook.
 1. Generates sections like Root Cause Analysis, Diagnostic Steps, Mitigations, and Escalation Triggers.
-1. Saves the document to the knowledge base and confirms the upload.
+1. Saves the document to Knowledge settings and confirms the upload.
 
-:::image type="content" source="media/tutorial-upload-knowledge-document/step-02-runbook-saved.png" alt-text="Agent confirming the runbook was saved to the knowledge base as java-app-high-memory-runbook.md.":::
+The agent confirms the document was saved and provides a download link. Your runbook is now stored in Knowledge settings and is indexed for search.
 
-The agent confirms the document was saved and provides a download link. Your runbook is now stored in the knowledge base and will be indexed for search.
-
-> [!TIP]
-> Specify a filename with a `.md` or `.txt` extension. This controls how the document is named in the knowledge base and makes it easy to find later.
-
-> [!NOTE]
-> If your agent is in **Review** mode, it asks for your approval before executing the upload. Select **Approve** to proceed.
-
-At this point, confirm the following:
+At this point, confirm the following information:
 
 - The agent generated a structured runbook from the investigation.
 - The agent confirmed the document was saved.
 
-## Verify the document in the knowledge base
+## Verify in Knowledge settings
 
-Navigate to the knowledge base to confirm your document was indexed.
+Go to **Knowledge settings** to confirm your document is indexed.
 
 1. In the left sidebar, select **Builder** to expand the section.
-1. Select **Knowledge base**.
+1. Select **Knowledge settings**.
 
-The knowledge base page displays your documents in a table with columns for **File Name**, **Status**, **Type**, and **Last modified**. The **Status** column shows **Indexed** when the document is indexed and ready for search.
+The **Knowledge settings** page displays your documents in a table with columns for **File Name**, **Status**, **Type**, and **Last modified**. The **Status** column shows **Indexed** when the document is indexed and ready for search.
 
-:::image type="content" source="media/tutorial-upload-knowledge-document/knowledge-base-page.png" alt-text="Knowledge base page showing uploaded files with Indexed status, columns for File Name, Status, Type, and Last modified.":::
+:::image type="content" source="media/tutorial-upload-knowledge-document/knowledge-base-page.png" alt-text="Screenshot of Knowledge settings page showing uploaded files with Indexed status, columns for File Name, Status, Type, and Last modified.":::
 
-If the status shows **Pending**, select **Refresh**. Indexing typically completes within a few seconds.
+If the status shows **Pending**, select **Refresh**. Indexing typically finishes within a few seconds.
 
 ## Upload a file through the portal
 
 You can also upload files directly. This method is useful for existing runbooks, documentation, or reference materials your team already has.
 
-1. On the **Knowledge base** page, select **Add file**.
+1. On the **Knowledge settings** page, select **Add file**.
 1. Drag a file into the drop zone, or select **browse for files** to choose one.
-1. Select **Add a file** to upload.
+1. Select **Add file** to upload.
 
 :::image type="content" source="media/tutorial-upload-knowledge-document/step-04-upload-dialog-empty.png" alt-text="Upload dialog showing a drag-and-drop zone with supported file formats and 100-MB maximum size.":::
 
-The portal accepts the following file types:
-
-- **Text**: `.md`, `.txt`, `.csv`, `.json`, `.xml`, `.yaml`, `.yml`, `.log`, `.ini`, `.cfg`, `.conf`, `.config`, `.properties`
-- **Documents**: `.pdf`, `.docx`, `.pptx`, `.xlsx`, `.doc`, `.ppt`, `.xls`
-- **Images**: `.png`, `.jpg`, `.jpeg`, `.gif`, `.bmp`, `.webp`, `.tiff`, `.tif`
+The portal accepts many file types for **Knowledge settings**, including text files, documents, and images. For the complete list of supported extensions and size limits, see [Upload knowledge documents](upload-knowledge-document.md).
 
 Maximum file size is 16 MB per file, with up to 100 MB per upload.
 
@@ -124,40 +112,21 @@ For example:
 What are the steps for troubleshooting high memory usage on container apps?
 ```
 
-Your agent searches the knowledge base, finds your uploaded runbook, and references it in the response. This confirms the knowledge is indexed and retrievable.
+Your agent searches **Knowledge settings**, finds your uploaded runbook, and references it in the response. This confirmation shows the knowledge is indexed and retrievable.
 
-## Capture knowledge after incidents
+## Delete a knowledge document
 
-After resolving any issue, ask your agent to preserve what it learned:
+To remove a document from **Knowledge settings**, use the following steps.
 
-```text
-Create a runbook from the steps we just used to resolve this incident.
-Include the root cause, investigation steps, and the fix.
-Save it as incident-12345-resolution.md in the knowledge base.
-```
+1. Go to **Builder** > **Knowledge settings**.
+1. In the documents list, select one or more documents by using the checkboxes.
+1. Select **Delete** in the toolbar.
+1. A confirmation dialog lists the documents to remove. Select **Delete** to confirm.
 
-Over time, this builds a searchable library of institutional knowledge. Every past incident becomes a resource for future ones.
+Deleted documents are removed from the agent's **Knowledge settings** and no longer appear in search results.
 
-### Update existing documents
-
-Upload a document with the same filename to replace the previous version:
-
-```text
-Update the high-memory-runbook.md document in the knowledge base.
-Add a new section about container memory limits as a common cause.
-```
-
-### Batch uploads via CLI
-
-Import multiple documents at once using the CLI:
-
-```bash
-# Upload a single file
-srectl doc upload --file ./runbooks/high-memory-guide.md
-
-# Upload all .md and .txt files in a folder (recursive)
-srectl doc upload --file ./runbooks
-```
+> [!NOTE]
+> You can't edit knowledge documents in place. To update a document, upload a new version with the same filename to replace the previous version.
 
 ## Troubleshooting
 
@@ -165,19 +134,16 @@ Use the following table to resolve common issues with knowledge document uploads
 
 | Error | Cause | Fix |
 |---|---|---|
-| "Agent memory is disabled. Cannot upload documents." | Knowledge base isn't enabled on your agent. | Contact your administrator to enable the knowledge base. |
-| "I don't have write access to your knowledge base" | Agent couldn't locate the upload tool. | Rephrase your request: "Save it to the knowledge base as filename.md" |
+| "Agent memory is disabled. Can't upload documents." | Knowledge settings aren't enabled on your agent. | Contact your administrator to enable Knowledge settings. |
+| "I don't have write access to your Knowledge settings" | Agent can't locate the upload tool. | Rephrase your request: "Save it to Knowledge settings as filename.md" |
 | "Invalid file extension. Only .md and .txt files are allowed." | Filename doesn't end in `.md` or `.txt` (chat upload). | Use a `.md` or `.txt` extension when asking the agent to save. |
-| "Document content exceeds maximum size of 16MB" | Content too large for a single document. | Split into multiple smaller documents. |
-| "File name cannot be empty" | No filename provided. | Include a filename in your prompt (for example, `runbook.md`). |
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [Learn about memory and knowledge](./memory.md)
+| "Document content exceeds maximum size of 16MB" | Content is too large for a single document. | Split into multiple smaller documents. |
+| "File name can't be empty" | No filename provided. | Include a filename in your prompt (for example, `runbook.md`). |
 
 ## Related content
 
-- [Upload knowledge documents (capability)](upload-knowledge-document.md)
-- [Azure DevOps wiki knowledge](azure-devops-wiki-knowledge.md)
-- [Memory and knowledge](memory.md)
+| Resource | Description |
+|----------|-------------|
+| [Upload knowledge documents](upload-knowledge-document.md) | How uploading knowledge documents works and why it matters. |
+| [Skills](skills.md) | How skills and knowledge work together. |
+| [Azure DevOps Repos connector](azure-devops-connector.md) | Connect live wiki content as a knowledge source. |

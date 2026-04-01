@@ -5,7 +5,7 @@ description: Learn how to copy and transform data in Azure Database for PostgreS
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/09/2026
 ms.custom:
   - synapse
@@ -30,10 +30,10 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 
 | Supported capabilities | IR | Managed private endpoint | Connector supported versions |
 |---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |1.0 & 2.0 |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |1.0 & 2.0 |
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |1.0 & 2.0 |
-|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |2.0 |
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;| |1.0 & 2.0 |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; | |1.0 & 2.0 |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;| |1.0 & 2.0 |
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;| |2.0 |
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 

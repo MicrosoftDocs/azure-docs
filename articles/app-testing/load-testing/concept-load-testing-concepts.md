@@ -3,8 +3,8 @@ title: Key concepts for Azure Load Testing
 description: Learn how Azure Load Testing works, and the key concepts behind it.
 services: load-testing
 ms.service: azure-load-testing
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.topic: concept-article
 ms.date: 11/24/2023
 ms.custom: template-concept, build-2024

@@ -112,6 +112,8 @@ landingContent:
             url: how-to-deploy-gcz.md
           - text: How to deploy OSDU Admin UI
             url: how-to-deploy-osdu-admin-ui.md
+          - text: How to manage upgrade settings
+            url: how-to-manage-upgrade-settings.md
       - linkListType: concept
         links:
           - text: Entitlement concepts

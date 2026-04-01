@@ -6,7 +6,7 @@ metadata:
   author: asudbring
   ms.service: azure-dns
   ms.topic: faq
-  ms.date: 09/23/2024
+  ms.date: 03/25/2026
   ms.author: allensu
 title: Azure DNS FAQ
 summary: |
@@ -225,6 +225,19 @@ sections:
           Internationalized domain names (IDNs) encode each DNS name by using [Punycode](https://en.wikipedia.org/wiki/Punycode). DNS queries are made by using these Punycode-encoded names.
           
           To configure IDNs in Azure DNS, convert the zone name or record set name to Punycode. Azure DNS doesn't currently support built-in conversion to or from Punycode.
+
+      - question: |
+          What happens to auto-registered DNS records if I disable auto-registration on a virtual network link?
+        answer: |
+          Disabling auto-registration on an existing virtual network link immediately deletes all DNS records that were automatically registered through that link. Virtual machine records will be deleted and will only be available if they are manually re-created or auto-registration is re-enabled in the virtual network link settings.
+          
+          > [!WARNING]
+          > The records are permanently deleted. Use caution when modifying auto-registration settings on an existing virtual network link.
+
+      - question: |
+          Can I recover auto-registered DNS records after they have been deleted?
+        answer: |
+          Auto-registered DNS records that have been deleted cannot be restored.
           
 additionalContent: |
 

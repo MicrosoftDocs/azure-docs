@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Migrate?
     href: migrate-services-overview.md
+  - name: What is Azure Copilot Migration Agent?
+    href: azure-copilot-migration-agent.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
@@ -43,8 +45,6 @@ items:
     href: concepts-vmware-agentless-migration.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
-  - name: Azure Copilot Migration Agent
-    href: azure-copilot-migration-agent.md
   - name: VMware agentless migration
     href: prepare-for-agentless-migration.md
   - name: Hydration process workflow
@@ -137,6 +137,12 @@ items:
     href: how-to-build-a-business-case.md
   - name: Review business case
     href: how-to-view-a-business-case.md
+- name: Create Reports
+  items:
+   - name: Overview reports
+     href: reports-overview.md
+   - name: Build a report
+     href: how-to-build-a-report.md
 - name: Plan migrations
   items:
   - name: Assessments
@@ -356,6 +362,8 @@ items:
       href: how-to-upgrade-windows.md
     - name: Automate agent-based migrations using REST API
       href: how-to-automate-vmware-to-azure-migration-rest-api.md
+    - name: Migrate Generation 2 Virtual Machines to Azure Trusted Launch Virtual Machines with Azure Migrate
+      href: migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md
     - name: Scale migration
       items:
       - name: How to migrate VMware VMs at scale using the agentless replication method
@@ -376,6 +384,8 @@ items:
       href: /azure/lighthouse/how-to/migration-at-scale?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
   - name: VMware migrations with migration agent
     href: how-to-plan-analyze-migration-with-agent.md
+  - name: End-to-end portal experience for server migrations with Azure Migrate
+    href: end-to-end-portal-experience-server-migrations.md
 - name: Troubleshoot
   items:
   - name: Azure Migrate Project
@@ -473,6 +483,5 @@ items:
     href: https://azure.microsoft.com/products/azure-migrate
   - name: Azure Roadmap
     href: https://azure.microsoft.com/updates/
-
-#     - name: Create an AVS assessment
-#       href: how-to-create-azure-vmware-solution-assessment.md
+  - name: Create an AVS assessment
+    href: how-to-create-azure-vmware-solution-assessment.md

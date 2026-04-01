@@ -62,7 +62,7 @@ The Azure portal supports the current smart tier public preview. Smart tier requ
 
 | Environment | Minimum version |
 |---|---|
-| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-06-01 |
+| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-08-01 |
 
 
 ## Next steps

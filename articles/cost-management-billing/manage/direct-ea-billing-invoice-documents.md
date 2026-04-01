@@ -5,7 +5,7 @@ author: SandeepReddyAcc
 ms.reviewer: v-salin
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/23/2025
 ms.author: v-salin
 ---

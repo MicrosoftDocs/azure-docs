@@ -4,7 +4,7 @@ description: Learn how to secure Azure Virtual WAN, with best practices for netw
 author: cherylmc
 ms.author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 09/08/2025
 ai-usage: ai-assisted

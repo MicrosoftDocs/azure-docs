@@ -2048,3 +2048,12 @@ groups:
     title: Azure CLI
   - id: script
     title: PowerShell script
+# Owner: kendownie
+- id: azure-files-windows-linux
+  title: Operating system
+  prompt: Choose your operating system
+  pivots:
+  - id: windows
+    title: Windows
+  - id: linux
+    title: Linux

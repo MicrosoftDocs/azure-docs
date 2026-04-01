@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 03/15/2026
 ms.custom:
   - fasttrack-edit
   - sfi-image-nochange
@@ -244,7 +244,7 @@ For a workflow that starts with a function-based trigger, you might try to [set 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the duration for a workflow action job to run before timing out and retrying. To change the default timeout for a built-in operation such as SAP, also set the **`functionTimeout`** host setting. For more information, see the next entry. |
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the duration for a workflow action job to run before timing out and retrying. The maximum duration is 2 hours (`02:00:00`). To change the default timeout for a built-in operation such as SAP, also set the `functionTimeout` host setting. For more information, see the next entry. |
 | `functionTimeout` | `00:30:00` <br>(30 minutes) | Sets the duration to run before timing out for calls from Azure Functions and some built-in operations, such as SAP, that work as function calls. Standard logic apps use the same underlying design as function apps. So, the **`functionTimeout`** host setting in Azure Functions also affects built-in operations that run as function calls. For more information, see [**functionTimeout**](/azure/azure-functions/functions-host-json#functiontimeout). <br><br>**Note**: In the **host.json** file, the **`functionTimeout`** setting exists at the same level as the **`extensions`** object where the host settings exist for a Standard logic app. For more information, see the example in this section: [Change timeout value for function-based built-in operations](#change-timeout-value-for-function-based-built-in-operations). |
 
 #### Change timeout value for function-based built-in operations

@@ -1,11 +1,11 @@
 ---
 title: Migrate Bing Maps Geodata API to Azure Maps Get Polygon API
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Bing Maps Geodata API to the Azure Maps Get Polygon API.
+description: Learn how to migrate the Bing Maps Geodata API to the Azure Maps Get Polygon API.
 author: pbrasil
 ms.author: peterbr 
 ms.date: 05/16/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: search
 ---
@@ -88,7 +88,7 @@ The following table lists the fields that can appear in the HTTP response when r
 | Name - Culture                    | Not supported                                 |             |
 | Name - SourceID                   | Not supported                                 |             |
 | Primitives - PrimativeID          | Not supported                                 |             |
-| Primitives - Shape                | GeometryCollection: geometries - coordinates  | Bing Maps Geodata API returns a comma-delimited sequence starting with the version number of the polygon set followed by a list of compressed polygon “rings” (closed paths represented by sequences of latitude/longitude points). A Bing Maps Geodata API decompression algorithm is needed to get the polygon coordinates. Azure Maps Get Polygon API returns the polygon coordinates directly in the response uncompressed, with no need to use a decompression algorithm.<br><br>Bing Maps Geodata API returns the coordinates in latitude/longitude format, whereas Azure Maps Get Polygon API returns the coordinates in longitude/latitude format, as defined by [GeoJSON].    |
+| Primitives - Shape                | GeometryCollection: geometries - coordinates  | Bing Maps Geodata API returns a comma-delimited sequence starting with the version number of the polygon set followed by a list of compressed polygon "rings" (closed paths represented by sequences of latitude/longitude points). A Bing Maps Geodata API decompression algorithm is needed to get the polygon coordinates. Azure Maps Get Polygon API returns the polygon coordinates directly in the response uncompressed, with no need to use a decompression algorithm.<br><br>Bing Maps Geodata API returns the coordinates in latitude/longitude format, whereas Azure Maps Get Polygon API returns the coordinates in longitude/latitude format, as defined by [GeoJSON].    |
 | Primitives - NumPoints            | Not supported                                 |             |
 | Primitives - SourceID             | Not supported                                 |             |
 
@@ -101,7 +101,7 @@ The following JSON sample shows what is returned in the body of the HTTP respons
 ```JSON
 {
     "d": { 
-        "Copyright": "© 2024 Microsoft and its suppliers.  This API and any results cannot be used or accessed without Microsoft's express written permission.", 
+        "Copyright": "&copy; 2024 Microsoft and its suppliers.  This API and any results cannot be used or accessed without Microsoft's express written permission.", 
         "results": [ 
             { 
                 "__metadata": { 
@@ -159,7 +159,7 @@ The following JSON sample shows what is returned in the body of the HTTP respons
     "properties": {
 
         "name":"Madrid",
-        "copyright":"© 2024 Microsoft and its suppliers. This API and any results cannot be used or accessed without Microsoft's express written permission.",
+        "copyright":"&copy; 2024 Microsoft and its suppliers. This API and any results cannot be used or accessed without Microsoft's express written permission.",
         "copyrightURL":"https://azure.microsoft.com/support/legal/preview-supplemental-terms/",
         "geometriesCopyright":[ {
             "sourceName": "TOM", "copyright":"TomTom"

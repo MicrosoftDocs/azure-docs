@@ -3,7 +3,7 @@ title: Manage Arc-enabled Azure VMware private cloud
 description: Learn how to manage your Arc-enabled Azure VMware private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 2/6/2024
+ms.date: 3/13/2026
 ms.custom: references_regions, engagement-fy23
 # Customer intent: As a cloud administrator, I want to manage the Arc-enabled Azure VMware private cloud, so that I can ensure the system is secure, well-maintained, and efficiently connected to Azure services.
 ---
@@ -17,7 +17,7 @@ In this article, learn how to update the Arc appliance credentials, upgrade the 
 
 When **cloud admin** credentials are updated, use the following steps to update the credentials in the appliance store. 
 
-1. Sign in to the Management VM from where the onboard process was performed. Change the directory to **onboarding directory**.
+1. Sign in to the Management virtual machine (VM) from where the onboard process was performed. Change the directory to **onboarding directory**.
 1. Run the following command:
 	For Windows-based Management VM.
     
@@ -36,7 +36,7 @@ When **cloud admin** credentials are updated, use the following steps to upd
 `az connectedvmware vcenter connect --debug --resource-group {resource-group} --name {vcenter-name-in-azure} --location {vcenter-location-in-azure} --custom-location {custom-location-name} --fqdn {vcenter-ip} --port {vcenter-port} --username cloudadmin@vsphere.local --password {vcenter-password}`
     
 > [!NOTE]
-> Customers need to ensure kubeconfig and SSH keys remain available as they will be required for log collection, appliance Upgrade, and credential rotation. These parameters will be required at the time of upgrade, log collection, and credential update scenarios.
+> Customers need to ensure kubeconfig and SSH keys remain available as they're required for log collection, appliance Upgrade, and credential rotation. These parameters are required at the time of upgrade, log collection, and credential update scenarios.
 
 **Parameters**
 

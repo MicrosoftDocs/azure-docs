@@ -2,7 +2,7 @@
 title: Create an Azure-SSIS integration runtime via Azure PowerShell 
 description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory via Azure PowerShell so you can deploy and run SSIS packages in Azure.
 ms.subservice: integration-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 

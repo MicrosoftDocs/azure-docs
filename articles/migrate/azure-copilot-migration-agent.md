@@ -1,12 +1,12 @@
 ---
 title: Azure Copilot Migration Agent (preview)
 description: Azure Copilot migration agent is a planning‑focused Copilot experience that helps you analyze migrations using Azure Migrate data, including readiness, strategy, ROI, and landing zone insights (preview).
-ms.topic: conceptual
+ms.topic: overview
 author: ankurgupta2212
 ms.author: ankug
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.date: 03/12/2026
+ms.date: 03/18/2026
 monikerRange: migrate 
 # Customer intent: Use this article to learn how Azure Copilot migration agent helps you plan and analyze migrations by reasoning over Azure Migrate data, including supported scenarios, available capabilities, and example interactions.
 ---
@@ -27,7 +27,7 @@ The migration agent supports migration planning, analysis, and decision making, 
 
 ## Prerequisites
 
-Before you begin, ensure that you have:
+Before you begin, ensure that you've:
 
 - An Azure subscription with permissions to use Azure Migrate.
 - Access the Azure portal and Azure Migrate.
@@ -37,6 +37,33 @@ Before you begin, ensure that you have:
 
 >[!NOTE]
 > The Azure Copilot migration agent isn't supported when Bring your own storage (BYOS) is enabled for conversation history. For more information, see [Bring your own storage for conversation history in Azure Copilot](/azure/copilot/bring-your-own-storage).
+
+## Get started with Azure Copilot migration agent in Azure Migrate
+
+This section explains how to open the **Azure Copilot migration agent** from your **Azure Migrate** project. You can ask planning and analysis questions based on your discovered inventory, assessments, and business case artifacts. 
+
+To open the agent experience in Azure Migrate, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. In the **Azure portal**, search for **Azure Migrate**, and then go to **Migrate** dashboard.
+
+    :::image type="content" source="./media/azure-copilot-migration-agent/migrate-agent.png" alt-text="Screenshot shows how to access the Azure Migration agent." lightbox="./media/azure-copilot-migration-agent/migrate-agent.png" :::
+
+3. In **Get started**, select **Accelerate migration**.
+
+>[!NOTE]
+> To use the Azure Copilot migration agent, you must enable the agent preview in Azure Copilot.
+
+
+:::image type="content" source="./media/azure-copilot-migration-agent/accelerate-migration.png" alt-text="Screenshot shows how to accelerate migration agent." lightbox="./media/azure-copilot-migration-agent/accelerate-migration.png" :::
+
+4. In the **Azure Migrate Project**, select either **Existing project** or **New project**, and then select subscription, resource group, and geography.
+
+    :::image type="content" source="./media/azure-copilot-migration-agent/azure-migrate-project.png" alt-text="Screenshot shows how to select the project and other related fields." lightbox="./media/azure-copilot-migration-agent/azure-migrate-project.png" :::
+
+5. Select **Continue** to go to the Migration Agent.
+
+    :::image type="content" source="./media/azure-copilot-migration-agent/migration-agent.png" alt-text="Screenshot shows the migration agent experience." lightbox="./media/azure-copilot-migration-agent/migration-agent.png" :::
 
 ### Migration strategy analysis 
 

@@ -4,7 +4,7 @@ description: "Learn how to evaluate your serverless SQL pool design to identify 
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 05/31/2022
 ---
 

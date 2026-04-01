@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: mkhribech
 ms.date: 07/18/2024
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: data
 ---

@@ -6,7 +6,7 @@ ms.author: nicholak
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
-ms.topic: conceptual
+ms.topic: get-started
 ms.date: 01/07/2025
 ---
 

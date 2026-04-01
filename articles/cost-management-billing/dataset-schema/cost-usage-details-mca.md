@@ -74,7 +74,7 @@ ms.author: vikdesai
 | 57 |term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 | 58 |reservationId|Unique identifier for the purchased reservation instance.|
 | 59 |reservationName|Name of the purchased reservation instance.|
-| 60 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+| 60 |pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
 | 61 |unitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 62 |costAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
 | 63 |benefitId| Unique identifier for the purchased savings plan instance. |

@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform  
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 03/29/2026
 ms.author: edbaynash  
 ms.collection: ms-security  
 
@@ -55,6 +55,7 @@ If you have any of the following requirements, use search jobs:
 | **Source data tier** | Microsoft Sentinel data lake tier | Analytics, auxiliary, basic, data lake (except for tables in System tables) | Analytics, data lake (except for tables in System tables). For non-data-lake workspaces: Auxiliary, Basic, Archived tier |
 | **Workspace scope** | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace connected to Microsoft Defender | Any Microsoft Sentinel workspace |
 | **Table scope** | Multiple tables | Multiple tables | Single table |
+|**Can query federated tables** | Yes | No | No |
 | **Query language** | [KQL jobs supported operators](/azure/sentinel/datalake/kql-jobs#considerations-and-limitations)| Limited [KQL operators](/azure/azure-monitor/logs/summary-rules?tabs=api#create-or-update-a-summary-rule) | [Limited KQL operators](/azure/azure-monitor/logs/search-jobs#kql-query-considerations) |
 | **Join support** | Supported | Analytics tier: supported; Basic: join up to five Analytics tables using [`lookup()`](/azure/data-explorer/kusto/query/lookup-operator) operator | Not supported |
 | **Scheduling frequency** | On-demand; Daily, weekly, monthly | 20 minutes to 24 hours | On-demand (long-running searches support up to a 24‑hour timeout) |

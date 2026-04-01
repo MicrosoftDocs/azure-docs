@@ -129,6 +129,8 @@
       - name: Change administrator
         displayName: azure subscription owner, add user to azure subscription, azure subscription permissions, azure change account admin
         href: manage/add-change-subscription-administrator.md
+      - name: Change Entra Directory
+        href: manage/subscription-change-directory.md
       - name: Switch subscription offer
         href: manage/switch-azure-offer.md
       - name: Cancel and delete subscription

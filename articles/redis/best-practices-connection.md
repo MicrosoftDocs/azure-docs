@@ -2,7 +2,7 @@
 title: Best practices for connection resilience for Azure Managed Redis
 description: Learn how to make your Azure Managed Redis connections resilient.
 ms.date: 05/18/2025
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom:
   - linux-related-content
   - ignite-2024

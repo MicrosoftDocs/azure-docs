@@ -2,7 +2,7 @@
 title: Target-based scaling in Azure Functions
 description: Explains target-based scaling behaviors of Consumption plan and Premium plan function apps.
 ms.date: 05/05/2024
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-functions
 ms.custom:
   - build-2024

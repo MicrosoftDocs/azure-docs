@@ -2,7 +2,7 @@
 title: Enable VMware Cloud Director service with Azure VMware Solution 
 description: This article explains how to use  Azure VMware Solution to enable enterprise customers to use Azure VMware Solution for private clouds underlying resources for virtual datacenters.
 ms.topic: how-to
-ms.date: 4/16/2024
+ms.date: 3/10/2026
 ms.custom: engagement-fy23
 # Customer intent: "As an enterprise IT administrator, I want to enable VMware Cloud Director service with Azure VMware Solution, so that I can self-service, provision, and manage virtual datacenters efficiently within a multi-tenant environment."
 ---

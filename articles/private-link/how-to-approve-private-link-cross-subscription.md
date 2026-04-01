@@ -6,7 +6,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 03/25/2025
+ms.date: 03/30/2026
 # Customer intent: As a network administrator, I want to approve Private Link connections across Azure subscriptions.
 
 ---
@@ -160,9 +160,9 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 The private endpoint connection is in a **Pending** state until approved. Use the following steps to approve the private endpoint connection in **subscription-1**.
 
-1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints**.
+1. In the search box at the top of the portal, enter **Private Link**. Select **Private Link** from the search results.
 
-1. Select **Pending connections**.
+1. In **Network foundation**, expand **Private Link** in the left menu and select **Pending connections**.
 
 1. Select the box next to your storage account in **subscription-1**.
 

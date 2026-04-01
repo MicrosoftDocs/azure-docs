@@ -3,7 +3,7 @@ title: Resiliency and disaster recovery in Azure Web PubSub Service
 description: An overview on how to set up multiple Azure Web PubSub service instances to achieve resiliency and disaster recovery.
 author: vicancy
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/28/2023
 ms.author: lianwei
 ---

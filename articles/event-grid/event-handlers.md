@@ -2,7 +2,7 @@
 title: Azure Event Grid Event Handlers Overview
 description: Learn about supported event handlers in Azure Event Grid, including Azure Automation, Functions, Logic Apps, and more. Discover how to process events effectively.
 #customer intent: As a developer, I want to understand the supported event handlers in Azure Event Grid so that I can choose the right one for my application.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/17/2026
 ---
 

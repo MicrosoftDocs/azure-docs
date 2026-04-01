@@ -1,7 +1,7 @@
 ---
 title: Chat from Your Tools in Azure SRE Agent
 description: Interact with your agent directly in Microsoft Teams without leaving your current workflow.
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-sre-agent
 ms.date: 03/09/2026
 author: craigshoemaker

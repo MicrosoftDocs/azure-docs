@@ -17,12 +17,10 @@ items:
         href: configure-source-system-with-open-mirroring.md
       - name: Configure Salesforce source system
         href: configure-salesforce-source-system.md
-    - name: Configure dataset
-      href: configure-dataset.md
-    - name: Run extraction and data processing
-      href: run-extraction-data-processing.md
     - name: Configure insights
       href: configure-insights.md
+    - name: Run extraction and data processing
+      href: run-extraction-data-processing.md
     - name: Currency conversion
       href: currency-conversion.md
     - name: Monitoring data extraction and processing
@@ -31,6 +29,8 @@ items:
         href: monitor-data-extraction.md
       - name: Monitor in Fabric
         href: monitor-fabric-data-extraction-processing.md
+    - name: Manage datasets
+      href: manage-datasets.md
   - name: Attestation Document
     href: attestation.md
   - name: Troubleshooting common issues

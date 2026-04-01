@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 11/02/2021
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Temporary tables in dedicated SQL pool in Azure Synapse Analytics

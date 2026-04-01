@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 08/01/2022
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.custom: sfi-ga-nochange

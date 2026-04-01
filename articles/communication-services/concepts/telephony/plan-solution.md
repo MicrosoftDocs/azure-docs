@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: pstn

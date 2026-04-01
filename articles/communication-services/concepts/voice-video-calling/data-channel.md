@@ -7,7 +7,7 @@ ms.author: micahvivion
 
 services: azure-communication-services
 ms.date: 5/10/2023
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-communication-services
 ms.subservice: calling
 ---

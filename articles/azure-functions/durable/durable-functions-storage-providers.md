@@ -3,7 +3,7 @@ title: Manage orchestration data using storage providers
 titleSuffix: Durable Task
 description: Learn about and compare the different storage providers for Durable Functions and the Durable Task SDKs
 author: cgillum
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/05/2026
 ms.author: azfuncdf
 zone_pivot_groups: azure-durable-approach

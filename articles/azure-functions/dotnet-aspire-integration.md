@@ -2,7 +2,7 @@
 title: Guide for Using Azure Functions with Aspire
 description: Learn how to use Azure Functions with Aspire, which simplifies authoring of distributed applications in the cloud.
 ms.service: azure-functions
-ms.topic: conceptual
+ms.topic: integration
 ms.date: 10/31/2025
 ---
 

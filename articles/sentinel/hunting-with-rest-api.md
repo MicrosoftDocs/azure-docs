@@ -1,21 +1,20 @@
 ---
-title: Manage hunting and livestream queries in Microsoft Sentinel using REST API | Microsoft Docs
-description: This article describes how Microsoft Sentinel hunting features enable you to take advantage Log Analytics’ REST API to manage hunting and livestream queries.
+title: Manage hunting queries in Microsoft Sentinel using REST API | Microsoft Docs
+description: This article describes how Microsoft Sentinel hunting features enable you to take advantage Log Analytics’ REST API to manage hunting queries.
 author: guywi-ms
 ms.author: guywild
 ms.topic: reference
 ms.custom: mvc
-ms.date: 11/09/2021
+ms.date: 11/09/2025
 
-#Customer intent: As a security analyst, I want to manage hunting and livestream queries using REST API so that I can efficiently monitor and respond to security threats in my environment.
+#Customer intent: As a security analyst, I want to manage hunting queries using REST API so that I can efficiently monitor and respond to security threats in my environment.
 
 ---
 
-# Manage hunting and livestream queries in Microsoft Sentinel using REST API
+# Manage hunting queries in Microsoft Sentinel using REST API
 
-Microsoft Sentinel, being built in part on Azure Monitor Log Analytics, lets you use Log Analytics’ REST API to manage hunting and livestream queries. This document shows you how to create and manage hunting queries using the REST API.  Queries created in this way will be displayed in the Microsoft Sentinel UI.
-
-See the definitive REST API reference for more details on the [saved searches API](/rest/api/loganalytics/savedsearches).
+Microsoft Sentinel, being built in part on Azure Monitor Log Analytics, lets you use Log Analytics’ REST API to manage hunting queries. This document shows you how to create and manage hunting queries using the REST API. Queries created in this way are displayed in the Microsoft Sentinel UI.
+For more information on the [saved searches API](/rest/api/loganalytics/savedsearches), see the definitive REST API reference.
 
 ## API examples
 
@@ -23,19 +22,18 @@ In the following examples, replace these placeholders with the replacement presc
 
 | Placeholder | Replace with |
 |-|-|
-| **{subscriptionId}** | the name of the subscription to which you are applying the hunting or livestream query. |
-| **{resourceGroupName}** | the name of the resource group to which you are applying the hunting or livestream query. |
-| **{savedSearchId}** | a unique id (GUID) for each hunting query. |
+| **{subscriptionId}** | the name of the subscription to which you're applying the hunting query. |
+| **{resourceGroupName}** | the name of the resource group to which you're applying the hunting query. |
+| **{savedSearchId}** | a unique ID (GUID) for each hunting query. |
 | **{WorkspaceName}** | the name of the Log Analytics workspace that is the target of the query. |
 | **{DisplayName}** | a display name of your choice for the query. |
-| **{Description}** | a description of the hunting or livestream query. |
+| **{Description}** | a description of the hunting query. |
 | **{Tactics}** | the relevant MITRE ATT&CK tactics that apply to the query. |
 | **{Query}** | the query expression for your query. |
-|  
 
 ### Example 1
 
-This example shows you how to create or update a hunting query for a given Microsoft Sentinel workspace.  For a livestream query, replace *“Category”: “Hunting Queries”* with *“Category”: “Livestream Queries”* in the **request body**: 
+This example shows you how to create or update a hunting query for a given Microsoft Sentinel workspace.
 
 #### Request header
 
@@ -70,7 +68,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId} _
 
 ### Example 2
 
-This example shows you how to delete a hunting or livestream query for a given Microsoft Sentinel workspace:
+This example shows you how to delete a hunting query for a given Microsoft Sentinel workspace:
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId} _
@@ -81,7 +79,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId} _
 
 ### Example 3
 
-This example shows you to retrieve a hunting or livestream query for a given workspace:
+This example shows you how to retrieve a hunting query for a given workspace:
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId} _
@@ -92,7 +90,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId} _
 
 ## Next steps
 
-In this article, you learned how to manage hunting and livestream queries in Microsoft Sentinel using the Log Analytics API. To learn more about Microsoft Sentinel, see the following articles:
+In this article, you learned how to manage hunting queries in Microsoft Sentinel using the Log Analytics API. To learn more about Microsoft Sentinel, see the following articles:
 
 - [Proactively hunt for threats](hunting.md)
 - [Use notebooks to run automated hunting campaigns](notebooks.md)

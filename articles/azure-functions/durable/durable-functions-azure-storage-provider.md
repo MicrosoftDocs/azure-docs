@@ -4,7 +4,7 @@ titleSuffix: Durable Task
 description: Learn about the characteristics of the Durable Functions Azure Storage provider.
 author: cgillum
 reviewer: hhunter-ms
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/14/2026
 ms.author: azfuncdf
 ms.service: azure-functions

@@ -2,7 +2,7 @@
 title: Disaster Recovery and Geo-Distribution in Durable Functions
 description: Learn about disaster recovery and geo-distribution in Durable Functions.
 author: MS-Santi
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/05/2025
 ms.author: azfuncdf
 ---

@@ -7,7 +7,7 @@ ms.reviewer:  kecona
 ms.date: 01/22/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - azure-synapse
 ---

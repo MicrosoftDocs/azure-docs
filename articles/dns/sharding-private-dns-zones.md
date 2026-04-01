@@ -23,8 +23,6 @@ A centralized private DNS zone might seem simpler during early adoption. However
 
 Sharding mitigates this risk by ensuring DNS changes are scoped to a clearly defined set of workloads and virtual networks. Each zone represents an ownership or operational boundary, reducing unintended impact across unrelated services.
 
-:::image type="content" source="media/sharding-private-dns-zones/dns-shard-flat-diagram.png" alt-text="Screenshot of flat private DNS zone linked to many virtual networks compared to a sharded design with zones segmented by ownership and environment." lightbox="media/sharding-private-dns-zones/dns-shard-flat-diagram.png":::
-
 > [!NOTE]
 > Sharding is an architectural pattern. Azure doesn't provide a built-in feature or toggle to enable sharding.
 
@@ -130,11 +128,6 @@ Sharding doesn't require new Azure features. Implement it by using existing Priv
 
     - This approach is recommended for hub-and-spoke or hybrid architectures.
 
-:::image type="content" source="media/sharding-private-dns-zones/dns-shard-central-resolution.png" alt-text="Screenshot of sharded private DNS zones with selective virtual network links and centralized resolution." lightbox="media/sharding-private-dns-zones/dns-shard-central-resolution.png":::
-
-:::image type="content" source="media/sharding-private-dns-zones/dns-shard-central-resolver.png" alt-text="Screenshot of sharded private DNS zones architecture with centralized resolution." lightbox="media/sharding-private-dns-zones/dns-shard-central-resolver.png":::
-
-**Figure 2: Sharded private DNS zones with selective virtual network links and centralized resolution**
 
 ## When to use sharding
 

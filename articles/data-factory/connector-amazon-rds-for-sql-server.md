@@ -5,7 +5,7 @@ description: Learn about how to copy data from Amazon RDS for SQL Server databas
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/31/2025
 ms.custom:
   - synapse

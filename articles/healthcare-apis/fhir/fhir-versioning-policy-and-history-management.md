@@ -4,7 +4,7 @@ description: This article describes the concepts of versioning policy and histor
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/09/2025
 ms.author: kesheth
 ms.custom: sfi-image-nochange

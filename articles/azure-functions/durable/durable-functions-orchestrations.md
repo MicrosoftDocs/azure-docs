@@ -24,6 +24,9 @@ This article gives you an overview of orchestrator functions and how they can he
 
 For information about the types of functions available in a Durable Functions app, see [Durable Task programming model](programming-model-overview.md).
 
+> [!TIP]
+> If you use C# with the .NET isolated worker model, you can write orchestrations using either a **function-based** approach (static methods with `[Function]` attributes) or a **class-based** approach (classes that inherit from `TaskOrchestrator<TInput, TOutput>`). The class-based approach requires the [Microsoft.DurableTask.Generators](https://www.nuget.org/packages/Microsoft.DurableTask.Generators) source generator package and provides strongly typed invocations. For more information, see [Class-based activities and orchestrations](durable-functions-dotnet-isolated-overview.md#source-generator-and-class-based-activities-and-orchestrations). The C# code examples in this article show both approaches.
+
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
@@ -109,6 +112,36 @@ public static async Task<List<string>> Run(
 
     // Return ["Hello Tokyo!", "Hello Seattle!", "Hello London!"].
     return outputs;
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>Class-based model (isolated worker)</b></summary>
+
+The class-based approach uses a source generator and requires the [Microsoft.DurableTask.Generators](https://www.nuget.org/packages/Microsoft.DurableTask.Generators) NuGet package.
+
+```csharp
+using Microsoft.DurableTask;
+
+[DurableTask]
+public class HelloCities : TaskOrchestrator<object?, List<string>>
+{
+    public override async Task<List<string>> RunAsync(
+        TaskOrchestrationContext context, object? input)
+    {
+        var outputs = new List<string>();
+
+        outputs.Add(await context.CallActivityAsync<string>("SayHello", "Tokyo"));
+        outputs.Add(await context.CallActivityAsync<string>("SayHello", "Seattle"));
+        outputs.Add(await context.CallActivityAsync<string>("SayHello", "London"));
+
+        // Return ["Hello Tokyo!", "Hello Seattle!", "Hello London!"].
+        return outputs;
+    }
 }
 ```
 
@@ -500,15 +533,16 @@ It isn't possible to pass multiple parameters to an activity function directly. 
 <details>
 <summary><b>Isolated worker model</b></summary>
 
-In .NET, you can use record types or [ValueTuple](/dotnet/csharp/language-reference/builtin-types/value-tuples) objects to pass multiple parameters.
+In .NET, use a serializable composite type, such as a record, to pass multiple parameters.
 
 ```csharp
 public record CourseInfo(string Major, int UniversityYear);
 
 [Function("GetCourseRecommendations")]
 public static async Task<object> RunOrchestrator(
-    [OrchestrationTrigger] TaskOrchestrationContext context, int universityYear)
+    [OrchestrationTrigger] TaskOrchestrationContext context)
 {
+    int universityYear = context.GetInput<int>();
     CourseInfo courseInfo = new("ComputerScience", universityYear);
     object courseRecommendations = await context.CallActivityAsync<object>(
         "CourseRecommendations", courseInfo);
@@ -523,19 +557,28 @@ public static async Task<object> RunOrchestrator(
 <details>
 <summary><b>In-process model</b></summary>
 
-In .NET, you can also use [ValueTuple](/dotnet/csharp/language-reference/builtin-types/value-tuples) objects to pass multiple parameters. The following sample uses [ValueTuple](/dotnet/csharp/language-reference/builtin-types/value-tuples) features added with [C# 7](/dotnet/csharp/whats-new/csharp-version-history#c-version-70):
+In .NET, use a serializable composite type to pass multiple parameters. The following sample uses a simple class:
 
 ```csharp
+public class CourseInfo
+{
+    public string Major { get; set; }
+    public int UniversityYear { get; set; }
+}
+
 [FunctionName("GetCourseRecommendations")]
 public static async Task<object> RunOrchestrator(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
-    string major = "ComputerScience";
-    int universityYear = context.GetInput<int>();
+    var input = new CourseInfo
+    {
+        Major = "ComputerScience",
+        UniversityYear = context.GetInput<int>()
+    };
 
     object courseRecommendations = await context.CallActivityAsync<object>(
         "CourseRecommendations",
-        (major, universityYear));
+        input);
     return courseRecommendations;
 }
 ```
@@ -568,7 +611,6 @@ df.app.activity("getWeather", {
 # [Python](#tab/python)
 
 ```python
-from collections import namedtuple
 import azure.functions as func
 import azure.durable_functions as df
 
@@ -576,15 +618,15 @@ app = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 @app.orchestration_trigger(context_name="context")
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    Location = namedtuple('Location', ['city', 'state'])
-    location = Location(city='Seattle', state='WA')
+    location = {'city': 'Seattle', 'state': 'WA'}
 
     weather = yield context.call_activity("GetWeather", location)
     # ...
 
 @app.activity_trigger(input_name="location")
 def GetWeather(location):
-    city, state = location
+    city = location['city']
+    state = location['state']
     return f"Hello {city}, {state}!"
 ```
 
@@ -598,7 +640,7 @@ $location = @{
     State  = 'WA'
 }
 
-Invoke-ActivityFunction -FunctionName 'GetWeather' -Input $location
+Invoke-DurableActivity -FunctionName 'GetWeather' -Input $location
 
 # ...
 ```

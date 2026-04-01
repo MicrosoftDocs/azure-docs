@@ -5,7 +5,7 @@ description: Learn how to copy data from SAP HANA to supported sink data stores 
 author: jianleishen
 ms.author: ulrichchrist
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/25/2024
 ms.custom:
   - synapse

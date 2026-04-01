@@ -4,7 +4,7 @@ description: Learn the basics of using containers for Java applications.
 author: KarlErickson
 ms.reviewer: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: get-started
 ms.date: 04/23/2025
 ms.author: karler
 ms.custom: devx-track-java

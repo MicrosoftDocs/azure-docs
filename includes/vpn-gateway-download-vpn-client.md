@@ -11,9 +11,14 @@ ms.topic: include
    
    * Install using Client Install files: [https://aka.ms/azvpnclientdownload](https://aka.ms/azvpnclientdownload).
    * Install directly, when signed in on a client computer: [Microsoft Store](https://go.microsoft.com/fwlink/?linkid=2117554).
+   * Install using the Windows Package Manager (WinGet). You can run the following command to install and learn more about the WinGet method in [this document](../articles/vpn-gateway/point-to-site-vpn-client-winget.md).
+```azurecli-interactive
+winget install Microsoft.AzureVPNClient --source winget
+```
+
 
 1. Install the Azure VPN Client to each computer.
 
 1. Verify that the Azure VPN Client has permission to run in the background. For steps, see [Windows background apps](https://support.microsoft.com/windows/windows-background-apps-and-your-privacy-83f2de44-d2d9-2b29-4649-2afe0913360a#ID0EBD=Windows_11).
 
-1. To verify the installed client version, open the Azure VPN Client. Go to the bottom of the client and click  **... -> ? Help**. In the right pane, you can see the client version number.
+1. To verify the installed client version, open the Azure VPN Client. Go to the bottom of the client and select  **... -> ? Help**. In the right pane, you can see the client version number.

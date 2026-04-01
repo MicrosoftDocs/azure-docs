@@ -4,7 +4,7 @@ description: This article explains how to enable diagnostic logging in the DICOM
 author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2025
 ms.author: buchvarun
 ---

@@ -4,7 +4,7 @@ description: Learn how to use the change feed in the DICOM service to access the
 author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/30/2025
 ms.author: buchvarun
 ---

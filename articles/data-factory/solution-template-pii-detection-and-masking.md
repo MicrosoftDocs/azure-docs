@@ -3,7 +3,7 @@ title: PII detection and masking
 description: Learn how to use a solution template to detect and mask PII data using Azure Data Factory.
 author: n0elleli
 ms.author: noelleli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: data-flows
 ms.custom: sfi-image-nochange

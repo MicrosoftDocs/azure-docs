@@ -5,7 +5,7 @@ description: Configure the upgrade preference for Azure App Service Environment 
 author: seligj95
 ms.author: jordanselig
 ms.topic: how-to
-ms.date: 03/12/2026
+ms.date: 03/17/2026
 ms.service: azure-app-service
 ms.custom:
   - devx-track-azurecli
@@ -34,6 +34,8 @@ When you configure automatic upgrades, the platform upgrades your App Service En
 - **Late**: Upgrade automatically with a low prioritization compared with other instances in the region. 
 
 In smaller regions, the Early and Late upgrade preferences might be very close to each other.
+
+When automatic upgrades are enabled for an App Service Environment, upgrades from other Azure dependency services are permitted outside of the regional business hours. When manual upgrades are configured, these other service upgrades are gated with the App Service upgrade deployments.
 
 ## Review manual upgrade options
 

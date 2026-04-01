@@ -5,7 +5,7 @@ author: mberdugo
 ms.author: monaberdugo
 ms.reviewer: angodavarthy
 ms.service: microsoft-sentinel
-ms.topic: conceptual 
+ms.topic: concept-article
 ms.date: 09/18/2025
 
 #CustomerIntent: As a ISV partner, I want to track the status of my solution so that I can correct any issues and ensure that my solution is available to customers in Azure Marketplace and in Sentinel Content hub.

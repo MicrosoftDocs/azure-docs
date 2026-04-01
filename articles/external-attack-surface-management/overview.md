@@ -5,7 +5,7 @@ author: danielledennis
 ms.author: dandennis
 ms.service: defender-easm
 ms.date: 02/27/2024
-ms.topic: conceptual
+ms.topic: overview
 ms.custom: sfi-image-nochange
 ---
 

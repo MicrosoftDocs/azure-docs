@@ -13,9 +13,12 @@ Currently, [Azure support](https://azure.microsoft.com/support/plans) is availab
 
 | Version | Type | Current patch <br/>release (YYMM) | Release notes | Current <br/>CLI version |
 |---------|------|---------------|---------------|-------------|
+| 1.3.x   | GA | 1.3.38 (2603) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.3.38) | [2.4.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.4.0)   |
 | 1.2.x   | GA | 1.2.189 (2602) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.2.189) | [2.3.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v2.3.0)   |
 | 1.1.x   | GA | 1.1.59 (2506) | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.1.59) | [1.7.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.7.0)     |
-| 1.0.x   | GA | 1.0.34 (2503)  | [Release notes](https://github.com/Azure/azure-iot-operations/releases/tag/v1.0.34) | [1.3.0](https://github.com/Azure/azure-iot-ops-cli-extension/releases/tag/v1.3.0)       |
+
+> [!NOTE]
+> With the release of 1.3.x, the supported versions become **1.3.x, 1.2.x, and 1.1.x**. The **1.0.x** series (versions 2411 through 2503) is no longer within the [supported version window](../overview-support.md).
 
 To learn about upgrades between versions, see [Upgrade to a new version](../deploy-iot-ops/howto-upgrade.md).
 

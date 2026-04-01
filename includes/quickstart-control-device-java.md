@@ -41,7 +41,7 @@ This quickstart uses two Java applications:
 
 * Clone or download the [Azure IoT Samples for Java](https://github.com/Azure-Samples/azure-iot-samples-java/) from GitHub.
 
-* Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see the [Connect to IoT Hub](../articles/iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub) section of [Communicate with an IoT hub using the MQTT protocol](../articles/iot/iot-mqtt-connect-to-iot-hub.md).
+* Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see the [Connect to IoT Hub](../articles/iot-hub/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub) section of [Communicate with an IoT hub using the MQTT protocol](../articles/iot-hub/iot-mqtt-connect-to-iot-hub.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 

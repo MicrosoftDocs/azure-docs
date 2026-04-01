@@ -4,7 +4,7 @@ description: This article describes using Azure Database for PostgreSQL as outpu
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/12/2023
 ms.custom: sfi-ropc-nochange
 ---

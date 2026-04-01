@@ -4,7 +4,7 @@ description: Learn how to copy data from Jira to supported sink data stores usin
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2025
 ms.author: jianleishen
 ms.custom:

@@ -1,11 +1,10 @@
 ---
 title: Choose the right Azure Firewall SKU to meet your needs
 description: Quick comparison guide to help you choose between Azure Firewall Basic, Standard, and Premium SKUs based on your requirements.
-services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 09/18/2025
+ms.date: 03/23/2026
 ms.author: duau
 # Customer intent: As a network security administrator, I want to compare Azure Firewall SKUs and use a decision framework, so that I can quickly choose the most suitable option for my organization's security and performance requirements.
 ---
@@ -14,9 +13,9 @@ ms.author: duau
 
 Azure Firewall offers three SKUs to meet various customer needs:
 
-- **Azure Firewall Premium**: Ideal for securing highly sensitive applications, such as payment processing. It includes advanced threat protection features like malware and TLS inspection.
-- **Azure Firewall Standard**: Suitable for customers requiring Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
-- **Azure Firewall Basic**: Designed for SMB customers with throughput requirements up to 250 Mbps.
+- **Azure Firewall Premium**: Secure highly sensitive applications, such as payment processing. It includes advanced threat protection features like malware and TLS inspection.
+- **Azure Firewall Standard**: Get Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
+- **Azure Firewall Basic**: Throughput up to 250 Mbps.
 
 For detailed information about all Azure Firewall features, see [Azure Firewall features by SKU](features-by-sku.md).
 
@@ -32,7 +31,7 @@ Compare the features of the three Azure Firewall versions:
 |  | Network address translation (SNAT+DNAT) | ✓ | ✓ | ✓ |
 | **Reliability & performance** | Availability zones | ✓ | ✓ | ✓ |
 |  | Built-in HA | ✓ | ✓ | ✓ |
-|  | Cloud scalability (auto-scale as traffic grows) | Up to 250Mbps | Up to 30 Gbps | Up to 100 Gbps |
+|  | Cloud scalability (auto-scale as traffic grows) | Up to 250 Mbps | Up to 30 Gbps | Up to 100 Gbps |
 |  | Fat flow support | N/A | 1 Gbps | 10 Gbps |
 | **Ease of management** | Central management via firewall manager | ✓ | ✓ | ✓ |
 |  | Policy analytics (rule management over time) | ✓ | ✓ | ✓ |
@@ -55,7 +54,11 @@ Use the following flow chart to determine the best Azure Firewall version for yo
 <!-- Art Library Source# ConceptArt-0-000-011 -->
 :::image type="content" source="media/choose-firewall-sku/firewall-sku-flow.svg" alt-text="Flow chart to help you choose a firewall version." lightbox="media/choose-firewall-sku/firewall-sku-flow.svg":::
 
+## Pricing
+
+Azure Firewall pricing varies by SKU. For detailed pricing information, including deployment charges, data processing rates, and availability zone considerations, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/). You can also estimate costs for your specific scenario by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
 ## Next steps
 
 - [Azure Firewall features by SKU](features-by-sku.md)
-- [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal-policy.md)
+- [Deploy and configure Azure Firewall by using the Azure portal](tutorial-firewall-deploy-portal-policy.md)

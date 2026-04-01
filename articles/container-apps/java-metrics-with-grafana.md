@@ -6,14 +6,14 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 12/18/2024
+ms.date: 03/25/2026
 ms.author: cshoe
 #customer intent: As a developer, I want to build a grafa dashboard for Java metrics exposed from Azure Container Apps
 ---
 
 # Tutorial: Build a Java metrics dashboard with Azure Managed Grafana
 
-In this tutorial, you will learn how to set up a metrics dashboard using Azure Managed Grafana to monitor Java applications running in Azure Container Apps. 
+In this tutorial, you learn how to set up a metrics dashboard using Azure Managed Grafana to monitor Java applications running in Azure Container Apps. 
 
 Grafana is a popular tool for centralized metrics visualization and monitoring in the observability industry. Azure Managed Grafana is a fully managed Azure service that allows you to deploy and manage Grafana dashboards with seamless Azure integration. You can use Azure Managed Grafana to visualize Java metrics exposed by Azure Container Apps or integrate Java metrics into your existing Grafana dashboards.
 
@@ -25,15 +25,16 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* [Azure CLI](/cli/azure/install-azure-cli).
-* [A Java application deployed in Azure Container Apps](java-get-started.md).
+- An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Azure CLI](/cli/azure/install-azure-cli).
+- [A Java application deployed in Azure Container Apps](java-get-started.md).
 
 ## Set up the environment
 
 Use the following steps to define environment variables and ensure your Azure Managed Grafana extension is up to date.
 
 1. Create variables to support your Grafana configuration. 
+
    ```bash
    export LOCATION=eastus
    export SUBSCRIPTION_ID={subscription-id}
@@ -44,12 +45,11 @@ Use the following steps to define environment variables and ensure your Azure Ma
    | Variable                | Description                                                                        |
    |-------------------------|------------------------------------------------------------------------------------|
    | `LOCATION`              | The Azure region location where you create your Azure Managed Grafana instance. |
-   | `SUBSCRIPTION_ID`       | The subscription ID which you use to create your Azure Container Apps and Azure Managed Grafana instance. |
+   | `SUBSCRIPTION_ID`       | The subscription ID, which you use to create your Azure Container Apps and Azure Managed Grafana instance. |
    | `RESOURCE_GROUP`        | The Azure resource group name for your Azure Managed Grafana instance.                           |
    | `GRAFANA_INSTANCE_NAME` | The instance name for your Azure Managed Grafana instance.               |
-  
-
-1. Log in to Azure with the Azure CLI.
+ 
+1. Sign in to Azure with the Azure CLI.
 
    ```azurecli
    az login
@@ -63,10 +63,9 @@ Use the following steps to define environment variables and ensure your Azure Ma
 
 1. Use the following command to ensure that you have the latest version of the Azure CLI extensions for Azure Managed Grafana.
 
-    ```azurecli
-    az extension add --name amg --upgrade
-    ```
-
+   ```azurecli
+   az extension add --name amg --upgrade
+   ```
 
 ## Set up an Azure Managed Grafana instance
 
@@ -81,7 +80,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
        --location $LOCATION
    ```
 
-1. Grant the Azure Managed Grafana instance "Monitoring Reader" role to read metrics from Azure Monitor. Find more about the [authentication and permissions for Azure Managed Grafana](../managed-grafana/how-to-authentication-permissions.md).
+1. To read metrics from Azure Monitor, you need to grant the Azure Managed Grafana instance a *Monitoring Reader* role. To find out more, see [authentication and permissions for Azure Managed Grafana](../managed-grafana/how-to-authentication-permissions.md).
 
    ```azurecli
    GRAFA_IDDENTITY=$(az grafana show --name $GRAFANA_INSTANCE_NAME --resource-group $RESOURCE_GROUP --query "identity.principalId" --output tsv)
@@ -93,7 +92,6 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
 
 > [!IMPORTANT]
 > To add a new dashboard in Grafana, you need to have `Grafana Admin` or `Grafana Editor`role, see [Azure Managed Grafana roles](../managed-grafana/concept-role-based-access-control.md).
-
 
 1. Assign the `Grafana Admin` role to your account on the Azure Managed Grafana resource.
 
@@ -121,20 +119,20 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
       --query "properties.endpoint" \
       --output tsv
    ```
-   This command returns the URL you can use to access the Azure Managed Grafana dashboard. Open your browser with URL and login.
+   This command returns the URL you can use to access the Azure Managed Grafana dashboard. Open your browser with the URL and sign in.
 
-1. Go to `Dashboard` > `New` -> `Import`. Upload the above sample dashboard JSON file, and choose the default built-in `Azure Monitor` data source, then click `Import` button.
+1. Go to `Dashboard` > `New` -> `Import` and upload the sample dashboard JSON file that you downloaded in the previous step. Choose the default built-in `Azure Monitor` data source, then select the `Import` button.
 
    :::image type="content" source="media/java-metrics-with-grafana/import-java-dashboard.png" alt-text="Screenshot of importing Java metric dashboard for Azure Container Apps." lightbox="media/java-metrics-with-grafana/import-java-dashboard.png":::
 
-
 ## Visualize Java metrics for Azure Container Apps with Grafana
 
-1. Input your resource information in the filters for your Azure Container Apps. Now you can view all the [supported Java metrics in Azure Container Apps](java-metrics.md) within the dashboard. The sample dashboard provides live metric data, including
+1. Input your resource information in the filters for your Azure Container Apps. Now you can view all the [supported Java Virtual Machine (JVM) metrics in Azure Container Apps](java-metrics.md) within the dashboard. The sample dashboard provides live metric data, including
+
    - Container App Overview
    - JVM Memory Usage
    - JVM Memory Buffer
-   - JVM GC JVM GC
+   - JVM garbage collection (GC)
    - A detailed JVM Memory Usage Analysis
    
    :::image type="content" source="media/java-metrics-with-grafana/grafana-overview.png" alt-text="Screenshot of Overview tab in Grafana." lightbox="media/java-metrics-with-grafana/grafana-overview.png":::
@@ -147,9 +145,7 @@ First, create an Azure Managed Grafana instance, and grant necessary role assign
 
    :::image type="content" source="media/java-metrics-with-grafana/grafana-jvm-memory-analysis.png" alt-text="Screenshot of JVM memory analysis tab in Grafana." lightbox="media/java-metrics-with-grafana/grafana-jvm-memory-analysis.png":::
 
-
 You can use this dashboard as a starting point to create your own customized metric visualizations and monitoring solution.
-
 
 ## Clean up resources
 

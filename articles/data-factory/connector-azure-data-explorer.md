@@ -5,7 +5,7 @@ description: Learn how to copy or transform data in Azure Data Explorer by using
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
 ms.custom:
   - synapse

@@ -16,7 +16,10 @@ ms.custom: sfi-image-nochange
 
 # Technical and feature overview of Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-identity-protection-retirement](../../includes/active-directory-b2c-identity-protection-retirement.md)]
+
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 
 This article is a companion to [About Azure Active Directory B2C](overview.md) and provides a more in-depth introduction to the service. We will discuss here the primary resources you work with in the service, its features and learn how they enable you to provide a fully custom identity experience for customers in your applications.
 

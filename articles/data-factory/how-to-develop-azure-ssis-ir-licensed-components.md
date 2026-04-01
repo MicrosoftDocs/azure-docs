@@ -4,7 +4,7 @@ description: Learn how an ISV can develop and install paid or licensed custom co
 ms.subservice: integration-services
 author: chugugrace
 ms.author: chugu
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Use AI tools and models in Azure Functions  
 description: "Learn how Azure Functions supports AI integration in your applications, including LLMs, RAG, agentic workflows, and AI frameworks. Build scalable AI-powered serverless solutions."
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/03/2025
 ms.update-cycle: 180-days
 ai-usage: ai-assisted

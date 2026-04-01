@@ -6,7 +6,7 @@ ms.author: midesa
 ms.date: 07/15/2020
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
-ms.topic: conceptual
+ms.topic: tutorial
 tag: azure-Synapse
 ---
 

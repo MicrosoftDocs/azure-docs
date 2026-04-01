@@ -4,7 +4,7 @@ description: Azure IoT Central can be accessed across modern desktops, tablets, 
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/22/2024
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-iot-central
 services: iot-central
 
