@@ -118,13 +118,14 @@ If a snapshot reference is added that points to the aforementioned snapshot, the
 
 ## Language availability
 
-| Language    | Minimum version / status |
-|-------------|---------------------------|
-| .NET        | 8.4.0+                    |
-| Java        | Work in progress          |
-| JavaScript  | 2.3.0+                    |
-| Python      | 2.4.0+                    |
-| Go          | Work in progress          |
+| Language / platform | Minimum version / status |
+|---------------------|--------------------------|
+| .NET                | 8.4.0+                   |
+| Java                | Work in progress         |
+| JavaScript          | 2.3.0+                   |
+| Python              | 2.4.0+                   |
+| Go                  | Work in progress         |
+| Kubernetes          | 2.6.0+                   |
 
 ## Next steps
 

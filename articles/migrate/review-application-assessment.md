@@ -36,7 +36,7 @@ To review an application/cross-workload assessment, follow the steps:
       :::image type="content" source="./media/review-application-assessment/assessment-overview.png" alt-text="The screenshot that shows where the user can start with application assessment review." lightbox="./media/review-application-assessment/assessment-overview.png":::
    Each migration path provides you with the assessment insights for all the workloads in the scope of the assessment and thus, each path can help you identify the migration insights for each workload based on the targets associated with the migration path. There are four migration paths for each application assessment:
 
-    | **Migration Strategy** | **Details**  |
+    | **Migration Path** | **Details**  |
     |----------|------|
     | PaaS preferred  | PaaS preferred migration path identifies the right-sized Azure targets for your workloads in such a way that you can maximize the PaaS coverage for your workloads. Workloads are assessed for PaaS targets (selected while creating the assessment) and if found ready are recommended as targets and the workloads that aren't ready fall back to Azure VM lift and shift.   |
     | PaaS Only      | PaaS Only migration path identifies the right-sized Azure targets and readiness of your discovered workloads for PaaS targets (selected while creating the assessment) and if found ready are recommended as targets, if the workloads aren't ready, they aren't recommended for fallback targets. All the unidentified workloads are assessed for Azure VM lift and shift.   |
@@ -48,5 +48,45 @@ To review an application/cross-workload assessment, follow the steps:
 1. You can review the details of each strategy by navigating through the strategy tabs on the top or by clicking on View details on the migration path card.  
 1. On the migration path tab, you can review the application level details. for migration strategy, TCO for the application and readiness breakup. For each application you can review the readiness coverage, Targets, number of sources and mapped number of targets and the migration strategy.  
 1. You can select the application to analyze each of them in detail. The detailed drilldowns can be used to identify readiness, right-sized targets, source properties, migration tools, estimated cost of hosting the source on the Azure, migration guidance, and recommendation reasoning for each workload that is a part of the assessment.
+
+## Migration strategies
+
+Azure Migrate assessment provides migration strategy recommendations inline with the 5Rs of migration:
+
+| **Migration Strategy** | **Details** |
+|---|---|
+| Refactor | Applications or workload migrations where heavy code and configuration changes are required for migration. |
+| Replatform | Workloads that move to PaaS targets without many changes, requiring only basic configuration changes. |
+| Rehost | A lift and shift to IaaS targets without major changes. |
+| Retain | Machines that you want to keep on-premises. Azure recommends connecting them with Azure Arc for easy management. |
+| Retire | Machines that you want to remove altogether. |
+
+For applications where constituent workloads have different migration strategies, the application-level strategy is determined by the most complex strategy across all its workloads. The hierarchy from most to least complex is: **Refactor > Replatform > Rehost > Retain > Retire**. For example, if one workload requires Refactor and the others require Rehost, the application-level migration strategy is Refactor.
+
+> [!NOTE]
+> Retain and Retire strategies are determined based on reserved tags applied on the servers and all of their workloads. Use the tags `AzM.MigrationIntent:Retain` and `AzM.MigrationIntent:Retire` to mark servers accordingly. It's important to consistently tag all servers and their workloads, as partial retain or retire isn't supported some workloads on a server can't be migrated while others are retained or retired. For more information, see [Assessment prerequisites](assessment-prerequisites.md).
+
 :::image type="content" source="./media/review-application-assessment/application-drilldown.png" alt-text="The screenshot that shows where the user can review application level drilldown in the assessment." lightbox="./media/review-application-assessment/application-drilldown.png":::
-1. Review the drill-down details for [servers](review-assessment.md), [databases](review-sql-assessment.md), and [web apps](review-web-app-assessment.md).
+
+The assessment drill-down view provides details of all applications and workloads. For each application and workload, the following information is identified:
+
+- Cost
+- Code changes
+- Migration strategy
+- Environment (Dev/Test or Production)
+- Sustainability
+
+Select an application to review it in detail. The application view has multiple tabs for its workloads—servers, databases, web apps, and file shares. The target recommendations for each of these workloads are mapped and available with detailed information including:
+
+- Readiness information
+- Costs
+- Sustainability
+- Migration issues and warnings
+- Migration guidance
+
+The drill-down also provides detailed source properties that were used for identifying the Azure target and configurations.
+
+> [!NOTE]
+> All servers in applications that are retained or retired are shown only in the **Servers** tab. The constituent workloads on retained or retired servers aren't shown separately, as the retain or retire strategy applies to the complete server.
+
+Review the drill-down details for [servers](review-assessment.md), [databases](review-sql-assessment.md), and [web apps](review-web-app-assessment.md).

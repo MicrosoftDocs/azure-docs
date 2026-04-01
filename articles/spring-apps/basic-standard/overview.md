@@ -148,7 +148,6 @@ The following articles help you get started using the Enterprise plan:
 * [Introduction to Fitness Store sample app](../enterprise/quickstart-sample-app-acme-fitness-store-introduction.md)
 * [Build and deploy apps to Azure Spring Apps using the Enterprise plan](../enterprise/quickstart-deploy-apps-enterprise.md)
 * [Configure single sign-on for applications using Azure Spring Apps Enterprise plan](../enterprise/quickstart-configure-single-sign-on-enterprise.md)
-* [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](../enterprise/quickstart-integrate-azure-database-and-redis-enterprise.md)
 * [Load application secrets using Key Vault](../enterprise/quickstart-key-vault-enterprise.md)
 * [Monitor applications end-to-end](../enterprise/quickstart-monitor-end-to-end-enterprise.md)
 * [Set request rate limits](../enterprise/quickstart-set-request-rate-limits-enterprise.md)

@@ -1,6 +1,96 @@
 {
   "redirections": [
     {
+      "source_path": "articles/sentinel/datalake/sentinel-mcp-chatgpt-connector.md",
+      "redirect_url": "/azure/sentinel/datalake/sentinel-mcp-chatgpt-claude-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-configurations.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-configurations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-get-ip-airflow-cluster.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-get-ip-airflow-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-import-dags-blob-storage.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-import-dags-blob-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-install-private-package.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-install-private-package",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-pricing.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-pricing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-sync-github-repository.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-sync-github-repository",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/ci-cd-pattern-with-airflow.md",
+      "redirect_url": "/previous-versions/azure/data-factory/ci-cd-pattern-with-airflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/concepts-workflow-orchestration-manager.md",
+      "redirect_url": "/previous-versions/azure/data-factory/concepts-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/create-airflow-environment.md",
+      "redirect_url": "/previous-versions/azure/data-factory/create-airflow-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/delete-dags-in-workflow-orchestration-manager.md",
+      "redirect_url": "/previous-versions/azure/data-factory/delete-dags-in-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/diagnostic-logs-and-metrics-for-workflow-orchestration-manager.md",
+      "redirect_url": "/previous-versions/azure/data-factory/diagnostic-logs-and-metrics-for-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/enable-azure-key-vault.md",
+      "redirect_url": "/previous-versions/azure/data-factory/enable-azure-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/get-started-with-workflow-orchestration-manager.md",
+      "redirect_url": "/previous-versions/azure/data-factory/get-started-with-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/kubernetes-secret-pull-image-from-private-container-registry.md",
+      "redirect_url": "/previous-versions/azure/data-factory/kubernetes-secret-pull-image-from-private-container-registry",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/password-change-airflow.md",
+      "redirect_url": "/previous-versions/azure/data-factory/password-change-airflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/rest-apis-for-airflow-integrated-runtime.md",
+      "redirect_url": "/previous-versions/azure/data-factory/rest-apis-for-airflow-integrated-runtime",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/tutorial-run-existing-pipeline-with-airflow.md",
+      "redirect_url": "/previous-versions/azure/data-factory/tutorial-run-existing-pipeline-with-airflow",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-hub/horizontal-arm-route-messages.md",
       "redirect_url": "/previous-versions/azure/iot-hub/horizontal-arm-route-messages",
       "redirect_document_id": false

@@ -150,38 +150,36 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Microsoft Defender for Foundry Tools](/azure/defender-for-cloud/ai-threat-protection)                                                                                             | GA             | Not Available                  |
 | <li> [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)                                                                            | GA             | Not Available                  |
 | <li> [Microsoft Defender for DNS](/azure/defender-for-cloud/defender-for-dns-introduction)                                                                                            | GA             | GA                             |
-| <li> [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) <sup>[1](#footnote1)</sup>                                                   | GA             | GA                             |
+| <li> [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction)                                                                              | GA             | GA                             |
 | <li> [Microsoft Defender for Azure SQL database servers](/azure/defender-for-cloud/defender-for-sql-introduction)                                                                     | GA             | GA                             |
 | <li> [Microsoft Defender for SQL servers on machines](/azure/defender-for-cloud/defender-for-sql-introduction)                                                                        | GA             | GA                             |
 | <li> [Microsoft Defender for open-source relational databases](/azure/defender-for-cloud/defender-for-databases-introduction)                                                         | GA             | GA                             |
 | <li> [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction)                                                                                | GA             | Not Available                  |
 | <li> [Microsoft Defender for Resource Manager](/azure/defender-for-cloud/defender-for-resource-manager-introduction)                                                                  | GA             | GA                             |
-| <li> [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction) <sup>[2](#footnote2)</sup>                                                         | GA             | GA                             |
+| <li> [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction) <sup>[1](#footnote1)</sup>                                                         | GA             | GA                             |
 | <li> [Microsoft Defender for Azure Cosmos DB](/azure/defender-for-cloud/defender-for-databases-enable-cosmos-protections)                                                             | GA             | Not Available                  |
 | <li> [Kubernetes workload protection](/azure/defender-for-cloud/kubernetes-workload-protections)                                                                                      | GA             | GA                             |
 | <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                  | GA             | GA                             |
-| **Microsoft Defender for servers features** <sup>[3](#footnote3)</sup>                                                                                                               |                |                                |
+| **Microsoft Defender for servers features** <sup>[2](#footnote2)</sup>                                                                                                               |                |                                |
 | <li> [Just-in-time VM access](/azure/defender-for-cloud/just-in-time-access-overview)                                                                                                 | GA             | GA                             |
-| <li> [File integrity monitoring](/azure/defender-for-cloud/file-integrity-monitoring-overview)                                                                                        | GA             | GA <sup>[4](#footnote4)</sup>  |
+| <li> [File integrity monitoring](/azure/defender-for-cloud/file-integrity-monitoring-overview)                                                                                        | GA             | GA <sup>[3](#footnote3)</sup>  |
 | <li> [Adaptive application controls](/azure/defender-for-cloud/adaptive-application-controls)                                                                                         | GA             | GA                             |
 | <li> [Adaptive network hardening](/azure/defender-for-cloud/adaptive-network-hardening)                                                                                               | GA             | Not Available                  |
 | <li> [Docker host hardening](/azure/defender-for-cloud/harden-docker-hosts)                                                                                                           | GA             | GA                             |
 | <li> [Integrated vulnerability assessment for machines](/azure/defender-for-cloud/deploy-vulnerability-assessment-vm)                                                                 | GA             | Not Available                  |
-| <li> [Regulatory compliance dashboard & reports](/azure/defender-for-cloud/regulatory-compliance-dashboard) <sup>[5](#footnote5)</sup>                                                | GA             | GA                             |
+| <li> [Regulatory compliance dashboard & reports](/azure/defender-for-cloud/regulatory-compliance-dashboard) <sup>[4](#footnote4)</sup>                                                | GA             | GA                             |
 | <li> [Microsoft Defender for Endpoint deployment and integrated license](/azure/defender-for-cloud/integration-defender-for-endpoint)                                                 | GA             | GA                             |
 | <li> [Connect AWS account](/azure/defender-for-cloud/quickstart-onboard-aws)                                                                                                          | GA             | Not Available                  |
 | <li> [Connect GCP account](/azure/defender-for-cloud/quickstart-onboard-gcp)                                                                                                          | GA             | Not Available                  |
 |                                                                                                                                                                                      |                |                                |
 
-<sup><a name="footnote1"></a>1</sup> Partially GA: Support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is in public preview and not available on Azure Government. Run-time visibility of vulnerabilities in container images is also a preview feature.
+<sup><a name="footnote1"></a>1</sup> Azure DNS Zone isn't supported for malware scanning and sensitive data threat detection.
 
-<sup><a name="footnote2"></a>2</sup> Azure DNS Zone isn't supported for malware scanning and sensitive data threat detection.
+<sup><a name="footnote2"></a>2</sup> These features all require [Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction).
 
-<sup><a name="footnote3"></a>3</sup> These features all require [Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction).
+<sup><a name="footnote3"></a>3</sup> GovCon Cloud Moderate (GCCM) doesn't support File Integrity Monitoring.
 
-<sup><a name="footnote4"></a>4</sup> GovCon Cloud Moderate (GCCM) doesn't support File Integrity Monitoring.
-
-<sup><a name="footnote5"></a>5</sup> There may be differences in the standards offered per cloud type.
+<sup><a name="footnote4"></a>4</sup> There may be differences in the standards offered per cloud type.
 
 <a name="azure-sentinel"></a>
 

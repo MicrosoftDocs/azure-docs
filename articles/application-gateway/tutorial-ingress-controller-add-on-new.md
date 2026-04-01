@@ -76,6 +76,8 @@ appgw-subnet-cidr should be in the address prefixes in your virtual network. Ple
 $ az aks enable-addons --resource-group ${RG_NAME} --name ${CLUSTER_NAME} --addons ingress-appgw --appgw-subnet-cidr "10.0.250.0/24"
 ```
 
+---
+
 In most cases, enabling the add-on automatically assigns the required permissions. However, depending on the environment, the permissions may not be granted automatically. In such cases, you should verify the permissions and assign them manually if necessary.
 
 > [!NOTE] 

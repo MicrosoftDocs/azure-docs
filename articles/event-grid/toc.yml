@@ -455,6 +455,8 @@ items:
                 items:
                   - name: Auth0
                     href: auth0-overview.md
+                  - name: Stripe
+                    href: stripe-overview.md
                   - name: Tribal Group
                     href: subscribe-to-tribal-group-events.md
                   - name: Microsoft Graph API
@@ -578,6 +580,8 @@ items:
                 href: subscribe-to-partner-events.md
               - name: Subscribe to Tribal Group events
                 href: subscribe-to-tribal-group-events.md
+              - name: Subscribe to Stripe events
+                href: subscribe-to-stripe-events.md
               - name: Auth0
                 items:
                   - name: Subscribe to Auth0 events

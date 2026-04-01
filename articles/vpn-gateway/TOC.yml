@@ -316,6 +316,8 @@
           href: azure-vpn-client-prerequisites-check.md
         - name: Azure VPN Client versions
           href: azure-vpn-client-versions.md
+        - name: Download Azure VPN Client with Windows Package Manager (WinGet)
+          href: point-to-site-vpn-client-winget.md
         - name: Report Azure VPN Client problems - Feedback Hub
           href: https://learn.microsoft.com/troubleshoot/azure/vpn-gateway/feedback-hub-azure-vpn-client?toc=/azure/vpn-gateway/TOC.json
     - name: Intune - Deploy VPN client profile
