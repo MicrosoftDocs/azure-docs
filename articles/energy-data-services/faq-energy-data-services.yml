@@ -101,3 +101,29 @@ sections:
           answer: > 
             Currently, you can't move an Azure Data Manager for Energy resource from one subscription or resource group to another. Instead, you can delete the existing Azure Data Manager for Energy instance in the current resource group or subscription, and then create a new Azure Data Manager for Energy instance in the target resource group or subscription. Then, reingest the data into the new instance.
 
+    - name: Analytics Consumption Zone (ACZ)
+      questions:
+        - question: Is there a portal experience to create ACZ and how many can I create?
+          answer: >
+            No. During preview, you can't create or manage ACZ in the Azure portal. Use the REST APIs instead. You can create up to three ACZs per data partition. See [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md) for details.
+
+        - question: Are ADME entitlements carried over to the ADLS Gen2 storage account?
+          answer: >
+            No. ACZ doesn't carry over ADME entitlements or access control lists (ACLs) to ADLS Gen2. ACZ exports all records that match your entity filters. Per-record entitlements don't apply. Use Azure role-based access control and ADLS Gen2 permissions to secure the exported data.
+
+        - question: What happens to the data in ADLS if I delete an ACZ?
+          answer: >
+            When you delete an ACZ, the sync stops and ACZ removes the configuration. Data already in your ADLS Gen2 storage account stays intact. You keep full ownership and control of the exported data.
+
+        - question: Can ACZ sync data from Reservoir DDMS, Seismic Store DDMS, or Rock and Fluid Samples DDMS?
+          answer: >
+            No. During preview, ACZ supports only catalog kinds and Wellbore DDMS kinds. Catalog kinds include master data and reference data from the Storage service. ACZ doesn't yet support Reservoir DDMS, Seismic Store DDMS, or RAFS DDMS. Future releases might add more DDMS types.
+
+        - question: How does ACZ differ from the Geospatial Consumption Zone (GCZ)?
+          answer: >
+            ACZ exports ADME entity data to ADLS Gen2 in Delta Parquet format for analytics and reporting. GCZ provides geospatial map services (GIS) for ADME data by using a transformer and provider setup on Azure Kubernetes Service (AKS). Both make ADME data available outside the core platform, but they serve different use cases.
+
+        - question: When is ACZ generally available on Azure Data Manager for Energy?
+          answer: >
+            ACZ is in preview. Microsoft uses customer feedback to validate functionality, performance, and scale before general availability.
+

@@ -1,0 +1,195 @@
+---
+title: Analytics Consumption Zone concepts in Azure Data Manager for Energy
+description: Learn about the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy. ACZ mirrors ADME data to Azure Data Lake Storage.
+ms.service: azure-data-manager-energy
+ms.topic: conceptual
+ms.date: 03/31/2026
+ms.author: nsannala
+author: NSannala
+ms.reviewer: 
+
+#customer intent: As a data engineer, I want to understand the Analytics Consumption Zone so that I can export ADME data to ADLS Gen2 for analytics.
+
+---
+
+# Analytics Consumption Zone (ACZ) concepts
+
+
+The Analytics Consumption Zone (ACZ) exports selected entity data from Azure Data Manager for Energy (ADME) to your Azure Data Lake Storage (ADLS) Gen2 account. ACZ writes ADME data in open Delta Parquet format. Services like Microsoft Fabric and Azure Databricks can read this format directly.
+
+> [!IMPORTANT]
+> Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+## What is ACZ?
+
+ACZ is a managed sync layer. It exports entity data from your Azure Data Manager for Energy instance to an ADLS Gen2 storage account that you own. You can then connect that data to analytics, reporting, and machine learning tools. 
+
+Key characteristics of ACZ:
+
+- **Customer-owned storage**: Data goes to an ADLS Gen2 storage account that you provision and manage.
+- **Open format**: Data exports in Delta Parquet format. Analytics engines widely support this format.
+- **Selective sync**: You choose which entity types to sync. Options include catalog kinds and Wellbore DDMS kinds.
+- **Historical and incremental sync**: ACZ takes an initial snapshot of existing data, then synchronizes changes as they occur.
+- **API-driven**: You configure and manage ACZ entirely through REST APIs.
+
+### Architecture
+
+This diagram shows the ACZ data flow:
+
+```
+Azure Data Manager for Energy          Customer ADLS Gen2
+┌──────────────────────────┐          ┌─────────────────────────┐
+│                          │          │                         │
+│  OSDU Data Platform      │   ACZ    │  Delta Parquet Files    │
+│  ┌────────────────────┐  │ ──────►  │  ┌──────────────────┐  │
+│  │ Catalog (Wells,    │  │  Sync    │  │ /container/       │  │
+│  │ Fields, etc.)      │  │          │  │   /wells/         │  │
+│  ├────────────────────┤  │          │  │   /welllogs/      │  │
+│  │ Wellbore DDMS      │  │          │  │   /fields/        │  │
+│  │ (WellLogs, etc.)   │  │          │  │                   │  │
+│  └────────────────────┘  │          │  └──────────────────┘  │
+│                          │          │                         │
+└──────────────────────────┘          └────────────┬────────────┘
+                                                   │
+                                      ┌────────────┴────────────┐
+                                      │  Downstream analytics   │
+                                      │  • Microsoft Fabric     │
+                                      │  • Azure Databricks     │
+                                      │  • Power BI             │
+                                      │  • Azure Synapse        │
+                                      └─────────────────────────┘
+```
+
+## How ACZ works
+
+### Supported entity types
+
+ACZ synchronizes two categories of ADME entity types:
+
+| Category | Description | Example kinds |
+|---|---|---|
+| **Catalog kinds** | Master data and reference data from the Storage service | `osdu:wks:master-data--Well:*`, `osdu:wks:master-data--Field:*` |
+| **Wellbore DDMS kinds** | Entities from the Wellbore Domain Data Management Service | `osdu:wks:work-product-component--WellLog:*` |
+
+### Version types
+
+When you create an ACZ, you choose how to handle entity versions:
+
+| Type | Description |
+|---|---|
+| **LATEST_VERSION** | Exports only the latest version of each entity. Default and recommended. |
+| **ALL_VERSIONS** | Exports all versions of each entity. Keeps the full version history. |
+
+### Lifecycle states
+
+Each ACZ goes through these states:
+
+| Status | Description |
+|---|---|
+| **PROVISIONING** | Setup is in progress. The initial snapshot is running. |
+| **ACTIVE** | Operational. ACZ synchronizes changes incrementally. |
+| **FAILED** | An error stopped setup or sync. |
+| **ACCESS_DENIED** | ACZ can't reach the destination ADLS storage account. |
+| **DELETING** | Removal is in progress. |
+
+### Historical snapshot
+
+When you create a new ACZ, the service takes a historical snapshot. This snapshot exports all existing records that match your entity filters. The snapshot progresses through these states:
+
+| Status | Description |
+|---|---|
+| **PENDING** | Queued and waiting to start. |
+| **PROCESSING** | Actively exporting data. |
+| **COMPLETED** | All historical data exported. |
+| **FAILED** | An error occurred. |
+
+After the snapshot finishes, ACZ switches to incremental mode. It captures new and updated records in near real-time.
+
+### How ACZ handles data changes
+
+ACZ propagates created, updated, and deleted records from ADME to the Delta tables.
+
+- **Creations and updates**: When you create a record or change its data block, ADME creates a new version. ACZ detects the change and writes a new row to the Delta table.
+- **Metadata-only updates**: A PATCH operation can change ACL, Legal, or Tags without creating a new version. ACZ detects this change and runs a merge-upsert on the existing row.
+- **Deletes**: When you delete a record in ADME, ACZ sets the `isActive` field to `False` on the row instead of removing it. This soft delete preserves history for auditing and time-travel queries.
+
+## Data output format
+
+ACZ writes data in [Delta Lake](https://delta.io/) format with Parquet-encoded files (DELTA_PARQUET). Delta Lake supports ACID transactions, time travel, and efficient incremental reads.
+
+### ADLS Gen2 folder structure
+
+ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets its own folder. ACZ partitions Delta Lake tables by kind and record create time.
+
+#### Folder layout
+
+```
+<adme-instance>-<data-partition>-<acz-id>/
+├── osducatalog/
+│   ├── _delta_log/
+│   │   ├── 00000000000000000000.json
+│   │   └── ...
+│   ├── part-00000-<guid>.snappy.parquet
+│   └── ...
+└── <ddms-entity-type>/
+    └── <entity-type>-<record-id>/
+        └── DDMS parquet files
+```
+
+#### Key details
+
+| Element | Description |
+|---|---|
+| **Top-level folder** | Named `<adme-instance>-<data-partition>-<acz-id>`. One folder per ACZ. |
+| **`osducatalog/`** | One Delta table for all catalog kinds. Partitioned by kind and create time (hourly). |
+| **DDMS entity folders** | One folder per DDMS entity type (for example, `work-product-component--WellLog`). Holds DDMS-specific parquet files by entity type and record ID. |
+| **`_delta_log/`** | The Delta Lake transaction log. Tracks all table changes for ACID transactions and time travel. |
+| **Parquet files** | Snappy-compressed data files. Updates create new files. ACZ runs VACUUM and OPTIMIZE to compact small files and remove old ones. |
+
+### Delta table schema
+
+The Delta table has these fields:
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | String | ADME record ID. |
+| `version` | String | Version number. |
+| `kind` | String | Fully qualified OSDU kind. |
+| `data` | String | Data block (JSON). |
+| `meta` | String | Metadata (JSON). |
+| `acl` | String | Access control list. |
+| `legal` | String | Legal tags. |
+| `tags` | String | User-defined tags. |
+| `createUser` | String | User who created the record. |
+| `createTime` | Timestamp | When the record was created |
+| `ingestTime` | Timestamp | When ACZ ingested the record |
+| `isActive` | Boolean | `True` if active. `False` if soft-deleted. |
+
+> [!NOTE]
+> Wellbore DDMS entities also have `fileDownloadTime`, `fileDownloadState`, and `fileDownloadFolder` fields for file tracking.
+
+## Limits and access
+
+### Preview limits
+
+| Constraint | Limit |
+|---|---|
+| Maximum ACZs per data partition | Three |
+| ACZ name uniqueness | Must be unique within a data partition |
+| Target format | Delta Parquet only |
+| Storage type | ADLS Gen2 only |
+
+### Authentication and authorization
+
+ACZ requires:
+
+- **API access**: You must belong to the `users@{data-partition-id}.dataservices.energy` group to call ACZ APIs.
+- **Storage access**: The managed identity needs the Storage Blob Data Contributor role (or equivalent) on the ADLS Gen2 container. During preview, share the identity details with Microsoft to add the identity to the allow list.
+
+## Related content
+
+- [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md)
+- [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
+- [Connect ACZ data to Microsoft Fabric](how-to-connect-acz-to-fabric.md)
+- [Connect ACZ data to Azure Databricks](how-to-connect-acz-to-databricks.md)
+
