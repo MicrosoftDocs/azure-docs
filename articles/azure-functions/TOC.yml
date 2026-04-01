@@ -56,6 +56,9 @@
     - name: Run scheduled tasks
       displayName: timer trigger, schedule
       href: scenario-scheduled-tasks.md
+    - name: Process real-time events
+      displayName: Event Hubs, streaming, events
+      href: scenario-real-time-events-processing.md
   - name: Developer tools
     items:
     - name: Azure Developer CLI

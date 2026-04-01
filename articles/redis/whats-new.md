@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Managed Redis
 description: Recent updates for Azure Managed Redis
-ms.date: 11/17/2025
+ms.date: 03/27/2026
 ms.topic: whats-new
 ms.custom:
   - references_regions
@@ -13,6 +13,12 @@ appliesto:
 # What's New in Azure Managed Redis
 
 Find out what's new in Azure Managed Redis.
+
+## April 2026
+
+### General Availability for M/B/X 350 SKUs (350 GB)
+
+Azure Managed Redis Memory Optimized M350, Balanced B350, and Compute Optimized X350 SKUs are now generally available (GA). For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
 
 ## November 2025
 

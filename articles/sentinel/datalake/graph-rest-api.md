@@ -1,19 +1,19 @@
 ---
-title: Graph REST APIs for custom graphs
+title: Graph REST APIs for custom graphs (preview)
 titleSuffix: Microsoft Security
 description: Learn how to use the Graph REST APIs to list and query custom graphs in the Microsoft Sentinel data lake.
 author: EdB-MSFT
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform
 ms.topic: reference
-ms.date: 03/30/2026
+ms.date: 04/01/2026
 ms.author: edbaynash
 ms.collection: ms-security
 
 #Customer intent: As a security engineer, I want to use the Graph REST APIs to programmatically list and query custom graphs in my Microsoft Sentinel data lake so that I can automate graph-based security analysis.
 ---
 
-# Graph REST APIs for custom graphs
+# Graph REST APIs for custom graphs (preview)
 
 The Graph REST APIs let you list and query custom graphs in your Microsoft Sentinel data lake. Use these APIs to programmatically interact with your custom graphs from any HTTP client, automation pipeline, or custom application.
 
