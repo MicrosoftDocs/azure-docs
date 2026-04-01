@@ -536,7 +536,7 @@ items:
                   displayName: java
         - name: Java components
           items:
-            - name: Launch your first Java microservice apps with managed Java components
+            - name: Launch Java microservice apps
               href: java-microservice-get-started.md
               displayName: java
             - name: Connect to Eureka Server for Spring

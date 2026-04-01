@@ -598,11 +598,37 @@
     - name: Microsoft Sentinel data lake overview
       href: datalake/sentinel-lake-overview.md
       displayName: data lake
-    - name: Microsoft Sentinel graph overview
-      href: datalake/sentinel-graph-overview.md
-    - name: Compare KQL jobs, summary rules, and search jobs
-      href: datalake/kql-jobs-summary-rules-search-jobs.md
-      displayName: data lake
+    - name: Data federation in the Microsoft Sentinel data lake
+      items:
+        - name: Overview
+          href: datalake/data-federation-overview.md
+          displayName: data lake
+        - name: Set up federated tables
+          href: datalake/data-federation-setup.md
+          displayName: data lake
+        - name: Using federated tables
+          href: datalake/using-data-federation.md
+          displayName: data lake  
+    - name: Microsoft Sentinel graph
+      items:
+        - name: Microsoft Sentinel graph overview
+          href: datalake/sentinel-graph-overview.md
+        - name: Graph visualization
+          href: datalake/graph-visualization.md 
+        - name: Microsoft Sentinel custom graphs
+          items:
+            - name: Custom graphs overview
+              href: datalake/custom-graphs-overview.md
+            - name: Create custom graphs
+              href: datalake/create-custom-graphs.md
+            - name: Microsoft Sentinel graph provider reference
+              href: datalake/sentinel-graph-provider-reference.md
+            - name: Create custom graph using AI 
+              href: datalake/create-graphs-with-ai.md 
+            - name: GQL reference for Sentinel custom graph
+              href: datalake/gql-reference-for-sentinel-custom-graph.md
+            - name: Graph REST API
+              href: datalake/graph-rest-api.md
     - name: Microsoft Sentinel MCP server
       items:
         - name: Microsoft Sentinel MCP server overview
@@ -619,8 +645,8 @@
             href: datalake/sentinel-mcp-use-tool-azure-ai-foundry.md
           - name: Use Sentinel MCP tools in Visual Studio Code
             href: datalake/sentinel-mcp-use-tool-visual-studio-code.md
-          - name: Use Sentinel MCP connector in ChatGPT
-            href: datalake/sentinel-mcp-chatgpt-connector.md
+          - name: Use MCP connector in ChatGPT or Claude
+            href: datalake/sentinel-mcp-chatgpt-claude-connector.md
         - name: Tool collection in Microsoft Sentinel MCP
           items:
           - name: Overview
@@ -661,8 +687,14 @@
         - name: Manage KQL jobs
           href: datalake/kql-manage-jobs.md
           displayName: data lake
+        - name: Compare KQL jobs, summary rules, and search jobs
+          href: datalake/kql-jobs-summary-rules-search-jobs.md
+          displayName: data lake
         - name: Troubleshoot KQL for the lake
           href: datalake/kql-troubleshoot.md
+          displayName: data lake
+        - name: Workbooks for Microsoft Sentinel data lake
+          href: datalake/workbooks-for-data-lake.md
           displayName: data lake
     - name: Notebooks for data lake exploration
       items:
@@ -682,7 +714,6 @@
           href: datalake/notebook-examples.md
     - name: Microsoft Sentinel data lake service limits
       href: datalake/sentinel-lake-service-limits.md
-
 - name: Collect and manage data
   items:
     - name: Overview
@@ -820,6 +851,8 @@
         - name: Manage tables, tiers, and retention
           href: manage-table-tiers-retention.md
           displayName: table management, tiers, retention, tables
+        - name: Data transformation using filter and split
+          href: transformation-filter-split.md
 
 - name: SOC optimizations
   items:
@@ -964,6 +997,8 @@
               href: ../role-based-access-control/built-in-roles.md
             - name: Microsoft Sentinel roles
               href: ../role-based-access-control/built-in-roles.md#security
+            - name: Configure Microsoft Sentinel scoping (row-level RBAC)
+              href: scoping.md
     - name: Advanced Security Information Model (ASIM)
       items:
         - name: ASIM content

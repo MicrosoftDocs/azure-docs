@@ -63,7 +63,7 @@ This image shows an example of Microsoft Security Copilot analyzing an incident 
 
 ## Microsoft Sentinel Solution for SAP with SAP RISE
 
-The [SAP RISE certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8) [Microsoft Sentinel Solution for SAP](../../sentinel/sap/deployment-overview.md?tabs=agentless) applications allows you to monitor, detect, respond, and correlate suspicious activities in SAP with your other enterprise-wide signals. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. [Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/sap-btp-solution-overview.md) expands that coverage to SAP Business Technology Platform (BTP).
+The [Microsoft Sentinel Solution for SAP](../../sentinel/sap/deployment-overview.md?tabs=agentless) applications allows you to monitor, detect, respond, and correlate suspicious activities in SAP with your other enterprise-wide signals. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. [Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/sap-btp-solution-overview.md) expands that coverage to SAP Business Technology Platform (BTP).
 
 The solution allows you to gain visibility to user activities on **SAP S/4HANA Cloud private edition** (RISE/ECS) and the SAP business logic layers and apply Microsoft Sentinel’s built-in content.
 -	Use a single console to monitor all your enterprise estate including SAP instances in SAP RISE/ECS on Azure and other clouds, SAP Azure native, and on-premises estate

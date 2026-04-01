@@ -63,10 +63,6 @@ This report helps you:
 
 When you build a report, choose from two migration preferences:
 
-- If you want a slightly more formal Learn tone (optional variant):
-- When generating a report, select one of two migration preferences.
-
-
 | **Migration Strategy** |  **Details**  | **Assessment insights**|
 | --- | --- | --- |
 | **Modernize (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets.<br><br>General servers are recommended with a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the Recommended report with optimization strategy - *Modernize to PaaS* from Azure SQL assessment.<br><br>For web apps, sizing and cost comes from Azure App Service and Azure Kubernetes Service assessments, with a preference to App Service. For general servers, sizing and cost comes from Azure VM assessment.<br><br>All of these recommendations are aggregated using the heterogeneous assessments. |
