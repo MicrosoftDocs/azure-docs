@@ -64,6 +64,9 @@ These metrics can be grouped by dimensions like region, performance type, and re
 ## Top items
 The Top items chart in the Capacity, Activity, and Errors reports provide a ranked view of storage resources within your selected scope. Depending on the report, this chart highlights either the largest or smallest contributors to key metrics, helping you identify which resources have the most impact on your storage estate.
 
+> [!IMPORTANT] 
+> The size and count in the _capacity_ report includes soft-deleted blobs, versions, and snapshots by default. For details on how this affects comparisons with other reports, see [Compare with Blob Inventory reports](#compare-with-blob-inventory-reports).
+
 Each report includes multiple pivot options that allow you to slice and analyze the data from different perspectives. For example, in the Activity report, you can view storage accounts or resource groups with the highest read operations. You can also pivot by dimensions such as performance type, redundancy type, or operation type to drill into specific insights—like write operations grouped by performance tier.
 
 These flexible pivots support deeper analysis and help you uncover opportunities for optimization, performance tuning, or configuration adjustments to improve security and compliance.
@@ -75,6 +78,18 @@ The Regional distribution chart visualizes how your storage resources are geogra
 This visualization provides a quick, intuitive view of regional concentration, helping you identify imbalances and understand how storage usage varies by location. It’s especially useful for evaluating data residency, optimizing performance, and ensuring alignment with compliance requirements.
 
 :::image source="media/insights/regional-distribution-chart.png" alt-text="Screenshot that shows Regional distribution chart."  lightbox="media/insights/regional-distribution-chart.png":::
+
+## Compare with Blob Inventory reports
+
+The Storage Discovery _capacity_ report includes soft-deleted blobs, blob versions, and snapshots when reporting size and count. [Azure Blob Inventory](/azure/storage/blobs/blob-inventory) can be another source of per storage account insights. Blob inventory rules don't include those items unless explicitly enabled. Be aware of this detail when comparing insights across Storage Dicovery and Blob Inventory.
+
+To ensure an accurate comparison, configure your inventory rules to include:
+
+- Soft-deleted blobs
+- Blob versions
+- Blob snapshots
+
+For more information on how to configure inventory rules, see [Azure Blob Inventory](/azure/storage/blobs/blob-inventory).
 
 ## Next steps
 

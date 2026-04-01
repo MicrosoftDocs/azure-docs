@@ -99,7 +99,7 @@ Go to **Settings** > **Agent consumption** to view your usage.
 
 ### Set a spending limit
 
-Select **Change AAU allocation** to set a monthly active flow AAU limit (up to 200,000 AAUs).
+Select **Change AAU allocation** to set a monthly active flow AAU limit (up to 1,000,000 AAUs).
 
 - When your agent reaches the active flow limit, it continues running in always-on mode (background monitoring) but becomes unavailable for chat and actions until the next month.
 - You can increase or decrease the allocation at any time.

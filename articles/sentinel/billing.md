@@ -71,15 +71,15 @@ The data lake tier incurs charges based on usage of various data lake capabiliti
 - **Data lake ingestion** is charged per GB for all data ingested into tables with retention set to data lake tier only. Data lake ingestion charges don't apply when data is ingested into tables with retention set to include both analytic and data lake tiers.
 - **Data processing** is charged per GB for data ingested into tables with retention set to data lake tier only. It supports transformations like redaction, splitting, filtering, and normalization. Data processing charges don't apply when data is ingested into tables with retention set to include both analytic and data lake tiers.
 - **Data lake storage** charges are applied per GB per month for any data that remains in the data lake tier after the analytic tier retention period ends. Charges are based on a simple and uniform data compression rate of 6:1. For example, if you retain 600 GB of raw data, it's billed as 100 GB of compressed data.
-- **Data lake query** charges apply per compute hour used when using within notebook sessions, running notebook jobs, or building nodes and edges for custom graphs. Compute hours are calculated by multiplying the number of cores in the pool selected for the notebook with the amount of time a session was active or a job was running. Data lake notebook sessions and jobs are available in pools of four12, 32, and 80 vCores.
+- **Data lake query** charges apply per compute hour used when using within notebook sessions, running notebook jobs, or building nodes and edges for custom graphs. Compute hours are calculated by multiplying the number of cores in the pool selected for the notebook with the amount of time a session was active or a job was running. Data lake notebook sessions and jobs are available in pools of 12, 32, and 80 vCores.
 
 Once onboarded, usage from Microsoft Sentinel workspaces begins to be billed through the previously described meters rather than existing long-term retention (formerly known as Archive), search, or auxiliary logs ingestion meters.
 
-### Sentinel graph 
+### Microsoft Sentinel graph 
 
-#### Embedded graphs in Defender and Purview Portals  
+#### Embedded graphs in Defender and Purview portals  
 
-Hunting graph and blast radius visualizations in the Microsoft Defender portal, along with Insider Risk Management and Data Security Investigations in the Microsoft Purview portal, do not incur any billing or consumption charges. To learn more about the Microsoft Purview and Defender graphs powered by Sentinel, see [Microsoft Sentinel graph](/azure/sentinel/datalake/sentinel-graph-overview?tabs=defender).
+Hunting graph and blast radius visualizations in the Microsoft Defender portal, along with Insider Risk Management and Data Security Investigations in the Microsoft Purview portal, don't incur any billing or consumption charges. To learn more about the Microsoft Purview and Defender graphs powered by Sentinel, see [Microsoft Sentinel graph](/azure/sentinel/datalake/sentinel-graph-overview?tabs=defender).
 
 Accessing Defender and Purview graphs through the MCP graph tool collection results in additional charges.
 
@@ -87,7 +87,7 @@ Accessing Defender and Purview graphs through the MCP graph tool collection resu
 
 Sentinel custom graph billing is consumption based, with graph operations charged per compute hour. To learn more about the Microsoft Sentinel custom graphs, see [Custom graphs](/azure/sentinel/datalake/custom-graphs-overview). 
 
-The following graph operations are billed per compute hour under the graph meter: 
+The following custom graph operations are billed per compute hour under the graph meter: 
 
 - Creating a graph using notebooks in Visual Studio Code.  
 
@@ -101,17 +101,43 @@ The following graph operations are billed per compute hour under the graph meter
 
 #### Graph charges  
 
-Graph charges are calculated as core hours times execution time multiplied by the number of vCores in the selected SKU times the Sentinel graph meter price. There is a single graph SKU option which uses 49 vCores for graph build operations and 6 vCores for graph queries, with a minimum query execution time of one minute. 
+Graph charges are calculated as core hours times execution time multiplied by the number of vCores in the selected SKU times the Sentinel graph meter price. There's a single graph SKU option, which uses 49 vCores for graph build operations and 6 vCores for graph queries, with a minimum query execution time of one minute. 
 
 For example, when you run a Notebook job for one hour and use graph APIs to build a graph that takes five minutes, the graph cost is calculated as: 
 
 `cost = 49 × (Price per vCore hour) × (5/60)`
 
-Similarly, if your graph queries take one minute to complete, the cost is determined by: 
+Similarly, if your graph queries take one minute to complete, the cost is determined as: 
 
 `cost = 6 × (Price per vCore hour) × (1/60)`
 
-Any notebook/Spark compute and Data lake storage consumed for data transformations to build node and edges for the graph is billed independently per existing Sentinel Data lake meters (Data lake storage and Advanced Data Insights). 
+Any notebook/Spark compute and Data lake storage consumed for data transformations to build node and edges for the graph is billed independently per existing Sentinel data lake meters (Data lake storage and Advanced Data Insights). 
+
+#### Sentinel Model Context Protocol (MCP) server
+
+Sentinel MCP server is an interface layer that exposes Sentinel platform capabilities to AI agents. There's no extra cost for using the MCP server itself. MCP tools use underlying Sentinel platform services, such as data lake queries or graph operations, which are billed based on their respective meters. In addition, certain tools, such as entity analyzer, may consume Security Compute Units (SCUs) when AI reasoning execution is required. Customers are charged only for the underlying platform services and compute they consume.
+
+##### Microsoft Sentinel MCP data lake tools
+
+To learn more about data lake tools, see [Data exploration tool collection in Microsoft Sentinel MCP server](/azure/sentinel/datalake/sentinel-mcp-data-exploration-tool#execute-kql-kusto-query-language-query-on-microsoft-sentinel-data-lake-query_lake).
+
+Installing and configuring the Microsoft Sentinel's unified MCP server carries no cost. However, using the tools to search and retrieve data by using Kusto Query Language (KQL) queries from Microsoft Sentinel data lake invokes the data lake query meter. To learn more, see [Microsoft Sentinel data lake’s pricing](/azure/sentinel/billing?tabs=simplified%2Ccommitment-tiers).
+
+##### Microsoft Sentinel MCP entity analyzer
+
+To learn more about the entity analyzer, see [Entity analyzer](/azure/sentinel/datalake/sentinel-mcp-data-exploration-tool#entity-analyzer).  
+
+Customers are charged for the Security Compute Units (SCUs) used for AI reasoning that generates the entity risk analysis, which is based on prevalence, threat intelligence, and relationships.
+
+Existing Security Copilot entitlements apply. Any usage that exceeds your Microsoft 365 E5 entitlement incurs additional charges. SCU overages are billed only when usage exceeds your provisioned amount, and customers are charged only for the SCUs consumed. For more information, see [Sentinel MCP billing](/azure/sentinel/datalake/sentinel-mcp-billing) and [Get started with Microsoft Security Copilot](/copilot/security/get-started-security-copilot) for SCUs information.  
+
+In addition, when using entity analyzer, customers are charged for the KQL queries executed against the Microsoft Sentinel data lake. 
+
+##### Microsoft Sentinel MCP triage tool  
+
+To learn more about the triage tool, see [Triage tool collection](/azure/sentinel/datalake/sentinel-mcp-triage-tool). 
+
+Installing, configuring, and using the triage tool carries no cost, provided you're onboarded to the required products and services. You can get access to triage at no additional charge when Microsoft Defender, Microsoft Defender for Endpoint, or Microsoft Sentinel is set up in the Microsoft Defender portal. 
 
 ### Understand your Microsoft Sentinel bill
 
