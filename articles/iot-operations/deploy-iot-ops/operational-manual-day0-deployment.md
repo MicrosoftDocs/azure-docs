@@ -21,10 +21,10 @@ This operational manual provides a comprehensive, step-by-step guide for deployi
 1. [Deployment Planning](#1-deployment-planning)
 2. [Prerequisites and Azure Resource Setup](#2-prerequisites-and-azure-resource-setup)
 3. [Cluster Preparation](#3-cluster-preparation)
-4. [Observability Setup (Pre-Deployment)](#4-observability-setup-pre-deployment)
-5. [Security Preparation](#5-security-preparation)
-6. [Deploy Azure IoT Operations](#6-deploy-azure-iot-operations)
-7. [Post-Deployment Validation](#7-post-deployment-validation)
+4. [Security Preparation](#4-security-preparation)
+5. [Deploy Azure IoT Operations](#5-deploy-azure-iot-operations)
+6. [Post-Deployment Validation](#6-post-deployment-validation)
+7. [Observability Setup](#7-observability-setup)
 8. [Configure MQTT Broker for Production](#8-configure-mqtt-broker-for-production)
 9. [Configure Assets and Devices](#9-configure-assets-and-devices)
 10. [Configure Data Flows to Cloud](#10-configure-data-flows-to-cloud)
@@ -426,206 +426,9 @@ If you use enterprise firewalls or proxies, add the Azure IoT Operations endpoin
 
 ---
 
-## 4. Observability Setup (Pre-Deployment)
+## 4. Security Preparation
 
-> **Important**: Deploy [observability resources](../configure-observability-monitoring/howto-configure-observability.md) **before** deploying Azure IoT Operations.
-
-Azure IoT Operations provides unified health status reporting across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI and Azure portal. Combined with metrics and logs, this combination gives you a complete operational view of your deployment. The following steps set up the metrics and logging infrastructure that complements the built-in health status reporting.
-
-### 4.1 Register Azure Providers
-
-```bash
-az provider register --namespace Microsoft.AlertsManagement
-az provider register --namespace Microsoft.Monitor
-az provider register --namespace Microsoft.Dashboard
-az provider register --namespace Microsoft.Insights
-az provider register --namespace Microsoft.OperationalInsights
-```
-
-### 4.2 Install CLI Extensions
-
-```bash
-az extension add --upgrade --name k8s-extension
-az extension add --upgrade --name amg
-```
-
-### 4.3 Create Monitoring Resources
-
-```bash
-export WORKSPACE_NAME="<monitor-workspace-name>"
-export GRAFANA_NAME="<grafana-name>"
-export LOGS_WORKSPACE_NAME="<logs-workspace-name>"
-
-# Create Azure Monitor workspace
-MONITOR_ID=$(az monitor account create \
-  --name $WORKSPACE_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
-  --query id -o tsv)
-
-# Create Azure Managed Grafana
-GRAFANA_ID=$(az grafana create \
-  --name $GRAFANA_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --query id -o tsv)
-
-# Create Log Analytics workspace
-LOG_ANALYTICS_ID=$(az monitor log-analytics workspace create \
-  -g $RESOURCE_GROUP \
-  -n $LOGS_WORKSPACE_NAME \
-  --query id -o tsv)
-```
-
-### 4.4 Enable Metrics Collection
-
-```bash
-# Enable Prometheus metrics
-az k8s-extension create \
-  --name azuremonitor-metrics \
-  --cluster-name $CLUSTER_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --cluster-type connectedClusters \
-  --extension-type Microsoft.AzureMonitor.Containers.Metrics \
-  --configuration-settings \
-    azure-monitor-workspace-resource-id=$MONITOR_ID \
-    grafana-resource-id=$GRAFANA_ID
-
-# Enable Container Insights
-az k8s-extension create \
-  --name azuremonitor-containers \
-  --cluster-name $CLUSTER_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --cluster-type connectedClusters \
-  --extension-type Microsoft.AzureMonitor.Containers \
-  --configuration-settings \
-    logAnalyticsWorkspaceResourceID=$LOG_ANALYTICS_ID
-```
-
-### 4.5 Deploy OpenTelemetry Collector
-
-> **Note**: The OpenTelemetry Collector deployed here is for **cluster observability**—collecting Azure IoT Operations component health metrics and logs. This is separate from the [OTEL data flow endpoint](../connect-to-cloud/open-telemetry.md), which routes device and asset telemetry to OpenTelemetry-compatible backends.
-
-Create `otel-collector-values.yaml`:
-
-```yaml
-mode: deployment
-fullnameOverride: aio-otel-collector
-image:
-  repository: otel/opentelemetry-collector
-  tag: 0.143.0
-config:
-  processors:
-    memory_limiter:
-      limit_percentage: 80
-      spike_limit_percentage: 10
-      check_interval: 60s
-  receivers:
-    otlp:
-      protocols:
-        grpc:
-          endpoint: ":4317"
-        http:
-          endpoint: ":4318"
-  exporters:
-    prometheus:
-      endpoint: ":8889"
-      resource_to_telemetry_conversion:
-        enabled: true
-      add_metric_suffixes: false
-  service:
-    extensions:
-      - health_check
-    telemetry:
-      metrics:
-        level: none
-    pipelines:
-      metrics:
-        receivers:
-          - otlp
-        exporters:
-          - prometheus
-resources:
-  limits:
-    cpu: "100m"
-    memory: "512Mi"
-ports:
-  metrics:
-    enabled: true
-    containerPort: 8889
-    servicePort: 8889
-    protocol: TCP
-```
-
-Deploy the collector:
-
-```bash
-kubectl get namespace azure-iot-operations || kubectl create namespace azure-iot-operations
-helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
-helm repo update
-helm upgrade --install aio-observability open-telemetry/opentelemetry-collector \
-  -f otel-collector-values.yaml \
-  --namespace azure-iot-operations
-```
-
-### 4.6 Configure Prometheus Scrape Config
-
-Create `ama-metrics-prometheus-config.yaml`:
-
-```yaml
-apiVersion: v1
-data:
-  prometheus-config: |2-
-    scrape_configs:
-      - job_name: otel
-        scrape_interval: 1m
-        static_configs:
-          - targets:
-            - aio-otel-collector.azure-iot-operations.svc.cluster.local:8889
-      - job_name: aio-annotated-pod-metrics
-        kubernetes_sd_configs:
-          - role: pod
-        relabel_configs:
-          - action: drop
-            regex: true
-            source_labels:
-              - __meta_kubernetes_pod_container_init
-          - action: keep
-            regex: true
-            source_labels:
-              - __meta_kubernetes_pod_annotation_prometheus_io_scrape
-          - action: replace
-            regex: ([^:]+)(?::\\d+)?;(\\d+)
-            replacement: $1:$2
-            source_labels:
-              - __address__
-              - __meta_kubernetes_pod_annotation_prometheus_io_port
-            target_label: __address__
-          - action: replace
-            source_labels:
-              - __meta_kubernetes_namespace
-            target_label: kubernetes_namespace
-          - action: keep
-            regex: 'azure-iot-operations'
-            source_labels:
-              - kubernetes_namespace
-        scrape_interval: 1m
-kind: ConfigMap
-metadata:
-  name: ama-metrics-prometheus-config
-  namespace: kube-system
-```
-
-Apply it:
-
-```bash
-kubectl apply -f ama-metrics-prometheus-config.yaml
-```
-
----
-
-## 5. Security Preparation
-
-### 5.1 Bring Your Own Certificate Authority (Recommended)
+### 4.1 Bring Your Own Certificate Authority (Recommended)
 
 For production, replace the default self-signed CA with an enterprise public key infrastructure (PKI) issuer.
 
@@ -647,19 +450,19 @@ kubectl create configmap -n azure-iot-operations <YOUR_CONFIGMAP_NAME> \
   --from-file=<CA_CERTIFICATE_FILENAME_PEM_OR_DER>
 ```
 
-### 5.2 Validate Container Images
+### 4.2 Validate Container Images
 
 Before deployment, optionally validate the Microsoft signatures on Azure IoT Operations images. See [Validate images](../secure-iot-ops/howto-validate-images.md).
 
-### 5.3 Block IMDS Access (Azure Kubernetes Service (AKS) Deployments)
+### 4.3 Block IMDS Access (Azure Kubernetes Service (AKS) Deployments)
 
 For AKS deployments with [secure settings](./howto-enable-secure-settings.md), block pod access to the Azure Instance Metadata Service (IMDS) to prevent credential leakage.
 
 ---
 
-## 6. Deploy Azure IoT Operations
+## 5. Deploy Azure IoT Operations
 
-### 6.1 Deploy via Azure portal
+### 5.1 Deploy via Azure portal
 
 1. Sign in to [Azure portal](https://portal.azure.com)
 2. Search for **Azure IoT Operations** → Select **Create**
@@ -755,7 +558,7 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
 
 6. **Automation tab**—Run the generated CLI commands (see next section)
 
-### 6.2 Run the CLI Commands
+### 5.2 Run the CLI Commands
 
 The portal generates a sequence of CLI commands. Run them in order:
 
@@ -793,7 +596,7 @@ az iot ops identity assign ...  # (copied from portal)
 kubectl delete pods adr-schema-registry-0 adr-schema-registry-1 -n azure-iot-operations
 ```
 
-### 6.3 Configure Observability on the Instance
+### 5.3 Configure Observability on the Instance
 
 ```bash
 az iot ops upgrade \
@@ -805,9 +608,9 @@ az iot ops upgrade \
 
 ---
 
-## 7. Post-Deployment Validation
+## 6. Post-Deployment Validation
 
-### 7.1 Run Health Check
+### 6.1 Run Health Check
 
 ```bash
 # Basic health check
@@ -822,7 +625,7 @@ az iot ops check --ops-service broker
 
 > The `check` command displays a warning about missing data flows—this is expected until you create one.
 
-### 7.2 Verify Health Status
+### 6.2 Verify Health Status
 
 After deployment, verify that all components report **Available** health status:
 
@@ -832,24 +635,30 @@ After deployment, verify that all components report **Available** health status:
 
 > **Note**: If a resource hasn't reported status within 15 minutes, it shows as **Unknown** (⚪). Allow a few minutes after deployment for initial health reports to appear.
 
-### 7.3 Verify Pods Are Running
+### 6.3 Verify Pods Are Running
 
 ```bash
 kubectl get pods -n azure-iot-operations
 kubectl get pods -n azure-arc
 ```
 
-### 7.3 View Deployment Tree
+### 6.4 View Deployment Tree
 
 ```bash
 az iot ops show --name <INSTANCE_NAME> --resource-group $RESOURCE_GROUP --tree
 ```
 
-### 7.4 Check Available Versions
+### 6.5 Check Available Versions
 
 ```bash
 az iot ops get-versions
 ```
+
+---
+
+## 7. Observability Setup
+
+Azure IoT Operations provides unified health status reporting across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI and Azure portal. Combined with metrics and logs, this gives you a complete operational view of your deployment. Follow the steps outlined in [Deploy observability resources](../configure-observability-monitoring/howto-configure-observability.md#deploy-with-the-automated-script) for an automated way to deploy observability resources.
 
 ---
 
