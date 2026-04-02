@@ -19,7 +19,7 @@ This article describes how to use Azure PowerShell to [back up and recover a SQL
 
 Before you back up and restore SQL databases in Azure VMs with PowerShell, ensure that the following prerequisites are met:
 
-* Check the feature capabilities for [backing up SQL databases within Azure VMs](backup-azure-sql-database.md#considerations-for-sql-server-backup).
+* Check the feature capabilities for [backing up SQL databases within Azure VMs](backup-azure-sql-database.md#prerequisites-for-sql-server-backup).
 * Review the PowerShell object hierarchy for Recovery Services.
 
 ## Recovery Services object hierarchy
