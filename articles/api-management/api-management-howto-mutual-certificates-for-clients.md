@@ -50,6 +50,9 @@ We recommend using key vault certificates because the approach helps improve API
    >
    > CA certificates for certificate validation aren't supported in the Consumption tier.
 
+   > [!IMPORTANT]
+   > Uploading CA certificates affects the machine-wide certificate store and can impact TLS communications across the entire API Management node. Review the [safety considerations](api-management-howto-ca-certificates.md#safety-considerations) before uploading.
+
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
 
    > [!NOTE]
@@ -117,7 +120,7 @@ The following policies can be configured to check the issuer and subject of a cl
 >
 > To disable checking certificate revocation list, use `context.Request.Certificate.VerifyNoRevocation()` instead of `context.Request.Certificate.Verify()`.
 >
-> If client certificate is self-signed, root (or intermediate) CA certificates must be [uploaded](api-management-howto-ca-certificates.md) to API Management for `context.Request.Certificate.Verify()` and `context.Request.Certificate.VerifyNoRevocation()` to work.
+> If client certificate is self-signed, root (or intermediate) CA certificates must be [uploaded](api-management-howto-ca-certificates.md) to API Management for `context.Request.Certificate.Verify()` and `context.Request.Certificate.VerifyNoRevocation()` to work. Review the [safety considerations](api-management-howto-ca-certificates.md#safety-considerations) before uploading CA certificates.
 
 ### Checking the thumbprint
 
@@ -137,7 +140,7 @@ The following policies can be configured to check the thumbprint of a client cer
 >
 > To disable checking certificate revocation list, use `context.Request.Certificate.VerifyNoRevocation()` instead of `context.Request.Certificate.Verify()`.
 >
-> If client certificate is self-signed, root (or intermediate) CA certificates must be [uploaded](api-management-howto-ca-certificates.md) to API Management for `context.Request.Certificate.Verify()` and `context.Request.Certificate.VerifyNoRevocation()` to work.
+> If client certificate is self-signed, root (or intermediate) CA certificates must be [uploaded](api-management-howto-ca-certificates.md) to API Management for `context.Request.Certificate.Verify()` and `context.Request.Certificate.VerifyNoRevocation()` to work. Review the [safety considerations](api-management-howto-ca-certificates.md#safety-considerations) before uploading CA certificates.
 
 ### Checking a thumbprint against certificates uploaded to API Management
 
@@ -157,7 +160,7 @@ The following example shows how to check the thumbprint of a client certificate 
 > [!NOTE]
 > To disable checking certificate revocation list, use `context.Request.Certificate.VerifyNoRevocation()` instead of `context.Request.Certificate.Verify()`.
 >
-> If client certificate is self-signed, root (or intermediate) CA certificates must be [uploaded](api-management-howto-ca-certificates.md) to API Management for `context.Request.Certificate.Verify()` and `context.Request.Certificate.VerifyNoRevocation()` to work.
+> If client certificate is self-signed, root (or intermediate) CA certificates must be [uploaded](api-management-howto-ca-certificates.md) to API Management for `context.Request.Certificate.Verify()` and `context.Request.Certificate.VerifyNoRevocation()` to work. Review the [safety considerations](api-management-howto-ca-certificates.md#safety-considerations) before uploading CA certificates.
 
 > [!TIP]
 >

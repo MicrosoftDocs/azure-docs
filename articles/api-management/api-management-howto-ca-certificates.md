@@ -22,6 +22,9 @@ Azure API Management allows you to upload and install CA certificates on the mac
 
 This article shows how to manage CA certificates of an API Management instance in the Azure portal. For example, if you use self-signed client certificates, you can upload custom trusted root certificates to API Management. 
 
+> [!IMPORTANT]
+> **CA certificates are installed into the machine-wide certificate store.** Once installed, a CA certificate immediately participates in TLS certificate chain building for all communications on the API Management infrastructure node — including the API gateway's host certificate chain, custom domain certificate chains, management API, developer portal, and internal services. If the uploaded certificate's issuer key matches certificates used by existing chains, the operating system automatically includes the new CA certificate, which can alter the intermediate certificates presented during TLS handshakes. This can unexpectedly change TLS behavior for host certificates, backend connections, and client certificate validation. **Test CA certificate changes in a non-production environment first**, and review the [safety considerations](#safety-considerations) section before uploading.
+
 [!INCLUDE [api-management-ca-certificate-v2-tiers](../../includes/api-management-ca-certificate-v2-tiers.md)]
 
 CA certificates uploaded to API Management can be used for certificate validation only by the managed API Management gateway. If you use the [self-hosted gateway](self-hosted-gateway-overview.md), you can learn how to [create a custom CA for self-hosted gateway](#create-custom-ca-for-a-self-hosted-gateway) later in this article.
@@ -62,6 +65,40 @@ Use the [Gateway Certificate Authority](/rest/api/apimanagement/current-ga/gatew
 
 1. [Add a certificate](api-management-howto-mutual-certificates.md) .pfx file to your API Management instance.
 1. Use the [Gateway Certificate Authority - Create Or Update](/rest/api/apimanagement/current-ga/gateway-certificate-authority/create-or-update) REST API to associate the certificate with the self-managed gateway.
+
+## Safety considerations
+
+CA certificates uploaded to API Management are installed into the machine-wide certificate store on the underlying infrastructure. It's important to understand the following implications before uploading a CA certificate.
+
+### How certificate chain building works
+
+When a TLS connection is established, the operating system builds a certificate chain from the server (leaf) certificate up to a trusted root. During this process, the system searches the machine certificate store for intermediate and root CA certificates. If a newly uploaded CA certificate's issuer key matches any certificate in a chain being built, the operating system **automatically includes** it — even if that chain is used by a different process or for a different purpose than you intended.
+
+### What can be affected
+
+Because all services on an API Management node share the same machine certificate store, uploading a CA certificate can affect:
+
+- **Host certificate chain** — The default SSL certificate that API Management uses for its built-in hostnames (such as `<service-name>.azure-api.net`) has its own certificate chain. If the uploaded CA certificate's issuer key matches a certificate in the host certificate's chain, the operating system may silently substitute or extend the chain with the new certificate. This can change the intermediate certificate that the gateway presents during TLS handshakes, potentially breaking certificate pinning or thumbprint-based validation performed by clients.
+- **Custom domain certificate chains** — Certificates configured for [custom domain names](configure-custom-domain.md) are also affected because they share the same certificate store.
+- **API gateway** — TLS handshakes for inbound API requests and outbound backend connections.
+- **Management API** — Internal management plane communications.
+- **Developer portal** — Portal-to-backend connectivity.
+- **Internal services** — Certificate validation for service-to-service communication.
+
+### Before you upload
+
+- **Test first** — Upload the CA certificate to a Developer-tier or non-production instance and verify that all services continue to operate correctly.
+- **Verify the issuer** — Check that the certificate's issuer name and key don't conflict with existing certificates used by the API Management instance.
+- **Plan for rollback** — Know how to [delete the CA certificate](#delete-a-ca-certificate) quickly if the upload causes unexpected issues.
+- **Monitor after upload** — After uploading, monitor the API gateway, management API, and developer portal for TLS errors or unexpected certificate validation failures.
+
+### Troubleshooting
+
+If you experience issues after uploading a CA certificate:
+
+- **Unexpected 502 or 503 errors** — The new CA certificate might have changed TLS certificate chains, causing handshake failures. Delete the recently uploaded certificate and verify that operations return to normal.
+- **Certificate validation failures** — Chain building might now include the new CA certificate where it wasn't expected. Check certificate thumbprints and chain composition.
+- **Backend connectivity issues** — Outbound TLS connections to backend services might be using a different certificate chain after the upload.
 
 ## Limits
 
