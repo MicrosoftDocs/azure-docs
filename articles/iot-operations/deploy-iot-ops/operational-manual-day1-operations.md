@@ -27,7 +27,7 @@ This operational manual provides a comprehensive guide for maintaining, monitori
 7. [Data Flow Operations](#7-data-flow-operations)
 8. [Troubleshooting Guide](#8-troubleshooting-guide)
 9. [Scaling and Performance Tuning](#9-scaling-and-performance-tuning)
-10. [Backup and Disaster Recovery](#10-backup-and-disaster-recovery)
+10. [Configuration Backups](#10-configuration-backups)
 11. [Uninstall and Redeployment](#11-uninstall-and-redeployment)
 12. [Tools Reference](#12-tools-reference)
 13. [Known Issues](#13-known-issues)
@@ -856,7 +856,7 @@ As a rule of thumb, an approximate throughput per backend partition is on the or
 
 ---
 
-## 10. Backup and Disaster Recovery
+## 10. Configuration Backups
 
 ### 10.1 Clone an Instance
 
@@ -890,7 +890,7 @@ The clone captures:
 | Data flow configurations | Operations experience → Export (JSON) | After changes |
 | Grafana dashboards | Export dashboard JSON | After changes |
 
-### 10.3 Recovery Procedures
+### 10.3 Deployment Procedures
 
 1. **Instance corruption**: Redeploy from cloned ARM template
 2. **Accidental deletion**: Use `az iot ops clone` output to recreate
