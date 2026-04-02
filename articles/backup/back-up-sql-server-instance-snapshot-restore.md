@@ -14,13 +14,14 @@ ms.topic: how-to
 This article describes how to restore a [SQL Server instance or an individual database in an Azure virtual machine (VM) by using snapshot backups (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview). It provides step‑by‑step guidance for instance‑level and database‑level restores.
 
 >[!NOTE]
->This preview feature supports the Alternate Location Restore (ALR) only.
+>- This preview feature supports the Alternate Location Restore (ALR) only.
+>- Integration with the **Resiliency** experience is currently not supported for snapshot backup of SQL Server instances (preview).
 
 [Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview)](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
 
 ## Prerequisites
 
-Before you restore from a SQL instance snapshot recovery point, ensure that the following prerequisites are met:
+Before you restore from a SQL instance snapshot recovery point, review the following prerequisites:
 
 - The SQL instance is backed up using snapshot backup, and the backup is available in the Recovery Services vault.
 - The required permissions to perform restore operations in Azure are available.

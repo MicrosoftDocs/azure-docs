@@ -72,11 +72,11 @@ Azure Backup now supports snapshot-based backups for SQL Server instances in Azu
 
 This feature includes:
 
-- **Instance level snapshots**: Back up multiple databases together at the SQL Server instance level and restore the entire instance or individual databases as required.
+- **Instance level snapshots**: Backs up multiple databases together at the SQL Server instance level and restore the entire instance or individual databases as required.
 - **Minimal impact on the source server**: Captures application consistent snapshots with minimal database quiesce time that lasts only a few seconds, unlike resource intensive streaming backups.
 - **Cost efficient protection**: Optimizes storage cost with incremental snapshots.
 - **Improved Recovery Time Objective (RTO)**: Performs faster restores from snapshots retained within the user subscription. This capability also provides secure, long‑term retention in the Recovery Services vault.
-- **Low Recovery Point Objective (RPO)**: Apply frequent log backups (every 15 minutes) to snapshots during restore for point in time recovery.
+- **Low Recovery Point Objective (RPO)**: Applies frequent log backups (every 15 minutes) to snapshots during restore for point in time recovery.
 
 For more information, see [Back up SQL Server instance snapshots (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview).
 

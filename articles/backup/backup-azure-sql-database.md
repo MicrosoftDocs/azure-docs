@@ -71,9 +71,9 @@ The backup and restore flow outlines a logical, end-to-end sequence of operation
 
 [Learn how to back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
 
-## Considerations for SQL Server backup
+## Prerequisites for SQL Server backup
 
-Before you start the SQL Server backup, verify the following requirements:
+Before you start the SQL Server backup, review the following prerequisites:
 
 1. Make sure you have a SQL Server instance running in Azure. You can [quickly create a SQL Server instance](/azure/azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart) in the marketplace.
 2. Review the [feature considerations](sql-support-matrix.md#feature-considerations-and-limitations) and [scenario support](sql-support-matrix.md#scenario-support).
@@ -91,69 +91,73 @@ If you didn't create the SQL Server VM in Azure Marketplace or if you're on SQL 
 
 For giving permissions to **SQL 2008** and **2008 R2** running on Windows 2008 R2, see [this section](#assign-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
-For all other versions, fix permissions with the following steps:
+For all other versions, assign the permissions using the following steps:
 
-  1. Use an account with **SQL Server sysadmin** permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
-  2. On the **SQL Server**, open the **Security/Logins** folder.
+1. Use an account with **SQL Server sysadmin** permissions to sign in to **SQL Server Management Studio (SSMS)**. Unless you need special permissions, Windows authentication should work.
 
-      ![Open the Security/Logins folder to see accounts](./media/backup-azure-sql-database/security-login-list.png)
+1. On the **SQL Server**, open the **Security/Logins** folder.
 
-  3. Right-click the **Logins** folder and select **New Login**. In **Login - New**, select **Search**.
+   ![Open the Security/Logins folder to see accounts](./media/backup-azure-sql-database/security-login-list.png)
 
-      ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
+1. Right-click the **Logins** folder and select **New Login**. In **Login - New**, select **Search**.
 
-  4. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in **Enter the object name to select**. Select **Check Names** to resolve the name. Select **OK**.
+   ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
 
-      ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
+1. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in **Enter the object name to select**. Select **Check Names** to resolve the name. Select **OK**.
 
-  5. In **Server Roles**, make sure the **sysadmin** role is selected. Select **OK**. The required permissions should now exist.
+   ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
 
-      ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
+1. On **Server Roles**, make sure the **sysadmin** role is selected. Select **OK**. The required permissions should now exist.
+
+   ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
   
-     If the SQL Server instance is part of an **Always-On Availability Group (AG)**, ensure that the **NT AUTHORITY\SYSTEM** account has the **VIEW SERVER STATE** permission enabled.
+   If the SQL Server instance is part of an **Always-On Availability Group (AG)**, ensure that the **NT AUTHORITY\SYSTEM** account has the **VIEW SERVER STATE** permission enabled.
 
-     :::image type="content" source="./media/backup-azure-sql-database/view-server-state-permission.png" alt-text="Screenshot shows how to check permission on a SQL server instance selected for backup." lightbox="./media/backup-azure-sql-database/view-server-state-permission.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/view-server-state-permission.png" alt-text="Screenshot shows how to check permission on a SQL server instance selected for backup." lightbox="./media/backup-azure-sql-database/view-server-state-permission.png":::
 
-6. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
+1. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
 
-      ![Verify the server has appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
+   ![Verify the server has appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
 
-  7. Check progress in the **Notifications** area. When the selected databases are found, a success message appears.
+1. Check progress in the **Notifications** area. When the selected databases are found, a success message appears.
 
-      ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
+   ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
 > [!NOTE]
 > If your SQL Server has multiple instances of SQL Server installed, then you must add sysadmin permission for **NT Service\AzureWLBackupPluginSvc** account to all SQL instances.
 
 ### Assign SQL sysadmin permissions for SQL 2008 and SQL 2008 R2
 
-Add **NT AUTHORITY\SYSTEM** and **NT Service\AzureWLBackupPluginSvc** logins to the SQL Server Instance:
+To add **NT AUTHORITY\SYSTEM** and **NT Service\AzureWLBackupPluginSvc** logins to the SQL Server Instance, follow these steps:
 
 1. Go to the **SQL Server Instance** in the Object explorer.
-2. Go to **Security** > **Logins**.
-3. Right-click the logins and select *New Login…*
 
-    ![New Login using SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+1. Go to **Security** > **Logins**.
 
-4. Go to the **General** tab and enter **NT AUTHORITY\SYSTEM** as the Login Name.
+1. Right-click the **Logins** and select **New Login**
+   ![New Login using SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
-    ![Login name for SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+1. Go to the **General** tab and enter **NT AUTHORITY\SYSTEM** as the Login Name.
 
-5. Go to the **Server Roles** tab and choose *public* and *sysadmin* roles.
+   ![Login name for SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
-    ![Choosing roles in SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+1. Go to the **Server Roles** tab and choose **public** and **sysadmin** roles.
 
-6. Go to **Status**, select **Grant** for the **Permission to connect to database engine**, and then select **Enabled** for **Login**.
+   ![Choosing roles in SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
-    ![Grant permissions in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
+1. Go to **Status**, select **Grant** for the **Permission to connect to database engine**, and then select **Enabled** for **Login**.
 
-7. Select **OK**.
+   ![Grant permissions in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-8. To add NT Service\AzureWLBackupPluginSvc login to the SQL Server instance, repeat the same sequence of steps (preceding 1-7 steps). If the login already exists, make sure it has the sysadmin server role and under Status it has Grant the Permission to connect to database engine and Login as Enabled.
+1. Select **OK**.
 
-9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Manage **->** Backup Infrastructure **->** Workload in Azure VM:
+1. To add the **NT Service\AzureWLBackupPluginSvc** login to the **SQL Server instance**, repeat steps **1-7**. 
 
-    ![Rediscover DBs in Azure portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+   If the login already exists, make sure it has the sysadmin server role and under **Status** it has the **Grant** option for the **Permission to connect to database engine** and **Login** as **Enabled**.
+
+1. After granting permission, **Rediscover DBs** in the Azure portal by going to the **Recovery Services vault** > **Manage** > **Backup Infrastructure** > **Workload in Azure VM**.
+
+   ![Rediscover DBs in Azure portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
 Alternatively, you can automate the permission assignment by running the following cmdlets in admin mode. 
 

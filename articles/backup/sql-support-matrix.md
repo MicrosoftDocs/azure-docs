@@ -62,24 +62,26 @@ _*The database size limit depends on the data transfer rate that we support and 
 ## SQL Server instance snapshot backups supported scenarios (preview)
 
 
-The following table summarizes the supported and unsupported scenarios for backup snapshot for SQL Server instance in Azure VM.
+The following table summarizes the supported and unsupported scenarios for snapshot backup of SQL Server instances running on Azure virtual machines.
 
 | **Scenarios** | **Supported** | **Unsupported** |
 |----|----|----|
-| SQL Server versions | SQL Server 2016 (and higher) running on Windows Server 2016 (and higher) |  |
+| SQL Server versions | SQL Server 2016 (and higher) running on Windows Server 2016 (and higher). |  |
 | Backup types for snapshot | Snapshot Full (with or without Log backup), Snapshot-copy-only-full (Adhoc backups at database level) |  |
 | Backup configuration | Standalone instance and Always on AG |  |
 | Storage hardware/configurations |  | Premium SSD V2, Ultradisk, Write-accelerated disks, Ephemeral OS disks, and shared disks. |
 | Encryptions | ADE, TDE, and other SQL encryptions |    |
 | SQL compression |  | Not supported |
 | Restore process | Alternate location recovery (ALR) that supports restore to a different target VM from the original one. | Original Location Restore (OLR), Cross region restore, Cross subscription restore |
-| Integration with Resiliency experience |  | Not supported |
 | Supported clients | Azure portal, PowerShell | CLI |
 | Vault-based features | Immutability, Private Endpoints (via Proxy) |     |
 | Database type |  | Snapshot backups of system databases |
 | Database size | Maximum 35 TB database |  |
 | Database selection during instance snapshot | Up to 12 user databases |      |
-| Protection mode within a SQL instance | Protects all selected databases using only snapshot-based protection | Mixed protection modes (some databases using snapshot and others using streaming) |
+| Protection mode within a SQL instance | Protects all selected databases using only snapshot-based protection. | Mixed protection modes (some databases using snapshot and others using streaming) |
+
+>[!NOTE]
+>Integration with the **Resiliency** experience is currently not supported for snapshot backup of SQL Server instances (preview).
 
 ## Backup throughput performance for SQL streaming backup
 
