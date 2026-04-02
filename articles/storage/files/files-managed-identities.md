@@ -4,7 +4,7 @@ description: Learn how to authenticate managed identities to allow applications 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/23/2026
+ms.date: 03/27/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -144,11 +144,47 @@ New-AzStorageShare -Name <file-share-name> -Context $storageAccount.Context
 
 You now have a storage account and file share ready for SMB OAuth authentication. Verify in the Azure portal that your storage account and file share were created.
 
+### [Azure CLI](#tab/cli)
+
+To enable the `SMBOAuth` property on your storage account by using Azure CLI, first sign in to Azure:
+
+```azurecli
+az login
+```
+
+Select your subscription by specifying your subscription ID:
+
+```azurecli
+az account set --subscription "<subscription-ID>"
+```
+
+### Create the storage account
+
+To create a new storage account with `SMBOAuth` enabled, run the following command. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values.
+
+```azurecli
+az storage account create --resource-group <resource-group> --name <storage-account-name> --location <region> --sku Standard_LRS --enable-smb-oauth true
+```
+
+To enable SMBOAuth on an existing storage account, run the following command. Replace `<resource-group>` and `<storage-account-name>` with your values.
+
+```azurecli
+az storage account update --resource-group <resource-group> --name <storage-account-name> --enable-smb-oauth true
+```
+
+Next, create an SMB file share on the storage account. Replace `<storage-account-name>` and `<file-share-name>` with your values.
+
+```azurecli
+az storage share create --account-name <storage-account-name> --name <file-share-name>
+```
+
+You now have a storage account and file share ready for SMB OAuth authentication. Verify in the Azure portal that your storage account and file share were created.
+
 ---
 
 ## Configure a managed identity
 
-You can use managed identities with Windows or Linux. Select your operating system and follow the instructions.
+You can use managed identities with Windows or Linux. Select your operating system at the beginning of this article and follow the instructions.
 
 ::: zone pivot="windows"
 

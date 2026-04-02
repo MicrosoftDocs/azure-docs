@@ -220,11 +220,11 @@ sections:
 
       - question: Can I restore backups of unmanaged VM disks after I upgrade to managed disks?
         answer: |
-          Yes, you can use backups taken before disks were migrated from unmanaged to managed.
+          Yes, you can use backups taken before disks were migrated from unmanaged to managed. Azure Backup restores those legacy recovery points as managed disks.
 
       - question: How do I restore a VM to a restore point before the VM was migrated to managed disks?
         answer: |
-          The restore process remains the same. If the recovery point is of a point-in-time when VM had unmanaged disks, you can [restore disks as unmanaged](tutorial-restore-disk.md#unmanaged-disks-restore). If the VM had managed disks, then you can [restore disks as managed disks](tutorial-restore-disk.md#managed-disk-restore). Then you can [create a VM from those disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+          The restore process remains the same. If the recovery point is from a point in time when the VM had unmanaged disks, follow [Restore legacy recovery points from VMs that used unmanaged disks](backup-azure-arm-restore-vms.md#restore-legacy-recovery-points-from-vms-that-used-unmanaged-disks). If the VM had managed disks, restore the disks as managed disks by following [managed disk restore](tutorial-restore-disk.md#managed-disk-restore). Then you can [create a VM from those disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
           [Learn more](backup-azure-vms-automation.md#restore-an-azure-vm) about doing this in PowerShell.
 
@@ -235,7 +235,7 @@ sections:
         answer: Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and [restore from a recovery point](backup-azure-arm-restore-vms.md#select-a-restore-point).
 
       - question: How do I restore a VM to the same availability sets?
-        answer: For Managed Disk Azure VMs, restoring to the availability sets is enabled by providing an option in the template while restoring as managed disks. This template has the input parameter called **Availability sets**.
+        answer: For managed disk Azure VMs, restoring to the availability sets is enabled by providing an option in the template while restoring as managed disks. This template has the input parameter called **Availability sets**.
 
       - question: How do we get faster restore performance?
         answer: |
@@ -279,11 +279,10 @@ sections:
 
       - question: How does restored disk SKU depend on target SA provided?
         answer: |
-          In the case of an unmanaged VM, the VM disk type is Premium SSD or HDD and depends on the SA in which VHDs exist. If you provide normal SA during restore, the VM disk would be HDD, and if you provide Premium SA, all disks would be Premium SSDs.
+          This guidance applied to older restore flows that restored disks as unmanaged VHDs. Recovery points from VMs that used unmanaged disks are now restored only as managed disks, so the target storage account doesn't determine the final disk type. The storage account is used only to hold restore metadata and temporary VHD files.
 
           >[!Note]
           >- Azure Backup currently doesn't support taking different SAs as inputs for different disks.
-          >- **Restore to original disks SA** is only available for snapshot tier, and it increases restore performance because data is copied faster to the same SA than to a different SA. It's not intended to support disk type, but can be used to retain it.
 
       - question: Can I delete JSON template and VHD files after the restore process is complete?
         answer: |

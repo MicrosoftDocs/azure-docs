@@ -2,8 +2,8 @@
 title: Roles and permissions in the Microsoft Sentinel platform
 description: Learn how Microsoft Sentinel assigns permissions to users using both Azure and Microsoft Entra ID role-based access control, and identify the allowed actions for each role.
 author: mberdugo
-ms.topic: reference
-ms.date: 06/19/2025
+ms.topic: concept-article
+ms.date: 01/07/2026
 ms.author: monaberdugo
 ms.collection: usx-security
 appliesto:
@@ -20,6 +20,9 @@ Microsoft Sentinel uses [Azure role-based access control (Azure RBAC)](/azure/ro
 You can assign roles to users, groups, and services in either [Azure](/azure/role-based-access-control/role-assignments-steps) or [Microsoft Entra ID](/entra/identity/role-based-access-control/manage-roles-portal?tabs=admin-center).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
+> [!NOTE]
+> If you are running the Microsoft Defender XDR preview program, you can now experience the new Microsoft Defender Unified Role-Based Access Control (URBAC) model. For more information, see [Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/manage-rbac).
 
 > [!IMPORTANT]
 > Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.

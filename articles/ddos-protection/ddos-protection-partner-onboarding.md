@@ -2,10 +2,10 @@
 title: Partnering with Azure DDoS Protection
 description: "Understand partnering opportunities enabled by Azure DDoS Protection."
 ms.service: azure-ddos-protection
-author: AbdullahBell
+author: duongau
 ms.topic: how-to
 ms.date: 03/17/2026
-ms.author: abell
+ms.author: duau
 # Customer intent: "As a product manager, I want to understand the integration opportunities provided by DDoS protection services, so that I can enhance my product offerings and ensure robust security against DDoS attacks for our customers."
 ---
 

@@ -13,8 +13,6 @@ ai-usage: ai-assisted
 
 # Enrich data with external datasets in data flow graphs
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Sometimes the incoming message doesn't contain everything you need. A temperature reading might arrive with a device ID, but the display name, location, and calibration offset live in a separate lookup table. Enrichment lets you pull that external data into your transform rules.
 
 For an overview of data flow graphs, see [Data flow graphs overview](concept-dataflow-graphs.md).
@@ -57,7 +55,9 @@ configuration: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```json
 {
@@ -129,7 +129,9 @@ The enriched field references are part of the map rules JSON:
 '{"datasets":[...],"map":[{"inputs":["$context(position).WorkingHours"],"output":"WorkingHours"},{"inputs":["rawValue","$context(product).multiplier"],"output":"adjustedValue","expression":"$1 * $2"}]}'
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -157,7 +159,9 @@ Add a filter rule with inputs `rawValue`, `$context(limits).multiplier`, and `$c
 '{"datasets":[{"key":"device_limits as limits","inputs":["$source.deviceId","$context.deviceId"],"expression":"$1 == $2"}],"filter":[{"inputs":["rawValue","$context(limits).multiplier","$context(limits).baseLimit"],"expression":"$1 * $2 > $3"}]}'
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```json
 {
@@ -191,7 +195,9 @@ Configure a branch rule with inputs `quantity`, `$context(mult).factor`, and `$c
 '{"datasets":[{"key":"multipliers as mult","inputs":["$source.productCode","$context.productCode"],"expression":"$1 == $2"}],"branch":{"inputs":["quantity","$context(mult).factor","$context(mult).threshold"],"expression":"$1 * $2 > $3"}}'
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```json
 {
@@ -228,7 +234,9 @@ Add a map rule with input `$context(device).*` and output `*`.
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -308,7 +316,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1

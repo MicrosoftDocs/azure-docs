@@ -1,11 +1,11 @@
 ---
 title: Configure NSG rules for Azure Bastion
 description: Learn how to configure required network security group rules for Azure Bastion to protect your deployment, prevent unauthorized access, and keep your Bastion host healthy.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 02/24/2026
-ms.author: abell
+ms.author: cherylmc
 # Customer intent: As a network administrator, I want to understand and configure network security groups for Azure Bastion, so that I can manage secure ingress and egress traffic to virtual machines while maintaining compliance and security practices. I want to understand the impact of not having the correct NSG rules in place from a security perspective. This is a procedural article. 
 ---
 # Configure NSG rules for Azure Bastion

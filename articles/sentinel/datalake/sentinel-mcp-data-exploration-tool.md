@@ -64,7 +64,7 @@ This tool runs a single KQL query against a specified Microsoft Sentinel data la
 This tool lists all Microsoft Sentinel data lake workspace name and ID pairs available to you. Including the workspace name provides you with helpful context to understand which workspace is being used. Run this tool before using any other Microsoft Sentinel tools because those tools need a workspace ID argument to function properly.
 
 
-### Entity analyzer (preview)
+### Entity analyzer
 
 These tools use AI to analyze your organization's data in the Microsoft Sentinel data lake. They provide a verdict and detailed insights on URLs, domains, and user entities. They help eliminate the need for manual data collection and complex integrations typically required for enriching and investigating entities.
 

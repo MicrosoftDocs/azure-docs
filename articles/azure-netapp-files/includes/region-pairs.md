@@ -75,7 +75,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 
 *Billing
 > [!NOTE]
-> During the initial rollout, your Azure bill may temporarily show cross-region replication charges for an alternative region pair while the final billing SKUs are being implemented. **There is no overbilling** - the cost shown is the same rate that will apply for **UAE Central to Sweden Central** replication.
+> During the initial rollout, your Azure bill may temporarily show cross-region replication charges for an alternative region pair while the final billing SKUs are being implemented. **There is no overbilling** - the cost shown is the same rate that will apply for **UAE North to Sweden Central** replication.
 
 <br/><br/>
 

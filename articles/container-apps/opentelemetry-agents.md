@@ -4,7 +4,7 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 12/09/2025
+ms.date: 03/30/2026
 ms.author: cshoe
 ms.topic: how-to
 ms.custom:
@@ -756,7 +756,7 @@ In the event of a messaging inturruptions to an endpoint, the OpenTelemetry agen
 
 The OpenTelemetry agent automatically injects a set of environment variables into your application at runtime.
 
-The first two environment variables follow standard OpenTelemetry exporter configuration and are used in OTLP standard software development kits. If you explicitly set the environment variable in the container app specification, your value overwrites the automatically injected value.
+The first three environment variables follow standard OpenTelemetry configuration and are used in OTLP standard software development kits. If you explicitly set the environment variable in the container app specification, your value overwrites the automatically injected value.
 
 Learn about the OTLP exporter configuration see, [OTLP Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/).
 
@@ -764,6 +764,7 @@ Learn about the OTLP exporter configuration see, [OTLP Exporter Configuration](h
 |---|---|
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | A base endpoint URL for any signal type, with an optionally specified port number. This setting is helpful when you’re sending more than one signal to the same endpoint and want one environment variable to control the endpoint. Example:  `http://otel.service.k8se-apps:4317/` |
 | `OTEL_EXPORTER_OTLP_PROTOCOL` | Specifies the OTLP transport protocol used for all telemetry data. The managed agent only supports `grpc`. Value: `grpc`. |
+| `OTEL_RESOURCE_ATTRIBUTES` | A comma-separated list of key-value pairs that define [resource attributes](https://opentelemetry.io/docs/specs/otel/resource/sdk/) attached to all telemetry data. The managed agent populates this variable with container app attributes such as the app name and environment. Some OpenTelemetry SDK implementations require you to explicitly enable environment-based resource detection to use these attributes. If you set this variable in the container app specification, your value overwrites the automatically injected value. |
 
 The other three environment variables are specific to Azure Container Apps, and are always injected. These variables hold agent’s endpoint URLs for each specific data type (logs, metrics, traces).
 

@@ -2,8 +2,8 @@
 title: Region optimization for Microsoft Azure customers
 description: Learn about the region optimization policy and how it might affect you.
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: kenday
+ms.reviewer: kenday
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article

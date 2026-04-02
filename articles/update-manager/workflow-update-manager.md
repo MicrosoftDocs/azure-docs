@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: concept-article
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator who manages Azure VMs and Azure Arc-enabled servers, I want to automate the process of assessing and applying updates so that I can keep my systems secure and compliant without manual intervention."
 ---
 

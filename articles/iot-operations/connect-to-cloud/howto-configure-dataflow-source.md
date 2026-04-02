@@ -14,8 +14,6 @@ ai-usage: ai-assisted
 
 # Configure a data flow source in Azure IoT Operations
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 The source is where data enters a data flow or data flow graph. You configure the source by specifying an endpoint reference and a list of data sources (topics) for that endpoint.
 
 > [!TIP]
@@ -73,7 +71,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 sourceSettings:
@@ -111,7 +111,9 @@ You can configure an asset as a source only in the operations experience.
 
 You can configure an asset as a source only in the operations experience.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 You can configure an asset as a source only in the operations experience.
 
@@ -172,7 +174,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Replace placeholder values with your custom endpoint name and topics.
 
@@ -258,8 +262,10 @@ sourceSettings: {
 
 Here, the wildcard `+` selects all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard selects all sensor messages under all subtopics of the `temperature` and `humidity` topics.
 
-# [Kubernetes (preview)](#tab/kubernetes)
-  
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
 ```yaml
 sourceSettings:
   endpointRef: <ENDPOINT_NAME>
@@ -312,7 +318,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 sourceSettings:
@@ -372,7 +380,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 sourceSettings:
@@ -431,7 +441,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 After you use the [schema registry to store the schema](concept-schema-registry.md), reference it in the data flow configuration.
 

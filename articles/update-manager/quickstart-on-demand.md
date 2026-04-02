@@ -6,6 +6,7 @@ ms.date: 03/06/2024
 author: habibaum
 ms.author: v-uhabiba
 ms.topic: quickstart
+ms.update-cycle: 1095-days
 # Customer intent: As a system administrator, I want to deploy on-demand updates to selected Azure virtual machines, so that I can ensure they are compliant and maintain optimal performance.
 ---
 

@@ -88,6 +88,8 @@ items:
             href: workflow-automation.md
           - name: Scheduled tasks
             href: scheduled-tasks.md
+          - name: HTTP triggers
+            href: http-triggers.md
           - name: Send notifications
             href: send-notifications.md
       - name: Extend
@@ -116,6 +118,8 @@ items:
         items:
           - name: Chat from your tools
             href: chat-from-your-tools.md
+          - name: Model provider selection
+            href: model-provider-selection.md
           - name: Learn via Chat
             href: docsguide.md
           - name: Favorites and Mine filter
@@ -158,6 +162,8 @@ items:
         items:
           - name: Create scheduled tasks
             href: create-scheduled-task.md
+          - name: Create an HTTP trigger
+            href: create-http-trigger.md
       - name: Extend
         items:
           - name: Configure agent hooks
@@ -212,8 +218,6 @@ items:
         href: pricing-billing.md
       - name: Anthropic subprocessor
         href: anthropic-sub-processor.md
-      - name: Billing
-        href: billing.md
       - name: Frequently asked questions
         items:
           - name: General

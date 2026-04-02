@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/29/2025
+ms.date: 03/31/2026
 ms.author: jkinma
 ms.custom:
 - sfi-image-nochange
@@ -20,11 +20,8 @@ An Azure Expert MSP can request to transfer their customer's Enterprise subscrip
 
 Supported product (subscriptions, reservations and savings plans) billing ownership transfer options include:
 
-- A direct Enterprise Agreement transfer to an Azure plan under the MPA
+- An Enterprise Agreement transfer to an Azure plan under the MPA
 - An enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
-
-> [!NOTE]
-> Indirect Enterprise Agreement transfers to an Azure plan under an MPA aren't supported.
 
 This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
@@ -53,7 +50,7 @@ There are four options to transfer products:
     1. [Confirm that the customer has accepted the Microsoft Customer Agreement](/partner-center/confirm-customer-agreement).
 1. Set up an [Azure plan](/partner-center/purchase-azure-plan) for the customer. If the customer is purchasing through multiple resellers, you need to set up an Azure plan for each combination of a customer and a reseller.
 
-When there's a currency change during or after an EA enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1).
+When there's a currency change during or after an EA enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1). For more information about cross-currency transfers, see [Transfer Reservations and Savings Plans with currency change](subscription-transfer.md#transfer-reservations-and-savings-plans-with-currency-change)
 
 Before you begin, make sure that the people involved in the product transfer have the required permissions. 
 
