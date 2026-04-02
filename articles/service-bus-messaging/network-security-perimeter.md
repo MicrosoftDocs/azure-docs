@@ -3,7 +3,7 @@ title: Network Security Perimeter
 titleSuffix: Azure Service Bus
 description: Learn how to associate an Azure Service Bus namespace with a network security perimeter
 ms.reviewer: spelluru
-ms.date: 01/15/2026
+ms.date: 03/30/2026
 author: EldertGrootenboer
 ms.author: egrootenboer
 ms.topic: feature-guide
@@ -11,7 +11,7 @@ ms.custom:
 ---
 
 
-# Network security perimeter for Azure Service Bus (public preview)
+# Network security perimeter for Azure Service Bus
 
 [Azure Service Bus](./service-bus-messaging-overview.md) supports integration with [network security perimeter](../private-link/network-security-perimeter-concepts.md).
 
@@ -34,22 +34,23 @@ Azure Service Bus supports scenarios that require access to other PaaS resources
 - **Customer-managed keys (CMK)** require communication with Azure Key Vault. For more information, see [Configure customer-managed keys for encrypting Azure Service Bus data at rest](configure-customer-managed-key.md).
 
 > [!NOTE]
-> - Network security perimeter is currently in public preview.
-> - Network security perimeter doesn't support [Azure Service Bus Geo-Disaster Recovery](./service-bus-geo-dr.md).
 > - Network security perimeter currently doesn't support [Azure Service Bus Geo-Replication](./service-bus-geo-replication.md).
 > - Network security perimeter rules don't govern private link traffic through [private endpoints](../private-link/private-endpoint-overview.md).
 
 ## Create a network security perimeter
 
-Create your own network security perimeter resource using [Azure portal](../private-link/create-network-security-perimeter-portal.md), [PowerShell](../private-link/create-network-security-perimeter-powershell.md), or [Azure CLI](../private-link/create-network-security-perimeter-cli.md).
+Create your own network security perimeter resource by using [Azure portal](../private-link/create-network-security-perimeter-portal.md), [PowerShell](../private-link/create-network-security-perimeter-powershell.md), or [Azure CLI](../private-link/create-network-security-perimeter-cli.md).
 
 ## Associate Service Bus with a network security perimeter in the Azure portal
 
-1. Go to your network security perimeter resource in the Azure portal.
-1. Select **Resources** from the left menu.
-1. Select **Associate** to add a new resource association.
-1. Search for and select the Service Bus namespace you want to add.
-1. Select a profile to associate with the namespace and select **Associate**.
+You can associate your Service Bus namespace with a network security perimeter directly from the Service Bus namespace in the Azure portal.
+
+1. On your Service Bus namespace page, select **Networking** under **Settings**.
+1. Select the **Public access** tab.
+1. In the **Network security perimeter** section, select **Associate**.
+1. In the **Select network security perimeter** dialog, search for and select the network security perimeter you want to associate with the namespace.
+1. Select a profile to associate with the namespace.
+1. Select **Associate** to complete the association.
 
 ## Related content
 

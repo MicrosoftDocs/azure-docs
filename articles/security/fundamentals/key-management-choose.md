@@ -6,7 +6,7 @@ services: security
 author: chenkaren
 ms.service: security
 ms.topic: article
-ms.date: 01/08/2026
+ms.date: 04/02/2026
 ms.author: chenkaren
 ---
 
@@ -30,7 +30,7 @@ The chart refers to these common requirements:
 
 It also refers to these various key management use cases:
 
-- _Encryption at rest_ is typically enabled for Azure IaaS, PaaS, and SaaS models. Applications such as Microsoft 365; Microsoft Purview Information Protection; platform services in which the cloud is used for storage, analytics, and service bus functionality; and infrastructure services in which operating systems and applications are hosted and deployed in the cloud use encryption at rest. _Customer managed keys for encryption at rest_ is used with Azure Storage and Microsoft Entra. For highest security, keys should be HSM-backed, 3k or 4k RSA keys. For more information about encryption at rest, see [Azure Data Encryption at Rest](encryption-atrest.md).
+- _Encryption at rest_ is typically enabled for Azure IaaS, PaaS, and SaaS models. Applications such as Microsoft 365; Microsoft Purview Information Protection; platform services in which the cloud is used for storage, analytics, and service bus functionality; and infrastructure services in which operating systems and applications are hosted and deployed in the cloud use encryption at rest. _Customer managed keys for encryption at rest_ is used with Azure Storage and Microsoft Entra. For highest security, keys should be HSM-backed, 3k or 4k RSA keys. For customer-managed key scenarios, Azure Key Vault Premium is the recommended minimum; Azure Managed HSM is required for key sovereignty. For more information about encryption at rest, see [Azure Data Encryption at Rest](encryption-atrest.md).
 - _SSL/TLS Offload_ is supported on Azure Key Vault Managed HSM and Azure Cloud HSM. Customers have improved high availability, security, and the best price point on Azure Key Vault Managed HSM for F5 and Nginx.
 - _Lift and shift_ refer to scenarios where a PKCS11 application on-premises is migrated to Azure Virtual Machines and running software such as Oracle TDE in Azure Virtual Machines. Lift and shift requiring payment PIN processing is supported by Azure Payment HSM. All other scenarios are supported by Azure Cloud HSM. Full native PKCS#11, JCA/JCE, and CNG/KSP support is only available with Azure Cloud HSM. Azure Key Vault Managed HSM offers [limited PKCS#11 support](/azure/key-vault/managed-hsm/tls-offload-library) for TLS offload scenarios with F5 and Nginx.
 - _Payment PIN processing_ includes allowing card and mobile payment authorization and 3D-Secure authentication; PIN generation, management, and validation; payment credential issuing for cards, wearables, and connected devices; securing keys and authentication data; and sensitive data protection for point-to-point encryption, security tokenization, and EMV payment tokenization. This also includes certifications such as PCI DSS, PCI 3DS, and PCI PIN. These are only supported by Azure Payment HSM.

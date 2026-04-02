@@ -89,8 +89,6 @@ items:
           href: how-to-register-external-data-services.md
         - name: How to enable legal tags restricted COO (Country of Origin)
           href: how-to-enable-legal-tags-restricted-country-of-origin.md
-        - name: How to enable Reservoir DDMS
-          href: how-to-enable-reservoir-ddms.md
         - name: How to manage upgrade settings
           href: how-to-manage-upgrade-settings.md
     - name: Monitoring

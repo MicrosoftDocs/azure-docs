@@ -1,10 +1,9 @@
 ---
 title: Deploy the control plane for SAP Deployment Automation Framework
-description: Overview of the control plane deployment process in SAP Deployment Automation Framework.
+description: Learn how to deploy the control plane, including the deployer and SAP library, for SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
-ms.reviewer: kimforss
-ms.date: 03/15/2026
+ms.date: 04/02/2026
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -14,58 +13,63 @@ ms.custom: devx-track-azurecli
 
 # Deploy the control plane
 
-The control plane deployment for [SAP Deployment Automation Framework](deployment-framework.md) consists of the:
+The control plane is the deployment infrastructure for [SAP Deployment Automation Framework](deployment-framework.md) (SDAF). It provides the deployment agents, state storage, and credential management that the framework needs to provision and configure SAP environments on Azure.
 
-- Deployer
-- SAP library
+Without a control plane, you can't run the Terraform and Ansible workflows that deploy SAP workload zones and systems. Setting up the control plane is the first deployment step in the framework.
 
-:::image type="content" source="./media/deployment-framework/control-plane.png" alt-text="Diagram that shows the control plane.":::
+In this article, you prepare deployment credentials, configure the deployer and SAP library components, and run the scripts that create the control plane resources in your Azure subscription.
+
+:::image type="content" source="./media/deployment-framework/control-plane.png" alt-text="Diagram that shows the control plane for SAP Deployment Automation Framework.":::
+
+## Prerequisites
+
+- An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- Permissions to create service principals or managed identities for the subscription.
+- [Azure CLI](/cli/azure/install-azure-cli) installed on a Linux workstation, or access to Azure DevOps.
 
 ## Prepare the deployment credentials
 
-SAP Deployment Automation Framework uses eithe managed identities (recommended) or service principals for deployments. To create a service principal for the control plane deployment, use an account that has permissions to create service principals:
+SDAF uses either managed identities (recommended) or service principals for deployments.
 
-```azurecli
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
-  
-```
+1. Create authentication credentials for the control plane deployment. Use an account that has permissions to create service principals.
 
-To create a managed identity use the following script:
+   To create a service principal:
 
-```azurecli
-az identity create --name "<environment>-Deployment-Identity" --resource-group $ResourceGroupName --location $Location  --query "{id:id, principalId:principalId, clientId:clientId}" 
+   ```azurecli
+   az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
+   ```
 
-az role assignment create --assignee-object-id <principalId> --role "Contributor" --scope /subscriptions/<subscriptionID>  
-```
+   To create a managed identity:
 
+   ```azurecli
+   az identity create --name "<environment>-Deployment-Identity" --resource-group $ResourceGroupName --location $Location --query "{id:id, principalId:principalId, clientId:clientId}"
 
-> [!IMPORTANT]
-> The name of the service principal must be unique.
->
-> Record the output values from the command:
+   az role assignment create --assignee-object-id <principalId> --role "Contributor" --scope /subscriptions/<subscriptionID>
+   ```
+
+   > [!IMPORTANT]
+   > The name of the service principal must be unique.
+   >
+   > Record the output values from the command:
    > - appId
    > - password
    > - tenant
 
-Optionally, assign the following permissions to the service principal or managed identity:
+1. Optionally, assign the **User Access Administrator** role to the service principal or managed identity:
 
-```azurecli
-az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>
-```
+   ```azurecli
+   az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>
+   ```
 
-If you want to provide the User Access Administrator role scoped to the resource group only, use the following command:
+   To scope the role to a specific resource group, use the following command instead:
 
-```azurecli
+   ```azurecli
+   az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>
+   ```
 
-az role assignment create --assignee <appId> --role "User Access Administrator" --scope /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>
-```
+## Run the control plane deployment
 
-## Deploy the control plane
-
-All the artifacts that are required to deploy the control plane are located in GitHub repositories.
-
-Prepare for the control plane deployment by cloning the repositories using the following commands:
-
+All the artifacts required to deploy the control plane are in GitHub repositories. Clone the repositories to prepare for the control plane deployment:
 
 ```bash
 mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
@@ -73,14 +77,13 @@ mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
 git clone https://github.com/Azure/sap-automation.git sap-automation
 
 git clone https://github.com/Azure/sap-automation-samples.git samples
-
 ```
 
-The sample deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
+* The sample deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
 
-The sample SAP library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
+* The sample SAP library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/samples/Terraform/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
 
-You can copy the sample configuration files to start testing the deployment automation framework.
+You can copy the sample configuration files to start testing the framework.
 
 A minimal Terraform file for the `DEPLOYER` might look like this example:
 
@@ -103,7 +106,7 @@ firewall_deployment = true
 management_bastion_subnet_address_prefix = "10.10.20.128/26"
 bastion_deployment = true
 
-# deployer_enable_public_ip controls if the deployer Virtual machines will have Public IPs
+# deployer_enable_public_ip controls if the deployer virtual machines will have Public IPs
 deployer_enable_public_ip = false
 
 # deployer_count defines how many deployer VMs will be deployed
@@ -120,7 +123,6 @@ enable_firewall_for_keyvaults_and_storage = false
 
 # public_network_access_enabled controls if storage account and key vaults have public network access enabled
 public_network_access_enabled = false
-
 ```
 
 Note the Terraform variable file locations for future edits during deployment.
@@ -135,11 +137,10 @@ location = "westeurope"
 
 #Defines the DNS suffix for the resources
 dns_label = "azure.contoso.net"
-        
+
 # use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
 use_private_endpoint = true
 ```
-
 
 Note the Terraform variable file locations for future edits during deployment.
 
@@ -150,30 +151,23 @@ Run the following command to create the deployer and the SAP library. The comman
 Set the environment variables for managed identity:
 
 ```bash
-
 export ARM_SUBSCRIPTION_ID="<subscriptionId>"
 export       ARM_CLIENT_ID="<managedIdentityAppId>"
 export       ARM_TENANT_ID="<tenantId>"
-
 ```
-
-
 
 Set the environment variables for the service principal:
 
 ```bash
-
 export ARM_SUBSCRIPTION_ID="<subscriptionId>"
 export       ARM_CLIENT_ID="<appId>"
 export   ARM_CLIENT_SECRET="<password>"
 export       ARM_TENANT_ID="<tenantId>"
-
 ```
 
 Run the following command to deploy the control plane:
 
 ```bash
-
 export            env_code="MGMT"
 export         region_code="WEEU"
 export           vnet_code="DEP00"
@@ -189,7 +183,6 @@ az login --identity --client-id "${ARM_CLIENT_ID}"
 # az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
 
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-
 
 deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
 library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
@@ -221,7 +214,7 @@ Open [Azure DevOps](https://dev.azure.com) and go to your Azure DevOps project.
 
 Ensure that the `Deployment_Configuration_Path` variable in the `SDAF-General` variable group is set to the folder that contains your configuration files. For this example, you can use `samples/WORKSPACES`.
 
-The deployment uses the configuration defined in the Terraform variable files located in the `WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` and `WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folders.
+The deployment uses the configuration defined in the Terraform variable files in the `WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` and `WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folders.
 
 Run the pipeline by selecting the `Deploy control plane` pipeline from the **Pipelines** section. Enter the configuration names for the deployer and the SAP library. Use `MGMT-WEEU-DEP00-INFRASTRUCTURE` as the deployer configuration name and `MGMT-WEEU-SAP_LIBRARY` as the SAP library configuration name.
 
@@ -229,11 +222,13 @@ Run the pipeline by selecting the `Deploy control plane` pipeline from the **Pip
 
 You can track the progress in the Azure DevOps portal. After the deployment is finished, you can see the control plane details on the **Extensions** tab.
 
- :::image type="content" source="media/devops/automation-run-pipeline-control-plane.png" alt-text="Screenshot that shows the run Azure DevOps pipeline run results.":::
+:::image type="content" source="media/devops/automation-run-pipeline-control-plane.png" alt-text="Screenshot that shows the Azure DevOps pipeline run results.":::
 
 ---
 
-### Manually configure a virtual machine as a SDAF deployer using Azure Bastion
+### Manually configure a virtual machine
+
+# [Azure Bastion](#tab/azure-bastion)
 
 To connect to the deployer:
 
@@ -241,9 +236,7 @@ To connect to the deployer:
 
 1. Go to the resource group that contains the deployer virtual machine (VM).
 
-1. Connect to the VM by using Azure Bastion.
-
-1. The default username is **azureadm**.
+1. Connect to the VM by using Azure Bastion. The default username is **azureadm**.
 
 1. Select **SSH Private Key from Azure Key Vault**.
 
@@ -255,27 +248,25 @@ To connect to the deployer:
 
 1. Connect to the VM.
 
-Run the following script to configure the deployer:
+To configure the deployer, run the following script:
 
 ```bash
-
 mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
 
-wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh	
+wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh
 chmod +x ./configure_deployer.sh
+
 ./configure_deployer.sh
 
 # Source the new variables
-
-. /etc/profile.d/deploy_server.sh
-
+./etc/profile.d/deploy_server.sh
 ```
 
-The script installs Terraform and Ansible and configures the deployer.
+The script installs Terraform and Ansible, and configures the deployer.
 
-### Manually configure a virtual machine as a SDAF deployer 
+# [SDAF deployer](#tab/sdaf-deployer)
 
-Connect to the deployer VM from a computer that can reach the Azure virtual network.
+Connect to the SDAF deployer VM from a computer that can reach the Azure virtual network.
 
 To connect to the deployer:
 
@@ -300,87 +291,82 @@ To connect to the deployer:
 1. Connect to the deployer VM through any SSH client, such as Visual Studio Code. Use the private IP address of the deployer and the SSH key you downloaded. For instructions on how to connect to the deployer by using Visual Studio Code, see [Connect to the deployer by using Visual Studio Code](tools-configuration.md#configure-visual-studio-code). If you're using PuTTY, convert the SSH key file first by using PuTTYGen.
 
 > [!NOTE]
->The default username is **azureadm**.
+> The default username is **azureadm**.
 
 Configure the deployer by using the following script:
 
 ```bash
 mkdir -p ~/Azure_SAP_Automated_Deployment; cd $_
 
-wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh	
+wget https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/configure_deployer.sh -O configure_deployer.sh
 chmod +x ./configure_deployer.sh
+
 ./configure_deployer.sh
 
 # Source the new variables
-
-. /etc/profile.d/deploy_server.sh
+./etc/profile.d/deploy_server.sh
 ```
 
-The script installs Terraform and Ansible and configures the deployer.
+The script installs Terraform and Ansible, and configures the deployer.
 
-## Securing the control plane
+---
 
-The control plane is the most critical part of the SAP automation framework. It's important to secure the control plane. The following steps help you secure the control plane.
-If you have created your control plane using an external virtual machine or by using the cloud shell, you should secure the control plane by implementing private endpoints for the storage accounts and key vaults.
+## Secure the control plane
 
-You can use the `sync_deployer.sh` script to copy the control plane configuration files to the deployer VM. Sign in to the deployer VM and run the following commands:
+The control plane is the most critical part of SDAF. If you created your control plane by using an external VM or Cloud Shell, secure it by implementing private endpoints for the storage accounts and key vaults.
 
-```bash
+1. Sign in to the deployer VM and copy the control plane configuration files by using the `sync_deployer.sh` script:
 
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+   ```bash
+   cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
-../sap-automation/deploy/scripts/sync_deployer.sh --storageaccountname mgtneweeutfstate### --state_subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   ../sap-automation/deploy/scripts/sync_deployer.sh --storageaccountname mgtneweeutfstate### --state_subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   ```
 
-```
+1. Set the `use_private_endpoint` variable to `true` in the `DEPLOYER` and `LIBRARY` configuration files. Also set `public_network_access_enabled` to `false` in the `DEPLOYER` configuration files:
 
-Ensure that the `use_private_endpoint` variable is set to `true` in the `DEPLOYER` and `LIBRARY` configuration files. Also ensure that `public_network_access_enabled` is set to `false` in the `DEPLOYER`  configuration files.
+   ```terraform
+   # Defines that the storage accounts and key vaults have private endpoints enabled
+   use_private_endpoint = true
 
-```terraform
+   # Controls if storage account and key vaults have public network access enabled
+   public_network_access_enabled = false
+   ```
 
-# use_private_endpoint defines that the storage accounts and key vaults have private endpoints enabled
-use_private_endpoint = true
+1. Rerun the control plane deployment to enable private endpoints for the storage accounts and key vaults:
 
-# public_network_access_enabled controls if storage account and key vaults have public network access enabled
-public_network_access_enabled = false
+   ```bash
+   export            env_code="MGMT"
+   export         region_code="WEEU"
+   export           vnet_code="DEP00"
+   export  storageaccountname=<storageaccountname>
 
-```
+   export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+   export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
+   export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
-Rerun the control plane deployment to enable private endpoints for the storage accounts and key vaults.
+   az logout
+   az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
 
-```bash
+   cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
+   deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
+   library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
 
-export            env_code="MGMT"
-export         region_code="WEEU"
-export           vnet_code="DEP00"
-export  storageaccountname=<storageaccountname>
-
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
-export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-
-az logout
-az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
-
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-
-deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
-library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars"
-
-${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
-    --deployer_parameter_file "${deployer_parameter_file}"         \
-    --library_parameter_file "${library_parameter_file}"            \
-    --subscription "${ARM_SUBSCRIPTION_ID}"                        \
-    --spn_id "${ARM_CLIENT_ID}"                                    \
-    --spn_secret "${ARM_CLIENT_SECRET}"                            \
-    --tenant_id "${ARM_TENANT_ID}"                                 \
-    --storageaccountname "${storageaccountname}"                   \
-    --recover
-```
-
+   ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
+       --deployer_parameter_file "${deployer_parameter_file}"         \
+       --library_parameter_file "${library_parameter_file}"            \
+       --subscription "${ARM_SUBSCRIPTION_ID}"                        \
+       --spn_id "${ARM_CLIENT_ID}"                                    \
+       --spn_secret "${ARM_CLIENT_SECRET}"                            \
+       --tenant_id "${ARM_TENANT_ID}"                                 \
+       --storageaccountname "${storageaccountname}"                   \
+       --recover
+   ```
 
 ## Prepare the web app
-This step is optional. If you want a browser-based UX to help the configuration of SAP workload zones and systems, run the following commands before you deploy the control plane.
+
+This step is optional. If you want a browser-based UI to help you configure SAP workload zones and systems, run the following commands before you deploy the control plane.
 
 # [Linux](#tab/linux)
 
@@ -402,12 +388,11 @@ export TF_VAR_webapp_client_secret=$(az ad app credential reset \
 
 export TF_VAR_use_webapp=true
 rm manifest.json
-
 ```
+
 # [Windows](#tab/windows)
 
 ```powershell
-
 Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
 
 $region_code="WEEU"
@@ -424,12 +409,11 @@ $env:TF_VAR_webapp_client_secret=(az ad app credential reset `
 $env:TF_VAR_use_webapp="true"
 
 del manifest.json
-
 ```
 
 # [Azure DevOps](#tab/devops)
 
-Currently, it isn't possible to perform this action from Azure DevOps.
+You can't perform this action from Azure DevOps.
 
 ---
 

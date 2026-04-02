@@ -8,7 +8,7 @@ ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 12/03/2025
+ms.date: 04/02/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
@@ -33,7 +33,7 @@ Before you can secure your secrets, you need visibility into where they exist an
 
 Protecting secrets requires secure storage mechanisms and proper encryption at all stages.
 
-- **Use secure key stores**: Services like [Azure Key Vault](/azure/key-vault) and [Azure Managed HSM](/azure/key-vault/managed-hsm) provide robust security features, including access control, logging, and automatic rotation. This approach centralizes the management of your secrets and reduces the risk of unauthorized access. For even greater security, particularly for highly sensitive or critical secrets, consider encrypting the secret with a key store in a Hardware Security Model (HSM), which offers enhanced protection compared to software-based secret stores. For an overview of all the key management offerings in Azure and guidance on which to choose, see [Key management in Azure](key-management.md) and [How to choose the right key management solution](key-management-choose.md).
+- **Use secure key stores**: Services like [Azure Key Vault](/azure/key-vault) and [Azure Managed HSM](/azure/key-vault/managed-hsm) provide robust security features, including access control, logging, and automatic rotation. This approach centralizes the management of your secrets and reduces the risk of unauthorized access. For even greater security, particularly for highly sensitive or critical secrets, consider encrypting the secret with a key store in a Hardware Security Module (HSM), which offers enhanced protection compared to software-based secret stores. For customer-managed key scenarios, use Azure Key Vault Premium tier (HSM-backed) at minimum, or Azure Managed HSM for key sovereignty requirements. For an overview of all the key management offerings in Azure and guidance on which to choose, see [Key management in Azure](key-management.md) and [How to choose the right key management solution](key-management-choose.md).
 
 - **Encrypt secrets at rest and in transit**: [Azure Key Vault](/azure/key-vault/general/overview) securely stores secrets using envelope encryption, where Data Encryption Keys (DEKs) are encrypted by Key Encryption Keys (KEKs), providing an additional layer of security. Use secure communication protocols like HTTPS to encrypt data in transit between your applications and the key vault. In Azure, encryption at rest is implemented across various services using AES 256 encryption, while data in transit is secured through TLS and MACsec. For more details, see [Encryption at rest and in transit](encryption-atrest.md).
 

@@ -162,7 +162,7 @@ items:
       href: tutorial-deploy-from-code.md
     - name: Update a container app deployed from code
       href: tutorial-update-from-code.md
-    - name: Create a functions app deployed from code
+    - name: Create a function app deployed from code
       href: functions-container-apps.md
     - name: Connect to apps & services
       items:
