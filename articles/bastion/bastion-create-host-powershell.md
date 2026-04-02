@@ -2,11 +2,11 @@
 title: 'Deploy Bastion:PowerShell'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using PowerShell.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/03/2025
-ms.author: abell
+ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
 ---

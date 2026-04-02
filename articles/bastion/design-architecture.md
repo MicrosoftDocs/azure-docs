@@ -1,10 +1,10 @@
 ---
 title: 'About Azure Bastion design and architecture'
 description: Learn about the different architectures available with Azure Bastion.
-author: abell
+author: cherylmc
 ms.topic: concept-article
 ms.date: 03/14/2025
-ms.author: abell
+ms.author: cherylmc
 ms.service: azure-bastion
 # Customer intent: "As a cloud architect, I want to understand the different deployment architectures of Azure Bastion, so that I can select the appropriate configuration to enhance security and manage RDP/SSH connectivity to my virtual machines."
 ---

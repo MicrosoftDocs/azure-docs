@@ -22,7 +22,7 @@ Azure Site Recovery supports churn (data change rate) up to 100 MB/s per virtual
 
 - Available only for disaster recovery of Azure virtual machines. 
 - Virtual machine SKUs with RAM of min 32 GB are recommended. 
-- Source disks must be Managed Disks.
+- Source disks must be managed disks.
 
 > [!NOTE]
 > This feature is available in all [regions](azure-to-azure-support-matrix.md#region-support) where Azure Site Recovery is supported and [Premium Blob storage accounts](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all&rar=true) are available. When using High Churn with any other regions outside the supported regions, replication and/or reprotection may fail.

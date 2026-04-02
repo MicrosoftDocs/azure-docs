@@ -89,7 +89,7 @@ On using Availability Zones, there are some things to consider. The consideratio
 * You can't use the [Basic Load Balancer](../../load-balancer/load-balancer-overview.md) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-standard-availability-zones.md).
 * Azure Availability Zones aren't giving any guarantees of certain distance between the different zones within one region.
 * The network latency between different Azure Availability Zones within the different Azure regions might be different from Azure region to region. There would be cases, where you as a customer can reasonably run the SAP application layer deployed across different zones since the network latency from one zone to the active DBMS VM is still acceptable from a business process impact. Whereas there could be customer scenarios where the latency between the active DBMS VM in one zone and an SAP application instance in a VM in another zone can be too intrusive and not acceptable for the SAP business processes. As a result, the deployment architectures need to be different with an active/active architecture for the application or active/passive architecture if latency is too high.
-* Using [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) is mandatory for deploying into Azure Availability Zones.
+* Using [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) is mandatory for deploying into Azure Availability Zones.
 
 ### Virtual Machine Scale Set with Flexible Orchestration
 
@@ -120,11 +120,11 @@ Because Azure Storage keeps three images of the data by default, the use of RAID
 
 For more information, see [Azure Storage replication][azure-storage-redundancy].
 
-### Azure Managed Disks
+### Azure managed disks
 
-Managed Disks is a resource type in Azure Resource Manager, is a recommended storage option instead of virtual hard disks (VHDs) that are stored in Azure storage accounts. Managed disks automatically align with an Azure availability set of the virtual machine they're attached to. They increase the availability of your virtual machine and the services that are running on it.
+Managed disks is a resource type in Azure Resource Manager, is a recommended storage option instead of virtual hard disks (VHDs) that are stored in Azure storage accounts. Managed disks automatically align with an Azure availability set of the virtual machine they're attached to. They increase the availability of your virtual machine and the services that are running on it.
 
-For more information, see  [Azure Managed Disks overview][azure-storage-managed-disks-overview].
+For more information, see  [Azure managed disks overview][azure-storage-managed-disks-overview].
 
 We recommend that you use managed disks because they simplify the deployment and management of your virtual machines.
 
@@ -196,7 +196,7 @@ Depending on the deployment type (flexible scale set with FD=1, availability zon
 **Unmanaged disks only:** When using unmanaged disks with availability set, it's important to recognize that the Azure storage account becomes a single point of failure. Therefore, it's imperative to posses a minimum of two Azure storage accounts, in which at least two virtual machines are distributed. In an ideal setup, the disks of each virtual machine that is running an SAP dialog instance would be deployed in a different storage account.
 
 > [!IMPORTANT]
-> We strongly recommend that you use Azure Managed Disks for your SAP high-availability installations. Because managed disks automatically align with the availability set of the virtual machine they are attached to, they increase the availability of your virtual machine and the services that are running on it.  
+> We strongly recommend that you use Azure managed disks for your SAP high-availability installations. Because managed disks automatically align with the availability set of the virtual machine they are attached to, they increase the availability of your virtual machine and the services that are running on it.  
 
 ### High-availability architecture for an SAP ASCS/SCS instance on Windows
 

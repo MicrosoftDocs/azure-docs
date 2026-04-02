@@ -118,6 +118,8 @@ items:
         items:
           - name: Chat from your tools
             href: chat-from-your-tools.md
+          - name: Model provider selection
+            href: model-provider-selection.md
           - name: Learn via Chat
             href: docsguide.md
           - name: Favorites and Mine filter

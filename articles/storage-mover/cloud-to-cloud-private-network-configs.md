@@ -85,7 +85,7 @@ Example custom IPsec/IKE settings (validate against your device compatibility): 
 
 :::image type="content" source="./media/cloud-to-cloud-networking/ipsec-policy.png" alt-text="Screenshot of ipsec policy." lightbox="./media/cloud-to-cloud-networking/ipsec-policy.png":::
 
-**Learn more:** [Configure custom IPsec/IKE connection policies](https://docs.azure.cn/en-us/vpn-gateway/ipsec-ike-policy-howto).
+**Learn more:** [Configure custom IPsec/IKE connection policies](/azure/vpn-gateway/ipsec-ike-policy-howto).
 
 ### SD-WAN with network virtual appliances (NVAs)
 

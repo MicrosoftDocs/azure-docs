@@ -13,8 +13,6 @@ ai-usage: ai-assisted
 
 # Data flow graphs overview
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Data flow graphs give you a flexible way to process data as it moves through Azure IoT Operations. A standard [data flow](overview-dataflow.md) follows a fixed enrich, filter, map sequence. A data flow graph lets you compose transforms in any order, branch into parallel paths, and aggregate data over time windows.
 
 A data flow graph is defined by the `DataflowGraph` Kubernetes custom resource. Inside it, you wire together sources, transforms, and destinations to build processing pipelines that match your scenario.
@@ -128,7 +126,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1

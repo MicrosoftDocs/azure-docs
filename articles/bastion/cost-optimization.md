@@ -2,11 +2,11 @@
 title: Azure Bastion Cost Optimization Principles
 description: Learn how to optimize Azure Bastion costs while maintaining secure remote access. Get actionable strategies to maximize your cloud investment.
 services: bastion
-author: AbdullahBell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 11/20/2025
-ms.author: abell
+ms.author: cherylmc
 # Customer intent: As a cloud architect or IT administrator, I want to optimize costs for Azure Bastion, so that I can maintain secure remote access to virtual machines while controlling expenses and maximizing return on investment.
 ---
 

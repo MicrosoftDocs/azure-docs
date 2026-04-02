@@ -40,7 +40,7 @@ Before you begin this tutorial, you should:
 1. [Complete the first tutorial](./tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to.
 3. Go to the already created project or [create a new project](create-manage-projects.md)
-4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure Managed Disk.
+4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 5.  For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
 
 > [!NOTE]
@@ -100,7 +100,7 @@ Enable replication as follows:
     - Double encryption with platform-managed and customer-managed keys
 
    > [!NOTE]
-   > To replicate VMs with CMK, you need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+   > To replicate VMs with CMK, you need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target Resource Group. A disk encryption set object maps managed disks to a Key Vault that contains the CMK to use for SSE.
 
 10. In **Azure Hybrid Benefit**:
 

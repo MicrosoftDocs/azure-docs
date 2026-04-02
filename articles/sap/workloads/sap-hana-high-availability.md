@@ -577,7 +577,7 @@ sudo crm configure clone msl_SAPHanaController_<HANA SID>_HDB<instance number> r
 
 SAPHanaSR-angi adds a new resource agent SAPHanaFilesystem to monitor read/write access to /hana/shared/SID. OS static mounts the /hana/shared/SID filesystem with each host having entries in /etc/fstab. SAPHanaFilesystem and Pacemaker doesn't mount the filesystem for HANA.
 
-We recommend implementing SAPHanaFilesystem if using NFS for /hana/shared/SID location. When /hana/shared/SID is located on a block device, such as Azure Managed Disk, the use of  SAPHanaFilesystem is optional.
+We recommend implementing SAPHanaFilesystem if using NFS for /hana/shared/SID location. When /hana/shared/SID is located on a block device, such as Azure managed disk, the use of  SAPHanaFilesystem is optional.
 
 ```bash
 # Replace <placeholders> with your instance number and HANA system ID. 

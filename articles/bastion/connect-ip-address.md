@@ -2,11 +2,11 @@
 title: 'About Azure Bastion IP-based connection'
 titleSuffix: Azure Bastion
 description: Learn about IP-based connection in Azure Bastion, including supported scenarios, SKU requirements, and limitations.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 03/09/2026
-ms.author: abell
+ms.author: cherylmc
 
 # Customer intent: As a network administrator, I want to understand how IP-based connection works with Azure Bastion, so that I can determine whether it's the right approach for securely connecting to on-premises, non-Azure, or Azure virtual machines.
 ---

@@ -14,8 +14,6 @@ ms.service: azure-iot-operations
 
 # Map data by using data flows
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 > [!TIP]
 > Data flow graphs offer an expanded mapping language with additional functions, composable transforms, and features like conditional routing and time-based aggregation. For new projects that use MQTT, Kafka, or OpenTelemetry endpoints, see [Transform data with map in data flow graphs](howto-dataflow-graphs-map.md).
 
@@ -91,7 +89,9 @@ The following mapping is an example:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -160,7 +160,9 @@ inputs: [
 output: 'Thermostat.Temperature'
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:

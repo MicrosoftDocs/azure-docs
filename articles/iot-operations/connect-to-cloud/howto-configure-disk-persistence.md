@@ -14,8 +14,6 @@ ai-usage: ai-assisted
 
 # Configure disk persistence for data flows in Azure IoT Operations
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Disk persistence lets data flows and data flow graphs keep processing state across restarts. When you enable this feature, the MQTT broker persists data (like messages in the subscriber queue) to disk. This approach makes sure your data flow's data source doesn't lose data during power outages or broker restarts. The broker maintains optimal performance because persistence is configured per data flow, so only the data flows that need it use this feature.
 
 The data flow requests persistence during subscription by using an MQTTv5 user property. This feature works only when:
@@ -69,7 +67,9 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Add the `requestDiskPersistence` property to your data flow spec:
 
@@ -123,7 +123,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Add the `requestDiskPersistence` property to your data flow graph spec:
 

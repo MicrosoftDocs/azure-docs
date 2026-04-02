@@ -2,11 +2,11 @@
 title: Troubleshoot Azure Bastion
 description: Review Azure Bastion troubleshooting guidance to help you diagnose and resolve connectivity, authentication, and configuration issues effectively.
 services: bastion
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: troubleshooting
 ms.date: 02/10/2026
-ms.author: abell
+ms.author: cherylmc
 # Customer intent: As a network administrator, I want to troubleshoot connectivity issues in Azure Bastion so that I can ensure seamless access to my virtual machines and efficiently manage network security settings.
 ---
 

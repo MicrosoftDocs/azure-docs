@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: overview
+ms.update-cycle: 1095-days
 # Customer intent: "As a systems administrator, I want to query update logs from Azure Update Manager, so that I can monitor the status and details of update installations across my managed machines."
 ---
 

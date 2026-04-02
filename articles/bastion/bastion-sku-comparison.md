@@ -1,8 +1,8 @@
 ---
 title: Choose the right Azure Bastion SKU to meet your needs
 description: Learn about the different Azure Bastion SKU tiers and choose the right one for your requirements.
-author: abell
-ms.author: abell
+author: cherylmc
+ms.author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 11/24/2025

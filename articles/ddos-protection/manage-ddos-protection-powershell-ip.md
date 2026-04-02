@@ -1,8 +1,8 @@
 ---
 title: 'QuickStart: Create and configure Azure DDoS IP Protection - PowerShell'
 description: Learn how to create Azure DDoS IP Protection using PowerShell
-author: AbdullahBell
-ms.author: abell
+author: duongau
+ms.author: duau
 ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.date: 01/26/2026

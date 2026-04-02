@@ -6,6 +6,7 @@ ms.topic: whats-new
 author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
+ms.update-cycle: 1095-days
 # Customer intent: "As a system administrator, I want to understand the latest features of Azure Update Manager, so that I can effectively manage and govern updates across my environments and ensure compliance with security policies."
 ---
 

@@ -14,8 +14,6 @@ ai-usage: ai-assisted
 
 # Configure OpenTelemetry data flow endpoints (preview)
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 OpenTelemetry (OTEL) data flow endpoints send metrics and logs to OpenTelemetry collectors, which can then forward the data to observability platforms like Grafana dashboards and Azure Monitor. You can configure the endpoint settings, authentication, Transport Layer Security (TLS), and batching options.
 
 This article describes how to create and configure an OpenTelemetry dataflow endpoint to export asset data from your MQTT broker to an OpenTelemetry collector. The article describes the *OTEL dataflow endpoint*, which routes asset data from the MQTT broker to external OTEL collectors. You can also send asset data to observability endpoints using the OpenTelemetry dataflow endpoint if you want to route telemetry to platforms like Grafana or Azure Monitor.
@@ -266,7 +264,9 @@ Deploy the file by running the following Azure CLI command:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest **.yaml** file with the following content. Replace `<OTEL_AUDIENCE>` with the audience value for your OpenTelemetry collector configuration. This value must match the expected audience on the collector:
 
@@ -345,7 +345,9 @@ authentication: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 authentication:
@@ -383,7 +385,9 @@ authentication: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 authentication:
@@ -420,7 +424,9 @@ authentication: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 authentication:
@@ -450,7 +456,9 @@ tls: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 tls:
@@ -474,7 +482,9 @@ tls: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 tls:
@@ -508,7 +518,9 @@ batching: {
 | `latencySeconds` | Maximum time to wait before sending a batch. | 60 seconds |
 | `maxMessages` | Maximum number of messages in a batch. | 100000 messages |
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 batching:

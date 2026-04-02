@@ -15,8 +15,6 @@ ms.custom:
 
 # Understand message schemas
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 The schema registry, a feature of Azure Device Registry, is a synchronized repository in the cloud and at the edge. It stores definitions of messages coming from edge assets and exposes an API to access those schemas at the edge.
 
 Data flows use schemas in three places:

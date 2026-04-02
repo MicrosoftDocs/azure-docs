@@ -63,7 +63,7 @@ Remote shared volumes like the Azure services in the listed scenarios are suppor
 
 * Hosting Linux guest OS based Db2 data and log files on NFS shares hosted on Azure NetApp Files.
 
-If you're using disks based on Azure Page Blob Storage or Managed Disks, the statements in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply. These statements are relevant for deployments with the Db2 DBMS (Database Management System) as well.
+If you're using disks based on Azure Page Blob Storage or managed disks, the statements in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply. These statements are relevant for deployments with the Db2 DBMS (Database Management System) as well.
 
 As explained earlier in the general part of the document, quotas on IOPS (I/O operations per second) throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](/azure/virtual-machines/sizes) and [here (Windows)](/azure/virtual-machines/sizes).
 

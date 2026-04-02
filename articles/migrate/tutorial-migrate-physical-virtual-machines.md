@@ -60,7 +60,7 @@ Prepare Azure for migration with the Migration and modernization tool.
 Task | Details
 --- | ---
 Create an Azure Migrate project | Your Azure account needs Contributor or Owner permissions to [create a new project](./create-manage-projects.md).
-Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure Managed Disk.
+Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure managed disk.
 
 >[!NOTE]
 > For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
@@ -79,7 +79,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 
 - Create a VM in the selected resource group.
 - Create a VM in the selected virtual network.
-- Write to an Azure Managed Disk.
+- Write to an Azure managed disk.
 
 ### Create an Azure network
 

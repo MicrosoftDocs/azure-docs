@@ -1,8 +1,8 @@
 ---
 title: 'About Azure DDoS Protection Tier Comparison'
 description: Learn about the available tiers for Azure DDoS Protection.
-author: AbdullahBell
-ms.author: Abell
+author: duongau
+ms.author: duau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
 ms.date: 03/17/2026

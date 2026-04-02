@@ -145,7 +145,7 @@ Smaller environments or single-team deployments can continue using a flat privat
 
 ## Zone size and observability considerations
 
-Azure Private DNS enforces service limits on the number of record sets per zone and the number of records per record set. However, operational complexity and resiliency often increase well before these limits are reached. For current limits, see [Azure Private DNS Limits](https://docs.azure.cn/en-us/dns/private-dns-privatednszone#limits).
+Azure Private DNS enforces service limits on the number of record sets per zone and the number of records per record set. However, operational complexity and resiliency often increase well before these limits are reached. For current limits, see [Azure Private DNS Limits](private-dns-privatednszone.md#limits).
 
 As Private DNS Zones grow, especially in multiteam environments, zone size becomes an important operational signal. Large, flat zones can accumulate tens of thousands of records over time, making your workloads harder to govern and increasing the impact radius of changes.
 

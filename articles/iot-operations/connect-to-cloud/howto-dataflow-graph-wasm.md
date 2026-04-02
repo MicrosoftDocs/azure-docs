@@ -13,8 +13,6 @@ ai-usage: ai-assisted
 
 # Use WASM transforms in data flow graphs
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include built-in transforms for common processing tasks like mapping, filtering, and aggregation. When you need custom logic beyond what the built-in transforms provide, you can deploy WebAssembly (WASM) modules as custom transforms in your data flow graph pipelines.
 
 > [!TIP]

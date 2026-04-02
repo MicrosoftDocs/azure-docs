@@ -2,11 +2,11 @@
 title: Azure Bastion session monitoring and management
 description: Learn how to select an ongoing session and force-disconnect or delete it.
 services: bastion
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 12/09/2024
-ms.author: abell
+ms.author: cherylmc
 
 # Customer intent: "As an IT administrator, I want to monitor and manage remote sessions in Azure Bastion, so that I can ensure security and control over user access to virtual machines."
 ---

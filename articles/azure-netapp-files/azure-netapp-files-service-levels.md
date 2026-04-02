@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/29/2026
+ms.date: 02/02/2026
 ms.author: anfdocs
 # Customer intent: "As a cloud storage administrator, I want to understand the throughput capabilities of different service levels in Azure NetApp Files, so that I can choose the right configuration to meet my application's performance requirements."
 ---
@@ -50,7 +50,7 @@ The Flexible, Standard, Premium, and Ultra service levels deliver in‑Azure bar
 
 ### Storage with cool access
 
-[Cool access storage](manage-cool-access.md#register-the-feature) is available with the Standard, Premium, Ultra, and Flexible service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. Throughput experiences differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
+[Cool access storage](manage-cool-access.md#register-the-feature) is available with the Standard, Premium, Ultra, and Flexible service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. Throughput experiences differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md).  For additional information about the Premium and Ultra service levels, see [Throughput in the Premium and Ultra service levels](cool-access-introduction.md#throughput-for-premium-and-ultra-service-levels). 
 
 >[!NOTE]
 >Cool access pricing is calculated in the same manner for all service levels (Standard, Premium, Ultra, and Flexible).

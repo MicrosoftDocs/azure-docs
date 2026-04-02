@@ -1,11 +1,11 @@
 ---
 title: VNet peering and Azure Bastion architecture
 description: Learn how virtual network peering and Azure Bastion can be used together to connect to VMs.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 12/09/2024
-ms.author: abell
+ms.author: cherylmc
 ms.custom: sfi-image-nochange
 
 # Customer intent: "As a network administrator, I want to configure Azure Bastion with virtual network peering, so that I can centralize remote access to virtual machines across peered networks without deploying multiple Bastion hosts."

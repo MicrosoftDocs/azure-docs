@@ -17,14 +17,18 @@ This article describes the components of an Azure Files assessment and how to re
 
 ## Overview
 
-An Azure Migrate assessment evaluates on‑premises workloads or workloads hosted in other public clouds for migration to Azure by analyzing readiness, right‑sizing, and cost. An Azure Files assessment helps you evaluate file shares and identify a strategy to migrate them to Azure Files. 
+An Azure Migrate assessment evaluates on‑premises workloads or workloads hosted in other public clouds for migration to Azure by analyzing readiness, right‑sizing, and cost. An Azure Files assessment helps you evaluate file shares and identify a strategy to migrate them to Azure Files.
+
+> [!NOTE]
+> Azure Migrate doesn’t support file share discovery and TCO assessment on Windows Server 2008 R2. This limitation exists because the operating system lacks the required PowerShell capabilities and system APIs needed to discover file shares and collect assessment data.  
+ 
 
 ## Review an assessment
 
 To review an Azure Files assessment, follow the steps: 
 
 1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**.
-   :::image type="content" source="./media/review-application-assessment/overview.png" alt-text="The screenshot that shows where the user can start with application assessment review." lightbox="./media/review-application-assessment/overview.png":::
+   :::image type="content" source="./media/review-application-assessment/overview.png" alt-text="The screenshot that shows where the user can select assessments." lightbox="./media/review-application-assessment/overview.png":::
    
 1. Use the **Workloads** filter to search for the assessment, and then select it.
    :::image type="content" source="./media/review-application-assessment/assessments.png" alt-text="The screenshot that shows where the user can start with application assessment review." lightbox="./media/review-application-assessment/assessments.png":::

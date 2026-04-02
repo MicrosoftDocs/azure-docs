@@ -337,6 +337,9 @@ items:
         - name: Overview of TLS/SSL in App Service
           href: overview-tls.md
           displayName: TLS, SSL
+        - name: Minimum TLS version
+          href: tls-minimum-version.md
+          displayName: TLS, TLS 1.0, TLS 1.1, minimum TLS
         - name: Secure a custom domain with HTTPS
           href: configure-ssl-bindings.md
           displayName: SSL

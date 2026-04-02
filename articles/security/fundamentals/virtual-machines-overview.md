@@ -59,7 +59,7 @@ For more information, see [Azure confidential VMs](/azure/confidential-computing
 
 Azure provides several encryption options for managed disks:
 
-- **Server-side encryption (SSE)**: Also called encryption at rest or Azure Storage encryption, SSE is always enabled and automatically encrypts data on Azure Managed Disks (OS and data disks) when persisting to storage clusters. Data is encrypted transparently using 256-bit AES encryption, which is FIPS 140-2 compliant. SSE doesn't affect disk performance and has no extra cost. However, SSE doesn't encrypt temp disks or disk caches.
+- **Server-side encryption (SSE)**: Also called encryption at rest or Azure Storage encryption, SSE is always enabled and automatically encrypts data on Azure managed disks (OS and data disks) when persisting to storage clusters. Data is encrypted transparently using 256-bit AES encryption, which is FIPS 140-2 compliant. SSE doesn't affect disk performance and has no extra cost. However, SSE doesn't encrypt temp disks or disk caches.
 
 - **Encryption at host**: Enhances SSE by encrypting temp disks and disk caches at rest, with data flowing encrypted to storage clusters. This encryption provides end-to-end encryption for your VM data. Encryption at host doesn't use your VM's CPU and doesn't affect performance. Temp disks and ephemeral OS disks are encrypted with platform-managed keys. OS and data disk caches are encrypted with either customer-managed or platform-managed keys, depending on the disk encryption type.
 

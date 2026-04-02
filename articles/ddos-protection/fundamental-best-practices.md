@@ -2,11 +2,11 @@
 title: Azure DDoS Protection fundamental best practices
 description: Learn fundamental best practices for Azure DDoS Protection, including tier selection, security design, scalability, multi-layered defense, monitoring, and response planning.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
 ms.date: 03/05/2026
-ms.author: abell
+ms.author: duau
 # Customer intent: As a security architect, I want to implement best practices for Azure DDoS Protection, so that I can ensure my applications are resilient and secure against denial-of-service attacks while optimizing scalability and minimizing risk.
 ---
 

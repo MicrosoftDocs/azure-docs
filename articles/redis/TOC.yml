@@ -103,6 +103,9 @@ items:
             href: /azure/reliability/reliability-managed-redis?toc=/azure/redis/toc.json&bc=/azure/redis/breadcrumb/toc.json
       - name: Security and networking
         items:
+          - name: Secure your Azure Managed Redis deployment
+            href: secure-azure-managed-redis.md
+            displayName: security features, security baseline
           - name: Using TLS with a managed cache
             href: tls-configuration.md
           - name: Configure disk encryption
