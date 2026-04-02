@@ -294,6 +294,12 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 7.	If the clusters aren't peered, provide the intercluster (IC) LIF addresses for each node of the external cluster and select **Continue**. If clusters are already peered but SVM peering hasn't yet been established, you are guided directly to SVM peering.
 
+    1. Optional: You can run the following command on the external Cloud Volumes ONTAP to fetch the address used for the intercluster LIF:
+
+        ```
+        network interface show -role intercluster -fields home-node,address
+        ```
+
     :::image type="content" source="./media/migrate-volume/configure-cluster-peering.png" alt-text="Screenshot to configure cluster peering." lightbox="./media/migrate-volume/configure-cluster-peering.png":::
     
     Wait until cluster peering command and passphrase are returned.
