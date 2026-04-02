@@ -13,8 +13,6 @@ ai-usage: ai-assisted
 
 # Filter and route data in data flow graphs
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Data flow graphs provide two ways to control which messages flow through your pipeline: **filter** transforms drop unwanted messages, and **branch** transforms route each message down one of two paths based on a condition. After branching, a **concat** transform merges the paths back together.
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
@@ -73,7 +71,9 @@ filter: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -115,7 +115,9 @@ filter: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -160,7 +162,9 @@ filter: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -211,7 +215,9 @@ configuration: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```json
 {
@@ -286,7 +292,9 @@ configuration: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```json
 {
@@ -320,7 +328,9 @@ nodeConnections: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 nodeConnections:
@@ -355,7 +365,9 @@ Add a concat transform to the canvas and connect both branch paths to it, then c
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - nodeType: Graph
@@ -490,7 +502,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1

@@ -16,8 +16,6 @@ ms.custom:
 
 # Configure MQTT broker authentication
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 An MQTT broker supports multiple authentication methods for clients. You can configure each listener port to have its own authentication settings with a BrokerAuthentication resource. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperations/broker-authentication) API reference.
 
 ## Link BrokerListener and BrokerAuthentication
@@ -106,7 +104,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To inspect the default broker authentication resource, run:
 
@@ -360,7 +360,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Modify the BrokerAuthentication resource for an authentication policy by adding new methods to the `authenticationMethods` section. The following example shows multiple authentication methods for a BrokerAuthentication resource:
 
@@ -598,7 +600,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -733,7 +737,9 @@ x509Settings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 x509Settings:
@@ -825,7 +831,9 @@ x509Settings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -1045,7 +1053,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -1223,7 +1233,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 This example shows all possible parameters. The exact parameters that are required depend on each custom server's requirements.
 
@@ -1284,7 +1296,9 @@ az iot ops broker listener port add --resource-group myResourceGroupName --insta
 
 To disable authentication, omit `authenticationRef` in the `ports` setting of your BrokerListener resource.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To disable authentication, omit `authenticationRef` in the `ports` setting of your BrokerListener resource.
 

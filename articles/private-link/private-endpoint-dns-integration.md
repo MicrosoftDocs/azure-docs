@@ -2,11 +2,11 @@
 title: Azure Private Endpoint DNS Integration Scenarios
 description: Learn how to configure Azure Private Endpoint DNS for secure and efficient private IP resolution. Discover key scenarios and best practices.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 06/25/2025
-ms.author: abell
+ms.author: allensu
 ms.custom:
   - fasttrack-edit
   - sfi-image-nochange

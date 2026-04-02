@@ -2,11 +2,11 @@
 title: 'Azure Firewall scenarios to inspect traffic destined to a private endpoint'
 titleSuffix: Azure Private Link
 description: Learn about different scenarios to inspect traffic destined to a private endpoint using Azure Firewall.
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 03/30/2026
-ms.author: abell
+ms.author: allensu
 ms.custom:
   - template-how-to
   - sfi-image-nochange

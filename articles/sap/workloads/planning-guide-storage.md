@@ -30,12 +30,12 @@ There are several more redundancy methods, which are all described in the articl
 Also keep in mind that different Azure storage types influence the single VM availability SLAs as released in [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 
-### Azure Managed Disks
+### Azure managed disks
 
-Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the [availability set][virtual-machines-manage-availability] of the virtual machine they're attached to. With such an alignment, you experience an improvement of the availability of your virtual machine and the services that are running in the virtual machine. For more information, read the [overview article](/azure/virtual-machines/managed-disks-overview).
+Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed disks automatically align with the [availability set][virtual-machines-manage-availability] of the virtual machine they're attached to. With such an alignment, you experience an improvement of the availability of your virtual machine and the services that are running in the virtual machine. For more information, read the [overview article](/azure/virtual-machines/managed-disks-overview).
 
 > [!NOTE]
-> We require that new deployments of VMs that use Azure block storage for their disks (all Azure storage except Azure NetApp Files and Azure Files) need to use Azure Managed Disks for the base VHD/OS disks and data disks which store SAP database files. Independent on whether you deploy the VMs through availability set, across Availability Zones or independent of the sets and zones. Disks that are used for the purpose of storing backups aren't necessarily required to be managed disks.
+> We require that new deployments of VMs that use Azure block storage for their disks (all Azure storage except Azure NetApp Files and Azure Files) need to use Azure managed disks for the base VHD/OS disks and data disks which store SAP database files. Independent on whether you deploy the VMs through availability set, across Availability Zones or independent of the sets and zones. Disks that are used for the purpose of storing backups aren't necessarily required to be managed disks.
 
 
 ## Storage scenarios with SAP workloads
@@ -132,10 +132,10 @@ The capability matrix for SAP workload looks like:
 | Resiliency | LRS | No GRS or ZRS available for disks |
 | Latency | Low to medium | - |
 | IOPS SLA | Yes | - |
-| IOPS linear to capacity | semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| IOPS linear to capacity | semi linear in brackets  | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](/azure/virtual-machines/sizes) |
 | Throughput SLA | Yes | - |
-| Throughput linear to capacity | Semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Throughput linear to capacity | Semi linear in brackets | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certified | Yes | [specially for SAP HANA](/azure/virtual-machines/how-to-enable-write-accelerator) |
 | Azure Write Accelerator support | No | - |
 | Disk bursting | Yes | - |
@@ -151,7 +151,7 @@ Azure premium storage doesn't fulfill SAP HANA storage latency KPIs with the com
 
 
 ### Azure burst functionality for premium storage
-For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](/azure/virtual-machines/disk-bursting). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
+For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](/azure/virtual-machines/disk-bursting). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
@@ -193,10 +193,10 @@ The capability matrix for SAP workload looks like:
 | Resiliency | LRS | No GRS or ZRS available for disks |
 | Latency | submillisecond | - |
 | IOPS SLA | Yes | - |
-| IOPS linear to capacity | semi linear  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| IOPS linear to capacity | semi linear  | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 80,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](/azure/virtual-machines/sizes) |
 | Throughput SLA | Yes | - |
-| Throughput linear to capacity | Semi linear | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Throughput linear to capacity | Semi linear | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certified | Yes | - |
 | Azure Write Accelerator support | No | - |
 | Disk bursting | No | - |
@@ -236,10 +236,10 @@ The capability matrix for SAP workload looks like:
 | Resiliency | LRS | No GRS or ZRS available for disks |
 | Latency | Very low | - |
 | IOPS SLA | Yes | - |
-| IOPS linear to capacity | Semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| IOPS linear to capacity | Semi linear in brackets  | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 1,200 to 160,000 | dependent of disk capacity |
 | Throughput SLA | Yes | - |
-| Throughput linear to capacity | Semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Throughput linear to capacity | Semi linear in brackets | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certified | Yes | - |
 | Azure Write Accelerator support | No | - |
 | Disk bursting | Yes | - |

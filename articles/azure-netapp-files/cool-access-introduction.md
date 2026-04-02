@@ -47,6 +47,59 @@ Cool access offers [performance metrics](azure-netapp-files-metrics.md#cool-acce
 * Volume cool tier data read size
 * Volume cool tier data write size
 
+## Throughput for Premium and Ultra service levels 
+
+When cool access is enabled on the Premium and Ultra service levels, throughput is adjusted at regular intervals based on the size of the data in the cool tier.  
+
+If a volume is within the Premium or Ultra service levels with auto QoS enabled and has more than 100 GiB of cool access data, the throughput QoS limit is different for the data on hot and cool tier respectively.
+
+Review the table to understand how throughput limit is calculated. 
+
+| Service level | Formula without cool access | Formula with cool access | 
+| - | -- | --- |
+| Premium | Maximum throughput in MiB/s = Quota in TiB * 64 MiB/s | Maximum throughput in MiB/s = (Hot tier data in TiB * 64 MiB/s) + (Cool tier data in TiB * 16 MiB/s per TiB of data in the cool tier)
+| Ultra | Maximum throughput in MiB/s = Quota in TiB * 128 MiB/s | Maximum throughput in MiB/s = (Hot tier data in TiB * 128 MiB/s) + (Cool tier data in TiB * 16 MiB/s per TiB of data in the cool tier) |
+
+For example, if a volume in the Premium service level has 10 TiB of data in the hot tier, its maximum throughput is 640 MiB/s (10 TiB * 64 MiB/s). For a Premium service level deployment with 2 TiB in the cool tier and 8 TiB in the hot tier, the maximum throughput is 544 MiB/s ([8 TiB * 64 MiB/s] + [2 TiB * 16 MiB/s]).
+
+For existing volumes in capacity pools where cool access was enabled prior to this update, the prior throughput QoS limit continues to apply as per the following table.
+
+| Service level | Throughput with cool access | Baseline throughput (cool access never enabled) | 
+| - | -- | -- |
+| Premium | Quota in TiB * 36 MiB/s |  Quota in TiB * 64 MiB/s 
+| Ultra | Quota in TiB * 68 MiB/s |  Quota in TiB * 128 MiB/s 
+
+For example, a 10-TiB volume on the Premium service regularly delivers throughput of 640 MiB/s (10 TiB * 64 MiB/s). With cool access enabled regardless of the amount of data tiered, throughput is 360 MiB/s (10 TiB * 36 MiB/s).
+
+> [!NOTE]
+> You should create a new capacity pool and move the old volumes to the new capacity pools to use the updated QoS limit. 
+
+With either throughput calculation, increasing the volume quota increases the throughput limit because throughput scales linearly with the provisioned capacity.
+
+### Supported regions for cool access throughput for premium and ultra service levels feature
+
+* Australia Southeast
+* Brazil South
+* Brazil Southeast
+* Canada Central
+* Canada East
+* Central US
+* East Asia
+* Germany North 
+* Germany West Central
+* Israel Central 
+* Japan East
+* Korea South
+* North Central US
+* Norway East
+* Qatar Central
+* Southeast Asia
+* Sweden Central
+* Switzerland West
+* UAE Central
+* UK West
+* West US
+
 ## Billing 
 
 You can enable cool access for each volume in a [cool-access enabled capacity pool](manage-cool-access.md). How you're billed is based on:
@@ -60,9 +113,9 @@ Billing calculation for a capacity pool is at the hot-tier rate for the data tha
 
 The deleted data in a volume is collected once it reaches 1% of the provisioned size of the volume. This impacts the size of the cool tier, if the cool tier eligible user data is also a low percentage of the volume, such as 1~3% of the provisioned size. If the difference in the cool tier size is more than 3%, [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-## Calculate your savings
+## Estimate your savings
 
-Calculate your savings from cool access in the [Azure NetApp Files effective price estimator](https://aka.ms/anfcoolaccesscalc).
+Estimate your savings from cool access in the [Azure NetApp Files effective price estimator](https://aka.ms/anfcoolaccesscalc).
 
 :::image type="content" source="./media/cool-access-introduction/effective-price-calculator.png" alt-text="Diagram that shows the effective price calculator chart." lightbox="./media/cool-access-introduction/effective-price-calculator.png":::
 

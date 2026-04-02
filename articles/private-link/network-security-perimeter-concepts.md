@@ -141,6 +141,9 @@ Network security perimeter is currently available in all Azure public cloud regi
 > [!NOTE]
 > For PaaS resource logs, use **Log Analytics Workspace, Storage or Event Hub** as the log destination associated to the same perimeter as the PaaS resource.
 
+> [!NOTE]
+> Azure Backup is not supported for Storage Accounts enabled with network security perimeter. We recommend not associating a storage account with network security perimeter if you have backups enabled or if you plan to use Azure Backup.
+
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
 
 ## Next steps

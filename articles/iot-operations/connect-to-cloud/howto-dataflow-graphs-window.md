@@ -13,8 +13,6 @@ ai-usage: ai-assisted
 
 # Aggregate data over time in data flow graphs
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 A window transform collects messages over a fixed time interval and produces a single output message with aggregated values. Instead of forwarding every reading individually, you can compute statistics like averages, minimums, or counts and send one consolidated result downstream.
 
 <!-- For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md). -->
@@ -61,7 +59,9 @@ configuration: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```json
 {
@@ -100,7 +100,9 @@ In the window transform configuration, add accumulation rules. For each rule, sp
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```json
 {
@@ -161,7 +163,9 @@ Add a rule with inputs `temperature` and `humidity`, and expression `average($1)
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -273,7 +277,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
