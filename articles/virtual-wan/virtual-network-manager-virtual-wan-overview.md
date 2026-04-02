@@ -52,7 +52,7 @@ All Virtual Network connections are automatically orchestrated by Virtual Networ
 
 :::image type="content" source="./media/virtual-network-manager-virtual-wan/bulk-connection-creation.png" alt-text="Diagram showing bulk connection creation for Virtual Networks connected through Virtual Network Manager and Virtual WAN." lightbox="./media/virtual-network-manager-virtual-wan/bulk-connection-creation.png":::
 
-## Utilize Azure Policy to dynamically connect Virtual Networks to Virtual WAN
+## Use Azure Policy to dynamically connect Virtual Networks to Virtual WAN
 
 Implement [Azure Policy](../virtual-network-manager/how-to-define-network-group-membership-azure-policy.md) on your subscription to automatically connect newly created Virtual Networks to Virtual WAN and apply the correct routing configurations. This allows you to build faster by automating new workload onboarding and network access.
 
