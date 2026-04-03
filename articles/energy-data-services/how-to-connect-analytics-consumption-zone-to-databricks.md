@@ -169,5 +169,5 @@ df_wells.groupBy("kind").agg(count("*").alias("record_count")).orderBy(desc("rec
 
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
-- [Connect ACZ data to Microsoft Fabric](how-to-connect-acz-to-fabric.md)
+- [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 
