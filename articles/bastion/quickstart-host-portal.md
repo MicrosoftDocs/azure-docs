@@ -66,8 +66,6 @@ The following diagram shows the dedicated deployment architecture used by the De
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-**Default values:**
-
 **To deploy Bastion with default settings:**
 
 1. Go to your virtual network (or VM). In the left pane, select **Connect** > **Bastion**.
