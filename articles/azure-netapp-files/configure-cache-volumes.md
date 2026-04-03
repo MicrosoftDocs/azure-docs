@@ -31,11 +31,15 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 ## Create a cache volume
 
+  > [!NOTE]
+  > SMB protocol cache volume cannot be created when the NetApp account is configured with shared Active Directory. You should [configure the account with dedicated Active Directory connections](https://learn.microsoft.com/azure/azure-netapp-files/create-active-directory-connections#multi-ad) to create SMB protocol cache volumes.
+
 1.	Initiate the cache volume creation using the PUT caches API call. For information about cache operations, see [API documentation](/rest/api/netapp/caches?view=rest-netapp-2025-09-01-preview&preserve-view=true).
 
       ```
        PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview 
       ```
+   
 2.  Monitor if the cache state is available for cluster peering with a GET request.
 
       ```
