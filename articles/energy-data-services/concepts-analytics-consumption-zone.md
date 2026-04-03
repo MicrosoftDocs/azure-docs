@@ -186,6 +186,17 @@ ACZ requires:
 - **API access**: You must belong to the `users@{data-partition-id}.dataservices.energy` group to call ACZ APIs.
 - **Storage access**: The managed identity needs the Storage Blob Data Contributor role (or equivalent) on the ADLS Gen2 container. During preview, share the identity details with Microsoft to add the identity to the allow list.
 
+## Frequently asked questions
+
+### What telemetry and monitoring capabilities are available during the ACZ Preview?
+
+During the ACZ Preview, the following status indicators are available through the ACZ API:
+
+- **ACZ Status** – Indicates the overall state of the Analytics Consumption Zone (for example, `ACTIVE`).
+- **Historical Snapshot Status** – Indicates the progress of the initial data sync (for example, `PROCESSING`, `COMPLETED`).
+
+More detailed telemetry and monitoring capabilities, such as sync progress metrics, error diagnostics, and integration with Azure Monitor, will be available by General Availability (GA).
+
 ## Related content
 
 - [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md)
