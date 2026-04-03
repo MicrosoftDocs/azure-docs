@@ -2,10 +2,10 @@
 title: Use the Microsoft Sentinel MCP connector in ChatGPT or Claude
 titleSuffix: Microsoft Security  
 description: Learn how to turn on and use a custom Microsoft Sentinel's Model Context Protocol (MCP) connector in ChatGPT or Claude
-author: poliveria
+author:  mjcaparas
 ms.topic: how-to
 ms.date: 04/03/2026
-ms.author: pauloliveria
+ms.author:  macapara
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform
 ms.custom:
