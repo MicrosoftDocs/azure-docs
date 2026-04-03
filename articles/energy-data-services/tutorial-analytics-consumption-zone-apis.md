@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) instance in your Azure subscription.
 - ACZ enabled for your instance. See [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
-- An ADLS Gen2 storage account with managed identity access.
+- An Azure Data Lake Storage (ADLS) Gen2 storage account with managed identity access.
 - cURL installed on your machine.
 - An access token for authentication. See [How to generate auth token](how-to-generate-auth-token.md).
 
@@ -98,8 +98,8 @@ curl --request POST \
 | `sink.storageId` | string | Yes | Azure resource ID of the destination ADLS Gen2 storage account. |
 | `sink.basePath` | string | No | Base path within the storage account for ACZ data output. |
 | `configuration` | object | Yes | Entity filter configuration. |
-| `configuration.catalogKinds` | string[] | No | List of OSDU catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). |
-| `configuration.wellboreDDMSKinds` | string[] | No | List of Wellbore DDMS kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). |
+| `configuration.catalogKinds` | string[] | No | OSDU catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). |
+| `configuration.wellboreDDMSKinds` | string[] | No | Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). |
 
 > [!NOTE]
 > You must provide at least one of `catalogKinds` or `wellboreDDMSKinds` in the configuration.
@@ -231,7 +231,7 @@ Replace `{acz_id}` with the ACZ identifier from the Create or List response.
 }
 ```
 
-Check the `status` and `historicalSnapshotStatus` fields to track ACZ provisioning.
+To track ACZ provisioning, check the `status` and `historicalSnapshotStatus` fields.
 
 ## Delete an ACZ
 
