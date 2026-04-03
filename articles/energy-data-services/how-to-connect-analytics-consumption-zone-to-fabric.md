@@ -15,7 +15,7 @@ ms.reviewer:
 # Connect Analytics Consumption Zone (ACZ) data to Microsoft Fabric
 
 
-This article shows how to connect your ACZ data to Microsoft Fabric by using OneLake shortcuts. ACZ stores data in Azure Data Lake Storage (ADLS) Gen2. After you create shortcuts, you can query, transform, and visualize your OSDU&reg; energy data in Fabric lakehouses, notebooks, and Power BI.
+This article shows how to connect your ACZ data to Microsoft Fabric by using OneLake shortcuts. ACZ stores data in Azure Data Lake Storage (ADLS) Gen2. After you create shortcuts, you can query, transform, and visualize your Open Subsurface Data Universe (OSDU&reg;) energy data in Fabric lakehouses, notebooks, and Power BI.
 
 > [!IMPORTANT]
 > Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -67,7 +67,7 @@ An ADLS Gen2 shortcut makes ACZ data available in your Fabric lakehouse without 
 
    | Setting | Value |
    |---|---|
-   | **URL** | The DFS endpoint for your storage account: `https://<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net` |
+   | **URL** | The Distributed File System (DFS) endpoint for your storage account: `https://<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net` |
    | **Connection** | Select an existing connection or create a new one. |
    | **Authentication kind** | Select **Organizational account**, **Service principal**, or **Account key** as appropriate. |
 
@@ -171,12 +171,12 @@ If you prefer Power BI Desktop for advanced modeling:
 ## Considerations
 
 - **Data freshness**: ACZ synchronizes changes incrementally after the initial snapshot. New and updated OSDU records appear in ADLS Gen2 and show through Fabric shortcuts with no extra steps.
-- **Schema evolution**: If the OSDU schema changes, the Delta Parquet files reflect those changes. Refresh your lakehouse metadata to see schema updates.
+- **Schema evolution**: If the OSDU schema changes, the Delta Parquet files reflect those changes. To see schema updates, refresh your lakehouse metadata.
 - **Cross-tenant access**: If your Fabric tenant and ADLS Gen2 account are in different Microsoft Entra tenants, use a service principal or SAS token for authentication. See [ADLS Gen2 shortcut limitations](/fabric/onelake/create-adls-shortcut#limitations).
 
 ## Related content
 
-- [Connect ACZ data to Azure Databricks](how-to-connect-acz-to-databricks.md)
+- [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [Create an Azure Data Lake Storage Gen2 shortcut](/fabric/onelake/create-adls-shortcut)
 
