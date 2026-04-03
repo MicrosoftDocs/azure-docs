@@ -268,8 +268,8 @@ The ACZ APIs return these error codes:
 
 ## Related content
 
-- [Connect ACZ data to Microsoft Fabric](how-to-connect-acz-to-fabric.md)
-- [Connect ACZ data to Azure Databricks](how-to-connect-acz-to-databricks.md)
+- [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
+- [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 - [ACZ API Swagger documentation](https://aczinfradint2.energy.azure.com/api/acz/v1/docs)
 

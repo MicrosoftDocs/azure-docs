@@ -131,7 +131,7 @@ A successful response returns status `201` with the ACZ details. The response in
 ## Related content
 
 - [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md)
-- [Connect ACZ data to Microsoft Fabric](how-to-connect-acz-to-fabric.md)
-- [Connect ACZ data to Azure Databricks](how-to-connect-acz-to-databricks.md)
+- [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
+- [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
 
