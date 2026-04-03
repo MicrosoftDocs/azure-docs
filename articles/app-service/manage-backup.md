@@ -120,6 +120,9 @@ There are two types of backups in App Service. If your app is in a supported pri
 1. At the top of the **Backups** page, select **Configure custom backups**.
 
 1. In **Storage account**, select an existing storage account in the same subscription or select **Create new**. Repeat in **Container**.
+    > [!NOTE]
+    > Custom backups for Azure App Service require an Azure Storage account that supports Shared Access Signature (SAS)–based authorization. Managed Identity–based authentication to the storage account isn't supported for App Service backup and restore operations.
+   
 
     To back up the linked databases, select **Next: Advanced** > **Include database**, and select the databases to backup.
 

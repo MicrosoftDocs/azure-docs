@@ -22,6 +22,9 @@ By using SSO, you can skip the credential prompt when you connect to a dev box a
 
 To enable SSO for dev boxes, you must configure SSO for your organization. For more information, see [Configure single sign-on for Azure Virtual Desktop by using Microsoft Entra ID](/azure/virtual-desktop/configure-single-sign-on) authentication.
 
+> [!NOTE]
+> SSO is required if you want to enable guest user access to dev boxes. For more information, see [Enable guest user access to dev boxes](how-to-enable-guest-access.md).
+
 ## Enable SSO for dev boxes
 
 SSO is enabled at the pool level. Dev Box supports SSO for dev box pools that use Microsoft Entra joined networks, and Microsoft hosted networks, but not pools that use Microsoft Entra hybrid-joined networks.

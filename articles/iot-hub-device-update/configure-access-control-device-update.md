@@ -24,6 +24,7 @@ For users to access Azure Device Update for IoT Hub, you must grant them access 
 
 The following roles are available for assigning access to Device Update:
 
+- Device Update Contributor
 - Device Update Administrator
 - Device Update Reader
 - Device Update Content Administrator
