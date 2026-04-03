@@ -1,0 +1,49 @@
+- name: Durable Task Scheduler Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is the Durable Task Scheduler?
+    href: durable-task-scheduler.md
+  - name: How it works
+    href: develop-with-durable-task-scheduler.md
+  - name: Hosting models
+    items:
+    - name: About Durable Functions
+      href: ../../azure-functions/durable-functions/durable-functions-overview.md?toc=/azure/durable-task/scheduler/toc.json
+    - name: About the Durable Task SDKs
+      href: ../sdks/durable-task-overview.md?toc=/azure/durable-task/scheduler/toc.json
+- name: Get started
+  items:
+  - name: Configure Durable Functions with Durable Task Scheduler
+    href: quickstart-durable-task-scheduler.md
+  - name: Create an SDK app with Durable Task Scheduler
+    href: ../sdks/quickstart-portable-durable-task-sdks.md
+- name: How-to guides
+  items:
+  - name: Develop
+    items: 
+    - name: Configure autoscale for Container Apps
+      href: ../sdks/durable-task-scheduler-auto-scaling.md
+    - name: Auto-purge
+      href: durable-task-scheduler-auto-purge.md
+    - name: Schedules
+      href: ../sdks/durable-task-schedulers-schedules.md
+  - name: Monitor
+    items:
+    - name: Identity-based access
+      href: durable-task-scheduler-identity.md
+    - name: Monitoring dashboard
+      href: durable-task-scheduler-dashboard.md
+    - name: OpenTelemetry and distributed tracing
+      href: ../sdks/durable-task-scheduler-opentelemetry-tracing.md
+  - name: Debug
+    items:
+    - name: Troubleshoot Durable Task Scheduler
+      href: troubleshoot-durable-task-scheduler.md
+- name: Reference
+  items:
+  - name: Throughput benchmarks
+    href: durable-task-scheduler-work-item-throughput.md
+  - name: Billing
+    href: durable-task-scheduler-billing.md

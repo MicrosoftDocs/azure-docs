@@ -76,7 +76,7 @@ The following steps are required for partners to configure integration with Azur
 
 ### Get help
 
-- If you have questions about application, service, or product integrations with Azure DDoS Protection, reach out to the [Azure security community](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
+- If you have questions about application, service, or product integrations with Azure DDoS Protection, reach out to the [Azure security community](https://techcommunity.microsoft.com/blog/microsoft-security-blog/welcome-to-the-microsoft-security-community/4471927).
 - Follow discussions on [Stack Overflow](https://stackoverflow.com/tags/azure-ddos/).
 
 ### Get to market

@@ -1,0 +1,114 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-code-constraints.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-code-constraints",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-custom-orchestration-status.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-custom-orchestration-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-entities.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-entities",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-error-handling.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-error-handling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-eternal-orchestrations.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-eternal-orchestrations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-external-events.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-external-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-fan-in-fan-out.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-fan-in-fan-out",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-human-interaction.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-human-interaction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-instance-management.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-instance-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-monitor.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-orchestrations.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-orchestrations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-sequence.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-sequence",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-singletons.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-singletons",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-task-hubs.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-functions-timers.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-timers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/durable-orchestration-versioning.md",
+            "redirect_url": "/azure/durable-task/common/durable-orchestration-versioning",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/programming-model-overview.md",
+            "redirect_url": "/azure/durable-task/common/programming-model-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/what-is-durable-task.md",
+            "redirect_url": "/azure/durable-task/common/what-is-durable-task",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/choose-orchestration-framework.md",
+            "redirect_url": "/azure/durable-task/common/choose-orchestration-framework",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/quickstart-netherite.md",
+            "redirect_url": "/azure/azure-functions/durable-functions/quickstart-netherite",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/common/durable-task-task-hubs.md",
+            "redirect_url": "/azure/durable-task/common/durable-task-hubs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/scheduler/durable-task-overview.md",
+            "redirect_url": "/azure/durable-task/sdks/durable-task-overview",
+            "redirect_document_id": false
+        }
+    ]
+}

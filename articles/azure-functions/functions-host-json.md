@@ -279,7 +279,7 @@ Configuration settings for a custom handler. For more information, see [Azure Fu
 
 ## durableTask
 
-Configuration setting can be found in [bindings for Durable Functions](durable/durable-functions-bindings.md#host-json).
+Configuration setting can be found in [Durable Functions settings in host.json](./durable-functions/durable-functions-host-json-settings.md).
 
 ## concurrency
 

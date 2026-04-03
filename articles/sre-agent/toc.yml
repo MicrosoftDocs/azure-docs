@@ -52,12 +52,20 @@ items:
         items:
           - name: Connect knowledge
             href: connect-knowledge.md
+          - name: Add web page knowledge
+            href: add-web-page-knowledge.md
           - name: File attachments
             href: file-attachments.md
           - name: GitHub connector
             href: github-connector.md
           - name: Azure DevOps connector
             href: ado-connector.md
+          - name: Cross-account ADO access
+            href: cross-account-ado-oauth.md
+          - name: Managed identity for ADO repos
+            href: managed-identity-ado-repos.md
+          - name: Remove resources from scope
+            href: configuration-deletion.md
       - name: Diagnose
         items:
           - name: Incident response
@@ -118,8 +126,6 @@ items:
         items:
           - name: Chat from your tools
             href: chat-from-your-tools.md
-          - name: Model provider selection
-            href: model-provider-selection.md
           - name: Learn via Chat
             href: docsguide.md
           - name: Favorites and Mine filter
@@ -200,6 +206,12 @@ items:
             href: tutorial-upload-knowledge-document.md
           - name: Connect Azure DevOps Wiki
             href: connect-devops-wiki.md
+          - name: Connect ADO repo with managed identity
+            href: connect-ado-repo-managed-identity.md
+          - name: Cross-account ADO access
+            href: cross-account-azdo-oauth-authorization.md
+          - name: Add a web page knowledge source
+            href: add-web-page.md
       - name: Access
         items:
           - name: Set up Teams bot

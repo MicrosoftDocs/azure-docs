@@ -1614,7 +1614,7 @@ Read and search DICOM data.
 
 Durable Task role for all data access operations.
 
-[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+[Learn more](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1655,7 +1655,7 @@ Durable Task role for all data access operations.
 
 Read all Durable Task Scheduler data.
 
-[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+[Learn more](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1698,7 +1698,7 @@ Read all Durable Task Scheduler data.
 
 Used by worker applications to interact with the Durable Task service
 
-[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+[Learn more](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

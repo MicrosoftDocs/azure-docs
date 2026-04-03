@@ -517,6 +517,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/durable/durable-task-scheduler/quickstart-work-item-filtering-durable-task.md",
+      "redirect_url": "/azure/durable-task/scheduler/quickstart-work-item-filtering-durable-task",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/durable/durable-functions-cloud-backup.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-fan-in-fan-out",
       "redirect_document_id": false
@@ -529,6 +534,11 @@
     {
       "source_path": "articles/azure-functions/durable/durable-functions-phone-verification.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-human-interaction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/tutorial-durable-text-analysis-azure-files.md",
+      "redirect_url": "/azure/azure-functions/durable-functions/tutorial-durable-text-analysis-azure-files",
       "redirect_document_id": false
     },
     {
@@ -7572,6 +7582,6 @@
       "source_path": "articles/certification/edge-secured-core-get-certified.md",
       "redirect_url": "/azure/certification/requirements-edge-secured-core",
       "redirect_document_id": false
-    },
+    }
   ]
 }
