@@ -1,0 +1,109 @@
+### YamlMime:Landing
+
+title: Durable Functions documentation
+summary: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment.
+
+metadata:
+  title: Durable Functions documentation
+  description: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment. The extension lets you define stateful workflows using an orchestrator function and stateful entities using an entity function. Behind the scenes, the extension manages state, checkpoints, and restarts for you.
+  ms.service: azure-functions
+  ms.topic: landing-page
+  author: hhunter-ms
+  ms.author: hannahhunter
+  ms.date: 03/12/2026
+
+landingContent:
+  - title: Get started with Durable Functions
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create your first Durable Functions app (C#)
+            url: durable-functions-isolated-create-first-csharp.md
+          - text: Create your first Durable Functions app (Python)
+            url: quickstart-python-vscode.md
+          - text: Create your first Durable Functions app (JavaScript)
+            url: quickstart-js-vscode.md
+          - text: Create your first Durable Functions app (TypeScript)
+            url: quickstart-ts-vscode.md
+          - text: Create your first Durable Functions app (PowerShell)
+            url: quickstart-powershell-vscode.md
+          - text: Create your first Durable Functions app (Java)
+            url: quickstart-java.md
+      - linkListType: overview
+        links:
+          - text: Durable Functions overview
+            url: durable-functions-overview.md
+          - text: Supported versions
+            url: durable-functions-versions.md
+          - text: .NET isolated overview
+            url: durable-functions-dotnet-isolated-overview.md
+          - text: Durable Agent Framework
+            url: /agent-framework/integrations/azure-functions
+
+  - title: Learn core concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Orchestrations
+            url: ../../durable-task/common/durable-task-orchestrations.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+          - text: Sub-orchestrations
+            url: ../../durable-task/common/durable-task-sub-orchestrations.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+          - text: Durable entities
+            url: ../../durable-task/common/durable-task-entities.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+          - text: Timers and timeouts
+            url: ../../durable-task/common/durable-task-timers.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+          - text: Performance and scale
+            url: durable-functions-perf-and-scale.md
+          - text: Data persistence and serialization
+            url: durable-functions-serialization-and-persistence.md
+
+  - title: How-to guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Unit testing Durable Functions
+            url: durable-functions-unit-testing.md
+          - text: Versioning
+            url: durable-functions-versioning.md
+          - text: Diagnostics and monitoring
+            url: durable-functions-diagnostics.md
+          - text: Troubleshooting
+            url: durable-functions-troubleshooting-guide.md
+          - text: Configure managed identity
+            url: durable-functions-configure-managed-identity.md
+
+  - title: Storage and deployment
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Storage providers
+            url: ../../durable-task/common/durable-task-storage-providers.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+          - text: Billing
+            url: durable-functions-billing.md
+      - linkListType: reference
+        links:
+          - text: Bindings reference
+            url: durable-functions-bindings.md
+          - text: HTTP API reference
+            url: durable-functions-http-api.md
+
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: .NET API reference
+            url: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
+          - text: Python API reference
+            url: /python/api/azure-functions-durable/
+          - text: Node.js API reference
+            url: /javascript/api/durable-functions/
+          - text: Java API reference
+            url: /java/api/com.microsoft.durabletask.azurefunctions
+      - linkListType: reference
+        links:
+          - text: Code samples
+            url: /samples/browse/?term=durable%20functions
+          - text: Microsoft Learn training
+            url: /training/browse/?products=azure-functions
+          - text: GitHub repository
+            url: https://github.com/Azure/azure-functions-durable-extension
