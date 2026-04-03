@@ -2,7 +2,7 @@
 title: Deploy Docker Compose for agents to Azure Container Apps Preview
 description: Learn how to use Docker Compose for Agents on Azure Container Apps Preview.
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 03/31/2026
 ms.service: azure-container-apps
 ms.author: cshoe
 author: craigshoemaker
@@ -10,7 +10,7 @@ author: craigshoemaker
 
 # Deploy Docker Compose for agents to Azure Container Apps Preview
 
-This article shows you how to deploy applications to Azure Container Apps by using Docker’s Compose for Agents. This feature keeps the compose file you already use locally and allows you to deploy it onto Container Apps. The `az-cli` container app extension then translates the compose file into Azure Container App applications and manages identities, scaling, and model lifecycle for you.
+This article shows you how to deploy applications to Azure Container Apps by using Docker's Compose for Agents. This feature keeps the compose file you already use locally and allows you to deploy it onto Container Apps. The `az-cli` container app extension then translates the compose file into Azure Container App applications and manages identities, scaling, and model lifecycle for you.
 
 In this article, you learn to:
 
@@ -37,7 +37,7 @@ When you run `az containerapp compose create`, the CLI translates agent-focused 
 
 ### Model context protocol (MCP) tooling
 
-Azure Container Apps runs a variant of [Docker’s MCP gateway](https://github.com/docker/mcp-gateway) as its own container app. It uses system-assigned managed identity to add or remove MCP tool containers within the environment dynamically. This setup appears as separate containers under the mcp-gateway application. Gateway to MCP tooling communication is limited to the network. Stdio MCP servers are wrapped to run as SSE based MCP servers on Azure Container Apps. Docker for Agents on Azure Container Apps currently supports the following Stdio MCP servers: AppSignal, BigQuery, Confluence, DuckDuckGo, Fetch, Filesystem, Git, Google Drive, Jira, MongoDB, MySQL, Notion, Playwright, PostgreSQL, SequentialThinking, Slack, SQLite, Supabase, Time, Twist.
+Azure Container Apps runs a variant of [Docker's MCP gateway](https://github.com/docker/mcp-gateway) as its own container app. It uses system-assigned managed identity to add or remove MCP tool containers within the environment dynamically. This setup appears as separate containers under the mcp-gateway application. Gateway to MCP tooling communication is limited to the network. Stdio MCP servers are wrapped to run as SSE based MCP servers on Azure Container Apps. Docker for Agents on Azure Container Apps currently supports the following Stdio MCP servers: AppSignal, BigQuery, Confluence, DuckDuckGo, Fetch, Filesystem, Git, Google Drive, Jira, MongoDB, MySQL, Notion, Playwright, PostgreSQL, SequentialThinking, Slack, SQLite, Supabase, Time, Twist.
 
 ### Models
 
@@ -137,6 +137,15 @@ az containerapp compose create \
 			--resource-group $RESOURCE_GROUP \
 			--environment $ENV_NAME
 ```
+
+### Agent settings defaults
+
+Applications created without explicit agent settings receive the following defaults:
+
+* `DiscoveryMode` = `Auto`, which automatically detects agent capabilities and dependencies.
+* `IsAgent` = `false`, indicating that the app doesn't act as an agent unless explicitly configured.
+
+These defaults ensure consistent behavior for all container apps in your environment.
 
 ### Uninstalling and switching back
 

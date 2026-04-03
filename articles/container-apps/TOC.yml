@@ -271,7 +271,35 @@ items:
     - name: Overview
       href: observability.md
       displayName: Observability overview
-    - name: Troubleshoot and resolve issues with an agent
+    - name: Develop and debug with real-time logs
+      items:
+        - name: Log streaming
+          href: log-streaming.md
+        - name: Container console
+          href: container-console.md
+        - name: Container debug console
+          href: container-debug-console.md
+    - name: Monitor production workloads
+      items:
+        - name: Application logging
+          href: logging.md
+        - name: Logging options
+          href: log-options.md
+        - name: Log monitoring
+          href: log-monitoring.md
+        - name: Metrics
+          href: metrics.md
+        - name: Alerts
+          href: alerts.md
+    - name: End-to-end tracing and dashboards
+      items:
+        - name: Aspire Dashboard
+          href: aspire-dashboard.md
+        - name: OpenTelemetry agents
+          href: opentelemetry-agents.md
+        - name: Grafana dashboards
+          href: grafana-dashboards.md
+    - name: Troubleshoot and resolve issues with SRE agent
       items:
         - name: Overview
           href: ../sre-agent/overview.md
@@ -279,28 +307,6 @@ items:
           href: ../sre-agent/usage.md
         - name: Fix app issues with an SRE agent
           href: ../sre-agent/troubleshoot-azure-container-apps.md
-    - name: Application logging
-      href: logging.md
-    - name: Real time data
-      href: aspire-dashboard.md
-    - name: Logging options
-      href: log-options.md
-    - name: Log streaming
-      href: log-streaming.md
-    - name: Container console
-      href: container-console.md
-    - name: Container debug console
-      href: container-debug-console.md
-    - name: Metrics
-      href: metrics.md
-    - name: Log monitoring
-      href: log-monitoring.md
-    - name: Alerts
-      href: alerts.md
-    - name: OpenTelemetry agents
-      href: opentelemetry-agents.md
-    - name: Grafana dashboards
-      href: grafana-dashboards.md
 - name: Scaling & performance
   items:
     - name: Overview

@@ -248,7 +248,7 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 The secondary region restore user experience is similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you're  prompted to provide only secondary region parameters.
 
-Currently, secondary region [RPO](azure-backup-glossary.md#recovery-point-objective-rpo) is _36 hours_. This is because the RPO in the primary region is _24 hours_ and can take up to _12 hours_ to replicate the backup data from the primary to the secondary region.
+For Azure VM backups, the secondary region [RPO](azure-backup-glossary.md#recovery-point-objective-rpo) can be up to _36 hours_ in the worst case. With the Standard policy, the primary region RPO is up to _24 hours_, and replication to the secondary region can take up to _12 hours_. With the Enhanced policy, more frequent local recovery point creation can improve the best-case achievable secondary region RPO. However, because vaulting is daily, the worst-case secondary region RPO can still be up to _36 hours_.
 
 :::image type="content" source="./media/backup-azure-arm-restore-vms/secondary-region-restore.png" alt-text="{alt-text}":::Screenshot shows how to start secondary region restore of a VM. ":::
 

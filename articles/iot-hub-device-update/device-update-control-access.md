@@ -21,6 +21,7 @@ Device Update supports the following RBAC roles. For more information, see [Conf
 
 |   Role Name   | Description  |
 | :--------- | :---- |
+|  Device Update Contributor | Can manage all Device Update resources  |
 |  Device Update Administrator | Has access to all Device Update resources  |
 |  Device Update Reader| Can view all updates and deployments |
 |  Device Update Content Administrator | Can view, import, and delete updates  |

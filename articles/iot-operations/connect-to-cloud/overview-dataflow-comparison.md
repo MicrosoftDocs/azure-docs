@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand when to use data flows vs. data flow graphs.
@@ -33,8 +33,8 @@ Data flow graphs support MQTT, Kafka, and OpenTelemetry endpoints.
 | Feature | Data flows | Data flow graphs |
 |---------|-----------|-----------------|
 | Pipeline shape | Fixed: enrich, filter, map | Flexible: any graph topology |
-| Transforms | Map, filter, enrich | Map, filter, branch, concat, window (aggregation), enrich |
-| Branch and merge | Not supported | Branch on conditions, merge with concat |
+| Transforms | Map, filter, enrich | Map, filter, branch, concatenate, window (aggregation), enrich |
+| Branch and merge | Not supported | Branch on conditions, merge with concatenate |
 | Time-based aggregation | Not supported | Tumbling windows with avg, min, max, count |
 | Endpoint support (source) | MQTT, Kafka | MQTT, Kafka, OpenTelemetry |
 | Endpoint support (destination) | MQTT, Kafka, ADLS, Fabric, ADX, local storage, OpenTelemetry | MQTT, Kafka, OpenTelemetry |

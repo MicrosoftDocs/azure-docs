@@ -6,14 +6,14 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/13/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 ---
 
 # Filter and route data in data flow graphs
 
-Data flow graphs provide two ways to control which messages flow through your pipeline: **filter** transforms drop unwanted messages, and **branch** transforms route each message down one of two paths based on a condition. After branching, a **concat** transform merges the paths back together.
+Data flow graphs provide two ways to control which messages flow through your pipeline: **filter** transforms drop unwanted messages, and **branch** transforms route each message down one of two paths based on a condition. After branching, a **concatenate** transform merges the paths back together.
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
@@ -266,7 +266,7 @@ Key constraints:
 - **Exactly one branch rule.** The `branch` key takes a single object, not an array.
 
 > [!IMPORTANT]
-> Branching splits messages into separate processing paths, but all paths must merge back together using a concat transform before reaching the destination. Think of branching as a way to apply different transformations to different messages, not as a way to route to multiple endpoints.
+> Branching splits messages into separate processing paths, but all paths must merge back together using a concatenate transform before reaching the destination. Think of branching as a way to apply different transformations to different messages, not as a way to route to multiple endpoints.
 
 ### Define a branch rule
 
@@ -344,13 +344,13 @@ nodeConnections:
 
 ---
 
-## Merge paths with concat
+## Merge paths with concatenate
 
-All branch paths must converge before reaching a destination. A concat transform merges them. It has no configuration and no rules. Messages from all connected inputs pass through unmodified.
+All branch paths must converge before reaching a destination. A concatenate transform merges them. It has no configuration and no rules. Messages from all connected inputs pass through unmodified.
 
 # [Operations experience](#tab/portal)
 
-Add a concat transform to the canvas and connect both branch paths to it, then connect the concat to the destination.
+Add a concatenate transform to the canvas and connect both branch paths to it, then connect the concatenate to the destination.
 
 # [Bicep](#tab/bicep)
 
@@ -394,9 +394,9 @@ To build this pipeline in the Operations experience:
 1. Add a **branch** transform. Configure the condition `severity > 5` to route high-severity messages to the true path.
 1. Add a **map** transform on the true path. Configure rules to rename `deviceId` to `id`, `temperature` to `temp`, and add a field `alert` set to `true`.
 1. Add a **map** transform on the false path. Configure rules to rename `deviceId` to `id` and `temperature` to `temp`.
-1. Add a **concat** transform to merge both paths.
+1. Add a **concatenate** transform to merge both paths.
 1. Add a **destination** that sends to `telemetry/processed`.
-1. Connect the elements: source → filter → branch → (true path: alert map, false path: normal map) → concat → destination.
+1. Connect the elements: source → filter → branch → (true path: alert map, false path: normal map) → concatenate → destination.
 
 # [Bicep](#tab/bicep)
 

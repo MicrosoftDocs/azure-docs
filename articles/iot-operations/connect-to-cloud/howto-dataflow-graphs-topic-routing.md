@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/13/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 ---
@@ -151,7 +151,7 @@ spec:
 
 ## Option 2: Branch, map each path, and merge
 
-If you need different transformations on each path (not just a different topic), use a branch transform to split the flow, a map transform on each arm to set the topic and apply path-specific rules, and a concat transform to merge the paths.
+If you need different transformations on each path (not just a different topic), use a branch transform to split the flow, a map transform on each arm to set the topic and apply path-specific rules, and a concatenate transform to merge the paths.
 
 # [Operations experience](#tab/portal)
 
@@ -161,7 +161,7 @@ In the Operations experience:
 1. Add a **branch** transform with condition `$1 > 1000` on the `temperature` field.
 1. On the **true** path, add a **map** transform with a wildcard passthrough and a rule that sets `$metadata.topic` to `"alerts"`.
 1. On the **false** path, add a **map** transform with a wildcard passthrough and a rule that sets `$metadata.topic` to `"historian"`.
-1. Add a **concat** transform to merge both paths.
+1. Add a **concatenate** transform to merge both paths.
 1. Add a **destination** with topic `factory/${outputTopic}`.
 
 # [Bicep](#tab/bicep)

@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 ---
@@ -274,7 +274,6 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
   name: 'enrich-example'
   parent: dataflowProfile
   properties: {
-    profileRef: dataflowProfileName
     mode: 'Enabled'
     nodes: [
       {
