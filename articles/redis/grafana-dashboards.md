@@ -1,22 +1,29 @@
+---
+title: Dashboards with Grafana in Azure Managed Redis
+description: Learn how to use the built-in Grafana experience in Azure Managed Redis to monitor cache performance, memory, operations, and connectivity with prebuilt dashboards and ad-hoc queries.
+ms.topic: how-to
+ms.date: 04/03/2026
+---
+
 # Dashboards with Grafana in Azure Managed Redis
 
-**Dashboards with Grafana** in [Azure Managed Redis](https://learn.microsoft.com/en-us/azure/redis/overview) brings [Azure Monitor's](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview) built-in Grafana experience directly into the Azure portal. You can create and customize Grafana dashboards using your Azure Managed Redis metrics and logs without deploying a separate [Azure Managed Grafana](https://learn.microsoft.com/en-us/azure/managed-grafana/overview) instance. Built-in Grafana controls support a wide range of visualization panels and client-side transformations.
+**Dashboards with Grafana** in [Azure Managed Redis](overview.md) brings [Azure Monitor's](../azure-monitor/fundamentals/overview.md) built-in Grafana experience directly into the Azure portal. You can create and customize Grafana dashboards using your Azure Managed Redis metrics and logs without deploying a separate [Azure Managed Grafana](../managed-grafana/overview.md) instance. Built-in Grafana controls support a wide range of visualization panels and client-side transformations.
 
 > [!NOTE]
-> This feature uses the Grafana experience built into Azure Monitor. It is separate from [Azure Managed Grafana](https://learn.microsoft.com/en-us/azure/managed-grafana/overview), which is a standalone fully managed Grafana service.
+> This feature uses the Grafana experience built into Azure Monitor. It is separate from [Azure Managed Grafana](../managed-grafana/overview.md), which is a standalone fully managed Grafana service.
 
 ## Key capabilities
 
 - **Start from prebuilt dashboards.** Use Azure-managed dashboards tailored for Azure Managed Redis monitoring scenarios including cache performance, memory, operations, and connectivity.
 - **Create and edit dashboards.** Add panels, modify queries, and apply client-side transformations.
-- **Save and share as Azure resources.** Store dashboards as standard Azure resources with [Azure role-based access control (RBAC)](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview) and automate with [Azure Resource Manager (ARM) templates](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview) or [Bicep](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview).
+- **Save and share as Azure resources.** Store dashboards as standard Azure resources with [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) and automate with [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md) or [Bicep](../azure-resource-manager/bicep/overview.md).
 - **Explore data ad-hoc.** Use Grafana **Explore** to run queries and add the results to new or existing dashboards.
 
 ## Prerequisites
 
-- An [Azure Managed Redis resource](https://learn.microsoft.com/en-us/azure/redis/overview).
+- An [Azure Managed Redis resource](overview.md).
 - Permissions to read Azure Managed Redis monitoring data and create resources in the target subscription and resource group.
-- [Diagnostic settings configured](https://learn.microsoft.com/en-us/azure/redis/monitor-diagnostic-settings) on the Azure Managed Redis resource so that metrics flow to Azure Monitor.
+- [Diagnostic settings configured](monitor-diagnostic-settings.md) on the Azure Managed Redis resource so that metrics flow to Azure Monitor.
 
 ## Open the Grafana experience in Azure Managed Redis
 
@@ -79,7 +86,7 @@ Grafana **Explore** helps you run ad-hoc queries without starting inside a dashb
 
 ## Costs
 
-The Grafana experience within Azure Managed Redis has no additional cost beyond your [Azure Managed Redis](https://azure.microsoft.com/en-us/pricing/details/managed-redis/) resource charges. Standard Azure Monitor charges apply for any diagnostic data you configure to flow to Log Analytics workspaces, storage accounts, or event hubs.
+The Grafana experience within Azure Managed Redis has no additional cost beyond your [Azure Managed Redis](https://azure.microsoft.com/pricing/details/managed-redis/) resource charges. Standard Azure Monitor charges apply for any diagnostic data you configure to flow to Log Analytics workspaces, storage accounts, or event hubs.
 
 ## Limitations
 
@@ -98,10 +105,10 @@ Verify you have permissions to create resources in the target subscription and r
 
 **Data doesn't load.**
 
-Check that the Azure Managed Redis resource has [diagnostic settings configured](https://learn.microsoft.com/en-us/azure/redis/monitor-diagnostic-settings) and that the selected time range contains data. Diagnostic settings can take up to 90 minutes to start flowing after they are first configured.
+Check that the Azure Managed Redis resource has [diagnostic settings configured](monitor-diagnostic-settings.md) and that the selected time range contains data. Diagnostic settings can take up to 90 minutes to start flowing after they are first configured.
 
 ## Related content
 
-- [Monitor Azure Managed Redis using diagnostic settings](https://learn.microsoft.com/en-us/azure/redis/monitor-diagnostic-settings)
-- [Azure Monitor overview](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview)
-- [Azure Managed Grafana overview](https://learn.microsoft.com/en-us/azure/managed-grafana/overview)
+- [Monitor Azure Managed Redis using diagnostic settings](monitor-diagnostic-settings.md)
+- [Azure Monitor overview](../azure-monitor/fundamentals/overview.md)
+- [Azure Managed Grafana overview](../managed-grafana/overview.md)
