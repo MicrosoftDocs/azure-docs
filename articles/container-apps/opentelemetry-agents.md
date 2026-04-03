@@ -4,7 +4,7 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 03/30/2026
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.topic: how-to
 ms.custom:
@@ -747,7 +747,7 @@ For more information, see [Microsoft.App/managedEnvironments](/azure/templates/m
 
 ## Data resilience
 
-In the event of a messaging inturruptions to an endpoint, the OpenTelemetry agent uses the following procedure to support data resilience: 
+In the event of a messaging interruption to an endpoint, the OpenTelemetry agent uses the following procedure to support data resilience: 
 
 - **In-memory buffering and retries**: The agent holds data in memory and keeps retrying (with backoff) for up to five minutes.
 - **Dropping data**: If the buffered queue fills up, or the endpoint is still down after retries, the agent discards the oldest batches to avoid running out of memory.
@@ -823,6 +823,11 @@ These resources are managed by Microsoft and don't appear in your billing or res
 - **How can I monitor the health and status of the OpenTelemetry agent?**
 
     Agent status and health metrics aren't currently exposed. This capability is planned for a future release.
+
+
+## Custom DNS configuration
+
+The managed OpenTelemetry collector respects custom DNS configuration in your Container Apps environment. If you've configured custom DNS settings, the collector automatically uses those settings for name resolution when connecting to external endpoints. This ensures that your OpenTelemetry data is routed correctly through your network infrastructure.
 
 ## Next steps
 
