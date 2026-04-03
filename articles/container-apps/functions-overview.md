@@ -106,7 +106,7 @@ The platform automatically translates your Functions trigger parameters (from `h
 
 **All standard Azure Functions triggers and bindings are supported** in Container Apps with following **exceptions**:
 - Blob Storage Trigger auto scaling: Only works when using Event Grid as the source. Learn more about [Triggering Azure Functions on blob containers using an event subscription](../azure-functions/functions-event-grid-blob-trigger.md)
-- Durable Functions auto scaling: Only supports MSSQL (Microsoft SQL Server) and DTS (Durable Task Scheduler) storage providers. See more guidance on deploying [Durable functions with MSSQL](../azure-functions/durable/durable-functions-mssql-container-apps-hosting.md)
+- Durable Functions auto scaling: Only supports MSSQL (Microsoft SQL Server) and DTS (Durable Task Scheduler) storage providers. See more guidance on deploying [Durable functions with MSSQL](../azure-functions/durable-functions/durable-functions-mssql-container-apps-hosting.md)
 - Auto scaling not supported for:
   - Azure Cache for Redis  
   - Azure SQL

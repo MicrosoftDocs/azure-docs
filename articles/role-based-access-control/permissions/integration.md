@@ -739,7 +739,7 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 
 ## Microsoft.DurableTask
 
-Azure service: [Durable Functions](/azure/azure-functions/durable/durable-functions-overview)
+Azure service: [Durable Functions](/azure/azure-functions/durable-functions/durable-functions-overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

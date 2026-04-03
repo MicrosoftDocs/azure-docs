@@ -603,7 +603,7 @@ The .NET isolated worker doesn't set a custom [`SynchronizationContext`](/dotnet
 Because there's no `SynchronizationContext` to suppress, using [`ConfigureAwait(false)`](/dotnet/api/system.threading.tasks.task.configureawait) in your function code has no practical effect. The isolated worker process runs as a standard .NET generic host (console app), so the same async/await behavior you'd expect in any ASP.NET Core or console application applies here. This is also true for .NET Framework (net48) isolated worker apps, since the worker process is always a console executable using `HostBuilder`.
 
 > [!NOTE]
-> [Durable Functions](./durable/durable-functions-overview.md) orchestrators have their own threading constraints. The orchestrator replay thread must run continuations, so using `ConfigureAwait(false)` in orchestrator functions or orchestrator middleware can interfere with orchestration execution. For more information, see the [Durable Functions code constraints](./durable/durable-functions-code-constraints.md).
+> [Durable Functions](./durable-functions/durable-functions-overview.md) orchestrators have their own threading constraints. The orchestrator replay thread must run continuations, so using `ConfigureAwait(false)` in orchestrator functions or orchestrator middleware can interfere with orchestration execution. For more information, see the [Durable Functions code constraints](../durable-task/common/durable-task-code-constraints.md).
 
 ## Bindings 
 
