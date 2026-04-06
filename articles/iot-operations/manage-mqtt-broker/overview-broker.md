@@ -19,8 +19,6 @@ ms.service: azure-iot-operations
 
 # Azure IoT Operations built-in local MQTT broker
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Azure IoT Operations includes an MQTT broker that's enterprise-grade and standards-compliant. The MQTT broker is scalable, highly available, and Kubernetes native. It provides the messaging plane for Azure IoT Operations, enables bidirectional edge-to-cloud communication, and supports [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
 ## MQTT compliance
@@ -205,7 +203,9 @@ To configure settings like the disk-backed message buffer and advanced MQTT clie
 
 Use the Azure portal or Azure CLI to customize the default Broker resource.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Use the Azure portal or Azure CLI to customize the default Broker resource.
 
@@ -236,7 +236,9 @@ az iot ops broker show --name default --instance <INSTANCE_NAME> --resource-grou
 
 Use the Azure portal, the Azure CLI, or Kubernetes to view the default Broker resource.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
 kubectl get broker default -n azure-iot-operations -o yaml

@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory
 description: Learn about the SAP change data capture (CDC) capabilities in Azure Data Factory and understand its architecture.
 author: ukchrist
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/13/2025
 ms.author: ulrichchrist
 ---

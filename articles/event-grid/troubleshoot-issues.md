@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Event Grid issues
 description: This article provides different ways of troubleshooting Azure Event Grid issues
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.date: 07/18/2022
 ---
 

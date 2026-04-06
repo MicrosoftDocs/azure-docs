@@ -2,7 +2,7 @@
  author: normesta
  ms.service: storage
  ms.topic: include
- ms.date: 11/05/2024
+ ms.date: 03/19/2026
  ms.author: normesta
 ---
 
@@ -24,6 +24,7 @@
 |**requester / appID** | The Open Authorization (OAuth) application ID that is used as the requester. <br> For example: `00001111-aaaa-2222-bbbb-3333cccc4444`.|
 |**requester / audience** | The OAuth audience of the request. <br> For example: `https://storage.azure.com`. |
 |**requester / objectId** | The OAuth object ID of the requester. In case of Kerberos authentication, represents the object identifier of Kerberos authenticated user. <br> For example: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`. |
+|**requester / smbPrimarySID** | The security identifier (SID) of the user account associated with the Kerberos authenticated request. Only present when Kerberos authentication is used to access Azure file shares. <br> For example: `S-1-5-21-1111111111-2222222222-33333333-4444`. |
 |**requester / tenantId** | The OAuth tenant ID of identity. <br> For example: `aaaabbbb-0000-cccc-1111-dddd2222eeee`.|
 |**requester / tokenIssuer** | The OAuth token issuer. <br> For example: `https://sts.windows.net/aaaabbbb-0000-cccc-1111-dddd2222eeee/`.|
 |**requester / upn** | The User Principal Name (UPN) of requester. <br> For example: `someone@contoso.com`. |

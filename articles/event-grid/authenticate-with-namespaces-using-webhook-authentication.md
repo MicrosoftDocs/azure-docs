@@ -4,7 +4,7 @@ description: This article shows you how to authenticate with Azure Event Grid na
 ms.topic: how-to
 ms.custom:
   - build-2025
-ms.date: 07/30/2025
+ms.date: 03/23/2026
 author: Connected-Seth
 ms.author: seshanmugam
 ---
@@ -47,6 +47,40 @@ az eventgrid namespace update --resource-group <resource group name> --name <nam
 
 For information on how to configure system and user-assigned identities by using the Azure portal, see [Enable managed identity for an Event Grid namespace](event-grid-namespace-managed-identity.md).
 
+## Implementations
+
+### Option 1: Webhook Via Azure Functions implementation (Microsoft Entra App) 
+
+Azure Functions can host the webhook logic using `Microsoft.Identity.Web` to validate token automatically. We need Microsoft Entra app registration for Webhook API for validating Event Grid caller tokens, which has an Application ID URI for token issuance. Client side (Event Grid) already has managed identity. 
+
+**Pros:**
+
+- No infrastructure to manage 
+- Built-in authentication helpers (`Microsoft.Identity.Web`) 
+- Durable, scalable, cost-efficient 
+
+Function must do the following operations: 
+
+- Validate caller token from Event Grid Managed Identity 
+- Validate client Json Web Token (JWT)
+- Return allow or deny JSON 
+
+### Option 2: External HTTPS endpoint implementation 
+
+This implementation can be any external HTTPS Endpoint (any cloud, any backend), using Microsoft Entra ID JWT validation with `Microsoft.IdentityModel` libraries. 
+
+Use any runtime: .NET / Node / Java / Python. 
+
+Key requirements: 
+
+- Must be HTTPS 
+- Must validate caller JWT 
+- Must validate device JWT 
+- Must respond within timeout (~5 sec recommended) 
+
+    :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/custom-webhook-implementations.svg" alt-text="Diagram that shows custom webhook implementations." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/custom-webhook-implementations.svg":::
+
+
 ## Grant the managed identity appropriate access to a function or webhook
 
 Grant the managed identity of your Event Grid namespace the appropriate access to the target Azure function or webhook.
@@ -78,14 +112,24 @@ If you have a basic Azure function created from the Azure portal, set up authent
     1. **Issuer URL**: Add the issuer URL in the form `https://login.microsoftonline.com/<tenantid>/v2.0`.
 
         :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/identity-provider-first-settings.png" alt-text="Screenshot that shows the Add an identity provider with Microsoft as an identity provider." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/identity-provider-first-settings.png":::
-1. For **Allowed token audiences**, add the **Application ID URI** value of the Microsoft Entra app that you noted earlier.
-1. In the **Additional checks** section, for **Client application development**, select **Allow requests from specific client applications**.
-1. On the **Allowed client applications** pane, enter the client ID of the system-assigned managed identity used to generate the token. You can find this ID in the enterprise app of the Microsoft Entra ID resource.
+1. In the **Token allowed audiences** section, enter allowed token audiences. To be specific, enter the Application ID URI of the Microsoft Entra app that you noted earlier. The token audience is used to validate the incoming token from Event Grid. 
+1. In the **Additional checks** section, follow these steps:
+    1. For **Client application requirement**, select **Allowed requestions from specific client applications**, and then enter the application ID you noted earlier. 
+    1. For **Identity requirement**, select **Allow requests from any identity**.    
+    
+        :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/token-audience-additional-checks.png" alt-text="Screenshot that shows the Add an identity provider with token audience and additional checks." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/token-audience-additional-checks.png":::        
+1. In the **App Service authentication settings** section, follow these steps:
+    1. For **Restrict access**, select **Require authentication**.
+    1. For **Unauthenticated requests**, select **Return HTTP 401 Unauthorized**.
+
+        :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/app-service-authentication-settings.png" alt-text="Screenshot that shows the App Service authentication settings." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/app-service-authentication-settings.png":::        
 1. Choose other settings based on your specific requirements, and then select **Add**.
+
+### Generate and use the Microsoft Entra ID token
 
 Now, generate and use the Microsoft Entra ID token.
 
-1. Generate a Microsoft Entra ID token by using the managed identity with the application ID URI as the resources.
+1. Generate a Microsoft Entra ID token by using the managed identity with the application ID URI (`api://<ClientID>`) as the resource.
 1. Use this token to invoke the Azure function by including it in the request header.
 
 ## Configure custom webhook authentication settings on your Event Grid namespace
@@ -131,7 +175,11 @@ Replace `<NAMESPACE_NAME>` and `<RESOURCE_GROUP_NAME>` with your actual values. 
 
 ### Request headers
 
+Azure Event Grid sends the following headers in the request to the webhook:
+
+```
 **Authorization**: Bearer token
+```
 
 The token is a Microsoft Entra token for the managed identity that was configured to call the webhook.
 
@@ -158,9 +206,8 @@ The token is a Microsoft Entra token for the managed identity that was configure
 | `password` | Optional | Password from MQTT CONNECT packet in Base64 encoding. | 
 | `authenticationMethod` | Optional | Authentication method from MQTT CONNECT packet (MQTT5 only). | 
 | `authenticationData` | Optional | Authentication data from MQTT CONNECT packet in Base64 encoding (MQTT5 only). | 
-| `clientCertificate` | Optional | Client certificate in PEM format. | 
+| `clientCertificate` | Optional | Client certificate in Privacy-Enhanced Mail (PEM) format. | 
 | `clientCertificateChain`| Optional | Other certificates provided by the client required to build the chain from the client certificate to the Certificate Authority certificate. | 
-| `userProperties` | Optional | User properties from CONNECT packet (MQTT5 only). | 
 
 ### Response payload 
 
@@ -184,7 +231,7 @@ Content-Type: application/json
 #### Denied response 
 
 ```json
-HTTP/1.1 400 Bad Request 
+HTTP/1.1 200 Bad Request 
 Content-Type: application/json 
 
 { 
@@ -192,6 +239,20 @@ Content-Type: application/json
     "errorReason": "<string>" 
 }
 ```
+
+**Error codes:** 
+
+ 
+
+| Authentication Outcome | Function response | Event Grid MQTT reason code |
+|------------------------|-----------------|------------------|
+| Explicit authorization denial | `"decision": "deny"` | Not authorized |
+| Invalid / expired token | `"decision": "deny"` | Not authorized |
+| Function timeout | N/A | Server unavailable |
+| Function exception / crash | N/A | Server unavailable |
+| Transient platform failure | N/A | Server unavailable |
+| Internal broker processing error | N/A | Server unavailable |
+
 
 ### Response field descriptions
 

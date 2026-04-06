@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Edge
 description: How to install and manage certificates on an Azure IoT Edge device to prepare for production deployment. 
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/02/2026
+ms.date: 03/23/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -482,7 +482,7 @@ This approach requires you to manually update the files as certificate expires. 
 
 ## Automatic certificate management using EST server
 
-IoT Edge can interface with an [Enrollment over Secure Transport (EST) server)](https://wikipedia.org/wiki/Enrollment_over_Secure_Transport) for automatic certificate issuance and renewal. Using EST is recommended for production as it replaces the need for manual certificate management, which can be risky and error-prone. You can configure it globally and override it for each certificate type.
+IoT Edge can interface with an [Enrollment over Secure Transport (EST) server](https://wikipedia.org/wiki/Enrollment_over_Secure_Transport) for automatic certificate issuance and renewal. Using EST is recommended for production as it replaces the need for manual certificate management, which can be risky and error-prone. You can configure it globally and override it for each certificate type.
 
 In this scenario, the bootstrap certificate and private key are long-lived and potentially installed on the device during manufacturing. IoT Edge uses the bootstrap credentials to authenticate to the EST server for the initial request to issue an identity certificate for subsequent requests and for authentication to DPS or IoT Hub.
 

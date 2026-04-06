@@ -125,13 +125,13 @@ Add a host route of the Azure BGP peer IP address on your VPN device. This route
 
 For example, if the Azure VPN peer IP is 10.12.255.30, you add a host route for 10.12.255.30 with a next-hop interface of the matching IPsec tunnel interface on your VPN device.
 
-### Does the virtual network gateway support BFD for S2S connections with BGP?
+### Does the Azure VPN Gateway support BFD for site-to-site (S2S) VPN connections with BGP?
 
-No. Bidirectional Forwarding Detection (BFD) is a protocol that you can use with BGP to detect neighbor downtime more quickly than you can by using standard BGP keepalive intervals. BFD uses subsecond timers designed to work in LAN environments, but not across the public internet or WAN connections.
+No. Azure VPN Gateways do not support Bidirectional Forwarding Detection (BFD) for site-to-site (S2S) VPN connections.
 
-For connections over the public internet, having certain packets delayed or even dropped isn't unusual, so introducing these aggressive timers can add instability. This instability might cause BGP to dampen routes.
+### What are the BGP timer settings for site-to-site (S2S) VPN connections?
 
-As an alternative, you can configure your on-premises device with timers lower than the default 60-second keepalive interval or lower than the 180-second hold timer. This configuration results in a quicker convergence time. However, timers below the default 60-second keepalive interval or below the default 180-second hold timer aren't reliable. We recommend that you keep timers at or above the default values.
+The BGP keepalive timer is 60 seconds, and the hold timer is 180 seconds. Azure VPN Gateways use fixed timer values and do not support configurable keepalive or hold timers. To maintain stable BGP sessions, on-premises devices should be configured with matching timer values, as mismatched settings may result in BGP instability.
 
 ### Do VPN gateways initiate BGP peering sessions or connections?
 

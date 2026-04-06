@@ -1,7 +1,7 @@
 ---
 title: Use AI tools and models in Azure Functions  
 description: "Learn how Azure Functions supports AI integration in your applications, including LLMs, RAG, agentic workflows, and AI frameworks. Build scalable AI-powered serverless solutions."
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/03/2025
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
@@ -154,9 +154,9 @@ Here are some reference samples for function calling scenarios:
 
 AI-driven processes often determine how to interact with models and other AI assets. However, some scenarios require a higher level of predictability or well-defined steps. These directed agentic workflows orchestrate separate tasks or interactions that agents must follow. 
 
-The [Durable Functions extension](durable/what-is-durable-task.md) helps you take advantage of the strengths of Functions to create multistep, long-running operations with built-in fault tolerance. These workflows work well for your directed agentic workflows. For example, a trip planning solution might first gather requirements from the user, search for plan options, obtain user approval, and finally make required bookings. In this scenario, you can build an agent for each step and then coordinate their actions as a workflow using Durable Functions. 
+The [Durable Functions extension](../durable-task/common/what-is-durable-task.md) helps you take advantage of the strengths of Functions to create multistep, long-running operations with built-in fault tolerance. These workflows work well for your directed agentic workflows. For example, a trip planning solution might first gather requirements from the user, search for plan options, obtain user approval, and finally make required bookings. In this scenario, you can build an agent for each step and then coordinate their actions as a workflow using Durable Functions. 
 
-For more workflow scenario ideas, see [Application patterns](durable/durable-functions-sequence.md) in Durable Functions. 
+For more workflow scenario ideas, see [Application patterns](../durable-task/common/durable-task-sequence.md) in Durable Functions. 
 
 ## Retrieval-augmented generation
 

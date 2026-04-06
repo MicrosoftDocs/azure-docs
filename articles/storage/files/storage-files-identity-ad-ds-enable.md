@@ -4,7 +4,7 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/06/2026
+ms.date: 04/03/2026
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 # Customer intent: As an IT administrator, I want to enable Active Directory Domain Services authentication for Azure file shares, so that our domain-joined Windows virtual machines can securely access and manage file shares using existing AD credentials.
@@ -81,7 +81,7 @@ Connect-AzAccount
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
-$SamAccountName = "<sam-account-name-here>"
+$SamAccountName = "<sam-account-name-here without the trailing '$'>"
 $DomainAccountType = "<ComputerAccount|ServiceLogonAccount>" # Default is set as ComputerAccount
 # If you don't provide the OU name as an input parameter, the AD identity that represents the 
 # storage account is created under the root directory.
@@ -114,6 +114,8 @@ Join-AzStorageAccount `
 # https://learn.microsoft.com/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
+
+You can now proceed to [confirm the feature is enabled](#confirm-the-feature-is-enabled).
 
 ## Option two: Manually perform the enablement actions
 
@@ -194,7 +196,7 @@ Set-AzStorageAccount `
         -ActiveDirectoryDomainGuid "<your-guid>" `
         -ActiveDirectoryDomainSid "<your-domain-sid>" `
         -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>" `
-        -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name>" `
+        -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name without the trailing '$'>" `
         -ActiveDirectoryAccountType "<your-domain-object-account-type, the value could be 'Computer' or 'User'>"
 ```
 
@@ -233,14 +235,6 @@ Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $Ne
 > [!IMPORTANT]
 > If you previously used RC4 encryption and updated the storage account to use AES-256 (recommended), run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
 
-### Debugging
-
-If needed, run the `Debug-AzStorageAccountAuth` cmdlet to check your AD configuration by using the signed in AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. This cmdlet works for AD DS and Microsoft Entra Kerberos authentication. It doesn't work for Microsoft Entra Domain Services enabled storage accounts. For more information, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
-
-```PowerShell
-Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
-```
-
 ## Confirm the feature is enabled
 
 Check if AD DS is enabled as the identity source on your storage account by using the following script. Replace `<resource-group-name>` and `<storage-account-name>` with your values.
@@ -272,11 +266,19 @@ AzureStorageID:<yourStorageSIDHere>
 > [!IMPORTANT]
 > Before you can authenticate users, you must [assign share-level permissions](storage-files-identity-assign-share-level-permissions.md).
 
+## Debugging
+
+To check your AD configuration by using the signed in AD user, run the `Debug-AzStorageAccountAuth` cmdlet. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. This cmdlet works for AD DS and Microsoft Entra Kerberos authentication. It doesn't work for storage accounts that use Microsoft Entra Domain Services as the identity source. For more information, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
+
+```PowerShell
+Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
+```
+
 ## Disable AD DS authentication on your storage account
 
-If you want to use another authentication method, disable AD DS authentication on your storage account by using the Azure portal, PowerShell, or Azure CLI.
+If you want to use another identity source, disable AD DS authentication on your storage account by using the Azure portal, PowerShell, or Azure CLI.
 
-If you disable this feature, the file shares in your storage account won't have identity-based access until you enable and configure one of the other identity sources.
+If you disable this identity source, the file shares in your storage account won't have identity-based access until you enable and configure one of the other identity sources.
 
 > [!IMPORTANT]
 > After disabling AD DS authentication on the storage account, consider deleting the AD DS identity (computer account or service logon account) that you created to represent the storage account in your on-premises AD. If you leave the identity in AD DS, it remains as an orphaned object. Removing it isn't automatic.

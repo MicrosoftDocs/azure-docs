@@ -1,7 +1,7 @@
 ---
 title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions by using the Azure portal or with Azure CLI.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/07/2025
 ms.custom: sfi-image-nochange
 ---

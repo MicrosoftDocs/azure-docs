@@ -114,11 +114,11 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Appliance services** | The appliance has the following services:<br><br> - **Appliance configuration manager**: This is a web application that can be configured with source details to start the discovery and assessment of servers.<br> - **VMware discovery agent**: The agent collects server configuration metadata that can be used to create as on-premises assessments.<br>- **VMware assessment agent**: The agent collects server performance metadata that can be used to create performance-based assessments.<br>- **Auto update service**: The service keeps all the agents running on the appliance up to date. It automatically runs once every 24 hours.<br>- **DRA agent**: Orchestrates server replication, and coordinates communication between replicated servers and Azure. Used only when replicating servers to Azure using agentless migration.<br>- **Gateway**: Sends replicated data to Azure. Used only when replicating servers to Azure using agentless migration.<br>- **SQL discovery and assessment agent**: sends the configuration and performance metadata of SQL Server instances and databases to Azure.<br>- **Web apps discovery and assessment agent**: Sends the web apps configuration data to Azure.
 **Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.
 **Discovery limits** | An appliance can discover up to 10,000 severs running across multiple vCenter Servers.<br>A single appliance can connect to up to 10 vCenter Servers.
-**Supported deployment** | Deploy as new server running on vCenter Server using OVA template. <br><br> Deploy on an existing server that runs Windows Server 2019, Windows Server 2022, or Windows Server 2025 using PowerShell.
+**Supported deployment** | Deploy as new server running on vCenter Server using OVA template. <br><br> Deploy on an existing server that runs Windows Server 2022 or Windows Server 2025 using PowerShell.
 **OVA template** | Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2191954).<br><br> Download size is 11.9 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days.<br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance using OVA template, or you activate the operating system license of the appliance server.
 **OVA verification** | The OVA template downloaded from project by checking the hash values.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) on how to deploy an appliance using the PowerShell installer script.<br/><br/> 
-**Hardware and network requirements** |  The appliance should run on server with Windows Server 2019 or Windows Server 2022, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The onboarding script checks for Windows Server 2016 or earlier versions and blocks the appliance deployment on those systems.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you deploy the appliance using OVA template, you need enough resources on the vCenter Server to create a server that meets the hardware requirements.
+**Hardware and network requirements** |  The appliance should run on server with Windows Server 2022 or Windows Server 2025, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The onboarding script checks for Windows Server 2016 or earlier versions and blocks the appliance deployment on those systems.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you deploy the appliance using OVA template, you need enough resources on the vCenter Server to create a server that meets the hardware requirements.
 **VMware requirements** | If you deploy the appliance as a server on vCenter Server, it  must be deployed on a vCenter Server running 5.5, 6.0, 6.5, 6.7 or 7.0 and an ESXi host running version 5.5 or later.<br/><br/> 
 **VDDK (agentless migration)** | To use the appliance for agentless migration of servers, the VMware vSphere VDDK must be installed on the appliance server.
 
@@ -130,12 +130,12 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 |**Appliance services** | The appliance has the following services:<br><br> - **Appliance configuration manager**: This is a web application that can be configured with source details to start the discovery and assessment of servers.<br> - **Discovery agent**: The agent collects server configuration metadata that can be used to create as on-premises assessments.<br>- **Assessment agent**: The agent collects server performance metadata that can be used to create performance-based assessments.<br>- **Auto update service**: The service keeps all the agents running on the appliance up to date. It automatically runs once every 24 hours.<br>- **SQL discovery and assessment agent**: Sends the configuration and performance metadata of SQL Server instances and databases to Azure.|
 |**Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.|
 |**Discovery limits** | An appliance can discover up to 5000 servers running in Hyper-V environment.<br/><br/> An appliance can connect to up to 300 Hyper-V hosts.|
-|**Supported deployment** | Deploy as server running on a Hyper-V host using a VHD template. <br/><br/>  Deploy on an existing server that runs Windows Server 2019, Windows Server 2022, or Windows Server 2025 using PowerShell.|
+|**Supported deployment** | Deploy as server running on a Hyper-V host using a VHD template. <br/><br/>  Deploy on an existing server that runs Windows Server 2022 or Windows Server 2025 using PowerShell.|
 |**VHD template** | Zip file that includes a VHD. Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2140422).<br><br> Download size is 8.91 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance server.|
 |**VHD verification** | Verify the VHD template downloaded from project by checking the hash values.|
 |**PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v) on how to deploy an appliance using the PowerShell installer script.|
-|**Hardware and network requirements**  |  The appliance should run on server with Windows Server 2019 or Windows Server 2022, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.
-<br/><br/> If you run the appliance as a server running on a Hyper-V host, you need enough resources on the host to create a server that meets the hardware requirements.<br/><br/> The appliance runs on a server with Windows Server 2019, Windows Server 2022, or Windows Server 2025. It needs 32 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.|
+|**Hardware and network requirements**  |  The appliance should run on server with Windows Server 2022 or Windows Server 2025, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.
+<br/><br/> If you run the appliance as a server running on a Hyper-V host, you need enough resources on the host to create a server that meets the hardware requirements.<br/><br/> The appliance runs on a server with Windows Server 2022 or Windows Server 2025. It needs 32 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.|
 |**Hyper-V requirements** | If you deploy the appliance with the VHD template, the appliance provided by Azure Migrate is Hyper-V VM version 5.0.<br/><br/> The Hyper-V host must be running Windows Server 2019 or Windows Server 2022.|
 
 ## Appliance - Physical
@@ -146,10 +146,10 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Appliance services** | The appliance has the following services:<br><br> - **Appliance configuration manager**: This is a web application that can be configured with source details to start the discovery and assessment of servers.<br> - **Discovery agent**: The agent collects server configuration metadata that can be used to create as on-premises assessments.<br>- **Assessment agent**: The agent collects server performance metadata that can be used to create performance-based assessments.<br>- **Auto update service**: The service keeps all the agents running on the appliance up to date. It automatically runs once every 24 hours.<br>- **SQL discovery and assessment agent**: Sends the configuration and performance metadata of SQL Server instances and databases to Azure.
 **Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.<br>
 **Discovery limits** | An appliance can discover up to 1000 physical servers.
-**Supported deployment** | Deploy on an existing server that runs Windows Server 2019, Windows Server 2022, or Windows Server 2025 using PowerShell.
+**Supported deployment** | Deploy on an existing server that runs Windows Server 2022 or Windows Server 2025 using PowerShell.
 **PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zip file from the project or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-discover-physical.md).<br><br> Download size is 85.8 MB.
 **Script verification** | Verify the PowerShell installer script downloaded from project by checking the hash values.
-**Hardware and network requirements** |  The appliance runs on a server with Windows Server 2019, Windows Server 2022, or Windows Server 2025. It needs 32 GB RAM, 8 vCPUs, about 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance uses a static or dynamic IP address and needs internet access, either directly or through a proxy.
+**Hardware and network requirements** |  The appliance runs on a server with Windows Server 2022 or Windows Server 2025. It needs 32 GB RAM, 8 vCPUs, about 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance uses a static or dynamic IP address and needs internet access, either directly or through a proxy.
 
 ## URL access
 
@@ -198,15 +198,25 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 
 The appliance needs access to the following URLs (directly or via proxy) over and above private link access.
 
-**URL** | **Details**  
+**URL (Mandatory)** | **Details**  
 --- | --- |
-*.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.microsoft.com <br> *.live.com <br> *.office.com <br> *.microsoftonline.com <br> *.microsoftonline-p.com <br> *.microsoftazuread-sso.com  | Used for access control and identity management by Microsoft Entra ID
-management.azure.com |  Used for resource deployments and management operations
-*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
-aka.ms/* (optional) | Allow access to these links; used to download and install the latest updates for appliance services.
-download.microsoft.com/download | Allow downloads from Microsoft download center.
-*.blob.core.windows.net (optional) |  This is optional and is not required if the storage account has a private endpoint attached.
+portal.azure.com  | Required for Azure portal access. The appliance Configuration Manager UI uses the portal URL for time sync checks with internet time server.
+*.msftauth.net <br> *.msauth.net <br> login.windows.net <br> login.microsoftonline.com <br> *.microsoftonline-p.com <br> *.microsoftazuread-sso.com <br> developer.microsoft.com <br> graph.microsoft.com | Used for access control and identity management by Microsoft Entra ID.
+*.live.com <br> *.office.com  |  Required for authentication to Azure (redirection). Used for user login and subscription access. 
+
+You can configure Private Links for the following required URLs using the referenced guidance and update the DNS configuration on your local network to resolve the corresponding private endpoint addresses.
+
+**URL** | **How to configure private link**  
+--- | --- |
+management.azure.com (Used for resource deployments and management operations) | [Create private link for managing resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
+*.blob.core.windows.net (used to upload migration-related data to Azure Storage accounts) | [Connect to a storage account using an Azure Private Endpoint - Azure Private Link](/azure/private-link/tutorial-private-endpoint-storage-portal?tabs=dynamic-ip#create-storage-account-with-a-private-endpoint).
+
+The following URLs are optional. You can choose to skip allowlisting these based on your security requirements but be aware of the impact listed below.  
+
+**URL (Optional)** | **Details**  | **Impact**|
+--- | --- | --- |
+download.microsoft.com/* <br> aka.ms/latestapplianceservices | Download the latest versions of the appliance components (auto-updater). | The appliance cannot automatically check for or update agents to the latest versions. In this scenario [agents must be manually updated](migrate-appliance.md#manually-update-an-older-version) and [auto update must be disabled](migrate-appliance.md#turn-off-auto-update).
+*.services.visualstudio.com <br> *.events.data.microsoft.com | Upload diagnostics logs for appliance components. | Appliance diagnostic logs will not be sent to Microsoft. This may affect Microsoft Support's ability to troubleshoot issues.
 
 ### Government cloud URLs for private link connectivity
 

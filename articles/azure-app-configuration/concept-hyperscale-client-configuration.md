@@ -63,9 +63,7 @@ Configure one or more filters to control which requests are allowed to pass thro
 
 - Configure Azure Front Door filters to precisely match your application's configuration requirements. Only expose the exact key patterns your application uses. For example, if your application loads keys with the `"App1:"` prefix, configure the Azure Front Door rule to allow only `"App1:"` keys, not broader patterns like `"App"`.
 
-- If your application loads feature flags, provide `".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}"` filter for the Key with *Starts with* operator.
-
-- If you're using App Configuration provider libraries and your application loads ONLY feature flags, you should add two key filters in the Azure Front Door rules - one for `ALL` keys with no label and second for all keys starting with `".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}"`. This is because App Configuration provider libraries load all key-values with no label by default when no key-value selector is specified. 
+- If you're using App Configuration provider libraries and your application loads ONLY feature flags, you should add two filters in the Azure Front Door rules - a key-value filter for ALL keys with no label and a feature flag filter for all keys starting with your feature flag prefix. This is because App Configuration provider libraries load all key-values with no label by default when no key-value selector is specified. 
 
 #### Request scoping through multiple Azure Front Door endpoints
 

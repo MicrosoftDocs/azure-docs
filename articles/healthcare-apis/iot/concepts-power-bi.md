@@ -4,7 +4,7 @@ description: Learn how to use the MedTech service and Power BI
 author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: medtech-service
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/10/2025
 ms.author: chrupa
 ---

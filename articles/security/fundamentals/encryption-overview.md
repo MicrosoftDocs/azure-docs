@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 04/02/2026
 ms.author: mbaldwin
 ---
 
@@ -128,7 +128,7 @@ A site-to-site VPN gateway connection connects your on-premises network to an Az
 
 Without proper protection and management of keys, encryption is useless. Azure offers several key management solutions, including Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM.
 
-Key Vault removes the need to configure, patch, and maintain hardware security modules (HSMs) and key management software. By using Key Vault, you maintain control—Microsoft never sees your keys, and applications don't have direct access to them. You can also import or generate keys in HSMs.
+Key Vault removes the need to configure, patch, and maintain hardware security modules (HSMs) and key management software. By using Key Vault, you maintain control—applications don't have direct access to your keys. You can also import or generate keys in HSMs. For the strongest key isolation guarantees, Azure Managed HSM provides a customer-owned security domain where Microsoft has no access to your key material.
 
 For more information about key management in Azure, see [Key management in Azure](/azure/security/fundamentals/key-management).
 

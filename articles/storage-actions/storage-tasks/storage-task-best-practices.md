@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-storage-actions
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 09/15/2025
 ms.author: normesta
 

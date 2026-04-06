@@ -2,7 +2,7 @@
 title: Azure HDInsight architecture with Enterprise Security Package
 description: Learn how to plan Azure HDInsight security with Enterprise Security Package.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: hdinsightactive, no-azure-ad-ps-ref
 author: hareshg
 ms.author: hgowrisankar

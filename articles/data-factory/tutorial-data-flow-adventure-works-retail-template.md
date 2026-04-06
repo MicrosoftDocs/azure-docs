@@ -4,7 +4,7 @@ description: This tutorial provides steps for using the industry data model temp
 author: kromerm
 ms.author: aamerril
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
 ---
 

@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: What is NGINXaaS – An Azure Native ISV Service?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage your NGINXaaS resource

@@ -1,7 +1,7 @@
 ---
 title: Azure Functions Scenarios 
 description: Identify key scenarios that use Azure Functions to provide serverless compute resources in aa Azure cloud-based topology. 
-ms.topic: conceptual
+ms.topic: overview
 ms.custom:
   - devx-track-extended-java
   - devx-track-js
@@ -64,7 +64,9 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 
 ::: zone pivot="programming-language-python" 
 + [Quickstart: Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md)
++ [Tutorial: Process images by using FFmpeg on a mounted Azure Files share](tutorial-ffmpeg-processing-azure-files.md)
 + [Sample: Blob trigger with the Event Grid source type quickstart sample)](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventgrid-blob)
++ [Sample: FFmpeg image processing with Azure Files storage mount](https://github.com/Azure-Samples/Azure-Functions-Flex-Consumption-with-Azure-Files-OS-Mount-Samples)
 + [Tutorial: Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-python)
 ::: zone-end
 
@@ -372,37 +374,39 @@ public static async Task<IActionResult> Run(
 
 ## Build a serverless workflow
 
-Functions often serve as the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations by using the Durable Functions extension. For more information, see [Durable Functions overview](./durable/what-is-durable-task.md).
+Functions often serve as the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations by using the Durable Functions extension. For more information, see [Durable Functions overview](../durable-task/common/what-is-durable-task.md).
 
 :::image type="content" source="media/functions-scenarios/build-a-serverless-workflow.png" alt-text="A combination diagram of a series of specific serverless workflows using Azure Functions." lightbox="media/functions-scenarios/build-a-serverless-workflow-expanded.png":::
 
 ::: zone pivot="programming-language-csharp" 
 + [Tutorial: Create a function to integrate with Azure Logic Apps](./functions-twitter-email.md)
-+ [Quickstart: Create your first durable function in Azure using C#](./durable/durable-functions-isolated-create-first-csharp.md)
++ [Quickstart: Create your first durable function in Azure using C#](./durable-functions/durable-functions-isolated-create-first-csharp.md)
 + [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ [Quickstart: Create your first durable function in Azure using JavaScript](./durable/quickstart-js-vscode.md)
++ [Quickstart: Create your first durable function in Azure using JavaScript](./durable-functions/quickstart-js-vscode.md)
 + [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript" 
-+ [Quickstart: Create your first durable function in Azure using JavaScript](./durable/quickstart-ts-vscode.md)
++ [Quickstart: Create your first durable function in Azure using JavaScript](./durable-functions/quickstart-ts-vscode.md)
 + [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ [Quickstart: Create your first durable function in Azure using Python](./durable/quickstart-python-vscode.md)
++ [Quickstart: Create your first durable function in Azure using Python](./durable-functions/quickstart-python-vscode.md)
++ [Tutorial: Durable text analysis with a mounted Azure Files share](durable-functions/tutorial-durable-text-analysis-azure-files.md)
++ [Sample: Durable text analysis with Azure Files storage mount](https://github.com/Azure-Samples/Azure-Functions-Flex-Consumption-with-Azure-Files-OS-Mount-Samples)
 + [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 
-+ [Quickstart: Create your first durable function in Azure using Java](./durable/quickstart-java.md)
++ [Quickstart: Create your first durable function in Azure using Java](./durable-functions/quickstart-java.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ [Quickstart: Create your first durable function in Azure using PowerShell](./durable/quickstart-powershell-vscode.md)
++ [Quickstart: Create your first durable function in Azure using PowerShell](./durable-functions/quickstart-powershell-vscode.md)
 ::: zone-end
 
 ## Respond to database changes

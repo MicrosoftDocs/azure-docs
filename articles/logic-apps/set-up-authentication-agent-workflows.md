@@ -213,7 +213,7 @@ If you have to reuse an existing app registration that is shared with another AP
    If you don't have a user-assigned managed identity with logic app access, follow these steps:
 
    1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal).
-   1. [Add the user-assigned identity to your logic app](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
+   1. [Add the user-assigned identity to your logic app](authenticate-with-managed-identity.md?tabs=standard#add-user-identity-portal).
    1. [Set up the user-assigned identity as a federated identity credential on your app registration](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity).
 
 1. Optionally, if you need to set up [claims](/entra/identity-platform/developer-glossary#claim) such as roles, scopes, user groups, or [`XMS_CC`](/entra/identity-platform/claims-challenge?tabs=dotnet#receiving-xms_cc-claim-in-an-access-token), follow these steps:

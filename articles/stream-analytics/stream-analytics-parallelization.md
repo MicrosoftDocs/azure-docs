@@ -4,7 +4,7 @@ description: This article describes how to scale Stream Analytics jobs by config
 ms.service: azure-stream-analytics
 author: anboisve
 ms.author: anboisve
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/17/2024
 ---
 # Use query parallelization in Azure Stream Analytics

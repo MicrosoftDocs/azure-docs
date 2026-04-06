@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/25/2025
+ms.date: 04/03/2026
 ms.author: danlep
 ms.custom:
   - engagement-fy23
@@ -106,7 +106,7 @@ For more information, see [Use managed identities in Azure API Management](api-m
 API Management offers a free, managed TLS certificate for your domain, if you don't wish to purchase and manage your own certificate. The certificate is autorenewed automatically.
 
 > [!IMPORTANT]
-> **Creation of managed certificates for custom domains in API Management will be temporarily unavailable from August 15, 2025 to March 15, 2026.** Our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements for issuing certificates. This migration requires us to temporarily suspend the creation of managed certificates for custom domains. [Learn more](breaking-changes/managed-certificates-suspension-august-2025.md)
+> **Creation of managed certificates for custom domains in API Management will be temporarily unavailable from August 15, 2025 to June 30, 2026.** Our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements for issuing certificates. This migration requires us to temporarily suspend the creation of managed certificates for custom domains. [Learn more](breaking-changes/managed-certificates-suspension-august-2025.md)
 >
 > Existing managed certificates will be autorenewed and remain unaffected.
 >

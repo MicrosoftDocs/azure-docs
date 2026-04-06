@@ -4,7 +4,7 @@ description: A share snapshot is a read-only, point-in-time copy of an Azure fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 3/2/2026
+ms.date: 3/17/2026
 ms.author: kendownie
 # Customer intent: "As a data administrator, I want to use file share snapshots for Azure Files, so that I can efficiently recover previous versions of files and protect against accidental deletions or data corruption."
 ---
@@ -464,9 +464,6 @@ az storage share delete --account-name <storage-account-name> --name <file-share
 
 You can create a snapshot of an NFS file share created with the Microsoft.FileShares resource provider (preview) by using the Azure portal, Azure PowerShell, or Azure CLI.
 
-> [!NOTE]
-> File share with Microsoft.FileShares is currently in preview. You can use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
-
 # [Azure portal](#tab/portal)
 
 To create a snapshot of an existing file share, sign in to the Azure portal and follow these steps.
@@ -484,16 +481,17 @@ To create a snapshot of an existing file share, sign in to the Azure portal and 
 
 # [Azure PowerShell](#tab/powershell)
 
-To create a snapshot of an existing file share, run the following PowerShell command. Replace `<subscription-ID>`, `<resource-group-name>`, `<file-share-name>`, and `<snapshot-name>` with your own values.
+To create a snapshot of an existing file share, run the following PowerShell command. Be sure to replace variables with your own values.
 
 ```powershell
-New-AzResource -ResourceId "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.FileShares/fileShares/<file-share-name>/fileShareSnapshots/<snapshot-name>" `
-               -ApiVersion "2025-09-01-preview" `
-               -Properties @{
-                  metadata = @{}; 
-                  initiatorId=""
-               } `
-               -Force
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
+Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+
+$resourceGroup = "<resource-group-name>"
+$shareName = "<file-share-name>" 
+$snapshotName = "<snapshot-name>"
+
+New-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shareName -Name $snapshotName #-Metadata @{metakey1 = "metavalue1"}
 ```
 
 # [Azure CLI](#tab/cli)
@@ -528,14 +526,17 @@ To list all the snapshots for an existing file share, sign in to the Azure porta
 
 # [Azure PowerShell](#tab/powershell)
 
-To list all file share snapshots, run the following PowerShell command. Replace `<subscription-ID>`, `<resource-group-name>`, and `<file-share-name>` with your own values.
+To list all file share snapshots, run the following PowerShell command. Be sure to replace variables with your own values.
 
 ```powershell
-$filesharesnapshot=Get-AzResource -ResourceId "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.FileShares/fileShares/<file-share-name>/fileShareSnapshots"
-$filesharesnapshot
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
+Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
 
-# to view the metadata
-$filesharesnapshot.properties.metadata
+$resourceGroup = "<resource-group-name>"
+$shareName = "<file-share-name>"
+$snapshotName = "<snapshot-name>"
+
+Get-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shareName -Name $snapshotName
 ```
 
 # [Azure CLI](#tab/cli)
@@ -556,6 +557,7 @@ To mount an NFS file share snapshot to a Linux VM (NFS client) and restore files
 1. Sign in to the Azure portal and go to your file share.
 
 1. Select **JSON view** from the upper right. In the JSON view, under properties, copy the value for **hostName**. The format looks like `fs-xxxxxxxxxxxxxxxxx.xx.file.storage.azure.net`.
+To extract **hostName** by using PowerShell, run `Get-AzFileShare -ResourceGroupName $resourceGroup -ResourceName $shareName` and look for the `hostName` property in the output. Be sure to replace `$resourceGroup` and `$shareName` with your own values.
 
 1. Run the following command in a console. Replace the placeholder values, including brackets, with your own values. The value for `<hostName>` should be the entire value you copied in step 2. The value for `<hostNamePrefix>` is the first segment of the hostName (up to but not including the first period), which includes everything before `.xx.file.storage.azure.net`.
  
@@ -617,12 +619,15 @@ To delete a snapshot of an existing file share, sign in to the Azure portal and 
 
 # [Azure PowerShell](#tab/powershell)
 
-To delete a file share snapshot, run the following PowerShell command. Replace `<subscription-ID>`, `<resource-group-name>`, `<file-share-name>`, and `<snapshot-name>` with your own values.
+``` powershell
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
+Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
 
-```powershell
-Remove-AzResource -ResourceId "/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.FileShares/fileShares/<file-share-name>/fileShareSnapshots/<snapshot-name>" `
-                  -ApiVersion "2025-09-01-preview" `
-                  -Force
+$resourceGroup = "<resource-group-name>"
+$shareName = "<file-share-name>"
+$snapshotName = "<snapshot-name>"
+
+Remove-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shareName -Name $snapshotName
 ```
 
 # [Azure CLI](#tab/cli)

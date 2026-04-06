@@ -6,7 +6,7 @@ author: vikramdesai01
 ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/26/2025
 ms.author: vikdesai
 ms.custom: sfi-image-nochange

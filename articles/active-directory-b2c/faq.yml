@@ -321,3 +321,25 @@ sections:
           In Azure AD B2C, I revoke all sessions of a user by using the Azure portals Revoke sessions button, but it doesn't work.
         answer: |
           Currently, Azure AD B2C doesn't support user session revocation from the Azure portal. However, you can achieve this task by using [Microsoft Graph PowerShell](manage-users-portal.md#revoke-a-consumer-users-session) or [Microsoft Graph API](/graph/api/user-revokesigninsessions).
+  - name: Azure AD External Identities P2 retirement
+    questions:
+      - question: |
+          What happened to Azure AD External Identities P2 in B2C tenants?
+        answer: |
+          Azure AD External Identities P2 has been retired in Azure AD B2C tenants. P2-only features are no longer available.
+      - question: |
+          Does the retirement affect workforce tenants?
+        answer: |
+          No. ID Protection remains available for business guests in workforce tenants as part of Azure AD External Identities P2. The retirement applies only to B2C tenants.
+      - question: |
+          What should I do if I was using P2 ID Protection in my B2C tenant?
+        answer: |
+          To continue protecting against identity-based risks in B2C, consider integrating a [partner identity verification provider](identity-verification-proofing.md). All P2 tenants will be automatically switched to P1 on a rolling basis by the end of March 2026.
+      - question: |
+          Will I still be billed for P2 after the retirement?
+        answer: |
+          Your B2C tenant will be automatically switched to P1 by the end of March 2026 and you will be billed at P1 pricing. For guidance on changing your pricing tier, see [Azure AD B2C billing](billing.md).
+      - question: |
+          Is the P2 retirement related to the Azure AD B2C end of sale?
+        answer: |
+          These are separate topics. The end of sale means Azure AD B2C is no longer available to new customers as of May 2025. The P2 retirement specifically retires the P2 pricing tier and ID Protection in B2C tenants. Existing B2C customers on P1 can continue using the service.

@@ -1,5 +1,5 @@
 ---
-title: View Azure savings plan utilization
+title: View savings plan utilization
 titleSuffix: Microsoft Cost Management
 description: Learn how to view savings plan utilization in the Azure portal.
 author: nwokolo
@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
@@ -41,5 +41,5 @@ You can get the [Savings plan utilization](https://go.microsoft.com/fwlink/?link
 
 ## Next steps
 
-- [Manage Azure savings plan](manage-savings-plan.md)
-- [View Azure savings plan cost and usage details](utilization-cost-reports.md)
+- [Manage savings plan](manage-savings-plan.md)
+- [View savings plan cost and usage details](utilization-cost-reports.md)

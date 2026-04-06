@@ -186,7 +186,7 @@ Follow these migration steps if your VPN Gateway uses legacy cloudapp.NET DNS
 
 1. Prepare for migration: The preparation steps are the same as those in [How to migrate Basic SKU public IP address to Standard](basic-public-ip-migrate-howto.md?tabs=portal).
 
-1. After the preparation step completes successfully, select Download VPN Client to download the updated VPN client profile (ZIP). Then, use the downloaded profile to reconnect and validate Point-to-Site (P2S) connectivity.
+1. After the preparation step completes successfully, select Download VPN Client to download the updated VPN client profile (ZIP). Then, **during or after Migrate step** use the downloaded profile to reconnect and validate Point-to-Site (P2S) connectivity.
 
 1. After that, the Migrate and Commit steps are the same as mentioned in [How to migrate Basic SKU public IP address to Standard](basic-public-ip-migrate-howto.md?tabs=portal)
 

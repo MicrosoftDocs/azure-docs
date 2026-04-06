@@ -68,7 +68,7 @@ After vSAN TRIM/UNMAP is enabled, you must meet certain prerequisites in order f
 
 For more information about how to reclaim space for Windows and Linux systems for TRIM/UNMAP to execute, see the following VMware articles:
 - [How to reclaim disk space](https://knowledge.broadcom.com/external/article/340005/reclaiming-disk-space-from-thin-provisio.html)
-- [Learn the procedure to enable TRIM/UNMAP](https://knowledge.broadcom.com/external/article/326595/procedure-to-enable-trimunmap.html)
+- [Learn the procedure to enable TRIM/UNMAP](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/expanding-and-managing-a-vsan-cluster/vsan-file-service/reclaiming-space-with-unmap-in-vsan-distributed-file-system.html)
 
 ## Set VMware vSAN space efficiency
 

@@ -32,14 +32,14 @@ For more information about encryption of managed disks with CMKs, see [Server-si
 
 ### Encryption support by using ADE
 
-Azure Backup supports backup of Azure VMs that have their OS/data disks encrypted with ADE. ADE uses Azure BitLocker for encryption of Windows VMs, and the dm-crypt feature for Linux VMs. ADE integrates with Azure Key Vault to manage disk-encryption keys and secrets. You can also use Key Vault key encryption keys (KEKs) to add an extra layer of security. KEKs encrypt secrets before writing them to Key Vault.
+Azure Backup supports backup of managed Azure VMs that have their OS/data disks encrypted with ADE. ADE uses Azure BitLocker for encryption of Windows VMs, and the dm-crypt feature for Linux VMs. ADE integrates with Azure Key Vault to manage disk-encryption keys and secrets. You can also use Key Vault key encryption keys (KEKs) to add an extra layer of security. KEKs encrypt secrets before writing them to Key Vault.
 
-Azure Backup can back up and restore Azure VMs by using ADE with and without the Microsoft Entra app, as summarized in the following table.
+Azure Backup can back up and restore managed Azure VMs by using ADE with and without the Microsoft Entra app, as summarized in the following table.
 
 VM disk type | ADE (BEK/dm-crypt) | ADE and KEK
 --- | --- | ---
-Unmanaged | Yes | Yes
-Managed  | Yes | Yes
+Unmanaged | No | No
+Managed | Yes | Yes
 
 - Learn more about [ADE](/azure/virtual-machines/disk-encryption-overview), [Key Vault](/azure/key-vault/general/overview), and [KEKs](/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Read the [FAQ](/azure/virtual-machines/disk-encryption-overview) for Azure VM disk encryption.
@@ -48,6 +48,7 @@ Managed  | Yes | Yes
 
 Before you back up or restore encrypted Azure VMs, review the following limitations:
 
+- Backup of Azure VMs that use unmanaged disks isn't supported.
 - You can back up and restore ADE-encrypted VMs within the same subscription.
 - You can encrypt VMs only by using standalone keys. Any key that's a part of a certificate used to encrypt a VM isn't currently supported.
 - You can restore data to a secondary region. Azure Backup supports cross-region restore of encrypted Azure VMs to the Azure paired regions. For more information, see [Support matrix](./backup-support-matrix.md#cross-region-restore).

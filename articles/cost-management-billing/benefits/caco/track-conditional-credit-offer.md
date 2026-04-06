@@ -1,5 +1,5 @@
 ---
-title: Track your Conditional Azure Credit Offer (CACO)
+title: Track Your Conditional Azure Credit Offer (CACO)
 description: Learn how to track your Conditional Azure Credit Offer (CACO) for a Microsoft Customer Agreement.
 author: shrutis06
 ms.reviewer: shrshett
@@ -13,185 +13,166 @@ ms.custom: sfi-image-nochange
 
 # Track your Conditional Azure Credit Offer (CACO)
 
-A Conditional Azure Credit Offer (CACO) is a contractual agreement in which your organization commits to specific, predefined spend targets within set time periods and receives Azure credits for meeting these targets. A CACO is composed of multiple milestones with specific spend targets and an associated ACO award at the end of each milestone, allowing your organization to align rewards with your consumption patterns and business goals.
+A Conditional Azure Credit Offer (CACO) is a contractual agreement in which your organization commits to specific, predefined spending targets within set time periods and receives Azure credits for meeting these targets.
 
+A CACO has multiple milestones with specific spending targets and an associated Azure Credit Offer (ACO) award at the end of each milestone. If you meet a milestone by its due date, you receive the award. If you don't meet a milestone by its due date, the system forfeits the award. The use of milestones can help your organization align rewards with its consumption patterns and business goals.
 
 ## Prerequisites
 
-To view CACO details, you must have any of the following roles:
+To view CACO details and track milestone progress, you must have any of the following roles:
 
-**Billing Account Access**
-- Owner, Contributor, or Reader role on the Microsoft Customer Agreement (MCA) billing account
+- **Billing account access**. Owner, Contributor, or Reader role on the Microsoft Customer Agreement billing account.
+- **Subscription access**. Owner, Contributor, or Reader role on the subscription where the CACO resource is created.
 
-**Subscription Access** 
-- Owner, Contributor, or Reader role on the subscription where the CACO resource is created
-
-> [!NOTE]
-> You only need permissions at one of these levels to view CACO details and track milestone progress.
-
-## Track your CACO Commitment
-
-### [Azure portal](#tab/portal)
+## Actions for tracking your CACO commitment
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Search for **Cost Management + Billing**.  
-    :::image type="content" source="../../manage/media/conditional-credit-offer/cost-management-billing-search.png" alt-text="Screenshot showing search in portal for Cost Management + Billing." lightbox="../../manage/media/conditional-credit-offer/cost-management-billing-search.png" :::
-3. In the billing scopes page, select the billing account for which you want to track the commitment. 
-    :::image type="content" source="../../manage/media/conditional-credit-offer/billing-scopes-list.png" alt-text="Screenshot that shows Billing Scopes." lightbox="../../manage/media/conditional-credit-offer/billing-scopes-list.png" :::
-4. Select **Benefits** from the left-hand side and then select the **Conditional Azure Credit Offer (CACO)** tile.  
-    :::image type="content" source="../../manage/media/conditional-credit-offer/benefits-page.png" alt-text="Screenshot that shows selecting the CACO tab for MCA." lightbox="../../manage/media/conditional-credit-offer/benefits-page.png" :::
 
-## CACO page overview
+2. In the search box, enter **cost management + billing**.
 
-The Conditional Azure Credit Offer (CACO) tab has the following sections.
+3. Under **Services**, select **Cost Management + Billing**.
 
-#### Overall commitment 
+    :::image type="content" source="../../manage/media/conditional-credit-offer/cost-management-billing-search.png" alt-text="Screenshot that shows a search for Cost Management + Billing in the portal." lightbox="../../manage/media/conditional-credit-offer/cost-management-billing-search.png" :::
 
-:::image type="content" source="../../manage/media/conditional-credit-offer/conditional-credit-offer-page.png" alt-text="Screenshot of CACO page." lightbox="../../manage/media/conditional-credit-offer/conditional-credit-offer-page.png" :::
+4. On the **Billing scopes** pane, select the billing account for which you want to track the commitment.
 
-The overall commitment displays the total commitment amount for your CACO, across milestones.
+    :::image type="content" source="../../manage/media/conditional-credit-offer/billing-scopes-list.png" alt-text="Screenshot that shows billing scopes." lightbox="../../manage/media/conditional-credit-offer/billing-scopes-list.png" :::
 
-#### Details
+5. On the left pane, expand **Billing** and select **Benefits**. Then select the **Conditional Azure Credit Offer** tile.  
 
-The Details section displays other important aspects of your commitment.
+    :::image type="content" source="../../manage/media/conditional-credit-offer/benefits-page.png" alt-text="Screenshot that shows billing benefits for a Microsoft Customer Agreement, including the Conditional Azure Credit Offer tile." lightbox="../../manage/media/conditional-credit-offer/benefits-page.png" :::
+
+The **Conditional Azure Credit Offer (CACO)** pane has the following sections.
+
+:::image type="content" source="../../manage/media/conditional-credit-offer/conditional-credit-offer-page.png" alt-text="Screenshot of the Conditional Azure Credit Offer pane." lightbox="../../manage/media/conditional-credit-offer/conditional-credit-offer-page.png" :::
+
+### Overall commitment
+
+The **Overall commitment** section displays the total commitment amount for your CACO, across milestones.
+
+### Details
+
+The **Details** section displays other important aspects of your commitment.
 
 | Term | Definition |
-|---|---|
-| ID | An identifier that uniquely identifies your CACO. |
-| Start date | The date when the commitment becomes effective. |
-| End date | The date when the commitment expires, which is the end date of the last milestone. |
-| Commitment amount | The aggregated amount you commit to spend on CACO-eligible products/services across milestones. |
-| Status | The status of your commitment. |
+| ---- | ---------- |
+| **ID** | Identifier that uniquely identifies your CACO. |
+| **Start date** | Date when the commitment becomes effective. |
+| **End date** | Date when the commitment expires, which is the end date of the final milestone. |
+| **Commitment amount** | Aggregated amount that you commit to spend on CACO-eligible products and services across milestones. |
+| **Status** | Status of your commitment. |
 
 Your CACO can have one of the following statuses:
 
-- **Scheduled:** The CACO has a future start date and isn't yet active. No eligible Azure spend contributes toward your commitment until the start date is reached.
-- **Active:** The CACO is currently in effect. Eligible Azure spend contributes toward fulfilling your commitment.
-- **Completed:** The CACO commitment amount is fully met. No further action is required.
-- **Expired:** The CACO end date passes without the commitment being fully met. Contact your Microsoft Account team for more information.
-- **Canceled:** The CACO is terminated before the end date. New Azure spend doesn't contribute toward your CACO commitment. Contact your Microsoft Account team for more information.
+- **Scheduled**. The CACO has a future start date and isn't yet active. No eligible Azure spending contributes toward your commitment until you reach the start date.
+- **Active**. The CACO is currently in effect. Eligible Azure spending contributes toward fulfilling your commitment.
+- **Completed**. You fully met the CACO commitment amount. No further action is required.
+- **Expired**. The CACO end date passed without the commitment being fully met. Contact your Microsoft account team for more information.
+- **Canceled**. The CACO was terminated before the end date. New Azure spending doesn't contribute toward your CACO commitment. Contact your Microsoft account team for more information.
 
-#### Upcoming Milestone
+### Current Milestone
 
-The Upcoming Milestone section displays the next milestone that needs to be achieved to earn the associated ACO award.
-
-| Term | Definition |
-|---|---|
-| Start Date | The date when the milestone period begins |
-| End Date | The date by which the milestone must be met |
-| Consumption target | The spending amount required to achieve this milestone |
-| Target ACO | The Azure Credit Offer award amount you receive for meeting this milestone |
-| Status | Whether the milestone is active, pending, met, or missed |
-
-You can select **Show all Milestones** to view the complete list of milestones for your CACO commitment.
-
-#### Transactions
-
-This section displays transactions that decremented your CACO commitment.
+The **Current Milestone** section displays a summary of the current milestone that you need to achieve to earn the associated Azure Credit Offer award.
 
 | Term | Definition |
-|---|---|
-| Date | The date when the event happened |
-| Description | A description of the event |
-| Billing profile | The billing profile for which the event happened. The billing profile only applies to Microsoft Customer Agreements. |
-| CACO decrement | The amount of CACO decrement from the event |
-| Remaining commitment | The remaining CACO commitment after the event |
+| --- | ----------- |
+| **Spend Target** | Amount that you must spend for this milestone to get the ACO award. |
+| **Credit Award** | ACO award amount that you get for meeting the milestone. |
+| **Milestone** | Name of the milestone. |
+| **Progress** | Amount of spending so far for the milestone. |
+| **End date** | Date by which you must meet the milestone. |
+| **Status** | Status of the milestone. |
 
-## CACO Milestones
+To view the complete list of milestones for your CACO commitment, select **Show all Milestones**. This view provides detailed information about each milestone's progress and status.
 
-Every CACO offer consists of one or many milestones with a target amount, date, and corresponding credit award for meeting the milestone amount. 
-
-- **Met milestone:** If you meet a milestone by its due date, you receive the corresponding ACO (Azure Credit Offer) award associated with that milestone.
-
-- **Missed milestone:** If you don't meet a milestone by its due date, the system forfeits the ACO award corresponding to that milestone.
-
-#### All Milestones
-
-When you select **Show all Milestones**, you can view a comprehensive list of all milestones associated with your CACO commitment. This view provides detailed information about each milestone's progress and status.
-
-:::image type="content" source="../../manage/media/conditional-credit-offer/conditional-credit-offer-milestones.png" alt-text="Screenshot of all CACO milestones." lightbox="../../manage/media/conditional-credit-offer/conditional-credit-offer-milestones.png" :::
+:::image type="content" source="../../manage/media/conditional-credit-offer/conditional-credit-offer-milestones.png" alt-text="Screenshot of an example list of all Conditional Azure Credit Offer milestones." lightbox="../../manage/media/conditional-credit-offer/conditional-credit-offer-milestones.png" :::
 
 | Column | Definition |
-|---|---|
-| ID | The unique identifier for each milestone (for example, Milestone1, Milestone2, Milestone3) |
-| End Date | The deadline by which the milestone must be achieved |
-| Consumption target | The total spending amount required to meet this milestone |
-| Progress% | The current progress percentage toward achieving the milestone consumption target |
-| ACO award | The Azure Credit Offer amount you receive if the milestone is met |
-| Status | The current status of the milestone |
+| ------ | ---------- |
+| **Id** | Unique identifier for the milestone. |
+| **End Date** | Deadline by which you must achieve the milestone. |
+| **Spend target** | Total spending amount required to meet the milestone. |
+| **Progress%** | Current progress percentage toward achieving the milestone consumption target. |
+| **Credit award** | ACO amount that you get if you meet the milestone. |
+| **Status** | Current status of the milestone. |
 
-**Milestone statuses:**
+A milestone can have one of the following statuses:
 
 | Status | Description |
-|--------|-------------|
-| Scheduled | The milestone has a future start date and isn't yet active. |
-| Active | The milestone is currently in progress and eligible Azure spend contributes toward fulfilling the milestone target.  |
-| Pending | The milestone is pending evaluation. |
-| Completed | The milestone target is successfully met within the specified timeframe and the system grants the associated ACO award. |
-| Missed | The milestone deadline passes without meeting the consumption target. The system forfeits the ACO award corresponding to this milestone. |
-| Canceled | The system cancels the milestone before completion. This situation may occur when you modify or terminate the overall CACO commitment. |
-| Removed | The system removes the milestone from the CACO commitment. This status typically occurs when you renegotiate commitment terms. |
+| ------ | ----------- |
+| **Scheduled** | The milestone has a future start date and isn't yet active. |
+| **Active** | The milestone is currently in progress. Eligible Azure spending contributes toward fulfilling the milestone target. |
+| **Pending** | The milestone is pending evaluation. |
+| **Completed** | You met the milestone target within the specified timeframe. The system grants the associated ACO award. |
+| **Missed** | The milestone deadline passed without your meeting the consumption target. The system forfeits the ACO award that corresponds to this milestone. |
+| **Canceled** | The system canceled the milestone before completion. This situation might occur when you modify or terminate the overall CACO commitment. |
+| **Removed** | The system removed the milestone from the CACO commitment. This status typically occurs when you renegotiate commitment terms. |
 
+### Transactions
 
-## CACO Alerts
+The **Transactions** section displays transactions that decremented your CACO commitment.
 
-Microsoft sends email notifications to Billing Account Admins to help ensure CACO commitments and milestones are met on time to receive ACO awards. These alerts provide advance notice so you can take action before forfeiting ACO awards.
+| Term | Definition |
+| ---- | ----------- |
+| **Date** | Date when the event happened. |
+| **Description** | Description of the event. |
+| **Billing profile** | Billing profile for which the event happened. The billing profile applies only to Microsoft Customer Agreements. |
+| **CACO decrement** | Amount of CACO decrement from the event. |
+| **Remaining commitment** | Remaining CACO commitment after the event. |
+
+## CACO alerts
+
+Microsoft sends email notifications to billing account admins to help ensure that you meet CACO commitments and milestones on time to receive ACO awards. These alerts provide advance notice so you can take action before forfeiting ACO awards.
 
 ### CACO expiry alerts
 
-If your CACO target isn't reached, email notifications are sent to Billing Account Admins at the following intervals before the CACO end date:
+If you don't reach your CACO target, billing account admins get email notifications at the following intervals:
 
-- 90 days before expiry
-- 60 days before expiry
-- 30 days before expiry
+- 90 days before offer expiry
+- 60 days before offer expiry
+- 30 days before offer expiry
 
 ### Milestone alerts
 
-Email alerts are sent to Billing Account Admins at the following intervals before each milestone due date if the milestone target isn't met:
+If you don't meet the milestone target, billing account admins get email alerts at the following intervals:
 
 - 90 days before milestone due date
 - 60 days before milestone due date
 - 30 days before milestone due date
 
----
+## Azure services that are eligible for a CACO
 
-## Azure Services eligible for CACO
+CACO spending eligibility differs from a traditional Azure Consumption Commitment in several key areas.
 
-CACO spend eligibility differs from traditional MACC (Microsoft Azure Consumption Commitment) in several key areas. The following table outlines which Azure services and purchases are eligible for CACO spend tracking:
+A CACO focuses on actual consumption rather than purchases:
 
-| Service/Purchase Type | CACO Eligibility | MACC Eligibility | Notes |
-|----------------------|------------------|-------------------|--------|
-| **All consumption pay-as-you-go charges** | ✅ | ✅ | Standard consumption charges count toward CACO milestones |
-| **Azure 1st party entitlement purchases (Reserved Instances/Azure Savings Plans)** |  |  |  |
-| - Upfront/Monthly Billing | ✅ | ✅ | Initial purchase or monthly payments count toward milestones |
-| - Monthly Usage | ❌ | ❌ | Usage covered by these purchases doesn't count |
-| **Azure Pre-payments (Monetary Credits)** |  |  |  |
-| - Purchase | ❌ | ✅ | **Key Difference**: CACO doesn't count prepayment purchases |
-| - Prepayment Spend | ✅ | ❌ | **Key Difference**: CACO counts spending of prepayment credits |
-| **MACC Milestone Shortfall Credit** |  |  |  |
-| - Purchase | ❌ | ✅ | Milestone shortfall credit purchase doesn't count toward CACO |
-| - Credit Applied | ✅ | ❌ | Milestone shortfall credit use goes towards CACO |
-| **MACC Shortfall Charge (Credit)** |  |  |  |
-| - Purchase | ❌ | ✅ | MACC shortfall credit purchase doesn't count toward CACO |
-| - Credit Applied | ❌ | ❌ | MACC shortfall credit use doesn't go towards CACO as it's the penalty charge for not fulfilling MACC commitment |
-| **Awarded Credits (ACO, Outage, Goodwill)** |  |  |  |
-| - Awarded Amount | ❌ | ❌ | Any credits that aren't purchased don't count towards commitments |
-| - Credit Applied | ❌ | ❌ | Consumption covered by awarded credits doesn't count |
-| **Azure Marketplace** | ❌ | ✅ | **Key Difference**: Marketplace purchases don't count toward CACO milestones |
+- **Azure prepayments**. For an Azure Consumption Commitment prepayment, purchases count toward commitment but prepayment spending doesn't. A CACO operates on the opposite principle: prepayment purchases don't count toward milestones, but spending those prepayment credits does count toward your commitment.
+- **Microsoft Marketplace purchases**. For an Azure Consumption Commitment, Marketplace purchases are eligible for milestone tracking. For a CACO, Marketplace purchases aren't eligible for milestone tracking.
 
-### Key Differences from MACC
+This consumption-focused approach ensures that ACO awards are based on genuine Azure service consumption rather than up-front credit purchases, regardless of the payment method for covering that consumption.
 
-**CACO focuses on actual consumption rather than purchases:**
-- **Azure Prepayments**: Unlike MACC where prepayment purchases count toward commitment but prepayment spending doesn't, CACO operates on the opposite principle - prepayment purchases don't count toward milestones, but spending those prepayment credits does count toward your CACO commitment
-- **Marketplace purchases**: Not eligible for CACO milestone tracking (unlike MACC)
+The following table outlines which Azure services and purchases are eligible for tracking CACO spending:
 
-This consumption-focused approach ensures that ACO awards are based on genuine Azure service consumption rather than upfront credit purchases, regardless of the payment method used to cover that consumption.
+| Service/purchase type | CACO eligibility | Azure Consumption Commitment eligibility | Notes |
+| --------------------- | ---------------- | ---------------- | ----- |
+| **All consumption pay-as-you-go charges** | ✅ | ✅ | Standard consumption charges count toward CACO milestones. |
+| **Azure entitlement purchases (reserved instances and Azure savings plans)** | | | |
+| - Up-front/monthly billing | ✅ | ✅ | Initial purchase or monthly payments count toward milestones. |
+| - Monthly usage | ❌ | ❌ | Usage that these purchases cover doesn't count. |
+| **Azure prepayments (monetary credits)** | | | |
+| - Purchase | ❌ | ✅ | CACO doesn't count prepayment purchases. |
+| - Prepayment spending | ✅ | ❌ | CACO counts spending of prepayment credits. |
+| **Milestone shortfall credit** | | | |
+| - Purchase | ❌ | ✅ | Milestone shortfall credit purchase doesn't count toward a CACO. |
+| - Credit applied | ✅ | ❌ | Milestone shortfall credit use goes toward a CACO. |
+| **Shortfall charge (credit)** | | | |
+| - Purchase | ❌ | ✅ | Azure Consumption Commitment shortfall credit purchase doesn't count toward a CACO. |
+| - Credit applied | ❌ | ❌ | Azure Consumption Commitment shortfall credit use doesn't go toward a CACO because it's the penalty charge for not fulfilling an Azure Consumption Commitment. |
+| **Awarded credits (ACO, outage, goodwill)** | | | |
+| - Awarded amount | ❌ | ❌ | Any credits that aren't purchased don't count toward commitments. |
+| - Credit applied | ❌ | ❌ | Consumption that awarded credits cover doesn't count. |
+| **Microsoft Marketplace** | ❌ | ✅ | Marketplace purchases don't count toward CACO milestones. |
 
-
-## Need help? Contact support
+## Support
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-
-
-
-

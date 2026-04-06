@@ -48,7 +48,7 @@ This document should contain:
 - A decision about which Azure regions to deploy to. See the [list of Azure regions](https://azure.microsoft.com/global-infrastructure/regions/), and list of [regions with availability zone support](/azure/reliability/availability-zones-region-support). To learn which services are available in each region, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 - A networking architecture to connect from on-premises to Azure. Start to familiarize yourself with the [Azure enterprise scale landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/) concept.
 - Security principles for running high-impact business data in Azure. To learn about data security, start with the Azure security documentation.
-- Storage strategy to cover block devices (Managed Disk) and shared filesystems (such as Azure Files or Azure NetApp Files) that should be further refined to file-system sizes and layouts in the technical design document.
+- Storage strategy to cover block devices (managed disk) and shared filesystems (such as Azure Files or Azure NetApp Files) that should be further refined to file-system sizes and layouts in the technical design document.
 
 #### Technical design document
 
@@ -68,7 +68,7 @@ This document should contain:
 Further included in same technical document(s) should be:
 
 - Storage Architecture high level decisions based on [Azure storage types for SAP workload](./planning-guide-storage.md)
-  - Managed Disks attached to each VM
+  - managed disks attached to each VM
   - Filesystem layouts and sizing
   - SMB and/or NFS volume layout and sizes, mount points where applicable
 - High availability, backup and disaster recovery architecture
@@ -305,7 +305,7 @@ After deploying infrastructure and applications and before each migration starts
    - Make sure that only disks holding DBMS online logs are cached with None+ Write Accelerator.  
    - Other disks with premium storage are using cache settings none or ReadOnly, depending on use  
    - Check the [configuration of LVM on Linux VMs in Azure](/azure/virtual-machines/linux/configure-lvm).  
-10. [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-solution-architectures.md#sap-on-azure-solutions) NFS volumes are used exclusively for DBMS VMs.
+10. [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-solution-architectures.md#sap-on-azure-solutions) NFS volumes are used exclusively for DBMS VMs.
 11. For Azure NetApp Files, [correct mount options are used](../../azure-netapp-files/performance-linux-mount-options.md) and volumes are sized appropriately on correct storage tier.
 12. Using Azure services – Azure Files or Azure NetApp Files – for any SMB or NFS volumes or shares. NFS volumes or SMB shares are reachable by the respective SAP environment or individual SAP system(s). Network routing to the NFS/SMB server goes through private network address space, using private endpoint if needed.
 13. [Azure accelerated networking](../../virtual-network/accelerated-networking-overview.md) is enabled on every network interface for all SAP VMs.

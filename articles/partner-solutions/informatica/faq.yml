@@ -1,0 +1,114 @@
+### YamlMime:FAQ
+metadata:
+  title: Informatica Intelligent Data Management Cloud frequently asked questions
+  description: Answers to common questions about using Informatica Intelligent Data Management Cloud - Azure Native ISV Service.
+  ms.topic: faq
+  ai-usage: ai-generated 
+  ms.date: 12/17/2025
+
+title: Informatica Intelligent Data Management Cloud FAQ
+summary: |
+
+sections:
+  - name: General
+    questions:
+      - question: What is Informatica Intelligent Data Management Cloud - Azure Native ISV Service?
+        answer: |
+            Informatica Intelligent Data Management Cloud (IDMC) is an Azure Native ISV Service that Microsoft and Informatica developed and manage together. You can easily run and manage Informatica organizations and advanced serverless environments through Azure. The service provides unified billing through Azure Marketplace, single sign-on capabilities, and the ability to create advanced serverless environments directly from Azure.
+      - question: Where can I find Informatica Intelligent Data Management Cloud?
+        answer: |
+            You can find Informatica Intelligent Data Management Cloud in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/). Search for "Informatica Intelligent Data Management Cloud - Azure Native ISV Service" to locate the service.
+      - question: What are the prerequisites for using Informatica IDMC?
+        answer: |
+            You need an Azure account with an active subscription. Make sure you're an Owner or a Contributor in the subscription. If you don't have an active Azure subscription, you can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+      - question: Where can I learn more about Informatica products and documentation?
+        answer: |
+            You can access comprehensive Informatica resources including:
+            - [Informatica products](https://www.informatica.com/products.html)
+            - [Getting Started with Informatica](https://docs.informatica.com/integration-cloud/data-integration/current-version/getting-started/preface.html)
+            - [Data Integration Connectors](https://docs.informatica.com/integration-cloud/data-integration-connectors/current-version.html)
+            - [Informatica documentation](https://docs.informatica.com/)
+  - name: Getting started
+    questions:
+      - question: How do I create an Informatica organization?
+        answer: |
+            You can create an Informatica organization through the Azure portal by searching for "Informatica Intelligent Data Management Cloud - Azure Native ISV Service" or through Azure Marketplace. You need to specify your subscription, resource group, resource name, region, and choose whether to create a new organization or link to an existing one. For detailed steps, see [QuickStart: Get started with Informatica](create.md).
+      - question: Can I link an existing Informatica organization to Azure?
+        answer: |
+            Yes. When creating an Informatica resource in Azure, you have three options:
+            - Create a new organization
+            - Link to an existing organization with Azure Marketplace billing
+            - Link to an existing organization and continue with existing Informatica billing
+      - question: What regions are available for Informatica IDMC?
+        answer: |
+            You can select the Azure region closest to where you want to deploy your Informatica Azure resource. You also select the Informatica region where you want to create your Informatica organization during the setup process.
+      - question: How do I access my Informatica organization after creation?
+        answer: |
+            After the deployment finishes, select **Go to Resource** to navigate to your Informatica resource. From the Overview pane, you can access your organization through the SSO URL or the IDMC Account Login link. The first time you access the SSO URL, you might need to grant permissions and provide user consent.
+  - name: Serverless runtime environments
+    questions:
+      - question: What is an advanced serverless deployment in Informatica?
+        answer: |
+            An advanced serverless deployment allows you to create a serverless runtime environment in your Informatica IDMC organization. This environment runs tasks outside of or in advanced mode, with configurable compute units and task timeouts. You can select task types including Data Integration or Advanced Data Integration.
+      - question: What are the prerequisites for creating a serverless runtime environment?
+        answer: |
+            You need an existing Informatica organization, and you must sign in to the Informatica portal from the Overview tab at least once before creating a serverless runtime environment. Additionally, the subnet used in the serverless runtime environment must be delegated to *Informatica.DataManagement/organizations*.
+      - question: What configuration options are available for serverless runtime environments?
+        answer: |
+            You can configure:
+            - Name and description
+            - Task type (Data Integration or Advanced Data Integration)
+            - Maximum compute units per task
+            - Task timeout (default is 2,880 minutes or 48 hours)
+            - Region, virtual network, and subnet
+            - Supplementary file location
+            - Custom properties
+            - Runtime configuration parameters
+            - Tags
+      - question: How do I manage my serverless runtime environments?
+        answer: |
+            Within your Informatica organization, select **Serverless Runtime Environment** from the service menu. Available actions include:
+            - View properties
+            - Edit properties
+            - Delete environment
+            - Start environment
+            - Clone environment
+            
+            For more information, see [Manage your Informatica serverless runtime environments](manage-serverless.md).
+  - name: Billing and plans
+    questions:
+      - question: How does billing work for Informatica IDMC?
+        answer: |
+            Informatica IDMC provides unified billing through Azure Marketplace. You can select a billing term and plan when creating your resource. All billing for the Informatica resource goes through your Azure subscription.
+      - question: Can I change my billing plan?
+        answer: |
+            During the creation process, you can select **Change plan** to choose the plan you want to subscribe to. The available billing terms are presented during the setup process.
+  - name: Management and operations
+    questions:
+      - question: How does single sign-on work with Informatica?
+        answer: |
+            Single sign-on (SSO) is enabled when you create your Informatica organization. Access your organization through the SSO URL in the Overview pane. The first time you access this URL, depending on your Azure tenant settings, you might see a request to grant permissions and provide user consent. After consent is provided, you're redirected to the Informatica portal.
+      - question: How do I delete an Informatica deployment?
+        answer: |
+            To delete an Informatica resource:
+            1. Select the Informatica deployment from the service menu.
+            2. On the Overview pane, select **Delete**.
+            3. Confirm by entering the name of the resource.
+            4. Select the reason for deletion.
+            5. Select **Delete**.
+            
+            Once deleted, all billing stops for that resource through Azure Marketplace.
+      - question: Can I add custom tags to my Informatica resources?
+        answer: |
+            Yes. You can specify custom tags for both Informatica organizations and serverless runtime environments by adding custom key-value pairs during the creation process or when editing properties.
+  - name: Support and troubleshooting
+    questions:
+      - question: How do I get support for Informatica IDMC?
+        answer: |
+            You can contact [Informatica support](https://support.informatica.com/) directly or request support through the Azure portal. In your resource, select **Support + Troubleshooting** > **New support request** from the service menu, which provides a link to the Informatica support website.
+      - question: What should I do if my serverless runtime environment fails?
+        answer: |
+            If a serverless runtime environment fails, you can edit all the properties of the environment and then use the "Start environment" action to restart it after updating the properties. If the environment is up and running, you can edit only certain properties.
+      - question: Where can I find troubleshooting information?
+        answer: |
+            For help with troubleshooting, see [Troubleshooting Informatica integration with Azure](troubleshoot.md).
