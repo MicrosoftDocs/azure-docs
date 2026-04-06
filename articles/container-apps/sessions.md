@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: concept-article
-ms.date: 04/07/2025
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.custom: references_regions, ignite-2024
 ---
@@ -41,7 +41,7 @@ Dynamic sessions are useful in a variety of situations, including:
 
 - **Session**: A session is the actual execution environment where your code or container runs. Sessions are ephemeral and isolated, designed for short-lived tasks. When you create a session, it's allocated from the session pool, ensuring fast startup. After the task completes or the cooldown period expires, the session is destroyed and resources are cleaned up.  
 
-- **Session lifecycle**: When your application sends a request with a session identifier, the session pool allocates a session automatically. The session stays active as long as requests continue. Once the cooldown period expires with no activity, the session is destroyed and its resources are cleaned up automatically.
+- **Session lifecycle**: When your application sends a request with a session identifier, the session pool allocates a session automatically. The session stays active as long as requests continue. Once the cooldown period expires with no activity, the session is destroyed and its resources are cleaned up automatically. You can also programmatically query session status and list all sessions in your pool to monitor health and implement custom management workflows.
 
 - **Request routing and identifiers**: Sessions are accessed through the session pool management endpoint. Requests include an `identifier` query parameter, and the pool routes the request to an existing session or allocates a new one if needed. The request path after the management endpoint is forwarded to the session container.
 
@@ -96,7 +96,5 @@ Dynamic sessions are designed to run untrusted code in isolated environments. Fo
 Custom container sessions are billed based on the resources consumed by the session pool. For more information, see [Azure Container Apps billing](./billing.md#dynamic-sessions).
 
 
-## Next steps
-- Learn how to configure [session pools](./session-pool.md) 
-- Learn how to use [dynamic sessions](./sessions-usage.md), including security and best practices
-
+## Related content
+- Learn how to configure [session pools](./session-pool.md)

@@ -70,7 +70,9 @@ For share-level permissions to work, you must take the following actions:
 - Add Active Directory-synced groups to the RBAC role so they can access your storage account.
 
 > [!TIP]
-> Optional: To migrate SMB server share-level permissions to RBAC permissions, use the `Move-OnPremSharePermissionsToAzureFileShare` PowerShell cmdlet to migrate directory-level and file-level permissions from on-premises to Azure. This cmdlet evaluates the groups of a particular on-premises file share. It then writes the appropriate users and groups to the Azure file share by using the built-in RBAC roles. You provide the information for the on-premises share and the Azure file share when invoking the cmdlet.
+> Optional: To migrate SMB server root folder permissions to RBAC permissions, use the `Move-OnPremSharePermissionsToAzureFileShare` PowerShell cmdlet from the [AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFilesHybrid). This cmdlet gets the directory permissions of the root directory of an on-premises file share and updates the RBAC definition on the Azure file share to grant access to users/groups listed in the root directory ACL.
+> 
+> The cmdlet only converts the root directory into RBAC assignments. Users who have access to sub-files and directories without access to the root aren't added to RBAC. Also, the cmdlet grants the RBAC role that's equivalent to what's on the root. Users who have read-only access to the root but write access to some sub-files or directories will only get read access in RBAC. You need to manually adjust RBAC in those cases.
 
 To grant share-level permissions, use the Azure portal, Azure PowerShell, or the Azure CLI to assign one of the built-in roles to the Entra ID identity of a user.
 
