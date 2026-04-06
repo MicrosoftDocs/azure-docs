@@ -165,9 +165,9 @@ The following wheel chart shows a breakdown of flows by destination port. With t
 :::image type="content" source="./media/flow-logs-power-bi/flows-destination-port2.png" alt-text="Screenshot of network security group flows by destination port." lightbox="./media/flow-logs-power-bi/flows-destination-port2.png":::
 ::: zone-end
 
-### Flows by NSG and rule
-
 ::: zone pivot="virtual-network"
+
+### Flows by virtual network and rule
 
 The following bar chart shows the flow by virtual network and rule. With this information, you can see the virtual networks responsible for the most traffic, and the breakdown of traffic on a virtual network by rule.
 
@@ -177,24 +177,26 @@ The following bar chart shows the flow by virtual network and rule. With this in
 
 ::: zone pivot="network-security-group"
 
+### Flows by network security group and rule
+
 The following bar chart shows the flow by network security group and rule. With this information, you can see the network security groups responsible for the most traffic, and the breakdown of traffic on a network security group by rule.
 
 :::image type="content" source="./media/flow-logs-power-bi/flows-rule2.png" alt-text="Screenshot of flows by network security group and rule." lightbox="./media/flow-logs-power-bi/flows-rule2.png":::
 
 ::: zone-end
 
-## Notes
+## Considerations
 
 ::: zone pivot="virtual-network"
 - Logs by default are stored in `https://{storageAccountName}.blob.core.windows.net/insights-logs-insights-logs-flowlogflowevent/`
 
-    - Modify the queries if other data exists in another directory.
+    - Modify the queries if your data exists in a different directory.
 ::: zone-end
 
 ::: zone pivot="network-security-group"
 - Logs by default are stored in `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
 
-    - Modify the queries if other data exists in another directory.
+    - Modify the queries if your data exists in a different directory.
 ::: zone-end
 
 - The provided template isn't recommended for use with more than 1 GB of logs.

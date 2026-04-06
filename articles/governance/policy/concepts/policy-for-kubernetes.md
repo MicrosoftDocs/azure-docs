@@ -622,6 +622,12 @@ Security improvements.
 Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.0
 Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.0
 
+#### 1.15.5
+Security improvements.
+- Released: Feb 2026
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.1
+
 #### 1.15.4
 Patch CVE-2025-61727.
 Security improvements.
