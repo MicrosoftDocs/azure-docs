@@ -43,7 +43,7 @@ Defining access rights on the files and data that is respected in different data
 
 ## Trust architecture
 
-The following high-level diagram summarizes the solution architecture of using Microsoft Entra authentication with Synapse SQL. To support Microsoft Entra native user password, only the Cloud portion and Microsoft Entra ID/Synapse SQL is considered. To support Federated authentication (or user/password for Windows credentials), the communication with ADFS block is required. The arrows indicate communication pathways.
+The following high-level diagram summarizes the solution architecture of using Microsoft Entra authentication with Synapse SQL. To support Microsoft Entra native user password, only the Cloud portion and Microsoft Entra ID/Synapse SQL are considered. To support Federated authentication (or user/password for Windows credentials), the communication with ADFS block is required. The arrows indicate communication pathways.
 
 ![Microsoft Entra auth diagram](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
