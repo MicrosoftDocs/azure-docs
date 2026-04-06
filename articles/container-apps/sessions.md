@@ -76,10 +76,10 @@ Dynamic sessions are available in the following regions. Both code interpreter a
 | Central US | Italy North | East Asia | |
 | East US | North Europe | Japan East | |
 | East US 2 | Norway East | Japan West | |
-| North Central US | Poland Central | Korea Central | |
-| West Central US | Spain Central | South India | |
-| West US | Sweden Central | Southeast Asia | |
-| West US 2 | Switzerland North | | |
+| North Central US | Poland Central | Jio India West | |
+| West Central US | Spain Central | Korea Central | |
+| West US | Sweden Central | South India | |
+| West US 2 | Switzerland North | Southeast Asia | |
 | West US 3 | Switzerland West | | |
 | | UK South | | |
 | | UK West | | |
