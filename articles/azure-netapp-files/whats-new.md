@@ -17,7 +17,6 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-
 ## May 2026
 
 * [Azure NetApp Files cache volumes](configure-cache-volumes.md) is now generally available (GA)
