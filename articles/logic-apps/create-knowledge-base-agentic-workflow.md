@@ -2,14 +2,14 @@
 title: Create Knowledge Bases for Agentic Workflows
 description: Create knowledge bases from unstructured data so agentic workflows can retrieve relevant content in Azure Logic Apps by using Retrieval-Augmented Generation (RAG).
 services: logic-apps
-ms.services: azure-logic-apps, azure-cosmos-db, azure-ai-foundry
+ms.services: azure-logic-apps, azure-cosmos-db
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
-ms.date: 03/28/2026
+ms.date: 04/10/2026
 #Customer intent: As an AI integration developer who works with Azure Logic Apps, I want to create knowledge bases from unstructured documents so my agentic workflows can retrieve relevant information.
 ---
 
@@ -22,11 +22,11 @@ ms.date: 03/28/2026
 > This preview feature is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. By using the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge base* that agentic workflows use to complete tasks. A knowledge base is a logical container that organizes related *knowledge artifacts* such as documents related to a specific domain.
+Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. By using the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge base* that agent loops in agentic workflows can use to complete tasks. A knowledge base is a logical *container* that organizes related *knowledge artifacts* such as documents or files related to a specific domain.
 
 For example, you might create a knowledge base that contains all the documents related to HR policies and procedures. When you create a knowledge base, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
 
-This guide shows how to create a *knowledge base*, upload *knowledge artifacts*, and set up the knowledge base as a tool that your Standard agentic workflows can use.
+This guide shows how to create a *knowledge base*, upload *knowledge artifacts*, and add the knowledge base as a tool that an agent loop can use in a Standard agentic workflow. For more information, see [Azure Cosmos DB databases, containers, and items](/azure/cosmos-db/resource-model#azure-cosmos-db-containers.md).
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ This guide shows how to create a *knowledge base*, upload *knowledge artifacts*,
     - A completions model, such as **gpt-4o**
     - An embeddings model, such as **text-embedding-3-small**
 
-  - To create a connection later between your OpenAI resource and knowledge hub, you need the following values from your OpenAI resource:
+  - To create a connection later between your OpenAI resource and knowledge base, you need the following values from your OpenAI resource:
 
     - Endpoint URL
     - Access key. See [Authentication](#authentication).
@@ -201,18 +201,27 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 
 1. On the logic app sidebar, under **Agents**, select **Knowledge base**.
 
-1. On the **Knowledge base** page, from the toolbar, select **Create**.
+1. On the **Knowledge base** page, select **Add files**.
 
-1. On the creation pane, provide the following information:
+1. On the **Add files** pane, complete the following tasks:
 
-   | Parameter | Required | Description |
-   |-----------|----------|-------------|
-   | **Name** | Yes | A unique name for the knowledge base, for example, `HRKnowledgeBase`. |
-   | **Description** | No | An optional description for the knowledge base. |
+   1. In the **Group** section, enter the following information:
 
-1. When you finish, select **Create**.
+      | Parameter | Required | Description |
+      |-----------|----------|-------------|
+      | **Name** | Yes | The name of the group that organizes files in your knowledge base. Enter a new name or select an existing group. |
+      | **Description** | No | An optional description for the group. |
 
-   The KB service creates the following Cosmos DB containers:
+   1. In the **Add files** section, select **browse to upload**, or drag and drop files to your group. For each file, enter the following information:
+
+      | Property | Required | Value | Description |
+      |----------|----------|-------|-------------|
+      | **Name** | Yes | <*artifact-name*> | A name for the file as a knowledge base artifact, for example, `HRPolicyDocument`. |
+      | **Description** | No | <*artifact-description*> | An optional description for the file as a knowledge base artifact. |
+
+1. When you finish, select **Add**.
+
+   The KBaaS creates the following Cosmos DB containers:
 
    | Container | Purpose |
    |-----------|---------|
@@ -221,63 +230,37 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
    | **KnowledgeArtifactChunks** | Stores full-text document chunks. |
    | **KnowledgeArtifactChunkSummaries** | Stores summarized chunks with vector embeddings for semantic search. |
 
-   After KBaaS creates the knowledge base, you can add the knowledge base as a tool that your agentic workflow can use.
+   The KBaaS returns a **202 Accepted** response with an operation ID for tracking the upload progress.
 
-<a name="upload-knowledge-artifacts"></a>
+   During the upload process, the KBaaS performs operations to parse, chunk, summarize, embed, and store vectorized content in the Cosmos DB container. When the process completes, the artifact status changes to **Completed** or **Failed**, based on the result.
 
-## 4: Upload knowledge artifacts
+1. Monitor the upload status in the Azure portal or by using the operation ID.
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+1. After KBaaS finishes, continue to the next section so you can add the knowledge base as a tool for your agent loop to use in your agentic Standard workflow.
 
-1. On the logic app sidebar, expand **Knowledge Hubs**.
+<a name="add-knowledge-base-as-tool"></a>
 
-1. On the **Knowledge Hubs** page, select the knowledge hub where you want to upload artifacts.
+## 4: Add the knowledge base as a tool
 
-1. On the **Knowledge artifacts** pane, follow these steps:
+You can now add the knowledge base to your agent loop to use as a tool in your agentic Standard workflows. Agent loops automatically query the knowledge base to retrieve semantically relevant information from your uploaded documents.
 
-   1. In the **Upload file** section, provide the following information:
+1. In the same Standard logic app that has your knowledge base, in the designer, open your agentic workflow, and select the agent loop you want.
 
-      | Property | Required | Value | Description |
-      |----------|----------|-------|-------------|
-      | **Name** | Yes | <*artifact-name*> | A name for the knowledge artifact, for example, `HRPolicyDocument`. |
-      | **Description** | No | <*artifact-description*> | An optional description for the artifact. |
-      | **File** | Yes | <*document-file*> | The document file to upload. Supported formats include PDF, Word, and TXT. |
+1. In the agent information pane, in the **Knowledge base** section, from the **Sources** list, select the knowledge base.
 
-   1. Select **Upload** to finish adding the document to the knowledge hub.
+1. To upload more files to your knowledge base, select **+ Upload**.
 
-      The KB service returns a **202 Accepted** response with an operation ID for tracking the upload progress.
+<a name="manage-knowledge-bases"></a>
 
-   1. Monitor the upload status in the portal or by using the operation ID.
+## Manage knowledge bases and artifacts
 
-   During the upload process, the KB service performs operations to parse, chunk, summarize, embed, and store vectorized content in the Cosmos DB container. When the process completes, the artifact status changes to **Completed** or **Failed**, based on the result.
+To list, view, and delete knowledge bases or artifacts, use the Azure portal or REST API.
 
-1. After you finish uploading the documents you want, set up the knowledge base for the agent loop to use in your agentic workflow.
-
-<a name="use-knowledge-hub-as-tool"></a>
-
-## 5: Set up the knowledge hub as a tool
-
-After you create a knowledge hub and upload artifacts, add the knowledge hub as a tool for agent loops to use in your Standard logic app workflows. Agent loops can automatically query the knowledge hub to retrieve relevant information.
+### List all knowledge bases
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. In the designer, open your agentic workflow, and select the agent loop that you want.
-
-1. In the agent information pane, from the **Knowledge hubs** list, select the knowledge hub.
-
-   The knowledge hub now appears as a tool that the agent loop can call during execution to retrieve semantically relevant information from your uploaded documents.
-
-<a name="manage-knowledge-hubs"></a>
-
-## Manage knowledge hubs and artifacts
-
-To list, view, and delete knowledge hubs or artifacts, use the Azure portal or REST API.
-
-### List all knowledge hubs
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
-
-1. On the logic app sidebar, expand **Knowledge hubs**.
+1. On the logic app sidebar, under **Agents**, select **Knowledge base**.
 
 Or, make the following REST API call:
 
@@ -285,54 +268,54 @@ Or, make the following REST API call:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs
 ```
 
-### View a specific knowledge hub
+### View a specific knowledge base
 
-In the Azure portal, from the **Knowledge Hubs** page, select the knowledge hub name.
+In the Azure portal, from the **Knowledge base** page, select the knowledge base name.
 
 Or, make the following REST API call:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeHubName}
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeBaseName}
 ```
 
-The response includes the knowledge hub information and a list with all the associated artifacts and their upload status.
+The response includes the knowledge base information and a list with all the associated artifacts and their upload status.
 
-### List artifacts in a knowledge hub
+### List artifacts in a knowledge base
 
-In the Azure portal, select the knowledge hub to view its artifacts.
+In the Azure portal, select the knowledge base to view its artifacts.
 
 Or, make the following REST API call:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeHubName}/knowledgeArtifacts
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeBaseName}/knowledgeArtifacts
 ```
 
 ### Delete a knowledge artifact
 
 This operation removes the artifact metadata, full-text chunks, and vector embeddings from Cosmos DB. The service returns a **202 Accepted** response with an operation ID for tracking deletion progress.
 
-1. In the Azure portal, select the knowledge hub to view its artifacts.
+1. In the Azure portal, select the knowledge base to view its artifacts.
 
 1. Select the artifact. On the toolbar, select **Delete**.
 
 Or, make the following REST API call:
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeHubName}/knowledgeArtifacts/{artifactName}
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeBaseName}/knowledgeArtifacts/{artifactName}
 ```
 
-### Delete a knowledge hub
+### Delete a knowledge base
 
-This operation removes the hub and all associated artifacts, chunks, and summaries from Cosmos DB.
+This operation removes the knowledge base and all associated artifacts, chunks, and summaries from Cosmos DB.
 
-1. In the Azure portal, select the knowledge hub.
+1. In the Azure portal, select the knowledge base.
 
 1. On the toolbar, select **Delete**.
 
 Or, make the following REST API call:
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeHubName}
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeBaseName}
 ```
 
 ## Related content
