@@ -763,6 +763,7 @@ sink(allowSchemaDrift: true,
 ```
 For Fabric Lakehouse table-based connector in inline dataset type, you only need to use Delta as dataset type. This will allow you to read and write data from Fabric Lakehouse tables.
 
+
 The following table depicts the behavior of Mapping Data Flows when interacting with Fabric Lakehouse tables, based on whether the Lakehouse is schema-enabled or schema-less, and whether a schema is explicitly defined.
 
 > **Note:** All scenarios are supported when selecting the table name using the dropdown.
@@ -777,6 +778,8 @@ The following table depicts the behavior of Mapping Data Flows when interacting 
 |                      | Source | No  | Operation fails |
 |                      | Sink   | Yes | Operation succeeds |
 |                      | Sink   | No  | Operation fails or may result in unexpected behavior |
+
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
