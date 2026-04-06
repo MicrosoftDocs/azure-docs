@@ -24,6 +24,10 @@ into your RSS feed reader.
 
     Firmware analysis now enriches CVE results with more properties to help prioritize remediation and triage vulnerabilities more effectively. These new properties are currently provided in **Preview**.
 
+    > [!NOTE]
+    > The following new CVE fields are only shown for newly uploaded images.
+    >
+
     New CVE enrichment fields include:
 
     - **In results grid view**: CISA KEV, EPSS score (percentage), and Fixed in versions. These attributes are filterable.

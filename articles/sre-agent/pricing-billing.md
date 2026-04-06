@@ -2,7 +2,7 @@
 title: Pricing and billing for Azure SRE Agent
 description: Learn how Azure SRE Agent billing works with Azure Agent Units, including always-on flow, active flow rates, and cost optimization tips.
 ms.topic: concept-article
-ms.date: 03/30/2026
+ms.date: 04/03/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-sre-agent
@@ -92,7 +92,7 @@ The following table shows how token consumption translates to AAUs across common
 | **Total** | | | **3.775 AAUs** |
 
 > [!TIP]
-> To keep active flow costs predictable, set a monthly AAU allocation limit in **Settings > Agent consumption**. The agent continues background monitoring even after reaching the limit.
+> To keep active flow costs predictable, set a monthly AAU allocation limit in **Settings > Agent consumption**.
 
 ## Monitor your costs
 
@@ -105,12 +105,20 @@ Navigate to **Settings > Agent consumption** to view your usage:
 - **Daily active flow consumption**: a bar chart showing AAU usage per day for the current month
 - **Token usage breakdown**—total tokens consumed by category (input, output, cache read, cache write) so you can see exactly where your AAUs are going
 
-### Set a spending limit
+### Set an active flow spending limit
 
-Select **Change AAU allocation** to set a monthly active flow AAU limit (up to 1,000,000 AAUs).
+Select **Change AAU allocation** to set a monthly active flow AAU limit (up to 1,000,000 AAUs). This limit applies to active flow only—always-on billing continues as long as the agent exists.
 
-- When your agent reaches the active flow limit, it continues running in always-on mode (background monitoring) but becomes **unavailable for chat and actions** until the next month.
+- When your agent reaches the active flow limit, it becomes **unavailable for chat and actions** until the next month. Always-on charges continue for the rest of the month.
 - You can increase or decrease the allocation at any time.
+
+#### Billing impact by action
+
+| Action | Active flow | Always-on | To resume next month |
+|--------|------------|-----------|---------------------|
+| **Set budget limit** (hit limit) | Stops | Still billed | Resets automatically at start of month |
+| **Stop agent** | Stops | Still billed | Manually select **Start** in **Settings > Basics** |
+| **Delete agent** | Stops | Stops | Create a new agent |
 
 ### In Microsoft Cost Management
 
@@ -120,8 +128,12 @@ For detailed billing breakdowns across multiple agents and resources, use [Micro
 
 | Strategy | Impact | How to do it |
 |----------|--------|-------------|
-| **Delete unused agents** | Eliminates all costs | Delete agents you no longer need. All billing stops immediately. |
-| **Set AAU allocation limits** | Caps active flow spend | Use **Settings > Agent consumption** to set a monthly limit |
+| **Add context to your agent** | Fewer wasted tokens | Add skills, knowledge, and documents so the agent stays grounded and concise. Persistent memory from past interactions improves efficiency over time. |
+| **Filter incidents with response plans** | Less unnecessary work | Use [response plans](response-plan.md) to filter Azure Monitor alerts by severity, service, or keyword—the agent only investigates incidents that match. |
+| **Batch work with scheduled tasks** | Fewer runs | [Schedule tasks](create-scheduled-task.md) to run daily or weekly instead of polling continuously. |
+| **Test in chat before automating** | Avoids wasted runs | Try your prompt in chat or the Playground first. A misconfigured automation runs repeatedly and wastes AAUs. |
+| **Stop idle agents** | Eliminates active flow | Go to **Settings > Basics** and select **Stop**. The agent keeps its configuration but stops all active flow. Always-on cost continues until deleted. |
+| **Delete unused agents** | Eliminates all costs | In [sre.azure.com](https://sre.azure.com), open the agent and go to **Settings > Basics > Delete agent**. All billing stops immediately. |
 
 ## Frequently asked questions
 
