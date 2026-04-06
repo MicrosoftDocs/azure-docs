@@ -125,7 +125,7 @@ When the SQL Server instance discovery is complete, configure backup for the ins
       
 1. For **SQL Instances or AlwaysOn AGs**, select **+ Add/Edit** to add the instance that you want to back up and select the databases within it.  
     >[!NOTE]
-    > Azure Backup currently supports 12 databases for backup.
+    > Azure Backup currently supports backup of 12 databases.
 
 1.  When you assign the managed identity for the first time, **Backup readiness** shows the error **Role/identity assignment not done**. To complete the role assignment, select **Assign missing roles/identity**.  
       

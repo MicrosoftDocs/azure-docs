@@ -80,7 +80,7 @@ To configure simultaneous backups, follow these steps:
 
 ## View backup items for SQL database and SQL Server instance
 
-After you configure snapshot backup for a SQL Server instance, Azure Backup shows the backup items in the Azure portal. Azure creates one backup item for the protected SQL instance, which you use for instance-level actions. These items appear under **SQL Server in Azure VM (Snapshot backup)**.
+After you configure snapshot backup for a SQL Server instance (preview), Azure Backup shows the backup items in the Azure portal. Azure creates one backup item for the protected SQL instance, which you use for instance-level actions. These items appear under **SQL Server in Azure VM (Snapshot backup)**.
 
 Azure also creates a separate backup item for each protected database in the instance. You use these items to perform database-level actions, such as restoring a database. These items appear under **SQL database in Azure VM** with backup type as **Snapshot backup**.
 
@@ -212,7 +212,7 @@ To stop backup for SQL Server instance in Azure VM, follow these steps:
 
 ## Resume protection for a SQL database and SQL Server instance
 
-When you stop protection for the SQL database or SQL Server instance, if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backup data, you can't resume protection.
+When you stop protection for the SQL database or SQL Server instance (preview), if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backup data, you can't resume protection.
 
 To resume protection for a SQL database or SQL Server instance, follow these steps:
 
