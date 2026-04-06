@@ -161,8 +161,6 @@
       href: nsg-flow-logs-policy-portal.md
     - name: Analyze NSG flow logs
       items:
-      - name: Use Power BI
-        href: network-watcher-visualize-nsg-flow-logs-power-bi.md
       - name: Use Elastic Stack
         href: /previous-versions/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools?toc=/azure/network-watcher/toc.json
       - name: Use Grafana
@@ -171,6 +169,8 @@
         href: /previous-versions/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog?toc=/azure/network-watcher/toc.json
   - name: Read flow logs
     href: flow-logs-read.md
+  - name: Visualize flow logs with Power BI
+    href: flow-logs-power-bi.md
   - name: Migrate NSG flow logs
     href: nsg-flow-logs-migrate.md
 - name: Traffic analytics
