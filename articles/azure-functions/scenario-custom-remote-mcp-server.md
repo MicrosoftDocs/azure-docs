@@ -198,9 +198,9 @@ You can view the complete project template in the [Azure Functions Java MCP Serv
 ::: zone pivot="programming-language-python"
 The function code for the MCP server tools is defined in the `src/function_app.py` file. The MCP function annotations expose these functions as MCP Server tools:
 
-:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="30-33" :::
+<!- >:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="30-33" ::: >
 
-:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="36-60" :::
+<!- >:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="36-60" ::: >
 
 You can view the complete project template in the [Azure Functions Python MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-python) GitHub repository.
 ::: zone-end   

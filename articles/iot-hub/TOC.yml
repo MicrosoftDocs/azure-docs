@@ -110,9 +110,6 @@
     items:
     - name: Monitor IoT Hub
       href: monitor-iot-hub.md
-    - name: Enable message tracing
-      displayName: monitor, distributed tracing
-      href: iot-hub-distributed-tracing.md
     - name: IoT Hub service and resource health
       displayName: monitor, alerts
       href: iot-hub-azure-service-health-integration.md
@@ -195,9 +192,6 @@
   - name: Send cloud-to-device messages
     displayName: cloud-to-device messages
     href: how-to-cloud-to-device-messaging.md
-  - name: Overview of IoT Hub device streams (preview)
-    displayName: TLS, private network
-    href: iot-hub-device-streams-overview.md
   - name: Control a device connected to an IoT hub
     displayName: direct method, Azure IoT Explorer
     href: quickstart-control-device.md

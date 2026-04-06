@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 04/03/2025
+ms.date: 03/30/2026
 ms.author: cshoe
 ---
 
@@ -44,6 +44,7 @@ Application rules allow or deny traffic based on the application layer. The foll
 | Azure Service Bus | *.servicebus.windows.net | These FQDNs are required when your container apps communicate with Azure Service Bus (queues, topics, or subscriptions) through Azure Firewall. |
 | Aspire Dashboard | `https://<YOUR-CONTAINERAPP-REGION>.ext.azurecontainerapps.dev` | This FQDN is required when using Aspire dashboard in an environment configured with a virtual network. Please update the FQDN with your container app's region. |
 | Docker Hub Registry | `hub.docker.com`, `registry-1.docker.io`, `production.cloudflare.docker.com` | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. |
+| Azure Service Bus | `*.servicebus.windows.net` | This FQDN is required when using Azure Service Bus with Azure Container Apps and Azure Firewall. |
 | Azure China | `mcr.azure.cn`, `*.data.mcr.azure.cn` | Azure Container Apps in the Azure China environment use these Microsoft Container Registry (MCR) endpoints to pull container images. When using Azure Firewall, you must allow either the corresponding application rules or network rules for MCR. This requirement applies only to the **Azure China environment**. |
 
 ## Network rules
@@ -56,7 +57,7 @@ Network rules allow or deny traffic based on the network and transport layer. Wh
 | Azure Container Registry (ACR) | `AzureContainerRegistry`, `AzureActiveDirectory` | When using ACR with Azure Container Apps, you need to configure these network rules used by Azure Container Registry. |
 | Azure Key Vault | `AzureKeyVault`, `AzureActiveDirectory` | These service tags are required in addition to the FQDN for the network rule for Azure Key Vault. |
 | Managed Identity | `AzureActiveDirectory` | When using Managed Identity with Azure Container Apps, you'll need to configure these network rules used by Managed Identity. | 
-| Azure Service Bus | ServiceBus | Required when your container apps access Azure Service Bus using Azure Firewall and service tags. |
+| Azure Service Bus | `ServiceBus` | Required when your container apps access Azure Service Bus using Azure Firewall and service tags. |
 
 > [!NOTE]
 > For Azure resources you're using with Azure Firewall not listed in this article, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).

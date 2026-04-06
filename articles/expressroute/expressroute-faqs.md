@@ -180,13 +180,13 @@ You don't lose connectivity if one of the cross connections fails. A redundant c
 
 ### How is redundancy implemented for private peering?
 
-Multiple ExpressRoute circuits from different peering locations or up to four connections from the same peering location can be connected to the same virtual network to provide high-availability in the case a single circuit becomes unavailable. You can then [assign higher weights](./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection) to one of the local connections to prefer a specific circuit. It's recommended that your setup has at least two ExpressRoute circuits to avoid single points of failure. 
+All ExpressRoute Circuits include 2 redundant physical links. This design protects against loss of connectivity due to hardware failures, device maintenance, or other causes of downtime. We also recommend multi-site architectures for critical workloads. This can be achieved by deploying multiple ExpressRoute Circuits in different peering locations connected to the same virtual network or through ExpressRoute Metro. ExpressRoute Metro is a single ExpressRoute Circuit with the physical links residing in two separate locations in the same city. Multi-site deployments protect your connectivity in the case of a location becoming unavailable. 
 
 See [here](./designing-for-high-availability-with-expressroute.md) for designing for high availability and [here](./designing-for-disaster-recovery-with-expressroute-privatepeering.md) for designing for disaster recovery.  
 
 ### How is redundancy implemented for Microsoft peering?
 
-We recommended when you're using Microsoft peering to access Azure public services like Azure Storage, Azure SQL, or you're using Microsoft peering for Microsoft 365 that you implement multiple circuits in different peering locations to avoid single points of failure. You can either advertise the same prefix on both circuits and use [AS PATH prepending](./expressroute-optimize-routing.md#solution-use-as-path-prepending) or advertise different prefixes to determine path from on-premises.
+We recommend when you're using Microsoft peering to access Azure public services like Azure Storage, Azure SQL, or you're using Microsoft peering for Microsoft 365 that you implement multiple circuits in different peering locations to avoid single points of failure. You can either advertise the same prefix on both circuits and use [AS PATH prepending](./expressroute-optimize-routing.md#solution-use-as-path-prepending) or advertise different prefixes to determine path from on-premises.
 
 See [here](./designing-for-high-availability-with-expressroute.md) for designing for high availability.
 

@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 03/30/2026
+ms.date: 04/06/2026
 
 # This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
@@ -54,6 +54,23 @@ This solution depends on the following technologies, and some of which may be in
 - **1Password Events API Token**: A 1Password Events API Token is required. For more information, see [the 1Password API](https://developer.1password.com/docs/events-api/reference). 
 
 **Note:** A 1Password Business account is required<br><br>
+</details> 
+
+ ---
+   
+<a name="a365-observability"></a><details><summary>**A365 Observability**</summary>
+
+**Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
+
+A365 Observability data connector gives richer insights into AI agent activity by bringing AI agent telemetry from A365, AI Foundry, and Copilot in the Microsoft Sentinel data lake to investigate agent behavior, tool usage, and execution with hunting, graph, and MCP workflows. Data from this connector is used to investigate AI agent behavior, tool usage, and execution in Microsoft Sentinel. If you have enabled these workflows, deactivating this connector will prevent those investigations from being performed.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+
+
+**Data collection rule support:** Not currently supported<br><br>
 </details> 
 
  ---
@@ -123,6 +140,27 @@ The [Alibaba Cloud ActionTrail](https://www.alibabacloud.com/product/actiontrail
 
  ---
    
+<a name="alibaba-cloud-networking-data-connector-via-codeless-connector-framework"></a><details><summary>**Alibaba Cloud Networking Data Connector (via Codeless Connector Framework)**</summary>
+
+**Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
+
+The Alibaba Cloud Networking data connector provides the capability to ingest [Alibaba Cloud](https://www.alibabacloud.com/) networking data into Microsoft Sentinel through the Simple Log Service (SLS) REST API. Refer to [API documentation](https://www.alibabacloud.com/help/en/sls/developer-reference/api-sls-2020-12-30-endpoint) for more information. The connector provides the ability to get VPC Flow Logs, WAF Logs, and API Gateway Logs from Alibaba Cloud.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|`AlibabaCloudVPCFlowLogs`|No|No|
+
+**Data collection rule support:** Not currently supported
+
+**Prerequisites:**
+
+- **Alibaba Cloud SLS API access**: **Alibaba Cloud Simple Log Service** access is required for the SLS API.<br><br>
+</details> 
+
+ ---
+   
 <a name="alicloud-using-azure-functions"></a><details><summary>**AliCloud (using Azure Functions)**</summary>
 
 **Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
@@ -175,6 +213,27 @@ This data connector enables the integration of AWS CloudFront logs with Microsof
 |`AWSCloudFront_AccessLog_CL`|Yes|Yes|
 
 **Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)<br><br>
+</details> 
+
+ ---
+   
+<a name="amazon-web-services-elastic-load-balancing-via-codeless-connector-framework"></a><details><summary>**Amazon Web Services Elastic Load Balancing (via Codeless Connector Framework)**</summary>
+
+**Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
+
+The AWS Elastic Load Balancing (ELB) connector for Microsoft Sentinel allows you to ingest access logs and flow logs from AWS Application Load Balancers (ALB), Network Load Balancers (NLB), and Gateway Load Balancers (GLB) into Microsoft Sentinel. These logs provide detailed information about requests processed by your load balancers and VPC traffic flows, enabling security monitoring, threat detection, and traffic analysis.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|`AWSALBAccessLogsData`|No|No|
+
+**Data collection rule support:** Not currently supported
+
+**Prerequisites:**
+
+- **AWS IAM Role ARN and SQS Queue**: An **AWS IAM Role ARN** with cross-account access and an **SQS Queue URL** configured for S3 event notifications are required. See [AWS ELB connector documentation](/azure/sentinel/connect-aws) for setup instructions.<br><br>
 </details> 
 
  ---
@@ -961,38 +1020,6 @@ The [Bitglass](https://www.forcepoint.com/bitglass) data connector provides the 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. For more information, see [Azure Functions](/azure/azure-functions/).
 - **REST API Credentials/permissions**: **BitglassToken** and **BitglassServiceURL** are required for making API calls.<br><br>
-</details> 
-
- ---
-   
-<a name="bitsight-data-connector-using-azure-functions"></a><details><summary>**Bitsight data connector (using Azure Functions)**</summary>
-
-**Supported by:** [BitSight Support](https://help.bitsight.com/)
-
-The [BitSight](https://www.BitSight.com/) Data Connector supports evidence-based cyber risk monitoring by bringing BitSight data in Microsoft Sentinel.
-
-**Log Analytics table(s):**  
-
-|Table|DCR support|Lake-only ingestion|
-|---|---|---|
-|`BitsightAlerts_data_CL`|Yes|Yes|
-|`BitsightBreaches_data_CL`|Yes|Yes|
-|`BitsightCompany_details_CL`|Yes|Yes|
-|`BitsightCompany_rating_details_CL`|Yes|Yes|
-|`BitsightDiligence_historical_statistics_CL`|Yes|Yes|
-|`BitsightDiligence_statistics_CL`|Yes|Yes|
-|`BitsightFindings_data_CL`|Yes|Yes|
-|`BitsightFindings_summary_CL`|Yes|Yes|
-|`BitsightGraph_data_CL`|Yes|Yes|
-|`BitsightIndustrial_statistics_CL`|Yes|Yes|
-|`BitsightObservation_statistics_CL`|Yes|Yes|
-
-**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
-
-**Prerequisites:**
-
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. For more information, see [Azure Functions](/azure/azure-functions/).
-- **REST API Credentials/permissions**: BitSight API Token is required.  See the documentation to [learn more](https://help.bitsighttech.com/hc/en-us/articles/115014888388-API-Token-Management) about API Token.<br><br>
 </details> 
 
  ---
@@ -3213,6 +3240,23 @@ The [Imperva Cloud WAF](https://www.imperva.com/resources/resource-library/datas
 
  ---
    
+<a name="imperva-cloud-waf-via-codeless-connector-framework"></a><details><summary>**Imperva Cloud WAF (via Codeless Connector Framework)**</summary>
+
+**Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
+
+The Imperva WAF Cloud data connector provides the capability to ingest logs into Microsoft Sentinel using the Imperva Log Integration via AWS S3 with SQS notifications. The connector parses CEF-formatted WAF events including access logs and security alerts for threat detection and investigation.Refer to [Imperva WAF Cloud Log Integration](https://docs.imperva.com/bundle/cloud-application-security/page/settings/log-integration.htm) for more information.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|`ImpervaWAFCloud`|No|No|
+
+**Data collection rule support:** Not currently supported<br><br>
+</details> 
+
+ ---
+   
 <a name="infoblox-cloud-data-connector-via-ama"></a><details><summary>**Infoblox Cloud Data Connector via AMA**</summary>
 
 **Supported by:** [Infoblox](https://support.infoblox.com/)
@@ -4072,7 +4116,7 @@ These alerts can be imported into Microsoft Sentinel with this connector, allowi
 
 **Supported by:** [Microsoft](https://support.microsoft.com/)
 
-The Microsoft Copilot logs connector in Microsoft Sentinel enables the seamless ingestion of Copilot-generated activity logs into Microsoft Sentinel for advanced threat detection, investigation, and response. It collects telemetry from Microsoft Copilot services - such as usage data, prompts and system responses - and ingests into Microsoft Sentinel, allowing security teams to monitor for misuse, detect anomalies, and maintain compliance with organizational policies.
+The Microsoft Copilot logs connector in Microsoft Sentinel enables seamless ingestion of Copilot-generated activity logs from M365 Copilot and Security Copilot into Microsoft Sentinel for advanced threat detection, investigation and response. It collects telemetry from Microsoft Copilot services such as usage data and system responses and ingests into Microsoft Sentinel, allowing security teams to monitor for misuse, detect anomalies, and maintain compliance with organizational policies.
 
 **Log Analytics table(s):**  
 
@@ -6572,7 +6616,7 @@ The [Varonis Purview](https://www.varonis.com/) connector provides the capabilit
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|`varonisresources_CL`|No|No|
+|`VaronisResources_CL`|No|No|
 
 **Data collection rule support:** Not currently supported
 
@@ -7071,12 +7115,12 @@ The [Zero Networks Segment](https://zeronetworks.com/) push connector allows Zer
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|`ZNAudit_CL`|No|No|
-|`ZNNetworkActivity_CL`|No|No|
-|`ZNIdentityActivity_CL`|No|No|
-|`ZNRPCActivity_CL`|No|No|
+|`ZNAudit_CL`|Yes|Yes|
+|`ZNNetworkActivity_CL`|Yes|Yes|
+|`ZNIdentityActivity_CL`|Yes|Yes|
+|`ZNRPCActivity_CL`|Yes|Yes|
 
-**Data collection rule support:** Not currently supported
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
 
 **Prerequisites:**
 
@@ -7096,9 +7140,9 @@ The [Zero Networks Segment](https://zeronetworks.com/) Audit data connector prov
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|`ZNSegmentAuditNativePoller_CL`|No|No|
+|`ZNSegmentAuditNativePoller_CL`|Yes|Yes|
 
-**Data collection rule support:** Not currently supported
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
 
 **Prerequisites:**
 

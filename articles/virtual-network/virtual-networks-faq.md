@@ -389,7 +389,7 @@ The following resources can use basic load balancers, which means you can't reac
 
 * VMs behind basic load balancers
 * Virtual machine scale sets with basic load balancers
-* Azure Cache for Redis
+* Azure Managed Redis
 * Azure Application Gateway v1
 * Azure Service Fabric
 * Azure API Management stv1
