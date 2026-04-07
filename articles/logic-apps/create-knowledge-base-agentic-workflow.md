@@ -22,11 +22,11 @@ ms.date: 04/10/2026
 > This preview feature is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. By using the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge base* that agent loops in agentic workflows can use to complete tasks. A knowledge base is a logical *container* that organizes related *knowledge artifacts* such as documents or files related to a specific domain.
+Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. By using the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge base* that agent loops in agentic workflows can use to complete tasks. A knowledge base is a logical *container* that organizes related knowledge sources such as documents or files related to a specific domain.
 
 For example, you might create a knowledge base that contains all the documents related to HR policies and procedures. When you create a knowledge base, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
 
-This guide shows how to create a *knowledge base*, upload *knowledge artifacts*, and add the knowledge base as a tool that an agent loop can use in a Standard agentic workflow. For more information, see [Azure Cosmos DB databases, containers, and items](/azure/cosmos-db/resource-model#azure-cosmos-db-containers.md).
+This guide shows how to create a *knowledge base*, upload knowledge sources, and add the knowledge base as a tool that an agent loop can use in a Standard agentic workflow. For more information, see [Azure Cosmos DB databases, containers, and items](/azure/cosmos-db/resource-model#azure-cosmos-db-containers.md).
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ KBaaS simplifies data transformation and provides an abstraction layer over Azur
 
 The KBaaS has the following pipelines:
 
-- *Ingestion pipeline*: When you upload a document, or knowledge artifact, to your knowledge base, the service automatically parses, chunks, summarizes, and vectorizes the content. The service then stores the results in Azure Cosmos DB.
+- *Ingestion pipeline*: When you upload a document, or knowledge source, to your knowledge base, the service automatically parses, chunks, summarizes, and vectorizes the content. The service then stores the results in Azure Cosmos DB.
 
 - *Retrieval pipeline*: When the agent loop queries your knowledge base, the service rewrites the query if needed, generates a vector representation, performs a semantic search against Azure Cosmos DB, and returns the most relevant chunks to the large language model (LLM) for response generation.
 
@@ -74,7 +74,7 @@ The KBaaS has the following pipelines:
 
 This release currently supports only the following capabilities:
 
-- Uploaded files as the source type for knowledge artifacts. Other source types are in planning.
+- Uploaded files as the source type for knowledge sources. Other source types are in planning.
 - Unstructured file formats such as PDF, Word, and TXT. Structured data formats such as JSON and CSV are in planning.
 - Text-based content parsing in documents, not images.
 - Default chunking settings, not custom chunking.
@@ -216,8 +216,8 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 
       | Property | Required | Value | Description |
       |----------|----------|-------|-------------|
-      | **Name** | Yes | <*artifact-name*> | A name for the file as a knowledge base artifact, for example, `HRPolicyDocument`. |
-      | **Description** | No | <*artifact-description*> | An optional description for the file as a knowledge base artifact. |
+      | **Name** | Yes | <*source-name*> | A name for the file as a knowledge source, for example, `HRPolicyDocument`. |
+      | **Description** | No | <*source-description*> | An optional description for the file as a knowledge source. |
 
 1. When you finish, select **Add**.
 
@@ -226,13 +226,13 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
    | Container | Purpose |
    |-----------|---------|
    | **KnowledgeHubs** | Stores knowledge base metadata. |
-   | **KnowledgeArtifacts** | Stores artifact metadata and source document references. |
+   | **KnowledgeArtifacts** | Stores source metadata and source document references. |
    | **KnowledgeArtifactChunks** | Stores full-text document chunks. |
    | **KnowledgeArtifactChunkSummaries** | Stores summarized chunks with vector embeddings for semantic search. |
 
    The KBaaS returns a **202 Accepted** response with an operation ID for tracking the upload progress.
 
-   During the upload process, the KBaaS performs operations to parse, chunk, summarize, embed, and store vectorized content in the Cosmos DB container. When the process completes, the artifact status changes to **Completed** or **Failed**, based on the result.
+   During the upload process, the KBaaS performs operations to parse, chunk, summarize, embed, and store vectorized content in the Cosmos DB container. When the process completes, the source status changes to **Completed** or **Failed**, based on the result.
 
 1. Monitor the upload status in the Azure portal or by using the operation ID.
 
@@ -252,9 +252,9 @@ You can now add the knowledge base to your agent loop to use as a tool in your a
 
 <a name="manage-knowledge-bases"></a>
 
-## Manage knowledge bases and artifacts
+## Manage knowledge bases and sources
 
-To list, view, and delete knowledge bases or artifacts, use the Azure portal or REST API.
+To list, view, and delete knowledge bases or sources, use the Azure portal or REST API.
 
 ### List all knowledge bases
 
@@ -278,11 +278,11 @@ Or, make the following REST API call:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeBaseName}
 ```
 
-The response includes the knowledge base information and a list with all the associated artifacts and their upload status.
+The response includes the knowledge base information, a list with the associated sources, and their upload status.
 
-### List artifacts in a knowledge base
+### List sources in a knowledge base
 
-In the Azure portal, select the knowledge base to view its artifacts.
+In the Azure portal, select the knowledge base to view its sources.
 
 Or, make the following REST API call:
 
@@ -290,13 +290,13 @@ Or, make the following REST API call:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{logicAppName}/hostruntime/runtime/webhooks/workflow/api/management/knowledgehubs/{knowledgeBaseName}/knowledgeArtifacts
 ```
 
-### Delete a knowledge artifact
+### Delete a knowledge source
 
-This operation removes the artifact metadata, full-text chunks, and vector embeddings from Cosmos DB. The service returns a **202 Accepted** response with an operation ID for tracking deletion progress.
+This operation removes the source metadata, full-text chunks, and vector embeddings from Cosmos DB. The service returns a **202 Accepted** response with an operation ID for tracking deletion progress.
 
-1. In the Azure portal, select the knowledge base to view its artifacts.
+1. In the Azure portal, select the knowledge base to view its sources.
 
-1. Select the artifact. On the toolbar, select **Delete**.
+1. Select the source. On the toolbar, select **Delete**.
 
 Or, make the following REST API call:
 
@@ -306,7 +306,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ### Delete a knowledge base
 
-This operation removes the knowledge base and all associated artifacts, chunks, and summaries from Cosmos DB.
+This operation removes the knowledge base and associated sources, chunks, and summaries from Cosmos DB.
 
 1. In the Azure portal, select the knowledge base.
 
