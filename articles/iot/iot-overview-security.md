@@ -138,7 +138,7 @@ This section provides guidance on how to secure your IoT devices, which are the 
 
 - **Follow a secure software development methodology**: The development of secure software requires you to consider security from the inception of the project all the way through implementation, testing, and deployment. The [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) provides a step-by-step approach to building secure software.
 
-- **Use device SDKs whenever possible**: Device SDKs implement various security features such as encryption and authentication that help you develop robust and secure device applications. To learn more, see [Azure IoT SDKs](iot-sdks.md).
+- **Use device SDKs whenever possible**: Device SDKs implement various security features such as encryption and authentication that help you develop robust and secure device applications. To learn more, see [Azure IoT SDKs](../iot-hub/iot-sdks.md).
 
 - **Choose open-source software with care**: Open-source software provides an opportunity to quickly develop solutions. When you choose open-source software, consider the activity level of the community for each open-source component. An active community ensures that software is supported and that issues are discovered and addressed. An obscure and inactive open-source software project might not be supported, and issues aren't likely be discovered.
 

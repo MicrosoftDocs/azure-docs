@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: Learn about the different tools available in the Data exploration collection in Microsoft Sentinel 
 author: poliveria
 ms.topic: how-to
-ms.date: 02/16/2026
+ms.date: 04/02/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform
@@ -43,14 +43,20 @@ https://sentinel.microsoft.com/mcp/data-exploration
 ### Semantic search on table catalog (`search_tables`)
 This tool discovers data lake tables relevant to a given natural language input and returns schema definitions to support query authoring. Use this tool to discover tables, understand a schema, or build valid Kusto Query Language (KQL) queries for a Microsoft Sentinel workspace. You can also use it to explore unfamiliar data sources or identify relevant tables for a specific investigative or analytical task. 
 
-For a full list of tables in this index, see [Azure Monitor Log Analytics log tables organized by category](/azure/azure-monitor/reference/tables-category).
-
-
 | Parameters | Required? | Description | 
 |----------|----------|----------|
 | `query`| Yes |This parameter takes in keywords to search for relevant tables in the connected workspaces. |
 | `workspaceId`| No |This parameter takes in a workspace identifier to limit the search to a single connected Microsoft Sentinel data lake workspace. |
 
+#### Supported tables
+
+This tool supports Azure Monitor Log Analytics. For a full list of tables, see [Azure Monitor Log Analytics log tables organized by category](/azure/azure-monitor/reference/tables-category).
+
+It also supports most of the Microsoft Sentinel tables listed in [Microsoft Sentinel tables and associated connectors](../sentinel-tables-connectors-reference.md). The following tables aren't supported:
+
+|Unsupported Microsoft Sentinel tables| |
+|----------|----------|
+|<ul><li>`AliCloudActionTrailLogs_CL`<li>`argsentdc_CL`<li>`Audit_CL`<li>`Auth0Logs_CL`<li>`Awareness_Performance_Details_CL`<li>`Awareness_SafeScore_Details_CL`<li>`Awareness_User_Data_CL`<li>`Awareness_Watchlist_Details_CL`<li>`CarbonBlack_Alerts_CL`<li>`Cisco_Umbrella_proxy_CL`<li>`Cloud_Integrated_CL`<li>`CloudGuard_SecurityEvents_CL`<li>`ConfluenceAuditLogs_CL`<li>`CortexXpanseAlerts_CL`<li>`CyberSixgill_Alerts_CL`<li>`DruvaSecurityEvents_CL`<li>`DynatraceAttacks_CL`<li>`DynatraceAuditLogs_CL`<li>`DynatraceProblems_CL`<li>`DynatraceSecurityProblems_CL`<li>`ErmesBrowserSecurityEvents_CL`<li>`FireworkV2_CL`<li>`Garrison_ULTRARemoteLogs_CL`<li>`GCPLoadBalancerLogs_CL`<li>`GitHubAuditLogsV2_CL`<li>`Health_Data_CL`<li>`Illumio_Flow_Events_CL`<li>`IllumioInsightsSummary_CL`<li>`iocsent_CL`<li>`Island_Admin_CL`<li>`Island_User_CL`<li>`JBossEvent_CL`<li>`LookoutMtdV2_CL`</ul> |<ul><li>`ObsidianActivity_CL`<li>`ObsidianThreat_CL`<li>`Onapsis_Defend_CL`<li>`OneTrustMetadataV3_CL`<li>`OracleWebLogicServer_CL`<li>`PaloAltoCortexXDR_Alerts_CL`<li>`PaloAltoCortexXDR_Audit_Agent_CL`<li>`PaloAltoCortexXDR_Audit_Management_CL`<li>`PaloAltoCortexXDR_Endpoints_CL`<li>`Phosphorus_CL`<li>`PingOne_AuditActivitiesV2_CL`<li>`PrismaCloudCompute_CL`<li>`ProofpointPODMailLog_CL`<li>`ProofpointPODMessage_CL`<li>`ProofPointTAPClicksBlockedV2_CL`<li>`ProofPointTAPMessagesBlockedV2_CL`<li>`RSAIDPlus_AdminLogs_CL`<li>`SAPLogServ_CL`<li>`Seg_Cg_CL`<li>`Seg_Dlp_CL`<li>`SeraphicWebSecurity_CL`<li>`SlackAuditV2_CL`<li>`Tenable_WAS_Asset_CL`<li>`TransmitSecurityActivity_CL`<li>`Ttp_Attachment_CL`<li>`Ttp_Impersonation_CL`<li>`Ttp_Url_CL`<li>`Ubiquiti_CL`<li>`ValenceAlert_CL`<li>`vcenter_CL`<li>`ZimperiumThreatLog_CL`<li>`ZNSegmentAuditNativePoller_CL`</ul>|
 ### Execute KQL (Kusto Query Language) query on Microsoft Sentinel data lake (`query_lake`)
 This tool runs a single KQL query against a specified Microsoft Sentinel data lake workspace and returns the raw result set. It's designed for focused investigative or analytical retrieval and not bulk export. Use this tool to advance an investigation or analytical workflow and retrieve a security event, alert, asset, identity, device, or enrichment data. You can also use it alongside the `search_tables` tool to identify relevant table schemas and build valid KQL queries.
 
@@ -64,7 +70,7 @@ This tool runs a single KQL query against a specified Microsoft Sentinel data la
 This tool lists all Microsoft Sentinel data lake workspace name and ID pairs available to you. Including the workspace name provides you with helpful context to understand which workspace is being used. Run this tool before using any other Microsoft Sentinel tools because those tools need a workspace ID argument to function properly.
 
 
-### Entity analyzer (preview)
+### Entity analyzer
 
 These tools use AI to analyze your organization's data in the Microsoft Sentinel data lake. They provide a verdict and detailed insights on URLs, domains, and user entities. They help eliminate the need for manual data collection and complex integrations typically required for enriching and investigating entities.
 

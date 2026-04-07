@@ -11,6 +11,9 @@ ms.author: mattmcinnes
 
 # MANA support for existing VM sizes
 
+> [!IMPORTANT]
+> For timelines pertaining to VM families running on MANA-capable hardware, see the [announcement](https://techcommunity.microsoft.com/blog/AzureInfrastructureBlog/announcing-microsoft-azure-network-adapter-mana-support-for-existing-vm-skus/4493279).
+
 The following content is for customers of existing VM Sizes and using Accelerated Networking. To learn more about Accelerated Networking and the Networking performance benefits it provides, check out the [Accelerated Networking Overview](https://aka.ms/accelnet).
 
 Per the [announcement](https://aka.ms/announcemanasupportforexistingvms), General Purpose Compute VMs can be deployed on compute hardware equipped with the [Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-overview). The Microsoft Azure Network Adapter (MANA) was introduced in February 2025 with the Intel v6 family of sizes as part of Azure Boost. MANA is an Azure optimized, performance focused, Accelerated Networking device that is an integral part of the newest Azure Boost offerings.

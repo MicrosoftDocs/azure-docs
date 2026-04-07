@@ -1,20 +1,23 @@
 ---
 title: Azure API Management - Managed certificates suspension for custom domains (August 2025)
-description: Azure API Management is temporarily suspending creation of managed certificates for custom domains from August 15, 2025 to March 15, 2026 due to industry-wide changes in domain validation.
+description: Azure API Management is temporarily suspending creation of managed certificates for custom domains from August 15, 2025 to June 30, 2026 due to industry-wide changes in domain validation.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
 ai-usage: ai-assisted
-ms.date: 02/06/2026
+ms.date: 04/03/2026
 ms.author: danlep
 ---
 
-# Creation of managed certificates temporarily suspended for custom domains (August 2025 - March 2026)
+# Creation of managed certificates temporarily suspended for custom domains (August 2025 - June 2026)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-Creation of Azure-managed certificates for custom domains in API Management will be temporarily turned off from August 15, 2025 to March 15, 2026. Existing managed certificates will be autorenewed as long as your API Management service allows inbound traffic from DigiCert IP addresses on port 80 and DNS is properly configured.
+> [!IMPORTANT]
+> The suspension period for managed certificates was recently extended to June 30, 2026. 
+
+Creation of Azure-managed certificates for custom domains in API Management will be temporarily turned off from August 15, 2025 to June 30, 2026. Existing managed certificates will be autorenewed as long as your API Management service allows inbound traffic from DigiCert IP addresses on port 80 and DNS is properly configured.
 
 In the classic service tiers, Azure API Management offers [free, managed TLS certificates for custom domains](../configure-custom-domain.md#domain-certificate-options) (preview), allowing customers to secure their endpoints without purchasing and managing their own certificates. Because of an industry-wide deprecation of CNAME-based Domain Control Validation (DCV), our Certificate Authority (CA), DigiCert, is moving to a new open-source software (OSS) domain control validation (DCV) platform that provides transparency and accountability increasing the trustworthiness of domain validation. As part of this transition, DigiCert will deprecate support for the legacy CNAME Delegation DCV workflow. This migration requires us to temporarily suspend the creation of managed certificates for custom domains.
 
@@ -22,7 +25,7 @@ Note that this does not impact the standard CNAME DCV workflow (where DigiCert v
 
 ## Is my service affected by this?
 
-You're affected if you plan to create new managed certificates for custom domains in Azure API Management between August 15, 2025 and March 15, 2026. 
+You're affected if you plan to create new managed certificates for custom domains in Azure API Management between August 15, 2025 and June 30, 2026. 
 
 As part of this change, starting January 2026, for Azure API Management to be able to renew (rotate) your existing managed certificate, inbound access is required on port 80 to allow [specific DigiCert IP addresses](https://knowledge.digicert.com/alerts/ip-address-domain-validation?utm_medium=organic&utm_source=docs-digicert&referrer=https://docs.digicert.com/en/certcentral/manage-certificates/domain-control-validation-methods/automatic-domain-control-validation-check.html). 
 
@@ -32,7 +35,7 @@ The suspension of managed certificates for custom domains will be enforced from 
 
 ## What do I need to do?
 
-If you need to add new managed certificates, plan to do so before August 15, 2025 or after March 15, 2026. During the suspension period, you can still configure custom domains with certificates you manage from other sources.
+If you need to add new managed certificates, plan to do so before August 15, 2025 or after June 30, 2026. During the suspension period, you can still configure custom domains with certificates you manage from other sources.
 
 If you already have managed certificates for your custom domains, do the following to ensure continued access:
 

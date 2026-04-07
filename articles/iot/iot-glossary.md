@@ -191,7 +191,7 @@ Applies to: IoT Hub, IoT Edge, IoT Central, Device developer
 
 The device SDKS, available for multiple languages, enable you to create [device apps](#device-app) that interact with an [IoT hub](#iot-hub) or an IoT Central application.
 
-[Learn more](./iot-sdks.md)
+[Learn more](../iot-hub/iot-sdks.md)
 
 Casing rules: Always refer to as *Azure IoT device SDKs*.
 
@@ -538,8 +538,6 @@ Applies to: IoT Hub, IoT Central
 
 A description, that uses the [Digital Twins Definition Language](#digital-twins-definition-language), of the capabilities of a [device](#device). Capabilities include [telemetry](#telemetry), [properties](#properties), and [commands](#command).
 
-[Learn more](../iot/concepts-modeling-guide.md)
-
 Casing rules: Always lowercase.
 
 Applies to: IoT Hub, IoT Central, Device developer, Azure Digital Twins
@@ -591,7 +589,7 @@ Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Digital twin
 
-A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language](#digital-twins-definition-language) to represent digital twins of [physical devices](#physical-device) or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin [solutions](#solution). An [IoT Plug and Play](./overview-iot-plug-and-play.md) [device](#device) has a digital twin, described by a Digital Twins Definition Language [device model](#device-model).
+A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language](#digital-twins-definition-language) to represent digital twins of [physical devices](#physical-device) or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin [solutions](#solution). An [IoT Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play) [device](#device) has a digital twin, described by a Digital Twins Definition Language [device model](#device-model).
 
 See also [Device twin](#device-twin)
 

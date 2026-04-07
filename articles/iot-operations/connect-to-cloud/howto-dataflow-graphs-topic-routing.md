@@ -6,14 +6,12 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/13/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 ---
 
 # Route messages to different topics in data flow graphs
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 Some scenarios require messages to arrive on different MQTT topics depending on their content. For example, sensor readings above a critical threshold might need to go to an `alerts` topic, while normal readings go to a `historian` topic. With data flow graphs, you can set the output topic dynamically, even though the dataflow has a single destination.
 
@@ -93,7 +91,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -151,7 +151,7 @@ spec:
 
 ## Option 2: Branch, map each path, and merge
 
-If you need different transformations on each path (not just a different topic), use a branch transform to split the flow, a map transform on each arm to set the topic and apply path-specific rules, and a concat transform to merge the paths.
+If you need different transformations on each path (not just a different topic), use a branch transform to split the flow, a map transform on each arm to set the topic and apply path-specific rules, and a concatenate transform to merge the paths.
 
 # [Operations experience](#tab/portal)
 
@@ -161,7 +161,7 @@ In the Operations experience:
 1. Add a **branch** transform with condition `$1 > 1000` on the `temperature` field.
 1. On the **true** path, add a **map** transform with a wildcard passthrough and a rule that sets `$metadata.topic` to `"alerts"`.
 1. On the **false** path, add a **map** transform with a wildcard passthrough and a rule that sets `$metadata.topic` to `"historian"`.
-1. Add a **concat** transform to merge both paths.
+1. Add a **concatenate** transform to merge both paths.
 1. Add a **destination** with topic `factory/${outputTopic}`.
 
 # [Bicep](#tab/bicep)
@@ -253,7 +253,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1

@@ -1,11 +1,11 @@
 ---
-title: Import a logic app as an API by using the Azure portal  | Microsoft Docs
+title: Import a Logic App as an API by Using the Azure Portal
 description: Learn how to use Azure API Management to import a logic app (Consumption) resource as an API.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 03/12/2026
 ms.author: danlep
 ms.custom: sfi-image-nochange
 
@@ -23,28 +23,28 @@ This article shows how to import a logic app as an API and test the imported API
 In this article, you learn how to:
 
 > [!div class="checklist"]
->
-> -   Import a logic app as an API
-> -   Test the API in the Azure portal
+> - Import a logic app as an API
+> - Test the API in the Azure portal
 
 > [!NOTE]
 > Azure API Management supports automated import of a Logic App (Consumption) resource, which runs in the multitenant Logic Apps environment. For more information, see [Differences between Standard single-tenant logic apps and Consumption multitenant logic apps](../logic-apps/single-tenant-overview-compare.md).
 
 ## Prerequisites
 
--   Complete the quickstart [Create an Azure API Management instance](get-started-create-service-instance.md).
--   Make sure there's a Consumption plan-based Logic App resource in your subscription that exposes an HTTP endpoint. For more information, see [Trigger workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
+- Create an [Azure API Management instance](get-started-create-service-instance.md).
+- Make sure there's a Consumption plan-based Logic App resource in your subscription that exposes an HTTP endpoint. For more information, see [Trigger workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
 
 ## Import and publish a backend API
 
 1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com).
-1. In the left menu, in the **APIs** section, select **APIs**, and then select **+ Add API**.
 
-1. Select **Logic App** in the **Create from Azure resource** list:
+1. In the sidebar menu, in the **APIs** section, select **APIs**, and then select **+ Add API**.
+
+1. Under **Create from Azure resource**, select the **Logic App** tile:
 
     :::image type="content" source="./media/import-logic-app-as-api/logic-app-select.png" alt-text="Screenshot that shows the Logic App tile.":::
 
-1. Select **Browse** to see the list of logic apps that have HTTP trigger in your subscription. (Logic apps that don't have an HTTP trigger won't appear in the list.)
+1. Select **Browse** to see the list of logic apps that have HTTP trigger in your subscription. (Logic apps without an HTTP trigger don't appear in the list.)
 
     :::image type="content" source="./media/import-logic-app-as-api/browse-logic-apps.png" alt-text="Screenshot that shows the Browse button." lightbox="./media/import-logic-app-as-api/browse-logic-apps.png":::
 
@@ -58,7 +58,7 @@ In this article, you learn how to:
 
     :::image type="content" source="./media/import-logic-app-as-api/create-from-logic-app.png" alt-text="Screenshot that shows values entered in the Create from Logic App window." lightbox="./media/import-logic-app-as-api/create-from-logic-app.png":::
 
-1. If you want the API to be published and available to developers, switch to the **Full** view and associate the API with a **Product**. This example uses the **Unlimited** product. (You can add your API to a product when you create it or later via the **Settings** tab.)
+1. If you want the API to be published and available to developers, switch to the **Full** view and associate the API with a **Product**. This example uses the **Unlimited** product. You can add your API to a product when you create it or later via the **Settings** tab.
 
     >[!NOTE]
     > Products are associations of one or more APIs offered to developers via the developer portal. First, developers must subscribe to a product to get access to the API. After they subscribe, they get a subscription key for any API in the product. As creator of the API Management instance, you're an administrator and are subscribed to every product by default.
@@ -78,6 +78,7 @@ You can call operations directly from the Azure portal. This method provides a c
 :::image type="content" source="./media/import-logic-app-as-api/test-logic-app-api.png" alt-text="Screenshot that shows the steps for testing an API." lightbox="./media/import-logic-app-as-api/test-logic-app-api.png":::
 
 1. Select the API that you created in the previous step.
+
 1. On the **Test** tab, select the operation that you want to test.
 
     * The page displays fields for query parameters and headers. 

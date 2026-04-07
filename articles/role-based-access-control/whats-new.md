@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 03/08/2026
+ms.date: 03/30/2026
 ms.author: rolyon
 
 ---
@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| March 2026 | ABAC conditions | Added clarifications for conditions and deleting role assignments. See [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md), [Delegate Azure access management to others](delegate-role-assignments-overview.md), and [Authorization actions and attributes](conditions-authorization-actions-attributes.md). |
 | March 2026 | Roles | Added [Compute Limit Operator](./built-in-roles/compute.md#compute-limit-operator) role. |
 | February 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | February 2026 | Classic administrators | Update steps to reflect that Azure Resource Graph will no longer list classic administrators. See [Azure classic subscription administrators](classic-administrators.md). |

@@ -155,7 +155,7 @@ Provides a serverless, event-driven compute platform for automation that allows 
 
   - You can use a variety of languages to write functions in a language of your choice, such as C#, Java, JavaScript, PowerShell, or Python, and focus on specific pieces of code. Functions runtime is an open source.
   - You can choose the hosting plan according to your function app scaling requirements, functionality, and resources required.
-  - You can orchestrate complex workflows through [durable functions](../azure-functions/durable/durable-functions-overview.md?tabs=csharp).
+  - You can orchestrate complex workflows through [durable functions](../azure-functions/durable-functions/durable-functions-overview.md?tabs=csharp).
   - You should avoid large and long-running functions that can cause unexpected timeout issues. [Learn more](../azure-functions/functions-best-practices.md?tabs=csharp#write-robust-functions).
   - When you write PowerShell scripts within the Function Apps, you must tweak the scripts to define how the function behaves, such as how it's triggered and its input and output parameters. [Learn more](../azure-functions/functions-reference-powershell.md?tabs=portal).
 
@@ -197,7 +197,7 @@ Provides a serverless, event-driven compute platform for automation that allows 
 
   - You can use a variety of languages to write functions in a language of your choice, such as C#, Java, JavaScript, PowerShell, or Python, and focus on specific pieces of code. Functions runtime is an open source.
   - You can choose the hosting plan according to your function app scaling requirements, functionality, and resources required.
-  - You can orchestrate complex workflows through [durable functions](../azure-functions/durable/durable-functions-overview.md?tabs=csharp).
+  - You can orchestrate complex workflows through [durable functions](../azure-functions/durable-functions/durable-functions-overview.md?tabs=csharp).
   - You should avoid large and long-running functions that can cause unexpected timeout issues. [Learn more](../azure-functions/functions-best-practices.md?tabs=csharp#write-robust-functions).
   - When you write PowerShell scripts within Function Apps, you must tweak the scripts to define how the function behaves, such as how it's triggered and its input and output parameters. [Learn more](../azure-functions/functions-reference-powershell.md?tabs=portal).
 

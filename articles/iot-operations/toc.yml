@@ -221,6 +221,9 @@ items:
               - name: Enrich data
                 href: connect-to-cloud/concept-dataflow-enrich.md
                 displayName: data flow, transform, context, contextualization
+              - name: Filter data
+                href: connect-to-cloud/howto-dataflow-filter.md
+                displayName: data flow, filter, drop, condition, boolean, expression
               - name: Schemas
                 href: connect-to-cloud/concept-schema-registry.md
                 displayName: data flow, serialize, deserialize, schema registry
@@ -259,7 +262,7 @@ items:
           - name: Disk persistence
             href: connect-to-cloud/howto-configure-disk-persistence.md
             displayName: data flow, persistence, disk, restart, state
-          - name: Expressions
+          - name: Expressions reference
             href: connect-to-cloud/concept-dataflow-graphs-expressions.md
             displayName: data flow, expression, function, operator, metadata, variable, conversion
           - name: Profiles
@@ -399,8 +402,14 @@ items:
               - name: MQTT broker
                 href: reference/observability-metrics-mqtt-broker.md
                 displayName: metrics, observability
+              - name: Data flows
+                href: reference/observability-metrics-data-flows.md
+                displayName: metrics, observability
               - name: Connector for OPC UA
                 href: reference/observability-metrics-opcua-broker.md
+                displayName: metrics, observability
+              - name: Akri and connectors
+                href: reference/observability-metrics-akri-connectors.md
                 displayName: metrics, observability
               - name: Layered Network Management
                 href: reference/observability-metrics-layered-network.md

@@ -27,7 +27,7 @@ Each Microsoft Entra directory is distinct and separate from other Microsoft Ent
 
 ### Azure tenancy
 
-Azure tenancy (Azure Subscription) refers to a customer and billing relationship and a unique [tenant](/entra/identity-platform/quickstart-create-new-tenant) in [Microsoft Entra ID](/entra/fundamentals/active-directory-whatis.md). Microsoft Entra ID and its [Azure role-based access control](../../role-based-access-control/overview.md) provide tenant level isolation in Microsoft Azure. Each Azure subscription is associated with one Microsoft Entra directory.
+Azure tenancy (Azure Subscription) refers to a customer and billing relationship and a unique [tenant](/entra/identity-platform/quickstart-create-new-tenant) in [Microsoft Entra ID](/entra/fundamentals/what-is-entra). Microsoft Entra ID and its [Azure role-based access control](../../role-based-access-control/overview.md) provide tenant level isolation in Microsoft Azure. Each Azure subscription is associated with one Microsoft Entra directory.
 
 Users, groups, and applications from that directory can manage resources in the Azure subscription. You can assign these access rights by using the Azure portal, Azure command-line tools, and Azure Management APIs. Security boundaries logically isolate a Microsoft Entra tenant so that no customer can access or compromise co-tenants, either maliciously or accidentally. Microsoft Entra ID runs on "bare metal" servers isolated on a segregated network segment, where host-level packet filtering and Windows Firewall block unwanted connections and traffic.
 

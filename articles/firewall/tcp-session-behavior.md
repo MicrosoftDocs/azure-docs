@@ -1,12 +1,11 @@
 ---
 title: Understanding Azure Firewall TCP (Transmission Control Protocol) session management and idle timeout behavior
 description: Learn about the behavior of long-running sessions and TCP idle timeout for Azure Firewall.
-services: firewall
 author: sujamiya
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/25/2025
-ms.author: duau
+ms.date: 03/28/2026
 # Customer intent: As a network administrator, I want to understand the TCP session management and idle timeout behavior of Azure Firewall, so that I can configure settings to optimize network performance and prevent disruption of long-running connections for critical applications.
 ---
 
@@ -16,33 +15,33 @@ This article explains the behavior of long-running sessions and the TCP idle tim
 
 ## Long-running TCP sessions
 
-Long-running sessions refer to TCP connections that stay active for extended durations. These long-running sessions are often utilized in applications like SSH, RDP, VPN tunnels, and database connections. To prevent unexpected disconnections, it's essential to configure these sessions appropriately. Understanding the factors that influence their stability is key to ensuring uninterrupted connectivity.
+Long-running sessions refer to TCP connections that stay active for extended durations. Applications like SSH, RDP, VPN tunnels, and database connections often use these long-running sessions. To prevent unexpected disconnections, you need to configure these sessions appropriately. Understanding the factors that influence their stability is key to ensuring uninterrupted connectivity.
 
 Certain scenarios can lead to the dropping of long-running TCP sessions. Azure Firewall is designed to handle a large number of concurrent connections, but it might not be able to maintain long-running sessions under certain conditions.
 
 The following scenarios in Azure Firewall can result in the termination of long-running TCP sessions:
 
-- **Scale-in**: When Azure Firewall scales in, it enters a drain mode for 90 seconds before recycling the instance. Any long-running connections still active after this period gets disconnected.
+- **Scale-in**: When Azure Firewall scales in, it enters a drain mode for 90 seconds before recycling the instance. The process disconnects any long-running connections that are still active after this period.
 
-- **Firewall maintenance**: During maintenance updates, Azure Firewall allows short-lived sessions to complete. However, long-running sessions that persist beyond the drain period are terminated during the restart process.
+- **Firewall maintenance**: During maintenance updates, Azure Firewall allows short-lived sessions to complete. However, the restart process terminates long-running sessions that persist beyond the drain period.
 
-- **Autorecovery**: If an Azure Firewall instance becomes unresponsive, it undergoes an automatic recovery process. This recovery can lead to the disconnection of long-running sessions.
+- **Autorecovery**: If an Azure Firewall instance becomes unresponsive, it undergoes an automatic recovery process. This recovery process can lead to the disconnection of long-running sessions.
 
-- **Idle timeout**: Connections that remain inactive for a duration exceeding the TCP idle timeout gets closed by the Azure Firewall.
+- **Idle timeout**: Azure Firewall closes connections that remain inactive for a duration exceeding the TCP idle timeout.
 
 ## Idle timeout settings
 
-The TCP idle timeout specifies the duration a connection can stay inactive before the Azure Firewall terminates the connection. This setting helps optimize the Azure Firewall by closing inactive connections and maintaining overall network performance.
+The TCP idle timeout specifies how long a connection can stay inactive before Azure Firewall terminates the connection. This setting helps optimize Azure Firewall by closing inactive connections and maintaining overall network performance.
 
 The TCP idle timeout provides several benefits:
 
-- **Efficient resource utilization**: By terminating inactive connections, the Azure Firewall conserves memory and compute resources, ensuring optimal performance.
-- **DDoS risk mitigation**: Helps protect against Distributed Denial-of-Service (DDoS) attacks that exploit idle, persistent connections.
+- **Efficient resource utilization**: By terminating inactive connections, Azure Firewall conserves memory and compute resources, ensuring optimal performance.
+- **DDoS risk mitigation**: Helps protect against distributed denial-of-service (DDoS) attacks that exploit idle, persistent connections.
 - **Improved network performance**: Enhances overall throughput and reduces latency by managing idle connections effectively.
 
 ### Timeout behavior
 
-In the context of Azure Firewall, **north-south traffic** refers to traffic between the Azure Firewall and the Internet, while **east-west traffic** refers to internal traffic between Azure resources within the same region, across regions, and on-premises networks connected through Azure VPN, Azure ExpressRoute, or Virtual Network Peering going through the Azure Firewall. 
+In the context of Azure Firewall, **north-south traffic** refers to traffic between Azure Firewall and the Internet, while **east-west traffic** refers to internal traffic between Azure resources within the same region, across regions, and on-premises networks connected through Azure VPN, Azure ExpressRoute, or Virtual Network Peering going through Azure Firewall.
 
 The TCP idle timeout behavior differs for north-south and east-west traffic:
 
@@ -51,26 +50,26 @@ The TCP idle timeout behavior differs for north-south and east-west traffic:
 
 ### TCP reset packets (RST)
 
-When a TCP connection is terminated due to an idle timeout, the Azure Firewall sends a TCP reset packet (RST) to both the client and server. This packet notifies both parties that the connection closed. The behavior of TCP reset packets differs for north-south and east-west traffic.
+When Azure Firewall terminates a TCP connection due to an idle timeout, it sends a TCP reset packet (RST) to both the client and server. This packet notifies both parties that the connection closed. The behavior of TCP reset packets differs for north-south and east-west traffic.
 
-- **North-south traffic**: The Azure Firewall notifies both the client and server when an idle timeout occurs by sending a TCP reset packet (RST).
-- **East-west traffic**: Azure Firewall doesn't send a reset packet (RST) when an idle timeout occurs. This behavior can cause unexpected issues in applications. Configure a keep-alive mechanism within your application to keep long-running sessions active and prevent disruptions during scale-in, maintenance, or autorecovery events.
+- **North-south traffic**: Azure Firewall notifies both the client and server when an idle timeout occurs by sending a TCP reset packet (RST).
+- **East-west traffic**: Azure Firewall doesn't send a reset packet (RST) when an idle timeout occurs. This behavior can cause unexpected problems in applications. Configure a keep-alive mechanism within your application to keep long-running sessions active and prevent disruptions during scale-in, maintenance, or autorecovery events.
 
-Certain applications, such as traditional SAP GUI and SAP Remote Function Call (RFC)-based applications, are sensitive to session resets and can experience connectivity issues when sessions are terminated unexpectedly. To avoid these issues, you can implement a retry logic in your application to handle session resets gracefully. This mechanism should include logic to re-establish connections and resume operations seamlessly.
+Certain applications, such as traditional SAP GUI and SAP Remote Function Call (RFC)-based applications, are sensitive to session resets and can experience connectivity problems when sessions terminate unexpectedly. To avoid these problems, implement retry logic in your application to handle session resets gracefully. This mechanism should include logic to re-establish connections and resume operations seamlessly.
 
 > [!NOTE]
-> If you're running SAP workloads through an Azure Firewall, test your configuration and review the [SAP design documentation](/azure/sap/workloads/deployment-checklist?tabs=pilot#pilot-phase-strongly-recommended) to ensure a successful Azure deployment.
+> If you're running SAP workloads through an Azure Firewall, test your configuration and review the [SAP design documentation](/azure/sap/workloads/deployment-check list?tabs=pilot#pilot-phase-strongly-recommended) to ensure a successful Azure deployment.
 
 ### TCP reset behavior during scale-in events
 
-When Azure Firewall scales in, it enters a drain mode for 90 seconds before an underlying firewall instance is recycled: 
+When Azure Firewall scales in, it enters a drain mode for 90 seconds before an underlying firewall instance is recycled:
 
 - **First 45 seconds:** The firewall stops accepting new connections but allows existing connections to continue without sending TCP reset packets.
-- **Next 45 seconds:** The firewall sends TCP RST packets to all active session flows to ensure clean termination before recycling. These resets inform both the client and the server that the connection is closing cleaning, so neither side hangs indefinitely waiting for packets that will not arrive once the underlying instance is decommissioned.
-    - To ensure that both client and server endpoints promptly detect these resets, configure a **bi-directional TCP keep-alive messages at 30-second intervals**. Keep-alive probes generate periodic traffic even when no application data is exchanged, helping both sides detect connection closure in real time and avoid half-open sessions - cases where one side believes the connection is still alive after the other side has closed it. This configuration allows applications to gracefully recover connections when a firewall instance is recycled during scale-in.
-    - If a 30-second keep-alive interval is not feasible, consider configuring [prescaling](/azure/firewall/prescaling) to maintain a higher minimum capacity, reducing the likelihood of scale-in events that could disrupt long-running connections. 
+- **Next 45 seconds:** The firewall sends TCP RST packets to all active session flows to ensure clean termination before recycling. These resets inform both the client and the server that the connection is closing cleaning, so neither side hangs indefinitely waiting for packets that won't arrive once the underlying instance is decommissioned.
+    - To make sure that both client and server endpoints promptly detect these resets, configure **bi-directional TCP keep-alive messages at 30-second intervals**. Keep-alive probes generate periodic traffic even when no application data is exchanged, helping both sides detect connection closure in real time and avoid half-open sessions - cases where one side believes the connection is still alive after the other side has closed it. This configuration allows applications to gracefully recover connections when a firewall instance is recycled during scale-in.
+    - If a 30-second keep-alive interval isn't feasible, consider configuring [prescaling](/azure/firewall/prescaling) to maintain a higher minimum capacity, reducing the likelihood of scale-in events that could disrupt long-running connections.
 
-This scale-in TCP reset behavior applies for both north-south and east-west traffic. It ensures clients and servers are properly notified before the firewall instance is decommissioned. The drain period and reset behavior are not configurable during scale-in events.
+This scale-in TCP reset behavior applies for both north-south and east-west traffic. It ensures clients and servers are properly notified before the firewall instance is decommissioned. The drain period and reset behavior aren't configurable during scale-in events.
 
 > [!NOTE]
 > TCP reset behavior during scale-in differs from idle timeout behavior. For idle timeout, RST packets are sent only for north-south traffic, while during scale-in, RST packets are sent for both north-south and east-west traffic.

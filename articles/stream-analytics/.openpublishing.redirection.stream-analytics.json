@@ -1,5 +1,10 @@
 {
-    "redirections": [                
+    "redirections": [             
+        {
+            "source_path_from_root": "/articles/stream-analytics/no-code-build-power-bi-dashboard.md",
+            "redirect_url": "https://techcommunity.microsoft.com/blog/analyticsonazure/simplifying-migration-to-fabric-real-time-intelligence-for-power-bi-real-time-re/4283180",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/stream-analytics/custom-deserializer-examples.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-introduction",

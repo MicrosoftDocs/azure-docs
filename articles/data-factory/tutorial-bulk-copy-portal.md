@@ -11,7 +11,9 @@ ms.custom: sfi-image-nochange
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+**APPLIES TO:** :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Synapse Analytics
+
+[!INCLUDE [copy-job-recommendation](includes/copy-job-recommendation.md)]
 
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure Synapse Analytics**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Azure Synapse Analytics /Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 

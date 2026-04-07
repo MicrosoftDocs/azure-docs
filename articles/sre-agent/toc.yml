@@ -6,26 +6,26 @@ items:
   - name: Get started
     expanded: true
     items:
-      - name: "Step 1: Create agent"
-        href: create-agent.md
-      - name: "Step 2: Add knowledge"
-        href: first-value.md
-      - name: "Step 3: Connect source code"
-        href: connect-source-code.md
-      - name: "Step 4: Incident response"
-        href: incident-response.md
-      - name: "Step 5: Automate actions"
-        href: automate-actions.md
-      - name: Ask the agent for help
-        href: ask-agent.md
-      - name: Diagnose your first incident
-        href: usage.md
+      - name: Create and set up
+        href: create-and-set-up.md
+      - name: Team onboarding
+        href: team-onboard.md
+      - name: Complete setup
+        href: complete-setup.md
+      - name: Run your first investigation
+        href: first-investigation.md
+      - name: Automate incident response
+        href: automate-incidents.md
+      - name: Automate workflows
+        href: automate-workflows.md
   - name: Concepts
     items:
       - name: User roles and permissions
         href: user-roles.md
       - name: Agent permissions
         href: permissions.md
+      - name: Agent identity
+        href: agent-identity.md
       - name: Run modes
         href: run-modes.md
       - name: Connectors
@@ -42,16 +42,40 @@ items:
         href: threads.md
       - name: Tools
         href: tools.md
+      - name: Deep context
+        href: workspace-tools.md
       - name: Agent reasoning
         href: agent-reasoning.md
   - name: Capabilities
     items:
+      - name: Connect
+        items:
+          - name: Connect knowledge
+            href: connect-knowledge.md
+          - name: Add web page knowledge
+            href: add-web-page-knowledge.md
+          - name: File attachments
+            href: file-attachments.md
+          - name: GitHub connector
+            href: github-connector.md
+          - name: Azure DevOps connector
+            href: ado-connector.md
+          - name: Cross-account ADO access
+            href: cross-account-ado-oauth.md
+          - name: Managed identity for ADO repos
+            href: managed-identity-ado-repos.md
+          - name: Remove resources from scope
+            href: configuration-deletion.md
       - name: Diagnose
         items:
           - name: Incident response
             href: incident-response.md
           - name: Incident response plans
             href: incident-response-plans.md
+          - name: PagerDuty incident indexing
+            href: pagerduty-incidents.md
+          - name: ServiceNow incident indexing
+            href: servicenow-incidents.md
           - name: Root cause analysis
             href: root-cause-analysis.md
           - name: Deep investigation
@@ -72,6 +96,8 @@ items:
             href: workflow-automation.md
           - name: Scheduled tasks
             href: scheduled-tasks.md
+          - name: HTTP triggers
+            href: http-triggers.md
           - name: Send notifications
             href: send-notifications.md
       - name: Extend
@@ -80,10 +106,14 @@ items:
             href: agent-playground.md
           - name: Python tools
             href: python-code-execution.md
+          - name: Plugin marketplace
+            href: plugin-marketplace.md
           - name: Agent hooks
             href: agent-hooks.md
           - name: Code interpreter
             href: code-interpreter.md
+          - name: Tools and skills
+            href: global-tools-page.md
       - name: Knowledge & data sources
         items:
           - name: Azure DevOps Wiki knowledge
@@ -92,10 +122,16 @@ items:
             href: upload-knowledge-document.md
           - name: Kusto tools
             href: kusto-tools.md
+          - name: MCP connectors
+            href: mcp-connectors.md
       - name: Access
         items:
           - name: Chat from your tools
             href: chat-from-your-tools.md
+          - name: Learn via Chat
+            href: docsguide.md
+          - name: Favorites and Mine filter
+            href: favorites-mine-filter.md
       - name: Measure & govern
         items:
           - name: Track incident value
@@ -106,12 +142,24 @@ items:
             href: audit-agent-actions.md
   - name: Tutorials
     items:
+      - name: Connect
+        items:
+          - name: Share files and screenshots
+            href: file-attachments-tutorial.md
+          - name: Set up Teams connector
+            href: set-up-teams-connector.md
       - name: Diagnose
         items:
           - name: Run a deep investigation
             href: tutorial-deep-investigation.md
           - name: Set up an incident trigger
             href: response-plan.md
+          - name: Set up PagerDuty indexing
+            href: set-up-pagerduty-indexing.md
+          - name: Set up ServiceNow indexing
+            href: setup-servicenow-indexing.md
+          - name: Manage permissions
+            href: manage-permissions.md
           - name: Set up incident response
             href: tutorial-incident-response.md
           - name: Connect to PagerDuty
@@ -122,22 +170,36 @@ items:
         items:
           - name: Create scheduled tasks
             href: create-scheduled-task.md
+          - name: Create an HTTP trigger
+            href: create-http-trigger.md
       - name: Extend
         items:
           - name: Configure agent hooks
             href: tutorial-agent-hooks.md
+          - name: Create and manage hooks in the portal
+            href: create-manage-hooks-ui.md
           - name: Test a tool in the playground
             href: test-tool-playground.md
           - name: Create a Python tool
             href: create-python-tool.md
+          - name: Install a Marketplace plugin
+            href: install-plugin-from-marketplace.md
           - name: Use code interpreter
             href: use-code-interpreter.md
+          - name: Create a subagent
+            href: create-subagent.md
+          - name: Create a skill
+            href: create-skill.md
+          - name: Use DocsGuide
+            href: use-docsguide.md
       - name: Knowledge & data sources
         items:
           - name: Set up Kusto connector
             href: kusto-connector.md
           - name: Set up Azure DevOps connector
             href: azure-devops-connector.md
+          - name: Set up Outlook connector
+            href: outlook-connector.md
           - name: Set up MCP connector
             href: mcp-connector.md
           - name: Create a Kusto tool
@@ -146,6 +208,14 @@ items:
             href: tutorial-upload-knowledge-document.md
           - name: Connect Azure DevOps Wiki
             href: connect-devops-wiki.md
+          - name: Manage global tools
+            href: manage-global-tools.md
+          - name: Connect ADO repo with managed identity
+            href: connect-ado-repo-managed-identity.md
+          - name: Cross-account ADO access
+            href: cross-account-azdo-oauth-authorization.md
+          - name: Add a web page knowledge source
+            href: add-web-page.md
       - name: Access
         items:
           - name: Set up Teams bot
@@ -160,10 +230,10 @@ items:
         href: starter-prompts.md
       - name: Data privacy and residency
         href: data-privacy.md
+      - name: Pricing and billing
+        href: pricing-billing.md
       - name: Anthropic subprocessor
         href: anthropic-sub-processor.md
-      - name: Billing
-        href: billing.md
       - name: Frequently asked questions
         items:
           - name: General

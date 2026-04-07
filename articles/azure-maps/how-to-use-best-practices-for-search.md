@@ -1076,7 +1076,7 @@ This reduces the likelihood of low-confidence matches in unrelated regions when 
 
 ##### Reworded clarity: how "up-hierarchy" results happen
 
-When the service can't find a match at the specificity implied by the query, it may "move up the geographic hierarchy" and return a broader location (for example, city, administrative division, or country/region). In those cases, `matchCodes` includes `UpHierarchy`, and properties.type indicates what level was returned.
+When the service can't find a match at the specificity implied by the query, it may "move up the geographic hierarchy" and return a broader location (for example, city, administrative division, or country/region). In those cases, `matchCodes` includes `UpHierarchy`, and [properties.type] indicates what level was returned.
 
 ##### Practical filtering guidance (apply in this order)
 
@@ -1094,7 +1094,7 @@ When the service can't find a match at the specificity implied by the query, it 
 
 ### Use geocoding as a data enrichment step
 
-When geocoding large address datasets, expect that some records won't return results. This is normal and doesn't indicate a service error.
+Many organizations collect customer records through free‑form data entry, often without address validation. As a result, these datasets frequently contain non‑deliverable or low‑quality addresses. When geocoding large, unvalidated address sets, it is expected that some records will return weak matches or no results at all. This behavior is normal and does not indicate a service failure.
 
 Common causes include:
 

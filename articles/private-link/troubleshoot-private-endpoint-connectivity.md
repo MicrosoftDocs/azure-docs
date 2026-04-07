@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Private Endpoint connectivity problems
 description: Step-by-step guidance to diagnose private endpoint connectivity
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: troubleshooting
 ms.date: 02/18/2025
-ms.author: abell
+ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to troubleshoot Azure Private Endpoint connectivity issues, so that I can ensure secure and reliable access to Azure services from my virtual network.
 ---

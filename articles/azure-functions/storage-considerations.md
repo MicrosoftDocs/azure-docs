@@ -17,10 +17,10 @@ When you create a function app instance in Azure, you must provide access to a d
 
 |Storage service  | Functions usage  |
 |---------|---------|
-| [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.<br/>Deployment source for apps that run in a [Flex Consumption plan](flex-consumption-plan.md).<br/>Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). <br/>Can be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
+| [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.<br/>Deployment source for apps that run in a [Flex Consumption plan](flex-consumption-plan.md).<br/>Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md). <br/>Can be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
 | [Azure Files](../storage/files/storage-files-introduction.md)<sup>2</sup>  | File share used to store and run your function app code in a [Consumption Plan](consumption-plan.md) and [Premium Plan](functions-premium-plan.md). <br/> Maintain [extension bundles](./extension-bundles.md).<br/>Store deployment logs.<br/>Supports [Managed dependencies in PowerShell](./functions-reference-powershell.md#managed-dependencies-feature). |
-| [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md). Used for object tracking by the [Blob storage trigger](functions-bindings-storage-blob-trigger.md). |
-| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).<br/>Used for tracking [diagnostic events](./functions-diagnostics.md).  |
+| [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md). Used for object tracking by the [Blob storage trigger](functions-bindings-storage-blob-trigger.md). |
+| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md).<br/>Used for tracking [diagnostic events](./functions-diagnostics.md).  |
 
 1. Blob storage is the default store for function keys, but you can [configure an alternate store](function-keys-how-to.md#manage-key-storage).
 1. Azure Files is set up by default, but you can [create an app without Azure Files](#create-an-app-without-azure-files) under certain conditions.
@@ -132,7 +132,7 @@ Use the following table to determine which function trigger best fits your needs
 
 ### In-region data residency
 
-When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](./durable/durable-functions-azure-storage-provider.md#storage-account-selection).
+When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](./durable-functions/durable-functions-azure-storage-provider.md#storage-account-selection).
 
 Other platform-managed customer data is only stored within the region when hosting in an internally load-balanced App Service Environment (ASE). To learn more, see [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 

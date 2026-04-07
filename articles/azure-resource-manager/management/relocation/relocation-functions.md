@@ -53,7 +53,7 @@ The Functions host requires an Azure Storage account. For more information, see 
 
 ### Persisted local storage
 
-Functions executions are [intended to be stateless](../../../azure-functions/performance-reliability.md#write-functions-to-be-stateless). However, we don't prevent you from writing data to the local file system. It's possible to store data generated and used by your application on the `%HOME%\site` virtual drive, but this data shouldn't be state-related. If your scenario requires you to maintain state between function executions, consider instead using [Durable Functions](../../../azure-functions/durable/durable-functions-overview.md).
+Functions executions are [intended to be stateless](../../../azure-functions/performance-reliability.md#write-functions-to-be-stateless). However, we don't prevent you from writing data to the local file system. It's possible to store data generated and used by your application on the `%HOME%\site` virtual drive, but this data shouldn't be state-related. If your scenario requires you to maintain state between function executions, consider instead using [Durable Functions](../../../azure-functions/durable-functions/durable-functions-overview.md).
 
 If your application persists data to the app's shared storage path, make sure to plan how you're going to manage that state during a resource move. Keep in mind that for Dedicated (App Service) plan apps, the share is part of the site. For Consumption and Premium plans, the share is, by default, an Azure Files share in the default storage account. Apps running on Linux might be using an [explicitly mounted share](../../../azure-functions/storage-considerations.md#mount-file-shares) for persisted storage.
 
@@ -87,7 +87,7 @@ If minimal downtime is a requirement, consider running your function app in both
 
 ### Durable Functions
 
-The Durable Functions extension lets you define orchestrations, where state is maintained in your function executions using stateful entities. Ideally, you should allow running orchestrations to complete before migrating your Durable Functions app, especially when you plan to switch to a new storage account in the new region. When migrating your Durable Functions apps, consider using one of these [disaster recovery and geo-distribution strategies](../../../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md).
+The Durable Functions extension lets you define orchestrations, where state is maintained in your function executions using stateful entities. Ideally, you should allow running orchestrations to complete before migrating your Durable Functions app, especially when you plan to switch to a new storage account in the new region. When migrating your Durable Functions apps, consider using one of these [disaster recovery and geo-distribution strategies](../../../azure-functions/durable-functions/durable-functions-disaster-recovery-geo-distribution.md).
 
 ## Relocate
 
