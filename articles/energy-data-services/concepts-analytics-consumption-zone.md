@@ -28,7 +28,7 @@ Key characteristics of ACZ:
 
 - **Customer-owned storage**: Data goes to an ADLS Gen2 storage account that you provision and manage.
 - **Open format**: Data exports in Delta Parquet format. Analytics engines widely support this format.
-- **Selective sync**: You choose which entity types to sync. Options include catalog kinds and Wellbore DDMS kinds.
+- **Selective sync**: You choose which entity types to sync. Options include catalog kinds and Wellbore Domain Data Management Service (DDMS) kinds.
 - **Historical and incremental sync**: ACZ takes an initial snapshot of existing data, then synchronizes changes as they occur.
 - **API-driven**: You configure and manage ACZ entirely through REST APIs.
 
@@ -110,7 +110,7 @@ After the snapshot finishes, ACZ switches to incremental mode. It captures new a
 ACZ propagates created, updated, and deleted records from ADME to the Delta tables.
 
 - **Creations and updates**: When you create a record or change its data block, ADME creates a new version. ACZ detects the change and writes a new row to the Delta table.
-- **Metadata-only updates**: A PATCH operation can change ACL, Legal, or Tags without creating a new version. ACZ detects this change and runs a merge-upsert on the existing row.
+- **Metadata-only updates**: A PATCH operation can change the access control list (ACL), Legal, or Tags without creating a new version. ACZ detects this change and runs a merge-upsert on the existing row.
 - **Deletes**: When you delete a record in ADME, ACZ sets the `isActive` field to `False` on the row instead of removing it. This soft delete preserves history for auditing and time-travel queries.
 
 ## Data output format
@@ -154,7 +154,7 @@ The Delta table has these fields:
 |---|---|---|
 | `id` | String | ADME record ID. |
 | `version` | String | Version number. |
-| `kind` | String | Fully qualified OSDU kind. |
+| `kind` | String | Fully qualified Open Subsurface Data Universe (OSDU) kind. |
 | `data` | String | Data block (JSON). |
 | `meta` | String | Metadata (JSON). |
 | `acl` | String | Access control list. |
@@ -185,17 +185,6 @@ ACZ requires:
 
 - **API access**: You must belong to the `users@{data-partition-id}.dataservices.energy` group to call ACZ APIs.
 - **Storage access**: The managed identity needs the Storage Blob Data Contributor role (or equivalent) on the ADLS Gen2 container. During preview, share the identity details with Microsoft to add the identity to the allow list.
-
-## Frequently asked questions
-
-### What telemetry and monitoring capabilities are available during the ACZ Preview?
-
-During the ACZ Preview, the following status indicators are available through the ACZ API:
-
-- **ACZ Status** – Indicates the overall state of the Analytics Consumption Zone (for example, `ACTIVE`).
-- **Historical Snapshot Status** – Indicates the progress of the initial data sync (for example, `PROCESSING`, `COMPLETED`).
-
-More detailed telemetry and monitoring capabilities, such as sync progress metrics, error diagnostics, and integration with Azure Monitor, will be available by General Availability (GA).
 
 ## Related content
 
