@@ -15,7 +15,7 @@ ms.date: 12/30/2024
 The document explains how to manage the lifecycle of out-of-the-box solutions in Microsoft Sentinel that the solution author no longer supports. This document explains how to identify the solutions that are marked for deprecation and what actions to take on those solutions. 
 
 > [!Warning]
-> Microsoft Sentinel solutions that are deprecated are no longer supported by Microsoft. They do not receive updates or bug fixes, and functionality or reliability may degrade over time. Continued use should be carefully evaluated, and migration to a supported alternative is recommended.
+> Microsoft Sentinel solutions that are deprecated are no longer supported by Microsoft. They do not receive updates or bug fixes, and functionality or reliability may degrade over time. Continued use should be carefully evaluated, and migration to a supported alternative is recommended. For recommended next steps, see [Actions to take on solutions that are marked as deprecated](#actions-to-take-on-solutions-that-are-marked-as-deprecated).
 
 ## Reasons for solution deprecation
 Here are some of the primary reasons why Solutions are sometimes deprecated in Microsoft Sentinel:
