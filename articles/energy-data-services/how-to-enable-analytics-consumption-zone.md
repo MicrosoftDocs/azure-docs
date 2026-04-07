@@ -74,11 +74,8 @@ Provide the following information to your Microsoft representative:
 
 | Information | Description |
 |---|---|
-| **Azure Data Manager for Energy instance name** | Your ADME instance name. |
-| **Data partition ID** | The data partition to use with ACZ. |
-| **Managed identity Client ID** | The Client (Application) ID of your managed identity. |
-| **Managed identity Object ID** | The Object (principal) ID of your managed identity. |
-| **ADLS Gen2 storage account Resource ID** | The full Azure Resource ID (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}`). |
+| **Azure Data Manager for Energy instance name** | Your ADME instance name (for example, `my-adme-instance`). |
+| **Managed identity Resource ID** | The full Azure Resource ID of the user-assigned managed identity. In the Azure portal, go to your managed identity and select **Settings** > **Properties** to find the **Resource ID** (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`). |
 
 After Microsoft adds your managed identity to the allow list, you can create an ACZ through the APIs.
 
