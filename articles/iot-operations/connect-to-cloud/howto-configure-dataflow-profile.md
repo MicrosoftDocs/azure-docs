@@ -155,6 +155,9 @@ You can scale the data flow profile to adjust the number of instances that run t
 
 Scaling can also improve the resiliency of the data flows by providing redundancy in case of failures.
 
+> [!IMPORTANT]
+> **Stateful data flow graphs must use a single instance.** Data flow graphs that contain stateful transforms such as [window](howto-dataflow-graphs-window.md) accumulate state independently in each instance. When the instance count is greater than one, incoming messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions), and the separate instances don't share state with each other. As a result, each instance only aggregates a subset of the messages, which produces incorrect results. Set the instance count to **1** for any data flow profile that is associated with a stateful data flow graph.
+
 To manually scale the data flow profile, specify the number of instances you want to run. For example, to set the instance count to 3:
 
 # [Portal](#tab/portal)
