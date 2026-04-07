@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-frontdoor
   ms.topic: faq
-  ms.date: 02/24/2026
+  ms.date: 04/07/2026
 title: Azure Front Door frequently asked questions (FAQ) 
 summary : |
   This article provides answers to the most frequently asked questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -306,9 +306,9 @@ sections:
     questions:
 
     - question: | 
-        What is happening with DigiCert’s CNAME Delegation DCV workflow? 
+        What is happening with DigiCert's CNAME Delegation DCV workflow? 
       answer: |
-        On 15 August 2025, DigiCert will deprecate support for the legacy CNAME Delegation DCV workflow. DigiCert is transitioning to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert will no longer support the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/managed-tls-changes)
+        Effective August 15, 2025, DigiCert transitioned to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert will no longer support the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/managed-tls-changes)
     
     - question: | 
         Which Azure Front Door SKUs are affected by this change? 
@@ -319,32 +319,43 @@ sections:
         - Azure CDN from Microsoft (classic)
 
     - question: | 
-        What will happen after 15 August 2025?
+        What's the current status?
       answer: |
         Azure Front Door (classic) and Azure CDN from Microsoft (classic):
-        - Will no longer support for new domain onboarding and new profile creation.
-        - Will no longer support Azure-managed certificates.
-        - Automation scripts for these actions will begin to fail.
-        - Switching to managed certificates on existing domains will no longer be allowed.
-        - Emergent renewals of managed certificates will not be possible due to the deprecation of CNAME-based validation.
-
-    - question: | 
-        What happens to existing managed certificates?
-      answer: |
-        Existing managed certificates will be automatically renewed before 15 August 2025 and remain valid until 14 April, 2026. However, any renewal required after 15 August 2025 will not be possible.
+        - Effective August 15, 2025, no longer support for new domain onboarding,new profile creation, or Azure-managed certificates.
+        - Effective April 14, 2026, existing managed certificates will be retired.
 
     - question: | 
         What actions should I take to avoid service disruption?
       answer: |
-        Azure Front Door (classic)
-
-        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
-        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
-
+        Microsoft will automatically migrate eligible profiles on a "best effort" basis to Azure Front Door Standard/Premium between April 10, 2026 and April 14, 2026, unless you notify us otherwise. Classic and Azure Front Door Standard/Premium SKUs are charged differently. Please refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/frontdoor/?msockid=06fc59dfa84d6e0612124fafa9586f44) for details. 
+        
+        If you plan to migrate to Azure Front Door Standard/Premium or switch to BYOC yourself, please notify Microsoft by April 9, 2026 by setting the required feature flag, see instructions below.
+        
+        You can check the auto-migration eligibility by following [the migration steps](https://learn.microsoft.com/en-us/azure/frontdoor/migrate-tier). If step 1 Validate compatibility succeeds, your profile is eligible. If you proceed with auto‑migration, monitor your email for final migration confirmation and status updates.
+        
+        **Required action**
+           
         Azure CDN from Microsoft (classic)
+        
+        Before April 9, 2026: 
+        - [Migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) or [move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate).
+        - If you plan to migrate to Azure Front Door or move to BYOC yourself before April 14, 2026 or  want to opt out of auto migration and willing to risk disruption to the HTTPS traffic, you will need to set a Feature Flag by following [instruction provided](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-portal), and selecting the Feature Flag "Microsoft.Cdn/DoNotAutoMigrateClassicManagedCertificatesProfiles") before April 9, 2026. Doing so will prevent Microsoft from migrating your eligible classic managed certificate profiles to Azure Front Door. 
+       
+        Between April 10, 2026 and April 14, 2026: 
+        - Customers who didn't set the said Feature Flag before April 9, 2026, their profiles will be migrated to Azure Front Door Standard or Premium SKU on a "best effort" basis and should watch for an email related to their migration status.  
+        - Customers who set the said Feature Flag but are still consuming services with classic SKUs will have until April 14, 2026 to complete migration or move to BYOC. 
 
-        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
-        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
+        Azure Front Door (classic)
+  
+        Before April 9, 2026:
+        - [Migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) or [move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell).
+
+        - If you plan to migrate to Azure Front Door or transition to Bring Your Own Certificate (BYOC) before April 14, 2026, or if you choose to opt out of auto migration and accept the risk of HTTPS traffic disruption, you will need to set a feature flag by following the [instruction provided](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-portal), and selecting the Feature Flag "Microsoft.Cdn/DoNotAutoMigrateClassicManagedCertificatesProfiles" before April 9, 2026. Doing so will prevent Microsoft from migrating your eligible classic managed certificate profiles to Azure Front Door.
+
+        Between April 10, 2026 and April 14, 2026:
+
+        - For customers who do not set the feature flag by April 9, 2026, Microsoft will migrate their profiles to Azure Front Door Standard or Premium SKU on a "best effort" basis. Customers are advised to monitor their email for updates on migration status. Customers who have set the said Feature Flag but are still consuming services with classic SKUs will have until April 14, 2026 to complete migration or move to BYOC.
     
   - name: Billing
     questions:

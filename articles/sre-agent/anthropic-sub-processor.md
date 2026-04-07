@@ -4,7 +4,7 @@ description: Learn how Anthropic operates as a Microsoft subprocessor in Azure S
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: concept-article
-ms.date: 03/23/2026
+ms.date: 04/07/2026
 ms.service: azure
 ms.custom: references_regions
 ---
@@ -71,6 +71,107 @@ When you use Anthropic models in Azure SRE Agent:
 - Your data is isolated by tenant and Azure subscription.
 
 For more on how Azure SRE Agent handles data, see [Data residency and privacy](data-privacy.md).
+
+## Disable Anthropic with Azure Policy
+
+You can use Azure Policy to prevent Anthropic from being configured as the AI model provider on your Azure SRE Agent resources.
+
+When assigned with the default configuration, this policy blocks Anthropic. Agents that already use Anthropic are flagged as non-compliant but aren't changed automatically.
+
+### Create the policy definition
+
+1. Save the following policy rule to a file named `deny-anthropic-rules.json`:
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.App/agents"
+          },
+          {
+            "field": "Microsoft.App/agents/defaultModel.provider",
+            "in": "[parameters('disallowedProviders')]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+    ```
+
+1. Save the following parameters to a file named `deny-anthropic-params.json`:
+
+    ```json
+    {
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect",
+          "description": "Audit logs non-compliant agents without blocking. Deny prevents agents from being configured with a disallowed provider. Disabled turns off the policy."
+        },
+        "allowedValues": ["Audit", "Deny", "Disabled"],
+        "defaultValue": "Deny"
+      },
+      "disallowedProviders": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Disallowed AI model providers",
+          "description": "AI model provider values to deny on Azure SRE Agent resources."
+        },
+        "defaultValue": ["Anthropic"]
+      }
+    }
+    ```
+
+1. Create the policy definition:
+
+    ```azurecli
+    az policy definition create \
+      --name "deny-anthropic-provider" \
+      --display-name "Azure SRE Agent: Restrict AI model providers" \
+      --description "Prevents Azure SRE Agent resources from using Anthropic as the AI model provider." \
+      --mode All \
+      --rules deny-anthropic-rules.json \
+      --params deny-anthropic-params.json
+    ```
+
+### Assign the policy
+
+Assign the policy to your subscription:
+
+```azurecli
+az policy assignment create \
+  --name "deny-anthropic-provider" \
+  --display-name "Deny Anthropic on SRE Agent resources" \
+  --policy "deny-anthropic-provider" \
+  --scope "/subscriptions/<YOUR_SUBSCRIPTION_ID>"
+```
+
+To apply the policy across multiple subscriptions, assign it at the management group scope:
+
+```azurecli
+az policy assignment create \
+  --name "deny-anthropic-provider" \
+  --display-name "Deny Anthropic on SRE Agent resources" \
+  --policy "deny-anthropic-provider" \
+  --scope "/providers/Microsoft.Management/managementGroups/<YOUR_MANAGEMENT_GROUP_ID>"
+```
+
+### Verify compliance
+
+After assignment, any attempt to configure an agent with Anthropic as the provider is blocked. Check compliance status:
+
+```azurecli
+az policy state summarize --policy-assignment "deny-anthropic-provider"
+```
+
+Existing agents that already use Anthropic are flagged as non-compliant but aren't changed automatically. Update those agents to use Azure OpenAI through the Azure SRE Agent portal under **Settings** > **AI Model Provider**.
+
+> [!NOTE]
+> To monitor before enforcing, change the default value for `effect` from `"Deny"` to `"Audit"` in the parameters file. Audit mode logs non-compliant agents without blocking changes.
 
 ## Related content
 

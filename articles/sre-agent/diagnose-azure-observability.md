@@ -3,7 +3,7 @@ title: Diagnose with Azure Observability in Azure SRE Agent
 description: Learn how your agent queries Application Insights, Log Analytics, Azure Monitor metrics, Activity Logs, Resource Graph, and resource-specific diagnostics automatically without connectors.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 04/01/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -89,6 +89,9 @@ Your agent runs KQL queries against Log Analytics workspaces by using either res
 Your agent discovers available metrics for any resource type, queries time-series data with dimension filtering, and performs automated trend analysis. It can also generate charts from metric data for inclusion in reports and investigation threads.
 
 When your agent uses Azure Monitor as its incident platform, it also manages alerts directly by acknowledging and closing them during investigation.
+
+> [!NOTE]
+> Alert management requires the **Monitoring Contributor** role at subscription scope. Your agent receives this role automatically when created through the portal. If the role is missing, a banner appears with an **Assign Monitoring Contributor role** button that assigns the role directly.
 
 ### Resource graph and activity logs
 
