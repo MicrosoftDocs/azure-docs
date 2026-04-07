@@ -348,7 +348,7 @@
     - name: Enable geo-replication
       href: howto-geo-replication.md
   - name: Reliability in App Configuration
-    href: /azure/reliability/reliability-app-configuration.md?bc=/azure/bread/toc.json&toc=/azure/app-service/toc.json
+    href: /azure/reliability/reliability-app-configuration?bc=/azure/bread/toc.json&toc=/azure/azure-app-configuration/TOC.json
   - name: Resiliency and disaster recovery
     href: concept-disaster-recovery.md
   - name: Availability zone support

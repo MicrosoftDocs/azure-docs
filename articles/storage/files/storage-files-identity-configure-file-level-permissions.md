@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory-level and file-le
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/04/2026
+ms.date: 04/07/2026
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to configure directory-level and file-level permissions for SMB Azure file shares by using Windows ACLs, so that I can ensure granular access control and enhance security for users accessing shared files."
 ---
@@ -13,16 +13,17 @@ ms.author: kendownie
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-Before you can configure directory-level and file-level permissions, you must [assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md) with Azure role-based access control (RBAC). After the share-level permissions propagate, you can configure Windows access control lists (ACLs), also known as NTFS permissions, as described in this article.
+Before you can configure directory-level and file-level permissions, you must [assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md) with Azure role-based access control (RBAC). After the share-level permissions propagate, follow the steps in this article to configure Windows access control lists (ACLs), also known as NTFS permissions, for more granular access control.
+
+## Prerequisites
+
+If you want to configure Windows ACLs for [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity) and the identity source for your storage account is Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos, you need a client machine running Windows that has unimpeded network connectivity to on-premises Active Directory.
+
+If the identity source for your storage account is Microsoft Entra Domain Services, you need a client machine running Windows that has unimpeded network connectivity to the domain controllers for the domain that Microsoft Entra Domain Services manages. These domain controllers are located in Azure.
+
+If your identity source is Microsoft Entra Kerberos and you want to configure Windows ACLs for cloud-only identities (preview), there's no dependency on domain controllers, but the client device must be joined to Microsoft Entra ID.
 
 Before you can configure Windows ACLs, you need to mount the file share with admin-level access.
-
-> [!IMPORTANT]
-> To configure Windows ACLs for [hybrid identities](/entra/identity/hybrid/whatis-hybrid-identity), you need a client machine running Windows that has unimpeded network connectivity to the domain controller.
->
-> If you authenticate with Azure Files by using Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos for hybrid identities, you need unimpeded network connectivity to on-premises Active Directory. If you use Microsoft Entra Domain Services, the client machine must have unimpeded network connectivity to the domain controllers for the domain that Microsoft Entra Domain Services manages. These domain controllers are located in Azure.
->
-> For cloud-only identities (preview), there's no dependency on domain controllers, but the client device must be joined to Microsoft Entra ID.
 
 ## How Azure RBAC and Windows ACLs work together
 
