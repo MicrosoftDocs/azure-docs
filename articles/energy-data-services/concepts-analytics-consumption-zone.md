@@ -111,7 +111,8 @@ ACZ propagates created, updated, and deleted records from ADME to the Delta tabl
 
 - **Creations and updates**: When you create a record or change its data block, ADME creates a new version. ACZ detects the change and writes a new row to the Delta table.
 - **Metadata-only updates**: A PATCH operation can change the access control list (ACL), Legal, or Tags without creating a new version. ACZ detects this change and runs a merge-upsert on the existing row.
-- **Deletes**: When you delete a record in ADME, ACZ sets the `isActive` field to `False` on the row instead of removing it. This soft delete preserves history for auditing and time-travel queries.
+- **Soft deletes**: When you soft-delete a record in ADME, ACZ sets the `isActive` field to `False` on the row instead of removing it. This preserves history for auditing and time-travel queries.
+- **Purges**: When you purge a record in ADME, ACZ permanently removes the record from the Delta table. The row is deleted and can't be recovered from the ACZ data.
 
 ## Data output format
 
