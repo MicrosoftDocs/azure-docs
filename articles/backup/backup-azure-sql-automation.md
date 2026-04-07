@@ -265,7 +265,7 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 Check the prerequisites mentioned [here](restore-sql-database-azure-vm.md#restore-prerequisites) before restoring SQL DBs.
 
 > [!WARNING]
-> Due to a security issue related to RBAC, we had to introduce a breaking change in the restore commands for SQL DB via PowerShell. Please upgrade to Az 6.0.0 version or above for the proper restore commands to be submitted via PowerShell. The latest PS commands are provided below.
+> Due to a security issue related to RBAC, we had to introduce a breaking change in the restore commands for SQL DB via PowerShell. Please upgrade to Az 6.0.0 version or above for the proper restore commands to be submitted via PowerShell. The latest PowerShell commands are provided below.
 
 First fetch the relevant backed up SQL DB using the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell cmdlet.
 
