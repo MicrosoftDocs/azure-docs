@@ -120,18 +120,22 @@ ACZ writes data in [Delta Lake](https://delta.io/) format with Parquet-encoded f
 
 ### ADLS Gen2 folder structure
 
-ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets its own folder. ACZ partitions Delta Lake tables by kind and record create time.
+ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets its own folder under the container or under the base path if you specified one. ACZ partitions catalog Delta Lake tables by kind.
 
 #### Folder layout
 
 ```
-<adme-instance>-<data-partition>-<acz-id>/
+<container>/<acz-id>/                            # or <container>/<base-path>/<acz-id>/
 ├── osducatalog/
 │   ├── _delta_log/
 │   │   ├── 00000000000000000000.json
 │   │   └── ...
-│   ├── part-00000-<guid>.snappy.parquet
-│   └── ...
+│   ├── kind=<kind-1>/
+│   │   ├── part-00000-<guid>.snappy.parquet
+│   │   └── ...
+│   └── kind=<kind-2>/
+│       ├── part-00000-<guid>.snappy.parquet
+│       └── ...
 └── <ddms-entity-type>/
     └── <entity-type>-<record-id>/
         └── DDMS parquet files
@@ -141,8 +145,8 @@ ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets it
 
 | Element | Description |
 |---|---|
-| **Top-level folder** | Named `<adme-instance>-<data-partition>-<acz-id>`. One folder per ACZ. |
-| **`osducatalog/`** | One Delta table for all catalog kinds. Partitioned by kind and create time (hourly). |
+| **Top-level folder** | Named `<acz-id>` under the container, or under `<base-path>` if specified. One folder per ACZ. |
+| **`osducatalog/`** | One Delta table for all catalog kinds. Partitioned by kind (for example, `kind=osdu:wks:master-data--Well:1.0.0`). |
 | **DDMS entity folders** | One folder per DDMS entity type (for example, `work-product-component--WellLog`). Holds DDMS-specific parquet files by entity type and record ID. |
 | **`_delta_log/`** | The Delta Lake transaction log. Tracks all table changes for ACID transactions and time travel. |
 | **Parquet files** | Snappy-compressed data files. Updates create new files. ACZ runs VACUUM and OPTIMIZE to compact small files and remove old ones. |
