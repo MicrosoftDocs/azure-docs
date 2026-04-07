@@ -1,6 +1,6 @@
 ---
 title: include file
-description: include file with cluster prerequisites for Ubuntu and VKS
+description: include file with cluster prerequisites for Ubuntu and Tanzu
 author: dominicbetts
 ms.topic: include
 ms.date: 06/16/2025

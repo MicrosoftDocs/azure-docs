@@ -140,6 +140,9 @@ Granting the agent Reader access to your Azure resources allows it to query metr
 
 **Checkpoint:** The Azure Resources card shows the connected subscriptions or resource groups.
 
+> [!TIP]
+> The subscription picker shows **all** your subscriptions in two sections: those you can assign (where you have Owner or User Access Administrator) and those that require a higher role. A **User role** column displays your current role on each subscription. If you use **Privileged Identity Management (PIM)** for just-in-time access, the picker detects your active PIM role within seconds—no need to wait for cache refreshes.
+
 > [!NOTE]
 > After you add subscriptions or resource groups, the agent automatically assigns the required permissions to its managed identity. This can take a few seconds—you'll see the status update on the permissions review step. Reader role provides read-only access. For advanced permission management, see [Manage permissions and access](manage-permissions.md).
 

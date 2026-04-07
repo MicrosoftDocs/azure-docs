@@ -55,6 +55,7 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 | Payload compression | Yes | Supports `gzip` and `brotli` |
 | [Dynamic node resolution](#resolve-nodes-dynamically-by-using-browse-paths) | Yes | Using `TranslateBrowsePathToNodeId` service |
 | State store synchronization | Yes | Sync OPC UA node properties to distributed state store |
+| [Shared endpoint mode](#shared-endpoint-mode) | Yes | Multiple assets share a single OPC UA session |
 | [Key frame generation](#understand-key-frames-for-opc-ua-data-points) | Yes | Enables downstream services to recover state more quickly |
 
 ## How it works
@@ -96,6 +97,67 @@ To configure this behavior, select **Sync properties into state store** when you
 :::image type="content" source="media/overview-opc-ua-connector/sync-properties.png" alt-text="Screenshot that shows the location of the sync properties to state store option." lightbox="media/overview-opc-ua-connector/sync-properties.png":::
 
 You can also force a synchronization of all properties by making an MQTT RPC call to the `azure-iot-operation/asset-operations/{AssetName}/builtin/syncProperties` topic. A payload `{}` forces a synchronization without observing `ModelChange` events. A payload `{"observeModelChanges": true}` forces a synchronization that observes `ModelChange` events.
+
+## Shared endpoint mode
+
+By default, each asset that connects to an OPC UA server opens its own independent OPC UA session. This default behavior is called *dedicated* mode.
+
+When you set the `shared` flag to `true` on a device's inbound endpoint, the connector establishes a single OPC UA session for the endpoint and reuses it across all assets that reference that endpoint. This behavior is called *shared* mode.
+
+```
+Dedicated mode (default)           Shared mode
+─────────────────────────          ─────────────────────────
+Asset A  →  Session A              Asset A ─┐
+Asset B  →  Session B              Asset B ──┼─→  Session (shared)
+Asset C  →  Session C              Asset C ─┘
+(3 sessions to the server)         (1 session to the server)
+```
+
+### When to use shared mode
+
+Use shared mode when:
+
+- The OPC UA server enforces a low session limit, for example a PLC that allows only a few simultaneous connections.
+- You have many assets pointing to the same server and want to minimize the connection footprint.
+- You want to reduce resource consumption (memory, TCP connections, licensing) on the OPC UA server.
+
+The `shared` flag is independent of the authentication method. The single shared session uses whichever authentication method you configure on the endpoint. Telemetry payload, topic structure, and message schema are identical regardless of session mode.
+
+You can mix shared and dedicated assets on the same device. Create separate endpoints, for example `my-opcua-endpoint-shared` and `my-opcua-endpoint-dedicated`, each with its own `shared` flag. Assets reference a specific endpoint by name through `deviceRef.endpointName`.
+
+### Constraints and trade-offs
+
+| Aspect | Dedicated mode | Shared mode |
+|---|---|---|
+| Sessions to server | One per asset | One per endpoint |
+| Server session limit impact | High | Low |
+| Isolation between assets | Full (each asset has its own session) | None (all assets share the same session) |
+| Session disconnect impact | Only the affected asset reconnects | All assets on the endpoint are affected |
+| Certificate update | Each asset reconnects independently | The single shared session is recreated; all assets on the endpoint are briefly interrupted |
+
+> [!IMPORTANT]
+> When the shared OPC UA session disconnects because of a network failure, server restart, or certificate rotation, all assets that reference the endpoint temporarily lose telemetry until the session is reestablished.
+
+### Shared endpoint lifecycle
+
+1. When you create or update a device resource, the connector reads the `shared` flag.
+1. If `shared` is `true`, the connector opens one OPC UA session before any asset connects. The endpoint transitions to the `Shared` state.
+1. When an asset connects, its `ConnectedAsset` record links to the existing session—no second session opens.
+1. When you remove an asset, the OPC UA session stays open for other assets. Only the removed asset's subscriptions are torn down.
+1. When you delete or update the device, the shared session disconnects and all linked assets are requeued.
+
+If you change `shared` from `true` to `false` on a running device, the connector disconnects the shared session and requeues all affected assets. Each asset then establishes its own dedicated session. Expect a brief interruption in telemetry.
+
+### Health states for shared endpoints
+
+- The **InboundEndpoint** health state reports `Available` or `Unavailable` for the single shared session.
+- Each **Asset** health state also reports `Available` or `Unavailable`. Because all assets share the same session, a session drop marks all linked assets as `Unavailable` simultaneously.
+
+### Certificate rotation for shared endpoints
+
+When the connector's application certificate is renewed, it recreates the secure channel of the shared session once. All assets on the endpoint are briefly interrupted, then automatically recover without requiring individual reconnects.
+
+To learn how to configure a shared endpoint, see [Configure a shared endpoint](howto-configure-opc-ua.md#configure-a-shared-endpoint).
 
 ## Connector for OPC UA message format
 

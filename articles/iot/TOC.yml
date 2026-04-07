@@ -9,8 +9,6 @@ items:
   href: iot-overview-security.md
 - name: Choose an Azure IoT service
   href: iot-services-and-technologies.md
-- name: Develop IoT devices
-  href: concepts-iot-device-development.md
 - name: Deliver industrial solutions
   items:
   - name: Implement industrial IoT reference solution

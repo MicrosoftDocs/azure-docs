@@ -122,6 +122,8 @@ items:
             href: upload-knowledge-document.md
           - name: Kusto tools
             href: kusto-tools.md
+          - name: Log Analytics and Application Insights
+            href: log-analytics-app-insights.md
           - name: MCP connectors
             href: mcp-connectors.md
       - name: Access

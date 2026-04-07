@@ -51,7 +51,7 @@ Connectors let the agent interact with external services. Start with a notificat
 
 1. Go to **Builder** > **Connectors** in the left sidebar.
 1. Select **Add connector**.
-1. Select **Send email (Office 365 Outlook)**.
+1. Select the **Notification** tab, then select **Send email (Office 365 Outlook)**.
 1. Sign in and authorize access.
 1. Select **Next**.
 1. Select a **Managed identity**. The agent uses this identity at runtime to securely access the connector. Use a **User assigned** managed identity so you can reuse it across connectors and manage its lifecycle independently.
@@ -105,7 +105,7 @@ Link a scheduled task to the subagent so it runs automatically.
     | **Task name** | `daily-health-report` |
     | **Task details** | Check the health of the resources in my resource group. Verify all apps are running, check CPU, and memory metrics over the last hour, review any recent warning logs. Summarize findings and send the report. |
     | **Frequency** | Daily |
-    | **Time of day** | 8:00 AM |
+    | **Time of day** | 8:00 AM (label shows your local timezone) |
 
 1. Select **Create task**.
 
@@ -119,7 +119,7 @@ The canvas now shows the complete workflow chain visually.
 
 Run the task immediately to verify everything works.
 
-1. Go to **Builder** > **Scheduled tasks**.
+1. Go to **Scheduled tasks** in the left sidebar.
 1. Select your task by checking the checkbox.
 1. Select **Run task now** in the toolbar.
 1. To watch execution, select the **task name** to open the executions view, and then select the **thread name** link. You can also find the thread under **Chats** in the sidebar.

@@ -71,7 +71,7 @@ Workflows combine three building blocks.
 |---|---|---|
 | **Connectors** | Provide tools from external systems (Outlook, Teams, GitHub, PagerDuty) | Builder > Connectors |
 | **Custom agents** | Specialized workers with specific tool access and autonomy settings | Builder > Agent Canvas |
-| **Triggers** | Start workflows on schedule or in response to incidents | Builder > Scheduled tasks / Incident response plans |
+| **Triggers** | Start workflows on schedule or in response to incidents | Scheduled tasks / Incident response plans |
 
 For step-by-step setup instructions, see [Step 5: Automate actions](automate-actions.md) in the getting started guide.
 

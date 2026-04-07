@@ -3,7 +3,7 @@ title: Connectors in Azure SRE Agent
 description: Extend your agent's capabilities to external data sources, collaboration tools, and custom APIs using connectors.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 03/25/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -127,6 +127,52 @@ The following table describes scenarios where automatic recovery can't resolve t
 | Agent not running | Status shows Not Available | Start the agent to restore status monitoring |
 
 When your agent tries to use a tool from a disconnected MCP server, it provides a clear error explaining what went wrong (for example, "Connection is disconnected and reconnection failed."). Your agent doesn't silently fail or produce incorrect results.
+
+## Browse and manage connectors
+
+Open the Connectors page (**Builder** > **Connectors**) to see your connectors organized into collapsible category groups. All groups are expanded by default.
+
+| Category | What it includes |
+|---|---|
+| **Notification** | Teams and Outlook messaging connectors |
+| **Telemetry** | Azure Data Explorer, Datadog, Dynatrace, Elasticsearch, New Relic, Splunk, and other monitoring connectors |
+| **Code Repository** | GitHub OAuth, Azure DevOps OAuth, and documentation connectors |
+| **MCP** | GitHub MCP, generic MCP servers, and custom MCP integrations |
+| **Incidents** | Incident management connectors |
+| **Deployment** | Deployment pipeline connectors (EV2) |
+| **Other** | Connectors that don't fit other categories |
+
+The **Code Repository** category includes nested sub-groups that organize your repositories by provider and organization. GitHub connectors appear under a **GitHub** sub-group, and Azure DevOps connectors are grouped by their ADO organization (for example, **contoso (Azure DevOps)**). Each sub-group has its own expand/collapse control and count badge. Sub-groups appear automatically when you have connectors from two or more distinct providers or organizations.
+
+Each category header shows the number of connectors in that group. When you collapse a category, a red badge appears if any connector in that group has a connection issue, so you can spot problems at a glance without expanding every section.
+
+Use the toolbar controls to manage your view:
+
+- **Expand all / Collapse all**: Toggle all category groups at once
+- **Category filter**: Show only connectors in a specific category
+- **Search**: Find connectors by name (switches to a flat list for keyword lookup)
+
+Only categories that contain at least one connector are displayed. When you search for a connector by name, the page switches to a flat list view for faster filtering.
+
+### Add a connector
+
+Select **Add connector** to open the connector wizard. The first step presents connectors organized by tab:
+
+| Tab | What it shows |
+|---|---|
+| **Telemetry** | Azure Data Explorer, Datadog, Dynatrace, Elasticsearch, New Relic, Splunk, and other monitoring connectors |
+| **Notification** | Outlook and Teams connectors |
+| **Code Repository** | GitHub OAuth and Azure DevOps OAuth connectors |
+| **MCP** | GitHub MCP, generic MCP server |
+| **Incidents** | Incident management connectors |
+| **Deployment** | Deployment pipeline connectors (EV2) |
+
+Select a connector card, then follow the setup steps for that connector type. Use the search box to find a connector by name across all tabs.
+
+> [!NOTE]
+> **Repos moved to Knowledge Sources**
+>
+> Source code repository management moved to **Knowledge Sources**. Navigate to **Builder** > **Knowledge sources** to manage your connected repositories.
 
 ## Who can configure connectors
 

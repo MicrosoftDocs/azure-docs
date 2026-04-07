@@ -3,7 +3,7 @@ title: Schedule tasks with Azure SRE Agent
 description: Learn how to use scheduled tasks in SRE Agent to automate monitoring, enforce security, and validate recovery.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 03/18/2026
+ms.date: 03/25/2026
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
