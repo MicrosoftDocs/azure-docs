@@ -30,7 +30,7 @@ The Route Directions and Route Matrix APIs in Azure Maps [Route service] can be 
 
 For more information about the coverage of the Route service, see [Routing Coverage].
 
-You can use any API development environment such as [Postman] or [bruno] to run the HTTP request samples shown in this article or to build REST calls.
+You can use any API development environment such as [Postman] or [Bruno] to run the HTTP request samples shown in this article or to build REST calls.
 
 ## Choose between Route Directions and Matrix Routing
 
@@ -289,7 +289,7 @@ To learn more, please see:
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps npm Package]: https://www.npmjs.com/package/azure-maps-rest
 [Azure Maps Route service]: /rest/api/maps/route
-[bruno]: https://www.usebruno.com/
+[Bruno]: https://www.usebruno.com/
 [How to use the Service module]: how-to-use-services-module.md
 [Point of Interest]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0&preserve-view=true
 [Post Route Directions API documentation]: /rest/api/maps/route/postroutedirections#supportingpoints

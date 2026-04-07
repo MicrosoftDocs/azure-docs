@@ -4,7 +4,7 @@ description: Learn to read authorization provider-returned user data.
 services: static-web-apps
 author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/27/2025
 ms.author: jikunchen
 ms.custom:

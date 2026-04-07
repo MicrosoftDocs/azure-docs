@@ -4,7 +4,7 @@ description: Set assertions for mapping data flows
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 01/05/2024
 ---
 

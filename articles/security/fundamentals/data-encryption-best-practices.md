@@ -8,7 +8,7 @@ ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/08/2026
+ms.date: 04/02/2026
 ms.author: mbaldwin
 
 ---
@@ -52,6 +52,10 @@ Because the vast majority of attacks target the end user, the endpoint becomes o
 Most Azure services, such as Azure Storage and Azure SQL Database, encrypt data at rest by default. You can use Azure Key Vault to maintain control of keys that access and encrypt your data. See [Azure resource providers encryption model support to learn more](encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
 - **Use encryption to help mitigate risks related to unauthorized data access**: Encrypt your services before you write sensitive data to them.
+
+- **Understand key rotation behavior**: When you rotate a key encryption key (KEK), the service re-wraps the data encryption keys (DEKs) with the new key version. The underlying data itself is not re-encrypted. Both old and new key versions must remain enabled until re-wrapping is complete. For more information, see [Configure key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
+
+- **Use RSA-OAEP-256 for key wrapping**: RSA-OAEP-256 is the recommended wrapping algorithm for customer-managed keys. RSA-OAEP (without the -256 suffix) uses SHA-1 and is considered legacy.
 
 Organizations that don't enforce data encryption are more exposed to data-confidentiality issues. Companies also must prove that they are diligent and using correct security controls to enhance their data security in order to comply with industry regulations.
 

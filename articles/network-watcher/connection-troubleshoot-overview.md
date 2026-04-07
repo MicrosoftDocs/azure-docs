@@ -25,7 +25,7 @@ Connection troubleshoot reduces the Mean Time To Resolution (MTTR) by providing 
 - Graphical topology view from source to destination
 - Number of probes failed during the connection troubleshoot check
 
-## Agentless experience (preview)
+## Agentless experience 
 
 Connection troubleshoot now supports an agentless experience (currently in preview). You no longer need to install the Network Watcher agent VM extension on your virtual machines to run connectivity tests. Features and functionality may change before general availability.
 

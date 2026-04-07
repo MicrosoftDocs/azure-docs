@@ -5,7 +5,7 @@ services: security
 author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 04/02/2026
 ms.author: mbaldwin
 ms.collection:
   - zerotrust-extra
@@ -42,11 +42,11 @@ A FIPS 140-3 Level 3 validated, PCI compliant, multitenant HSM offering that you
 > [!IMPORTANT]
 > **Azure Integrated HSM**: Starting with new Azure server hardware (AMD D and E Series v7 Preview), Microsoft-designed HSM chips are embedded directly on servers, meeting FIPS 140-3 Level 3 standards. These tamper-resistant chips keep encryption keys within secure hardware boundaries, eliminating latency and exposure risks. The integrated HSM operates transparently by default for supported services like Azure Key Vault and Azure Storage encryption, providing hardware-enforced trust without additional configuration. This integration ensures that cryptographic operations benefit from hardware-level security isolation while maintaining the performance and scalability of cloud services.
 
-If you're an Azure Key Vault Premium customer looking for key sovereignty, single tenancy, or higher crypto operations per second, consider Azure Key Vault Managed HSM instead. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
+If you're an Azure Key Vault Premium customer looking for key sovereignty, single tenancy, or higher crypto operations per second, consider Azure Key Vault Managed HSM instead. Key Vault Premium uses shared HSMs operated by Microsoft; for workloads requiring customer-owned root of trust, Managed HSM is required. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
 
 ### Azure Key Vault Managed HSM
 
-A FIPS 140-3 Level 3 validated, single-tenant HSM offering that gives customers full control of an HSM for encryption at rest, Keyless SSL/TLS offload, and custom applications. Azure Key Vault Managed HSM is the only key management solution offering confidential keys. Customers receive a pool of three HSM partitions—together acting as one logical, highly available HSM appliance—fronted by a service that exposes crypto functionality through the Key Vault API. Microsoft handles the provisioning, patching, maintenance, and hardware failover of the HSMs, but doesn't have access to the keys themselves, because the service executes within Azure's Confidential Compute Infrastructure. Azure Key Vault Managed HSM is integrated with the Azure SQL, Azure Storage, and Azure Information Protection PaaS services and offers support for Keyless TLS with F5 and Nginx. For more information, see [What is Azure Key Vault Managed HSM?](/azure/key-vault/managed-hsm/overview)
+A FIPS 140-3 Level 3 validated, single-tenant HSM offering that gives customers full control of an HSM for encryption at rest, Keyless SSL/TLS offload, and custom applications. Azure Key Vault Managed HSM is the only key management solution offering confidential keys. Customers receive a pool of three HSM partitions—together acting as one logical, highly available HSM appliance—fronted by a service that exposes crypto functionality through the Key Vault API. Microsoft handles the provisioning, patching, maintenance, and hardware failover of the HSMs, but doesn't have access to the keys themselves, because the service executes within Azure's Confidential Compute Infrastructure. The customer owns and controls the security domain, which is the root of trust for the HSM — loss of the security domain results in permanent, irrecoverable loss of all keys. Azure Key Vault Managed HSM is integrated with the Azure SQL, Azure Storage, and Azure Information Protection PaaS services and offers support for Keyless TLS with F5 and Nginx. For more information, see [What is Azure Key Vault Managed HSM?](/azure/key-vault/managed-hsm/overview)
 
 ### Azure Cloud HSM
 

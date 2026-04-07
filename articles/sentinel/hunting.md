@@ -1,7 +1,7 @@
 ---
 title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/31/2024
 ms.author: monaberdugo
 author: mberdugo
@@ -40,7 +40,7 @@ To get started, see [Conduct end-to-end proactive threat hunting in Microsoft Se
 
 ## Hunting queries
 
-In Microsoft Sentinel, select **Hunting** > **Queries** tab to run all your queries, or a selected subset. The **Queries** tab lists all the hunting queries installed with security solutions from the **Content hub**, and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These queries are grouped by their MITRE ATT&CK **tactics**. The icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration. MITRE ATT&CK **techniques** are shown in the **Techniques** column and describe the specific behavior identified by the hunting query.
+In Microsoft Sentinel in Defender, select **Threat management** > **Hunting**, then the **Queries** tab to run all your queries, or a selected subset. The **Queries** tab lists all the hunting queries installed with security solutions from the **Content hub**, and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These queries are grouped by their MITRE ATT&CK **tactics**. The icons on top categorize the type of threat, such as initial access, persistence, and exfiltration. MITRE ATT&CK **techniques** are shown in the **Techniques** column and describe the specific behavior identified by the hunting query.
 
 :::image type="content" source="media/hunting/hunting-start.png" alt-text="Microsoft Sentinel starts hunting" lightbox="media/hunting/hunting-start.png":::
 

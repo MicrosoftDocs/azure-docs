@@ -23,7 +23,7 @@ Microsoft recommends using service-side encryption to protect your data for most
 
 Data in Azure Storage is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
 
-Azure Storage encryption is enabled for all storage accounts, including both Resource Manager and classic storage accounts. Azure Storage encryption cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Azure Storage encryption.
+Azure Storage server-side encryption uses 256-bit AES Galois/Counter Mode (AES-GCM) to encrypt uploaded objects. Azure Storage encryption is enabled for all storage accounts, including both Resource Manager and classic storage accounts. Azure Storage encryption cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Azure Storage encryption.
 
 Data in a storage account is encrypted regardless of performance tier (standard or premium), access tier (hot or cool), or deployment model (Azure Resource Manager or classic). All new and existing block blobs, append blobs, and page blobs are encrypted, including blobs in the archive tier. All Azure Storage redundancy options support encryption, and all data in both the primary and secondary regions is encrypted when geo-replication is enabled. All Azure Storage resources are encrypted, including blobs, disks, files, queues, and tables. All object metadata is also encrypted.
 
@@ -31,7 +31,7 @@ There is no additional cost for Azure Storage encryption.
 
 For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-For information about encryption and key management for Azure Managed Disks, see [Server-side encryption of Azure Managed Disks](/azure/virtual-machines/disk-encryption).
+For information about encryption and key management for Azure managed disks, see [Server-side encryption of Azure managed disks](/azure/virtual-machines/disk-encryption).
 
 ## About encryption key management
 

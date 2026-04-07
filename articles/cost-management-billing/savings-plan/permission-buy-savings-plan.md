@@ -6,8 +6,8 @@ author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.topic: conceptual
-ms.date: 01/08/2026
+ms.topic: how-to
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 

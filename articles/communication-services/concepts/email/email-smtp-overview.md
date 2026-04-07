@@ -7,7 +7,7 @@ manager: darmour
 services: azure-communication-services
 ms.author: bashan
 ms.date:  12/01/2023
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ---
 

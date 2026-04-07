@@ -5,9 +5,9 @@ titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
-ms.date: 10/12/2025
+ms.date: 03/30/2026
 ---
 
 # Copy data from Shopify using Azure Data Factory or Synapse Analytics
@@ -182,7 +182,7 @@ To copy data from Shopify, set the source type in the copy activity to **Shopify
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ShopifySource** | Yes |
-| query |For version 2.0, use the GraphQL query to read data. To learn more about this query, see this [article](https://shopify.dev/docs/api/admin-graphql). Note that the pagination query is only supported for outer tables, and each record in the outer table can include up to 250 inner table records. <br><br>For version 1.0, use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
+| query |For version 2.0, use the GraphQL query to read data. To learn more about this query, see this [article](https://shopify.dev/docs/api/admin-graphql). Note that pagination is only supported for outer tables, and each record in the outer table can include up to 250 inner table records. In addition, pagination is not supported for nested tables. <br><br>For version 1.0, use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

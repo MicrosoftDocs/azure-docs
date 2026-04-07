@@ -4,7 +4,7 @@ description: This article explains the common tasks that an enterprise administr
 author: prashantsaini4
 ms.author: prsaini
 ms.date: 09/23/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: prsaini

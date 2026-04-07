@@ -5,7 +5,7 @@ author: jenssuessmeyer
 ms.author: jenss
 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2020
 ms.custom: devx-track-js
 ---

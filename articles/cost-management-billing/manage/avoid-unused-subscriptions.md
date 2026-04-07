@@ -2,8 +2,8 @@
 title: Avoid unused subscriptions
 description: Learn how to prevent unused subscriptions from getting automatically blocked or deleted due to inactivity.
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: mijeffer
+ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article

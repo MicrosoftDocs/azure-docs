@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 03/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -139,7 +139,19 @@ oras pull ghcr.io/azure-samples/explore-iot-operations/filter:1.0.0
 
 ## Push modules to your registry
 
-Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry. To ensure the graphs and modules are visible in the operations experience web UI, add the `--config` and `--artifact-type` flags as shown in the following example:
+Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry.
+
+> [!IMPORTANT]
+> The operations experience discovers artifacts by their OCI **config** media type, not the layer media type. When you push artifacts to a registry, you must set the correct media types or the artifacts won't appear in the operations experience UI:
+>
+> | Artifact type | Required OCI config media type | Required layer media type |
+> |---|---|---|
+> | Graph definition | `application/vnd.microsoft.aio.graph.v1+yaml` | `application/yaml` |
+> | WASM module | `application/vnd.module.wasm.content.layer.v1+wasm` | `application/wasm` |
+>
+> If you use a CI/CD pipeline or other tooling to copy artifacts between registries, verify that it preserves these media types. Some tools strip or replace artifact metadata during transfer, which causes the artifacts to silently disappear from the operations experience. For more information, see [Registry artifact requirements](#registry-artifact-requirements).
+
+To ensure the graphs and modules are visible in the operations experience web UI, add the `--config` and `--artifact-type` flags as shown in the following example:
 
 ```bash
 # Log in to your ACR
@@ -186,6 +198,64 @@ See [Develop WebAssembly modules for data flow graphs](../develop-edge-apps/howt
 
 For detailed information about creating and configuring the YAML graph definitions that define your data processing workflows, see [Configure WebAssembly graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md).
 
+
+## Registry artifact requirements
+
+The operations experience uses OCI artifact metadata to discover and display graphs and modules. Understanding these requirements is important when you build custom CI/CD pipelines, copy artifacts between registries, or troubleshoot missing artifacts in the UI.
+
+### How artifact discovery works
+
+When you push an artifact to a registry with ORAS, the OCI manifest includes two relevant fields:
+
+- **Config media type**: Identifies what kind of artifact this is. The operations experience filters on this field to find graphs and modules.
+- **Layer media type**: Describes the content format of the actual file (YAML or WASM).
+
+The operations experience uses the config media type for discovery, not the layer media type. If the config media type is missing or incorrect, the artifact exists in the registry but doesn't appear in the UI.
+
+### Required media types
+
+| Artifact type | Config media type (`--config` or `--artifact-type`) | Layer media type |
+|---|---|---|
+| Graph definition | `application/vnd.microsoft.aio.graph.v1+yaml` | `application/yaml` |
+| WASM module | `application/vnd.module.wasm.content.layer.v1+wasm` | `application/wasm` |
+
+For graph definitions, pass the config media type with the `--config` flag:
+
+```bash
+oras push <REGISTRY>/my-graph:1.0.0 \
+  --config /dev/null:application/vnd.microsoft.aio.graph.v1+yaml \
+  graph.yaml:application/yaml \
+  --disable-path-validation
+```
+
+For WASM modules, pass it with the `--artifact-type` flag:
+
+```bash
+oras push <REGISTRY>/my-module:1.0.0 \
+  --artifact-type application/vnd.module.wasm.content.layer.v1+wasm \
+  module.wasm:application/wasm
+```
+
+### CI/CD pipeline considerations
+
+If you use automated pipelines to copy or promote artifacts between registries (for example, from a staging registry to a production registry), verify that the pipeline preserves OCI artifact metadata. Some tools strip or replace the config media type during transfer, which causes artifacts to silently disappear from the operations experience.
+
+To verify that an artifact has the correct metadata after transfer, inspect its manifest:
+
+```bash
+oras manifest fetch <REGISTRY>/my-graph:1.0.0 | jq '{mediaType, configMediaType: .config.mediaType}'
+```
+
+The output should show:
+
+```json
+{
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "configMediaType": "application/vnd.microsoft.aio.graph.v1+yaml"
+}
+```
+
+If `configMediaType` shows a generic value like `application/vnd.oci.empty.v1+json`, the metadata was stripped and the artifact needs to be re-pushed with the correct flags.
 
 ## Related content
 

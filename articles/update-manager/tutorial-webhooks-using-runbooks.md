@@ -7,6 +7,7 @@ ms.topic: tutorial
 author: habibaum
 ms.author: v-uhabiba
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator, I want to implement pre-maintenance and post-maintenance event webhooks with Automation runbooks, so that I can manage VM operations effectively during scheduled patching processes.
 ---
 

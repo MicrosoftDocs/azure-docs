@@ -1,12 +1,11 @@
 ---
 title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Bicep'
 description: In this quickstart, you learn how to use a Bicep file to create an Azure Firewall with multiple public IP addresses.
-services: firewall
 author: mumian
+ms.author: jgao
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.author: jgao
-ms.date: 10/19/2023
+ms.date: 03/29/2026
 ms.custom:
   - subject-armqs
   - mode-arm
@@ -17,10 +16,9 @@ ms.custom:
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - Bicep
 
-In this quickstart, you use a Bicep file to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+In this quickstart, use a Bicep file to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
 
 :::image type="content" source="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png" alt-text="Diagram showing the network configuration for this quickstart." lightbox="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png":::
-
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -34,12 +32,11 @@ For more information about Azure Firewall with multiple public IP addresses, see
 
 This Bicep file creates an Azure Firewall with two public IP addresses, along with the necessary resources to support the Azure Firewall.
 
-
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/fw-docs-qs/main.bicep":::
 
-Multiple Azure resources are defined in the template:
+The template defines multiple Azure resources:
 
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/publicIPPrefix**](/azure/templates/microsoft.network/publicipprefixes)
@@ -53,8 +50,8 @@ Multiple Azure resources are defined in the template:
 
 ## Deploy the Bicep file
 
-1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+1. Save the Bicep file as **main.bicep** on your local computer.
+1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
 
@@ -75,21 +72,21 @@ Multiple Azure resources are defined in the template:
     > [!NOTE]
     > Replace **\<admin-username\>** with the admin username for the backend server.
 
-    You will be prompt to enter the admin password.
+    You're prompted to enter the admin password.
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+    When the deployment finishes, you see a message indicating the deployment succeeded.
 
 ## Validate the deployment
 
 In the Azure portal, review the deployed resources. Note the firewall public IP addresses.
 
-Use Remote Desktop Connection to connect to the firewall public IP addresses. Successful connection demonstrates firewall NAT rules that allow the connection to the backend servers.
+Use Remote Desktop Connection to connect to the firewall public IP addresses. A successful connection demonstrates firewall NAT rules that allow the connection to the backend servers.
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the firewall, delete the resource group. This removes the firewall and all the related resources.
+When you no longer need the resources that you created with the firewall, delete the resource group. This action removes the firewall and all the related resources.
 
-To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
+To delete the resource group, use the `Remove-AzResourceGroup` cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "exampleRG"

@@ -5,7 +5,7 @@ description: Learn how to transform data in Quickbase (Preview) by using Data Fa
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/05/2024
 ms.custom:
   - synapse

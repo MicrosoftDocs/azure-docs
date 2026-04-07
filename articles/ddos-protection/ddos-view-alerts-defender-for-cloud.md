@@ -2,11 +2,11 @@
 title: 'Tutorial: View Azure DDoS Protection alerts in Microsoft Defender for Cloud'
 description: Learn how to view DDoS protection alerts in Microsoft Defender for Cloud.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: tutorial
 ms.date: 03/17/2026
-ms.author: abell
+ms.author: duau
 # Customer intent: As a cloud administrator, I want to view DDoS protection alerts in the security management portal so that I can investigate and respond effectively to potential DDoS attacks on our public IP addresses.
 ---
 

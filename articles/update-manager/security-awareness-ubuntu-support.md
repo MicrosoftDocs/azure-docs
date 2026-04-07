@@ -7,7 +7,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 ms.date: 08/07/2025
 ms.custom: sfi-image-nochange
-
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator managing Ubuntu servers, I want to upgrade to Ubuntu Pro or migrate to a newer LTS version, so that I can ensure ongoing security updates and reduce vulnerabilities in my environment."
 ---
 

@@ -8,7 +8,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: glossary
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ---
 
 # Software costs not included in savings plans

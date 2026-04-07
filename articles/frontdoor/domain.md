@@ -6,7 +6,7 @@ author: johndowns
 ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 09/25/2025
+ms.date: 03/26/2026
 ---
 
 # Domains in Azure Front Door
@@ -105,7 +105,7 @@ The following table summarizes the features available with managed TLS certifica
 
 | Consideration | Subdomain | Apex domain | Wildcard domain |
 |-|-|-|-|
-| Managed TLS certificates available | Yes | Yes | No |
+| Managed TLS certificates available | Yes | Yes | Yes |
 | Managed TLS certificates are rotated automatically | Yes | See below | No |
 
 When you use Azure Front Door-managed TLS certificates with apex domains, the automated certificate rotation might require you to revalidate your domain ownership. For more information, see [Apex domains in Azure Front Door](apex-domain.md#azure-front-door-managed-tls-certificate-rotation).

@@ -4,7 +4,7 @@ description: Learn how to secure Azure Managed Grafana, with best practices for 
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 10/16/2025
 ai-usage: ai-assisted

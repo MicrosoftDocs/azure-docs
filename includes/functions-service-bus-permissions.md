@@ -19,4 +19,4 @@ You'll need to create a role assignment that provides access to your topics and 
 [Azure Service Bus Data Sender]: ../articles/role-based-access-control/built-in-roles.md#azure-service-bus-data-sender
 [Azure Service Bus Data Owner]: ../articles/role-based-access-control/built-in-roles.md#azure-service-bus-data-owner
 
-[role-assignment-scope]: ../articles/service-bus-messaging/service-bus-managed-service-identity.md#resource-scope
+[role-assignment-scope]: ../articles/service-bus-messaging/service-bus-managed-service-identity.md#choose-the-resource-scope

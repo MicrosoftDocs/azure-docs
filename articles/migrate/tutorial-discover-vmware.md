@@ -54,7 +54,7 @@ Refer [this article](prepare-azure-accounts.md) to prepare Azure accounts.
 > Ensure the Azure user account has the required Azure Migrate built-in roles to create projects, register appliances, and access discovery results. To understand the minimum role requirements, see [Azure Migrate built‑in roles](prepare-azure-accounts.md).
 
 ## Prepare VMware
-You can skip this step if you are discovering VMs from your Azure VMware Solution environment. You should be able to use your AVS cloudadmin account to discover and assess servers.
+You can skip this step if you are discovering VMs from your Azure VMware Solution environment. You should be able to use your [AVS CloudAdmin account](/azure/azure-vmware/architecture-identity#vcenter-server-access-and-identity) to discover and assess servers.
 
 On your on-premises vCenter Server, check that your account has [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
 
@@ -217,7 +217,7 @@ Complete the setup steps in the appliance configuration manager to prepare for a
 The appliance must connect to vCenter Server to discover the configuration and performance data of the servers:
 
 1. In **Step 1: Provide vCenter Server credentials**, select **Add credentials** to enter a name for the credentials. Add the username and password for the vCenter Server account that the appliance will use to discover servers running on vCenter Server.
-    - You should have set up an account with the required permissions as described earlier in this article. If you are discovering your AVS environment, use the cloudadmin account in this step.
+    - You should have set up an account with the required permissions as described earlier in this article. If you are discovering your AVS environment, use the CloudAdmin account in this step.
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers), review the instructions to [set discovery scope](set-discovery-scope.md) to restrict the account that Azure Migrate uses.
     - If you want to add multiple credentials at once, select **Add more** to save and add more credentials. Multiple credentials are supported for discovery of servers across multiple vCenter Servers using a single appliance.
 1. In **Step 2: Provide vCenter Server details**, select **Add discovery source** to add the IP address or FQDN of a vCenter Server. You can leave the port as the default (443) or specify a custom port on which vCenter Server listens. Select the friendly name for credentials you would like to map to the vCenter Server and select **Save**.

@@ -1,7 +1,7 @@
 ---
 title: Azure Data Box as Event Grid source
 description: Describes the properties that are provided for Data Box events with Azure Event Grid.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/09/2023
 ---
 

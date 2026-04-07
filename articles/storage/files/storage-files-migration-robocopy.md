@@ -69,6 +69,14 @@ robocopy <SourcePath> <Dest.Path> /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOP
 | `/Z`                  | **Use cautiously** </br>Copies files in restart mode. This switch is recommended only in an unstable network environment. It significantly reduces copy performance because of extra logging. |
 | `/ZB`                 | **Use cautiously** </br>Uses restart mode. If access is denied, this option uses backup mode. This option significantly reduces copy performance because of checkpointing. |
 
+RoboCopy might report that files were copied even when no data transfer was necessary. This behavior occurs because robocopy evaluates both file data and metadata changes when producing its output.
+
+To correctly interpret the results, review the file status in the command output:
+- Newer: File data is copied to the destination.
+- Modified: Only metadata is updated; file data isn't recopied.
+
+In both cases, RoboCopy might report byte counts as though data was transferred. This behavior can lead to confusion when validating copy operations.
+
 > [!IMPORTANT]
 > We recommend using a Windows Server 2022 or newer. When using a Windows Server 2019, ensure at the latest patch level or at least [OS update KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f) is installed. It contains important fixes for certain Robocopy scenarios.
 

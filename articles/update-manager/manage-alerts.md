@@ -7,6 +7,7 @@ ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: how-to
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: "As a system administrator managing virtual machines, I want to enable alerts using Update Manager, so that I can efficiently monitor and respond to update-related events across my hybrid cloud environment."
 ---
 

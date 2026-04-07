@@ -6,7 +6,7 @@ author: zackliu
 ms.author: chenyl
 ms.date: 9/1/2024
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Socket.IO Azure Function trigger and binding (Preview)

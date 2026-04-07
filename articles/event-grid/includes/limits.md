@@ -46,16 +46,16 @@ Throughput units define the ingress and egress event rate capacity in namespaces
 | Inbound MQTT publishing requests per session | 1,000 messages per second                                                           |
 | Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
 | Inbound in-flight MQTT messages*        | 1,000 messages                                                                   |
-| Inbound in-flight MQTT bandwidth*         | 64 KB                                                             |
-| Inbound HTTP publishing requests per Event Grid namespace | 500 messages per second per TU |
-| Inbound HTTP bandwidth per Event Grid namespace           | 512 KB per second per TU       |
-| Inbound HTTP publishing requests per session              | 500 messages per second        |
-| Inbound HTTP bandwidth per session                        | 512 KB per second              |
-| Inbound in-flight HTTP messages*                          | 500 messages                   |
+| Inbound MQTT/HTTP publishing requests per Event Grid namespace | 1,000 messages per second per TU |
+| Inbound MQTT/HTTP bandwidth per Event Grid namespace | 1 MB per second per TU |
+| Inbound MQTT/HTTP publishing requests per session | 1,000 messages per second |
+| Inbound MQTT/HTTP bandwidth per session | 1 MB per second |
+| Inbound in-flight MQTT/HTTP messages* | 1,000 messages |
+| Inbound in-flight MQTT/HTTP bandwidth* | 64 KB |
 | Maximum Retain message size**                               | 64 KB                          |
 | Maximum Retain message per TU          | 10,000 messages or 640 MB (whichever is reached first) |
 | Total Retain storage per TU                               | 640 MB                         |
-| Retain message expiry (MQTT 3.1.1)                        | 365 days (default)             |
+| Retain message expiry (MQTT 3.1.1)                        | 365 days (default). To configure a Retain Expiry less than 365 days, contact Microsoft at [askmqtt@microsoft.com](mailto:askmqtt@microsoft.com) |
 | Retain message expiry (MQTT 5.0)                          | Configurable by using the message expiry interval with a range of 0 to 31,536,000 seconds (365 days) |
 | Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU                                                         |
 | Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU                                                            |

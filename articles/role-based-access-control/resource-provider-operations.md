@@ -115,7 +115,7 @@ Click the resource provider name in the following list to see the list of permis
 > [!div class="mx-tableFixed"]
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
-> | [Microsoft.Cache](./permissions/databases.md#microsoftcache) | Power applications with high-throughput, low-latency data access. | [Azure Cache for Redis](/azure/azure-cache-for-redis/) |
+> | [Microsoft.Cache](./permissions/databases.md#microsoftcache) | Power applications with high-throughput, low-latency data access. | [Azure Managed Redis](/azure/redis/), [Azure Cache for Redis](/azure/azure-cache-for-redis/) |
 > | [Microsoft.DBforMariaDB](./permissions/databases.md#microsoftdbformariadb) | Managed MariaDB database service for app developers. | [Azure Database for MariaDB](/azure/mariadb/) |
 > | [Microsoft.DBforMySQL](./permissions/databases.md#microsoftdbformysql) | Managed MySQL database service for app developers. | [Azure Database for MySQL](/azure/mysql/) |
 > | [Microsoft.DBforPostgreSQL](./permissions/databases.md#microsoftdbforpostgresql) | Managed PostgreSQL database service for app developers. | [Azure Database for PostgreSQL](/azure/postgresql/) |
@@ -182,7 +182,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.ApiManagement](./permissions/integration.md#microsoftapimanagement) | Easily build and consume Cloud APIs. | [API Management](/azure/api-management/) |
 > | [Microsoft.AppConfiguration](./permissions/integration.md#microsoftappconfiguration) | Fast, scalable parameter storage for app configuration. | [Azure App Configuration](/azure/azure-app-configuration/) |
 > | [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) |  | [Azure Communication Services](/azure/communication-services/overview) |
-> | [Microsoft.DurableTask](./permissions/integration.md#microsoftdurabletask) |  | [Durable Functions](/azure/azure-functions/durable/durable-functions-overview) |
+> | [Microsoft.DurableTask](./permissions/integration.md#microsoftdurabletask) |  | [Durable Functions](/azure/azure-functions/durable-functions/durable-functions-overview) |
 > | [Microsoft.EventGrid](./permissions/integration.md#microsofteventgrid) | Get reliable event delivery at massive scale. | [Event Grid](/azure/event-grid/) |
 > | [Microsoft.EventHub](./permissions/integration.md#microsofteventhub) | Receive telemetry from millions of devices. | [Event Hubs](/azure/event-hubs/) |
 > | [Microsoft.HealthcareApis](./permissions/integration.md#microsofthealthcareapis) |  | [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/) |
@@ -272,7 +272,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Authorization](./permissions/management-and-governance.md#microsoftauthorization) |  | [Azure Policy](/azure/governance/policy/overview)<br/>[Azure RBAC](/azure/role-based-access-control/overview)<br/>[Azure Resource Manager](/azure/azure-resource-manager/) |
 > | [Microsoft.Automation](./permissions/management-and-governance.md#microsoftautomation) | Simplify cloud management with process automation. | [Automation](/azure/automation/) |
 > | [Microsoft.Billing](./permissions/management-and-governance.md#microsoftbilling) | Manage your subscriptions and see usage and billing. | [Cost Management + Billing](/azure/cost-management-billing/) |
-> | [Microsoft.BillingBenefits](./permissions/management-and-governance.md#microsoftbillingbenefits) |  | [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) |
+> | [Microsoft.BillingBenefits](./permissions/management-and-governance.md#microsoftbillingbenefits) |  | [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-overview) |
 > | [Microsoft.Blueprint](./permissions/management-and-governance.md#microsoftblueprint) | Enabling quick, repeatable creation of governed environments. | [Azure Blueprints](/azure/governance/blueprints/) |
 > | [Microsoft.Carbon](./permissions/management-and-governance.md#microsoftcarbon) |  | [Azure carbon optimization](/azure/carbon-optimization/overview) |
 > | [Microsoft.Consumption](./permissions/management-and-governance.md#microsoftconsumption) | Programmatic access to cost and usage data for your Azure resources. | [Cost Management](/azure/cost-management-billing/) |

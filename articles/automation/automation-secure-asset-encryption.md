@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 author: snehithm
 ms.author: snmuvva
 ms.date: 11/17/2025
-ms.topic: conceptual
+ms.topic: concept-article
 manager: kmadnani
 ---
 
