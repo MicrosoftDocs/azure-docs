@@ -2,7 +2,7 @@
 title: SQL DB in Azure VM backup & restore via PowerShell
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
 ms.topic: how-to
-ms.date: 11/12/2025
+ms.date: 04/06/2026
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
 ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
@@ -19,7 +19,7 @@ This article describes how to use Azure PowerShell to [back up and recover a SQL
 
 Before you back up and restore SQL databases in Azure VMs with PowerShell, ensure that the following prerequisites are met:
 
-* Check the feature capabilities for [backing up SQL databases within Azure VMs](backup-azure-sql-database.md#before-you-start).
+* Check the feature capabilities for [backing up SQL databases within Azure VMs](backup-azure-sql-database.md#prerequisites-for-sql-server-backup).
 * Review the PowerShell object hierarchy for Recovery Services.
 
 ## Recovery Services object hierarchy
@@ -265,7 +265,7 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 Check the prerequisites mentioned [here](restore-sql-database-azure-vm.md#restore-prerequisites) before restoring SQL DBs.
 
 > [!WARNING]
-> Due to a security issue related to RBAC, we had to introduce a breaking change in the restore commands for SQL DB via PowerShell. Please upgrade to Az 6.0.0 version or above for the proper restore commands to be submitted via PowerShell. The latest PS commands are provided below.
+> Due to a security issue related to RBAC, we had to introduce a breaking change in the restore commands for SQL DB via PowerShell. Please upgrade to Az 6.0.0 version or above for the proper restore commands to be submitted via PowerShell. The latest PowerShell commands are provided below.
 
 First fetch the relevant backed up SQL DB using the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell cmdlet.
 
@@ -275,7 +275,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload 
 
 ### Fetch the relevant restore time
 
-As outlined above, you can restore the backed-up SQL DB to a full/differential copy **OR** to a log point-in-time.
+As outlined previously, you can restore the backed-up SQL DB to a full/differential copy **OR** to a log point-in-time.
 
 #### Fetch distinct recovery points
 
@@ -355,7 +355,7 @@ $OverwriteWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -Po
 > [!IMPORTANT]
 > A backed-up SQL DB can be restored as a new DB to another SQLInstance only, in an Azure VM 'registered' to this vault.
 
-As outlined above, if the target SQLInstance lies within another Azure VM, make sure it's [registered to this vault](#register-the-sql-vm) and the relevant SQLInstance appears as a protectable item. In this document, let's assume that the target SQLInstance name is MSSQLSERVER within another VM "Contoso2".
+As outlined previously, if the target SQLInstance lies within another Azure VM, make sure it's [registered to this vault](#register-the-sql-vm) and the relevant SQLInstance appears as a protectable item. In this document, let's assume that the target SQLInstance name is MSSQLSERVER within another VM "Contoso2".
 
 ```powershell
 $TargetContainer =  Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -Status Registered  -VaultId $testVault.ID -FriendlyName "Contoso2"
@@ -550,7 +550,7 @@ As documented [above](#determine-recovery-configuration) for the normal SQL rest
 Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $FullRPFromSec[0] -TargetItem $secSQLInstance -AlternateWorkloadRestore -VaultId $vault.ID -TargetContainer $secContainer
 ```
 
-##### For log point in time restores from secondary region
+##### For log point-in-time restores from secondary region
 
 ```powershell
 Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $secondaryBkpItems[0] -TargetItem $secSQLInstance  -AlternateWorkloadRestore -VaultId $vault.ID -TargetContainer $secContainer
@@ -581,7 +581,7 @@ MSSQLSERVER/m... Restore              InProgress           3/17/2019 10:02:45 AM
 Once backup has been enabled for a DB, you can also trigger an on-demand backup for the DB using [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) PowerShell cmdlet. The following example triggers a copy-only-full backup on a SQL DB with compression enabled and the copy-only-full backup should be retained for 60 days.
 
 > [!Note]
-> Copy-only-full backups are ideal for long term retention since they don't have any dependencies on other backup types such as logs. A 'Full' backup is treated as a parent of subsequent log backups and hence it's retention is tied to log retention in policy. Therefore, the customer provided expiry time is honored for copy-only-full backups and not for 'full' backups. A full backup retention time is set automatically for 45 days from the current time. It is also documented [here](manage-monitor-sql-database-backup.md#run-an-on-demand-backup).
+> Copy-only-full backups are ideal for long term retention since they don't have any dependencies on other backup types such as logs. A 'Full' backup is treated as a parent of subsequent log backups and hence it's retention is tied to log retention in policy. Therefore, the customer provided expiry time is honored for copy-only-full backups and not for 'full' backups. A full backup retention time is set automatically for 45 days from the current time. It is also documented [here](manage-monitor-sql-database-backup.md#run-an-on-demand-backup-for-sql-server-database).
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $testVault.ID

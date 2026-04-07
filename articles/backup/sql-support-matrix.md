@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure Virtual Machines (VMs) 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: reference
-ms.date: 02/13/2026
+ms.date: 04/06/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -10,11 +10,13 @@ ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to understand the support matrix for SQL Server Backup in Azure VMs so that I can ensure compliance with the system requirements and optimize my backup strategy for our SQL Server environments.
 ---
 
-# Support matrix for SQL Server Backup in Azure VMs
+# Support matrix for SQL Server database and instance snapshot (preview) backups in Azure VMs
 
-You can use Azure Backup to back up SQL Server databases and SQL Server instance snapshots (preview) in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup and SQL Server instance snapshot backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
+You can use Azure Backup to back up SQL Server databases and [SQL Server instance snapshots (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview) in Azure VMs hosted on the Microsoft Azure cloud platform. This article summarizes the general support settings and limitations for scenarios and deployments of SQL Server Backup and SQL Server instance snapshot backup in Azure VMs. For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Scenario support
+
+The following table summarizes the support for different scenarios for SQL Server database backup in Azure VMs.
 
 **Support** | **Details**
 --- | ---
@@ -35,7 +37,7 @@ You can use Azure Backup to back up SQL Server databases and SQL Server instance
 |Setting  |Maximum limit |
 |---------|---------|
 |Number of databases that can be protected in a server (and in a vault)    |   2000      |
-|Database size supported (beyond the allowed limit, performance issues may come up)   |   6 TB*      |
+|Database size supported (beyond the allowed limit, performance issues may come up)   |   6 TB with streaming backup*  <br><br> We recommend you use SQL Snapshot backup for databases larger than 4 TB for scenarios that require faster backup and restore performance.     |
 |Number of files supported in a database    |   1000      |
 |Number of full backups supported per day    |    One scheduled backup. <br><br> Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries for failed attempts, hard limit for on-demand backups is set to nine attempts. |
 | Log shipping | When you enable [log shipping](/sql/database-engine/log-shipping/about-log-shipping-sql-server?view=sql-server-ver15&preserve-view=true) on the SQL server database that you're backing up, we recommend you to disable log backups in the backup policy. Otherwise, the log shipping (which automatically sends transaction logs from the primary to secondary database) interferes with the log backups enabled through Azure Backup. <br><br>    Therefore, if you enable log shipping, ensure that your policy only has full and/or differential backups enabled. |
@@ -46,7 +48,7 @@ You can use Azure Backup to back up SQL Server databases and SQL Server instance
 | Number of databases that can be restored as files concurrently | 15 per VM |
 | Allowed number of restores per database | 20 per day |
 
-_*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance) on backup throughput performance._
+_*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance-for-sql-streaming-backup) on backup throughput performance._
 
 * SQL Server backup can be configured in the Azure portal or **PowerShell**. CLI isn't supported.
 * The solution is supported on both kinds of [deployments](../azure-resource-manager/management/deployment-models.md) - Azure Resource Manager VMs and classic VMs.
@@ -59,30 +61,31 @@ _*The database size limit depends on the data transfer rate that we support and 
 * Back up of databases with extensions in their names aren’t supported because the IIS server performs the [file extension request filtering](/iis/configuration/system.webserver/security/requestfiltering/fileextensions). However, note that Microsoft allowlisted `.ad`, `.cs`, and `.master` that can be used in the database names. Learn more about the [database naming guidelines for Azure Backup](backup-sql-server-database-azure-vms.md#database-naming-guidelines-for-azure-backup).
 * FIPS encryption is currently not supported with SQL backup workloads.
 
-## SQL Server instance snapshot backups supported and unsupported scenarios (preview)
+## SQL Server instance snapshot backups supported scenarios (preview)
 
 
-The following table summarizes the supported and unsupported scenarios for backup snapshot for SQL Server instance in Azure VM.
+The following table summarizes the supported and unsupported scenarios for snapshot backup of SQL Server instances running on Azure virtual machines.
 
 | **Scenarios** | **Supported** | **Unsupported** |
 |----|----|----|
-| SQL Server versions | SQL Server 2016 and above on Windows Server 2016 and above |  |
-| Backup types for snapshot | Snapshot Full (with or without Log backup), Snapshot-copy-only-full (Adhoc backups at Instance or DB level) |  |
+| SQL Server versions | SQL Server 2016 (and higher) running on Windows Server 2016 (and higher). |  |
+| Backup types for snapshot | Snapshot Full (with or without Log backup), Snapshot-copy-only-full (Adhoc backups at database level) |  |
 | Backup configuration | Standalone instance and Always on AG |  |
 | Storage hardware/configurations |  | Premium SSD V2, Ultradisk, Write-accelerated disks, Ephemeral OS disks, and shared disks. |
-| Encryptions |  | ADE, TDE, and other SQL encryptions |
-| SQL compression |  | Yes |
-| Restore process | Alternate location recovery (ALR) that supports restore to a different target VM from the original one. | Original Location Restore (OLR) |
-| Support with Resiliency |  | Yes |
-| Clients supported | Azure portal | PowerShell, CLI |
-| Vault based features |  | immutability, CMK, Private endpoints, Cross-region/sub restores |
+| Encryptions | ADE, TDE, and other SQL encryptions |    |
+| SQL compression |  | Not supported |
+| Restore process | Alternate location recovery (ALR) that supports restore to a different target VM from the original one. | Original Location Restore (OLR), Cross region restore, Cross subscription restore |
+| Supported clients | Azure portal, PowerShell | CLI |
+| Vault-based features | Immutability, Private Endpoints (via Proxy) |     |
 | Database type |  | Snapshot backups of system databases |
-| Database size | Snapshot backup for large databases (larger than 4 TB) |  |
-| Backup method optimization | Streaming backup for smaller databases |  |
-| Database selection during instance snapshot | Up to 8 user databases | More than 8 databases |
-| Protection mode within a SQL instance | Protecting all selected databases using only snapshot-based protection | Mixed protection modes (some databases using snapshot and others using streaming) |
+| Database size | Maximum 35 TB database |  |
+| Database selection during instance snapshot | Up to 12 user databases |      |
+| Protection mode within a SQL instance | Protects all selected databases using only snapshot-based protection. | Mixed protection modes (some databases using snapshot and others using streaming) |
 
-## Backup throughput performance
+>[!NOTE]
+>Integration with the **Resiliency** experience is currently not supported for snapshot backup of SQL Server instances (preview).
+
+## Backup throughput performance for SQL streaming backup
 
 Azure Backup supports a consistent data transfer rate of 350 MBps for full and differential backups of large SQL databases (of 500 GB). To utilize the optimum performance, ensure that:
 
@@ -101,4 +104,6 @@ Azure Backup supports a consistent data transfer rate of 350 MBps for full and d
 
 - [Back up a SQL Server database running on an Azure VM](backup-azure-sql-database.md).
 - [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
-- [Manage and monitor backed up SQL Server databases using Azure portal](manage-monitor-sql-database-backup.md).
+- [Back up SQL Server instance snapshot in Azure VM using Azure portal (preview)](back-up-sql-server-instance-snapshot.md).
+- [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
+- [Manage backed up SQL Server databases](manage-monitor-sql-database-backup.md).
