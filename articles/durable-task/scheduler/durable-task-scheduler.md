@@ -83,6 +83,8 @@ The Durable Task Scheduler runs in Azure as a separate resource from your app. T
 
 Your apps connect to the scheduler resource via a gRPC connection, secured using TLS and authenticated by the app's identity. The endpoint address is in a format similar to `{scheduler-name}.{region}.durabletask.io`. For example, `myscheduler-123.westus2.durabletask.io`. 
 
+For scenarios that require private connectivity, you can use [private endpoints](./durable-task-scheduler-private-endpoints.md) to route traffic to the scheduler over a private link within your virtual network instead of the public internet.
+
 Work items are streamed from the scheduler to the app using a push model, improving end-to-end latency and removing the need for polling. Your apps can process multiple work items in parallel and send responses back to the scheduler when the corresponding orchestration, activity, or entity task is complete.
 
 ### State management
