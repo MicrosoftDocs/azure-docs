@@ -131,3 +131,11 @@ sections:
           answer: >
             ACZ is in preview. Microsoft uses customer feedback to validate functionality, performance, and scale before general availability.
 
+        - question: Can I change the entity types in an ACZ after it's created?
+          answer: >
+            No. You can't modify the entity type configuration of an existing ACZ. To change the catalog kinds or Wellbore DDMS kinds, delete the existing ACZ and create a new one with the updated configuration.
+
+        - question: What are the known issues in the ACZ Preview release?
+          answer: >
+            During preview, you can't create a new ACZ in the same data partition while another ACZ has a historical snapshot in `PROCESSING` state. Wait for the in-progress snapshot to complete before you create another ACZ in that data partition.
+
