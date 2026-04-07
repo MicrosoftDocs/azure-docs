@@ -380,6 +380,8 @@ kubectl get clusterissuer azure-iot-operations-aio-certificate-issuer -o yaml
 - Stored as **secrets** in Azure Key Vault (not as certificate resources)
 - Synced to cluster via Secret Store extension
 - Managed via operations experience UI → **Devices** → **Manage certificates and secrets**
+- For custom self-signed or enterprise grade OPC UA application instance certificates, see [Configure OPC UA certificates infrastructure](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md)
+- After updating certificates, [verify connector pods](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#verify-connector-configuration-after-certificate-changes) reload the new configuration
 
 ### 4.4 Key Vault Permissions
 
@@ -568,7 +570,12 @@ az iot ops connector opcua trust ...
 
 # Manage issuer list
 az iot ops connector opcua issuer ...
+
+# Register a custom application instance certificate
+az iot ops connector opcua client add ...
 ```
+
+For detailed certificate configuration including custom self-signed certificates and PKI security validation settings, see [Configure OPC UA certificates infrastructure](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md).
 
 ### 6.6 Enable/Disable Connectors
 
@@ -703,6 +710,9 @@ az role assignment create \
 ```bash
 kubectl delete pod <CONNECTOR_POD> -n azure-iot-operations
 ```
+
+> [!TIP]
+> For OPC UA certificate or PKI security setting changes, see the detailed [verification and restart steps](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#verify-connector-configuration-after-certificate-changes).
 
 ### 8.3 OPC UA Issues
 
