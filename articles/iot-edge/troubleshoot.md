@@ -3,7 +3,7 @@ title: Troubleshoot Azure IoT Edge
 description: Use this article to learn standard diagnostic skills for Azure IoT Edge, like retrieving component status and logs
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/27/2026
+ms.date: 04/01/2026
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 services: iot-edge
@@ -39,7 +39,7 @@ The IoT Edge check tool uses a container to run its diagnostics. The container i
 In a scenario that uses nested IoT Edge devices, you can get access to the diagnostics image on downstream devices by routing the image pull through the parent devices.
 
 ```bash
-sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.2
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:<port_for_api_proxy_module>/azureiotedge-diagnostics:1.5
 ```
 
 For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/main/doc/troubleshoot-checks.md).

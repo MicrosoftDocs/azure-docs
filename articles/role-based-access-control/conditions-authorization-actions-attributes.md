@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: reference
-ms.date: 04/15/2024
+ms.date: 03/30/2026
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
@@ -19,6 +19,8 @@ This section lists the supported authorization actions you can target for condit
 
 ### Create or update role assignments
 
+Target this action to control permissions for creating or updating role assignments. This action applies to both adding new role assignments and updating existing role assignments.
+
 > [!div class="mx-tdCol2BreakAll"]
 > | Property | Value |
 > | --- | --- |
@@ -30,6 +32,8 @@ This section lists the supported authorization actions you can target for condit
 > | **Examples** | `!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})`<br/>[Example: Constrain roles](delegate-role-assignments-examples.md#example-constrain-roles) |
 
 ### Delete a role assignment
+
+Target this action to control permissions for deleting role assignments. This action applies to removing existing role assignments.
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Property | Value |

@@ -28,6 +28,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Customer-managed keys with managed Hardware Security Module | Generally available | No |
 | Elastic zone-redundant storage service level | Preview | No |
 | File access logs | Generally available | [Partial support](manage-file-access-logs.md#supported-regions) |
+| Storage with cool access enhancement for Premium and Ultra service levels | Preview | No |
 
 ## Portal access
 

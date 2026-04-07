@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Site Recovery for Managed Disks Charges
+title: Understanding Azure Site Recovery for managed disks Charges
 ms.reviewer: v-gajeronika
 description: This article summarizes the costs disaster recovery and migration deployment scenarios.
 ms.topic: overview
@@ -14,7 +14,7 @@ author: Jeronika-MS
 
 Azure to Azure (A2A) disaster recovery in Site Recovery is a robust disaster recovery solution offering seamless replication and failover capabilities for virtual and physical machines. It is important to understand the cost components associated with using Site Recovery to manage expenses effectively. Following is a detailed breakdown of the charges you may incur when using this service.
 
-You can use this [pricing calculator](https://aka.ms/asr_a2a_calculator) to simulate the estimated costs for Azure to Azure Managed Disks. 
+You can use this [pricing calculator](https://aka.ms/asr_a2a_calculator) to simulate the estimated costs for Azure to Azure managed disks. 
 
 > [!NOTE]
 > This calculator gives an estimate of Site Recovery usage costs. It shouldn't be taken as the final cost. If you have any issues or feedback, contact askasr@microsoft.com.

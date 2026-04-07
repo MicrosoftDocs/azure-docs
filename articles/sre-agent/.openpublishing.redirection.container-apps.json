@@ -79,6 +79,11 @@
             "source_path_from_root": "/articles/sre-agent/incident-management.md",
             "redirect_url": "/azure/sre-agent/incident-platforms",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/billing.md",
+            "redirect_url": "/azure/sre-agent/pricing-billing",
+            "redirect_document_id": false
         }
     ]
 }

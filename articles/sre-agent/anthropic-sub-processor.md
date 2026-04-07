@@ -6,6 +6,7 @@ ms.author: cshoe
 ms.topic: concept-article
 ms.date: 03/23/2026
 ms.service: azure
+ms.custom: references_regions
 ---
 
 # Anthropic as a subprocessor in Azure SRE Agent

@@ -749,6 +749,8 @@ To prevent resource starvation, the broker can [request Kubernetes CPU resource 
    - Set up application instance certificates for the [OPC UA connector](../discover-manage-assets/overview-opc-ua-connector.md)
    - Configure trusted certificates list for OPC UA servers
    - Use production PKI (not self-signed certificates)
+   - If connecting to OPC UA servers with legacy certificates, review the [PKI security validation settings](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-pki-security-validation-settings)
+   - After certificate changes, [verify connector pods](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#verify-connector-configuration-after-certificate-changes) pick up the new configuration
 
 3. **Create [devices and assets](../discover-manage-assets/concept-assets-devices.md)** via the operations experience UI at [iotoperations.azure.com](https://iotoperations.azure.com) or via CLI:
 
@@ -930,6 +932,8 @@ az iot ops support create-bundle
 - [ ] Storage account scoped to trusted Azure services only
 - [ ] OPC UA authentication is configured (not no-auth)
 - [ ] OPC UA certificates and trust lists configured with production PKI
+- [ ] PKI security validation settings reviewed (key size, SHA-1 policy)
+- [ ] Connector pods verified running after certificate changes
 - [ ] Data flow endpoints using user-assigned managed identity
 - [ ] [Data flow profiles](../connect-to-cloud/howto-configure-dataflow-profile.md) scaled for throughput and HA
 - [ ] Data flows created and validated end-to-end

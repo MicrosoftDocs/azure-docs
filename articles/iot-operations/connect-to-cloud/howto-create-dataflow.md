@@ -16,8 +16,6 @@ ms.custom:
 
 # Create data flows in Azure IoT Operations
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 A data flow is the path that data takes from the source to the destination with optional transformations. You can configure the data flow by creating a *Data flow* custom resource or using the operations experience web UI. A data flow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
 ```mermaid
@@ -190,7 +188,9 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file to start creating a data flow. This example shows the structure of the data flow containing the source, transformation, and destination configurations.
 
@@ -287,7 +287,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 builtInTransformationSettings:
@@ -352,7 +354,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
 
@@ -514,7 +518,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 You can access MQTT metadata properties by using the format `$metadata.user_properties.<property>` or `$metadata.topic`. You can also enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
@@ -656,7 +662,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 builtInTransformationSettings:
@@ -930,7 +938,9 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -1017,7 +1027,9 @@ az iot ops dataflow show --resource-group myResourceGroup --instance myAioInstan
 
 Bicep is infrastructure as code and no export is required. Use the [Bicep file to create a data flow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure data flows.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
 kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml

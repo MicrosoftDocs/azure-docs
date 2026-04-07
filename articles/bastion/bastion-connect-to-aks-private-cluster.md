@@ -2,11 +2,11 @@
 title: 'Connect to AKS Private Cluster Using Azure Bastion (Preview)'
 titleSuffix: Azure Bastion
 description: Learn how to securely connect to Azure Kubernetes Service (AKS) private clusters using Azure Bastion's native client tunneling. Step-by-step guide with prerequisites and commands to establish secure access without exposing endpoints.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 07/29/2025
-ms.author: abell
+ms.author: cherylmc
 
 # Customer intent: "As a cloud administrator, I want to establish a secure connection to an AKS private cluster using Azure Bastion, so that I can access my Kubernetes resources without exposing them to the public internet."
 ---

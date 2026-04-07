@@ -22,7 +22,7 @@ This document doesn't address data stored in your Azure Storage account. Your cl
 
 ## Introduction
 
-There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview). 
+There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview). 
 
 HDInsight supports multiple types of encryption in two different layers:
 

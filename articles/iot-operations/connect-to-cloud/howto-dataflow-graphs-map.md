@@ -6,14 +6,12 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 ---
 
 # Transform data with map in data flow graphs
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 A map transform takes each incoming message and produces an output message based on your rules. You can rename fields, reorganize them into new structures, compute derived values, or remove unwanted fields. Wildcard rules let you copy all fields at once.
 
@@ -61,7 +59,9 @@ In the map transform configuration, add a rule:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -97,7 +97,9 @@ Add two rules:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -158,7 +160,9 @@ Add a rule:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -208,7 +212,9 @@ To scale a sensor reading:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -236,7 +242,7 @@ When the output should closely match the input with only a few changes, use a wi
 
 # [Operations experience](#tab/portal)
 
-Add a passthrough rule that copies all fields. In the Operations experience, this is typically the default behavior when you add a map transform.
+Add a passthrough rule that copies all fields. Set the input to `*` and the output to `*`.
 
 # [Bicep](#tab/bicep)
 
@@ -247,7 +253,9 @@ Add a passthrough rule that copies all fields. In the Operations experience, thi
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -280,7 +288,9 @@ Add a rule with input `ColorProperties.*` and output `*`.
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -334,7 +344,9 @@ Set the `output` to an empty string to exclude specific fields. This approach is
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -376,7 +388,9 @@ The map transform applies the specific rule to `temperature` and copies all othe
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -412,7 +426,9 @@ Add a rule with input `region` and output `$metadata.user_property.region` to wr
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -445,7 +461,9 @@ Add a rule for the `temperature` field and enable **Last known value**. Set a de
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -460,6 +478,50 @@ This rule uses the current value when present, falls back to the last known valu
 ## Enrich with external data
 
 You can augment messages with data from an external state store by configuring datasets. For example, look up a device's metadata by its ID and include it in the output. For details, see [Enrich with external data](howto-dataflow-graphs-enrich.md).
+
+## Data flow graph exclusive features
+
+Data flow graphs support several features that aren't available in data flow `builtInTransformation` mappings.
+
+### Default values for missing fields
+
+Use the `?? <default>` syntax on an input to provide a static fallback when a field is missing. This is simpler than writing an `if` expression to check for empty values.
+
+# [Operations experience](#tab/portal)
+
+In the map transform configuration, set the input to include the `??` syntax followed by the default value. For example, enter `temperature ?? 0` as the input field to use `0` when the temperature field is missing.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  inputs: [ 'temperature ?? 0' ]
+  output: 'temperature'
+}
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+- inputs:
+    - temperature ?? 0
+  output: temperature
+```
+
+---
+
+For details on supported default types and combining defaults with last known values, see [Default values](concept-dataflow-graphs-expressions.md#default-values) in the expressions reference.
+
+### Regex functions
+
+Data flow graphs support regular expression matching and replacement:
+
+- `str::regex_matches(string, pattern)`: Returns true if the string matches the regex pattern.
+- `str::regex_replace(string, pattern, replacement)`: Replaces all regex matches with the replacement string.
+
+These functions are useful in filter expressions or for cleaning and transforming string data. For the full list of string functions, see [String functions](concept-dataflow-graphs-expressions.md#string-functions) in the expressions reference.
 
 ## Full configuration example
 
@@ -484,7 +546,6 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
   name: 'temperature-map-example'
   parent: dataflowProfile
   properties: {
-    profileRef: dataflowProfileName
     mode: 'Enabled'
     nodes: [
       {
@@ -534,7 +595,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 The rules configuration is a JSON string placed as the `value` for the `rules` key in a `DataflowGraph` transform node's `configuration` section:
 

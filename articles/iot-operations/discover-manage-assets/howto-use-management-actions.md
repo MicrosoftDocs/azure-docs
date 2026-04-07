@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 03/18/2026
+ms.date: 03/26/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT or OT operator, I want to enable management actions on my Azure IoT Operations instance so that I can invoke operations such as method calls, writes, and reads on southbound assets from the cloud or edge.
@@ -41,7 +41,9 @@ The `az iot ops mgmt-actions enable` command in the quickstart script provisions
 | Event Grid data flow endpoint | Connects the Azure IoT Operations data flow runtime to the Event Grid namespace. |
 | Request data flow graph | Routes messages from Event Grid to the MQTT broker, applying a WASM module to rewrite topic paths. |
 | Response data flow | Routes responses from the MQTT broker back to Event Grid. |
+| Managed identity | If you don't specify a user-assigned managed identity, the command creates a system-assigned managed identity for the data flow endpoint. If the Azure Device Registry namespace doesn't have a system-assigned managed identity enabled, the `az iot ops mgmt-actions enable` command enables one to allow authentication with the Event Grid namespace. |
 | Role assignments | Grants the data flow identity and the Azure Device Registry namespace the required permissions. |
+| Management endpoint | A management endpoint for the Azure Device Registry namespace linking it to the Event Grid namespace. |
 
 ```azurecli
 az iot ops mgmt-actions enable \
@@ -139,7 +141,7 @@ Management actions use two data flows and Azure Event Grid to connect a cloud cl
 
 When you execute a management action, the following sequence occurs:
 
-1. The `az iot ops mgmt-actions execute` command publishes the action request as an MQTT message to the Event Grid namespace. The message is published to a topic in the topic space created by the quickstart script, with the asset name, management group, and action name as subtopics.
+1. The `az iot ops mgmt-actions execute` command calls the `executeAction` endpoint of the asset in the Azure Device Registry namespace. The namespace then publishes the action request for the asset as an MQTT message to the Event Grid namespace. The message is published to a topic in the topic space created by the quickstart script, with the asset name, management group, and action name as subtopics.
 
 1. The **request data flow** subscribes to the `actions/requests/<instance-name>/#` topic on the Event Grid namespace. When a message arrives, the data flow passes it through a WASM graph module that strips the Event Grid topic prefix and rewrites the topic to the internal MQTT broker format.
 
@@ -155,7 +157,7 @@ After the southbound asset executes the operation and returns a response to the 
 
 1. The **response data flow** subscribes to `actions/responses/<instance-name>/#` on the internal broker and forwards the message to the Event Grid namespace.
 
-1. The Event Grid namespace delivers the response to the waiting client, completing the request-response cycle.
+1. The Azure Device Registry namespace subscribes to the response topic space in the Event Grid namespace. When the namespace receives the response message, it notifies the original `executeAction` caller to complete the request-response cycle.
 
 For details on how the connector interacts with OPC UA servers and the supported action types, see [Control OPC UA servers](howto-control-opc-ua.md).
 
@@ -175,4 +177,4 @@ az iot ops mgmt-actions disable \
 - [Connect to MQTT endpoints](howto-use-mqtt-connector.md)
 - [Connect to ONVIF-compliant cameras](howto-use-onvif-connector.md)
 - [Understand assets and devices](concept-assets-devices.md)
-- [Management actions quickstart scripts](https://github.com/Azure/azure-iot-ops-cli-extension/blob/mgmt_actions_quickstart/scripts/mgmt-actions/README.md)
+- [Management actions quickstart scripts](https://github.com/Azure/azure-iot-ops-cli-extension/blob/v2.4.0/scripts/mgmt-actions/README.md)

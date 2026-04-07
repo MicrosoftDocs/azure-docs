@@ -35,7 +35,7 @@ The Azure Storage platform includes the following data services:
 - [Azure Elastic SAN](../elastic-san/elastic-san-introduction.md): A fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN in Azure.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
-- [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview): Block-level storage volumes for Azure VMs.
+- [Azure managed disks](/azure/virtual-machines/managed-disks-overview): Block-level storage volumes for Azure VMs.
 - [Azure Container Storage](/azure/storage/container-storage/container-storage-introduction): A volume management, deployment, and orchestration service built natively for containers.
 
 Each service is accessed through a storage account with a unique address. To get started, see [Create a storage account](storage-account-create.md).
@@ -137,9 +137,9 @@ Azure Table Storage is now part of Azure Cosmos DB. To see Azure Table Storage d
 For more information about Table Storage, see [Overview of Azure Table Storage](../tables/table-storage-overview.md).
 
 ## Disk Storage
-An Azure Managed Disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure Managed Disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it's an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
+An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it's an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
 
-For more information about managed disks, see [Introduction to Azure Managed Disks](/azure/virtual-machines/managed-disks-overview).
+For more information about managed disks, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview).
 
 ## Azure NetApp Files
 

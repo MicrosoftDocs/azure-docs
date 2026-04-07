@@ -9,10 +9,10 @@
   - name: AI-enabled functions
     displayName: OpenAI, AI, MCP server, agent, agentic, Foundry
     href: functions-create-ai-enabled-apps.md
-  - name: Getting started
+  - name: Get started
     href: functions-get-started.md
   - name: Durable Functions
-    href: durable/durable-functions-overview.md
+    href: durable-functions/durable-functions-overview.md
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
   - name: Hosting plan options
@@ -50,12 +50,12 @@
       - name: Azure SQL
         displayName: data validation, database
         href: scenario-database-changes-azure-sqldb.md
-    - name: Build a serverless workflow
-      displayName: workflow, Durable Functions
-      href: ./durable/scenario-build-serverless-workflow.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Run scheduled tasks
       displayName: timer trigger, schedule
       href: scenario-scheduled-tasks.md
+    - name: Process real-time events
+      displayName: Event Hubs, streaming, events
+      href: scenario-real-time-events-processing.md
   - name: Developer tools
     items:
     - name: Azure Developer CLI
@@ -164,7 +164,7 @@
       href: tutorial-ffmpeg-processing-azure-files.md
     - name: Durable text analysis on a mounted share
       displayName: Azure Files, storage mount, Durable Functions, Flex Consumption
-      href: durable/tutorial-durable-text-analysis-azure-files.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+      href: durable-functions/tutorial-durable-text-analysis-azure-files.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Java with Azure Cosmos DB and Event Hubs
     href: functions-event-hub-cosmos-db.md
 - name: Samples

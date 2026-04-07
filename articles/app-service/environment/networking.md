@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: seligj95
 ms.topic: overview
-ms.date: 02/03/2026
+ms.date: 03/30/2026
 ms.author: jordanselig
 ms.service: azure-app-service
 ---
@@ -152,6 +152,46 @@ To enable the feature, configure the `MultipleSubnetJoinEnabled` cluster setting
 ```
 
 For guidance on configuring cluster settings, see [Custom configuration settings for App Service Environments](app-service-app-service-environment-custom-settings.md).
+
+You must also set the `allowNewDirectNetworkIntegrations` property to `true` in the App Service Environment's networking configuration. This property is a required part of the networking configuration body. If you update the networking configuration without including this property, it could be disabled since it defaults to `false`.
+
+You can set this property using the CLI or directly in an ARM template.
+
+#### [CLI](#tab/cli)
+
+There's no dedicated CLI parameter for this property, so use the following `az rest` command to enable it:
+
+```azurecli-interactive
+az rest --method put \
+  --uri "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/configurations/networking?api-version=2024-04-01" \
+  --body '{
+    "properties": {
+      "allowNewDirectNetworkIntegrations": true
+    }
+  }'
+```
+
+Replace `{subscriptionId}`, `{resourceGroupName}`, and `{aseName}` with your values.
+
+#### [ARM template](#tab/arm)
+
+In your ARM template, set the property in the networking configuration resource:
+
+```json
+{
+  "type": "Microsoft.Web/hostingEnvironments/configurations",
+  "apiVersion": "2024-04-01",
+  "name": "[concat(parameters('aseName'), '/networking')]",
+  "properties": {
+    "allowNewDirectNetworkIntegrations": true
+  }
+}
+```
+
+---
+
+> [!IMPORTANT]
+> When updating the networking configuration, include all properties you want to preserve. The `allowNewDirectNetworkIntegrations` property is a non-nullable boolean that defaults to `false`, so omitting it from a networking configuration update disables the feature.
 
 ### Join an app to an alternate subnet
 

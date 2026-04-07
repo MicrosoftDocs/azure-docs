@@ -1,6 +1,285 @@
 {
   "redirections": [
     {
+      "source_path": "articles/sentinel/datalake/sentinel-mcp-chatgpt-connector.md",
+      "redirect_url": "/azure/sentinel/datalake/sentinel-mcp-chatgpt-claude-connector",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-configurations.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-configurations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-get-ip-airflow-cluster.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-get-ip-airflow-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-import-dags-blob-storage.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-import-dags-blob-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-install-private-package.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-install-private-package",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-pricing.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-pricing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/airflow-sync-github-repository.md",
+      "redirect_url": "/previous-versions/azure/data-factory/airflow-sync-github-repository",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/ci-cd-pattern-with-airflow.md",
+      "redirect_url": "/previous-versions/azure/data-factory/ci-cd-pattern-with-airflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/concepts-workflow-orchestration-manager.md",
+      "redirect_url": "/previous-versions/azure/data-factory/concepts-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/create-airflow-environment.md",
+      "redirect_url": "/previous-versions/azure/data-factory/create-airflow-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/delete-dags-in-workflow-orchestration-manager.md",
+      "redirect_url": "/previous-versions/azure/data-factory/delete-dags-in-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/diagnostic-logs-and-metrics-for-workflow-orchestration-manager.md",
+      "redirect_url": "/previous-versions/azure/data-factory/diagnostic-logs-and-metrics-for-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/enable-azure-key-vault.md",
+      "redirect_url": "/previous-versions/azure/data-factory/enable-azure-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/get-started-with-workflow-orchestration-manager.md",
+      "redirect_url": "/previous-versions/azure/data-factory/get-started-with-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/kubernetes-secret-pull-image-from-private-container-registry.md",
+      "redirect_url": "/previous-versions/azure/data-factory/kubernetes-secret-pull-image-from-private-container-registry",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/password-change-airflow.md",
+      "redirect_url": "/previous-versions/azure/data-factory/password-change-airflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/rest-apis-for-airflow-integrated-runtime.md",
+      "redirect_url": "/previous-versions/azure/data-factory/rest-apis-for-airflow-integrated-runtime",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/tutorial-run-existing-pipeline-with-airflow.md",
+      "redirect_url": "/previous-versions/azure/data-factory/tutorial-run-existing-pipeline-with-airflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/horizontal-arm-route-messages.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/horizontal-arm-route-messages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-routing-arm.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/how-to-routing-arm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-routing-powershell.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/how-to-routing-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-routing-azure-cli.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/how-to-routing-azure-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-how-to-order-connection-state-events.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-how-to-order-connection-state-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-live-data-visualization-in-web-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-query-avro-data.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/iot-hub-query-avro-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/module-twins-portal-dotnet.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/module-twins-portal-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/quickstart-bicep-route-messages.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/quickstart-bicep-route-messages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/tutorial-device-twins.md",
+      "redirect_url": "/previous-versions/azure/iot-hub/tutorial-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-architecture.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-convention.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-convention",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-developer-guide-device.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-developer-guide-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-developer-guide-service.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-developer-guide-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-digital-twin.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-digital-twin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-iot-device-types.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-iot-device-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-message-payloads.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-message-payloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-model-discovery.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-model-discovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-modeling-guide.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-modeling-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/concepts-using-c-sdk-and-embedded-c-sdk.md",
+      "redirect_url": "/previous-versions/azure/iot/concepts-using-c-sdk-and-embedded-c-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/howto-use-iot-explorer.md",
+      "redirect_url": "/previous-versions/azure/iot/howto-use-iot-explorer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-analyze-visualize.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-analyze-visualize",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-device-connectivity.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-device-connectivity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-message-processing.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-message-processing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-device-management.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-device-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-scalability-high-availability.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-scalability-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-solution-extensibility.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-solution-extensibility",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-overview-solution-management.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-overview-solution-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/overview-iot-plug-and-play.md",
+      "redirect_url": "/previous-versions/azure/iot/overview-iot-plug-and-play",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/iot-phone-app-how-to.md",
+      "redirect_url": "/previous-versions/azure/iot/iot-phone-app-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/troubleshoot-embedded-device-tutorials.md",
+      "redirect_url": "/previous-versions/azure/iot/troubleshoot-embedded-device-tutorials",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/tutorial-devkit-espressif-esp32-freertos-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/iot/tutorial-devkit-espressif-esp32-freertos-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/tutorial-devkit-mxchip-az3166-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/iot/tutorial-devkit-mxchip-az3166-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/tutorial-devkit-stm-b-l475e-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/iot/tutorial-devkit-stm-b-l475e-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot/tutorial-send-telemetry-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/iot/tutorial-send-telemetry-iot-hub",
+    },
+    {
+      "source_path": "articles/backup/backup-azure-enhanced-soft-delete-about.md",
+      "redirect_url": "/azure/backup/secure-by-default",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/best-practices-assessment.md",
       "redirect_url": "/previous-versions/azure/migrate/best-practices-assessment",
       "redirect_document_id": false,
@@ -238,6 +517,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/durable/durable-task-scheduler/quickstart-work-item-filtering-durable-task.md",
+      "redirect_url": "/azure/durable-task/scheduler/quickstart-work-item-filtering-durable-task",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/durable/durable-functions-cloud-backup.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-fan-in-fan-out",
       "redirect_document_id": false
@@ -250,6 +534,11 @@
     {
       "source_path": "articles/azure-functions/durable/durable-functions-phone-verification.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-human-interaction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/tutorial-durable-text-analysis-azure-files.md",
+      "redirect_url": "/azure/azure-functions/durable-functions/tutorial-durable-text-analysis-azure-files",
       "redirect_document_id": false
     },
     {
@@ -7293,6 +7582,6 @@
       "source_path": "articles/certification/edge-secured-core-get-certified.md",
       "redirect_url": "/azure/certification/requirements-edge-secured-core",
       "redirect_document_id": false
-    },
+    }
   ]
 }

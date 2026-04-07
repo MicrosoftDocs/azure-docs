@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/02/2025
+ms.date: 03/05/2026
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to configure inactive data to move from a hot tier to a cool tier in Azure NetApp Files, so that I can optimize storage costs while maintaining accessibility to archived data.
@@ -30,7 +30,7 @@ After data blocks are marked "cold," the tiering scan collects the blocks and pa
 > [!NOTE]
 > When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that was cool for at least 30 days moves to the cool tier _when_ you enable cool access. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier. 
 
-By default (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. After the data blocks are marked as "warm," they're again subjected to the temperature scan. Large sequential reads (like index and antivirus scans) on inactive data in the cool tier don't "warm" the data. They also don't trigger inactive data so that it moves back to the hot tier.
+By default (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. After the data blocks are marked as "warm," they're again subjected to the temperature scan. Large sequential reads (like index and antivirus scans) on inactive data in the cool tier don't "warm" the data. 
 
 Metadata is never cooled and always remains in the hot tier. Tiering doesn't affect the activities of metadata-intensive workloads like high file-count environments like chip design, version control systems, and home directories.
 
@@ -47,9 +47,62 @@ Cool access offers [performance metrics](azure-netapp-files-metrics.md#cool-acce
 * Volume cool tier data read size
 * Volume cool tier data write size
 
+## Throughput for Premium and Ultra service levels 
+
+When cool access is enabled on the Premium and Ultra service levels, throughput is adjusted at regular intervals based on the size of the data in the cool tier.  
+
+If a volume is within the Premium or Ultra service levels with auto QoS enabled and has more than 100 GiB of cool access data, the throughput QoS limit is different for the data on hot and cool tier respectively.
+
+Review the table to understand how throughput limit is calculated. 
+
+| Service level | Formula without cool access | Formula with cool access | 
+| - | -- | --- |
+| Premium | Maximum throughput in MiB/s = Quota in TiB * 64 MiB/s | Maximum throughput in MiB/s = (Hot tier data in TiB * 64 MiB/s) + (Cool tier data in TiB * 16 MiB/s per TiB of data in the cool tier)
+| Ultra | Maximum throughput in MiB/s = Quota in TiB * 128 MiB/s | Maximum throughput in MiB/s = (Hot tier data in TiB * 128 MiB/s) + (Cool tier data in TiB * 16 MiB/s per TiB of data in the cool tier) |
+
+For example, if a volume in the Premium service level has 10 TiB of data in the hot tier, its maximum throughput is 640 MiB/s (10 TiB * 64 MiB/s). For a Premium service level deployment with 2 TiB in the cool tier and 8 TiB in the hot tier, the maximum throughput is 544 MiB/s ([8 TiB * 64 MiB/s] + [2 TiB * 16 MiB/s]).
+
+For existing volumes in capacity pools where cool access was enabled prior to this update, the prior throughput QoS limit continues to apply as per the following table.
+
+| Service level | Throughput with cool access | Baseline throughput (cool access never enabled) | 
+| - | -- | -- |
+| Premium | Quota in TiB * 36 MiB/s |  Quota in TiB * 64 MiB/s 
+| Ultra | Quota in TiB * 68 MiB/s |  Quota in TiB * 128 MiB/s 
+
+For example, a 10-TiB volume on the Premium service regularly delivers throughput of 640 MiB/s (10 TiB * 64 MiB/s). With cool access enabled regardless of the amount of data tiered, throughput is 360 MiB/s (10 TiB * 36 MiB/s).
+
+> [!NOTE]
+> You should create a new capacity pool and move the old volumes to the new capacity pools to use the updated QoS limit. 
+
+With either throughput calculation, increasing the volume quota increases the throughput limit because throughput scales linearly with the provisioned capacity.
+
+### Supported regions for cool access throughput for premium and ultra service levels feature
+
+* Australia Southeast
+* Brazil South
+* Brazil Southeast
+* Canada Central
+* Canada East
+* Central US
+* East Asia
+* Germany North 
+* Germany West Central
+* Israel Central 
+* Japan East
+* Korea South
+* North Central US
+* Norway East
+* Qatar Central
+* Southeast Asia
+* Sweden Central
+* Switzerland West
+* UAE Central
+* UK West
+* West US
+
 ## Billing 
 
-You can enable tiering at the volume level for a newly created capacity pool. How you're billed is based on:
+You can enable cool access for each volume in a [cool-access enabled capacity pool](manage-cool-access.md). How you're billed is based on:
 
 * The capacity and the service level.
 * Unallocated capacity within the capacity pool.
@@ -60,176 +113,13 @@ Billing calculation for a capacity pool is at the hot-tier rate for the data tha
 
 The deleted data in a volume is collected once it reaches 1% of the provisioned size of the volume. This impacts the size of the cool tier, if the cool tier eligible user data is also a low percentage of the volume, such as 1~3% of the provisioned size. If the difference in the cool tier size is more than 3%, [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-### Examples of billing structure
+## Estimate your savings
 
-Assume that you created a 4-TiB Standard capacity pool. The billing structure is at the Standard capacity tier rate for the entire 4 TiB. 
+Estimate your savings from cool access in the [Azure NetApp Files effective price estimator](https://aka.ms/anfcoolaccesscalc).
 
-When you create volumes in the capacity pool and start tiering data to the cool tier, the following scenarios explain the billing structure that applies: 
+:::image type="content" source="./media/cool-access-introduction/effective-price-calculator.png" alt-text="Diagram that shows the effective price calculator chart." lightbox="./media/cool-access-introduction/effective-price-calculator.png":::
 
-* Assume that you create three volumes with 1 TiB each. You don't enable tiering at the volume level. The billing calculation is: 
-
-    * 3 TiB of allocated capacity at the hot tier rate.
-    * 1 TiB of unallocated capacity at the hot tier rate.
-    * Zero capacity at the cool tier rate.
-    * Zero network transfer between the hot tier and the cool tier. The markup on top of the transaction cost (`GET`, `PUT`) on blob storage and private link transfer in either direction between the hot tiers determines the rate.
-
-* Assume that you create four volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the hot tier and 0.75 TiB of the volume capacity in the cool tier. The billing calculation is: 
-
-    * 1-TiB capacity at the hot tier rate.
-    * 3-TiB capacity at the cool tier rate.
-    * Network transfer between the hot tier and the cool tier. The markup on top of the transaction cost (`GET`, `PUT`) on blob storage and private link transfer in either direction between the hot tiers determines the rate.
-
-* Assume that you create two volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the hot tier and 0.75 TiB of the volume capacity in the cool tier. The billing calculation is:
-
-    * 0.5-TiB capacity at the hot tier rate.
-    * 2 TiB of unallocated capacity at the hot tier rate.
-    * 1.5-TiB capacity at the cool tier rate.
-    * Network transfer between the hot tier and the cool tier. The markup on top of the transaction cost (`GET`, `PUT`) on blob storage and private link transfer in either direction between the hot tiers determines the rate.
-
-* Assume that you create one volume with 1 TiB. The volume has 0.25 TiB of the volume capacity on the hot tier and 0.75 of the volume capacity in the cool tier. The billing calculation is:
-
-    * 0.25-TiB capacity at the hot tier rate.
-    * 0.75-TiB capacity at the cool tier rate.
-    * Network transfer between the hot tier and the cool tier. The markup on top of the transaction cost (`GET`, `PUT`) on blob storage and private link transfer in either direction between the hot tiers determines the rate.
-
-* Azure NetApp Files storage with cool access also enables you to only tier snapshots. For this scenario, assume you create one 1-TiB volume where 10% of the volume data is snapshots and enable cool access with the `-snapshots-only` policy. The billing calculation is: 
-
-    * 0.9-TiB capacity at the hot tier
-    * 0.1-TiB capacity at the cool tier
-    * Data transfers costs occur for the initial transfer of snapshots, then network transfer costs incur only when snapshots are restored. 
-
-### Examples of cost calculations with varying coolness periods
-
-This section shows you examples of storage and network transfer costs with varying coolness periods.
-
-In these examples, assume that:
-
-* The hot tier storage cost is $0.000202/GiB/hr. The cool tier storage cost is $0.000082/GiB/hr.
-* Network transfer cost (including read or write activities from the cool tier) is $0.020000/GiB.
-* A 5-TiB capacity pool with cool access is enabled.
-* One TiB of unallocated capacity is within the capacity pool.
-* A 4-TiB volume is enabled for cool access.
-* After the coolness period, 3 TiB of the 4 TiB is moved to the cool tier.
-* Each month, you read or write 20% of data from the cool tier.
-* Each month is 30 days or 730 hours. So each day is 730/30 hours.
-
-> [!IMPORTANT]
->
-> * Use these calculations only as a reference estimate and not for validating the exact bill amount.
-> * The rates considered in the examples are for an example region and might be different for your intended region of deployment.
-> * If data is read from or written to the cool tier, it causes the percentage of data distribution in the hot tier and cool tier to change. The calculations in this article demonstrate initial percentage distribution in the hot and cool tiers, and not after the 20% of data was moved to or from the cool tier.
-
-The following examples include 1 TiB of unallocated space in the capacity pool to show how unallocated space is charged when cool access is enabled. To maximize your savings, the capacity pool size should be reduced to eliminate unallocated pool capacity.
-
-#### Example 1: Coolness period is set to seven days
-
-Your storage cost for the *first month*:
-
-| Cost | Description | Calculation |
-|---|---|---|
-| Unallocated storage cost for days 1~30 (30 days) | 1 TiB of unallocated storage | 1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00  |
-| Storage cost for days 1~7 (seven days) | 4 TiB of active data (hot tier) | 4 TiB x 1024 x 7 days x 730/30 hrs. x $0.000202/GiB/hr. = $140.93 |
-| Storage cost for days 8~30 (23 days) | 1 TiB of active data (hot tier) <br><br> 3 TiB of inactive data (cool tier) | 1 TiB x 1024 x 23 days x 730/30 hrs. x $0.000202/GiB/hr. = $115.77 <br><br> 3 TiB x 1024 x 23 days x 730/30 hrs. x $0.000082/GiB/hr. = $140.98 |
-| Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | 3 TiB x 1024 x $0.020000/GiB = $61.44 <br><br> 3 TiB x 1024 x 20% x $0.020000/GiB = $12.29 |
-| **First month total** || **$622.41** |
-
-Your monthly storage cost for the *second and subsequent months*:
-
-| Cost | Description | Calculation |
-|---|---|---|
-| Storage cost for 30 days | 1 TiB of unallocated storage <br><br> 1 TiB of active data (hot tier) <br><br> 3 TiB of inactive data (cool tier) | 1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00 <br><br> 1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00 <br><br> 3 TiB x 1024 x 30 days x 730/30 hrs. x $0.000082/GiB/hr. = $183.89 |
-| Network transfer cost | 20% of data read/write from cool tier | 3 TiB x 1024 x 20% x $0.020000/GiB = $12.29 |
-| **Second and subsequent monthly total** || **$498.18** |
-
-Your first six-month savings:
-
-* Cost without cool access: 5 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 6 months = $4,529.97
-* Cost with cool access:
-    First month + Second month + … + Sixth month = $622.41 + (5x $498.18) = $3,113.31
-* Savings using cool access: **31.27%**
-
-Your first 12-month savings:
-
-* Cost without cool access: 5 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 12 months = $9,059.94
-* Cost with cool access: First month + Second month + … + twelfth month = $622.41 + (11 x $498.18) = $6,102.39
-* Savings using cool access: **32.64%**
-
-#### Example 2: Coolness period is set to 35 days
-
-All 5 TiB is active data (in hot tier) for the first month. Your storage cost for the *first month*:
-
-5 TiB x 1024 x 730hr. x $0.000202/GiB/hr. = $755.00
-
-Your storage cost for the *second month*:
-
-| Cost | Description | Calculation |
-|---|---|---|
-| Unallocated storage cost for days 1~30 (30 days) | 1 TiB of unallocated storage | 1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00 |
-| Storage cost for days 1~5 (five days) | 4 TiB of active data (hot tier) | 4 TiB x 1024 x 5 days x 730/30 hrs. x $0.000202/GiB/hr. = $100.67 |
-| Storage cost for days 6~30 (25 days) | 1 TiB of active data (hot tier) <br><br> 3 TiB of inactive data (cool tier) | 1 TiB x 1024 x 25 days x 730/30 hrs. x $0.000202/GiB/hr. = $125.83 <br><br> 3 TiB x 1024 x 25 days x 730/30 hrs. x $0.000082/GiB/hr. = $153.24 |
-| Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | 3 TiB x 1024 x $0.020000	/GiB	 = $61.44 <br><br> 3 TiB x 1024 x 20% x $0.020000/GiB = $12.29 |
-| **Second month total** || **$604.47** |
-
-Your monthly storage cost for *third and subsequent months*:
-
-| Cost | Description | Calculation |
-|---|---|---|
-| Storage cost for 30 days | 1 TiB of unallocated storage <br><br>  1 TiB of active data (hot tier) <br><br> 3 TiB of inactive data (cool tier) | 1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00<br><br> 1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00 <br><br> 3 TiB x 1024 x 30 days x 730/30 hrs. x $0.000082/GiB/hr. = $183.89 |
-| Network transfer cost | 20% of data read/write from cool tier | 3 TiB x 1024 x 20% x $0.020000/GiB = $12.29 |
-| **Third and subsequent monthly total** || **$498.18** |
-
-Your first six-month savings:
-
-* Cost without cool access: 5 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 6 months = $4,529.97
-* Cost with cool access:
-    First month + Second month + … + Sixth month = $755.00 + $604.47 + (4 x $498.18) = $3,352.19
-* Savings using cool access: **25.99%**
-
-Your first 12-month savings:
-
-* Cost without cool access: 5 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 12 months = $9,059.94
-* Cost with cool access: First month + Second month + … + twelfth month = $755.00 + $604.47 + (10 x $498.18) = $6,341.27
-* Savings using cool access: **30.00%**
-
-#### Example 3: Coolness period is set to 63 days
-
-All 5 TiB is active data (in hot tier) for the first two months. Your monthly storage cost for the *first and second months*: 5 TiB x 1024 x 730hr. x $0.000202/GiB/hr. = $755.00
-
-Your storage cost for the *third month*:
-
-| Cost | Description | Calculation |
-|---|---|---|
-| Unallocated storage cost for days 1~30 (30 days) | 1 TiB of unallocated storage | 1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00 |
-| Storage cost for days 1~3 (three days) | 4 TiB of active data (hot tier) | 4 TiB x 1024 x 3 days x 730/30 hrs. x $0.000202/GiB/hr. = $60.40 |
-| Storage cost for days 4~30 (27 days) | 1 TiB of active data (hot tier) <br><br> 3 TiB of inactive data (cool tier) | 1 TiB x 1024 x 27 days x 730/30 hrs. x $0.000202/GiB/hr. = $135.90 <br><br> 3 TiB x 1024 x 27 days x 730/30 hrs. x $0.000082/GiB/hr. = $165.50 |
-| Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | 3 TiB x 1024 x $0.020000/GiB = $61.44 <br><br> 3 TiB x 1024 x 20% x $0.020000/GiB = $12.29 |
-| **Third month total** || **$586.52** |
-
-Your monthly storage cost for the *fourth and subsequent months*:
-
-| Cost | Description | Calculation |
-|---|---|---|
-| Storage cost for 30 days | 1 TiB of unallocated storage <br><br> 1 TiB of active data (hot tier) <br><br> 3 TiB of inactive data (cool tier) | 1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00 <br><br> 1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00 <br><br> 3 TiB x 1024 x 30 days x 730/30 hrs. x $0.000082/GiB/hr. = $183.89 |
-| Network transfer cost | 20% of data read/write from cool tier | 3 TiB x 1024 x 20% x $0.020000/GiB = $12.29 |
-| **Fourth and subsequent monthly total** || **$498.18** |
-
-Your first six-month savings:
- 
-* Cost without cool access: 5 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 6 months = $4,529.97
-* Cost with cool access: 
-    First month + Second month + … + Sixth month = (2 x $755.00) + $586.52 + (3 x $498.18) = $3,591.06
-* Savings using cool access: **20.73%**
-
-Your first 12-month savings:
-
-* Cost without cool access: 5 TiB x 1024 x $0.000202/GiB/hr. x 730 hrs. x 12 months = $9,059.94
-* Cost with cool access: First month + Second month + … + twelfth month = (2 x $755.00) + $586.52 + (9 x $498.18) = $6,580.14
-* Savings using cool access: **27.37%**
-
-#### Example 4: 
-
-> [!TIP]
-> You can use the [Azure NetApp Files storage with cool access cost savings estimator](https://aka.ms/anfcoolaccesscalc) to interactively estimate cost savings based on changeable input parameters.
+:::image type="content" source="./media/cool-access-introduction/effective-price-calculator-price.png" alt-text="Diagram that shows the effective price calculator calculation." lightbox="./media/cool-access-introduction/effective-price-calculator-price.png":::
 
 ## Related content
 

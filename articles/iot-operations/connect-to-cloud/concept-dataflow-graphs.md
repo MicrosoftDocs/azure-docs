@@ -6,14 +6,12 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 03/13/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 ---
 
 # Data flow graphs overview
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 Data flow graphs give you a flexible way to process data as it moves through Azure IoT Operations. A standard [data flow](overview-dataflow.md) follows a fixed enrich, filter, map sequence. A data flow graph lets you compose transforms in any order, branch into parallel paths, and aggregate data over time windows.
 
@@ -29,9 +27,9 @@ Azure IoT Operations provides two ways to process data in a pipeline:
 | Capability | Data flows | Data flow graphs |
 |-----------|-----------|-----------------|
 | Pipeline shape | Fixed: enrich, filter, map | Flexible: any order, branching, merging |
-| Transform types | Map, filter, enrich | Map, filter, branch, concat, window, enrich |
+| Transform types | Map, filter, enrich | Map, filter, branch, concatenate, window, enrich |
 | Time-based aggregation | Not available | Window transforms with tumbling windows |
-| Conditional routing | Not available | Branch and concat transforms |
+| Conditional routing | Not available | Branch and concatenate transforms |
 | Endpoint support | All endpoint types | MQTT, Kafka, and OpenTelemetry only |
 
 For new projects that use supported endpoint types, we recommend data flow graphs. Data flows remain fully supported for all scenarios, and they support the full range of endpoint types.
@@ -45,7 +43,7 @@ Each transform is a pre-built processing step that you configure with rules and 
 | **Map** | Rename, restructure, compute, and copy fields | [Transform data with map](howto-dataflow-graphs-map.md) |
 | **Filter** | Drop messages that match a condition | [Filter and route data](howto-dataflow-graphs-filter-route.md) |
 | **Branch** | Route each message to a `true` or `false` path based on a condition | [Filter and route data](howto-dataflow-graphs-filter-route.md#branch-transform) |
-| **Concat** | Merge two or more paths back into one | [Filter and route data](howto-dataflow-graphs-filter-route.md#merge-paths-with-concat) |
+| **Concatenate** | Merge two or more paths back into one | [Filter and route data](howto-dataflow-graphs-filter-route.md#merge-paths-with-concatenate) |
 | **Window** | Collect messages over a time interval, then aggregate | [Aggregate data over time](howto-dataflow-graphs-window.md) |
 
 All transforms share an [expression language](concept-dataflow-graphs-expressions.md) for operators, functions, and field references. You can also [enrich](howto-dataflow-graphs-enrich.md) messages with external data from a state store in map, filter, and branch transforms.
@@ -54,7 +52,7 @@ All transforms share an [expression language](concept-dataflow-graphs-expression
 
 Transforms connect in sequence inside a `DataflowGraph` resource: **Source > Transform A > Transform B > … > Destination**.
 
-Branch transforms split the flow into parallel paths, and concat transforms merge them back.
+Branch transforms split the flow into parallel paths, and concatenate transforms merge them back.
 
 You can chain any number of transforms in any order. A pipeline with a single map transform is as valid as one that filters, branches, maps each path differently, merges, and then aggregates over a time window.
 
@@ -86,7 +84,6 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
   name: 'temperature-conversion'
   parent: dataflowProfile
   properties: {
-    profileRef: dataflowProfileName
     mode: 'Enabled'
     nodes: [
       {
@@ -128,7 +125,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -187,7 +186,7 @@ In the how-to articles that follow, examples focus on the transform rules themse
 
 Data flow graphs support two kinds of transforms:
 
-- **Built-in transforms** are pre-built by Microsoft (map, filter, branch, concat, window). You configure them with rules. No coding required.
+- **Built-in transforms** are pre-built by Microsoft (map, filter, branch, concatenate, window). You configure them with rules. No coding required.
 - **WASM transforms** are custom WebAssembly modules that developers build and deploy. Use them when you need logic that the built-in transforms don't cover.
 
 Both kinds of transforms run inside the same `DataflowGraph` resource and can be mixed in a single pipeline. For information on building and deploying custom transforms, see [Use WASM transforms in data flow graphs](howto-dataflow-graph-wasm.md).

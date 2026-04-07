@@ -1,0 +1,17 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Durable Task
+    tocHref: /azure/durable-task/common/
+    topicHref: /azure/durable-task/index
+    items:
+    - name: Durable Task SDKs
+      tocHref: /azure/durable-task/sdks/
+      topicHref: /azure/durable-task/sdks/index
+    - name: Durable Task Scheduler
+      tocHref: /azure/durable-task/scheduler/
+      topicHref: /azure/durable-task/scheduler/index
+    - name: Durable Functions
+      tocHref: /azure/azure-functions/durable-functions/
+      topicHref: /azure/azure-functions/durable-functions/index

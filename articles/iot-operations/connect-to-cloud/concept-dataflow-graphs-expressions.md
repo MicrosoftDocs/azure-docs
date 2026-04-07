@@ -6,14 +6,12 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: reference
-ms.date: 03/19/2026
+ms.date: 03/26/2026
 ai-usage: ai-assisted
 
 ---
 
 # Expressions reference for data flows
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 This reference applies to both [data flows](overview-dataflow.md) and [data flow graphs](concept-dataflow-graphs.md). Both use the same expression language for map, filter, and enrichment transforms. Data flow graphs also support branch and window (accumulate) transforms, which are noted where applicable.
 
@@ -170,11 +168,19 @@ Use `()` (the empty value) in comparisons to detect missing fields.
 
 Read from and write to message metadata by using the `$metadata.` prefix in the `inputs` or `output` fields of a rule. Metadata references go in the field path, not in the expression itself.
 
+### Metadata properties
+
+* **Topic**: Works for both MQTT and Kafka. It contains the string where the message was published. Example: `$metadata.topic`.
+* **User property**: In MQTT, this refers to the free-form key/value pairs an MQTT message can carry. For example, if the MQTT message was published with a user property with key "priority" and value "high", then the `$metadata.user_property.priority` reference holds the value "high". User property keys can be arbitrary strings and may require escaping: `$metadata.user_property."weird key"` uses the key "weird key" (with a space).
+* **System property**: This term is used for every property that is not a user property. Currently, only a single system property is supported: `$metadata.system_property.content_type`, which reads the content type property of the MQTT message (if set).
+* **Header**: This is the Kafka equivalent of the MQTT user property. Kafka can use any binary value for a key, but data flows support only UTF-8 string keys. Example: `$metadata.header.priority`. This functionality is similar to user properties.
+
 | Field | Description |
 |-------|-------------|
 | `$metadata.topic` | The MQTT topic of the message |
 | `$metadata.user_property.<key>` | A user property on the message, identified by key |
 | `$metadata.system_property.content_type` | The content type system property |
+| `$metadata.header.<key>` | A Kafka header value, identified by key |
 
 ### Read from metadata
 
@@ -187,11 +193,41 @@ To reference the source topic and a user property in an expression, list them as
 
 Expression: `$1 + "/" + $2`
 
+In the following example, the MQTT `topic` property is mapped to the `origin_topic` field in the output:
+
+| Input | Output |
+|-------|--------|
+| `$metadata.topic` | `origin_topic` |
+
+If the user property `priority` is present in the MQTT message, the following example demonstrates how to map it to an output field:
+
+| Input | Output |
+|-------|--------|
+| `$metadata.user_property.priority` | `priority` |
+
 ### Write to metadata
 
 To set a user property on the output message, use `$metadata.user_property.<key>` as the output field.
 
 Setting a metadata field to an empty value (`()`) removes it. For user properties, duplicate keys are allowed.
+
+You can also map metadata properties to an output header or user property. In the following example, the MQTT `topic` is mapped to the `origin_topic` field in the output's user property:
+
+| Input | Output |
+|-------|--------|
+| `$metadata.topic` | `$metadata.user_property.origin_topic` |
+
+If the incoming payload contains a `priority` field, the following example demonstrates how to map it to an MQTT user property:
+
+| Input | Output |
+|-------|--------|
+| `priority` | `$metadata.user_property.priority` |
+
+The same example for Kafka:
+
+| Input | Output |
+|-------|--------|
+| `priority` | `$metadata.header.priority` |
 
 Metadata fields are supported in map, filter, and branch rules. They aren't available in window (accumulate) rules.
 
@@ -212,7 +248,10 @@ Last known value is supported in map, filter, and branch rules. It isn't availab
 
 ## Default values
 
-Use the `?? <default>` suffix on an input to provide a fallback value when the field is missing and no last known value is available. Supported default types: integer, float, boolean, string, and null.
+Use the `?? <default>` suffix on an input to provide a fallback value when the field is missing. Supported default types: integer, float, boolean, string, and null.
+
+> [!NOTE]
+> The `?? <default>` syntax is available in data flow graphs only. It isn't supported in data flow `builtInTransformation` inputs.
 
 | Input | Fallback |
 |-------|----------|
@@ -223,11 +262,12 @@ Use the `?? <default>` suffix on an input to provide a fallback value when the f
 
 ### Combine last known value and default
 
-You can combine `? $last` and `?? <default>`. The runtime checks the current message first, then the last known value, then the default.
+You can combine `? $last` and `?? <default>`. The runtime checks the current message first, then the last known value, then the default. If you use `?? <default>` without `? $last`, the runtime checks the current message and then the default directly.
 
 | Input | Evaluation order |
 |-------|-----------------|
-| `temperature ? $last ?? 0` | Current value, then last known, then 0 |
+| `temperature ?? 0` | Current value, then default (0) |
+| `temperature ? $last ?? 0` | Current value, then last known, then default (0) |
 
 Default values are supported in map, filter, and branch rules. They aren't available in window (accumulate) rules.
 
@@ -256,8 +296,178 @@ JSON objects and arrays are preserved as-is when fields are copied without an ex
 | `$metadata` access | Yes | Yes | Yes | No |
 | `$context` enrichment | Yes | Yes | Yes | No |
 | `? $last` | Yes | Yes | Yes | No |
-| `?? <default>` | Yes | Yes | Yes | No |
+| `?? <default>` ¹ | Yes | Yes | Yes | No |
+| `str::regex_matches` / `str::regex_replace` ¹ | Yes | Yes | Yes | No |
 | Wildcards | Yes | No | No | No |
+
+¹ Available in data flow graphs only. Not supported in data flow `builtInTransformation` inputs.
+
+## Dot notation and escaping
+
+Dot notation is widely used to reference nested fields. A standard dot-notation path looks like `Person.Address.Street.Number`.
+
+In a data flow, a path described by dot notation might include strings and some special characters without needing escaping, such as `Person.Date of Birth`.
+
+In other cases, escaping is necessary, for example: `nsu=http://opcfoundation.org/UA/Plc/Applications;s=RandomSignedInt32`. This path, among other special characters, contains dots within the field name. Without escaping, the field name would serve as a separator in the dot notation itself.
+
+While a data flow parses a path, it treats only two characters as special:
+
+* Dots (`.`) act as field separators.
+* Single quotation marks, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
+
+Any other characters are treated as part of the field name. This flexibility is useful in formats like JSON, where field names can be arbitrary strings.
+
+The path definition must also adhere to the rules of the configuration format. When a character with special meaning is included in the path, proper quoting is required. For example, field names that start with a colon (like `:Person:.:name:`) or that begin with a number followed by text (like `100 celsius.hot`) need quoting in the configuration to be interpreted correctly as strings.
+
+### Escaping
+
+The primary function of escaping in a dot-notated path is to accommodate the use of dots that are part of field names rather than separators. For example, the path `Payload."Tag.10".Value` consists of three segments: `Payload`, `Tag.10`, and `Value`. The double quotation marks around `Tag.10` prevent the dot from acting as a separator.
+
+### Escaping rules in dot notation
+
+* **Escape each segment separately:** If multiple segments contain dots, those segments must be enclosed in double quotation marks. Other segments can also be quoted, but it doesn't affect the path interpretation. For example: `Payload."Tag.10".Measurements."Vibration.$12".Value`
+
+    
+* **Proper use of double quotation marks:** Double quotation marks must open and close an escaped segment. Any quotation marks in the middle of the segment are considered part of the field name. For example, the path `Payload.He said: "Hello", and waved` defines two fields: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator. For example, the path `Payload.He said: "No. It is done"` is split into the segments `Payload`, `He said: "No`, and `It is done"` (starting with a space).
+    
+### Segmentation algorithm
+
+* If the first character of a segment is a quotation mark, the parser searches for the next quotation mark. The string enclosed between these quotation marks is considered a single segment.
+* If the segment doesn't start with a quotation mark, the parser identifies segments by searching for the next dot or the end of the path.
+
+## Wildcards
+
+Use a wildcard (`*`) in input and output paths to match multiple fields at once. This is useful when the output closely resembles the input, or when you need to apply the same transformation across many fields without listing each one.
+
+### Copy all fields
+
+To pass every field through unchanged:
+
+| Input | Output |
+|-------|--------|
+| `*` | `*` |
+
+The `*` matches each field path in the input and places it at the same path in the output. The portion of the path that `*` matches is called the **captured segment**. In the output, the captured segment replaces the `*`.
+
+### Flatten nested fields
+
+To move fields out of a nested object to the root level, put the prefix in the input and `*` in the output:
+
+| Input | Output |
+|-------|--------|
+| `Sensors.*` | `*` |
+| `Metadata.*` | `*` |
+
+Given this input:
+
+```json
+{
+  "Sensors": { "Temperature": 72.5, "Pressure": 14.7 },
+  "Metadata": { "LineId": "Line-3", "Shift": "A" }
+}
+```
+
+The output flattens both objects:
+
+```json
+{
+  "Temperature": 72.5,
+  "Pressure": 14.7,
+  "LineId": "Line-3",
+  "Shift": "A"
+}
+```
+
+### Restructure fields
+
+To move fields under a new parent, put `*` in the input and add a prefix in the output:
+
+| Input | Output |
+|-------|--------|
+| `*` | `Telemetry.*` |
+
+This wraps all top-level fields inside a `Telemetry` object.
+
+### Wildcard placement rules
+
+- Only **one** `*` is allowed per input or output path.
+- The `*` must match a **complete segment** (not a partial segment like `Sensor*`).
+- The `*` can appear at the beginning (`*.Value`), middle (`Sensors.*.Reading`), or end (`Sensors.*`) of a path.
+
+### Multi-input wildcards
+
+When a rule has multiple inputs with wildcards, the `*` must capture the **same segment** across all inputs. The runtime resolves the `*` from the first input, then looks for matching paths in the other inputs.
+
+For example, to average the max and min readings for each sensor:
+
+| Input | Output | Expression |
+|-------|--------|------------|
+| `*.Max` ($1)<br>`*.Min` ($2) | `Averaged.*` | `($1 + $2) / 2` |
+
+Given this input:
+
+```json
+{
+  "Temperature": { "Max": 85.3, "Min": 62.1 },
+  "Pressure": { "Max": 15.2, "Min": 14.1 }
+}
+```
+
+The `*` captures `Temperature` first, so the rule looks for both `Temperature.Max` and `Temperature.Min`. Then it captures `Pressure` and looks for `Pressure.Max` and `Pressure.Min`. The output is:
+
+```json
+{
+  "Averaged": { "Temperature": 73.7, "Pressure": 14.65 }
+}
+```
+
+If any input can't resolve for a captured segment (for example, `*.Mid.Avg` when the field is nested differently), that segment is skipped. Make sure the paths in all inputs reflect the actual structure of the data.
+
+### Override a wildcard for specific fields
+
+You can combine a wildcard rule with specific rules. Specific rules take precedence when they have a **lower coverage** (fewer segments matched by `*`). This is called **specialization**.
+
+| Input | Output | Expression |
+|-------|--------|------------|
+| `*.Max` ($1)<br>`*.Min` ($2) | `Averaged.*` | `($1 + $2) / 2` |
+| `Pressure.Max` ($1)<br>`Pressure.Min` ($2) | `Averaged.PressureAdj` | `($1 + $2 + 1.0) / 2` |
+
+The first rule applies to all fields. The second rule overrides it for `Pressure` only, because `Pressure.Max` is more specific than `*.Max` (coverage 0 vs. coverage 1).
+
+To exclude a field entirely, use an empty output:
+
+| Input | Output |
+|-------|--------|
+| `Pressure.Max`, `Pressure.Min` | *(empty)* |
+
+An empty output drops the field from the result. This overrides any wildcard rule that would otherwise include it.
+
+### Multiple rules on the same inputs
+
+If two rules have the same or higher coverage, both apply. This lets you compute multiple derived values from the same inputs:
+
+| Input | Output | Expression |
+|-------|--------|------------|
+| `*.Max` ($1)<br>`*.Min` ($2) | `Stats.*.Avg` | `($1 + $2) / 2` |
+| `*.Max` ($1)<br>`*.Min` ($2) | `Stats.*.Range` | `$1 - $2` |
+
+Both rules execute for each captured segment, producing two output fields per sensor.
+
+### Wildcards in contextualization datasets
+
+You can use wildcards with `$context` references to copy all fields from a dataset:
+
+| Input | Output |
+|-------|--------|
+| `$context(assetMeta).*` | `Asset.*` |
+
+This copies every field from the `assetMeta` dataset into the `Asset` section of the output.
+
+## Contextualization datasets
+
+Contextualization datasets let mappings integrate extra data from external databases. Use the `$context(datasetName)` prefix to reference fields from a dataset. For example, `$context(position).BaseSalary` reads the `BaseSalary` field from a dataset named `position`.
+
+For details on configuring contextualization datasets, see [Enrich data by using data flows](concept-dataflow-enrich.md) and [Enrich with external data in data flow graphs](howto-dataflow-graphs-enrich.md).
 
 ## Related content
 

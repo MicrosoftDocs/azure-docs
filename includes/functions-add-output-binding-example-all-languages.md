@@ -14,7 +14,6 @@ Because an HTTP triggered function also returns an HTTP response, the function r
 ```csharp
 [Function("HttpExample")]
 public MultiResponse Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
-{
 ```
 
 This example is the definition of the `MultiResponse` object that includes the output binding:
@@ -46,7 +45,6 @@ For more information, including links to example binding code that you can refer
 ### [v4](#tab/node-v4)
 
 :::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/src/functions/httpTrigger1.js":::
-
 
 ### [v3](#tab/node-v3)
 :::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" highlight="18-24" :::

@@ -42,7 +42,7 @@ Complete the tasks in the table to prepare Azure for agent-based migration.
 **Task** | **Details**
 --- | ---
 **Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to create a project.
-**Verify Azure account permissions** | Your Azure account needs permissions to create a VM, and write to an Azure Managed Disk.
+**Verify Azure account permissions** | Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 **Set up an Azure network** | Set up a network that Azure VMs will join after migration.
 
 ### Assign permissions to create project
@@ -62,7 +62,7 @@ Assign the Virtual Machine Contributor role to the account, so that you have per
 
 - Create a VM in the selected resource group.
 - Create a VM in the selected virtual network.
-- Write to an Azure Managed Disk.
+- Write to an Azure managed disk.
 
 
 <a name='assign-permissions-to-register-the-replication-appliance-in-azure-ad'></a>
@@ -76,7 +76,7 @@ If you are following the least privilege principle, assign the **Application Dev
 
 ### Set up an Azure network
 
-[Set up an Azure network](/azure/virtual-network/manage-virtual-network). Source (on-premises or Azure VMware Solution) machines are replicated to Azure Managed Disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
+[Set up an Azure network](/azure/virtual-network/manage-virtual-network). Source (on-premises or Azure VMware Solution) machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
 
 
 ## Prepare for migration
@@ -269,7 +269,7 @@ Select VMs for migration.
     - Double encryption with platform-managed and customer-managed keys
 
    > [!NOTE]
-   > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
+   > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps managed disks to a Key Vault that contains the CMK to use for SSE.
 
 15. In **Azure Hybrid Benefit**:
 
