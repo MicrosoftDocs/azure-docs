@@ -71,7 +71,7 @@ The following list mentions fields for an Entity schema alongside their specific
 | **EntityName** | Mandatory | string | The name of the entity. |
 | **EntityNameType** | Recommended | string | The type of the entity name. |
 | **EntityVendor** | Mandatory | string | The vendor or provider that reported the entity. |
-| **EntitySource** | Mandatory | Enumerated | The data source or connector that provided the entity record. Support sources include:<br>- `Azure`<br>- `Microsoft365`<br>- `AWS`<br>- `GCP`<br>- `Other`<br> Use `Other` if the source is not listed. |
+| **EntitySource** | Mandatory | Enumerated | The data source or connector that provided the entity record. Support sources include:<br>- `Azure`<br>- `Microsoft365`<br>- `AWS`<br>- `GCP`<br>- `Snowflake`<br>- `Databricks`<br>- `Salesforce`<br>- `Other`<br> Use `Other` if the source is not listed. |
 | **EntityOriginalSource** | Optional | string | The original data source or connector that provided the entity record, if the source is currently not supported. |
 | **EntityProduct** | Mandatory | string | The product name associated with the source that reported the entity. |
 | **EntitySubProduct** | Mandatory | string | The sub-product or component name associated with the source that reported the entity. |

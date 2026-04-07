@@ -47,9 +47,11 @@ The following are the prerequisites to the definition the migration of your sour
 
 |Source protocol   |Target                               |Azure Endpoint                                        |Description                    |
 |------------------|-------------------------------------|------------------------------------------------------|-------------------------------|
-|SMB 2.x mount     |Azure file share (SMB)               |`< your-storage-account-name>.file.core.windows.net`  |Azure Files endpoint.          |
-|SMB 2.x mount     |Azure file share (SMB)               |`<your-keyvault-name>.vault.azure.net`                |Azure Key Vault endpoint.       |
-|NFS 3 & 4 mount   |Azure blob storage container         |`< your-storage-account-name>.blob.core.windows.net`  |Azure Blob container endpoint. |
+|SMB 2.x, 3.x mount     |Azure file share (SMB)               |`< your-storage-account-name>.file.core.windows.net`  |Azure Files endpoint.          |
+|NFS 3, 4 mount     |Azure file share (NFS)               |`< your-storage-account-name>.file.core.windows.net`  |Azure Files endpoint.          |
+|SMB 2.x, 3.x mount     |Azure file share (SMB)               |`<your-keyvault-name>.vault.azure.net`                |Azure Key Vault endpoint.       |
+|SMB 2.x, 3.x mount   |Azure blob storage container         |`< your-storage-account-name>.blob.core.windows.net`  |Azure Blob container endpoint. |
+|NFS 3, 4 mount   |Azure blob storage container         |`< your-storage-account-name>.blob.core.windows.net`  |Azure Blob container endpoint. |
  
 
 

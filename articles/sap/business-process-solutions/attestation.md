@@ -27,9 +27,17 @@ Business Process Solutions delivers a unified data foundation for business appli
 
 We offer a trial experience that's easy and fast. Customers can start the trial in less than 5 seconds. The trial is free and allows users to explore the workload for a limited time, following Microsoft guidelines for Trials.
 
+[] Yes
+
+[✔] No
+
 ### Monetization
 
 The workload is available on the marketplace for the customer to procure with or without a trial in accordance with the monetization guidelines
+
+[] Yes
+
+[✔] No
 
 ## Technical Requirements
 
@@ -41,7 +49,11 @@ To begin using the workload, Business Process Solutions for Microsoft Fabric no 
 
 ### One Lake
 
-Workloads integrate with One Lake to store data in the standard formats supported by the Fabric platform so that other services can take advantage of it. In our workload, metadata is stored in One Lake.
+Workloads integrate with One Lake to store data in the standard formats supported by the Fabric platform so that other services can take advantage of it.
+
+[] All data and metadata is stored in One Lake or Fabric Data Stores
+
+[✔] Not all data and metadata is stored in One Lake or Fabric Data Stores
 
 ### Microsoft Entra Conditional Access
 
@@ -63,7 +75,7 @@ The Workload implementation takes measures to test and track performance of thei
 
 - **Common UX**: Business Process Solutions complies with the Fabric UX guidelines.
 - **Item Creation Experience**: The item creation experience is in accordance with the Fabric UX System.
-- **Monitoring Hub**¹¹: All Long running operations need to integrate with Fabric Monitoring Hub.
+- **Monitoring Hub**: All Long running operations need to integrate with Fabric Monitoring Hub.
 - **Trial Experience**: The workload doesn't provide a trial experience for users.
 - **World Readiness / Internationalization**: English is supported as the default language.
 - **Item Settings**: Item settings are implemented as a part of the ribbon as outlined in the UX guidelines

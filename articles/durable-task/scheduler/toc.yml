@@ -29,10 +29,14 @@
       href: durable-task-scheduler-auto-purge.md
     - name: Schedules
       href: ../sdks/durable-task-schedulers-schedules.md
-  - name: Monitor
+  - name: Secure
     items:
     - name: Identity-based access
       href: durable-task-scheduler-identity.md
+    - name: Private endpoints
+      href: durable-task-scheduler-private-endpoints.md
+  - name: Monitor
+    items:
     - name: Monitoring dashboard
       href: durable-task-scheduler-dashboard.md
     - name: OpenTelemetry and distributed tracing

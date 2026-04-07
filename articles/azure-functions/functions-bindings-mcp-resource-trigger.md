@@ -130,7 +130,7 @@ For the complete code example, see the [Azure Functions MCP Extension repo](http
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> The MCP extension in Java doesn't_ support resource today.
+> The MCP extension in Java supports resource today. Documentation coming soon.
 
 ::: zone-end
 
@@ -216,15 +216,7 @@ app.mcpTool("getWeather", {
 For the complete code example, see [weatherMcpApp.ts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/blob/McpAppDemo/src/functions/weatherMcpApp.ts).
 
 > [!IMPORTANT]
-> The MCP resource trigger for TypeScript currently requires version `4.12.0-preview.2` or later of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions/v/4.12.0-preview.2) package.
-> It also requires version `[4.32.0, 5.0.0)` of the preview exetnsion bundle. Make sure to update your `host.json` to use this preview bundle and version:
->
-> ```json
-> "extensionBundle": {
->   "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
->   "version": "[4.32.0, 5.0.0)"
-> }
-> ```
+> The MCP resource trigger for TypeScript requires version `4.12.0` or later of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions/v/4.12.0) package.
 
 ::: zone-end  
 
@@ -290,17 +282,7 @@ def get_weather(location: str) -> Dict[str, Any]:
 For the complete code example, see [function_app.py](https://github.com/Azure-Samples/remote-mcp-functions-python/blob/main/src).
 
 > [!NOTE]
-> The MCP resource trigger for Python requires version `1.25.0b3` or later of the [`azure-functions`](https://pypi.org/project/azure-functions/1.25.0b3/) package. 
-> It also requires version `[4.32.0, 5.0.0)` of the preview exetnsion bundle. Make sure to update your `host.json` to use this preview bundle and version:
->
-> ```json
-> "extensionBundle": {
->   "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview"
->   "version": "[4.32.0, 5.0.0)"
-> }
-> ```
->
-> If the app is using Python 3.9-3.12, add the `PYTHON_ISOLATE_WORKER_DEPENDENCIES: 1` app setting to `local.settings.json` and to app settings when running in Azure.
+> The MCP resource trigger for Python requires version `2.0.0` or later of the [`azure-functions`](https://pypi.org/project/azure-functions/) package and using **Python 3.13** or above. 
 
 ::: zone-end
 
