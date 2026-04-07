@@ -44,7 +44,7 @@ This report provides details on the issue, possible causes, and recommended reso
 
 You can also look at the image pull failures per revision in the last 24 hours. Select a revision from the dropdown options.
 
-    To view the number of image pull failures per revision for your container app, select **Click to show**.  
+To view the number of image pull failures per revision for your container app, select **Click to show**.  
 
 ## Image pull validation
 
