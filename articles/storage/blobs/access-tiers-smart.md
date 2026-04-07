@@ -37,6 +37,56 @@ Smart tier is configured on the [default account access tier](access-tiers-overv
 You can move objects out of smart tier by setting a different online tier or changing the default account access tier to another tier. Once moved to an explicit tier, objects can't be tiered back to smart tier.
 To set the default access tier setting for a storage account, see [Set a blob's access tier](access-tiers-online-manage.md)
 
+#### [Portal](#tab/azure-portal)
+
+To set the default access tier to *Smart* for a storage account at create time in the Azure portal, follow these steps:
+
+1. Navigate to the **Storage accounts** page, and select the **Create** button.
+
+2. Fill out the **Basics** tab.
+
+3. On the **Advanced** tab, under **Blob storage**, set the **Access tier** to *Smart*.
+
+4. Select **Review + Create** to validate your settings and create your storage account.
+
+    :::image type="content" source="media/access-tiers-online-manage/set-default-access-tier-create-portal-smart.png" alt-text="Screenshot showing how to set the default access tier to Smart when creating a storage account.":::
+
+To update the default access tier to *Smart* for an existing storage account in the Azure portal, follow these steps:
+
+1. Navigate to the storage account in the Azure portal.
+
+2. Under **Settings**, select **Configuration**.
+
+3. Locate the **Blob access tier (default)** setting, and select *Smart*. The default setting is *Hot*, if you have not previously set this property.
+
+4. Save your changes.
+
+#### [PowerShell](#tab/azure-powershell)
+
+To configure `Smart` as the default access tier setting for a storage account with PowerShell, call the Azure REST API directly.
+
+```azurepowershell-interactive
+# Set variables
+$SubscriptionId = <subscription-id>
+$ResourceGroup = <resource-group>
+$StorageAccountName = <storage-account-name>
+
+# Update the storage account access tier to Smart
+$Path = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroup/providers/Microsoft.Storage/storageAccounts/${StorageAccountName}?api-version=2025-08-01"
+$Payload = @{ properties = @{ accessTier = "Smart" } } | ConvertTo-Json -Depth 3
+
+Invoke-AzRestMethod -Method PATCH -Path $Path -Payload $Payload
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To configure `Smart` as the default access tier setting for a storage account with Azure CLI, call the Azure REST API directly.
+
+```azurecli-interactive
+az rest --method patch --url "https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>?api-version=2025-08-01" --body '{"properties":{"accessTier":"Smart"}}'
+```
+
+---
 
 ## Working with smart tier
 All smart tiered objects are automatically managed across the underlying capacity tiers - hot, cool, and cold. Smart tier leverages the regular hot, cool, and cold access tiers in the background. These tiers are called the capacity tier. Smart tier doesn't support the archive tier or premium storage accounts. It works only on block blobs, page blobs aren't supported. 
