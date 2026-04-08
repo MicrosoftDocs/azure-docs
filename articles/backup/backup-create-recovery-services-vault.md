@@ -27,7 +27,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 1. In the **Recovery Services vaults** pane, select the new vault. In the **Settings** section, select **Properties**.
 1. In **Properties**, under **Backup Configuration**, select **Update**.
 
-1. For **Storage replication type**, select **Geo-redundant**, **Locally-redundant**, or **Zone-redundant**. Then select **Save**.
+1. For **Storage replication type**, select **Geo-redundant** or **Locally-redundant**. Then select **Save**.
 
    :::image type="content" source="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png" alt-text="Screenshot shows how to set the storage configuration for a new vault." lightbox="./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png":::
 
@@ -35,7 +35,6 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
    - If you use Azure as a primary backup storage endpoint, continue to use the default [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
    - If you don't use Azure as a primary backup storage endpoint, choose [locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) to reduce storage costs.
-   - If you need data availability without downtime in a region, guaranteeing data residency, choose [zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 The storage replication settings for the vault aren't relevant for Azure file share snapshot backup because the snapshots are stored in the same storage account as the backed-up file share. The storage replication settings for the vault apply only for the Azure file share vaulted backup.
 
