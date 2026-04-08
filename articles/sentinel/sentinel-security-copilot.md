@@ -8,8 +8,7 @@ ms.pagetype: security
 ms.author: macapara 
 author: mjcaparas 
 ms.localizationpriority: medium
-audience: ITPro
-ms.topic: conceptual
+ms.topic: concept-article
 appliesto:
     - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

@@ -93,8 +93,8 @@ For information on the architectural details of this application, see [Java PetC
     (✓) Done: Virtual Network: vnet-my-first-ai (7.357s)
     (✓) Done: Container Registry: crb36onby7z5ooc (25.742s)
     (✓) Done: Azure OpenAI: openai-my-first-ai (25.324s)
-    (✓) Done: Azure AI Services Model Deployment: openai-my-first-ai/text-embedding-ada-002 (42.909s)
-    (✓) Done: Azure AI Services Model Deployment: openai-my-first-ai/gpt-4o (44.21s)
+    (✓) Done: Foundry Tools Model Deployment: openai-my-first-ai/text-embedding-ada-002 (42.909s)
+    (✓) Done: Foundry Tools Model Deployment: openai-my-first-ai/gpt-4o (44.21s)
     (✓) Done: Container Apps Environment: aca-env-my-first-ai (3m1.361s)
     (✓) Done: Container App: petclinic-ai (22.701s)
     

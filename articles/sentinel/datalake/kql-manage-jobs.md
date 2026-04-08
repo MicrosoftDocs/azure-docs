@@ -3,12 +3,11 @@ title: Manage KQL jobs
 titleSuffix: Microsoft Security  
 description: Managing KQL jobs in the Defender portal for Microsoft Sentinel data lake
 author: EdB-MSFT  
-ms.service: microsoft-sentinel  
-ms.topic: conceptual
-ms.subservice: sentinel-graph
+ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform  
+ms.topic: concept-article
 ms.date: 07/09/2025
 ms.author: edbaynash  
-
 ms.collection: ms-security  
 
 # Customer intent: As a threat hunter, security engineer or an security administrator, I want to manage jobs in the Microsoft Sentinel data lake so that I can run KQL queries  against the data in the lake tier and promote the results to the analytics tier.

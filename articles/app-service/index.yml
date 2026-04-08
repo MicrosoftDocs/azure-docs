@@ -43,6 +43,8 @@ landingContent:
         links:
           - text: ASP.NET
             url: quickstart-dotnetcore.md
+          - text: Aspire
+            url: quickstart-dotnet-aspire.md
           - text: Java
             url: quickstart-java.md
           - text: Node.js

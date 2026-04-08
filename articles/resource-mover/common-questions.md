@@ -7,7 +7,7 @@ ms.service: azure-resource-mover
 ms.custom: engagement-fy23, UpdateFrequency.5
 ms.topic: faq
 ms.date: 07/31/2025
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 # Customer intent: As an Azure user, I want to understand the capabilities and limitations of the Azure Resource Mover, so that I can effectively plan and execute resource migrations across regions and subscriptions.
 ---
 

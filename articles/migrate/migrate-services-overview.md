@@ -43,6 +43,9 @@ Watch this video to learn how Azure Migrate delivers enhanced experiences. It he
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed-one-stream.html?id=08b50a5e-0ee6-4dc5-91d8-9e55350547c6]
 ::: moniker-end
 
+>[!IMPORTANT]
+> For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
+
 ### Decide
 
 The first step in a migration journey is to identify your workloads. This process of identification is called *discovery*. To discover your workloads, you can deploy a lightweight [Azure Migrate appliance](migrate-appliance.md) (recommended approach) or quickly import the inventory data for your workloads.

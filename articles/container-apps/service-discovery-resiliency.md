@@ -5,7 +5,8 @@ description: Learn how to apply container app to container app resiliency when u
 services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.subservice: dapr
+ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: hannahhunter
 ms.custom:

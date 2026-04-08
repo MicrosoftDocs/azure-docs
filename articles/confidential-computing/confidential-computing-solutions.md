@@ -2,8 +2,7 @@
 title: Building Azure confidential solutions
 description: Learn how to build solutions on Azure confidential computing
 author: cynthn
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 11/01/2021
 ms.author: cynthn

@@ -5,7 +5,7 @@ description: Learn how to set up an application gateway and protect it with Azur
 services: application-gateway
 author: duongau
 ms.author: duau
-ms.date: 09/20/2023
+ms.date: 02/26/2026
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: sfi-image-nochange
@@ -199,9 +199,13 @@ To do this, you'll:
     - **Username**: Type a name for the administrator user name.
     - **Password**: Type a password.
     - **Public inbound ports**: None.
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including RDP. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
+
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
-6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
+6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Set **Public IP** to **None**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
 7. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
 8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 9. Wait for the virtual machine creation to complete before continuing.

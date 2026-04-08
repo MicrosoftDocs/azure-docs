@@ -14,15 +14,9 @@ ms.author: mbaldwin
 # Azure best practices for network security
 This article discusses a collection of Azure best practices to enhance your network security. These best practices are derived from our experience with Azure networking, and the experiences of customers like yourself.
 
-For each best practice, this article explains:
-
-* What the best practice is
-* Why you want to enable that best practice
-* What might be the result if you fail to enable the best practice
-* Possible alternatives to the best practice
-* How you can learn to enable the best practice
-
 These best practices are based on a consensus opinion, and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated regularly to reflect those changes.
+
+This article aligns with Microsoft's [Zero Trust](/security/zero-trust/zero-trust-overview) security model, which eliminates implicit trust based on network location. For prescriptive security controls with Azure Policy enforcement, see [Microsoft Cloud Security Benchmark v2 - Network Security](/security/benchmark/azure/mcsb-v2-network-security).
 
 ## Use strong network controls
 You can connect [Azure virtual machines (VMs)](https://azure.microsoft.com/services/virtual-machines/) and appliances to other networked devices by placing them on [Azure virtual networks](../../virtual-network/index.yml). That is, you can connect virtual network interface cards to a virtual network to allow TCP/IP-based communications between network-enabled devices. Virtual machines connected to an Azure virtual network can connect to devices on the same virtual network, different virtual networks, the internet, or your own on-premises networks.
@@ -39,22 +33,17 @@ Azure virtual networks are similar to LANs on your on-premises network. The idea
 
 Best practices for logically segmenting subnets include:
 
-**Best practice**: Don't assign allow rules with broad ranges (for example, allow 0.0.0.0 through 255.255.255.255).  
-**Detail**: Ensure troubleshooting procedures discourage or ban setting up these types of rules. These allow rules lead to a false sense of security and are frequently found and exploited by red teams.
+- **Don't assign allow rules with broad ranges (for example, allow 0.0.0.0 through 255.255.255.255).**: Ensure troubleshooting procedures discourage or ban setting up these types of rules. These allow rules lead to a false sense of security and are frequently found and exploited by red teams.
 
-**Best practice**: Segment the larger address space into subnets.   
-**Detail**: Use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-based subnetting principles to create your subnets.
+- **Segment the larger address space into subnets.**: Use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-based subnetting principles to create your subnets.
 
-**Best practice**: Create network access controls between subnets. Routing between subnets happens automatically, and you don't need to manually configure routing tables. By default, there are no network access controls between the subnets that you create on an Azure virtual network.   
-**Detail**: Use a [network security group](../../virtual-network/manage-network-security-group.md) to protect against unsolicited traffic into Azure subnets. Network security groups (NSGs) are simple, stateful packet inspection devices. NSGs use the 5-tuple approach (source IP, source port, destination IP, destination port and protocol) to create allow/deny rules for network traffic. You allow or deny traffic to and from a single IP address, to and from multiple IP addresses, or to and from entire subnets.
+- **Create network access controls between subnets. Routing between subnets happens automatically, and you don't need to manually configure routing tables. By default, there are no network access controls between the subnets that you create on an Azure virtual network.**: Use a [network security group](../../virtual-network/manage-network-security-group.md) to protect against unsolicited traffic into Azure subnets. Network security groups (NSGs) are simple, stateful packet inspection devices. NSGs use the 5-tuple approach (source IP, source port, destination IP, destination port and protocol) to create allow/deny rules for network traffic. You allow or deny traffic to and from a single IP address, to and from multiple IP addresses, or to and from entire subnets.
 
 When you use network security groups for network access control between subnets, you can put resources that belong to the same security zone or role in their own subnets.
 
-**Best practice**: Avoid small virtual networks and subnets to ensure simplicity and flexibility.
-**Detail**: Most organizations add more resources than initially planned, and reallocating addresses is labor intensive. Using small subnets adds limited security value, and mapping a network security group to each subnet adds overhead. Define subnets broadly to ensure that you have flexibility for growth.
+- **Avoid small virtual networks and subnets to ensure simplicity and flexibility.**: Most organizations add more resources than initially planned, and reallocating addresses is labor intensive. Using small subnets adds limited security value, and mapping a network security group to each subnet adds overhead. Define subnets broadly to ensure that you have flexibility for growth.
 
-**Best practice**: Simplify network security group rule management by defining [Application Security Groups](../../virtual-network/application-security-groups.md).  
-**Detail**: Define an Application Security Group for lists of IP addresses that you think might change in the future or be used across many network security groups. Be sure to name Application Security Groups clearly so others can understand their content and purpose.
+- **Simplify network security group rule management by defining [Application Security Groups](../../virtual-network/application-security-groups.md).**: Define an Application Security Group for lists of IP addresses that you think might change in the future or be used across many network security groups. Be sure to name Application Security Groups clearly so others can understand their content and purpose.
 
 ## Adopt a Zero Trust approach
 Perimeter-based networks operate on the assumption that all systems within a network can be trusted. But today's employees access their organization's resources from anywhere on various devices and apps, which makes perimeter security controls irrelevant. Access control policies that focus only on who can access a resource aren't enough. To master the balance between security and productivity, security admins also need to factor in *how* a resource is being accessed.
@@ -63,17 +52,13 @@ Networks need to evolve from traditional defenses because networks might be vuln
 
 Best practices are:
 
-**Best practice**: Give Conditional Access to resources based on device, identity, assurance, network location, and more.  
-**Detail**: [Microsoft Entra Conditional Access](../../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
+- **Give Conditional Access to resources based on device, identity, assurance, network location, and more.**: [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-azure-management).
 
-**Best practice**: Enable port access only after workflow approval.  
-**Detail**: You can use [just-in-time VM access in Microsoft Defender for Cloud](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
+- **Enable port access only after workflow approval.**: You can use [just-in-time VM access in Microsoft Defender for Cloud](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
-**Best practice**: Use Azure Bastion for secure remote VM access without exposing public IP addresses or opening inbound ports.  
-**Detail**: [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless RDP/SSH connectivity to your virtual machines directly through the Azure portal over TLS. Azure Bastion Developer SKU is now available at no additional cost across 35+ Azure regions, making it ideal for Dev/Test scenarios. It eliminates the need for jump boxes or exposing VMs to the internet, significantly reducing your attack surface while streamlining administrative access. For production workloads, consider upgrading to Standard or Premium SKUs for additional features like host scaling and session recording. See [Quickstart: Connect with Azure Bastion Developer](/azure/bastion/quickstart-developer) to get started.
+- **Use Azure Bastion for secure remote VM access without exposing public IP addresses or opening inbound ports.**: [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless RDP/SSH connectivity to your virtual machines directly through the Azure portal over TLS. Azure Bastion Developer SKU is now available at no additional cost across 35+ Azure regions, making it ideal for Dev/Test scenarios. It eliminates the need for jump boxes or exposing VMs to the internet, significantly reducing your attack surface while streamlining administrative access. For production workloads, consider upgrading to Standard or Premium SKUs for additional features like host scaling and session recording. See [Quickstart: Connect with Azure Bastion Developer](/azure/bastion/quickstart-developer) to get started.
 
-**Best practice**: Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.  
-**Detail**: Use just-in-time access in Microsoft Entra Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
+- **Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.**: Use just-in-time access in Microsoft Entra Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
 
 Zero Trust is the next evolution in network security. The state of cyberattacks drives organizations to take the "assume breach" mindset, but this approach shouldn't be limiting. Zero Trust networks protect corporate data and resources while ensuring that organizations can build a modern workplace by using technologies that empower employees to be productive anytime, anywhere, in any way.
 
@@ -203,4 +188,7 @@ To learn more about private endpoints and the Azure services and regions that pr
 
 
 ## Next steps
-See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
+
+- See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
+- Review the [Microsoft Cloud Security Benchmark v2 (preview) - Network Security](/security/benchmark/azure/mcsb-v2-network-security) controls for comprehensive network security guidance with Azure Policy mappings.
+- Learn about the [Microsoft Secure Future Initiative (SFI)](/security/zero-trust/sfi/secure-future-initiative-overview), Microsoft's internal security best practices for protecting networks that we also recommend to customers.

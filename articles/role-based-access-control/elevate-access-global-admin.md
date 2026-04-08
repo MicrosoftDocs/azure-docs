@@ -385,7 +385,7 @@ If you have users with elevated access, you should take immediate action and rem
 
 1. Select the **Manage elevated access users** link.
 
-    The **Users with elevated access appears** pane appears with a list of users with elevated access in your tenant.
+    The **Users with elevated access** pane appears with a list of users with elevated access in your tenant.
 
     :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-pane.png" alt-text="Screenshot of Users with elevated access pane that lists users with elevated access." lightbox="./media/elevate-access-global-admin/elevated-access-users-pane.png":::
 

@@ -39,8 +39,9 @@ To enable or disable this feature (these prerequisites aren't required to use th
 - Your user must be assigned to the Microsoft Entra ID **Security Administrator** role in your tenant or the equivalent permissions.
 
 - Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
-    - **Microsoft Sentinel Contributor** at the workspace or resource group levels.
-    - **Log Analytics Contributor** at the resource group or subscription levels.
+    - **Owner** at the resource group level or above.
+    - **Contributor** at the resource group level or above.
+    - (Least privileged) **Microsoft Sentinel Contributor** at the workspace level or above and **Log Analytics Contributor** at the resource group level or above.
 
 - Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
 
@@ -121,15 +122,24 @@ To enable UEBA from your Microsoft Sentinel workspace settings:
 
 For more information about configuring Microsoft Sentinel data connectors, see [Connect data sources to Microsoft Sentinel by using data connectors](./configure-data-connector.md).
 
+## Install the UEBA Essentials solution (optional)
+
+The **UEBA Essentials** solution is a collection of dozens of pre-built hunting queries curated and maintained by Microsoft security experts. The solution includes multi-cloud anomaly detection queries across Azure, Amazon Web Services (AWS), Google Cloud Platform (GCP), and Okta.
+
+Install the solution to get started quickly with threat hunting and investigations using UEBA data, instead of building these detection capabilities from scratch.
+
+For more information, see [Install or update Microsoft Sentinel solutions](sentinel-solutions-deploy.md#install-or-update-content).
+
 ## Enable the UEBA behaviors layer (Preview)
 
-The UEBA behaviors layer generates enriched summaries of activity observed across multiple data sources. Unlike alerts or anomalies, behaviors don’t necessarily indicate risk - they create an abstraction layer that optimizes your data for investigations, hunting, and detection by enhancing
+The UEBA behaviors layer generates enriched summaries of activity observed across multiple data sources. Unlike alerts or anomalies, behaviors don’t necessarily indicate risk - they create an abstraction layer that optimizes your data for investigations, hunting, and detection by enhancing clarity, context, and correlation.
 
 For more information about the UEBA behaviors layer and how to enable it, see [Enable the UEBA behaviors layer in Microsoft Sentinel](../sentinel/entity-behaviors-layer.md). 
 
+
 ## Next steps
 
-In this article, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel. For more information about UEBA:
+Learn how to investigate UEBA anomalies and use UEBA data in your investigations:
 
-> [!div class="nextstepaction"]
->>[Identify threats with UEBA](./identify-threats-with-entity-behavior-analytics.md)
+- [Investigate incidents with UEBA data](investigate-with-ueba.md)
+- [UEBA data sources and table schemas](ueba-reference.md)

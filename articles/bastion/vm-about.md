@@ -2,11 +2,11 @@
 title: 'About VM connections and features'
 titleSuffix: Azure Bastion
 description: Learn about VM connections and features when connecting using Azure Bastion.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 03/03/2025
-ms.author: abell
+ms.author: cherylmc
 
 # Customer intent: As a system administrator, I want to understand the features available for connecting to a VM using a secure gateway, so that I can effectively manage remote access and enhance user productivity while ensuring compliance and security.
 ---
@@ -25,7 +25,7 @@ You can use various different methods to connect to a target VM. Some connection
 
 ## <a name="copy-paste"></a>Copy and paste
 
-You can copy and paste text between your local device and the remote session. Only text copy/paste is supported. By default, this feature is enabled. If you want to disable this feature for web-based clients, you can change the setting on the configuration page for your bastion host. To disable, your bastion host must be configured with the Standard SKU tier.
+You can copy and paste text between your local device and the remote session. Only text copy/paste is supported. By default, this feature is enabled. If you want to disable this feature for web-based clients, you can change the setting on the configuration page for your bastion host. To disable, your bastion host must be configured with the Standard SKU.
 
 For steps and more information, see [Copy and paste - Windows VMs](bastion-vm-copy-paste.md).
 

@@ -28,7 +28,7 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 - Redundancy conversions to non-zone redundant (LRS or GRS) accounts aren't supported. 
 - When a GZRS account fails over, convert the LRS account to zone-redundant within 60 days to continue Smart tier support. 
 - Smart tier characteristics might change during or after the public preview phase.
-- Smart tier monitoring operations are billed **at $0.04 (USD) per 10K Monitoring Operations**. This **pricing will go** into effect starting **January 1, 2026**.
+- Smart tier monitoring operations are billed **at $0.04 (USD) per 10K Monitoring Operations**.
 
 ## Enabling smart tier
 Enable access to the smart tier public preview by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
@@ -37,6 +37,56 @@ Smart tier is configured on the [default account access tier](access-tiers-overv
 You can move objects out of smart tier by setting a different online tier or changing the default account access tier to another tier. Once moved to an explicit tier, objects can't be tiered back to smart tier.
 To set the default access tier setting for a storage account, see [Set a blob's access tier](access-tiers-online-manage.md)
 
+#### [Portal](#tab/azure-portal)
+
+To set the default access tier to *Smart* for a storage account at create time in the Azure portal, follow these steps:
+
+1. Navigate to the **Storage accounts** page, and select the **Create** button.
+
+2. Fill out the **Basics** tab.
+
+3. On the **Advanced** tab, under **Blob storage**, set the **Access tier** to *Smart*.
+
+4. Select **Review + Create** to validate your settings and create your storage account.
+
+    :::image type="content" source="media/access-tiers-online-manage/set-default-access-tier-create-portal-smart.png" alt-text="Screenshot showing how to set the default access tier to Smart when creating a storage account.":::
+
+To update the default access tier to *Smart* for an existing storage account in the Azure portal, follow these steps:
+
+1. Navigate to the storage account in the Azure portal.
+
+2. Under **Settings**, select **Configuration**.
+
+3. Locate the **Blob access tier (default)** setting, and select *Smart*. The default setting is *Hot*, if you have not previously set this property.
+
+4. Save your changes.
+
+#### [PowerShell](#tab/azure-powershell)
+
+To configure `Smart` as the default access tier setting for a storage account with PowerShell, call the Azure REST API directly.
+
+```azurepowershell-interactive
+# Set variables
+$SubscriptionId = <subscription-id>
+$ResourceGroup = <resource-group>
+$StorageAccountName = <storage-account-name>
+
+# Update the storage account access tier to Smart
+$Path = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroup/providers/Microsoft.Storage/storageAccounts/${StorageAccountName}?api-version=2025-08-01"
+$Payload = @{ properties = @{ accessTier = "Smart" } } | ConvertTo-Json -Depth 3
+
+Invoke-AzRestMethod -Method PATCH -Path $Path -Payload $Payload
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To configure `Smart` as the default access tier setting for a storage account with Azure CLI, call the Azure REST API directly.
+
+```azurecli-interactive
+az rest --method patch --url "https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>?api-version=2025-08-01" --body '{"properties":{"accessTier":"Smart"}}'
+```
+
+---
 
 ## Working with smart tier
 All smart tiered objects are automatically managed across the underlying capacity tiers - hot, cool, and cold. Smart tier leverages the regular hot, cool, and cold access tiers in the background. These tiers are called the capacity tier. Smart tier doesn't support the archive tier or premium storage accounts. It works only on block blobs, page blobs aren't supported. 
@@ -49,12 +99,12 @@ Blob lifecycle management doesn't impact objects on smart tier. Storage actions 
 
 
 ## Billing details
-Objects on smart tier are billed for the capacity meters and connected prices of the underlying capacity tier (hot, cool, or cold tier). there's no smart tier specific capacity meter or price. All capacity under smart tier is billed at pay-as-you-go rates. there's no reserved capacity applicable.
+Objects on smart tier are billed for the capacity meters and connected prices of the underlying capacity tier (hot, cool, or cold tier). There's no smart tier specific capacity meter or price. All capacity under smart tier is billed at pay-as-you-go rates. There's no reserved capacity applicable.
 Smart tier charges a monthly monitoring operation for each object over 128KiB managed by smart tier.
 Objects in smart tier aren't charged for tier transitions within smart tier, early deletion fees, or data retrieval operations.
 
 All access operations billed for smart tier objects occur against the hot tier. This transaction includes the initial move to the hot tier for any object on other capacity tiers. Moving existing objects into smart tier doesn't trigger any tier transition transaction, moving blobs out of smart tier triggers a cool write operation per object.
-Versions and snapshots are billed full content length in current public preview phase. Storage account metrics show how smart tier objects are spread across the underlying tiers by blob count and capacity. Objects smaller than 128KiB is displayed under the regular hot tier metric.
+Versions and snapshots are billed full content length in current public preview phase. Storage account metrics show how smart tier objects are spread across the underlying tiers by blob count and capacity. Objects smaller than 128KiB are displayed under the regular hot tier metric.
 
 
 ## Client Tooling
@@ -62,7 +112,7 @@ The Azure portal supports the current smart tier public preview. Smart tier requ
 
 | Environment | Minimum version |
 |---|---|
-| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-06-01 |
+| [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-08-01 |
 
 
 ## Next steps

@@ -2,7 +2,7 @@
 title: Restore Azure Files
 description: Learn how to use the Azure portal to restore an entire File Share or specific files from a restore point created by Azure Backup.
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 02/17/2026
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -15,6 +15,9 @@ ms.author: v-mallicka
 This article describes how to use the Azure portal to restore an entire File Share or specific files from a restore point created by [Azure Backup](./backup-overview.md). You can also restore Azure Files using [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
 
 Azure Backup offers a simple, reliable, and secure way to protect your enterprise File Shares using [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups, ensuring data recovery for accidental or malicious deletion.
+
+To learn about the supported Azure Files backup and restore scenarios, region availability, and limitations, see the [support matrix](azure-file-share-support-matrix.md). For common questions, see the [frequently asked questions](backup-azure-files-faq.yml).
+
 
 ## Restore the Azure Files
 

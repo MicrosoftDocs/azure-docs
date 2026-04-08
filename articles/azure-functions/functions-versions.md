@@ -1,13 +1,13 @@
 ---
-title: Azure Functions runtime versions overview
+title: Compare Azure Functions Runtime Versions
 description: Learn how Azure Functions supports multiple versions of the runtime, and understand the differences between them and how to choose the one that's right for you.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
-ms.date: 03/06/2025
+ms.date: 03/19/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure Functions runtime versions overview
+# Compare Azure Functions runtime versions
 
 <a name="top"></a>Azure Functions currently supports two versions of the runtime host. The following table details the currently supported runtime versions, their support level, and when they should be used:
 
@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-functions
 | 1.x | GA ([support ends September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1)) | Supported only for C# apps that must use .NET Framework. This version is in maintenance mode, with enhancements provided only in later versions. **Support will end for version 1.x on September 14, 2026.** We highly recommend you [migrate your apps to version 4.x](migrate-version-1-version-4.md?pivots=programming-language-csharp), which supports .NET Framework 4.8, .NET 8, .NET 9, and .NET 10 Preview.|
 
 > [!IMPORTANT]
-> As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime reached the end of extended support. For more information, see [Retired versions](#retired-versions).
+> Versions 2.x and 3.x of the Azure Functions runtime are no longer supported. For more information, see [Retired versions](#retired-versions).
 
 This article details some of the differences between supported versions, how you can create each version, and how to change the version on which your functions run.
 
@@ -39,11 +39,11 @@ The version of the Functions runtime used by published apps in Azure is dictated
 
 By default, function apps created in the Azure portal, by the Azure CLI, or from Visual Studio tools are set to version 4.x. You can modify this version if needed. You can only downgrade the runtime version to 1.x after you create your function app but before you add any functions. Updating to a later major version is allowed even with apps that have existing functions.
 
-### Migrating existing function apps
+### Migrate existing function apps
 
 [!INCLUDE [functions-migrate-apps](../../includes/functions-migrate-apps.md)]
 
-### Changing the version of apps in Azure
+### Change the version of apps in Azure
 
 The following major runtime version values are used:
 
@@ -53,9 +53,9 @@ The following major runtime version values are used:
 | `~1` | 1.x |
 
 >[!IMPORTANT]
-> Don't arbitrarily change this app setting, because other app setting changes and changes to your function code might be required. For existing function apps, follow the [migration instructions](#migrating-existing-function-apps).
+> Don't arbitrarily change this app setting, because other app setting changes and changes to your function code might be required. For existing function apps, follow the [migration instructions](#migrate-existing-function-apps).
 
-### Pinning to a specific minor version
+### Pin to a specific minor version
 
 To resolve issues that your function app could have when running on the latest major version, you must temporarily pin your app to a specific minor version. Pinning gives you time to get your app running correctly on the latest major version. The way that you pin to a minor version differs between Windows and Linux. To learn more, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
@@ -64,7 +64,7 @@ Older minor versions are periodically removed from Functions. For the latest new
 ## Minimum extension versions
 
 ::: zone pivot="programming-language-csharp"
-There's technically not a correlation between binding extension versions and the Functions runtime version. However, starting with version 4.x the Functions runtime enforces a minimum version for all trigger and binding extensions. 
+There's technically not a correlation between binding extension versions and the Functions runtime version. However, starting with version 4.x, the Functions runtime enforces a minimum version for all trigger and binding extensions. 
 
 If you receive a warning about a package not meeting a minimum required version, you should update that NuGet package to the minimum version as you normally would. The minimum version requirements for extensions used in Functions v4.x can be found in [the linked configuration file](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script/extensionrequirements.json).
 
@@ -131,7 +131,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-If you're using the [isolated worker model](dotnet-isolated-process-guide.md), you can choose, `net9.0`, `net8.0`, or `net48` as the target framework. You can also choose to use [preview support](./dotnet-isolated-process-guide.md#preview-net-versions) for `net10.0`. If you're using the [in-process model](./functions-dotnet-class-library.md), you can choose `net8.0` or `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.4.0`. .NET 10 is not supported by the in-process model; if you are on the in-process model and wish to use .NET 10, [migrate your app to the isolated worker model](./migrate-dotnet-to-isolated-model.md).
+If you're using the [isolated worker model](dotnet-isolated-process-guide.md), you can choose, `net9.0`, `net8.0`, or `net48` as the target framework. You can also choose to use [preview support](./dotnet-isolated-process-guide.md#preview-net-versions) for `net10.0`. If you're using the [in-process model](./functions-dotnet-class-library.md), you can choose `net8.0` or `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.4.0`. .NET 10 isn't supported by the in-process model; if you are on the in-process model and wish to use .NET 10, [migrate your app to the isolated worker model](./migrate-dotnet-to-isolated-model.md).
 
 .NET 6 was previously supported on the isolated worker model and the in-process model, but it reached the end of official support on [November 12, 2024][dotnet-policy].
 .NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
@@ -170,8 +170,6 @@ Except for HTTP and timer triggers, all bindings must be explicitly added to the
 
 ## Related content
 
-For more information, see the following resources:
-
-* [Develop Azure Functions locally using Core Tools](functions-run-local.md)
+* [Develop Azure Functions locally by using Core Tools](functions-run-local.md)
 * [How to target Azure Functions runtime versions](set-runtime-version.md)
 * [Release notes](https://github.com/Azure/azure-functions-host/releases)

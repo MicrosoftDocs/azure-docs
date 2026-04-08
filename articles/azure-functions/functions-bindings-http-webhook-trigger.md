@@ -700,13 +700,13 @@ By default when you create a function for an HTTP trigger, the function is addre
 https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
 ```
 
-You can customize this route using the optional `route` property on the HTTP trigger's input binding. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. 
+You can customize this route using the optional `route` property on the HTTP trigger's input binding. You can use any [ASP.NET Core Route Constraint](/aspnet/core/fundamentals/routing#route-constraints) with your parameters. 
 
 ::: zone pivot="programming-language-csharp"
 
 #### [Isolated worker model](#tab/isolated-process)
 
-The following function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
+The following function code accepts two parameters `category` and `id` in the route and writes a response using both parameters. The first piece of the variable is the name, and the second is a [route constraint](/aspnet/core/fundamentals/routing#route-constraints).
 
 ```csharp
 [Function("HttpTrigger1")]

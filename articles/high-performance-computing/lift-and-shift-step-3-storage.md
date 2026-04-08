@@ -1,17 +1,21 @@
 ---
-title: "Storage migration options"
-description: Learn what storage options to consider during a migration of high performance computing architecture.
+title: Configure HPC storage on Azure (Lustre, ANF, Blob, Azure Files)
+description: Set up high-performance storage for HPC workloads using Azure Managed Lustre, Azure NetApp Files, Blob Storage, and Azure Files.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom: sfi-ropc-nochange
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: As an HPC architect, I want to develop a comprehensive storage migration strategy, so that I can ensure optimal performance, scalability, and cost-efficiency while transitioning high-performance workloads to the cloud.
 ---
 
-# Storage migration options
+# Configure HPC storage on Azure
 
 When migrating HPC environments to the cloud, it's essential to define and implement an effective storage strategy that meets your performance, scalability, and cost requirements. An effective storage strategy ensures that your HPC workloads can access and process data efficiently, securely, and reliably. This approach includes considering different types of storage solutions for various needs such as long-term data archiving, high-performance scratch space, and shared storage for collaborative work.
 

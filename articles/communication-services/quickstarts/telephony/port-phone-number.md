@@ -1,10 +1,10 @@
 ---
 title: Quickstart - Port a phone number into Azure Communication Services
 description: Learn how to port a phone number into your Communication Services resource
-author: tophpalmer
+author: sundiraman
 manager: mikben
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services

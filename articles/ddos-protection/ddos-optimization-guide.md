@@ -2,11 +2,11 @@
 title:  DDoS Protection Cost Optimization Principles
 description: Learn how to optimize Azure DDoS Protection costs while maintaining security. Get actionable strategies to maximize your cloud investment.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 07/28/2025
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
 # Customer intent: As a cloud architect or IT administrator, I want to optimize costs for Azure DDoS Protection, so that I can maintain effective security protection while controlling expenses and maximizing return on investment.
 ---
 

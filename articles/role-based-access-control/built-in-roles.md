@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -53,6 +53,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='compute-gallery-artifacts-publisher'></a>[Compute Gallery Artifacts Publisher](./built-in-roles/compute.md#compute-gallery-artifacts-publisher) | This is the role for publishing gallery artifacts. | 85a2d0d9-2eba-4c9c-b355-11c2cc0788ab |
 > | <a name='compute-gallery-image-reader'></a>[Compute Gallery Image Reader](./built-in-roles/compute.md#compute-gallery-image-reader) | This is the role for reading gallery images. | cf7c76d2-98a3-4358-a134-615aa78bf44d |
 > | <a name='compute-gallery-sharing-admin'></a>[Compute Gallery Sharing Admin](./built-in-roles/compute.md#compute-gallery-sharing-admin) | This role allows user to share gallery to another subscription/tenant or share it to the public. | 1ef6a3be-d0ac-425d-8c01-acb62866290b |
+> | <a name='compute-limit-operator'></a>[Compute Limit Operator](./built-in-roles/compute.md#compute-limit-operator) | Read and manage compute limits using compute limit operations. | 980cf6f7-edec-4fd1-8e9e-28f70b1d5258 |
 > | <a name='data-operator-for-managed-disks'></a>[Data Operator for Managed Disks](./built-in-roles/compute.md#data-operator-for-managed-disks) | Provides permissions to upload data to empty managed disks, read, or export data of managed disks (not attached to running VMs) and snapshots using SAS URIs and Azure AD authentication. | 959f8984-c045-4866-89c7-12bf9737be2e |
 > | <a name='desktop-virtualization-application-group-contributor'></a>[Desktop Virtualization Application Group Contributor](./built-in-roles/compute.md#desktop-virtualization-application-group-contributor) | Contributor of the Desktop Virtualization Application Group. | 86240b0e-9422-4c43-887b-b61143f32ba8 |
 > | <a name='desktop-virtualization-application-group-reader'></a>[Desktop Virtualization Application Group Reader](./built-in-roles/compute.md#desktop-virtualization-application-group-reader) | Reader of the Desktop Virtualization Application Group. | aebf23d0-b568-4e86-b8f9-fe83a2c6ab55 |
@@ -399,10 +400,10 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='api-management-workspace-api-product-manager'></a>[API Management Workspace API Product Manager](./built-in-roles/integration.md#api-management-workspace-api-product-manager) | Has read access to entities in the workspace and read and write access to entities for publishing APIs. This role should be assigned on the workspace scope. | 73c2c328-d004-4c5e-938c-35c6f5679a1f |
 > | <a name='api-management-workspace-contributor'></a>[API Management Workspace Contributor](./built-in-roles/integration.md#api-management-workspace-contributor) | Can manage the workspace and view, but not modify its members. This role should be assigned on the workspace scope. | 0c34c906-8d99-4cb7-8bb7-33f5b0a1a799 |
 > | <a name='api-management-workspace-reader'></a>[API Management Workspace Reader](./built-in-roles/integration.md#api-management-workspace-reader) | Has read-only access to entities in the workspace. This role should be assigned on the workspace scope. | ef1c2c96-4a77-49e8-b9a4-6179fe1d2fd2 |
-> | <a name='app-configuration-contributor'></a>[App Configuration Contributor](./built-in-roles/integration.md#app-configuration-contributor) | Grants permission for all management operations, except purge, for App Configuration resources. | fe86443c-f201-4fc4-9d2a-ac61149fbda0 |
+> | <a name='app-configuration-contributor'></a>[App Configuration Contributor](./built-in-roles/integration.md#app-configuration-contributor) | Grants permission for all management operations, except purge, for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags. | fe86443c-f201-4fc4-9d2a-ac61149fbda0 |
 > | <a name='app-configuration-data-owner'></a>[App Configuration Data Owner](./built-in-roles/integration.md#app-configuration-data-owner) | Allows full access to App Configuration data. | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
 > | <a name='app-configuration-data-reader'></a>[App Configuration Data Reader](./built-in-roles/integration.md#app-configuration-data-reader) | Allows read access to App Configuration data. | 516239f1-63e1-4d78-a4de-a74fb236a071 |
-> | <a name='app-configuration-reader'></a>[App Configuration Reader](./built-in-roles/integration.md#app-configuration-reader) | Grants permission for read operations for App Configuration resources. | 175b81b9-6e0d-490a-85e4-0d422273c10c |
+> | <a name='app-configuration-reader'></a>[App Configuration Reader](./built-in-roles/integration.md#app-configuration-reader) | Grants permission for read operations for App Configuration resources. This role does not grant access to data plane resources such as key-values, snapshots, and feature flags. | 175b81b9-6e0d-490a-85e4-0d422273c10c |
 > | <a name='azure-api-center-compliance-manager'></a>[Azure API Center Compliance Manager](./built-in-roles/integration.md#azure-api-center-compliance-manager) | Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project. Applies for new Foundry resources. | ede9aaa3-4627-494e-be13-4aa7c256148d |
 > | <a name='azure-api-center-data-reader'></a>[Azure API Center Data Reader](./built-in-roles/integration.md#azure-api-center-data-reader) | Allows for access to Azure API Center data plane read operations. | c7244dfb-f447-457d-b2ba-3999044d1706 |
 > | <a name='azure-api-center-service-contributor'></a>[Azure API Center Service Contributor](./built-in-roles/integration.md#azure-api-center-service-contributor) | Allows managing Azure API Center service. | dd24193f-ef65-44e5-8a7e-6fa6e03f7713 |

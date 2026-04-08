@@ -4,7 +4,7 @@ description: Learn how to write C# user-defined functions for Stream Analytics j
 author: ajetasin
 ms.author: ajetasi
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/26/2024
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---

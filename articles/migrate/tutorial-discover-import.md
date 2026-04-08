@@ -125,7 +125,7 @@ The following table summarizes the file fields to fill in:
 **Server name** | Yes | We recommend specifying the fully qualified domain name (FQDN).
 **IP address** | No | Server address.
 **Cores** | Yes | Number of processor cores allocated to the server.
-**Memory** | Yes | Total RAM, in MB, allocated to the server.
+**Memory (In MB)** | Yes | Total RAM, in MB, allocated to the server.
 **OS name** | Yes | Server operating system. <br/> Operating system names that match or contain the names in [this](#supported-operating-system-names) list are recognized by the assessment.
 **OS version** | No | Server operating system version.
 **OS architecture** | No | Server OS architecture <br/> Valid values are: x64, x86, amd64, 32-bit or 64-bit
@@ -133,21 +133,17 @@ The following table summarizes the file fields to fill in:
 **Hypervisor** | No | If server type is Virtual, specify hypervisor name <br/> Valid values are: *VMware*, *Hyper-V*
 **Number of disks** | No | Not needed if individual disk details are provided.
 **Storage in use (In GB)** | No | You can add how much storage is in use per server.<br/> This field will **only be used in Azure VMware Solution assessment** sizing logic.
-**Disk 1 size**  | No | Maximum size of disk, in GB.<br/>You can add details for more disks by [adding columns](#add-multiple-disks) in the template. You can add up to twenty disks.
-**Disk 1 read ops** | No | Disk read operations per second.
-**Disk 1 write ops** | No | Disk write operations per second.
-**Disk 1 read throughput** | No | Data read from the disk per second, in MB per second.
-**Disk 1 write throughput** | No | Data written to disk per second, in MB per second.
+**Disk 1 size (In GB)**  | No | Maximum size of disk, in GB.<br/>You can add details for more disks by [adding columns](#add-multiple-disks) in the template. You can add up to twenty disks.
+**Disk 1 read ops (operations per second)** | No | Disk read operations per second.
+**Disk 1 write ops (operations per second)** | No | Disk write operations per second.
+**Disk 1 read throughput (MB per second)** | No | Data read from the disk per second, in MB per second.
+**Disk 1 write throughput (MB per second)** | No | Data written to disk per second, in MB per second.
 **CPU utilization percentage** | No | Percentage of CPU used.
 **Memory utilization percentage** | No | Percentage of RAM used.
-**Total disks read ops** | No | Disk-read operations per second.
-**Total disks write ops** | No | Disk-write operations per second.
-**Total disks read throughput** | No | Data read from the disk, in MB per second.
-**Total disks write throughput** | No | Data written to disk, in MB per second.
 **Network In throughput** | No | Data received by the server, in MB per second.
 **Network Out throughput** | No | Data transmitted by the server, in MB per second.
-**Firmware type** | No | Server firmware. Values can be "BIOS" or "UEFI".
-**MAC address**| No | Server MAC address.
+**Boot Type** | No | Server firmware. Values can be "BIOS" or "UEFI".
+**Network adapters** | No | Number of network interfaces attached to the machine (physical or virtual)
 
 ### Add operating systems
 

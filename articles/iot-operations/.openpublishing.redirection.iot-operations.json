@@ -714,6 +714,11 @@
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-registry-endpoint.md",
             "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-configure-registry-endpoint",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/concept-dataflow-conversions.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/concept-dataflow-mapping",
+            "redirect_document_id": false
         }
     ]
 }

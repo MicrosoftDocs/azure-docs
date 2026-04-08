@@ -69,7 +69,7 @@ landingContent:
           - text: Solutions and benefits
             url: azure-netapp-files-solution-architectures.md
           - text: Reliability 
-            url: ../reliability/reliability-netapp-files.md
+            url: /azure/reliability/reliability-netapp-files
           - text: Security 
             url: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
 

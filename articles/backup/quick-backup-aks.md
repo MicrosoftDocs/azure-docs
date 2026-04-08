@@ -2,7 +2,7 @@
 title: "Quickstart: Configure an Azure Kubernetes Services cluster backup"
 description: Learn how to configure backup for an Azure Kubernetes Service (AKS) cluster, and then use Azure Backup to back up specific items in the cluster.
 ms.topic: quickstart
-ms.date: 01/09/2026
+ms.date: 01/28/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2024

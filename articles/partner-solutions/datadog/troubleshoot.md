@@ -2,8 +2,8 @@
 title: Troubleshooting for Datadog
 description: This article provides information about troubleshooting for Datadog on Azure.
 
-ms.topic: conceptual
-ms.date: 12/05/2024
+ms.topic: troubleshooting-general
+ms.date: 01/29/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -23,32 +23,32 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
 
 ## Single sign-on errors
 
-- **Unable to save Single sign-on settings** 
-   - This error happens where there's another Enterprise app that is using the Datadog SAML identifier. To find which app is using it, select **Edit** on the Basic SAML Configuration section.
+- **Unable to save Single sign-on settings**
+    - This error happens where there's another Enterprise app that's using the Datadog SAML identifier. To find which app is using it, select **Edit** on the Basic SAML Configuration section.
 
    To fix this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO with Datadog. If you decide to use the other app, ensure the app has the [required settings](create.md#single-sign-on-tab-optional).
 
-- **App not showing in Single sign-on setting page** 
-   - First, search for the application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings. 
+- **App not showing in Single sign-on setting page**
+    - First, search for the application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
 
      The Identifier URL must be `https://us3.datadoghq.com/account/saml/metadata.xml`.
-     
+
      The reply URL must be `https://us3.datadoghq.com/account/saml/assertion`.
-        
+
     The following image shows the correct values.
 
-- **Guest users invited to the tenant are unable to access Single sign-on** 
-   - Some users have two email addresses in Azure portal. Typically, one email is the user principal name (UPN) and the other email is an alternative email.
+- **Guest users invited to the tenant are unable to access Single sign-on**
+   - Some users have two email addresses in Azure portal. Typically, one email is the user principal name (UPN), and the other email is an alternative email.
 
-   When inviting guest user, use the home tenant UPN. By using the UPN, you keep the email address in-sync during the Single sign-on process. You can find the UPN by looking for the email address in the top-right corner of the user's Azure portal.
+   When inviting a guest user, use the home tenant UPN. By using the UPN, you keep the email address in-sync during the Single sign-on process. You can find the UPN by looking for the email address in the top-right corner of the user's Azure portal.
   
 ## Logs not being emitted
 
-- Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. 
+- Only resources listed in the Azure Monitor resource log categories emit logs to Datadog.
 
-    To check whether the resource is emitting logs to Datadog: 
+    To check whether the resource is emitting logs to Datadog:
 
-    1. Navigate to Azure diagnostic setting for the specific resource. 
+    1. Navigate to the Azure diagnostic setting for the specific resource.
 
     1. Check that there's a Datadog diagnostic setting.
 
@@ -56,17 +56,17 @@ To set up the Azure Datadog integration, you must have **Owner** access on the A
 
 - Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
 
-- Export of Metrics data isn't supported under Azure Monitor diagnostic settings by partner solutions. 
+- Export of Metrics data isn't supported under Azure Monitor diagnostic settings by partner solutions.
 
 ## Metrics not being emitted
 
 The Datadog resource is assigned a **Monitoring Reader** role in the appropriate Azure subscription. This role enables the Datadog resource to collect metrics and send those metrics to Datadog.
 
-To check whether the resource has the correct role assignment, open the Azure portal and select the subscription. In the left pane, select **Access Control (IAM)**. Search for the Datadog resource name. Confirm that the Datadog resource has the **Monitoring Reader** role assignment.
+To check whether the resource has the correct role assignment, open the Azure portal, and select the subscription. In the left pane, select **Access Control (IAM)**. Search for the Datadog resource name. Confirm that the Datadog resource has the **Monitoring Reader** role assignment.
 
 ## Datadog agent installation fails
 
-The Azure Datadog integration provides you with the ability to install Datadog agent on a virtual machine or app service. The API key selected as **Default Key** in the API Keys screen is used to configure the Datadog agent. If a default key isn't selected, the Datadog agent installation fails.
+The Azure Datadog integration provides you with the ability to install the Datadog agent on a virtual machine or app service. The API key selected as **Default Key** in the API Keys screen is used to configure the Datadog agent. If a default key isn't selected, the Datadog agent installation fails.
 
 If the Datadog agent is configured with an incorrect key, navigate to the API keys screen and change the **Default Key**. You must uninstall the Datadog agent and reinstall it to configure the virtual machine with the new API keys.
 
@@ -83,6 +83,6 @@ If logs are being emitted and diagnostic settings remain active on monitored res
 
   > [!div class="nextstepaction"]
   > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
-
+  >
   > [!div class="nextstepaction"]
   > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)

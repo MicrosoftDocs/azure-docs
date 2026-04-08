@@ -5,7 +5,7 @@ description: This article describes how to write data to a Delta Lake table stor
 author: an-emma
 ms.author: raan
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/12/2022
 ms.custom: build-2023
 ---

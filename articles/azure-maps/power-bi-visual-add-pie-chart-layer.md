@@ -34,15 +34,15 @@ The following steps walk you through creating a pie chart layer.
 1. Select two location sources from the **Fields** pane, such as city/state, to add to the **Location** field.
 1. Select a numerical field from your table, such as sales, and add it to the **Size** field in the **Visualizations** pane. This field must contain the numerical values used in the pie chart.
 1. Select a data field from your table that can be used as the category that the numerical field applies to, such as *manufacturer*, and add it to the **Legend** field in the **Visualizations** pane. This appears as the slices of the pie, the size of each slice is a percentage of the whole based on the value in the size field, such as the number of sales broken out by manufacturer.
-1. Next, in the **Format** tab of the **Visualizations** pane, switch the **Bubbles** toggle to **On**.
+1. Next, in the **Format** tab of the **Visualizations** pane, switch the **Marker layer** toggle to **On**.
 
 The pie chart layer should now appear. Next you can adjust the Pie chart settings such as size and transparency.
 
 ## Pie chart layer settings
 
-Pie Chart layer is an extension of the bubbles layer, so all settings are made in the **Bubbles** section. If a field is passed into the **Legend** bucket of the **Fields** pane, the pie charts are populated and colored based on their categorization. The outline of the pie chart is white by default but can be changed to a new color. The following are the settings in the **Format** tab of the **Visualizations** pane that are available to a **Pie Chart layer**.
+Pie Chart layer is an extension of the marker layer, so all settings are made in the **Markers** section. If a field is passed into the **Legend** bucket of the **Fields** pane, the pie charts are populated and colored based on their categorization. The outline of the pie chart is white by default but can be changed to a new color. The following are the settings in the **Format** tab of the **Visualizations** pane that are available to a **Pie Chart layer**.
 
-:::image type="content" source="./media/power-bi-visual/visualizations-settings-bubbles.png" alt-text="A screenshot showing the pie chart settings that appear in the bubbles section when the format tab is selected in the visualization pane in power B I.":::
+:::image type="content" source="./media/power-bi-visual/visualizations-settings-bubbles.png" alt-text="A screenshot showing the pie chart settings that appear in the Markers section when the format tab is selected in the visualization pane in power B I.":::
 
 | Setting               | Description                                                       |
 |-----------------------|-------------------------------------------------------------------|

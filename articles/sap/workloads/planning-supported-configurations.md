@@ -220,7 +220,7 @@ SAP HANA scale-out scenarios are supported for a subset of the HANA certified Az
 
 - Azure Premium Storage v1, including Azure Write accelerator for the /hana/log volume
 - Azure Premium Storage v2
-- [Ultra disk](/azure/virtual-machines/disks-enable-ultra-ssd)
+- [Ultra Disk](/azure/virtual-machines/disks-enable-ultra-ssd)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 
 SAP HANA scale-out configurations for OLAP or S/4HANA with standby node(s) are exclusively supported with NFS shared hosted on Azure NetApp Files.

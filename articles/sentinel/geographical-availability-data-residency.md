@@ -3,7 +3,7 @@ title: Geographical availability and data residency in Microsoft Sentinel
 description: In this article, you learn about geographical availability and data residency in Microsoft Sentinel.
 author: batamig
 ms.author: bagol
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/29/2024
 ms.custom: references_regions
 
@@ -57,7 +57,7 @@ The following table shows the supported regions supporting Microsoft Sentinel SI
 |**Europe**| | • North Europe<br>• West Europe| • North Europe<br>• West Europe |
 | |**France**| • France Central<br>• France South| • France Central |
 | |**Germany**| • Germany West Central|
-| | **Italy** |• Italy North|
+| | **Italy** |• Italy North|• Italy North|
 | | **Norway**|• Norway East<br>• Norway West|
 | |**Sweden**| • Sweden Central | 
 | | **Switzerland**| • Switzerland North<br>• Switzerland West| • Switzerland North |

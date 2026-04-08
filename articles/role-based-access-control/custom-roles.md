@@ -4,7 +4,7 @@ description: Learn how to create Azure custom roles with Azure role-based access
 author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2025
 ms.author: rolyon
 ---
@@ -216,7 +216,7 @@ The following list describes the limits for custom roles.
 - Custom roles with `DataActions` can't be assigned at the management group scope.
 - You can create a custom role with `DataActions` and one management group in `AssignableScopes`. You can't assign the custom role at the management group scope itself; however, you can assign the custom role at the scope of the subscriptions within the management group. This can be helpful if you need to create a single custom role with `DataActions` that needs to be assigned in multiple subscriptions, instead of creating a separate custom role for each subscription.
 
-For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)
 
 ## Input and output formats
 

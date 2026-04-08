@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 05/20/2020
+ms.date: 02/04/2026
 ms.author: stefanazaric
 ms.custom: sfi-image-nochange
  
@@ -32,7 +32,7 @@ To complete this tutorial, you need the following prerequisites:
 
 Optional:
 
-- A SQL query tool, such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- A SQL query tool, such as the [MSSQL extension for Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 Values for the following parameters:
 

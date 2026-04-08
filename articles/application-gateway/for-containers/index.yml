@@ -52,7 +52,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Provision ALB Controller into AKS cluster
-            url: quickstart-deploy-application-gateway-for-containers-alb-controller.md
+            url: quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md
           - text: Create Application Gateway for Containers - bring your own deployment
             url: quickstart-create-application-gateway-for-containers-byo-deployment.md
           - text: Create Application Gateway for Containers - managed by ALB controller

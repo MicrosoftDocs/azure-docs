@@ -14,7 +14,7 @@ ms.custom:
   - 'Role: Data Analytics'
   - devx-track-azurecli
   - sfi-image-nochange
-#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure Portal.
+#Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure portal.
 ---
 
 # Tutorial: Send device data to Azure Storage using IoT Hub message routing
@@ -41,7 +41,7 @@ In this tutorial, you perform the following tasks:
   * Download or clone the SDK repo to your development machine.
   * Have .NET Core 3.0.0 or greater on your development machine. Check your version by running `dotnet --version` and [Download .NET](https://dotnet.microsoft.com/download) if necessary.
 
-* Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connect to IoT Hub](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connect to IoT Hub](iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 * Optionally, install [Azure IoT Explorer (preview)](https://github.com/Azure/azure-iot-explorer). This tool helps you observe the messages as they arrive at your IoT hub. This article uses Azure IoT Explorer.
 

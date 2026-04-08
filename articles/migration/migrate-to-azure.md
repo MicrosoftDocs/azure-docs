@@ -1,12 +1,12 @@
 ---
 title: Migrate Workloads to Azure
 description: Learn about migration resources that might help you transition workloads from AWS and Google Cloud to Azure.
-author: robbyatmicrosoft
-ms.author: robbymillsap
+author: reginahack
+ms.author: rhackenberg
 ms.date: 03/24/2025
 ms.topic: concept-article
-ms.custom: migration
 ms.service: azure
+ms.custom: migration-hub
 ---
 
 # Migrate workloads to Azure from other cloud platforms

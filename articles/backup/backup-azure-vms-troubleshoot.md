@@ -556,17 +556,16 @@ Verify the VM Agent version on Windows VMs:
 
 ## Troubleshoot VM snapshot issues
 
-VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage or delays in a snapshot task run can cause the backup job to fail. The following conditions can cause snapshot task failure:
+VM backup relies on issuing snapshot commands to underlying storage. Lack of storage access or delays during a snapshot task run can cause the backup job to fail. The following conditions can cause snapshot task failure:
+* **VMs with SQL Server configured can experience snapshot delays** when Azure VM Backup interacts with the SQL Server VSS Writer. For Windows VMs running SQL Server, Azure VM Backup currently triggers a VSS Full (Copy-Only) backup by default to avoid impacting SQL Server differential and transaction log backup chains used by other backup tools. Copy-Only VSS backups do not truncate SQL Server transaction logs.
 
-* **VMs with SQL Server backup configured can cause snapshot task delay**. To avoid that, currently VM backup creates a VSS full backup (Copy-Only) on Windows VMs. If you need a VSS Full backup (Non-copy Only) then add the following registry key on the Windows VM:
+If you explicitly require a VSS Full (Non-Copy-Only) backup, which can truncate SQL Server transaction logs and may affect the SQL backup chain, configure the following registry key on the Windows VM:
 
    ```console
-   REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v UseVSSCopyBackup /t REG_SZ /d True /f   
+REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v UseVssFullBackup /t REG_SZ /d True /f
    ```
 
-  >[!Note]
-  >Setting UseVSSCopyBackup = True enables VSS Copy-Only backups. This ensures that snapshots aren't delayed and that any log chains managed by other backup products (such as SQL Server log backups) are not broken.
-  If the key is set to False or not present, Azure Backup defaults to VSS Full backups, which may truncate application logs to achieve application-consistent backups.
+If UseVssFullBackup is set to False or not present, Azure VM Backup continues to use VSS Full (Copy-Only) backups by default.
 
 * **VM status is reported incorrectly because the VM is shut down in RDP**. If you used the remote desktop to shut down the virtual machine, verify that the VM status in the portal is correct. If the status isn't correct, use the **Shutdown** option in the portal VM dashboard to shut down the VM.
 * **The VM runs at high CPU or memory**. If the virtual machine runs at high memory or CPU usage, more than 90 percent, your snapshot task is queued and delayed. Eventually it times out. If this issue happens, try an on-demand backup.

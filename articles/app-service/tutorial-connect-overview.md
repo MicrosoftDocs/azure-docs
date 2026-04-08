@@ -76,7 +76,7 @@ Benefits of managed identities integrated with Key Vault include:
 
 The following image demonstrates App Service connecting to Key Vault using a managed identity and then accessing an Azure service using secrets stored in Key Vault:
 
-:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Diagram showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Azure AI services."::: 
+:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Diagram showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Foundry Tools."::: 
 
 ### Use secrets in app settings 
 

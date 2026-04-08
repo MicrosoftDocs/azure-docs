@@ -6,7 +6,7 @@ services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/31/2023
 ---
 

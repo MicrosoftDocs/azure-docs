@@ -4,7 +4,7 @@ description: This article explains how to create and use automation rules in Mic
 ms.topic: how-to
 author: batamig
 ms.author: bagol
-ms.date: 10/16/2024
+ms.date: 02/24/2026
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -215,7 +215,9 @@ To add one of these conditions based on an incident's tags, take the following s
 
 #### Conditions based on custom details
 
-You can set the value of a [custom detail surfaced in an incident](surface-custom-details-in-alerts.md) as a condition of an automation rule. Recall that custom details are data points in raw event log records that can be surfaced and displayed in alerts and the incidents generated from them. Use custom details to get to the actual relevant content in your alerts without having to dig through query results.
+You can set the value of a [custom detail surfaced in an incident](surface-custom-details-in-alerts.md) as a condition of an automation rule. Recall that custom details are data points in raw event log records that can be surfaced and displayed in alerts and the incidents generated from them. Use custom details to get to the actual relevant content in your alerts without having to dig through query results. 
+
+**Known limitation**: When using custom detail values, the **Does not contain** operator might fail to evaluate correctly when multiple (two or more) distinct values are present.
 
 **To add a condition based on a custom detail**:
 

@@ -98,7 +98,7 @@ To create an assessment, follow these steps:
    | **Setting** | **Description** | **Possible Values**  | 
    |-|-|-|
    | VM sizing | The Azure VM series that you want to consider for rightsizing. | All VM services are selected by default | 
-   | Storage sizing | Specifies the type of target storage disk | - Premium managed disk<br> - Standard HDD managed disks<br> - Standard SSD managed disks<br> - Ultra disks |
+   | Storage sizing | Specifies the type of target storage disk | - Premium managed disk<br> - Standard HDD managed disks<br> - Standard SSD managed disks<br> - Ultra Disks |
    | Security settings | Security type of the VM | - Standard<br> - Trusted launch VM |
    ::: moniker-end
 

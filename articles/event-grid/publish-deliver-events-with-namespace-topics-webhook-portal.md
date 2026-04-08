@@ -81,7 +81,7 @@ Before subscribing to the events, let's create the endpoint for the event messag
     :::image type="content" source="./media/blob-event-quickstart-portal/web-site.png" alt-text="Screenshot that shows the selection of link to navigate to web app.":::    
 6. Confirm that you see the site but no events are posted to it yet. 
 
-   ![Screenshot of a new site.](./media/blob-event-quickstart-portal/view-site.png)
+   ![Screenshot of a new site.](./media/blob-event-quickstart-portal/event-grid-viewer-site.png)
 
     > [!IMPORTANT]
     > Keep the Azure Event Grid Viewer window open so that you can see events as they are posted. 

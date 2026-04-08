@@ -26,7 +26,7 @@ This article describes how you can use customer-managed keys with an existing Az
 The customer-managed key for a Data Box order must meet the following requirements:
 
 - The key must be an RSA key of 2,048 bits or larger.
-- The key must be created and stored in an Azure Key Vault that has **Soft delete** and **Do not purge** behaviors enabled. You can create a key vault and key while creating or updating your order. For more information, see [What is Azure Key Vault?](/azure/key-vault/general/overview). 
+- The key must be created and stored in an Azure Key Vault that has **Soft delete** and **Do not purge** behaviors enabled. You can create a key vault and key while creating or updating your order. For more information, see [What is Azure Key Vault?](/azure/key-vault/general/overview) 
 - The `Get`, `UnwrapKey`, and `WrapKey` permissions for the key must be enabled in the associated Azure Key Vault. These permissions must remain in place for the lifetime of the order. Modifying these permissions prevents the customer-managed key from being accessible during the Data Copy process.
 
 ## Enable key

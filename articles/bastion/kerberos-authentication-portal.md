@@ -2,18 +2,18 @@
 title: Configure Bastion for Kerberos authentication - Azure portal
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion to use Kerberos authentication via the Azure portal.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 12/09/2024
-ms.author: abell
+ms.author: cherylmc
 
 # Customer intent: "As a cloud administrator, I want to configure Azure Bastion to use Kerberos authentication, so that I can ensure secure access to my virtual machines without relying on less secure authentication methods."
 ---
 
 # Configure Bastion for Kerberos authentication using the Azure portal
 
-This article shows you how to configure Azure Bastion to use Kerberos authentication. Kerberos authentication can be used with Basic SKU tier or higher for Azure Bastion. For more information about Kerberos authentication, see the [Kerberos authentication overview](/windows-server/security/kerberos/kerberos-authentication-overview). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+This article shows you how to configure Azure Bastion to use Kerberos authentication. Kerberos authentication can be used with Basic SKU or higher for Azure Bastion. For more information about Kerberos authentication, see the [Kerberos authentication overview](/windows-server/security/kerberos/kerberos-authentication-overview). For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 ## Considerations
 
@@ -42,7 +42,7 @@ In this section, the following steps help you update your virtual network to spe
 
 ## Deploy Bastion
 
-1. Begin configuring your bastion deployment using the steps in [Tutorial: Deploy Bastion using manual configuration settings](tutorial-create-host-portal.md). Configure the settings on the **Basics** tab. Then, at the top of the page, click **Advanced** to go to the Advanced tab.
+1. Begin configuring your bastion deployment using the steps in [Quickstart: Deploy Azure Bastion from the Azure portal](quickstart-host-portal.md). Configure the settings on the **Basics** tab. Then, at the top of the page, click **Advanced** to go to the Advanced tab.
 1. On the **Advanced** tab, select **Kerberos**.
 1. At the bottom of the page, select **Review + create**, then **Create** to deploy Bastion to your virtual network.
 1. Once the deployment completes, you can use it to sign in to any reachable Windows VMs joined to the custom DNS you specified in the earlier steps.

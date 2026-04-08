@@ -30,7 +30,7 @@ Use the following steps to assign policy to the resources. If you're new to Powe
    * For TimeZone options, see [Time Zones](/rest/api/sql/2020-11-01-preview/time-zones/list-by-location).
 
    ```azurepowershell-interactive
-   New-AzMaintenanceConfiguration -ResourceGroupName <rgName> -Name <configurationName> -Location <arm location of resource> -MaintenanceScope Resource -ExtensionProperty @{"maintenanceSubScope"="NetworkGatewayMaintenance"} -StartDateTime "<date in YYYY-MM-DD HH:mm format>" -TimeZone "<Selected Time Zone>" -Duration "<Duration in HH:mm format>" -Visibility "Custom" -RecurEvery Day
+   New-AzMaintenanceConfiguration -ResourceGroupName <rgName> -Name <configurationName> -Location <arm location of resource> -MaintenanceScope Resource -ExtensionProperty @{"maintenanceSubScope"="NetworkGatewayMaintenance"} -StartDateTime "<date in YYYY-MM-DD HH:mm format>" -TimeZone "<Selected Time Zone>" -Duration "<Duration in HH:mm format>" -Visibility "Custom" -RecurEvery "1Day"
    ```
 
 1. Save the **maintenance configuration** as a variable named `$config`.

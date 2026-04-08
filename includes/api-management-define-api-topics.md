@@ -21,7 +21,7 @@ ms.author: danlep
 * [Import a function app API](../articles/api-management/import-function-app-as-api.md)
 * [Import a logic app API](../articles/api-management/import-logic-app-as-api.md)
 * [Import a Service Fabric service](/azure/service-fabric/service-fabric-tutorial-deploy-api-management)
-* [Import an Azure AI Foundry API](../articles/api-management/azure-ai-foundry-api.md)
+* [Import a Microsoft Foundry API](../articles/api-management/azure-ai-foundry-api.md)
 * [Import an Azure OpenAI API](../articles/api-management/azure-openai-api-from-specification.md)
 * [Import an LLM API](../articles/api-management/openai-compatible-llm-api.md)
 * [Import an OData API](../articles/api-management/import-api-from-odata.md)

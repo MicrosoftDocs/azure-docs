@@ -3,7 +3,7 @@ title: Enforce a minimum required version of Transport Layer Security (TLS) for 
 titleSuffix: Azure Event Hubs
 description: Configure a service bus namespace to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Event Hubs.
 author: EldertGrootenboer
-ms.topic: article
+ms.topic: concept-article
 ms.date: 10/28/2024
 ms.author: egrootenboer
 ---

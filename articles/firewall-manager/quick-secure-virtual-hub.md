@@ -16,7 +16,7 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
+For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md)
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

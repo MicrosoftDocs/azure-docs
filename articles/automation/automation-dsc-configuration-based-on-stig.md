@@ -5,7 +5,7 @@ keywords: dsc,powershell,configuration,setup
 services: automation
 ms.subservice: desired-state-config
 ms.date: 11/17/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-automation
 ms.author: v-rochak2
 author: RochakSingh-blr

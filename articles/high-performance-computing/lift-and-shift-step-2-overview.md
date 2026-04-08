@@ -1,12 +1,16 @@
 ---
-title: "Base services migration overview"
-description: Get a high level idea of the steps involved when migrating base services during a migration of high performance computing architecture.
+title: Base services migration overview
+description: Learn how to migrate base services from HPC on-premises to the cloud 
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/23/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: As an HPC architect, I want to understand the steps involved in migrating base services to the cloud, so that I can ensure a seamless transition while maintaining performance, scalability, and cost-effectiveness of my high-performance computing environment.
 ---
 

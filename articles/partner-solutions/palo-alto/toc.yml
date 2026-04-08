@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Cloud NGFW by Palo Alto Networks?
     href: overview.md
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:

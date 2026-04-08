@@ -11,7 +11,7 @@
     href: file-sync-extend-servers.md
 - name: Deploy
   items:
-  - name: Planning for an Azure File Sync deployment
+  - name: Plan for an Azure File Sync deployment
     href: file-sync-planning.md
   - name: Create an SMB file share
     href: ../files/storage-how-to-create-file-share.md?toc=/azure/storage/file-sync/toc.json
@@ -169,7 +169,7 @@
     href: file-sync-scale-targets.md
   - name: Azure File Sync throttling
     href: file-sync-throttling.md
-  - name: Understanding billing
+  - name: Understand billing
     href: ../files/understanding-billing.md?toc=/azure/storage/file-sync/toc.json
   - name: Optimize costs with storage reservations
     href: ../files/files-reserve-capacity.md?toc=/azure/storage/file-sync/toc.json

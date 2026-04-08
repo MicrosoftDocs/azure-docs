@@ -108,15 +108,17 @@ az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup --template-file <path-to-template>
 ```
 
-To deploy a different language stack, update `linuxFxVersion` with appropriate values. The following table lists examples. To show current versions, run the following command in Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`.
+To deploy a different language stack, update `linuxFxVersion` with appropriate values. The following table lists examples. To show the current version, run the following command in Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`.
 
-| Language    | Example                                              |
-|-------------|------------------------------------------------------|
-| .NET    | `linuxFxVersion="DOTNETCORE&#124;3.0"`                 |
-| PHP     | `linuxFxVersion="PHP&#124;7.4"`                        |
-| Node.js | `linuxFxVersion="NODE&#124;24"`                     |
-| Java    | `linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0"` |
-| Python  | `linuxFxVersion="PYTHON&#124;3.14"`                     |
+| Language | Example |
+|--------|---------|
+| .NET | `linuxFxVersion="DOTNETCORE|8.0"` |
+| PHP | `linuxFxVersion="PHP|8.2"` |
+| Node.js | `linuxFxVersion="NODE|20-lts"` |
+| Java | `linuxFxVersion="TOMCAT|9.0-jre8"` |
+| Python | `linuxFxVersion="PYTHON|3.11"` |
+
+Use the `az webapp list-runtimes --os linux` command to review the current list of supported Linux runtime values. 
 
 ---
 

@@ -2,7 +2,7 @@
 title: Back Up Azure VMs in a Recovery Services Vault
 description: This article describes how to back up Azure VMs in a Recovery Services vault by using Azure Backup.
 ms.topic: how-to
-ms.date: 09/24/2025
+ms.date: 01/22/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -44,7 +44,7 @@ By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-r
 
 * If the vault is your primary backup mechanism, we recommend that you use GRS.
 * [Locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage) is a less-expensive option.
-* [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../reliability/availability-zones-overview.md) for data residency and resiliency in the same region.
+* [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](/azure/reliability/availability-zones-overview) for data residency and resiliency in the same region.
 
 To modify the storage replication type, follow these steps:
 
@@ -60,13 +60,23 @@ You can't modify the storage replication type after the vault is set up and cont
 
 To apply a backup policy to your Azure VMs, follow these steps:
 
-1. Go to **Backup center**. On the **Overview** tab, select **+ Backup**.
+1. Go to **Resiliency**, and then select **+ Configure protection**.
 
-   ![Screenshot that shows the Backup button.](./media/backup-azure-arm-vms-prepare/backup-button.png)
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-protection.png" alt-text="Screenshot that shows the Configure protection option." lightbox="./media/backup-azure-arm-vms-prepare/configure-protection.png":::
 
-1. For **Datasource type**, select **Azure Virtual machines**, and select the vault that you created. Then select **Continue**.
+1. On the **Configure protection** pane, fill in the following fields:
 
-   ![Screenshot that shows the Configure Backup pane.](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+   - **Resources managed by**: Select **Azure**.
+   - **Datasource type**: Select **Azure Virtual machines**.
+   - **Solution**: Select **Azure Backup**.
+
+   Then select **Continue**.
+
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-system-protection.png" alt-text="Screenshot that shows the Configure protection pane." lightbox="./media/backup-azure-arm-vms-prepare/configure-system-protection.png":::
+
+1. On the **Start: Configure Backup** pane, for **Datasource type**, select **Azure Virtual machines**, and select the vault that you created. Then select **Continue**.
+
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png" alt-text="Screenshot that shows the Start: Configure Backup pane.":::
 
 1. Assign a backup policy.
 
@@ -100,7 +110,7 @@ After you enable backup:
 * An initial backup runs in accordance with your backup schedule.
 * When backups run:
   * A VM that's running has the greatest chance for capturing an application-consistent recovery point.
-  * Even if the VM is turned off, it's backed up. Such a VM is called an offline VM. In this case, the recovery point is crash consistent.
+  * Even if the VM is turned off, it's backed up. Such a VM is called as an offline VM. In this case, the recovery point is crash consistent.
 * Explicit outbound connectivity isn't required to allow backup of Azure VMs.
 
 ### Create a custom policy
@@ -127,26 +137,35 @@ If you want hourly backups, configure the Enhanced backup policy. For more infor
 
 The initial backup runs based on the schedule, but you can also run it immediately:
 
-1. Go to **Backup center** and select the **Backup Instances** menu item.
-1. For **Datasource type**, select **Azure Virtual machines**. Then search for the VM that you configured for backup.
+1. Go to **Resiliency** > **Protected items**.
+1. On the **Protected items** pane, for **Datasource type**, select **Azure Virtual machines**. Then search for the VM that you configured for backup.
 1. Right-click the relevant row or select **More** (**…**), and then select **Backup Now**.
 1. On **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 1. Monitor the portal notifications.
 
-   To monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for jobs that are in progress. Depending on the size of your VM, creating the initial backup might take a while.
+   To monitor the job progress, go to **Resiliency** > **Jobs** and filter the list for jobs that are in progress. Depending on the size of your VM, creating the initial backup might take a while.
 
 ## Verify the backup job status
 
-The backup job details for each VM backup consist of two phases: **Snapshot** is followed by **Transfer data to vault**.
+The backup job details for each VM backup include the following phases:
 
-- **Snapshot**: Ensures that the availability of a recovery point is stored along with the disks for Instant Restore and is available for a maximum of five days depending on the snapshot retention configured by the user.
-- **Transfer data to vault**: Creates a recovery point in the vault for long-term retention. **Transfer data to vault** starts only after **Snapshot** is finished.
+- **Snapshot**: Azure Backup takes a snapshot of the VM disks. This phase ensures a recovery point is available for Instant Restore for up to 30 days, depending on the configured policy type and snapshot retention.
+- **Transfer data to vault**: Data is copied from the VM to the Recovery Services vault to create a recovery point for long-term retention. This phase starts after **Snapshot** finishes.
+- **Validate backup**: Azure Backup performs an integrity check to verify transferred data and confirm that the recovery point is usable.
 
   ![Screenshot that shows backup job status.](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-Two subtasks run at the back end. One is for the front-end backup job that you can check on the **Backup** pane under **Job Details**.
+In job details, the subtasks provide visibility into the backup job phases.
 
   ![Screenshot that shows backup job status subtasks.](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+
+The progress bar tracks only **Transfer data to vault** and shows the proportion of data transferred. **Snapshot** and **Validate backup** durations aren't represented on the progress bar. Use the progress bar as a transfer indicator, not as an estimate of total backup completion time.
+
+> [!IMPORTANT]
+> - Completion of **Transfer data to vault** doesn't confirm a restorable recovery point. The backup is considered restorable only after **Validate backup** succeeds.
+> - **Snapshot** and **Validate backup** durations are excluded from the progress bar because they're not predictably time-bound.
+> - The progress bar doesn't represent total time remaining or estimated timeline.
+> - This progress experience improves visibility only. It doesn't change the underlying backup workflow.
 
 **Transfer data to vault** can take multiple days to finish depending on the size of the disks, the churn per disk, and other factors.
 
@@ -162,7 +181,7 @@ Failed | Failed | Failed
 
 Now with this capability, for the same VM, two backups can run in parallel. In either phase (**Snapshot** or **Transfer data to vault**), only one subtask can run. In scenarios where a backup job in progress might result in a failure of the next day's backup, this decoupling functionality avoids it. Subsequent days' backups can have the snapshot finished, while **Transfer data to vault** is skipped if an earlier day's backup job is in progress.
 
-The incremental recovery point created in the vault captures all the churn from the most recent recovery point that was created in the vault. There's no cost impact for users.
+The incremental recovery point created in the vault captures the churn from the most recent recovery point that was created in the vault. There's no cost impact for users.
 
 ## Optional steps
 

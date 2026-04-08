@@ -39,7 +39,7 @@ Before acquiring a Microsoft Entra token, you must identify what user you want t
 
 Request the Microsoft Entra token with a proper audience. The audience can also be referred to as the *resource* that the token is being requested for.
 
-For details on which audience to use for which cloud, refer to the [audience section of the  Entra ID access overview](./concept-enable-rbac.md#audience).
+For details on which audience to use for which cloud, refer to the [audience section of the  Entra ID access overview](./concept-enable-rbac.md#app-configuration-audience).
 
 <a name='azure-ad-authority'></a>
 

@@ -25,7 +25,7 @@ This article shows how to add an artifact repository to your lab by using the Az
 ## Add an artifact repo by using the Azure portal
 
 You can add an artifact repo from an Azure Repos repository or a GitHub repository. You can choose to authenticate by assigning permissions to a managed identity, by using GitHub app authentication, or by using a PAT.
-To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
+To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
 Select the tab for the type of repository and authentication that you want to use.
 

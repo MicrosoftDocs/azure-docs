@@ -57,7 +57,7 @@ You can also identify whether or not a user is external by looking at the user's
 
 Gateways that use Certificate-based authentication use the **domain name** of user certificate Common Names (CN) to determine which group a connecting user is in. Common Names must be in one of the following formats:
 
-* domain/username
+* DOMAIN\username
 * username@domain.com
 
 Make sure that the **domain.com** is the input as a group member.

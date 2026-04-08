@@ -112,7 +112,7 @@ It takes about 5 minutes to finish the resource provisioning.
        --sku enterprise
    ```
 
-   For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md).
+   For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md)
 
 ---
 

@@ -19,7 +19,6 @@ There are many open-source projects on GitHub that provide source code and instr
 ## FHIR Server GitHub projects
 
 * [microsoft/fhir-server](https://github.com/microsoft/fhir-server/): an open-source FHIR Server,  which is the basis for Azure API for FHIR
-* [microsoft/fhir-server-samples](https://github.com/microsoft/fhir-server-samples): a sample environment
 * To see the latest releases, refer to the [Release Notes](https://github.com/microsoft/fhir-server/releases)
 
 ## Data Conversion & Anonymization
@@ -41,15 +40,6 @@ There are many open-source projects on GitHub that provide source code and instr
 * [microsoft/Tools-for-Health-Data-Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization) is a data anonymization project that provides tools for de-identifying FHIR data and DICOM data.
 * Integrated with the FHIR service and FHIR server for Azure in the form of `de-identified $export` operation
 * For FHIR data, it can also be used with Azure Data Factory (ADF) pipeline by reading FHIR data from Azure blob storage and writing back the anonymized data.
-
-## MedTech service
-
-#### Integration with IoT Hub and IoT Central
-
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): integration with IoT Hub or IoT Central to FHIR with data normalization and FHIR conversion of the normalized data
-* Normalization: device data information is extracted into a common format for further processing
-* FHIR Conversion: normalized and grouped data is mapped to FHIR. Observations are created or updated according to configured templates and linked to the device and patient.
-* [Tools to help build the conversation map](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): visualize the mapping configuration for normalizing device input data and transform it to FHIR resources. Developers can use this tool to edit and test mappings, device mapping and FHIR mapping, and export mappings for uploading to the MedTech service in the Azure portal.
 
 #### HealthKit and FHIR Integration
 

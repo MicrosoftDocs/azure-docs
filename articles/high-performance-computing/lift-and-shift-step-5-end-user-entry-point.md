@@ -1,12 +1,16 @@
 ---
-title: "End-user entry point configuration"
+title: End-user entry point configuration
 description: Learn how to configure end-user entry points during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/23/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: "As an HPC user, I want to configure various entry points for accessing cloud resources, so that I can optimize my workflows and efficiently submit jobs through SSH, remote desktop, or web-based applications like JupyterHub and RStudio."
 ---
 

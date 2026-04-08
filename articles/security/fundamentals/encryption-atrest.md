@@ -8,7 +8,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 04/02/2026
 ms.author: mbaldwin
 
 ---
@@ -40,7 +40,7 @@ Encryption at rest protects stored data (at rest). Attacks against data at rest 
 
 Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk. If an attacker obtains a hard drive with encrypted data but not the encryption keys, the attacker must defeat the encryption to read the data. This attack is much more complex and resource consuming than accessing unencrypted data on a hard drive. For this reason, encryption at rest is highly recommended and is a high priority requirement for many organizations.
 
-An organization's need for data governance and compliance efforts might also require encryption at rest. Industry and government regulations such as HIPAA, PCI, and FedRAMP, lay out specific safeguards regarding data protection and encryption requirements. Encryption at rest is a mandatory measure required for compliance with some of those regulations. For more information on Microsoft's approach to FIPS 140-2 validation, see [Federal Information Processing Standard (FIPS) Publication 140-2](/microsoft-365/compliance/offering-fips-140-2).
+An organization's need for data governance and compliance efforts might also require encryption at rest. Industry and government regulations such as HIPAA, PCI, and FedRAMP, lay out specific safeguards regarding data protection and encryption requirements. Encryption at rest is a mandatory measure required for compliance with some of those regulations. For more information on Microsoft's approach to FIPS 140 validation, see [Federal Information Processing Standard (FIPS) 140](/azure/compliance/offering-fips-140-3).
 
 In addition to satisfying compliance and regulatory requirements, encryption at rest provides defense-in-depth protection. Microsoft Azure provides a compliant platform for services, applications, and data. It also provides comprehensive facility and physical security, data access control, and auditing. However, it's important to provide additional "overlapping" security measures in case one of the other security measures fails. Encryption at rest provides such a security measure.
 
@@ -64,7 +64,7 @@ As described previously, the goal of encryption at rest is that data persisted o
 
 ### Azure Key Vault
 
-The storage location of the encryption keys and access control to those keys is central to an encryption at rest model. You need to highly secure the keys but make them manageable by specified users and available to specific services. For Azure services, Azure Key Vault is the recommended key storage solution and provides a common management experience across services. You store and manage keys in key vaults, and you can give users or services access to a key vault. Azure Key Vault supports customer creation of keys or import of customer keys for use in customer-managed encryption key scenarios.
+The storage location of the encryption keys and access control to those keys is central to an encryption at rest model. You need to highly secure the keys but make them manageable by specified users and available to specific services. For Azure services, Azure Key Vault (Premium tier) or Azure Managed HSM is the recommended key storage solution and provides a common management experience across services. You store and manage keys in key vaults, and you can give users or services access to a key vault. Azure Key Vault supports customer creation of keys or import of customer keys for use in customer-managed encryption key scenarios.
 
 ### Microsoft Entra ID
 

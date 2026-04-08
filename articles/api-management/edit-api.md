@@ -1,5 +1,5 @@
 ---
-title: Edit an API in the Azure Portal  | Microsoft Docs
+title: Edit an API in the Azure portal  | Microsoft Docs
 description: Learn how to use API Management to edit an API or its swagger.
 services: api-management
 author: dlepow

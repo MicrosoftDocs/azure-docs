@@ -20,7 +20,7 @@ Azure Migrate supports two types of target sizing:
 
 | Sizing criteria    | Details   | Examples |
 |--------------------|-----------|----------|
-| **Performance-based**  | Assessments that make target size recommendations based on collected performance data.  | The compute recommendation is based on CPU and memory utilization data. <br> <br> The storage recommendation is based on the input/output operations per second (IOPS) and the throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.  |
+| **Performance-based**  | Assessments that make target size recommendations based on collected performance data.  | The compute recommendation is based on CPU and memory utilization data. <br> <br> The storage recommendation is based on the input/output operations per second (IOPS) and the throughput of the on-premises disks. Disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra Disks.  |
 | **As-is on-premises**  | Assessments that don't use performance data to make target size recommendations. The targets are sized based on the configuration data available.  | The compute recommendation is based on the on-premises source workload size. <br> The recommended storage is based on the storage type selected for the assessment.|
 
 For identifying the right-sized Azure target that isn't overprovisioned but still resilient, we recommend creating performance-based assessments. The performance-based assessments use resource utilization data (CPU & memory utilization etc.) and resource configuration data. The appliance collects the required performance data at regular intervals and modeled to perform the assessments.  

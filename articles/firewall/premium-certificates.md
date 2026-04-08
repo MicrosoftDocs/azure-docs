@@ -5,7 +5,7 @@ author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: concept-article
-ms.date: 12/11/2022
+ms.date: 03/23/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: As a network engineer, I want to configure TLS inspection on Azure Firewall Premium using Intermediate CA certificates stored in Azure Key Vault, so that I can ensure secure traffic management and compliance with organizational standards.
@@ -66,10 +66,12 @@ Ensure your CA certificate complies with the following requirements:
  
 To configure your key vault:
 
-- You need to import an existing certificate with its key pair into your key vault. 
-- Alternatively, you can also use a key vault secret that's stored as a password-less, base-64 encoded PFX file.  A PFX file is a digital certificate containing both private key and public key.
-- It's recommended to use a CA certificate import because it allows you to configure an alert based on certificate expiration date.
-- After you import a certificate or a secret, you need to define access policies in the key vault to allow the identity to be granted get access to the certificate/secret.
+- Store your intermediate CA certificate as a **Key Vault secret** using a password-less, base-64 encoded PFX file. A PFX file is a digital certificate containing both a private key and public key. Azure Firewall accesses the certificate exclusively through the Key Vault **Secrets** interface.
+- Alternatively, you can import the certificate using the Key Vault **Certificates** feature. When you do this, Key Vault automatically creates a corresponding secret with the same name, which Azure Firewall uses to access the certificate. Using the Certificates feature is recommended because it lets you configure expiration alerts.
+- After you store the certificate, define access policies in the key vault to grant the managed identity **Get** and **List** permissions under **Secret Permissions**.
+
+> [!NOTE]
+> Azure Firewall does not support accessing certificates stored solely as Key Vault Certificate objects without a corresponding secret. Regardless of how you import the certificate, the managed identity must have **Secret** permissions (not Certificate permissions) on the key vault.
 - The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
 - Since Azure Firewall Premium is listed as Key Vault [Trusted Service](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services), it allows you to bypass Key Vault internal Firewall and to eliminate any exposure of your Key Vault to the Internet.
 
@@ -116,7 +118,7 @@ The scripts generate the following files:
 > 
 After the certificates are created, deploy them to the following locations:
 - rootCA.crt - Deploy on endpoint machines (Public certificate only).
-- interCA.pfx - Import as certificate on a Key Vault and assign to firewall policy.
+- interCA.pfx - Store as a secret in Azure Key Vault and assign to firewall policy.
 
 ### **openssl.cnf**
 ```

@@ -21,7 +21,7 @@ items:
 - name: Design & architecture
   items:
   - name: Reliability in Azure Firewall
-    href: ../reliability/reliability-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+    href: /azure/reliability/reliability-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Policy
     items:
     - name: Policy rule sets
@@ -168,12 +168,16 @@ items:
       href: fqdn-tags.md
     - name: Service tags
       href: service-tags.md
-    - name: Scale outbound SNAT ports
-      href: integrate-with-nat-gateway.md
   - name: Application rules with SQL FQDNs
     href: sql-fqdn-filtering.md
-  - name: SNAT private ranges
-    href: snat-private-range.md
+  - name: SNAT
+    items:
+    - name: SNAT private ranges
+      href: snat-private-range.md
+    - name: Scale outbound SNAT ports
+      href: integrate-with-nat-gateway.md
+    - name: Scale outbound SNAT ports with zone redundancy
+      href: integrate-with-nat-gateway-v2.md
   - name: Customer-controlled maintenance
     href: customer-controlled-maintenance.md
   - name: Packet capture on Azure Firewall

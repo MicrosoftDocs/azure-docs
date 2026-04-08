@@ -4,9 +4,9 @@ description: Manage log data in Microsoft Sentinel and with Microsoft Defender X
 ms.reviewer: dzatakovi
 ms.author: guywild
 author: guywi-ms
-ms.topic: conceptual
-ms.date: 11/05/2025
-# Customer intent: As an Microsoft Defender Portal administrator or subscription owner, I want to configure log table tiers and data retention settings to optimize security operations needs and cost efficiency.
+ms.topic: how-to
+ms.date: 03/12/2026
+# Customer intent: As a Microsoft Defender Portal administrator or subscription owner, I want to configure log table tiers and data retention settings to optimize security operations needs and cost efficiency.
 ---
 
 # Manage data tiers and retention in Microsoft Sentinel
@@ -44,7 +44,7 @@ You can retain data in Microsoft Sentinel in one of two tiers:
 
 * **Data lake tier**: In this low-cost "cold" tier, Microsoft Sentinel retains your data in the lake only. Data in the data lake tier isn't available for real-time analytics features and threat hunting. However, you can access data in the lake whenever you need it through [KQL jobs](datalake/kql-jobs.md), analyze trends over time by running scheduled KQL or Spark jobs, and aggregate insights from incoming data at a regular cadence by using summary rules. 
 
-* **XDR data**: By default, Microsoft Defender XDR threat hunting data is always available in the analytics tier for 30 days. Customers can extend retention of this data in analytics tier to up to 90 days, included in the XDR license for no additional cost. You can also ingest exclusively into the data lake tier but the data is always available in analytics tier for 30 days in this state. 
+* **XDR data**: By default, Microsoft Defender XDR threat hunting data is always available in the analytics tier for 30 days. You can extend retention of this data in the analytics tier up to 90 days, which would incur ingestion costs, but storage is free. Extending beyond 90 days in the analytics, will also incur storage costs. You can also ingest exclusively into the data lake tier but the data is always available in analytics tier for 30 days. Ingesting XDR data directly into the data lake tier is more cost effective, but involves ingestion, storage, and processing costs. In this option, customers still get 30 days worth of data in Analytics tier at no additional cost.
 
 For more information about the differences between these two retention types, see [Compare the analytics and data lake tiers](#compare-the-analytics-and-data-lake-tiers).
 
@@ -78,7 +78,7 @@ This table compares the two analytics and data lake tiers and their key characte
 
 You can switch a table's tier and retention settings at any time. 
 
-When you change a table's tier from analytics to data lake, all real-time analytics and hunting queries stop working. 
+When you change a table's tierby default xdr from analytics to data lake, all real-time analytics and hunting queries stop working. 
 
 When you shorten a table's total retention, Microsoft waits 30 days before removing the data, so you can revert the change and avoid data loss if you made an error in configuration. 
 
@@ -94,7 +94,7 @@ When you change the analytics retention settings of a table with existing data, 
 
 ## Manage XDR data in Microsoft Sentinel
 
-By default, Microsoft Defender XDR retains threat hunting data in the **XDR default tier** for 30 days. This data isn't ingested into the analytics or data lake tiers by default. If you extend the retention period of the supported XDR tables beyond 30 days, the tables are created in your Microsoft Sentinel workspace in the analytics tier and mirrored to the data lake tier.   
+By default, Microsoft Defender XDR retains threat hunting data in the **XDR default tier** for 30 days. This data isn't ingested into the analytics or data lake tiers by default. If you extend the retention period of the supported XDR tables beyond 30, and up to 90 days, Sentinel ingestion costs apply but there are no additional storage costs. The tables are created in your Microsoft Sentinel workspace in the analytics tier and mirrored to the data lake tier.    
 
 If you enable the Microsoft Sentinel XDR connector in the Azure portal, the tables you select during setup are automatically ingested into the analytics tier and mirrored to the data lake tier. The default retention is 30 days, and you can extend it up to 12 years. For a list of tables, see [Microsoft Defender XDR integration with Microsoft Sentinel](connect-microsoft-365-defender.md?tabs=MDE#connect-events). You can ingest supported XDR tables that you didn't select during connector deployment into the analytics tier and mirror them to the data lake tier by setting the retention to more than 30 days.
     
@@ -113,8 +113,8 @@ The following tables summarize the free retention periods and cost implications 
 |Tier|	Retention| Notes|
 |---|---|---|
 |Advanced Hunting (Default)|	30 days	| Default,  included in XDR license|
-|Analytics tier | 90 days | Free storage for Sentinel-enabled workspaces. Ingestion charges apply.|
-|Data lake	| Configurable. By default, the same as the analytics tier. | Free storage when total retention is the same as analytics tier retention. Retaining data in the data lake beyond the analytics tier retention period, or exclusively in the data lake tier, incurs additional storage costs.|
+|Analytics tier | 31-90 days | Free storage for Sentinel-enabled workspaces. Data is mirrored to the data lake. Sentinel ingestion charges apply.|
+|Data lake	| Configurable. By default, the same as the analytics tier. | Free storage when total retention is the same as analytics tier retention. <p> Retaining data in the data lake beyond the analytics tier retention period incurs data lake storage costs.<p> Ingesting data directly to the data lake tier, incurs ingestion, storage, and processing costs.|
 
 For more information on billing and costs, see [Understand the full billing model for Microsoft Sentinel](billing.md#understand-the-full-billing-model-for-microsoft-sentinel)
 

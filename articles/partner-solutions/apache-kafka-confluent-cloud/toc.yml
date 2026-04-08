@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Apache Kafka & Apache Flink on Confluent Cloud?
     href: overview.md
+  - name: FAQ
+    href: faq.yml
   - name: Confluent resources and developer tools
     href: confluent-tools.md
 - name: Quickstarts

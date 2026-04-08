@@ -6,7 +6,7 @@ author: sethmanheim
 manager: lizross
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-multiple
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/01/2025
 ms.author: sethm
 

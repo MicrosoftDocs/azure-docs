@@ -158,7 +158,7 @@ items:
         - name: Python
           href: /python/api/overview/azure/load-testing
         - name: REST API
-          href: /rest/api/loadtesting/
+          href: /rest/api/apptesting/loadtest
         - name: Resource Manager template
           displayName: ARM
           href: /azure/templates/microsoft.loadtestservice/allversions

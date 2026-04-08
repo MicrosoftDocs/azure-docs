@@ -17,7 +17,7 @@ You might find it necessary to deprovision devices that were previously auto-pro
 
 In general, deprovisioning a device involves two steps:
 
-1. Disenroll the device from your provisioning service to prevent future auto-provisioning. Depending on whether you want to revoke access temporarily or permanently, you can either disable or delete an enrollment entry. For devices that use X.509 attestation, you might want to disable/delete an entry in the hierarchy of your existing enrollment groups.  
+1. Disenroll the device from your provisioning service to prevent future autoprovisioning. Depending on whether you want to revoke access temporarily or permanently, you can either disable or delete an enrollment entry. For devices that use X.509 attestation, you might want to disable/delete an entry in the hierarchy of your existing enrollment groups.  
 
    - To learn how to disenroll a device, see [How to disenroll or revoke a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
    - To learn how to disenroll a device programmatically using one of the provisioning service SDKs, see [Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation](./quick-enroll-device-x509.md).

@@ -3,7 +3,7 @@ title: Introduction to Business Process Solutions (Public Preview)
 description: Learn how to use Business Process Solutions to enable organizations in unifying business data across different systems and functional areas.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: overview
 ms.custom: subject-monitoring
 ms.date: 11/07/2025

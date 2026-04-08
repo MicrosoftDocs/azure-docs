@@ -4,7 +4,7 @@ description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage G
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ms.custom: sfi-image-nochange
 ---

@@ -5,8 +5,8 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
-ms.topic: conceptual
-ms.date: 08/29/2024
+ms.topic: how-to
+ms.date: 03/30/2026
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
 ---
@@ -30,12 +30,12 @@ Here are some reasons why you might want to delegate role assignment management 
     
 ## How you currently can delegate role assignment management
 
-The [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) roles are built-in roles that allow users to create role assignments. Members of these roles can decide who can have write, read, and delete permissions for any resource in a subscription. To delegate role assignment management to another user, you can assign the Owner or User Access Administrator role to a user.
+The [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) roles are built-in roles that allow users to create or delete role assignments. Members of these roles can decide who can have write, read, and delete permissions for any resource in a subscription. To delegate role assignment management to another user, you can assign the Owner or User Access Administrator role to a user.
 
 The following diagram shows how Alice can delegate role assignment responsibilities to Dara. For specific steps, see [Assign a user as an administrator of an Azure subscription](/azure/role-based-access-control/role-assignments-portal-subscription-admin).
 
 1. Alice assigns the User Access Administrator role to Dara.
-1. Dara can now assign any role to any user, group, or service principal at the same scope.
+1. Dara can now add (or remove) any role assignment for any user, group, or service principal at the same scope.
 
 :::image type="content" source="./media/delegate-role-assignments-overview/delegate-role-assignments-steps.png" alt-text="Diagram that shows an example where Dara can assign any role to any user." lightbox="./media/delegate-role-assignments-overview/delegate-role-assignments-steps.png":::
 
@@ -51,7 +51,7 @@ Instead of assigning the Owner or User Access Administrator roles, a more secure
 
 ## A more secure method: Delegate role assignment management with conditions
 
-Delegating role assignment management with conditions is a way to restrict the role assignments a user can create. In the preceding example, Alice can allow Dara to create some role assignments on her behalf, but not all role assignments. For example, Alice can constrain the roles that Dara can assign and constrain the principals that Dara can assign roles to. This delegation with conditions is sometimes referred to as *constrained delegation* and is implemented using [Azure attribute-based access control (Azure ABAC) conditions](conditions-overview.md).
+Delegating role assignment management with conditions is a way to restrict the role assignments a user can create or delete. In the preceding example, Alice can allow Dara to create (or delete) some role assignments on her behalf, but not all role assignments. For example, Alice can constrain the roles that Dara can assign, constrain the principals that Dara can assign roles to, and constrain the role assignments Dara can remove. This delegation with conditions is sometimes referred to as *constrained delegation* and is implemented using [Azure attribute-based access control (Azure ABAC) conditions](conditions-overview.md).
 
 This video provides an overview of delegating role assignment management with conditions.
 
@@ -62,17 +62,19 @@ This video provides an overview of delegating role assignment management with co
 Here are some reasons why delegating role assignment management to others with conditions is more secure:
 
 - You can restrict the role assignments the delegate is allowed to create.
+- You can restrict the role assignments the delegate is allowed to delete.
 - You can prevent a delegate from allowing another user to assign roles.
 - You can enforce compliance of your organization's policies of least privilege.
 - You can automate the management of Azure resources without having to grant full permissions to a service account.
 
 ## Conditions example
 
-Consider an example where Alice is an administrator with the User Access Administrator role for a subscription. Alice wants to grant Dara the ability to assign specific roles for specific groups. Alice doesn't want Dara to have any other role assignment permissions. The following diagram shows how Alice can delegate role assignment responsibilities to Dara with conditions.
+Consider an example where Alice is an administrator with the User Access Administrator role for a subscription. Alice wants to grant Dara the ability to assign specific roles for specific groups and remove specific role assignments. Alice doesn't want Dara to have any other role assignment permissions. The following diagram shows how Alice can delegate role assignment responsibilities to Dara with conditions.
 
-1. Alice assigns the Role Based Access Control Administrator role to Dara. Alice adds conditions so that Dara can only assign the Backup Contributor or Backup Reader roles to the Marketing and Sales groups.
-1. Dara can now assign the Backup Contributor or Backup Reader roles to the Marketing and Sales groups.
+1. Alice assigns the Role Based Access Control Administrator role to Dara. Alice adds conditions so that Dara can only add (or remove) Backup Contributor or Backup Reader role assignments to the Marketing and Sales groups.
+1. Dara can now add (or remove) Backup Contributor or Backup Reader role assignments to the Marketing and Sales groups.
 1. If Dara attempts to assign other roles or assign any roles to different principals (such as a user or managed identity), the role assignment fails.
+1. If Dara attempts to remove other role assignments or remove any role assignments from different principals (such as a user or managed identity), the removal fails.
 
 :::image type="content" source="./media/delegate-role-assignments-overview/delegate-role-assignments-conditions-steps.png" alt-text="Diagram that shows an example where Dara can only assign the Backup Contributor or Backup Reader roles to Marketing or Sales groups." lightbox="./media/delegate-role-assignments-overview/delegate-role-assignments-conditions-steps.png":::
 
@@ -91,17 +93,25 @@ Here are the ways that role assignments can be constrained with conditions. You 
 
 - Constrain the **roles** that can be assigned
 
+    In this example, Dara can only assign (or remove) the Backup Contributor or Backup Reader roles.
+
     :::image type="content" source="./media/shared/roles-constrained.png" alt-text="Diagram of role assignments constrained to Backup Contributor and Backup Reader roles." lightbox="./media/shared/roles-constrained.png":::
 
 - Constrain the **roles** and **types of principals** (users, groups, or service principals) that can be assigned roles
+
+    In this example, Dara can only assign (or remove) the Backup Contributor or Backup Reader roles to user or group principal types.
 
     :::image type="content" source="./media/shared/principal-types-constrained.png" alt-text="Diagram of role assignments constrained to Backup Contributor or Backup Reader roles and user or group principal types." lightbox="./media/shared/principal-types-constrained.png":::
 
 - Constrain the **roles** and **specific principals** that can be assigned roles
 
+    In this example, Dara can only assign (or remove) the Backup Contributor or Backup Reader roles to the Marketing and Sales groups.
+
     :::image type="content" source="./media/shared/groups-constrained.png" alt-text="Diagram of role assignments constrained to Backup Contributor or Backup Reader roles and specific groups." lightbox="./media/shared/groups-constrained.png":::
 
 - Specify different conditions for the add and remove **role assignment actions**
+
+    In this example, Dara can only assign the Backup Contributor or Backup Reader roles. Dara can remove any role assignments.
 
     :::image type="content" source="./media/shared/actions-constrained.png" alt-text="Diagram of add and remove role assignments constrained to Backup Contributor or Backup Reader roles." lightbox="./media/shared/actions-constrained.png":::
 
@@ -112,6 +122,7 @@ To delegate role assignment management with conditions, you assign roles as you 
 1. Determine the permissions the delegate needs
 
     - What roles can the delegate assign?
+    - What role assignments can the delegate remove?
     - What types of principals can the delegate assign roles to?
     - Which principals can the delegate assign roles to?
     - Can delegate remove any role assignments?

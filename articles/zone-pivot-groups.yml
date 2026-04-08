@@ -1,5 +1,14 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: estfan
+- id: azure-logic-apps
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: python
+    title: Python
 # Owner: v-mallicka
 - id: backup-client-template-arm-bicep
   title: Clients
@@ -187,6 +196,14 @@ groups:
     title: Visual Studio Code
 # Service-specific groups
 ##### Begin azure-functions
+- id: azure-durable-approach
+  title: Azure Durable approach
+  prompt: Choose whether to use Durable Functions or the Durable Task SDKs
+  pivots:
+  - id: durable-functions
+    title: Durable Functions
+  - id: durable-task-sdks
+    title: Durable Task SDKs
 - id: functions-nodejs-model
   title: Node.js Programming model
   prompt: Choose a programming model
@@ -203,8 +220,6 @@ groups:
     title: Azure Container Apps
   - id: azure-functions
     title: Azure Functions
-  - id: azure-arc
-    title: Azure Arc (preview)
 - id: df-languages
   title: Durable Functions programming languages
   prompt: Choose a programming language or runtime
@@ -259,8 +274,6 @@ groups:
     title: Container Apps
   - id: consumption-plan
     title: Consumption plan
-  - id: azure-arc
-    title: Azure Arc
 - id: dts-runtime
   title: Application languages for Durable Task Scheduler
   prompt: Choose an option
@@ -476,8 +489,6 @@ groups:
     title: Windows
   - id: platform-linux
     title: Linux
-  - id: platform-sphere
-    title: Azure Sphere
 - id: app-service-java-deploy
   title: App Service Java deployment
   prompt: Choose how you want to deploy your Java app
@@ -911,37 +922,6 @@ groups:
     title: Linux
   - id: app-service-bicep-windows-container
     title: Windows container
-# Owner: msangapu
-- id: app-spaces-component-types
-  title: App Spaces components
-  prompt: Select the component type
-  pivots:
-  - id: static
-    title: Static app component (front end)
-  - id: app
-    title: App component (back end)
-  - id: database
-    title: Database
-# Owner: msangapu
-- id: app-spaces-add-component
-  title: App Spaces apps
-  prompt: Add component from
-  pivots:
-  - id: custom
-    title: GitHub repository
-  - id: sample
-    title: Starter app (Template)
-  - id: database
-    title: Database
-# Owner: msangapu
-- id: app-spaces-frontend-backend
-  title: App Spaces apps
-  prompt: Choose an app type
-  pivots:
-  - id: frontend
-    title: Front end (Static Web App)
-  - id: backend
-    title: Back end (Azure Container App)
 # Owner: sipa
 - id: azure-maps-search
   title: Azure Maps search
@@ -982,8 +962,6 @@ groups:
     title: Node.js
   - id: programming-language-python
     title: Python
-  - id: programming-language-java
-    title: Java
 - id: iot-hub-set1
 # Owner: philmea
   title: Programming languages
@@ -2079,3 +2057,12 @@ groups:
     title: Azure CLI
   - id: script
     title: PowerShell script
+# Owner: kendownie
+- id: azure-files-windows-linux
+  title: Operating system
+  prompt: Choose your operating system
+  pivots:
+  - id: windows
+    title: Windows
+  - id: linux
+    title: Linux

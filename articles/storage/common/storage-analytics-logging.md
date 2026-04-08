@@ -56,7 +56,9 @@ You can also enable Storage Analytics logs programmatically via the REST API or 
 - Timeout errors for both client and server
 - Failed GET requests with error code 304 (Not Modified)
 
-  All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
+  All other failed anonymous requests are not logged. This can include requests that present a Shared Access Signature (SAS) but fail validation (for example, a SAS signature mismatch). In these cases, the service can't reliably identify the caller, so the request is treated as anonymous for logging purposes. Also, because Storage Analytics log data written to the `$logs` container is billed to the storage account, logging every invalid/unauthenticated request could enable cost-amplification/abuse scenarios (for example, a malicious client generating large volumes of invalid requests to increase logging volume).
+  
+  A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
 
 > [!NOTE]
 > Storage Analytics logs all internal calls to the data plane. Calls from the Azure Storage Resource Provider are also logged. To identify these requests, look for the query string `<sk=system-1>` in the request URL.

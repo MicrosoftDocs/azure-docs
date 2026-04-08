@@ -5,13 +5,16 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/16/2026
+ms.date: 03/16/2026
 ms.author: anfdocs
 # Customer intent: As a cloud storage administrator, I want to analyze performance and usage metrics for Azure NetApp Files, so that I can optimize storage provisioning and ensure efficient operation of my storage resources.
 ---
 # Metrics for Azure NetApp Files
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume I/OPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
+
+>[!IMPORTANT]
+>These metrics are for the Flexible, Standard, Premium, and Ultra services levels. For Elastic zone-redundant storage, see [Metrics for Azure NetApp Files' Elastic zone-redundant storage](elastic-metrics.md).
 
 ## Definitions 
 
@@ -124,7 +127,7 @@ SMB commands included in **Other IOPS** with opcode value:
 
 Azure NetApp Files metrics are natively integrated into Azure monitor. From within the Azure portal, you can find metrics for Azure NetApp Files capacity pools and volumes from two locations:
 
-- From Azure monitor, select **Metrics**, select a capacity pool or volume. Then select **Metric** to view the available metrics:
+- From [Azure monitor](/azure/azure-monitor/platform/monitor-azure-resource), select **Metrics** then choose a capacity pool or volume. Select **Metric** to view the available metrics:
    
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for capacity pools or volumes." lightbox="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png":::
 
@@ -311,7 +314,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The delay between when data is written to the source volume and when it’s available on the destination volume.
 
 > [!NOTE]
-> When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume won't catch up to the source. To resolve this issue, adjust the replication speed or the replication schedule. 
+> When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume won't catch up to the source. To resolve this issue, adjust the replication schedule. 
 
 - *Volume replication last transfer duration*   
     The time taken for the most recent replication session to transfer all changed data (example: blocks, snapshots) from the source volume to the destination volume. 

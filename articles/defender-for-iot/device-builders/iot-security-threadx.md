@@ -2,7 +2,7 @@
 
 title: Defender-IoT-micro-agent for Eclipse ThreadX overview
 description: Learn more about the Defender-IoT-micro-agent for Eclipse ThreadX support and implementation as part of Microsoft Defender for IoT.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/17/2024
 ---
 

@@ -316,6 +316,19 @@
               href: /defender-xdr/custom-detection-rules?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
             - name: Manage detection rules
               href: /defender-xdr/custom-detection-manage?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        - name: User and Entity Behavior Analytics (UEBA)
+          items:
+            - name: UEBA overview
+              href: identify-threats-with-entity-behavior-analytics.md
+              displayName: User and Entity Behavior Analytics
+            - name: Enable UEBA
+              href: enable-entity-behavior-analytics.md
+            - name: UEBA investigation examples
+              href: investigate-with-ueba.md
+            - name: Aggregate behavioral insights from raw logs
+              href: entity-behaviors-layer.md
+            - name: UEBA data sources and table schemas
+              href: ueba-reference.md
         - name: Data classification with entities
           items:
             - name: Overview
@@ -323,10 +336,6 @@
               displayName: data classification, entities
             - name: Entity pages
               href: entity-pages.md
-            - name: User and entity behavior analytics (UEBA)
-              href: identify-threats-with-entity-behavior-analytics.md
-            - name: Aggregate behavioral insights from raw logs 
-              href: entity-behaviors-layer.md 
             - name: Create custom entity activities
               href: customize-entity-activities.md
         - name: Watchlists
@@ -385,8 +394,6 @@
           href: hunts-custom-queries.md
         - name: Bookmarks
           href: bookmarks.md
-        - name: Livestream
-          href: livestream.md
         - name: Notebooks
           items:
             - name: Overview
@@ -412,8 +419,6 @@
               displayName: close incidents, search incidents, comment on incidents
             - name: Investigate incidents in depth
               href: investigate-incidents.md
-            - name: Tutorial - Investigate with UEBA
-              href: investigate-with-ueba.md
             - name: Relate alerts to incidents
               href: relate-alerts-to-incidents.md
             - name: Create incidents manually
@@ -515,6 +520,8 @@
               href: automation/use-playbook-templates.md
             - name: Create and manage playbooks
               href: automation/create-playbooks.md
+            - name: Generate playbooks using AI
+              href: automation/generate-playbook.md
             - name: Supported triggers and actions in playbooks
               href: automation/playbook-triggers-actions.md
             - name: Azure Logic Apps for Microsoft Sentinel playbooks
@@ -591,11 +598,37 @@
     - name: Microsoft Sentinel data lake overview
       href: datalake/sentinel-lake-overview.md
       displayName: data lake
-    - name: Microsoft Sentinel graph overview
-      href: datalake/sentinel-graph-overview.md
-    - name: Compare KQL jobs, summary rules, and search jobs
-      href: datalake/kql-jobs-summary-rules-search-jobs.md
-      displayName: data lake
+    - name: Data federation in the Microsoft Sentinel data lake
+      items:
+        - name: Overview
+          href: datalake/data-federation-overview.md
+          displayName: data lake
+        - name: Set up federated tables
+          href: datalake/data-federation-setup.md
+          displayName: data lake
+        - name: Using federated tables
+          href: datalake/using-data-federation.md
+          displayName: data lake  
+    - name: Microsoft Sentinel graph
+      items:
+        - name: Microsoft Sentinel graph overview
+          href: datalake/sentinel-graph-overview.md
+        - name: Graph visualization
+          href: datalake/graph-visualization.md 
+        - name: Microsoft Sentinel custom graphs
+          items:
+            - name: Custom graphs overview
+              href: datalake/custom-graphs-overview.md
+            - name: Create custom graphs
+              href: datalake/create-custom-graphs.md
+            - name: Microsoft Sentinel graph provider reference
+              href: datalake/sentinel-graph-provider-reference.md
+            - name: Create custom graph using AI 
+              href: datalake/create-graphs-with-ai.md 
+            - name: GQL reference for Sentinel custom graph
+              href: datalake/gql-reference-for-sentinel-custom-graph.md
+            - name: Graph REST API
+              href: datalake/graph-rest-api.md
     - name: Microsoft Sentinel MCP server
       items:
         - name: Microsoft Sentinel MCP server overview
@@ -612,8 +645,8 @@
             href: datalake/sentinel-mcp-use-tool-azure-ai-foundry.md
           - name: Use Sentinel MCP tools in Visual Studio Code
             href: datalake/sentinel-mcp-use-tool-visual-studio-code.md
-          - name: Use Sentinel MCP connector in ChatGPT
-            href: datalake/sentinel-mcp-chatgpt-connector.md
+          - name: Use MCP connector in ChatGPT or Claude
+            href: datalake/sentinel-mcp-chatgpt-claude-connector.md
         - name: Tool collection in Microsoft Sentinel MCP
           items:
           - name: Overview
@@ -642,6 +675,9 @@
         - name: Run KQL queries
           href: datalake/kql-queries.md
           displayName: data lake
+        - name: KQL using the API
+          href: datalake/kql-queries-api.md
+          displayName: data lake  
         - name: Sample KQL queries
           href: datalake/kql-sample-queries.md
           displayName: data lake KQL
@@ -651,8 +687,14 @@
         - name: Manage KQL jobs
           href: datalake/kql-manage-jobs.md
           displayName: data lake
+        - name: Compare KQL jobs, summary rules, and search jobs
+          href: datalake/kql-jobs-summary-rules-search-jobs.md
+          displayName: data lake
         - name: Troubleshoot KQL for the lake
           href: datalake/kql-troubleshoot.md
+          displayName: data lake
+        - name: Workbooks for Microsoft Sentinel data lake
+          href: datalake/workbooks-for-data-lake.md
           displayName: data lake
     - name: Notebooks for data lake exploration
       items:
@@ -672,7 +714,6 @@
           href: datalake/notebook-examples.md
     - name: Microsoft Sentinel data lake service limits
       href: datalake/sentinel-lake-service-limits.md
-
 - name: Collect and manage data
   items:
     - name: Overview
@@ -712,6 +753,8 @@
               href: connect-services-windows-based.md
         - name: Azure Functions API connection
           href: connect-azure-functions-template.md
+        - name: Azure Storage blob connectors 
+          href: setup-azure-storage-connector.md                  
         - name: CEF/Syslog
           items:
             - name: Overview
@@ -808,6 +851,8 @@
         - name: Manage tables, tiers, and retention
           href: manage-table-tiers-retention.md
           displayName: table management, tiers, retention, tables
+        - name: Data transformation using filter and split
+          href: transformation-filter-split.md
 
 - name: SOC optimizations
   items:
@@ -886,8 +931,13 @@
       href: solution-setup-essentials.md      
     - name: Sentinel SIEM content 
       items:
+      - name: Create custom connectors using AI agent in Microsoft Sentinel
+        href: create-custom-connector-builder-agent.md
+        displayName: custom sentinel connector agent
       - name: Creating codeless data connectors (CCF)
         href: create-codeless-connector.md
+      - name: Creating push codeless data connectors (CCF)
+        href: create-push-codeless-connector.md
       - name: Creating analytics rules
         href: sentinel-analytic-rules-creation.md
       - name: Creating hunting queries
@@ -947,6 +997,8 @@
               href: ../role-based-access-control/built-in-roles.md
             - name: Microsoft Sentinel roles
               href: ../role-based-access-control/built-in-roles.md#security
+            - name: Configure Microsoft Sentinel scoping (row-level RBAC)
+              href: scoping.md
     - name: Advanced Security Information Model (ASIM)
       items:
         - name: ASIM content
@@ -961,6 +1013,8 @@
           href: normalization-known-issues.md
         - name: ASIM entities
           items:
+            - name: ASIM asset entity schema
+              href: normalization-schema-asset.md
             - name: ASIM user entity
               href: normalization-entity-user.md
             - name: ASIM device entity
@@ -975,10 +1029,10 @@
               href: normalization-schema-audit.md
             - name: ASIM authentication schema
               href: normalization-schema-authentication.md
-            - name: ASIM DNS schema
-              href: normalization-schema-dns.md
             - name: ASIM DHCP schema
               href: normalization-schema-dhcp.md
+            - name: ASIM DNS schema
+              href: normalization-schema-dns.md
             - name: ASIM file event schema
               href: normalization-schema-file-event.md
             - name: ASIM network session schema
@@ -1003,8 +1057,12 @@
       items:
         - name: Data source schema reference
           href: data-source-schema-reference.md
+        - name: Sentinel tables and connectors
+          href: sentinel-tables-connectors-reference.md
         - name: Security alert schema reference
           href: security-alert-schema.md
+        - name: Standalone vs XDR alert schema reference
+          href: security-alert-schema-differences.md
         - name: CEF log field mapping
           href: cef-name-mapping.md
         - name: Windows security event sets
@@ -1017,6 +1075,14 @@
           href: data-connector-connection-rules-reference.md
         - name: GCP data connectors API reference
           href: data-connection-rules-reference-gcp.md
+        - name: Azure Storage Blob data connectors
+          items:
+            - name: Azure Storage Blob data connector reference
+              href: data-connection-rules-reference-azure-storage.md
+            - name: Enable network security for Azure Storage Blob data connector
+              href: enable-storage-network-security.md
+            - name: Troubleshoot Azure Storage Blob connector issues
+              href: azure-storage-blob-connector-troubleshoot.md  
         - name: Sample API requests for creating Data Collection Rules (DCRs)
           href: api-dcr-reference.md
         - name: Microsoft Purview Information Protection reference

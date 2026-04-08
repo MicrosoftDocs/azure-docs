@@ -293,9 +293,37 @@ az network routeserver peering show --name 'myNVA' --resource-group 'myResourceG
 
 
 ---
+## View routes that Route Server learns
+
+Navigate to **Effective Routes** under **Routing** to see the list of effective routes that Route Server learns from ExpressRoute connections, VPN connections, NVA BGP peers, and spoke virtual networks. 
+
+### <a name="output"></a>View output
+
+The page output shows the following fields:
+
+* **Prefix**: Address prefix known to the current entity (learned from Route Server)
+* **Next hop type**: Can be VPN, HubBgpConnection (NVA BGP peers), Virtual Network Connection, or ExpressRoute.
+* **Next hop**: This is the IP address of the next hop (For virtual network connections, this will be "on-link". For ExpressRoute, this will be the IP address of the Microsoft Enterprise Edge Router)
+* **Origin**: Link to the resource ID of the next hop (This will be empty for Virtual Network Connections)
+* **AS Path**: BGP Attribute AS (autonomous system) path lists all the AS numbers that need to be traversed to reach the location where the prefix that the path is attached to, is advertised from.
 
 
-## View advertised and learned routes
+### <a name="example"></a>Example
+
+The values in the following example table imply that Route Server has learned the route of 10.2.0.0/24 (a branch prefix). It has learned the route due to the **VPN Next hop type** VPN with **Next hop** VPN Gateway IP address. **Origin** points to the resource ID of the originating VPN gateway/Connection. **AS Path** indicates the AS Path for the branch.
+
+Use the scroll bar at the bottom of the table to view the 'AS Path'.
+
+| **Prefix** |  **Next hop type** | **Next hop** |  **Origin** |**AS Path** |
+| ---        | ---                | ---          | ---               | ---         |
+| 10.2.0.0/24 | VPN | 10.0.2.14 | /subscriptions/`<sub id>`/resourceGroups/`<resource group name>`/providers/Microsoft.Network/virtualNetworkGateways/vpngw | 20000 | 
+
+
+> [!NOTE]
+> If a spoke VNet is peered with "use remote gateway" disabled, the spoke VNet's address range may still get advertised to on-premises even if the prefix does not appear in the **Effective Routes**.
+>
+
+### <a name="view-advertised-and-learned-routes"></a> View advertised and learned routes to BGP peers
 
 In this section, you learn how to view the routes that your route server advertises to BGP peers and the routes it learns from those peers. This information is useful for troubleshooting routing issues and understanding traffic flow.
 

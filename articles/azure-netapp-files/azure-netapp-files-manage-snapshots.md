@@ -5,13 +5,13 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/25/2025
+ms.date: 11/14/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud administrator, I want to create on-demand snapshots for volumes in Azure NetApp Files, so that I can ensure data protection and quick recovery options for my applications."
 ---
 # Create an on-demand snapshot for a volume using Azure NetApp Files
 
-Azure NetApp Files supports creating on-demand [snapshots](snapshots-introduction.md) and using snapshot policies to schedule automatic snapshot creation. You can also restore a [snapshot to a new volume](snapshots-restore-new-volume.md), [restore a single file by using a client](snapshots-restore-file-client.md), or [revert an existing volume by using a snapshot](snapshots-revert-volume.md). This article explains how to create an on-demand snapshot for a volume. 
+Azure NetApp Files supports creating on-demand [snapshots](snapshots-introduction.md) and using snapshot policies to schedule automatic snapshot creation. You can also restore a [snapshot to a new volume](snapshots-restore-new-volume.md), [restore a single file by using a client](snapshots-restore-file-client.md), or [revert an existing volume by using a snapshot](snapshots-revert-volume.md).
 
 > [!NOTE] 
 > * For considerations about snapshot management in cross-region replication, see [Requirements and considerations for using cross-region replication](replication-requirements.md).
@@ -27,11 +27,11 @@ Azure NetApp Files supports creating on-demand [snapshots](snapshots-introductio
 
     ![Screenshot that shows how to add a snapshot.](./media/azure-netapp-files-manage-snapshots/azure-netapp-files-add-snapshot.png)
 
-3.	In the New Snapshot window, provide a name for the new snapshot that you are creating.   
+3.	In the New Snapshot window, enter a name for the new snapshot that you are creating.   
 
     ![Screenshot that shows the New Snapshot window.](./media/azure-netapp-files-manage-snapshots/azure-netapp-files-new-snapshot.png)
 
-4. Select **OK**. 
+4. Select **Create**. 
 
 ## Next steps
 

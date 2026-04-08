@@ -2,7 +2,7 @@
 title: Restore Azure PostgreSQL-Flexible server as Files using Azure portal
 description: Learn about how to restore Azure PostgreSQL-Flexible server as Files.
 ms.topic: how-to
-ms.date: 10/08/2025
+ms.date: 01/30/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -36,7 +36,7 @@ To restore Azure PostgreSQL-Flexible database, Follow these steps:
 
 1. Go to **Backup vault** > **Backup Instances**. Select the PostgreSQL - Flexible server to be restored and select **Restore**.
 
-   Alternatively, go to [Backup center](./backup-center-overview.md) and select **Restore**.	  
+   Alternatively, go to [Resiliency](../resiliency/resiliency-overview.md) and select **Restore**.	  
   
 1. Select the point in time you would like to restore by using **Select restore point**. Change the date range by selecting **Time period**.
 

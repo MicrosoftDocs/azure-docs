@@ -34,7 +34,21 @@ In Xcode, create a new iOS project and select the Single View App template. This
 
 :::image type="content" source="../../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
-### Installing CocoaPods
+
+### Install Calling SDK using Swift Package Manager [Recommended]
+
+Swift Package Manager is now the recommended installation method for the Azure Communication Calling SDK. CocoaPods support is being deprecated and will be removed in future versions.
+If you prefer to use Swift Package Manager, you can add the Azure Communication Calling SDK directly to your Xcode project.
+
+Installation Steps
+1. In Xcode, go to File > Add Package Dependencies...
+2. Enter the following repository URL: [https://github.com/Azure/SwiftPM-AzureCommunicationCalling](https://github.com/Azure/SwiftPM-AzureCommunicationCalling)
+3. For Dependency Rule, select Exact Version and enter: 2.18.1
+4. Click Add Package
+5. Select the AzureCommunicationCalling product and add it to your target
+
+
+### Installing Calling SDK using CocoaPods [Alternative]
 
 Use this guide to [install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) on your Mac.
 
@@ -56,18 +70,6 @@ end
 3. Run pod install.
 
 4. Open the `.xcworkspace` with Xcode.
-
-### Using Swift Package Manager [Recommended]
-
-Swift Package Manager is now the recommended installation method for the Azure Communication Calling SDK. CocoaPods support is being deprecated and will be removed in future versions.
-If you prefer to use Swift Package Manager, you can add the Azure Communication Calling SDK directly to your Xcode project.
-
-Installation Steps
-1. In Xcode, go to File > Add Package Dependencies...
-2. Enter the following repository URL: [https://github.com/Azure/SwiftPM-AzureCommunicationCalling](https://github.com/Azure/SwiftPM-AzureCommunicationCalling)
-3. For Dependency Rule, select Exact Version and enter: 2.17.0-beta.3
-4. Click Add Package
-5. Select the AzureCommunicationCalling product and add it to your target
 
 
 ### Using XCFramework directly

@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 09/25/2025
+ms.date: 02/24/2026
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -14,11 +14,11 @@ zone_pivot_groups: front-door-tiers
 
 Azure Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to the Front Door. Then, Front Door uses your configuration to determine the origin to send the traffic to. The Front Door web application firewall, routing rules, rules engine, and caching configuration can all affect the routing process.
 
-The following diagram illustrates the routing architecture:
-
 ::: zone pivot="front-door-standard-premium"
 
-![Diagram that shows the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/routing-process-standard-premium.png)
+The following diagram illustrates the routing architecture:
+
+:::image type="content" source="media/front-door-routing-architecture/routing-process-standard-premium.png" alt-text="Diagram that shows the Front Door routing architecture, including each step and decision point." lightbox="media/front-door-routing-architecture/routing-process-standard-premium.png":::
 
 ::: zone-end
 
@@ -26,19 +26,23 @@ The following diagram illustrates the routing architecture:
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-![Diagram that shows the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/routing-process-classic.png)
+The following diagram illustrates the routing architecture:
+
+:::image type="content" source="media/front-door-routing-architecture/routing-process-classic.png" alt-text="Diagram that shows the Front Door routing architecture, including each step and decision point." lightbox="media/front-door-routing-architecture/routing-process-classic.png":::
 
 ::: zone-end
 
 The following sections describe these steps in detail.
 
-## Select and connect to the Front Door edge location
-
-The user or client application initiates a connection to the Front Door. The connection terminates at an edge location closest to the end user. Front Door's edge location processes the request.
-
-For more information about how requests are made to Front Door, see [Front Door traffic acceleration](front-door-traffic-acceleration.md).
-
 ::: zone pivot="front-door-standard-premium"
+
+## Name resolution by Azure Front Door's Traffic Manager profile returns PoP unicast IP
+
+The user or client application initiates a connection to the origin behind Azure Front Door. The domain name resolves to the Front Door's Azure Traffic Manager endpoint. The Traffic Manager consumes health and availability signals from all the Front Door PoPs across the world. It determines the optimal PoP to serve the request and returns the unicast IP of that PoP.
+
+## Connect to Azure Front Door PoP Unicast IP
+
+Client makes a direct connection to the returned IP address of the Front Door PoP location.
 
 ## Match request to a Front Door profile
 
@@ -47,6 +51,12 @@ When Front Door receives an HTTP request, it uses the request's `Host` header to
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+## Select and connect to the Front Door edge location
+
+The user or client application initiates a connection to the Front Door. The connection terminates at an edge location closest to the end user. Front Door's edge location processes the request.
+
+For more information about how requests are made to Front Door, see [Front Door traffic acceleration](front-door-traffic-acceleration.md).
 
 ## Match request to a front door
 

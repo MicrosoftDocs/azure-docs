@@ -10,7 +10,7 @@ ms.date: 04/06/2025
 
 This article serves as an archive for OT monitoring software versions released for Microsoft Defender for IoT for organizations more than six months ago.
 
-For more recent updates, see [OT monitoring software versions in Microsoft Defender for IoT?](release-notes.md).
+For more recent updates, see [OT monitoring software versions in Microsoft Defender for IoT?](release-notes.md)
 
 Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 

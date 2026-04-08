@@ -1,7 +1,7 @@
 ---
 title: Java developer reference for Azure Functions
 description: Understand how to develop functions with Java.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/04/2025
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

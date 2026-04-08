@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 200">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0078d4"/>
+    </marker>
+  </defs>
+  
+  <rect width="680" height="200" fill="#fafafa"/>
+  
+  <!-- Title -->
+  <text x="340" y="20" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="600" fill="#333">Knowledge Base Sources</text>
+  
+  <!-- Upload Section -->
+  <rect x="30" y="40" width="200" height="140" rx="8" fill="#e1f5fe" stroke="#0288d1" stroke-width="2" filter="url(#shadow)"/>
+  <text x="130" y="62" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#01579b">Upload Documents</text>
+  <text x="130" y="78" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#0277bd">Builder → Knowledge base</text>
+  <line x1="50" y1="85" x2="210" y2="85" stroke="#b3e5fc" stroke-width="1"/>
+  <text x="50" y="102" font-family="Segoe UI, Arial" font-size="8" fill="#0277bd">📄 Runbooks (.md, .txt)</text>
+  <text x="50" y="117" font-family="Segoe UI, Arial" font-size="8" fill="#0277bd">📄 Architecture guides</text>
+  <text x="50" y="132" font-family="Segoe UI, Arial" font-size="8" fill="#0277bd">📄 On-call playbooks</text>
+  <text x="50" y="147" font-family="Segoe UI, Arial" font-size="8" fill="#0277bd">📄 API documentation</text>
+  <text x="50" y="162" font-family="Segoe UI, Arial" font-size="8" fill="#0277bd">📄 Team procedures</text>
+  
+  <!-- Connector Section -->
+  <rect x="250" y="40" width="200" height="140" rx="8" fill="#fff3e0" stroke="#f57c00" stroke-width="2" filter="url(#shadow)"/>
+  <text x="350" y="62" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#e65100">MCP Connectors</text>
+  <text x="350" y="78" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#bf360c">Settings → Connectors</text>
+  <line x1="270" y1="85" x2="430" y2="85" stroke="#ffe0b2" stroke-width="1"/>
+  <text x="270" y="102" font-family="Segoe UI, Arial" font-size="8" fill="#bf360c">🔗 Azure DevOps wikis</text>
+  <text x="270" y="117" font-family="Segoe UI, Arial" font-size="8" fill="#bf360c">🔗 GitHub repos and wikis</text>
+  <text x="270" y="132" font-family="Segoe UI, Arial" font-size="8" fill="#bf360c">🔗 Microsoft Learn docs</text>
+  <text x="270" y="147" font-family="Segoe UI, Arial" font-size="8" fill="#bf360c">🔗 Confluence pages</text>
+  <text x="270" y="162" font-family="Segoe UI, Arial" font-size="8" fill="#bf360c">🔗 Custom MCP servers</text>
+  
+  <!-- Arrows to center -->
+  <path d="M230 110 L475 110" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Knowledge Base -->
+  <rect x="485" y="55" width="170" height="110" rx="10" fill="#ff8f00" filter="url(#shadow)"/>
+  <text x="570" y="85" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="700" fill="white">Agent's</text>
+  <text x="570" y="102" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="700" fill="white">Knowledge Base</text>
+  <text x="570" y="125" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#fff8e1">Searched via</text>
+  <text x="570" y="140" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#fff8e1">SearchMemory</text>
+  <text x="570" y="155" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#fff8e1">+ citations</text>
+</svg>

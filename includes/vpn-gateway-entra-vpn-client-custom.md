@@ -27,3 +27,4 @@ If your P2S configuration uses a custom audience with your Microsoft-registered 
       <applicationid>c632b3df-fb67-4d84-bdcf-b95ad541b5c8</applicationid> 
    </aad>
    ```
+For Windows Azure VPN Client profiles, an additional field for Device Single Sign On (SSO) is enabled for ease of user authentication. Read more on [Azure VPN Client and Device SSO](../articles/vpn-gateway/point-to-site-entra-vpn-client-windows-device-sso.md).

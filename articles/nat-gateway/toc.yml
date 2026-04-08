@@ -13,10 +13,12 @@ items:
         href: nat-gateway-resource.md
       - name: NAT Gateway SKUs
         href: nat-sku.md
+      - name: Migrate NAT Gateway to Standard V2
+        href: nat-gateway-v2-migrate.md
   - name: Reliability
     items:
       - name: Reliability in Azure NAT Gateway
-        href: ../reliability/reliability-nat-gateway.md?toc=/azure/nat-gateway/toc.json&bc=/azure/nat-gateway/breadcrumb/toc.json
+        href: /azure/reliability/reliability-nat-gateway?toc=/azure/nat-gateway/toc.json&bc=/azure/nat-gateway/breadcrumb/toc.json
   - name: Deploy
     items:
       - name: NAT gateway design guidance

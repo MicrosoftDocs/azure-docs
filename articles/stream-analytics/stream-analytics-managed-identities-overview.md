@@ -4,7 +4,7 @@ description: This article describes managed identities for Azure Stream Analytic
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 10/27/2022
 ---
 

@@ -27,7 +27,7 @@ IoT devices differ from other clients such as browsers and mobile apps in severa
 
 - They are often embedded systems with no human operator, such as a sensor or an actuator.
 - They can be deployed in remote locations where physical access is expensive, difficult, or impossible. For example, sensors in a wind farm or an oil rig.
-- They might only be reachable through the solution back end, not directly from the internet. For example, a device behind a firewall or on a private network.
+- They might only be reachable through your cloud services, not directly from the internet. For example, a device behind a firewall or on a private network.
 - They might have limited power and processing resources, such as a battery-powered asset tracker.
 - They might have intermittent, slow, or expensive network connectivity, such as a device connected over a cellular network.
 - They might need to use proprietary, custom, or industry-specific application protocols, such as MQTT or AMQP.
@@ -43,31 +43,31 @@ IoT Hub supports two methods of authentication between the device and the IoT hu
 
 You can set up and provision many devices at a time using the [IoT Hub Device Provisioning Service](../iot-dps/index.yml).
 
-For more information, see [Device management and control](../iot/iot-overview-device-management.md).
+For more information, see [Device management and control](/previous-versions/azure/iot/iot-overview-device-management).
 
 ## Device communication patterns
 
 The internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports TLS 1.2, 1.1, and 1.0 (for backward compatibility). Check [TLS support in IoT Hub](iot-hub-tls-support.md) to see how to configure your hub to use TLS 1.2, which provides the most security.
 
-With IoT Hub, you can send information both from the device app to the solution back end and from the back end to the device app. IoT Hub provides reliable messaging and ensures that messages are delivered even in the presence of network interruptions. For more information, see [Device-to-cloud communication](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communication](iot-hub-devguide-c2d-guidance.md).
+With IoT Hub, you can send information both from the device app to your cloud services and from your cloud services to the device app. IoT Hub provides reliable messaging and ensures that messages are delivered even in the presence of network interruptions. For more information, see [Device-to-cloud communication](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communication](iot-hub-devguide-c2d-guidance.md).
 
 Examples of device communication include:
 
 - A refrigeration truck sending temperature every 5 minutes to an IoT hub. 
-- A back-end service sending a command to a device to change the frequency at which it sends data to help diagnose a problem.
+- A cloud service sending a command to a device to change the frequency at which it sends data to help diagnose a problem.
 - A device monitoring a batch reactor in a chemical plant sending an alert when the temperature exceeds a certain value.
 
 ### Send telemetry from devices
 
-IoT hubs can receive telemetry from devices and route it to the appropriate back-end services. Examples of telemetry received from a device can include sensor data such as speed or temperature, an error message such as missed event, or an information message to indicate the device is in good health. IoT devices send events to an application to gain insights. Applications might require specific subsets of events for processing or storage at different endpoints.
+IoT hubs can receive telemetry from devices and route it to the appropriate cloud services. Examples of telemetry received from a device can include sensor data such as speed or temperature, an error message such as missed event, or an information message to indicate the device is in good health. IoT devices send events to an application to gain insights. Applications might require specific subsets of events for processing or storage at different endpoints.
 
-For more information, see [Device infrastructure and connectivity](../iot/iot-overview-device-connectivity.md).
+For more information, see [Device infrastructure and connectivity](/previous-versions/azure/iot/iot-overview-device-connectivity).
 
 ### Add device properties
 
 Properties can be read or set from the IoT hub and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. Temperature can be a writable property that can be updated on the device or read from a temperature sensor attached to the device.
 
-You can enable properties in IoT Hub using [Device twins](iot-hub-devguide-device-twins.md) or [Plug and Play](../iot/overview-iot-plug-and-play.md).
+You can enable properties in IoT Hub using [Device twins](iot-hub-devguide-device-twins.md) or [Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play).
 
 ### Issue commands to devices
 
@@ -80,7 +80,7 @@ Devices send data to IoT Hub, which acts as a central message hub for bi-directi
 IoT Hub gives you the ability to unlock the value of your device data with other Azure services so you can shift to predictive problem-solving rather than reactive management. Connect your IoT hub with other Azure services to do machine learning, analytics, and AI to act on real-time data, optimize processing, and gain deeper insights.
 
 > [!NOTE]
-> Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../reliability/cross-region-replication-azure.md).
+> Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](/azure/reliability/cross-region-replication-azure).
 
 ### Built-in endpoint collects device data by default
 

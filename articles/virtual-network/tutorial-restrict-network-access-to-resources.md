@@ -5,7 +5,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: tutorial
-ms.date: 08/15/2024
+ms.date: 02/20/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -58,11 +58,96 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
-## Enable a service endpoint
-
 ### [Portal](#tab/portal)
 
-[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
+## Create a resource group
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a resource group**, enter, or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Enter **test-rg**. |
+    | Region | Select **East US 2**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+## Create a virtual network
+
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+1. Select **+ Create**.
+
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **vnet-1**. |
+    | Region | Select **East US 2**. |
+
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP Addresses** tab.
+
+1. In the address space box in **Subnets**, select the **default** subnet.
+
+1. In **Edit subnet**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-1**. |
+    | Starting address | Leave the default of **10.0.0.0**. |
+    | Subnet size | Leave the default of **/24 (256 addresses)**. |
+
+1. Select **Save**.
+
+1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
+
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+
+> [!NOTE]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a Bastion**, enter, or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **bastion**. |
+    | Region | Select **East US 2**. |
+    | Tier | Select **Developer**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **vnet-1**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+## Enable a service endpoint
 
 Service endpoints are enabled per service, per subnet. 
 
@@ -147,7 +232,7 @@ Service endpoints are enabled per service, per subnet.
 
 ## Deploy Azure Bastion
 
-Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
+Azure Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Bastion, see [What is Azure Bastion?](/azure/bastion/bastion-overview)
 
  [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
@@ -182,7 +267,7 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over S
     New-AzPublicIpAddress @ip
     ```
 
-1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new standard Bastion host in **AzureBastionSubnet**:
+1. Use the [New-AzBastion](/powershell/module/az.network/new-azbastion) command to create a new Basic SKU Bastion host in **AzureBastionSubnet**:
 
     ```azurepowershell-interactive
     $bastion = @{
@@ -239,6 +324,39 @@ Azure Bastion uses your browser to connect to VMs in your virtual network over S
       --name subnet-private \
       --address-prefix 10.0.1.0/24 \
       --service-endpoints Microsoft.Storage
+    ```
+
+1. Create a Bastion subnet with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
+
+    ```azurecli-interactive
+    az network vnet subnet create \
+      --vnet-name vnet-1 \
+      --resource-group test-rg \
+      --name AzureBastionSubnet \
+      --address-prefix 10.0.2.0/26
+    ```
+
+1. Create a public IP address for the Azure Bastion host with [az network public-ip create](/cli/azure/network/public-ip).
+
+    ```azurecli-interactive
+    az network public-ip create \
+      --resource-group test-rg \
+      --name public-ip-bastion \
+      --sku Standard \
+      --location westus2
+    ```
+
+1. Create an Azure Bastion host with [az network bastion create](/cli/azure/network/bastion).
+
+    ```azurecli-interactive
+    az network bastion create \
+      --resource-group test-rg \
+      --name bastion \
+      --vnet-name vnet-1 \
+      --public-ip-address public-ip-bastion \
+      --location westus2 \
+      --sku Basic \
+      --no-wait
     ```
 
 ---
@@ -492,7 +610,28 @@ az network nsg create \
 
 The steps required to restrict network access to resources created through Azure services, which are enabled for service endpoints vary across services. See the documentation for individual services for specific steps for each service. The rest of this tutorial includes steps to restrict network access for an Azure Storage account, as an example.
 
-[!INCLUDE [create-storage-account.md](~/reusable-content/ce-skilling/azure/includes/create-storage-account.md)]
+### Create a storage account
+
+1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
+
+1. Select **+ Create**.
+
+1. On the **Basics** tab of **Create a storage account**, enter, or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Storage account name | Enter a unique name. This tutorial uses **storage1**. If the name is unavailable, enter a unique name. |
+    | Location | Select **(US) East US 2**. |
+    | Performance | Leave the default **Standard**. |
+    | Redundancy | Select **Locally-redundant storage (LRS)**. |
+
+1. Select **Review**.
+
+1. Select **Create**.
 
 ### [PowerShell](#tab/powershell)
 
@@ -713,7 +852,56 @@ To restrict network access to a subnet:
 
 To test network access to a storage account, deploy a virtual machine to each subnet.
 
-[!INCLUDE [create-test-virtual-machine.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine.md)]
+### Create the first virtual machine
+
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+1. Select **+ Create** then **Azure virtual machine**.
+
+1. In **Create a virtual machine** enter, or select the following information in the **Basics** tab:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **vm-1**. |
+    | Region | Select **(US) East US 2**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Security type | Select **Standard**. |
+    | Image | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
+    | VM architecture | Leave the default of **x64**. |
+    | Size | Select a size. |
+    | **Administrator account** |  |
+    | Authentication type | Select **SSH public key**. |
+    | Username | Enter a username. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter **vm-1-key**. |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **None**. |
+
+1. Select **Next: Disks** then **Next: Networking**.
+
+1. In the Networking tab, enter, or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network interface** |  |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | Select **subnet-1 (10.0.0.0/24)**. |
+    | Public IP | Select **None**. |
+    | Network interface (NIC) network security group | Select **Advanced**. |
+    | Configure network security group | Select **Create new**.</br> In **Name** enter **nsg-1**.</br> Select **OK**. |
+
+1. Leave the rest of the options at the defaults and select **Review + create**.
+
+1. Select **Create**.
+
+> [!NOTE]
+> Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
+
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ### Create the second virtual machine
 
@@ -722,9 +910,11 @@ To test network access to a storage account, deploy a virtual machine to each su
     | Setting | Value |
     | ------- | ----- |
     | Virtual machine name | Enter **vm-private**. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter **vm-private-key**. |
     | Subnet | Select **subnet-private**. |
     | Public IP | Select **None**. |
-    | NIC network security group | Select **None**. |
+    | Network interface (NIC) network security group | Select **None**. |
 
     > [!WARNING]
     > Do not continue to the next step until the deployment is completed.
@@ -733,16 +923,21 @@ To test network access to a storage account, deploy a virtual machine to each su
 
 ### Create the first virtual machine
 
-Create a virtual machine in the *subnet-public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). When running the command that follows, you're prompted for credentials. The values that you enter are configured as the user name and password for the VM.
+Create a virtual machine in the *subnet-public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
+$cred = New-Object System.Management.Automation.PSCredential("azureuser", (ConvertTo-SecureString " " -AsPlainText -Force))
 $vm1 = @{
     ResourceGroupName = "test-rg"
     Location = "westus2"
     VirtualNetworkName = "vnet-1"
     SubnetName = "subnet-public"
     Name = "vm-public"
-    PublicIpAddressName  = $null
+    Image = "Ubuntu2204"
+    Credential = $cred
+    PublicIpAddressName = ""
+    GenerateSshKey = $true
+    SshKeyName = "vm-public-key"
 }
 New-AzVm @vm1
 ```
@@ -758,7 +953,11 @@ $vm2 = @{
     VirtualNetworkName = "vnet-1"
     SubnetName = "subnet-private"
     Name = "vm-private"
-    PublicIpAddressName = $null
+    Image = "Ubuntu2204"
+    Credential = $cred
+    PublicIpAddressName = ""
+    GenerateSshKey = $true
+    SshKeyName = "vm-private-key"
 }
 New-AzVm @vm2
 ```
@@ -840,129 +1039,98 @@ The virtual machine you created earlier that is assigned to the **subnet-private
 
 1. Select **Bastion** in **Operations**.
 
-1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
+1. Select **SSH Private Key from Local File** for **Authentication Type**.
 
-1. Open Windows PowerShell. Use the following script to map the Azure file share to drive Z. 
+1. Enter the username you specified when creating the virtual machine.
+
+1. Select the **vm-private-key** private key file you downloaded.
+
+1. Select **Connect**.
+
+1. Use the following commands to mount the Azure file share. 
 
     * Replace `<storage-account-key>` with the key you copied in the previous step. 
 
     * Replace `<storage-account-name>` with the name of your storage account. In this example, it's **storage8675**.
 
-   ```powershell
-    $key = @{
-        String = "<storage-account-key>"
-    }
-    $acctKey = ConvertTo-SecureString @key -AsPlainText -Force
-    
-    $cred = @{
-        ArgumentList = "Azure\<storage-account-name>", $acctKey
-    }
-    $credential = New-Object System.Management.Automation.PSCredential @cred
+   ```bash
+    sudo mkdir /mnt/file-share
 
-    $map = @{
-        Name = "Z"
-        PSProvider = "FileSystem"
-        Root = "\\<storage-account-name>.file.core.windows.net\file-share"
-        Credential = $credential
-    }
-    New-PSDrive @map
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/file-share /mnt/file-share -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
    ```
 
-   PowerShell returns output similar to the following example output:
+1. You receive the `$` prompt with no errors. The Azure file share successfully mounted to **/mnt/file-share**.
+
+1. Confirm the mount by running the following command:
+
+   ```bash
+    df -h /mnt/file-share
+   ```
+
+   You should see output similar to the following:
 
    ```output
-   Name        Used (GB)     Free (GB) Provider      Root
-   ----        ---------     --------- --------      ----
-   Z                                      FileSystem    \\storage8675.file.core.windows.net\f...
+   Filesystem                                       Size  Used Avail Use% Mounted on
+   //<storage-account-name>.file.core.windows.net/file-share  5.0G   0   5.0G   0% /mnt/file-share
    ```
-
-   The Azure file share successfully mapped to the Z drive.
 
 1. Close the Bastion connection to **vm-private**.
 
 ### [PowerShell](#tab/powershell)
 
-The virtual machine you created earlier that is assigned to the **subnet-private** subnet is used to confirm access to the storage account. The virtual machine you created in the previous section that is assigned to the **subnet-1** subnet is used to confirm that access to the storage account is blocked.
-
-### Get storage account access key
-
-1. Sign-in to the [Azure portal](https://portal.azure.com/).
-
-1. In the search box at the top of the portal, enter **Storage account**. Select **Storage accounts** in the search results.
-
-1. In **Storage accounts**, select your storage account.
-
-1. In **Security + networking**, select **Access keys**.
-
-1. Copy the value of **key1**. You might need to select the **Show** button to display the key.
-
-    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/storage-account-access-key.png" alt-text="Screenshot of storage account access key.":::
-
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 1. Select **vm-private**.
 
-1. Select **Connect** then **Connect via Bastion** in **Overview**.
+1. Select **Bastion** in **Operations**.
 
-1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
+1. Select **SSH Private Key from Local File** for **Authentication Type**.
 
-1. Open Windows PowerShell. Use the following script to map the Azure file share to drive Z. 
+1. Enter the username you specified when creating the virtual machine.
 
-    * Replace `<storage-account-key>` with the key you copied in the previous step. 
+1. Select the SSH private key file from your local machine.
+
+1. Select **Connect**.
+
+1. Use the following commands to mount the Azure file share. 
+
+    * Replace `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account). 
 
     * Replace `<storage-account-name>` with the name of your storage account. In this example, it's **storage8675**.
 
-   ```powershell
-    $key = @{
-        String = "<storage-account-key>"
-    }
-    $acctKey = ConvertTo-SecureString @key -AsPlainText -Force
-    
-    $cred = @{
-        ArgumentList = "Azure\<storage-account-name>", $acctKey
-    }
-    $credential = New-Object System.Management.Automation.PSCredential @cred
+   ```bash
+    sudo mkdir /mnt/file-share
 
-    $map = @{
-        Name = "Z"
-        PSProvider = "FileSystem"
-        Root = "\\<storage-account-name>.file.core.windows.net\file-share"
-        Credential = $credential
-    }
-    New-PSDrive @map
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/file-share /mnt/file-share -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
    ```
 
-   PowerShell returns output similar to the following example output:
-
-   ```output
-   Name        Used (GB)     Free (GB) Provider      Root
-   ----        ---------     --------- --------      ----
-   Z                                      FileSystem    \\storage8675.file.core.windows.net\f...
-   ```
-
-   The Azure file share successfully mapped to the Z drive.
+1. You receive the `$` prompt with no errors. The Azure file share successfully mounted to **/mnt/file-share**.
 
 1. Confirm that the VM has no outbound connectivity to any other public IP addresses:
 
-    ```powershell
-    ping bing.com
+    ```bash
+    ping bing.com -c 4
     ```
 
-    You receive no replies, because the network security group associated to the *Private* subnet doesn't allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
+    You receive no replies, because the network security group associated to the *subnet-private* subnet doesn't allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
 
 1. Close the Bastion connection to **vm-private**.
 
 ### [CLI](#tab/cli)
 
-SSH into the *vm-private* VM.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Run the following command to store the IP address of the VM as an environment variable:
+1. Select **vm-private**.
 
-    ```bash
-    export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-private --query publicIps --output tsv)
- 
-    ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
-    ```
+1. Select **Bastion** in **Operations**.
+
+1. Select **SSH Private Key from Local File** for **Authentication Type**.
+
+1. Enter the username you specified when creating the virtual machine.
+
+1. Select the SSH private key file from your local machine. The default key generated by `--generate-ssh-keys` is located at `~/.ssh/id_rsa`.
+
+1. Select **Connect**.
 
 1. Create a folder for a mount point:
 
@@ -973,10 +1141,10 @@ SSH into the *vm-private* VM.
 1. Mount the Azure file share to the directory you created. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account).
 
     ```bash
-    sudo mount --types cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/my-file-share /mnt/file-share -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
-    You receive the `user@vm-private:~$` prompt. The Azure file share successfully mounted to */mnt/file-share*.
+    You receive the `$` prompt with no errors. The Azure file share successfully mounted to */mnt/file-share*.
 
 1. Confirm that the VM has no outbound connectivity to any other public IP addresses:
 
@@ -986,7 +1154,7 @@ SSH into the *vm-private* VM.
 
     You receive no replies, because the network security group associated to the *subnet-private* subnet doesn't allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
 
-1. Exit the SSH session to the *vm-private* VM.
+1. Close the Bastion connection to **vm-private**.
 
 ---
 
@@ -1002,42 +1170,25 @@ SSH into the *vm-private* VM.
 
 1. Select **Bastion** in **Operations**.
 
-1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
+1. Select **SSH Private Key from Local File** for **Authentication Type**.
 
-1. Repeat the previous command to attempt to map the drive to the file share in the storage account. You might need to copy the storage account access key again for this procedure:
+1. Enter the username you specified when creating the virtual machine.
 
-    ```powershell
-    $key = @{
-        String = "<storage-account-key>"
-    }
-    $acctKey = ConvertTo-SecureString @key -AsPlainText -Force
-    
-    $cred = @{
-        ArgumentList = "Azure\<storage-account-name>", $acctKey
-    }
-    $credential = New-Object System.Management.Automation.PSCredential @cred
+1. Select the **vm-1-key** private key file you downloaded.
 
-    $map = @{
-        Name = "Z"
-        PSProvider = "FileSystem"
-        Root = "\\<storage-account-name>.file.core.windows.net\file-share"
-        Credential = $credential
-    }
-    New-PSDrive @map
+1. Select **Connect**.
+
+1. Repeat the previous command to attempt to mount the file share in the storage account. You might need to copy the storage account access key again for this procedure:
+
+   ```bash
+    sudo mkdir /mnt/file-share
+
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/file-share /mnt/file-share -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
    ```
     
-1. You should receive the following error message:
+1. Access is denied and you receive a `mount error(13): Permission denied` error. The mount fails because **vm-1** is in **subnet-1**, which doesn't have a service endpoint for Azure Storage.
 
-    ```output
-    New-PSDrive : Access is denied
-    At line:1 char:5
-    +     New-PSDrive @map
-    +     ~~~~~~~~~~~~~~~~
-        + CategoryInfo          : InvalidOperation: (Z:PSDriveInfo) [New-PSDrive], Win32Exception
-        + FullyQualifiedErrorId : CouldNotMapNetworkDrive,Microsoft.PowerShell.Commands.NewPSDriveCommand
-    ```
-
-4. Close the Bastion connection to **vm-1**.
+1. Close the Bastion connection to **vm-1**.
 
 ### From a local machine
 
@@ -1060,50 +1211,33 @@ SSH into the *vm-private* VM.
 
 ### [PowerShell](#tab/powershell)
 
-### From vm-1
+### From vm-public
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Select **vm-1**.
+1. Select **vm-public**.
 
 1. Select **Bastion** in **Operations**.
 
-1. Enter the username and password you specified when creating the virtual machine. Select **Connect**.
+1. Select **SSH Private Key from Local File** for **Authentication Type**.
 
-1. Repeat the previous command to attempt to map the drive to the file share in the storage account. You might need to copy the storage account access key again for this procedure:
+1. Enter the username you specified when creating the virtual machine.
 
-    ```powershell
-    $key = @{
-        String = "<storage-account-key>"
-    }
-    $acctKey = ConvertTo-SecureString @key -AsPlainText -Force
-    
-    $cred = @{
-        ArgumentList = "Azure\<storage-account-name>", $acctKey
-    }
-    $credential = New-Object System.Management.Automation.PSCredential @cred
+1. Select the SSH private key file from your local machine.
 
-    $map = @{
-        Name = "Z"
-        PSProvider = "FileSystem"
-        Root = "\\<storage-account-name>.file.core.windows.net\file-share"
-        Credential = $credential
-    }
-    New-PSDrive @map
+1. Select **Connect**.
+
+1. Attempt to mount the Azure file share. Replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
+
+   ```bash
+    sudo mkdir /mnt/file-share
+
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/file-share /mnt/file-share -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
    ```
     
-1. You should receive the following error message:
+1. Access is denied and you receive a `mount error(13): Permission denied` error. The mount fails because **vm-public** is in **subnet-public**, which doesn't have a service endpoint for Azure Storage.
 
-    ```output
-    New-PSDrive : Access is denied
-    At line:1 char:5
-    +     New-PSDrive @map
-    +     ~~~~~~~~~~~~~~~~
-        + CategoryInfo          : InvalidOperation: (Z:PSDriveInfo) [New-PSDrive], Win32Exception
-        + FullyQualifiedErrorId : CouldNotMapNetworkDrive,Microsoft.PowerShell.Commands.NewPSDriveCommand
-    ```
-
-1. Close the Bastion connection to **vm-1**.
+1. Close the Bastion connection to **vm-public**.
 
 1. From your computer, attempt to view the file shares in the storage account with the following command:
 
@@ -1124,15 +1258,19 @@ SSH into the *vm-private* VM.
 
 ### [CLI](#tab/cli)
 
-SSH into the *vm-public* VM.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Run the following command to store the IP address of the VM as an environment variable:
+1. Select **vm-public**.
 
-    ```bash
-    export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-public --query publicIps --output tsv)
- 
-    ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
-    ```
+1. Select **Bastion** in **Operations**.
+
+1. Select **SSH Private Key from Local File** for **Authentication Type**.
+
+1. Enter the username you specified when creating the virtual machine.
+
+1. Select the SSH private key file from your local machine. The default key generated by `--generate-ssh-keys` is located at `~/.ssh/id_rsa`.
+
+1. Select **Connect**.
 
 1. Create a directory for a mount point:
 
@@ -1140,15 +1278,15 @@ SSH into the *vm-public* VM.
     sudo mkdir /mnt/file-share
     ```
 
-1. Attempt to mount the Azure file share to the directory you created. This article assumes you deployed the latest version of Ubuntu. If you're using earlier versions of Ubuntu, see [Mount on Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for more instructions about mounting file shares. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
+1. Attempt to mount the Azure file share to the directory you created. Before running the following command, replace `<storage-account-name>` with the account name and `<storage-account-key>` with the key you retrieved in [Create a storage account](#create-a-storage-account):
 
     ```bash
-    sudo mount --types cifs //storage-account-name>.file.core.windows.net/file-share /mnt/file-share --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/file-share /mnt/file-share -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
     Access is denied, and you receive a `mount error(13): Permission denied` error, because the *vm-public* VM is deployed within the *subnet-public* subnet. The *subnet-public* subnet doesn't have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *subnet-private* subnet, not the *subnet-public* subnet.
 
-1. Exit the SSH session to the *vm-public* VM.
+1. Close the Bastion connection to **vm-public**.
 
 1. From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
 

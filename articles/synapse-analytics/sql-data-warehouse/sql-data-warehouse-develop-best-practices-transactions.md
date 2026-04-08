@@ -2,11 +2,11 @@
 title: Optimizing transactions
 description: Learn how to optimize the performance of your transactional code in an Azure Synapse Analytics dedicated SQL pool while minimizing risk for long rollbacks.
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: best-practice
 ms.subservice: sql-dw
 ms.date: 04/19/2018
-author: KevinConanMSFT
-ms.author: kecona
+author: joannapea 
+ms.author: joanpo
 
 ms.custom: azure-synapse
 ---

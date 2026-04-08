@@ -4,7 +4,7 @@ description: Details of where geographic data is available within Microsoft Azur
 author: faterceros
 ms.author: aterceros
 ms.date: 6/23/2021
-ms.topic: conceptual
+ms.topic: hub-page
 ms.service: azure-maps
 ms.subservice: general
 ---

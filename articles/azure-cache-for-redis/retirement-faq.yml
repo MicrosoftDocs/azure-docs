@@ -15,7 +15,7 @@ summary: |
   - [Basic, Standard, and Premium tiers](#questions-on-basic--standard--and-premium-tiers-of-azure-cache-for-redis-retirement)
   - [Enterprise and Enterprise Flash tiers](#questions-on-the-enterprise-tier-of-azure-cache-for-redis-retirement)
 
-  For more information on moving your caches to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](/azure/redis/migrate/migrate-overview). 
+  For more information on moving your caches to Azure Managed Redis, see [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview) and [Migrate Enterprise tier to Azure Managed Redis](/azure/redis/migrate/migrate-redis-enterprise-overview).
 
 sections:
   - name: Questions on Basic, Standard, and Premium tiers of Azure Cache for Redis retirement
@@ -74,7 +74,7 @@ sections:
       - question: How do I choose the right Azure Managed Redis tier?
 
         answer: | 
-          For more information, see the [Migration overview](/azure/redis/migrate/migrate-overview) on how to choose the right Azure Managed Redis tier and SKU.
+          For more information, see [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview) and [Migrate Enterprise tier to Azure Managed Redis](/azure/redis/migrate/migrate-redis-enterprise-overview) to choose the right Azure Managed Redis tier and SKU.
 
       - question: How do I choose the appropriate clustering policy?
 
@@ -95,17 +95,17 @@ sections:
         answer: | 
           Given the benefits of using Azure Managed Redis, we highly recommend you migrate to Azure Managed Redis as soon as possible, without waiting for the retirement deadline.
 
-          For step-by-step instructions, see the [Move from Azure Cache for Redis to Azure Managed Redis](migrate/migrate-overview.md).
+          For step-by-step instructions, see [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview) and [Migrate Enterprise tier to Azure Managed Redis](/azure/redis/migrate/migrate-redis-enterprise-overview).
 
       - question: How can I retain data during migration?
 
         answer: | 
-          To retain data during migration, users should follow the guidance in [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/azure/redis/migrate/migrate-overview). This documentation provides instructions on migrating cache endpoints and preserving data throughout the process.
+          To retain data during migration, users should follow the guidance in [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview) and [Migrate Enterprise tier to Azure Managed Redis](/azure/redis/migrate/migrate-redis-enterprise-overview). This documentation provides instructions on migrating cache endpoints and preserving data throughout the process.
 
       - question: Can I transfer my reservations or reserved pricing from Azure Cache for Redis to Azure Managed Redis?
 
         answer: | 
-          You can cancel or exchange your existing reservation. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+          Your existing reservations will be supported until September 30, 2028. However, you can cancel or exchange your existing reservation earlier than that date. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
   
   - name: Questions on the Enterprise tier of Azure Cache for Redis retirement
     
@@ -153,12 +153,12 @@ sections:
 
           Azure Managed Redis is compatible with all Redis client libraries, redis-cli, and Redis Insights. Most client libraries work without other configuration, but applications should verify compatibility with clustered Redis instances because Azure Managed Redis is clustered by default.
 
-          For detailed guidance on client library configuration and migration steps, see the [migration overview](/azure/redis/migrate/migrate-overview).
+          For detailed guidance on client library configuration and migration steps, see [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview) and [Migrate Enterprise tier to Azure Managed Redis](/azure/redis/migrate/migrate-redis-enterprise-overview).
 
       - question: How do I choose the right Azure Managed Redis tier?
 
         answer: |   
-          For more information, see the [migration overview](/azure/redis/migrate/migrate-overview) on how to choose the right Azure Managed Redis tier and SKU.
+          For more information, see [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview) and [Migrate Enterprise tier to Azure Managed Redis](/azure/redis/migrate/migrate-redis-enterprise-overview) to choose the right Azure Managed Redis tier and SKU.
 
       - question: Does Azure Managed Redis support every feature that I currently use?
 
@@ -174,14 +174,14 @@ sections:
         answer: |           
           Given the benefits of using Azure Managed Redis, we highly recommend you migrate to Azure Managed Redis as soon as possible, without waiting for the retirement deadline.
 
-          For step-by-step instructions, see the [Move from Azure Cache for Redis to Azure Managed Redis](migrate/migrate-overview.md).
+          For step-by-step instructions, see [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview) and [Migrate Enterprise tier to Azure Managed Redis](/azure/redis/migrate/migrate-redis-enterprise-overview).
 
       - question: How can data be retained during migration?
 
         answer: |
-          To retain data during migration, users should follow the guidance in [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/azure/redis/migrate/migrate-overview). This documentation provides instructions on migrating cache endpoints and preserving data throughout the process.
+          To retain data during migration, users should follow the guidance in [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview) and [Migrate Enterprise tier to Azure Managed Redis](/azure/redis/migrate/migrate-redis-enterprise-overview). This documentation provides instructions on migrating cache endpoints and preserving data throughout the process.
       
       - question: Can I transfer my reservations or reserved pricing from Azure Cache for Redis to Azure Managed Redis?
 
         answer: |
-            You can cancel or exchange your existing reservation. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+            Your existing reservations will be supported until March 30, 2027. However, you can cancel or exchange your existing reservation earlier than that date. You can cancel or exchange your existing reservation. For more information, see [Cancel, exchange, and refund policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).

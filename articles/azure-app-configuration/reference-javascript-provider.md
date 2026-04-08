@@ -317,7 +317,7 @@ import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/
 // Create a feature flag provider which uses the configuration provider as feature flag source
 const ffProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
 // Create a feature manager which will evaluate the feature flag
-const fm = new FeatureManager(ffProvider);
+const featureManager = new FeatureManager(ffProvider);
 
 import express from "express";
 const server = express();
@@ -422,6 +422,9 @@ const appConfig = await load(endpoint, credential, {
 
 Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
 
+> [!NOTE] 
+> Secret refresh uses a minimum interval of **one minute**. This prevents excessive secret reloads which may induce Key Vault throttling.
+
 To ensure your application always uses the most current secret values, configure the `secretRefreshIntervalInMs` property in `KeyVaultOptions`. This forces the provider to retrieve fresh secret values from Key Vault when:
 
 - Your application calls `AzureAppConfiguration.refresh`
@@ -490,7 +493,27 @@ For information about using geo-replication, go to [Enable geo-replication](./ho
 
 ## Connect to Azure Front Door
 
-The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution. For setup instructions, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
+The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution.
+
+The following example demonstrates how to load configuration settings from Azure Front Door:
+
+```typescript
+import { loadFromAzureFrontDoor } from "@azure/app-configuration-provider";
+
+const appConfig = await loadFromAzureFrontDoor("{YOUR-AFD-ENDPOINT}", {
+    selectors: [{
+        keyFilter: "app.*"
+    }],
+    refreshOptions: {
+        enabled: true,
+        refreshIntervalInMs: 60_000
+    }
+});
+
+const message = appConfig.get("app.message");
+```
+
+For more information about Azure Front Door, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md).
 
 ## Next steps
 

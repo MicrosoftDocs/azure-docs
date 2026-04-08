@@ -5,9 +5,8 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/20/2026
+ms.date: 03/05/2026
 ms.author: anfdocs
-ms.custom: references_regions
 ---
 # Configure advanced ransomware protection for Azure NetApp Files volumes (preview)
 
@@ -22,58 +21,6 @@ Advanced ransomware protection builds its profile based on three inputs:
 With this data, advanced ransomware protection monitors your volumes for patterns and extension types that deviate from observed pattern, marking them as ransomware threats. Advanced ransomware protection builds a profile from machine learning and continues to refine its understanding of your workloads based on usage patterns. Advanced ransomware protection hones this profile based on your inputs, learning as you respond to threats.
 
 Advanced ransomware protection's alert mechanisms enable you to stay vigilant in preventing ransomware attacks on your data and maintaining the resiliency of your workload. If a threat is detected, Azure NetApp Files creates a point-in-time snapshot of the volume. You can then evaluate the threat and, if necessary, restore the volume based on the snapshot, ensuring the continuity and safety of your data.  
-
-## Considerations 
-
-* Advanced ransomware protection is only available for newly created volumes. You must enable protection when you create the volume. 
-* Attack reports are retained for 30 days.  
-* Ransomware threat notifications are sent in the Azure Activity log.  
-* It’s recommended that you enable no more than five volumes per Azure region with advanced ransomware protection to mitigate performance issues. 
-* It's recommended you increase QoS capacity by 5 to 10 percent due to potential performance impacts of advanced ransomware protection. The scale of the impact can vary based on the configurations across your Azure NetApp Files deployment.  
-
-## Supported regions 
-
-- Australia Central 
-- Australia Central 2 
-- Australia East 
-- Australia Southeast 
-- Brazil South 
-- Brazil Southeast 
-- Canada Central 
-- Canada East 
-- Central India 
-- Central US 
-- East Asia 
-- East US 
-- East US 2 
-- France Central 
-- Germany North 
-- Germany West Central 
-- Israel Central 
-- Italy North 
-- Japan East 
-- Korea Central 
-- Korea South 
-- New Zealand North 
-- North Central US 
-- North Europe 
-- Norway East 
-- Qatar Central 
-- South Africa North 
-- South Central US 
-- Southeast Asia 
-- Spain Central 
-- Sweden Central 
-- Switzerland North 
-- Switzerland West 
-- UAE Central 
-- UAE North 
-- UK South 
-- UK West 
-- West Europe 
-- West US 
-- West US 2 
-- West US 3 
 
 ## Register the feature 
 
@@ -102,6 +49,22 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. In the **Advanced Ransomware Protection** field of the Basics tab, select **Enabled**.
 1. After you create the volume, you can confirm your settings in the volume overview. If you've enabled ransomware protection, the **Advanced Ransomware Protection** shows as enabled. 
 
+## Enable advanced ransomware protection for existing volumes
+
+1. Navigate to the volume for which you want to enable advanced ransomware protection.
+1. Select **Advanced Ransomware Protection** under the **Storage services** menu in the sidebar. 
+1. Select **Enable Protection** 
+
+    :::image type="content" source="./media/ransomware-configure/enable-protection.png" alt-text="Screenshot of enabling ransomware protection." lightbox="./media/ransomware-configure/enable-protection.png":::
+
+1. Click **Yes** to confirm enabling ransomware protection.
+
+    :::image type="content" source="./media/ransomware-configure/confirm-enable-protection.png" alt-text="Screenshot to confirm enabling ransomware protection." lightbox="./media/ransomware-configure/confirm-enable-protection.png":::
+
+1. Ensure that the protection state is **Enabled**.
+
+    :::image type="content" source="./media/ransomware-configure/enable-protection-state.png" alt-text="Screenshot of the state of ransomware protection." lightbox="./media/ransomware-configure/enable-protection-state.png":::
+
 ## Respond to ransomware threats  
 
 1. Select **Advanced Ransomware Protection** under the **Storage services** menu in the sidebar. 
@@ -109,7 +72,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     :::image type="content" source="./media/ransomware-configure/ransomware-threats.png" alt-text="Screenshot of ransomware threats." lightbox="./media/ransomware-configure/ransomware-threats.png":::
 
-1. If you know the files are **not** an active threat, mark the files as a **False positive**. 
+1. If you know the files are **not** an active threat, mark the active threat as a **False positive**. 
 
     If you believe the files are a threat, select **Threat**. You can then [revert the volume](snapshots-revert-volume.md) based on the last snapshot captured before the threat.
 1. Once you've resolved the threat, you can view archived ransomware reports on the same page. Reports are archived for 30 days. 

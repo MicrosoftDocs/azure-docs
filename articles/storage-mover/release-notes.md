@@ -319,7 +319,7 @@ Supports merging content from the source to the target:
 ### Service
 
 - When a job is started w/o the agent having permissions to the target storage and the job is immediately canceled, the job might not close down gracefully and remain in the `Cancel requested` state indefinitely. The only mitigation at the moment is to delete the job definition and recreate it.
-- The Storage Mover service is currently not resilient to a zonal outage within the selected region. Appropriate configuration steps to achieve zonal redundancy are underway.
+- The Storage Mover service is currently not resilient to a zone outage within the selected region. Appropriate configuration steps to achieve zone redundancy are underway.
 
 ### Agent
 

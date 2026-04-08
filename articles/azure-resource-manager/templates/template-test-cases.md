@@ -1,7 +1,7 @@
 ﻿---
 title: Template test cases for test toolkit
 description: Describes the template tests that are run by the Azure Resource Manager template test toolkit.
-ms.topic: article
+ms.topic: concept-article
 ms.custom: devx-track-arm-template
 ms.date: 07/23/2025
 ---

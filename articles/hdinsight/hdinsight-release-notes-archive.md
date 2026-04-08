@@ -2,7 +2,7 @@
 title: Archived release notes for Azure HDInsight
 description: Archived release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, Hive and more.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: release-notes
 author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
@@ -1967,7 +1967,7 @@ This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made a
 HDInsight uses Azure virtual machines to provision the cluster now. From this release, new-created HDInsight clusters start using Azure virtual machine scale set. The change is rolling out gradually. You should expect no breaking change. See more about [Azure virtual machine scale sets](/azure/virtual-machine-scale-sets/overview).
  
 #### Reboot VMs in HDInsight cluster
-In this release, we support rebooting VMs in HDInsight cluster to reboot unresponsive nodes. Currently you can only do it through API, PowerShell and CLI support is on the way. For more information about the API, see [this doc](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2021-06-01/virtualMachines.json).
+In this release, we support rebooting VMs in HDInsight cluster to reboot unresponsive nodes. Currently you can only do it through API, PowerShell and CLI support is on the way. For more information about the API, see [this doc](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/hdinsight/resource-manager/Microsoft.HDInsight/HDInsight/stable/2021-06-01/virtualMachines.json).
  
 ### Deprecation
 #### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
@@ -2160,7 +2160,7 @@ Autoscale support for HBase and LLAP workload is also public preview. For more i
 
 #### HDInsight Accelerated Writes for Apache HBase 
 
-Accelerated Writes uses Azure premium SSD managed disks to improve performance of the Apache HBase Write Ahead Log (WAL). For more information, see [Azure HDInsight Accelerated Writes for Apache HBase](./hbase/apache-hbase-accelerated-writes.md).
+Accelerated Writes uses Azure Premium SSD managed disks to improve performance of the Apache HBase Write Ahead Log (WAL). For more information, see [Azure HDInsight Accelerated Writes for Apache HBase](./hbase/apache-hbase-accelerated-writes.md).
 
 #### Custom Ambari DB
 

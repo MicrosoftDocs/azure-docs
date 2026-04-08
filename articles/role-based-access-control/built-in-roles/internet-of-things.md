@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -296,7 +296,7 @@ View, create, edit and delete AIO resources. Manage all resources, including ins
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Edge/sites/read | Get a Site |
+> | [Microsoft.Edge](../permissions/internet-of-things.md#microsoftedge)/sites/read | List Site resources by scope |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -358,7 +358,7 @@ User can Azure arc connect and deploy Azure IoT Operations securely.
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Edge/sites/read | Get a Site |
+> | [Microsoft.Edge](../permissions/internet-of-things.md#microsoftedge)/sites/read | List Site resources by scope |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |

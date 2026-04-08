@@ -5,7 +5,7 @@ services: security
 author: jegeib
 ms.service: azure-information-protection
 ms.subservice: azure-information-protection-policy
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/17/2017
 ms.author: rodsan
 

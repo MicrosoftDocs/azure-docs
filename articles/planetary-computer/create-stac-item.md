@@ -9,7 +9,7 @@ ms.date: 04/08/2025
 
 ms.custom:
   - build-2025
-# customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to an Microsoft Planetary Computer Pro GeoCatalog.
+# customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to a Microsoft Planetary Computer Pro GeoCatalog.
 ---
 
 # Create a SpatioTemporal Asset Catalog (STAC) item

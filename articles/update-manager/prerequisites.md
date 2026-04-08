@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: overview
+ms.update-cycle: 1095-days
 # Customer intent: "As a system administrator, I want to understand the prerequisites for Azure Update Manager so that I can effectively prepare my Linux and Azure Arc-enabled servers for update management."
 ---
 
@@ -17,6 +18,9 @@ This article summarizes the prerequisites for Azure Update Manager, the extensio
 ## Linux machines
 
 Before you start using this service on Linux machines, you must install Python version 2.7 or later.
+
+Update Manager requires high level permissions because it can update multiple system components, including kernel drivers and operating system security patches.
+On Linux machines, the Update Manager extensions run operations as the root user. To ensure that assessment and patching operations succeed, grant sudo privileges by adding the root account to the /etc/sudoers file.
 
 ## Azure Arc-enabled servers
 

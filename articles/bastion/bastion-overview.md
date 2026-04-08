@@ -1,13 +1,13 @@
 ---
 title: What is Azure Bastion?
 description: Azure Bastion is a fully managed service that provides secure and seamless RDP/SSH connectivity to virtual machines without exposing RDP/SSH ports externally.
-author: abell
-ms.author: abell
+author: cherylmc
+ms.author: cherylmc
 ms.service: azure-bastion
 services: bastion
 ms.topic: overview
 ms.custom: mvc, references_regions, ignite-2024
-ms.date: 01/14/2026
+ms.date: 02/04/2026
 # Customer intent: As an administrator, I want to evaluate Azure Bastion so I can determine if I want to use it.
 ---
 
@@ -37,7 +37,7 @@ Azure Bastion offers four SKU tiers:
 * **Premium**: Includes all Standard features plus session recording for compliance and private-only deployment.
 * **Standard**: Includes all Basic features plus scalability and advanced features (native client, shareable links, IP-based connections, custom ports, file transfer).
 * **Basic**: Dedicated deployment with fixed capacity for production environments with moderate connection requirements.
-* **Developer**: Free tier using shared infrastructure recommended for development and testing. Supports one VM at a time. Available in select regions.
+* **Developer**: Free SKU using shared infrastructure recommended for development and testing. Supports one VM at a time. Available in select regions.
 
 For a complete feature comparison and capacity details, see [Choose the right Azure Bastion SKU](bastion-sku-comparison.md).
 
@@ -75,10 +75,14 @@ Azure Bastion supports multiple connection methods:
 
 For more information about connection methods and authentication options, see [About VM connections and features](vm-about.md).
 
+## Pricing and SLA
 
+Azure Bastion pricing combines hourly SKU charges with outbound data transfer costs. Billing starts from the moment Bastion is deployed, regardless of usage.
+
+For pricing details, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/). For SLA and reliability information, see [Reliability in Azure Bastion](/azure/reliability/reliability-bastion).
 ## What's new
 
-Azure Bastion is continuously updated with new features and improvements. To learn about the latest updates and announcements, see [What's new in Azure Bastion?](whats-new.md).
+Azure Bastion is continuously updated with new features and improvements. To learn about the latest updates and announcements, see [What's new in Azure Bastion?](whats-new.md)
 
 ## Troubleshooting and FAQ
 
@@ -87,8 +91,7 @@ For information about troubleshooting and frequently asked questions, see the [t
 ## Next steps
 
 * [Quickstart: Deploy Bastion automatically with default settings and Standard SKU](quickstart-host-portal.md)
-* [Quickstart: Deploy Bastion Developer](quickstart-developer.md)
-* [Tutorial: Deploy Bastion using specified settings and SKUs](tutorial-create-host-portal.md)
+* [Quickstart: Deploy Azure Bastion from the Azure portal](quickstart-host-portal.md)
 * [Choose the right Azure Bastion SKU](bastion-sku-comparison.md)
 * [About Bastion configuration settings](configuration-settings.md)
 * [Azure Bastion FAQ](bastion-faq.md)

@@ -86,7 +86,7 @@ ms.author: wchi
     ```
 
 ### [SpringBoot](#tab/springBoot)
-Refer to [Spring Cloud Azure Storage Queue Operation Code Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client) to set up your Spring application. The configuration properties (of Spring Cloud Azure 4.0 and above) are added to Spring Apps by Service Connector. For more information about configuration properties, check [Azure Storage Queue Properties](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#azure_storage_queue_proeprties).
+Refer to [Spring Cloud Azure Storage Queue Operation Code Sample](/samples/azure-samples/azure-spring-boot-samples/sending-and-receiving-message-by-azure-storage-queue-and-sdk-client-in-spring-boot-application) to set up your Spring application. The configuration properties (of Spring Cloud Azure 4.0 and above) are added to Spring Apps by Service Connector. For more information about configuration properties, check [Azure Storage Queue Properties](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#azure_storage_queue_proeprties).
 
 ### [Python](#tab/python)
 1. Install dependencies.

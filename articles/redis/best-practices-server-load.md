@@ -2,7 +2,7 @@
 title: Best practices for Using and Monitoring the Server Load for Azure Managed Redis
 description: Learn how to use and monitor your server load for Azure Managed Redis.
 ms.date: 05/18/2025
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom:
   - ignite-2024
   - build-2025
@@ -36,16 +36,26 @@ High memory usage on the server makes it more likely that the system needs to pa
 
 Redis server is a single-threaded system. Long running commands can cause latency or timeouts on the client side because the server can't respond to any other requests while it's busy working on a long running command. For more information, see [Troubleshoot Azure Cache for Redis server-side issues](troubleshoot-server.md).  
 
-## Monitor Server Load
+## Monitor Server Load and CPU
 
-Add monitoring on server load to ensure you get notifications when high server load occurs. Monitoring can help you understand your application constraints. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects. Sustained server load over 80% can lead to unplanned failovers. 
-Currently, Azure Managed Redis exposes two metrics in **Insights** under **Monitoring** on the Resource menu on the left of the portal: **CPU** and **Server Load**. Understanding what is measured by each metric is important when monitoring server load.
+Add monitoring on server load and CPU to ensure you get notifications when either one of them is high. Monitoring can help you understand your application constraints. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects. Sustained server load over 80% can lead to unplanned failovers.
+Currently, Azure Managed Redis exposes two metrics in **Insights** under **Monitoring** on the Resource menu on the left of the portal: **CPU** and **Server Load**. Understanding what is measured by each metric is important when monitoring them.
 
-The **CPU** metric indicates the CPU usage for the node that hosts the cache. The CPU metric also includes processes that aren't strictly Redis server processes. CPU includes background processes for anti-malware and others. As a result, the CPU metric can sometimes spike and might not be a perfect indicator of CPU usage for the Redis server.
+The **CPU** (a.k.a. percentProcessorTime) metric indicates the CPU usage for the node that hosts the cache. The CPU metric also includes processes that aren't strictly Redis server processes. CPU includes background processes for anti-malware and others. As a result, the CPU metric can sometimes spike and might not be a perfect indicator of CPU usage for the Redis server.
 
-The **Server Load** metric represents the load on the Redis Server alone. We recommend monitoring the **Server Load** metric instead of **CPU**.
+The **Server Load** metric reflects the Redis server's own assessment of overall load and is similar to CPU metric but at a cluster level.
 
-When monitoring server load, we also recommend that you examine the max spikes of Server Load rather than average because even brief spikes can trigger failovers and command timeouts.
+### Recommendations for Smaller SKUs
+
+On Azure Managed Redis SKUs backed by 2-vCPU VMs (B0–B5, X3, and M10), percentage-based metrics like **Server Load** and **CPU** are inherently more sensitive. A single short-lived background thread can consume a significant percentage of total CPU, causing metrics to appear elevated even when actual workload is light. As a result, these metrics can overestimate actual load on small SKUs and may not indicate workload saturation.
+
+When reviewing metrics over longer time periods, such as several hours or days, we recommend:
+
+- Using **CPU** instead of **Server Load** as it can be viewed at instance level adding more granularity
+- Splitting by instance ID of the virtual machines backing the Azure Managed Redis instance
+- Using **Average** aggregation instead of **Maximum** for these longer time ranges
+
+You can still use **Maximum** aggregation over short time windows to catch brief spikes or events (such as those that might cause timeouts or failovers), while relying on **Average** over longer windows for trend analysis on small SKUs, especially when using **CPU**.
 
 ## Test for increased server load after failover
 

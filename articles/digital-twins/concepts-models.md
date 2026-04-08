@@ -22,7 +22,7 @@ Models for Azure Digital Twins are defined using the Digital Twins Definition La
 
 You can view the full language description for DTDL v3 in GitHub: [DTDL Version 3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md). This page includes DTDL reference details and examples to help you get started writing your own DTDL models.
 
-DTDL is based on JSON-LD and is programming-language independent. DTDL isn't exclusive to Azure Digital Twins. It is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot/overview-iot-plug-and-play.md).
+DTDL is based on JSON-LD and is programming-language independent. DTDL isn't exclusive to Azure Digital Twins. It is also used to represent device data in other IoT services such as [IoT Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play).
 
 The rest of this article summarizes how the language is used in Azure Digital Twins.
 
@@ -297,7 +297,7 @@ This section describes additional considerations and recommendations for modelin
 
 An *ontology* is a set of models that comprehensively describe a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
 
-If your solution is for a certain industry that uses any sort of modeling standard, consider starting with a pre-existing set of models designed for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model ontologies based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
+If your solution is for a certain industry that uses any sort of modeling standard, consider starting with a pre-existing set of models designed for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model ontologies based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md)
 
 ### Consider query implications
 

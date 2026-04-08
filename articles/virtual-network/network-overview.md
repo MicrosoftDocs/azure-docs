@@ -245,7 +245,7 @@ NAT Gateway automatically processes all outbound traffic without any customer co
 
 Virtual machine scale sets that create virtual machines with Flexible Orchestration mode don't have default outbound access. Azure NAT Gateway is the recommended outbound access method for Virtual machine scale sets Flexible Orchestration Mode.
 
-For more information about Azure NAT Gateway, see [What is Azure NAT Gateway?](./nat-gateway/nat-overview.md).
+For more information about Azure NAT Gateway, see [What is Azure NAT Gateway?](./nat-gateway/nat-overview.md)
 
 This table lists the methods that you can use to create a NAT gateway resource.
 
@@ -262,7 +262,7 @@ Azure Bastion is deployed to provide secure management connectivity to virtual m
 
  [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
-For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
+For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 
 This table lists the methods you can use to create an Azure Bastion deployment.
 

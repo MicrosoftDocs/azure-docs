@@ -4,7 +4,7 @@ description: This article describes Azure Synapse Analytics as output for Azure 
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/25/2020
 ---
 

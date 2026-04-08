@@ -2,7 +2,7 @@
 title: Back Up and Restore Encrypted Azure VMs
 description: This article describes how to back up and restore encrypted Azure VMs with Azure Backup.
 ms.topic: how-to
-ms.date: 08/20/2025
+ms.date: 01/22/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -32,14 +32,14 @@ For more information about encryption of managed disks with CMKs, see [Server-si
 
 ### Encryption support by using ADE
 
-Azure Backup supports backup of Azure VMs that have their OS/data disks encrypted with ADE. ADE uses Azure BitLocker for encryption of Windows VMs, and the dm-crypt feature for Linux VMs. ADE integrates with Azure Key Vault to manage disk-encryption keys and secrets. You can also use Key Vault key encryption keys (KEKs) to add an extra layer of security. KEKs encrypt secrets before writing them to Key Vault.
+Azure Backup supports backup of managed Azure VMs that have their OS/data disks encrypted with ADE. ADE uses Azure BitLocker for encryption of Windows VMs, and the dm-crypt feature for Linux VMs. ADE integrates with Azure Key Vault to manage disk-encryption keys and secrets. You can also use Key Vault key encryption keys (KEKs) to add an extra layer of security. KEKs encrypt secrets before writing them to Key Vault.
 
-Azure Backup can back up and restore Azure VMs by using ADE with and without the Microsoft Entra app, as summarized in the following table.
+Azure Backup can back up and restore managed Azure VMs by using ADE with and without the Microsoft Entra app, as summarized in the following table.
 
 VM disk type | ADE (BEK/dm-crypt) | ADE and KEK
 --- | --- | ---
-Unmanaged | Yes | Yes
-Managed  | Yes | Yes
+Unmanaged | No | No
+Managed | Yes | Yes
 
 - Learn more about [ADE](/azure/virtual-machines/disk-encryption-overview), [Key Vault](/azure/key-vault/general/overview), and [KEKs](/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Read the [FAQ](/azure/virtual-machines/disk-encryption-overview) for Azure VM disk encryption.
@@ -48,6 +48,7 @@ Managed  | Yes | Yes
 
 Before you back up or restore encrypted Azure VMs, review the following limitations:
 
+- Backup of Azure VMs that use unmanaged disks isn't supported.
 - You can back up and restore ADE-encrypted VMs within the same subscription.
 - You can encrypt VMs only by using standalone keys. Any key that's a part of a certificate used to encrypt a VM isn't currently supported.
 - You can restore data to a secondary region. Azure Backup supports cross-region restore of encrypted Azure VMs to the Azure paired regions. For more information, see [Support matrix](./backup-support-matrix.md#cross-region-restore).
@@ -72,22 +73,31 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 To configure a backup policy, follow these steps:
 
 1. If you don't have a Recovery Services backup vault, follow [these instructions](backup-create-rs-vault.md) to create one.
-1. Go to **Backup center**, and on the **Overview** tab, select **+ Backup**.
+1. Go to **Resiliency**, and then select **+ Configure protection**.
 
-    ![Screenshot that shows Backup center.](./media/backup-azure-vms-encryption/select-backup.png)
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-protection.png" alt-text="Screenshot that shows the Configure protection option." lightbox="./media/backup-azure-arm-vms-prepare/configure-protection.png":::
 
-1. For **Datasource type**, select **Azure Virtual machines**, and select the vault that you created. Then select **Continue**.
+1. On the **Configure protection** pane, fill in the following fields:
 
-     ![Screenshot that shows the scenario pane.](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+   - **Resources managed by**: Select **Azure**.
+   - **Datasource type**: Select **Azure Virtual machines**.
+   - **Solution**: Select **Azure Backup**.
 
-1. Select the policy that you want to associate with the vault, and then select **OK**.
+   Then select **Continue**.
 
-   - A backup policy specifies when backups are taken and how long they're stored.
-   - The details of the default policy are listed on the dropdown menu.
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-system-protection.png" alt-text="Screenshot that shows the Configure protection pane." lightbox="./media/backup-azure-arm-vms-prepare/configure-system-protection.png":::
 
-   ![Screenshot that shows choosing the backup policy.](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+1. On the **Start: Configure Backup** pane, for **Datasource type**, select **Azure Virtual machines**, and select the vault that you created. Then select **Continue**.
 
-1. If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png" alt-text="Screenshot that shows the Start: Configure Backup pane.":::
+
+1. On the **Configure backup** pane, assign a backup policy.
+
+   - The default policy backs up the VM once a day. The daily backups are retained for 30 days. Instant recovery snapshots are retained for two days.
+
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/default-policy.png" alt-text="Screenshot that shows choosing the backup policy." lightbox="./media/backup-azure-arm-vms-prepare/default-policy.png":::
+
+   - If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Under **Virtual Machines**, select **Add**.
 
@@ -155,13 +165,13 @@ For Azure RBAC-enabled key vaults, you can create a custom role with the followi
 
 The initial backup runs according to the schedule, but you can also run it immediately:
 
-1. Go to **Backup center** and select the **Backup Instances** menu item.
-1. For **Datasource type**, select **Azure Virtual machines**. Then search for the VM that you configured for backup.
+1. Go to **Resiliency** > **Protected items**.
+1. On the **Protected items** pane, for **Datasource type**, select **Azure Virtual machines**. Then search for the VM that you configured for backup.
 1. Right-click the relevant row or select **More** (**…**), and then select **Backup Now**.
 1. On **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 1. Monitor the portal notifications.
 
-   To monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for jobs that are in progress. Depending on the size of your VM, creating the initial backup might take a while.
+   To monitor the job progress, go to **Resiliency** > **Jobs** and filter the list for jobs that are in progress. Depending on the size of your VM, creating the initial backup might take a while.
 
 ## Provide permissions
 

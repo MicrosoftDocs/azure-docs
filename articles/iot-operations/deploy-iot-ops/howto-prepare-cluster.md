@@ -18,7 +18,7 @@ If you want to deploy Azure IoT Operations quickly and run a sample workload in 
 
 ## Prerequisites
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows, K3s for deployments on Ubuntu, AKS deployments on Azure Local, and Tanzu Kubernetes release (TKr) on TKG. If you want to deploy Azure IoT Operations to a multi-node solution, use K3s on Ubuntu.
+For multi-node deployments, K3s for deployments on Ubuntu, AKS deployments on Azure Local, and Tanzu Kubernetes release (TKr) on TKG. Azure Kubernetes Service (AKS) Edge Essentials for Windows only supports single-node deployments.
 
 ### [Ubuntu](#tab/ubuntu)
 

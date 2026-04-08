@@ -21,7 +21,8 @@ landingContent:
         links:
           - text: What is Azure Native New Relic Service?
             url: overview.md
-
+          - text: FAQ
+            url: faq.yml
   # Card
   - title: Create an Azure Native New Relic Service resource
     linkLists:

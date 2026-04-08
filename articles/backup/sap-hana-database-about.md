@@ -62,7 +62,7 @@ In addition to using SAP HANA backup in Azure, which provides database-level bac
 
 You can use the [Backint certified Azure SAP HANA backup solution](#backup-architecture) for database backup and recovery.
 
-You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up the operating system and other non-database disks. The VM backup is run once a day, and it backs up all disks except the Write Accelerator operating system disks and ultra disks. Because you're backing up the database by using the Azure SAP HANA backup solution, you can take a file-consistent backup of only the operating system and non-database disks by using the [selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md) feature.
+You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up the operating system and other non-database disks. The VM backup is run once a day, and it backs up all disks except the Write Accelerator operating system disks and Ultra Disks. Because you're backing up the database by using the Azure SAP HANA backup solution, you can take a file-consistent backup of only the operating system and non-database disks by using the [selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md) feature.
 
 1. Restore a VM that's running SAP HANA by doing one of the following:
 
@@ -96,7 +96,7 @@ Azure Backup, now supports backing up a "Scale-out" HANA system distributed acro
 
 #### Managed disk snapshot
 
-Azure Backup uses managed disk snapshots. Azure Backup stores them in a resource group that you specify. Managed disk snapshots use standard hard disk drive (HDD) storage, irrespective of the storage type of the disk, and you're charged according to [Managed disk snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/). The first disk snapshot is a full snapshot, and all subsequent snapshots are incremental and consist only of the changes since the last one. 
+Azure Backup uses managed disk snapshots. Azure Backup stores them in a resource group that you specify. Managed disk snapshots use Standard HDD storage, irrespective of the storage type of the disk, and you're charged according to [Managed disk snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/). The first disk snapshot is a full snapshot, and all subsequent snapshots are incremental and consist only of the changes since the last one. 
 
 >[!Note]
 >There are no backup storage costs for snapshots, because they're *not* transferred to your Recovery Services vault.

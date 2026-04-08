@@ -44,7 +44,7 @@ Azure VPN Gateway supports the following cross-premises gateway connections:
 * **VNet-to-VNet**: This type of connection is the same as a site-to-site configuration. VNet-to-VNet is a VPN connection over IPsec (IKEv2). It doesn't require a VPN device. For more information, see [Configure a VNet-to-VNet VPN gateway connection](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * **Azure ExpressRoute**: ExpressRoute is a private connection to Azure from your wide area network (WAN), not a VPN connection over the public internet. For more information, see the [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
-For more information about VPN gateway connections, see [What is Azure VPN Gateway?](vpn-gateway-about-vpngateways.md).
+For more information about VPN gateway connections, see [What is Azure VPN Gateway?](vpn-gateway-about-vpngateways.md)
 
 ### What is the difference between site-to-site and point-to-site connections?
 
@@ -210,6 +210,9 @@ See the following articles:
 
 * [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md)
 * [About gateway SKUs](about-gateway-skus.md)
+
+### Is IP fragmentation in site-to-site VPN tunnels supported?
+No. IP fragmentation is not supported for ESP packets or for any packets encapsulated within the site-to-site VPN tunnel.
 
 ## <a name="sku-deprecate"></a>Deprecation of older SKUs
 
@@ -454,7 +457,7 @@ For more information, see the [Configure customer-controlled gateway maintenance
 
 ## Related content
 
-* For more information about VPN Gateway, see [What is Azure VPN Gateway?](vpn-gateway-about-vpngateways.md).
+* For more information about VPN Gateway, see [What is Azure VPN Gateway?](vpn-gateway-about-vpngateways.md)
 * For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**

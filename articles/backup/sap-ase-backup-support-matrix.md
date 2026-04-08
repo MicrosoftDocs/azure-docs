@@ -6,7 +6,7 @@ ms.custom:
   - references_regions
   - ignite-2024
   - build-2025
-ms.date: 05/13/2025
+ms.date: 01/29/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -26,8 +26,8 @@ This article summarizes the scenarios supported and limitations present when you
 | ------- | -------- | -------- |
 | **Topology** | SAP ASE Database running in Azure Linux VMs only. | Windows |
 | **Regions**                   | **Americas** – Central US, East US 2, East US, North Central US, South Central US, West US 2, West US 3, West Central US, West US, Canada Central, Canada East, Brazil South <br> **Asia Pacific** – Australia Central, Australia Central 2, Australia East, Australia Southeast, Japan East, Japan West, Korea Central, Korea South, East Asia, Southeast Asia, Central India, South India, West India, China East, China East 2, China East 3, China North, China North 2, China North 3 <br> **Europe** – West Europe, North Europe, France Central, UK South, UK West, Germany North, Germany West Central, Switzerland North, Switzerland West, Central Switzerland North, Norway East, Norway West, Sweden Central, Sweden South <br> **Africa / ME** - South Africa North, South Africa West, UAE North, UAE Central  <BR>  **Azure Government regions** | France South, Germany Central, Germany Northeast, US Gov IOWA |
-| **OS versions** | SLES 12 with SP0, SP1, SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, and SP5, 15.6 <br><br> RHEL 7.1, 7.2, 7.3, 7.4, 7.6, 7.7, 7.9, 8.1, 8.2, 8.3, 8.4,8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.2 |  |
-| **ASE versions** | SAP Adaptive Server Enterprise 16.0 SP02, SP03, SP04 |  |
+| **OS versions** | SLES 12 with SP0, SP1, SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, and SP5, 15.6, 15.7 <br><br> RHEL 8.1, 8.2, 8.3, 8.4,8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.2, 9.4, 9.6 |  |
+| **ASE versions** | SAP Adaptive Server Enterprise 16.0 SP02, SP03, SP04, ASE version 16.1 |  |
 | **ASE Instances** | A single SAP ASE instance on a single Azure Virtual Machine (VM). <br><br> Multi SID on single VM. | HA on single VM isn't currently supported. |
 | **Backup types** | Full, Differential, and Log backups. | Incremental, archival support is currently not available. |
 | **Restore types** | ALR-Alternate Location Restore, OLR-Original Location Restore (In-Place), Restore as Files.  |  |
@@ -40,6 +40,7 @@ This article summarizes the scenarios supported and limitations present when you
 | **Security Capabilities** | Immutability, Soft Delete, MUA, Private Endpoint, and Encryption at rest are supported. | |
 
 >[!NOTE]
+>- Note that the Linux OS versions being used should not be in a "deprecated", "limited extended support" or "End-of-life" stages by their respective vendors. Any versions entering the mentioned stages by their vendors will also subsequently get "out of support" from Azure Backup.
 >- Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up an SAP ASE (Sybase) database running in an Azure VM. We recommend you to modify the policy manually as needed.
 >- You can now monitor the backup and restore jobs (to the same machine) triggered from ASE native clients (SAP ASE Studio/Cockpit/DBA Cockpit) in the Azure portal.
 
@@ -99,5 +100,5 @@ The following table lists the required parameters for adding/removing SAP ASE in
 - [Restore SAP ASE database on Azure VMs using Azure portal](sap-ase-database-restore.md).
 - [Manage and monitor backed-up SAP ASE database using Azure portal](sap-ase-database-manage.md).
 - [Quickstart: Run the preregistration script for SAP ASE (Sybase) database backup in Azure Cloud Shell](sap-ase-database-backup-run-preregistration-quickstart.md).
-- [Tutorial: Back up SAP ASE (Sybase) database using Azure Business Continuity Center](sap-ase-database-backup-tutorial.md).
+- [Tutorial: Back up SAP ASE (Sybase) database using Resiliency](sap-ase-database-backup-tutorial.md).
 - [Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).

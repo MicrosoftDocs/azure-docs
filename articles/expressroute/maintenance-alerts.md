@@ -1,11 +1,10 @@
 ---
 title: 'How to view and configure alerts for Azure ExpressRoute circuit maintenance'
 description: Learn how to configure custom alerts for ExpressRoute circuit maintenance using the Service Health page in the Azure portal.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 06/30/2023
+ms.date: 03/11/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure alerts for ExpressRoute circuit maintenance, so that I can proactively manage my network and minimize service disruptions.
@@ -68,5 +67,5 @@ ExpressRoute uses Azure Service Health to notify you of planned and upcoming Exp
 ## Next steps
 
 * Learn more about [Azure ExpressRoute](expressroute-introduction.md), [Network Insights](../network-watcher/network-insights-overview.md), and [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)
-* [Customize your metrics](expressroute-monitoring-metrics-alerts.md) and create a [Connection Monitor](../network-watcher/connection-monitor-overview.md)
+* [Customize your metrics](monitor-expressroute-reference.md) and create a [Connection Monitor](../network-watcher/connection-monitor-overview.md)
 

@@ -211,7 +211,7 @@ For Application Gateway and WAF v2 SKU:
 |sslEnabled | Whether communication to the backend pools used TLS. Valid values are on and off. |
 |sslCipher | Cipher suite being used for TLS communication (if TLS is enabled). |
 |sslProtocol | SSL/TLS protocol being used (if TLS is enabled). |
-|sslClientVerify | Shows the result of client certificate verification as SUCCESS or FAILED. Failed status includes error information.|
+|sslClientVerify | Shows the result of client certificate verification as SUCCESS or FAILED. Failed status will include error information. SUCCESS  status will include Strict or Passthrough|
 |sslClientCertificateFingerprint|The SHA1 thumbprint of the client certificate for an established TLS connection.|
 |sslClientCertificateIssuerName|The issuer DN string of the client certificate for an established TLS connection.|
 |serverRouted | The backend server that application gateway routes the request to. |
@@ -226,6 +226,7 @@ For Application Gateway and WAF v2 SKU:
 |originalHost | This field contains the original request host name. |
 |error_info | The reason for the 4xx and 5xx error. Displays an error code for a failed request. More details in the error code tables in this article. |
 |contentType | The type of content or data that's being processed or delivered by the application gateway. |
+|identity | Provides the Tenant ID (TID) and Object ID (OID) of the authenticated entity after successful JWT validation. |
 
 ```json
 {

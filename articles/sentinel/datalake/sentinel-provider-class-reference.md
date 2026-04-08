@@ -3,10 +3,11 @@ title: Microsoft Sentinel data lake Microsoft Sentinel Provider class reference
 description: Reference documentation for the Microsoft Sentinel Provider class, which allows you to connect to the Microsoft Sentinel data lake and perform various operations.
 author: EdB-MSFT
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
+ms.subservice: sentinel-platform
+
 ms.topic: reference 
 ms.author: edbaynash  
-ms.date: 07/13/2025
+ms.date: 02/08/2026
 
 # Customer intent: As a security engineer or data scientist, I want to understand how to use the Microsoft Sentinel Provider class to connect to the Microsoft Sentinel data lake and perform operations such as listing databases, reading tables, and saving data.
 ---
@@ -101,7 +102,10 @@ df = data_provider.read_table("EntraGroups", "Workspace001")
 
 ### save_as_table
 
-Write a DataFrame as a managed table. You can write to the lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.                
+Write a DataFrame as a managed table. You can write to the lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.  
+
+> [!NOTE]
+> For the analytics tier, `save_as_table` supports `append` mode only. `overwrite` mode is only supported in the lake tier. 
 
 ```python
 data_provider.save_as_table({DataFrame}, {table_name}, [database_name], [database_id], [write_options])
@@ -113,7 +117,7 @@ Parameters:
 - `database_name` (str, optional): The name of the database (workspace) to save the table in. Defaults to `System tables`.
 - `database_id` (str, optional, analytics tier only): The unique identifier of the database in the analytics tier if workspace names aren't unique.
 - `write_options` (dict, optional): Options for writing the table. Supported options:
-                - mode: `append` or `overwrite` (default: `append`)
+                - mode: `append` or `overwrite` (default: `append`) `overwrite` mode is only supported in the lake tier.
                 - partitionBy: list of columns to partition by
                 Example: {'mode': 'append', 'partitionBy': ['date']}
  
@@ -133,10 +137,10 @@ Create new custom table in the data lake tier in the `System tables` workspace.
 data_provider.save_as_table(dataframe, "CustomTable1_SPRK", "System tables")
 ```
 
-Append to a table in the system tables database (workspace) in the data lake tier.
+Overwrite a table in the system tables database (workspace) in the data lake tier.
 ```python
 write_options = {
-    'mode': 'append'
+    'mode': 'overwrite'
 }
 data_provider.save_as_table(dataframe, "CustomTable1_SPRK", write_options=write_options)
 ```
@@ -147,7 +151,7 @@ Create new custom table in the analytics tier.
 data_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace")
 ```
 
-Append or overwrite to an existing custom table in the analytics tier.
+Append to an existing custom table in the analytics tier.
 ```python
 write_options = {
     'mode': 'append'

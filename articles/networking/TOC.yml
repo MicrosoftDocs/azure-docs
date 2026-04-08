@@ -23,23 +23,27 @@
     - name: Reliability
       items:
       - name: Reliability in Azure DNS
-        href: ../reliability/reliability-dns.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: /azure/reliability/reliability-dns?toc=%2fazure%2fnetworking%2ftoc.json
       - name: Reliability in Traffic Manager
-        href: ../reliability/reliability-traffic-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: /azure/reliability/reliability-traffic-manager?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Choose a secure network topology
       href: secure-network-topology.md
     - name: Choose a secure application delivery service
       href: secure-application-delivery.md
   - name: Plan and design
     items:
-    - name: Support for working remotely
-      href: working-remotely-support.md
     - name: Virtual networks
       href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Cross-premises connectivity - VPN
       href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Cross-premises connectivity - dedicated private
       href: ../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Design cross-service scenarios
+      items:
+      - name: Design a secure hub-spoke network
+        href: cross-service-scenarios/design-secure-hub-spoke-network.md
+    - name: Support for working remotely
+      href: working-remotely-support.md
     - name: Load balancing and content delivery
       href: load-balancer-content-delivery/index.yml
     - name: Backend connectivity interoperability
@@ -64,6 +68,18 @@
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
+      - name: Zero Trust network security
+        items:
+        - name: Zero Trust network security recommendations
+          href: security/zero-trust-network-security.md
+        - name: Azure DDoS Protection
+          href: security/zero-trust-ddos-protection.md
+        - name: Azure Firewall
+          href: security/zero-trust-azure-firewall.md
+        - name: Application Gateway WAF
+          href: security/zero-trust-application-gateway-waf.md
+        - name: Azure Front Door WAF
+          href: security/zero-trust-front-door-waf.md
     - name: Virtual networks
       href: ../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Network load balancing

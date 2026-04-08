@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 02/23/2026
 ms.custom: generated
 ---
 
@@ -165,9 +165,9 @@ Can read write or delete the attestation provider instance
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
-> | Microsoft.Attestation/attestationProviders/attestation/write | Adds attestation service. |
-> | Microsoft.Attestation/attestationProviders/attestation/delete | Removes attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/write | Adds attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/delete | Removes attestation service. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -210,8 +210,8 @@ Can read the attestation provider properties
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
-> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/read | Gets the attestation service status. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1289,7 +1289,7 @@ Microsoft Sentinel Responder
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/indicators/appendTags/action | Append tags to Threat Intelligence Indicator |
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/indicators/replaceTags/action | Replace Tags of Threat Intelligence Indicator |
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/action | Query Threat Intelligence Indicators |
-> | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/businessApplicationAgents/systems/undoAction/action | Undoes an action |
+> | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/businessApplicationAgents/systems/undoAction/action |  |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |

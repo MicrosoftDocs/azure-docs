@@ -119,7 +119,7 @@ az storage-mover endpoint create-for-storage-container \
 
 ---
 
-### Configure an Azure Blob storage tTarget endpoint
+### Configure an Azure Blob storage target endpoint
 
 ### [Azure portal](#tab/portal)
 1. From the **Resource management** group in the left navigation, select **Storage endpoints**. Select the **Target endpoints** tab, and then select **Add endpoint** to open the **Create target endpoint** pane.

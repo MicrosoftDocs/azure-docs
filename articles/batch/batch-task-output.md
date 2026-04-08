@@ -36,7 +36,7 @@ For more information, see [Persist task data to Azure Storage with the Batch ser
 
 ### Batch File Conventions library
 
-The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions) is an optional set of conventions for naming task output files in Azure Storage. The standard provides naming conventions for a file's destination container and blob path, based on the names of the job and task.
+The [Batch File Conventions standard](/dotnet/api/microsoft.azure.batch.conventions.files) is an optional set of conventions for naming task output files in Azure Storage. The standard provides naming conventions for a file's destination container and blob path, based on the names of the job and task.
 
 It's optional to use the File Conventions standard for naming your output data files. You can choose to name the destination container and blob path instead. If you do use the File Conventions standard, then you can view your output files in the [Azure portal](https://portal.azure.com). 
 
@@ -46,7 +46,7 @@ For more information, see [Persist job and task data to Azure Storage with the B
 
 ### Batch File Conventions standard
 
-If you're using a language other than .NET, you can implement the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions) in your own application. Use this approach when:
+If you're using a language other than .NET, you can implement the [Batch File Conventions standard](/dotnet/api/microsoft.azure.batch.conventions.files) in your own application. Use this approach when:
 
 - You want to use a common naming scheme.
 - You want to view task output in the [Azure portal](https://portal.azure.com).

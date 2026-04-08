@@ -3,7 +3,7 @@ title: 'About ExpressRoute Connections in Azure Virtual WAN'
 description: Learn about using ExpressRoute in Azure Virtual WAN to connect your Azure and on-premises environments.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/26/2025
 ms.author: cherylmc
 ---
@@ -16,7 +16,7 @@ A virtual hub can contain gateways for site-to-site, ExpressRoute, or point-to-s
 ## ExpressRoute circuit SKUs supported in Virtual WAN
 The following ExpressRoute circuit SKUs can be connected to the hub gateway: Local, Standard, and Premium. ExpressRoute Direct circuits are also supported with Virtual WAN. To learn more about different SKUs, visit [ExpressRoute Circuit SKUs](../expressroute/expressroute-faqs.md#what-is-the-connectivity-scope-for-different-expressroute-circuit-skus). ExpressRoute Local circuits can only be connected to ExpressRoute gateways in the same region, but they can still access resources in spoke virtual networks located in other regions. 
 
-## ExpressRoute gateway performance
+## ExpressRoute gateway in Virtual WAN performance
 
 ExpressRoute gateways are provisioned in units of 2 Gbps. One scale unit = 2 Gbps with support up to 10 scale units = 20 Gbps. 
 

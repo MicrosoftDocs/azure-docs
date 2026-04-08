@@ -1,8 +1,8 @@
-﻿---
+---
 title: Naming rules and restrictions for Azure resources
 description: Learn the rules and restrictions for naming Azure resources.
 ms.topic: article
-ms.date: 08/04/2025
+ms.date: 02/27/2026
 ---
 
 # Naming rules and restrictions for Azure resources

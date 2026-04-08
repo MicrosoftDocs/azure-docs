@@ -2,12 +2,11 @@
 title: 'Quickstart - Create a Private Link service - Azure portal'
 titleSuffix: Azure Private Link
 description: Learn how to create a Private Link service using the Azure portal in this quickstart.
-services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 04/10/2025
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
 # Customer intent: "As a network engineer new to Azure, I want to create a Private Link service using the Azure portal, so that I can provide secure private access to services deployed behind an Azure Load Balancer."
@@ -74,7 +73,7 @@ During the creation of the load balancer, you configure:
     | Availability zone | Leave the default of **Zone-redundant**. |
 
     > [!NOTE]
-    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Select **Add**.
 

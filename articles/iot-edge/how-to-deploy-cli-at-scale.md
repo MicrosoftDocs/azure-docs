@@ -3,7 +3,7 @@ title: Deploy Azure IoT Edge modules at scale using Azure CLI
 description: Deploy Azure IoT Edge modules at scale using Azure CLI to automate, monitor, and manage device deployments efficiently.
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/16/2025
+ms.date: 04/01/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom:
@@ -36,7 +36,7 @@ In this article, you set up the Azure CLI and the IoT extension. Then, you deplo
 
 A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and the desired properties of the module twins. For more information, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
-To deploy modules by using the Azure CLI, save the deployment manifest locally as a .txt file. You'll use the file path in the next section when you run the command to apply the configuration to your device.
+To deploy modules by using the Azure CLI, save the deployment manifest locally as a .json file. You'll use the file path in the next section when you run the command to apply the configuration to your device.
 
 Here's a basic deployment manifest with one module as an example.
 

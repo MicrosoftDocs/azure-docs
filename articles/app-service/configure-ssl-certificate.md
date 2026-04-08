@@ -142,7 +142,10 @@ By default, the App Service resource provider doesn't have access to your key va
 |--|--|--|
 | Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Certificate User |
 
-The service principal app ID or assignee value is the ID for the App Service resource provider. When access is granted by using RBAC, the corresponding object ID of the service principal app ID is specific to the tenant. To learn how to authorize Key Vault permissions for the App Service resource provider by using an access policy, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](/azure/key-vault/general/rbac-guide?tabs=azure-portal#key-vault-scope-role-assignment).
+The service principal app ID or assignee value is the application (client) ID for the App Service resource provider.
+
+> [!IMPORTANT]
+> The values in the table are application (client) IDs. If you grant the Key Vault Certificate User role by using infrastructure-as-code (for example, ARM templates or Bicep), you typically must use the object ID of the corresponding enterprise application (service principal) in your Microsoft Entra tenant. Using the application ID works with some tooling (for example, Azure CLI role assignment), but ARM/Bicep role assignments generally require the service principal object ID.
 
 ### [Access policy permissions](#tab/accesspolicy)
 

@@ -2,11 +2,11 @@
 title: API support in Azure Static Web Apps with Azure Functions
 description: Learn how to use Azure Functions with Azure Static Web Apps.
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  concept-article
 ms.date: 06/14/2022
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # API support in Azure Static Web Apps with Azure Functions
@@ -28,7 +28,7 @@ The following table contrasts the differences between using managed and existing
 | Supported Azure Functions [hosting plans](../azure-functions/functions-scale.md) | Consumption | Consumption<br>Premium<br>Dedicated |
 | [Integrated security](user-information.md) with direct access to user authentication and role-based authorization data | ✔ | ✔ |
 | [Routing integration](./configuration.md?#routes) that makes the `/api` route available to the web app securely without requiring custom CORS rules. | ✔ | ✔ |
-| [Durable Functions](../azure-functions/durable/durable-functions-overview.md) programming model | ✕ | ✔ |
+| [Durable Functions](../azure-functions/durable-functions/durable-functions-overview.md) programming model | ✕ | ✔ |
 | [Managed identity](../app-service/overview-managed-identity.md) | ✕ | ✔ |
 | [Azure App Service Authentication and Authorization](../app-service/configure-authentication-provider-aad.md) token management | ✕ | ✔ |
 | API functions available outside Azure Static Web Apps | ✕ | ✔ |

@@ -40,6 +40,7 @@ The following table lists the available unifying parsers:
 | Schema | Unifying parser | 
 | ------ | ------------------------- |
 | Alert Event | _Im_AlertEvent |
+| Asset Entity | _Im_AssetEntity |
 | Audit Event | _Im_AuditEvent |
 | Authentication | _Im_Authentication | 
 | DHCP Event | _Im_DhcpEvent |

@@ -90,7 +90,7 @@ To use user certificates to authenticate remote users, use the sample PowerShell
 # specify the name of the VPN Connection to be installed on the client
 $vpnConnectionName = "SampleConnectionName"
 
-# get the VPN Server FQDN from the profile downloaded from Azure Portal
+# get the VPN Server FQDN from the profile downloaded from Azure portal
 $downloadedXML = [xml] (Get-Content VpnSettings.xml)
 $vpnserverFQDN = $downloadedXML.VpnProfile.VpnServer
 

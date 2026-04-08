@@ -11,7 +11,7 @@ ms.date: 11/18/2025
 
 # JSON Web Token (JWT) validation in Azure Application Gateway (preview)
 
-[Azure Application Gateway](/azure/application-gateway/) validates JSON Web Tokens (JWTs) issued by [Microsoft Entra ID](https://docs.azure.cn/en-us/entra/fundamentals/what-is-entra) (formerly Azure Active Directory) in incoming HTTPS requests. This capability provides first-hop authentication enforcement for web APIs or any protected resource without requiring custom code in your backend applications.
+[Azure Application Gateway](/azure/application-gateway/) validates JSON Web Tokens (JWTs) issued by [Microsoft Entra ID](/entra/fundamentals/what-is-entra) (formerly Azure Active Directory) in incoming HTTPS requests. This capability provides first-hop authentication enforcement for web APIs or any protected resource without requiring custom code in your backend applications.
 
 This capability verifies the integrity and authenticity of tokens in incoming requests. It then determines whether to allow or deny access before forwarding traffic to backend services. Upon successful validation, the gateway injects the `x-msft-entra-identity` header into the request and forwards it to the backend. Downstream applications can then securely consume verified identity information.
 
@@ -29,6 +29,8 @@ Application Gateway doesn't maintain any session or cookie-based state. This app
 - **Flexible actions**: Configures `Deny` (return 401 status) or `Allow` (forward without identity header) for invalid tokens.
 - **Multitenant support**: Supports common organizations and consumers' tenant configurations.
 - **HTTPS only**: Requires HTTPS listeners. HTTP isn't supported.
+
+ :::image type="content" source="media/json-web-token-overview/jwt-validation.png" alt-text="Diagram showing JWT Validation for Application Gateway.":::
 
 ## Prerequisites
 

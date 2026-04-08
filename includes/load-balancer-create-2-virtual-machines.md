@@ -18,7 +18,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. In **Virtual machines**, select **+ Create** > **Azure virtual machine**.
+1. In **Compute infrastructure | Virtual machines**, select **+ Create** > **Virtual machine**.
    
 1. In **Create a virtual machine**, enter or select the following values in the **Basics** tab:
 
@@ -33,7 +33,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **Zone 1** |
     | Security type | Select **Standard**. |
-    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - Gen2** |
+    | Image | Select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2** |
     | Azure Spot instance | Leave the default of unchecked. |
     | Size | Choose VM size or take default setting |
     | **Administrator account** |  |
@@ -62,7 +62,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Load-balancing options | Select **Azure load balancer** |
     | Select a load balancer | Select **load-balancer**  |
     | Select a backend pool | Select **lb-backend-pool** |
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **lb-NSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> In **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **lb-NSG-Rule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **lb-NSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> In **Service**, select **HTTP**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **lb-NSG-Rule** </br> Select **Add** </br> Select **Add** then select **OK**. |
    
 1. Select **Review + create**. 
   

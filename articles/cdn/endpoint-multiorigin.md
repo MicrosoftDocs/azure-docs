@@ -7,7 +7,7 @@ ms.author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ROBOTS: NOINDEX
 # Customer intent: "As a cloud administrator, I want to configure multiple origins for an Azure CDN endpoint, so that I can ensure redundancy and improve reliability for my content delivery."
 ---

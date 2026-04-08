@@ -14,9 +14,9 @@ ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
 
 # Tutorial: Discover servers running in a VMware environment with Azure Migrate
 
-As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
+As part of your migration journey to Azure, you discover your on-premises or Azure VMware Solution (AVS) inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your VMware environment by using the Azure Migrate: Discovery and assessment tool, a lightweight Azure Migrate appliance. You deploy the appliance as a server running in your vCenter Server instance, to continuously discover servers and their performance metadata, applications that are running on servers, server dependencies, web apps, and SQL Server instances and databases.
+This tutorial shows you how to discover the servers that are running in your on-premises or AVS environments by using the **Azure Migrate: Discovery and assessment** tool, a lightweight Azure Migrate appliance. You deploy the appliance as a server running in your vCenter Server instance, to continuously discover servers and their performance metadata, applications that are running on servers, server dependencies, web apps, and SQL Server instances and databases.
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,6 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 Watch the following video to learn how to discover on-premises servers running in a VMware environment as part of your migration to Azure. 
-
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=edbc7f22-2ba1-44cd-a534-465dfd426a14]
 
@@ -51,9 +50,13 @@ Requirement | Details
 ## Prepare an Azure user account
 Refer [this article](prepare-azure-accounts.md) to prepare Azure accounts.
 
-## Prepare VMware
+>[!IMPORTANT]
+> Ensure the Azure user account has the required Azure Migrate built-in roles to create projects, register appliances, and access discovery results. To understand the minimum role requirements, see [Azure Migrate built‑in roles](prepare-azure-accounts.md).
 
-On vCenter Server, check that your account has [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
+## Prepare VMware
+You can skip this step if you are discovering VMs from your Azure VMware Solution environment. You should be able to use your [AVS CloudAdmin account](/azure/azure-vmware/architecture-identity#vcenter-server-access-and-identity) to discover and assess servers.
+
+On your on-premises vCenter Server, check that your account has [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) to create a VM by using a VMware Open Virtualization Appliance (OVA) virtual machine (VM) installation file. You must have these [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) when you deploy the Azure Migrate appliance as a VMware VM by using an OVA file.
 
 Azure Migrate must have a vCenter Server read-only account to discover and assess servers running in your VMware environment. If you also want to run discovery of installed applications and agentless dependency analysis, the account must have [permissions](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless) enabled in VMware for VM guest operations.
 
@@ -108,7 +111,7 @@ To set up a new project:
 
 ## Set up the appliance
 
-The Azure Migrate: Discovery and assessment tool uses a lightweight Azure Migrate appliance. The appliance completes server discovery and sends server configuration and performance metadata to Azure Migrate. Set up the appliance by deploying an OVA template that can be downloaded from the project.
+The **Azure Migrate: Discovery and assessment** tool uses a lightweight Azure Migrate appliance. The appliance completes server discovery and sends server configuration and performance metadata to Azure Migrate. Set up the appliance by deploying an OVA template that can be downloaded from the project.
 
 > [!NOTE]
 > If you can't set up the appliance by using the OVA template, you can set it up by running a PowerShell script on an existing server running Windows Server 2019 or Windows Server 2022. Learn how to [use PowerShell to set up an Azure Migrate appliance](deploy-appliance-script.md#set-up-the-appliance-for-vmware). <br/>
@@ -214,7 +217,7 @@ Complete the setup steps in the appliance configuration manager to prepare for a
 The appliance must connect to vCenter Server to discover the configuration and performance data of the servers:
 
 1. In **Step 1: Provide vCenter Server credentials**, select **Add credentials** to enter a name for the credentials. Add the username and password for the vCenter Server account that the appliance will use to discover servers running on vCenter Server.
-    - You should have set up an account with the required permissions as described earlier in this article.
+    - You should have set up an account with the required permissions as described earlier in this article. If you are discovering your AVS environment, use the CloudAdmin account in this step.
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers), review the instructions to [set discovery scope](set-discovery-scope.md) to restrict the account that Azure Migrate uses.
     - If you want to add multiple credentials at once, select **Add more** to save and add more credentials. Multiple credentials are supported for discovery of servers across multiple vCenter Servers using a single appliance.
 1. In **Step 2: Provide vCenter Server details**, select **Add discovery source** to add the IP address or FQDN of a vCenter Server. You can leave the port as the default (443) or specify a custom port on which vCenter Server listens. Select the friendly name for credentials you would like to map to the vCenter Server and select **Save**.

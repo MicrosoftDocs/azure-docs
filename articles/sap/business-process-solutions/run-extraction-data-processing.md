@@ -3,7 +3,7 @@ title: Run extraction and data processing in Business Process Solutions
 description: This article provides detailed instructions for running data extraction and processing in Business Process Solutions, including steps for SAP and Salesforce systems using Azure Data Factory, Open Mirroring, and Fabric pipelines.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij

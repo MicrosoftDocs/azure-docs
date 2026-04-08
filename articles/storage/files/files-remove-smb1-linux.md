@@ -12,6 +12,8 @@ ms.author: kendownie
 
 # Disable SMB 1 on Linux clients
 
+**Applies to:** :heavy_check_mark: SMB file shares
+
 Many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. This practice originates from security guidance about legacy and deprecated versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, older versions of SMB, especially SMB 1, aren't. SMB 1, also known as CIFS (Common Internet File System), is included with many Linux distributions.
 
 SMB 1 is an outdated, inefficient, and insecure protocol. The good news is that Azure Files doesn't support SMB 1. Also, starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.

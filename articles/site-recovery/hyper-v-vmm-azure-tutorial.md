@@ -160,4 +160,4 @@ Site Recovery checks that there's one or more compatible Azure storage accounts 
 
 ## Next steps
 
-- [Run a disaster recovery drill](tutorial-dr-drill-azure.md).
+- [Run a disaster recovery drill to validate your configuration and ensure failover readiness.](tutorial-dr-drill-azure.md).

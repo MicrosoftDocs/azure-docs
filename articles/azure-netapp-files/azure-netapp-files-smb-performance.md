@@ -103,8 +103,6 @@ After you have data traffic running in your volumes, you can monitor your adapte
 
 ## SMB encryption
 
-This section helps you understand SMB encryption (SMB 3.0 and SMB 3.1.1) 
-
 [SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks. SMB encryption is supported on SMB 3.0 and greater. 
 
 When sending a request to the storage, the client encrypts the request, which the storage then decrypts. Responses are similarly encrypted by the server and decrypted by the client.

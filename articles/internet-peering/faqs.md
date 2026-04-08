@@ -1,12 +1,13 @@
 ---
-title: Internet peering - FAQ
+title: Internet Peering - FAQ
 description: This article provides answers to some of the frequently asked questions asked about Internet peering.
 services: internet-peering
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: faq
-ms.date: 10/23/2024
+ms.date: 02/25/2026
+
 # Customer intent: As a network engineer, I want to understand the differences between Internet peering options and their configurations, so that I can effectively manage my organization’s connectivity and optimize performance when integrating with Microsoft services.
 ---
 

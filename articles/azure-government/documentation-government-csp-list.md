@@ -206,7 +206,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Hendrix Corporation](https://www.hendrixcorp.com/)|
 |[Hewlett Packard Enterprise](https://www.hpe.com)|
 |[Hiscomp](http://www.hiscompllc.com/)|
-|[Hitachi Vantara](https://www.hitachivantarafederal.com/services/cloud-services/)|
+|[Hitachi Vantara](https://www.hitachivantara.com/content/hitachivantara/en_us/services/cloud-infrastructure-services.html)|
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|
@@ -310,7 +310,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Om Group, Inc.](http://www.omgroupinc.us/)|
 |[OneNeck IT Solutions](https://www.oneneck.com)|
 |[Onyx Point, Inc.](https://www.onyxpoint.com)|
-|[Opsgility](https://www.opsgility.com)|
+|[Opsgility](https://opsgility.com/)|
 |[OpsPro](https://opspro.com/)|
 |[Optuminsight Inc.](https://www.optum.com)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|
@@ -557,7 +557,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[NeoSystems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
-|[Novetta](https://www.novetta.com)|
+|[Novetta](https://www.linkedin.com/company/novetta/)|
 |[Orbis](https://orbisops.com)|
 |[PAX 8](https://www.pax8.com)|
 |[Peraton](https://www.peraton.com/)|

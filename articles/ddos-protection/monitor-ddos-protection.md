@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure DDoS Protection
 description: Learn how to monitor Azure DDoS Protection using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: 03/17/2025
+ms.date: 03/17/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: AbdullahBell
-ms.author: abell
+author: duongau
+ms.author: duau
 ms.service: azure-ddos-protection
 # Customer intent: "As a security administrator, I want to monitor Azure DDoS Protection metrics and logs so that I can analyze attack patterns and ensure the effectiveness of my DDoS mitigation strategies."
 ---

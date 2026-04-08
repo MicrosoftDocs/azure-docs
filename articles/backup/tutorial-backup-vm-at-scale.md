@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Back Up Multiple Azure Virtual Machines by Using Azure Backup
 description: In this tutorial, learn how to create a Recovery Services vault, define a backup policy, and simultaneously back up multiple virtual machines.
-ms.date: 09/24/2025
+ms.date: 01/28/2026
 ms.topic: tutorial
 ms.custom: mvc, engagement-fy24
 ms.service: azure-backup
@@ -26,7 +26,7 @@ In this tutorial, you:
 > - Assign the policy to help protect multiple virtual machines.
 > - Trigger an on-demand back up for virtual machines.
 
-[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+[!INCLUDE [resiliency.md](../../includes/resiliency.md)]
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -38,9 +38,9 @@ After creation of the Recovery Services vault is complete, configure the vault f
 
 To set a backup policy for your Azure VMs, follow these steps:
 
-1. Go to **Backup center**. On the **Overview** tab, select **+Backup**.
+1. Go to **Resiliency**. On the **Overview** tab, select **+ Configure protection**.
 
-   :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-button.png" alt-text="Screenshot that shows the Backup button.":::
+1. On the **Configure protection** pane, under **Where is your workload running?**, select **Azure**. Under **What do you want to back up?**, select **Virtual machine**. Then select **Continue**.
 
 1. On the **Start: Configure Backup** pane, select **Azure Virtual machines** as the **Datasource type** value, and then select the vault that you created. Then select **Continue**.
 
@@ -95,15 +95,15 @@ You enabled backups for the Recovery Services vaults, but you haven't created an
 
 The initial backup runs in accordance with the schedule, but you can run it immediately as follows:
 
-1. Go to **Backup center** and select **Backup Instances**.
+1. Go to **Resiliency** and select **Protected items**.
 
-1. For **Datasource type**, select **Azure Virtual machines**. Then search for the VM that you configured for backups.
+1. On the **Protected items** pane, for **Datasource type**, select **Azure Virtual machines**. Then search for the VM that you configured for backups.
 
 1. Right-click the relevant row or select the more icon (**…**), and then select **Backup Now**.
 
 1. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 
-1. Monitor the portal notifications. To monitor the job's progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs.
+1. Monitor the portal notifications. To monitor the job's progress, go to **Resiliency** > **Jobs** and filter the list for **In progress** jobs.
 
    Depending on the size of your VM, creating the initial backup might take a while.
 

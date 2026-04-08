@@ -11,6 +11,7 @@ metadata:
   ms.date: 07/22/2025
   adobe-target: true
   ms.collection: migration
+  ms.custom: migration-hub
 
 sections:
   - componentType: hero
@@ -38,7 +39,7 @@ sections:
       - componentType: card
         title: Amazon Web Services (AWS) to Azure
         summary: Compare AWS and Azure and review example scenarios to help integrate components for transition to Azure.
-        imageUrl: ./images/collection.png
+        imageUrl: ./images/aws-to-azure.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-aws
@@ -46,7 +47,7 @@ sections:
       - componentType: card
         title: Google Cloud to Azure
         summary: Compare Google Cloud and Azure and review example scenarios to help integrate components for transition to Azure.
-        imageUrl: ./images/collection.png
+        imageUrl: ./images/google-cloud.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-google-cloud
@@ -54,7 +55,7 @@ sections:
       - componentType: card
         title: On-premises to Azure
         summary: Review example scenarios to help integrate components for transition to Azure.
-        imageUrl: ./images/collection.png
+        imageUrl: ./images/on-premises.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-on-premises
@@ -175,14 +176,14 @@ sections:
         imageUrl: images/adopt-azure.png
         links:
           - componentType: link
-            text: Prepare your Azure environment for migration
-            url: /azure/cloud-adoption-framework/migrate/prepare/ready-azure-landing-zone
+            text: Plan for cloud adoption
+            url: /azure/cloud-adoption-framework/plan/prepare-organization-for-cloud
           - componentType: link
-            text: Assess workload readiness and classification
-            url: /azure/cloud-adoption-framework/migrate/assess/classify
+            text: Ready your environment
+            url: /azure/cloud-adoption-framework/ready/
           - componentType: link
-            text: Deploy Azure services for migration
-            url: /azure/cloud-adoption-framework/migrate/deploy/
+            text: Plan for migration
+            url: /azure/cloud-adoption-framework/migrate/plan-migration
       - componentType: card
         title: Design and govern for Azure
         summary: ""

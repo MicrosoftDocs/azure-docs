@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 # What is Neon Serverless Postgres?
 
 > [!Important]
-> Deprecation Note: The Neon Azure Native Integration is being deprecated and will reach end of life on January 31, 2026. Transfer your projects to a Neon managed organization today, see [Migrate from Neon Azure Native Integration](https://neon.com/docs/import/migrate-from-azure-native).
+> Deprecation Note: The Neon Azure Native Integration is now retired. Existing customers can transfer projects to a Neon managed organization. Learn more here [Migrate from Neon Azure Native Integration](https://neon.com/docs/import/migrate-from-azure-native).
 
 Neon Serverless Postgres is a cloud-native, serverless, fully managed PostgreSQL database service jointly developed and managed by Microsoft and Neon as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
 
@@ -36,6 +36,9 @@ The following features set Neon Serverless Postgres apart from traditional manag
 
 ## Subscribe to Neon
 
+> [!Important]
+> Deprecation Note: The Neon Azure Native Integration is now retired. Existing customers can transfer projects to a Neon managed organization. Learn more here [Migrate from Neon Azure Native Integration](https://neon.com/docs/import/migrate-from-azure-native).
+
 [!INCLUDE [subscribe](../includes/subscribe.md)] **Neon**.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
@@ -43,4 +46,5 @@ The following features set Neon Serverless Postgres apart from traditional manag
 ## Next step
 
 > [!div class="nextstepaction"]
+
 > [Create a resource](create.md)

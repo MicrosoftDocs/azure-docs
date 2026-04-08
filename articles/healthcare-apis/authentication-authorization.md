@@ -5,7 +5,7 @@ services: healthcare-apis
 author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.topic: overview
-ms.date: 05/24/2025
+ms.date: 02/25/2026
 ms.author: kesheth
 ---
 
@@ -38,15 +38,12 @@ The DICOM&reg; service in Azure Health Data Services provides the following role
 * **DICOM Data Owner**: Read, write, and delete DICOM data.
 * **DICOM Data Read**: Read DICOM data.
 
-The MedTech service doesn't require application roles, but it does rely on **Azure Event Hubs Data Receiver** to retrieve data stored in the event hub of your organization's subscription.
-
 ## Authorization
 
 After being granted with proper application roles, the authenticated users and client applications can access Azure Health Data Services by obtaining a valid access token issued by Microsoft Entra ID, and perform specific operations defined by the application roles.
  
 * For the FHIR service, the access token is specific to the service or resource.
 * For the DICOM service, the access token is granted to the `dicom.healthcareapis.azure.com` resource, not a specific service.
-* For MedTech service, the access token isn’t required because it isn’t exposed to the users or client applications.
 
 ### Steps for authorization
 
@@ -110,7 +107,6 @@ When you create a new service of Azure Health Data Services, your data is encryp
 
 * FHIR service provides encryption of data at rest when data is persisted in the data store.
 * DICOM service provides encryption of data at rest when imaging data including embedded metadata is persisted in the data store. When metadata is extracted and persisted in the FHIR service, it’s encrypted automatically.
-* MedTech service, after data mapping and normalization, persists device messages to the FHIR service, which is encrypted automatically. In cases where device messages are sent to Azure Event Hubs, which use Azure Storage to store the data, data is automatically encrypted with Azure Storage Service Encryption (Azure SSE).
 
 ## Next steps
 

@@ -49,7 +49,7 @@ The following Azure Native Integrations partners provide data management, integr
 |**Dell PowerScale** Preview|[Dell PowerScale Preview](dell/overview.md) is an enterprise-class, high-performance software-defined file storage solution that brings PowerScale OneFS software to Azure.|
 | **Informatica**               | [Informatica Intelligent Data Management Cloud](informatica/overview.md) enables the management of an Informatica organization in Azure. Informatica delivers solutions that help organizations manage and secure their cloud data assets. |
 | **MongoDB**    | [MongoDB Atlas](mongo-db/overview.md) is a managed document database with vector search capabilities. It supports modern application development. |
-| **Neon**  | [Neon Serverless Postgres](neon/overview.md) offers a serverless Postgres database service that enables scalable and cost-effective relational data storage. |
+| **Neon (retired)**  | [Neon Serverless Postgres](neon/overview.md) offers a serverless Postgres database service that enables scalable and cost-effective relational data storage. |
 | **Pure Storage Cloud** | [Pure Storage Cloud](pure-storage/overview.md) provides managed block storage to help organizations manage their storage and compute resources. |
 | **Qumulo**                    | [Azure Native Qumulo](qumulo/overview.md) is a service that provisions a Qumulo file system that supports multiple protocols. It helps organizations efficiently manage unstructured data. |
 

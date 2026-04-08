@@ -427,7 +427,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
     Subscription: Your subscription name (1111111-1111-1111-1111-111111111111)
     Location: East US
     
-      You can view detailed progress in the Azure Portal:
+      You can view detailed progress in the Azure portal:
       https://portal.azure.com/#view/HubsExtension/DeploymentDetailsBlade/~/overview/id/%2Fsubscriptions%2F1111111-1111-1111-1111-111111111111%2Fproviders%2FMicrosoft.Resources%2Fdeployments%2Fyourenv-1721867673
     
       (✓) Done: Resource group: yourenv-rg
@@ -442,7 +442,7 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
       (✓) Done: Private Endpoint: cache-privateEndpoint
     
     SUCCESS: Your application was provisioned in Azure in 32 minutes.
-    You can view the resources created under the resource group yourenv-rg in Azure Portal:
+    You can view the resources created under the resource group yourenv-rg in Azure portal:
     https://portal.azure.com/#@/resource/subscriptions/1111111-1111-1111-1111-111111111111/resourceGroups/yourenv-rg/overview
     
     Deploying services (azd deploy)

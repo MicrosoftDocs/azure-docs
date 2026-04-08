@@ -1,5 +1,5 @@
 ---
-title: Create chat completions in workflows with prompt templates
+title: Create Chat Completions with Prompt Templates in Workflows
 description: Build workflows with chat interactions by using Azure Logic Apps and Azure OpenAI prompt templates.
 services: logic-apps
 author: ecfan
@@ -7,12 +7,12 @@ ms.suite: integration
 ms.reviewers: estfan, shahparth, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 10/30/2025
+ms.date: 03/10/2026
 ms.update-cycle: 180-days
 # Customer intent: I want to create chat completions in Standard workflows by using a prompt template to make answering questions easier. I want to connect to an Azure OpenAI resource and use built-in chat completions operation with the prompt template in Azure Logic Apps.
 ---
 
-# Create chat completions with prompt templates in Standard workflows for Azure Logic Apps (preview)
+# Create chat completions by using prompt templates in Standard workflows for Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
@@ -90,7 +90,7 @@ To follow the example, download the [sample prompt template and inputs](https://
 
 - An [Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) with a deployed model such as GPT-3.5 or GPT-4.
 
-  - The example in this how-to guide provides test data that you can use to try out the workflow. To chat with your own data by using the Azure OpenAI Service models, you have to create an Azure AI Foundry project and add your own data source. For more information, see the following documentation:
+  - The example in this how-to guide provides test data that you can use to try out the workflow. To chat with your own data by using the Azure OpenAI Service models, you have to create a Microsoft Foundry project and add your own data source. For more information, see the following documentation:
 
     - [Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart)
 
@@ -340,4 +340,4 @@ If you don't need the resources that you created for this guide, make sure to de
 
 ## Related content
 
-- [Connect to Azure AI services from workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)
+- [Connect to Foundry Tools from workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)

@@ -1,5 +1,5 @@
 ---
-title: Enhancing Web App Assessment With Code Scan Reports for Azure Migration
+title: Enhancing Web App Assessment with Code Scan Reports for Azure Migration
 description: Learn how to install AppCat and run the quickstart to assess and migrate .NET and Java applications using Azure Migrate. Step-by-step guide included.
 ms.topic: how-to
 author: sudesai
@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 ---
 
 
-#  Add GitHub Copilot Code insights to Web App Assessments (preview)
+#  Add GitHub Copilot Code insights to web app assessments (preview)
 
 This article describes how to enhance web app assessments by adding code scan insights using GitHub Copilot assessment when modernizing applications for Azure Kubernetes Service (AKS) or Azure App Service. Adding code insights helps you better assess migration readiness and get recommendations for migration strategies based on the code changes identified during the scan.
 

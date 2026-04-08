@@ -35,7 +35,8 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Availability zones                                                                           | ❌          | ❌        | ❌    | ❌       | ❌       | ❌       | ✔️     | ✔️  |
 | Multiple custom domain names for gateway                                                                 | ❌          | ✔️        | ❌    | ❌      | ❌       | ❌        | ✔️     | ❌ |
 | Developer portal<sup>2</sup>                                                                 | ❌          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
-| Built-in cache | ❌      | ✔️                                            | ✔️          | ✔️       | ✔️   | ✔️      | ✔️     | ✔️ |
+| Scale units | ❌ (automatic scaling)     | 1                                             | 2           | 10        | 4    | 10       | 12 per region      | 30 |
+| Built-in cache | ❌      | 10 MB                                            | 50 MB          | 250 MB       | 1 GB   | 1 GB      | 5 GB     | 5 GB |
 | [External cache](./api-management-howto-cache-external.md)                                                    | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      |✔️     | ✔️
 | Autoscaling                                                    | ❌         | ❌       | ✔️   | ✔️      | ✔️      | ✔️      |✔️     | ✔️ |
 | API analytics                                     | ❌          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |

@@ -478,7 +478,7 @@ az lock delete --ids $lockid
 
 ### Python
 
-To lock deployed resources with Python, use the [`ManagementLockClient.management_locks.create_or_update_at_resource_group_level`](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-create-or-update-at-resource-group-level) command.
+To lock deployed resources with Python, use the [`ManagementLockClient.management_locks.create_or_update_at_resource_group_level`](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-create-or-update-at-resource-group-level) command.
 
 To lock a resource, provide the resource name, resource type, and resource group name.
 
@@ -526,7 +526,7 @@ lock_result = lock_client.management_locks.create_or_update_at_resource_group_le
 )
 ```
 
-To get information about all locks in your subscription, use [ManagementLockClient.management_locks.get](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-list-at-subscription-level).
+To get information about all locks in your subscription, use [ManagementLockClient.management_locks.list_at_subscription_level](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-list-at-subscription-level).
 
 To get all the locks in your subscription, use:
 
@@ -658,6 +658,6 @@ In the request, include a JSON object that specifies the lock properties.
 ## Next steps
 
 - To learn how to logically organize your resources, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
-- You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md).
+- You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md)
 - For guidance on how to use the Azure portal to manage subscription policies, see [Manage Azure subscription policies](/azure/cost-management-billing/manage/manage-azure-subscription-policy).
 

@@ -490,7 +490,7 @@ resource location_lock 'Microsoft.Authorization/policyAssignments@2025-03-01' = 
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -533,7 +533,7 @@ When the resource type or region doesn't support zones, an empty array is return
 
 ### Remarks
 
-There are different categories for Azure Availability Zones - zonal and zone-redundant. The `pickZones` function can be used to return an availability zone for a zonal resource. For zone redundant services (ZRS), the function returns an empty array. Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+There are different categories for Azure Availability Zones - zonal and zone-redundant. The `pickZones` function can be used to return an availability zone for a zonal resource. For zone redundant services (ZRS), the function returns an empty array. Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`. If the response isn't empty, the region supports availability zones.
 
@@ -777,7 +777,7 @@ A string representing the logical availability zone (for example, `1`, `2`, or `
 * The `toLogicalZone` function retrieves the logical zone mapping based on the subscription’s zone configuration in the specified region.
 * Logical zones are standardized identifiers (for example, `1`, `2`, `3`) used in resource configurations to ensure consistent zone assignments across Azure services.
 * Physical zone identifiers are region-specific and may vary between subscriptions. Use the [`toPhysicalZone`](#tophysicalzone) function to reverse this mapping.
-* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 * If the physical zone doesn't exist or isn't mapped for the subscription, the function returns an empty string.
 * This function is useful for aligning physical zone deployments with logical zone configurations in templates, especially for cross-subscription or multi-region scenarios.
 
@@ -891,7 +891,7 @@ A string representing the physical availability zone identifier (for example, `w
 * The `toPhysicalZone` function retrieves the physical zone mapping based on the subscription’s zone configuration in the specified region.
 * Physical zones are data center-specific identifiers that may vary between subscriptions, while logical zones (for example, `1`, `2`, `3`) are standardized for resource configurations.
 * Use the `toLogicalZone` function to reverse this mapping, converting a physical zone to its logical equivalent.
-* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 * If the logical zone doesn't exist or isn't mapped for the subscription, the function returns an empty string.
 * This function is useful for scenarios requiring physical zone identifiers, such as logging, auditing, or cross-subscription zone alignment in multi-region deployments.
 

@@ -5,7 +5,7 @@ description: Learn how to copy data from ServiceNow V2 to supported sink data st
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2025
 ms.custom:
   - synapse

@@ -3,7 +3,7 @@ title: Include file
 description: Include file
 ms.service: azure-backup
 ms.topic: include
-ms.date: 02/28/2025
+ms.date: 01/22/2026
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -14,11 +14,11 @@ To configure backup for Azure PostgreSQL – Flexible Server using Azure Backup,
 
 - Azure PostgreSQL – Flexible Server: Database manage pane
 - Backup vault
-- Azure Business Continuity Center
+- Resiliency
 
-To configure backup on the Azure Database for PostgreSQL - Flexible Server via Azure Business Continuity Center, follow these steps:
+To configure backup on the Azure Database for PostgreSQL - Flexible Server via Resiliency, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Overview** > **+ Configure protection**.
+1. Go to **Resiliency**, and then select **Overview** > **+ Configure protection**.
 
    :::image type="content" source="./media/configure-postgresql-flexible-server-backup/start-configure-protection-for-database.png" alt-text="Screenshot shows how to initiate the database protection. " lightbox="./media/configure-postgresql-flexible-server-backup/start-configure-protection-for-database.png":::
 

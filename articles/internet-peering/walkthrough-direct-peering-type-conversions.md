@@ -1,13 +1,14 @@
 ---
-title: Request a direct peering type conversion
-titleSuffix: Internet peering
+title: Request a Direct Peering Type Conversion
+titleSuffix: Internet Peering
 description: Learn how to request a type conversion for a direct peering in Azure Peering Service.
 author: halkazwini
 ms.author: halkazwini 
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
+
 # Customer intent: As a network administrator, I want to request a conversion for a direct peering type, so that I can effectively upgrade or modify my connectivity options within the Azure Peering Service while ensuring minimal disruption to my existing services.
 ---
 

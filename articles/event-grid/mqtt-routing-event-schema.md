@@ -1,7 +1,7 @@
 ---
 title: 'Event Schema for MQTT Routed Messages'
 description: 'An overview of the Event Schema for MQTT Routed Messages.'
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - build-2023
   - ignite-2023

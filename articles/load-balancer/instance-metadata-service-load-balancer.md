@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 01/29/2026
 ms.author: mbender
 # Customer intent: "As a cloud infrastructure engineer, I want to retrieve load balancer and virtual machine IP information using the Instance Metadata Service, so that I can efficiently manage and troubleshoot my virtual machine instances behind the load balancer."
 ---

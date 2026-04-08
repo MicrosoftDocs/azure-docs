@@ -33,7 +33,7 @@ Azure Front Door offloads the TLS sessions at the edge and decrypts client reque
 Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. All Azure Front Door profiles created after September 2019 use TLS 1.2 as the default minimum with TLS 1.3 enabled. Currently, Azure Front Door doesn't support client/mutual authentication (mTLS).
 
 > [!IMPORTANT]
-> As of March 1, 2025, TLS 1.0 and 1.1 aren't allowed on new Azure Front Door profiles. 
+> TLS 1.0 and 1.1 aren't supported. 
 
 For Azure Front Door Standard and Premium, you can configure predefined TLS policy or choose the TLS cipher suite based on your organization's security needs. For more information, see [Azure Front Door TLS policy](/azure/frontdoor/standard-premium/tls-policy) and [configure TLS policy on a Front Door custom domain](/azure/frontdoor/standard-premium/tls-policy-configure).
 
@@ -128,12 +128,13 @@ For TLS 1.2/1.3, the following cipher suites are supported:
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 > [!NOTE]
-> Old TLS versions and weak ciphers are no longer supported.
+> Older TLS versions and weak ciphers are no longer supported.
+> Support for DHE cipher suites will end on April 1, 2026. See [documentation](diffie-hellman-ciphers.md) for more details.
 
 Use *TLS policy* to configure specific cipher suites. Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy: you can use either a predefined policy or a custom policy per your own needs. For more information, see [Configure TLS policy on a Front Door custom domain](standard-premium/tls-policy-configure.md).
 
 > [!NOTE]
-> For Windows 10 and later versions, we recommend enabling one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC and DHE cipher suites have been provided for compatibility with those operating systems. 
+> For Windows 10 and later versions, we recommend enabling one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC cipher suites have been provided for compatibility with those operating systems. 
 
 ## Related content
 

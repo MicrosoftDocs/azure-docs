@@ -18,23 +18,35 @@ In Azure IoT Operations, the media connector enables access to media from media 
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
+The following table summarizes the features the media connector supports:
+
+| Feature | Supported | Notes |
+|---------|:---------:|-------|
+| Username/password authentication | Yes | Basic HTTP authentication |
+| X.509 client certificates | No | |
+| Anonymous access | Yes | For testing purposes |
+| Certificate trust list | Yes | For secure TLS connections to to media sources |
+| OpenTelemetry integration | Yes | |
+| Northbound username/password authentication | Yes | For RTSP and RTSPS endpoints |
+| Northbound anonymous access | Yes | For RTSP and RTSPS endpoints |
+| Northbound certificate trust list | Yes | For secure connections to RTSPS endpoints only |
+| Snapshot to MQTT | Yes | Publish image snapshots to MQTT topics |
+| Clip to file system | Yes | Save video clips to local storage |
+| Snapshot to file system | Yes | Save image snapshots to local storage |
+| Stream to RTSP/RTSPS | Yes | Proxy live video streams to an RTSP or RTSPS endpoint |
+
+For each configured stream, the connector for media:
+
+1. Opens a connection to the stream from the media source.
+1. Generates clips, captures snapshots, or proxies the stream as specified in the stream configuration.
+1. Sends the media to the specified destination.
+
 This article explains how to use the media connector to perform tasks such as:
 
 - Define the devices that connect media sources to your Azure IoT Operations instance.
 - Add assets, and define their streams for capturing media from the media source.
 - Send an image snapshot to the MQTT broker.
 - Save a video clip to Azure storage.
-
-The media connector supports the following southbound authentication methods:
-  - Username/password authentication
-  - Anonymous access for testing purposes
-
-To establish a TLS connection to the media source, you can configure a certificate trust list for the connector.
-
-The media connector supports the following northbound authentication methods:    
-  - Username/password for RTSP and RTSPS endpoints
-  - Anonymous access for testing purposes on RTSP and RTSPS endpoints
-  - Certificate trust list for RTSPS endpoints only
 
 ## Prerequisites
 
@@ -89,6 +101,10 @@ Example uses of the media connector include:
 ## Deploy the media connector
 
 [!INCLUDE [deploy-connectors](../includes/deploy-connectors.md)]
+
+### Configure a certificate trust list for the connector
+
+[!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
 ## Create a device with a media endpoint
 
@@ -189,10 +205,6 @@ To use the `Username password` authentication mode, complete the following steps
 [!INCLUDE [connector-username-password-bicep](../includes/connector-username-password-bicep.md)]
 
 ---
-
-### Configure a certificate trust list for a device to use
-
-To manage the trusted certificates list for the media connector, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
 
 ## Create an asset to publish an image snapshot
 
@@ -300,7 +312,7 @@ The following steps show you how to run the **mosquitto_sub** tool in the cluste
 
 [!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
 
-To save the payload of a single message, use a command like the following:
+To save the payload of a single message, use a command like the following example:
 
 ```bash
 mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/my-camera/#" -C 1 -F %p --cafile /var/run/certs/

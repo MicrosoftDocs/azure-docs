@@ -17,7 +17,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 ## Shared requirements for cross-zone and cross-region replication 
 
-* Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. To enable replication across subscriptions, you must [register the feature](cross-region-replication-create-peering.md#register-for-cross-subscription-replication).
+* Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. To enable replication across subscriptions, you must [register the feature](enable-cross-subscription-replication.md).
 
 * Cross-zone and cross-region replication are supported with both Network File System (NFS) and Server Message Block (SMB) volumes.
 
@@ -41,7 +41,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 ## Cross-zone replication requirements and considerations
 
-* The cross-zone replication feature uses the [availability zone volume placement feature](../reliability/reliability-netapp-files.md) of Azure NetApp Files.
+* The cross-zone replication feature uses the [availability zone volume placement feature](/azure/reliability/reliability-netapp-files) of Azure NetApp Files.
 
 * To establish cross-zone replication, you must [create the source volume in an availability zone](manage-availability-zone-volume-placement.md).
 

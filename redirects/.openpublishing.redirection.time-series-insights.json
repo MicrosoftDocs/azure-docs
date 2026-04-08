@@ -1,6 +1,11 @@
 {
   "redirections": [
         {
+            "source_path_from_root": "/articles/time-series-insights/index.yml",
+            "redirect_url": "/previous-versions/azure/time-series-insights/overview-what-is-tsi",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/time-series-insights/breaking-changes-long-data-type.md",
             "redirect_url": "/previous-versions/azure/time-series-insights/breaking-changes-long-data-type",
             "redirect_document_id": false

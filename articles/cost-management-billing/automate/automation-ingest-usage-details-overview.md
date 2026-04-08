@@ -5,7 +5,7 @@ description: This article explains how to use cost details records to correlate 
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 06/26/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

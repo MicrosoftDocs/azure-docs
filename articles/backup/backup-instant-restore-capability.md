@@ -19,9 +19,9 @@ Instant Restore provides the following capabilities:
 * Uses snapshots taken as part of a backup job that's available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
 * Reduces backup and restore times by retaining snapshots locally for 2 days with the Standard policy and 7 days with the Enhanced policy, by default. You can configure this default snapshot retention value from 1 to 5 days for the Standard policy and from 1 to 30 days for the Enhanced policy.
 * Supports disk sizes up to 32 TB. Don't use Azure Backup to resize disks.
-* Supports Standard solid-state drive (SSD) disks along with Standard hard-disk drive (HDD) disks and Premium SSD disks with the Standard policy. Supports backup and instant restore of Premium SSD v2 and Ultra Disks, in addition to Standard HDD, Standard SSD, and Premium SSD v1 disks, with the Enhanced policy.
-* Uses an unmanaged virtual machine's (VM) original storage accounts (per disk) when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for various VM configurations.
-* Uses unmanaged Premium disks in storage accounts for backup of VMs. We recommend that you allocate *50%* of free space of the total allocated storage space with Instant Restore. The 50% free space isn't a requirement for backups after the first backup is finished.
+* Supports Standard SSDs along with Standard HDDs and Premium SSDs with the Standard policy. Supports backup and instant restore of Premium SSD v2 and Ultra Disks, in addition to Standard HDD, Standard SSD, and Premium SSD v1 disks, with the Enhanced policy.
+* For legacy recovery points from VMs that used unmanaged disks, Azure Backup uses the original storage accounts (per disk) for restore metadata and temporary VHD files. This behavior exists even when the VM has disks distributed across storage accounts.
+* For legacy recovery points from VMs that used unmanaged Premium disks in storage accounts, ensure that sufficient free space is available for the snapshots and temporary restore artifacts. This guidance applies only to recovery points that were created before unmanaged-disk VM backup support was removed.
 
 ## How does Instant Restore work?
 
@@ -37,9 +37,9 @@ A recovery point is created as soon as the snapshot is finished. You can use thi
 ## Feature considerations
 
 * The snapshots are stored along with the disks to boost recovery point creation and to speed up restore operations. As a result, you see storage costs that correspond to snapshots taken during this period.
-* For the Standard policy, all snapshots are incremental in nature and are stored as page blobs. All the users who use unmanaged disks are charged for the snapshots that are stored in their local storage account. Because the restore point collections used by managed VM backups use blob snapshots at the underlying storage level, for managed disks you see costs that correspond to blob snapshot pricing and they're incremental.
+* For the Standard policy, all snapshots are incremental in nature and are stored as page blobs. For existing recovery points from VMs that used unmanaged disks, snapshot charges continue to apply to the snapshots that are stored in the local storage account. Because the restore point collections used by managed VM backups use blob snapshots at the underlying storage level, for managed disks you see costs that correspond to blob snapshot pricing and they're incremental.
 * For Premium storage accounts, the snapshots taken for instant recovery points count toward the 10-TB limit of allocated space. For the Enhanced policy, only managed VM backups are supported. The initial snapshot is a full copy of the disks. The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot. When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require disks encrypted by customer-managed keys via Azure Policy.
-* When you perform instant restores for unmanaged disks, ensure that the storage account that hosts the snapshot/VHD files has public network access or similar enabled. If the necessary network access from the storage account isn't available, then a standard recovery point restore is triggered, which causes a slower restore time.
+* When you perform instant restores for legacy recovery points from VMs that used unmanaged disks, ensure that the storage account that hosts the snapshot/VHD files has public network access or similar enabled. If the necessary network access from the storage account isn't available, then a standard recovery point restore is triggered, which causes a slower restore time.
 * The [Standard policy](backup-instant-restore-capability.md) starts with an incremental backup, which lacks a full recovery point if the original disk is lost. In contrast, the [Enhanced policy](backup-azure-vms-enhanced-policy.md) makes the first backup a full recovery point, which ensures complete recovery and improved data integrity.
 
 ## Cost impact
@@ -50,7 +50,7 @@ Instant Restore for snapshots (stored along with the disks) boosts recovery poin
 
 The Standard policy uses blob snapshots for Instant Restore functionality. All snapshots are incremental in nature and stored in the VM's storage account, which is used for instant recovery. Incremental snapshot means that the space occupied by a snapshot is equal to the space occupied by pages that are written after the snapshot was created. Billing is still for the per GB used space occupied by the snapshot, as explained in [Pricing and billing](../storage/blobs/snapshots-overview.md#pricing-and-billing). As an illustration, consider a VM with 100 GB in size, a change rate of 2%, and a retention of five days for Instant Restore. In this case, the snapshot storage is billed as 10 GB (100 * 0.02 * 5).
 
-For VMs that use unmanaged disks, you can see the snapshots on the menu for the virtual hard-disk (VHD) file for each disk. For managed disks, snapshots are stored in a restore point collection resource in a designated resource group. The snapshots themselves aren't directly visible.
+For existing recovery points from VMs that used unmanaged disks, you can see the snapshots on the menu for the virtual hard-disk (VHD) file for each disk. For managed disks, snapshots are stored in a restore point collection resource in a designated resource group. The snapshots themselves aren't directly visible.
 
 ### Cost impact of the Enhanced policy
 

@@ -562,46 +562,7 @@ Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machin
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
-
-You add the frontend to the frontend IP of an existing load balancer in your subscription.
-
-Use [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to chain the gateway load balancer frontend to your existing load balancer.
-
-```azurepowershell-interactive
-## Place the gateway load balancer configuration into a variable. ##
-$par1 = @{
-    ResourceGroupName = 'TutorGwLB-rg'
-    Name = 'myLoadBalancer-gw'
-}
-$gwlb = Get-AzLoadBalancer @par1
-
-## Place the existing load balancer into a variable. ##
-$par2 = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Name = 'myLoadBalancer'
-}
-$lb = Get-AzLoadBalancer @par2
-
-## Place the existing public IP for the existing load balancer into a variable.
-$par3 = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Name = 'myPublicIP'
-}
-$publicIP = Get-AzPublicIPAddress @par3
-
-## Chain the gateway load balancer to your existing load balancer frontend. ##
-$par4 = @{
-    Name = 'myFrontEndIP'
-    PublicIPAddress = $publicIP
-    LoadBalancer = $lb
-    GatewayLoadBalancerId = $gwlb.FrontendIpConfigurations.Id
-}
-$config = Set-AzLoadBalancerFrontendIpConfig @par4
-
-$config | Set-AzLoadBalancer
-
-```
+Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [Set-AzNetworkInterfaceIpConfig -LoadBalancerBackendAddressPool](/powershell/module/az.network/set-aznetworkinterfaceipconfig).
 
 ---
 

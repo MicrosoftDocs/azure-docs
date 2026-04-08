@@ -4,9 +4,10 @@ titleSuffix: Azure API Management
 description: Learn about alternative approaches you can use when you self-host a developer portal in Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 03/25/2021
+ms.date: 02/02/2025
 ms.service: azure-api-management
 ms.topic: how-to
+#customer intent: As an API developer, I want to understand the alternative approaches using a self-hosted developer portal to see which might fit my needs.
 ---
 
 # Alternative approaches to self-host developer portal
@@ -15,19 +16,17 @@ ms.topic: how-to
 
 There are several alternative approaches you can explore when you [self-host a developer portal](developer-portal-self-host.md):
 
-* Use production builds of the designer and the publisher.
-
-* Use an Azure Function App to publish your portal.
-
-* Front the files of your portal with a Content Delivery Network (CDN) to reduce page loading times.
+- Use production builds of the designer and the publisher.
+- Use an Azure Function App to publish your developer portal.
+- Front the files of your developer portal with a content delivery network to reduce page loading times.
 
 This article provides information on each of these approaches. 
 
-If you have not already done so, set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
+If you haven't already done so, set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 
 ## Build for production
 
-If you want to host the development environment of the portal online for collaboration purposes, use production builds of the designer and the publisher. Production builds bundle the files, exclude source maps, etc.
+If you want to host the development environment of the developer portal online for collaboration purposes, use production builds of the designer and the publisher. Production builds bundle the files and exclude source maps.
 
 Create a bundle in the `./dist/designer` directory by running the command:
 
@@ -43,21 +42,21 @@ Similarly, place a compiled and optimized publisher in the `./dist/publisher` fo
 npm run build-publisher
 ```
 
-## Use Function App to publish the portal
+## Use Function App to publish the developer portal
 
-Run the publishing step in the cloud as an alternative to executing it locally.
+Run the publishing step in the cloud as an alternative to running it locally.
 
 To implement publishing with an Azure Function App, you need the following prerequisites:
 
 - [Create an Azure Function](../azure-functions/functions-get-started.md). The Function needs to be a JavaScript language Function.
 - Install Azure Functions Core Tools:
     ```console
-    npm install –g azure-function-core-tools
+    npm install -g azure-function-core-tools
     ```
 
 ### Step 1: Configure output storage
 
-Uploading the content directly to the hosting website ("$web" container of output storage), instead of a local folder. Configure this change in the `./src/config.publish.json` file:
+Uploading the content directly to the hosting website instead of a local folder. This location is the `$web` container of output storage. Configure this change in the `./src/config.publish.json` file:
 
 ```json
 {
@@ -70,7 +69,7 @@ Uploading the content directly to the hosting website ("$web" container of outpu
 
 ### Step 2: Build and deploy the Function App
 
-There is a sample HTTP Trigger Function in the `./examples` folder. To build it and place it in `./dist/function`, run the following command:
+There's a sample HTTP Trigger Function in the `./examples` folder. To build it and place it in `./dist/function`, run the following command:
 
 ```sh
 npm run build-function
@@ -84,17 +83,17 @@ cd ./dist/function
 func azure functionapp publish <function app name>
 ```
 
-Once it is deployed, you can invoke it with an HTTP call:
+After you deploy it, you can invoke it with an HTTP call:
 
 ```sh
 curl -X POST https://<function app name>.azurewebsites.net/api/publish
 ```
 
-## Hosting and CDN
+## Hosting and content delivery network
 
-In [self-host a developer portal](developer-portal-self-host.md) we suggested using an Azure storage account to host your website. However, you can publish the files through any solution, including services of hosting providers.
+In [self-host a developer portal](developer-portal-self-host.md), we suggest using an Azure storage account to host your website. However, you can publish the files through any solution, including services of hosting providers.
 
-You can also front the files with a Content Delivery Network (CDN) to reduce page loading times. We recommend using [Azure CDN](https://azure.microsoft.com/services/cdn/).
+You can also front the files with a content delivery network to reduce page loading times. We recommend using [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/).
 
 ## Related content
 

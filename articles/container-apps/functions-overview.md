@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 04/07/2025
+ms.date: 03/31/2026
 ms.author: cshoe
 ---
 
@@ -106,7 +106,7 @@ The platform automatically translates your Functions trigger parameters (from `h
 
 **All standard Azure Functions triggers and bindings are supported** in Container Apps with following **exceptions**:
 - Blob Storage Trigger auto scaling: Only works when using Event Grid as the source. Learn more about [Triggering Azure Functions on blob containers using an event subscription](../azure-functions/functions-event-grid-blob-trigger.md)
-- Durable Functions auto scaling: Only supports MSSQL (Microsoft SQL Server) and DTS (Durable Task Scheduler) storage providers. See more guidance on deploying [Durable functions with MSSQL](../azure-functions/durable/durable-functions-mssql-container-apps-hosting.md)
+- Durable Functions auto scaling: Only supports MSSQL (Microsoft SQL Server) and DTS (Durable Task Scheduler) storage providers. See more guidance on deploying [Durable functions with MSSQL](../azure-functions/durable-functions/durable-functions-mssql-container-apps-hosting.md)
 - Auto scaling not supported for:
   - Azure Cache for Redis  
   - Azure SQL
@@ -152,6 +152,13 @@ Azure Functions on Container Apps integrate seamlessly with Azure’s observabil
 - **Custom logging:** Supports standard frameworks like ILogger and console logging for structured output.  
 - **Centralized monitoring:** Container Apps environment offers unified dashboards and alerts across all apps.
 
+
+## Environment variables
+
+Azure Functions running on Container Apps have access to system-provided environment variables. The `CONTAINER_NAME` environment variable is automatically set to the replica name for your function app. Use this variable for logging, correlation, and debugging in multi-replica scenarios.
+
+For a full list of system-provided environment variables, see [Environment variables in Azure Container Apps](environment-variables.md).
+
 ## Considerations
 
 Keep these other considerations in mind when using Azure Functions on Azure Container Apps:
@@ -159,7 +166,7 @@ Keep these other considerations in mind when using Azure Functions on Azure Cont
 - **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, [ingress must be enabled](../container-apps/ingress-how-to.md)—either publicly or within the Container Apps internal environment.
 - **Mandatory Storage Account**: Every Functions app deployed on Container Apps must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
 - **Multi-revision storage**: When deploying with multiple active revisions, assign a dedicated storage account to each revision. Using a dedicated storage account helps prevent conflicts and ensures proper isolation. Alternatively, if you do not require concurrent revisions, consider using the default single revision mode for simplified management.
-- **Multi-revision triggers**: If you are using multi-revision mode with a pull-based trigger, use a different event source for each revision to avoid conflicts related to competing consumers. Functions that use Azure Queue Storage, Azure Event Hub, Azure Service Bus, or Durable Functions triggers are examples of pull-based triggers.
+- **Multi-revision triggers**: If you are using multi-revision mode with a pull-based trigger, use a different event source for each revision to avoid conflicts related to competing consumers. Functions that use Azure Queue Storage, Azure Event Hubs, Azure Service Bus, or Durable Functions triggers are examples of pull-based triggers.
 - **Cold start latency**: When your container app scales in to zero during idle periods, the first request after inactivity experiences a cold start. Learn more about [reducing cold start times](../container-apps/cold-start.md).
 - **Application insights integration**: For robust monitoring and diagnostics, link your Functions app to Application Insights. For more information, see [App Insights integration with Functions](../azure-functions/configure-monitoring.md?tabs=v2#enable-application-insights-integration).
 - **Functions proxies**: Not supported. For API gateway scenarios, integrate with Azure API Management instead.

@@ -19,10 +19,10 @@ To understand the Azure VM restore process, review the following key concepts:
 
 - **Recovery Point** (also known as **Restore Point**): A recovery point is a copy of the original data that's being backed up.
 
-- **Tier (snapshot vs. vault)**:  Azure VM backup happens in two phases:
+- **Tier (snapshot vs. vault)**: Azure VM recovery points are available in two tiers:
 
-  - In phase 1, the snapshot taken is stored along with the disk. This process is called **snapshot tier**. Snapshot tier restores are faster (than restore from vault) because they eliminate the wait time for snapshots to copy to the vault before triggering the restore. So restore from the snapshot tier is also referred as [Instant Restore](./backup-instant-restore-capability.md).
-  - In phase 2, the snapshot is transferred and stored in the vault managed by the Azure Backup service. This process is called **vault tier**.
+  - **Snapshot tier**: The snapshot is stored along with the disk. Snapshot-tier restores are faster than restore from vault because they eliminate the wait time for snapshots to copy to the vault before triggering the restore. So restore from the snapshot tier is also referred to as [Instant Restore](./backup-instant-restore-capability.md).
+  - **Vault tier**: The snapshot is transferred and stored in the vault managed by Azure Backup.
 
 - **Original Location Recovery (OLR)**: A recovery done from the restore point to the source Azure VM from where the backups were taken, replacing it with the state stored in the recovery point. This process replaces the OS disk and the data disks of the source VM.
 
@@ -33,9 +33,9 @@ To understand the Azure VM restore process, review the following key concepts:
 - **Availability (Replication types)**: Azure Backup offers three types of replication to keep your storage/data highly available:
   - [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
   - [Geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
-  - [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../reliability/availability-zones-overview.md), guaranteeing data residency and resiliency in the same region. ZRS has no downtime. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), and must have no downtime, can be backed up in ZRS.
+  - [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](/azure/reliability/availability-zones-overview), guaranteeing data residency and resiliency in the same region. ZRS has no downtime. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), and must have no downtime, can be backed up in ZRS.
 
-- **Cross-Region Restore (CRR)**: As one of the [restore options](./backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](../reliability/cross-region-replication-azure.md). You can restore your data in the secondary region at any time,  during partial or full outages, or any other time you choose. 
+- **Cross-Region Restore (CRR)**: As one of the [restore options](./backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](/azure/reliability/cross-region-replication-azure). You can restore your data in the secondary region at any time,  during partial or full outages, or any other time you choose. 
 
 ## Restore scenarios for Azure VMs
 

@@ -215,7 +215,7 @@ The example in this section uses [Get Geocoding] to convert an address into lati
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
-    GET https://atlas.microsoft.com/geocode?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key}&query=400 Broad St, Seattle, WA 98109
+    GET https://atlas.microsoft.com/geocode?api-version=2026-01-01&subscription-key={Your-Azure-Maps-Subscription-key}&query=400 Broad St, Seattle, WA 98109
     ```
 
 1. Select the **Create** button.
@@ -248,7 +248,7 @@ This example demonstrates how to use the Get Geocode Autocomplete API to search 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
-    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=university of w&bbox=-168,-52,5,84&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2026-01-01&query=university of w&bbox=-168,-52,5,84&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 1. Select the run button, then review the response body.
@@ -271,7 +271,7 @@ Next, narrow down the area included in your search to the United States, using t
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
-    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=university of w&bbox=-168,-52,5,84&countryRegion=us&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2026-01-01&query=university of w&bbox=-168,-52,5,84&countryRegion=us&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 1. Select the run button, then review the response body.
@@ -294,7 +294,7 @@ Next, focus your search to include more results in a specific area within the de
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
-    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=university of w&bbox=-168,-52,5,84&countryRegion=us&coordinates=-122.136791,47.642232&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2026-01-01&query=university of w&bbox=-168,-52,5,84&countryRegion=us&coordinates=-122.136791,47.642232&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 1. Select the run button, then review the response body.
@@ -322,7 +322,7 @@ The examples in this section demonstrate the difference between searching for a 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
-    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=dis&coordinates=-117.920219,33.809570&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2026-01-01&query=dis&coordinates=-117.920219,33.809570&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 1. Select the run button, then review the response body.
@@ -341,7 +341,7 @@ The examples in this section demonstrate the difference between searching for a 
 1. When no values are provided for the `resultTypeGroups` parameter, queries can return both place and address values. If your only interested in searching for addresses, include `resultTypeGroups=address` in your request:
 
     ```http
-    https://atlas.microsoft.com/geocode:autocomplete?api-version=2025-06-01-preview&query=dis&coordinates=-117.920219,33.809570&resultTypeGroups=address&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://atlas.microsoft.com/geocode:autocomplete?api-version=2026-01-01&query=dis&coordinates=-117.920219,33.809570&resultTypeGroups=address&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
     Notice that the response contains *address* values that include:
@@ -371,7 +371,7 @@ This example demonstrates making reverse searches using a few of the optional pa
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
-    https://atlas.microsoft.com/reverseGeocode?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key}&coordinates=-122.332700,47.591180
+    https://atlas.microsoft.com/reverseGeocode?api-version=2026-01-01&subscription-key={Your-Azure-Maps-Subscription-key}&coordinates=-122.332700,47.591180
     ```
 
 1. Select the run button, and review the response body. You should see one query result. The response includes key address information about T-Mobile Park.
@@ -379,7 +379,7 @@ This example demonstrates making reverse searches using a few of the optional pa
 1. Next, add the following parameter to the request: `resultTypes=Postcode1`
 
     ```http
-    https://atlas.microsoft.com/reverseGeocode?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key}&coordinates=-122.332700,47.591180&resultTypes=Postcode1
+    https://atlas.microsoft.com/reverseGeocode?api-version=2026-01-01&subscription-key={Your-Azure-Maps-Subscription-key}&coordinates=-122.332700,47.591180&resultTypes=Postcode1
     ```
 
 1. Select the run button, and compare the results to the results returned previously. Because the requested result type is now `Postcode1`, the response doesn't include street address information, just the zip code.
@@ -395,7 +395,7 @@ This example demonstrates how to search for a cross street based on the coordina
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
   
     ```http
-    https://atlas.microsoft.com/reverseGeocode?api-version=2025-01-01&coordinates=-122.12429011774091,47.61697905124655&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://atlas.microsoft.com/reverseGeocode?api-version=2026-01-01&coordinates=-122.12429011774091,47.61697905124655&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 1. Select the run button, and review the response body.
@@ -428,7 +428,6 @@ This example demonstrates how to search for a cross street based on the coordina
 [Azure Maps Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
 [Best Practices for Search]: how-to-use-best-practices-for-search.md#geobiased-search-results
-[bruno]: https://www.usebruno.com/
 [Entity Types]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true#entitytype
 [Fuzzy Search URI Parameters]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true#uri-parameters
 [Fuzzy Search]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
@@ -444,6 +443,7 @@ This example demonstrates how to search for a cross street based on the coordina
 [point of interest]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0&preserve-view=true#searchpoiresponse
 [Post Search Address Batch]: /rest/api/maps/search/postsearchaddressbatch
 [Post Search Address Reverse Batch]: /rest/api/maps/search/postsearchaddressreversebatch?view=rest-maps-1.0&preserve-view=true
+[Bruno]: https://www.usebruno.com/
 [Reverse Address Search Results]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true#searchaddressreverseresult
 [Reverse Address Search]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [Reverse Search Parameters]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true#uri-parameters

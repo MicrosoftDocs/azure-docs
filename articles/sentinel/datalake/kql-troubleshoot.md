@@ -3,12 +3,11 @@ title: Troubleshoot KQL queries for the data lake
 titleSuffix: Microsoft Security   
 description:  Troubleshoot KQL queries for the Microsoft Sentinel data lake.
 author: EdB-MSFT  
-ms.service: microsoft-sentinel  
-ms.subservice: sentinel-graph 
+ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform  
 ms.topic: how-to
 ms.author: edbaynash  
 ms.date: 08/27/2025
-
 ms.collection: ms-security  
 
 # Customer intent: As a security engineer, I want to troubleshoot KQL queries in the Microsoft Sentinel data lake so that I can resolve common issues and ensure successful query execution.

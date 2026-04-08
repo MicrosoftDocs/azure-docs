@@ -45,6 +45,8 @@ Consider the following measures to ensure your cluster setup is secure before de
 * Use [user-assigned managed identities](./howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
 * Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
 
+[!INCLUDE [aks-imds-restriction](../includes/aks-imds-restriction.md)]
+
 ### Networking
 
 If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoints](./overview-deploy.md#azure-iot-operations-endpoints) to your allow list.
@@ -71,6 +73,9 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
   | **backendWorkers** | 1 | 4 |
   | **backendPartitions** | 1 | 5 |
   | [Memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile) | Low | High |
+
+  > [!NOTE]
+  > The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support.
 
 * [Encrypt internal traffic](../manage-mqtt-broker/howto-encrypt-internal-traffic.md).
 
@@ -122,7 +127,7 @@ When you create a new resource, manage its authorization:
 
 * [Create a BrokerAuthorization resource](../manage-mqtt-broker/howto-configure-authorization.md) and provide the least privilege needed for the topic asset.
 
-### OPC UA broker
+### Connector for OPC UA
 
 For connecting to assets at production, [configure OPC UA authentication](../discover-manage-assets/overview-opc-ua-connector-certificates-management.md):
 

@@ -2,7 +2,7 @@
 title: Back Up Azure Database for PostgreSQL by Using the Azure Portal
 description: Learn how to back up Azure Database for PostgreSQL by using the Azure portal.
 ms.topic: how-to
-ms.date: 08/18/2025
+ms.date: 01/27/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -26,7 +26,7 @@ You can configure a backup on multiple PostgreSQL databases across multiple Azur
 
    :::image type="content" source="./media/backup-azure-database-postgresql/adding-backup-inline.png" alt-text="Screenshot that shows the button for adding a backup." lightbox="./media/backup-azure-database-postgresql/adding-backup-expanded.png":::
 
-   Alternatively, you can go to this page from the [Backup center](./backup-center-overview.md).
+   Alternatively, you can go to this page from the [Resiliency](../resiliency/tutorial-configure-protection-datasource.md).
 
 1. On the **Basics** tab, enter the required information.
 
@@ -126,7 +126,7 @@ You can configure a backup on multiple PostgreSQL databases across multiple Azur
 
 ## <a name = "create-backup-policy"></a>Create a backup policy
 
-You can create a backup policy during the flow for configuring a backup. Alternatively, go to **Backup center** > **Backup policies** > **Add**. You can also [create a backup policy for PostgreSQL databases using REST API](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md).
+You can create a backup policy during the flow for configuring a backup. Alternatively, go to **Resiliency** > **Manage** > **Procection policies** > **+ Create policy**. You can also [create a backup policy for PostgreSQL databases using REST API](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md).
 
 1. On the **Create Backup Policy** pane, on the **Basics** tab, enter a name for the new policy.
 

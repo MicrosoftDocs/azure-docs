@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 788" width="900" height="788"
+     role="img" aria-label="Custom Webhook Authentication Flow — Azure Event Grid MQTT Broker"
+     font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+
+  <title>Custom Webhook Authentication Flow — Azure Event Grid MQTT</title>
+  <desc>End-to-end authentication flow. Three outcome paths: ALLOW to client authenticated, DENY to 200 Bad Request and authentication failed, ERROR to server unavailable.</desc>
+
+  <defs>
+    <marker id="arr-gray" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#605E5C"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#A4262C"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 4 L0 8 Z" fill="#107C10"/>
+    </marker>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="900" height="788" fill="#FAF9F8"/>
+
+  <!-- ══ HEADER ══ -->
+  <rect x="0" y="0" width="900" height="58" fill="#FFFFFF"/>
+  <line x1="0" y1="58" x2="900" y2="58" stroke="#C8C6C4" stroke-width="1"/>
+  <text x="32" y="30" font-size="16" font-weight="600" fill="#323130">Custom Webhook Authentication — End-to-End Flow</text>
+  <text x="32" y="48" font-size="11.5" fill="#605E5C">Azure Event Grid MQTT Broker  ·  Entra ID token validation  ·  Including error response paths</text>
+
+  <!--
+    ══════════════════════════════════════════════════════════
+    COLUMN LAYOUT (inside diagram card x=24..580)
+    Inner area: x=52..580  (width=528)
+    3 columns, each 160px wide, 24px gutters
+      Col1 (DENY):  x=52..212,  center=132
+      Col2 (ALLOW): x=236..396, center=316
+      Col3 (ERROR): x=420..580, center=500
+    
+    Vertical layout:
+      Diagram card:            y=70
+      "AUTHENTICATION FLOW":   y=98
+      Tenant A region:         y=108..204
+        Node 1 (purple):       y=118..182
+      Arrow 1 label:           y=218
+      Node 2 MQTT (teal):      y=244..304
+      Arrow 2 label:           y=320
+      Webhook region:          y=348..530
+        Node 3 Azure Fn(blue): y=360..420
+        Stem to split:         y=420..438
+        H-split bar:           y=438
+        Branch arrows:         y=438..460
+        Branch pills:          y=460..478
+      Exit stems:              y=530..552
+      Row A – response nodes:  y=552..626
+      Row A – arrows:          y=626..646
+      Row B – outcome nodes:   y=646..726
+      Diagram card bottom:     y=746
+    ══════════════════════════════════════════════════════════
+  -->
+
+  <!-- ══ DIAGRAM CARD ══ -->
+  <rect x="24" y="70" width="558" height="688" rx="4" fill="#FFFFFF" stroke="#C8C6C4" stroke-width="1"/>
+  <text x="52" y="98" font-size="10.5" font-weight="600" fill="#605E5C" letter-spacing="0.07em">AUTHENTICATION FLOW</text>
+
+  <!-- TENANT A dashed region  y=108..204 -->
+  <rect x="52" y="108" width="528" height="96" rx="6" fill="none" stroke="#C8C6C4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="66" y="100" width="62" height="16" fill="#FFFFFF"/>
+  <text x="69" y="112" font-size="11.5" font-style="italic" fill="#605E5C">Tenant A</text>
+
+  <!-- Node 1: Azure Event Grid Namespace (purple)  y=118..182 -->
+  <rect x="142" y="118" width="348" height="64" rx="4" fill="#5C2D91" stroke="#3B1D5E" stroke-width="2"/>
+  <text x="316" y="145" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="middle">Azure Event Grid Namespace</text>
+  <text x="316" y="164" font-size="12" fill="#D8C7F5" text-anchor="middle">+ Managed Identity</text>
+
+  <!-- Arrow 1  y=204..244 -->
+  <line x1="316" y1="204" x2="316" y2="212" stroke="#605E5C" stroke-width="1.5"/>
+  <text x="316" y="225" font-size="11" fill="#605E5C" text-anchor="middle">MQTT CONNECT (clientId, JWT, cert…)</text>
+  <line x1="316" y1="228" x2="316" y2="242" stroke="#605E5C" stroke-width="1.5" marker-end="url(#arr-gray)"/>
+
+  <!-- Node 2: MQTT Broker (teal)  y=244..304 -->
+  <rect x="166" y="244" width="300" height="60" rx="4" fill="#038387" stroke="#025557" stroke-width="2"/>
+  <text x="316" y="269" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="middle">Event Grid MQTT Broker</text>
+  <text x="316" y="287" font-size="12" fill="#B3E5E6" text-anchor="middle">Triggers webhook auth</text>
+
+  <!-- Arrow 2  y=304..348 -->
+  <line x1="316" y1="304" x2="316" y2="313" stroke="#605E5C" stroke-width="1.5"/>
+  <text x="316" y="326" font-size="11" fill="#605E5C" text-anchor="middle">HTTPS webhook call</text>
+  <line x1="316" y1="329" x2="316" y2="346" stroke="#605E5C" stroke-width="1.5" marker-end="url(#arr-gray)"/>
+
+  <!-- WEBHOOK dashed region  y=348..530 -->
+  <rect x="52" y="348" width="528" height="182" rx="6" fill="none" stroke="#C8C6C4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="66" y="340" width="152" height="16" fill="#FFFFFF"/>
+  <text x="69" y="352" font-size="11.5" font-style="italic" fill="#605E5C">HTTPS Webhook (Tenant A)</text>
+
+  <!-- Node 3: Azure Function (blue)  y=360..420 -->
+  <rect x="70" y="360" width="490" height="60" rx="4" fill="#0078D4" stroke="#005A9E" stroke-width="2"/>
+  <text x="315" y="385" font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="middle">Azure Function or external web server</text>
+  <text x="315" y="403" font-size="12" fill="#C4E0F9" text-anchor="middle">Validates caller token via Entra ID &amp; Webhook API</text>
+
+  <!-- Stem from node 3 to split  y=420..438 -->
+  <line x1="316" y1="420" x2="316" y2="438" stroke="#605E5C" stroke-width="1.5"/>
+
+  <!-- H-split bar  y=438, spanning col centers 132..500 -->
+  <line x1="132" y1="438" x2="500" y2="438" stroke="#605E5C" stroke-width="1.5"/>
+  <circle cx="132" cy="438" r="3.5" fill="#605E5C"/>
+  <circle cx="316" cy="438" r="3.5" fill="#605E5C"/>
+  <circle cx="500" cy="438" r="3.5" fill="#605E5C"/>
+
+  <!-- Branch stems  y=438..460 -->
+  <line x1="132" y1="438" x2="132" y2="458" stroke="#A4262C" stroke-width="1.5" marker-end="url(#arr-red)"/>
+  <line x1="316" y1="438" x2="316" y2="458" stroke="#107C10" stroke-width="1.5" marker-end="url(#arr-green)"/>
+  <line x1="500" y1="438" x2="500" y2="458" stroke="#A4262C" stroke-width="1.5" marker-end="url(#arr-red)"/>
+
+  <!-- Branch pills  y=460..478 -->
+  <!-- DENY pill  centered on x=132 -->
+  <rect x="104" y="460" width="56" height="18" rx="3" fill="#FDE7E9" stroke="#F1A3A7" stroke-width="1"/>
+  <text x="132" y="473" font-size="10.5" font-weight="700" fill="#A4262C" text-anchor="middle">DENY</text>
+  <!-- ALLOW pill  centered on x=316 -->
+  <rect x="288" y="460" width="56" height="18" rx="3" fill="#DFF6DD" stroke="#9BCB9B" stroke-width="1"/>
+  <text x="316" y="473" font-size="10.5" font-weight="700" fill="#107C10" text-anchor="middle">ALLOW</text>
+  <!-- ERROR pill  centered on x=500 -->
+  <rect x="472" y="460" width="56" height="18" rx="3" fill="#FDE7E9" stroke="#F1A3A7" stroke-width="1"/>
+  <text x="500" y="473" font-size="10.5" font-weight="700" fill="#A4262C" text-anchor="middle">ERROR</text>
+
+  <!-- ══ EXIT STEMS from webhook region  y=530..552 ══ -->
+  <!-- LEFT exit -->
+  <line x1="132" y1="530" x2="132" y2="550" stroke="#A4262C" stroke-width="1.5" marker-end="url(#arr-red)"/>
+  <!-- CENTER exit: label then arrow -->
+  <line x1="316" y1="530" x2="316" y2="536" stroke="#605E5C" stroke-width="1.5"/>
+  <text x="316" y="548" font-size="10.5" fill="#605E5C" text-anchor="middle">200 OK  { decision: allow }</text>
+  <line x1="316" y1="550" x2="316" y2="644" stroke="#605E5C" stroke-width="1.5" marker-end="url(#arr-gray)"/>
+  <!-- RIGHT exit -->
+  <line x1="500" y1="530" x2="500" y2="550" stroke="#A4262C" stroke-width="1.5" marker-end="url(#arr-red)"/>
+
+  <!-- ══════════════════════════════════
+       ROW A — RESPONSE NODES  y=552..626
+       Col1 (DENY) and Col3 (ERROR) only
+       Col2 (ALLOW) has no response node — arrow runs straight to outcome
+  ══════════════════════════════════ -->
+
+  <!-- Col1 response: 200 Bad Request  x=52..212  y=552..626 -->
+  <rect x="52" y="552" width="160" height="74" rx="4" fill="#A4262C" stroke="#7A1D21" stroke-width="2"/>
+  <text x="132" y="572" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">200 Bad Request</text>
+  <text x="132" y="589" font-size="10.5" fill="#FACCCF" text-anchor="middle">decision: "deny"</text>
+  <text x="132" y="604" font-size="10.5" fill="#FACCCF" text-anchor="middle">errorReason:</text>
+  <text x="132" y="619" font-size="10.5" fill="#FACCCF" text-anchor="middle">"Invalid credentials."</text>
+
+  <!-- Col3 response: N/A  x=420..580  y=552..626 -->
+  <rect x="420" y="552" width="160" height="74" rx="4" fill="#A4262C" stroke="#7A1D21" stroke-width="2"/>
+  <text x="500" y="572" font-size="11.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">N/A (no response)</text>
+  <text x="500" y="589" font-size="10.5" fill="#FACCCF" text-anchor="middle">Server unavailable</text>
+  <text x="500" y="604" font-size="10.5" fill="#FACCCF" text-anchor="middle">Timeout / exception /</text>
+  <text x="500" y="619" font-size="10.5" fill="#FACCCF" text-anchor="middle">broker error</text>
+
+  <!-- ══ ARROWS Row A → Row B  y=626..646 ══ -->
+  <line x1="132" y1="626" x2="132" y2="644" stroke="#A4262C" stroke-width="1.5" marker-end="url(#arr-red)"/>
+  <line x1="500" y1="626" x2="500" y2="644" stroke="#A4262C" stroke-width="1.5" marker-end="url(#arr-red)"/>
+
+  <!-- ══════════════════════════════════
+       ROW B — OUTCOME NODES  y=646..726
+       All three columns, top-aligned at y=646
+  ══════════════════════════════════ -->
+
+  <!-- Col1 outcome: Authentication Failed  x=52..212  y=646..730 -->
+  <rect x="52" y="646" width="160" height="82" rx="4" fill="#A4262C" stroke="#7A1D21" stroke-width="2"/>
+  <text x="132" y="669" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Authentication</text>
+  <text x="132" y="686" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Failed</text>
+  <text x="132" y="703" font-size="10.5" fill="#FACCCF" text-anchor="middle">Not authorized</text>
+  <text x="132" y="718" font-size="10.5" fill="#FACCCF" text-anchor="middle">Connection rejected</text>
+
+  <!-- Col2 outcome: Client Authenticated  x=236..396  y=646..730 -->
+  <rect x="236" y="646" width="160" height="82" rx="4" fill="#025F62" stroke="#013B3D" stroke-width="2"/>
+  <text x="316" y="669" font-size="12.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">Client authenticated</text>
+  <text x="316" y="685" font-size="12.5" font-weight="600" fill="#FFFFFF" text-anchor="middle">&amp; authorized</text>
+  <text x="316" y="702" font-size="10" fill="#9DD9DB" text-anchor="middle">Topic filter applied</text>
+  <text x="316" y="717" font-size="10" fill="#9DD9DB" text-anchor="middle">Permission bindings enforced</text>
+
+  <!-- Col3 outcome: Server Unavailable  x=420..580  y=646..730 -->
+  <rect x="420" y="646" width="160" height="82" rx="4" fill="#A4262C" stroke="#7A1D21" stroke-width="2"/>
+  <text x="500" y="669" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Server Unavailable</text>
+  <text x="500" y="691" font-size="10.5" fill="#FACCCF" text-anchor="middle">EG MQTT reason code:</text>
+  <text x="500" y="708" font-size="10.5" fill="#FACCCF" text-anchor="middle">Server unavailable</text>
+
+  <!-- ══════════════════════════════════════════
+       SIDEBAR  x=596..876
+  ══════════════════════════════════════════ -->
+
+  <!-- Error Codes Table Card  y=70..368 -->
+  <rect x="596" y="70" width="280" height="298" rx="4" fill="#FFFFFF" stroke="#C8C6C4" stroke-width="1"/>
+  <!-- Header -->
+  <rect x="596" y="70" width="280" height="34" rx="4" fill="#F3F2F1"/>
+  <rect x="596" y="88" width="280" height="16" fill="#F3F2F1"/>
+  <line x1="596" y1="104" x2="876" y2="104" stroke="#C8C6C4" stroke-width="1"/>
+  <text x="612" y="92" font-size="10.5" font-weight="700" fill="#323130" letter-spacing="0.05em">ERROR CODES</text>
+  <!-- Column headers -->
+  <rect x="596" y="104" width="280" height="28" fill="#F3F2F1"/>
+  <line x1="596" y1="132" x2="876" y2="132" stroke="#C8C6C4" stroke-width="1"/>
+  <line x1="724" y1="104" x2="724" y2="368" stroke="#EDEBE9" stroke-width="1"/>
+  <line x1="796" y1="104" x2="796" y2="368" stroke="#EDEBE9" stroke-width="1"/>
+  <text x="604" y="122" font-size="9.5" font-weight="700" fill="#323130">Authentication Outcome</text>
+  <text x="730" y="122" font-size="9.5" font-weight="700" fill="#323130">Response</text>
+  <text x="802" y="122" font-size="9.5" font-weight="700" fill="#323130">MQTT Code</text>
+
+  <!-- Row 1 -->
+  <rect x="596" y="132" width="280" height="40" fill="#FFFFFF"/>
+  <line x1="596" y1="172" x2="876" y2="172" stroke="#EDEBE9" stroke-width="1"/>
+  <text x="604" y="148" font-size="9.5" fill="#323130">Explicit authorization</text>
+  <text x="604" y="161" font-size="9.5" fill="#323130">denial</text>
+  <rect x="727" y="142" width="58" height="15" rx="2" fill="#F3F2F1"/>
+  <text x="756" y="153" font-size="9" font-family="'Consolas','Courier New',monospace" fill="#323130" text-anchor="middle">"deny"</text>
+  <text x="802" y="148" font-size="9.5" font-weight="700" fill="#5C2D91">Not</text>
+  <text x="802" y="161" font-size="9.5" font-weight="700" fill="#5C2D91">authorized</text>
+
+  <!-- Row 2 -->
+  <rect x="596" y="172" width="280" height="36" fill="#FAF9F8"/>
+  <line x1="596" y1="208" x2="876" y2="208" stroke="#EDEBE9" stroke-width="1"/>
+  <text x="604" y="194" font-size="9.5" fill="#323130">Invalid / expired token</text>
+  <rect x="727" y="180" width="58" height="15" rx="2" fill="#F3F2F1"/>
+  <text x="756" y="191" font-size="9" font-family="'Consolas','Courier New',monospace" fill="#323130" text-anchor="middle">"deny"</text>
+  <text x="802" y="187" font-size="9.5" font-weight="700" fill="#5C2D91">Not</text>
+  <text x="802" y="200" font-size="9.5" font-weight="700" fill="#5C2D91">authorized</text>
+
+  <!-- Row 3 -->
+  <rect x="596" y="208" width="280" height="36" fill="#FFFFFF"/>
+  <line x1="596" y1="244" x2="876" y2="244" stroke="#EDEBE9" stroke-width="1"/>
+  <text x="604" y="230" font-size="9.5" fill="#323130">Function timeout</text>
+  <text x="730" y="230" font-size="9.5" fill="#605E5C">N/A</text>
+  <text x="802" y="224" font-size="9.5" font-weight="700" fill="#A4262C">Server</text>
+  <text x="802" y="238" font-size="9.5" font-weight="700" fill="#A4262C">unavailable</text>
+
+  <!-- Row 4 -->
+  <rect x="596" y="244" width="280" height="36" fill="#FAF9F8"/>
+  <line x1="596" y1="280" x2="876" y2="280" stroke="#EDEBE9" stroke-width="1"/>
+  <text x="604" y="258" font-size="9.5" fill="#323130">Function exception / crash</text>
+  <text x="730" y="266" font-size="9.5" fill="#605E5C">N/A</text>
+  <text x="802" y="260" font-size="9.5" font-weight="700" fill="#A4262C">Server</text>
+  <text x="802" y="274" font-size="9.5" font-weight="700" fill="#A4262C">unavailable</text>
+
+  <!-- Row 5 -->
+  <rect x="596" y="280" width="280" height="36" fill="#FFFFFF"/>
+  <line x1="596" y1="316" x2="876" y2="316" stroke="#EDEBE9" stroke-width="1"/>
+  <text x="604" y="302" font-size="9.5" fill="#323130">Transient platform failure</text>
+  <text x="730" y="302" font-size="9.5" fill="#605E5C">N/A</text>
+  <text x="802" y="296" font-size="9.5" font-weight="700" fill="#A4262C">Server</text>
+  <text x="802" y="310" font-size="9.5" font-weight="700" fill="#A4262C">unavailable</text>
+
+  <!-- Row 6 -->
+  <rect x="596" y="316" width="280" height="52" fill="#FAF9F8"/>
+  <text x="604" y="332" font-size="9.5" fill="#323130">Internal broker</text>
+  <text x="604" y="346" font-size="9.5" fill="#323130">processing error</text>
+  <text x="730" y="344" font-size="9.5" fill="#605E5C">N/A</text>
+  <text x="802" y="332" font-size="9.5" font-weight="700" fill="#A4262C">Server</text>
+  <text x="802" y="346" font-size="9.5" font-weight="700" fill="#A4262C">unavailable</text>
+
+  <!-- Legend Card  y=382..568 -->
+  <rect x="596" y="382" width="280" height="186" rx="4" fill="#FFFFFF" stroke="#C8C6C4" stroke-width="1"/>
+  <rect x="596" y="382" width="280" height="34" rx="4" fill="#F3F2F1"/>
+  <rect x="596" y="400" width="280" height="16" fill="#F3F2F1"/>
+  <line x1="596" y1="416" x2="876" y2="416" stroke="#C8C6C4" stroke-width="1"/>
+  <text x="612" y="404" font-size="10.5" font-weight="700" fill="#323130" letter-spacing="0.05em">LEGEND</text>
+
+  <rect x="614" y="426" width="20" height="13" rx="2" fill="#5C2D91" stroke="#3B1D5E" stroke-width="1.5"/>
+  <text x="642" y="437" font-size="11" fill="#323130">Azure Event Grid Namespace</text>
+
+  <rect x="614" y="447" width="20" height="13" rx="2" fill="#038387" stroke="#025557" stroke-width="1.5"/>
+  <text x="642" y="458" font-size="11" fill="#323130">MQTT Broker / Success outcome</text>
+
+  <rect x="614" y="468" width="20" height="13" rx="2" fill="#0078D4" stroke="#005A9E" stroke-width="1.5"/>
+  <text x="642" y="479" font-size="11" fill="#323130">Webhook function / ALLOW</text>
+
+  <rect x="614" y="489" width="20" height="13" rx="2" fill="#A4262C" stroke="#7A1D21" stroke-width="1.5"/>
+  <text x="642" y="500" font-size="11" fill="#323130">Error / DENY outcome</text>
+
+  <line x1="614" y1="519" x2="634" y2="519" stroke="#605E5C" stroke-width="2" marker-end="url(#arr-gray)"/>
+  <text x="642" y="523" font-size="11" fill="#323130">Happy path (success)</text>
+
+  <line x1="614" y1="541" x2="634" y2="541" stroke="#A4262C" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-red)"/>
+  <text x="642" y="545" font-size="11" fill="#323130">Error / denial path</text>
+
+</svg>

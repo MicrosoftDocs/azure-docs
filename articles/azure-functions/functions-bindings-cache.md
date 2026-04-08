@@ -1,6 +1,6 @@
 ---
-title: Using Azure Functions for Azure Cache for Redis
-description: Learn how to use Azure Functions Azure Cache for Redis
+title: Using Azure Functions for Azure Managed Redis
+description: Learn how to use Azure Functions Azure Managed Redis
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
@@ -185,5 +185,4 @@ Connections using Service Principal Secrets are only available during local deve
 ## Related content
 
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
+- [Overview of Azure functions for Azure Redis](/azure/azure-functions/functions-bindings-cache)

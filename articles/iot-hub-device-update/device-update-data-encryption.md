@@ -4,7 +4,7 @@ description: Understand how Device Update for IoT Hub encrypts data.
 author: eshashah
 ms.author: cwatson
 ms.date: 09/22/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---

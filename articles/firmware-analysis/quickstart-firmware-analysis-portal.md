@@ -4,6 +4,7 @@ description: Learn how to use the Azure portal to analyze a firmware image with 
 author: karengu0
 ms.author: karenguo
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ms.topic: quickstart
 ms.date: 07/17/2025
 ---

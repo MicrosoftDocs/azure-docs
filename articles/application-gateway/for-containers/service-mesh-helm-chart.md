@@ -15,7 +15,7 @@ ms.author: mbender
 
 ![Version: v0.0.1](https://img.shields.io/badge/Version-v0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-A Helm chart to install ALB Controller Service Mesh Extension on Kubernetes.  This chart should only be installed after installation of [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+A Helm chart to install ALB Controller Service Mesh Extension on Kubernetes.  This chart should only be installed after installation of ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
 
 ## Values
 

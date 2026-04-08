@@ -1,0 +1,140 @@
+### YamlMime:FAQ
+metadata:
+  title: Cloud NGFW by Palo Alto Networks frequently asked questions
+  description: Answers to common questions about using Cloud NGFW by Palo Alto Networks including deployment, management, and configuration.
+  ms.topic: faq 
+  ai-usage: ai-generated
+  ms.date: 12/18/2025
+
+title: Cloud NGFW by Palo Alto Networks FAQ
+summary: |
+
+sections:
+  - name: General
+    questions:
+      - question: What is Cloud NGFW by Palo Alto Networks?
+        answer: Cloud NGFW by Palo Alto Networks is a next-generation firewall delivered as an integrated service on Azure. Microsoft and Palo Alto Networks codeveloped and managed it. The product combines the scalability and reliability of Azure with Palo Alto Networks network security expertise. You can find it in Azure Marketplace and manage it through the Azure portal.
+      - question: What are the key capabilities of Cloud NGFW?
+        answer: |
+              Cloud NGFW by Palo Alto Networks provides core firewall capabilities including:
+              - App-ID for application-based security
+              - Advanced URL Filtering for web content control
+              - Advanced Threat Prevention for protection against known and unknown threats
+              - DNS Security for domain filtering
+              - Cloud-Delivered Security Services for continuous threat intelligence
+              - Destination Network Address Translation (DNAT) for inbound traffic
+              - Support for both Virtual Network and Virtual WAN deployments
+      - question: How do I subscribe to Cloud NGFW by Palo Alto Networks?
+        answer: You can find Cloud NGFW by Palo Alto Networks in Azure Marketplace and subscribe directly through the Azure portal. No separate Palo Alto portal registration is required. Select the **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service (PAYG)** plan during subscription.
+      - question: Where can I learn more about Cloud NGFW?
+        answer: Refer to the [Cloud NGFW documentation](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure) from Palo Alto Networks for comprehensive product information and detailed configuration guidance.
+
+  - name: Deployment
+    questions:
+      - question: What deployment options are available for Cloud NGFW?
+        answer: Cloud NGFW supports two deployment architectures, which are hub-and-spoke virtual networks and Virtual WAN. For web applications, you can deploy Cloud NGFW behind Azure Application Gateway to combine reverse proxy, load balancing, and web application firewall capabilities with Cloud NGFW network security.
+      - question: What is the recommended architecture for securing web applications?
+        answer: |
+              The recommended architecture uses Application Gateway as a reverse proxy and load balancer with Cloud NGFW for network security inspection. This combination provides:
+              - WAF protection at the web application layer
+              - HTTP/HTTPS proxying through Application Gateway
+              - Network inspection and policy enforcement through Cloud NGFW
+              - A single public IP address for web traffic
+              - Non-HTTP traffic inspection through Cloud NGFW's public IP address
+      - question: How does Cloud NGFW work with Virtual WAN?
+        answer: With Virtual WAN, you configure routing intent and routing policy to use Cloud NGFW as a next hop for public or private traffic. All connected spoke virtual networks, VPN gateways, and ExpressRoute gateways receive routing information to send traffic through Cloud NGFW for inspection and security policy enforcement.
+      - question: Can I use Cloud NGFW with both Virtual Networks and Virtual WAN?
+        answer: Yes, Cloud NGFW can be deployed in either hub-and-spoke virtual networks or Virtual WAN environments. Choose the deployment option that aligns with your network architecture and security requirements.
+
+  - name: Management and Configuration
+    questions:
+      - question: How many security policy management options are available?
+        answer: Cloud NGFW supports three security policy management options. You can choose to manage policies through Azure Rulestacks (native Azure portal management), Palo Alto Networks Panorama (enterprise policy management), or Palo Alto Networks Strata Cloud Manager.
+      - question: What is Azure Rulestack?
+        answer: Azure Rulestack is a native Azure policy management solution that allows you to configure security rules and apply security profiles directly in the Azure portal or through APIs. You can manage rules, security services, prefix lists, FQDN lists, and certificates all within the Azure environment.
+      - question: What security services can I configure with Azure Rulestack?
+        answer: |
+              With Azure Rulestack, you can configure and manage:
+              - Advanced Threat Prevention (vulnerability protection, anti-spyware, antivirus, file blocking)
+              - Advanced URL Filtering for web access management
+              - DNS Security for threat-based domain filtering
+              - Encrypted Threat Protection for egress decryption
+      - question: Can I manage Cloud NGFW with Palo Alto Networks Panorama?
+        answer: Yes. You can manage Cloud NGFW resources using Palo Alto Networks Panorama for centralized policy management. When using Panorama, you configure zone-based policies to treat traffic flows appropriately and apply existing policy constructs like template stacks, zones, and vulnerability profiles.
+      - question: What are the main settings I can manage after deployment?
+        answer: |
+              After deploying Cloud NGFW, you can manage:
+              - Networking and NAT (SNAT and DNAT configurations)
+              - Security policies and rules
+              - Log settings and monitoring
+              - DNS Proxy settings
+              - Billing plan changes
+              - Resource locks and properties
+
+  - name: Networking and NAT
+    questions:
+      - question: What does DNAT do in Cloud NGFW?
+        answer: Destination Network Address Translation (DNAT) allows Cloud NGFW to accept client connections on public IP addresses and perform address translation and traffic inspection. This approach enables inbound connections to be routed to internal resources while enforcing security policies.
+      - question: What is Source NAT (SNAT) in Cloud NGFW?
+        answer: Source Network Address Translation (SNAT) allows you to configure how outbound traffic from your virtual network is translated. You can specify public IP addresses for outbound traffic, and Cloud NGFW can replace the source IP with a trusted firewall IP address through Private Source NAT.
+      - question: How do I configure traffic routing through Cloud NGFW?
+        answer: Create user-defined routes that specify Cloud NGFW's private IP address as the next hop. You can find the private IP address by viewing the resource overview in the Azure portal. Associate these routes with subnets to force traffic through Cloud NGFW for inspection.
+      - question: Can I add multiple prefixes to my private traffic range?
+        answer: Yes. In the Networking & NAT settings, you can select **Edit**, enable the **Additional Prefixes** checkbox, and add the prefixes you want to include in your private traffic range.
+
+  - name: Application Gateway Integration
+    questions:
+      - question: How do I use Cloud NGFW with Application Gateway?
+        answer: Deploy Application Gateway in a separate virtual network and peer it with your hub network containing Cloud NGFW. Create user-defined routes in the Application Gateway subnet to direct traffic through Cloud NGFW for inspection. Application Gateway functions as a reverse proxy and WAF, while Cloud NGFW provides network security inspection.
+      - question: Should I disable default route propagation when using Application Gateway with Virtual WAN?
+        answer: |
+              Yes, when connecting the Application Gateway virtual network to a Virtual WAN hub, disable the **Propagate Default Route** option to prevent asymmetric routing. This configuration allows Application Gateway-sourced traffic to break out locally rather than returning through the virtual hub.
+      - question: What traffic should go through Cloud NGFW versus Application Gateway?
+        answer: HTTP and HTTPS web traffic should be routed through Application Gateway for reverse proxy, load balancing, and WAF protection. Non-HTTP connections should be directed to Cloud NGFW's public IP address for network inspection and policy enforcement.
+
+  - name: Security Policy Considerations
+    questions:
+      - question: Is the X-Forwarded-For (XFF) HTTP header supported with Azure Rulestacks?
+        answer: Currently, use of the X-Forwarded-For HTTP header field to enforce security policy isn't supported with Azure Rulestacks. This limitation is important to consider when configuring policies for Application Gateway traffic.
+      - question: How should I configure zone-based policies when using Panorama?
+        answer: |
+              When using Panorama with Cloud NGFW, configure two zones: private and public. Traffic flows are:
+              - **Inbound**: from public to private
+              - **Outbound**: from private to public
+              - **East-West**: from private to private
+              Apply special considerations to zone-based policies to ensure traffic from Application Gateway private IP source is treated as inbound with appropriate security rules, threat prevention profiles, and inline cloud analysis.
+      - question: How do I view and manage security rules in Azure Rulestack?
+        answer: In the Cloud NGFW resource's **Security Policies** settings, select your rulestack name to access the rulestack management page. Select **Rules** to view existing rules and add, edit, or delete them. When editing rules, you can configure parameters and validate the configuration before saving.
+
+  - name: Monitoring and Operations
+    questions:
+      - question: How can I monitor Cloud NGFW resources?
+        answer: You can enable logging through the **Log Settings** option in the Azure portal. The properties page displays essentials like resource ID, name, location, network profile, DNS settings, and plan data.
+      - question: What logging options are available?
+        answer: Cloud NGFW supports log settings that you can enable in the resource's management pane. Select **Log Settings** under **Settings**, then select **Edit** and enable **Log Settings** to activate logging for your firewall.
+      - question: How do I get support for Cloud NGFW?
+        answer: |
+              Contact [Palo Alto Networks support](https://support.paloaltonetworks.com/Support/Index) for customer support. You can also request support directly from the Azure portal by selecting **Support + Troubleshooting** > **New support request** from the resource overview page, which provides a link to Palo Alto Networks support.
+
+  - name: Billing and Plans
+    questions:
+      - question: What billing plan options are available?
+        answer: Cloud NGFW is available under a pay-as-you-go billing model. Billing through Azure provides unified invoicing for both infrastructure and software costs in a single line item.
+      - question: Can I change my billing plan after deployment?
+        answer: Yes. You can change your billing plan by selecting **Change Plan** from the resource overview page in the Azure portal.
+      - question: How is Cloud NGFW billed?
+        answer: Cloud NGFW appears as a single line item in your Azure bill, which includes both infrastructure and software costs. You're charged based on your PAYG plan selected during resource creation.
+
+  - name: Management and Maintenance
+    questions:
+      - question: Can I add resource locks to my Cloud NGFW resource?
+        answer: Yes. You can add resource locks through the **Locks** settings in the resource management pane. Select **Add** to create a new lock, then provide a name, type, and optional notes. You can also edit or delete existing locks.
+      - question: How do I delete a Cloud NGFW resource?
+        answer: The **Delete** button is only available after all connected resources are deleted. Once prerequisites are met, select **Delete** from the resource overview page to remove the Cloud NGFW resource.
+      - question: How do I change security policies after deployment?
+        answer: The process depends on your policy management option. With Azure Rulestack, navigate to the rulestack management page to modify rules and security services. With Panorama, manage policies through the Panorama console. With Strata Cloud Manager, manage policies through that platform.
+
+additionalContent: |
+    ## Related content
+
+    To learn more, see [What is Cloud NGFW by Palo Alto Networks?](overview.md)

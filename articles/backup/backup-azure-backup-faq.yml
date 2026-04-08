@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 01/07/2025
+  ms.date: 03/17/2026
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom: engagement-fy24
@@ -200,6 +200,8 @@ sections:
           Windows Server 2008, Windows Server 2008 R2 | 1700 GB
           Azure VM | See the [support matrix for Azure VM backup](./backup-support-matrix-iaas.md#vm-storage-support)
           
+          [!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
       - question: |
           How is the data source size determined?
         answer: |

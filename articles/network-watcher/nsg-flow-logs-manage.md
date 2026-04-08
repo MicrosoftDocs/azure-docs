@@ -1,14 +1,13 @@
 ---
-title: Manage NSG flow logs
+title: Manage NSG Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn how to create, change, enable, disable, or delete Azure Network Watcher network security group (NSG) flow logs.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 04/18/2025
+ms.date: 12/18/2025
 
-#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
 # Customer intent: As an Azure network administrator, I want to create, manage, and analyze NSG flow logs, so that I can monitor and understand the IP traffic flowing through my network security groups effectively.
 ---
 

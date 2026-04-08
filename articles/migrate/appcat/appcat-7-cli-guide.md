@@ -150,7 +150,7 @@ In the AppCAT CLI install path, you can configure the **.appcat-ignore** file to
 - Analyze a source code directory:
 
   ```bash
-  appcat analyze --input <path-to-source> --output <path-to-output>
+  appcat analyze --input <path-to-source> --output <path-to-output> --target <target-name>
   ```
 
 - Analyze a source code directory with specific source and target technologies:
@@ -166,7 +166,7 @@ In the AppCAT CLI install path, you can configure the **.appcat-ignore** file to
 - Analyze a source code directory with extra custom rules:
 
   ```bash
-  appcat analyze --input <path-to-source> --output <path-to-output> --rules <path-to-rules>
+  appcat analyze --input <path-to-source> --output <path-to-output> --rules <path-to-rules> --target <target-name>
   ```
 
 - Analyze a source code directory using only custom rules, without default rulesets:
@@ -177,6 +177,7 @@ In the AppCAT CLI install path, you can configure the **.appcat-ignore** file to
       --output /path/to/output \
       --enable-default-rulesets=false \
       --rules /path/to/rules
+      --target azure-aks,azure-appservice,azure-container-apps
   ```
 
 - Analyze and add more application analysis to an existing output directory and static report:
@@ -223,6 +224,7 @@ In the AppCAT CLI install path, you can configure the **.appcat-ignore** file to
       --input <path-to-source> \
       --output <path-to-output> \
       --context-lines-number <line-number>
+      --target=<target-name>
   ```
 
   The following screenshot shows an example of using `--context-lines-number 3`:
@@ -236,6 +238,7 @@ In the AppCAT CLI install path, you can configure the **.appcat-ignore** file to
       --input <path-to-source> \
       --output <path-to-output> \
       --code-snips-number -1
+      --target=<target-name>
   ```
 
   When `--code-snips-number -1` is set, code snippets aren't exported to the report. This behavior helps prevent sensitive data from being included.
@@ -272,7 +275,7 @@ Converts Windup XML rules to YAML.
 The following example converts a windup XML rule to YAML:
 
 ```bash
-appcat transform rules --input <path-to-rule> --output <path-to-output-folder>
+appcat transform rules --input <path-to-rule> --output <path-to-output-folder> --target=<target-name>
 ```
 
 ### appcat version

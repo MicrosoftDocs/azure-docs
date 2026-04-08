@@ -87,7 +87,7 @@ items:
   - name: Protocols
     items: 
     - name: MQTT support
-      href: ../iot/iot-mqtt-connect-to-iot-dps.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
+      href: iot-mqtt-connect-to-iot-dps.md
     - name: TLS support
       href: tls-support.md
   - name: Security practices for device manufacturers
@@ -222,8 +222,6 @@ items:
       href: ../iot-edge/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
-    - name: Time Series Insights
-      href: ../time-series-insights/index.yml
   - name: Azure IoT samples
     items:
     - name: C# (.NET)

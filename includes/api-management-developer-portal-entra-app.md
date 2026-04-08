@@ -29,7 +29,7 @@ After the Microsoft Entra provider is enabled:
 
 * Users in your Microsoft Entra tenant can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
 * You can manage the Microsoft Entra identity provider configuration on the **Developer portal** > **Identities** page in the portal.
-* Optionally update the app registration in Microsoft Entra ID to support multiple tenants, as described in [Configure app registration for multiple tenants](../articles/api-management/api-management-howto-aad.md#configure-app-registration-for-multiple-tenants). The name of the default app registration created by API Management is the same as the API Management instance name.
+* Optionally update the app registration in Microsoft Entra ID to support multiple tenants, as described in [Configure app registration for multiple tenants](../articles/api-management/api-management-howto-aad.md#1-configure-app-registration-for-multiple-tenants). The name of the default app registration created by API Management is the same as the API Management instance name.
 * Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
 * Republish the developer portal after any configuration change.
 
@@ -82,7 +82,7 @@ Alternatively, manually enable Microsoft Entra ID in the developer portal by reg
 1. In **Allowed tenants**, add one or more specific Microsoft Entra tenant names or IDs for sign-in to Microsoft Entra. 
 
     > [!NOTE]
-    > If you specify additional tenants, the app registration must be configured to support multiple tenants. For more information, see [Configure app registration for multiple tenants](../articles/api-management/api-management-howto-aad.md#configure-app-registration-for-multiple-tenants).
+    > If you specify additional tenants, the app registration must be configured to support multiple tenants. For more information, see [Configure app registration for multiple tenants](../articles/api-management/api-management-howto-aad.md#1-configure-app-registration-for-multiple-tenants).
 1. After you specify the desired configuration, select **Add**.
 1. Republish the developer portal for the Microsoft Entra configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**. 
 

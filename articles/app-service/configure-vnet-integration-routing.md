@@ -4,7 +4,7 @@ description: This how-to article walks you through configuring routing on a regi
 author: seligj95
 ms.author: jordanselig
 ms.topic: how-to
-ms.date: 11/24/2025
+ms.date: 02/25/2026
 ms.service: azure-app-service
 ---
 
@@ -20,7 +20,7 @@ Your app is already integrated using the regional virtual network integration fe
 
 Application routing defines what traffic is routed from your app and into the virtual network. You can configure routing at two levels:
 
-- **All traffic routing** (`outboundVnetRouting.allTraffic`): Routes all outbound traffic from your app through the virtual network integration, including application traffic and configuration traffic (such as container image pulls, content share access, and backup operations).
+- **All traffic routing** (`outboundVnetRouting.allTraffic`): Routes all outbound traffic from your app through the virtual network integration, including application traffic and configuration traffic (such as container image pulls, content share access, backup operations, and managed identity token acquisition).
 - **Application traffic only** (`outboundVnetRouting.applicationTraffic`): Routes only application-generated traffic through the virtual network integration, while configuration traffic continues to use the public route by default (unless individually configured in the configuration routing section).
 
 We recommend that you use the `outboundVnetRouting.allTraffic` property to enable routing of all traffic. Using this property allows you to audit the behavior with [a built-in policy](https://www.azadvertizer.net/azpolicyadvertizer/a691eacb-474d-47e4-b287-b4813ca44222.html). 
@@ -113,6 +113,14 @@ az resource update --resource-group <group-name> --name <app-name> --resource-ty
 
 > [!NOTE]
 > For backwards compatibility, the legacy `vnetBackupRestoreEnabled` property is still supported.
+
+### Managed identity
+
+Routing managed identity token acquisition traffic over virtual network integration can be configured using the Azure CLI. When enabled, requests to acquire Microsoft Entra tokens for managed identities are routed through the virtual network integration.
+
+```azurecli-interactive
+az resource update --resource-group <group-name> --name <app-name> --resource-type "Microsoft.Web/sites" --set properties.outboundVnetRouting.managedIdentityTraffic=true
+```
 
 ## Next steps
 

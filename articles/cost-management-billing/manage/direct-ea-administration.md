@@ -4,7 +4,7 @@ description: This article explains the common tasks that an enterprise administr
 author: prashantsaini4
 ms.author: prsaini
 ms.date: 09/23/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: prsaini
@@ -498,7 +498,7 @@ To delete a subscription where you're the account owner:
 1. On the subscription details page, in the upper left corner of the page, **Cancel Subscription**.
 1. Type the subscription name, choose a cancellation reason, and then select **Cancel**.
 
-For more information, see [What happens after I cancel my subscription?](cancel-azure-subscription.md#what-happens-after-subscription-cancellation).
+For more information, see [What happens after I cancel my subscription?](cancel-azure-subscription.md#what-happens-after-subscription-cancellation)
 
 ## Delete an enrollment account
 

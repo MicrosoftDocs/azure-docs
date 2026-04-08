@@ -7,14 +7,14 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
   - ignite-2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/09/2025
 ms.author: cshoe
 ---
 
 # Billing in Azure Container Apps
 
-Billing in Azure Container Apps depends on your [plan type](plans.md) (Consumption or Dedicated). Your plan type depends on the environment type you select.
+Billing in Azure Container Apps depends on your [plan type](plans.md) (Consumption or Dedicated). Your plan type depends on the workload profile you use within your environment. The default environment type is workload profiles, which supports both Consumption and Dedicated plans.
 
 | Plan type | Description |
 |--|--|

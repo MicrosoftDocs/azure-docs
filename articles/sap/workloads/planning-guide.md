@@ -133,7 +133,7 @@ As you start to plan and think about which regions to choose as primary region a
 
 ### Azure paired regions
 
-In an Azure paired region, replication of certain data is enabled by default between the two regions. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../../reliability/cross-region-replication-azure.md).
+In an Azure paired region, replication of certain data is enabled by default between the two regions. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](/azure/reliability/cross-region-replication-azure).
 
 Data replication in a region pair is tied to types of Azure storage that you can configure to replicate into a paired region. For details, see [Storage redundancy in a secondary region](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region).
 
@@ -350,7 +350,7 @@ To get detailed information about VM pricing for different Azure services, opera
 
 To learn about the pricing and flexibility of one-year and three-year savings plans and reserved instances, see these articles:
 
-- [What are Azure savings plans for compute?](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md)
+- [What are Azure savings plans for compute?](../../cost-management-billing/savings-plan/savings-plan-overview.md)
 - [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility)
 - [How the Azure reservation discount is applied to virtual machines](../../cost-management-billing/manage/understand-vm-reservation-charges.md)

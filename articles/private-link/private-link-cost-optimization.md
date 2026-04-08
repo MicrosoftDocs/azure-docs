@@ -2,18 +2,18 @@
 title: Azure Private Link Cost Optimization Principles
 description: Learn how to optimize Azure Private Link costs while maintaining security. Get actionable strategies to maximize your private connectivity investment.
 services: private-link
-author: AbdullahBell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 10/08/2025
-ms.author: abell
+ms.author: allensu
 ai-usage: ai-assisted
 # Customer intent: As a cloud architect or IT administrator, I want to optimize costs for Azure Private Link, so that I can maintain secure private connectivity while controlling expenses and maximizing return on investment.
 ---
 
 # Azure Private Link Cost optimization principles
 
-When you design your architecture, balance security and privacy requirements with financial constraints, and keep secure private connectivity to Azure services and custom workloads. For an overview of Private Link capabilities, see [What is Azure Private Link?](private-link-overview.md). Key considerations include:
+When you design your architecture, balance security and privacy requirements with financial constraints, and keep secure private connectivity to Azure services and custom workloads. For an overview of Private Link capabilities, see [What is Azure Private Link?](private-link-overview.md) Key considerations include:
 
 - Do your allocated budgets let you meet security and connectivity goals?
 - What's the spending pattern for private connectivity across your workloads?
@@ -93,7 +93,7 @@ As your Azure environment expands and regulatory requirements evolve, your priva
 ## Next steps
 
 - [Learn about Azure Private Link features](private-link-overview.md).
-- [What is a private endpoint?](private-endpoint-overview.md).
+- [What is a private endpoint?](private-endpoint-overview.md)
 - [Create a private endpoint](create-private-endpoint-portal.md).
 - [Monitor Private Link](monitor-private-link.md).
 - [Azure Cost Management documentation](/azure/cost-management-billing/).

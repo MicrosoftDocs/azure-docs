@@ -6,7 +6,7 @@ keywords: app service, azure app service, wordpress, wordpress hosting, azure wo
 author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: quickstart
-ms.date: 04/11/2025
+ms.date: 03/04/2026
 ms.author: msangapu
 ms.custom:
   - mvc
@@ -16,6 +16,23 @@ ms.custom:
   - sfi-ropc-nochange
 ---
 # Create a WordPress site
+
+## What you'll accomplish
+
+In this quickstart, you learn how to:
+
+- Create a WordPress site from the Azure Marketplace
+- Configure a MySQL Flexible Server database
+- Set up App Service hosting plans
+- Deploy and manage your WordPress site
+- Monitor site performance and health
+- Configure custom domains and SSL
+- Optimize your WordPress deployment for production
+- Scale your application as traffic grows
+- Implement backup and disaster recovery strategies
+- Secure your WordPress site with best practices
+
+## Overview
 
 In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org/) site to [Azure App Service](overview.md) with [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) using the [WordPress Azure Marketplace item by App Service](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). This quickstart uses the **Standard** tier for your app and a **Burstable, B2s** tier for your database, and incurs a cost for your Azure Subscription. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/), [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/), [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/storage/blobs/), and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). You can learn more about WordPress on App Service in the [overview](overview-wordpress.md).
 

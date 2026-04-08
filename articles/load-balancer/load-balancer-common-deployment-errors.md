@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: troubleshooting
-ms.date: 06/26/2024
+ms.date: 01/29/2026
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 # Customer intent: "As a network engineer, I want to troubleshoot Azure Load Balancer deployment errors, so that I can efficiently resolve issues and ensure optimal load balancing for my applications."
@@ -31,11 +31,11 @@ This article describes some common Azure Load Balancer deployment errors and pro
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| You can't have multiple Load Balancers of the same type (internal, public). You can have a maximum of one internal and one public Load Balancer. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Basic Load Balancer isn't supported for multiple-placement group Virtual Machine Scale Sets or cross-availability zone Virtual Machine Scale Set. Use Standard Load Balancer instead. |
 |MarketplacePurchaseEligibilityFailed | Switch to the correct Administrative account to enable purchases due to subscription being an EA Subscription. You can read more [here](../marketplace/marketplace-faq-publisher-guide.yml#what-could-block-a-customer-from-completing-a-purchase-). |
-|ResourceDeploymentFailure| If your load balancer is in a failed state, follow these steps to bring it back from the failed state:<ol><li>Go to https://resources.azure.com, and sign in with your Azure portal credentials.</li><li>Select **Read/Write**.</li><li>On the left, expand **Subscriptions**, and then expand the Subscription with the Load Balancer to update.</li><li>Expand **ResourceGroups**, and then expand the resource group with the Load Balancer to update.</li><li>Select **Microsoft.Network** > **LoadBalancers**, and then select the Load Balancer to update, **LoadBalancer_1**.</li><li>On the display page for **LoadBalancer_1**, select **GET** > **Edit**.</li><li>Update the **ProvisioningState** value from **Failed** to **Succeeded**.</li><li>Select **PUT**.</li></ol>|
+|ResourceDeploymentFailure| If your load balancer is in a failed state, follow these steps to bring it back from the failed state:<br>1. Go to https://resources.azure.com, and sign in with your Azure portal credentials.<br>2. Select **Read/Write**.<br>3. On the left, expand **Subscriptions**, and then expand the Subscription with the Load Balancer to update.<br>4. Expand **ResourceGroups**, and then expand the resource group with the Load Balancer to update.<br>5. Select **Microsoft.Network** > **LoadBalancers**, and then select the Load Balancer to update, **LoadBalancer_1**.<br>6. On the display page for **LoadBalancer_1**, select **GET** > **Edit**.<br>7. Update the **ProvisioningState** value from **Failed** to **Succeeded**.<br>8. Select **PUT**.|
 |LoadBalancerWithoutFrontendIPCantHaveChildResources | A Load Balancer resource that has no frontend IP configurations, can't have associated child resources or components associated to it. In order to mitigate this error, add a frontend IP configuration and then add the resources you're trying to add. |
 | LoadBalancerRuleCountLimitReachedForNic | A backend pool member's network interface (virtual machine, Virtual Machine Scale Set) can't be associated to more than 300 rules. Reduce the number of rules or use another Load Balancer. This limit is documented on the [Load Balancer limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 | LoadBalancerInUseByVirtualMachineScaleSet | The Load Balancer resource is in use by a Virtual Machine Scale Set and can't be deleted. Use the Azure Resource Manager ID provided in the error message to search for the Virtual Machine Scale Set in order to delete it. | 
-| SpecifiedAllocatedOutboundPortsForOutboundRuleIsNotAMultipleOfEight | The number of specified [SNAT](outbound-rules.md) ports is not a multiply of 8.
+| SpecifiedAllocatedOutboundPortsForOutboundRuleIsNotAMultipleOfEight | The number of specified [SNAT](outbound-rules.md) ports isn't a multiply of 8.
 | SpecifiedAllocatedOutboundPortsForOutboundRuleExceedsTotalNumberOfAllowedPortsPerRule | The number of specified [SNAT](outbound-rules.md) ports is greater than 64000.
 | SpecifiedAllocatedOutboundPortsForOutboundRuleExceedsTotalNumberOfAvailablePorts | The number of specified [SNAT](outbound-rules.md) ports is greater than currently available.
 

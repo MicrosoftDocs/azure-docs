@@ -1,7 +1,7 @@
 ---
 title: Configure your own key for encrypting Azure Service Bus data at rest
 description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/03/2025
 ms.custom: sfi-image-nochange
 ---
@@ -18,7 +18,7 @@ You can use Azure Key Vault (including Azure Key Vault Managed Hardware Security
 If you only need to encrypt certain properties of your messages, consider using a library like [NServiceBus](https://docs.particular.net/nservicebus/security/property-encryption).
 
 > [!NOTE]
-> A customer-managed keys for is considered disabled in the following scenarios:
+> A customer-managed key is considered disabled in the following scenarios:
 > - Revoking access: If Service Bus no longer has permission to access the key in Azure Key Vault.
 > - Disabling the key: Manually disabling the key in Key Vault renders it unusable.
 > - Letting the key expire: If the key reaches its expiration date without renewal. Letting a key expire has the same effect as revoking or disabling it. Always rotate or renew keys before they expire to avoid unintended outages.
@@ -120,7 +120,7 @@ There are two types of managed identities that you can assign to a Service Bus n
 - **System-assigned**: You can enable a managed identity directly on a Service Bus namespace. When you enable a system-assigned managed identity, an identity is created in Microsoft Entra that's tied to the lifecycle of that Service Bus namespace. So when the namespace is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource (namespace) can use this identity to request tokens from Microsoft Entra ID.
 - **User-assigned**: You can also create a managed identity as a standalone Azure resource, which is called user-assigned identity. You can create a user-assigned managed identity and assign it to one or more Service Bus namespaces. When you use user-assigned managed identities, the identity is managed separately from the resources that use it. They aren't tied to the lifecycle of the namespace. You can explicitly delete a user-assigned identity when you no longer need it.     
 
-For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 ## Encrypt using system-assigned identities (template)
 
@@ -134,7 +134,39 @@ This section shows you how to do the following tasks:
 
 This section shows you how to create an Azure Service Bus namespace with managed service identity by using an Azure Resource Manager template and PowerShell. 
 
-1. Create an Azure Resource Manager template to create a Service Bus premium tier namespace with a managed service identity. Name the file: **CreateServiceBusPremiumNamespace.json**: 
+1. Create a template to create a Service Bus premium tier namespace with a managed service identity: 
+
+    # [Bicep](#tab/bicep)
+
+    Create a file named **CreateServiceBusPremiumNamespace.bicep** with the following content:
+
+    ```bicep
+    @description('Name for the Namespace.')
+    param namespaceName string
+
+    @description('Specifies the Azure location for all resources.')
+    param location string = resourceGroup().location
+
+    resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+      name: namespaceName
+      location: location
+      identity: {
+        type: 'SystemAssigned'
+      }
+      sku: {
+        name: 'Premium'
+        tier: 'Premium'
+        capacity: 1
+      }
+      properties: {}
+    }
+
+    output serviceBusNamespaceId string = serviceBusNamespace.id
+    ```
+
+    # [ARM template](#tab/arm)
+
+    Create a file named **CreateServiceBusPremiumNamespace.json** with the following content:
 
     ```json
     {
@@ -158,7 +190,7 @@ This section shows you how to create an Azure Service Bus namespace with managed
        "resources":[
           {
              "type":"Microsoft.ServiceBus/namespaces",
-             "apiVersion":"2018-01-01-preview",
+             "apiVersion":"2024-01-01",
              "name":"[parameters('namespaceName')]",
              "location":"[parameters('location')]",
              "identity":{
@@ -170,7 +202,7 @@ This section shows you how to create an Azure Service Bus namespace with managed
                 "capacity":1
              },
              "properties":{
-    
+
              }
           }
        ],
@@ -182,34 +214,28 @@ This section shows you how to create an Azure Service Bus namespace with managed
        }
     }
     ```
-1. Create a template parameter file named: **CreateServiceBusPremiumNamespaceParams.json**. 
 
-    > [!NOTE]
-    > Replace the following values: 
-    > - `<ServiceBusNamespaceName>` - Name of your Service Bus namespace
-    > - `<Location>` - Location of your Service Bus namespace
+    ---
 
-    ```json
-    {
-       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion":"1.0.0.0",
-       "parameters":{
-          "namespaceName":{
-             "value":"<ServiceBusNamespaceName>"
-          },
-          "location":{
-             "value":"<Location>"
-          }
-       }
-    }
-    ```
-1. Run the following PowerShell command to deploy the template to create a premium Service Bus namespace. Then, retrieve the ID of the Service Bus namespace to use it later. Replace `{MyRG}` with the name of the resource group before running the command.  
+1. Run the following command to deploy the template to create a premium Service Bus namespace. Then, retrieve the ID of the Service Bus namespace to use it later.
 
-    ```powershell
-    $outputs = New-AzResourceGroupDeployment -Name CreateServiceBusPremiumNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateServiceBusPremiumNamespace.json -TemplateParameterFile ./CreateServiceBusPremiumNamespaceParams.json
+    # [Bicep](#tab/bicep)
+
+    ```azurecli
+    outputs=$(az deployment group create --name CreateServiceBusPremiumNamespace --resource-group <ResourceGroupName> --template-file ./CreateServiceBusPremiumNamespace.bicep --parameters namespaceName='<ServiceBusNamespaceName>' location='<Location>' --query properties.outputs)
     
-    $ServiceBusNamespaceId = $outputs.Outputs["serviceBusNamespaceId"].value
+    serviceBusNamespaceId=$(echo $outputs | jq -r '.serviceBusNamespaceId.value')
     ```
+
+    # [ARM template](#tab/arm)
+
+    ```azurecli
+    outputs=$(az deployment group create --name CreateServiceBusPremiumNamespace --resource-group <ResourceGroupName> --template-file ./CreateServiceBusPremiumNamespace.json --parameters namespaceName='<ServiceBusNamespaceName>' location='<Location>' --query properties.outputs)
+    
+    serviceBusNamespaceId=$(echo $outputs | jq -r '.ServiceBusNamespaceId.value')
+    ```
+
+    ---
  
 ### Grant Service Bus namespace identity access to key vault
 
@@ -230,7 +256,53 @@ You did the following steps so far:
 
 In this step, you update the Service Bus namespace with key vault information. 
 
-1. Create a JSON file named **UpdateServiceBusNamespaceWithEncryption.json** with the following content: 
+1. Create a template to update the Service Bus namespace with encryption: 
+
+    # [Bicep](#tab/bicep)
+
+    Create a file named **UpdateServiceBusNamespaceWithEncryption.bicep** with the following content:
+
+    ```bicep
+    @description('Name for the Namespace to be created in cluster.')
+    param namespaceName string
+
+    @description('Specifies the Azure location for all resources.')
+    param location string = resourceGroup().location
+
+    @description('URI of the KeyVault.')
+    param keyVaultUri string
+
+    @description('KeyName.')
+    param keyName string
+
+    resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+      name: namespaceName
+      location: location
+      identity: {
+        type: 'SystemAssigned'
+      }
+      sku: {
+        name: 'Premium'
+        tier: 'Premium'
+        capacity: 1
+      }
+      properties: {
+        encryption: {
+          keySource: 'Microsoft.KeyVault'
+          keyVaultProperties: [
+            {
+              keyName: keyName
+              keyVaultUri: keyVaultUri
+            }
+          ]
+        }
+      }
+    }
+    ```
+
+    # [ARM template](#tab/arm)
+
+    Create a file named **UpdateServiceBusNamespaceWithEncryption.json** with the following content:
 
     ```json
     {
@@ -266,7 +338,7 @@ In this step, you update the Service Bus namespace with key vault information.
        "resources":[
           {
              "type":"Microsoft.ServiceBus/namespaces",
-             "apiVersion":"2018-01-01-preview",
+             "apiVersion":"2024-01-01",
              "name":"[parameters('namespaceName')]",
              "location":"[parameters('location')]",
              "identity":{
@@ -291,69 +363,31 @@ In this step, you update the Service Bus namespace with key vault information.
           }
        ]
     }
-    ``` 
+    ```
 
-2. Create a template parameter file: **UpdateServiceBusNamespaceWithEncryptionParams.json**.
+    --- 
 
-   > [!NOTE]
-   > Replace the following values: 
-   > - `<ServiceBusNamespaceName>` - Name of your Service Bus namespace
-   > - `<Location>` - Location of your Service Bus namespace
-   > - `<KeyVaultName>` - Name of your key vault
-   > - `<KeyName>` - Name of the key in the key vault 
+2. Run the following command to deploy the template.
 
-   # [Key Vault](#tab/Key-Vault) 
+    # [Bicep](#tab/bicep)
 
-   ```json
-   {
-      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion":"1.0.0.0",
-      "parameters":{
-         "namespaceName":{
-            "value":"<ServiceBusNamespaceName>"
-         },
-         "location":{
-            "value":"<Location>"
-         },
-         "keyName":{
-            "value":"<KeyName>"
-         },
-         "keyVaultUri":{
-            "value":"https://<KeyVaultName>.vault.azure.net"
-         }
-      }
-   }
-   ```
+    ```azurecli
+    az deployment group create --name UpdateServiceBusNamespaceWithEncryption --resource-group <ResourceGroupName> --template-file ./UpdateServiceBusNamespaceWithEncryption.bicep --parameters namespaceName='<ServiceBusNamespaceName>' location='<Location>' keyName='<KeyName>' keyVaultUri='https://<KeyVaultName>.vault.azure.net'
+    ```
 
-   # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
+    > [!NOTE]
+    > For Key Vault Managed HSM, use `https://<KeyVaultName>.managedhsm.azure.net` as the key vault URI.
 
-   ```json
-   {
-      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion":"1.0.0.0",
-      "parameters":{
-         "namespaceName":{
-            "value":"<ServiceBusNamespaceName>"
-         },
-         "location":{
-            "value":"<Location>"
-         },
-         "keyName":{
-            "value":"<KeyName>"
-         },
-         "keyVaultUri":{
-            "value":"https://<KeyVaultName>.managedhsm.azure.net"
-         }
-      }
-   }
-   ```
-   ---
+    # [ARM template](#tab/arm)
 
-3. Run the following PowerShell command to deploy the Resource Manager template. Replace `{MyRG}` with the name of your resource group before running the command. 
+    ```azurecli
+    az deployment group create --name UpdateServiceBusNamespaceWithEncryption --resource-group <ResourceGroupName> --template-file ./UpdateServiceBusNamespaceWithEncryption.json --parameters namespaceName='<ServiceBusNamespaceName>' location='<Location>' keyName='<KeyName>' keyVaultUri='https://<KeyVaultName>.vault.azure.net'
+    ```
 
-    ```powershell
-    New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json
-    ```    
+    > [!NOTE]
+    > For Key Vault Managed HSM, use `https://<KeyVaultName>.managedhsm.azure.net` as the key vault URI.
+
+    ---
 
 ## Encrypt using user-assigned identities (template)
 
@@ -414,7 +448,62 @@ This section gives you an example that shows you how to do the following tasks u
                     }
     ```
    
-1. Create a JSON file named **CreateServiceBusNamespaceWithUserIdentityAndEncryption.json** with the following content:
+1. Create a template for the Service Bus namespace with user-assigned identity and encryption:
+
+    # [Bicep](#tab/bicep)
+
+    Create a file named **CreateServiceBusNamespaceWithUserIdentityAndEncryption.bicep** with the following content:
+
+    ```bicep
+    @description('Name for the Namespace to be created in cluster.')
+    param namespaceName string
+
+    @description('Specifies the Azure location for all resources.')
+    param location string = resourceGroup().location
+
+    @description('URI of the KeyVault.')
+    param keyVaultUri string
+
+    @description('KeyName.')
+    param keyName string
+
+    @description('Resource ID of the user-assigned identity.')
+    param userAssignedIdentity string
+
+    resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+      name: namespaceName
+      location: location
+      sku: {
+        name: 'Premium'
+        tier: 'Premium'
+        capacity: 1
+      }
+      identity: {
+        type: 'UserAssigned'
+        userAssignedIdentities: {
+          '${userAssignedIdentity}': {}
+        }
+      }
+      properties: {
+        encryption: {
+          keySource: 'Microsoft.KeyVault'
+          keyVaultProperties: [
+            {
+              keyName: keyName
+              keyVaultUri: keyVaultUri
+              identity: {
+                userAssignedIdentity: userAssignedIdentity
+              }
+            }
+          ]
+        }
+      }
+    }
+    ```
+
+    # [ARM template](#tab/arm)
+
+    Create a file named **CreateServiceBusNamespaceWithUserIdentityAndEncryption.json** with the following content:
 
     ```json
     {
@@ -444,21 +533,22 @@ This section gives you an example that shows you how to do the following tasks u
              "type":"string",
              "metadata":{
                 "description":"KeyName."
+             }
+          },
+          "identity": {
+             "type": "Object",
+             "defaultValue": {
+                 "userAssignedIdentity": ""
              },
-         "identity": {
-            "type": "Object",
-            "defaultValue": {
-                "userAssignedIdentity": ""
-            },
-            "metadata": {
-                "description": "user-assigned identity."
-            }
-         }
+             "metadata": {
+                 "description": "user-assigned identity."
+             }
+          }
        },
        "resources":[
           {
              "type":"Microsoft.ServiceBus/namespaces",
-             "apiVersion":"2021-01-01-preview",
+             "apiVersion":"2024-01-01",
              "name":"[parameters('namespaceName')]",
              "location":"[parameters('location')]",
              "sku":{
@@ -491,82 +581,29 @@ This section gives you an example that shows you how to do the following tasks u
     }        
     ```  
 
-1. Create a template parameter file: **CreateServiceBusNamespaceWithUserIdentityAndEncryptionParams.json**.
+    ---
 
-   # [Key Vault](#tab/Key-Vault) 
+1. Run the following command to deploy the template.
 
-   ```json
-   {
-      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion":"1.0.0.0",
-      "parameters":{
-         "namespaceName":{
-            "value":"<ServiceBusNamespaceName>"
-         },
-         "location":{
-            "value":"<Location>"
-         },
-         "keyVaultUri":{
-            "value":"https://<KeyVaultName>.vault.azure.net"
-         },
-         "keyName":{
-            "value":"<KeyName>"
-         },
-         "identity": {
-         "value": {
-               "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
-         }
-      }
-      }
-   }
-   ```
+    # [Bicep](#tab/bicep)
 
-   # [Key Vault Managed HSM](#tab/Key-Vault-Managed-HSM)
-
-   ```json
-   {
-      "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion":"1.0.0.0",
-      "parameters":{
-         "namespaceName":{
-            "value":"<ServiceBusNamespaceName>"
-         },
-         "location":{
-            "value":"<Location>"
-         },
-         "keyVaultUri":{
-            "value":"https://<KeyVaultName>.managedhsm.azure.net"
-         },
-         "keyName":{
-            "value":"<KeyName>"
-         },
-         "identity": {
-         "value": {
-               "userAssignedIdentity": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER MANAGED IDENTITY NAME>"
-         }
-      }
-      }
-   }
-   ```
-   ---
-
-   In the parameter file, replace placeholders with appropriate values. 
-     
-   | Placeholder | value | 
-   | ----------- | ----- | 
-   | `<ServiceBusNamespaceName>` | Name of the Service Bus namespace. | 
-   | `<Location>` | Location where you want the namespace to be created. | 
-   | `<KeyVaultName>` | Name of the key vault. | 
-   | `<KeyName>` | Name of the key in the key vault. | 
-   | `<AZURE SUBSCRIPTION ID>` | Your Azure subscription ID. |
-   | `<RESOURCE GROUP NAME>` | Resource group of the user-managed identity. | 
-   | `<USER MANAGED IDENTITY NAME>` | Name of the user-managed identity. | 
-
-1. Run the following PowerShell command to deploy the Resource Manager template. Replace `{MyRG}` with the name of your resource group before running the command.
-
-    ```azurepowershell-interactive
-    New-AzResourceGroupDeployment -Name CreateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./ CreateServiceBusNamespaceWithUserIdentityAndEncryption.json -TemplateParameterFile ./ CreateServiceBusNamespaceWithUserIdentityAndEncryptionParams.json        
+    ```azurecli
+    az deployment group create --name CreateServiceBusNamespaceWithEncryption --resource-group <ResourceGroupName> --template-file ./CreateServiceBusNamespaceWithUserIdentityAndEncryption.bicep --parameters namespaceName='<ServiceBusNamespaceName>' location='<Location>' keyName='<KeyName>' keyVaultUri='https://<KeyVaultName>.vault.azure.net' userAssignedIdentity='/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UserManagedIdentityName>'
     ```
+
+    > [!NOTE]
+    > For Key Vault Managed HSM, use `https://<KeyVaultName>.managedhsm.azure.net` as the key vault URI.
+
+    # [ARM template](#tab/arm)
+
+    ```azurecli
+    az deployment group create --name CreateServiceBusNamespaceWithEncryption --resource-group <ResourceGroupName> --template-file ./CreateServiceBusNamespaceWithUserIdentityAndEncryption.json --parameters namespaceName='<ServiceBusNamespaceName>' location='<Location>' keyName='<KeyName>' keyVaultUri='https://<KeyVaultName>.vault.azure.net' identity='{"userAssignedIdentity": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UserManagedIdentityName>"}'
+    ```
+
+    > [!NOTE]
+    > For Key Vault Managed HSM, use `https://<KeyVaultName>.managedhsm.azure.net` as the key vault URI.
+
+    ---
 
 ## Use both user-assigned and system-assigned identities
 
@@ -700,7 +737,7 @@ You get an error stating that the Service Bus namespace is disabled because the 
 
 ### Cause
 
-You're be using the `resource_id` or `version`, which links to a specific version of the key, which is expired. If a specific version is provided, Service Bus uses that version of the key, even if the key is rotated. 
+You're using the `resource_id` or `version`, which links to a specific version of the key, which is expired. If a specific version is provided, Service Bus uses that version of the key, even if the key is rotated. 
 
 ### Resolution
 

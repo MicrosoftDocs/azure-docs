@@ -5,187 +5,135 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 10/21/2024
+ms.date: 01/27/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 # Customer intent: As an operations engineer, I want to configure Application Gateway for Containers to send metrics to Prometheus and display them in Grafana, so that I can monitor traffic and optimize performance while enhancing security measures for my application.
 ---
 
-# Configure Application Gateway for Containers for Prometheus and Grafana
+# Configure Application Gateway for Containers with Prometheus and Grafana
 
-Establishing monitoring for Application Gateway for Containers is crucial part of successful operations. Firstly, it allows you to visualize how traffic is controlled, providing actionable insights that help optimize performance and troubleshoot issues promptly. Secondly, monitoring enhances security measures by providing valuable insights during investigations, ensuring that your gateway remains secure and resilient against threats. Implementing monitoring for your Application Gateway for Containers not only supports ongoing performance optimization but also strengthens your overall security posture by enabling proactive detection and response capabilities.
+Establishing monitoring for Application Gateway for Containers is a crucial part of successful operations. Monitoring allows you to visualize how traffic is controlled, providing actionable insights that help optimize performance and troubleshoot issues promptly. Monitoring also enhances security by providing valuable insights during investigations, which helps ensure that your gateway remains secure and resilient against threats.
+
+## Learn about the services
+Before you start the configuration, review how these components work together to create a unified monitoring solution.
+
+- [What is Azure Monitor Managed Prometheus?](/azure/azure-monitor/metrics/prometheus-metrics-overview)
+    - Azure Managed Prometheus offers native integration and management capabilities, simplifying the setup and management of monitoring infrastructure. It integrates with Azure Managed Grafana, provides a seamless data source for Azure Monitor dashboards with Grafana, and can also provide data for your existing self-managed Grafana environment. See [Self-managed Prometheus to Grafana](/azure/azure-monitor/metrics/prometheus-metrics-overview)
+
+- [What is Azure Grafana?](/azure/azure-monitor/visualize/visualize-grafana-overview#azure-managed-grafana)
+    - Azure Monitor Dashboards with Grafana: Delivers prebuilt Grafana dashboards directly in the Azure portal. It's automatically available at no cost and with no configuration requirements. See available data sources with [Azure Monitor Dashboards with Grafana](/azure/azure-monitor/visualize/visualize-grafana-overview#data-sources). If you require other data sources, then see Azure Managed Grafana. 
+    - Azure Managed Grafana is an open-source analytics and visualization platform that enables you to query, monitor, and create interactive dashboards for metrics, logs, and traces from multiple data sources. 
+
+- [What is Azure Monitor Workspace?](/azure/azure-monitor/metrics/azure-monitor-workspace-manage?tabs=azure-portal)
+    - The workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions.
 
 You can monitor Azure Application Gateway for Containers resources in the following ways. Refer to the diagram.
-- [Backend Health Metrics](../../application-gateway/for-containers/application-gateway-for-containers-metrics.md): ALB Controller's metric and backend health endpoints exposes several metrics and summary of backend health. The metrics endpoint enables exposure to Prometheus.
+- [Backend Metrics](../../application-gateway/for-containers/application-gateway-for-containers-metrics.md): Each client request creates a log entry that can be used to identify slow requests, determine error rates, and correlate WAF Metrics with backend services. The metrics endpoint enables exposure to Prometheus.
   
-- [Metrics](../../application-gateway/for-containers/application-gateway-for-containers-metrics.md): Metrics and Activity Logs are exposed through Azure Monitor to monitor the performance of your Application Gateway for Containers deployments. The metrics contain numerical values in an ordered set of time-series data.
-  
-- [Diagnostic Logs](../../application-gateway/for-containers/diagnostics.md): Access Logs audit all requests made to Application Gateway for Containers. Logs can provide several characteristics, such as the client's IP, requested URL, request latencies, return code, and bytes in and out. An access log is collected every 60 seconds.
+- [Diagnostic Logs](../../application-gateway/for-containers/diagnostics.md): Access Logs audit all requests made to Application Gateway for Containers. Logs can provide several characteristics, such as the client's IP, requested URL, request latencies, return code, and bytes in and out. An access log is collected every 60 seconds. This includes the activity log, access log, and firewall log.
 
-[![A diagram of architecture grid.](./media/prometheus-grafana/design-arch.png)](./media/prometheus-grafana/design-arch.png#lightbox)
+:::image type="content" source="./media/prometheus-grafana/agc-monitoring-flowchart.png" alt-text="Screenshot of architecture grid diagram." lightbox="./media/prometheus-grafana/agc-monitoring-flowchart.png":::
 
-## Learn About the Services
-- [What is Azure Managed Prometheus?](/azure/azure-monitor/essentials/prometheus-metrics-overview)
-   - Why use Prometheus:  Azure Prometheus offers native integration and management capabilities, simplifying the setup and management of monitoring infrastructure.
-- [What is Azure Managed Grafana?](../../managed-grafana/overview.md)
-   - Why use Grafana: Azure Managed Grafana lets you bring together all your telemetry data into one place and Built-in support for Azure Monitor and Azure Data Explorer using Microsoft Entra identities.
-- [What is Azure Log Analytics Workspace?](/azure/azure-monitor/logs/log-analytics-workspace-overview)
-   - Why use Log Analytics Workspace: Log Analytics workspace scales with your business needs, handling large volumes of log data efficiently and detects and diagnose issues quickly.
-     
 ## Prerequisites
+- An active Kubernetes cluster.
+- An active Application Gateway for Containers deployment.
+- An active resource group with Contributor permission.
+- Monitoring Reader role assigned for access to Azure Managed Prometheus (Azure Monitor workspace).
 
-- An Azure account for work or school and an active subscription. You can create an account for free.
-- Active Kubernetes cluster.
-- Active Application Gateway for Container deployment.
-- Active Resource Group with contributor permission.
-  > [!TIP]
-  > Alternative to Contributor role, you may also want to leverage the following:
-  >  - Custom Role with 'microsoft.monitor/accounts/write'.
-  >  - Read access.
-  >  - Grafana Admin.
-  >  - Log Analytics Contributor.
-  >  - Monitoring Contributor permissions.
-  > [Learn more about custom roles here](https://aka.ms/custom-roles).
+## Azure Monitor dashboards with Grafana
+Azure Monitor includes native support for Grafana dashboards directly within the Azure portal. This built-in capability allows you to quickly access prebuilt dashboards and create custom visualizations for monitoring your Azure resources without leaving Azure Monitor. 
 
-  
-  
-## Create new Applications for Configuration
+Use the following steps to use the Grafana dashboards that are already available in the Azure portal with the data sources from Azure Monitor managed service for Prometheus metrics scraped from Kubernetes clusters.
 
-Complete the steps to configure prometheus and grafana. 
+1. In the Azure portal, navigate to your AKS cluster.
+1. Select **Monitoring**.
+1. Select **Dashboards with Grafana**.
+1. Select **Configure**.
+1. Select **Enable Prometheus Metrics** and **Container Logs**. Under **Advanced Settings**, select your specific Azure Monitor workspace, Log Analytics workspace, and log presets.
+
+    :::image type="content" source="./media/prometheus-grafana/configure-monitor-with-grafana.png" alt-text="Screenshot of configuring monitoring with Grafana.":::
+
+1. Browse the list of available dashboards in the Azure Managed Prometheus listings.
+
+    :::image type="content" source="./media/prometheus-grafana/prometheus-template.png" alt-text="Screenshot of Prometheus template dashboards.":::
+
+See additional customization in [Azure Monitor Dashboards with Grafana](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards)
+
+## Azure Managed Grafana
+Azure Managed Grafana provides a dedicated, fully managed Grafana instance with broader flexibility. Choose Azure Managed Grafana when you need advanced user management, customization, integration with a wide variety of Azure and non-Azure data sources, or when you require Grafana's full feature set, such as advanced alerting, reporting, and enterprise plugins.
+
+## Complete the steps to configure Prometheus and Grafana
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
-2. In **Search resources, service, and docs**, type **Kubernetes services** and select your Kubernetes Cluster name.
-   
-   [ ![A screenshot of kubernetes insights.](./media/prometheus-grafana/configure.png) ](./media/prometheus-grafana/configure.png#lightbox)
-   
-3. Expand **Monitoring**, select **Insights**, and select **Configure Monitoring**.
-   
-    [ ![A screenshot of monitoring metrics.](./media/prometheus-grafana/grafana-container.png) ](./media/prometheus-grafana/grafana-container.png#lightbox)
+1. Navigate to your AKS cluster in the Azure portal.
+    - **New AKS cluster**: Configure monitoring in the **Monitoring** tab and enable Prometheus metrics and container logs.
+    - **Existing cluster**: Navigate to your cluster in the Azure portal. In the service menu, select **Monitor** and then **Monitor Settings**.
 
-    Create new instances of Log analytics, Azure Monitor (Prometheus), and Managed Grafana to store current Kubernetes cluster metrics.
-4. In **Search resources, service, and docs**, type **Managed Prometheus** and select.
-   
-   [ ![A screenshot of Prometheus Managed.](./media/prometheus-grafana/managed-prometheus.png) ](./media/prometheus-grafana/managed-prometheus.png#lightbox)
-   
-5.  Follow the steps to enable Azure Monitor to enable Managed Prometheus service by selecting **Create**.
-6.  Create Azure Monitor Workspace Instance:
-     1. In the **Create** an Azure Monitor Workspace page, select a subscription and resource group.
-     2. Provide a name and a region for the workspace.
-     3. Select **Review + create** to create the workspace.
-7. Add Prometheus Config Map to your cluster:
-   1. Copy this file to notepad or Visual Studio Code:  https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml.
-   2. Modify line 35 to set podannotationnamespaceregex  from “” to "azure-alb-system".
-      ```Bash
-      # Example Kusto Query
-      podannotationnamespaceregex = "azure-alb-system"
-      ```
-    3. Save the file as configprometheus.yaml.
-    4. Add file into CLI (command-line interfaces) under manage files.
-    5. Run the following command:
-      ```Bash
-      # Run the Following Command in Bash
-      kubectl apply -f configprometheus.yaml
-      ```
-8. [Create a managed Grafana](../../managed-grafana/quickstart-managed-grafana-portal.md).
-    Link a Grafana Workspace:
-    - In **Search resources, service, and docs**, type **Azure Monitor**.
-    - Select your monitor workspace. 
-    - Select **Linked Grafana Workspaces**.
-     ![A screenshot of Grafana Link.](./media/prometheus-grafana/grafana-link.png)
-9. Select a Grafana workspace.
-10. Select **Link**.
+    :::image type="content" source="./media/prometheus-grafana/configure-monitor-with-grafana.png" alt-text="Screenshot of configuring Azure Monitor with Grafana.":::
+
+1. In the **Search resources, services, and docs (G+/)** box, enter *Azure Managed Grafana* and select **Azure Managed Grafana**.
+1. Create an [Azure Managed Grafana workspace](/azure/managed-grafana/quickstart-managed-grafana-portal).
+
+    > [!NOTE]
+    > An Azure Managed Grafana instance is automatically configured with a managed identity with the Monitoring Data Reader role. This role allows the identity to read monitoring data for the subscription. The identity is used to authenticate Grafana to Azure Monitor.
+
+1. Create an [Azure Monitor workspace](/azure/azure-monitor/metrics/azure-monitor-workspace-manage?tabs=azure-portal). Copy the **Query endpoint**.
+
+    :::image type="content" source="./media/prometheus-grafana/query-endpoint.png" alt-text="Screenshot of the Monitor query endpoint.":::
 
 
-## Configure Kubernetes cluster for logging
-We created the resources and now we combine all resources and configure prometheus.
+## Create the Prometheus data source in Grafana
+1. Open your Azure Managed Grafana workspace in the Azure portal and select the endpoint to view the Grafana workspace.
+1. Select **Connections** > **Data sources** and then select **Add data source**.
+1. Search for and select **Prometheus**.
+1. Paste the query endpoint from your Azure Monitor workspace into the **Prometheus server URL** field.
+1. Under **Authentication**, select **Azure Auth**.
+1. Under **Azure Authentication**, select **Managed Identity** from the **Authentication** dropdown list.
+1. Scroll to the bottom of the page and select **Save & test**.
 
-1. Cluster configuration 
-   1. In **Search resources, service, and docs**, search for your kubernetes cluster.
-   2. Search for insights and Select on **Configure Monitoring**.
-2. Specify each instance: 
-    - Log analytics workspace: Use the default new log analytics workspace created for you.
-    - Managed Prometheus: Select on **“Enable Prometheus metrics”** checkbox.
-        -   Select on advanced setting: specify the Azure monitor workspace recently created.
-    - Grafana Workspace: Select on **Enable Grafana** checkbox.
-        -   Select on advanced setting: specify the Grafana instance recently created. 
-   - Select **“Configure”**.
-   > [!NOTE]
-   > Check for ama-metrics under workloads in your kubernetes cluster.
-   > [ ![A screenshot of Checking Config.](./media/prometheus-grafana/notes-image.png) ](./media/prometheus-grafana/notes-image.png#lightbox)
-   
-## Enable diagnostic logs for Application Gateway for Containers
-Activity logging is automatically enabled for every Resource Manager resource. For Access Logs, you must enable access logging to start collecting the data available through those logs. To enable logging, you may configure diagnostic settings in Azure Monitor.
+    :::image type="content" source="./media/prometheus-grafana/prometheus-data-source.png" alt-text="Screenshot of the Prometheus data source configuration.":::
 
-1. [Create a log analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
-2. Send logs from Application Gateway for Containers to log analytics workspace: 
-   1. Enter **Application Gateway for Containers** in the search box. Select your active Application Gateway for Container resource.
-   2. Search and select Diagnostic Setting under Monitoring. Add diagnostic setting.
-   3. Select a name, check box **allLogs** which includes the Application Gateway for Container Access Logs, and select **Send to Log analytics Workspace** with your desired subscription and recently made log analytics workspace.
-  [ ![A screenshot of Application Gateway for Containers Diagnostic Setting.](./media/prometheus-grafana/logs-all.png) ](./media/prometheus-grafana/logs-all.png#lightbox)
+## Graph Prometheus metrics on Grafana
+A Grafana dashboard contains panels and rows. You can import a Grafana dashboard and adapt it to your own scenario, create a new Grafana dashboard, or duplicate an existing dashboard.
 
-3. Select **Save**.
+1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint URL**.
 
-## Access Grafana dashboard
-In this section, we enter Grafana default dashboards.
+1. In the Grafana portal, go to **Dashboards** > **New Dashboard**.
 
-1. In **Search resources, service, and docs**, select your **Managed Grafana**.
-2. Select the grafana resource used for configuring monitoring in the cluster.
-3. Select on Endpoint URL in the overview.
-   ![A screenshot of Grafana Endpoint.](./media/prometheus-grafana/grafana-end.png)
+1. Select one of the following options:
+    - **Add a new panel**: Instantly creates a dashboard from scratch with a first default panel.
+    - **Add a new row**: Instantly creates a dashboard with a new empty row.
+    - **Add a panel from the panel library**: Instantly creates a dashboard with an existing reusable panel from another workspace you have access to.
+1. Select **Add a new panel**.
+1. Search for and select **Prometheus** as a data source.
+1. Select the desired metric. For example, select `alb_controller_total_unhealthy_endpoints` to show any unhealthy endpoints of your backend service. Choose **app** as `alb-controller`. Select the name of the panel, type of visualization, and time range.
 
-4. After entering your user credentials, refer to the Grafana introduction.
-5. Select on the left side bar to access default dashboards under dashboards.
-   ![A screenshot of Default Grafana Dashboard.](./media/prometheus-grafana/grafana-default.png)
+   :::image type="content" source="./media/prometheus-grafana/prometheus-grafana-viewing.png" alt-text="Screenshot of the Prometheus metrics visualization in Grafana.":::
 
-## Graph Prometheus metrics on Grafana 
+1. Select **Save** and **Apply** to add the panel to your dashboard.
 
-In this section, we visualize a sample metric from Prometheus metrics. Refer to all Prometheus metrics availabilities here: [Prometheus Metrics](../../application-gateway/for-containers/application-gateway-for-containers-metrics.md).
 
-1. In the right top corner, Select **Add Dashboard**.
-2. Select **Add Visualization**.
-3. Search for prometheus under data source.
-![A screenshot of Data Source Prometheus Dashboard.](./media/prometheus-grafana/data-source-prometheus.png)
-4. Select desired metric. For Example: alb_controller_total_unhealthy_endpoints that gives any unhealthy endpoints of your backend service.
-5. Choose app as alb-controller.
-6. Select name of the panel, type of visualization, and time range.
-   ![A screenshot of Prometheus Logging Test.](./media/prometheus-grafana/prometheus-grafana-viewing.png)
-7. **Save + Apply** of your panel to add into your dashboard.
-   > [!NOTE]
-   > Add a custom legend by {{variable_name}}.
+## Graph Azure Monitor Logs on Grafana
+After you create the resources, you can combine them and configure Prometheus.
+1. Expand the menu on the left and select **Connections** > **Data sources**.
 
-## Graph access logs and metrics on Grafana
+   :::image type="content" source="./media/prometheus-grafana/monitor-data-source-configuration.png" alt-text="Screenshot of the Monitor data source configuration.":::
 
-In this section, we visualize a sample logs from Log Analytics Workspace. Refer to all diagnostic Logs availabilities here: [Diagnostic Logs](../../application-gateway/for-containers/diagnostics.md).
+1. **Azure Monitor** is listed as a built-in data source for your Azure Managed Grafana workspace. Select **Azure Monitor**.
+1. In the **Settings** tab, authenticate through **Managed Identity** and select your subscription from the dropdown list. When you select managed identity, the authentication and authorization are made through the system-assigned or the user-assigned managed identity you configured in your Azure Managed Grafana workspace.
+1. Select **Add a new panel**.
+1. Search for and select **Azure Monitor** as a data source.
+1. Enter the following example query:
+    ```kusto
+    AGCAccessLogs
+    | project BackendResponseLatency, TimeGenerated
+    ```
 
-### Workspace for logs
+1. Select **Time Series** as a visualization.
+1. Select the name, description, and time range of the panel.
 
-1. In the right top corner, Select **Add + Add Dashboard**.
-2. Select **Add Visualization**.
-3. Search for Azure Monitor under data source + **Add**.
-![A screenshot of Log Data Source.](./media/prometheus-grafana/log-data-source.png)
-4. Change service as **Logs**.
-5. Type: 
-  ```kusto
-  // Example Kusto Query
-  AGCAccessLogs
-  | project BackendResponseLatency, TimeGenerated
-  ```
-6. Select a **Time Series** as a visualization.
-7. Select name, description, and time range of the panel.
-![A screenshot of Application Gateway for Containers Logging Example.](./media/prometheus-grafana/logging-example.png)
-8. **Save + Apply** to your dashboard.
+    :::image type="content" source="./media/prometheus-grafana/logging-example.png" alt-text="Screenshot of an Application Gateway for Containers logging example.":::
 
-### Workspace for metrics
-
-1. In the right top corner, select **Add + Add Dashboard**.
-2. Select **Add Visualization**.
-3. Search for Azure Monitor under data source+ **Add**.
-4. Change service as Metrics.
-5. Select your application gateway for containers instance.
-![[A screenshot of Metrics Log Data Source.](./media/prometheus-grafana/metrics-logs-datasource.png)](./media/prometheus-grafana/metrics-logs-datasource.png#lightbox)
-6. Select metric namespace as microsoft.servicenetworking/trafficcontrollers.
-7. Choose a metric such as **total requests** and type of data visualization.
-[ ![A screenshot of Example Metrics Log Data Source.](./media/prometheus-grafana/metrics-logs.png) ](./media/prometheus-grafana/metrics-logs.png#lightbox)
-8. Select a name, description, and time range of the panel.
-9. **Save + Apply** to your dashboard.
+1. Select **Save** and **Apply** to add the panel to your dashboard.
 
 Congratulations! You set up a monitoring service to enhance your health tracking! 

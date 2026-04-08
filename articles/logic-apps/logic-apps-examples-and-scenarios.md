@@ -84,16 +84,16 @@ Azure Logic Apps includes rich capabilities for advanced control flow, such as c
 
 ## Reliability
 
-* [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md)
+* [Reliability in Azure Logic Apps](/azure/reliability/reliability-logic-apps)
 * [Enable zone-redundancy for your logic app](set-up-zone-redundancy-availability-zones.md)
 * [Create replication tasks for Azure resources using Azure Logic Apps](create-replication-tasks-azure-resources.md)
 * [Set up cross-region disaster recovery for integration accounts in Azure Logic Apps](logic-apps-enterprise-integration-b2b-business-continuity.md)
 
-## Integrate with Azure AI services and capabilities
+## Integrate with Foundry Tools and capabilities
 
 * [AI playbook, examples, and other resources for workflows in Azure Logic Apps](ai-resources.md)
 * [Parse or chunk content from workflows](parse-document-chunk-text.md)
-* [Connect to Azure AI services from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)
+* [Connect to Foundry Tools from Standard workflows in Azure Logic Apps](/azure/logic-apps/connectors/azure-ai)
 
 ## Handle content types, conversions, and transformations
 
@@ -175,7 +175,7 @@ You can fully develop and deploy logic app resources with Azure DevOps or any ot
 
 Azure Logic Apps integrates with many services, such as Azure API Management, Azure App Service, and custom HTTP endpoints, for example, REST and SOAP.
 
-* [Tutorial: Create a function that integrates with Azure Logic Apps and Azure AI services to analyze X post sentiment](../azure-functions/functions-twitter-email.md)
+* [Tutorial: Create a function that integrates with Azure Logic Apps and Foundry Tools to analyze X post sentiment](../azure-functions/functions-twitter-email.md)
 * [Tutorial: Build an AI-powered social dashboard by using Power BI and Azure Logic Apps](/shows/)
 * [Tutorial: Monitor virtual machine changes by using Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-logic-app.md)
 * [Tutorial: IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)

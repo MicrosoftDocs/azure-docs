@@ -5,7 +5,7 @@ description: This topic describes the file formats and compression codes that ar
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/13/2025
 ms.author: jianleishen
 ---

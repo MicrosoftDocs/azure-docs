@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 02/23/2026
 ms.author: danlep
 ---
 # Restrict caller IPs
@@ -49,7 +49,9 @@ The `ip-filter` policy filters (allows/denies) calls from specific IP addresses 
 
 ### Usage notes
 
-If you configure this policy at more than one scope, IP filtering is applied in the order of [policy evaluation](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) in your policy definition. 
+- If you configure this policy at more than one scope, IP filtering is applied in the order of [policy evaluation](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) in your policy definition. 
+
+- If `action` is set to `allow`, requests that don't match any `address` or `address-range` are denied. If `action` is set to `forbid`, requests that don't match any `address` or `address-range` are allowed.
 
 ## Example
 

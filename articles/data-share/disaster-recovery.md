@@ -23,7 +23,7 @@ Data consumers can either have an active share subscription that's idle for DR p
 
 ## Related content
 
-- [Business Continuity and Disaster Recovery](../reliability/cross-region-replication-azure.md)
+- [Business Continuity and Disaster Recovery](/azure/reliability/cross-region-replication-azure)
 - [Build high availability into your BCDR strategy](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.

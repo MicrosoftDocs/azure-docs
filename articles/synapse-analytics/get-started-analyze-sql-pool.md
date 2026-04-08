@@ -95,7 +95,7 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
 
     >[!TIP]
     >If you get an error that reads `Login failed for user '<token-identified principal>'`, you need to set your Entra Id admin. 
-    > 1. In the Azure Portal, search for your synapse workspace.
+    > 1. In the Azure portal, search for your synapse workspace.
     > 1. Under **Settings** select **Microsoft Entra ID**.
     > 1. Select **Set admin** and set a Microsoft Entra ID admin.
 

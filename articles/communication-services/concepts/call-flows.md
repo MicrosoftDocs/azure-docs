@@ -2,12 +2,12 @@
 title: Call networking internals
 titleSuffix: An Azure Communication Services article
 description: This article describes call flows for different Azure Communication Services call types.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/20/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: calling
 ---

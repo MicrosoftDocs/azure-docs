@@ -15,7 +15,8 @@ ms.topic: how-to
 
 ## Prerequisites
 
-- The Azure Kubernetes Service (AKS) cluster on which you've installed Azure Container Storage must be enabled for Azure Monitor. See [Enable monitoring for AKS clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
+- The Azure Kubernetes Service (AKS) cluster that already has Azure Container Storage installed must be enabled for Azure Monitor. See [Enable monitoring for AKS clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
+
 - To open the dashboards, you must have read access to the logs and Azure Monitor workspace holding the log and metric data. You can query [analytics tier logs](/azure/azure-monitor/logs/data-platform-logs#table-plans) using the Kubernetes cluster as its [scope](/azure/azure-monitor/logs/scope), so direct access to the Log Analytics workspace isn't required. [Basic logs](/azure/azure-monitor/logs/data-platform-logs#table-plans) only support workspace scoped queries, so access to the Log Analytics workspace is required.
 
 ## Open Azure Container Storage dashboard

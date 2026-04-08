@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/08/2026
+ms.date: 03/02/2026
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 

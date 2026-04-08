@@ -18,8 +18,8 @@ This article provides answers to some of the most common questions about trouble
 Azure VM assessment might recommend a bigger disk based on the type of assessment:
 
 - Disk sizing depends on two assessment properties: sizing criteria and storage type.
-- If the sizing criteria are **Performance-based** and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, Premium, or Ultra disk). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
-- If the sizing criteria are **Performance-based** and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, **Premium**, or **Ultra disk**.
+- If the sizing criteria are **Performance-based** and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, Premium, or Ultra Disk). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
+- If the sizing criteria are **Performance-based** and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, **Premium**, or **Ultra Disk**.
 
 For example, say you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS. The Azure VM assessment recommends a premium disk because of the higher IOPS requirements. It also recommends a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, the Azure VM assessment recommended a larger disk because of the high IOPS requirement of the on-premises disk.
 
@@ -84,23 +84,23 @@ An Azure VM assessment currently considers the operating system license cost onl
 
 An Azure VM assessment continuously collects performance data of on-premises servers and uses it to recommend the VM SKU and disk SKU in Azure. [Learn more](concepts-assessment-calculation.md#calculate-sizing-performance-based) about how performance-based data is collected.
 
-## Can I migrate my disks to an Ultra disk by using Azure Migrate?
+## Can I migrate my disks to an Ultra Disk by using Azure Migrate?
 
-No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. [Learn more](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk) about deploying an Ultra disk.
+No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra Disks. [Learn more](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk) about deploying an Ultra Disk.
 
-## Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
+## Why are the provisioned IOPS and throughput in my Ultra Disk more than my on-premises IOPS and throughput?
 
-As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra disk is billed based on the provisioned size, provisioned IOPS, and provisioned throughput. For example, if you provisioned a 200-GiB Ultra disk with 20,000 IOPS and 1,000 MB/second and deleted it after 20 hours, it will map to the disk size offer of 256 GiB. You'll be billed for 256 GiB, 20,000 IOPS, and 1,000 MB/second for 20 hours.
+As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS, and provisioned throughput. For example, if you provisioned a 200-GiB Ultra Disk with 20,000 IOPS and 1,000 MB/second and deleted it after 20 hours, it will map to the disk size offer of 256 GiB. You'll be billed for 256 GiB, 20,000 IOPS, and 1,000 MB/second for 20 hours.
 
 IOPS to be provisioned = (Throughput discovered) * 1024/256
 
-## Does the Ultra disk recommendation consider latency?
+## Does the Ultra Disk recommendation consider latency?
 
 No, currently only disk size, total throughput, and total IOPS are used for sizing and costing.
 
-## I can see M series supports Ultra disk, but in my assessment where Ultra disk was recommended, it says "No VM found for this location"
+## I can see M series supports Ultra Disk, but in my assessment where Ultra Disk was recommended, it says "No VM found for this location"
 
-This result is possible because not all VM sizes that support Ultra disks are present in all Ultra disk supported regions. Change the target assessment region to get the VM size for this server.
+This result is possible because not all VM sizes that support Ultra Disks are present in all Ultra Disk supported regions. Change the target assessment region to get the VM size for this server.
 
 ## Why is my assessment showing a warning that it was created with an invalid offer?
 

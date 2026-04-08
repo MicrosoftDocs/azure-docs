@@ -12,10 +12,6 @@
 ---
 The following limits apply to Standard and StandardV2 NAT gateway resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
-> [!IMPORTANT]
-> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 > [!NOTE]
 > Each subscription has a combined quota for both Standard and StandardV2 NAT gateways. For example, if your subscription has a quota of 100 NAT gateways, you can create any combination of Standard and StandardV2 NAT gateways up to that quota.
 
@@ -24,7 +20,7 @@ The following limits apply to Standard and StandardV2 NAT gateway resources mana
 |---------------------|--------------------|--------------------|
 | Public IP addresses | 16 IPv4 addresses  | 16 IPv4 addresses  |
 | Subnets             | 800 per NAT gateway | 800 per NAT gateway |
-| Data throughput<sup>1</sup>     | 50 Gbps per NAT gateway | 100 Gbps per NAT gateway, 1 Gbps per NAT gateway |
+| Data throughput<sup>1</sup>     | 50 Gbps per NAT gateway | 100 Gbps per NAT gateway, 1 Gbps per connection |
 | NAT gateways for Enterprise and CSP agreements<sup>2</sup>       | 1,000 per subscription per region | see previous column for combined quota |
 | NAT gateways for Sponsored and pay-as-you-go<sup>2</sup>         | 100 per subscription per region | see previous column for combined quota |
 | NAT gateways for Free Trial and all other offer types<sup>2</sup>             | 15 per subscription per region | see previous column for combined quota|

@@ -14,7 +14,8 @@ ms.date: 01/16/2026
 
 If you need more information about a particular diagnostic code, select the **Feedback** button in the upper-right corner of the page and specify the code.
 
-You can suppress Bicep diagnostic codes by using the `disable-next-line` directive. See [`disable-next-line`](./file.md#disable-next-line).
+You can suppress Bicep diagnostic codes by using `disable-next-line` and `disable-diagnostics`. See [Directives](./file.md#directives).
+
 
 | Code       | Level | Description |
 |------------|-------|-------------|

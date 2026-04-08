@@ -1,7 +1,7 @@
 ---
 title: Azure Functions Error Handling and Retry Guidance
 description: Learn how to handle errors and retry events in Azure Functions, with links to specific binding errors, including information on retry policies.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 05/06/2025
 zone_pivot_groups: programming-languages-set-functions
@@ -360,7 +360,7 @@ When you're integrating with Azure services, errors might originate from the API
 - [Blob Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 - [Event Grid](../event-grid/troubleshoot-errors.md)
 - [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
-- [IoT Hub](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
+- [IoT Hub](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
 - [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 - [Queue Storage](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
 - [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)

@@ -6,6 +6,7 @@ ms.date: 08/21/2025
 ms.topic: tutorial 
 author: habibaum
 ms.author: v-uhabiba
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator, I want to enable periodic assessment and schedule updates for Azure VMs by using a policy so that I can ensure compliance and streamline the management of updates across all machines at scale."
 ---
 

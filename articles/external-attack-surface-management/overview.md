@@ -5,7 +5,7 @@ author: danielledennis
 ms.author: dandennis
 ms.service: defender-easm
 ms.date: 02/27/2024
-ms.topic: conceptual
+ms.topic: overview
 ms.custom: sfi-image-nochange
 ---
 
@@ -51,6 +51,8 @@ You can filter your inventory to surface the insights that are most important to
 A user in your organization who is assigned the Owner or Contributor role can create, delete, and edit Defender EASM resources and the inventory assets in a resource. The Owner and Contributor roles have permissions to use all of the platform's capabilities and features.
 
 A user who is assigned the Reader role can view Defender EASM data, but they can't create, delete, or edit a resource or inventory asset.  
+
+Defender EASM does not support cross-tenant resource access, including via Azure Lighthouse. Defender EASM resources must be accessed by authenticating directly to the tenant where the resource is located.
 
 ## Data residency, availability, and privacy
 

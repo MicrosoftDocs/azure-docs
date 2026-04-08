@@ -88,25 +88,24 @@ spring:
 
 1. Install dependencies.
     ```bash
-    python -m pip install pyodbc
+    python -m pip install mssql-python python-dotenv
     ```
 
-1. Retrieve the SQL database in Microsoft Fabric connection string from the environment variable added by Service Connector. If you are using Azure Container Apps as compute service or the connection string in the code snippet doesn't work, refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python#update-the-local-connection-configuration) to connect to SQL database in Microsoft Fabric using passwordless credentials. `Authentication=ActiveDirectoryMSI;` is required in the connection string when connecting using managed identities. `UID=<msiClientId>` is also required in the connection string when connecting using a user-assigned managed identity.
+1. Retrieve the SQL database in Microsoft Fabric connection string from the environment variable added by Service Connector. `Authentication=ActiveDirectoryMSI;` is required in the connection string when connecting using managed identities. `UID=<msiClientId>` is also required in the connection string when connecting using a user-assigned managed identity.
 
     ```python
     import os
-    import pyodbc, struct
-    from azure.identity import DefaultAzureCredential
+    from mssql_python import connect
 
-    connStr = os.getenv('FABRIC_SQL_CONNECTIONSTRING')
+    connection_string = os.getenv('FABRIC_SQL_CONNECTIONSTRING')
     
     # System-assigned managed identity connection string format
-    # `Driver={ODBC Driver 17 for SQL Server};Server=tcp:<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;Database=<SQL-DB-name>-<Fabric-DB-Identifier>;Authentication=ActiveDirectoryMSI;`
+    # `Server=tcp:<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;Database=<SQL-DB-name>-<Fabric-DB-Identifier>;Authentication=ActiveDirectoryMSI;`
     
     # User-assigned managed identity connection string format
-    # `Driver={ODBC Driver 17 for SQL Server};Server=tcp:<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;Database=<SQL-DB-name>-<Fabric-DB-Identifier>;UID=<msiClientId>;Authentication=ActiveDirectoryMSI;`
+    # `Server=tcp:<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;Database=<SQL-DB-name>-<Fabric-DB-Identifier>;UID=<msiClientId>;Authentication=ActiveDirectoryMSI;`
     
-    conn = pyodbc.connect(connString)
+    conn = connect(connection_string)
     ```
 
 ### [Go](#tab/fabricsql-me-id-go)

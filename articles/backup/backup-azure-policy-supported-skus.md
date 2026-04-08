@@ -1,8 +1,8 @@
 ---
 title: Supported VM SKUs for Azure Policy
-description: 'An article describing the supported VM SKUs (by Publisher, Image Offer and Image SKU) which are supported for the built-in Azure Policies provided by Backup'
+description: 'An article describing the supported Virtual Machine (VM) SKUs (by Publisher, Image Offer and Image SKU) which are supported for the built-in Azure Policies provided by Backup'
 ms.topic: reference
-ms.date: 10/16/2024
+ms.date: 03/17/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -12,13 +12,17 @@ ms.author: v-mallicka
 # Supported VM SKUs for Azure Policy
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-Azure Backup provides a built-in policy (using Azure Policy) that can be assigned to **all Azure VMs in a specified location within a subscription or resource group**. When this policy is assigned to a given scope, all new VMs created in that scope are automatically configured for backup to an **existing vault in the same location and subscription**. The table below lists all the VM SKUs supported by this policy.
+Azure Backup provides a built-in policy (using Azure Policy) that can be assigned to **all Azure Virtual Machines (VMs) in a specified location within a subscription or resource group**. When this policy is assigned to a given scope, all new VMs created in that scope are automatically configured for backup to an **existing vault in the same location and subscription**. The following table lists all the VM SKUs supported by this policy.
 
 ## Supported VMs*
 
 **Policy Name:** Configure backup on VMs of a location to an existing central vault in the same location
+
+The following table lists the supported VM SKUs for the built-in Azure Policy provided by Azure Backup.
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 Image Publisher | Image Offer | Image SKU
 --- | --- | ---

@@ -81,7 +81,7 @@ App Service Environment v3 tends to be more expensive than the public multitenan
 |Pricing     |[Pay per instance](overview.md#pricing)|[Pay per instance](../../app-service/overview-hosting-plans.md)|
 |Reserved instances|[Available](overview.md#pricing)|[Available](../../app-service/overview-hosting-plans.md)|
 |Savings plans|[Available](overview.md#pricing)|[Available](../../app-service/overview-hosting-plans.md)|
-|Availability zone pricing|[Two-instance minimum enforced per App Service plan that has Availability Zones enabled](overview.md#pricing) |[Two-instance minimum enforced per App Service plan](../../reliability/reliability-app-service.md#cost)|
+|Availability zone pricing|[Two-instance minimum enforced per App Service plan that has Availability Zones enabled](overview.md#pricing) |[Two-instance minimum enforced per App Service plan](/azure/reliability/reliability-app-service#cost)|
 
 ## Frequently asked questions
 

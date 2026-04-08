@@ -2,7 +2,7 @@
 title: Authenticate with managed identities for Azure Relay resources 
 description: This article describes how to use managed identities to access with Azure Relay resources.
 ms.topic: article
-ms.date: 07/22/2022
+ms.date: 01/24/2026
 ---
 
 # Authenticate a managed identity with Microsoft Entra ID to access Azure Relay resources 

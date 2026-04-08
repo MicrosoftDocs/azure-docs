@@ -1,10 +1,9 @@
 ---
 title: 'Quickstart: Create an Azure ExpressRoute circuit using Bicep'
 description: This quickstart shows you how to create an ExpressRoute circuit using Bicep.
-services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 06/30/2023
+ms.date: 03/11/2026
 ms.topic: quickstart
 ms.service: azure-expressroute
 ms.custom: subject-armqs, mode-arm, devx-track-bicep

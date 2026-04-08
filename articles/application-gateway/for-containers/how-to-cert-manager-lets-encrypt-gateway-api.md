@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 10/23/2025
+ms.date: 2/20/2026
 ms.author: mbender
 # Customer intent: "As a cloud infrastructure engineer, I want to configure an Application Gateway for Containers with automated SSL/TLS certificates using cert-manager and Let's Encrypt, so that I can ensure secure communication for my deployed applications in a Kubernetes environment."
 ---
@@ -24,8 +24,8 @@ More details on cert-manager and Let's Encrypt with AKS in general may be found 
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure that you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md))
+2. If following the ALB managed deployment strategy, ensure that you provision your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
 
@@ -57,7 +57,7 @@ metadata:
   annotations:
     alb.networking.azure.io/alb-namespace: alb-test-infra
     alb.networking.azure.io/alb-name: alb-test
-    cert-manager.io/issuer: letsencrypt-cert
+    cert-manager.io/issuer: letsencrypt-prod
 spec:
   gatewayClassName: azure-alb-external
   listeners:
@@ -173,7 +173,7 @@ Install cert-manager using Helm:
 ```bash
 helm install \
   cert-manager oci://quay.io/jetstack/charts/cert-manager \
-  --version v1.19.1 \
+  --version v1.19.3 \
   --namespace cert-manager \
   --create-namespace \
   --set config.enableGatewayAPI=true \

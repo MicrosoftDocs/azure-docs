@@ -71,7 +71,7 @@ For full control over your application's functionality, integrate directly with 
 
 These APIs support [standard authentication through Microsoft Entra ID](/entra/architecture/guide-for-independent-software-developers), enabling secure access to your resources. For a complete walkthrough of building a browser-based application, see [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md).
 
-You can also integrate data in Planetary Computer Pro with Microsoft applications such as [Fabric](/fabric) and [Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry).
+You can also integrate data in Planetary Computer Pro with Microsoft applications such as [Fabric](/fabric) and [Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry).
 
 The [REST API is detailed in the API reference](/rest/api/planetarycomputer).
 

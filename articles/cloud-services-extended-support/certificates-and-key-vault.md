@@ -2,11 +2,13 @@
 title: Store and use certificates in Azure Cloud Services (extended support)
 description: Processes for storing and using certificates in Azure Cloud Services (extended support)
 ms.topic: how-to
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As a cloud services administrator, I want to securely store and manage certificates using Key Vault so that I can enable secure communication and authentication for Azure Cloud Services (extended support) deployments.
 ---
 

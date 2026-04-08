@@ -5,8 +5,8 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
-ms.date: 01/15/2026
+ms.topic: how-to
+ms.date: 03/30/2026
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -66,7 +66,7 @@ To configure replica-scoped storage, first define an `EmptyDir` volume in the re
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
-| Managed identity configuration | Make sure the managed identity associated with your Container Apps environment is assigned the [appropriate roles](/azure/storage/files/storage-files-identity-assign-share-level-permissions) for access to access Azure Files. |
+| Managed identity configuration | Make sure the managed identity associated with your Container Apps environment is assigned the [appropriate roles](/azure/storage/files/storage-files-identity-assign-share-level-permissions) to access Azure Files. |
 
 #### Configuration
 
@@ -237,6 +237,15 @@ Azure Files storage has the following characteristics:
 Azure Files supports both SMB (Server Message Block) and NFS (Network File System) protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
 
 To enable Azure Files storage in your container, you need to set up your environment and container app as follows:
+
+In the Azure portal, open your **Container App**.  
+In the left navigation pane, under **Settings**, select **Storage mounts**.  
+
+From here you can add a new mount:  
+1. Choose the storage type (**Azure File share** or **Azure Blob**).  
+2. Provide the required configuration (storage account, share name, access mode).  
+3. Save the mount.  
+4. Create and **deploy** a new revision of your container app to apply the changes.
 
 * Create a storage definition in the Container Apps environment.
 * If you're using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
@@ -595,7 +604,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. In the Azure portal, navigate to your Container Apps environment.
 
-1. In the navigation pane, under *Settings*, select **Azure Files**.
+1. In the navigation pane, under *Settings*, select **Volume mounts**.
 
 1. Select **Add**.
 

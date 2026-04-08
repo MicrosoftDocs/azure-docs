@@ -2,7 +2,7 @@
 title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft might need to access customer data.
 author: msmbaldwin
-ms.service: information-protection
+ms.service: azure-information-protection
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2025
@@ -24,7 +24,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 - Azure API Management
 - Azure App Service
 - Azure AI Search
-- Azure AI Services
+- Foundry Tools
 - Azure Chaos Studio
 - Azure Communications Gateway
 - Azure Container Registry
@@ -151,7 +151,7 @@ Customer Lockbox request history, please use the Activity Log for subscription-s
 
 ## Customer Lockbox for Microsoft Azure integration with the Microsoft cloud security benchmark
 
-We introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Customers can now use the benchmark to review Customer Lockbox applicability for a service.
+We introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-v2-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Customers can now use the benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 

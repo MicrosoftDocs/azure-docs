@@ -15,7 +15,7 @@ ms.date: 11/17/2023
 > [!WARNING]
 > End of Support Announcement
 > - End of support announced for Azure Synapse Runtime for Apache Spark 3.4.
-> - Azure Synapse Runtime for Apache Spark 3.4 will be deprecated and disabled March 31, 2026. 
+> - Azure Synapse Runtime for Apache Spark 3.4 will be deprecated March 31, 2026. 
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.4.
 

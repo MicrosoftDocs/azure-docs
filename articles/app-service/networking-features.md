@@ -72,6 +72,9 @@ The following outbound use cases suggest how to use App Service networking featu
 
 Azure App Service scale units support many customers in each deployment. The Free and Shared SKU plans host customer workloads on multitenant workers. The Basic and higher plans host customer workloads that are dedicated to only one App Service plan. If you have a Standard App Service plan, all the apps in that plan run on the same worker. If you scale out the worker, all the apps in that App Service plan are replicated on a new worker for each instance in your App Service plan.
 
+> [!NOTE]
+> Port 445 (SMB) is blocked by default in the Azure App Service sandbox and cannot be used to access on-premises or public resources.
+
 #### Outbound addresses
 
 The worker virtual machines are broken down in large part by the App Service plans. The Free, Shared, Basic, Standard, and Premium plans all use the same worker virtual machine type. The PremiumV2 plan uses another virtual machine type. PremiumV3 uses yet another virtual machine type. And PremiumV4 uses yet another virtual machine type.

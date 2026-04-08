@@ -5,8 +5,9 @@ services: site-recovery
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 02/19/2024
+ms.date: 02/12/2026
 ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
 ms.custom:
   - MVC
   - engagement-fy23
@@ -18,7 +19,7 @@ ms.custom:
 
 This tutorial describes how to prepare Azure resources and components so that you can set up disaster recovery of Azure VMware Solution virtual machines (VMs) by using the [Azure Site Recovery](site-recovery-overview.md) service. [Azure VMware Solution](../azure-vmware/introduction.md) provides private clouds in Azure. These private clouds contain vSphere clusters that are built from dedicated bare-metal Azure infrastructure.
 
-This is the first tutorial in a series that shows you how to set up disaster recovery for Azure VMware Solution VMs.
+This tutorial is the first in a series that shows you how to set up disaster recovery for Azure VMware Solution VMs.
 
 In this tutorial, you learn how to:
 
@@ -43,7 +44,7 @@ Before you begin:
 * Review the [architecture for VMware](vmware-azure-architecture.md) disaster recovery.
 * Read [common questions for VMware](vmware-azure-common-questions.md).
 
-If you just created your free Azure account, you're the administrator of your subscription and you have the necessary permissions. If you're not the subscription administrator, work with the administrator to assign the necessary permissions. To enable replication for a new virtual machine, you must have permission to:
+If you just created your free Azure account, you're the administrator of your subscription and you have the necessary permissions. If you're not the subscription administrator, work with the administrator to assign the necessary permissions. To enable replication for a new virtual machine, you need permission to:
 
 * Create a VM in the selected resource group.
 * Create a VM in the selected virtual network.
@@ -57,9 +58,9 @@ To complete these tasks, your account should be assigned the Virtual Machine Con
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 1. Search Azure Marketplace for **Recovery Services**.
 1. Select **Backup and Site Recovery** from the search results. Then, select **Create**.
-1. On the **Create Recovery Services vault** page, on the **Basics** tab, do the following:
+1. On **Create Recovery Services vault**, on the **Basics** tab, do the following:
 
-    1. For **Subscription**, select the subscription in which you want to create the Recovery Services vault.
+    1. For **Subscription**, select the subscription where you want to create the Recovery Services vault.
     1. For **Resource group**, select an existing resource group or create a new one. For example, create one named **contosoRG**.
     1. For **Vault name**, enter a friendly name to identify the vault. For example, enter **ContosoVMVault**.
     1. For **Region**, select the region where the vault should be located. For example, select **West Europe**.
@@ -76,11 +77,11 @@ The new vault appears on **Dashboard** > **All resources**, and on the main **Re
 
 ## Set up an Azure network
 
-Azure VMware Solution VMs are replicated to Azure managed disks. When failover occurs, Azure VMs are created from these managed disks and joined to the Azure network that you specify in this procedure.
+Azure VMware Solution VMs replicate to Azure managed disks. When failover occurs, the service creates Azure VMs from these managed disks and joins them to the Azure network that you specify in this procedure.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 1. Under **Categories**, select **Networking** > **Virtual network**.
-1. On the **Create virtual network** page, on the **Basics** tab, do the following:
+1. On the **Create virtual network** page, on the **Basics** tab, complete the following steps:
     1. For **Subscription**, select the subscription in which to create the network.
     1. For **Resource group**, select the resource group in which to create the network. For this tutorial, use the existing resource group **contosoRG**.
     1. For **Virtual network name**, enter a network name. The name must be unique within the Azure resource group. For example, enter **ContosoASRnet**.
@@ -89,7 +90,7 @@ Azure VMware Solution VMs are replicated to Azure managed disks. When failover o
     :::image type="Protection state" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot of basic options for creating a virtual network.":::
 
 1. On the **IP addresses** tab, do the following:
-    1. Because there's no subnet for this network, you first delete the pre-existing address range. To do so, select the ellipsis (**...**) for the available IP address range, and then select **Delete address space**.
+    1. Because there's no subnet for this network, you first delete the pre-existing address range. To delete the address range, select the ellipsis (**...**) for the available IP address range, and then select **Delete address space**.
 
        :::image type="Protection state" source="media/tutorial-prepare-azure/delete-ip-address.png" alt-text="Screenshot of selections for deleting an address space.":::
     1. Select **Add an IP address space**.
@@ -105,7 +106,7 @@ Azure VMware Solution VMs are replicated to Azure managed disks. When failover o
 
 1. On the **Review + create** tab, select **Create**.
 
-The virtual network takes a few seconds to create. After it's created, it appears on the Azure portal dashboard.
+It takes a few seconds to create the virtual network. After it's created, it appears on the Azure portal dashboard.
 
 ## Next steps
 
@@ -113,4 +114,4 @@ Learn more about:
 
 - [Preparing your infrastructure](avs-tutorial-prepare-avs.md)
 - [Azure networks](../virtual-network/virtual-networks-overview.md)
-- [Managed disks](/azure/virtual-machines/managed-disks-overview).
+- [Managed disks](/azure/virtual-machines/managed-disks-overview)

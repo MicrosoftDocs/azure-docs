@@ -13,6 +13,8 @@
 
 The DPS device SDKs provide implementations of the [Register](/rest/api/iot-dps/device/runtime-registration/register-device) API and others that devices call to provision through DPS. The device SDKs can run on general MPU-based computing devices such as a PC, tablet, smartphone, or Raspberry Pi. The SDKs support development in C and in modern managed languages including in C#, Node.js, Python, and Java.
 
+The following table lists the device SDKs available for each supported language.
+
 | Platform | Package | Code repository | Samples | Quickstart | Reference |
 | -----|-----|-----|-----|-----|-----|
 | .NET|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/) |[GitHub](https://github.com/Azure/azure-iot-sdk-csharp/)|[Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/device/samples)|[Quickstart](/azure/iot-dps/quick-create-simulated-device-x509?pivots=programming-language-csharp&tabs=windows)| [Reference](/dotnet/api/microsoft.azure.devices.provisioning.client) |

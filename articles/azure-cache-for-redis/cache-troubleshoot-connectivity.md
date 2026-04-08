@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot connectivity
 description: Learn how to resolve connectivity problems when creating clients with Azure Cache for Redis.
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.date: 04/17/2025
 appliesto:
   - ✅ Azure Cache for Redis

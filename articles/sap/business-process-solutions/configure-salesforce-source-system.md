@@ -3,7 +3,7 @@ title: Configure Salesforce source system
 description: Learn how to configure Salesforce as a source system in Business Process Solutions, including prerequisites, creating a Salesforce connection, and setting up the source system.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij
@@ -48,6 +48,6 @@ Use the following steps to configure your source system:
 
 ## Next steps
 
-Now that you have configured Salesforce source system in your Business Process Solution item, you can proceed to configure dataset and relationships.
+Now that you have configured Salesforce source system in your Business Process Solution item, you can proceed to configure insights.
 
-- [Configure Dataset in Business Process Solutions](configure-dataset.md)
+- [Configure Insights in Business Process Solutions](configure-insights.md)

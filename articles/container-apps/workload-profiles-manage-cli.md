@@ -1,6 +1,6 @@
 ---
-title: Create a workload profiles environment with the Azure CLI
-description: Learn to create an environment with a specialized hardware profile using the Azure CLI.
+title: Create a Container Apps environment with the Azure CLI
+description: Learn to create an environment with specialized hardware profiles using the Azure CLI.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -13,7 +13,7 @@ zone_pivot_groups: container-apps-vnet-types
 
 # Manage workload profiles with the Azure CLI
 
-Learn to manage a workload profiles environment using the Azure CLI.
+Learn to manage workload profiles in your Container Apps environment using the Azure CLI.
 
 <a id="create"></a>
 
@@ -43,7 +43,7 @@ When you create an environment with a custom VNet, you have full control over th
 
 ::: zone-end
 
-Use the following commands to create a workload profiles environment.
+Use the following commands to create a Container Apps environment.
 
 ::: zone pivot="aca-vnet-custom"
 
@@ -85,7 +85,7 @@ Use the following commands to create a workload profiles environment.
 
     ::: zone-end
 
-1. Create *workload profiles* environment
+1. Create a Container Apps environment.
 
     ::: zone pivot="aca-vnet-custom"
 
@@ -96,7 +96,6 @@ Use the following commands to create a workload profiles environment.
 
     ```bash
     az containerapp env create \
-      --enable-workload-profiles \
       --resource-group "<RESOURCE_GROUP>" \
       --name "<NAME>" \
       --location "<LOCATION>"
@@ -106,7 +105,6 @@ Use the following commands to create a workload profiles environment.
 
     ```bash
     az containerapp env create \
-      --enable-workload-profiles \
       --resource-group "<RESOURCE_GROUP>" \
       --name "<NAME>" \
       --location "<LOCATION>" \
@@ -122,7 +120,6 @@ Use the following commands to create a workload profiles environment.
 
     ```bash
     az containerapp env create \
-      --enable-workload-profiles \
       --resource-group "<RESOURCE_GROUP>" \
       --name "<NAME>" \
       --location "<LOCATION>"

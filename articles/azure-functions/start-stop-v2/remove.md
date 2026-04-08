@@ -4,7 +4,7 @@ titleSuffix: Azure Functions
 description: This article describes how to remove the Start/Stop VMs v2 feature.
 ms.service: azure-functions
 ms.date: 06/08/2022
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # How to remove Start/Stop VMs v2
@@ -15,9 +15,6 @@ After you enable the Start/Stop VMs v2 feature to manage the running state of yo
 - Schedules in Azure Logic Apps
 - The Application Insights instance
 - Azure Storage account
-
-> [!NOTE]
-> If you run into problems during deployment, you encounter an issue when using Start/Stop VMs v2, or if you have a related question, you can submit an issue on [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Filing an Azure support incident from the [Azure support site](https://azure.microsoft.com/support/options/) is not available for this version. 
 
 ## Delete the dedicated resource group
 

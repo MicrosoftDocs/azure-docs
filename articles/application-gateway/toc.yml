@@ -209,6 +209,8 @@
       href: ingress-controller-expose-websocket-server.md
     - name: Autoscale AKS pods with Application Gateway metrics
       href: ingress-controller-autoscale-pods.md
+  - name: Integration with Container Apps
+    href: ../container-apps/waf-app-gateway.md?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
   - name: Route by URL
     items:
     - name: Azure PowerShell
@@ -296,7 +298,7 @@
     - name: Relocate to another region
       href: ../operational-excellence/relocation-app-gateway.md?toc=/azure/application-gateway/toc.json
     - name: Migrate to availability zone support
-      href: ../reliability/migrate-app-gateway-v2.md?toc=/azure/application-gateway/toc.json
+      href: /azure/reliability/migrate-app-gateway-v2?toc=/azure/application-gateway/toc.json
   - name: Proxy buffer configuration
     href: proxy-buffers.md
   - name: Custom error pages
@@ -327,32 +329,8 @@
     href: application-gateway-diagnostics.md
   - name: Metrics
     href: application-gateway-metrics.md
-- name: Troubleshoot
-  items:
-  - name: ILB with an App Service Environment
-    href: create-gateway-internal-load-balancer-app-service-environment.md
-  - name: App service issues
-    href: troubleshoot-app-service-redirection-app-service-url.md
-  - name: Session affinity issues
-    href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
-  - name: Bad Gateway (502) errors
-    href: application-gateway-troubleshooting-502.md
-  - name: HTTP response codes
-    href: http-response-codes.md
-  - name: Mutual authentication
-    href: mutual-authentication-troubleshooting.md
-  - name: Ingress for AKS 
-    href: ingress-controller-troubleshoot.md
-  - name: Resource Health
-    href: resource-health-overview.md
-  - name: Use Log Analytics
-    href: log-analytics.md
-  - name: Backend health issues
-    href: application-gateway-backend-health-troubleshooting.md
-  - name: Key Vault errors
-    href: application-gateway-key-vault-common-errors.md
-  - name: Disabled listeners
-    href: disabled-listeners.md
+- name: Support and troubleshooting for Application Gateway
+  href: application-gateway-support-help.md
 - name: Reference
   items:
   - name: Monitoring data reference

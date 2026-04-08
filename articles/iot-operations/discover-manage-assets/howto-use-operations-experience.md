@@ -26,7 +26,7 @@ To learn how to use the operations experience to manage assets and devices, see:
 - [Configure the media connector](howto-use-media-connector.md)
 - [Configure the connector for HTTP/REST](howto-use-http-connector.md)
 - [Configure the connector for SSE](howto-use-sse-connector.md)
-- [Configure the connector for MQTT (preview)](howto-use-mqtt-connector.md)
+- [Configure the connector for MQTT](howto-use-mqtt-connector.md)
 To learn how to use the operations experience to manage data flows, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
 ## Prerequisites
@@ -41,7 +41,7 @@ To sign in to the operations experience, go to the [operations experience](https
 
 ## Select your site
 
-A *site* is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
+A *site* is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview)
 
 After you sign in, the operations experience displays a list of sites. Each site is a collection of Azure IoT Operations instances where you can configure and manage your assets. A site typically represents a physical location where you have physical assets deployed. Sites make it easier for you to locate and manage assets. Your [IT administrator is responsible for grouping instances in to sites](/azure/azure-arc/site-manager/overview). Any Azure IoT Operations instances that aren't assigned to a site appear in the **Unassigned instances** node. Select the site that you want to use:
 
@@ -110,5 +110,5 @@ To view activity logs as the resource level, select the resource that you want t
 - [Media connector overview](howto-use-media-connector.md)
 - [Connector for HTTP/REST overview](howto-use-http-connector.md)
 - [Connector for SSE](howto-use-sse-connector.md)
-- [Connector for MQTT (preview)](howto-use-mqtt-connector.md)
+- [Connector for MQTT](howto-use-mqtt-connector.md)
 - [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md)

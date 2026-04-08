@@ -49,7 +49,7 @@ Each SSL profile can support up to 100 trusted client CA certificate chains. A s
 
 > [!NOTE] 
 > * Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs.
-> * Configuration of Mutual authentication for [TLS protocol listeners (preview)](tcp-tls-proxy-overview.md) is currently available through REST API, PowerShell, and CLI. 
+> * Configuration of Mutual authentication for [TLS protocol listeners](tcp-tls-proxy-overview.md) is currently available through REST API, PowerShell, and CLI. 
 
 ### Certificates supported for mutual TLS strict mode authentication
 

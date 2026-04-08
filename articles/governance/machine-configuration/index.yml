@@ -21,7 +21,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Machine Configuration?
-            url: ./overview.md
+            url: ./overview/01-overview-concepts.md
           - text: What's new in machine configuration
             url: ./whats-new/overview.yml
 

@@ -1,11 +1,11 @@
 ---
 title: 'Share outside your org (Bicep) - Azure Data Share quickstart'
 description: Learn how to share data with customers and partners using Azure Data Share and Bicep.
-author: sidontha 
-ms.author: sidontha 
+author: chvukosw 
+ms.author: chvukosw 
 ms.service: azure-data-share
 ms.topic: quickstart
-ms.date: 02/12/2025
+ms.date: 01/21/2026
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
@@ -58,7 +58,7 @@ The following resources are defined in the Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<project-name\>** with a project name. The project name will be used to generate resource names. Replace **\<invitation-email\>** with an email address for receiving data share invitations.
+    > Replace **\<project-name\>** with a project name. The project name is used to generate resource names. Replace **\<invitation-email\>** with an email address for receiving data share invitations.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 

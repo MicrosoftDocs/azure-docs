@@ -55,7 +55,7 @@ Before you implement network security for your storage accounts, review the impo
 
 - You can't use IP network rules to restrict access to clients in the same Azure region as the storage account. IP network rules have no effect on requests that originate from the same Azure region as the storage account. Use [Virtual network rules](storage-network-security-virtual-networks.md) to allow same-region requests.
 
-- You can't use IP network rules to restrict access to clients in a [paired region](../../reliability/cross-region-replication-azure.md) that are in a virtual network with a service endpoint.
+- You can't use IP network rules to restrict access to clients in a [paired region](/azure/reliability/cross-region-replication-azure) that are in a virtual network with a service endpoint.
 
 - You can't use IP network rules to restrict access to Azure services deployed in the same region as the storage account. 
 

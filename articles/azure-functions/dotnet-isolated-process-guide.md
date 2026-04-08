@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 12/06/2025
+ms.date: 02/24/2026
 recommendations: false
 ms.custom:
   - template-concept
@@ -122,7 +122,7 @@ builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
     {
         // The Application Insights SDK adds a default logging filter that instructs ILogger to capture only Warning and more severe logs. Application Insights requires an explicit override.
         // Log levels can also be configured using appsettings.json. For more information, see https://learn.microsoft.com/azure/azure-monitor/app/worker-service#ilogger-logs
-        LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+        LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
             == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
         if (defaultRule is not null)
         {
@@ -154,20 +154,18 @@ The following code shows an example of a [HostBuilder] pipeline:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
-This code requires `using Microsoft.Extensions.DependencyInjection;`.
+Considerations for your start-up code:
 
-Before calling `Build()` on the `IHostBuilder`, you should:
+- Before calling `Build()` on the `IHostBuilder`, you should:
+    - Call either `ConfigureFunctionsWebApplication()` if you're using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
+        If you're writing your application using F#, some trigger and binding extensions require extra configuration. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
+    - Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.  
+        If you plan to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
+- If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
+- This example includes dependency injection, which is optional for your start-up code. Dependency injection also requires `using Microsoft.Extensions.DependencyInjection;`. For more information, see [Dependency injection](#dependency-injection). 
+- The [HostBuilder] builds and returns a fully initialized [`IHost`][IHost] instance. You run this instance asynchronously to start your function app. 
 
-- Call either `ConfigureFunctionsWebApplication()` if you're using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
-    If you're writing your application using F#, some trigger and binding extensions require extra configuration. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
-- Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.  
-    If you plan to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
-
-If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
-
-The [HostBuilder] builds and returns a fully initialized [`IHost`][IHost] instance. You run this instance asynchronously to start your function app. 
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
+    :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ---
 
@@ -598,6 +596,15 @@ The cancellation token is signaled when the function invocation is canceled. Sev
 
     This exception occurs when the cancellation token is canceled (as a result of one of the events described earlier) _before_ the host sends an incoming invocation request to the worker. This exception can be safely ignored and is expected when `SendCanceledInvocationsToWorker` is `false`.
 
+## Async programming
+
+The .NET isolated worker doesn't set a custom [`SynchronizationContext`](/dotnet/api/system.threading.synchronizationcontext). This means that `SynchronizationContext.Current` is `null` during function execution. After an `await`, continuations are scheduled on the thread pool, which is the standard .NET behavior.
+
+Because there's no `SynchronizationContext` to suppress, using [`ConfigureAwait(false)`](/dotnet/api/system.threading.tasks.task.configureawait) in your function code has no practical effect. The isolated worker process runs as a standard .NET generic host (console app), so the same async/await behavior you'd expect in any ASP.NET Core or console application applies here. This is also true for .NET Framework (net48) isolated worker apps, since the worker process is always a console executable using `HostBuilder`.
+
+> [!NOTE]
+> [Durable Functions](./durable-functions/durable-functions-overview.md) orchestrators have their own threading constraints. The orchestrator replay thread must run continuations, so using `ConfigureAwait(false)` in orchestrator functions or orchestrator middleware can interfere with orchestration execution. For more information, see the [Durable Functions code constraints](../durable-task/common/durable-task-code-constraints.md).
+
 ## Bindings 
 
 Define bindings by using attributes on methods, parameters, and return types. Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). For some binding extensions, you can also [bind to service-specific types](#sdk-types) defined in service SDKs. 
@@ -830,6 +837,9 @@ public class MyFunction {
 }
 ```
 
+> [!NOTE]
+> When you inject an `ILogger<T>` in your class constructor, like the previous example, the log category is automatically set to the fully qualified name of that class, such as `MyFunctionApp.MyFunction`. These category names contain `.` (period) characters. When you host your function app on Linux, you can't use environment variables to override log levels for categories that contain periods. To work around this limitation, you can instead [configure log levels in your code](#managing-log-levels) or in an `appsettings.json` file.
+
 You can also get the logger from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. For more information about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
 Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. For more information about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters:
@@ -1007,7 +1017,7 @@ builder.Services
 
 builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
     {
-        LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+        LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
             == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
         if (defaultRule is not null)
         {
@@ -1038,7 +1048,7 @@ var host = new HostBuilder()
     {
         logging.Services.Configure<LoggerFilterOptions>(options =>
         {
-            LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+            LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
                 == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
             if (defaultRule is not null)
             {

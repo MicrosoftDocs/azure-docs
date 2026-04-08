@@ -4,7 +4,7 @@ description: Learn about virtual networks in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/25/2025
 ms.author: cshoe
 ms.custom:
@@ -26,8 +26,8 @@ Container Apps has two different [environment types](environment.md#types), whic
 
 | Environment type | Supported plan types | Description | 
 |---|---|---|
-| Workload profiles | Consumption, Dedicated | Supports user defined routes (UDR), egress through NAT Gateway, and creating private endpoints on the container app environment. The minimum required subnet size is `/27`. | 
-| Consumption only | Consumption | Doesn't support user defined routes (UDR), egress through NAT Gateway, peering through a remote gateway, or other custom egress. The minimum required subnet size is `/23`. | 
+| Workload profiles (default) | Consumption, Dedicated | Supports user defined routes (UDR), egress through NAT Gateway, and creating private endpoints on the container app environment. The minimum required subnet size is `/27`. | 
+| Consumption only (legacy) | Consumption | Doesn't support user defined routes (UDR), egress through NAT Gateway, peering through a remote gateway, or other custom egress. The minimum required subnet size is `/23`. | 
 
 For more information see [Environment types](/azure/container-apps/structure#environment-types).
 

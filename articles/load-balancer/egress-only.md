@@ -5,7 +5,7 @@ description: This article provides a step-by-step guide on how to configure an "
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 02/26/2026
 ms.author: mbender
 ms.custom: template-how-to
 # Customer intent: As an IT administrator, I want to configure an outbound-only load balancer using internal and public load balancers, so that I can enable secure outbound connectivity for virtual machines without allowing inbound public access.
@@ -18,15 +18,18 @@ Use a combination of internal and external standard load balancers to create out
 This configuration provides outbound NAT for an internal load balancer scenario, producing an "egress only" setup for your backend pool.
 
 > [!NOTE]
-> **Azure NAT Gateway** is the recommended configuration for outbound connectivity in production deployments. For more information about **NAT Gateway**, see **[What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md)**.
+> **Azure NAT Gateway** is the recommended configuration for outbound connectivity in production deployments. NAT Gateway is available in two SKUs: **Standard** (zonal) and **StandardV2** (zone-redundant, with IPv6 support, 100 Gbps throughput, and flow logs). For more information about **NAT Gateway**, see **[What is Azure NAT Gateway?](../nat-gateway/nat-overview.md)**
 >
-> To deploy an outbound only load balancer configuration with Azure NAT Gateway, see [Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md).
+> To deploy an outbound only load balancer configuration with Azure NAT Gateway, see [Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal](../nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md).
 >
 > For more information about outbound connections in Azure and default outbound access, see [Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [Default outbound access](../virtual-network/ip-services/default-outbound-access.md).
 
-:::image type="content" source="./media/egress-only/load-balancer-egress-only.png" alt-text="Figure depicts a egress only load balancer configuration" border="true":::
+:::image type="content" source="./media/egress-only/load-balancer-egress-only.png" alt-text="Screenshot of an egress only load balancer configuration." border="true":::
 
 *Figure: Egress only load balancer configuration*
+
+> [!IMPORTANT]
+> On March 31, 2026, new virtual networks default to using private subnets, and [default outbound access](../virtual-network/ip-services/default-outbound-access.md) is no longer provided. Use an explicit form of outbound connectivity, such as NAT Gateway. For more information, see the [official announcement](https://azure.microsoft.com/updates?id=default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access).
 
 ## Prerequisites
 
@@ -38,7 +41,7 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 ## Create internal load balancer
 
-In this section, you'll create the internal load balancer.
+In this section, you create the internal load balancer.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -50,7 +53,7 @@ In this section, you'll create the internal load balancer.
     | ---                     | ---                                                |
     | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **lb-resource-group**. |
+    | Resource group         | Select **load-balancer-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **lb-internal**                                   |
     | Region         | Select **(US) East US**.                                        |
@@ -73,7 +76,7 @@ In this section, you'll create the internal load balancer.
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Select **Add**.
 
@@ -93,7 +96,7 @@ In this section, you'll create the internal load balancer.
 
 ## Create public load balancer
 
-In this section, you'll create the public load balancer.
+In this section, you create the public load balancer.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -105,7 +108,7 @@ In this section, you'll create the public load balancer.
     | ---                     | ---                                                |
     | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **lb-resource-group**. |
+    | Resource group         | Select **load-balancer-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **lb-public**                                   |
     | Region         | Select **(US) East US**.                                        |
@@ -136,7 +139,7 @@ In this section, you'll create the public load balancer.
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -150,7 +153,7 @@ In this section, you'll create the public load balancer.
 
 1. Enter **lb-pub-backend-pool** for **Name** in **Add backend pool**.
 
-1. Select **lb-VNet** in **Virtual network**.
+1. Select **lb-vnet** in **Virtual network**.
 
 1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
@@ -162,7 +165,7 @@ In this section, you'll create the public load balancer.
 
 ## Create virtual machine
 
-You'll create a virtual machine in this section. During creation, you'll add it to the backend pool of the internal load balancer. After the virtual machine is created, you'll add the virtual machine to the backend pool of the public load balancer.
+Create a virtual machine in this section. During creation, add it to the backend pool of the internal load balancer. After the virtual machine is created, add the virtual machine to the backend pool of the public load balancer.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -174,7 +177,7 @@ You'll create a virtual machine in this section. During creation, you'll add it 
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **lb-resource-group** |
+    | Resource Group | Select **load-balancer-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **lb-VM** |
     | Region | Select **(US) East US** |
@@ -190,20 +193,20 @@ You'll create a virtual machine in this section. During creation, you'll add it 
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None** |
 
-1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+1. Select the **Networking** tab, or select **Next: Disks**, and then **Next: Networking**.
   
 1. In the Networking tab, select or enter:
 
     | Setting | Value |
     |-|-|
     | **Network interface** |  |
-    | Virtual network | **lb-VNet** |
+    | Virtual network | **lb-vnet** |
     | Subnet | **backend-subnet** |
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Leave the default of **vm-NSG**. This might be different if you choose a different name for your VM. |
+    | Configure network security group | Leave the default of **vm-NSG**. This value might be different if you choose a different name for your VM. |
 
-1. Under **Load balancing**, select the following:
+1. Under **Load balancing**, select the following values:
 
     | Setting | Value |  
     |-|-|
@@ -217,7 +220,7 @@ You'll create a virtual machine in this section. During creation, you'll add it 
 
 ## Add VM to backend pool of public load balancer
 
-In this section, you'll add the virtual machine you created previously to the backend pool of the public load balancer.
+In this section, you add the virtual machine you created previously to the backend pool of the public load balancer.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -227,7 +230,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **lb-pub-backend-pool** under **Backend pool** in the **Backend pools** page.
 
-1. In **lb-pub-backend-pool**, select **lb-VNet** in **Virtual network**.
+1. In **lb-pub-backend-pool**, select **lb-vnet** in **Virtual network**.
 
 1. In **Virtual machines**, select the blue **+ Add** button.
 
@@ -243,17 +246,17 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **lb-VM**.
 
-1. In the **Overview** page, select **Connect**, then **Bastion**.
+1. In the **Overview** page, select **Connect**, and then select **Bastion**.
 
-1. Enter the username and password entered during VM creation.
+1. Enter the username and password that you provided during VM creation.
 
 1. Select **Connect**.
 
 1. Open Microsoft Edge browser.
 
-1.  Enter **https://whatsmyip.org** in the address bar.
+1.  Enter **https://ifconfig.me** in the address bar.
 
-1.  The connection should fail. By default, standard public load balancer [doesn't allow outbound traffic without a defined outbound rule](load-balancer-overview.md#securebydefault).
+1.  The connection fails. By default, standard public load balancer [doesn't allow outbound traffic without a defined outbound rule](load-balancer-overview.md#securebydefault).
  
 ## Create a public load balancer outbound rule
 
@@ -279,7 +282,7 @@ In this section, you'll add the virtual machine you created previously to the ba
     | Port allocation | Select **Manually choose number of outbound ports**. |
     | **Outbound ports** |  |
     | Choose by | Select **Ports per instance**. |
-    | Ports per instance | Enter **10000**
+    | Ports per instance | Enter **10000**.
 
 1. Select **Add**.
 
@@ -289,30 +292,30 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **lb-VM**.
 
-1. On the **Overview** page, select **Connect**, then **Bastion**.
+1. On the **Overview** page, select **Connect**, and then select **Bastion**.
 
-1. Enter the username and password entered during VM creation.
+1. Enter the username and password that you provided during VM creation.
 
 1. Select **Connect**.
 
 1. Open Microsoft Edge browser.
 
-1. Enter **https://whatsmyip.org** in the address bar.
+1. Enter **https://ifconfig.me** in the address bar.
 
-1. The connection should succeed.
+1. The connection succeeds.
 
-1. The IP address displayed should be the frontend IP address of **lb-public**.
+1. The IP address displayed is the frontend IP address of **lb-public**.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancers, VM, and all related resources. 
+When you no longer need the resources, delete the resource group, load balancers, VM, and all related resources. 
 
-To do so, select the resource group **lb-resource-group** and then select **Delete**.
+Select the resource group **load-balancer-rg** and then select **Delete**.
 
 ## Next steps
 
-In this article, you created an "egress only" configuration with a combination of public and internal load balancers.  
+In this article, you created an "egress only" configuration by using a combination of public and internal load balancers.  
 
-This configuration allows you to load balance incoming internal traffic to your backend pool while still preventing any public inbound connections.
+This configuration balances incoming internal traffic to your backend pool while preventing any public inbound connections.
 
-For more information about Azure Load Balancer and Azure Bastion, see [What is Azure Load Balancer?](load-balancer-overview.md) and [What is Azure Bastion?](../bastion/bastion-overview.md).
+For more information about Azure Load Balancer and Azure Bastion, see [What is Azure Load Balancer?](load-balancer-overview.md) and [What is Azure Bastion?](../bastion/bastion-overview.md)

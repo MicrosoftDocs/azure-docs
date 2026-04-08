@@ -1,5 +1,5 @@
 ---
-title: Azure VMware Solution - private cloud maintenance
+title: Private Cloud Maintenance
 description: Ensuring seamless, reliably maintaintenance of Azure VMware Solution private cloud
 ms.topic: concept-article
 ms.service: azure-vmware
@@ -56,7 +56,7 @@ The following actions are necessary for ensuring host maintenance operations are
     - Consult with your solution vendor and update in advance if necessary to maintain compatibility post-upgrade.
 
 >[!IMPORTANT]
-> If any of these maintenance blocking configurations exist on an Azure VMware Solution host, you'll receive alerts on your Resource Health for AVS dashboard. To ensure unhealthy hosts are replaced and upgrades succeed, such blocking configurations will be mitigated by taking appropriate remediation steps to maintain the availability of your private cloud. In some cases, these remediation steps would include powering off a VM and migrating it to another host and then powering it on, which might briefly disrupt the application running on the VM
+> If any of these maintenance blocking configurations exist on an Azure VMware Solution host, you'll receive alerts on your Resource Health dashboard. To ensure unhealthy hosts are replaced and upgrades succeed, such blocking configurations will be mitigated by taking appropriate remediation steps to maintain the availability of your private cloud. In some cases, these remediation steps would include powering off a VM and migrating it to another host and then powering it on, which might briefly disrupt the application running on the VM.
 
 ## Alert Codes and Remediation Table
 |  Error Code         |        Error Details              |  Recommended Action     |
@@ -74,6 +74,7 @@ The following actions are necessary for ensuring host maintenance operations are
 | EPC_FTTVIOLATION | This error is encountered when a cluster does not have the minimum number of hosts that the storage policy needs. | Add hosts as needed by the storage policy or change the VM FTT policy to support putting the host into maintenance mode. Refer to [this KB article](https://knowledge.broadcom.com/external/article/326857/vsan-host-fails-to-enter-maintenance-mod.html) to know more about FTT policy. |
 | ERECOMMENDATION_CLUSTER_SIZE | This recommendation indicates a cluster in the private cloud has 14 or more hosts. AVS supports a maximum of 16 hosts in a cluster. | Create a new cluster for new any new hosts that may be required. |
 | ERECOMMENDATION_PRIVATECLOUD_SIZE | This recommendation indicates a private cloud has 90 or more hosts. AVS supports a maximum of 96 hosts in a private cloud. | Consider creating a new private cloud for any new hosts and distribute hosts across the private clouds as necessary. |
+| ERECOMMENDATION_VCENTER_SCALE | This recommendation identifies that the vCenter virtual machine is provisioned with fewer CPU cores or less memory than recommended for the current virtual machine count within the private cloud. | Open up a support request to have the vCenter memory and CPU increased. |
 
 > [!NOTE]
 > Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms because they're managed by the Azure VMware Solution control plane on vCenter Server. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.

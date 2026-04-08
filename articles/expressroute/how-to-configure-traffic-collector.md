@@ -2,14 +2,13 @@
 title: Configure Traffic Collector for ExpressRoute
 titleSuffix: Azure ExpressRoute
 description: This article shows you how to create an ExpressRoute Traffic Collector resource and import logs into a Log Analytics workspace.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 06/19/2024
+ms.date: 03/12/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
-#Customer intent: As a network engineer, I want to configure ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace.
+
 # Customer intent: As a network engineer, I want to configure an ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace, so that I can effectively monitor and analyze network traffic.
 ---
 
@@ -43,7 +42,7 @@ This article helps you deploy an ExpressRoute Traffic Collector using the Azure 
 
 - Minimum of **contributor** access is required in both subscriptions to associate an ExpressRoute Traffic Collector with an ExpressRoute circuit in a different subscription.
 
-For more information, see [Identity and access management](../active-directory/fundamentals/active-directory-ops-guide-iam.md).
+For more information, see [Identity and access management](/entra/architecture/ops-guide-iam).
 
 ## Deploy ExpressRoute Traffic Collector
 

@@ -49,15 +49,15 @@ The requirements for data migration from on premises to Azure NetApp Files are a
 
 By default, your data stays within the region where you deploy your Azure NetApp Files volumes. However, you can choose to replicate your data on a volume-by-volume basis to available destination regions using [cross-region replication](replication.md).
 
-### How do I create a copy of an Azure NetApp Files volume in another Azure region?
+### How do I create a copy of an Azure NetApp Files volume in another Azure zone or region?
 	
-Azure NetApp Files provides NFS and SMB volumes. Any file based-copy tool can be used to replicate data between Azure regions. 
+Azure NetApp Files provides NFS and SMB volumes. 
 
-The [cross-region replication](replication.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. Additionally, you can [create a new volume by using a snapshot of an existing volume](snapshots-restore-new-volume.md).
+The [cross-region and cross-zone replication](replication.md) functionality enables you to asynchronously replicate volumes from an Azure NetApp Files volume in one region or zone to another Azure NetApp Files volume (destination) in another region or zone. Additionally, you can [create a new volume from a snapshot of an existing volume](snapshots-restore-new-volume.md).
 
-NetApp offers a SaaS based solution, [NetApp Cloud Sync](https://docs.netapp.com/us-en/occm38/concept_cloud_sync.html). The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
+Any file based-copy tool can be used to replicate data between Azure zones and regions. NetApp offers a SaaS based solution, [NetApp Cloud Sync](https://docs.netapp.com/us-en/occm38/concept_cloud_sync.html). The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
 
-You can also use a wide array of free tools to copy data. For NFS, you can use workloads tools such as [rsync](https://rsync.samba.org/examples.html) to copy and synchronize source data into an Azure NetApp Files volume. For SMB, you can use workloads [robocopy](/windows-server/administration/windows-commands/robocopy) in the same manner. These tools can also replicate file or folder permissions. 
+You can also use a wide array of third-party tools to copy data. For NFS, you can use workload tools such as [rsync](https://rsync.samba.org/examples.html) to copy and synchronize source data into an Azure NetApp Files volume. For SMB, you can use workloads [robocopy](/windows-server/administration/windows-commands/robocopy) in the same manner. These tools can also replicate file or folder permissions. 
 
 The requirements for replicating an Azure NetApp Files volume to another Azure region are as follows: 
 - Ensure Azure NetApp Files is available in the target Azure region.
@@ -67,7 +67,7 @@ The requirements for replicating an Azure NetApp Files volume to another Azure r
 
 ## Migration assistant
 
-The Azure NetApp Files [migration assistant](migrate-volumes.md)
+To migrate volumes hosted on ONTAP or Cloud Volumes ONTAP, you can use the Azure NetApp Files [migration assistant](migrate-volumes.md). Migration assistant utilizes SnapMirror technology to efficiently migrate your volumes including all metadata and snapshots for faster migrations with flexible cut-over capabilities.
 
 ### Does the Azure NetApp Files migration assistant support bandwidth throttling during data transfers?
 

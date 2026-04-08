@@ -4,7 +4,7 @@ description: Learn about the full application lifecycle in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/07/2025
 ms.author: cshoe
 ---

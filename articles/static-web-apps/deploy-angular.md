@@ -2,11 +2,11 @@
 title: 'Deploy an Angular app on Azure Static Web Apps'
 description: Learn to deploy an Angular app in the Azure portal with Azure Static Web Apps.
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 07/24/2024
-ms.author: wujia
+ms.author: jikunchen
 zone_pivot_groups: devops-or-github
 ---
 

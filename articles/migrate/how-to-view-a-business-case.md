@@ -102,50 +102,14 @@ This report contains detailed insights about the Azure costs for the application
     - **Rehost**: Covers costs of applications and workloads rehosted to targets such as Azure VM or SQL server on Azure VM. 
     - **Replatform**: Covers costs of applications and workloads replatformed to targets such as Azure SQL MI or App service. 
     - **Refactor**: Covers costs of applications and workloads refactored to Azure native-PaaS and serverless services.
+    - **Retain**: Covers costs of Arc enabling applications and workloads retained in their current state, without migration or modernization to Azure. 
+    - **Retire**: Covers savings from applications and workloads planned for retirement, where the workload is decommissioned. 
+
 - Cost details by Azure target:
 
-    - **Infrastructure cost**: This card shows cost split of applications and workloads moving to infrastructure targets (eg. Azure Virtual Machines, SQL server on Azure VM etc.).
+    - **Infrastructure cost**: This card shows cost split of applications and workloads moving to infrastructure targets (eg. Azure Virtual Machines, Azure VMware Solution, SQL server on Azure Virtual Machine etc.). 
     - **Database cost**: This card shows cost of application workloads moving to database targets on Azure (eg. Azure SQL DB/MI, Azure Database for MySQL).
     - **Webapps cost**: This card shows cost of application workloads moving to Webapp targets on Azure (eg. App service, AKS etc.).
-
----
-
-## On-premises vs AVS report
-It covers cost components for on-premises and AVS, savings, and insights to understand the savings better.
-:::image type="content" source="./media/how-to-view-a-business-case/comparison-avs-inline.png" alt-text="Screenshot of on-premises and AVS comparison." lightbox="./media/how-to-view-a-business-case/comparison-avs-expanded.png":::
-
-## AVS report
-
-#### [AVS (Azure VMware Solution)](#tab/avs-azure)
-
-This section contains the cost estimate by recommended target (Annual cost includes Compute, Storage, Network, labor components) and savings from Hybrid benefits.
-
-#### AVS cost estimate
-
-**Estimated AVS cost**:  This card includes the total cost of ownership for hosting all workloads on AVS including the AVS nodes cost (which includes storage cost), networking, and labor cost. The node cost is computed by taking the most cost optimum AVS node SKU. The infrastructure settings used are as follows:
-    
-- The number and SKU of AVS hosts used in a business case aligns to the SKUs available in the given region and optimized to use the least number of nodes required to host all VMs ready to be migrated.
-- Azure NetApp File (ANF) is used when it can be used to optimize the number of AVS hosts required. ANF Standard tier is used when the VMs have been imported using RVTools. For an Azure Migrate appliance-based business case, the tier of ANF used in the business case depends on the IOPS & throughput data for VMs. 
-    - CPU over-subscription of 4:1
-    - Memory overcommits of 100% 
-    - Compression and deduplication factor of 1.5. You can learn more about this [here](concepts-azure-vmware-solution-assessment-calculation.md#whats-in-an-azure-vmware-solution-assessment). 
-
-**Compute and license cost**: This card shows the comparison of compute and license cost when using Azure hybrid benefit and without Azure hybrid benefit. 
-
-#### Savings and optimization:
-    
-**Savings with 3-year RI**: This card shows the node cost with 3-year RI.
-
-**Savings with Azure Hybrid Benefit & Extended Security Updates**: This card displays the estimated maximum savings when using Azure hybrid benefit and with extended security updates over a period of one year.
-
-:::image type="content" source="./media/how-to-view-a-business-case/avs-estimation-inline.png" alt-text="Screenshot of AVS estimation." lightbox="./media/how-to-view-a-business-case/avs-estimation-expanded.png":::
-
-#### [On-premises](#tab/avs-on-premises)
-
-- On-premises footprint of the servers recommended to be migrated to AVS.
-- Contribution of Zombie servers in the on-premises cost.
-- Distribution of servers by OS, virtualization, and activity state.
-- Distribution by support status of OS licenses and OS versions. 
 
 ---
 

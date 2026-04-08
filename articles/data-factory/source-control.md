@@ -4,7 +4,7 @@ description: Learn how to configure source control in Azure Data Factory.
 ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/29/2025
 ---
 
@@ -72,9 +72,9 @@ Go to the management hub in the Azure Data Factory Studio. Select **Git configur
 When creating a new data factory in the Azure portal, you can configure Git repository information in the **Git configuration** tab.
 
 > [!NOTE]
-> When configuring git in the Azure Portal, settings like project name and repo name have to be manually entered instead of being part of a dropdown.
+> When configuring git in the Azure portal, settings like project name and repo name have to be manually entered instead of being part of a dropdown.
 
-:::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Configure the code repository settings from Azure Portal":::
+:::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Configure the code repository settings from Azure portal":::
 
 ## Author with Azure Repos Git integration
 

@@ -137,7 +137,7 @@ The new MQTT broker and namespace topics features are available in the following
 | South India | Southeast Asia | Spain Central | Sweden Central |
 | Sweden South | Switzerland North | Switzerland West | UAE North |
 | UAE Central | UK South | UK West | West Europe |
-| West US 2 | West US 3 | West Central US |
+| West US 2 | West US 3 | West Central US | Belgium central |
 
 ## Related content
 

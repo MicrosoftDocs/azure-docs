@@ -4,7 +4,7 @@ description: Learn about how Azure Monitor's custom log ingestion and data trans
 author: guywi-ms
 ms.author: guywild
 ms.topic: conceptual
-ms.date: 06/03/2025
+ms.date: 03/11/2026
 
 #Customer intent: As a security engineer, I want to customize data ingestion and transformation in Microsoft Sentinel so that analysts can filter, enrich, and secure log data efficiently.
 
@@ -15,6 +15,9 @@ ms.date: 06/03/2025
 [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) serves as the data platform for Microsoft Sentinel. All logs ingested into Microsoft Sentinel are stored in a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview), and [log queries](/azure/azure-monitor/logs/log-query-overview) written in [Kusto Query Language (KQL)](/kusto/query/kusto-sentinel-overview?view=microsoft-sentinel&preserve-view=true&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) are used to detect threats and monitor your network activity.
 
 Log Analytics gives you a high level of control over the data that gets ingested to your workspace with custom data ingestion and [data collection rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-overview). DCRs allow you to both collect and manipulate your data before it's stored in your workspace. DCRs both format and send data to both standard Log Analytics tables and customizable tables for data sources that produce unique log formats.
+
+Filter and split transformations can be applied to data at ingestion time to reduce noise and route data to the appropriate storage tier. These transformations don't require you to create a DCR and are defined in the Microsoft Sentinel's table management page in the Defender portal. For more information, see [Filter and split transformations in Microsoft Sentinel](transformation-filter-split.md).
+
 
 ## Azure Monitor tools for custom data ingestion in Microsoft Sentinel
 
@@ -80,5 +83,6 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 For more information, see:
 
 - [Transform or customize data at ingestion time in Microsoft Sentinel (preview)](configure-data-transformation.md)
+- [Filter and split transformations in Microsoft Sentinel](transformation-filter-split.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)

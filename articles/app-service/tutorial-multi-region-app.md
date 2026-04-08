@@ -4,7 +4,7 @@ description: Learn how to build a multi-region app on Azure App Service that can
 keywords: azure app service, web app, multiregion, multi-region, multiple regions
 author: seligj95
 ms.topic: tutorial
-ms.date: 2/8/2023
+ms.date: 02/08/2023
 ms.author: jordanselig
 ms.service: azure-app-service
 ms.custom:
@@ -50,7 +50,7 @@ To complete this tutorial:
 
 ## Create two instances of a web app
 
-You need two instances of a web app that run in different Azure regions for this tutorial. You use the [region pair](../reliability/cross-region-replication-azure.md#azure-paired-regions) East US/West US as your two regions and create two empty web apps. Feel free to choose your own regions if needed.
+You need two instances of a web app that run in different Azure regions for this tutorial. You use the [region pair](/azure/reliability/cross-region-replication-azure#azure-paired-regions) East US/West US as your two regions and create two empty web apps. Feel free to choose your own regions if needed.
 
 To make management and clean-up simpler, you use a single resource group for all resources in this tutorial. Consider using separate resource groups for each region/resource to further isolate your resources in a disaster recovery situation.
 
@@ -418,10 +418,10 @@ Now that you have a service principal that can access your App Service apps, edi
         runs-on: ubuntu-latest
     
         steps:
-          - uses: actions/checkout@v2
+          - uses: actions/checkout@v4
             
           - name: Set up Node.js version
-            uses: actions/setup-node@v1
+            uses: actions/setup-node@v4
             with:
               node-version: ${{ env.NODE_VERSION }}
     
@@ -431,7 +431,7 @@ Now that you have a service principal that can access your App Service apps, edi
               npm run build --if-present
     
           - name: Upload artifact for deployment job
-            uses: actions/upload-artifact@v2
+            uses: actions/upload-artifact@v4
             with:
               name: node-app
               path: .
@@ -445,11 +445,11 @@ Now that you have a service principal that can access your App Service apps, edi
     
         steps:
           - name: Download artifact from build job
-            uses: actions/download-artifact@v2
+            uses: actions/download-artifact@v4
             with:
               name: node-app
 
-          - uses: azure/login@v1
+          - uses: azure/login@v2
             with:
               creds: |
                 {
@@ -461,7 +461,7 @@ Now that you have a service principal that can access your App Service apps, edi
     
           - name: 'Deploy to Azure Web App'
             id: deploy-to-webapp
-            uses: azure/webapps-deploy@v2
+            uses: azure/webapps-deploy@v3
             with:
               app-name: ${{ env.AZURE_WEBAPP_NAME }}
               slot-name: ${{ env.AZURE_WEBAPP_SLOT_NAME }}

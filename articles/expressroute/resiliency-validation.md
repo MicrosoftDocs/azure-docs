@@ -5,7 +5,7 @@ services: expressroute
 ms.service: azure-expressroute
 ms.topic: concept-article
 author: dpremchandani
-ms.author: divyapr
+ms.author: duau
 ms.reviewer: duau
 ms.date: 11/04/2025
 ms.custom: ai-usage

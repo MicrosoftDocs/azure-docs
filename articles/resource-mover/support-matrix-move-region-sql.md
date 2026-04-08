@@ -6,7 +6,7 @@ ms.author: v-rochak2
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: concept-article
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 ms.custom: UpdateFrequency.5
 # Customer intent: As a database administrator, I want to understand the support and limitations for moving Azure SQL resources between regions, so that I can effectively plan and execute resource relocations while ensuring compliance with feature availability and prerequisites.
 ---

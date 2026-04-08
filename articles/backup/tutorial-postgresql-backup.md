@@ -2,7 +2,7 @@
 title: Tutorial - Back up Azure Database for PostgreSQL server
 description: Learn about how to back up Azure Database for PostgreSQL server to an Azure Backup Vault.
 ms.topic: tutorial
-ms.date: 02/17/2025
+ms.date: 01/29/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -21,9 +21,9 @@ This tutorial shows you how to back up Azure Database for PostgreSQL server runn
 > - Run an on-demand backup
 > - Track a backup job
 
-## Before you start
+## Prerequisites
 
-Before you back up your Azure Database for PostgreSQL server:
+Before you back up your Azure Database for PostgreSQL server, ensure that the following prerequisites are met:
 
 - Identify or create a Backup Vault in the same region where you want to back up the Azure Database for PostgreSQL server instance.
 - Check that Azure Database for PostgreSQL server is named in accordance with naming guidelines for Azure Backup. [Learn more](/azure/postgresql/tutorial-design-database-using-azure-portal#create-an-azure-database-for-postgresql)
@@ -33,30 +33,15 @@ Before you back up your Azure Database for PostgreSQL server:
 - [Allow access permissions for PostgreSQL server](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-postgresql-server).
 
 
-## Create a Backup vault
+## Create a Backup vault for PostgreSQL database backups
 
 A Backup vault is a storage entity in Azure that holds back-up data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure back-up data.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Type **Backup center** in the search box.
-1. Under **Services**, select **Backup center**.
-1. On the **Backup center** page, select **Vault**.
+[Learn how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
-   :::image type="content" source="./media/backup-managed-disks/backup-center.png" alt-text="Screenshot showing to select Vault in Backup center.":::
+## Create Backup Policy for PostgreSQL database backups
 
-1. In the **Initiate: Create Vault** screen, select **Backup vault**, and **Proceed**.
-
-   :::image type="content" source="./media/backup-managed-disks/initiate-create-vault.png" alt-text="Screenshot showing to select Initiate: Create vault.":::
-
-1. On the **Basics** tab, provide subscription, resource group, backup vault name, region, and backup storage redundancy.
-
-   Continue by selecting **Review + create**. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
-
-   :::image type="content" source="./media/backup-managed-disks/review-and-create.png" alt-text="Screenshot showing to select Review and create vault.":::
-
-## Create Backup Policy
-
-You can create a Backup policy on the go during the configure backup flow. Alternatively, go to **Backup center** -> **Backup policies** -> **Add**.
+You can create a Backup policy on the go during the configure backup flow. Alternatively, go to **Resiliency** > **Protection policies** > **+ Create policy** > **Create backup policy**.
 
 1. Enter a name for the new policy.
 
@@ -85,15 +70,15 @@ You can create a Backup policy on the go during the configure backup flow. Alter
 >[!Note]
 >The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
 
-## Prepare the database
+## Prepare the PostgreSQL database for backup
 
-To prepare the database, follow these steps:
+To prepare the database for backup, follow these steps:
 
 1. [Create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
 1. [Grant privileges to database users using PowerShell scripts](backup-azure-database-postgresql.md#run-powershell-script-to-grant-privileges-to-database-users).
 
 
-## Configure backup on the database
+## Configure backup on the PostgreSQL database
 
 You can configure backup on multiple databases across multiple Azure PostgreSQL servers. To configure backup on the Azure PostgreSQL databases using Azure Backup, follow these steps:
 
@@ -103,9 +88,9 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/adding-backup-details-inline.png" alt-text="Screenshot showing the option to add back-up information." lightbox="./media/backup-azure-database-postgresql/adding-backup-details-expanded.png":::
 
-   Alternatively, you can navigate to this page from the [Backup center](./backup-center-overview.md). 
+   Alternatively, you can navigate to this page from the [Resiliency](../resiliency/resiliency-overview.md). 
 
-1. Select or [create](#create-backup-policy) a Backup Policy that defines the backup schedule and the retention duration.
+1. Select or [create](#create-backup-policy-for-postgresql-database-backups) a Backup Policy that defines the backup schedule and the retention duration.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/create-or-add-backup-policy-inline.png" alt-text="Screenshot showing the option to add a backup policy." lightbox="./media/backup-azure-database-postgresql/create-or-add-backup-policy-expanded.png":::
 
@@ -182,7 +167,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/submit-configure-backup-operation-inline.png" alt-text="Screenshot showing the back-up configuration submission and tracking progress." lightbox="./media/backup-azure-database-postgresql/submit-configure-backup-operation-expanded.png":::
 
-## Run an on-demand backup
+## Run an on-demand backup for PostgreSQL database
 
 To trigger an on-demand backup (that's not in the schedule specified in the policy), follow these steps:
 
@@ -194,11 +179,11 @@ To trigger an on-demand backup (that's not in the schedule specified in the poli
 
    :::image type="content" source="./media/backup-azure-database-postgresql/choose-retention-rules-inline.png" alt-text="Screenshot showing the option to choose retention rules that were defined in the associated Backup policy." lightbox="./media/backup-azure-database-postgresql/choose-retention-rules-expanded.png":::
 
-## Track a backup job
+## Track a backup job for PostgreSQL database
 
 Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
 
-1. Go to the **Backup instance** screen.
+1. Go to the **Backup vault** > **Backup instance**.
 
    It shows the jobs dashboard with operation and status for the past seven days.
 
@@ -206,11 +191,8 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
 1. To view the status of the backup job, select **View all** to see ongoing and past jobs of this backup instance.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png" alt-text="Screenshot showing to select the View all option." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png":::
-
 1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-select-job-inline.png" alt-text="Screenshot showing to select job to see details." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-select-job-expanded.png":::
 
 ## Next steps
 

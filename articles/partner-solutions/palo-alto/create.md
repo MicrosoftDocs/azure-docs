@@ -31,7 +31,7 @@ In this section, you'll create a Cloud NGFW by Palo Alto Networks resource.
    | Setting  | Description |
    |---------|---------|
    | **Subscription**  | Select an Azure subscription for which you have owner access. |
-   | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [What is a resource group?](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group). |
+   | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [What is a resource group?](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group) |
    | **Firewall name**  | Enter a name for the firewall. |
    | **Region** | Select an appropriate region. |
    | **Marketplace Plan**     | Select **Cloud NGFW by Palo Alto Networks - an Azure Native ISV Service (PAYG)**. |

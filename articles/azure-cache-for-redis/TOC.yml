@@ -14,44 +14,43 @@
       - name: Create an Azure Cache for Redis instance in the Basic, Standard and Premium tiers
         href: quickstart-create-redis.md
       - name: Create and manage with Azure PowerShell
-        href: /azure/redis/how-to-manage-redis-cache-powershell
+        href: how-to-manage-redis-cache-powershell.md
       - name: Create and manage with Azure CLI
-        href: /azure/redis/scripts/create-manage-cache?pivots=azure-cache-redis
+        href: scripts/create-manage-cache.md
       - name: Create and manage premium cache with Azure CLI
         href: scripts/create-manage-premium-cache-cluster.md
       - name: Create Redis cache - Bicep
         displayName: ARM, Resource Manager, Template
-        href: /azure/redis/redis-cache-bicep-provision
+        href: redis-cache-bicep-provision.md
       - name: Create Redis cache - ARM template
         displayName: Resource Manager
-        href: /azure/redis/redis-cache-arm-provision
-
-    - name: Use a cache
-      expanded: false
-      items:
-      - name: ASP.NET app
-        href: /azure/redis/web-app-cache-howto
-      - name: ASP.NET Core app
-        href: /azure/redis/web-app-aspnet-core-howto
-      - name: .NET Core app
-        href: /azure/redis/dotnet-core-quickstart
-      - name: .NET app
-        href: /azure/redis/dotnet-how-to-use-azure-redis-cache
+        href: redis-cache-arm-provision.md
       - name: Java app
         href: /azure/redis/java-get-started
-      - name: Node.js app
-        href: /azure/redis/nodejs-get-started
-      - name: Python app
-        href: /azure/redis/python-get-started
-      - name: Go app
-        href: /azure/redis/go-get-started
-
-          
+         
 - name: Migration 
   expanded: true
   items:
-  - name: Migrate to Azure Managed Redis
-    href: /azure/redis/migrate/migrate-overview
+  - name: Migrate Basic, Standard, or Premium tiers to Azure Managed Redis
+    items:
+    - name: Overview
+      href: /azure/redis/migrate/migrate-basic-standard-premium-overview
+    - name: Understand differences
+      href: /azure/redis/migrate/migrate-basic-standard-premium-understand
+    - name: Explore migration options
+      href: /azure/redis/migrate/migrate-basic-standard-premium-options
+    - name: Self-service migration
+      href: /azure/redis/migrate/migrate-basic-standard-premium-self-service
+    - name: Migration using tooling
+      href: /azure/redis/migrate/migrate-basic-standard-premium-with-tooling
+  - name: Migrate Enterprise tier to Azure Managed Redis
+    items:
+    - name: Overview
+      href: /azure/redis/migrate/migrate-redis-enterprise-overview
+    - name: Understand differences
+      href: /azure/redis/migrate/migrate-redis-enterprise-understand
+    - name: Self-service migration
+      href: /azure/redis/migrate/migrate-redis-enterprise-self-service
   - name: Migrate to Azure Redis from other caches
     href: cache-migration-guide.md
 
@@ -78,7 +77,7 @@
     - name: Caching architecture
       href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
     - name: Create and manage with Azure PowerShell
-      href: /azure/redis/how-to-manage-redis-cache-powershell
+      href: how-to-manage-redis-cache-powershell.md
     - name: Connect an AKS application to a cache
       href: /azure/redis/tutorial-aks-get-started
     - name: Use Azure CLI
@@ -121,7 +120,7 @@
     - name: Monitor using diagnostic settings
       href: cache-monitor-diagnostic-settings.md
     - name: List of Redis metrics
-      href: /azure/redis/monitor-cache-reference
+      href: monitor-cache-reference.md
 
   - name: Scaling and performance
     items:
@@ -204,7 +203,7 @@
     - name: Failover and patching
       href: cache-failover.md
     - name: Migrate to availability zone support
-      href: ../reliability/migrate-cache-redis.md
+      href: /azure/reliability/migrate-cache-redis
 
   - name: Diagnose and troubleshoot
     items:

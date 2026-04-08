@@ -18,24 +18,24 @@ In Azure IoT Operations, the connector for HTTP/REST enables access to data from
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
-The connector for HTTP/REST supports the following features:
+The following table summarizes the features the connector for HTTP/REST currently supports:
 
-- Automatic retries when sampling failures occur. Reports a failed status for errors that can't be retried.
-- Integration with OpenTelemetry.
-- Use of _device endpoints_ and _assets_.
-- Optionally transform incoming data using WASM modules.
-- Device endpoint and asset definition validation for REST compatibility.
-- Multiple authentication methods:
-  - Username/password basic HTTP authentication
-  - x509 client certificates
-  - Anonymous access for testing purposes
-- To establish a TLS connection to the HTTP endpoint, you can configure a certificate trust list for the connector.
+| Feature | Supported | Notes |
+|---------|:---------:|-------|
+| Username/password authentication | Yes | Basic HTTP authentication |
+| X.509 client certificates | Yes | Certificates for client authentication and authorization |
+| Anonymous access | Yes | For testing purposes |
+| Certificate trust list | Yes | For secure TLS connections to the HTTP endpoint |
+| OpenTelemetry integration | Yes | |
+| Automatic retries | Yes | Reports failed status for nonretryable errors |
+| WASM data transformation | Yes | Optionally transform incoming data |
+| Schema generation | Yes | Registers inferred schema with the schema registry |
 
 For each configured dataset, the connector for HTTP/REST:
 
-- Performs a GET request to the address specified in the device endpoint and appends the dataset's data source from the asset.
-- Generates a message schema for each dataset based on the data it receives, and registers it with Schema Registry and Azure Device Registry.
-- Forwards the data to the specified destination.
+1. Performs a GET request to the address specified in the device endpoint and appends the dataset's data source from the asset.
+1. Generates a message schema for each dataset based on the data it receives, and registers it with the schema registry in Azure Device Registry.
+1. Forwards the data to the specified destination.
 
 This article explains how to use the connector for HTTP/REST to perform tasks such as:
 
@@ -55,6 +55,10 @@ You need any credentials required to access the HTTP source. If the HTTP source 
 ## Deploy the connector for HTTP/REST
 
 [!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
+
+### Configure a certificate trust list for the connector
+
+[!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
 ## Create a device
 
@@ -160,11 +164,7 @@ To use the `Username password` authentication mode, complete the following steps
 
 ### Configure a device to use an X.509 certificate
 
-[!INCLUDE [connector-certificate](../includes/connector-certificate.md)]
-
-### Configure a certificate trust list for a device to use
-
-To manage the trusted certificates list for the connector for HTTP/REST, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
+[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
 
 ## Create an asset
 
@@ -275,22 +275,4 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
 
 ## Transform incoming data
 
-To transform the incoming data by using a WASM module and graph, complete the following steps:
-
-1. Develop a WASM module to perform the custom transformation. For more information, see [Develop WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-develop-wasm-modules.md) or [Build WASM modules for data flows in VS Code](../develop-edge-apps/howto-build-wasm-modules-vscode.md).
-
-1. Configure your transformation graph. For more information, see [Configure WebAssembly (WASM) graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md).
-
-1. Deploy both the module and graph to your container registry. For more information, see [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md).
-
-1. Set up authentication and connection details so Azure IoT Operations can access the container registry.
-
-1. Configure your asset's dataset with the URL of the deployed WASM graph in the **Transform** field:
-
-    :::image type="content" source="media/howto-use-http-connector/configure-transform.png" alt-text="Screenshot that shows how to add a WASM transform to a dataset." lightbox="media/howto-use-http-connector/configure-transform.png":::
-
-A data transformation in the HTTP/REST connector only requires a [single map operator](../develop-edge-apps/howto-develop-wasm-modules.md#create-a-simple-module), but WASM graphs are fully supported with the following restrictions:
-
-- The graph must have a single `source` node and a single `sink` node.
-- The graph must consume and emit the `DataModel::Message` datatype.
-- The graph must be stateless. Currently, this restriction means that accumulate operators aren't supported.
+[!INCLUDE [connector-transform-incoming-data](../includes/connector-transform-incoming-data.md)]

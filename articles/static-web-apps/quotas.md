@@ -2,11 +2,11 @@
 title: Quotas in Azure Static Web Apps
 description: Learn about quotas associated with Azure Static Web Apps
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic:  overview
 ms.date: 05/30/2024
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Quotas in Azure Static Web Apps

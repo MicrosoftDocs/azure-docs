@@ -1,7 +1,7 @@
 ---
 description: This article provides step-by-step instructions to deploy Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
-ms.date: 02/06/2025
+ms.date: 02/09/2026
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
@@ -11,7 +11,7 @@ title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
 
 Before you run quickstart templates to deploy Azure Cloud Shell in a virtual network (VNet), there
 are several prerequisites to complete. You must have the **Owner** role assignment on the
-subscription. To view and assign roles, see [List Owners of a Subscription][05].
+subscription. To view and assign roles, see [List Owners of a Subscription][06].
 
 This article walks you through the following steps to configure and deploy Cloud Shell in a virtual
 network:
@@ -37,7 +37,7 @@ Depending on when your tenant was created, some of these providers might already
 
 To see all resource providers and the registration status for your subscription:
 
-1. Sign in to the [Azure portal][14].
+1. Sign in to the [Azure portal][15].
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
 1. Select the subscription that you want to view.
 1. On the left menu, under **Settings**, select **Resource providers**.
@@ -47,7 +47,7 @@ To see all resource providers and the registration status for your subscription:
 1. Repeat the previous steps for the **Microsoft.ContainerInstance** and **Microsoft.Relay**
    resource providers.
 
-[![Screenshot of selecting resource providers in the Azure portal.][97a]][97b]
+[![Screenshot of selecting resource providers in the Azure portal.][22]][23]
 
 ## 2. Collect the required information
 
@@ -89,9 +89,9 @@ more information, see the following articles:
 You can create the virtual network by using the Azure portal, the Azure CLI, or Azure PowerShell.
 For more information, see the following articles:
 
-- [Use the Azure portal to create a virtual network][07]
-- [Use Azure PowerShell to create a virtual network][08]
-- [Use Azure CLI to create a virtual network][06]
+- [Use the Azure portal to create a virtual network][08]
+- [Use Azure PowerShell to create a virtual network][09]
+- [Use Azure CLI to create a virtual network][07]
 
 > [!NOTE]
 > When you're setting the container subnet address prefix for the Cloud Shell subnet, it's important
@@ -99,20 +99,20 @@ For more information, see the following articles:
 > Cloud Shell sessions exceeds the available IP addresses in the container subnet, users of those
 > sessions can't connect to Cloud Shell. Increase the container subnet range to accommodate your
 > specific needs. For more information, see the "Change subnet settings" section of
-> [Add, change, or delete a virtual network subnet][09].
+> [Add, change, or delete a virtual network subnet][10].
 
 ### Get the Azure container instance ID
 
 The Azure container instance ID is a unique value for every tenant. You use this identifier in the
-[quickstart templates][12] to configure a virtual network for Cloud Shell. To get the ID from the
-command line, see [Alternate way to get the Azure Container Instance ID][10].
+[quickstart templates][13] to configure a virtual network for Cloud Shell. To get the ID from the
+command line, see [Alternate way to get the Azure Container Instance ID][11].
 
-1. Sign in to the [Azure portal][14]. From the home page, select **Microsoft Entra ID**. If the icon
+1. Sign in to the [Azure portal][15]. From the home page, select **Microsoft Entra ID**. If the icon
    isn't displayed, enter `Microsoft Entra ID` in the top search bar.
 1. On the left menu, select **Overview**. Then enter `azure container instance service` in the
    search bar.
 
-   [![Screenshot of searching for Azure Container Instance Service.][95a]][95b]
+   [![Screenshot of searching for Azure Container Instance Service.][18]][19]
 
 1. In the results, under **Enterprise applications**, select **Azure Container Instance Service**.
 1. On the **Overview** page for **Azure Container Instance Service**, locate the **Object ID** value
@@ -120,14 +120,20 @@ command line, see [Alternate way to get the Azure Container Instance ID][10].
 
    You use this ID in the quickstart template for the virtual network.
 
-   [![Screenshot of Azure Container Instance Service details.][96a]][96b]
+   [![Screenshot of Azure Container Instance Service details.][16]][17]
 
 ## 3. Create the required network resources by using the ARM template
 
 To create Cloud Shell resources in a virtual network, use the ARM template named
-[Azure Cloud Shell - VNet][12]. The template creates three subnets under the virtual network that
+[Azure Cloud Shell - VNet][13]. The template creates three subnets under the virtual network that
 you created earlier. You might choose to change the supplied names of the subnets or use the
 defaults.
+
+> [!NOTE]
+> [Azure Container Instances (ACI) network profiles][05] are deprecated. In mid-2026, network
+> profiles will longer be required to deploy Cloud Shell in a virtual network. Existing users may
+> see a one-time guided experience in Cloud Shell to confirm their virtual network configuration and
+> container subnet. No additional customer action is required.
 
 The virtual network and the subnets require valid IP address assignments. You need enough addresses
 to support the following resources:
@@ -181,7 +187,7 @@ subscription.
 ## 4. Create the virtual network storage by using the ARM template
 
 To create Cloud Shell resources in a virtual network, use the ARM template named
-[Azure Cloud Shell - VNet storage][13]. The template creates the storage account and assigns it to
+[Azure Cloud Shell - VNet storage][14]. The template creates the storage account and assigns it to
 the private virtual network.
 
 The ARM template requires specific information about the resources that you created earlier, along
@@ -238,13 +244,13 @@ reset your user settings:
    1. Select your subscription from the **Storage account subscription** drop-down list.
    1. Select the **Use an existing private virtual network** checkbox.
 
-   [![Screenshot of the Getting started dialog.][93a]][93b]
+   [![Screenshot of the Getting started dialog.][20]][21]
 
 1. Select **Apply** to continue.
 1. In the **Select virtual network configuration** dialog box, select the resources that you created
    for this deployment.
 
-   [![Screenshot of the GSelect virtual network configuration dialog.][94a]][94b]
+   [![Screenshot of the Select virtual network configuration dialog.][24]][25]
 
 1. Click **Select** to continue.
 
@@ -282,31 +288,31 @@ users to use the same storage resources. For more information, see
 [Allow multiple users to use a single storage account and file share][01].
 
 For improved security, you can configure your storage account to use a private endpoint. For more
-information, see [Connect to a storage account using an Azure private endpoint][11].
+information, see [Connect to a storage account using an Azure private endpoint][12].
 
 <!-- link references -->
 [01]: ../security/how-to-support-multiple-users.md
 [02]: /azure/azure-resource-manager/management/manage-resource-groups-cli
 [03]: /azure/azure-resource-manager/management/manage-resource-groups-portal
 [04]: /azure/azure-resource-manager/management/manage-resource-groups-powershell
-[05]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
-[06]: /azure/virtual-network/quick-create-cli
-[07]: /azure/virtual-network/quick-create-portal
-[08]: /azure/virtual-network/quick-create-powershell
-[09]: /azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings
-[10]: #alternate-way-to-get-the-azure-container-instance-id
-[11]: how-to-use-private-endpoint-storage.md
-[12]: https://aka.ms/cloudshell/docs/vnet/template
-[13]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
-[14]: https://portal.azure.com
-
-[93a]: media/deployment/getting-started.png
-[93b]: media/deployment/getting-started.png#lightbox
-[94a]: media/deployment/vnet-configuration.png
-[94b]: media/deployment/vnet-configuration.png#lightbox
-[95a]: media/deployment/container-service-search.png
-[95b]: media/deployment/container-service-search.png#lightbox
-[96a]: media/deployment/container-service-details.png
-[96b]: media/deployment/container-service-details.png#lightbox
-[97a]: media/deployment/resource-provider.png
-[97b]: media/deployment/resource-provider.png#lightbox
+[05]: /azure/container-instances/container-instances-virtual-network-concepts#network-profile
+[06]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
+[07]: /azure/virtual-network/quick-create-cli
+[08]: /azure/virtual-network/quick-create-portal
+[09]: /azure/virtual-network/quick-create-powershell
+[10]: /azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings
+[11]: #alternate-way-to-get-the-azure-container-instance-id
+[12]: how-to-use-private-endpoint-storage.md
+[13]: https://aka.ms/cloudshell/docs/vnet/template
+[14]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
+[15]: https://portal.azure.com
+[16]: media/deployment/container-service-details.png
+[17]: media/deployment/container-service-details.png#lightbox
+[18]: media/deployment/container-service-search.png
+[19]: media/deployment/container-service-search.png#lightbox
+[20]: media/deployment/getting-started.png
+[21]: media/deployment/getting-started.png#lightbox
+[22]: media/deployment/resource-provider.png
+[23]: media/deployment/resource-provider.png#lightbox
+[24]: media/deployment/vnet-configuration.png
+[25]: media/deployment/vnet-configuration.png#lightbox

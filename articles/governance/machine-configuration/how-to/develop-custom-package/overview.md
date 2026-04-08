@@ -43,7 +43,7 @@ policy using the [GuestConfiguration PowerShell module][09].
 > [!VIDEO https://www.youtube.com/embed/75MTIftSEfk?si=tiJwHNlXckpM7k75]
 
 <!-- Link reference definitions -->
-[01]: ../../overview.md
+[01]: ../../overview/01-overview-concepts.md
 [02]: /powershell/dsc/overview?view=dsc-2.0&preserve-view=true
 [03]: ./1-set-up-authoring-environment.md
 [04]: ./2-create-package.md

@@ -3,7 +3,7 @@ title: Configure VMware vSAN
 description:  Learn how to configure VMware vSAN.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/07/2023
+ms.date: 2/20/2026
 ms.custom:
   - engagement-fy23
   - build-2025
@@ -50,7 +50,7 @@ To enable or disable the TRIM/UNMAP command, run the `Set-AVSVSANClusterUNMAPTRI
 
    | Field | Value |
    | --- | --- |
-   | **Name**  | The cluster name as defined in vCenter Server. Comma delimit to target only certain clusters. (Blank targets all clusters.) |
+   | **Name**  | The cluster name as defined in vCenter Server. Comma delimits to target only certain clusters. (Blank targets all clusters.) |
    | **Enable**  | `true` or `false`. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is `60`.  |
    | **Specify name for execution**  | Alphanumeric name. For example, *Disable vSAN TRIMUNMAP*.  |
@@ -58,7 +58,7 @@ To enable or disable the TRIM/UNMAP command, run the `Set-AVSVSANClusterUNMAPTRI
 
 1. Check **Notifications** to see the progress.
 
-After vSAN TRIM/UNMAP is enabled, you must meet certain prerequisites in order for the command to function as intended and successfully reclaim unused capacity. The VM-level prerequisites are:
+After vSAN TRIM/UNMAP is enabled, you must meet certain prerequisites in order for the command to function as intended and successfully reclaim unused capacity. The virtual machine (VM)-level prerequisites are:
 
 - Virtual machine hardware version 11 or later for Windows.
 - Virtual machine hardware version 13 or later for Linux.
@@ -68,7 +68,7 @@ After vSAN TRIM/UNMAP is enabled, you must meet certain prerequisites in order f
 
 For more information about how to reclaim space for Windows and Linux systems for TRIM/UNMAP to execute, see the following VMware articles:
 - [How to reclaim disk space](https://knowledge.broadcom.com/external/article/340005/reclaiming-disk-space-from-thin-provisio.html)
-- [Learn the procedure to enable TRIM/UNMAP](https://knowledge.broadcom.com/external/article/326595/procedure-to-enable-trimunmap.html)
+- [Learn the procedure to enable TRIM/UNMAP](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/expanding-and-managing-a-vsan-cluster/vsan-file-service/reclaiming-space-with-unmap-in-vsan-distributed-file-system.html)
 
 ## Set VMware vSAN space efficiency
 
@@ -88,7 +88,7 @@ To set your preferred space efficiency model, run the `Set-vSANCompressDedupe` c
    | --- | --- |
    | **Compression**  | `true` or `false`. |
    | **Deduplication**  | `true` or `false`. (When you enable deduplication, you enable both deduplication and compression.) |
-   | **ClustersToChange**  | The cluster name as defined in vCenter Server. Comma delimit to target multiple clusters. |
+   | **ClustersToChange**  | The cluster name as defined in vCenter Server. Comma delimits to target multiple clusters. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is `60`.  |
    | **Specify name for execution**  | Alphanumeric name. For example, *set cluster-1 to compress only*.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |

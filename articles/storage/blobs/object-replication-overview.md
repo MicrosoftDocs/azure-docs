@@ -76,13 +76,17 @@ When a blob in the source account is deleted, the current version of the blob be
 
 Object replication doesn't support blob snapshots. Any snapshots on a blob in the source account aren't replicated to the destination account.
 
-## Blob index tags
+### Blob index tags
 
-Object replication doesn't copy the source blob's index tags to the destination blob.
+Object replication now supports copying index tags from source blobs to destination blobs. You can configure this capability as part of a new or existing replication rule. For more information, see [Configure object replication](object-replication-configure.md#configure-blob-index-tags-replication-preview).
+
+> [!IMPORTANT]
+> Tag replication is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Blob tiering
 
-Object replication is supported when the source and destination accounts are in any online tier (hot, cool, or cold). The source and destination accounts might be in different tiers. However, object replication fails if a blob in either the source or destination account is moved to the archive tier. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
+Object replication is supported when the source and destination accounts are in any online tier (hot, cool, or cold). The source and destination accounts might be in different tiers. However, object replication fails if a blob in either the source or destination account is moved to the archive tier. Rehydrating an archived blob does not trigger object replication. Object replication is triggered only when the blob data is updated again after rehydration. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
 
 ### Immutable blobs
 
@@ -148,7 +152,7 @@ The following example sets a replication policy on the destination account with 
           "prefixMatch": [
             "b"
           ],
-          "minCreationTime": "2021-08-028T00:00:00Z"
+          "minCreationTime": "2021-08-28T00:00:00Z"
         }
       }
     ]

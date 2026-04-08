@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Site Recovery for Managed Disks Charges
+title: Understanding Azure Site Recovery for managed disks Charges
 ms.reviewer: v-gajeronika
 description: This article summarizes the costs disaster recovery and migration deployment scenarios.
 ms.topic: overview
@@ -14,7 +14,7 @@ author: Jeronika-MS
 
 Azure to Azure (A2A) disaster recovery in Site Recovery is a robust disaster recovery solution offering seamless replication and failover capabilities for virtual and physical machines. It is important to understand the cost components associated with using Site Recovery to manage expenses effectively. Following is a detailed breakdown of the charges you may incur when using this service.
 
-You can use this [pricing calculator](https://aka.ms/asr_a2a_calculator) to simulate the estimated costs for Azure to Azure Managed Disks. 
+You can use this [pricing calculator](https://aka.ms/asr_a2a_calculator) to simulate the estimated costs for Azure to Azure managed disks. 
 
 > [!NOTE]
 > This calculator gives an estimate of Site Recovery usage costs. It shouldn't be taken as the final cost. If you have any issues or feedback, contact askasr@microsoft.com.
@@ -29,7 +29,7 @@ Storage cost is a significant part of the overall expense when using Azure Site 
 
 - **Replica Storage**: The replica storage in the target location mirrors source storage. This storage is used during replication, and its size and type depend on the source storage configuration. Applicable only for A2A.
    >[!Note]
-   >Premium SSD v2 source disks will have Premium SSDv1 replica disks and Premium SSDv2 target disks as default.
+   >Premium SSD v2 source disks will have Premium SSDv1 replica disks and Premium SSD v2 target disks as default.
 - **Cache Storage Account Cost**:
   - **Azure Virtual Machines**: The cache storage account is in the source region. When a user selects *High Churn* the cache storage account uses Premium Block Blob. For *Normal Churn* it uses a General Purpose Storage Account. The charges depend on the type of storage account used. There are minimal egress costs only in A2A for Delta Replication.
   - **VMware/Physical Machines/Hyper-V Machines**: The cache storage account is in the target region, charged at General Purpose Storage Account pricing as per the user's selection.
@@ -52,7 +52,7 @@ Network egress costs, also known as outbound data transfer charges, occur when r
 This cost includes:
 
 - **Source**:
-  - For Premium SSD disks, incremental snapshots are charged.
+  - For Premium SSDs, incremental snapshots are charged.
   - For Standard and Premium SSD v2 disks, one full snapshot followed by incremental snapshots is charged.
   - For Pv2 disks, one full snapshot followed by incremental snapshots is charged.
   - Pricing details align with Page Blob Snapshots. Learn more. You can refer to the 'Premium Page Blobs' section and the 'Standard Page Blob' section, respectively.

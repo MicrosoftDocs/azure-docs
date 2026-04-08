@@ -6,16 +6,15 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.topic: how-to  
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
-ms.date: 07/16/2025
- 
+ms.subservice: sentinel-platform
+ms.date: 03/26/2026
 
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
 ---
 
 # Run notebooks on the Microsoft Sentinel data lake
  
-Jupyter notebooks provide an interactive environment for exploring, analyzing, and visualizing data in the Microsoft Sentinel data lake. With notebooks, you can write and execute code, document your workflow, and view results—all in one place. This makes it easy to perform data exploration, build advanced analytics solutions, and share insights with others. By leveraging Python and Apache Spark within Visual Studio Code, notebooks help you transform raw security data into actionable intelligence.
+Jupyter notebooks provide an interactive environment for exploring, analyzing, and visualizing data in the Microsoft Sentinel data lake and federated tables. With notebooks, you can write and execute code, document your workflow, and view results—all in one place. This makes it easy to perform data exploration, build advanced analytics solutions, and share insights with others. By leveraging Python and Apache Spark within Visual Studio Code, notebooks help you transform raw security data into actionable intelligence.
 
 This article shows you how to explore and interact with data lake data using Jupyter notebooks in Visual Studio Code. 
 
@@ -28,6 +27,8 @@ To use notebooks in the Microsoft Sentinel data lake, you must first onboard to 
 ### Permissions
 
 Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the data lake tier. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake).
+
+Optionally, Microsoft Sentinel scoping or row-level RBAC can be configured to further restrict data access within a workspace. When enabled, row-level scoping limits the data returned by queries based on the user’s assigned scope. If row-level scoping isn’t configured, the existing workspace-level permission model applies unchanged. For more information, see [Configure Microsoft Sentinel scoping (row-level RBAC) (preview)](../scoping.md).
 
 To create new custom tables in the analytics tier, the data lake managed identity must be assigned the **Log Analytics Contributor** role in the Log Analytics workspace.
 
@@ -77,11 +78,19 @@ After installing the Microsoft Sentinel extension, you can start exploring data 
  
    :::image type="content" source="./media/notebooks/select-account.png" lightbox="./media/notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
 
+    If you have multiple guest accounts associated with your login, you can seamlessly switch between accounts. To switch between accounts, select the account name at the bottom left of the Visual Studio Code window. Only one account can be selected at a time.
+
+    :::image type="content" source="./media/notebooks/account-picker.png" lightbox="./media/notebooks/account-picker.png" alt-text="A screenshot showing how to switch accounts in Visual Studio Code.":::
+  
+   > [!IMPORTANT] 
+   > Switching between accounts disconnects any active pyspark sessions. 
+
+
 ### View data lake tables and jobs
 
-Once you sign in, the Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. The tables are grouped by the database and category. Select a table to see the column definitions.
+Once you sign in, the Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. The tables are grouped by the database and category. Federated tables are displayed under the **Federated tables** category under **System tables**. Select a table to see the column definitions.
 
-For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling).
+For information on Jobs, see [Jobs and Scheduling](#jobs-and-scheduling). For more information on federated tables, see [Using federated tables in the Microsoft Sentinel data lake](using-data-federation.md).
 
 :::image type="content" source="./media/notebooks/tables-and-jobs.png" lightbox="./media/notebooks/tables-and-jobs.png" alt-text="A screenshot showing the list of tables, jobs, and the selected table's metadata."::: 
 
@@ -247,6 +256,8 @@ InputError|MissingTableSuffixLake|2603|Invalid custom table name. All names of c
 InputError|MissingTableSuffixLA|2604|Invalid custom table name. All names of custom analytics tables must end with _SPRK_CL. |Add _SPRK_CL as a suffix to the table name before writing it to analytics storage.|
 UnknownError|InternalServerError|2901|Something went wrong. Restart the session and try again.|This problem is transient and can be resolved by restarting the session and trying again. If this problem persists, contact support.|
 
+> [!NOTE]
+> Querying legacy tables such as AzureDiagnostics is not supported.
 
 
 ## Related content

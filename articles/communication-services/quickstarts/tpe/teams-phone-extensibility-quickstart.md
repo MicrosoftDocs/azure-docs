@@ -23,13 +23,13 @@ This article describes how an independent software vendor (ISV) can provision Te
 - ISV’s Customer has access to Microsoft 365 Admin Center.
 - ISV has access to change Azure Communication Services Resource settings.
 - You grant Teams Tenant access to a CCaaS service for Graph API usage.
-- ISV is using the .NET, JavaScript  or Java ACS Call Automation SDK version 1.5.0 or above (Python version will be released soon).
-- ISV is using the JavaScript ACS Client SDK version 1.37 and above.
+- ISV uses the .NET, JavaScript, or Java ACS Call Automation SDK version 1.5.0 or above (Python version will be released soon).
+- ISV uses the JavaScript ACS Client SDK version 1.37 and above.
 
 
 ## Quick start
 
-The rest of this article describes quick starts for two different personas: CCaaS Developer and Teams Tenant. The CCaaS developer is the ISV persona building the CCaaS service using Azure Communication Services. The Teams Tenant is the persona that is a customer of the ISV that is administering to Teams Phone.  
+The rest of this article describes quick starts for two different personas: CCaaS Developer and Teams Tenant. The CCaaS developer is the ISV persona building the CCaaS service using Azure Communication Services. The Teams Tenant is the persona that's a customer of the ISV that's administering to Teams Phone.  
 
 ### CCaaS Developer: Provision the AppID (Application ID)
 
@@ -112,7 +112,7 @@ Connect-MicrosoftTeams
 Update-Module MicrosoftTeams 
 ```
 
-Use the [New-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/new-csonlineapplicationinstance) cmdlet to create a Resource Account. There's no change for Teams Phone extensibility in this command. The ApplicationId parameter is your third party bot ID. Don't use the Teams first person Application IDs defined in [Set-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/set-csonlineapplicationinstance#-applicationid) because they don't work for Teams Phone extensibility. It's up to the CCaaS developer on how to communicate the Application ID to the Teams Tenant.
+Use the [New-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/new-csonlineapplicationinstance) cmdlet to create a Resource Account. There's no change for Teams Phone extensibility in this command. The ApplicationId parameter is your third party bot ID. Don't use the Teams first person Application identifiers (IDs) defined in [Set-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/set-csonlineapplicationinstance#-applicationid) because they don't work for Teams Phone extensibility. It's up to the CCaaS developer on how to communicate the Application ID to the Teams Tenant.
 
 Example:
 
@@ -192,14 +192,31 @@ Once you grant the Microsoft Entra application appropriate Graph permissions, th
 
 The CCaaS Admin also needs elevated permissions to access Teams Resource Account information. The Graph API is getting Teams Resource Account information and that information is an asset owned by Teams Admin, so it requires privileged access as a Teams Admin. For more information, see [Permissions for Managing Resource Accounts](/microsoftteams/manage-resource-accounts#assign-permissions-for-managing-a-resource-account).
 
-Query definition:
+
+### Querying Teams Resource Accounts with Filtering and Paging
+
+The Teams Resource Accounts API supports **OData filtering**, **server‑side paging**, and **cursor-based continuation** via the `@odata.nextLink` field.  
+This capability enables CCaaS developers to efficiently retrieve Resource Accounts associated with their Azure Communication Services (ACS) resources.
+
+#### Query definition
+
 
 > https://graph.microsoft.com/beta/admin/teams/resourceAccounts 
 
-Example request URI (RURI) to get Resource Accounts with a filter on appId:
+You can extend the base query with OData options such as:
+
+- `$filter`—filter Resource Accounts by fields such as `appId` or `acsResourceId`
+- `$top`—limit the number of results returned per page
+- `@odata.nextLink`—Graph-provided URL for retrieving subsequent pages
+
+---
+
+### Filter by ACS Resource ID
+
+The following example returns only Resource Accounts that are associated with a specific ACS Resource ID:
 
 ```rest
-GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$filter=appid eq 'aa123456-1234-1234-1234-aaa123456789'
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$filter=acsResourceId eq 'aa123456-1234-1234-1234-aaa123456789'
 ```
 
 Successful response:
@@ -208,15 +225,109 @@ Successful response:
 {
   "@odata.context": "https://graph.microsoft.com/beta/$metadata#admin/teams/resourceAccounts",
   "value": [
-  {
-      "id": "cc123456-5678-5678-1234-ccc123456789",
+    {
+      "id": "aa123456-1234-1234-1234-aaa123456789",
       "userPrincipalName": "myteamsphoneresourceaccount@contoso.com",
-      "appId": "aa123456-1234-1234-1234-aaa123456789",
       "displayName": "My RA Name",
+      "appId": "aa123456-1234-1234-1234-aaa123456789",
       "phoneNumber": "tel:+1234567890",
-      "acsResourceId": "bb567890-1234-1234-1234-bbb123456789"
-   }]
-} 
+      "acsResourceId": "aa123456-1234-1234-1234-aaa123456789"
+    }
+  ]
+}
+```
+
+### Paging with $top
+
+You can use $top to specify the maximum number of results per page:
+
+```rest
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5
+```
+
+If more than five Resource Accounts exist, Microsoft Graph returns an @odata.nextLink value for the next page:
+
+```rest
+
+{
+  "value": [
+    {
+      "id": "...",
+      "displayName": "...",
+      "acsResourceId": "..."
+    }
+  ],
+  "@odata.nextLink":
+    "https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5&$skiptoken=abc123..."
+}
+```
+To continue paging, call the URL in the @odata.nextLink field until it's no longer present.
+
+### Combined paging and filtering
+
+Developers can combine $top and $filter to retrieve a filtered, paginated list:
+
+```rest
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5&$filter=acsResourceId eq 'aa123456-1234-1234-1234-aaa123456789'
+```
+This query returns up to five Resource Accounts that match the specified ACS Resource ID.
+
+### C# Example—Filtering + Paging
+The following C# sample demonstrates how to:
+
+1. Query Teams Resource Accounts
+2. Filter by acsResourceId
+3. Limit results to 5 per page
+4. Follow @odata.nextLink for full pagination
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+
+public static async Task<List<JObject>> GetResourceAccountsAsync(
+    string acsResourceId,
+    string accessToken)
+{
+    var results = new List<JObject>();
+
+    string requestUrl =
+        $"https://graph.microsoft.com/beta/admin/teams/resourceAccounts" +
+        $"?$top=5&$filter=acsResourceId eq '{acsResourceId}'";
+
+    string nextUrl = requestUrl;
+
+    while (!string.IsNullOrEmpty(nextUrl))
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, nextUrl);
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+        using (var client = new HttpClient())
+        {
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            var json = await response.Content.ReadAsStringAsync();
+            var page = JObject.Parse(json);
+
+            if (page["value"] is JArray items)
+            {
+                foreach (var item in items)
+                {
+                    results.Add((JObject)item);
+                }
+            }
+
+            // Continue to the next page if returned
+            nextUrl = (string)page["@odata.nextLink"];
+        }
+    }
+
+    return results;
+}
 ```
 
 ### CCaaS Developer: Receive and answer incoming call
@@ -237,12 +348,12 @@ The following steps demonstrate how to receive and answer an incoming Teams call
 1. Complete client and server consent as defined in [Access a user's Teams Phone separate from their Teams client](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md).
 
 > [!NOTE]
-> For the Azure Communication Services resource, ensure the data location matches the Teams Tenant location to comply with data boundary regulations. You can retrieve programmatically details about tenant organisation via [Get organization](/graph/api/organization-get)
+> For the Azure Communication Services resource, ensure the data location matches the Teams Tenant location to comply with data boundary regulations. You can retrieve programmatically details about tenant organization via [Get organization](/graph/api/organization-get)
 >
 
 #### Setup and host your Azure dev tunnels
 
-Azure dev tunnels enable you to share local web services hosted on the internet. Run the commands to connect your local development environment to the public internet. Dev tunnels creates a persistent endpoint URL and which enables anonymous access. We use this endpoint to notify your application about calling events from the Azure Communication Services Call Automation service. 
+Azure dev tunnels enable you to share local web services hosted on the internet. Run the commands to connect your local development environment to the public internet. Dev tunnels create a persistent endpoint URL that enables anonymous access. We use this endpoint to notify your application about calling events from the Azure Communication Services Call Automation service. 
 
 ```dotnetcli
 devtunnel create --allow-anonymous 
@@ -401,7 +512,7 @@ this._teamsCallAgent = await this._callClient.createTeamsCallAgent(this.tokenCre
 
 ### CCaaS Client Developer: How to place an outbound OBO call
 
-Developers need to get the on behalf of (OBO) identity (ID) Resource Account that the call needs to be placed on behalf of. The following articles describe how to place an outbound OBO call.
+Developers need to get the on-behalf-of (OBO) Resource Account identity that the call needs to be placed on behalf of. The following articles describe how to place an outbound OBO call.
 
 Once the OBO identity is acquired, you need to set the `onBehalfOfOptions` in the `StartTeamsGroupCallOptions()` or `StartTeamsCallOptions()` method. For more information, see [StartTeamsGroupCallOptions interface](/javascript/api/azure-communication-services/@azure/communication-calling/startteamsgroupcalloptions) or [StartTeamsCallOptions interface](/javascript/api/azure-communication-services/@azure/communication-calling/startteamscalloptions).
 

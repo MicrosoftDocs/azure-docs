@@ -1,11 +1,11 @@
 ---
 title: Migrate Azure Maps Route service version 1.0 to Azure Maps Routing service version 2025-01-01.
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Azure Maps Route service version 1.0 to Azure Maps Route service version 2025-01-01.
+description: Learn how to migrate the Azure Maps Route service version 1.0 to Azure Maps Route service version 2025-01-01.
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 03/18/2025
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: rest-api
 ---
@@ -35,11 +35,11 @@ This article explains how to migrate the [Azure Maps Route v1.0] APIs to [Azure
 | Batch operations           | Sync and async requests | Sync requests                            |
 | Coordinate format          | Latitude/longitude | Longitude/latitude, as defined by [GeoJSON].  |
 | Electric consumption model | Supported      | Not supported                                     |
-| Localization               | Use the "language" parameter to localize the language of the route instructions. | Use the “Accept-Language” request header to input a localization code to localize the language of the route instructions. |
+| Localization               | Use the "language" parameter to localize the language of the route instructions. | Use the "Accept-Language" request header to input a localization code to localize the language of the route instructions. |
 | Request type               | GET, POST      | POST                                              |
 | Response format            | XML, JSON      | GeoJSON                                           |
 | Travel mode                | Car, truck, pedestrian.<BR>Beta profiles: Bus, bicycle, motorcycle, taxi, van. | Car, truck, pedestrian. |
-| Waypoint Optimization      | Supported      | Currently only supported for truck routing.       |
+| Waypoint Optimization      | Supported      | supported       |
 | Waypoints                  | Supported      | Supported. Also supports `viaWaypoints` for driving and walking modes. |
 
 ### Route Matrix notable differences

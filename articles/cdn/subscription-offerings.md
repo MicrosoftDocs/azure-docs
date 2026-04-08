@@ -7,7 +7,7 @@ ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: troubleshooting
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ROBOTS: NOINDEX
 # Customer intent: As a cloud administrator, I want to understand the bandwidth throttling policies related to different Azure CDN subscription types, so that I can ensure optimal performance for my content delivery needs based on the subscription I choose.
 ---

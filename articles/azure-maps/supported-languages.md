@@ -495,7 +495,7 @@ The following table provides supported views.
 | QA      | Qatar (Arabic View)                   | ✓    |        |             |
 | SA      | Saudi Arabia (Arabic View)            | ✓    |        |             |
 | SY      | Syria (Arabic View)                   | ✓    |        |             |
-| US      | United States of America              |      | ✓      |             |
+| US      | United States of America              | ✓    | ✓      |             |
 | YE      | Yemen (Arabic View)                   | ✓    |        |             |
 | Auto    | Automatically detect based on request | ✓    | ✓      |             |
 | Unified | Unified View (Others)                 | ✓    | ✓      |

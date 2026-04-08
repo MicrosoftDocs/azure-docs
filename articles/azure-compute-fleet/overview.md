@@ -41,7 +41,7 @@ Using Azure Compute Fleet, you can:
 
 - Compute Fleet launches a combination of VM types that have their own considerations. For more information, see [Spot VMs](/azure/virtual-machines/spot-vms) and [Virtual Machines](/azure/virtual-machines/overview) for details. 
 - Compute Fleet is currently available through [ARM template](quickstart-create-rest-api.md) and in [Azure portal](quickstart-create-portal.md).
-- Compute Fleet is available in all Azure public regions, expect those located in the China.
+- Compute Fleet is available in all Azure public regions, except those located in the China.
 - Compute Fleet can span across multiple-regions.
 
 ## Configure your Compute Fleet 

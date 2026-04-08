@@ -1,11 +1,11 @@
 ---
 title: Synchronize APIs from Amazon API Gateway - Azure API Center
 description: Integrate an Amazon API Gateway to Azure API Center for automatic synchronization of APIs to the inventory.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 01/21/2026
-ms.author: danlep 
+ 
 ms.custom: 
   - devx-track-azurecli
 ms.collection: 
@@ -83,10 +83,11 @@ Manually upload and securely store the two IAM user access keys in Azure Key Vau
 
 Take note of the **Secret identifier** of each secret, a URI similar to `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>`. You use these identifiers in the next steps.
 
+## Configure a managed identity for your API center
 
 [!INCLUDE [enable-managed-identity](includes/enable-managed-identity.md)]
 
-## Assign the managed identity the Key Vault Secrets User role
+### Assign the managed identity the Key Vault Secrets User role
 
 [!INCLUDE [configure-managed-identity-kv-secret-user](includes/configure-managed-identity-kv-secret-user.md)]
 

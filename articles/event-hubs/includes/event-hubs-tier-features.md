@@ -1,10 +1,10 @@
 ---
-title: include file
-description: include file
+title: Azure Event Hubs Tier Features
+description: This include file provides information about features available in different Azure Event Hubs tiers.
 author: spelluru
 ms.service: azure-event-hubs
 ms.topic: include
-ms.date: 02/15/2024
+ms.date: 02/05/2026
 ms.author: spelluru
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 

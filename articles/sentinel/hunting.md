@@ -1,16 +1,11 @@
 ---
 title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/31/2024
 ms.author: monaberdugo
 author: mberdugo
-appliesto:
-    - Microsoft Sentinel in the Microsoft Defender portal
-    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-ms.custom: sfi-image-nochange
-
 
 #Customer intent: As a security analyst, I want to use advanced threat hunting tools and queries so that I can proactively identify and mitigate security threats across my organization's data sources.
 
@@ -24,6 +19,8 @@ For example, one out of the box query provides data about the most uncommon proc
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
+> [!NOTE]
+>Microsoft Sentinel livestreams are longer be available. To automate queries and notifications, use [KQL jobs](./datalake/kql-jobs.md), [analytics rules](./threat-detection.md#types-of-analytics-rules), or [playbooks](./automation/automate-responses-with-playbooks.md). These alternatives offer persistent query results and support for various messaging platforms.
 
 ## Hunts in Microsoft Sentinel (preview)
 
@@ -43,7 +40,7 @@ To get started, see [Conduct end-to-end proactive threat hunting in Microsoft Se
 
 ## Hunting queries
 
-In Microsoft Sentinel, select **Hunting** > **Queries** tab to run all your queries, or a selected subset. The **Queries** tab lists all the hunting queries installed with security solutions from the **Content hub**, and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These queries are grouped by their MITRE ATT&CK **tactics**. The icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration. MITRE ATT&CK **techniques** are shown in the **Techniques** column and describe the specific behavior identified by the hunting query.
+In Microsoft Sentinel in Defender, select **Threat management** > **Hunting**, then the **Queries** tab to run all your queries, or a selected subset. The **Queries** tab lists all the hunting queries installed with security solutions from the **Content hub**, and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These queries are grouped by their MITRE ATT&CK **tactics**. The icons on top categorize the type of threat, such as initial access, persistence, and exfiltration. MITRE ATT&CK **techniques** are shown in the **Techniques** column and describe the specific behavior identified by the hunting query.
 
 :::image type="content" source="media/hunting/hunting-start.png" alt-text="Microsoft Sentinel starts hunting" lightbox="media/hunting/hunting-start.png":::
 
@@ -68,7 +65,11 @@ Use queries before, during, and after a compromise to take the following actions
 
     Results from your proactive hunting provide early insight into events that might confirm that a compromise is in process, or at least show weaker areas in your environment that are at risk and need attention.
 
-- **During a compromise**:  Use [livestream](livestream.md) to run a specific query constantly, presenting results as they come in. Use livestream when you need to actively monitor user events, such as if you need to verify whether a specific compromise is still taking place, to help determine a threat actor's next action, and towards the end of an investigation to confirm that the compromise is indeed over.
+- **During a compromise**:  Actively monitor events to help determine a threat actor's next action, send notifications to the right people, and take action to stop an attack in progress.
+
+  - Use [KQL jobs](/azure/sentinel/datalake/kql-jobs) to monitor attacker behavior and persist query results in the Microsoft Sentinel data lake.
+  - Analyze persisted results with tools such as [Security Copilot](/copilot/security/investigate-incident-malicious-script), [Jupyter notebooks](./notebooks-hunt.md), [Advanced Hunting](/defender-xdr/advanced-hunting-microsoft-defender), and [KQL queries](/azure/sentinel/datalake/kql-queries).
+  - Send notifications to Teams, email, and other messaging platforms.
 
 - **After a compromise**:  After a compromise or an incident occurred, make sure to improve your coverage and insight to prevent similar incidents in the future.
 
@@ -78,7 +79,9 @@ Use queries before, during, and after a compromise to take the following actions
 
     View the query's results, and select **New alert rule** > **Create Microsoft Sentinel alert**. Use the **Analytics rule wizard** to create a new rule based on your query. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
-You can also create hunting and livestream queries over data stored in Azure Data Explorer. For more information, see details of [constructing cross-resource queries](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy) in the Azure Monitor documentation.
+  - [Export findings](/defender-xdr/manage-incidents#incident-logging-and-reporting) and link them to specific cases for improved SOC collaboration.
+
+You can also create hunting queries over data stored in Azure Data Explorer. For more information, see details of [constructing cross-resource queries](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy) in the Azure Monitor documentation.
 
 To find more queries and data sources, go to the **Content hub** in Microsoft Sentinel or refer to community resources like [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries). 
 
@@ -89,16 +92,16 @@ Many security solutions include out of the box hunting queries. After you instal
 
 Many available hunting queries are developed by Microsoft security researchers on a continuous basis. They add new queries to security solutions and fine-tune existing queries to provide you with an entry point to look for new detections and attacks.
 
-
-
 ### Custom hunting queries
 
 Create or edit a query and save it as your own query or share it with users who are in the same tenant. In Microsoft Sentinel, create a custom hunting query from the **Hunting** > **Queries** tab.
 
-# [Defender portal](#tab/defender-portal)
+#### [Defender portal](#tab/defender-portal)
+
 :::image type="content" source="./media/hunting/save-query-defender.png" alt-text="Save query" lightbox="./media/hunting/save-query-defender.png":::
 
-# [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
+
 :::image type="content" source="./media/hunting/save-query.png" alt-text="Save query" lightbox="./media/hunting/save-query.png":::
 
 ---
@@ -106,25 +109,6 @@ Create or edit a query and save it as your own query or share it with users who 
 For more information, see [Create custom hunting queries in Microsoft Sentinel](hunts-custom-queries.md).
 
 <a name="create-bookmarks"></a>
-
-
-## Livestream sessions
-
-Create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
-
-- **Test newly created queries as events occur**
-    
-    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecting an option that elevates the session to an alert.
-
-- **Get notified when threats occur**
-    
-    You can compare threat data feeds to aggregated log data and be notified when a match occurs. Threat data feeds are ongoing streams of data that are related to potential or current threats, so the notification might indicate a potential threat to your organization. Create a livestream session instead of a custom alert rule to be notified of a potential issue without the overheads of maintaining a custom alert rule.
-
-- **Launch investigations**
-    
-    If there's an active investigation that involves an asset such as a host or user, view specific (or any) activity in the log data as it occurs on that asset. Be notified when that activity occurs.
-
-For more information, see [Detect threats by using hunting livestream in Microsoft Sentinel](livestream.md).
 
 ## Bookmarks to keep track of data
 
@@ -234,5 +218,4 @@ The following operators are especially helpful in Microsoft Sentinel hunting que
 
 - [Jupyter notebooks with Microsoft Sentinel hunting capabilities](notebooks.md)
 - [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md)
-- [Detect threats by using hunting livestream in Microsoft Sentinel](livestream.md)
 - Learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).

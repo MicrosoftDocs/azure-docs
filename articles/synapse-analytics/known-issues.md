@@ -2,9 +2,8 @@
 title: Known issues
 titleSuffix: Azure Synapse Analytics
 description: Learn about the currently known issues with Azure Synapse Analytics and their possible workarounds or resolutions.
-author: charithcaldera
-ms.author: ccaldera
-ms.reviewer:  joanpo
+author: joannapea 
+ms.author: joanpo
 ms.date: 01/30/2025
 ms.service: azure-synapse-analytics
 ms.subservice: overview
@@ -44,7 +43,6 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
-|Azure Synapse Apache Spark pool|[Starting a Spark session (with custom python libraries) is taking longer than usual](#starting-a-spark-session-with-custom-python-libraries-is-taking-longer-than-usual)|Has mitigation|
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
@@ -228,7 +226,7 @@ For Microsoft Entra token expiration:
 
 - For long-running queries, switch to service principal, managed identity, or shared access signature (SAS) instead of using a user identity. For more information, see [Control storage account access for serverless SQL pool in Azure Synapse Analytics](sql/develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types).
 
-- Restart client (SSMS/ADS) to acquire a new token to establish the connection.
+- Restart client (SSMS) to acquire a new token to establish the connection.
 
 For MSI token expiration:
 
@@ -310,36 +308,6 @@ ORDER BY [schema_name], [table_name], [column_name];
 ```
 
 In addition to mitigating this issue, maintaining fresh statistics can improve overall query performance. 
- 
-
-## Azure Synapse Apache Spark pool active known issues summary
-
-### Starting a Spark session (with custom python libraries) is taking longer than usual
-
-There is a known issue impacting session startup time when python libraries (requirements.txt or .whl) are attached to the spark pool. Customers will experience slow session startup times intermittently. This is impacting both Fabric and Synapse. 
-
-**Workaround**: The mitigation has been applied to following regions. With this mitigation, the session startup has been improved significantly, but might still be 1.5x slower than original baseline.
-
-|Mitigated Synapse Regions|
-|------------------------|
-|PolandCentral|
-|EastUS|   
-|EastUS2EUAP|
-|SouthEastAsia|
-|AustraliaEast|
-|WestUS2|
-|NorthEurope|
-|SwedenCentral|
-|WestUS3|
-|QatarCentral|
-|JioIndiaWest|
-|SouthIndia|
-|IsraelCentral|
-|ItalyNorth|
-|SwitzerlandWest|
-|WestEurope|
-
-
 
 ## Recently closed known issues
 
@@ -350,6 +318,7 @@ There is a known issue impacting session startup time when python libraries (req
 |Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse dedicated SQL pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023|
 |Azure Synapse Apache Spark pool|[Certain spark job or task fails too early with Error Code 503 due to storage account throttling](#certain-spark-job-or-task-fails-too-early-with-error-code-503-due-to-storage-account-throttling)|Resolved|November 2023|
 |Azure Synapse Apache Spark pool|[Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime](#query-failure-with-a-like-clause-using-synapse-dedicated-sql-pool-connector-in-spark-34-runtime)|Resolved|October 2024|
+|Azure Synapse Apache Spark pool|[Starting a Spark session (with custom python libraries) is taking longer than usual](#starting-a-spark-session-with-custom-python-libraries-is-taking-longer-than-usual)|Resolved|January 2026|
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
 
@@ -357,7 +326,7 @@ There is a known issue impacting session startup time when python libraries (req
 
 ### Queries using Microsoft Entra authentication fails after 1 hour
 
-SQL connections using Microsoft Entra authentication that remain active for more than 1 hour starts to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS (SQL Server Management Studio) and ADS (Azure Data Studio). Tools that open new connection to execute queries aren't affected, like Synapse Studio.
+SQL connections using Microsoft Entra authentication that remain active for more than 1 hour starts to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS (SQL Server Management Studio). Tools that open new connection to execute queries aren't affected, like Synapse Studio.
 
 **Status**: Resolved
 
@@ -390,6 +359,12 @@ Between October 3, 2023 and November 16, 2023, few Azure Synapse Analytics Apach
 The open source Apache Spark 3.4 has introduced an [issue](https://issues.apache.org/jira/browse/SPARK-46029), which escapes special characters, but Synapse SQL does not support the escape keyword. When customers use the [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](spark/synapse-spark-sql-pool-import-export.md), it can generate an invalid SQL query for Synapse SQL and the Synapse Spark notebook or batch job would throw an error similar to:
 
 `com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: com.microsoft.sqlserver.jdbc.SQLServerException: Parse error at line: 1, column: XXX: Incorrect syntax near ''%test%''`
+
+**Status**: Resolved
+
+### Starting a Spark session (with custom python libraries) is taking longer than usual
+
+There was an issue impacting session startup time when python libraries (requirements.txt or .whl) are attached to the spark pool. Customers will experience slow session startup times intermittently.
 
 **Status**: Resolved
 

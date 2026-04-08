@@ -4,7 +4,7 @@ description: This article guides you through the process of creating and publish
 author: anilgodavarthy
 ms.author: angodavarthy
 ms.service: microsoft-sentinel
-ms.topic: conceptual 
+ms.topic: how-to
 ms.date: 1/23/2025
 
 #CustomerIntent: As a ISV partner, I want to create and publish playbooks for my Microsoft Sentinel solution so that I can provide inbuilt automation use cases to my customers.
@@ -28,7 +28,7 @@ To understand more about potential use cases for playbooks, see [Recommended pla
 
 ## Create and publish playbooks for example scenarios
 
-Microsoft Sentinel playbooks are based on Azure Logic Apps, a cloud platform that enables the creation and execution of automated workflows with minimal to no coding. You can use the visual designer and select prebuilt operations to efficiently build workflows that integrate and manage your applications, data, services, and systems. For more information, see [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview).
+Microsoft Sentinel playbooks are based on Azure Logic Apps, a cloud platform that enables the creation and execution of automated workflows with minimal to no coding. You can use the visual designer and select prebuilt operations to efficiently build workflows that integrate and manage your applications, data, services, and systems. For more information, see [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 
 Logic Apps includes numerous out-of-the-box connectors, such as Salesforce, Office 365, and SQL Server. These connectors offer no-code options for various functions. For example, the Office 365 Outlook connector includes built-in actions for sending emails without needing any code. If the out-of-the-box connectors don't cover specific actions that a playbook requires, you need to create a custom connector.
 

@@ -2,7 +2,7 @@
 title: Create a private container registry in Azure for Bicep modules
 description: Learn how to set up a private container registry in Azure for private Bicep modules.
 ms.topic: how-to
-ms.date: 12/22/2025
+ms.date: 02/25/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -48,6 +48,9 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](/azure/container-
 > The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure container registry using Azure Private Link](/azure/container-registry/container-registry-private-link).
 > 
 > The private container registry must have the policy `azureADAuthenticationAsArmPolicy` set to `enabled`. If `azureADAuthenticationAsArmPolicy` is set to `disabled`, you'll get a 401 (Unauthorized) error message when publishing modules. See [Azure Container Registry introduces the Conditional Access policy](/azure/container-registry/container-registry-configure-conditional-access).
+
+> [!WARNING]
+> If `properties.policies.quarantinePolicy.status` is enabled on your Azure Container Registry, your Bicep module will "successfully" publish but the versions/tags are stripped or hidden.
 
 ## Publish files to registry
 

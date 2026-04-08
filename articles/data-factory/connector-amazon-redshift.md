@@ -5,8 +5,8 @@ titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 01/15/2026
+ms.topic: how-to
+ms.date: 04/03/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -19,7 +19,7 @@ ms.custom:
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from an Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Amazon Redshift version 2.0 provides improved native Amazon Redshift support. If you are using the Amazon Redshift version 1.0 in your solution, please [upgrade your Amazon Redshift connector](#upgrade-the-amazon-redshift-connector) before **March 31, 2026**. Refer to this [section](#differences-between-amazon-redshift-connector-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Amazon Redshift connector version 2.0 provides improved native Amazon Redshift support. If you are using Amazon Redshift connector version 1.0 in your solution, please [upgrade the Amazon Redshift connector](#upgrade-the-amazon-redshift-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **April 30, 2026**. Refer to this [section](#differences-between-amazon-redshift-connector-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -96,6 +96,7 @@ The following properties are supported for Amazon Redshift linked service:
 | database |Name of the Amazon Redshift database. |Yes |
 | username |Name of user who has access to the database. |Yes |
 | password |Password for the user account. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| sslmode | The SSL certificate verification mode to use when connecting to Amazon Redshift. This property is only supported in version 2.0. <br/>- **Verify_full**: Connect only using SSL, a trusted certificate authority, and a server name that matches the certificate.<br/>- **Verify_ca**: Connect only using SSL and a trusted certificate authority.<br/>- **Required**: Connect only using SSL.<br/>- **Preferred**: Connect using SSL if available. Otherwise, connect without using SSL.<br/>- **Allowed**: By default, connect without using SSL. If the server requires SSL connections, then use SSL.<br/>- **Disabled**: Connect without using SSL. <br/>Options: `verify-full` (**Default**) / `verify-ca` / `require` / `prefer` / `allow` / `disable` | No, default is `verify-full` |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!Note]
@@ -306,7 +307,7 @@ The following table shows the release stage and change logs for different versio
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
 | Version 1.0 | End of support announced | / |
-| Version 2.0 | GA version available | • Supports Azure Integration Runtime and Self-hosted Integration Runtime version 5.61 or above. Driver installation is no longer needed with Self-hosted Integration Runtime version 5.61 or above. <br><br>• BOOLEAN is read as Boolean data type.  |
+| Version 2.0 | GA version available | • Supports Azure Integration Runtime and Self-hosted Integration Runtime version 5.61 or above. Driver installation is no longer needed with Self-hosted Integration Runtime version 5.61 or above. <br><br>• BOOLEAN is read as Boolean data type. <br><br>• Support `sslmode` in the linked service. |
 
 ### <a name="upgrade-the-amazon-redshift-connector"></a> Upgrade the Amazon Redshift connector from version 1.0 to version 2.0
 

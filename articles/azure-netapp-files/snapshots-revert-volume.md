@@ -28,7 +28,8 @@ The revert functionality is also available in configurations with volume replica
 
 ## Steps
 
-1. Go to the **Snapshots** menu of a volume. Right-click the snapshot you want to use for the revert operation. Select **Revert volume**. 
+1. Choose the **Volume** menu then the volume you want to restore.
+1. Go to the **Snapshots** menu. Right-click the snapshot you want to use for the revert operation. Select **Revert volume**. 
 
     ![Screenshot that describes the right-click menu of a snapshot.](./media/shared/snapshot-right-click-menu.png) 
 

@@ -18,7 +18,7 @@ To discover OPC UA assets, the assets must be compliant with the [OPC 10000-100:
 
 In this article, you learn how to automatically discover and configure OPC UA devices and assets connected to your Azure IoT Operations deployment. The automatic discovery process starts when you add a device with the **Enable discovery** option selected.
 
-To learn more, see [What is asset discovery?](overview-akri.md).
+To learn more, see [What is asset discovery?](overview-akri.md)
 
 ## Prerequisites
 

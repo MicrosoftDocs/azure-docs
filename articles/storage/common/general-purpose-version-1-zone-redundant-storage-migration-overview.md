@@ -41,7 +41,7 @@ The table below summarizes the key differences most customers care about:
 | Area | General purpose v1 (GPv1) with ZRS redundancy | GPv2 (StorageV2) with ZRS |
 |---|---|---|
 | Replication model | Legacy topology; not synchronous across 3 zones; may require platform failover | **Synchronous across three availability zones** in the region; no failover required during a single‑zone event |
-| Availability during zonal outage | Access may be interrupted until failover | Remains online for reads/writes through a single‑zone outage |
+| Availability during zone outage | Access may be interrupted until failover | Remains online for reads/writes through a single‑zone outage |
 | Access tiers & lifecycle | Limited; no per‑blob tiering | **per‑blob tiering** (hot/cool/archive) + **lifecycle management** |
 | Security & governance | General purpose v1 (GPv1) with ZRS redundancy/GPv1 control plane | ARM‑based; Azure AD RBAC, tags, Azure Policy |
 | Data services | Blobs, Files, Queues, Tables | Blobs, Files, Queues, Tables **+** ADLS Gen2 (hierarchical namespace) |

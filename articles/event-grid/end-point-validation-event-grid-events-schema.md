@@ -1,17 +1,20 @@
 ---
-title: Endpoint validation with Event Grid event schema
+title: Validate Webhook Endpoints with Event Grid Schema
 description: This article describes WebHook event delivery and endpoint validation when using webhooks and the Event Grid event schema.
 ms.topic: concept-article
-ms.date: 09/25/2024
+ms.date: 03/27/2026
+author: spelluru
+ms.author: spelluru
+ms.reviewer: spelluru
 ms.custom: FY25Q1-Linter
 #customer intent: As a developer, I want to know how to validate a Webhook endpoint using the Event Grid event schema.
 ---
 
 
 # Endpoint validation with Event Grid event schema
-Webhooks are one of the many ways to receive events from Azure Event Grid. When a new event is ready, Event Grid service POSTs an HTTP request to the configured endpoint with the event information in the request body.
+Webhooks are one of the many ways to receive events from Azure Event Grid. When a new event is ready, the Event Grid service POSTs an HTTP request to the configured endpoint with the event information in the request body.
 
-Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. 
+Like many other services that support webhooks, Event Grid requires you to prove ownership of your webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. 
 
 ## Endpoint validation with Event Grid events
 When you use any of the following three Azure services, the Azure infrastructure automatically handles this validation:
@@ -37,16 +40,16 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
 
 ### Validation details
 
-- At the time of event subscription creation/update, Event Grid posts a subscription validation event to the target endpoint.
-- The event contains a header value `aeg-event-type: SubscriptionValidation`.
-- The event body has the same schema as other Event Grid events.
+- When you create or update an event subscription, Event Grid sends a subscription validation event to the target endpoint.
+- The event includes a header with the value `aeg-event-type: SubscriptionValidation`.
+- The event body follows the same schema as other Event Grid events.
 - The `eventType` property of the event is `Microsoft.EventGrid.SubscriptionValidationEvent`.
-- The `data` property of the event includes a `validationCode` property with a randomly generated string. For example, `validationCode: acb13…`.
+- The `data` property of the event contains a `validationCode` property with a randomly generated string. For example, `validationCode: acb13…`.
 - The event data also includes a `validationUrl` property with a URL for manually validating the subscription.
 - The array contains only the validation event. Other events are sent in a separate request after you echo back the validation code.
-- The Event Grid data plane SDKs have classes corresponding to the subscription validation event data and subscription validation response.
+- The Event Grid data plane SDKs include classes that correspond to the subscription validation event data and subscription validation response.
 
-An example SubscriptionValidationEvent is shown in the following example:
+The following example shows a `SubscriptionValidationEvent`:
 
 ```json
 [
@@ -74,21 +77,21 @@ To prove endpoint ownership, echo back the validation code in the `validationRes
 }
 ```
 
-And, follow one of these steps: 
+Follow one of these steps: 
 
-- You must return an **HTTP 200 OK** response status code. **HTTP 202 Accepted** isn't recognized as a valid Event Grid subscription validation response. The HTTP request must complete within 30 seconds. If the operation doesn't finish within 30 seconds, then the operation will be canceled and it's reattempted after 5 seconds. If all the attempts fail, then it's treated as validation handshake error.
+- You must return an **HTTP 200 OK** response status code. **HTTP 202 Accepted** isn't recognized as a valid Event Grid subscription validation response. The HTTP request must complete within 30 seconds. If the operation doesn't finish within 30 seconds, the operation is canceled and reattempted after 5 seconds. If all the attempts fail, the operation is treated as a validation handshake error.
 
-    The fact that your application is prepared to handle and return the validation code indicates that you created the event subscription and expected to receive the event. Imagine the scenario that there's no handshake validation supported and a hacker gets to know your application URL. The hacker can create a topic and an event subscription with your application's URL, and start conducting a DoS attack to your application by sending a lot of events. The handshake validation prevents that to happen. 
+    The fact that your application is prepared to handle and return the validation code indicates that you created the event subscription and expected to receive the event. Imagine the scenario where there's no handshake validation supported and a bad actor gets to know your application URL. The bad actor can create a topic and an event subscription with your application's URL, and start conducting a DoS attack on your application by sending many events. The handshake validation prevents that to happen. 
 
-    Imagine that you already have the validation implemented in your app because you created your own event subscriptions. Even if a hacker creates an event subscription with your app URL, your correct implementation of the validation request event checks for the `aeg-subscription-name` header in the request to ascertain that it's an event subscription that you recognize. 
+    Imagine that you already have the validation implemented in your app because you created your own event subscriptions. Even if a bad actor creates an event subscription with your app URL, your correct implementation of the validation request event checks for the `aeg-subscription-name` header in the request to ascertain that it's an event subscription that you recognize. 
     
-    Even after that correct handshake implementation, a hacker can flood your app (it already validated the event subscription) by replicating a request that seems to be coming from Event Grid. To prevent that, you must secure your webhook with Microsoft Entra authentication. For more information, see [Deliver events to Microsoft Entra protected endpoints](secure-webhook-delivery.md). 
-- Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated. The validation Url uses **port 553**. If your firewall rules block port 553, you need to update rules for a successful manual handshake.
+    Even after that correct handshake implementation, a bad actor can flood your app (it already validated the event subscription) by replicating a request that seems to be coming from Event Grid. To prevent that, you must secure your webhook with Microsoft Entra authentication. For more information, see [Deliver events to Microsoft Entra protected endpoints](secure-webhook-delivery.md). 
+- Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated. The validation URL uses **port 553**. If your firewall rules block port 553, you need to update rules for a successful manual handshake.
 
-    In your validation of the subscription validation event, if you identify that it isn't an event subscription for which you're expecting events, you wouldn't return a 200 response or no response at all. Hence, the validation fails.    
+    In your validation of the subscription validation event, if you identify that it isn't an event subscription for which you're expecting events, don't return a 200 response or return no response at all. Hence, the validation fails.    
 
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 
 ## Related content
-See the following article to learn how to troubleshoot event subscription validations: [Troubleshoot event subscription validations](troubleshoot-subscription-validation.md).
+To learn how to troubleshoot event subscription validations, see [Troubleshoot event subscription validations](troubleshoot-subscription-validation.md).

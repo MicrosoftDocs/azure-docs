@@ -9,8 +9,6 @@ ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to create an Azure VMware Solution assessment for on-premises VMs so that I can evaluate migration options and ensure compatibility with Azure's infrastructure."
 ---
 
-
-
 # Create an Azure VMware Solution assessment
 
 This article describes how to create an Azure VMware Solution assessment for on-premises VMs in a VMware vSphere environment with Azure Migrate: Discovery and assessment.
@@ -110,7 +108,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 1. In **Review + create assessment**, review the assessment details, and select **Create** to run the assessment.
 
     > [!NOTE]
-    > For discovering data using the Azure migrate appliance for creating assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high [performance coverage](/azure/migrate/concepts-assessment-calculation?view=migrate#coverage).
+    > For discovering data using the Azure migrate appliance for creating assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high performance coverage.
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" alt-text="Screenshot showing an overview of an Azure VMware Solution assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" :::
 

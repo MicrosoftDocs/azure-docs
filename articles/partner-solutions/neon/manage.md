@@ -9,7 +9,7 @@ ms.date: 05/06/2025
 # Manage your Neon integration through the Azure portal
 
 > [!Important]
-> Deprecation Note: The Neon Azure Native Integration is being deprecated and will reach end of life on January 31, 2026. Transfer your projects to a Neon managed organization today, see [Migrate from Neon Azure Native Integration](https://neon.com/docs/import/migrate-from-azure-native).
+> Deprecation Note: The Neon Azure Native Integration is now retired. Existing customers can transfer projects to a Neon managed organization. Learn more here [Migrate from Neon Azure Native Integration](https://neon.com/docs/import/migrate-from-azure-native).
 
 This article describes how to manage a Neon resource in the Azure portal.
 
@@ -126,3 +126,4 @@ Select **Support + Troubleshooting** > **New support request** from the service 
 ## Related content
 
 - [Neon Serverless Postgres developer resources and tools](tools.md)
+

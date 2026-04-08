@@ -72,9 +72,9 @@ Follow these steps to create a formula from a base image:
 
    - **OS disk type**: The selected base image for the formula determines your options for the disk type. Depending on the base, you can choose from the following options:
 
-      - **Premium SSD disks** offer high-performance, low-latency disk support for I/O-intensive applications and production workloads. 
-      - **Standard SSD disks** are a cost effective storage option optimized for workloads that need consistent performance at lower I/O operations per second (IOPS) levels.
-      - **Standard HDD disks** are ideal for Dev/Test scenarios and less critical workloads at lowest cost.
+      - **Premium SSDs** offer high-performance, low-latency disk support for I/O-intensive applications and production workloads. 
+      - **Standard SSDs** are a cost effective storage option optimized for workloads that need consistent performance at lower I/O operations per second (IOPS) levels.
+      - **Standard HDDs** are ideal for Dev/Test scenarios and less critical workloads at lowest cost.
 
    - **Artifacts**: Zero or more artifacts are added by default according to the selected base image for the formula. You can also select **Add or Remove Artifacts** to change the artifacts for the formula.
     

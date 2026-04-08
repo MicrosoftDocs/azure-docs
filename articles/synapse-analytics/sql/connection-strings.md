@@ -6,7 +6,7 @@ ms.author: stefanazaric
 ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql
-ms.date: 09/23/2024
+ms.date: 02/04/2026
 ms.reviewer:  stefanazaric
 ms.custom: devx-track-csharp
 ---
@@ -57,7 +57,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 
 ## Recommendations
 
-For executing **serverless SQL pool** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
+For executing **serverless SQL pool** queries, the recommended tool is Azure Synapse Studio.
 
 ## Related content
 
