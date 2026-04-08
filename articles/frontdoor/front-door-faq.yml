@@ -120,11 +120,11 @@ sections:
         answer: |
           You can redirect host, path, and query string components of a URL with Azure Front Door. To learn how to configure URL redirection, refer to [URL redirection](front-door-url-redirect.md).       
       - question: |
-          Does AFD provide telemetry to show which rules engine rule AFD processes for each request?
+          Does Front Door provide telemetry to show which rules engine rule Front Door processes for each request?
         answer:  |
           Yes. Refer to the MatchedRulesSetName property under [Access Logs](front-door-diagnostics.md).
       - question: |
-          Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
+          Can Front Door provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
         answer:  |
           Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](front-door-ddos.md).
       - question: |
@@ -362,7 +362,7 @@ sections:
       - question: |
           Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
-          Azure Front Door resources cannot be disabled. They can only be deleted. Variable meters like Data Transfer Out, Data Transfer In and Requests are not charged when there is no traffic but base fee is charged even if there is no traffic. Base fee will be charged till the profile is deleted. For AFD Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
+          Azure Front Door resources cannot be disabled. They can only be deleted. Variable meters like Data Transfer Out, Data Transfer In and Requests are not charged when there is no traffic but base fee is charged even if there is no traffic. Base fee will be charged till the profile is deleted. For Front Door Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
 
   - name: Caching
     questions:
@@ -377,9 +377,9 @@ sections:
       - question: |
           Is it possible to support compression for file sizes above 8 MB?
         answer: |
-          AFD does not support dynamic compression for content greater than 8 MB. However, if the content has been already compressed by the origin, Front Door supports serving static compressed content over 8 MB as long as range request is supported and chunked transfer encoding is not enabled.
+          Front Door does not support dynamic compression for content greater than 8 MB. However, if the content has been already compressed by the origin, Front Door supports serving static compressed content over 8 MB as long as range request is supported and chunked transfer encoding is not enabled.
       - question: |
-          Does AFD support setting the Authorization Header in the HTTP request if caching is enabled?
+          Does Front Door support setting the Authorization Header in the HTTP request if caching is enabled?
         answer: |
           No.
 

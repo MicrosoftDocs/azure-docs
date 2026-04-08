@@ -6,7 +6,7 @@ author: jinglouMSFT
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: article
-ms.date: 03/17/2026
+ms.date: 04/07/2026
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
 # Customer intent: "As a cloud storage user, I want to understand the support lifecycle and update policy for my storage management tool, so that I can ensure I am using a supported version with the latest features and security enhancements."
@@ -38,6 +38,7 @@ This table describes the release date and the end of support date for each relea
 
 | Storage Explorer version | Release date       | End of support date |
 |:------------------------:|:------------------:|:-------------------:|
+| 1.43.0                   | April 7, 2026      | April 7, 2027       |
 | 1.42.0                   | March 17, 2026     | March 17, 2027      |
 | 1.41.1                   | February 17, 2026  | February 2, 2027    |
 | 1.41.0                   | February 2, 2026   | February 2, 2027    |
