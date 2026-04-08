@@ -49,7 +49,7 @@ For Azure Automation to communicate with Microsoft Entra ID, you must retrieve t
 
 ## Create a credential asset
 
-With the Azure credentials for Microsoft Entra available, it's time to create an Azure Automation credential asset to securely store the Microsoft Entra credentials so that runbooks and Desire State Configuration (DSC) scripts can access them. You can do this using either the Azure portal or PowerShell cmdlets.
+With the Azure credentials for Microsoft Entra available, it's time to create an Azure Automation credential asset to securely store the Microsoft Entra credentials so that runbooks and Desired State Configuration (DSC) scripts can access them. You can do this using either the Azure portal or PowerShell cmdlets.
 
 ### Create the credential asset in Azure portal
 

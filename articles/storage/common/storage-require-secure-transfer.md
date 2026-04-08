@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 05/23/2025
+ms.date: 04/02/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
@@ -17,13 +17,15 @@ ms.devlang: azurecli
 
 # Require secure transfer to ensure secure connections
 
-You can configure your storage account to accept requests from secure connections only by setting the **Secure transfer required** property for the storage account. When you require secure transfer, any requests originating from an insecure connection are rejected. We recommend that you require secure transfer for all of your storage accounts, except in certain cases where NFS Azure file shares are used with network-level security.
+You can configure your storage account to accept requests from secure connections only by setting the **Secure transfer required** property for the storage account. When you require secure transfer, any requests originating from an insecure connection are rejected. We recommend that you require secure transfer for all of your storage accounts.
 
 When secure transfer is required, a call to an Azure Storage REST API operation must be made over HTTPS. Any request made over HTTP is rejected. By default, the **Secure transfer required** property is enabled when you create a storage account.
 
 Azure Policy provides a built-in policy to ensure that secure transfer is required for your storage accounts. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
-Connecting to an Azure file share over SMB without encryption fails when secure transfer is required for the storage account. Examples of insecure connections include those made over SMB 2.1 or SMB 3.x without encryption. 
+For Azure Files, you can now control SMB and NFS encryption requirements independently using their respective per-protocol security settings. When **Require encryption in transit** is enabled, the **Secure transfer required** property only applies to REST/HTTPS traffic for Azure file shares. For new storage accounts created by using the Azure portal, **Require encryption in transit** is enabled by default for both SMB and NFS. Storage accounts created by using Azure PowerShell, Azure CLI, or the FileREST API initially set these values as **Not selected** to ensure backward compatibility.
+
+Connecting to an Azure file share over SMB without encryption fails when secure transfer is required for the storage account. Examples of insecure connections include those made over SMB 2.1 or SMB 3.x without encryption.
 
 ## Require secure transfer in the Azure portal
 
@@ -31,18 +33,17 @@ You can turn on the **Secure transfer required** property when you create a stor
 
 ### Require secure transfer for a new storage account
 
-1. Open the **Create storage account** pane in the Azure portal.
-1. In the **Advanced** page, select the **Enable secure transfer** checkbox.
+1. Sign into the Azure portal and go to **Storage accounts**. Select **+ Create**.
+1. On the **Advanced** tab, under **Security**, select the **Require secure transfer for REST API operations** checkbox.
 
-   ![Create storage account blade](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![Create storage account advanced tab](./media/storage-require-secure-transfer/require-secure-transfer-portal.png)
 
 ### Require secure transfer for an existing storage account
 
 1. Select an existing storage account in the Azure portal.
-1. In the storage account menu pane, under **Settings**, select **Configuration**.
+1. From the service menu, under **Settings**, select **Configuration**.
 1. Under **Secure transfer required**, select **Enabled**.
-
-   ![Storage account menu pane](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+1. Select **Save**.
 
 ## Require secure transfer from code
 

@@ -18,7 +18,7 @@ Decide whether you're deploying Azure IoT Operations to a single-node or multi-n
 
 ## Platform
 
-Currently, K3s on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production.
+Use a [supported environment](../overview-support.md#supported-environments) for deploying Azure IoT Operations in production.
 
 ## Cluster setup
 
@@ -26,7 +26,7 @@ Ensure that your hardware setup is sufficient for your scenario and that you beg
 
 ### System configuration
 
-Create an Arc-enabled K3s cluster that meets the system requirements.
+Create an Arc-enabled cluster that meets the system requirements.
 
 * Use a [supported environment for Azure IoT Operations](../overview-support.md#supported-environments).
 * [Configure the cluster](./howto-prepare-cluster.md) according to documentation.
@@ -88,15 +88,12 @@ In the Azure portal deployment wizard, the schema registry and its required stor
 
 * The storage account must have hierarchical namespace enabled.
 * The schema registry's managed identity must have contributor permissions for the storage account.
-* The storage account is only supported with public network access enabled.
-
-For production deployments, scope the storage account's public network access to allow traffic only from trusted Azure services. For example:
-
-1. In the [Azure portal](https://portal.azure.com), navigate to the storage account that your schema registry uses.
-1. Select **Security + networking > Networking** from the navigation menu.
-1. For the public network access setting, select **Enabled from selected virtual networks and IP addresses**.
-1. In the **Exceptions** section of the networking page, ensure that the **Allow trusted Microsoft services to access this resource** option is selected.
-1. Select **Save** to apply the changes.
+* For production deployments, scope the storage account's public network access to allow traffic only from trusted Azure services. For example:
+  1. In the [Azure portal](https://portal.azure.com), navigate to the storage account that your schema registry uses.
+  1. Select **Security + networking > Networking** from the navigation menu.
+  1. For the public network access setting, select **Enabled from selected virtual networks and IP addresses**.
+  1. In the **Exceptions** section of the networking page, ensure that the **Allow trusted Microsoft services to access this resource** option is selected.
+  1. Select **Save** to apply the changes.
 
 For more information, see [Configure Azure Storage firewalls and virtual networks > Grant access to trusted Azure services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 

@@ -35,17 +35,21 @@
     items:
     - name: Overview
       href: /azure/redis/migrate/migrate-basic-standard-premium-overview
-    - name: Understand
+    - name: Understand differences
       href: /azure/redis/migrate/migrate-basic-standard-premium-understand
-    - name: Self-service
+    - name: Explore migration options
+      href: /azure/redis/migrate/migrate-basic-standard-premium-options
+    - name: Self-service migration
       href: /azure/redis/migrate/migrate-basic-standard-premium-self-service
+    - name: Migration using tooling
+      href: /azure/redis/migrate/migrate-basic-standard-premium-with-tooling
   - name: Migrate Enterprise tier to Azure Managed Redis
     items:
     - name: Overview
       href: /azure/redis/migrate/migrate-redis-enterprise-overview
-    - name: Understand
+    - name: Understand differences
       href: /azure/redis/migrate/migrate-redis-enterprise-understand
-    - name: Self-service
+    - name: Self-service migration
       href: /azure/redis/migrate/migrate-redis-enterprise-self-service
   - name: Migrate to Azure Redis from other caches
     href: cache-migration-guide.md

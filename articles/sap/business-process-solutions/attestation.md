@@ -21,6 +21,7 @@ This section outlines the business requirements for the Business Process Solutio
 ### Value To Customers
 
 The workload provides the following value to customers -
+
 Business Process Solutions delivers a unified data foundation for business applications that accelerates AI adoption, simplifies automation, and reduces risk – empowering businesses to unlock the full potential of unified data analytics and agentic intelligence. It includes prebuilt data models in Microsoft Fabric, data mapping and transformations, as well as prebuilt Power BI dashboards and data agents. With Business Process Solutions, we ensure data can be interacted with in a reliable and high-performant way, whether working with massive volumes or complex data structures.
 
 ### Trial
@@ -45,7 +46,11 @@ This section outlines the technical requirements for the Business Process Soluti
 
 ### Microsoft Entra Access
 
-To begin using the workload, Business Process Solutions for Microsoft Fabric no other  authentication and authorization mechanisms are needed.
+The workloads use Microsoft Entra authentication and authorization.
+
+[✔] No other authentication and authorization mechanisms are used
+
+[] Different authentication and authorization mechanisms are used for stored data In Fabric
 
 ### One Lake
 
@@ -57,19 +62,47 @@ Workloads integrate with One Lake to store data in the standard formats supporte
 
 ### Microsoft Entra Conditional Access
 
-Enterprise customers require centralized control and management of the identities and credentials used to access their resources and data and via Microsoft Entra to further secure their environment via conditional access. The service works in its entirety even if customers enable this functionality
+Enterprise customers require centralized control and management of the identities and credentials used to access their resources and data and via Microsoft Entra to further secure their environment via conditional access.
+
+[✔] The service works in its entirety with even if customers enable this functionality
+
+[] The service works in with limitations if customers enable this functionality
+
+[] The service doesn't work Microsoft Entra Conditional Access
 
 ### Admin REST API
 
-Admin REST APIs are an integral part of Fabric admin and governance process. For our workload, no Microsoft Fabric Admin APIs are being used.
+Admin REST APIs are an integral part of Fabric admin and governance process. These APIs help Fabric admins in discovering workspaces and items, and enforcing governance such as performing access reviews, etc. Basic functionality is supported as part of the Workload Development Kit and doesn't need any work from Partners.
+
+[] Microsoft Fabric Admin APIs are being used (/admin/*)
+
+[✔] No Microsoft Fabric Admin APIs are being used
 
 ### Customer Facing Monitoring & Diagnostic
 
-Health and telemetry data needs to be stored for a minimum for 30 days including activity ID for customer support purposes. We store the data for a minimum of 180 days.
+Health and telemetry data needs to be stored for a minimum for 30 days including activity ID for customer support purposes, including Trials.
+
+[✔] Minimum 30 days requirement is adhered to
+
+[] Vendor stores the data for __ days beyond the minimum requirement
 
 ### Performance
 
-The Workload implementation takes measures to test and track performance of their items. Performance tracking isn't currently available to the end user however workload team support can monitor, test, track performance via their internal instrumentation and monitoring systems.
+The Workload implementation takes measures to test and track performance of their Items
+
+[] Performance Metrics on workload performance are available via the monitoring hub
+
+[] Workload includes a separate monitoring UI to test and track performance
+
+[✔] Performance tracking isn't currently available to the end user however vendor support personnel can monitor, test, track performance via their internal instrumentation and monitoring systems
+
+### Presence
+
+To ensure that customer expectations independent of their home or capacity region are met, vendors need to align with fabric regions and clouds. Availability in certain restrictions also impacts your Data Residency commitments.
+
+[✔] Service availability and colocation/alignment in the fabric regions.
+
+[] All or part of the service doesn't reside in Azure
 
 ## Design / UX Requirements
 
@@ -77,6 +110,7 @@ The Workload implementation takes measures to test and track performance of thei
 - **Item Creation Experience**: The item creation experience is in accordance with the Fabric UX System.
 - **Monitoring Hub**: All Long running operations need to integrate with Fabric Monitoring Hub.
 - **Trial Experience**: The workload doesn't provide a trial experience for users.
+- **Accessibility**: The user experience is in compliance with the Fabric UX design guidelines for Accessibility.
 - **World Readiness / Internationalization**: English is supported as the default language.
 - **Item Settings**: Item settings are implemented as a part of the ribbon as outlined in the UX guidelines
 - **Samples**: No sample datasets are provided for preconfigure of items of their type to help customers get started more easily.
@@ -101,6 +135,70 @@ Our service is deployed in a single region within each geographic area, and serv
 ## Compliance
 
 Business Process Solutions is committed to ensuring Customers can trust our products and practices and meet their compliance obligations.
+
+## Support
+
+### Live site
+
+Partner workloads are an integral part of Fabric that requires that the Microsoft support teams are aware of how to contact you in case customers are reaching out to us directly.
+
+#### Microsoft direct vendor outreach:
+
+- **Contact Name/Team**: Azure Workloads Platform as Service - Business Process Solutions
+- **Email alias**: sapmonitoridcdev@microsoft.com 
+
+
+### Supportability
+
+Vendors are responsible for defining and documenting their support parameters (Service level agreement, contact methods, ...). This information needs to be linked from the Workload page and should always be accessible to customers.
+
+[✔] Vendor attests that support information is published and available to user/customers directly via the workload.
+
+## Fabric Features
+
+### Application Life Cycle Management (ALM)
+
+Microsoft Fabric's lifecycle management tools enable efficient product development, continuous updates, fast releases, and ongoing feature enhancements.
+
+[] Supported
+
+[✔] Not Supported
+
+### Private Links
+
+In Fabric, you can configure and use an endpoint that allows your organization to access Fabric privately.
+
+[] Supported
+
+[✔] Not Supported
+
+### Data Hub
+
+The OneLake data hub makes it easy to find, explore, and use the Fabric data items in your organization that you have access to. It provides information about the items and entry points for working with them. If you're implementing a Data Item, show up in the Data Hub as well.
+
+[] Supported
+
+[✔] Not Supported
+
+### Data Lineage
+
+In modern business intelligence (BI) projects, understanding the flow of data from the data source to its destination can be a challenge. The challenge is even bigger if you built advanced analytical projects spanning multiple data sources, data items, and dependencies. Questions like "What happens if I change this data?" or "Why isn't this report up to date?" can be hard to answer.
+
+[] Supported
+
+[✔] Not Supported
+
+### Sensitivity labels
+
+Sensitivity labels from Microsoft Purview Information Protection on items can guard your sensitive content against unauthorized data access and leakage. They're a key component in helping your organization meet its governance and compliance requirements. Labeling your data correctly with sensitivity labels ensures that only authorized people can access your data.
+
+Extra requirements:
+
+For partners that are using Export functionality within their Item they need to follow the guidelines.
+
+[] Supported
+
+[✔] Not Supported
 
 ## Summary
 
