@@ -115,7 +115,7 @@ Any notebook/Spark compute and Data lake storage consumed for data transformatio
 
 #### Sentinel Model Context Protocol (MCP) server
 
-Sentinel MCP server is an interface layer that exposes Sentinel platform capabilities to AI agents. There's no extra cost for using the MCP server itself. MCP tools use underlying Sentinel platform services, such as data lake queries or graph operations, which are billed based on their respective meters. In addition, certain tools, such as entity analyzer, may consume Security Compute Units (SCUs) when AI reasoning execution is required. Customers are charged only for the underlying platform services and compute they consume.
+Sentinel MCP server is an interface layer that exposes Sentinel platform capabilities to AI agents. There's no extra cost for using the MCP server itself. MCP tools use underlying Sentinel platform services, such as data lake queries or graph operations, which are billed based on their respective meters. In addition, certain tools, such as entity analyzer, may consume [Security Compute Units (SCUs)](/copilot/security/manage-usage) when AI reasoning execution is required. Customers are charged only for the underlying platform services and compute they consume.
 
 ##### Microsoft Sentinel MCP data lake tools
 
