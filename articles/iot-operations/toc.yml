@@ -263,8 +263,12 @@ items:
         items:
           - name: Overview
             href: manage-layered-network/overview-layered-network.md
-          - name: IoT Operations in layered network
-            href: manage-layered-network/concept-iot-operations-in-layered-network.md
+          - name: Deploy with private connectivity
+            href: manage-layered-network/howto-private-connectivity.md
+            displayName: Private Link, Arc Gateway, explicit proxy, private endpoints, storage, dataflow
+          - name: Troubleshoot private connectivity
+            href: manage-layered-network/howto-troubleshoot-private-connectivity.md
+            displayName: DNS, Private Endpoint, RBAC, SecretSync, Schema Registry, data flow, troubleshooting
       - name: Configure observability and monitoring
         items:
           - name: Deploy observability resources
@@ -360,6 +364,9 @@ items:
           - name: Secure communication with TLS, X.509, and ABAC
             href: manage-mqtt-broker/tutorial-tls-x509.md
             displayName: tutorial, MQTT, auth, authn, X.509, certificate, CA
+          - name: Deploy in layered network with private connectivity
+            href: end-to-end-tutorials/tutorial-layered-network-private-connectivity.md
+            displayName: tutorial, layered network, Purdue, private connectivity, ExpressRoute, Private Link
       - name: Troubleshoot
         items:
           - name: Troubleshoot
