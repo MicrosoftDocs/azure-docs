@@ -36,7 +36,7 @@ The AzFilesHybrid PowerShell module provides cmdlets for domain joining storage 
 
 ### Download AzFilesHybrid module
 
-Download and unzip the latest version of the [AzFilesHybrid module](https://www.powershellgallery.com/packages/AzFilesHybrid/).
+Download and unzip the latest version of the [AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases/tag/v0.3.2).
 
 ### Run Join-AzStorageAccount
 
