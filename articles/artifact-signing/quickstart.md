@@ -111,7 +111,7 @@ To register an Artifact Signing resource provider by using the Azure CLI:
 
 ## Create an Artifact Signing account
 
-An Artifact Signing account is a logical container that holds identity validation and certificate profile resources.
+An Artifact Signing account is a logical container that holds identity validation and certificate profile resources. An identity validation is available at the subscription id level and can be shared across all the Artifact Signing accounts within that subscription. 
 
 ### Azure regions that support Artifact Signing
 

@@ -2,7 +2,7 @@
 author: stevenmatthew
 ms.service: azure-databox
 ms.topic: include
-ms.date: 03/06/2025
+ms.date: 04/08/2026
 ms.author: shaas
 ---
 
@@ -12,41 +12,41 @@ Here's a list of the supported storage accounts and storage types for a Data Box
 
 For import orders, following table shows the supported storage accounts.
 
-| **Storage account / Supported storage types** | **Block blob** |**Page blob**<sup>1</sup> |**Azure files** |**Supported access tiers**|
+| **Storage account / Supported storage types** | **Block blob** | **Page blob** <sup>1</sup> | **Azure files** | **Supported access tiers** |
 | --- | --- | -- | -- | -- |
 | Classic Standard | Y | Y | Y |
 | General-purpose v1 Standard  | Y | Y | Y | Hot, Cool, Cold, Archive |
-| General-purpose v1 Premium  |  | Y| | |
-| General-purpose v2 Standard<sup>2</sup>  | Y | Y | Y | Hot, Cool, Cold, Archive|
+| General-purpose v1 Premium  |  | Y | | |
+| General-purpose v2 Standard <sup>2</sup>  | Y | Y | Y | Hot, Cool, Cold, Archive |
 | General-purpose v2 Premium  |  |Y | |  |
-| Azure Premium FileStorage<sup>3</sup> |  |  | Y |  |  
+| Azure Premium File Storage <sup>3</sup> |  |  | Y |  |  
 | Blob storage Standard | Y | | | Hot, Cool, Cold, Archive |
-| Block Blob storage Premium |Y | | | Hot, Cool, Cold, Archive |
+| Block Blob storage Premium | Y | | | Hot, Cool, Cold, Archive |
 
 
 <sup>1</sup> *Data uploaded to page blobs must be 512 bytes aligned such as VHDs.*
 
 <sup>2</sup> *Azure Data Lake Storage Gen2 is supported for imports but not for exports.*
 
-<sup>3</sup> *For FileStorage Storage accounts with Provisioned v2 billing model, Data Box 120 , Data Box 525 and Data Box Disk SKUs support import.*
+<sup>3</sup> *For Azure file storage accounts with provisioned v2 billing model, Data Box 120, Data Box 525 and Data Box Disk SKUs support import.*
 
 #### Supported storage accounts for exports
 
 For export orders, following table shows the supported storage accounts.
 
-| **Storage account / Supported storage types** | **Block blob** |**Page blob*** |**Azure files** |**Supported access tiers**|
+| **Storage account / Supported storage types** | **Block blob** | **Page blob*** | **Azure files** | **Supported access tiers** |
 | --- | --- | -- | -- | -- |
 | Classic Standard | Y | Y | Y | |
 | General-purpose v1 Standard  | Y | Y | Y | Hot, Cool |
-| General-purpose v1 Premium  |  | Y| | |
+| General-purpose v1 Premium  |  | Y | | |
 | General-purpose v2 Standard  | Y | Y | Y | Hot, Cool |
-| General-purpose v2 Premium  |  |Y | | |
-| Azure Premium FileStorage<sup>3</sup> |  |  | Y |  |
+| General-purpose v2 Premium  |  | Y | | |
+| Azure Premium File Storage <sup>3</sup> |  |  | Y |  |
 | Blob storage Standard |Y | | | Hot, Cool |
-| Block Blob storage Premium |Y | | | Hot, Cool |
-| Page Blob storage Premium | |Y | | |
+| Block Blob storage Premium | Y | | | Hot, Cool |
+| Page Blob storage Premium | | Y | | |
 
-<sup>3</sup> *For FileStorage Storage accounts with Provisioned v2 billing model, Data Box 120 and 525 devices support Export.*
+<sup>3</sup> *For Azure file storage accounts with Provisioned v2 billing model, Data Box 120 and 525 devices support Export.*
 
 #### Caveats for storage accounts
 

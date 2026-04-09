@@ -538,7 +538,7 @@ static async Task ListDirectoryTreeAsync(ShareDirectoryClient directory)
 >[!NOTE]
 > OAuth tokens, such as those obtained when using `DefaultAzureCredential`, aren't allowed for data plane operations at the file share level. To work with share snapshots, the client object must be authorized using the account key. The `ShareClient` object created in this code example uses a connection string, which includes the account key.
 >
-> Storing account keys or connection strings presents a security risk. You should only use them when Microsoft Entra authentication isn't available. To learn more about securely storing account keys in Azure Key Vault, see [About Azure Key Vault managed storage account keys](/azure/key-vault/secrets/about-managed-storage-account-keys).
+> Storing account keys or connection strings presents a security risk. You should only use them when Microsoft Entra authentication isn't available. To learn more about securely authorizing access to storage, see [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access).
 
 ## Manage Azure Files resources using the Azure Storage management libraries
 

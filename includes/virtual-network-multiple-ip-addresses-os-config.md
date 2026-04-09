@@ -368,6 +368,143 @@ ip route add default via 10.1.0.1 dev eth2 table custom
 >[!NOTE]
 >To configure the extra IP addresses in RHEL10.x, it's enough to restart NetworkManger with: `systemctl restart NetworkManger.service` or reboot the system. No other steps are required.
 
+
+#### RHEL 8.6 & above, RHEL 9
+
+Starting RHEL 8.6 & above and RHEL 9, "networkmanager-cloud-setup" package can handle multiple IP configurations and its associated route configuration.
+
+1. Disabled cloud-init to handle secondary IP configuration in the respective files  /etc/cloud/cloud.cfg.d/99-apply-network-config.cfg or /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg.
+   This will let NetworkManager and nm-cloud-setup manage the entire network configuration
+
+ ```bash
+[root@rhel8 ~]# cat /etc/cloud/cloud.cfg.d/99-apply-network-config.cfg
+datasource:
+   Azure:
+      apply_network_config: False
+```
+
+2. Install "NetworkManager-cloud-setup" package if not already installed
+
+```bash
+]# yum install NetworkManager-cloud-setup
+Red Hat Enterprise Linux 8 for x86_64 - BaseOS from RHUI (RPMs)                                                                                                39 MB/s |  66 MB     00:01
+Red Hat Enterprise Linux 8 for x86_64 - Supplementary (RPMs) from RHUI                                                                                        2.3 MB/s | 340 kB     00:00
+Red Hat Enterprise Linux 8 for x86_64 - AppStream from RHUI (RPMs)                                                                                             41 MB/s |  60 MB     00:01
+Red Hat CodeReady Linux Builder for RHEL 8 x86_64 (RPMs) from RHUI                                                                                             33 MB/s | 8.9 MB     00:00
+Red Hat Ansible Engine 2 for RHEL 8 x86_64 (RPMs) from RHUI                                                                                                    14 MB/s | 2.5 MB     00:00
+Dependencies resolved.
+==============================================================================================================================================================================================
+ Package                                           Architecture                  Version                                   Repository                                                    Size
+==============================================================================================================================================================================================
+Installing:
+ NetworkManager-cloud-setup                        x86_64                        1:1.40.16-13.el8_9                        rhel-8-for-x86_64-appstream-rhui-rpms                        198 k
+Upgrading:
+ NetworkManager                                    x86_64                        1:1.40.16-13.el8_9                        rhel-8-for-x86_64-baseos-rhui-rpms                           2.3 M
+ NetworkManager-libnm                              x86_64                        1:1.40.16-13.el8_9                        rhel-8-for-x86_64-baseos-rhui-rpms                           1.9 M
+ NetworkManager-team                               x86_64                        1:1.40.16-13.el8_9                        rhel-8-for-x86_64-baseos-rhui-rpms                           161 k
+ NetworkManager-tui                                x86_64                        1:1.40.16-13.el8_9                        rhel-8-for-x86_64-baseos-rhui-rpms                           356 k
+
+Transaction Summary
+==============================================================================================================================================================================================
+Install  1 Package
+Upgrade  4 Packages
+
+Total download size: 4.9 M
+Is this ok [y/N]: y
+Downloading Packages:
+(1/5): NetworkManager-cloud-setup-1.40.16-13.el8_9.x86_64.rpm                                                                                                 2.0 MB/s | 198 kB     00:00
+(2/5): NetworkManager-1.40.16-13.el8_9.x86_64.rpm                                                                                                              18 MB/s | 2.3 MB     00:00
+(3/5): NetworkManager-team-1.40.16-13.el8_9.x86_64.rpm                                                                                                        4.1 MB/s | 161 kB     00:00
+(4/5): NetworkManager-libnm-1.40.16-13.el8_9.x86_64.rpm                                                                                                        12 MB/s | 1.9 MB     00:00
+(5/5): NetworkManager-tui-1.40.16-13.el8_9.x86_64.rpm                                                                                                         8.8 MB/s | 356 kB     00:00
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                          28 MB/s | 4.9 MB     00:00
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                                                      1/1
+  Running scriptlet: NetworkManager-libnm-1:1.40.16-13.el8_9.x86_64                                                                                                                       1/1
+  Upgrading        : NetworkManager-libnm-1:1.40.16-13.el8_9.x86_64                                                                                                                       1/9
+  Running scriptlet: NetworkManager-libnm-1:1.40.16-13.el8_9.x86_64                                                                                                                       1/9
+  Running scriptlet: NetworkManager-1:1.40.16-13.el8_9.x86_64                                                                                                                             2/9
+  Upgrading        : NetworkManager-1:1.40.16-13.el8_9.x86_64                                                                                                                             2/9
+  Running scriptlet: NetworkManager-1:1.40.16-13.el8_9.x86_64                                                                                                                             2/9
+  Installing       : NetworkManager-cloud-setup-1:1.40.16-13.el8_9.x86_64                                                                                                                 3/9
+  Running scriptlet: NetworkManager-cloud-setup-1:1.40.16-13.el8_9.x86_64                                                                                                                 3/9
+  Upgrading        : NetworkManager-team-1:1.40.16-13.el8_9.x86_64                                                                                                                        4/9
+  Upgrading        : NetworkManager-tui-1:1.40.16-13.el8_9.x86_64                                                                                                                         5/9
+  Cleanup          : NetworkManager-tui-1:1.40.0-1.el8.x86_64                                                                                                                             6/9
+  Cleanup          : NetworkManager-team-1:1.40.0-1.el8.x86_64                                                                                                                            7/9
+  Running scriptlet: NetworkManager-1:1.40.0-1.el8.x86_64                                                                                                                                 8/9
+  Cleanup          : NetworkManager-1:1.40.0-1.el8.x86_64                                                                                                                                 8/9
+  Running scriptlet: NetworkManager-1:1.40.0-1.el8.x86_64                                                                                                                                 8/9
+  Cleanup          : NetworkManager-libnm-1:1.40.0-1.el8.x86_64                                                                                                                           9/9
+  Running scriptlet: NetworkManager-libnm-1:1.40.0-1.el8.x86_64                                                                                                                           9/9
+  Verifying        : NetworkManager-cloud-setup-1:1.40.16-13.el8_9.x86_64                                                                                                                 1/9
+  Verifying        : NetworkManager-1:1.40.16-13.el8_9.x86_64                                                                                                                             2/9
+  Verifying        : NetworkManager-1:1.40.0-1.el8.x86_64                                                                                                                                 3/9
+  Verifying        : NetworkManager-libnm-1:1.40.16-13.el8_9.x86_64                                                                                                                       4/9
+  Verifying        : NetworkManager-libnm-1:1.40.0-1.el8.x86_64                                                                                                                           5/9
+  Verifying        : NetworkManager-team-1:1.40.16-13.el8_9.x86_64                                                                                                                        6/9
+  Verifying        : NetworkManager-team-1:1.40.0-1.el8.x86_64                                                                                                                            7/9
+  Verifying        : NetworkManager-tui-1:1.40.16-13.el8_9.x86_64                                                                                                                         8/9
+  Verifying        : NetworkManager-tui-1:1.40.0-1.el8.x86_64                                                                                                                             9/9
+Installed products updated.
+
+Upgraded:
+  NetworkManager-1:1.40.16-13.el8_9.x86_64   NetworkManager-libnm-1:1.40.16-13.el8_9.x86_64   NetworkManager-team-1:1.40.16-13.el8_9.x86_64   NetworkManager-tui-1:1.40.16-13.el8_9.x86_64
+Installed:
+  NetworkManager-cloud-setup-1:1.40.16-13.el8_9.x86_64
+
+Complete!
+```
+
+3. To enable “nm-cloud-setup” to handle secondary IP configuration, create nm-cloud-setup.service and nm-cloud-setup.timer (adjust OnBootSec & OnUnitActiveSec parameters to suit your requirement) files
+
+```bash
+[root@rhel8 ~]# cat /etc/systemd/system/nm-cloud-setup.service
+[Unit]
+Description=Automatically configure NetworkManager in cloud
+Documentation=man:nm-cloud-setup(8)
+Before=network-online.target
+After=NetworkManager.service
+
+[Service]
+Environment=NM_CLOUD_SETUP_AZURE=yes
+Type=oneshot
+ExecStart=/usr/libexec/nm-cloud-setup
+
+[Install]
+WantedBy=NetworkManager.service
+```
+
+```bash
+[root@rhel8 ~]# cat /etc/systemd/system/nm-cloud-setup.timer
+[Unit]
+Description=Periodically run nm-cloud-setup
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+
+[Install]
+WantedBy=timers.target
+
+```
+4. Enable services are reload daemon
+   
+```bash
+systemctl enable --now nm-cloud-setup.service
+systemctl start nm-cloud-setup.service
+systemctl enable --now nm-cloud-setup.timer
+systemctl daemon-reload
+```
+5. Reboot VM & verify. VM should now successfully identify respective primary and secondary IPs.
+
+#### RHEL 8.5 & below 
+
 1. Open a terminal window.
 
 2. Ensure you're the root user. If you aren't, enter the following command:
