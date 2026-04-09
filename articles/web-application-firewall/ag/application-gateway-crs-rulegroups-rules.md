@@ -21,56 +21,6 @@ You can disable rules individually, or set specific actions for each rule. This 
 > [!NOTE]
 > When you change a ruleset version in a WAF Policy, you should forward your existing rule action and state overrides and exclusions to apply on the new ruleset version. For more information, see [Upgrading or changing ruleset version](upgrade-ruleset-version.md).
 
-## Understanding CVE protection coverage
-
-### How WAF protects against CVEs
-
-Application Gateway WAF provides protection against known Common Vulnerabilities and Exposures (CVEs) through a combination of:
-
-- **OWASP Core Rule Set (CRS)**: Many CVEs are detected through generic OWASP CRS rules that identify common attack patterns (SQL injection, XSS, RCE, etc.) without requiring CVE-specific rules.
-- **Microsoft Threat Intelligence CVE rules**: The MS-ThreatIntel-CVEs rule group contains rules specifically designed to detect exploitation attempts of high-profile CVEs. These rules are developed and maintained by Microsoft's Threat Intelligence team.
-- **Continuous updates**: Both OWASP CRS and Microsoft Threat Intelligence rules are updated regularly as new vulnerabilities are discovered and attack patterns evolve.
-
-### CVE detection timing and dependencies
-
-Whether a specific CVE is detectable by WAF depends on several factors:
-
-1. **OWASP CRS updates**: The OWASP community must identify the vulnerability pattern and develop detection rules. This process can take time depending on the complexity of the vulnerability and community response.
-
-2. **Microsoft Threat Intelligence response**: For critical and widely-exploited CVEs, Microsoft may develop specific detection rules and release them as part of the MS-ThreatIntel-CVEs rule group independent of OWASP update cycles.
-
-3. **Rule set version**: Protection is only available if you're using a rule set version that includes the relevant detection rules. Regularly upgrading to the latest Default Rule Set (DRS) ensures you have the most current protections.
-
-4. **Generic pattern coverage**: Some CVEs might already be caught by existing generic rules (such as SQL injection or XSS rules) even before CVE-specific rules are published.
-
-### Finding CVE coverage information
-
-To determine if WAF protects against a specific CVE:
-
-1. **Check the MS-ThreatIntel-CVEs rule group**: Review the [MS-ThreatIntel-CVEs rules](#drs99001-22) in the DRS 2.2 section below. Each rule lists the specific CVE ID it detects in its description.
-
-2. **Review rule descriptions**: CVE-specific rules include links to the official CVE record (e.g., CVE-2022-22963) in their descriptions.
-
-3. **Consider generic rules**: Even if a CVE isn't listed explicitly, it may be detected by generic OWASP rules in other rule groups (SQLI, XSS, RCE, etc.) that match the vulnerability's attack pattern.
-
-4. **Check for updates**: Microsoft updates the MS-ThreatIntel-CVEs rule group as new high-priority vulnerabilities emerge. Always use the latest DRS version for maximum coverage.
-
-### Currently covered CVEs
-
-The WAF includes specific detection rules for high-profile CVEs such as:
-- Spring4Shell vulnerabilities (CVE-2022-22963, CVE-2022-22965, CVE-2022-22947)
-- Apache Struts exploits (CVE-2017-5638, CVE-2023-50164)
-- Citrix, Pulse Secure, and F5 vulnerabilities
-- SharePoint, Oracle WebLogic, and other enterprise application CVEs
-
-For the complete list of CVE-specific rules and their IDs, see the [MS-ThreatIntel-CVEs rule group](#drs99001-22) section below.
-
-> [!TIP]
-> If you need protection against a specific CVE that isn't explicitly listed:
-> - Upgrade to the latest DRS version to ensure you have the most recent rules
-> - Test with a sample exploit to see if existing generic rules catch the attack pattern
-> - Contact Azure support if you require protection for a specific high-priority CVE not currently covered
-
 ## Default rule set 2.2
 
 Default rule set (DRS) 2.2 is based on Open Web Application Security Project (OWASP) Core Rule Set 3.3.4, bringing refinements to existing detections and new protections, including rules that detect content types declared outside the actual content-type header and enhanced remote code execution (RCE) detections. DRS 2.2 includes additional proprietary protections rules developed by Microsoft Threat Intelligence team, which expand coverage across SQL injection, XSS, and application-security attack patterns.
@@ -154,15 +104,6 @@ Use the following guidance to tune WAF while you get started with DRS 2.1 on App
 |99001016|MS-ThreatIntel-CVEs|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001017|MS-ThreatIntel-CVEs|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule|
 
-## Core rule sets (CRS) - legacy
-
-The recommended managed rule set is the latest Default Rule Set 2.2, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.4 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. When creating a new WAF policy you should use the latest, recommended ruleset version DRS 2.2. If you have an existing WAF policy using DRS 2.1, CRS 3.2 or CRS 3.1, it's recommended to upgrade to DRS 2.2. For more information, see [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md).
-
-> [!NOTE]
-> - CRS 3.2 is only available on the WAF_v2 SKU. You can't downgrade from CRS 3.2 to CRS 3.1 or earlier because CRS 3.2 runs on the new Azure WAF engine. It's recommended to upgrade to the latest DRS 2.1 directly and validate new rules safely by changing the new rules' action to log mode. For more information, see [Validate new rules safely](upgrade-ruleset-version.md#validate-new-rules-safely).
->
-> - Web Application Firewall (WAF) running on Application Gateway for Containers doesn't support the Core Ruleset (CRS).
-
 ## Tuning of Managed rule sets
 
 Both DRS and CRS are enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Managed Rule Set to meet your application requirements. You can also set specific actions per rule. The DRS/CRS supports block, log, and anomaly score actions. The Bot Manager ruleset supports the allow, block, and log actions.
@@ -200,12 +141,44 @@ Paranoia Levels 3 and 4 aren't currently supported in Azure WAF.
 > [!NOTE]
 > CRS 3.2 ruleset includes rules in PL3 and PL4, but these rules are always inactive and can't be enabled, regardless of their configured state or action.
 
-### Upgrading or changing ruleset version
+## Upgrading or changing ruleset version
 
 If you're upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it's recommended to use PowerShell, CLI, REST API, or a template to make ruleset version changes. A new version of a ruleset can have newer rules or additional rule groups, which you might want to validate safely. It's recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
 For more information, see [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md)
 
 If you're using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, policy settings, and global exclusions will remain unaffected during the new ruleset assignment. You'll need to redefine rule overrides and validate changes before deploying in a production environment.
+
+## Understanding CVE protection in Azure WAF
+
+Azure Application Gateway WAF protects against CVEs through:
+
+- **Generic protections (DRS / OWASP CRS)**: Many CVEs are already mitigated by existing rules that detect common attack patterns such as SQL injection, XSS, and RCE.
+- **CVE-specific protections (Microsoft Threat Intelligence)**: For high-impact vulnerabilities, dedicated rules are released in the [MS-ThreatIntel-CVEs](?tabs=drs22#drs99001-22) rule group.
+
+Always use the latest Default Rule Set (DRS) for the most up-to-date protection and reduced false positives.
+
+To check coverage:
+
+- Review the [MS-ThreatIntel-CVEs](?tabs=drs22#drs99001-22) rule group
+- Check rule descriptions for CVE references
+- Keep in mind that many CVEs are covered by generic protections even if not explicitly listed
+
+If a CVE isn’t explicitly covered:
+
+- Upgrade to the latest DRS
+- Validate against existing rules or use custom rules if needed
+- Contact Azure support if you require protection for a specific high-priority CVE not currently covered
+
+
+## Core rule sets (CRS) - legacy
+
+The recommended managed rule set is the latest Default Rule Set 2.2, which is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.4 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. When creating a new WAF policy you should use the latest, recommended ruleset version DRS 2.2. If you have an existing WAF policy using DRS 2.1, CRS 3.2 or CRS 3.1, it's recommended to upgrade to DRS 2.2. For more information, see [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md).
+
+> [!NOTE]
+> - CRS 3.2 is only available on the WAF_v2 SKU. You can't downgrade from CRS 3.2 to CRS 3.1 or earlier because CRS 3.2 runs on the new Azure WAF engine. It's recommended to upgrade to the latest DRS 2.1 directly and validate new rules safely by changing the new rules' action to log mode. For more information, see [Validate new rules safely](upgrade-ruleset-version.md#validate-new-rules-safely).
+>
+> - Web Application Firewall (WAF) running on Application Gateway for Containers doesn't support the Core Ruleset (CRS).
+
 
 ### Bot Manager 1.0
 

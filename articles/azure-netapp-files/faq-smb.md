@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 12/08/2025
+ms.date: 04/09/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
@@ -59,6 +59,12 @@ Azure NetApp Files now supports the ability to [create multiple Active Directory
 You can also map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
 
 <a name='does-azure-netapp-files-support-azure-active-directory'></a>
+
+## Does Azure NetApp Files support SMB symbolic links or widelinks?
+
+No. Azure NetApp Files SMB volumes do not support UNIX symbolic links (symlinks) or widelinks. SMB clients cannot create or follow symbolic links. 
+
+Symbolic links created by NFS clients or other systems are not honored when accessed over SMB. Absolute symbolic links and widelinks that reference paths outside the SMB share are not available.
 
 ## Does Azure NetApp Files support Microsoft Entra ID? 
 

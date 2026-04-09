@@ -327,3 +327,23 @@ You create a chained graph scenario by using the output of one data flow graph a
 ```
 
 To solve this error, push the graph definition to the ACR as many times as needed with the scenario with a different name or tag each time. For example, in the scenario described, the graph definition need to be pushed twice with either a different name or a different tag, such as `graph-passthrough-one:1.3.6` and `graph-passthrough-two:1.3.6`.
+
+## Broker listener issues
+
+This section lists current known issues for broker listeners    .
+
+### Azure portal fails to fetch broker authentications
+
+---
+
+Issue ID: 3072
+
+---
+
+Log signature: Azure portal message `Fetch broker authentications: Failed to fetch broker authentications`
+
+---
+
+When you configure a broker listener in the Azure portal and select a value in the "Authentication" dropdown, the portal tries to fetch the list of broker authentications. The portal displays the error message `Fetch broker authentications: Failed to fetch broker authentications`.
+
+To workaround this issue, upgrade to the 2603 release.

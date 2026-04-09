@@ -52,7 +52,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Germany West Central |Germany Central (Frankfurt) |  ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Dual |
 | Italy North | Italy North (Milan)   | ✓  | ✓ | ✓   | ✓ |  ✓ | ✓ | ✓ | Dual |
 | North Europe | Ireland (Dublin) | ✓  | ✓| ✓ |  ✓ | ✓ | ✓ | ✓ |   Dual   |
-| Spain Central | 	Spain Central (Madrid) | ✓ | ✓ | ✓ | ✓ |  | | |   Dual    |
+| Spain Central | 	Spain Central (Madrid) | ✓ | ✓ | ✓ | ✓ |  | | ✓ |   Dual    |
 | Sweden Central | 	Sweden Central (Stockholm) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |   Dual    |
 | Switzerland North | Switzerland North (Zurich) | ✓ | ✓ | ✓ | ✓ |  | | ✓ |   Dual    |
 | UAE Central | UAE Central (Abu Dhabi) | ✓  | ✓| ✓ | ✓ | | | ✓ |   Single    |
@@ -71,7 +71,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Central US       | US Midwest (Chicago) | ✓  | ✓| ✓   | ✓  |  ✓   |  ✓  |   ✓   | Dual    |
 | East US          | US East (Ashburn)  | ✓  | ✓| ✓   | ✓  | ✓    | ✓ | ✓ | Dual|
 | East US 2        | US East (Ashburn)  | ✓  | ✓  | ✓  | ✓  |  ✓   | ✓  | ✓ | Dual     |
-| North Central US | US Midwest (Chicago) | ✓ | ✓ |  ✓ |  ✓ |  |  |  | Single   |
+| North Central US | US Midwest (Chicago) | ✓ | ✓ |  ✓ |  ✓ | ✓  |  |  | Single   |
 | South Central US | US South (Dallas)| ✓ | ✓ |  ✓  | ✓ |  |   | ✓ | Dual |
 | West US          | US West (San Jose) | ✓  | ✓  | ✓  | ✓  |  ✓   |  ✓  | ✓ | Single   |
 | West US 2        | US West (Quincy) | ✓ | ✓ | ✓ |  ✓ |  ✓ | ✓  | ✓ | Dual |

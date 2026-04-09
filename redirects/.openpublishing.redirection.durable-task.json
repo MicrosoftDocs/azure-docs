@@ -109,6 +109,16 @@
             "source_path_from_root": "/articles/durable-task/scheduler/durable-task-overview.md",
             "redirect_url": "/azure/durable-task/sdks/durable-task-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/sdks/index.yml",
+            "redirect_url": "/azure/durable-task/sdks/durable-task-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/durable-task/scheduler/index.yml",
+            "redirect_url": "/azure/durable-task/scheduler/durable-task-scheduler",
+            "redirect_document_id": false
         }
     ]
 }

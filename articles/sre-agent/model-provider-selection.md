@@ -23,12 +23,12 @@ Choose between Azure OpenAI (GPT-5 family) and Anthropic (Claude family) as your
 
 ## Available providers
 
-| Provider | Models included | Strengths |
-|----------|----------------|----------|
-| **Azure OpenAI** | GPT-5 (default), GPT-5.2 | Structured output, function calling, fast tool execution |
-| **Anthropic** | Claude Opus 4.5, Claude Sonnet 4.5, Claude Sonnet 4.6, Claude Haiku 4.5 | Long-context reasoning, code analysis, built-in web search |
+| Provider | Models | Strengths |
+|----------|--------|----------|
+| **Azure OpenAI** | GPT-5 family (for example, GPT-5, GPT-5.2) | Structured output, function calling, fast tool execution |
+| **Anthropic** | Claude family (for example, Claude Opus 4.5, Claude Sonnet 4.6) | Long-context reasoning, code analysis, built-in web search |
 
-Your agent automatically selects the best model within your chosen provider for each task. You select the provider; the agent handles model routing.
+Available models within each provider may change as new versions are released. Your agent automatically selects the best model within your chosen provider for each task. You select the provider; the agent handles model routing.
 
 ## How to change your model provider
 

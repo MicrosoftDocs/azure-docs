@@ -22,7 +22,7 @@ The platforms overlap in capability, which can create confusion. This guide focu
 
 ## Architecture and platform options for AI training and fine-tuning
 
-:::image type="content" source="../media/ai-training-platform-decision-guide.png" alt-text="Diagram depicting platform decision tree.":::
+:::image type="content" source="../media/ai-training-platform-decision-guide.png" alt-text="Diagram that depicts the platform decision tree." lightbox="../media/ai-training-platform-decision-guide.png":::
 
 ### Microsoft Foundry
 

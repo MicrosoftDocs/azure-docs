@@ -6,8 +6,8 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: how-to
-ms.date: 03/06/2026
-ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
+ms.date: 04/08/2026
+ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep, devx-track-terraform
 #Customer intent: As a network administrator, I want to learn how to create and remove a NAT gateway resource from a virtual network subnet. I also want to learn how to add and remove public IP addresses and prefixes used for outbound connectivity.
 ---
 
@@ -91,11 +91,25 @@ To use Azure CLI for this article, you need:
 
   - The example NAT gateway is named **nat-gateway**.
 
+# [**Terraform**](#tab/manage-nat-terraform)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+- An existing Azure Virtual Network and subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
+
+  - The example virtual network that is used in this article is named **vnet-1**.
+
+  - The example subnet is named **subnet-1**.
+
+  - The example NAT gateway is named **nat-gateway**.
+
+- [Installation and configuration of Terraform](/azure/developer/terraform/quickstart-configure).
+
 ---
 
 ## Create a NAT gateway and associate it with an existing subnet
 
-You can create a NAT gateway resource and add it to an existing subnet by using the Azure portal, Azure PowerShell, Azure CLI, or Bicep.
+You can create a NAT gateway resource and add it to an existing subnet by using the Azure portal, Azure PowerShell, Azure CLI, Bicep, or Terraform.
 
 # [**Azure portal**](#tab/manage-nat-portal)
 
@@ -421,6 +435,100 @@ resource updatedSubnet 'Microsoft.Network/virtualNetworks/subnets@2024-05-01' = 
 }
 ```
 
+# [**Terraform**](#tab/manage-nat-terraform)
+
+### Public IP address
+
+To create a NAT gateway with a public IP address, create a file named *main.tf* with the following Terraform configuration. The configuration creates a StandardV2 public IP address, a StandardV2 NAT gateway, and associates the NAT gateway with an existing subnet.
+
+> [!NOTE]
+> The `zones` argument must be omitted when `sku_name` is set to `StandardV2`. StandardV2 NAT gateways are zone-redundant by default.
+
+```hcl
+resource "azurerm_public_ip" "nat" {
+  name                = "public-ip-nat"
+  location            = "eastus2"
+  resource_group_name = "test-rg"
+  allocation_method   = "Static"
+  sku                 = "StandardV2"
+  sku_tier            = "Regional"
+  ip_version          = "IPv4"
+  zones               = ["1", "2", "3"]
+}
+
+resource "azurerm_nat_gateway" "nat" {
+  name                    = "nat-gateway"
+  location                = "eastus2"
+  resource_group_name     = "test-rg"
+  sku_name                = "StandardV2"
+  idle_timeout_in_minutes = 4
+}
+
+resource "azurerm_nat_gateway_public_ip_association" "nat" {
+  nat_gateway_id       = azurerm_nat_gateway.nat.id
+  public_ip_address_id = azurerm_public_ip.nat.id
+}
+
+data "azurerm_subnet" "subnet" {
+  name                 = "subnet-1"
+  virtual_network_name = "vnet-1"
+  resource_group_name  = "test-rg"
+}
+
+resource "azurerm_subnet_nat_gateway_association" "subnet" {
+  subnet_id      = data.azurerm_subnet.subnet.id
+  nat_gateway_id = azurerm_nat_gateway.nat.id
+}
+```
+
+### Public IP prefix
+
+To create a NAT gateway with a public IP prefix, create a file named *main.tf* with the following Terraform configuration.
+
+```hcl
+resource "azurerm_public_ip_prefix" "nat" {
+  name                = "public-ip-prefix-nat"
+  location            = "eastus2"
+  resource_group_name = "test-rg"
+  prefix_length       = 31
+  sku                 = "StandardV2"
+  ip_version          = "IPv4"
+  zones               = ["1", "2", "3"]
+}
+
+resource "azurerm_nat_gateway" "nat" {
+  name                    = "nat-gateway"
+  location                = "eastus2"
+  resource_group_name     = "test-rg"
+  sku_name                = "StandardV2"
+  idle_timeout_in_minutes = 4
+}
+
+resource "azurerm_nat_gateway_public_ip_prefix_association" "nat" {
+  nat_gateway_id      = azurerm_nat_gateway.nat.id
+  public_ip_prefix_id = azurerm_public_ip_prefix.nat.id
+}
+
+data "azurerm_subnet" "subnet" {
+  name                 = "subnet-1"
+  virtual_network_name = "vnet-1"
+  resource_group_name  = "test-rg"
+}
+
+resource "azurerm_subnet_nat_gateway_association" "subnet" {
+  subnet_id      = data.azurerm_subnet.subnet.id
+  nat_gateway_id = azurerm_nat_gateway.nat.id
+}
+```
+
+Run the following commands to deploy the configuration:
+
+```terraform
+terraform init
+terraform plan
+terraform apply
+```
+
 ---
 
 ## Remove a NAT gateway from an existing subnet and delete the resource
@@ -545,6 +653,27 @@ resource updatedSubnet 'Microsoft.Network/virtualNetworks/subnets@2024-05-01' = 
     addressPrefix: vnet.properties.subnets[0].properties.addressPrefix
   }
 }
+```
+
+# [**Terraform**](#tab/manage-nat-terraform)
+
+To remove a NAT gateway from a subnet and delete the resource, remove the `azurerm_subnet_nat_gateway_association`, `azurerm_nat_gateway`, and any associated public IP resources from your Terraform configuration, then apply the changes.
+
+If you only want to remove the NAT gateway association from the subnet, remove the `azurerm_subnet_nat_gateway_association` resource from your configuration:
+
+```hcl
+# Remove this resource block from your configuration to disassociate the NAT gateway from the subnet
+# resource "azurerm_subnet_nat_gateway_association" "subnet" {
+#   subnet_id      = data.azurerm_subnet.subnet.id
+#   nat_gateway_id = azurerm_nat_gateway.nat.id
+# }
+```
+
+To delete the NAT gateway and all its associations, remove the NAT gateway and all association resource blocks from your configuration. Run the following commands to apply the changes:
+
+```terraform
+terraform plan
+terraform apply
 ```
 
 ---
@@ -736,6 +865,43 @@ az network nat gateway update \
 
 Use the Azure portal, Azure PowerShell, or Azure CLI to add or remove a public IP address from a NAT gateway.
 
+# [**Terraform**](#tab/manage-nat-terraform)
+
+### Add public IP address
+
+To add a public IP address to the NAT gateway, add a new `azurerm_public_ip` resource and a new `azurerm_nat_gateway_public_ip_association` resource to your Terraform configuration.
+
+In this example, the existing public IP address associated with the NAT gateway is named **public-ip-nat**.
+
+```hcl
+resource "azurerm_public_ip" "nat2" {
+  name                = "public-ip-nat2"
+  location            = "eastus2"
+  resource_group_name = "test-rg"
+  allocation_method   = "Static"
+  sku                 = "StandardV2"
+  sku_tier            = "Regional"
+  ip_version          = "IPv4"
+  zones               = ["1", "2", "3"]
+}
+
+resource "azurerm_nat_gateway_public_ip_association" "nat2" {
+  nat_gateway_id       = azurerm_nat_gateway.nat.id
+  public_ip_address_id = azurerm_public_ip.nat2.id
+}
+```
+
+### Remove public IP address
+
+To remove a public IP address from the NAT gateway, remove the corresponding `azurerm_nat_gateway_public_ip_association` resource block from your configuration. You can also remove the `azurerm_public_ip` resource if it's no longer needed.
+
+Run the following commands to apply the changes:
+
+```terraform
+terraform plan
+terraform apply
+```
+
 ---
 
 ## Add or remove a public IP prefix
@@ -921,6 +1087,42 @@ az network nat gateway update \
 # [**Bicep**](#tab/manage-nat-bicep)
 
 Use the Azure portal, Azure PowerShell, or Azure CLI to add or remove a public IP prefix from a NAT gateway.
+
+# [**Terraform**](#tab/manage-nat-terraform)
+
+### Add public IP prefix
+
+To add a public IP prefix to the NAT gateway, add a new `azurerm_public_ip_prefix` resource and a new `azurerm_nat_gateway_public_ip_prefix_association` resource to your Terraform configuration.
+
+In this example, the existing public IP prefix associated with the NAT gateway is named **public-ip-prefix-nat**.
+
+```hcl
+resource "azurerm_public_ip_prefix" "nat2" {
+  name                = "public-ip-prefix-nat2"
+  location            = "eastus2"
+  resource_group_name = "test-rg"
+  prefix_length       = 31
+  sku                 = "StandardV2"
+  ip_version          = "IPv4"
+  zones               = ["1", "2", "3"]
+}
+
+resource "azurerm_nat_gateway_public_ip_prefix_association" "nat2" {
+  nat_gateway_id      = azurerm_nat_gateway.nat.id
+  public_ip_prefix_id = azurerm_public_ip_prefix.nat2.id
+}
+```
+
+### Remove public IP prefix
+
+To remove a public IP prefix from the NAT gateway, remove the corresponding `azurerm_nat_gateway_public_ip_prefix_association` resource block from your configuration. You can also remove the `azurerm_public_ip_prefix` resource if it's no longer needed.
+
+Run the following commands to apply the changes:
+
+```terraform
+terraform plan
+terraform apply
+```
 
 ---
 

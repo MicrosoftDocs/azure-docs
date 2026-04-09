@@ -89,7 +89,7 @@ items:
         href: high-availability-zones.md
       - name: Configuration options to minimize network latency with SAP applications
         href: proximity-placement-scenarios.md
-      - name: Public endpoint connectivity with Azure Load Balancer
+      - name: Outbound connectivity for SAP VMs
         href: high-availability-guide-standard-load-balancer-outbound-connections.md
       - name: HANA
         items:

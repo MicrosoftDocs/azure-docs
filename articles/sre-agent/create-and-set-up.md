@@ -46,7 +46,7 @@ To define your agent, fill in the fields.
 | **Model provider** | Choose the AI model provider for your agent | See provider table |
 | **Application Insights** | Create a new instance or use an existing one | `Create new` (default) |
 
-After you select a region, the **Model provider** field appears. Choose the AI provider that powers your agent's investigations and conversations. Organizations with EU data residency requirements should select Azure OpenAI—Anthropic is excluded from EU Data Boundary (EUDB) commitments. Anthropic (Claude) models require a direct Anthropic agreement and aren't available to all tenants.
+After you select a region, the **Model provider** field appears. Choose the AI provider that powers your agent's investigations and conversations. Select the ℹ icon next to the label for [pricing details](pricing-billing.md). Organizations with EU data residency requirements should select Azure OpenAI—Anthropic is excluded from EU Data Boundary (EUDB) commitments. Anthropic (Claude) models require a direct Anthropic agreement and aren't available to all tenants.
 
 | Provider | Description |
 |----------|-------------|

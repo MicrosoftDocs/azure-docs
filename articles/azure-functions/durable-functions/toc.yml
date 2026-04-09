@@ -20,7 +20,7 @@
   - name: About Azure Functions
     href: ../functions-overview.md?toc=/azure/azure-functions/durable-functions/toc.json
   - name: About Agent Framework & Durable Functions integration
-    href: /azure/agent-framework/integrations/azure-functions?tabs=bash&pivots=programming-language-csharp
+    href: /agent-framework/integrations/azure-functions?tabs=bash&pivots=programming-language-csharp
 - name: Quickstarts
   items:
   - name: Create a Durable Functions app (C#)
@@ -207,3 +207,11 @@
     href: https://www.youtube.com/results?search_query=azure+durable+functions
   - name: GitHub
     href: https://github.com/Azure/azure-functions-durable-extension
+- name: Related documentation
+  items:
+  - name: Durable Task SDKs >
+    href: /azure/durable-task/sdks/index
+  - name: Durable Task Scheduler >
+    href: /azure/durable-task/scheduler/index
+  - name: What is Durable Task? >
+    href: /azure/durable-task/common/what-is-durable-task

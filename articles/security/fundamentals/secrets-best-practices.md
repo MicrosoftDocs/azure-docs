@@ -104,7 +104,7 @@ Individual services may have additional best practices and guidance for protecti
 - Machine Learning Service: [Use authentication credential secrets in Azure Machine Learning jobs](/azure/machine-learning/how-to-use-secrets-in-runs)
 - Service Fabric: [KeyVaultReference support for Service Fabric applications](/azure/service-fabric/service-fabric-keyvault-references)
 - SQL IaaS: [Configure Azure Key Vault integration for SQL Server on Azure VMs (Resource Manager)](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure)
-- Storage: [Manage storage account keys with Key Vault and the Azure CLI](/azure/key-vault/secrets/overview-storage-keys)
+- Storage: [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access)
 
 ## Next steps
 

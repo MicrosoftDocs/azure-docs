@@ -1102,7 +1102,7 @@ Lets you manage classic storage accounts, but not access to them.
 
 Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts
 
-[Learn more](/azure/key-vault/secrets/overview-storage-keys)
+[Learn more](/azure/storage/common/authorize-data-access)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

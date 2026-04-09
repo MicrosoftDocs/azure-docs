@@ -54,6 +54,8 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * When you revert a source volume that has an active volume replication relationship, only snapshots dated more recently than the SnapMirror snapshot can be used in the revert operation. For more information, see [Revert a volume by using snapshot revert with Azure NetApp Files](snapshots-revert-volume.md).
 
+* If the source volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail. To prevent overfilling the destination volume, add 20% extra capacity when creating the data protection volume. To prevent overprovisioning, you can reduce the volume size after the initial replication completes.
+
 ## Cross-region replication requirements and considerations
 
 * Azure NetApp Files replication is only available in specific fixed region pairs. For more information, see [Supported cross-region replication pairs](#supported-region-pairs).
@@ -74,7 +76,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * If you use the cool access feature, understand the considerations in [Manage Azure NetApp Files storage with cool access](manage-cool-access.md#considerations).
 
-* If the volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail, depending on the rate of data changes. 
+* If the source volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail. To prevent overfilling the destination volume, add 20% extra capacity when creating the data protection volume. To prevent overprovisioning, you can reduce the volume size after the initial replication completes.
 
 ### <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 

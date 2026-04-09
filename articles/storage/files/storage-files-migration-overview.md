@@ -4,7 +4,7 @@ description: Learn how to migrate to SMB Azure file shares and choose from a tab
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 08/28/2025
+ms.date: 04/09/2026
 ms.author: kendownie
 # Customer intent: "As a system administrator, I want to understand the migration process to SMB Azure file shares, so that I can efficiently move our data with full fidelity and select the appropriate tools for a seamless transition to cloud storage."
 ---
@@ -75,13 +75,32 @@ The following table lists supported metadata for Azure Files.
 
 ## Discovery phase
 
-The first phase of a migration is the discovery phase, in which you determine all the existing SMB file shares that need to be migrated, including their size, number, and any dependencies. This can be a difficult and time consuming task, especially for organizations with large, distributed environments. For customers with more than 100 TiB of file data, we recommend using Komprise, a third-party tool that can help you discover and analyze your file shares. For more information, see [Komprise File Migration](https://www.komprise.com/azure-file-migration/).
+The first phase of a migration is the discovery phase, in which you determine all the existing SMB file shares that need to be migrated, including their size, number, and any dependencies. This can be a difficult and time consuming task, especially for organizations with large, distributed environments.
+
+### Azure Migrate file share discovery
+
+If you've already deployed an [Azure Migrate](/azure/migrate/migrate-services-overview) appliance for server migration, you can use it to discover file shares without any additional setup. The appliance automatically identifies existing SMB and NFS shares on both Windows and Linux servers and displays them in the Azure Migrate portal.
+
+You can view discovered file shares in two ways:
+
+- **Per-server view:** Select a specific server to see all the file shares hosted on that operating system.
+- **Infrastructure view:** Navigate to the infrastructure view to see all discovered file shares across all servers in a hierarchical inventory. Select an individual share to see details such as the volume, file system path, and approximate size.
+
+### Third-party discovery tools
+
+For customers with more than 100 TiB of file data, we recommend using Komprise, a third-party tool that can help you discover and analyze your file shares. For more information, see [Komprise File Migration](https://www.komprise.com/azure-file-migration/).
 
 Keep in mind that your existing SMB file shares might not be limited to on-premises Windows Servers. They could be on Linux servers, in the cloud, or on external NAS devices.
 
 ## Assessment phase
 
 After discovery comes the assessment phase, which involves understanding available options for file storage, deploying the Azure resources you'll need, and preparing to use Azure file shares.
+
+### Azure Migrate file share assessment
+
+If you used [Azure Migrate](/azure/migrate/migrate-services-overview) to discover your file shares, you can also use it to create assessments. Select one or more discovered shares and create an assessment. For each share, Azure Migrate evaluates IOPS, throughput, size, capacity, and regional availability to determine a readiness state: **ready**, **ready with conditions**, or **not ready**. It then recommends a target configuration, prioritizing migration to Azure Files as a modernization path. If Azure Files isn't suitable for a particular share, the assessment falls back to recommending an Azure VM-based path.
+
+You can also create a business case from the assessment to compare the cost of running your file shares on-premises versus migrating them to Azure Files, helping you make a data-driven decision.
 
 ### Deploy Azure storage resources
 
@@ -209,7 +228,7 @@ This section describes tools that help you plan and run migrations.
 
 #### Azure Storage Mover
 
-Azure Storage Mover is a relatively new, fully managed migration service that enables you to migrate files and folders to SMB Azure file shares with the same level of file fidelity as the underlying Azure file share. Folder structure and metadata values such as file and folder timestamps, ACLs, and file attributes are maintained. To learn how to use Azure Storage Mover with Azure Files, see [Migrate to SMB Azure file shares using Azure Storage Mover](migrate-files-storage-mover.md).
+Azure Storage Mover is a relatively new, fully managed migration service that enables you to migrate files and folders to SMB Azure file shares with the same level of file fidelity as the underlying Azure file share. Folder structure and metadata values such as file and folder timestamps, ACLs, and file attributes are maintained. See [Migrate to Azure file shares using Azure Storage Mover](migrate-files-storage-mover.md).
 
 #### RoboCopy
 
@@ -230,12 +249,9 @@ To learn more, see [Comparison Matrix for Azure Storage Migration Program partic
 
 Azure File Sync scales primarily with the number of items (files and folders) and not with the total storage amount. The TreeSize tool lets you determine the number of items on your Windows Server volumes.
 
-You can use the tool to create a perspective before an [Azure File Sync deployment](../file-sync/file-sync-deployment-guide.md). You can also use it when cloud tiering is engaged after deployment. In that scenario, you see the number of items and which directories use your server cache the most.
-
-The tested version of the tool is version 4.4.1. It's compatible with cloud-tiered files. The tool won't cause recall of tiered files during its normal operation.
+You can use the tool to create a perspective before an [Azure File Sync deployment](../file-sync/file-sync-deployment-guide.md). You can also use it when cloud tiering is engaged after deployment. In that scenario, you see the number of items and which directories use your server cache the most. The tool won't cause recall of tiered files during its normal operation.
 
 ## See also
 
-- [Azure file share overview](storage-files-introduction.md)
+- [Azure Files overview](storage-files-introduction.md)
 - [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
-- [Azure File Sync: Cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md)
