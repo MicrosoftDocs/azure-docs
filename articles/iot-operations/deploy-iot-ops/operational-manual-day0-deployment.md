@@ -394,7 +394,7 @@ az connectedk8s show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --que
 
 If your Kubernetes environment requires a proxy for outgoing Internet connections, make sure to pass the `--proxy-http`, `--proxy-https`, `--proxy-skip-range`, and `--proxy-cert` arguments to the `az connectedk8s connect` command. These arguments will be provided to all installed components.
 - `--proxy-http` and `--proxy-https` are the proxy URLs. The expected format is `http(s)://<username>:<password>@proxy-url:port`
-- `--proxy-skip-range` is a comma-separated list of IP addresses or DNS names that should not use the proxy
+- `--proxy-skip-range` is a comma-separated list of IP addresses or DNS names that should not use the proxy. Generally, it makes sense to exclude endpoints on the same Kubernetes cluster from the proxy (for example, `--proxy-skip-range "kubernetes.default.svc,10.0.0.0/8"`, assuming the cluster is using `10.0.0.0/8` as addresses for pods)
 - `--proxy-cert` is a list of PEM-encoded certificates, which will be added as trusted CA certificates for all outgoing connections
 
 #### Configure K3s for Workload Identity
