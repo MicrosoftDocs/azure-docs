@@ -17,6 +17,14 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## April 2026
+### FHIR service
+
+**Improved processing for custom search parameters in bundles**: Implemented validation to detect and prevent conflicting search parameters within bundle requests to help improve search parameter processing. Error messages are returned in case conflicts are found, including:
+  - "Input search parameters have duplicate codes" when multiple search parameters use the same code on overlapping resource types.
+  - "Input search parameters have duplicate Urls" when multiple search parameters have identical URLs.
+  - "Input search parameters have duplicate codes and Urls" when the bundle has both types of conflicts.
+
 ## March 2026
 ### FHIR service
 **Token search behavior update**: After 2 March 2026, the Azure FHIR service was updated so that token values longer than 128 characters are no longer truncated during indexing. If your workspace is affected, you may notice changes in the number of resources returned for token-based queries, along with improved overall query performance. The goal for this update is to improve search behavior accuracy and strengthen service reliability. An Azure service notification was sent to affected accounts with more details.

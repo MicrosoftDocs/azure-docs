@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 # Configure object REST API for Azure NetApp Files (preview)
 
-Azure NetApp Files supports access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API, you can connect to services such as Azure AI Search, Microsoft Fabric, Microsoft Foundry, Azure Databricks, OneLake, and other S3‑compatible clients.
+Azure NetApp Files supports access to objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API, you can connect to services such as Azure AI Search, Microsoft Fabric, Microsoft Foundry, Azure Databricks, OneLake, and other S3‑compatible clients.
 
 This article describes how to configure object REST API access and walks you through the two supported certificate workflows. Choose the workflow that best matches your security and operational requirements.
 

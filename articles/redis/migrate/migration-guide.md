@@ -9,6 +9,10 @@ ms.custom:
 ai-usage: ai-assisted
 appliesto:
     - ✅ Azure Managed Redis
+ms.collection:
+  - migration
+  - aws-to-azure
+  - onprem-to-azure
 ---
 # Migrate to Azure Managed Redis from other caches
 
