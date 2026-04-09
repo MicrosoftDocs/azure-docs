@@ -138,10 +138,10 @@
           href: network-security-perimeter-diagnostic-logs.md
 - name: Troubleshoot
   items:
-    - name: Troubleshoot private endpoint connectivity problems
-      href: troubleshoot-private-endpoint-connectivity.md
-    - name: Troubleshoot Private Link service connectivity problems
-      href: troubleshoot-private-link-connectivity.md
+    - name: Troubleshoot Azure Private Link
+      href: /troubleshoot/azure/private-link/welcome-azure-private-link?toc=/azure/private-link/TOC.json
+- name: Support and troubleshooting
+  href: private-link-support-help.md
 - name: Reference
   items:
     - name: The Azure CLI

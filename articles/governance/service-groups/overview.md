@@ -12,11 +12,41 @@ ms.custom:
 
 # What are Azure Service Groups?
 
-Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They're ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and important facts.
+Azure Service Groups let you create flexible, custom groupings of your Azure resources — across subscriptions and resource groups — without changing your existing resource hierarchy. Think of them as a way to build virtual folders of resources for specific teams, projects, or workloads, giving each group its own view and access controls with minimal permissions.
+
+Service Groups are ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and important facts.
 
 > [!IMPORTANT]
 > Azure Service Groups is currently in public preview. 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+## Why use Service Groups?
+
+Service Groups solve a common challenge: your Azure resource hierarchy (Management Groups → Subscriptions → Resource Groups) may not reflect how your teams actually work. For example:
+
+- A **platform team** needs to see all networking resources across dozens of subscriptions.
+- A **project lead** wants a single dashboard for resources spanning production, staging, and development environments.
+- A **compliance officer** needs to track a set of regulated resources regardless of where they live.
+
+With Service Groups, you can create these views without reorganizing your subscriptions or requesting broad permissions. Resources can belong to **multiple** service groups simultaneously, and access on service groups doesn't grant access to the underlying resources.
+
+### When to use Service Groups vs. other groupings
+
+| Feature | Service Groups | Management Groups | Resource Groups | Tags |
+|---|---|---|---|---|
+| **Purpose** | Flexible cross-boundary views and data aggregation | Governance hierarchy and policy inheritance | Resource lifecycle management | Metadata labeling |
+| **Scope** | Resources, resource groups, and subscriptions | Subscriptions only | Resources within one subscription | Individual resources |
+| **Multiple membership** | Yes — a resource can belong to many service groups | No — one parent only | No — one resource group only | Yes — multiple tags per resource |
+| **Permission inheritance** | Only between parent/child service groups | Yes — to subscriptions and resources | Yes — to resources | No |
+| **Cross-subscription** | Yes | N/A (above subscription level) | No | Yes (if applied manually) |
+
+Use **Service Groups** when you need to create views across multiple subscriptions without affecting governance policies. Use **Management Groups** for applying policies and RBAC across subscriptions. Use **Resource Groups** for managing the lifecycle of closely related resources. Use **Tags** for metadata and cost allocation.
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- To create a service group under the root, you need permissions at the tenant level. See [The Root Service Group](#the-root-service-group) for details on elevating access.
+- Review the [Role Based Access Controls](#role-based-access-controls) section to understand which built-in roles are available.
 
 
 ## Key capabilities

@@ -15,7 +15,7 @@ This quickstart describes how to troubleshoot Azure Resource Manager template (A
 There are three types of errors that are related to a deployment:
 
 - **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. A code editor like Visual Studio Code can identify these errors.
-- **Preflight validation errors** occur when a deployment command is run but resources aren't deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in preflight validation.
+- **Preflight validation errors** occur when a deployment command is run but resources aren't deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in [preflight validation](../bicep/deploy-preflight.md).
 - **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress in your Azure environment.
 
 All types of errors return an error code that you use to troubleshoot the deployment. Validation and preflight errors are shown in the activity log but don't appear in your deployment history.

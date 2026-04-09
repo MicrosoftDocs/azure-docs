@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 03/08/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -598,123 +598,6 @@ Azure service: [Batch](/azure/batch/)
 > | `Microsoft.Batch/batchAccounts/jobSchedules/read` | Lists job schedules on a Batch account or gets the properties of a job schedule |
 > | `Microsoft.Batch/batchAccounts/jobSchedules/write` | Creates a new job schedule on a Batch account or updates an existing job schedule |
 > | `Microsoft.Batch/batchAccounts/jobSchedules/delete` | Deletes a job schedule from a Batch account |
-
-## Microsoft.ClassicCompute
-
-Azure service: Classic deployment model virtual machine
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | `Microsoft.ClassicCompute/register/action` | Register to Classic Compute |
-> | `Microsoft.ClassicCompute/checkDomainNameAvailability/action` | Checks the availability of a given domain name. |
-> | `Microsoft.ClassicCompute/moveSubscriptionResources/action` | Move all classic resources to a different subscription. |
-> | `Microsoft.ClassicCompute/validateSubscriptionMoveAvailability/action` | Validate the subscription's availability for classic move operation. |
-> | `Microsoft.ClassicCompute/capabilities/read` | Shows the capabilities |
-> | `Microsoft.ClassicCompute/checkDomainNameAvailability/read` | Gets the availability of a given domain name. |
-> | `Microsoft.ClassicCompute/domainNames/read` | Return the domain names for resources. |
-> | `Microsoft.ClassicCompute/domainNames/write` | Add or modify the domain names for resources. |
-> | `Microsoft.ClassicCompute/domainNames/delete` | Remove the domain names for resources. |
-> | `Microsoft.ClassicCompute/domainNames/swap/action` | Swaps the staging slot to the production slot. |
-> | `Microsoft.ClassicCompute/domainNames/active/write` | Sets the active domain name. |
-> | `Microsoft.ClassicCompute/domainNames/availabilitySets/read` | Show the availability set for the resource. |
-> | `Microsoft.ClassicCompute/domainNames/capabilities/read` | Shows the domain name capabilities |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/read` | Shows the deployment slots. |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/write` | Creates or update the deployment. |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read` | Get role on deployment slot of domain name |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read` | Get role instance for role on deployment slot of domain name |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/state/read` | Get the deployment slot state. |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/state/write` | Add the deployment slot state. |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read` | Get upgrade domain for deployment slot on domain name |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write` | Update upgrade domain for deployment slot on domain name |
-> | `Microsoft.ClassicCompute/domainNames/extensions/read` | Returns the domain name extensions. |
-> | `Microsoft.ClassicCompute/domainNames/extensions/write` | Add the domain name extensions. |
-> | `Microsoft.ClassicCompute/domainNames/extensions/delete` | Remove the domain name extensions. |
-> | `Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read` | Reads the operation status for the domain names extensions. |
-> | `Microsoft.ClassicCompute/domainNames/internalLoadBalancers/read` | Gets the internal load balancers. |
-> | `Microsoft.ClassicCompute/domainNames/internalLoadBalancers/write` | Creates a new internal load balance. |
-> | `Microsoft.ClassicCompute/domainNames/internalLoadBalancers/delete` | Remove a new internal load balance. |
-> | `Microsoft.ClassicCompute/domainNames/internalLoadBalancers/operationStatuses/read` | Reads the operation status for the domain names internal load balancers. |
-> | `Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/read` | Get the load balanced endpoint sets. |
-> | `Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/write` | Add the load balanced endpoint set. |
-> | `Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/operationStatuses/read` | Reads the operation status for the domain names load balanced endpoint sets. |
-> | `Microsoft.ClassicCompute/domainNames/operationstatuses/read` | Get operation status of the domain name. |
-> | `Microsoft.ClassicCompute/domainNames/operationStatuses/read` | Reads the operation status for the domain names extensions. |
-> | `Microsoft.ClassicCompute/domainNames/serviceCertificates/read` | Returns the service certificates used. |
-> | `Microsoft.ClassicCompute/domainNames/serviceCertificates/write` | Add or modify the service certificates used. |
-> | `Microsoft.ClassicCompute/domainNames/serviceCertificates/delete` | Delete the service certificates used. |
-> | `Microsoft.ClassicCompute/domainNames/serviceCertificates/operationStatuses/read` | Reads the operation status for the domain names service certificates. |
-> | `Microsoft.ClassicCompute/domainNames/slots/read` | Shows the deployment slots. |
-> | `Microsoft.ClassicCompute/domainNames/slots/write` | Creates or update the deployment. |
-> | `Microsoft.ClassicCompute/domainNames/slots/delete` | Deletes a given deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/start/action` | Starts a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/stop/action` | Suspends the deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/validateMigration/action` | Validates migration of a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/prepareMigration/action` | Prepares migration of a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/commitMigration/action` | Commits migration of a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/abortMigration/action` | Aborts migration of a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/operationStatuses/read` | Reads the operation status for the domain names slots. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/read` | Get the role for the deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/write` | Add role for the deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/read` | Returns the extension reference for the deployment slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/write` | Add or modify the extension reference for the deployment slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/delete` | Remove the extension reference for the deployment slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/operationStatuses/read` | Reads the operation status for the domain names slots roles extension references. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/metricdefinitions/read` | Get the role metric definition for the domain name. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/metrics/read` | Get role metric for the domain name. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/operationstatuses/read` | Get the operation status for the domain names slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metrics definitions. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/downloadremotedesktopconnectionfile/action` | Downloads remote desktop connection file for the role instance on the domain name slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/read` | Get the role instance. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/restart/action` | Restarts role instances. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/reimage/action` | Reimages the role instance. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/rebuild/action` | Rebuilds the role instance. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/operationStatuses/read` | Gets the operation status for the role instance on domain names slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/skus/read` | Get role sku for the deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/state/start/write` | Changes the deployment slot state to stopped. |
-> | `Microsoft.ClassicCompute/domainNames/slots/state/stop/write` | Changes the deployment slot state to started. |
-> | `Microsoft.ClassicCompute/domainNames/slots/upgradeDomain/write` | Walk upgrade the domain. |
-> | `Microsoft.ClassicCompute/operatingSystemFamilies/read` | Lists the guest operating system families available in Microsoft Azure, and also lists the operating system versions available for each family. |
-> | `Microsoft.ClassicCompute/operatingSystems/read` | Lists the versions of the guest operating system that are currently available in Microsoft Azure. |
-> | `Microsoft.ClassicCompute/operations/read` | Gets the list of operations. |
-> | `Microsoft.ClassicCompute/operationStatuses/read` | Reads the operation status for the resource. |
-> | `Microsoft.ClassicCompute/quotas/read` | Get the quota for the subscription. |
-> | `Microsoft.ClassicCompute/resourceTypes/skus/read` | Gets the Sku list for supported resource types. |
-> | `Microsoft.ClassicCompute/virtualMachines/read` | Retrieves list of virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/write` | Add or modify virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/delete` | Removes virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/capture/action` | Capture a virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/start/action` | Start the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/redeploy/action` | Redeploys the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/performMaintenance/action` | Performs maintenance on the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/restart/action` | Restarts virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/stop/action` | Stops the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/shutdown/action` | Shutdown the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/attachDisk/action` | Attaches a data disk to a virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/detachDisk/action` | Detaches a data disk from virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/downloadRemoteDesktopConnectionFile/action` | Downloads the RDP file for virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/read` | Gets the network security group associated with the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/write` | Adds a network security group associated with the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/delete` | Deletes the network security group associated with the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/read` | Reads the operation status for the virtual machines associated network security groups. |
-> | `Microsoft.ClassicCompute/virtualMachines/asyncOperations/read` | Gets the possible async operations |
-> | `Microsoft.ClassicCompute/virtualMachines/diagnosticsettings/read` | Get virtual machine diagnostics settings. |
-> | `Microsoft.ClassicCompute/virtualMachines/disks/read` | Retrieves list of data disks |
-> | `Microsoft.ClassicCompute/virtualMachines/extensions/read` | Gets the virtual machine extension. |
-> | `Microsoft.ClassicCompute/virtualMachines/extensions/write` | Puts the virtual machine extension. |
-> | `Microsoft.ClassicCompute/virtualMachines/extensions/operationStatuses/read` | Reads the operation status for the virtual machines extensions. |
-> | `Microsoft.ClassicCompute/virtualMachines/metricdefinitions/read` | Get the virtual machine metric definition. |
-> | `Microsoft.ClassicCompute/virtualMachines/metrics/read` | Gets the metrics. |
-> | `Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/read` | Gets the network security group associated with the network interface. |
-> | `Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write` | Adds a network security group associated with the network interface. |
-> | `Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/delete` | Deletes the network security group associated with the network interface. |
-> | `Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/operationStatuses/read` | Reads the operation status for the virtual machines associated network security groups. |
-> | `Microsoft.ClassicCompute/virtualMachines/operationStatuses/read` | Reads the operation status for the virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metrics definitions. |
 
 ## Microsoft.Compute
 

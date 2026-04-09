@@ -117,8 +117,10 @@
           href: traffic-manager-subnet-override-powershell.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot degraded state on Azure Traffic Manager
-          href: traffic-manager-troubleshooting-degraded.md
+        - name: Troubleshoot Azure Traffic Manager
+          href: /troubleshoot/azure/traffic-manager/welcome-azure-traffic-manager?toc=/azure/traffic-manager/TOC.json
+- name: Support and troubleshooting
+  href: traffic-manager-support-help.md
 - name: Reference
   items:
     - name: Code samples

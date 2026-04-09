@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/dns/dns-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/dns/troubleshoot-dns",
+            "redirect_document_id": false
+        }
+    ]
+}

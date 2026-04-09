@@ -78,7 +78,7 @@ Azure CLI version **2.76.0 or later** introduces the `--validation-level` switch
 
 - **Provider** (default): Performs full validation, including template syntax, resource definitions, dependencies, and permission checks to ensure you have sufficient permissions to deploy all resources in the template. 
 - **ProviderNoRbac**: Performs full validation of the template and resources, similar to Provider, but only checks for read permissions on each resource instead of full deployment permissions. This is useful when you want to validate resource configurations without requiring full access.
-- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
+- **Template**: Performs static validation only, checking template syntax and structure while skipping [preflight checks](./deploy-preflight.md) (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
 
 You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
@@ -104,7 +104,7 @@ Azure PowerShell version **13.4.0 or later** introduces the `-ValidationLevel` s
 
 - **Provider** (default): Performs full validation, including template syntax, resource definitions, dependencies, and permission checks to ensure you have sufficient permissions to deploy all resources in the template.
 - **ProviderNoRbac**: Performs full validation of the template and resources, similar to Provider, but only checks for read permissions on each resource instead of full deployment permissions. This is useful when you want to validate resource configurations without requiring full access.
-- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
+- **Template**: Performs static validation only, checking template syntax and structure while skipping [preflight checks](./deploy-preflight.md) (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
 
 You can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
 

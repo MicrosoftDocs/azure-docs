@@ -26,6 +26,7 @@ The listed features were released in the last six months. For information about 
 - [Build custom security graphs (Preview)](#build-custom-graphs-preview)
 - [Entity analyzer is now generally available](#entity-analyzer-is-now-generally-available)
 - [AI-powered SIEM migration tool is now generally available](#ai-powered-siem-migration-tool-is-now-generally-available)
+- [Configure row-level access using Microsoft Sentinel scoping (Preview)](#configure-row-level-access-using-microsoft-sentinel-scoping-preview)
 
 ### Microsoft Sentinel data federation (Preview)
 Powered by Microsoft Fabric, Microsoft Sentinel data federation lets you analyze security data where it already lives, without copying or duplicating it. You can federate data from Microsoft Fabric, Azure Data Lake Storage, and Azure Databricks into Microsoft Sentinel data lake, then use familiar Microsoft Sentinel experiences like KQL, notebooks, and custom graphs across both federated and native data.
@@ -53,6 +54,9 @@ After creating your custom graphs, you can access them in the graphs section of 
 
 ### AI-powered SIEM migration tool is now generally available
 Accelerate migrations to Microsoft Sentinel from Splunk and QRadar using an AI-assisted SIEM migration experience designed to reduce manual effort and speed time-to-value. For more information, see [Migrate to Microsoft Sentinel with the SIEM migration experience](siem-migration.md).
+
+### Configure row-level access using Microsoft Sentinel scoping (Preview)
+Microsoft Sentinel now supports scoping (row-level RBAC) to control access to specific subsets of Sentinel data without requiring workspace separation. Administrators can define logical scopes, tag data at ingestion time, and assign users or groups to scopes using Unified RBAC, enabling multiple teams to work securely within a shared Sentinel environment. Scoping is configured in the Microsoft Defender portal. For more information see [Configure Microsoft Sentinel scoping (row-level RBAC)](./scoping.md).
 
 
 ## March 2026

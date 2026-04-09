@@ -99,9 +99,9 @@ After you select an initial download option, you can't change it after you confi
 
 ### File download behavior once initial download completes
 
-How files appear on the server after initial download finishes depends on your use of the cloud tiering feature and whether or not you opted to [proactively recall changes in the cloud](file-sync-cloud-tiering-overview.md#proactive-recalling). The latter is a feature useful for sync groups with multiple server endpoints in different geographic locations.
+How files appear on the server after initial download finishes depends on your use of the cloud tiering feature and whether or not you opted to [proactively recall changes in the cloud](file-sync-cloud-tiering-overview.md#proactive-recall). The latter is a feature useful for sync groups with multiple server endpoints in different geographic locations.
 
-* **Cloud tiering is enabled** </br> New and changed files from other server endpoints will appear as tiered files on this server endpoint. These changes will only come down as full files if you opted for [proactive recall](file-sync-cloud-tiering-overview.md#proactive-recalling) of changes in the Azure file share by other server endpoints.
+* **Cloud tiering is enabled** </br> New and changed files from other server endpoints will appear as tiered files on this server endpoint. These changes will only come down as full files if you opted for [proactive recall](file-sync-cloud-tiering-overview.md#proactive-recall) of changes in the Azure file share by other server endpoints.
 *  **Cloud tiering is disabled** </br> New and changed files from other server endpoints will appear as full files on this server endpoint. They won't appear as tiered files first and then recalled. Tiered files with cloud tiering off are a fast disaster recovery feature and appear only during initial provisioning.
 
 ### Provisioning steps

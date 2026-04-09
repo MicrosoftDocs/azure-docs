@@ -1,0 +1,19 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/nat-gateway/troubleshoot-nat.md",
+            "redirect_url": "/troubleshoot/azure/nat-gateway/troubleshoot-nat",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/nat-gateway/troubleshoot-nat-and-azure-services.md",
+            "redirect_url": "/troubleshoot/azure/nat-gateway/troubleshoot-nat-and-azure-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/nat-gateway/troubleshoot-nat-connectivity.md",
+            "redirect_url": "/troubleshoot/azure/nat-gateway/troubleshoot-nat-connectivity",
+            "redirect_document_id": false
+        }
+    ]
+}
