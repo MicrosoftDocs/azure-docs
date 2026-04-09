@@ -1,55 +1,54 @@
 ---
-title: Start and stop SAP and underlying VMs
-description: Learn how to Stop and Start SAP and underlying VMs through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions.
+title: Start and stop SAP systems, instances, HANA database, and underlying VMs
+description: Learn how to start and stop SAP systems, individual SAP instances, and HANA databases along with their underlying virtual machines. Use the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions to manage these operations through REST API calls.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 04/09/2026
 ms.author: kanamudu
 author: kalyaninamuduri
-#Customer intent: As a developer, I want to start and stop SAP systems including VMs when they are not needed to be run.
 # Customer intent: As an SAP system administrator, I want to efficiently start and stop SAP systems and their underlying VMs in Azure, so that I can manage system resources and optimize costs based on usage.
 ---
 
-# Start and Stop SAP systems, instances, HANA database and their underlying Virtual machines
-In this how-to guide, you'll learn how to start and stop SAP systems and their underlying virtual machines through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions. This simplifies the process to stop and start SAP systems by shutting down and bringing up underlying infrastructure and SAP application in one command.
+# Start and stop SAP systems, instances, HANA database, and underlying virtual machines
 
-Using the [REST API](/rest/api/workloads) interfaces, you can:
+[Azure Center for SAP solutions](overview.md) lets you manage SAP systems on Azure as a unified workload. When your SAP systems aren't actively in use, for example, outside business hours or during maintenance windows, you can stop them and deallocate the underlying virtual machines (VMs) to reduce costs.
 
-- Start and stop the entire SAP application tier and its Virtual machines, which includes ABAP SAP Central Services (ASCS) and Application Server instances.
-- Start and stop a specific SAP instance, such as the application server instance, and its Virtual machines.
-- Start and stop HANA database instance and its Virtual machines.
+In this article, you use REST API calls to start and stop SAP application tiers, individual SAP instances, and HANA databases along with their VMs.
 
 > [!IMPORTANT]
-> The ability to start and stop virtual machines of an SAP system is available from API Version 2023-10-01.
+> The ability to start and stop VMs of an SAP system is available from API version 2023-10-01-preview.
 
 > [!NOTE]
-> You can schedule stop and start of SAP systems, HANA database at scale for your SAP landscapes using the [ARM template](https://aka.ms/SnoozeSAPSystems). This ARM template can be customized to suit your own requirements.
-
-## Prerequisites
-- An SAP system that you've [created in Azure Center for SAP solutions](prepare-network.md) or [registered with Azure Center for SAP solutions](register-existing-system.md).
-- Check that your Azure account has **Azure Center for SAP solutions administrator** or equivalent role access on the Virtual Instance for SAP solutions resources. You can learn more about the granular permissions that govern Start and Stop actions on the VIS, individual SAP instances and HANA Database [in this article](manage-with-azure-rbac.md#start-sap-system).
-- Check that the **User Assigned Managed Identity** associated with the VIS resource has **Virtual Machine Contributor** or equivalent role access. This is needed to be able to Start and Stop VMs.
+> Schedule stop and start of SAP systems and HANA databases at scale for your SAP landscapes by using the [scheduled start and stop ARM template](https://github.com/Azure/Azure-Center-for-SAP-solutions/tree/main/ScheduledStartandStopforSAPSystems). Customize this ARM template per your requirements.
 
 ## Unsupported scenarios
-The following scenarios are not currently supported when using the Start and Stop of SAP, individual SAP instances, HANA database and their underlying VMs:
 
-- Starting and stopping systems when multiple SIDs on the same set of Virtual Machines.
-- Starting and stopping HANA databases with MCOS (Multiple Components in One System) architecture, where multiple HANA instances run on the same set of virtual machines.
-- Starting and stopping SAP application server or central services instances where instances of multiple SIDs or multiple instances of the same SID run on the same virtual machine.
+The following scenarios aren't currently supported:
+
+- Starting and stopping systems when multiple SAP system IDs (SIDs) run on the same set of VMs.
+- Starting and stopping HANA databases with Multiple Components in One System (MCOS) architecture, where multiple HANA instances run on the same set of VMs.
+- Starting and stopping SAP application server or central services instances, where instances of multiple SIDs or multiple instances of the same SID run on the same VM.
 
 > [!IMPORTANT]
-> For single-server deployments, when you want to stop SAP, HANA DB and the VM, use stop VIS action to stop SAP application tier and then stop HANA database with 'deallocateVm' set to true. This ensures that SAP application and HANA database are both stopped before stopping the VM.
+> For single-server deployments, when you want to stop SAP, HANA database, and the VM, use the stop VIS action to stop the SAP application tier, and then stop the HANA database with `deallocateVm` set to `true`. This approach makes sure that the SAP application and HANA database are both stopped before the VM is stopped.
 
 > [!NOTE]
-> When stopping a VIS or an instance with 'DeallocateVm' option set to true, only that VIS or instance is stopped and then the virtual machine is shutdown. SAP instances of other SIDs are not stopped. Use the virtual machine stop option only after all instances running on the VM are stopped. 
+> When you stop a VIS or an instance with the `deallocateVm` option set to `true`, only that VIS or instance is stopped and then the VM is shut down. SAP instances of other SIDs aren't stopped. Use the VM stop option only after all instances running on the VM are stopped.
 
+## Prerequisites
 
-## Start and Stop SAP system and underlying Virtual machines
-You can start and stop the entire SAP application tier and underlying VMs using [REST API version 2023-10-01](/rest/api/workloads).
+- An SAP system that you [created in Azure Center for SAP solutions](prepare-network.md) or [registered with Azure Center for SAP solutions](register-existing-system.md).
+- An Azure account with **Azure Center for SAP solutions administrator** or equivalent role access on the Virtual Instance for SAP solutions (VIS) resources. For more information about the granular permissions that govern start and stop actions, see [Manage SAP resources with Azure RBAC](manage-with-azure-rbac.md#start-sap-system).
+- The **User Assigned Managed Identity** associated with the VIS resource must have **Virtual Machine Contributor** or equivalent role access to start and stop VMs.
+
+## Start and stop SAP system and underlying VMs
+
+Start and stop the entire SAP application tier and underlying VMs by using [REST API version 2023-10-01-preview](/rest/api/workloads).
 
 ### Start SAP system and its VMs
-To start the virtual machines and the SAP application on it, use the following REST API with "startVm" parameter set to true. This command starts the VMs associated with Central services instance and Application server instances.
+
+To start the VMs and the SAP application, use the following REST API with `startVm` set to `true`. This command starts the VMs associated with the Central Services instance and application server instances.
 
 ```http
 POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/start?api-version=2023-10-01-preview
@@ -60,7 +59,8 @@ POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/prov
 ```
 
 ### Stop SAP system and its VMs
-To stop the SAP application and its VMs, use the following REST API with "deallocateVm" parameter set to true.
+
+To stop the SAP application and its VMs, use the following REST API with `deallocateVm` set to `true`.
 
 ```http
 POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/stop?api-version=2023-10-01-preview
@@ -70,27 +70,36 @@ POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/prov
 }
 ```
 
-## Start and Stop HANA Database and its VMs
-You can start and stop HANA database and its underlying VMs using [REST API version 2023-10-01](/rest/api/workloads).
+## Start and stop HANA database and its VMs
+
+Start and stop the HANA database and its underlying VMs by using [REST API version 2023-10-01-preview](/rest/api/workloads).
 
 ### Start HANA database and its VMs
-To start the virtual machines and the HANA database on it, use the following REST API with "startVm" parameter set to true.
+
+To start the VMs and the HANA database, use the following REST API with `startVm` set to `true`.
 
 ```http
 POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/databaseInstances/db0/start?api-version=2023-10-01-preview
 
- {
+{
   "startVm": true
- }
+}
 ```
 
 ### Stop HANA database and its VMs
-To stop HANA database and its underlying VMs, use the following REST API with `deallocateVm` parameter set to `true`.
+
+To stop the HANA database and its underlying VMs, use the following REST API with `deallocateVm` set to `true`.
 
 ```http
 POST https://management.azure.com/subscriptions/Sub1/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/databaseInstances/db0/stop?api-version=2023-10-01-preview
 
- {
+{
   "deallocateVm": true
- }
+}
 ```
+
+## Related content
+
+- [What is Azure Center for SAP solutions?](overview.md)
+- [Monitor SAP system from the Azure portal](monitor-portal.md)
+- [Manage SAP resources with Azure RBAC](manage-with-azure-rbac.md)

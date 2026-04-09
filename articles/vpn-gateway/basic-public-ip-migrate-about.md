@@ -27,7 +27,7 @@ To migrate your gateway, you first need to validate whether your resource is cap
   * If your Basic SKU VPN gateway has a Basic SKU public IP reference, you don't use the migration process. You only need to remove the Basic SKU public IP reference from your gateway.
   * For steps to remove the Basic SKU public IP reference, see [Remove the Basic SKU public IP reference from a Basic SKU VPN gateway](basic-sku-public-ip-remove.md).
 
-* For VPN Gateway SKUs VpnGw1-5:
+* For VPN Gateway SKUs VpnGw1-5 and Legacy SKU's which include High-Performance SKU and Standard SKU:
 
   * Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least **three** available IP addresses in your current prefix.
   
@@ -86,7 +86,7 @@ Yes, the IP address changes with this approach. This means that you'll have to e
 
 #### Can I create a Basic SKU VPN gateway with a Basic SKU public IP address?
 
-No, you can't create a Basic SKU VPN gateway with a Basic SKU public IP address after June 2025. New Basic SKU VPN gateways require a Standard public IP address SKU.
+No, you can't create a Basic SKU VPN gateway with a Basic SKU public IP address. New Basic SKU VPN gateways require a Standard public IP address SKU.
 
 #### Do I need to migrate if I have a Basic SKU VPN gateway?
 
