@@ -14,6 +14,9 @@ ms.author: anfdocs
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
+> [!NOTE]
+> You should use REST APIs to add/delete diagnostic settings to enable/disable file access logs for cache volumes as portal support is not available.
+
 ## Considerations
 
 >[!IMPORTANT]
@@ -22,7 +25,7 @@ File access logs provide file access logging for individual volumes, capturing f
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
 * File access logs occasionally create duplicate log entries that must be filtered manually. 
-* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. 
+* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. For more information, see [Diagnostic Settings](/rest/api/monitor/diagnostic-settings).
 * Before enabling file access logs on a volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
     >[!IMPORTANT]
     >For dual-protocol volumes using the NTFS security style, you must set Audit ACLs from a Windows machine. For dual-protocol volumes using UNIX security style, Audit ACLs must be set from a Linux machine.
@@ -188,7 +191,7 @@ Response:
 
 ## Fetch diagnostic settings on a cache volume:
 
-The following is an example to fetch diagnostic settings on a cache volume. For more information, see [Diagnostic Settings](/rest/api/monitor/diagnostic-settings)
+The following is an example to fetch diagnostic settings on a cache volume:   
 
 Request:
 ```
