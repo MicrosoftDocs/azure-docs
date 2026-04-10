@@ -458,13 +458,13 @@ Use the `az storage-mover job-definition create` command to create a job definit
 ```bash
 az storage-mover job-definition create \
     --copy-mode {Additive|Mirror} \
-    --job-definition-name <string> \
+    --job-definition-name <String> \
     --job-type CloudToCloud \
-    --project-name <string> \
-    --resource-group <string> \
-    --source-name <string> \
-    --storage-mover-name <string> \
-    --target-name <string>
+    --project-name <String> \
+    --resource-group <String> \
+    --source-name <String> \
+    --storage-mover-name <String> \
+    --target-name <String>
 ```
 
 **Parameters:**
