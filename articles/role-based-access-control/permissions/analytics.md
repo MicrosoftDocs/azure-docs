@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -67,6 +67,11 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | `Microsoft.Databricks/workspaces/privateEndpointConnectionsApproval/action` | Approve or reject a connection to a Private Endpoint resource. |
 > | `Microsoft.Databricks/workspaces/assignWorkspaceAdmin/action` | Makes the user a Workspace Admin within Databricks |
 > | `Microsoft.Databricks/workspaces/dbWorkspaces/write` | Initializes the Databricks workspace (internal only) |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/read` | Databricks Workspace Read Operation |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/delete` | Databricks Workspace Delete Operation |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/dbPrivateEndpointConnections/write` | Creates or updates a Databricks private endpoint connection |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/dbPrivateEndpointConnections/delete` | Removes a Databricks private endpoint connection. |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/privateLinkResources/read` | Gets the Databricks private link resources |
 > | `Microsoft.Databricks/workspaces/outboundNetworkDependenciesEndpoints/read` | Gets a list of egress endpoints (network endpoints of all outbound dependencies) for an Azure Databricks Workspace. The operation returns properties of each egress endpoint |
 > | `Microsoft.Databricks/workspaces/privateEndpointConnectionProxies/read` | Get Private Endpoint Connection Proxy |
 > | `Microsoft.Databricks/workspaces/privateEndpointConnectionProxies/validate/action` | Validate Private Endpoint Connection Proxies |
@@ -276,6 +281,7 @@ Azure service: [Data Lake Analytics](/azure/data-lake-analytics/)
 > | `Microsoft.DataLakeAnalytics/accounts/delete` | Delete a DataLakeAnalytics account. |
 > | `Microsoft.DataLakeAnalytics/accounts/transferAnalyticsUnits/action` | Transfer SystemMaxAnalyticsUnits among DataLakeAnalytics accounts. |
 > | `Microsoft.DataLakeAnalytics/accounts/transferEcoAnalyticsUnits/action` | Transfer SystemMaxEcoAnalyticsUnits among DataLakeAnalytics accounts. |
+> | `Microsoft.DataLakeAnalytics/accounts/transferFastAnalyticsUnits/action` | Transfer SystemMaxFastAnalyticsUnits among DataLakeAnalytics accounts. |
 > | `Microsoft.DataLakeAnalytics/accounts/TakeOwnership/action` | Grant permissions to cancel jobs submitted by other users. |
 > | `Microsoft.DataLakeAnalytics/accounts/computePolicies/read` | Get information about a compute policy. |
 > | `Microsoft.DataLakeAnalytics/accounts/computePolicies/write` | Create or update a compute policy. |

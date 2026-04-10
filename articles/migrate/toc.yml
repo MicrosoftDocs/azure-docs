@@ -239,6 +239,8 @@ items:
   items:
   - name: Overview of migration method
     href: server-migrate-overview.md
+  - name: End-to-end portal experience for server migrations with Azure Migrate
+    href: end-to-end-portal-experience-server-migrations.md
   - name: Agentless migrations using portal
     href: tutorial-migrate-vmware.md
   - name: Agent-based migration using portal
@@ -384,8 +386,6 @@ items:
       href: /azure/lighthouse/how-to/migration-at-scale?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
   - name: VMware migrations with migration agent
     href: how-to-plan-analyze-migration-with-agent.md
-  - name: End-to-end portal experience for server migrations with Azure Migrate
-    href: end-to-end-portal-experience-server-migrations.md
 - name: Troubleshoot
   items:
   - name: Azure Migrate Project

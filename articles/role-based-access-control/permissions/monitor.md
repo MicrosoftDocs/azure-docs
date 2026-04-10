@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -950,6 +950,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/AppEnvSpringAppConsoleLogs/read` | Read data from the AppEnvSpringAppConsoleLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/AppEvents/read` | Read data from the AppEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/AppExceptions/read` | Read data from the AppExceptions table |
+> | `Microsoft.OperationalInsights/workspaces/query/AppGenAIContent/read` | Read data from the AppGenAIContent table |
 > | `Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read` | Read data from the ApplicationInsights table |
 > | `Microsoft.OperationalInsights/workspaces/query/AppMetrics/read` | Read data from the AppMetrics table |
 > | `Microsoft.OperationalInsights/workspaces/query/AppPageViews/read` | Read data from the AppPageViews table |
@@ -1064,6 +1065,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/AzureLoadTestingOperation/read` | Read data from the AzureLoadTestingOperation table |
 > | `Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read` | Read data from the AzureMetrics table |
 > | `Microsoft.OperationalInsights/workspaces/query/AzureMetricsV2/read` | Read data from the AzureMetricsV2 table |
+> | `Microsoft.OperationalInsights/workspaces/query/AzureMonitorPipelineLogErrors/read` | Read data from the AzureMonitorPipelineLogErrors table |
 > | `Microsoft.OperationalInsights/workspaces/query/BehaviorAnalytics/read` | Read data from the BehaviorAnalytics table |
 > | `Microsoft.OperationalInsights/workspaces/query/BehaviorEntities/read` | Read data from the BehaviorEntities table |
 > | `Microsoft.OperationalInsights/workspaces/query/BehaviorInfo/read` | Read data from the BehaviorInfo table |
@@ -1497,10 +1499,14 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/SecurityNestedRecommendation/read` | Read data from the SecurityNestedRecommendation table |
 > | `Microsoft.OperationalInsights/workspaces/query/SecurityRecommendation/read` | Read data from the SecurityRecommendation table |
 > | `Microsoft.OperationalInsights/workspaces/query/SecurityRegulatoryCompliance/read` | Read data from the SecurityRegulatoryCompliance table |
+> | `Microsoft.OperationalInsights/workspaces/query/SentinelAlibabaCloudAPIGatewayLogs/read` | Read data from the SentinelAlibabaCloudAPIGatewayLogs table |
+> | `Microsoft.OperationalInsights/workspaces/query/SentinelAlibabaCloudVPCFlowLogs/read` | Read data from the SentinelAlibabaCloudVPCFlowLogs table |
+> | `Microsoft.OperationalInsights/workspaces/query/SentinelAlibabaCloudWAFLogs/read` | Read data from the SentinelAlibabaCloudWAFLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/SentinelAudit/read` | Read data from the SentinelAudit table |
 > | `Microsoft.OperationalInsights/workspaces/query/SentinelBehaviorEntities/read` | Read data from the SentinelBehaviorEntities table |
 > | `Microsoft.OperationalInsights/workspaces/query/SentinelBehaviorInfo/read` | Read data from the SentinelBehaviorInfo table |
 > | `Microsoft.OperationalInsights/workspaces/query/SentinelHealth/read` | Read data from the SentinelHealth table |
+> | `Microsoft.OperationalInsights/workspaces/query/SentinelImpervaWAFCloudV2Logs/read` | Read data from the SentinelImpervaWAFCloudV2Logs table |
 > | `Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read` | Read data from the ServiceFabricOperationalEvent table |
 > | `Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableActorEvent/read` | Read data from the ServiceFabricReliableActorEvent table |
 > | `Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableServiceEvent/read` | Read data from the ServiceFabricReliableServiceEvent table |

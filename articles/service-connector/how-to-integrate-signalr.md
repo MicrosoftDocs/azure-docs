@@ -5,18 +5,20 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 04/07/2026
 ms.custom:
   - kr2b-contr-experiment
+#customer intent: As an Azure app developer, I want to see authentication methods, environment variables, and sample code for integrating Azure SignalR Service, so I can use Service Connector to easily connect SignalR to my Azure compute services.
+
 ---
 
 # Integrate Azure SignalR Service with Service Connector
 
-This article shows supported authentication methods and clients, and shows sample code you can use to connect Azure SignalR Service to other cloud services using Service Connector. This article also shows default environment variable name and value (or Spring Boot configuration) that you get when you create the service connection.
+This article shows supported clients, authentication methods, and sample code you can use to connect Azure SignalR Service to other Azure services using Service Connector. The article also shows the default environment variables and Spring Boot configurations you need to create the service connections.
 
 ## Supported compute services
 
-Service Connector can be used to connect the following compute services to Azure SignalR Service:
+You can use Service Connector to connect the following compute services to Azure SignalR Service:
 
 - Azure App Service
 - Azure Container Apps
@@ -24,68 +26,53 @@ Service Connector can be used to connect the following compute services to Azure
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
-## Supported authentication types and client types
+## Supported clients and authentication types
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure SignalR Service using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+You can use Service Connector to connect Azure SignalR Service to Azure compute services by using .NET or other languages. All clients that support using Service Connector to connect Azure SignalR Service to Azure compute services support managed identity, service principal, or secret authentication types.
 
+> [!IMPORTANT]
+> The secret connection string authentication flow requires a high degree of trust in the application, and carries risks not present in other flows. You should use this flow only when more secure flows, such as managed identities, aren't viable.
 
-| Client type | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
-|-------------|----------------------------------|--------------------------------|----------------------------|-------------------|
-| .NET        | Yes                              | Yes                            | Yes                        | Yes               |
-| None        | Yes                              | Yes                            | Yes                        | Yes               |
+## Default environment variables
 
-This table indicates that all combinations of client types and authentication methods in the table are supported. Other client types are not supported to connect to Azure SignalR Service using Service Connector.
+Use the following connection details to connect supported Azure compute services to Azure SignalR Service using managed identity, service principal, or secret authentication types. In the examples, replace the following placeholders with the values from your Azure SignalR Service:
 
-## Default environment variable names or application properties
+- `<SignalR-name>`
+- `<access-key>`
+- `<client-ID>`
+- `<tenant-ID>`
+- `<client-secret>`
 
-Use environment variable names listed below to connect compute services to Azure SignalR Service. For each example below, replace the placeholder texts
-`<SignalR-name>`, `<access-key>`, `<client-ID>`, `<tenant-ID>`, and `<client-secret>` with your own SignalR name, access key, client ID, tenant ID and client secret. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+For more information about naming conventions, see [Configuration naming convention](concept-service-connector-internals.md#configuration-naming-convention).
 
-### System-assigned Managed Identity
+### System- or user-assigned managed identity
 
-  | Default environment variable name | Description | Example value |
-  | --- | --- | --- |
-  | AZURE_SIGNALR_CONNECTIONSTRING | SignalR Service connection string with Managed Identity | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;<client-ID>;Version=1.0;` |
+| Default environment variable  | Description | Example value |
+| --- | --- | --- |
+| AZURE_SIGNALR_CONNECTIONSTRING | SignalR Service connection string with managed identity | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;client-id=<client-id>;Version=1.0;` |
 
-#### Sample code
-Refer to the steps and code below to connect to Azure SignalR Service using a system-assigned managed identity.
-[!INCLUDE [code for signalR](./includes/code-signalr.md)]
+### Service principal
 
-### User-assigned Managed Identity
+| Default environment variable name | Description   | Example value |
+| ----------|------------|----------- |
+| AZURE_SIGNALR_CONNECTIONSTRING | SignalR Service connection string with Service Principal | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;ClientId=<client-ID>;ClientSecret=<client-secret>;TenantId=<tenant-ID>;Version=1.0;` |
 
-  | Default environment variable name | Description | Example value |
-  | --- | --- | --- |
-  | AZURE_SIGNALR_CONNECTIONSTRING | SignalR Service connection string with Managed Identity | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;client-id=<client-id>;Version=1.0;` |
-
-#### Sample code
-Refer to the steps and code below to connect to Azure SignalR Service using a user-assigned managed identity.
-[!INCLUDE [code for signalR](./includes/code-signalr.md)]
-
-
-### Connection string
-
-> [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+### Secret
 
   | Default environment variable name | Description | Example value |
   | --- | --- | --- |
   | AZURE_SIGNALR_CONNECTIONSTRING | SignalR Service connection string | `Endpoint=https://<SignalR-name>.service.signalr.net;AccessKey=<access-key>;Version=1.0;` |
 
-#### Sample code
-Refer to the steps and code below to connect to Azure SignalR Service using a connection string.
+> [!IMPORTANT]
+> The secret connection string authentication flow requires a high degree of trust in the application, and carries risks not present in other flows. You should use this flow only when more secure flows, such as managed identities, aren't viable.
+
+## Sample connection code
+
+Use the following steps and sample code to connect to Azure SignalR Service using Service Connector.
+
 [!INCLUDE [code for signalR](./includes/code-signalr.md)]
 
-### Service Principal
+## Related content
 
-| Default environment variable name | Description                                              | Example value                                                                                                                                            |
-| --------------------------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AZURE_SIGNALR_CONNECTIONSTRING    | SignalR Service connection string with Service Principal | `Endpoint=https://<SignalR-name>.service.signalr.net;AuthType=aad;ClientId=<client-ID>;ClientSecret=<client-secret>;TenantId=<tenant-ID>;Version=1.0;` |
-
-#### Sample code
-Refer to the steps and code below to connect to Azure SignalR Service using a service principal.
-[!INCLUDE [code for signalR](./includes/code-signalr.md)]
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+- [Service Connector concepts](concept-service-connector-internals.md)
+- [Configuration naming convention](concept-service-connector-internals.md#configuration-naming-convention)

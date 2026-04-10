@@ -42,9 +42,7 @@ By using WebAssembly (WASM) modules in Azure IoT Operations data flow graphs, yo
 
 The WASM data flow implementation follows this workflow:
 
-1. **Develop WASM modules**: Write custom processing logic in a supported language and compile it to the WebAssembly Component Model format. To learn more, see:
-   - [Build WASM modules for data flows in VS Code](../develop-edge-apps/howto-build-wasm-modules-vscode.md)
-   - [Develop WebAssembly (WASM) modules](../develop-edge-apps/howto-develop-wasm-modules.md)
+1. **Develop WASM modules**: Write custom processing logic in a supported language and compile it to the WebAssembly Component Model format. To learn more, see: [Build WASM modules for data flows](../develop-edge-apps/howto-build-wasm-modules.md)
 1. **Develop graph definition**: Define how data moves through the modules by using YAML configuration files. To learn more, see [Configure WebAssembly graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md).
 1. **Store artifacts in registry**: Push the compiled WASM modules and graph definitions to a container registry by using OCI-compatible tools such as ORAS. To learn more, see [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md).
 1. **Configure registry endpoints**: Set up authentication and connection details so Azure IoT Operations can access the container registry. To learn more, see [Configure registry endpoints](../develop-edge-apps/howto-configure-registry-endpoint.md).
@@ -1122,10 +1120,9 @@ If you deploy the data flow graph but it doesn't process messages:
 
 ## Related content
 
-- [Develop WebAssembly modules](../develop-edge-apps/howto-develop-wasm-modules.md) for writing operators in Rust and Python (includes quickstart)
+- [Build WASM modules for data flows](../develop-edge-apps/howto-build-wasm-modules.md) for both IDE and CLI-based development workflows
 - [Configure WebAssembly graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md) for graph YAML structure and configuration parameters
 - [Deploy WASM modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md) for registry setup and artifact management
-- [Build WASM modules with VS Code extension](../develop-edge-apps/howto-build-wasm-modules-vscode.md) for IDE-based development
 - [Run ONNX inference in WASM](../develop-edge-apps/howto-wasm-onnx-inference.md) for ML model integration
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
 - [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md)

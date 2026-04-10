@@ -526,7 +526,7 @@ sections:
           | routingRule               | To associate a layer 4 listener with a layer 4 backend setting |
           | backendSettingsCollection | For TLS or TCP based backend settings |
 
-          - [REST API](/rest/api/application-gateway/application-gateways/create-or-update)
+          - [REST API](/rest/api/application-gateway)
           - [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest)
 
           > [!NOTE]

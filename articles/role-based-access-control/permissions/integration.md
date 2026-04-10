@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -110,12 +110,32 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/workspaces/environments/write` | Create or update environment |
 > | `Microsoft.ApiCenter/services/workspaces/environments/delete` | Deletes specified environment. |
 > | `Microsoft.ApiCenter/services/workspaces/environments/read` | Returns specified environment. |
+> | `Microsoft.ApiCenter/services/workspaces/languageModels/write` | Creates or updates specified language model. |
+> | `Microsoft.ApiCenter/services/workspaces/languageModels/read` | Returns paginated collection of language models. |
+> | `Microsoft.ApiCenter/services/workspaces/languageModels/read` | Returns the details of the specified language model. |
+> | `Microsoft.ApiCenter/services/workspaces/languageModels/read` | Checks if specified language model exists |
+> | `Microsoft.ApiCenter/services/workspaces/languageModels/delete` | Deletes specified language model. |
+> | `Microsoft.ApiCenter/services/workspaces/plugins/read` | Returns paginated collection of plugins |
+> | `Microsoft.ApiCenter/services/workspaces/plugins/write` | Create or update plugin |
+> | `Microsoft.ApiCenter/services/workspaces/plugins/delete` | Deletes specified plugin. |
+> | `Microsoft.ApiCenter/services/workspaces/plugins/read` | Returns specified plugin. |
 > | `Microsoft.ApiCenter/services/workspaces/portals/delete` | Deletes specified configuration. |
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/write` | Creates or updates specified Resource Link. |
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/read` | Returns the details of the specified Resource Link. |
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/read` | Lists resource links with optional filters. |
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/delete` | Deletes specified Resource Link. |
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/read` | Checks if specified Resource Link exists. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/write` | Creates or updates specified skill. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/read` | Returns paginated collection of skills. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/read` | Returns the details of the specified skill. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/read` | Checks if specified skill exists |
+> | `Microsoft.ApiCenter/services/workspaces/skills/delete` | Deletes specified skill. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/write` | Creates or updates specified skill artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/read` | Returns paginated collection of skill artifacts. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/read` | Returns the details of the specified skill artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/read` | Checks if specified skill artifact exists |
+> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/delete` | Deletes specified skill artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/write` | Uploads a single file for the specified skill artifact. |
 > | **DataAction** | **Description** |
 > | `Microsoft.ApiCenter/services/workspaces/search/action` | Search workspace for relevant results. |
 > | `Microsoft.ApiCenter/services/workspaces/apis/read` | Read APIs from an API Center. |
@@ -291,6 +311,9 @@ Azure service: [API Management](/azure/api-management/)
 > | `Microsoft.ApiManagement/service/identityProviders/write` | Creates or Updates the IdentityProvider configuration. or Updates an existing IdentityProvider configuration. |
 > | `Microsoft.ApiManagement/service/identityProviders/delete` | Deletes the specified identity provider configuration. |
 > | `Microsoft.ApiManagement/service/identityProviders/listSecrets/action` | Gets Identity Provider secrets. |
+> | `Microsoft.ApiManagement/service/languageModels/read` | Lists a collection of language models in the specified service instance. or Gets the details of the language model specified by its identifier. |
+> | `Microsoft.ApiManagement/service/languageModels/write` | Creates or Updates a language model. or Updates an existing language model. |
+> | `Microsoft.ApiManagement/service/languageModels/delete` | Deletes the specified language model. |
 > | `Microsoft.ApiManagement/service/locations/networkstatus/read` | Gets the network access status of resources on which the service depends in the location. |
 > | `Microsoft.ApiManagement/service/loggers/read` | Lists a collection of loggers in the specified service instance. or Gets the details of the logger specified by its identifier. |
 > | `Microsoft.ApiManagement/service/loggers/write` | Creates or Updates a logger. or Updates an existing logger. |
@@ -668,6 +691,9 @@ Azure service: [Azure App Configuration](/azure/azure-app-configuration/)
 > | `Microsoft.AppConfiguration/locations/operationsStatus/read` | Get the status of an operation. |
 > | `Microsoft.AppConfiguration/operations/read` | Lists all of the operations supported by Microsoft App Configuration. |
 > | **DataAction** | **Description** |
+> | `Microsoft.AppConfiguration/configurationStores/featureFlags/read` | Reads a feature flag from the configuration store. |
+> | `Microsoft.AppConfiguration/configurationStores/featureFlags/write` | Creates or updates a feature flag in the configuration store. |
+> | `Microsoft.AppConfiguration/configurationStores/featureFlags/delete` | Deletes an existing feature flag from the configuration store. |
 > | `Microsoft.AppConfiguration/configurationStores/keyValues/read` | Reads a key-value from the configuration store. |
 > | `Microsoft.AppConfiguration/configurationStores/keyValues/write` | Creates or updates a key-value in the configuration store. |
 > | `Microsoft.AppConfiguration/configurationStores/keyValues/delete` | Deletes an existing key-value from the configuration store. |
@@ -1010,6 +1036,7 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 > | `Microsoft.EventHub/namespaces/read` | Get the list of Namespace Resource Description |
 > | `Microsoft.EventHub/namespaces/Delete` | Delete Namespace Resource |
 > | `Microsoft.EventHub/namespaces/authorizationRules/action` | Updates Namespace Authorization Rule. This API is deprecated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
+> | `Microsoft.EventHub/namespaces/disasterRecoveryConfigs/action` | Checks availability of namespace alias under given subscription. |
 > | `Microsoft.EventHub/namespaces/removeAcsNamepsace/action` | Remove ACS namespace |
 > | `Microsoft.EventHub/namespaces/updateState/action` | UpdateNamespaceState |
 > | `Microsoft.EventHub/namespaces/privateEndpointConnectionsApproval/action` | Approve Private Endpoint Connection |
@@ -1019,7 +1046,7 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 > | `Microsoft.EventHub/namespaces/authorizationRules/delete` | Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. |
 > | `Microsoft.EventHub/namespaces/authorizationRules/listkeys/action` | Get the Connection String to the Namespace |
 > | `Microsoft.EventHub/namespaces/authorizationRules/regenerateKeys/action` | Regenerate the Primary or Secondary key to the Resource |
-> | `Microsoft.EventHub/namespaces/disasterrecoveryconfigs/checkNameAvailability/action` | Checks availability of namespace alias under given subscription. |
+> | `Microsoft.EventHub/namespaces/disasterrecoveryconfigs/checkNameAvailability/action` | Checks availability of namespace alias under given subscription (Deprecated). |
 > | `Microsoft.EventHub/namespaces/disasterRecoveryConfigs/write` | Creates or Updates the Disaster Recovery configuration associated with the namespace. |
 > | `Microsoft.EventHub/namespaces/disasterRecoveryConfigs/read` | Gets the Disaster Recovery configuration associated with the namespace. |
 > | `Microsoft.EventHub/namespaces/disasterRecoveryConfigs/delete` | Deletes the Disaster Recovery configuration associated with the namespace. This operation can only be invoked via the primary namespace. |
@@ -1539,6 +1566,7 @@ Azure service: [Service Bus](/azure/service-bus-messaging/)
 > | `Microsoft.ServiceBus/namespaces/Delete` | Delete Namespace Resource |
 > | `Microsoft.ServiceBus/namespaces/authorizationRules/action` | Updates Namespace Authorization Rule. This API is deprecated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
 > | `Microsoft.ServiceBus/namespaces/migrate/action` | Migrate namespace operation |
+> | `Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/action` | Checks availability of namespace alias under given subscription. |
 > | `Microsoft.ServiceBus/namespaces/removeAcsNamepsace/action` | Remove ACS namespace |
 > | `Microsoft.ServiceBus/namespaces/privateEndpointConnectionsApproval/action` | Approve Private Endpoint Connection |
 > | `Microsoft.ServiceBus/namespaces/failover/action` | Failover Namespace Resource |
@@ -1547,7 +1575,7 @@ Azure service: [Service Bus](/azure/service-bus-messaging/)
 > | `Microsoft.ServiceBus/namespaces/authorizationRules/delete` | Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted.  |
 > | `Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action` | Get the Connection String to the Namespace |
 > | `Microsoft.ServiceBus/namespaces/authorizationRules/regenerateKeys/action` | Regenerate the Primary or Secondary key to the Resource |
-> | `Microsoft.ServiceBus/namespaces/disasterrecoveryconfigs/checkNameAvailability/action` | Checks availability of namespace alias under given subscription. |
+> | `Microsoft.ServiceBus/namespaces/disasterrecoveryconfigs/checkNameAvailability/action` | Checks availability of namespace alias under given subscription (Deprecated). |
 > | `Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/write` | Creates or Updates the Disaster Recovery configuration associated with the namespace. |
 > | `Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/read` | Gets the Disaster Recovery configuration associated with the namespace. |
 > | `Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/delete` | Deletes the Disaster Recovery configuration associated with the namespace. This operation can only be invoked via the primary namespace. |

@@ -696,9 +696,14 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-build-wasm-modules.md",
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-build-wasm-modules",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-develop-wasm-modules.md",
-            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-develop-wasm-modules",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-build-wasm-modules",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-wasm-onnx-inference.md",
@@ -723,6 +728,16 @@
         {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/concept-dataflow-conversions.md",
             "redirect_url": "/azure/iot-operations/connect-to-cloud/concept-dataflow-mapping",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop-edge-apps/howto-develop-wasm-modules.md",
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-build-wasm-modules",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/develop-edge-apps/howto-build-wasm-modules-vscode.md",
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/howto-build-wasm-modules",
             "redirect_document_id": false
         }
     ]

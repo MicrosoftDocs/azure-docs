@@ -24,12 +24,12 @@ You can develop custom solutions to address various scenarios with Azure IoT Ope
 - Edge applications that perform data processing, transformation, and analytics at the edge by using WebAssembly (WASM) modules. Data flow graphs with WASM modules let you build custom data processing pipelines. To learn more about using and building WASM modules, see:
     - [Use a data flow graph with WebAssembly modules](../connect-to-cloud/howto-dataflow-graph-wasm.md)
     - [Transform incoming data with WebAssembly modules](../discover-manage-assets/howto-use-http-connector.md#transform-incoming-data)
-    - [Build WASM modules for data flows in VS Code](howto-build-wasm-modules-vscode.md)
-    - [Develop WASM modules and graph definitions for data flow graphs](howto-develop-wasm-modules.md)
+    - [Build WASM modules for data flows in VS Code](howto-build-wasm-modules.md)
+    - [Develop WASM modules and graph definitions for data flow graphs](howto-build-wasm-modules.md)
 
 - Extend the capabilities of data flows by using the state store for maintaining application state. The state store is also accessible from WASM modules. To learn more, see:
     - [Enrich data by using data flows](../connect-to-cloud/concept-dataflow-enrich.md)
-    - [State store support for WASM operators](howto-build-wasm-modules-vscode.md#state-store-support-for-wasm-operators)
+    - [Create stateful WASM graphs with the state store](howto-wasm-state-store.md)
 
 - Build highly available applications that programmatically interact with the MQTT broker for reliable communication with Azure IoT Operations services. For example, the OPC UA connector enables you to control connected OPC UA servers by sending commands through the MQTT broker. The protocol compiler tool in the SDK lets you generate client code from models to simplify the development of such applications. The v2 version of the protocol compiler uses [Web of Things (WoT)](https://www.w3.org/TR/wot-thing-description11/) model files as input. To learn more, see:
     - [Protocol compiler v2](https://github.com/Azure/iot-operations-sdks/blob/main/wot-codegen/README.md)
@@ -64,7 +64,7 @@ To learn more about the SDKs, see:
 Use the following VS Code extensions to develop custom solutions for Azure IoT Operations:
 
 - [Azure IoT Operations Akri connectors](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-akri-connectors-vscode) VS Code extension: This extension provides templates and tools to help you build custom Akri connectors for Azure IoT Operations by using either .NET or the Rust programming language. To learn more, see [Build Akri connectors in VS Code](howto-build-akri-connectors-vscode.md).
-- [Azure IoT Operations WASM modules](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-data-flow-vscode) VS Code extension: This extension provides templates and tools to help you build WebAssembly (WASM) modules for data flow graphs and connectors in Azure IoT Operations by using either the Python or Rust programming language. To learn more, see [Build WASM modules for data flows in VS Code](howto-build-wasm-modules-vscode.md).
+- [Azure IoT Operations WASM modules](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-data-flow-vscode) VS Code extension: This extension provides templates and tools to help you build WebAssembly (WASM) modules for data flow graphs and connectors in Azure IoT Operations by using either the Python or Rust programming language. To learn more, see [Build WASM modules for data flows in VS Code](howto-build-wasm-modules.md).
 
 ## Next step
 
