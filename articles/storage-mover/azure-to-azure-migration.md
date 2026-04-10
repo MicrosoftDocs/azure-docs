@@ -436,7 +436,7 @@ New-AzStorageMoverJobDefinition `
 - **ProjectName**: The name of the project to which the job definition belongs.
 - **SourceEndpointName**: The name of the Azure Blob Storage source endpoint.
 - **TargetEndpointName**: The name of the Azure Blob Storage target endpoint.
-- **JobType**: Set to **"CloudToCloud"** for Azure-to-Azure migrations.
+- **JobType**: Set to **CloudToCloud** for Azure-to-Azure migrations.
 
 **Example:**
 
