@@ -1,6 +1,6 @@
 ---
-title: Dynamically change the service level of an Azure NetApp Files cache volume
-description: Learn about the benefits of changing the service level of an Azure NetApp Files cache volume within your NetApp account.
+title: Change the service level of an Azure NetApp Files cache volume
+description: Learn to change the service level of an Azure NetApp Files cache volume.
 services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
@@ -10,7 +10,7 @@ ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a storage administrator, I want to dynamically change the service level of an Azure NetApp Files cache volume, so that I can optimize performance and cost according to workload demands without data migration interruptions.
 ---
-# Dynamically change the service level of an Azure NetApp Files cache volume
+# Change the service level of a cache volume
 
 You can change the service level of an existing cache volume by moving the volume to another capacity pool in the same NetApp account that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. This in-place service-level change for the volume doesn't require that you migrate data. It also doesn't affect access to the volume. 
 

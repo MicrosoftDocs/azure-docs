@@ -10,7 +10,7 @@ ms.author: anfdocs
 
 ---
 
-## Break file locks for a cache volume
+# Break file locks for a cache volume
 
 1. Run the following command to break file locks for a cache volume:
 
