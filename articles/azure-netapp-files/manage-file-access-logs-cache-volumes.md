@@ -22,7 +22,7 @@ File access logs provide file access logging for individual volumes, capturing f
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
 * File access logs occasionally create duplicate log entries that must be filtered manually. 
-* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. See the [diagnostic setting configuration](#diagnostic) for more information. 
+* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. 
 * Before enabling file access logs on a volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
     >[!IMPORTANT]
     >For dual-protocol volumes using the NTFS security style, you must set Audit ACLs from a Windows machine. For dual-protocol volumes using UNIX security style, Audit ACLs must be set from a Linux machine.
@@ -101,6 +101,7 @@ For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not 
 
 When configuring the Audit ACE, ensure you use the `U:` prefix to denote it's an Audit ACE. **For steps**, see [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md).
 
+---
 
 ## Enable file access logs for cache volumes
 
