@@ -371,7 +371,7 @@ With Private Endpoints, DNS zones, and Arc connectivity in place, deploy Azure I
 For deployment instructions, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md). During deployment, Arc agent traffic routes through the connectivity options you configured (Arc Gateway, Explicit Proxy, or both).
 
 > [!WARNING]
-> The storage account and Key Vault must have public access enabled during deployment. Schema Registry requires public access at creation time, and the initial secret sync needs to reach Key Vault. This means these resources are publicly reachable until you complete [Disable public access on storage and Key Vault](#disable-public-access-on-storage-and-key-vault). Complete that section as soon as Azure IoT Operations pods are healthy to minimize the exposure window.
+> The storage account and Key Vault must have public access enabled during deployment. Schema Registry requires public access on the storage account at creation time, and the Secret Store Extension (secret sync) needs to reach Key Vault. This means these resources are publicly reachable until you complete [Disable public access on storage and Key Vault](#disable-public-access-on-storage-and-key-vault). Complete that section as soon as Azure IoT Operations pods are healthy to minimize the exposure window.
 >
 > To further reduce exposure, you can restrict public access to your admin machine's IP only:
 >

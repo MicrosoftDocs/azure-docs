@@ -34,6 +34,7 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_SKU` | Read-only. Pricing tier of the app. Possible values are `Free`, `Shared`, `Basic`, and `Standard`. |
 | `SITE_BITNESS` | Read-only. Shows whether the app is 32 bit (`x86`) or 64 bit (`AMD64`). |
 | `WEBSITE_HOSTNAME` | Read-only. Primary host name for the app. This setting doesn't account for custom host names. |
+| `WEBSITE_DEFAULT_HOSTNAME` | Read-only. The default host name for the app. This could be either in the original format `<sitename>.azurewebsites.net` or the unique hostname `<sitename>-<randomhash>.<region>.azurewebsites.net`. This setting is sticky and not swappable. |
 | `WEBSITE_VOLUME_TYPE` | Read-only. Shows the storage volume type currently in use. |
 | `WEBSITE_NPM_DEFAULT_VERSION` | Default npm version that the app is using. |
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for concurrent WebSocket requests. For the `Standard` tier and higher, the value is `-1`, but there's still a per-VM limit based on your VM size. See [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits). |

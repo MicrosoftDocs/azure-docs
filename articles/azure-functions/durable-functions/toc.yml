@@ -37,6 +37,14 @@
     href: quickstart-java.md
 - name: Concepts
   items:
+  - name: AI and agents
+    items:
+    - name: Overview
+      href: ../../durable-task/sdks/durable-task-for-ai-agents.md
+    - name: Agentic application patterns
+      href: ../../durable-task/sdks/durable-agents-patterns.md
+    - name: Microsoft Agent Framework extension (Preview)
+      href: ../../durable-task/sdks/durable-agents-microsoft-agent-framework.md
   - name: Fundamentals
     items:
     - name: Programming model
@@ -45,6 +53,8 @@
       href: ../../durable-task/common/durable-task-orchestrations.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
     - name: Sub-orchestrations
       href: ../../durable-task/common/durable-task-sub-orchestrations.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+    - name: Task hubs
+      href: ../../durable-task/common/durable-task-hubs.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
     - name: Durable entities
       href: ../../durable-task/common/durable-task-entities.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
     - name: Timers and timeouts

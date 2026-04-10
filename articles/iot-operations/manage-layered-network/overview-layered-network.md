@@ -45,6 +45,24 @@ You can deploy Azure IoT Operations components across layers based on your archi
 - **MQTT broker** — deploy at each layer to transfer data upward toward the cloud.
 - **Data Flows** — place on nodes with enough compute resources, as this component typically uses more compute. With extra configuration, Data Flows can also route traffic east-west between components at the same or upper levels.
 
+### How telemetry flows through layers
+
+In a layered network, asset telemetry doesn't pass straight through from the lowest layer to the cloud. Instead, telemetry *terminates and re-originates* at each layer. This hop-by-hop pattern is a key difference from a flat network deployment.
+
+The flow works as follows:
+
+1. **Level 2 (asset layer):** The Connector for OPC UA reads data from OPC UA servers and publishes it to the local MQTT broker (for example, to a topic like `clusterl2/data/oven1`). A Data Flow picks up those messages, optionally transforms or enriches them (for example, adding product context), and forwards them to the MQTT broker at level 3.
+1. **Level 3 (operations layer):** The level 3 MQTT broker receives the messages from level 2. A Data Flow at this layer can add further context (for example, production line details) and forwards the enriched messages to the MQTT broker at level 4.
+1. **Level 4 (enterprise layer):** The level 4 MQTT broker receives the messages from level 3. A final Data Flow adds any remaining context (for example, factory identifiers) and sends the messages to a cloud destination such as Azure Event Hubs or Azure Event Grid through the private or public connectivity path.
+
+At every layer, the data is fully terminated on the local MQTT broker, it isn't tunneled or pass-through. This gives you the ability to:
+
+- **Enrich data at each level** — add contextual metadata (product, line, factory) that lower-layer assets don't know about.
+- **Filter or aggregate** — reduce data volume or drop irrelevant messages before forwarding upward.
+- **Consume locally** — other applications at the same layer can subscribe to the local MQTT broker for departmental workloads without waiting for data to round-trip to the cloud.
+
+For a hands-on walkthrough of this pattern, see step 5 in the [sample walkthrough](#sample-walkthrough).
+
 ### Sample walkthrough
 
 A [layered networking guidance sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/layered-networking) is available in the Azure IoT Operations samples repository. The sample repository contains the infrastructure configuration files (Envoy proxy configs, CoreDNS Corefiles, and Kubernetes manifests) used at each network layer. The [tutorial](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md) provides the complete end-to-end deployment guide, including Azure resource setup, Private Link and DNS configuration, Arc enablement, RBAC assignments, and post-deployment audit, and references the sample for layer-specific configuration files.
@@ -72,6 +90,13 @@ To try the sample in a test environment, follow the step-by-step walkthrough:
 > [!TIP]
 > If you want to deploy Azure IoT Operations end-to-end in a layered network with private connectivity, see [Tutorial: Deploy Azure IoT Operations in a layered network with private connectivity](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md).
 
+### Platform compatibility
+
+The layered networking approach described here applies to **Arc-enabled Kubernetes clusters**. If you use other Arc-enabled platforms in your layered environment, keep the following in mind:
+
+- **Azure Arc-enabled servers:** The Envoy proxy chain has only been validated with Arc-enabled Kubernetes clusters. Arc-enabled servers use a different agent (Azure Connected Machine agent) with different endpoint requirements. If you need to Arc-enable servers in a layered network, verify that the required endpoints are included in your Envoy proxy and CoreDNS configuration. Azure IoT Operations components (MQTT broker, Data Flows, Connector for OPC UA) require Kubernetes and can't run on Arc-enabled servers directly.
+- **Azure Local (formerly Azure Stack HCI):** Azure Local nodes that host Kubernetes clusters (such as AKS enabled by Azure Arc) are fully compatible with this layered networking approach. The Kubernetes cluster running on Azure Local follows the same Arc enablement and Envoy proxy chain described above.
+
 ## Network connectivity options
 
 Azure IoT Operations can use the following Azure services to simplify and secure network connectivity between your on-premises environment and Azure.
@@ -80,7 +105,7 @@ Azure IoT Operations can use the following Azure services to simplify and secure
 
 The Azure Arc gateway acts as a network proxy that lets you simplify network configuration requirements by reducing the number of Azure endpoints to allow through your firewall. By routing traffic through the gateway, you can simplify firewall rules and reduce the need for complex network changes. This approach is especially useful for securely connecting isolated or segmented environments to Azure Arc and Azure IoT Operations.
 
-For more information, see [Simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking).
+For more information, see [Simplify network configuration requirements with Azure Arc gateway](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking).
 
 ### Azure Firewall Explicit Proxy
 
