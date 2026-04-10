@@ -1,16 +1,16 @@
 ---
-title: Change the service level of an Azure NetApp Files cache volume
-description: Learn to change the service level of an Azure NetApp Files cache volume.
+title: Change the service level of an Azure NetApp Files cache volumes
+description: Learn about the benefits of changing the service level of an Azure NetApp Files cache volume within your NetApp account.
 services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/18/2026
+ms.date: 04/10/2026
 ms.author: anfdocs
 ms.custom: sfi-image-nochange
-# Customer intent: As a storage administrator, I want to dynamically change the service level of an Azure NetApp Files cache volume, so that I can optimize performance and cost according to workload demands without data migration interruptions.
+
 ---
-# Change the service level of a cache volume
+# Change the service level of an Azure NetApp Files cache volume
 
 You can change the service level of an existing cache volume by moving the volume to another capacity pool in the same NetApp account that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. This in-place service-level change for the volume doesn't require that you migrate data. It also doesn't affect access to the volume. 
 
@@ -36,17 +36,21 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 * If you're using a custom IAM role with an Azure NetApp Files datastore for Azure VMware Service, ensure you have the correct permissions to update the service level. For specific permissions, see [prerequisites](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites).
  
-## Move a volume to another capacity pool
+## Move a cache volume to another capacity pool
 
-1.	On the Volumes page, right-click the volume whose service level you want to change. Select **Change Pool**.
+1. Run the following command to move a cache volume to another capacity pool:
 
-    ![Right-click volume](./media/dynamic-change-volume-service-level/right-click-volume.png)
+    ```
+    POST .../caches/{cacheName}/breakFileLocks?api-version=2026-01-01
+    Body is optional; example includes clientIp.
+    curl -sS -X POST \
+    "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/caches/cache1/breakFileLocks?api-version=2026-01-01" \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Content-Type: application/json" \
+    -d '{ "clientIp": "192.0.2.10" }'
 
-2. In the Change pool window, select the capacity pool you want to move the volume to. 
 
-    ![Change pool](./media/dynamic-change-volume-service-level/change-pool.png)
-
-3.	Select **OK**.
+    ```
 
 ## Next steps  
 

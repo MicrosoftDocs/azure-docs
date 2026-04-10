@@ -267,10 +267,6 @@
         href: cache-requirements.md     
       - name: Understand resizing guidelines for Azure NetApp Files cache volumes
         href: cache-volumes-resize-guidelines.md  
-      - name: Dynamically change the service level of an Azure NetApp Files cache volume
-        href: dynamic-change-volume-service-level-cache-volumes.md   
-      - name: Manage file access logs in Azure NetApp Files cache volumes
-        href: manage-file-access-logs-cache-volumes.md  
     - name: Understand ransomware protection
       items:
       - name: Understand Azure NetApp Files advanced ransomware protection
@@ -539,8 +535,10 @@
       items: 
         - name: Manage cache volumes 
           href: configure-cache-volumes.md
-        - name: Dynamically change the service level of an Azure NetApp Files cache volumes
-          href: change-volume=service-level-cache-volume.md
+        - name: Manage file access logs in Azure NetApp Files cache volumes
+          href: manage-file-access-logs-cache-volumes.md  
+        - name: Change the service level of an Azure NetApp Files cache volumes
+          href: change-volume-service-level-cache-volume.md
         - name: Break file locks for an Azure NetApp Files cache volume 
           href: break-file-locks-cache-volume.md
         - name: Reset SMB password for Azure NetApp Files cache volumes
