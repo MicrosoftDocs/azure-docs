@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: guywi-ms
 ms.author: guywild
 ms.topic: concept-article
-ms.date: 04/06/2026
+ms.date: 04/10/2026
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -26,6 +26,7 @@ The listed features were released in the last six months. For information about 
 - [Build custom security graphs (Preview)](#build-custom-graphs-preview)
 - [Entity analyzer is now generally available](#entity-analyzer-is-now-generally-available)
 - [AI-powered SIEM migration tool is now generally available](#ai-powered-siem-migration-tool-is-now-generally-available)
+- [Cost estimation tool for customers and partners (Preview)](#cost-estimation-tool-for-customers-and-partners-preview)
 - [Configure row-level access using Microsoft Sentinel scoping (Preview)](#configure-row-level-access-using-microsoft-sentinel-scoping-preview)
 
 ### Microsoft Sentinel data federation (Preview)
@@ -54,6 +55,9 @@ After creating your custom graphs, you can access them in the graphs section of 
 
 ### AI-powered SIEM migration tool is now generally available
 Accelerate migrations to Microsoft Sentinel from Splunk and QRadar using an AI-assisted SIEM migration experience designed to reduce manual effort and speed time-to-value. For more information, see [Migrate to Microsoft Sentinel with the SIEM migration experience](siem-migration.md).
+
+### Cost estimation tool for customers and partners (Preview)
+A guided, meter-level Microsoft Sentinel cost estimator with three-year projections helps organizations model data growth, predict spend, and plan Microsoft Sentinel adoption with confidence. For more information, see [Microsoft Sentinel pricing](https://www.microsoft.com/security/pricing/microsoft-sentinel/cost-estimator). 
 
 ### Configure row-level access using Microsoft Sentinel scoping (Preview)
 Microsoft Sentinel now supports scoping (row-level RBAC) to control access to specific subsets of Sentinel data without requiring workspace separation. Administrators can define logical scopes, tag data at ingestion time, and assign users or groups to scopes using Unified RBAC, enabling multiple teams to work securely within a shared Sentinel environment. Scoping is configured in the Microsoft Defender portal. For more information see [Configure Microsoft Sentinel scoping (row-level RBAC)](./scoping.md).
@@ -564,25 +568,6 @@ For more information, see the following articles:
 ### SOC optimization support for unused columns (Preview)
 
 To optimize your cost/security value ratio, SOC optimization surfaces hardly used data connectors or tables. SOC optimization now surfaces unused columns in your tables. For more information, see [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md#unused-columns-preview).
-
-## March 2025
-
-- [Agentless connection to SAP now in public preview](#agentless-connection-to-sap-now-in-public-preview)
-
-### Agentless connection to SAP now in public preview
-
-The Microsoft Sentinel agentless data connector for SAP and related security content is now included, as public preview, in the solution for SAP applications. This update also includes the following enhancements for the agentless data connector:
-
-- **Enhanced instructions** in the portal for deploying and configuring the data connector. [External documentation](sap/preparing-sap.md#next-step) is updated to rely on the instructions in the portal.
-- **[More data ingested](sap/sap-solution-log-reference.md)**, such as Change Docs logs and User Master data.
-- **Optional parameters** to [Customize data connector behavior (optional)](sap/deploy-data-connector-agent-container.md#customize-data-connector-behavior-optional).
-- [**A new tool to verify system prerequisites and compatibility**](sap/preparing-sap.md#configure-the-connector-in-microsoft-sentinel-and-in-your-sap-system), recommended both before deploying and when [troubleshooting](sap/sap-deploy-troubleshoot.md#check-for-prerequisites).
-
-For more information, see:
-
-- [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
-- [Microsoft Sentinel solution for SAP applications - functions reference](sap/sap-solution-function-reference.md)
-- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap/sap-deploy-troubleshoot.md)
 
 
 ## Next steps

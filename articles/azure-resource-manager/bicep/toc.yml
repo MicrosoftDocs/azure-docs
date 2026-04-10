@@ -781,3 +781,6 @@ items:
       href: diagnostics/bcp420.md
     - name: BCP422
       href: diagnostics/bcp422.md
+  - name: Programmatic Bicep usage with JSON-RPC
+    href: bicep-cli-jsonrpc.md
+    displayName: jsonrpc,json-rpc,rpc,pipe,socket,stdio,programmatic
