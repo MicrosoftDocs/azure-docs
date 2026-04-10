@@ -14,6 +14,9 @@ ms.custom: references_regions
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
+> [!NOTE]
+> You should use REST APIs to add/delete diagnostic settings to enable/disable file access logs for cache volumes as portal support is not available.
+
 ## Considerations
 
 >[!IMPORTANT]
@@ -253,7 +256,7 @@ Response:
 
 ## Fetch diagnostic settings on a cache volume:
 
-The following is an example to fetch diagnostic settings on a cache volume:
+The following is an example to fetch diagnostic settings on a cache volume. For more information, see [Diagnostic Settings](/rest/api/monitor/diagnostic-settings)
 
 Request:
 ```
