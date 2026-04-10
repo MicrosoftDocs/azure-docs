@@ -134,6 +134,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/locations/sourcecontroloperationstatuses/read` | Get a Container App Source Control Long Running Operation Status |
 > | `Microsoft.App/locations/sreagentoperationresults/read` | Get the result of a SRE Agent operation |
 > | `Microsoft.App/locations/sreagentoperationstatuses/read` | Get the status of a SRE Agent operation |
+> | `Microsoft.App/locations/supportedAgentModels/read` | Get the supported AI models in a region for SRE Agent |
 > | `microsoft.app/locations/usages/read` | Get Quota Usages in a Region |
 > | `microsoft.app/logicApps/read` | Get a Logic App |
 > | `microsoft.app/logicApps/write` | Create or update a Logic App |
@@ -193,6 +194,12 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/managedenvironments/usages/read` | Get Quota Usages in a Managed Environment |
 > | `microsoft.app/managedenvironments/workloadprofilestates/read` | Get Current Workload Profile States |
 > | `microsoft.app/operations/read` | Get a list of supported container app operations |
+> | `Microsoft.App/sandboxGroups/write` | Create or update a sandbox group resource |
+> | `Microsoft.App/sandboxGroups/read` | Get a sandbox group resource |
+> | `Microsoft.App/sandboxGroups/delete` | Delete a sandbox group resource |
+> | `Microsoft.App/sandboxGroups/vnetConnections/write` | Create or update a vnetConnection resource |
+> | `Microsoft.App/sandboxGroups/vnetConnections/read` | Get a vnetConnection resource |
+> | `Microsoft.App/sandboxGroups/vnetConnections/delete` | Delete a vnetConnection resource |
 > | `microsoft.app/sessionpools/write` | Create or Update a Session Pool |
 > | `microsoft.app/sessionpools/read` | Get a Session Pool |
 > | `microsoft.app/sessionpools/delete` | Delete a Session Pool |
@@ -223,6 +230,55 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/containerApps/debug/action` | Connect to debug console of a container app |
 > | `microsoft.app/jobs/logstream/action` | View log stream of a container app job |
 > | `microsoft.app/jobs/exec/action` | Connect to console of a container app job |
+> | `Microsoft.App/sandboxGroups/connections/read` | List connections in a sandbox group |
+> | `Microsoft.App/sandboxGroups/connections/write` | Create a new connection in a sandbox group |
+> | `Microsoft.App/sandboxGroups/connections/delete` | Delete a connection in a sandbox group |
+> | `Microsoft.App/sandboxGroups/diskimages/read` | List disk images in a sandbox group |
+> | `Microsoft.App/sandboxGroups/diskimages/write` | Create a new disk image in a sandbox group |
+> | `Microsoft.App/sandboxGroups/diskimages/delete` | Delete a disk image in a sandbox group |
+> | `Microsoft.App/sandboxGroups/egressPolicies/read` | List named egress policies in a sandbox group |
+> | `Microsoft.App/sandboxGroups/egressPolicies/write` | Create or update a named egress policy in a sandbox group |
+> | `Microsoft.App/sandboxGroups/egressPolicies/delete` | Delete a named egress policy in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/read` | List sandboxes in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/write` | Create a new sandbox in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/delete` | Delete a sandbox from a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/executeCommand/action` | Execute a command in a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/executeShellCommand/action` | Execute a shell command in a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/snapshot/action` | Take a snapshot of a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/stop/action` | Stop a running sandbox and save its state |
+> | `Microsoft.App/sandboxGroups/sandboxes/commit/action` | Commit a running sandbox to a new disk image |
+> | `Microsoft.App/sandboxGroups/sandboxes/resume/action` | Resume a stopped sandbox from its snapshot |
+> | `Microsoft.App/sandboxGroups/sandboxes/downloadContentPackage/action` | Download a content package to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/logstream/action` | Stream logs from a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/batch/write` | Create multiple sandboxes in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/connections/write` | Add a connection to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/count/read` | Get the total count of sandboxes in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/egress-decisions/read` | Get egress decisions for a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/egresspolicy/write` | Set the egress policy for a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/exec/stream/action` | Start an interactive exec session via WebSocket in a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/files/read` | Read a file from a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/files/write` | Write a file to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/files/delete` | Delete a file or directory in a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/lifecycle/write` | Set the lifecycle policy for a sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/pod-volumes/write` | Add pod volume mounts to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/ports/read` | Get the list of ports for a sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/ports/write` | Add a port to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/ports/delete` | Remove a port from a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/processes/stream/action` | Stream the process list from a running sandbox via WebSocket |
+> | `Microsoft.App/sandboxGroups/sandboxes/stats/read` | Get resource usage statistics for a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/volumes/write` | Add a volume mount to a running sandbox |
+> | `Microsoft.App/sandboxGroups/secrets/read` | List secrets in a sandbox group |
+> | `Microsoft.App/sandboxGroups/secrets/write` | Create or update a secret in a sandbox group |
+> | `Microsoft.App/sandboxGroups/secrets/delete` | Delete a secret in a sandbox group |
+> | `Microsoft.App/sandboxGroups/snapshots/read` | List snapshots in a sandbox group |
+> | `Microsoft.App/sandboxGroups/snapshots/delete` | Delete a snapshot in a sandbox group |
+> | `Microsoft.App/sandboxGroups/snapshots/count/read` | Get the total count of snapshots in a sandbox group |
+> | `Microsoft.App/sandboxGroups/volumes/read` | List volumes in a sandbox group |
+> | `Microsoft.App/sandboxGroups/volumes/write` | Create a new volume in a sandbox group |
+> | `Microsoft.App/sandboxGroups/volumes/delete` | Delete a volume in a sandbox group |
+> | `Microsoft.App/sandboxGroups/volumes/files/read` | List directory contents within a volume |
+> | `Microsoft.App/sandboxGroups/volumes/files/write` | Upload a file to a volume |
+> | `Microsoft.App/sandboxGroups/volumes/files/delete` | Delete a file or directory from a volume |
 > | `Microsoft.App/sessionPools/executions/action` | Execute code in a session pool code interpreter session |
 > | `Microsoft.App/sessionPools/files/action` | Upload file to a session pool code interpreter session |
 > | `Microsoft.App/sessionPools/executions/read` | Get the execution result of a previous asynchronous code execution |
@@ -706,6 +762,10 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | `Microsoft.Compute/images/read` | Get the properties of the Image |
 > | `Microsoft.Compute/images/write` | Creates a new Image or updates an existing one |
 > | `Microsoft.Compute/images/delete` | Deletes the image |
+> | `Microsoft.Compute/interconnectBlocks/read` | Get the properties of an interconnect block |
+> | `Microsoft.Compute/interconnectBlocks/write` | Creates a new interconnect block or updates an existing interconnect block |
+> | `Microsoft.Compute/interconnectBlocks/delete` | Deletes the interconnect block |
+> | `Microsoft.Compute/interconnectBlocks/deploy/action` | Deploy a new VM/VMSS using Interconnect Block |
 > | `Microsoft.Compute/locations/capsOperations/read` | Gets the status of an asynchronous Caps operation |
 > | `Microsoft.Compute/locations/cloudServiceOsFamilies/read` | Read any guest OS Family that can be specified in the XML service configuration (.cscfg) for a Cloud Service. |
 > | `Microsoft.Compute/locations/cloudServiceOsVersions/read` | Read any guest OS Version that can be specified in the XML service configuration (.cscfg) for a Cloud Service. |
@@ -917,9 +977,12 @@ Azure service: Microsoft Compute Limit
 > | Action | Description |
 > | --- | --- |
 > | `Microsoft.ComputeLimit/register/action` | Registers the subscription for the Compute Limit resource provider and enables the management of compute limit resources. |
+> | `Microsoft.ComputeLimit/locations/features/read` | Lists or gets feature registrations for a subscription within a location. |
+> | `Microsoft.ComputeLimit/locations/features/write` | Enables a feature registration for a subscription within a location. |
 > | `Microsoft.ComputeLimit/locations/guestSubscriptions/read` | Reads guest subscriptions for a given host subscription within a location. |
 > | `Microsoft.ComputeLimit/locations/guestSubscriptions/write` | Adds a subscription as a guest to consume a host subscription's shared compute limits. |
 > | `Microsoft.ComputeLimit/locations/guestSubscriptions/delete` | Removes a subscription as a guest preventing it from consuming the host subscription's shared compute limits. |
+> | `Microsoft.ComputeLimit/locations/operationResults/read` | Gets the status of a long-running operation for the Microsoft.ComputeLimit resource provider. |
 > | `Microsoft.ComputeLimit/locations/sharedLimits/read` | Lists all compute shared limits a host subscription shares with its guest subscriptions. |
 > | `Microsoft.ComputeLimit/locations/sharedLimits/write` | Enables sharing of a compute limit by a host subscription with its guest subscriptions. |
 > | `Microsoft.ComputeLimit/locations/sharedLimits/delete` | Disables sharing of a compute limit by a host subscription with its guest subscriptions. |
@@ -966,6 +1029,7 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action` | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreate/action` | VirtualMachinesExecuteCreate: Execute create operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action` | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
+> | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreateFlex/action` | virtualMachinesExecuteCreateFlex: executeCreateFlex for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/OperationStatuses/read` | read OperationStatuses |
 > | `Microsoft.ComputeSchedule/locations/OperationStatuses/write` | write OperationStatuses |
 > | `Microsoft.ComputeSchedule/Operations/read` | read Operations |
@@ -1153,12 +1217,14 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | `Microsoft.DesktopVirtualization/repositoryfolders/read` | Read repositoryfolders |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/write` | Write repositoryfolders |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/delete` | Delete repositoryfolders |
+> | `Microsoft.DesktopVirtualization/repositoryfolders/listRepositoryApplications/action` | Get applications from all repository integrations in a repository folder that specify the search criteria |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/providers/Microsoft.Insights/diagnosticSettings/read` | Gets the diagnostic setting |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/providers/Microsoft.Insights/diagnosticSettings/write` | Creates or updates the diagnostic setting |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/providers/Microsoft.Insights/logDefinitions/read` | Gets the available logs |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/read` | Read repositoryfolders/repositoryIntegrations |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/write` | Write repositoryfolders/repositoryIntegrations |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/delete` | Delete repositoryfolders/repositoryIntegrations |
+> | `Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/listRepositoryApplicationDetails/action` | Get application details for a given app in a repository integration |
 > | `Microsoft.DesktopVirtualization/resourceTypes/read` | Read resourceTypes |
 > | `Microsoft.DesktopVirtualization/scalingplans/read` | Read scalingplans |
 > | `Microsoft.DesktopVirtualization/scalingplans/write` | Write scalingplans |

@@ -6,6 +6,9 @@ ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
 ms.date: 11/04/2025
+ms.collection:
+  - migration
+  - aws-to-azure
 ---
 
 # Get started with cloud-to-cloud migration in Azure Storage Mover
