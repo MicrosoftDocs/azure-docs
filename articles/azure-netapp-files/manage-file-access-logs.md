@@ -14,9 +14,6 @@ ms.custom: references_regions
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
-> [!NOTE]
-> You should use REST APIs to add/delete diagnostic settings to enable/disable file access logs for cache volumes as portal support is not available.
-
 ## Considerations
 
 >[!IMPORTANT]
@@ -171,146 +168,6 @@ When configuring the Audit ACE, ensure you use the `U:` prefix to denote it's an
     * Send to a partner solution
 1. Save the settings.
 
-## Enable file access logs for cache volumes
-
-The following is an example to enable file access logs for cache volumes:
-
-Request:
-```
-curl --request PUT \
---url 'https://management.azure.com/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting?api-version=2021-05-01-preview' \
---header 'authorization: Bearer <TOKEN>' \
---header 'content-type: application/json' \
---data '{
-  "name": "log-analytics-setting",
-  "properties": {
-      "logs": [
-          {
-              "category": "ANFFileAccess",
-              "categoryGroup": null,
-              "enabled": true,
-              "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-              }
-          }
-      ],
-      "metrics": [
-          {
-              "enabled": false,
-              "retentionPolicy": {
-                  "days": 0,
-                  "enabled": false
-              },
-              "category": "AllMetrics"
-          }
-      ],
-      "workspaceId": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
-      "logAnalyticsDestinationType": null
-  }
-}
-```
-
-Response:
-```
-{
-  "id": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourcegroups/shn-cache-scus-rg3/providers/microsoft.netapp/netappaccounts/shn-women-scus-na/capacitypools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting",
-  "type": "Microsoft.Insights/diagnosticSettings",
-  "name": "log-analytics-setting",
-  "location": null,
-  "kind": null,
-  "tags": null,
-  "properties": {
-    "storageAccountId": null,
-    "serviceBusRuleId": null,
-    "workspaceId": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
-    "eventHubAuthorizationRuleId": null,
-    "eventHubName": null,
-    "metrics": [
-      {
-        "timeGrain": "PT1M",
-        "category": "AllMetrics",
-        "enabled": false,
-        "retentionPolicy": {
-          "enabled": false,
-          "days": 0
-        }
-      }
-    ],
-    "logs": [
-      {
-        "category": "ANFFileAccess",
-        "categoryGroup": null,
-        "enabled": true,
-        "retentionPolicy": {
-          "enabled": false,
-          "days": 0
-        }
-      }
-    ],
-    "logAnalyticsDestinationType": null
-  },
-  "identity": null
-}
-```
-
-## Fetch diagnostic settings on a cache volume:
-
-The following is an example to fetch diagnostic settings on a cache volume. For more information, see [Diagnostic Settings](/rest/api/monitor/diagnostic-settings)
-
-Request:
-```
-curl --request GET \
-  --url 'https://management.azure.com/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings?api-version=2021-05-01-preview' \
-  --header 'authorization: Bearer <TOKEN>' \
-  --header 'content-type: application/json'
-```
-
-Response:
-```
-{
-  "value": [
-    {
-      "id": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourcegroups/shn-cache-scus-rg3/providers/microsoft.netapp/netappaccounts/shn-women-scus-na/capacitypools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting",
-      "type": "Microsoft.Insights/diagnosticSettings",
-      "name": "log-analytics-setting",
-      "location": "southcentralus",
-      "kind": null,
-      "tags": null,
-      "properties": {
-        "storageAccountId": null,
-        "serviceBusRuleId": null,
-        "workspaceId": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
-        "eventHubAuthorizationRuleId": null,
-        "eventHubName": null,
-        "metrics": [
-          {
-            "category": "AllMetrics",
-            "enabled": false,
-            "retentionPolicy": {
-              "enabled": false,
-              "days": 0
-            }
-          }
-        ],
-        "logs": [
-          {
-            "category": "ANFFileAccess",
-            "categoryGroup": null,
-            "enabled": true,
-            "retentionPolicy": {
-              "enabled": false,
-              "days": 0
-            }
-          }
-        ],
-        "logAnalyticsDestinationType": null
-      },
-      "identity": null
-    }
-  ]
-}    
-```
 
 ## Disable file access logs
 
@@ -322,22 +179,6 @@ Response:
 >[!NOTE]
 >After disabling file access logs, you must wait at least ten minutes before attempting to enable or re-enable file access logs on any volume.
  
-## Disable file access logs on cache volumes by removing diagnostic setting:  
-
-The following is an example to disable file access logs on cache volumes by removing diagnostic setting:
-
-Request:
-```
-curl --request DELETE \
---url 'https://management.azure.com/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting?api-version=2021-05-01-preview' \
---header 'authorization: Bearer <TOKEN>'
-```
-
-Response:
-```
-200 OK
-```
-
 
 ## Next Steps
 
