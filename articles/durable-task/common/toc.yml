@@ -7,6 +7,15 @@
     href: what-is-durable-task.md
   - name: Choose your hosting model
     href: choose-orchestration-framework.md
+- name: AI and agents
+  expanded: true
+  items:
+  - name: Overview
+    href: ../sdks/durable-task-for-ai-agents.md
+  - name: Agentic application patterns
+    href: ../sdks/durable-agents-patterns.md
+  - name: Microsoft Agent Framework extension (Preview)
+    href: ../sdks/durable-agents-microsoft-agent-framework.md
 - name: Get started
   items:
   - name: Durable Task SDKs

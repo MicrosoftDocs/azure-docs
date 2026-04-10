@@ -287,6 +287,46 @@
     href: storage-java-how-to-use-file-storage.md
   - name: Python
     href: storage-python-how-to-use-file-storage.md
+- name: Files for artificial intelligence (AI)
+  items:
+  - name: Retrieval-augmented generation (RAG)
+    items:
+    - name: What is retrieval-augmented generation?
+      href: artificial-intelligence/retrieval-augmented-generation/overview.md
+    - name: LangChain
+      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/langchain.md
+    - name: LlamaIndex
+      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/llamaindex.md
+    - name: Haystack
+      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/haystack.md
+    - name: Pinecone
+      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/pinecone.md
+    - name: Weaviate
+      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/weaviate.md
+    - name: Qdrant
+      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/qdrant.md
+    - name: Tutorials
+      items:
+      - name: Get started
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/setup.md
+      - name: Use LangChain with Pinecone
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/langchain-pinecone/tutorial-langchain-pinecone.md
+      - name: Use LangChain with Weaviate
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/langchain-weaviate/tutorial-langchain-weaviate.md
+      - name: Use LangChain with Qdrant
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/langchain-qdrant/tutorial-langchain-qdrant.md
+      - name: Use LlamaIndex with Pinecone
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/llamaindex-pinecone/tutorial-llamaindex-pinecone.md
+      - name: Use LlamaIndex with Weaviate
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/llamaindex-weaviate/tutorial-llamaindex-weaviate.md
+      - name: Use LlamaIndex with Qdrant
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/llamaindex-qdrant/tutorial-llamaindex-qdrant.md
+      - name: Use Haystack with Pinecone
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/haystack-pinecone/tutorial-haystack-pinecone.md
+      - name: Use Haystack with Weaviate
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/haystack-weaviate/tutorial-haystack-weaviate.md
+      - name: Use Haystack with Qdrant
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/haystack-qdrant/tutorial-haystack-qdrant.md
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure Files

@@ -25,15 +25,21 @@ highlightedContent:
     - title: Programming model overview
       itemType: concept
       url: ./common/programming-model-overview.md
+    - title: AI agents overview
+      itemType: concept
+      url: ./sdks/durable-task-for-ai-agents.md?toc=/azure/durable-task/common/toc.json
     - title: Durable Functions
       itemType: overview
-      url: /azure/azure-functions/durable-functions/durable-functions-overview
+      url: /azure/azure-functions/durable-functions/durable-functions-overview?toc=/azure/durable-task/common/toc.json
     - title: Durable Task SDKs
       itemType: overview
-      url: ./sdks/durable-task-overview.md
+      url: ./sdks/durable-task-overview.md?toc=/azure/durable-task/common/toc.json
+    - title: Durable Task for AI agents
+      itemType: overview
+      url: ./sdks/durable-task-for-ai-agents.md?toc=/azure/durable-task/common/toc.json
     - title: Durable Task Scheduler storage provider
       itemType: overview
-      url: ./scheduler/durable-task-scheduler.md
+      url: ./scheduler/durable-task-scheduler.md?toc=/azure/durable-task/common/toc.json
 
 conceptualContent:
   items:
@@ -74,6 +80,18 @@ conceptualContent:
       # footerLink (optional)
       footerLink:
         url: /azure/durable-task/sdks/durable-task-overview?toc=/azure/durable-task/common/toc.json
+        text: See more
+    - title: Durable Task for AI agents
+      summary: Build fault-tolerant, scalable AI agents with durable execution
+      links:
+        - text: Microsoft Agent Framework extension
+          url: ./sdks/durable-agents-microsoft-agent-framework.md?toc=/azure/durable-task/common/toc.json
+          itemType: concept
+        - text: Agentic application patterns
+          url: ./sdks/durable-agents-patterns.md?toc=/azure/durable-task/common/toc.json
+          itemType: concept
+      footerLink:
+        url: ./sdks/durable-task-for-ai-agents.md?toc=/azure/durable-task/common/toc.json
         text: See more
     - title: Durable Task Scheduler
       summary: Fully managed backend service purpose-built for durable workloads

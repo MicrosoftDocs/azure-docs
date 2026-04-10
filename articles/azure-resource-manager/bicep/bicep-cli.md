@@ -2,7 +2,7 @@
 title: Bicep CLI commands 
 description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.date: 03/02/2026
+ms.date: 04/09/2026
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
@@ -137,6 +137,192 @@ az bicep build-params --file params.bicepparam
 ---
 
 This command converts a _params.bicepparam_ parameters file into a _params.json_ JSON parameters file.
+
+## console
+
+The `console` command is available in Bicep CLI v0.42.1 or later. It provides an interactive Read-Eval-Print Loop (REPL) environment for Bicep expressions. It allows you to experiment with Bicep functions and expressions in an interactive console session, especially useful when authoring or testing Bicep logic such as expressions, functions, and user-defined functions.. It supports the following features:
+
+* **Interactive Expression Evaluation**: Enter Bicep expressions and see their evaluated results immediately
+* **Variable Declarations**: Define variables using `var name = expression syntax and reuse them in subsequent expressions
+* **Multi-line Input**: Support for complex multi-line expressions with automatic structural completion detection
+* **Syntax Highlighting**: Real-time syntax highlighting for input and output
+
+The `console` command has these limitations:
+
+* No support for expressions requiring Azure context, e.g. `resourceGroup()`
+* No support for for-loop expressions, e.g. `[for i in range(0, x): i]`
+* No persistent state between console sessions
+* No completions support
+
+Use the following command to start a Bicep console session:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```powershell
+bicep console
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+N/A
+
+---
+
+To exit the console, press `ESC` or use the `exit` command.
+
+### Examples
+
+#### Simple Expressions
+
+```bicep
+> 1 + 2
+3
+
+> 'Hello, ${'World!'}'
+'Hello, World!'
+
+> length(['a', 'b', 'c'])
+3
+```
+
+#### Variable Declarations
+
+```bicep
+> var myName = 'John'
+> var greeting = 'Hello, ${myName}!'
+> greeting
+'Hello, John!'
+```
+
+#### Multi-line Expressions
+
+The console automatically detects when expressions are structurally complete:
+
+```bicep
+> var config = {
+  name: 'myApp'
+  version: '1.0.0'
+  settings: {
+    debug: true
+    timeout: 30
+  }
+}
+> config.settings.debug
+true
+```
+
+#### Complex Expressions
+
+##### Lambdas
+
+```bicep
+> var users = [
+  { name: 'Alice', age: 30 }
+  { name: 'Bob', age: 25 }
+]
+> map(users, user => user.name)
+['Alice', 'Bob']
+
+> filter(users, user => user.age > 26)
+[
+  {
+    age: 30
+    name: 'Alice'
+  }
+]
+```
+
+##### User-defined types and functions
+
+```bicep
+> type PersonType = {
+  name: string
+  age: int
+}
+> func sayHi(person PersonType) string => 'Hello ${person.name}, you are ${person.age} years old!'
+> var alice = {
+  name: 'Alice'
+  age: 30
+}
+> [ sayHi(alice), sayHi({ name: 'Bob', age: 25 })]
+[
+  'Hello Alice, you are 30 years old!'
+  'Hello Bob, you are 25 years old!'
+]
+```
+
+#### Loading content from files
+
+Bicep console also supports the [`load*()` functions](./bicep-functions-files.md#file-functions-for-bicep). The directory from which the `bicep console` command is run is used as the _current directory_ when evaluating the `load*()` functions
+
+The following example shows how to use [`loadDirectoryFileInfo()`](./bicep-functions-files.md#loaddirectoryfileinfo) to load information about all Bicep files in a directory:
+
+```bicep
+> loadDirectoryFileInfo('./modules/', '*.bicep')
+[
+  {
+    relativePath: 'C:/Bicep/modules/appService.bicep'
+    baseName: 'appService.bicep'
+    extension: '.bicep'
+  }
+]
+```
+
+#### Piping and standard input/output redirection
+
+The console command supports evaluating expressions provided through piping or redirected standard input, enabling scenarios like:
+
+* Passing expression text via echo
+* Composing scripts that feed expressions into the console
+* Rapid testing of generated or transformed Bicep snippets
+
+**Powershell**:
+
+```powershell
+# piped input
+"parseCidr('10.144.0.0/20')" | bicep console
+```
+
+**Bash**:
+
+```bash
+# piped input
+echo "parseCidr('10.144.0.0/20')" | bicep console
+# stdin redirection from file content
+bicep console < test.txt
+```
+
+Multi-line input is also supported:
+
+```powershell
+"{
+> foo: 'bar'
+> }.foo" | bicep console
+```
+
+The output is `'bar'`.
+
+Output redirection is also supported:
+
+```bash
+"toObject([{name:'Evie', age:4},{name:'Casper', age:3}], x => x.name)" | bicep console > output.json
+more output.json
+```
+
+The output is :
+
+```json
+{
+  Evie: {
+    name: 'Evie'
+    age: 4
+  }
+  Casper: {
+    name: 'Casper'
+    age: 3
+  }
+}
+```
 
 ## decompile
 
