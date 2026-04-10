@@ -5,7 +5,7 @@ description: Exploring and interacting with the Microsoft Sentinel data lake usi
 author: EdB-MSFT  
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/27/2025
 ms.author: edbaynash  
 ms.collection: ms-security  
@@ -45,6 +45,10 @@ KQL jobs are one-time or scheduled asynchronous KQL queries on data in the Micro
 
 Run one-time KQL jobs on the data lake to promote specific historical data from the data lake tier to the analytics tier, or create custom summary tables in the data lake tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the analytics tier window. Submit a scheduled job on data lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
 
+
+## Visualize data in Microsoft Sentinel data lake using Workbooks
+
+You can use Microsoft Sentinel workbooks to visualize and monitor data in the Microsoft Sentinel data lake. By selecting Sentinel data lake as the data source in a workbook, you can run KQL queries directly on the data lake and render the results as interactive charts and tables. This allows you to create dashboards and reports that leverage long-term, high-volume telemetry stored in the data lake, making it ideal for advanced threat hunting, trend analysis, and executive reporting. For more information on creating workbooks with Sentinel data lake, see [Visualize data in Microsoft Sentinel data lake using Workbooks](workbooks-for-data-lake.md).
 
 ## Exploration scenarios
 

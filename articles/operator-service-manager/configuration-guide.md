@@ -114,6 +114,7 @@ This example shows how to define an object parameter `secretCgvContent`.
 
 > [!NOTE]
 > * Don't hydrate `secretCgvContent` using the bicep loadJsonContent() function.
+> * Don't include a `SecureObject` parameter in a variable definition. 
 
 * Under CGV resource properties, use `configurationType: 'Secret'` and `"secretConfigurationValue": "[string(parameters('secretCgvContent'))]"`.
   * This configuration prevents displaying the secret data via most Azure user interfaces.
@@ -125,7 +126,7 @@ This example shows how to pass all secrets in the object `secretCgvContent` to t
   "type": "Microsoft.HybridNetwork/configurationGroupValues",
   "properties": {
     "configurationType": "Secret"
-    "secretDeploymentValues": "[string(parameters('secretCgvContent'))]"
+    "secretConfigurationValue": "[string(parameters('secretCgvContent'))]"
   }
 }
 ```
@@ -154,10 +155,10 @@ This example shows how to define a parameter `secretPassword1` contained within 
 }
 ```
 
-* Use a template reference to AKV in place of the plain-text secret.
+* For parameter input, Use a template reference to AKV in place of the plain-text secret.
   * This configuration obscures the display of the secrets as template variables.
 
-This example shows how to hydrate the secret `secretPassword1` using AKV secret and key.
+This example shows how to define the secret `secretPassword1` using AKV secret and key.
 
 ```json
   "secretPassword1": {
@@ -196,24 +197,25 @@ Consider the following ARM template requirements to properly obscure secret valu
  
 ```json
 "parameters": {
-   "siteSpecificValues": {
-     "type": "object"
-   },
-   "secretValues": {
-     "type": "secureObject"
-    },
     "nfValues": {
      "type": "object"
     },
+    "siteSpecificValues": {
+     "type": "object"
+    },
+    "secretValues": {
+     "type": "secureObject"
+    },
     "config": {
       "type": "secureObject",
-      "defaultValue": "[union(parameters('nfValues'),parameters('siteSpecificValues'), parameters('secretValues'))]"
+      "defaultValue": "[union(parameters('nfValues'), parameters('siteSpecificValues'), parameters('secretValues'))]"
     }
 }
 ```
 
 > [!NOTE]
 > * Don't hydrate `secretValues` using the bicep loadJsonContent() function.
+> * Don't include a `SecureObject` parameter in a variable definition. 
 
 * Under networkFunctions resource properties, use `configurationType: 'Secret'` and `"secretDeploymentValues": "[string(parameters('config'))]"`.
   * Once a network function is deployed, this configuration prevents displaying the secret data via most Azure user interfaces. 
@@ -223,7 +225,7 @@ Consider the following ARM template requirements to properly obscure secret valu
   {
     "type": "Microsoft.HybridNetwork/networkFunctions",
       "configurationType": "Secret",
-      "secretDeploymentValues": "[string(variables('config'))]",
+      "secretDeploymentValues": "[string(parameters('config'))]",
   }
 ]
 ```

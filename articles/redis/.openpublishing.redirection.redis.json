@@ -7,6 +7,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/redis/how-to-redis-cli-tool.md",
+            "redirect_url": "/azure/redis/how-to-redis-access-data",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/redis/high-availability.md",
             "redirect_url": "/azure/azure-cache-for-redis/cache-high-availability",
             "redirect_document_id": false
@@ -95,6 +100,11 @@
             "source_path_from_root": "/articles/redis/web-app-cache-howto.md",
             "redirect_url": "/azure/redis/aspnet",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/migrate/migrate-overview.md",
+            "redirect_url": "/azure/redis/migrate/migrate-basic-standard-premium-overview",
+            "redirect_document_id": true
         }
     ]
 }

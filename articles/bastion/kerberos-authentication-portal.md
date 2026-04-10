@@ -2,11 +2,11 @@
 title: Configure Bastion for Kerberos authentication - Azure portal
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion to use Kerberos authentication via the Azure portal.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 12/09/2024
-ms.author: abell
+ms.author: cherylmc
 
 # Customer intent: "As a cloud administrator, I want to configure Azure Bastion to use Kerberos authentication, so that I can ensure secure access to my virtual machines without relying on less secure authentication methods."
 ---

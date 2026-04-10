@@ -4,11 +4,11 @@ titleSuffix: Azure Private Link
 description: Learn how to enable and manage network policies for Azure private endpoints in an Azure virtual network. 
 # Customer intent: Learn how to manage network policies for private endpoints.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: how-to
 ms.date: 03/25/2025
-ms.author: abell 
+ms.author: allensu
 ms.devlang: azurecli
 ms.custom: devx-track-azurepowershell, template-how-to
 ---

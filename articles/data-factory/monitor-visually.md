@@ -5,7 +5,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: whhender
 ms.subservice: monitoring
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ms.custom: sfi-image-nochange
 ---

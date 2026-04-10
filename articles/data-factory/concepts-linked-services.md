@@ -6,7 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/25/2025
 ms.custom:
   - synapse

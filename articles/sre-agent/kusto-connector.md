@@ -1,16 +1,16 @@
 ---
-title: "Tutorial: Set Up the Kusto Connector in Azure SRE Agent"
-description: Connect your SRE agent to Azure Data Explorer clusters so it can run KQL queries against your logs and telemetry data.
+title: "Tutorial: Connect to Azure Data Explorer (ADX) in Azure SRE Agent"
+description: Connect your SRE agent to Azure Data Explorer (Kusto) clusters so it can run KQL queries against your logs and telemetry data.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 03/18/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
 #customer intent: As an SRE, I want to connect my agent to Azure Data Explorer so that it can query logs and telemetry during incident investigations.
 ---
 
-# Tutorial: Set up the Kusto connector in Azure SRE Agent
+# Tutorial: Connect to Azure Data Explorer (ADX) in Azure SRE Agent
 In this tutorial, you connect your SRE agent to an Azure Data Explorer (Kusto) cluster. After you complete the setup, the agent can run KQL queries against your logs and telemetry data to support incident investigations and diagnostics.
 
 **Estimated time**: 15 minutes
@@ -64,6 +64,11 @@ Configure the Kusto connector in the SRE Agent portal.
    - **Cluster URL**: The cluster URL from the previous step.
    - **Database**: The default database name.
 1. Select **Test connection** to verify the configuration.
+
+   You see a **Connection successful** confirmation. If the test fails, check the [Troubleshooting](#troubleshoot-common-issues) section.
+
+   **Checkpoint:** The connector appears in your **Connectors** list with a **Connected** status badge.
+
 1. Select **Save**.
 
 ## Verify the connection
@@ -95,5 +100,5 @@ If you encounter problems during setup, review the following common causes.
 
 ## Related content
 
-- [Create a Kusto tool](create-kusto-tool.md)
-- [Diagnose issues with third-party observability data](diagnose-observability.md)
+- [Create Kusto tool](create-kusto-tool.md)
+- [Diagnose with external observability](diagnose-observability.md)

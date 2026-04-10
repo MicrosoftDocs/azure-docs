@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: concept-article
-ms.date: 01/28/2026
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.custom:
   - build-2023
@@ -606,6 +606,13 @@ The following partial example of an Azure Resource Manager template creates a jo
 To configure advanced settings by using the Azure portal, create the job as described earlier in this article and then, under **Settings** in the left pane, select **Configuration**. Edit the configuration settings in the **Configuration** pane.
 
 ---
+
+## Job networking and app-to-app communication
+
+When a job pod starts, sidecar containers (such as the Envoy proxy) are guaranteed to be ready before the main job container begins execution. This ensures that app-to-app calls made by the job at startup succeed without connection failures.
+
+> [!NOTE]
+> If your job makes calls to other container apps at startup, you don't need to add retry logic for initial sidecar readiness. The platform handles this automatically.
 
 ## Jobs restrictions
 

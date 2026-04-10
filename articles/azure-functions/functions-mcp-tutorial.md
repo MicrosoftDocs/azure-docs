@@ -288,7 +288,7 @@ There are two ways to reduce or prevent unauthorized use of your remote MCP serv
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Disable key-based authentication  
 
-The built-in server authorization feature is a component separate from Azure Functions. When using server authentication, it's best to first disable key-based authentication by allowing anonymous access. 
+The built-in server authorization feature is a component separate from Azure Functions. When using server authentication, disable key-based authentication by allowing anonymous access first. 
 
 ### [MCP extension server](#tab/mcp-extension)
 
@@ -367,6 +367,16 @@ When deployment finishes, you should see a notification in Visual Studio Code ab
 ## Enable built-in server authorization and authentication
 
 The following instruction shows how to enable the built-in authorization and authentication feature on the server app and configures Microsoft Entra ID as the identity provider. When done, you test by connecting to the server in Visual Studio Code and see that you're prompted to authenticate before connecting. 
+
+When enabling built-in auth, you should [disable the default key-based auth](#disable-key-based-authentication) first. If you haven't done that and your app is already deployed, follow the instructions below. 
+
+### [MCP extension server](#tab/mcp-extension)
+[!INCLUDE [functions-mcp-extension-disable-key-access](../../includes/functions-mcp-extension-disable-key-access.md)]
+
+### [Self-hosted server](#tab/self-hosted)
+[!INCLUDE [functions-self-hosted-disable-key-access](../../includes/functions-self-hosted-disable-key-access.md)]
+
+---
 
 ### Configure authentication on server app
 

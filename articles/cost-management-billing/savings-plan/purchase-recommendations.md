@@ -1,5 +1,5 @@
 ---
-title: Azure savings plan recommendations
+title: Savings plan recommendations
 titleSuffix: Microsoft Cost Management
 description: Learn about how Azure makes savings plan purchase recommendations.
 author: nwokolo
@@ -7,13 +7,13 @@ ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.topic: conceptual
-ms.date: 01/08/2026
+ms.topic: concept-article
+ms.date: 03/14/2026
 ---
 
-# Azure savings plan recommendations
+# Savings plan recommendations
 
-Azure savings plan purchase recommendations are provided through [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), the savings plan purchase experience in [Azure portal](https://portal.azure.com/), and through the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list).
+Savings plan purchase recommendations are provided through [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), the savings plan purchase experience in [Azure portal](https://portal.azure.com/), and through the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list).
 
 ## How savings plan recommendations are generated
 
@@ -67,11 +67,11 @@ For more information about retrieving savings plan commitment recommendations, s
 
 When you [trade-in](reservation-trade-in.md) one or more reservations for a savings plan, you're shifting the balance of your previous commitments to a new savings plan commitment. For example, if you have a one-year reservation with a value of $500, and halfway through the term you look to trade it for a savings plan, you will still have an outstanding commitment of about $250. The minimum hourly commitment must be at least equal to the outstanding amount divided by (24 * the term length in days).
 
-As part of the trade in, the outstanding commitment is automatically included in your new savings plan. We do it by dividing the outstanding commitment by the number of hours in the term of the new savings plan. For example, 24 times the term length in days. And by making the value the minimum hourly commitment you can make during as part of the trade-in. Using the previous example, the $250 amount would be converted into an hourly commitment of about $0.029 for a new one-year savings plan. If you're trading multiple reservations, the total outstanding commitment is used. You can choose to increase the value, but you can't decrease it.
+As part of the trade in, the outstanding commitment is automatically included in your new savings plan. We do it by dividing the outstanding commitment by the number of hours in the term of the new savings plan. For example, 24 times the term length in days. And by making the value the minimum hourly commitment you can make as part of the trade-in. Using the previous example, the $250 amount would be converted into an hourly commitment of about $0.029 for a new one-year savings plan. If you're trading multiple reservations, the total outstanding commitment is used. You can choose to increase the value, but you can't decrease it.
 
 The minimum value doesn't necessarily represent the hourly commitment necessary to cover the resources that were covered by the exchanged reservation. If you want to cover those resources, you most likely need to increase the hourly commitment. To determine the appropriate hourly commitment, see [Determine savings plan commitment needed to replace your reservation](reservation-trade-in.md#determine-savings-plan-commitment-needed-to-replace-your-reservation).
 
 ## Related content
 
-- Learn about [how the Azure savings plan discount is applied](discount-application.md).
+- Learn about [how the savings plan discount is applied](discount-application.md).
 - Learn about how to [trade in reservations](reservation-trade-in.md) for a savings plan.

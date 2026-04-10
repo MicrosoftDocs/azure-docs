@@ -3,15 +3,15 @@ title: Schedule tasks with Azure SRE Agent
 description: Learn how to use scheduled tasks in SRE Agent to automate monitoring, enforce security, and validate recovery.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 11/10/2025
+ms.date: 03/18/2026
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
 # Scheduled tasks in Azure SRE Agent
-Scheduled tasks in Azure SRE Agent let you automate workflows such as monitoring, maintenance, and security checks on a schedule you define. You can create these tasks manually, request them during a chat with the agent, or allow the agent to generate them autonomously as part of [incident response](incident-response-plans.md). Scheduled tasks helps you move from reacting to problems to being proactive with tasks that run consistently and without manual effort.
+Scheduled tasks in Azure SRE Agent automate workflows such as monitoring, maintenance, and security checks on a schedule you define. You can create these tasks manually, request them during a chat with the agent, or allow the agent to generate them autonomously as part of [incident response](incident-response-plans.md). Scheduled tasks help you move from reacting to problems to being proactive with tasks that run consistently and without manual effort.
 
-The following scenarios show you some common use cases for using scheduled tasks:
+The following scenarios show some common use cases for scheduled tasks:
 
 > [!NOTE]
 > This list isn't meant to be comprehensive, but it describes different ways you can use scheduled tasks in your environment.
@@ -46,11 +46,11 @@ The following scenarios show you some common use cases for using scheduled tasks
 
 - Write prompts that are concise and specific.
 - Use compliance frameworks for security-related tasks.
-- Avoid ambiguous schedules (for example, "every hour" without an end condition).
+- Avoid ambiguous schedules, such as "every hour" without an end condition.
 
 ## Examples
 
-The following examples demonstrate a few sample sets of custom instructions you could define for a scheduled task.
+The following examples demonstrate a few sample sets of custom instructions you can define for a scheduled task.
 
 > [!NOTE]
 > These custom instructions use placeholders to represent sensitive data.
@@ -88,7 +88,10 @@ infrastructure, and dependencies.
 
 ---
 
-## Related content
+## Get started
 
-- [Incident response plans in Azure SRE Agent](incident-response-plans.md)
-- [Incident management in Azure SRE Agent](incident-response.md)
+| Resource | What you learn |
+|----------|-------------------|
+| [Create a scheduled task](create-scheduled-task.md) | Step-by-step tutorial |
+
+

@@ -95,7 +95,7 @@ For all enterprise Site Recovery deployments, we recommend that you use [Express
 
 ### Required storage accounts
 
-The following chart shows the total number of storage accounts (standard and premium) that are required to protect all the compatible virtual machines. To learn which storage account to use for each virtual machine, see the *VM-storage placement* section. If you're using v2.5 of Deployment Planner, this recommendation only shows the number of standard cache storage accounts which are needed for replication since the data is being directly written to Managed Disks.
+The following chart shows the total number of storage accounts (standard and premium) that are required to protect all the compatible virtual machines. To learn which storage account to use for each virtual machine, see the *VM-storage placement* section. If you're using v2.5 of Deployment Planner, this recommendation only shows the number of standard cache storage accounts which are needed for replication since the data is being directly written to managed disks.
 
 :::image type="content" source="media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png" alt-text="Screenshot of required storage accounts in the deployment planner.":::
 
@@ -203,7 +203,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **Storage Type**: Standard or premium.
 
-**Asrseeddisk (Managed Disk) created for replication**: The name of the disk that is created when you enable replication. It stores the data and its snapshots in Azure.
+**Asrseeddisk (managed disk) created for replication**: The name of the disk that is created when you enable replication. It stores the data and its snapshots in Azure.
 
 **Peak R/W IOPS (with Growth Factor)**: The peak workload read/write IOPS on the disk (default is 95th percentile), including the future growth factor (default is 30 percent). The total read/write IOPS of a virtual machine isn't always the sum of the virtual machine’s individual disks’ read/write IOPS, because the peak read/write IOPS of the virtual machine is the peak of the sum of its individual disks' read/write IOPS during every minute of the profiling period.
 

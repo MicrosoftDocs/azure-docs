@@ -4,7 +4,7 @@ description: Learn how to copy data from Netezza to supported sink data stores u
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2025
 ms.author: jianleishen
 ms.custom:

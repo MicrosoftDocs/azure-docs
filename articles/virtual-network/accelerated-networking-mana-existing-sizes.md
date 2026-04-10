@@ -11,6 +11,9 @@ ms.author: mattmcinnes
 
 # MANA support for existing VM sizes
 
+> [!IMPORTANT]
+> For timelines pertaining to VM families running on MANA-capable hardware, see the [announcement](https://techcommunity.microsoft.com/blog/AzureInfrastructureBlog/announcing-microsoft-azure-network-adapter-mana-support-for-existing-vm-skus/4493279).
+
 The following content is for customers of existing VM Sizes and using Accelerated Networking. To learn more about Accelerated Networking and the Networking performance benefits it provides, check out the [Accelerated Networking Overview](https://aka.ms/accelnet).
 
 Per the [announcement](https://aka.ms/announcemanasupportforexistingvms), General Purpose Compute VMs can be deployed on compute hardware equipped with the [Microsoft Azure Network Adapter](/azure/virtual-network/accelerated-networking-mana-overview). The Microsoft Azure Network Adapter (MANA) was introduced in February 2025 with the Intel v6 family of sizes as part of Azure Boost. MANA is an Azure optimized, performance focused, Accelerated Networking device that is an integral part of the newest Azure Boost offerings.
@@ -33,7 +36,7 @@ Dsv5, Dv5, Ddsv5, Ddv5, Dlsv5, Dldsv5, Esv5, Ev5, Edsv5, Edv5, Ebsv5, Ebdsv5, Ds
 
 Note that some of these VM sizes will soon be retired. It's highly recommended that customers utilize the latest generations of Azure VMs for improved performance, functionality, and resiliency. 
 
-### Will existing VMs deployed on MANA hardware?
+### Will existing VMs be deployed on MANA hardware?
 VMs already deployed will be eligible to land on MANA capable hardware following a "stop-deallocate and start" command, or through a redeploy operation. All new VMs in the series listed above are eligible to be deployed on MANA capable hardware as well. 
 
 ### How will I know if my VM is deployed on MANA capable hardware? 
@@ -62,6 +65,14 @@ To learn more about MANA, visit [Microsoft Azure Network Adapter](/azure/virtual
 
 ### What should I do if I have issues? 
 We’re here to help. Contact Microsoft Support, who can assist with troubleshooting, guidance, and next steps. You can open a support request through the Azure portal by selecting Help + support, or visit the Microsoft Support site to start a new case. A support engineer reviews your request, engage internal teams as needed, and keep you updated until the issue is resolved. 
+
+### Are Azure Kubernetes Service (AKS) instances impacted?
+
+No. AKS instances aren't impacted and will continue to perform as expected when deployed on MANA hardware.
+
+### Is VNet encryption impacted?
+
+No. VNet encryption will continue to perform as expected if VMs are deployed on MANA hardware.
 
 ## Related content
 

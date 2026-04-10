@@ -1,0 +1,58 @@
+### YamlMime:FAQ
+metadata:
+  title: Apache Airflow on Astro frequently asked questions
+  description: Answers to common questions about using Apache Airflow on Astro on Azure Marketplace and in the Azure portal.
+  ai-usage: ai-generated
+  ms.topic: faq
+  ms.date: 12/18/2025
+
+title: Apache Airflow on Astro FAQ
+summary: |
+  Find quick answers about subscribing to, creating, managing, and developing with Apache Airflow on Astro, the Azure Native Service codeveloped by Microsoft and Astronomer.
+
+sections:
+  - name: General
+    questions:
+      - question: What is Apache Airflow on Astro?
+        answer: |
+          Apache Airflow on Astro is a codeveloped Azure Native Service by Microsoft and Astronomer that lets you deploy and manage fully managed Apache Airflow resources in the Azure portal or Azure Marketplace. Astronomer owns and runs the SaaS application, while Azure handles billing and resource lifecycle through the `astronomer.astro` resource provider. Learn more in the [overview](overview.md).
+
+      - question: How do I subscribe to Apache Airflow on Astro?
+        answer: |
+          You can start a subscription from the [Azure portal](overview.md#subscribe-to-apache-airflow-on-astro) or [Azure Marketplace](overview.md#subscribe-to-apache-airflow-on-astro). Choose the plan that fits your needs, then complete the subscription flow to enable unified billing through Azure.
+
+      - question: How do I create an Astro resource in Azure?
+        answer: |
+          Use the Azure portal quickstart to create an Astro resource. In the **Create an Astro organization** wizard, complete the **Basics** tab (project details, Azure resource details, and Astro organization details), optionally add tags, then select **Review + create**. See [Quickstart: Get started with Apache Airflow on Astro](create.md) for the full flow.
+
+      - question: What Azure resource details do I need to provide during creation?
+        answer: |
+          In the **Basics** tab, you specify a subscription, resource group, unique resource name, and region, along with Astro organization and workspace information. Required fields are marked with a red asterisk. Steps are detailed in the [create guide](create.md#basics-tab).
+
+      - question: How is billing handled for Apache Airflow on Astro?
+        answer: |
+          Billing is unified through Azure. When you subscribe and create an Astro resource from Azure Marketplace or the Azure portal, your plan charges appear on your Azure bill as a single line item for the deployment.
+
+      - question: Is single sign-on enabled for Astro?
+        answer: |
+          Yes. Single sign-on with Microsoft Entra ID is enabled when you create the Astro resource. From the resource overview in the Azure portal, select the single sign-on (SSO) URL to access Astro. The first sign-in might prompt for user or admin consent depending on your tenant settings. See [single sign-on details](manage.md#single-sign-on).
+
+      - question: Where do I manage my Astro resource after creation?
+        answer: |
+          Go to the Astro resource in the Azure portal to view essentials (resource group, location, plan, status, SSO URL) and use links to manage settings. The **Go to Astro** button opens the Astro portal to create and manage Airflow deployments. See [Manage an Astro resource](manage.md#resource-overview).
+
+      - question: How do I delete an Astro resource?
+        answer: |
+          In the Azure portal, open your Astro resource and select **Delete**. Confirm the deletion to remove the resource and stop billing. For steps and considerations, see [delete an Astro resource](manage.md#delete-an-astro-resource).
+
+      - question: What developer tools can I use with Astro and Airflow?
+        answer: |
+          Astronomer provides the [Astro CLI](https://docs.astronomer.io/astro/cli/overview) to develop, test, and deploy Airflow projects. You can also use the Astro documentation to create deployments, run your first DAG, and connect to Azure data services. See [developer resources and tools](tools.md#developer-tools).
+
+      - question: Can I connect Astro deployments to Azure data services?
+        answer: |
+          Yes. Astronomer documentation covers connectors and patterns for Azure services, including Azure Blob Storage, Azure Container Instances, Azure Data Explorer, and Azure Data Factory. Review the guidance linked from [developer resources](tools.md#astronomer-resources).
+
+      - question: Where can I get support for Apache Airflow on Astro?
+        answer: |
+          Request help directly in the Azure portal from your Astro resource under **Support + Troubleshooting**, or contact Astronomer support at [support.astronomer.io](https://support.astronomer.io). Links are provided in the [manage article](manage.md#get-support).

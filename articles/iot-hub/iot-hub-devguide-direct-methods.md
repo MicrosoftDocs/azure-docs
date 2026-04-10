@@ -142,7 +142,7 @@ On an IoT device, direct methods can be received over MQTT, AMQP, or either of t
 
 ### MQTT
 
-The following section is for the MQTT protocol. To learn more about using the MQTT protocol directly with IoT Hub, see [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md).
+The following section is for the MQTT protocol. To learn more about using the MQTT protocol directly with IoT Hub, see [Communicate with an IoT hub using the MQTT protocol](iot-mqtt-connect-to-iot-hub.md).
 
 #### Method invocation
 

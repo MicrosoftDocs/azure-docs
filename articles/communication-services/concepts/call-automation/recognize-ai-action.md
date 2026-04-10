@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services concept document
 description: Conceptual information gathering user voice input using Call Automation and Foundry Tools
 author: Kunaal
 ms.service: azure-communication-services
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/15/2023
 ms.author: kpunjabi
 ms.custom: private_preview

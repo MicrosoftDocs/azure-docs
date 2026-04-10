@@ -2,11 +2,13 @@
 title: Apply the Remote Desktop in Cloud Services (extended support) 
 description: Enable Remote Desktop for Cloud Services (extended support)
 ms.topic: how-to
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As a cloud administrator, I want to enable and configure remote desktop access for role instances in cloud services, so that I can securely manage and troubleshoot deployments after they are live.
 ---
 

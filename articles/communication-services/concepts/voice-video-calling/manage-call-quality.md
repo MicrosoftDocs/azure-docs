@@ -8,7 +8,7 @@ manager: mvivion
 
 services: azure-communication-services
 ms.date: 7/10/2023
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-communication-services
 ms.subservice: calling
 ---

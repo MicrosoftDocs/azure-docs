@@ -66,6 +66,11 @@ This article focuses on the configuration stage of migration. Migration of clien
 
 The configuration migration focuses on setting up the new V2 gateway with the settings from your existing V1 environment. Two Azure PowerShell scripts facilitate the migration of configurations (Standard or Web Application Firewall) from V1 to V2 gateways. These scripts help streamline the transition process by automating key deployment and configuration tasks.
 
+> [!NOTE]
+>If the existing Application Gateway V1 deployment is configured with a private-only frontend, you must [register the `EnableApplicationGatewayNetworkIsolation` feature in the subscription](../application-gateway/application-gateway-private-deployment.md#onboard-to-the-feature) for private deployment before running the migration script even though the feature is in GA. This step is required to avoid deployment failures.
+
+>Private Application Gateway deployments must have subnet delegation configured to `Microsoft.Network/applicationGateways`. Use the [steps to set up subnet delegation](/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal).
+
 ## Enhanced cloning script (recommended)
 
 The enhanced cloning script is the recommended option. It offers an improved migration experience by:
@@ -385,8 +390,8 @@ For the legacy cloning script, version 1.0.11 is the new version of the migratio
 ### Public IP retention script
 
 After you successfully migrate the configuration and thoroughly test your new V2 gateway, this step focuses on redirecting live traffic.
-
-We provide an Azure PowerShell script that *retains the public IP address from V1*. Here are important considerations for the script:
+> [!NOTE]
+> The IP migration script does not support public IP address resources that have name beginning with a numeric character. 
 
 - The script reserves the Basic public IP from V1, converts it to Standard, and attaches it to the V2 gateway. This action effectively redirects all incoming traffic to the V2 gateway.
 - This IP swap operation typically results in a brief *downtime of approximately one to five minutes*. Plan accordingly.

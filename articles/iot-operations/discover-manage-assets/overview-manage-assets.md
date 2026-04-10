@@ -130,7 +130,7 @@ Connectors include:
 
 - **Connector for SSE**. A service for connecting to server-sent event (SSE) endpoints and publishing event data to the MQTT broker.
 
-- **Connector for MQTT (preview)**. A service for subscribing to topics on MQTT brokers and publishing data to the Azure IoT Operations MQTT broker. This connector is designed for connecting to other MQTT brokers in your environment.
+- **Connector for MQTT**. A service for subscribing to topics on MQTT brokers and publishing data to the Azure IoT Operations MQTT broker. This connector is designed for connecting to other MQTT brokers in your environment.
 
   You can also use a data flow to connect to a Kafka endpoint and route messages to the MQTT broker. Learn how in [Connect to Kafka endpoints](howto-connect-kafka.md).
 
@@ -152,7 +152,10 @@ The following table summarizes which data types each connector supports.
 | Media           |          |              |                   | Yes     |
 | HTTP/REST       | Yes      |              |                   |         |
 | SSE             | Yes      | Yes          |                   |         |
-| MQTT (preview)  | Yes      |              | Yes               |         |
+| MQTT            | Yes      |              | Yes               |         |
+
+> [!TIP]
+> To learn more about how management groups and actions work across connectors, see [Enable and run management actions](howto-use-management-actions.md).
 
 #### Discovery
 

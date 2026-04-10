@@ -5,15 +5,13 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 02/20/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull custom connectors, WASM modules, and graph definitions from container registries for use in data flow graphs and connectors.
 ---
 
 # Configure registry endpoints
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 Data flow graphs and the HTTP/REST connector use registry endpoints to pull WebAssembly (WASM) modules and graph definitions from container registries. Azure IoT Operations pulls any custom connector templates you develop from container registries. You can configure the endpoint settings, authentication, and other settings to connect to Azure Container Registry (ACR) or other OCI-compatible registries such as:
 
@@ -107,7 +105,9 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 
 For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following content. This example uses system-assigned managed identity authentication with ACR:
 
@@ -188,7 +188,9 @@ authentication: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -233,7 +235,9 @@ authentication: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -289,7 +293,9 @@ authentication: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -320,7 +326,9 @@ authentication: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -374,7 +382,9 @@ resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpo
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -396,12 +406,69 @@ After you create this registry endpoint, you can reference it in your data flow 
 > [!NOTE]
 > Public registries don't require authentication, but they may have rate limits. For production workloads, consider using a private registry like Azure Container Registry.
 
+## Default MCR registry endpoint
+
+When you deploy Azure IoT Operations, a registry endpoint named `default` is automatically created. This endpoint points to Microsoft Container Registry (`mcr.microsoft.com`) with anonymous authentication:
+
+# [Azure portal](#tab/portal)
+
+You can view the default registry endpoint in the Azure portal under **Components** > **Registry endpoints**. The `default` endpoint is read-only and can't be deleted.
+
+# [Bicep](#tab/bicep)
+
+The default endpoint is equivalent to the following configuration:
+
+```bicep
+resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01-preview' = {
+  parent: aioInstance
+  name: 'default'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    host: 'mcr.microsoft.com'
+    authentication: {
+      method: 'Anonymous'
+      anonymousSettings: {}
+    }
+  }
+}
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+The default endpoint is equivalent to the following `RegistryEndpoint` resource:
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1
+kind: RegistryEndpoint
+metadata:
+  name: default
+  namespace: azure-iot-operations
+spec:
+  host: mcr.microsoft.com
+  authentication:
+    method: Anonymous
+    anonymousSettings: {}
+```
+
+---
+
+The built-in data flow graph transforms (map, filter, branch, concatenate, window) use this endpoint to pull processing artifacts from MCR. When you use `registryEndpointRef: default` in a `DataflowGraph` resource, no extra registry configuration is needed. For more information about built-in transforms, see [Data flow graphs overview](../connect-to-cloud/concept-dataflow-graphs.md).
+
+> [!NOTE]
+> For custom WASM transforms or third-party artifacts, you need to create a separate registry endpoint that points to the registry where your artifacts are stored.
+
 ## Other container registries
 
 Registry endpoints support any OCI-compatible container registry, including Docker Hub, GitHub Container Registry (ghcr.io), Harbor, AWS Elastic Container Registry (ECR), and Google Container Registry (GCR). For public registries, use [anonymous authentication](#anonymous-authentication). For private registries, use [artifact pull secrets](#artifact-pull-secret) or managed identity authentication as appropriate.
 
 ## Next steps
 
-- [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
+- [Data flow graphs overview](../connect-to-cloud/concept-dataflow-graphs.md)
+- [Use WASM transforms in data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
 - [Configure data flow endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md)
 - [Configure data flow profiles](../connect-to-cloud/howto-configure-dataflow-profile.md)

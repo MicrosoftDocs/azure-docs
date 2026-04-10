@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.subservice: dapr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: hannahhunter
 ms.custom:

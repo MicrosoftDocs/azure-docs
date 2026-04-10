@@ -40,7 +40,7 @@ After the migration is successful and the VM restarts in Azure, ensure that you 
 > Be sure to check for any existing snapshots on the VM from earlier replication attempts, partner apps, or active backup tools (e.g., VEEAM), as this will block agentless replication setup in Azure Migrate.
 > Snapshot-based backups conflict with Azure Migrate’s agentless change tracking and replication process and should not be used concurrently.
 
-A replication cycle is the periodic process of transferring data from an on-premises environment to Azure Managed Disks. A full replication cycle consists of the following steps:
+A replication cycle is the periodic process of transferring data from an on-premises environment to Azure managed disks. A full replication cycle consists of the following steps:
 
 1. Create a VMware snapshot for each disk associated with the VM.
 2. Upload data to a log storage account in Azure.
@@ -230,9 +230,10 @@ You can also increase and decrease replication bandwidth based on a schedule by 
 Azure Migrate provides a configuration-based mechanism that you can use to specify the time interval during which you don't want any replications to proceed. This interval is called the *blackout window*. The need for a blackout window can arise in multiple scenarios, such as when the source environment is resource constrained or when you want replication to happen only outside business hours.
 
 > [!NOTE]
-> The existing replication cycles at the start of the blackout window finish before the replication pauses.
+> The existing replication cycles before the start of the blackout window will complete before the replication pauses.
 >
 > For any migration that you initiate during the blackout window, the final replication doesn't run. The migration fails.
+
 
 You can specify a blackout window for the appliance by creating or updating the `GatewayDataWorker.json` file in `C:\ProgramData\Microsoft Azure\Config`. A typical file has this form:
 

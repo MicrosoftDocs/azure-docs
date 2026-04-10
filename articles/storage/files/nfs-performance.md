@@ -197,8 +197,12 @@ Not all workloads require high-scale IOPS or throughout performance. For smaller
 
 :::image type="content" source="media/nfs-performance/nconnect-latency-comparison.png" alt-text="Screenshot showing various read and write I O scenarios with corresponding latency to indicate when nconnect is advisable." border="false":::
 
+## Use zonal placement
+
+For classic file shares created with the Microsoft.Storage resource provider, we recommend using [zonal placement](zonal-placement.md) to select the specific availability zone in which your storage account resides. This allows you to place your VMs in the same availability zone as your storage, which can reduce latency by up to 30 percent. This feature is currently available only for SSD storage accounts using locally redundant storage (LRS) in [supported regions](zonal-placement.md#region-support).
+
 ## See also
 
-- [Mount NFS file Share to Linux](storage-files-how-to-mount-nfs-shares.md)
+- [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md)
 - [List of mount options](https://linux.die.net/man/5/nfs)
 - [Understand Azure Files performance](understand-performance.md)

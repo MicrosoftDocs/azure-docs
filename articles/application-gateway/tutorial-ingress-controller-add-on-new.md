@@ -57,6 +57,29 @@ Deploying a new AKS cluster with the AGIC add-on enabled without specifying an e
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.225.0.0/16" --generate-ssh-keys
 ```
 
+## Enable the add-on for the existing AKS cluster
+
+You already have an existing AKS cluster and will enable the AGIC add-on. The add-on can be enabled either through the Azure portal or by using the Azure CLI.
+
+# [Azure Portal](#tab/azure-portal)
+
+In this page in the screenshot, you can create it simply by selecting the checkbox. If you want to specify a subnet prefix, select *Create new* and configure it manually.
+
+:::image type="content" source="media/tutorial-ingress-controller-add-on-new/tutorial-ingress-controller-add-on-new.png" alt-text="Screenshot of enabling AGIC addon by Portal." lightbox="media/tutorial-ingress-controller-add-on-new/tutorial-ingress-controller-add-on-new.png":::
+
+# [Azure CLI](#tab/azure-cli)
+
+You can give the name of the application gateway as well as subnet CIDR by the command.
+appgw-subnet-cidr should be in the address prefixes in your virtual network. Please change *10.0.250.0/24* to your preferred application gateway subnet CIDR. This must always be within the address space range of your virtual network.
+
+```azurecli
+$ az aks enable-addons --resource-group ${RG_NAME} --name ${CLUSTER_NAME} --addons ingress-appgw --appgw-subnet-cidr "10.0.250.0/24"
+```
+
+---
+
+In most cases, enabling the add-on automatically assigns the required permissions. However, depending on the environment, the permissions may not be granted automatically. In such cases, you should verify the permissions and assign them manually if necessary.
+
 > [!NOTE] 
 > Please ensure the identity used by AGIC has the proper permissions. A list of permissions needed by the identity can be found here: [Configure Infrastructure - Permissions](configuration-infrastructure.md#permissions). If a custom role is not defined with the required permissions, you may use the _Network Contributor_ role.
 

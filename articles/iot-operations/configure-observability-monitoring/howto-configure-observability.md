@@ -13,7 +13,7 @@ ms.date: 01/27/2026
 
 Azure IoT Operations observability provides visibility into every layer of your configuration and gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards hosted in Azure, powered by Azure Monitor managed service for Prometheus and Container Insights.
 
-This article shows you how to deploy Azure IoT Operations observability resources, set up Azure Managed Prometheus and Grafana, and enable comprehensive monitoring for your Azure Arc cluster.
+This article shows you how to deploy Azure IoT Operations observability resources, set up Azure Managed Prometheus and Grafana, and enable comprehensive monitoring for your Azure Arc cluster. You can deploy all observability resources using an [automated script](#deploy-with-the-automated-script), or follow the [manual steps](#create-resources-in-azure) for a customized setup.
 
 ## Prerequisites
 
@@ -21,6 +21,49 @@ This article shows you how to deploy Azure IoT Operations observability resource
 * Azure CLI installed on your cluster machine. For instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 * Helm installed on your cluster machine. For instructions, see [Install Helm](https://helm.sh/docs/intro/install/).
 * Kubectl installed on your cluster machine. For instructions, see [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/).
+
+## Deploy with the automated script
+
+To set up all observability resources in a single step, use the automated [deploy-observability-resources.sh](https://github.com/Azure/azure-iot-operations/blob/main/scripts/observability/deploy-observability-resources.sh) script. The script automates the steps in this article, from [creating Azure resources](#create-resources-in-azure) through [setting up the observability configuration](#set-up-observability-configuration). You can run the script multiple times safely. It skips resources that already exist and updates resources that need changes.
+
+1. Download the script:
+
+   ```bash
+   curl -fsSL -o deploy-observability-resources.sh \
+     https://raw.githubusercontent.com/Azure/azure-iot-operations/main/scripts/observability/deploy-observability-resources.sh
+   chmod +x deploy-observability-resources.sh
+   ```
+
+1. Set the required environment variables and run the script:
+
+   ```bash
+   export RESOURCE_GROUP=<RESOURCE_GROUP>
+   export CLUSTER_NAME=<CLUSTER_NAME>
+   export INSTANCE_NAME=<INSTANCE_NAME>
+   export WORKSPACE_NAME=<WORKSPACE_NAME>
+   export GRAFANA_NAME=<GRAFANA_NAME>
+   export LOGS_WORKSPACE_NAME=<LOGS_WORKSPACE_NAME>
+   export LOCATION=<LOCATION>
+
+   ./deploy-observability-resources.sh
+   ```
+
+   Set `LOCATION` to the Azure region for provisioning new resources. If all resources already exist, `LOCATION` is optional.
+
+   | Variable | Description |
+   | -------- | ----------- |
+   | `RESOURCE_GROUP` | Azure resource group for your Azure IoT Operations and monitoring resources. |
+   | `CLUSTER_NAME` | Name of the Arc-enabled Kubernetes cluster where Azure IoT Operations is deployed. |
+   | `INSTANCE_NAME` | Name of the Azure IoT Operations instance to configure. |
+   | `WORKSPACE_NAME` | Name for the Azure Monitor workspace (created if it doesn't exist). |
+   | `GRAFANA_NAME` | Name for the Azure Managed Grafana instance (created if it doesn't exist). |
+   | `LOGS_WORKSPACE_NAME` | Name for the Log Analytics workspace (created if it doesn't exist). |
+   | `LOCATION` | Azure region for new resources. Optional if all resources already exist. |
+
+After the script completes, continue to [Deploy dashboards to Grafana](#deploy-dashboards-to-grafana) to import the curated dashboards.
+
+> [!NOTE]
+> If you need more control over individual steps, for example, to customize the OpenTelemetry Collector configuration or reuse existing monitoring resources, follow the manual steps in the rest of this article instead of using the script.
 
 ## Create resources in Azure
 

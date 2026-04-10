@@ -5,7 +5,7 @@ description: This article helps get the most value out of your cloud investments
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 07/09/2025
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai
@@ -208,7 +208,7 @@ Emphasize the use of tags, management groups, and custom dimensions for cost all
 
 Take advantage of Azure's cost-saving programs and recommendations:
 
-- **Azure Savings Plans for Compute**: The most flexible savings plan, applying to a broad range of compute services. See [Azure savings plans for compute](../savings-plan/savings-plan-compute-overview.md).
+- **Azure Savings Plans for Compute**: The most flexible savings plan, applying to a broad range of compute services. See [Azure savings plans for compute](../savings-plan/savings-plan-overview.md).
 - **Azure Reservations**: Prepay for one- or three-year terms for VMs or databases to receive significant discounts. See [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md)
 - **Azure Hybrid Benefit**: Use existing Windows Server or SQL Server licenses to save on Azure. See [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 - **Benefit Recommendations API**: Use the [Benefit Recommendations API](/rest/api/cost-management/benefit-recommendations) and [Azure Advisor](/azure/advisor/advisor-overview) to proactively identify savings opportunities, such as reserved instances or savings plans, based on your usage patterns.
@@ -244,7 +244,7 @@ Azure has many discounts that your organization should take advantage of to save
 
 Azure savings plan for compute is our most flexible savings plan. It lets you save up to 65 percent on pay-as-you-go prices and applies to a broad range of compute services across subscriptions, resource groups, management groups, or entire Azure accounts. You select an hourly compute commitment for a one-year or three-year term. The longer the commitment, the more savings you earn. You can pay monthly for no additional cost, and Azure automatically applies the largest savings to your account. 
 
-For more information, see [Azure savings plan for compute](../savings-plan/savings-plan-compute-overview.md).
+For more information, see [Azure savings plan for compute](../savings-plan/savings-plan-overview.md).
 
 #### Azure Reservations
 

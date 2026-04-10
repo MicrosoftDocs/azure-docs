@@ -28,6 +28,8 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](restore-sql-database-azure-vm.md#cross-subscription-restore).
 
 
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
 ## Feature considerations and limitations
 
 |Setting  |Maximum limit |

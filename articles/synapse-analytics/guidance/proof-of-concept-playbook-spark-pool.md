@@ -4,7 +4,7 @@ description: "A high-level methodology for preparing and running an effective Az
 author: ms-arali
 ms.author: arali
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2022
 ms.custom: sfi-image-nochange
 ---

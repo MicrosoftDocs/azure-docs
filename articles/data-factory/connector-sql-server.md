@@ -5,7 +5,7 @@ description: Learn about how to copy and transform data to and from SQL Server d
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ms.custom:
   - synapse

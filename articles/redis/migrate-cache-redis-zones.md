@@ -3,7 +3,7 @@ title: Migrate an Azure Cache for Redis instance to availability zone support
 description: Learn how to migrate an Azure Cache for Redis instance to availability zone support.
 author: anaharris-ms
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.date: 11/15/2024
 ms.author: anaharris 
 ms.reviewer: anaharris

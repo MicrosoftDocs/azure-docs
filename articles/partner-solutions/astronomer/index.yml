@@ -20,6 +20,8 @@ landingContent:
         links:
           - text: What is Apache Airflow on Astro?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage your Apache Airflow on Astro resource

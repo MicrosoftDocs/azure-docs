@@ -2,7 +2,7 @@
 title: Open-source components and versions - Azure HDInsight 
 description: Learn about the open-source components and versions in Azure HDInsight.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: reference
 author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: nijelsf

@@ -118,7 +118,7 @@ Azure Backup now allows secure backup and restoration for Azure Elastic SAN volu
 Key features include:
 
 - Protects against accidental deletions, ransomware attacks, and application updates.
-- Captures Elastic SAN volumes at specific points in time as independent Managed Disk incremental snapshots with Locally redundant storage (LRS) resiliency.
+- Captures Elastic SAN volumes at specific points in time as independent managed disk incremental snapshots with Locally redundant storage (LRS) resiliency.
 - Stores up to **450** recovery points, which allows you customize **daily** or **weekly** schedules to align your backup strategy with business continuity and compliance needs.
 
 >[!Note]

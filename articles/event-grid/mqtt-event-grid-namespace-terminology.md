@@ -1,7 +1,7 @@
 ---
 title: 'Azure Event Grid namespace MQTT functionality terminology'
 description: 'Describes the key terminology relevant for Event Grid namespace MQTT functionality.'
-ms.topic: conceptual
+ms.topic: glossary
 ms.custom:
   - build-2023
   - ignite-2023

@@ -4,7 +4,7 @@ description: Learn about the built-in map styles that Azure Maps supports, such 
 author: faterceros
 ms.author: aterceros
 ms.date: 03/31/2025
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
 ms.subservice: render
 

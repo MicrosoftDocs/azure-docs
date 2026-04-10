@@ -117,9 +117,9 @@ Even when Batch successfully allocates nodes in a pool, various issues can cause
 
 You can specify an optional [start task](/rest/api/batchservice/tasks/create-task) for a pool. As with any task, the start task uses a command line and can download resource files from storage. The start task runs for each node when the node starts. The `waitForSuccess` property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node. If you configure the node to wait for successful start task completion, but the start task fails, the node isn't usable but still incurs charges.
 
-You can detect start task failures by using the [taskExecutionResult](/rest/api/batchservice/computenode/get#taskexecutionresult) and  [taskFailureInformation](/rest/api/batchservice/computenode/get#taskfailureinformation) properties of the top-level [startTaskInformation](/rest/api/batchservice/computenode/get#starttaskinformation) node property.
+You can detect start task failures by using the [taskExecutionResult](/rest/api/batchservice/nodes/get-node#batchtaskexecutionresult) and  [taskFailureInformation](/rest/api/batchservice/nodes/get-node#batchtaskfailureinfo) properties of the top-level [startTaskInformation](/rest/api/batchservice/nodes/get-node#batchstarttaskinfo) node property.
 
-A failed start task also causes Batch to set the [computeNodeState](/rest/api/batchservice/computenode/get#computenodestate) to `starttaskfailed`, if `waitForSuccess` was set to `true`.
+A failed start task also causes Batch to set the [computeNodeState](/rest/api/batchservice/nodes/get-node#batchnodestate) to `starttaskfailed`, if `waitForSuccess` was set to `true`.
 
 As with any task, there can be many causes for a start task failure. To troubleshoot, check the *stdout*, *stderr*, and any other task-specific log files.
 
@@ -129,11 +129,11 @@ Start tasks must be re-entrant, because the start task can run multiple times on
 
 You can specify one or more application packages for a pool. Batch downloads the specified package files to each node and uncompresses the files after the node starts, but before it schedules tasks. It's common to use a start task command with application packages, for example to copy files to a different location or to run setup.
 
-If an application package fails to download and uncompress, the [computeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property reports the failure, and sets the node state to `unusable`.
+If an application package fails to download and uncompress, the [computeNodeError](/rest/api/batchservice/nodes/get-node#batchnodeerror) property reports the failure, and sets the node state to `unusable`.
 
 ### Container download failure
 
-You can specify one or more container references on a pool. Batch downloads the specified containers to each node. If the container fails to download, the [computeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property reports the failure, and sets the node state to `unusable`.
+You can specify one or more container references on a pool. Batch downloads the specified containers to each node. If the container fails to download, the [computeNodeError](/rest/api/batchservice/nodes/get-node#batchnodeerror) property reports the failure, and sets the node state to `unusable`.
 
 ### Node OS updates
 
@@ -141,9 +141,9 @@ For Windows pools, `enableAutomaticUpdates` is set to `true` by default. Althoug
 
 ### Node in unusable state
 
-Batch might set the [computeNodeState](/rest/api/batchservice/computenode/get#computenodestate) to `unusable` for many reasons. You can't schedule tasks to an `unusable` node, but the node still incurs charges.
+Batch might set the [computeNodeState](/rest/api/batchservice/nodes/get-node#batchnodestate) to `unusable` for many reasons. You can't schedule tasks to an `unusable` node, but the node still incurs charges.
 
-If Batch can determine the cause, the [computeNodeError](/rest/api/batchservice/computenode/get#computenodeerror) property reports it. If a node is in an `unusable` state, but has no [computeNodeError](/rest/api/batchservice/computenode/get#computenodeerror), it means Batch is unable to communicate with the VM. In this case, Batch always tries to recover the VM. However, Batch doesn't automatically attempt to recover VMs that failed to install application packages or containers, even if their state is `unusable`.
+If Batch can determine the cause, the [computeNodeError](/rest/api/batchservice/nodes/get-node#batchnodeerror) property reports it. If a node is in an `unusable` state, but has no [computeNodeError](/rest/api/batchservice/nodes/get-node#batchnodeerror), it means Batch is unable to communicate with the VM. In this case, Batch always tries to recover the VM. However, Batch doesn't automatically attempt to recover VMs that failed to install application packages or containers, even if their state is `unusable`.
 
 Other reasons for `unusable` nodes might include the following causes:
 
@@ -180,13 +180,13 @@ When you add a pool in the Azure portal, you can display the full list of VM siz
 
 You can specify a retention time for files written by each task. The retention time determines how long to keep the task files before automatically cleaning them up. You can reduce the retention time to lower storage requirements.
 
-If the temporary or OS disk runs out of space, or is close to running out of space, the node moves to the `unusable` [computeNoteState](/rest/api/batchservice/computenode/get#computenodestate), and the node error says that the disk is full.
+If the temporary or OS disk runs out of space, or is close to running out of space, the node moves to the `unusable` [computeNoteState](/rest/api/batchservice/nodes/get-node#computenodestate), and the node error says that the disk is full.
 
-If you're not sure what's taking up space on the node, try remote connecting to the node and investigating manually. You can also use the [File - List From Compute Node](/rest/api/batchservice/file/listfromcomputenode) API to examine files, for example task outputs, in Batch managed folders. This API only lists files in the Batch managed directories. If your tasks created files elsewhere, this API doesn't show them.
+If you're not sure what's taking up space on the node, try remote connecting to the node and investigating manually. You can also use the [File - List From Compute Node](/rest/api/batchservice/nodes/list-node-files) API to examine files, for example task outputs, in Batch managed folders. This API only lists files in the Batch managed directories. If your tasks created files elsewhere, this API doesn't show them.
 
 After you make sure to retrieve any data you need from the node or upload it to a durable store, you can delete data as needed to free up space.
 
-You can delete old completed jobs or tasks whose task data is still on the nodes. Look in the `recentTasks` collection in the [taskInformation](/rest/api/batchservice/computenode/get#taskinformation) on the node, or use the [File - List From Compute Node](/rest/api/batchservice/file/listfromcomputenode) API. Deleting a job deletes all the tasks in the job. Deleting the tasks in the job triggers deletion of data in the task directories on the nodes, and frees up space. Once you've freed up enough space, reboot the node. The node should move out of `unusable` state and into `idle` again.
+You can delete old completed jobs or tasks whose task data is still on the nodes. Look in the `recentTasks` collection in the [taskInformation](/rest/api/batchservice/nodes/get-node#taskinformation) on the node, or use the [File - List From Compute Node](/rest/api/batchservice/nodes/list-node-files) API. Deleting a job deletes all the tasks in the job. Deleting the tasks in the job triggers deletion of data in the task directories on the nodes, and frees up space. Once you've freed up enough space, reboot the node. The node should move out of `unusable` state and into `idle` again.
 
 To recover an unusable node in [VirtualMachineConfiguration](/rest/api/batchservice/pools/get-pool#add-a-virtualmachineconfiguration-pool-with-os-disk) pools, you can remove the node from the pool by using the [Pool - Remove Nodes](/rest/api/batchservice/pools/remove-nodes) API. Then you can grow the pool again to replace the bad node with a fresh one. 
 

@@ -3,7 +3,7 @@ title: Auto scale Azure Web PubSub service
 description: Learn how to autoscale Azure WebPubSub service.
 author: zackliu
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2022
 ms.author: chenyl
 ---

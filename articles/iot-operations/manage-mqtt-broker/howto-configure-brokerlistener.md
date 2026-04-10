@@ -15,8 +15,6 @@ ms.custom:
 
 # Secure MQTT broker communication by using BrokerListener
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 A BrokerListener resource corresponds to a network endpoint that exposes the broker to clients over the network. You can have one or more BrokerListener resources for each broker, with multiple ports and different access control on each.
 
 Each BrokerListener port can have its own authentication and authorization rules that define who can connect on that listener port and what actions they can perform on the broker. You can use [BrokerAuthentication](./howto-configure-authentication.md) and [BrokerAuthorization](./howto-configure-authorization.md) resources to specify the access control policies for each listener port. This flexibility allows you to fine-tune the permissions and roles for your MQTT clients based on their needs and use cases.
@@ -139,7 +137,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To view the default BrokerListener resource, use the following command:
 
@@ -362,7 +362,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -688,7 +690,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Modify the `tls` setting in a BrokerListener resource to specify a TLS port and `Issuer` for the frontends.
 
@@ -907,7 +911,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`server-cert-secret` in the previous example).
 

@@ -5,7 +5,7 @@ description: Learn how to copy data from Amazon RDS for Oracle to supported sink
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 08/29/2025
+ms.date: 04/02/2026
 ms.author: jianleishen
 ms.custom:
   - synapse
@@ -20,7 +20,7 @@ ms.custom:
 This article outlines how to use the copy activity in Azure Data Factory to copy data from an Amazon RDS for Oracle database. It builds on the [copy activity overview](copy-activity-overview.md).
 
 > [!IMPORTANT]
-> The Amazon RDS for Oracle connector version 2.0 provides improved native Amazon RDS for Oracle support. If you are using Amazon RDS for Oracle connector version 1.0 in your solution, please [upgrade the Amazon RDS for Oracle connector](#upgrade-the-amazon-rds-for-oracle-connector) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **March 31, 2026**. Refer to this [section](#differences-between-amazon-rds-for-oracle-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
+> The Amazon RDS for Oracle connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Amazon RDS for Oracle connector](#upgrade-the-amazon-rds-for-oracle-connector) from version 1.0 to 2.0.
 
 ## Supported capabilities
 

@@ -1,21 +1,20 @@
 ---
 title: Overview of Azure Firewall service tags
 description: A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation.
-services: firewall
 author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/17/2025
-ms.author: duau 
+ms.date: 03/28/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a network administrator, I want to utilize service tags in Azure Firewall for security rule creation, so that I can simplify the management of IP address collections and enhance the security of my network infrastructure efficiently.
 ---
 
 # Azure Firewall service tags
 
-A service tag represents a group of IP address prefixes to simplify security rule creation. You cannot create your own service tag or specify which IP addresses are included. Microsoft manages and updates the address prefixes within the service tag automatically.
+A service tag represents a group of IP address prefixes to simplify security rule creation. You can't create your own service tag or specify which IP addresses are included. Microsoft manages and updates the address prefixes within the service tag automatically.
 
-Azure Firewall service tags can be used in the network rules destination field, replacing specific IP addresses.
+Use Azure Firewall service tags in the network rules destination field to replace specific IP addresses.
 
 ## Supported service tags
 
@@ -26,7 +25,7 @@ Azure Firewall supports the following service tags in network rules:
 
 ## Configuration
 
-You can configure Azure Firewall service tags with PowerShell, Azure CLI, or the Azure portal.
+You can configure Azure Firewall service tags by using PowerShell, Azure CLI, or the Azure portal.
 
 ### Configure with Azure PowerShell
 

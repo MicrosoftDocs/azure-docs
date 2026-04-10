@@ -127,7 +127,7 @@ When you create a new resource, manage its authorization:
 
 * [Create a BrokerAuthorization resource](../manage-mqtt-broker/howto-configure-authorization.md) and provide the least privilege needed for the topic asset.
 
-### OPC UA broker
+### Connector for OPC UA
 
 For connecting to assets at production, [configure OPC UA authentication](../discover-manage-assets/overview-opc-ua-connector-certificates-management.md):
 

@@ -16,7 +16,7 @@
           href: tutorial-create-gateway-portal.md
         - name: Configure a site-to-site connection
           items:
-            - name: Preshared key
+            - name: Shared key
               href: tutorial-site-to-site-portal.md
             - name: Certificate authentication
               href: site-to-site-certificate-authentication-gateway-portal.md
@@ -72,8 +72,6 @@
       href: about-active-active-gateways.md
     - name: VPN Gateway configuration settings
       href: vpn-gateway-about-vpn-gateway-settings.md
-    - name: IPv6 configuration settings
-      href: ipv6-configuration.md
     - name: About site-to-site VPN connections with certificate authentication
       href: site-to-site-certificate-authentication-gateway-about.md
 - name: Create & manage a VPN gateway
@@ -118,7 +116,7 @@
       href: customer-controlled-gateway-maintenance.md
 - name: Site-to-site (S2S) VPN
   items:
-    - name: Configure site-to-site connections - preshared key
+    - name: Configure site-to-site connections - shared key
       items:
         - name: Azure portal
           href: tutorial-site-to-site-portal.md
@@ -318,10 +316,18 @@
           href: azure-vpn-client-prerequisites-check.md
         - name: Azure VPN Client versions
           href: azure-vpn-client-versions.md
+        - name: Download Azure VPN Client with Windows Package Manager (WinGet)
+          href: point-to-site-vpn-client-winget.md
         - name: Report Azure VPN Client problems - Feedback Hub
           href: https://learn.microsoft.com/troubleshoot/azure/vpn-gateway/feedback-hub-azure-vpn-client?toc=/azure/vpn-gateway/TOC.json
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
+- name: IPv6 dual stack connections
+  items:
+    - name: Azure portal
+      href: ipv6-configuration.md
+    - name: Azure CLI
+      href: site-to-site-ipv6-azure-cli.md
 - name: VNet-to-VNet VPN
   items:
     - name: Configure VNet-to-VNet VPN connections
