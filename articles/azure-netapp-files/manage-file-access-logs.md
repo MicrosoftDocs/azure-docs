@@ -319,7 +319,7 @@ Response:
 >[!NOTE]
 >After disabling file access logs, you must wait at least ten minutes before attempting to enable or re-enable file access logs on any volume.
  
-## Disable file access logs on cache volumes by removing diagnostic setting:
+## Disable file access logs on cache volumes by removing diagnostic setting:  
 
 The following is an example to disable file access logs on cache volumes by removing diagnostic setting:
 
