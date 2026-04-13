@@ -15,37 +15,19 @@ In this article, you use the Azure Developer CLI (`azd`) to create an Event Hubs
 The project source uses `azd` to create the function app and related resources and to deploy your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
 By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing model, which means you can complete this article and only incur a small cost of a few USD cents or less in your Azure account.
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
-> [!IMPORTANT]  
-> While [processing Event Hubs messages](./functions-bindings-event-hubs.md) is supported for all languages, this quickstart scenario currently only has examples for C#, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+This article supports version 4 of the Node.js programming model for Azure Functions.
+::: zone-end
+::: zone pivot="programming-language-python"
+This article supports version 2 of the Python programming model for Azure Functions.
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-## Prerequisites
-::: zone-end  
-::: zone pivot="programming-language-csharp"  
-+ [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-::: zone-end  
-::: zone pivot="programming-language-typescript"
-+ [Node.js 22](https://nodejs.org/) or later  
-::: zone-end  
-::: zone pivot="programming-language-python" 
-+ [Python 3.11](https://www.python.org/) or later
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-+ [Azurite storage emulator](../storage/common/storage-use-azurite.md)
 
-+ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
-
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
-
-+ [Azure CLI](/cli/azure/install-azure-cli)
-
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+[!INCLUDE [functions-scenario-quickstarts-prerequisites-cli](../../includes/functions-scenario-quickstarts-prerequisites-cli.md)]
 
 ## Initialize the project
 
 Use the `azd init` command to create a local Azure Functions code project from a template.
-::: zone-end 
+ 
 ::: zone pivot="programming-language-csharp"  
 In your local terminal or command prompt, run this `azd init` command in an empty folder:
  
@@ -107,7 +89,34 @@ py -m venv .venv
 ---
 
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-java"  
+In your local terminal or command prompt, run this `azd init` command in an empty folder:
+ 
+```console
+azd init --template functions-quickstart-java-azd-eventhub -e eventhub-java
+```
+
+This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventhub) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. The environment name is also used in the name of the resource group you create in Azure.
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+In your local terminal or command prompt, run this `azd init` command in an empty folder:
+ 
+```console
+azd init --template functions-quickstart-javascript-azd-eventhub -e eventhub-js
+```
+
+This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-eventhub) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. The environment name is also used in the name of the resource group you create in Azure.
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+In your local terminal or command prompt, run this `azd init` command in an empty folder:
+ 
+```console
+azd init --template functions-quickstart-powershell-azd-eventhub -e eventhub-ps
+```
+
+This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. The environment name is also used in the name of the resource group you create in Azure.
+::: zone-end
+
 ## Create Azure resources
 
 Before you can run your function locally, you need to create an Event Hubs namespace and hub in Azure. Use `azd provision` to create these resources and configure your local settings by adding the required *local.settings.json* file.
@@ -137,16 +146,14 @@ Before you can run your function locally, you need to create an Event Hubs names
     The `azd provision` command creates the required Azure resources, including an Event Hubs namespace and hub, a Flex Consumption function app, Application Insights, and a storage account. It also configures your *local.settings.json* file with the Event Hubs connection information.
 
 ## Run in your local environment  
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"
+
 1. In a separate terminal window, start the Azurite storage emulator:
 
     ```console
     azurite
     ```
 
-    The local Functions host process uses the Azurite emulator for the internal storage connection (`AzureWebJobsStorage`) required by the runtime.
-::: zone-end  
+    The local Functions host process uses the Azurite emulator for the internal storage connection (`AzureWebJobsStorage`) required by the runtime.  
 ::: zone pivot="programming-language-csharp"
 2. To start the function app, run these commands in a terminal or command prompt to navigate to the `src` project folder and start the function app:
 
@@ -164,6 +171,24 @@ Before you can run your function locally, you need to create an Event Hubs names
     ```
 
 ::: zone-end  
+::: zone pivot="programming-language-java"
+2. To build and start the function app, run these commands in a terminal or command prompt:
+
+    ```console
+    mvn clean package
+    mvn azure-functions:run
+    ```
+
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+2. To install dependencies and start the function app, run these commands in a terminal or command prompt:
+ 
+    ```console
+    npm install
+    npm start  
+    ```
+
+::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 2. To install dependencies and start the function app, run these commands in a terminal or command prompt:
  
@@ -174,7 +199,15 @@ Before you can run your function locally, you need to create an Event Hubs names
     ```
 
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"  
+::: zone pivot="programming-language-powershell"  
+2. To start the function app, run this command in a terminal or command prompt:
+
+    ```console
+    func start
+    ```
+
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript,programming-language-powershell"  
 3. If prompted, allow Core Tools (func.exe) to be called through the firewall.
 
 4. When the Functions host starts in your local project folder, it writes information about your functions to the terminal output. 
@@ -203,27 +236,54 @@ Before you can run your function locally, you need to create an Event Hubs names
 ::: zone pivot="programming-language-python"  
 7. Run `deactivate` to shut down the virtual environment.
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"  
+
 ## Review the code (optional)
 
 You can review the code that defines the Event Hubs trigger function:
-::: zone-end      
+     
 ::: zone pivot="programming-language-csharp"  
 :::code language="csharp" source="~/functions-event-hub-azd-dotnet/src/EventHubsTrigger.cs" range="1-51" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventhub).
+::: zone-end  
+::: zone pivot="programming-language-java"  
+You can review the code that defines the Event Hubs trigger in the [EventHubsTrigger.java project file](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventhub/blob/main/src/main/java/com/function/EventHubsTrigger.java). The function demonstrates how to:
+
+- Use `@EventHubTrigger` annotation for processing events from an input Event Hub
+- Use `@EventHubOutput` annotation for sending processed messages to an output Event Hub
+- Parse and enrich event data with metadata
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventhub).
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+You can review the code that defines the Event Hubs trigger in the [EventHubsTrigger.js project file](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-eventhub/blob/main/src/functions/EventHubsTrigger.js). The function demonstrates how to:
+
+- Use `app.eventHub()` for processing events from an input Event Hub
+- Use Event Hub output binding for sending processed messages to an output Event Hub
+- Parse and enrich event data with metadata
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-eventhub).
 ::: zone-end  
 ::: zone pivot="programming-language-typescript" 
 :::code language="typescript" source="~/functions-event-hub-azd-typescript/src/functions/EventHubsTrigger.ts" range="1-43" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-eventhub).
 ::: zone-end  
+::: zone pivot="programming-language-powershell"  
+You can review the code that defines the Event Hubs trigger in the [EventHubsTrigger/run.ps1 project file](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub/blob/main/EventHubsTrigger/run.ps1) and the corresponding [function.json](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub/blob/main/EventHubsTrigger/function.json). The function demonstrates how to:
+
+- Configure Event Hub trigger bindings in function.json for processing events
+- Use Event Hub output binding for sending processed messages to an output Event Hub
+- Parse and enrich event data using PowerShell
+
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub).
+::: zone-end  
 ::: zone pivot="programming-language-python" 
 :::code language="python" source="~/functions-event-hub-azd-python/function_app.py" range="1-12,85-130" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventhub).
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+
 After you verify your function locally, it's time to publish it to Azure. 
 
 ## Deploy to Azure
@@ -252,7 +312,6 @@ After deployment finishes, your Event Hubs trigger function automatically starts
 1. You see log entries that show your Event Hubs trigger function processing events generated by the Timer trigger.
 
 [!INCLUDE [functions-scenario-redeploy-cleanup](../../includes/functions-scenario-redeploy-cleanup.md)]
-::: zone-end
 
 ## Related articles
 

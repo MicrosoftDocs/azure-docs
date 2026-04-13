@@ -165,6 +165,12 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "remote-mcp-functions-javascript",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-javascript",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "functions-host-mcp-sdk-dotnet",
             "url": "https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet",
             "branch": "main",
@@ -291,6 +297,24 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "functions-azd-timer-java",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-java-azd-timer",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-timer-javascript",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-javascript-azd-timer",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-azd-timer-powershell",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-powershell-azd-timer",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "functions-event-hub-azd-dotnet",
             "url": "https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventhub",
             "branch": "main",
@@ -305,6 +329,24 @@
         {
             "path_to_root": "functions-event-hub-azd-python",
             "url": "https://github.com/Azure-Samples/functions-quickstart-python-azd-eventhub",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-event-hub-azd-java",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-java-azd-eventhub",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-event-hub-azd-javascript",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-javascript-azd-eventhub",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-event-hub-azd-powershell",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -618,9 +660,16 @@
             "url": "https://github.com/Azure-Samples/remote-mcp-functions-java",
             "branch": "main",
             "branch_mapping": {}
-        },        {
+        },
+        {
             "path_to_root": "functions-scenarios-custom-mcp-typescript",
             "url": "https://github.com/Azure-Samples/remote-mcp-functions-typescript",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-custom-mcp-javascript",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-javascript",
             "branch": "main",
             "branch_mapping": {}
         },

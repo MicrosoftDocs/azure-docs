@@ -21,20 +21,15 @@ After running the project locally and verifying your code by using GitHub Copilo
 
 Because the new app runs on the Flex Consumption plan, which follows a _pay-for-what-you-use_ billing model, completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-::: zone pivot="programming-language-javascript"  
-> [!IMPORTANT]  
-> While [creating MCP Apps](./functions-bindings-mcp.md) is supported for JavaScript, this quickstart currently only has examples for C#, Java, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
-::: zone-end  
-
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]  
 
-::: zone pivot="programming-language-typescript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 This article supports version 4 of the Node.js programming model for Azure Functions.
 ::: zone-end
 ::: zone pivot="programming-language-python"
 This article supports version 2 of the Python programming model for Azure Functions.
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 ## Prerequisites
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
@@ -46,9 +41,7 @@ This article supports version 2 of the Python programming model for Azure Functi
     + Set the `JAVA_HOME` environment variable to the install location of the correct version of the Java Development Kit (JDK).
 + [Apache Maven 3.8.x](https://maven.apache.org)  
 ::: zone-end  
-<!-- replace when supported 
-::: zone pivot="programming-language-javascript,programming-language-typescript" -->
-::: zone pivot="programming-language-typescript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js 20](https://nodejs.org/)  
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
@@ -63,7 +56,7 @@ This article supports version 2 of the Python programming model for Azure Functi
 
 + [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) version 1.23.x or a later version 
 ::: zone-end  
-::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 + [Node.js](https://nodejs.org/) (required to build the MCP Apps UI)
 
 + [Visual Studio Code](https://code.visualstudio.com/) with these extensions:
@@ -72,7 +65,7 @@ This article supports version 2 of the Python programming model for Azure Functi
 
     + [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev).
 ::: zone-end   
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 + [Azurite storage emulator](../storage/common/storage-install-azurite.md#install-azurite) 
 
 + [Azure CLI](/cli/azure/install-azure-cli). You can also run Azure CLI commands in [Azure Cloud Shell](../cloud-shell/overview.md).
