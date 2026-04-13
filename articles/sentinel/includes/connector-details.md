@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 04/06/2026
+ms.date: 04/13/2026
 
 # This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
@@ -2024,6 +2024,23 @@ Ingest IP reputation and malware URL indicators from Cyren using the Common Conn
 **Prerequisites:**
 
 - **Cyren JWT Tokens**: JWT tokens stored in Azure Key Vault or provided at deployment time.<br><br>
+</details> 
+
+ ---
+   
+<a name="d3-smart-soar-incidents"></a><details><summary>**D3 Smart SOAR Incidents**</summary>
+
+**Supported by:** [D3 Security](https://d3security.com/company/contact/)
+
+The D3 Smart SOAR data connector pulls incidents from D3 Smart SOAR into Microsoft Sentinel using the D3 codeless REST API command endpoint.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|`D3SOARIncidents_CL`|No|No|
+
+**Data collection rule support:** Not currently supported<br><br>
 </details> 
 
  ---
@@ -5055,6 +5072,42 @@ The [Netskope](https://docs.netskope.com/en/netskope-help/admin-console/rest-api
 
  ---
    
+<a name="netskope-web-transaction-connector-via-blob-storage"></a><details><summary>**Netskope Web Transaction Connector (via Blob Storage)**</summary>
+
+**Supported by:** [Netskope](https://support.netskope.com/access/)
+
+The Netskope Web Transaction connector ingests web transaction logs from Netskope Log Streaming into Microsoft Sentinel via Azure Blob Storage using the Codeless Connector Framework (CCF).
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|`NetskopeWebTransactions_CL`|Yes|Yes|
+
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
+
+**Prerequisites:**
+
+- **Subscription permissions**: You need permissions to create the data flow resources: 
+- storage queues (notification queue and dead-letter queue) 
+- event grid topic and subscription (to send 'blob created event' notifications to the notification queue) 
+- role assignments (to grant access for Microsoft Sentinel app to the blob container and the storage queues.)
+- **Storage Account Network Configuration**: Network restrictions (firewall/IP rules) on the Azure Blob Storage account are **not supported** for this connector due to [Azure Storage firewall restrictions and limitations](/azure/storage/common/storage-network-security-limitations):
+- IP network rules have**no effect**on requests originating from the same Azure region as the storage account.
+- IP network rules**cannot restrict**access to Azure services deployed in the same region, as these services use private Azure IP addresses for communication.
+- Virtual network service endpoint rules do not apply to clients in a paired region.
+
+Ensure the storage account's **Networking** blade is set to **Enabled from all networks**.
+- **Storage Account Role Assignments**: The following Azure RBAC roles must be assigned to the Microsoft Sentinel enterprise application service principal (displayed below) on the **Storage Account** that contains your blob container:
+- **Storage Blob Data Contributor** — required for reading blob data from the container.
+- **Storage Queue Data Contributor** — required for managing notification and dead-letter queue messages.
+
+To assign these roles: navigate to the Storage Account → **Access Control (IAM)** → **Add role assignment**, search for the service principal ID shown below, and assign both roles.
+- **Collecting data from Netskope to your blob container**: Follow the steps in the [Netskope Log Streaming documentation](https://docs.netskope.com/en/log-streaming.html) to configure Netskope to stream Web Transaction logs to your Azure Blob Storage container.<br><br>
+</details> 
+
+ ---
+   
 <a name="netskope-web-transactions-data-connector"></a><details><summary>**Netskope Web Transactions Data Connector**</summary>
 
 **Supported by:** [Netskope](https://support.netskope.com/access/)
@@ -5279,12 +5332,12 @@ The Open Systems Logs API Microsoft Sentinel Connector provides the capability t
 
 |Table|DCR support|Lake-only ingestion|
 |---|---|---|
-|`OpenSystemsZtnaLogs_CL`|No|No|
+|`OpenSystemsZtnaLogs_CL`|Yes|Yes|
 |`OpenSystemsFirewallLogs_CL`|No|No|
 |`OpenSystemsAuthenticationLogs_CL`|No|No|
 |`OpenSystemsProxyLogs_CL`|No|No|
 
-**Data collection rule support:** Not currently supported
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
 
 **Prerequisites:**
 
@@ -5648,6 +5701,27 @@ Ingest Qscout application events into Microsoft Sentinel
 
 - **Qscout Organization ID**: The API requires your organization ID in Qscout.
 - **Qscout Organization API Key**: The API requires your organization API key in Qscout.<br><br>
+</details> 
+
+ ---
+   
+<a name="qualys-knowledge-base-via-codeless-connector-framework"></a><details><summary>**Qualys Knowledge Base (via Codeless Connector Framework)**</summary>
+
+**Supported by:** [Microsoft Corporation](https://support.microsoft.com/)
+
+Ingest Qualys Knowledge Base Vulnerability Data into Microsoft Sentinel using version 2.0 of the Qualys API.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|[`QualysKnowledgeBase`](/azure/azure-monitor/reference/tables/QualysKnowledgeBase)|Yes|Yes|
+
+**Data collection rule support:** [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal)
+
+**Prerequisites:**
+
+- **Qualys API access**: Requires a Qualys User Account with read access to the Knowledge Base endpoints.<br><br>
 </details> 
 
  ---
