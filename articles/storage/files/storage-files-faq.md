@@ -147,6 +147,25 @@ ms.topic: faq
 
   Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
 
+* <a id="access-based-enumeration"></a>
+**Why does a 403 error occur when accessing Azure Files from the Azure Portal, even though the client IP address has been allowed in the storage account firewall?**
+
+  When accessing Azure Files data through the Azure Portal, the communication used to display the Azure Portal UI and the communication used to access Azure Files are treated as separate requests.
+  
+  Specifically, the following two types of communication occur:
+    - Client → Azure Portal
+    - Client → Azure Files Endpoint
+  
+  Among these, the storage account firewall evaluates only the communication to the Azure Files endpoint.
+  
+  Therefore, even if you are able to access the Azure Portal without any issues, a 403 error will occur if the source IP address that actually reaches the storage account during data access is not allowed by the firewall.
+  
+  In addition, due to factors such as proxies, VPNs, NAT, or differences in network routing, the IP address shown in the error message may not match the actual source IP address seen by the storage account.
+  
+  As a result, even if you believe that the client IP address has been allowed, access will still be denied and a 403 error will occur if the actual source IP address reaching the storage account is different.
+  
+  To verify the source IP address that is actually reaching the storage account, please enable diagnostic logging on the storage account and review the source IP address of the relevant requests.
+
 * <a id="printer-or-scanner"></a>
 **Can I save to an Azure file share using a printer or scanner?**
 
