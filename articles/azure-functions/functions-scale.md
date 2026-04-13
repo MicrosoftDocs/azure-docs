@@ -64,7 +64,27 @@ This table shows operating system support for the hosting options.
 
 [!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
-[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
+## <a name="timeout"></a>Function app timeout duration 
+
+The `functionTimeout` property in the [host.json](functions-host-json.md#functiontimeout) project file sets the timeout duration for functions in a function app. This property applies specifically to function executions. After the trigger starts function execution, the function needs to return or respond within the timeout duration. When an execution exceeds this duration, a timeout error occurs and the language worker process restarts. For C# apps running in-process, the host process itself restarts. To avoid timeouts and subsequent process restarts, it's important to [write robust functions](functions-best-practices.md#write-robust-functions). For more information, see [Improve Azure Functions performance and reliability](performance-reliability.md#make-sure-background-tasks-complete). 
+
+The following table shows the default and maximum values (in minutes) for specific plans:
+
+| Plan | Default | Maximum<sup>1</sup> |  
+| ------ | --------- | --------- |
+| **[Flex Consumption plan](flex-consumption-plan.md)** | 30 | Unbounded<sup>2</sup> |
+| **[Premium plan](functions-premium-plan.md)** | 30<sup>4</sup> | Unbounded<sup>2</sup> |  
+| **[Dedicated plan](dedicated-plan.md)** | 30<sup>4</sup> | Unbounded<sup>3</sup> |  
+| **[Container Apps](../container-apps/functions-overview.md)** | 30 | Unbounded<sup>5</sup> | 
+| **[Consumption plan](consumption-plan.md)** | 5 | 10 |  
+
+1. Regardless of the function app timeout setting, 230 seconds is the maximum amount of time that an HTTP triggered function can take to respond to a request. This limit exists because of the [default idle timeout of Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds). For longer processing times, consider using the [Durable Functions async pattern](durable-functions/durable-functions-http-features.md#async-operation-tracking) or [defer the actual work and return an immediate response](performance-reliability.md#avoid-long-running-functions).
+2. There's no maximum execution timeout duration enforced. However, the grace period given to a function execution is 60 minutes [during scale in](event-driven-scaling.md#scale-in-behaviors) for the Flex Consumption and Premium plans, and a grace period of 10 minutes is given during platform updates.
+3. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). A grace period of 10 minutes is given during platform updates.
+4. The default timeout for version 1.x of the Functions host runtime is _unbounded_. 
+5. When the [minimum number of replicas](../container-apps/scale-app.md#scale-definition) is set to zero, the default timeout depends on the specific triggers used in the app.  
+
+These values assume that the Azure Functions host process starts and runs correctly. There's a maximum timeout of 60 seconds for the language-specific worker process to also start. The worker process startup timeout isn't currently configurable.
 
 ## Language support
 

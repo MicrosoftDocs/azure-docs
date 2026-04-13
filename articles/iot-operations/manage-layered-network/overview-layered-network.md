@@ -94,8 +94,8 @@ To try the sample in a test environment, follow the step-by-step walkthrough:
 
 The layered networking approach described here applies to **Arc-enabled Kubernetes clusters**. If you use other Arc-enabled platforms in your layered environment, keep the following in mind:
 
-- **Azure Arc-enabled servers:** The Envoy proxy chain has only been validated with Arc-enabled Kubernetes clusters. Arc-enabled servers use a different agent (Azure Connected Machine agent) with different endpoint requirements. If you need to Arc-enable servers in a layered network, verify that the required endpoints are included in your Envoy proxy and CoreDNS configuration. Azure IoT Operations components (MQTT broker, Data Flows, Connector for OPC UA) require Kubernetes and can't run on Arc-enabled servers directly.
-- **Azure Local (formerly Azure Stack HCI):** Azure Local nodes that host Kubernetes clusters (such as AKS enabled by Azure Arc) are fully compatible with this layered networking approach. The Kubernetes cluster running on Azure Local follows the same Arc enablement and Envoy proxy chain described above.
+- **[Azure Arc-enabled servers](/azure/azure-arc/servers/overview):** The Envoy proxy chain has only been validated with Arc-enabled Kubernetes clusters. Arc-enabled servers use a different agent ([Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview)) with different endpoint requirements. If you need to Arc-enable servers in a layered network, verify that the required endpoints are included in your Envoy proxy and CoreDNS configuration. Azure IoT Operations components (MQTT broker, Data Flows, Connector for OPC UA) require Kubernetes and can't run on Arc-enabled servers directly.
+- **[Azure Local](/azure/azure-local/overview) (formerly Azure Stack HCI):** Azure Local nodes that host Kubernetes clusters (such as [AKS enabled by Azure Arc](/azure/aks/aksarc/overview)) are fully compatible with this layered networking approach. The Kubernetes cluster running on Azure Local follows the same Arc enablement and Envoy proxy chain described above.
 
 ## Network connectivity options
 

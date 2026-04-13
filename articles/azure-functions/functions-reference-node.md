@@ -1118,7 +1118,9 @@ Azure Functions lets you define the threshold level to be used when tracking and
 
 ## Track custom data
 
-By default, Azure Functions writes output as traces to Application Insights. For more control, you can instead use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom logs, metrics, and dependencies to your Application Insights instance.
+By default, Azure Functions writes output as traces to Application Insights. For more control, the recommended approach is to use the [OpenTelemetry exporter](opentelemetry-howto.md), which provides standards-based telemetry that can be sent to Application Insights and any OTLP-compliant endpoint. To learn more, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md).
+
+You can also use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom logs, metrics, and dependencies to your Application Insights instance. However, this classic SDK is legacy and won't receive new feature updates. Plan to migrate to OpenTelemetry for long-term support.
 
 > [!NOTE]
 > Methods in the Application Insights Node.js SDK might change over time. There might be minor syntax differences from the examples shown here. For the latest API usage examples, see the [Application Insights Node.js SDK documentation](https://github.com/microsoft/applicationinsights-node.js).

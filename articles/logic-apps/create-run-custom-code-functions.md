@@ -5,8 +5,9 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, kewear, azla
 ms.topic: how-to
+ai.usage: ai-assisted
 ms.update-cycle: 1095-days
-ms.date: 04/07/2026
+ms.date: 04/10/2026
 ms.custom:
   - devx-track-dotnet
   - sfi-image-nochange
@@ -323,7 +324,7 @@ After you confirm that your code compiles and your logic app project contains th
 
    | Operation | Description |
    |-----------|-------------|
-   | Trigger | The built-in [Request trigger named **When a HTTP request is received**](../connectors/connectors-native-reqres.md). |
+   | Trigger | The built-in [Request trigger named **When an HTTP request is received**](../connectors/connectors-native-reqres.md). |
    | Action | The built-in action named **Call a local function in this logic app**. |
    | Action | The built-in [Response action named **Response**](../connectors/connectors-native-reqres.md) that you use to reply to the caller only when you use the **Request** trigger. |
 
@@ -402,6 +403,108 @@ Deploy your custom functions the same way you deploy your logic app project. Whe
 
 For more information, see [Deploy Standard workflows from Visual Studio Code to Azure](create-single-tenant-workflows-visual-studio-code.md#deploy-azure).
 
+## Dependency injection
+
+When you choose **.NET 8**, custom .NET code in Standard workflows supports *dependency injection (DI)*. This capability lets you register services once, which makes them automatically available to your custom code functions at runtime, rather than create dependencies inside each function.
+
+> [!NOTE]
+>
+> Only .NET 8 custom code projects in Visual Studio Code support dependency injection.
+
+Without dependency injection, custom code functions often:
+
+- Create service instances directly in the function.
+- Duplicate logic across multiple functions or workflows.
+- Mix business logic with setup and configuration code.
+
+As workflows grow, custom code becomes harder to test, reuse, and maintain. With dependency injection, you can:
+
+- Separate business logic from workflow execution.
+- Reuse shared services across multiple custom code functions.
+- Align custom code with standard .NET development patterns.
+
+Custom code becomes more manageable in production workflows, especially when multiple workflows rely on the same logic.
+
+### When to use dependency injection
+
+If you have simple or one-off custom code functions, you probably don't need dependency injection. However, if your custom code has the following requirements, you might need to use dependency injection:
+
+- Multiple workflows use or share the same custom code functions.
+- Your custom code functions contain business or routing logic that changes over time.
+- You require better testability or long‑term maintainability.
+
+### How does dependency injection affect custom .NET functions
+
+Dependency injection doesn't change how you call custom .NET functions or your workflow behavior. This capability only changes the underlying custom code structure but produces the same outcome. The following steps describe this process:
+
+1. Azure Logic Apps loads your custom code project.
+1. Azure Logic Apps instantiates, registers, and injects the required services into the function.
+1. The function runs using the injected dependencies.
+
+### Enable dependency injection
+
+To use dependency injection with your custom .NET code, complete the following requirements:
+
+1. When you create your custom code project, select **.NET 8**.
+
+   Only .NET 8 custom code projects support dependency injection.
+
+1. In your project, add a `StartupConfiguration` class to define the list of dependencies. Implement the `IConfigureStartup` interface and register your dependencies by using `IServiceCollection`, for example:
+
+   ```csharp
+   using Microsoft.Azure.Functions.Extensions.Workflows;
+   using Microsoft.Extensions.DependencyInjection;
+
+   public class StartupConfiguration : IConfigureStartup
+   {
+       /// <summary>
+       /// Configures services for the custom code function to use.
+       /// </summary>
+       /// <param name="services">The service collection to configure.</param>
+       public void Configure(IServiceCollection services)
+       {
+           // Register the routing service with dependency injection
+           services.AddSingleton<IRoutingService, OrderRoutingService>();
+           services.AddSingleton<IDiscountService, DiscountService>();
+       }
+   }
+   ```
+
+   The `IConfigureStartup` interface is defined in `Microsoft.Extensions.DependencyInjection`. For more information, see [StartupConfiguration.cs](https://github.com/wsilveiranz/CustomCode-Dependency-Injection/blob/master/OrderRouter/StartupConfiguration.cs)
+
+1. In your custom code function class constructor, initialize the registered services by defining them as constructor parameters, rather than creating them inside the function, for example:
+
+   ```csharp
+   public class MySampleFunction
+   {
+       private readonly ILogger<MySampleFunction> logger;
+       private readonly IRoutingService routingService;
+       private readonly IDiscountService discountService;
+
+       public MySampleFunction(ILoggerFactory loggerFactory, IRoutingService routingService, IDiscountService discountService)
+       {
+           this.logger = loggerFactory.CreateLogger<MySampleFunction>();
+           this.routingService = routingService;
+           this.discountService = discountService;
+       }
+
+       // Add your function logic here
+
+   } 
+   ```
+
+Beyond building and deploying your custom code project, you don't need to take any other steps, edit your workflow, or make any other setup changes in Azure Logic Apps to enable dependency injection.
+
+For more information, see the [Custom Code Dependency Injection sample](https://github.com/wsilveiranz/CustomCode-Dependency-Injection/tree/master/FourthCoffeeServices/FourthCoffeeOrder).
+
+## Bring your own NuGet packages
+
+For NuGet-based custom code projects that use .NET 8, you can include and manage your own NuGet packages without having to resolve conflicts with dependencies used by the language worker host. Just directly add the assembly dependencies to the separate assembly location in your project. With the following exceptions, you can bring any .NET 8-compatible dependent assembly versions that your project needs:
+
+- Microsoft.Extensions.Logging.Abstractions
+- Microsoft.Extensions.DependencyInjection.Abstractions
+- Microsoft.Azure.Functions.Extensions.Workflows.Abstractions
+
 ## Troubleshoot problems
 
 ### Action information pane error
@@ -426,7 +529,7 @@ If the Output window shows an error similar to the following message, make sure 
 
 ### Build failures
 
-If your function doesn't include variables, and you build your code, the Output window might show the following error messages:
+If your function doesn't include variables and you build your code, the Output window might show the following error messages:
 
 `C:\Users\yourUserName\...\custom-code-project\Function\func.cs (24,64): error CS1031: Type expected [C:\Users\yourUserName\...\custom-code-project\Function\func.csproj]`<br>
 `C:\Users\yourUserName\...\custom-code-project\Function\func.cs (24,64): error CS1001: Identifier expected [C:\Users\yourUserName\...\custom-code-project\Function\func.csproj]`
@@ -439,7 +542,7 @@ If your function doesn't include variables, and you build your code, the Output 
 `0 Warning(s)`<br>
 `2 Error(s)`
 
-To fix this problem, in your code's `Run` method, append the following parameter:
+To fix this problem, in your code's `Run` method, add the following parameter:
 
 `string parameter1 = null`
 
