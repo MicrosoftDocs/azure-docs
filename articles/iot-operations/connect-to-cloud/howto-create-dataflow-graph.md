@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to create a data flow graph to process data with transforms like map, filter, and window.
@@ -49,7 +49,7 @@ A data flow graph contains three types of elements: **sources** that bring data 
 
        :::image type="content" source="media/howto-create-dataflow-graph/source-configuration.png" alt-text="Screenshot of the operations experience source configuration panel showing endpoint dropdown and topic input." lightbox="media/howto-create-dataflow-graph/source-configuration.png":::
 
-       1. **Add transforms**: Select one or more transforms to process the data. Available transforms include map, filter, branch, concat, and window. For details on each transform type, see [Data flow graphs overview](concept-dataflow-graphs.md#available-transforms).
+       1. **Add transforms**: Select one or more transforms to process the data. Available transforms include map, filter, branch, concatenate, and window. For details on each transform type, see [Data flow graphs overview](concept-dataflow-graphs.md#available-transforms).
 
        :::image type="content" source="media/howto-create-dataflow-graph/transform-selection.png" alt-text="Screenshot of the operations experience transform selection menu showing available transform types." lightbox="media/howto-create-dataflow-graph/transform-selection.png":::
 
@@ -275,7 +275,7 @@ The available built-in transforms are:
 | Map | `azureiotoperations/graph-dataflow-map:1.0.0` | Rename, restructure, compute, and copy fields |
 | Filter | `azureiotoperations/graph-dataflow-filter:1.0.0` | Drop messages that match a condition |
 | Branch | `azureiotoperations/graph-dataflow-branch:1.0.0` | Route messages to a `true` or `false` path |
-| Concat | `azureiotoperations/graph-dataflow-concatenate:1.0.0` | Merge branched paths back together |
+| Concatenate | `azureiotoperations/graph-dataflow-concatenate:1.0.0` | Merge branched paths back together |
 | Window | `azureiotoperations/graph-dataflow-window:1.0.0` | Aggregate data over a time interval |
 
 For detailed configuration of each transform type, see:

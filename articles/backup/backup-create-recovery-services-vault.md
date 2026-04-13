@@ -52,7 +52,7 @@ Before you begin, consider the following information:
 - A list of supported managed types and regions is available in the [Support matrix for Azure Backup](backup-support-matrix.md#cross-region-restore).
 - Cross Region Restore incurs extra charges for use. After you enable Cross Region Restore, it might take up to 48 hours for the backup items to be available in secondary regions. [Learn more about pricing](https://azure.microsoft.com/pricing/details/backup/).
 - Cross Region Restore currently can't be reverted to GRS or LRS after the protection starts for the first time.
-- Currently, the recovery point objective (RPO) for the secondary region is 36 hours. The RPO in the primary region is 24 hours and can take up to 12 hours to replicate the backup data from the primary to the secondary region.
+- Secondary region recovery point objective (RPO) can vary by workload type and policy. For Azure VM backups, the secondary region RPO can be up to 36 hours in the worst case. With the Standard policy, the primary region RPO is up to 24 hours, and replication to the secondary region can take up to 12 hours. With the Enhanced policy, more frequent local recovery point creation can improve the best-case achievable secondary region RPO, but the worst-case can still be up to 36 hours. For workload-specific guidance, see the relevant restore documentation.
 - Permissions are required to use Cross Region Restore. For more information, see [Use Azure role-based access control (RBAC) to manage Azure Backup recovery points](backup-rbac-rs-vault.md#minimum-role-requirements-for-azure-vm-backup).
 
 A vault created with GRS redundancy includes the option to configure Cross Region Restore. Every GRS vault has a banner that links to the documentation.

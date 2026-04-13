@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: Learn how to turn on and use a custom Microsoft Sentinel's Model Context Protocol (MCP) connector in ChatGPT or Claude
 author: poliveria
 ms.topic: how-to
-ms.date: 12/09/2025
+ms.date: 04/03/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform
@@ -47,8 +47,8 @@ To add a Microsoft Entra application, follow these steps:
         ```    
 1. Select **Register**.
 1. On your newly registered app's page, go to **Manage** > **API permissions**, and then select **Add a permission**.
-1. On the **APIs my organization uses** tab, search for ` Platform Services`.
-1. Choose **Platform.DelegatedAccess**, and then select **Add permissions**.
+1. On the **APIs my organization uses** tab, search for `Sentinel Platform Services`.
+1. Choose **SentinelPlatform.DelegatedAccess**, and then select **Add permissions**.
 1. Select **Manage** > **Certificates & secrets** and select **New client secret**.
 1. Add a **Description** for your client secret and set an expiration date. Select **Add**. 
 1. Copy the **Value** and save it in a secure manner. This value disappears once you navigate away from the page. 

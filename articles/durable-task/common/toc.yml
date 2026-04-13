@@ -1,0 +1,24 @@
+- name: Durable Task Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Durable Task?
+    href: what-is-durable-task.md
+  - name: Choose your hosting model
+    href: choose-orchestration-framework.md
+- name: Components
+  expanded: true
+  items:
+  - name: Durable Functions >
+    href: /azure/azure-functions/durable-functions/index
+  - name: Durable Task SDKs >
+    href: /azure/durable-task/sdks/index
+  - name: Durable Task Scheduler >
+    href: /azure/durable-task/scheduler/index
+- name: Resources
+  items:
+  - name: Code samples
+    href: /samples/browse/?term=durable%20functions
+  - name: Azure CLI
+    href: ../../azure-functions/functions-cli-samples.md
