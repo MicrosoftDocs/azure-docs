@@ -24,7 +24,7 @@ Virtual Network Manager **connection configurations** also assign your network g
 
 ## Known issues
 
-The following table describes known issues with the Virtual Network Manager and Virtual WAN integration. 
+The following table describes known issues with the Virtual Network Manager and Virtual WAN integration.
 
 |Issue| Description| Mitigation|
 |--|--|--|
