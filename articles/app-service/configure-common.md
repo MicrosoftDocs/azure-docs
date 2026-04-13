@@ -4,7 +4,7 @@ description: Learn how to configure common settings for an Azure App Service app
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 04/13/2026
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
@@ -60,7 +60,7 @@ App settings are always encrypted when they're stored (encrypted at rest).
    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, under **Value**, select **Show value**. To see the hidden values of all app settings, select **Show values**.
 
    > [!NOTE]
-   > Read/Write user permissions are required to view this section in the Azure portal. RBAC built-in roles with sufficient permissions are Owner, Contributor, and Website Contributor. The Reader role alone would not be allowed to access this page. 
+   > Read/Write user permissions are required to view this section in the Azure portal. RBAC built-in roles with sufficient permissions are Owner, Contributor, and Website Contributor. The Reader role alone would not be allowed to access this page.
 
 1. To add a new app setting, select **Add**. To edit a setting, select the setting.
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
@@ -222,8 +222,8 @@ There's one case where you might want to use connection strings instead of app s
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
 - SQL Server: `SQLCONNSTR_`  
-- MySQL: `MYSQLCONNSTR_` 
-- Azure SQL: `SQLAZURECONNSTR_` 
+- MySQL: `MYSQLCONNSTR_`
+- Azure SQL: `SQLAZURECONNSTR_`
 - Custom: `CUSTOMCONNSTR_`
 - PostgreSQL: `POSTGRESQLCONNSTR_`
 - Azure Notification Hubs: `NOTIFICATIONHUBCONNSTR_`
