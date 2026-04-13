@@ -20,7 +20,7 @@ ms.custom:
 
 # Plan costs and understand Microsoft Sentinel pricing and billing
 
-To help estimate your Microsoft Sentinel expected costs, [contact a Security sales specialist](https://info.microsoft.com/ww-landing-microsoft-defender-contact-me.html) for more information on pricing or to request a quote.
+To estimate your expected Microsoft Sentinel costs, use the [Microsoft Sentinel cost estimator tool,](https://microsoft.com/en-us/security/pricing/microsoft-sentinel/cost-estimator) and [work directly with a Security sales specialist](https://aka.ms/contactsecuritysaleslink) for a custom quote or additional guidance.
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs and understand the billing for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 

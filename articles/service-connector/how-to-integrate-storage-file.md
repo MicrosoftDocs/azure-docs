@@ -1,20 +1,21 @@
 ---
 title: Integrate Azure Files with Service Connector
-description: Integrate Azure Files into your application with Service Connector
+description: Integrate Azure Files into your application by using Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 04/08/2026
+#customer intent: As an Azure app developer, I want to see authentication methods, environment variables, and sample code for connecting Azure Files, so I can integrate Azure Files into my Azure apps.
 ---
 
 # Integrate Azure Files with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure File Storage to other cloud services using Service Connector. You might still be able to connect to Azure File Storage in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
+This article shows supported clients, authentication methods, and sample code you can use to connect Azure Files to other Azure services using Service Connector. This article also shows the default environment variables you need to create the service connections.
 
 ## Supported compute services
 
-Service Connector can be used to connect the following compute services to Azure Files:
+You can use Service Connector to connect the following Azure compute services to Azure Files:
 
 - Azure App Service
 - Azure Container Apps
@@ -22,33 +23,44 @@ Service Connector can be used to connect the following compute services to Azure
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
-## Supported authentication types and client types
+## Supported clients and authentication type
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Files using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The following client types support connecting Azure Files to Azure compute services by using Service Connector:
 
-| Client Type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
-|--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
-| .NET               | No                               | No                             | Yes                        | No                |
-| Java               | No                               | No                             | Yes                        | No                |
-| Java - Spring Boot | No                               | No                             | Yes                        | No                |
-| Node.js            | No                               | No                             | Yes                        | No                |
-| Python             | No                               | No                             | Yes                        | No                |
-| PHP                | No                               | No                             | Yes                        | No                |
-| Ruby               | No                               | No                             | Yes                        | No                |
-| None               | No                               | No                             | Yes                        | No                |
+- .NET
+- Java
+- Java Spring Boot
+- Node.js
+- Python
+- PHP
+- Ruby
 
-This table indicates that the only supported authentication method for all client types is the Secret / connection string method. The System-assigned managed identity, User-assigned managed identity, and Service principal methods are not supported for any of the client types to connect to Azure Files.
+>[!NOTE]
+>You might be able to connect to Azure Files in other programming languages without using Service Connector.
 
-## Default environment variable names or application properties and sample code
+Azure Files supports only secret or connection string authentication. System-assigned managed identity, user-assigned managed identity, and service principal authentication aren't available.
 
-Use the connection details below to connect compute services to Azure File Storage. For each example below, replace the placeholder texts `<account-name>`, `<account-key>`, `<storage-account-name>` and `<storage-account-key>` with your own account name, account key, storage account name, and storage account key. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+> [!IMPORTANT]
+> The secret or connection string authentication flow requires a high degree of trust in the application, and carries risks not present in other flows. You should use this flow only when more secure flows, such as managed identities, aren't available.
 
-### Connection string
+## Default environment variables
 
-> [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+Use the following connection details to connect supported Azure compute services to Azure Files. In the values, replace the following placeholders with the values for your app:
 
-#### SpringBoot client type
+- `<account-name>`
+- `<account-key>`
+- `<storage-account-name>`
+- `<storage-account-key>`
+
+For more information about naming conventions, see [Configuration naming convention](concept-service-connector-internals.md#configuration-naming-convention).
+
+#### All client types except Spring Boot
+
+| Default environment variable name  | Description                    | Example value                                                                                                        |
+|------------------------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| AZURE_STORAGEFILE_CONNECTIONSTRING | File storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
+
+#### Spring Boot client type
 
 | Application properties      | Description               | Example value                                             |
 | --------------------------- | ------------------------- | --------------------------------------------------------- |
@@ -59,19 +71,13 @@ Use the connection details below to connect compute services to Azure File Stora
 | spring.cloud.azure.storage.fileshare.account-key  | File storage account key for Spring Cloud Azure version above 4.0  | `<storage-account-key>`    |
 | spring.cloud.azure.storage.fileshare.endpoint     | File storage endpoint for Spring Cloud Azure version above 4.0     | `https://<storage-account-name>.file.core.windows.net/` |
 
-#### Other client types
+## Sample connection code
 
-| Default environment variable name  | Description                    | Example value                                                                                                        |
-|------------------------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| AZURE_STORAGEFILE_CONNECTIONSTRING | File storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |
+Use the following steps and sample code to connect to Azure Files using an account key with Service Connector.
 
-#### Sample code 
-Refer to the steps and code below to connect to Azure File Storage using an account key.
-[!INCLUDE [code sample for azure files](./includes/code-file-secret.md)]
+[!INCLUDE [code sample for azure files](includes/code-file-secret.md)]
 
-## Next steps
+## Related content
 
-Follow the tutorials listed below to learn more about Service Connector.
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+- [Service Connector concepts](concept-service-connector-internals.md)
+- [Configuration naming convention](concept-service-connector-internals.md#configuration-naming-convention)

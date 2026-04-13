@@ -40,7 +40,7 @@ To run the migration assessment, in your [Azure Data Factory](https://adf.azure.
 
 ## Step 2: Review and understand assessment results
 
-Both the factory and individual pipelines are categorized with a readiness status: **Ready**, **Needs review**, **Coming soon**, or **Unsupported**.
+Both the factory and individual pipelines are categorized with a readiness status: **Ready**, **Needs review**, **Coming soon**, or **Not compatible**.
 You can also export your assessment results to a CSV file to support offline review and remediation planning.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/assessment-results.png" alt-text="Screenshot showing the Azure Data Factory migration assessment results." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/assessment-results.png":::

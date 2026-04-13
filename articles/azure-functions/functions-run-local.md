@@ -418,7 +418,7 @@ The following considerations apply to this kind of deployment:
 
 + Use the [`--publish-local-settings`][func azure functionapp publish] option to automatically create app settings in your function app based on values in the *local.settings.json* file.  
 
-+ To publish to a specific named slot in your function app, use the [`--slot` option](functions-core-tools-reference.md#func-azure-functionapp-global-options). 
++ To publish to a specific named slot in your function app, use the [`--slot` option](functions-core-tools-reference.md#func-azure-functionapp). 
 ::: zone-end
 
 ## Deploy containers

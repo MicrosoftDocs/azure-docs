@@ -77,11 +77,11 @@ Dynamic sessions are available in the following regions. Both code interpreter a
 | East US | North Europe | Japan East | |
 | East US 2 | Norway East | Japan West | |
 | North Central US | Poland Central | Jio India West | |
-| West Central US | Spain Central | Korea Central | |
-| West US | Sweden Central | South India | |
-| West US 2 | Switzerland North | Southeast Asia | |
-| West US 3 | Switzerland West | | |
-| | UK South | | |
+| South Central US | Spain Central | Korea Central | |
+| West Central US | Sweden Central | South India | |
+| West US | Switzerland North | Southeast Asia | |
+| West US 2 | Switzerland West | | |
+| West US 3 | UK South | | |
 | | UK West | | |
 | | West Europe | | |
 

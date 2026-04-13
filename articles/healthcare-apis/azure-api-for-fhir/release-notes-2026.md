@@ -6,7 +6,7 @@ author: evachen96
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/1/2026
+ms.date: 04/10/2026
 ms.custom:
   - references_regions
   - build-2026
@@ -18,6 +18,11 @@ ms.author: evach
 [!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
+
+## April 2026
+
+### Bug fixes:
+**Improved monitoring accuracy for Azure API for FHIR**: An issue was identified and resolved that affected Azure Monitor metrics under Microsoft.HealthcareAPIs : CosmosDbThrottleRate, CosmosDbRequests, TotalErrors, and TotalRequests. There was an unsupported aggregation configuration that may have led to inconsistency in data associated with the metrics. This issue was limited to observability scenarios and did not impact service availability, performance, or data processing. After the fix, customers may now observe improved accuracy and consistency in monitoring experiences without requiring any action.
 
 ## March 2026
 ### FHIR service

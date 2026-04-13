@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: tutorial
-ms.date: 05/16/2024
+ms.date: 03/17/2026
 ms.reviewer: mahender
 ms.custom: azureday1, AppServiceIdentity
 #Customer intent: As an application developer, enable authentication and authorization for a web app running on Azure App Service.

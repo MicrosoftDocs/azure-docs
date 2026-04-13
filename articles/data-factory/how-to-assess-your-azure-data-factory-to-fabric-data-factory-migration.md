@@ -53,7 +53,7 @@ In the assessment side pane, expand each pipeline to see:
 - Activity‑level status (which activities block migration).
 - A summary of Ready/Needs review/Not compatible counts across pipelines.
 
-:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/detailed-assessment-drilldown.png" alt-text="Screenshot showing a drill-down of the assessment details." lightbox="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/detailed-assessment-drilldown.png"::::::
+:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/detailed-assessment-drilldown.png" alt-text="Screenshot showing a drill-down of the assessment details." lightbox="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/detailed-assessment-drilldown.png":::
 
 Use this list to build your to‑do plan (what to fix, what to defer, and what to replace).
 
@@ -71,7 +71,7 @@ Answer: No. It only scans your configuration and lists findings in the side pane
 **Why do I see Coming soon?**
 
 Answer: It means the product team is actively adding support for those items. 
-If they’re critical to your pipeline, see if you could use [PowerShell upgrade tool](/fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric) or plan to migrate later or redesign the affected steps.
+If they're critical to your pipeline, plan to migrate later when support is added, redesign the affected steps, or as an alternative use the [PowerShell upgrade tool](/fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric) for scripted migration scenarios.
 
 **What if only one activity is Not compatible?**
 
