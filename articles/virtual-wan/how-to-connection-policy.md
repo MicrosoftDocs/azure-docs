@@ -27,7 +27,7 @@ Connection policies can manage the following properties of Virtual Network conne
 
 * **Enable internet security**: Controls whether or not Virtual WAN advertises the default route (0.0.0.0/0) to the Virtual Network connection.
 * **Associated route table**: Specifies which Virtual WAN route table is associated with the Virtual Network connection.
-* **Propagated route table**: Specifies which Virtual WAN route table  Virtual Network connection propagates routes to.
+* **Propagated route table**: Specifies which Virtual WAN route table is associated with the Virtual Network connection and propagates routes to. In connection policy, this property can only reference **local** route tables. Refrence remote route tables using **labels**.
 * **Propagated labels**: Specifies which labels the Virtual Network connection propagates to.
 * **Inbound/Outbound route maps**: Specifies which route maps are applied to routes learnt from or advertised to the Virtual Network connection.
 
@@ -39,7 +39,12 @@ Virtual WAN control plane uses the following order of preference when determinin
 1. Connection policy settings.
 1. Connection-level settings.
 
-## Considerations
+## Best Practices
+
+* Connection policies can't reference remote route tables. Instead, use Virtual WAN route table **labels** with connection policies to group propagated route tables across multiple Virtual WAN hubs. Reference Virtual WAN route table labels in connection policy to simplfy operations.
+* Carefully define update domains within Virtual WAN to minimize the impact of configuration changes on your network. Instead of assigning all Virtual Network connections to a single connection policy, group connections into multiple connection policies correspondign to different update domains and apply changes in an incremental fashion.
+
+## Other Considerations
 
 * A Virtual network connection can only be managed by one connection policy at a time. If you have different groups of connections with different configurations, create multiple connection policies and group the connections accordingly.
 * Routing intent automatically configures the associations and propagations for Virtual Network connections. Connection policies can't override the associated and propagated route tables and labels for Virtual Network connections to hubs configured with routing intent.
