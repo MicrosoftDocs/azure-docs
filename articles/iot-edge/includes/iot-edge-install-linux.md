@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 02/19/2026
+ms.date: 04/01/2026
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
@@ -36,14 +36,6 @@ You can install IoT Edge by using a few commands. Open a terminal and run the fo
 
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-   sudo dpkg -i packages-microsoft-prod.deb
-   rm packages-microsoft-prod.deb
-   ```
-
-* **20.04**:
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
    sudo dpkg -i packages-microsoft-prod.deb
    rm packages-microsoft-prod.deb
    ```
@@ -203,12 +195,6 @@ The steps in this section represent the typical process to install the latest Io
 Install the latest version of IoT Edge and the IoT identity service package (if you're not already [up-to-date](../version-history.md)):
 
 * **22.04**:
-   ```bash
-   sudo apt-get update; \
-     sudo apt-get install aziot-edge
-   ```
-
-* **20.04**:
    ```bash
    sudo apt-get update; \
      sudo apt-get install aziot-edge

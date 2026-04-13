@@ -224,7 +224,7 @@ If you've changed a blob or version's tier, then you're billed for the entire ob
 
 For more information about billing details for blob snapshots, see [Blob snapshots](snapshots-overview.md).
 
-For storage accounts that leverage the smart tier public preview, versions and snapshots are billed at full content length. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
+For storage accounts that leverage smart tier, versions and snapshots are billed at full content length. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
 
 ### Billing when the blob tier has not been explicitly set
 

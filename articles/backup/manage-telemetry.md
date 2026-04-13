@@ -1,7 +1,7 @@
 ---
 title: Manage telemetry settings in Microsoft Azure Backup Server (MABS)
 description: This article provides information about how to manage the telemetry settings in MABS.
-ms.date:  07/15/2025
+ms.date: 04/13/2026
 ms.topic: how-to
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -26,7 +26,7 @@ To enable/disable telemetry from the MABS console, follow these steps:
 1. In the Microsoft Azure Backup Server console, go to **Management** and select **Options**.
 1. On the **Options** pane, select **Diagnostic and Usage Data Settings**.
 
-    :::image type="content" source="./media/telemetry/telemetry-options.png" alt-text="Screenshot shows the console telemetry options.":::
+    :::image type="content" source="./media/telemetry/telemetry-options.png" alt-text="Screenshot that shows the console telemetry options." lightbox="./media/telemetry/telemetry-options.png":::
 
 1. Select the diagnostic and usage data sharing preference, and then select **OK**.
 

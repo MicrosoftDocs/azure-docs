@@ -86,7 +86,7 @@ Azure Bastion is continuously updated with new features and improvements. To lea
 
 ## Troubleshooting and FAQ
 
-For information about troubleshooting and frequently asked questions, see the [troubleshooting guide](troubleshoot.md) and [Azure Bastion FAQ](bastion-faq.md).
+For information about troubleshooting and frequently asked questions, see the [troubleshooting guide](/troubleshoot/azure/bastion/welcome-azure-bastion) and [Azure Bastion FAQ](bastion-faq.md).
 
 ## Next steps
 

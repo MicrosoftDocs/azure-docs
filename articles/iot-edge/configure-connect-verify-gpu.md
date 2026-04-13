@@ -3,7 +3,7 @@ title: Configure and connect an IoT Edge module with a GPU
 description: Configure your environment to connect and verify your GPU to process modules from your IoT Edge device.
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/05/2025
+ms.date: 04/01/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 services: iot-edge
@@ -89,10 +89,10 @@ Now that you have a GPU-optimized VM, install the [NVIDIA extension](/azure/virt
 
 1. With an NVIDIA module, we'll use the [NVIDIA System Management Interface program](https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf), also known as `nvidia-smi`. 
 
-   From your device, install the `nvidia-smi` package based on your version of Ubuntu. For this tutorial, we'll install `nvidia-utils-515` for Ubuntu 20.04. Select `Y` when prompted in the installation.
+   From your device, install the `nvidia-smi` package based on your version of Ubuntu. For example, on Ubuntu 22.04, install `nvidia-utils-535`. Select `Y` when prompted in the installation.
 
    ```bash
-   sudo apt install nvidia-utils-515
+   sudo apt install nvidia-utils-535
    ```
 
    Here's a list of all `nvidia-smi` versions. If you run `nvidia-smi` without installing it first, this list prints in your console.
@@ -114,7 +114,7 @@ Now that you have a GPU-optimized VM, install the [NVIDIA extension](/azure/virt
 
 ## Enable a module with GPU acceleration
 
-There are different ways to enable an IoT Edge module so that it uses a GPU for processing. One way is to configure an existing IoT Edge module on your device to become GPU-accelerated. Another way is to use a prefabricated container module, for example, a module from [NVIDIA DIGITS](https://developer.nvidia.com/digits) that's already GPU-optimized. Let's see how both ways are done.
+There are different ways to enable an IoT Edge module so that it uses a GPU for processing. One way is to configure an existing IoT Edge module on your device to become GPU-accelerated. Another way is to use a prefabricated container module that's already GPU-optimized. Let's see how both ways are done.
 
 ### Enable GPU in an existing module using DeviceRequests
 
@@ -169,7 +169,7 @@ If you have an existing module on your IoT Edge device, adding a configuration u
 
 ### Enable a GPU in a prefabricated NVIDIA module
 
-Let's add an [NVIDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.html) module to the IoT Edge device and then allocate a GPU to the module by setting its environment variables. This NVIDIA module is already in a Docker container. 
+Let's add an [NVIDIA CUDA](https://hub.docker.com/r/nvidia/cuda) container module to the IoT Edge device and then allocate a GPU to the module by setting its environment variables. This NVIDIA module is already in a Docker container. 
 
 1. Select your IoT Edge device in the Azure portal from your IoT Hub's **Devices** menu.
 
@@ -179,7 +179,7 @@ Let's add an [NVIDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.h
 
 1. Provide a name in the **IoT Edge Module Name** field.
 
-1. Under the **Module Settings** tab, add `nvidia/digits:6.0` to the **Image URI** field.
+1. Under the **Module Settings** tab, add `nvidia/cuda:12.6.3-base-ubuntu22.04` to the **Image URI** field.
 
 1. Select the **Environment Variables** tab.
 
@@ -207,7 +207,7 @@ Let's add an [NVIDIA DIGITS](https://docs.nvidia.com/deeplearning/digits/index.h
    :::image type="content" source="media/configure-connect-verify-gpu/iot-edge-list.png" alt-text="Screenshot of the result of the 'iotedge list' command.":::
 
 > [!NOTE]
-> For more information on the **NVIDIA DIGITS** container module, see the [Deep Learning Digits Documentation](https://docs.nvidia.com/deeplearning/digits/digits-container-user-guide/index.html#digitsovr).
+> For more information on GPU-optimized NVIDIA containers, see the [NVIDIA GPU Cloud (NGC) Catalog](https://catalog.ngc.nvidia.com/).
 
 ## Clean up resources
 

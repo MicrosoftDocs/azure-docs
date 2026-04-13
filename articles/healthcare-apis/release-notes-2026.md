@@ -25,10 +25,7 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 ### FHIR service
 
-**Improved processing for custom search parameters in bundles**: Implemented validation to detect and prevent conflicting search parameters within bundle requests to help improve search parameter processing. Error messages are returned in case conflicts are found, including:
-  - "Input search parameters have duplicate codes" when multiple search parameters use the same code on overlapping resource types.
-  - "Input search parameters have duplicate Urls" when multiple search parameters have identical URLs.
-  - "Input search parameters have duplicate codes and Urls" when the bundle has both types of conflicts.
+**Improved processing for custom search parameters in bundles**: Enhanced validation has been added to identify and prevent conflicting custom search parameters within bundle requests. This improvement helps ensure more consistent and reliable search parameter processing when submitting bundle operations.
 
 ## March 2026
 ### FHIR service

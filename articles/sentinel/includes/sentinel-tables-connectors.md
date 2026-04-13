@@ -2,7 +2,7 @@
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: include
-ms.date: 04/06/2026    
+ms.date: 04/13/2026    
 # This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
 
@@ -184,6 +184,7 @@ ms.date: 04/06/2026
 |Cymru_Scout_IP_Data_x509_CL|[Team Cymru Scout Data Connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#team-cymru-scout-data-connector-using-azure-functions)|No|No|
 |CynerioEvent_CL|[Cynerio Security Events](/azure/sentinel/data-connectors-reference#cynerio-security-events)|No|No|
 |Cyren_Indicators_CL|[Cyren Threat Intelligence](/azure/sentinel/data-connectors-reference#cyren-threat-intelligence)|No|No|
+|D3SOARIncidents_CL|[D3 Smart SOAR Incidents](/azure/sentinel/data-connectors-reference#d3-smart-soar-incidents)|No|No|
 |darktrace_model_alerts_CL|[Darktrace Connector for Microsoft Sentinel REST API](/azure/sentinel/data-connectors-reference#darktrace-connector-for-microsoft-sentinel-rest-api)|Yes|Yes|
 |databahn_alerts_CL|[DataBahn](/azure/sentinel/data-connectors-reference#databahn)|No|No|
 |databahn_audit_logs_CL|[DataBahn](/azure/sentinel/data-connectors-reference#databahn)|No|No|
@@ -350,6 +351,7 @@ ms.date: 04/06/2026
 |net_assets_CL|[Holm Security Asset Data (using Azure Functions)](/azure/sentinel/data-connectors-reference#holm-security-asset-data-using-azure-functions)|No|No|
 |Netskope_WebTx_metrics_CL|[Netskope Data Connector](/azure/sentinel/data-connectors-reference#netskope-data-connector)|No|No|
 |NetskopeAlerts_CL|[Netskope Alerts and Events](/azure/sentinel/data-connectors-reference#netskope-alerts-and-events)|Yes|Yes|
+|NetskopeWebTransactions_CL|[Netskope Web Transaction Connector (via Blob Storage)](/azure/sentinel/data-connectors-reference#netskope-web-transaction-connector-via-blob-storage)|Yes|Yes|
 |NetskopeWebtxData_CL|[Netskope Web Transactions Data Connector](/azure/sentinel/data-connectors-reference#netskope-web-transactions-data-connector)|No|No|
 |NetskopeWebtxErrors_CL|[Netskope Web Transactions Data Connector](/azure/sentinel/data-connectors-reference#netskope-web-transactions-data-connector)|No|No|
 |[NetworkAccessTraffic](/azure/azure-monitor/reference/tables/NetworkAccessTraffic)|[Microsoft Entra ID](/azure/sentinel/data-connectors-reference#microsoft-entra-id)|Yes|Yes|
@@ -371,7 +373,7 @@ ms.date: 04/06/2026
 |OpenSystemsAuthenticationLogs_CL|[Open Systems Data Connector](/azure/sentinel/data-connectors-reference#open-systems-data-connector)|No|No|
 |OpenSystemsFirewallLogs_CL|[Open Systems Data Connector](/azure/sentinel/data-connectors-reference#open-systems-data-connector)|No|No|
 |OpenSystemsProxyLogs_CL|[Open Systems Data Connector](/azure/sentinel/data-connectors-reference#open-systems-data-connector)|No|No|
-|OpenSystemsZtnaLogs_CL|[Open Systems Data Connector](/azure/sentinel/data-connectors-reference#open-systems-data-connector)|No|No|
+|OpenSystemsZtnaLogs_CL|[Open Systems Data Connector](/azure/sentinel/data-connectors-reference#open-systems-data-connector)|Yes|Yes|
 |OracleWebLogicServer_CL|[Custom logs via AMA](/azure/sentinel/data-connectors-reference#custom-logs-via-ama)|Yes|Yes|
 |OrcaAlerts_CL|[Orca Security Alerts](/azure/sentinel/data-connectors-reference#orca-security-alerts)|Yes|Yes|
 |PaloAltoCortexXDR_Alerts_CL|[Palo Alto Cortex XDR](/azure/sentinel/data-connectors-reference#palo-alto-cortex-xdr)|Yes|Yes|
@@ -400,6 +402,7 @@ ms.date: 04/06/2026
 |QscoutAppEvents_CL|[QscoutAppEventsConnector (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#qscoutappeventsconnector-via-codeless-connector-framework)|No|No|
 |QualysHostDetectionV3_CL|[Qualys Vulnerability Management (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#qualys-vulnerability-management-via-codeless-connector-framework)|Yes|Yes|
 |QualysKB_CL|[Qualys VM KnowledgeBase (using Azure Functions)](/azure/sentinel/data-connectors-reference#qualys-vm-knowledgebase-using-azure-functions)|Yes|Yes|
+|[QualysKnowledgeBase](/azure/azure-monitor/reference/tables/QualysKnowledgeBase)|[Qualys Knowledge Base (via Codeless Connector Framework)](/azure/sentinel/data-connectors-reference#qualys-knowledge-base-via-codeless-connector-framework)|Yes|Yes|
 |RadiflowEvent|[Radiflow iSID via AMA](/azure/sentinel/data-connectors-reference#radiflow-isid-via-ama)|No|No|
 |RSAIDPlus_AdminLogs_CL|[RSA ID Plus Admin Logs Connector](/azure/sentinel/data-connectors-reference#rsa-id-plus-admin-logs-connector)|No|No|
 |Rubrik_Anomaly_Data_CL|[Rubrik Security Cloud data connector (using Azure Functions)](/azure/sentinel/data-connectors-reference#rubrik-security-cloud-data-connector-using-azure-functions)|Yes|Yes|
