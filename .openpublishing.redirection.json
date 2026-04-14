@@ -1,6 +1,10 @@
 {
   "redirections": [
     {
+      "source_path": "articles/web-application-firewall/ag/web-application-firewall-troubleshoot.md",
+      "redirect_url": "/troubleshoot/azure/web-application-firewall/web-application-firewall-troubleshoot",
+    },
+    {
       "source_path": "articles/healthcare-apis/iot/concepts-machine-learning.md",
       "redirect_url": "/previous-versions/azure/healthcare-apis/iot/concepts-machine-learning",
       "redirect_document_id": false
