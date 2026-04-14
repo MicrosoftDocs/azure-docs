@@ -16,7 +16,7 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A _Beta_ feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule).

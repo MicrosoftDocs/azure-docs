@@ -1,12 +1,9 @@
 ---
-services: storage, app-service-web
-author: rwike77
-manager: CelesteDG
+author: cephalin
+ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 03/09/2023
-ms.author: ryanwi
-ms.reviewer: stsoneff
 ms.devlang: azurecli
 ms.custom: azureday1
 ---
@@ -26,5 +23,5 @@ In the preceding steps, you created Azure resources in a resource group.
 
     ```azurecli-interactive
     # delete app - do this for both frontend and backend client ids
-    az ad app delete <client-id>
+    az ad app delete --id <client-id>
     ```

@@ -1,9 +1,8 @@
 ---
 title: Azure IoT Hub device-to-cloud options
 description: This article provides guidance on when to use device-to-cloud messages, reported properties, or file upload for cloud-to-device communications. 
-author: SoniaLopezBravo
-
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 05/22/2025
@@ -11,6 +10,10 @@ ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Device-to-cloud communications guidance
+
+This article helps you choose the appropriate device-to-cloud communication option in Azure IoT Hub based on your scenario requirements. IoT Hub supports three primary options for device-to-cloud communication: device-to-cloud messages, device twin's reported properties, and file uploads.
+
+## Ways to communicate from device to cloud
 
 IoT Hub exposes three options for sending information from the device app to the solution back end:
 
@@ -22,7 +25,9 @@ IoT Hub exposes three options for sending information from the device app to the
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Here's a detailed comparison of the various device-to-cloud communication options.
+## Comparison of device-to-cloud communication options
+
+The following table compares the various device-to-cloud communication options in IoT Hub based on common factors.
 
 | Factor | Device-to-cloud messages | Device twin's reported properties | File uploads |
 | ---- | ------- | ---------- | ---- |

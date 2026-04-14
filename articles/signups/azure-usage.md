@@ -18,7 +18,7 @@ You can check your startup credit balance and expiration date from the Azure por
 
 ## Transition to pay-as-you-go
 
-Once your startup credits are exhausted or expire, your Azure Sponsorship subscription will automatically convert to a [pay-as-you-go](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) subscription. You'll only pay for what you use while continuing to access [65+ free services](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=payg#free-services). There's no upfront commitment, and you can [cancel your subscription](/azure/cost-management-billing/manage/cancel-azure-subscription) at any time.
+Once your startup credits are exhausted or expire, your Azure Sponsorship subscription will automatically convert to a [pay-as-you-go](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) subscription. You'll only pay for what you use while continuing to access [65+ free services](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). There's no upfront commitment, and you can [cancel your subscription](/azure/cost-management-billing/manage/cancel-azure-subscription) at any time.
 
 ## Billing and payments
 

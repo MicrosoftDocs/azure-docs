@@ -100,6 +100,16 @@ If you try to install Azure Container Storage with Ephemeral Disk, specifically 
 
 To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](/azure/virtual-machines/sizes-storage).
 
+### Prometheus operator conflict in Azure Container Storage
+
+Azure Container Storage uses the Prometheus Operator and its deployment to collect metrics for internal support and troubleshooting. If your Kubernetes cluster already has a Prometheus Operator installed, both operators might attempt to provision the PromCluster custom resource, which can lead to conflicts or installation issues.
+
+To avoid conflicts, you can either exclude the acstor namespace from your existing Prometheus configuration or disable Azure Container Storage metrics collection by running the following command. Replace `<cluster_name>` and `<resource_group_name>` with your own values.
+
+```azurecli
+az k8s-extension update --cluster-type managedClusters --cluster-name <cluster_name> --resource-group <resource_group_name> --name azurecontainerstorage --config base.metrics.enablePrometheusStack=false
+```
+
 ## Troubleshoot storage pool issues
 
 To check the status of your storage pools, run `kubectl describe sp <storage-pool-name> -n acstor`. Here are some issues you might encounter.
@@ -194,7 +204,7 @@ When disabling a storage pool type via `az aks update --disable-azure-container-
 
 *Disabling Azure Container Storage for storage pool type `<storage-pool-type>` forcefully deletes all the storage pools of the same type and it affects the applications using these storage pools. Forceful deletion of storage pools can also lead to leaking of storage resources which are being consumed. Do you want to validate whether any of the storage pools of type `<storage-pool-type>` are being used before disabling Azure Container Storage? (Y/n)*
 
-If you select Y, an automatic validation runs to ensure that there are no persistent volumes created from the storage pool. Selecting n bypasses this validation and disables the storage pool type, deleting any existing storage pools and potentially affecting your application.
+If you select Y, an automatic validation runs to ensure there are no persistent volumes created from the storage pool. Selecting n bypasses this validation and disables the storage pool type, deleting any existing storage pools and potentially affecting your application.
 
 ## Troubleshoot volume issues
 
@@ -255,11 +265,11 @@ Azure Container Storage uses `etcd`, a distributed, reliable key-value store, to
 
 Run the following command to get a list of pods.
 
-```azurecli-interactive
+```azurecli
 kubectl get pods
 ```
 
-You may see output similar to the following.
+You should see output similar to this example.
 
 ```output
 NAME     READY   STATUS              RESTARTS   AGE 
@@ -268,7 +278,7 @@ fiopod   0/1     ContainerCreating   0          25m
 
 Describe the pod:
 
-```azurecli-interactive
+```azurecli
 kubectl describe pod fiopod
 ```
 
@@ -290,11 +300,11 @@ Warning  FailedAttachVolume  3m8s (x6 over 23m)  attachdetach-controller  Attach
 
 You can also run the following command to check the status of `etcd` instances:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods -n acstor | grep "^etcd"
 ```
 
-You should see output similar to the following, with all instances in the Running state:
+You should see output similar to this example, with all instances in the Running state:
 
 ```output
 etcd-azurecontainerstorage-bn89qvzvzv                            1/1     Running   0               4d19h

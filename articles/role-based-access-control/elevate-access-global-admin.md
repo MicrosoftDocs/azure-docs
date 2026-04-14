@@ -11,6 +11,7 @@ ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
   - sfi-ga-nochange
+#customer intent: As a Global Administrator, I want to temporarily elevate my access to manage all subscriptions and management groups so that I can regain access and configure resources across the tenant.
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 
@@ -76,7 +77,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Make the changes you need to make at elevated access.
 
-    For information about assigning roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml). If you are using Privileged Identity Management, see [Discover Azure resources to manage](/entra/id-governance/privileged-identity-management/pim-resource-roles-discover-resources) or [Assign Azure resource roles](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
+    For information about assigning roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal). If you are using Privileged Identity Management, see [Discover Azure resources to manage](/entra/id-governance/privileged-identity-management/pim-resource-roles-discover-resources) or [Assign Azure resource roles](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
 
 1. Perform the steps in the following section to remove your elevated access.
 
@@ -384,7 +385,7 @@ If you have users with elevated access, you should take immediate action and rem
 
 1. Select the **Manage elevated access users** link.
 
-    The **Users with elevated access appears** pane appears with a list of users with elevated access in your tenant.
+    The **Users with elevated access** pane appears with a list of users with elevated access in your tenant.
 
     :::image type="content" source="./media/elevate-access-global-admin/elevated-access-users-pane.png" alt-text="Screenshot of Users with elevated access pane that lists users with elevated access." lightbox="./media/elevate-access-global-admin/elevated-access-users-pane.png":::
 

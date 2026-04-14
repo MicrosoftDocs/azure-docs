@@ -6,24 +6,26 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 05/19/2025
+ms.date: 11/18/2025
 ms.custom:
   - devx-track-javascript
   - devx-track-azurecli
   - references_regions
   - build-2025
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (Express.js)
 
-In this tutorial, you'll create a Node.js Retrieval Augmented Generation (RAG) application using Express.js, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
+In this tutorial, you'll create a Node.js Retrieval Augmented Generation (RAG) application using Express.js, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages AI services in Azure to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
 
 :::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Express.js chat interface in introduction.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Deploy an Express.js application that uses RAG pattern with Azure AI services.
+> * Deploy an Express.js application that uses RAG pattern with AI services in Azure.
 > * Configure Azure OpenAI and Azure AI Search for hybrid search.
 > * Upload and index documents for use in your AI-powered application.
 > * Use managed identities for secure service-to-service communication.
@@ -35,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/nodejs).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## 1. Open the sample with Codespaces

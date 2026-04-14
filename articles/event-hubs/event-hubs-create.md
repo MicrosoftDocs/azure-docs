@@ -1,8 +1,9 @@
 ---
-title: Create an event hub using the Azure portal
+title: Create Azure Event Hubs instance Using Portal
 description: In this quickstart, you learn how to create an Azure Event Hubs namespace and an event hub in the namespace by using Azure portal.
+#customer intent: As a developer, I want to create an event hub in the Azure portal so that I can process and analyze event data.
 ms.topic: quickstart
-ms.date: 12/12/2024
+ms.date: 02/05/2026
 ms.custom: sfi-image-nochange
 # Customer intent: I want to know how create an Azure event hub using the Azure portal. 
 ---
@@ -13,8 +14,8 @@ In this quickstart, you create an Azure Event Hubs namespace and an event hub in
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- If you are new to Azure Event Hubs, read through [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+- If you're new to Azure Event Hubs, read through [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
 ## Create a resource group
 
@@ -23,13 +24,13 @@ A resource group is a logical collection of Azure resources. All resources are d
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the left navigation, select **Resource groups**, and then select **Create**. 
 
-    :::image type="content" source="./media/event-hubs-quickstart-portal/resource-groups1.png" alt-text="Screenshot showing the Resource groups page with the selection of the Create button.":::
+    :::image type="content" source="./media/event-hubs-quickstart-portal/azure-resource-groups-create.png" alt-text="Screenshot showing the Resource groups page with the selection of the Create button." lightbox="./media/event-hubs-quickstart-portal/azure-resource-groups-create.png":::
 1. For **Subscription**, select the name of the Azure subscription in which you want to create the resource group.
 1. Type a unique **name for the resource group**. The system immediately checks to see if the name is available in the currently selected Azure subscription.
 1. Select a **region** for the resource group.
 1. Select **Review + Create**.
 
-    :::image type="content" source="./media/event-hubs-quickstart-portal/resource-groups2.png" alt-text="Screenshot showing the Create a resource group page.":::
+    :::image type="content" source="./media/event-hubs-quickstart-portal/create-resource-group-page.png" alt-text="Screenshot showing the Create a resource group page." lightbox="./media/event-hubs-quickstart-portal/create-resource-group-page.png":::
 1. On the **Review + Create** page, select **Create**. 
 
 ## Create an Event Hubs namespace
@@ -38,10 +39,10 @@ An Event Hubs namespace provides a unique scoping container, in which you create
 
 1. In the Azure portal, select **All services** in the left menu, and select **Event Hubs** in the **Analytics** category.
 
-    :::image type="content" source="./media/event-hubs-quickstart-portal/select-event-hubs-menu.png" alt-text="Screenshot showing the selection of Event Hubs in the All services page.":::
+    :::image type="content" source="./media/event-hubs-quickstart-portal/azure-all-services-event-hubs.png" alt-text="Screenshot showing the selection of Event Hubs in the All services page." lightbox="./media/event-hubs-quickstart-portal/azure-all-services-event-hubs.png":::
 1. On the **Event Hubs** page, select **Create** on the toolbar.
 
-    :::image type="content" source="./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png" alt-text="Screenshot showing the selection of Create button on the Event hubs page." lightbox="./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png":::
+    :::image type="content" source="./media/event-hubs-quickstart-portal/event-hubs-create-namespace.png" alt-text="Screenshot showing the selection of Create button on the Event hubs page." lightbox="./media/event-hubs-quickstart-portal/event-hubs-create-namespace.png":::
 1. On the **Create namespace** page, take the following steps:  
    1. Select the **subscription** in which you want to create the namespace.  
    1. Select the **resource group** you created in the previous step.   
@@ -49,17 +50,17 @@ An Event Hubs namespace provides a unique scoping container, in which you create
    1. Select a **location** for the namespace.
    1. Choose **Basic** for the **pricing tier**. If you plan to use the namespace from **Apache Kafka** apps, use the **Standard** tier. The basic tier doesn't support Apache Kafka workloads. To learn about differences between tiers, see [Quotas and limits](event-hubs-quotas.md), [Event Hubs Premium](event-hubs-premium-overview.md), and [Event Hubs Dedicated](event-hubs-dedicated-overview.md) articles. 
    1. Leave the **throughput units** (for standard tier) or **processing units** (for premium tier) settings as it is. To learn about throughput units or processing units: [Event Hubs scalability](event-hubs-scalability.md).
-   1. Enable the **Auto-inflate** feature if you want Event Hubs to automatically increase the number of TUs to meet usage needs. Increasing TUs prevents throttling scenarios where data ingress or data egress rates exceed the rates allowed by the TUs assigned to the namespace. The Event Hubs service increases the throughput when load increases beyond the minimum threshold, without any requests failing with ServerBusy errors.  
+   1. Enable the **Auto-inflate** feature if you want Event Hubs to automatically increase the number of throughput units (TUs) to meet usage needs. Increasing TUs prevents throttling scenarios where data ingress or data egress rates exceed the rates allowed by the TUs assigned to the namespace. The Event Hubs service increases the throughput when load increases beyond the minimum threshold, without any requests failing with ServerBusy errors.  
    1. Select **Review + Create** at the bottom of the page.
       
-        :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub1.png" alt-text="Screenshot of the Create Namespace page in the Azure portal.":::
+        :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub-namespace.png" alt-text="Screenshot of the Create Namespace page in the Azure portal." lightbox="./media/event-hubs-quickstart-portal/create-event-hub-namespace.png":::
    1. On the **Review + Create** page, review the settings, and select **Create**. Wait for the deployment to complete.       
 1. On the **Deployment** page, select **Go to resource** to navigate to the page for your namespace. 
       
       :::image type="content" source="./media/event-hubs-quickstart-portal/deployment-complete.png" alt-text="Screenshot of the Deployment complete page with the link to resource.":::
 1. Confirm that you see the **Event Hubs namespace** page similar to the following example:   
 
-      :::image type="content" source="./media/event-hubs-quickstart-portal/namespace-home-page.png" lightbox="./media/event-hubs-quickstart-portal/namespace-home-page.png" alt-text="Screenshot of the home page for your Event Hubs namespace in the Azure portal.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/event-hubs-namespace-overview.png" alt-text="Screenshot of the home page for your Event Hubs namespace in the Azure portal." lightbox="./media/event-hubs-quickstart-portal/event-hubs-namespace-overview.png":::
 
       > [!NOTE]
       > Azure Event Hubs provides you with a Kafka endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your event hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later. For more information, see [Use Event Hubs from Apache Kafka applications](azure-event-hubs-apache-kafka-overview.md).
@@ -70,10 +71,10 @@ To create an event hub within the namespace, do the following actions:
 
 1. On the **Overview** page, select **+ Event hub** on the command bar. 
    
-      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub4.png" lightbox="./media/event-hubs-quickstart-portal/create-event-hub4.png" alt-text="Screenshot of the selection of Add event hub button on the command bar.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub-button.png" alt-text="Screenshot of the selection of Add event hub button on the command bar." lightbox="./media/event-hubs-quickstart-portal/create-event-hub-button.png":::
 1. Type a name for your event hub, then select **Review + create**.
    
-      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub5.png" alt-text="Screenshot of the Create event hub page.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/create-event-hub-basics-settings.png" alt-text="Screenshot of the Create event hub page." lightbox="./media/event-hubs-quickstart-portal/create-event-hub-basics-settings.png":::
 
     The **partition count** setting allows you to parallelize consumption across many consumers. For more information, see [Partitions](event-hubs-scalability.md#partitions).
 
@@ -81,7 +82,7 @@ To create an event hub within the namespace, do the following actions:
 1. On the **Review + create** page, select **Create**. 
 1. You can check the status of the event hub creation in alerts. After the event hub is created, you see it in the list of event hubs.
 
-      :::image type="content" source="./media/event-hubs-quickstart-portal/event-hub-created.png" lightbox="./media/event-hubs-quickstart-portal/event-hub-created.png" alt-text="Screenshot showing the list of event hubs.":::
+      :::image type="content" source="./media/event-hubs-quickstart-portal/event-hub-list-view.png" alt-text="Screenshot showing the list of event hubs." lightbox="./media/event-hubs-quickstart-portal/event-hub-list-view.png":::
     
 ## Related content
 

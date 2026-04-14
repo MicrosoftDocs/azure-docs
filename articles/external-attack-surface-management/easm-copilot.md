@@ -6,7 +6,7 @@ description: Learn how to use Microsoft Security Copilot to get information abou
 author: dandennis
 ms.author: dandennis
 ms.date: 11/20/2024
-ms.topic: conceptual
+ms.topic: integration
 ms.service: defender-easm
 ms.localizationpriority: high
 ms.custom: sfi-image-nochange
@@ -19,7 +19,7 @@ Microsoft Defender External Attack Surface Management (Defender EASM) continuous
 
 Microsoft Security Copilot (Security Copilot) integration in Defender EASM helps you interact with Microsoft-discovered attack surfaces. Identifying attack surfaces helps your organization quickly understand its externally facing infrastructure and relevant, critical risks. It provides insight into specific areas of risk, including vulnerabilities, compliance, and security hygiene.
 
-For more information about Security Copilot, see [What is Security Copilot?](/security-copilot/microsoft-security-copilot). For information about the embedded Security Copilot experience, see [Query your attack surface with Defender EASM by using Microsoft Copilot in Azure](/azure/copilot/query-attack-surface).
+For more information about Security Copilot, see [What is Security Copilot?](/security-copilot/microsoft-security-copilot) For information about the embedded Security Copilot experience, see [Query your attack surface with Defender EASM by using Azure Copilot](/azure/copilot/query-attack-surface).
 
 ## Know before you begin
 
@@ -142,4 +142,4 @@ For more information about data privacy in Security Copilot, see [Privacy and da
 
 - [Microsoft Security Copilot](/security-copilot/microsoft-security-copilot)
 - [Privacy and data security in Microsoft Security Copilot](/security-copilot/privacy-data-security)
-- [Query your attack surface with Defender EASM by using Microsoft Copilot in Azure](/azure/copilot/query-attack-surface)
+- [Query your attack surface with Defender EASM by using Azure Copilot](/azure/copilot/query-attack-surface)

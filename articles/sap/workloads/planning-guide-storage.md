@@ -20,7 +20,7 @@ Remark about the units used throughout this article. The public cloud vendors mo
 
 ## Microsoft Azure Storage resiliency
 
-Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Premium SSD v2, and Ultra disk keeps the base VHD (with OS) and VM attached data disks or VHDs (Virtual Hard Disk) in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica if there's a storage node failure, is transparent. As a result of this redundancy, it's **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs (Service Level Agreements) as other native Azure storage.
+Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, Premium SSD v2, and Ultra Disk keeps the base VHD (with OS) and VM attached data disks or VHDs (Virtual Hard Disk) in three copies on three different storage nodes. Failing over to another replica and seeding of a new replica if there's a storage node failure, is transparent. As a result of this redundancy, it's **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs (Service Level Agreements) as other native Azure storage.
 
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that applies to some of the different storage types Azure has to offer. 
 
@@ -32,7 +32,7 @@ Also keep in mind that different Azure storage types influence the single VM ava
 
 ### Azure managed disks
 
-Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the [availability set][virtual-machines-manage-availability] of the virtual machine they're attached to. With such an alignment, you experience an improvement of the availability of your virtual machine and the services that are running in the virtual machine. For more information, read the [overview article](/azure/virtual-machines/managed-disks-overview).
+Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed disks automatically align with the [availability set][virtual-machines-manage-availability] of the virtual machine they're attached to. With such an alignment, you experience an improvement of the availability of your virtual machine and the services that are running in the virtual machine. For more information, read the [overview article](/azure/virtual-machines/managed-disks-overview).
 
 > [!NOTE]
 > We require that new deployments of VMs that use Azure block storage for their disks (all Azure storage except Azure NetApp Files and Azure Files) need to use Azure managed disks for the base VHD/OS disks and data disks which store SAP database files. Independent on whether you deploy the VMs through availability set, across Availability Zones or independent of the sets and zones. Disks that are used for the purpose of storing backups aren't necessarily required to be managed disks.
@@ -46,7 +46,7 @@ Persisted storage is needed in SAP workload in various components of the stack t
 - File shares or shared disks that contain your global transport directory for NetWeaver or S/4HANA. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 - The /sapmnt directory or common file shares for EDI (Electronic Data Interchange) processes or similar. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 
-In the next few sections, the different Azure storage types and their usability for the four SAP workload scenarios gets discussed. A general categorization of how the different Azure storage types should be used is documented in the article [What disk types are available in Azure?](/azure/virtual-machines/disks-types). The recommendations for using the different Azure storage types for SAP workload aren't going to be majorly different.
+In the next few sections, the different Azure storage types and their usability for the four SAP workload scenarios gets discussed. A general categorization of how the different Azure storage types should be used is documented in the article [What disk types are available in Azure?](/azure/virtual-machines/disks-types) The recommendations for using the different Azure storage types for SAP workload aren't going to be majorly different.
 
 For support restrictions on Azure storage types for SAP NetWeaver/application layer of S/4HANA, read the [SAP support note 2015553](https://launchpad.support.sap.com/#/notes/2015553). For SAP HANA certified and supported Azure storage types, read the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
@@ -59,7 +59,7 @@ Our reference architectures foresee the usage of DBMS (Database Management Syste
 ## Storage recommendations for SAP storage scenarios
 Before going into the details, we're presenting the summary and recommendations already at the beginning of the document. Whereas the details for the particular types of Azure storage are following this section of the document. When we summarize the storage recommendations for the SAP storage scenarios in a table, it looks like:
 
-| Usage scenario | Standard HDD | Standard SSD | Premium Storage | Premium SSD v2 | Ultra disk | Azure NetApp Files | Azure Premium Files |
+| Usage scenario | Standard HDD | Standard SSD | Premium Storage | Premium SSD v2 | Ultra Disk | Azure NetApp Files | Azure Premium Files |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | OS disk | Not suitable |  Restricted suitable (non-prod) | Recommended | Not possible | Not possible | Not possible | Not possible |
 | Global transport Directory | Not supported | Not supported | Recommended | Recommended | Recommended | Recommended | Highly Recommended |
@@ -79,7 +79,7 @@ Before going into the details, we're presenting the summary and recommendations 
 
 Characteristics you can expect from the different storage types list like:
 
-| Usage scenario | Standard HDD | Standard SSD | Premium Storage | Premium SSD v2 | Ultra disk | Azure NetApp Files | Azure Premium Files |
+| Usage scenario | Standard HDD | Standard SSD | Premium Storage | Premium SSD v2 | Ultra Disk | Azure NetApp Files | Azure Premium Files |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Throughput/ IOPS SLA | No | No | Yes | Yes | Yes | Yes | Yes |
 | Latency Reads | High | Medium to high | Low | submillisecond | submillisecond | submillisecond | low |
@@ -88,8 +88,8 @@ Characteristics you can expect from the different storage types list like:
 | Disk snapshots possible | Yes | Yes | Yes | Yes<sup>3</sup> | No<sup>2</sup> | Yes | No |
 | Allocation of disks on different storage clusters when using availability sets | Through managed disks | Through managed disks | Through managed disks | Disk type not supported with VMs deployed through availability sets | Disk type not supported with VMs deployed through availability sets | No<sup>3</sup> | No |
 | Aligned with Availability Zones | Yes | Yes | Yes | Yes | Yes | In public preview | No |
-| Synchronous Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | No | Yes |
-| Asynchronous Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | In preview | No |
+| Synchronous Zone redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | No | Yes |
+| Asynchronous Zone redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | In preview | No |
 | Geo redundancy | Not for managed disks | Not for managed disks | No | No | No | Possible | No |
 
 
@@ -97,7 +97,7 @@ Characteristics you can expect from the different storage types list like:
 
 <sup>2</sup> Creation of different Azure NetApp Files capacity pools doesn't guarantee deployment of capacity pools onto different storage units
 
-<sup>3</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
+<sup>3</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra Disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
 
 
 > [!IMPORTANT]
@@ -105,7 +105,7 @@ Characteristics you can expect from the different storage types list like:
 
 
 ## Azure premium storage
-Azure premium SSD storage got introduced with the goal to provide:
+Azure Premium SSD storage got introduced with the goal to provide:
 
 * Low I/O latency
 * SLAs for IOPS and throughput
@@ -132,10 +132,10 @@ The capability matrix for SAP workload looks like:
 | Resiliency | LRS | No GRS or ZRS available for disks |
 | Latency | Low to medium | - |
 | IOPS SLA | Yes | - |
-| IOPS linear to capacity | semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| IOPS linear to capacity | semi linear in brackets  | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](/azure/virtual-machines/sizes) |
 | Throughput SLA | Yes | - |
-| Throughput linear to capacity | Semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Throughput linear to capacity | Semi linear in brackets | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certified | Yes | [specially for SAP HANA](/azure/virtual-machines/how-to-enable-write-accelerator) |
 | Azure Write Accelerator support | No | - |
 | Disk bursting | Yes | - |
@@ -151,7 +151,7 @@ Azure premium storage doesn't fulfill SAP HANA storage latency KPIs with the com
 
 
 ### Azure burst functionality for premium storage
-For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](/azure/virtual-machines/disk-bursting). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
+For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](/azure/virtual-machines/disk-bursting). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
@@ -193,10 +193,10 @@ The capability matrix for SAP workload looks like:
 | Resiliency | LRS | No GRS or ZRS available for disks |
 | Latency | submillisecond | - |
 | IOPS SLA | Yes | - |
-| IOPS linear to capacity | semi linear  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| IOPS linear to capacity | semi linear  | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 80,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](/azure/virtual-machines/sizes) |
 | Throughput SLA | Yes | - |
-| Throughput linear to capacity | Semi linear | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Throughput linear to capacity | Semi linear | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certified | Yes | - |
 | Azure Write Accelerator support | No | - |
 | Disk bursting | No | - |
@@ -204,21 +204,21 @@ The capability matrix for SAP workload looks like:
 | Azure Backup VM snapshots possible | Yes | -  |
 | Costs | Medium | - |
 
-<sup>1</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
+<sup>1</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra Disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
 
 In opposite to Azure premium storage, Azure Premium SSD v2 fulfills SAP HANA storage latency KPIs. As a result, you **DON'T need to use Azure Write Accelerator caching** as described in the article [Enable Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator). 
 
 **Summary:** Azure Premium SSD v2 is the block storage that fits the best price/performance ratio for SAP workloads. Azure Premium SSD v2 is suited to handle database workloads. The submillisecond latency is ideal storage for demanding DBMS workloads. Though it's a newer storage type that got  released in November 2022. Therefore, there still might be some limitations that are going to go away over the next few months.
 
 
-## Azure Ultra disk
-Azure ultra disks deliver high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some benefits of ultra disks include the ability to dynamically change the IOPS and throughput of the disk, along with your workloads, without the need to restart your virtual machines (VM). Ultra disks are suited for data-intensive workloads such as SAP DBMS workload. Ultra disks can only be used as data disks and can't be used as base VHD disk that stores the operating system. We would recommend the usage of Azure premium storage as based VHD disk.
+## Azure Ultra Disk
+Azure Ultra Disks deliver high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some benefits of Ultra Disks include the ability to dynamically change the IOPS and throughput of the disk, along with your workloads, without the need to restart your virtual machines (VM). Ultra Disks are suited for data-intensive workloads such as SAP DBMS workload. Ultra Disks can only be used as data disks and can't be used as base VHD disk that stores the operating system. We would recommend the usage of Azure premium storage as based VHD disk.
 
-As you create an ultra disk, you have three dimensions you can define:
+As you create an Ultra Disk, you have three dimensions you can define:
 
 - The capacity of the disk. Ranges are from 4 GiB to 65,536 GiB
-- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra disk](/azure/virtual-machines/disks-types#ultra-disks) for more details
-- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra disk](/azure/virtual-machines/disks-types#ultra-disks) for more details
+- Provisioned IOPS for the disk. Different maximum values apply to the capacity of the disk. Read the article [Ultra Disk](/azure/virtual-machines/disks-types#ultra-disks) for more details
+- Provisioned storage bandwidth. Different maximum bandwidth applies dependent on the capacity of the disk. Read the article [Ultra Disk](/azure/virtual-machines/disks-types#ultra-disks) for more details
 
 The cost of a single disk is determined by the three dimensions you can define for the particular disks separately. 
 
@@ -236,10 +236,10 @@ The capability matrix for SAP workload looks like:
 | Resiliency | LRS | No GRS or ZRS available for disks |
 | Latency | Very low | - |
 | IOPS SLA | Yes | - |
-| IOPS linear to capacity | Semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| IOPS linear to capacity | Semi linear in brackets  | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 1,200 to 160,000 | dependent of disk capacity |
 | Throughput SLA | Yes | - |
-| Throughput linear to capacity | Semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| Throughput linear to capacity | Semi linear in brackets | [managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certified | Yes | - |
 | Azure Write Accelerator support | No | - |
 | Disk bursting | Yes | - |
@@ -247,9 +247,9 @@ The capability matrix for SAP workload looks like:
 | Azure Backup VM snapshots possible | Yes | - |
 | Costs | Higher than Premium storage | - |
 
-<sup>1</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
+<sup>1</sup> (Incremental) Snapshots of a Premium SSD v2 or an Ultra Disk can't be used immediately after they're created. The background copy must complete before you can create a disk from the snapshot
 
-**Summary:** Azure ultra disks are a suitable storage with low submillisecond latency for all kinds of SAP workload. So far, Ultra disk can only be used in combinations with VMs that have been deployed through Availability Zones (zonal deployment). In opposite to all other storage, Ultra disk can't be used for the base VHD disk. Ultra disk is ideal for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to storage workload patterns instead of sizing for maximum usage of bandwidth and IOPS.
+**Summary:** Azure Ultra Disks are a suitable storage with low submillisecond latency for all kinds of SAP workload. So far, Ultra Disk can only be used in combinations with VMs that have been deployed through Availability Zones (zonal deployment). In opposite to all other storage, Ultra Disk can't be used for the base VHD disk. Ultra Disk is ideal for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to storage workload patterns instead of sizing for maximum usage of bandwidth and IOPS.
 
 ## Azure NetApp Files
 
@@ -392,8 +392,8 @@ The capability matrix for SAP workload looks like:
 
 
 
-## Azure standard SSD storage
-Compared to Azure standard HDD storage, Azure standard SSD storage delivers better availability, consistency, reliability, and latency. It's optimized for workloads that need consistent performance at lower IOPS levels. This storage is the minimum storage used for nonproduction SAP systems that have low IOPS and throughput demands. The capability matrix for SAP workload looks like:
+## Azure Standard SSD storage
+Compared to Azure Standard HDD storage, Azure Standard SSD storage delivers better availability, consistency, reliability, and latency. It's optimized for workloads that need consistent performance at lower IOPS levels. This storage is the minimum storage used for nonproduction SAP systems that have low IOPS and throughput demands. The capability matrix for SAP workload looks like:
 
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
@@ -415,11 +415,11 @@ Compared to Azure standard HDD storage, Azure standard SSD storage delivers bett
 
 
 
-**Summary:** Azure standard SSD storage is the minimum recommendation for nonproduction VMs for base VHD, eventual DBMS deployments with relative latency insensitivity and/or low IOPS and throughput rates. This Azure storage type isn't supported anymore for hosting the SAP Global Transport Directory. 
+**Summary:** Azure Standard SSD storage is the minimum recommendation for nonproduction VMs for base VHD, eventual DBMS deployments with relative latency insensitivity and/or low IOPS and throughput rates. This Azure storage type isn't supported anymore for hosting the SAP Global Transport Directory. 
 
 
 
-## Azure standard HDD storage
+## Azure Standard HDD storage
 The Azure Standard HDD storage was the only storage type when Azure infrastructure got certified for SAP NetWeaver workload in the year 2014. In the year 2014, the Azure virtual machines were small and low in storage throughput. Therefore, this storage type was able to just keep up with the demands. The storage is ideal for latency insensitive workloads, that you hardly experience in the SAP space. With the increasing throughput of Azure VMs and the increased workload these VMs are producing, this storage type isn't considered for the usage with SAP scenarios anymore. The capability matrix for SAP workload looks like:
 
 | Capability| Comment| Notes/Links | 
@@ -454,14 +454,14 @@ In opposite to on-premises scenarios, the individual VM type you're selecting, p
 | Standard SSD | [Sizes for Linux VMs in Azure](/azure/virtual-machines/sizes) | [Sizes for Windows VMs in Azure](/azure/virtual-machines/sizes) | Likely hard to touch the storage limits of medium or large VMs |
 | Premium Storage | [Sizes for Linux VMs in Azure](/azure/virtual-machines/sizes) | [Sizes for Windows VMs in Azure](/azure/virtual-machines/sizes) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
 | Premium SSD v2 | [Sizes for Linux VMs in Azure](/azure/virtual-machines/sizes) | [Sizes for Windows VMs in Azure](/azure/virtual-machines/sizes) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
-| Ultra disk storage | [Sizes for Linux VMs in Azure](/azure/virtual-machines/sizes) | [Sizes for Windows VMs in Azure](/azure/virtual-machines/sizes) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
+| Ultra Disk storage | [Sizes for Linux VMs in Azure](/azure/virtual-machines/sizes) | [Sizes for Windows VMs in Azure](/azure/virtual-machines/sizes) | Easy to hit IOPS or storage throughput VM limits with storage configuration |
 | Azure NetApp Files | [Sizes for Linux VMs in Azure](/azure/virtual-machines/sizes) | [Sizes for Windows VMs in Azure](/azure/virtual-machines/sizes) | Storage traffic is using network throughput bandwidth and not storage bandwidth! |
 | Azure Premium Files | [Sizes for Linux VMs in Azure](/azure/virtual-machines/sizes) | [Sizes for Windows VMs in Azure](/azure/virtual-machines/sizes) | Storage traffic is using network throughput bandwidth and not storage bandwidth! |
 
 As limitations, you need to note that:
 
 - The smaller the VM, the fewer disks you can attach. This restriction doesn't apply to Azure NetApp Files. Since you mount NFS or SMB shares, you don't encounter a limit of number of shared volumes to be attached
-- VMs have I/O throughput and IOPS limits that easily could be exceeded with premium storage disks and Ultra disks
+- VMs have I/O throughput and IOPS limits that easily could be exceeded with premium storage disks and Ultra Disks
 - With Azure NetApp Files and Azure Premium Files, the traffic to the shared volumes is consuming the VM's network bandwidth and not storage bandwidth
 - With large NFS volumes in the double digit TiB capacity space, the throughput accessing such a volume out of a single VM is going to plateau based on limits of Linux for a single session interacting with the shared volume. 
 
@@ -469,7 +469,7 @@ As you up-size Azure VMs in the lifecycle of an SAP system, you should evaluate 
 
 
 ## Striping or not striping
-Creating a stripe set out of multiple Azure disks into one larger volume allows you to accumulate the IOPS and throughput of the individual disks into one volume. It's used for Azure standard storage and Azure premium storage only. Azure Ultra disk where you can configure the throughput and IOPS independent of the capacity of a disk, doesn't require the usage of stripe sets. Shared volumes based on NFS or SMB can't be striped. Due to the non-linear nature of Azure premium storage throughput and IOPS, you can provision smaller capacity with the same IOPS and throughput than large single Azure premium storage disks. That is the method to achieve higher throughput or IOPS at lower cost using Azure premium storage. For example, striping across two P15 premium storage disks gets you to a throughput of: 
+Creating a stripe set out of multiple Azure disks into one larger volume allows you to accumulate the IOPS and throughput of the individual disks into one volume. It's used for Azure standard storage and Azure premium storage only. Azure Ultra Disk where you can configure the throughput and IOPS independent of the capacity of a disk, doesn't require the usage of stripe sets. Shared volumes based on NFS or SMB can't be striped. Due to the non-linear nature of Azure premium storage throughput and IOPS, you can provision smaller capacity with the same IOPS and throughput than large single Azure premium storage disks. That is the method to achieve higher throughput or IOPS at lower cost using Azure premium storage. For example, striping across two P15 premium storage disks gets you to a throughput of: 
 
 - 250 MiB/sec. Such a volume is going to have 512 GiB capacity. If you want to have a single disk that gives you 250 MiB throughput per second, you would need to pick a P40 disk with 2 TiB capacity. 
 - 400 MiB/sec by striping four P10 premium storage disks with an overall capacity of 512 GiB by striping. If you would like to have a single disk with a minimum of 500 MiB throughput per second, you would need to pick a P60 premium storage disk with 8 TiB. Because the cost of premium storage is near linear with the capacity, you can sense the cost savings by using striping.
@@ -478,7 +478,7 @@ Some rules need to be followed on striping:
 
 - No in-VM configured storage redundancy should be used since Azure storage keeps the data disk redundant already at the Azure storage backend
 - The disks the stripe set is applied to, need to be of the same size
-- With Premium SSD v2 and Ultra disk, the capacity, provisioned IOPS and provisioned throughput needs to be the same
+- With Premium SSD v2 and Ultra Disk, the capacity, provisioned IOPS and provisioned throughput needs to be the same
 
 Striping across multiple smaller disks is the best way to achieve a good price/performance ratio using Azure premium storage. It's understood that striping can have some extra deployment and management overhead.
 

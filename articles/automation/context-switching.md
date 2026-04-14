@@ -4,12 +4,12 @@ description: This article explains context switching and how to avoid runbook is
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
-ms.date: 09/09/2024
+ms.date: 11/17/2025
 ms.topic: overview
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Context switching in Azure Automation

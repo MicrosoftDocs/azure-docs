@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure Data Lake Storage backup using Azure Backup (preview)
+title: Troubleshoot Azure Data Lake Storage backup using Azure Backup
 description: Learn to troubleshoot Azure Data Lake Storage backup using Azure Backup.
 ms.topic: troubleshooting
 ms.date: 05/27/2025
@@ -9,9 +9,9 @@ ms.author: v-mallicka
 # Customer intent: As a data engineer managing Azure Data Lake Storage, I want to troubleshoot backup and restore errors effectively, so that I can ensure successful data protection and recovery operations.
 ---
 
-# Troubleshoot Azure Data Lake Storage backup (preview)
+# Troubleshoot Azure Data Lake Storage backup
 
-This article provides troubleshooting details for error codes that appear when configuring backup and restoring for Azure Data Lake Storage data using Azure Backup (preview).
+This article provides troubleshooting details for error codes that appear when configuring backup and restoring for Azure Data Lake Storage data using Azure Backup.
 
 ## Common backup errors
 
@@ -21,7 +21,7 @@ This article provides troubleshooting details for error codes that appear when c
 
 **Error message**: Appropriate permissions to perform the operation are missing.
 
-**Recommended action**: Ensure that you [granted appropriate permissions](azure-data-lake-storage-configure-backup.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
+**Recommended action**: Ensure that you [granted appropriate permissions](azure-data-lake-storage-backup-tutorial.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
 ### UserErrorBackupRequestThrottled
 
@@ -69,5 +69,6 @@ This article provides troubleshooting details for error codes that appear when c
 
 ## Related content
 
-- [Configure vaulted backup for Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-configure-backup.md).
-- [Restore Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-restore.md).
+- [Configure vaulted backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-configure-backup.md).
+- [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
+- [Manage backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).

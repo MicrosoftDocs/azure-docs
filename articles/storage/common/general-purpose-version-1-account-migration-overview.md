@@ -3,10 +3,10 @@ title: GPv1 storage account retirement overview
 titleSuffix: Azure Storage
 description: Learn what the retirement of Azure GPv1 storage accounts means and how to prepare for a smooth migration to GPv2.
 Services: storage
-author: gtrossell
+author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 12/15/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -36,13 +36,13 @@ GPv2 supports all capabilities of GPv1 and adds several enhancements, including 
 
 ## Retirement timeline and key milestones
 > [!Warning]
-> If you do not migrate your general-purpose v1 storage account to GPv2 by August 31, 2026, all existing general-purpose v1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. **Your decision not to migrate an existing general-purpose v1 account will be construed as consent for Microsoft to migrate the account on your behalf.**
+> If you do not migrate your general-purpose v1 storage account to GPv2 by October 2026, all existing general-purpose v1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. **Your decision not to migrate an existing general-purpose v1 account will be construed as consent for Microsoft to migrate the account on your behalf.**
 
 | Date               | Milestone                                                   |
 |--------------------|-------------------------------------------------------------|
 |**September 2025** |Retirement announced                                        |
-| **Q1 2026**    |Creation of new GPv1 Storage accounts disabled              |
-|**September 2026** |Full retirement; Any remaining GPv1 Storage accounts will be automigrated to GPv2. Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf. |
+| **March 3 2026**    |Creation of new GPv1 Storage accounts disabled              |
+|**October 2026** |Full retirement; Any remaining GPv1 Storage accounts will be automigrated to GPv2. Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf. |
 
 The retirement takes effect globally across all Azure regions.
 
@@ -54,6 +54,8 @@ The retirement takes effect globally across all Azure regions.
 >
 > Be aware that **transaction pricing differs** in GPv2. Workloads with frequent operations may incur **higher charges** unless cost-optimization strategies are applied.
 
+>[!NOTE]
+> Converting a storage account from GPv1 to GPv2 changes how Blob Storage is billed, but it does not impact pricing for Azure Files or Azure Disks. These services use their own pricing models, which aren’t tied to the storage account type.
 
 ### Estimate costs before upgrading
 >[!TIP]
@@ -104,7 +106,7 @@ Resources
 
 ## What happens if you don’t migrate by the deadline
 > [!Warning]
-> If you do not migrate your GPv1 storage account to GPv2 by August 31, 2026, all existing GPv1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. **Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf.**
+> If you do not migrate your GPv1 storage account to GPv2 by October, 2026, all existing GPv1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. **Your decision not to migrate an existing GPv1 account will be construed as consent for Microsoft to migrate the account on your behalf.**
 
 ## Where to get help and support
 If you have questions, get answers from community experts in Microsoft Q&A.

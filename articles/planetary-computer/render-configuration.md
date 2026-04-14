@@ -396,7 +396,6 @@ The `options` string accepts the following key-value pairs (refer to [TiTiler do
 - [Mosaic configurations for collections](./mosaic-configurations-for-collections.md)
 - [Tile settings for collections](./tile-settings.md)
 - [Queryables for custom search filters](./queryables-for-explorer-custom-search-filter.md)
-- [Visualize data cube assets (GRIB/NetCDF)](./visualize-assets.md)
 - [STAC Overview](./stac-overview.md)
 - [TiTiler Documentation](https://developmentseed.org/titiler/)
 

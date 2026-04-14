@@ -3,17 +3,16 @@ title: What is a private endpoint?
 titleSuffix: Azure Private Link
 description: In this article, you learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 03/25/2025
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom:
   - references_regions
   - ignite-2024
   - sfi-image-nochange
-#Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
-# Customer intent: "As a network engineer new to Azure, I want to learn about private endpoints and their properties, so that I can securely connect Azure PaaS services to my virtual network while ensuring data protection and compliance."
+#customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
 
 # What is a private endpoint?
@@ -72,7 +71,7 @@ A private-link resource is the destination target of a specified private endpoin
 | ---------------------------| ------------- | ------------- |
 | Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
 | Azure AI Search | Microsoft.Search/searchServices | searchService |
-| Azure AI services | Microsoft.CognitiveServices/accounts | account |
+| Foundry Tools | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
 | Azure API Management | Microsoft.ApiManagement/service | Gateway |
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
@@ -220,7 +219,7 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description |
 | --------- | --------- | 
-| SNAT is recommended always. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored. |
+| SNAT is recommended. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored when going through an NVA. This limitation can be removed using [disableSnatOnPL tag](/azure/private-link/private-link-disable-snat) in your NVA. |
 | Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | 
 
 ### Application security group
@@ -231,6 +230,6 @@ The following information lists the known limitations to the use of private endp
 
 ## Next steps
 
-- For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md).
+- For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md)
 
 - To get started with creating a private endpoint for a web app, see [Quickstart: Create a private endpoint by using the Azure portal](create-private-endpoint-portal.md).

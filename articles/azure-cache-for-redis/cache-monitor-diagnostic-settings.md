@@ -1,14 +1,10 @@
 ---
 title: Monitor using diagnostic settings
 description: Learn how to use diagnostic settings to monitor and log metrics and resource logs in Azure Cache for Redis.
-
-
-
 ms.topic: how-to
 ms.date: 05/01/2025
 appliesto:
   - ✅ Azure Cache for Redis
-
 ms.devlang: azurecli
 ms.custom:
   - template-how-to
@@ -18,6 +14,8 @@ ms.custom:
 ---
 
 # Monitor Azure Cache for Redis using diagnostic settings
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis offers two monitoring options in **Diagnostic settings**:
 

@@ -10,8 +10,8 @@ ms.custom:
   - devx-track-python
   - build-2025
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage modules in Azure Automation
@@ -61,7 +61,7 @@ The following table lists the modules that Azure Automation imports by default w
 
 The default modules are also known as global modules. In the Azure portal, the **Global module** property will be **true** when viewing a module that was imported when the account was created.
 
-![Screenshot of global module property in Azure Portal](../media/modules/automation-global-modules.png)
+![Screenshot of global module property in Azure portal.](../media/modules/automation-global-modules.png)
 
 > [!NOTE]
 > We don't recommend altering modules and runbooks in Automation accounts used for deployment of the [Start/Stop VMs during off-hours](../../azure-functions/start-stop-vms/overview.md)

@@ -4,7 +4,7 @@ description: Learn how to configure service endpoints to access Azure Elastic SA
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 01/09/2026
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -21,13 +21,13 @@ This article shows you how to configure service endpoint connections to your Ela
 - Read through [Learn about networking configurations for Elastic SAN](elastic-san-networking.md) to understand whether private endpoints or service endpoints work better for your environment.
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
-- Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
+- Once you install the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
 
 ## Configure public network access
 
-You enable public internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
+You enable public internet access to your Elastic SAN endpoints at the SAN level. When you enable public network access for an Elastic SAN, you can configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
 
-You can enable public network access when you create an elastic SAN, or enable it for an existing SAN using the Azure PowerShell module or the Azure CLI.
+You can enable public network access when you create an elastic SAN, or enable it for an existing SAN by using the Azure PowerShell module or the Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
@@ -35,7 +35,7 @@ Use the Azure PowerShell module or the Azure CLI to enable public network access
 
 # [PowerShell](#tab/azure-powershell)
 
-Use this sample code to update an Elastic SAN to enable public network access using PowerShell. Replace the values of `RgName` and `EsanName` with your own, then run the sample:
+Use this sample code to update an Elastic SAN to enable public network access by using PowerShell. Replace the values of `RgName` and `EsanName` with your own, and then run the sample:
 
 ```powershell
 # Set the variable values.
@@ -47,7 +47,7 @@ Update-AzElasticSan -Name $EsanName -ResourceGroupName $RgName -PublicNetworkAcc
 
 # [Azure CLI](#tab/azure-cli)
 
-Use this sample code to update an Elastic SAN to enable public network access using the Azure CLI. Replace the values of `RgName` and `EsanName` with your own values:
+Use this sample code to update an Elastic SAN to enable public network access by using the Azure CLI. Replace the values of `RgName` and `EsanName` with your own values:
 
 ```azurecli
 # Set the variable values.
@@ -66,22 +66,22 @@ az elastic-san update \
 
 To configure an Azure Storage service endpoint from the virtual network where access is required, you must have permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role to configure a service endpoint.
 
-Virtual network service endpoints are public and accessible via the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints. 
+Virtual network service endpoints are public and accessible through the internet. You can [Configure virtual network rules](#configure-virtual-network-rules) to control access to your volume group when using storage service endpoints. 
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Microsoft Entra tenant are currently only supported through PowerShell, CLI and REST APIs. These rules cannot be configured through the Azure portal, they can only be viewed in the portal.
+> Currenlty, you can only configure rules that grant access to subnets in virtual networks that are part of a different Microsoft Entra tenant through the Azure CLI, Azure PowerShell module, or REST APIs. These rules can't be configured through the Azure portal. They can only be viewed in the portal.
 
 ### [Portal](#tab/azure-portal)
 
 1. Navigate to your virtual network and select **Service Endpoints**.
 1. Select **+ Add**.
-1. On the **Add service endpoints** screen:
-    1. For **Service** select **Microsoft.Storage.Global** to add a [cross-region service endpoint](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints).
+1. On **Add service endpoints**:
+    - For **Service**, select **Microsoft.Storage.Global** to add a [cross-region service endpoint](../common/storage-network-security.md#azure-storage-cross-region-service-endpoints).
 
     > [!NOTE]
     > You might see **Microsoft.Storage** listed as an available storage service endpoint. That option is for intra-region endpoints which exist for backward compatibility only. Always use cross-region endpoints unless you have a specific reason for using intra-region ones.
 
-1. For **Subnets** select all the subnets where you want to allow access.
+1. For **Subnets**, select all the subnets where you want to allow access.
 1. Select **Add**.
 
 :::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
@@ -122,14 +122,14 @@ az network vnet subnet update --resource-group $RgName --vnet-name $VnetName --n
 
 ### Configure virtual network rules
 
-All incoming requests for data over a service endpoint are blocked by default. Only applications that request data from allowed sources that you configure in your network rules are able to access your data. 
+All incoming requests for data over a service endpoint are blocked by default. Only applications that request data from allowed sources that you configure in your network rules can access your data. 
 
 You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI.
 
 > [!IMPORTANT]
-> To enable access to your storage account from a virtual network/subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal doesn't show subnets in other Microsoft Entra tenants.
+> To enable access to your storage account from a virtual network or subnet in another Microsoft Entra tenant, you must use PowerShell or the Azure CLI. The Azure portal doesn't show subnets in other Microsoft Entra tenants.
 >
-> If you delete a subnet that has been included in a network rule, its removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
+> If you delete a subnet that you included in a network rule, you remove it from the network rules for the volume group. If you create a new subnet with the same name, it doesn't have access to the volume group. To grant access, you must explicitly authorize the new subnet in the network rules for the volume group.
 
 ### [Portal](#tab/azure-portal)
 
@@ -139,7 +139,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ### [PowerShell](#tab/azure-powershell)
 
-The following script lists enables the service endpoint for Azure Storage on an existing virtual network and subnet, then adds a network rule for a virtual network and subnet.
+The following script enables the service endpoint for Azure Storage on an existing virtual network and subnet. It then adds a network rule for a virtual network and subnet.
 
 > [!TIP]
 > To add a network rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
@@ -172,7 +172,7 @@ Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSa
 The following script lists information from a particular volume group, enables the service endpoint for Azure Storage on an existing virtual network and subnet, and adds a networking rule for a virtual network and subnet.
 
 > [!TIP]
-> To add a rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully-qualified subnet ID in the form `/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>`.
+> To add a rule for a subnet in a virtual network belonging to another Microsoft Entra tenant, use a fully qualified subnet ID in the form `/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>`.
 >
 > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Microsoft Entra tenant.
 
@@ -188,7 +188,7 @@ az elastic-san volume-group update -e $sanName -g $RgName --name $volumeGroupNam
 ```
 
 
-If you need to, you can remove network rules. As an example, the following command removes the first network rule, modify it to remove the network rule you'd like.
+If you need to, you can remove network rules. As an example, the following command removes the first network rule. Modify it to remove the network rule you'd like.
     
 ```azurecli
 az elastic-san volume-group update -e $sanName -g $RgName -n $volumeGroupName --network-acls virtual-network-rules[1]=null
@@ -198,10 +198,10 @@ az elastic-san volume-group update -e $sanName -g $RgName -n $volumeGroupName --
 
 ## Configure client connections
 
-After you have enabled the desired endpoints and granted access in your network rules, you're ready to configure your clients to connect to the appropriate Elastic SAN volumes.
+After you enable the desired endpoints and grant access in your network rules, you're ready to configure your clients to connect to the appropriate Elastic SAN volumes.
 
 > [!NOTE]
-> If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection retries for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
+> If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection retries for 90 seconds until terminating. Losing a connection to an Elastic SAN volume doesn't cause the VM to restart.
 
 ## Next steps
 

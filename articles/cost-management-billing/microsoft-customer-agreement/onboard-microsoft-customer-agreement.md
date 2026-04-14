@@ -4,8 +4,8 @@ description: This guide helps customers who buy Microsoft software and services 
 author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
-ms.topic: conceptual
-ms.date: 09/24/2025
+ms.topic: concept-article
+ms.date: 10/08/2025
 ms.author: kenday
 ms.reviewer: clionabolger
 ms.custom: sfi-ga-nochange
@@ -62,6 +62,204 @@ Management, deployment, and optimization tools in a **single portal**
 - Centrally control user authorizations in a single place with a single set of roles
 - Integrated cost management capabilities provide enterprise-grade insights into usage with recommendations on how to save money
 - Easily manage your per device or user subscriptions for Microsoft licenses through the same portal, streamlining your software management process.
+
+## How is Azure priced under the Microsoft Customer Agreement?
+
+Azure is priced in US dollars (USD) worldwide under the Microsoft Customer Agreement and Microsoft Partner Agreement.
+
+Prices are in your local currency for Enterprise Agreements.
+
+Azure users are always charged in their local currency. A currency conversion occurs at the time of billing, if the pricing currency isn't the same as the billing currency.
+
+- The [Retail Price API](/rest/api/cost-management/retail-prices/azure-retail-prices) returns USD as the default. The API returns a currency conversion if the user specifies a currency. Although convenient, the conversion might cause confusion because the API returns *estimated prices based on the current conversion rate*. The API results don't match the invoice if you try to use the API to reconcile your invoice.
+
+- When you download your price sheet from the Azure portal:
+
+   - For Enterprise Agreements, prices are in your local currency for Azure first party services.
+   
+      - For Microsoft Partner Agreements and Microsoft Customer Agreements, prices are shown in USD for Azure first party services.
+      
+As mentioned previously, if you transact in one of the other following supported currencies, your monthly cost is first calculated in USD. For payment, the total is then converted to the local currency.
+
+|Code|Currency|
+| -------- | -------- |
+|AUD|Australian Dollar|
+|||
+|AUD|Australian Dollar|
+|BRL|Brazilian Real|
+|GBP|British Pound|
+|CAD|Canadian Dollar|
+|CNY|Chinese Yuan|
+|DKK|Danish Krone|
+|EUR|Euro|
+|INR|Indian Rupee|
+|JPY|Japanese Yen|
+|KRW|Korean Won|
+|NZD|New Zealand Dollar|
+|NOK|Norwegian Krone|
+|RUB|Russian Ruble|
+|SEK|Swedish Krona|
+|CHF|Swiss Franc|
+|TWD|Taiwan Dollar|
+
+## What exchange rate is used and how does it work with my bill?
+
+We use London closing spot rates that are captured in the two business days prior to the last business day of the previous month end. If the two business days prior to the end of the month fall on a bank holiday in major markets, the rate setting day is generally the day immediately preceding the two business days. This rate applies to all transactions during the upcoming month.
+
+For example, the exchange rate for January transactions is first captured in the final days of December. The rate is applied to all Azure purchases made in January and all Azure consumption in January. The January exchange rate and local currency billed amount appears in the January invoice, which is available at the beginning of February.
+
+## Under the Microsoft Customer Agreement, in which currency is my payment processed?
+
+The legal address you provide at the time of signing determines your billing geography and currency based on the following table:
+
+|**Country/Region**|**Billing currency**|
+| -------- | -------- |
+|Afghanistan|US Dollar ($)|
+|||
+|Afghanistan|US Dollar ($)|
+|Albania|US Dollar ($)|
+|Algeria|US Dollar ($)|
+|Angola|US Dollar ($)|
+|Argentina|US Dollar ($)|
+|Armenia|US Dollar ($)|
+|Australia|Australian Dollar ($)|
+|Austria|Euro (€)|
+|Azerbaijan|US Dollar ($)|
+|Bahamas|US Dollar ($)|
+|Bahrain|US Dollar ($)|
+|Bangladesh|US Dollar ($)|
+|Barbados|US Dollar ($)|
+|Belarus|US Dollar ($)|
+|Belgium|Euro (€)|
+|Belize|US Dollar ($)|
+|Bermuda|US Dollar ($)|
+|Bolivia|US Dollar ($)|
+|Bosnia and Herzegovina|US Dollar ($)|
+|Botswana|US Dollar ($)|
+|Brazil|Brazilian Real (R$)|
+|Brunei Darussalam|US Dollar ($)|
+|Bulgaria|Euro (€)|
+|Republic of Cabo Verde|US Dollar ($)|
+|Cameroon|US Dollar ($)|
+|Canada|Canadian Dollar ($)|
+|Cayman Islands|US Dollar ($)|
+|Chile|US Dollar ($)|
+|China|Chinese yuan (¥)|
+|Colombia|US Dollar ($)|
+|Republic of the Congo|US Dollar ($)|
+|Costa Rica|US Dollar ($)|
+|Côte d'Ivoire|US Dollar ($)|
+|Croatia|Euro (€)|
+|Curaçao|US Dollar ($)|
+|Cyprus|Euro (€)|
+|Czech Republic|Euro (€)|
+|Denmark|Danish Krone (kr)|
+|Dominican Republic|US Dollar ($)|
+|Ecuador|US Dollar ($)|
+|Egypt|US Dollar ($)|
+|El Salvador|US Dollar ($)|
+|Estonia|Euro (€)|
+|Ethiopia|US Dollar ($)|
+|Faroe Islands|Danish Krone (kr)|
+|Fiji|Australian Dollar ($)|
+|Finland|Euro (€)|
+|France|Euro (€)|
+|Georgia|US Dollar ($)|
+|Germany|Euro (€)|
+|Ghana|US Dollar ($)|
+|Greece|Euro (€)|
+|Guatemala|US Dollar ($)|
+|Honduras|US Dollar ($)|
+|Hong Kong SAR|US Dollar ($)|
+|Hungary|Euro (€)|
+|Iceland|Euro (€)|
+|India|Indian Rupee (₹)|
+|Indonesia|US Dollar ($)|
+|Iraq|US Dollar ($)|
+|Ireland|Euro (€)|
+|Israel|US Dollar ($)|
+|Italy|Euro (€)|
+|Jamaica|US Dollar ($)|
+|Japan|Japanese Yen (¥)|
+|Jordan|US Dollar ($)|
+|Kazakhstan|US Dollar ($)|
+|Kenya|US Dollar ($)|
+|Korea|Korean Won (₩)|
+|Kuwait|US Dollar ($)|
+|Kyrgyzstan|US Dollar ($)|
+|Latvia|Euro (€)|
+|Lebanon|US Dollar ($)|
+|Libya|US Dollar ($)|
+|Liechtenstein|Swiss Franc. (chf)|
+|Lithuania|Euro (€)|
+|Luxembourg|Euro (€)|
+|Macao SAR|US Dollar ($)|
+|Malaysia|US Dollar ($)|
+|Malta|Euro (€)|
+|Mauritius|US Dollar ($)|
+|Mexico|US Dollar ($)|
+|Moldova|US Dollar ($)|
+|Monaco|Euro (€)|
+|Mongolia|US Dollar ($)|
+|Montenegro|US Dollar ($)|
+|Morocco|US Dollar ($)|
+|Namibia|US Dollar ($)|
+|Nepal|US Dollar ($)|
+|Netherlands|Euro (€)|
+|New Zealand|New Zealand Dollar ($)|
+|Nicaragua|US Dollar ($)|
+|Nigeria|US Dollar ($)|
+|North Macedonia|US Dollar ($)|
+|Norway|Norwegian Krone (kr)|
+|Oman|US Dollar ($)|
+|Pakistan|US Dollar ($)|
+|Palestinian Authority|US Dollar ($)|
+|Panama|US Dollar ($)|
+|Paraguay|US Dollar ($)|
+|Peru|US Dollar ($)|
+|Philippines|US Dollar ($)|
+|Poland|Euro (€)|
+|Portugal|Euro (€)|
+|Puerto Rico|US Dollar ($)|
+|Qatar|US Dollar ($)|
+|Romania|Euro (€)|
+|Russia|Russian Ruble (руб)|
+|Rwanda|US Dollar ($)|
+|Saint Kitts and Nevis|US Dollar ($)|
+|Saudi Arabia|US Dollar ($)|
+|Senegal|US Dollar ($)|
+|Serbia|US Dollar ($)|
+|Singapore|US Dollar ($)|
+|Slovakia|Euro (€)|
+|Slovenia|Euro (€)|
+|South Africa|US Dollar ($)|
+|Spain|Euro (€)|
+|Sri Lanka|US Dollar ($)|
+|Sweden|Swedish Krona (kr)|
+|Switzerland|Swiss Franc. (chf)|
+|Taiwan|Taiwanese Dollar (NT$)|
+|Tajikistan|US Dollar ($)|
+|Tanzania|US Dollar ($)|
+|Thailand|US Dollar ($)|
+|Trinidad and Tobago|US Dollar ($)|
+|Tunisia|US Dollar ($)|
+|Türkiye|US Dollar ($)|
+|Turkmenistan|US Dollar ($)|
+|Uganda|US Dollar ($)|
+|Ukraine|US Dollar ($)|
+|United Arab Emirates|US Dollar ($)|
+|United Kingdom|British Pound (£)|
+|United States|US Dollar ($)|
+|Uruguay|US Dollar ($)|
+|Uzbekistan|US Dollar ($)|
+|Venezuela|US Dollar ($)|
+|Vietnam|US Dollar ($)|
+|Virgin Islands of the United States|US Dollar ($)|
+|Yemen|US Dollar ($)|
+|Zambia|US Dollar ($)|
+|Zimbabwe|US Dollar ($)|
+
+If you purchase Azure services through a Microsoft partner, contact them for questions regarding your payment currency.
 
 ## New MCA Customer
 
@@ -212,7 +410,7 @@ This section of the onboarding guide describes the steps you follow to migrate f
 ### Changes after migration
 
 - **MCA remit-to information differs** - The MCA remit-to information differs from the EA remit-to information. Your accounts payable need to create two records: one for EA invoices and another for MCA invoices. For more information about MCA payment details, see [Bank details used to send wire transfer payments](../understand/pay-bill.md#wire-bank-details)
-- **Custom or shared views under Cost Management** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
+- **Cost Management views** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
 - **Budgets** - You need to recreate them.
 - **Azure usage file enhancement** - The MCA Azure usage file has more columns and slight changes in naming conventions compared to the EA file. For more information, see:
     - [Changes from Azure EA usage and charges](../understand/mca-understand-your-usage.md#changes-from-azure-ea-usage-and-charges)
@@ -235,13 +433,16 @@ This section of the onboarding guide describes the steps you follow to migrate f
     - [Azure Billing REST API](/rest/api/billing/)
 - **EA API keys** - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
-- **Management groups** – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+- **Management groups** – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs, automation scripts and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+    - **Cost Views**: Rebuild dashboards and reports using the Billing Profile ID or Invoice Sections ID instead of Management Group scope.
+    - **APIs**: Update endpoints to align with MCA's billing structure.
+    - **Automation**: Modify scripts that rely on Management Group-level scoping.
 - **Export jobs** from Enterprise Agreement (EA) do not automatically migrate to Microsoft Customer Agreement (MCA). You must manually recreate export jobs under the MCA billing scope.
     - Reconfigure the Export API using Azure Commerce Toolbox or PowerShell scripts to recreate export jobs with MCA-compatible APIs.
     - Confirm that your MCA billing scope aligns with the MCA framework. For more details, refer to [Understand and work with scopes](../costs/understand-work-scopes.md).
     - To learn more about Exports data types and supported scopes, refer to the Understand export data types section in [this article](../costs/tutorial-improved-exports.md).
 - **Tax exemption certificates** - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-- **Emissions Impact Dashboard** - You must update Billing Account ID as a Billing Account Administrator with a role as Billing Account Reader/Contributor/Owner. Learn more about it here: [Connect to the Emissions Impact Dashboard for Azure - Power BI](https://learn.microsoft.com/power-bi/connect-data/service-connect-to-emissions-impact-dashboard)
+- **Emissions Impact Dashboard** - You must update Billing Account ID as a Billing Account Administrator with a role as Billing Account Reader/Contributor/Owner. Learn more about it here: [Connect to the Emissions Impact Dashboard for Azure - Power BI](/power-bi/connect-data/service-connect-to-emissions-impact-dashboard)
 
 Here are some points to consider after migration.
 

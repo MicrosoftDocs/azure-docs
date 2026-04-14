@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 09/15/2025
+ms.date: 10/09/2025
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -97,7 +97,8 @@ The default validation settings ensure secure TLS communication between the gate
 > [!NOTE]
 > - We recommend keeping all validations enabled for production environments. Disabling some or all validations is suggested only for testing and development purposes, such as when self-signed certificates are used.
 > - These settings don't apply to test probe functionality when adding a custom Health Probe. As a result, you may see differences in the results when comparing to periodic health probes.
-> - Currently, unsupported for TLS/TCP proxy.
+> - Currently, unsupported for TLS proxy.
+> - PowerShell and CLI to be supported soon.
 
 
 ### Request timeout
@@ -186,6 +187,15 @@ This capability establishes direct, one-to-one mapping between frontend and back
 >When the backend is a remote server, Application Gateway instances utilize SNAT ports for every connection. As each client connection establishes a dedicated backend connection, SNAT port consumption correspondingly increases. Therefore, it is important to account for potential SNAT port exhaustion. Visit the [architecture best practices](/azure/well-architected/service-guides/azure-application-gateway#design-checklist) for guidance.
 >
 >Dedicated Backend connection is not supported with HTTP/2.
+
+**Troubleshooting 4xx Errors with Dedicated Backend Connections**
+
+When Dedicated Backend Connections is enabled for a backend setting, and the backend application returns 4xx status codes, use the following guidance to diagnose and resolve the issue.
+
+**Verify Service Principal Name (SPN) Configuration**-Authentication mechanisms such as NTLM and Kerberos require correctly registered Service Principal Names .Ensure that SPNs are properly configured and unique in the directory to allow successful authentication.For additional details , see the [Kerberos documentation.]( /windows/win32/ad/mutual-authentication-using-kerberos)
+
+**Review Backend Server Logs for Sub‑Status Codes**-Application Gateway surfaces only the primary HTTP status (for example, 401 Unauthorized). To identify the underlying cause, review the backend server logs for more detailed sub‑status information.For guidance refer to the [Windows Authentication configuration.](/iis/configuration/system.webserver/security/authentication/windowsauthentication/#remarks)
+
 
 ## [Backend Settings](#tab/backendsettings)
 

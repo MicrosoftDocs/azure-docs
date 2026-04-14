@@ -1,9 +1,9 @@
 ---
 title: MongoDB Atlas Developer Resources and Tools
-description: Learn about resources and developer tools available with MongoDB Atlas .
+description: Learn about resources and developer tools available with MongoDB Atlas.
 author: ProfessorKendrick
 ms.topic: overview
-ms.date: 04/14/2025
+ms.date: 12/12/2025
 
 #customer intent: As a developer who's implementing MongoDB Atlas, I want to know about other resources and tools available so that I can maximize the success of my deployment.
 
@@ -21,17 +21,17 @@ To learn more about MongoDB Atlas:
 
 - [Why use MongoDB?](https://www.mongodb.com/resources/products/fundamentals/why-use-mongodb)
 
-- [MongoDB Atlas features](https://www.mongodb.com/atlas)
+- [MongoDB Atlas features](https://www.mongodb.com/products/platform)
 
 - [MongoDB Atlas pricing](https://www.mongodb.com/pricing)
 
 - [Database cluster types in MongoDB Atlas](https://www.mongodb.com/docs/atlas/create-database-deployment/)
 
-To get started on MongoDB Atlas:
+To get started with MongoDB Atlas:
 
 - [Getting started with MongoDB Atlas (20-minute lab)](https://learn.mongodb.com/courses/getting-started-with-mongodb-atlas-lab-only)
 
-- [MongoDB Atlas Vector Search quick start](https://www.mongodb.com/docs/atlas/atlas-vector-search/tutorials/vector-search-quick-start/)
+- [MongoDB Atlas Vector Search Quick Start](https://www.mongodb.com/docs/atlas/atlas-vector-search/tutorials/vector-search-quick-start/)
 
 - [MongoDB Atlas Essentials course](https://learn.mongodb.com/learning-paths/atlas-essentials)
 
@@ -47,12 +47,12 @@ To learn more about how to make the most of your MongoDB Atlas resource:
 
 ## Developer tools
 
-- [MongoDB Compass](https://www.mongodb.com/docs/compass/current/)
+- [MongoDB Compass](https://www.mongodb.com/docs/compass/)
 
 - [MongoDB Shell](https://www.mongodb.com/docs/mongodb-shell/)
 
 - [MongoDB for VS Code](https://www.mongodb.com/docs/mongodb-vscode/)
 
-- [Atlas CLI](https://www.mongodb.com/docs/atlas/atlas-cli/)
+- [Atlas CLI](https://www.mongodb.com/docs/atlas/cli/current/)
 
 - [Language drivers](https://www.mongodb.com/docs/atlas/driver-connection/)

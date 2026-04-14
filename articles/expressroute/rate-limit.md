@@ -2,12 +2,11 @@
 title: Rate limiting for ExpressRoute Direct circuits
 titleSuffix: Azure ExpressRoute
 description: This document provides guidance on how to enable or disable rate limiting for an ExpressRoute Direct circuit.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.custom: ignite-2023, ai-usage
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 03/12/2026
 ms.author: duau
 # Customer intent: As a network engineer, I want to enable or disable rate limiting for my ExpressRoute Direct circuits, so that I can manage traffic loads and ensure optimal network performance and stability between my on-premises network and Azure.
 ---
@@ -60,7 +59,7 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, complete th
 
 To disable rate limiting for an existing ExpressRoute Direct circuit, complete the following steps:
 
-1. Sign-in to the Azure portal using this [Azure portal](https://portal.azure.com/?feature.erdirectportratelimit=true) link, then go to the ExpressRoute Direct circuit that you want to configure rate limiting for.
+1. Sign-in to the [Azure portal](https://portal.azure.com/), then go to the ExpressRoute Direct circuit that you want to configure rate limiting for.
 
 1. Select **Configuration** under *Settings* on the left side pane.
 
@@ -130,4 +129,4 @@ To disable rate limiting for an existing ExpressRoute Direct circuit, complete t
 ## Next steps
 
 - For more information regarding ExpressRoute Direct, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
-- For information about setting up ExpressRoute Direct, see [How to configure ExpressRoute Direct](expressroute-howto-erdirect.md).
+- For information about setting up ExpressRoute Direct, see [How to configure ExpressRoute Direct](how-to-expressroute-direct-portal.md).

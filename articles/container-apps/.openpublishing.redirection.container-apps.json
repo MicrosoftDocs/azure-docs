@@ -114,6 +114,16 @@
             "source_path_from_root": "/articles/container-apps/vnet-custom-internal.md",
             "redirect_url": "/azure/container-apps/vnet-custom",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/services.md",
+            "redirect_url": "/azure/container-apps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/functions-cli.md",
+            "redirect_url": "/azure/container-apps/functions-usage",
+            "redirect_document_id": false
         }
     ]
 }

@@ -1,11 +1,11 @@
 ---
 title: Analyze test results using actionable insights
 titleSuffix: Azure Load Testing
-description: Learn how to analyze test results using AI powered actionable insights 
+description: Fix performance issues faster by analyzing load test results and getting recommendations using AI-powered actionable insights in Azure App Testing.
 services: load-testing
 ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.author: nandinim
+author: nandinimurali
 ms.date: 05/19/2025
 ms.topic: how-to
 
@@ -17,9 +17,11 @@ In this article, you learn how to use **AI-powered actionable insights** in Azur
 
 You can view actionable insights directly in the test run dashboard after your test completes.
 
+> [!VIDEO 9d955896-7134-4495-b289-a94b5541ad4a]
+
 ## Prerequisites  
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.  
 - An Azure load testing resource. To create a load testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).
 - Server-side metrics enabled for your test run. For best results, see [Monitor server-side application metrics by using Azure Load Testing](./how-to-monitor-server-side-metrics.md)
 

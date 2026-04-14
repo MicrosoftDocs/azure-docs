@@ -6,7 +6,7 @@ ms.service: azure-health-data-services
 ms.custom: devx-track-arm-template
 ms.topic: tutorial
 ms.author: kesheth
-ms.date: 06/06/2022
+ms.date: 10/09/2025
 ---
 
 # Deploy a FHIR service within Azure Health Data Services - using ARM template
@@ -19,13 +19,13 @@ An [ARM template](../../azure-resource-manager/templates/overview.md) is a JSON 
 
 # [PowerShell](#tab/PowerShell)
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * If you want to run the code locally:
     * [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * If you want to run the code locally:
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).
     * [Azure CLI](/cli/azure/install-azure-cli).

@@ -7,8 +7,8 @@ ms.custom: linux-related-content
 ms.date: 04/07/2025
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation

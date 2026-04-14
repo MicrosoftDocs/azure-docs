@@ -35,7 +35,7 @@ In this tutorial, you will...
 
 To complete the steps in this tutorial, you need to first complete the following prerequisites.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Download the sample models
 

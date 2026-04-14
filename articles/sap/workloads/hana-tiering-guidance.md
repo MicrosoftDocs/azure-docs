@@ -4,167 +4,225 @@ description: Learn about HANA database archiving strategies to manage data footp
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
-ms.date: 09/27/2023
+ms.date: 02/04/2026
 author: manvendravikramsingh
 ms.author: manvsingh
 # Customer intent: As a data manager, I want to implement effective data archiving and tiering strategies for SAP HANA on Azure, so that I can balance storage costs and performance while ensuring compliance with data retention requirements.
 ---
 # Managing SAP HANA data footprint for balancing cost and performance
 
-Data archiving has always been a critical decision-making item and is heavily used by many companies to organize their legacy data to achieve cost benefits, balancing the need to comply with regulations and retain data for certain period with the cost of storing the data. Customers planning to migrate to S/4HANA or HANA based solution or reduce existing data storage footprint can leverage on the various data tiering options supported on Azure. 
+Data archiving has always been a critical decision-making item and is heavily used by many companies to organize their legacy data to achieve cost benefits, balancing the need to comply with regulations and retain data for certain period with the cost of storing the data. Customers planning to migrate to S/4HANA or HANA based solution or reduce existing data storage footprint can leverage on the various data tiering options supported on Azure.
 
-This article describes options on Azure with emphasis on classifying the data usage pattern. 
+This article describes options on Azure with emphasis on classifying the data usage pattern.
 
-## Overview
+## Key Terminology
 
-SAP HANA is an in-memory database and is supported on SAP certified servers. Azure provides more than 100 solutions [certified](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24) to run SAP HANA. In-memory capabilities of SAP HANA allow customers to execute business transactions at an incredible speed. But do you need fast access to all data, at any given point in time? Food for thought. 
+- **Hot Data**: Frequently accessed, business-critical data stored in-memory for high performance
+- **Warm Data**: Less frequently accessed data offloaded from in-memory to HANA storage tier
+- **Cold Data**: Legacy or rarely accessed data stored on low-cost storage tiers
+- **NSE**: Native Storage Extension - disk-based extension to in-memory column store data
+- **DLM**: Data Lifecycle Management - SAP tools for managing data lifecycle to low-cost storage
+- **NLS**: Near-Line Storage - cost-effective solution for managing cold data
+- **ADLS**: Azure Data Lake Storage - scalable and secure data storage solution in Azure
 
-Most organizations choose to offload less accessed SAP data to HANA storage tier OR archive legacy data to an extended solution to attain maximum performance out of their investment. This tiering of data helps balance SAP HANA footprint and reduces cost and complexity throughout effectively.  
+## Prerequisites
 
-Customers can refer to the table below for data tier characteristics and choose to move data to the temperature tier as per desired usage.
+**General Requirements:**
+- SAP HANA certified Azure virtual machines
+- Completed data characterization and usage pattern analysis
+- Understanding of business requirements for data access patterns
+
+**Version Requirements by Technology:**
+- **NSE**: SAP HANA 2.0 SPS 04 or later
+- **HANA Extension Node**: 
+  - SAP BW on HANA: HANA 1.0 SP 12+ and BW 7.4 SP12+
+  - SAP HANA native applications: HANA 2 SPS03+
+
+## Data Tier Classification Framework
+
+### Data Tier Characteristics
 
 | Classification | Hot Data | Warm Data | Cold Data |
 | ------------ | --- |----- | ---- |
-| Frequently accessed | High | Medium | Low |
-| Expected performance | High | Medium | Low |
-| Business critical | High | Medium | Low |
+| **Access Frequency** | High | Medium | Low |
+| **Performance Requirement** | High | Medium | Low |
+| **Business Criticality** | High | Medium | Low |
+| **Storage Location** | In-memory | HANA storage tier | Low-cost external storage |
 
-Frequently accessed, high-value data is classified as "hot" and is stored in-memory on the SAP HANA database. Less frequently accessed "warm" data is offloaded from in-memory and stored on HANA storage tier making it unified part of SAP HANA system. Finally, legacy or rarely accessed data is stored on low-cost storage tiers like disk or Hadoop, which remains accessible at any time.
+### Solution Mapping Matrix
 
-"One size fits all" approach does not work here. Post data characterization is done, the next step is to map SAP solution to the data tiering solution that is supported by SAP on Azure.
+**Context**: Post data characterization, map SAP solution to appropriate tiering strategy
 
-| SAP Solution | Hot | Warm | Cold |
+| SAP Solution | Hot Tier | Warm Tier | Cold Tier |
 | ------------ | --- |----- | ---- |
-| Native SAP HANA | SAP certified VMs | HANA Dynamic Tiering, HANA extension Node, NSE | DLM with Data Intelligence, DLM with Hadoop |
-| SAP S/4HANA  | SAP certified VMs | Data aging via NSE | SAP IQ |
-| SAP Business Suite on HANA | SAP certified VMs | Data aging via NSE | SAP IQ |
-| SAP BW/4 HANA | SAP certified VMs | NSE, HANA extension Node | NLS with SAP IQ and Hadoop, Data Intelligence with ADLS |
-| SAP BW on HANA | SAP certified VMs | NSE, HANA extension Node | NLS with SAP IQ and Hadoop, Data Intelligence with ADLS |
+| **Native SAP HANA** | SAP certified VMs | HANA Dynamic Tiering, HANA Extension Node, NSE | DLM with Data Intelligence, DLM with Hadoop |
+| **SAP S/4HANA** | SAP certified VMs | Data aging via NSE | SAP IQ |
+| **SAP Business Suite on HANA** | SAP certified VMs | Data aging via NSE | SAP IQ |
+| **SAP BW/4 HANA** | SAP certified VMs | NSE, HANA Extension Node | NLS with SAP IQ and Hadoop, Data Intelligence with ADLS |
+| **SAP BW on HANA** | SAP certified VMs | NSE, HANA Extension Node | NLS with SAP IQ and Hadoop, Data Intelligence with ADLS |
 
-[2462641 - Is HANA Dynamic Tiering supported for Business Suite on HANA, or other SAP applications ( S/4, BW ) ? - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2462641)
+## Decision Framework
 
-[2140959 - SAP HANA Dynamic Tiering - Additional Information - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2140959)
+### Warm Data Tiering Decision Tree
+```
+IF warm data requirements exist:
+├── IF Native SAP HANA → Options: Dynamic Tiering, Extension Node, or NSE
+├── IF S/4HANA or Business Suite → Use: NSE only
+└── IF BW/4HANA or BW on HANA → Options: NSE or Extension Node
+```
 
-[2799997 - FAQ: SAP HANA Native Storage Extension (NSE) - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2799997)
+### Cold Data Tiering Decision Tree
+```
+IF cold data archiving needed:
+├── IF S/4HANA or Business Suite → Use: SAP IQ
+├── IF BW scenarios → Options: NLS with SAP IQ/Hadoop OR Data Intelligence with ADLS
+└── IF Native HANA → Options: DLM with Data Intelligence OR DLM with Hadoop
+```
 
-[2816823 - Use of SAP HANA Native Storage Extension in SAP S/4HANA and SAP Business Suite powered by SAP HANA - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2816823)
+## Implementation Guide
 
-## Configuration
+### Warm Data Tiering Technologies
 
-### Warm Data Tiering
+#### SAP HANA Dynamic Tiering
 
-#### SAP HANA Dynamic Tiering for Azure Virtual Machines
+**Applies to**: Native SAP HANA environments  
+**Azure Services**: Virtual Machines  
+**Implementation Reference**: [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md#sap-hana-dynamic-tiering-20-for-azure-virtual-machines)
 
-[SAP HANA infrastructure configurations and operations on Azure - Azure Virtual Machines | Microsoft Learn](./hana-vm-operations.md#sap-hana-dynamic-tiering-20-for-azure-virtual-machines)
+#### SAP HANA Native Storage Extension (NSE)
 
-#### SAP HANA Native Storage Extension
+**Applies to**: SAP HANA 2.0 SPS 04+  
+**Azure Services**: Any HANA certified Azure virtual machines  
+**Key Characteristics**:
+- Built-in disk-based extension to in-memory column store
+- No special hardware certification required
+- Buffer cache sized at 10% of HANA memory by default
+- Reversible (unlike data archiving)
+- Does not reduce HANA disk size
 
-SAP HANA Native Storage Extension (NSE) is native technology available starting SAP HANA 2.0 SPS 04. NSE is a built-in disk-based extension to in-memory column store data of SAP HANA. Customers do not need special hardware or certification for NSE. Any HANA certified Azure virtual machines are valid to implement NSE.
+**Architecture**: 
+- **Capacity Formula**: Total capacity = Hot data memory + Warm data on disk
+- **Buffer Management**: NSE buffer cache allocated separately from HANA hot/working memory
 
-##### Overview
+**Scale Support**:
+- Scale-up: Supported from SAP HANA 2.0 SPS 04
+- Scale-out: Available from SAP HANA 2.0 SPS 04
 
-The capacity of SAP HANA database with NSE is the amount of hot data memory and warm data stored on disk. NSE allocates buffer cache in HANA main memory and is sized separately from SAP HANA hot and working memory. As per SAP documentation, buffer cache is enabled by default and is sized by default as 10% of HANA memory. Please be informed NSE is not a replacement for data archiving as it does not reduce HANA disk size. Unlike data archiving, activation of NSE can be reversed.
+**Functional Restrictions**: See SAP Note 2927591
 
-[SAP HANA Native Storage Extension | SAP Help Portal](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4efaa94f8057425c8c7021da6fc2ddf5.html)
+**Disaster Recovery Options**:
 
-[2799997 - FAQ: SAP HANA Native Storage Extension (NSE) - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2799997)
+1. **HANA System Replication**
+   - **Method**: Periodic replication between zones/regions
+   - **Recovery**: Manual failover to DR system
+   - **Use Case**: Cross-region disaster recovery
 
-[2973243 - Guidance for use of SAP HANA Native Storage Extension in SAP S/4HANA and SAP Business Suite powered by SAP HANA - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2973243)
+2. **Azure Backup Integration**
+   - **Method**: Native Azure backup capabilities
+   - **Recovery**: Restore to new SAP HANA NSE system
+   - **Reference**: [HANA database backup on Azure VMs](/azure/backup/sap-hana-database-about)
 
-NSE is supported for scale-up and scale-out systems. Availability for scale out systems starts with SAP HANA 2.0 SPS 04. Please refer SAP Note 2927591 to understand the functional restrictions.
+3. **Azure Site Recovery**
+   - **Method**: VM-level replication and recovery
+   - **Features**:
+     - Asynchronous replication
+     - Recovery point-based restore (discrete recovery points at regular intervals)
+     - Automated failover and failback
+   - **Recovery**: Restore to available recovery points captured at intervals
 
-[2927591 - SAP HANA Native Storage Extension 2.0 SPS 05 Functional Restrictions - SAP ONE Support Launchpad](https://launchpad.support.sap.com/#/notes/2927591)
-
-SAP HANA NSE disaster recovery on Azure can be achieved using a variety of methods, including: 
-
-- HANA System replication: HANA System replication allows you to create a copy of your SAP HANA NSE system in another Azure zone or region of choice. This copy is periodically replicated with your production SAP HANA NSE system. In the event of a disaster, fail over can be triggered to the disaster recovery SAP HANA NSE system. 
-
-- Backup and restore: You can also use backup and restore to protect your SAP HANA NSE system from disaster. You can back up your SAP HANA NSE system to Azure Backup, and then restore it to a new SAP HANA NSE system in the event of a disaster. Native Azure backup capabilities can be leveraged here. 
-
-- Azure Site Recovery: Azure Site Recovery is a disaster recovery service that can be used to replicate and recover your SAP HANA NSE system to another Azure region. Azure Site Recovery provides several features that make it a good choice for SAP HANA NSE disaster recovery, such as: 
-
-    - Asynchronous replication, which can reduce the impact of replication on your production SAP HANA NSE system. 
-
-    - Point-in-time restore, which allows you to restore your SAP HANA NSE system to a specific point in time. 
-
-    - Automated failover and failback, which can help you to quickly recover your SAP HANA NSE system in the event of a disaster. 
-
-The best method for SAP HANA NSE disaster recovery on Azure will depend on your specific needs and requirements. 
-
-[Restore SAP HANA database instances on Azure VMs - Azure Backup | Microsoft Learn](/azure/backup/sap-hana-database-instances-restore)
+**Reference Documentation**:
+- [SAP HANA Native Storage Extension | SAP Help Portal](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4efaa94f8057425c8c7021da6fc2ddf5.html)
+- SAP Notes: 2799997, 2973243, 2927591
 
 #### SAP HANA Extension Node
 
-HANA Extension nodes are supported for BW on HANA, BW/4HANA and SAP HANA native applications. For SAP BW on HANA, you will need SAP HANA 1.0 SP 12 as minimum HANA . release and BW 7.4 SP12 as minimum BW release. For SAP HANA native applications, you will need HANA 2 SPS03 as minimum HANA release.
+**Applies to**: BW on HANA, BW/4HANA, SAP HANA native applications  
+**Architecture Requirements**: Scale-out deployment (scale-up customers must extend to scale-out)  
+**Licensing**: No additional license beyond HANA standard license  
+**Isolation Requirements**: Extension node cannot share OS, network, or disk with standard node
 
-The extension nodes setup is based on HANA scale-out offering. Customers with scale-up architecture need to extend to scale-out deployment. Apart from HANA standard license, no additional license is required. Extension node cannot share the same OS, network and disk with HANA standard node.
+**Implementation Considerations**:
 
-##### Networking Configuration
+1. **Networking Configuration**
+   - Configure Azure VNet settings and subnets
+   - Set up Network Security Groups (NSGs) for proper traffic flow
+   - Ensure communication between primary and extension nodes
 
-Configure the networking settings for the Azure VMs to ensure proper communication between the SAP HANA primary node and the extension nodes. This includes configuring Azure virtual network (VNet) settings, subnets, and network security groups (NSGs) to allow the necessary network traffic.
+2. **High Availability Setup**
+   - Implement clustering or replication mechanisms
+   - Configure monitoring and alerting for system health
+   - Plan for node failure resilience
 
-##### High Availability and Monitoring
+3. **Backup Strategy**
+   - Configure backups for both primary and extension nodes
+   - Leverage Azure Backup or SAP HANA-specific tools
+   - Reference: SAP Note 3639106 - Azure backup 2.0 certification
 
-Implement high availability mechanisms, such as clustering or replication, to ensure that the SAP HANA system remains resilient in case of node failures. Additionally, set up monitoring and alerting mechanisms to keep track of the health and performance of the SAP HANA system on Azure.
+**SAP Documentation**: [SAP HANA Extension Node](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/e285ac03529a4cc9ab2d73206d2e8eca.html)
 
-##### Data Backup and Recovery
+### Cold Data Tiering Technologies
 
-Implement a robust backup and recovery strategy to protect your SAP HANA data. Azure offers various backup options, including Azure Backup or SAP HANA-specific backup tools. Configure regular backups of both the primary and extension nodes to ensure data integrity and availability.
-
-##### Advantages of SAP HANA Extension Node
-
-[Data tiering and extension nodes for SAP HANA on Azure (Large Instances) - Azure Virtual Machines | Microsoft Learn](/azure/virtual-machines/workloads/sap/hana-data-tiering-extension-nodes)
-
-### Cold Data Tiering
-
-SAP DLM (Data Lifecycle Management) provides tools and methodologies provided by SAP to manage the lifecycle of data SAP HANA to low-cost storage.
-
-Let's explore three common scenarios for SAP HANA data tiering using Azure services.
+**Context**: SAP DLM (Data Lifecycle Management) provides tools and methodologies for managing data lifecycle from SAP HANA to low-cost storage.
 
 #### Data Tiering with SAP Data Intelligence
 
-SAP Data Intelligence enables organizations to discover, integrate, orchestrate, and govern data from various sources, both within and outside the enterprise.
+**Purpose**: Discover, integrate, orchestrate, and govern data from various sources  
+**Primary Integration**: SAP HANA with Azure Data Lake Storage (ADLS)  
+**Data Flow**: Cold data → ADLS → Cost-effective storage with pipeline orchestration
 
-SAP Data Intelligence enables the integration of SAP HANA with Azure Data Lake Storage. Cold data can be seamlessly moved from the in-memory tier to ADLS, leveraging its cost-effective storage capabilities. SAP
-Data Intelligence facilitates the orchestration of data pipelines, allowing for transparent access and query execution on data residing in ADLS.
+**Azure Integration Options**:
 
-You can leverage the capabilities and services offered by Azure in conjunction with SAP Data Intelligence. Here are a few integration options:
+1. **Azure Data Lake Storage Integration**
+   - **Capability**: Data ingestion, transformation, and advanced analytics
+   - **Process**: Configure Data Intelligence pipelines to extract → transform → load into Azure Blob Storage
+   - **Query Federation**: SAP HANA Smart Data Access (SDA) enables transparent access across tiers
+   - **Reference**: [Microsoft Azure Data Lake (ADL)](https://help.sap.com/docs/data-intelligence-cloud/modeling-guide-1c1341f6911f4da5a35b191b40b426c8/microsoft-azure-data-lake-adl)
 
-##### Azure Data Lake Storage integration
+2. **Azure Synapse Analytics Integration**
+   - **Purpose**: Advanced analytics and big data processing
+   - **Capabilities**: Data pipelines, transformations, machine learning tasks
+   - **Reference**: [Connect to Microsoft Azure Synapse Analytics](https://help.sap.com/docs/HANA_SMART_DATA_INTEGRATION/7952ef28a6914997abc01745fef1b607/2ebf5a5968ea4a07a444e68f3af933dc.html)
 
-SAP Data Intelligence supports integration with Azure Data Lake Storage, which is a scalable and secure data storage solution in Azure. You can configure connections
-in SAP Data Intelligence to access and process data stored in Azure Data Lake Storage. This allows you to leverage the power of SAP Data Intelligence for data ingestion, data transformation, and advanced analytics on data residing in Azure.
-
-SAP Data Intelligence provides a wide range of connectors and transformations that facilitate data movement and transformation tasks. You can configure SAP Data Intelligence pipelines to extract cold data
-from SAP HANA, transform it if necessary, and load it into Azure Blob Storage. This ensures seamless data transfer and enables further processing or analysis on the tiered data.
-
-SAP HANA provides query federation capabilities that seamlessly combine data from different storage tiers. With SAP HANA Smart Data Access (SDA) and SAP Data Intelligence, you can federate queries to access data
-stored in SAP HANA and Azure Blob Storage as if it were in a single location. This transparent data access allows users and applications to retrieve and analyze data from both tiers without the need for manual
-data movement or complex integration.
-
-##### Azure Synapse Analytics integration
-Azure Synapse Analytics is a cloud-based analytics service that combines big data and data warehousing capabilities. You can integrate SAP Data Intelligence with Azure Synapse Analytics to perform advanced analytics and data processing on large volumes of data. SAP Data Intelligence can connect to Azure Synapse Analytics to execute data pipelines, transformations, and machine learning tasks leveraging the power of Azure Synapse Analytics.
-
-##### Azure services integration
-SAP Data Intelligence can also integrate with other Azure services like Azure Blob Storage, Azure SQL
-Database, Azure Event Hubs, and more. This allows you to leverage the capabilities of these Azure services within your data workflows and processing tasks in SAP Data Intelligence.
+3. **Additional Azure Services Integration**
+   - **Supported Services**: Azure Blob Storage, Azure SQL Database, Azure Event Hubs
+   - **Use Case**: Enhanced data workflows and processing tasks
 
 #### Data Tiering with SAP IQ
 
-SAP IQ (formerly Sybase IQ), a highly scalable columnar database, can be utilized as a storage option for cold data in the SAP HANA Data Tiering landscape. With SAP Data Intelligence, organizations can set up data pipelines to move cold data from SAP HANA to SAP IQ. This approach provides efficient compression and query performance for historical or less frequently accessed data.
+**Context**: SAP IQ (formerly Sybase IQ) - highly scalable columnar database for cold data storage  
+**Architecture**: SAP HANA → SAP Data Intelligence pipelines → SAP IQ on Azure VMs  
+**Storage Integration**: SAP IQ with Azure Blob Storage for tiered data
 
-You can provision virtual machines (VMs) in Azure and install SAP IQ on those VMs. Azure Blob Storage is a scalable and cost-effective cloud storage service provided by Microsoft Azure. With SAP HANA Data Tiering,
-organizations can integrate SAP IQ with Azure Blob Storage to store the data that has been tiered off from SAP HANA.
 
-SAP HANA Data Tiering enables organizations to define policies and rules to automatically move cold data from SAP HANA to SAP IQ in Azure Blob Storage. This data movement can be performed based on data aging criteria or business rules. Once the data is in SAP IQ, it can be efficiently compressed and stored, optimizing storage utilization.
+**Implementation Approach**:
+1. **Provisioning**: Deploy SAP IQ on Azure Virtual Machines
+2. **Policy Configuration**: Define automatic data movement rules based on aging criteria
+3. **Data Processing**: Efficient compression and storage optimization in SAP IQ
+4. **Query Federation**: Transparent access combining SAP HANA and SAP IQ data
 
-SAP HANA provides query federation capabilities, allowing queries to seamlessly access and combine data from SAP HANA and SAP IQ as if it were in a single location. This transparent data access ensures that users and applications can retrieve and analyze data from both tiers without the need for manual data movement or complex integration.
-
-It's important to note that the specific steps and configurations may vary based on your requirements, SAP IQ version, and Azure deployment options. Therefore, referring to the official documentation and consulting with SAP and Azure experts is highly recommended for a successful deployment of SAP IQ on Azure with data tiering.
+**Deployment Considerations**:
+- Requirements vary by SAP IQ version and Azure deployment options
+- Consult SAP and Azure experts for specific configurations
+- **Implementation Example**: [SAP BW NLS implementation guide with SAP IQ on Azure](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/sap/workloads/dbms-guide-sapiq.md#sap-bw-nls-implementation-guide-with-sap-iq-on-azure)
 
 #### Data Tiering with NLS on Hadoop
 
-Near-Line Storage (NLS) on Hadoop offers a cost-effective solution for managing cold data with SAP HANA. SAP Data Intelligence enables seamless integration between SAP HANA and Hadoop-based storage systems, such as
-Hadoop Distributed File System (HDFS). Data pipelines can be established to move cold data from SAP HANA to NLS on Hadoop, allowing for efficient data archiving and retrieval.
+**Context**: Near-Line Storage (NLS) on Hadoop for cost-effective cold data management  
+**Integration**: SAP Data Intelligence enables SAP HANA ↔ Hadoop Distributed File System (HDFS) connectivity  
+**Process**: Establish data pipelines for efficient archiving and retrieval
 
-[Implement SAP BW NLS with SAP IQ on Azure | Microsoft Learn](dbms-guide-sapiq.md)
+**Reference**: [Implement SAP BW NLS with SAP IQ on Azure](dbms-guide-sapiq.md)
+
+## SAP Reference Documentation
+
+**Dynamic Tiering**:
+- [2462641 - HANA Dynamic Tiering support for Business Suite, S/4, BW applications](https://launchpad.support.sap.com/#/notes/2462641)
+- [2140959 - SAP HANA Dynamic Tiering - Additional Information](https://launchpad.support.sap.com/#/notes/2140959)
+
+**Native Storage Extension**:
+- [2799997 - FAQ: SAP HANA Native Storage Extension (NSE)](https://launchpad.support.sap.com/#/notes/2799997)
+- [2816823 - Use of NSE in SAP S/4HANA and Business Suite powered by SAP HANA](https://launchpad.support.sap.com/#/notes/2816823)
+
+## Azure Backup References
+
+- [Restore SAP HANA database instances on Azure VMs - Azure Backup](/azure/backup/sap-hana-database-instances-restore)

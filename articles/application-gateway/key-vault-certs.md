@@ -64,6 +64,9 @@ Application Gateway integration with Key Vault is a three-step configuration pro
 Application Gateway uses a managed identity to retrieve certificates from Key Vault on your behalf. 
 
 You can either create a new user-assigned managed identity or reuse an existing with the integration. To create a new user-assigned managed identity, see [Create a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). 
+> [!NOTE]
+> Only one managed identity can be used on an Application Gateway.
+
 
 ### Delegate user-assigned managed identity to Key Vault
 
@@ -74,7 +77,8 @@ Define access policies to use the user-assigned managed identity with your Key V
 3. If you're using the permission model **Vault access policy**: Select **Access Policies**, select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
    
    If you're using **Azure role-based access control** follow the article [Assign a managed identity access to a resource](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource) and assign the user-assigned managed identity the **Key Vault Secrets User** role to the Azure Key Vault.
-
+   > [!NOTE]
+   > When using Azure RBAC with Key Vault, if you're configuring the Application Gateway integration using PowerShell, Azure CLI, or REST API (for example, using `Get-AzKeyVaultSecret` or `az keyvault secret show`), the **user or service principal** performing these operations also needs the **Key Vault Secrets User** role (or equivalent permissions) on the Key Vault. This is because these management operations run in your security context, not the Application Gateway's managed identity context. The managed identity is used by Application Gateway at runtime to retrieve certificates.
 ### Verify Firewall Permissions to Key Vault
 
 As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.  With the use of service endpoints and enabling the trusted services option for Key Vault's firewall, you can build a secure network boundary in Azure. You can deny access to traffic from all networks (including internet traffic) to Key Vault but still make Key Vault accessible for an Application Gateway resource under your subscription.

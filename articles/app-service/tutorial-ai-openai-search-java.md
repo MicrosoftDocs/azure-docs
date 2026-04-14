@@ -6,17 +6,19 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/19/2025
+ms.date: 11/18/2025
 ms.custom:
   - devx-track-java
   - devx-track-azurecli
   - references_regions
   - build-2025
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ---
 
 # Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (Spring Boot)
 
-In this tutorial, you'll create a Java Retrieval Augmented Generation (RAG) application using Spring Boot, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
+In this tutorial, you'll create a Java Retrieval Augmented Generation (RAG) application using Spring Boot, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages AI services in Azure to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
 
 > [!TIP]
 > While this tutorial uses Spring Boot, the core concepts of building a RAG application with Azure OpenAI and Azure AI Search apply to any Java web application. If you're using a different hosting option on App Service, such as Tomcat or JBoss EAP, you can adapt the authentication patterns and Azure SDK usage shown here to your preferred framework.
@@ -26,7 +28,7 @@ In this tutorial, you'll create a Java Retrieval Augmented Generation (RAG) appl
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Deploy a Spring Boot application that uses RAG pattern with Azure AI services.
+> * Deploy a Spring Boot application that uses RAG pattern with AI services in Azure.
 > * Configure Azure OpenAI and Azure AI Search for hybrid search.
 > * Upload and index documents for use in your AI-powered application.
 > * Use managed identities for secure service-to-service communication.
@@ -38,7 +40,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/java).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## 1. Open the sample with Codespaces

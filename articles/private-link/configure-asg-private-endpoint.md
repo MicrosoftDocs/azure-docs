@@ -2,11 +2,11 @@
 title: Configure an application security group with a private endpoint
 titleSuffix: Azure Private Link
 description: Learn how to create a private endpoint with an application security group (ASG) or apply an ASG to an existing private endpoint.
-author: abell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 03/25/2025
+ms.date: 03/30/2026
 ms.custom:
   - template-how-to
   - devx-track-azurepowershell
@@ -21,7 +21,7 @@ Azure Private Link private endpoints support application security groups (ASGs) 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure web app with a Premium V2 tier or higher app service plan deployed in your Azure subscription.
 
     - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md).

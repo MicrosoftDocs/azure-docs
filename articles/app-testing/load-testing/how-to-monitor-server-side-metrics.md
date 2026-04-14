@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn how to capture and monitor server-side application metrics when running a load test with Azure Load Testing. Add Azure app components and resource metrics to your load test configuration.
 services: load-testing
 ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.author: nandinim
+author: nandinimurali
 ms.date: 01/16/2024
 ms.topic: how-to
 
@@ -20,7 +20,7 @@ Azure Load Testing integrates with Azure Monitor to capture server-side resource
 
 ## Prerequisites  
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.  
 - An Azure load testing resource. To create a load testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
 ## Add Azure app components to a load test

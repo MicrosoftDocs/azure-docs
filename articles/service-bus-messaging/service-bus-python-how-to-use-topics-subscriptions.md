@@ -36,7 +36,7 @@ In this tutorial, you complete the following steps:
 
 ## Prerequisites
 
-- An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- An [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python 3.8](https://www.python.org/downloads/) or higher
 
 >[!NOTE]

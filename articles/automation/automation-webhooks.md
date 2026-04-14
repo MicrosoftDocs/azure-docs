@@ -7,8 +7,8 @@ ms.date: 07/15/2025
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Start a runbook from a webhook

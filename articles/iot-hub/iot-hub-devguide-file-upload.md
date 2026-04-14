@@ -1,12 +1,11 @@
 ---
 title: Understand Azure IoT Hub file upload
 description: This article shows how to use the file upload feature of IoT Hub to upload files from a device to an Azure storage blob container.
-author: SoniaLopezBravo
-
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 12/05/2024
+ms.date: 10/20/2025
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -17,8 +16,6 @@ There are many scenarios where you can't easily map your device data into the re
 When you need to upload large files from a device, you can still use the security and reliability of IoT Hub. Instead of brokering messages through itself, however, IoT Hub acts as a dispatcher to an associated Azure storage account. IoT Hub can also provide notification to backend services when a device completes a file upload.
 
 If you need help with deciding when to use reported properties, device-to-cloud messages, or file uploads, see [Device-to-cloud communications guidance](iot-hub-devguide-d2c-guidance.md).
-
-[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## File upload overview
 
@@ -48,7 +45,7 @@ IoT Hub imposes throttling limits on the number of file uploads that it can init
 
 ## Associate an Azure storage account with IoT Hub
 
-You must associate an Azure storage account and  blob container with your IoT hub to use file upload features. All file uploads from devices registered with your IoT hub go to this container. To configure a storage account and blob container on your IoT hub, see [Configure IoT Hub file uploads using the Azure portal](iot-hub-configure-file-upload.md), [Configure IoT Hub file uploads using Azure CLI](iot-hub-configure-file-upload-cli.md), or [Configure IoT Hub file uploads using PowerShell](iot-hub-configure-file-upload-powershell.md). You can also use the IoT Hub management APIs to configure file uploads programmatically.
+You must associate an Azure storage account and  blob container with your IoT hub to use file upload features. All file uploads from devices registered with your IoT hub go to this container. To configure a storage account and blob container on your IoT hub, see [Configure IoT Hub file uploads](iot-hub-configure-file-upload.md). You can also use the IoT Hub management APIs to configure file uploads programmatically.
 
 By default, Azure IoT Hub uses key-based authentication to connect and authorize with Azure Storage. You can also configure user-assigned or system-assigned managed identities to authenticate Azure IoT Hub with Azure Storage. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner.
 

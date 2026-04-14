@@ -7,7 +7,7 @@ author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 10/06/2025
 ms.author: mbender
 # Customer intent: As a network engineer, I want to configure an application gateway for HTTP to HTTPS redirection using CLI, so that I can enhance security by ensuring all traffic is encrypted.
 ---

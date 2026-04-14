@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 8/26/2025
+ms.date: 08/26/2025
 ms.author: mbender
 # Customer intent: "As a Kubernetes administrator, I want to configure and deploy Application Gateway for Containers with different CNI plugins, so that I can manage networking efficiently and ensure seamless connectivity between pods in my Azure Kubernetes Service cluster."
 ---
@@ -28,7 +28,7 @@ Azure Kubernetes Service (AKS) uses two main networking models: **overlay** netw
 When choosing a networking model, consider the use cases for each CNI plugin and the type of network model it uses:
 
 | CNI plugin | Networking model | Use case highlights |
-|-------------|----------------------|-----------------------|
+| ------------- | ---------------------- | ----------------------- |
 | **Azure CNI Overlay** | Overlay | - Best for VNET IP conservation<br/>- Max node count supported by API Server + 250 pods per node<br/>- Simpler configuration<br/> - No direct external pod IP access |
 | **Azure CNI Pod Subnet** | Flat | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support |
 | **Azure CNI Node Subnet** | Flat | - Direct external pod access<br/>- Simpler configuration <br/>- Limited scale <br/>- Inefficient use of VNet IPs |
@@ -72,12 +72,19 @@ A: Yes, upgrade of the AKS cluster from CNI to CNI Overlay and Application Gatew
 > [!WARNING]
 > Ensure the Application Gateway for Containers subnet is a /24 before upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (/23 or larger) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.
 
-Q: Can I upgrade an existing cluster with Kubenet to CNI Overlay?
-
+Q: Can I upgrade an existing cluster with Kubenet to CNI Overlay?  
 A: Yes, however, installation of Application Gateway for Containers on a cluster with Kubenet isn't supported. Install Application Gateway for Containers post-upgrade to CNI Overlay.
+
+Q: If I use Application Gateway for Containers with CNI Overlay, can I forward requests to Azure Firewall or a Network Virtual Appliance (NVA)?  
+A: No. With CNI Overlay, NVAs don't have access to proxy traffic to the overlay network.  
+If you need Azure services or NVAs to access the overlay network, use Azure CNI (flat networking) instead of CNI Overlay.
+
+Q: Can I deploy Application Gateway for Containers in a separate virtual network from my AKS cluster?  
+A: No. Separate virtual networks for Application Gateway for Containers and AKS aren't currently supported. Application Gateway for Containers must be deployed in the same virtual network as your AKS cluster.
 
 ## Next steps
 
-* [Deploy ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md?tabs=install-helm-windows)
+* [Deploy ALB Controller - Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md)
+* [Deploy ALB Controller - Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)
 * [Application Gateway for Containers components](application-gateway-for-containers-components.md)
 * [Upgrade AKS to CNI Overlay](/azure/aks/upgrade-aks-ipam-and-dataplane#upgrade-an-existing-cluster-to-azure-cni-overlay)

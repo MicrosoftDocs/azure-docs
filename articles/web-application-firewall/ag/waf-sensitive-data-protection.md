@@ -11,7 +11,7 @@ ms.date: 04/10/2024
 
 # What is Azure Web Application Firewall Sensitive Data Protection?
 
-The Web Application Firewall's (WAF) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive information. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
+The Web Application Firewall's (WAF) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive information. In order to work correctly, your content-type header and request body type must match. Once specified sensitive content is identified, the tool scrubs that information from your logs and replaces it with _*******_.
 
 > [!NOTE]
 > When you enable the log scrubbing feature, Microsoft still retains IP addresses in our internal logs to support critical security features.

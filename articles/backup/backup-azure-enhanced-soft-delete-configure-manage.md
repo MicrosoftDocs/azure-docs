@@ -1,101 +1,38 @@
 ---
-title: Configure and manage enhanced soft delete for Azure Backup
-description: This article describes about how to configure and manage enhanced soft delete for Azure Backup.
+title: Configure and manage soft delete for Azure Backup
+description: This article describes about how to configure and manage soft delete for Azure Backup.
 ms.topic: how-to
 ms.date: 05/26/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: As a backup administrator, I want to configure enhanced soft delete for my backup vault, so that I can protect my backup data from accidental deletion and ensure its recoverability over a specified retention period.
+ms.custom: references_regions
+# Customer intent: As a backup administrator, I want to configure soft delete for my recovery services vault or backup vault, so that I can protect my backup data from accidental deletion and ensure its recoverability over a specified retention period.
 ---
 
-# Configure and manage enhanced soft delete in Azure Backup
+# Configure and manage soft delete in Azure Backup
 
-This article describes how to configure and use [enhanced soft delete](backup-azure-enhanced-soft-delete-about.md) to protect your data and recover backups, if they're deleted.
+This article describes how to configure and use [soft delete](secure-by-default.md) to protect your data and recover backups, if they're deleted.
 
->[!Note]
->Once you enable enhanced soft delete by enabling soft delete state to *always-on*, you can't disable it for that vault.
+## Supported scenarios
+- Soft delete is now enforced by default, and soft delete state can no longer be modified from the Azure portal. This enforcement ensures reliable recovery from any accidental or malicious deletions.
+- With secure by default, soft delete is also applied at the vault level. When a vault is deleted, it automatically transitions into a soft-deleted state, enabling recovery if required. [Learn more](secure-by-default.md)
 
-## Prerequisites
- 
-Before you configure and manage enhanced soft delete on the vault, review the following prerequisites:
+## Supported regions
 
-- Enhanced soft delete is supported for Recovery Services vaults and Backup vaults.
-- Enhanced soft delete applies to all vaulted workloads alike in Recovery Services vaults and Backup vaults. However, it currently doesn't support operational tier workloads, such as Azure Files backup, Operational backup for Blobs, and Disk and VM snapshot backups.
-- For hybrid backups (using MARS, DPM, or MABS), enabling always-on soft delete will disallow server deregistration and  deletion of backups via the Azure portal. If you don't want to retain the backed-up data, we recommend you not to enable the *always-on soft-delete* for the vault or perform *stop protection with delete data* before the server is decommissioned.
-- There's no retention cost for the default soft delete duration of 14 days for vaulted backup, after which it incurs regular backup cost.
+**Secure by default with soft delete** is available in the following regions:
 
-## Enable soft delete with always-on state
+| Vault Type               | Availability Type    | Regions                                      |
+|--------------------------|----------------------|---------------------------------------------|
+| Recovery Services Vault  | General Availability | West Central US                            |
+| Recovery Services Vault  | Preview              | All remaining Azure Public Regions         |
+| Backup Vault             | Preview              | Australia East, West Central US, East Asia |
 
-Soft delete is enabled by default for all new vaults you create. To make enabled settings irreversible, select **Enable Always-on Soft Delete**.
+For **Backup Vault**, in regions other than **Australia East**, **West Central US**, and **East Asia**, you still have the option to **disable soft delete** from the Azure portal.
 
-**Choose a vault**
+## Soft-Delete a backup item
 
-# [Recovery Services vault](#tab/recovery-services-vault)
-
-Follow these steps:
-
-1. Go to **Recovery Services vault** > **Properties**.
-
-1. Under **Soft Delete**, select **Update** to modify the soft delete setting.
-
-   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/open-soft-delete-properties-blade-inline.png" alt-text="Screenshot showing you how to open Soft Delete blade." lightbox="./media/backup-azure-enhanced-soft-delete/open-soft-delete-properties-blade-expanded.png":::
-
-   The soft delete settings for cloud and hybrid workloads are already enabled, unless you've explicitly disabled them earlier.
-
-1. If soft delete settings are disabled for any workload type in the **Soft Delete** blade, select the respective checkboxes to enable them.
-
-   >[!Note]
-   >Enabling soft delete for hybrid workloads also enables other security settings, such as Multi-factor authentication and alert notification for back up of workloads running in the on-premises servers.
-
-1. Choose the number of days between *14* and *180* to specify the soft delete retention period.
-
-   >[!Note]
-   >- There is no cost for soft delete for *14* days. However, deleted instances in soft delete state are charged if the soft delete retention period is *>14* days. Learn about [pricing details](backup-azure-enhanced-soft-delete-about.md#pricing).
-   >- Once configured, the soft delete retention period applies to all soft deleted instances of cloud and hybrid workloads in the vault.
-
-1. Select the **Enable Always-on Soft delete** checkbox to enable soft delete and make it irreversible.
-
-   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/enable-always-on-soft-delete.png" alt-text="Screenshot showing you how to enable a;ways-on state of soft delete.":::
-
-   >[!Note]
-   >If you opt for *Enable Always-on Soft Delete*, select the *confirmation checkbox* to proceed. Once enabled, you can't disable the settings for this vault.
-
-1. Select **Update** to save the changes.
-
-# [Backup vault](#tab/backup-vault)
-
-Follow these steps:
-
-1. Go to **Backup vault** > **Properties**.
-
-1. Under **Soft Delete**, select **Update** to modify the soft delete setting.
-
-   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/open-soft-delete-properties.png" alt-text="Screenshot showing you how to open soft delete blade for Backup vault.":::
-
-   Soft delete is enabled by default with the checkboxes selected.
-
-1. If you've explicitly disabled soft delete for any workload type in the **Soft Delete** blade earlier, select the checkboxes to enable them.
-
-1. Choose the number of days between *14* and *180* to specify the soft delete retention period.
-
-   >[!Note]
-   >There is no cost for enabling soft delete  for *14* days. However, you're charged for the soft delete instances if soft delete retention period is *>14* days. Learn about the [pricing details](backup-azure-enhanced-soft-delete-about.md#pricing).
-
-1. Select the **Enable Always-on Soft Delete** checkbox to enable soft delete always-on and make it irreversible.
-
-   :::image type="content" source="./media/backup-azure-enhanced-soft-delete/enable-always-on-soft-delete-backup-vault.png" alt-text="Screenshot showing you how to enable always-on state for Backup vault.":::
-
-   >[!Note]
-   >If you opt for *Enable Always-on Soft Delete*, select the *confirmation checkbox* to proceed. Once enabled, you can't disable the settings for this vault.
-
-1. Select **Update** to save the changes.
-
----
-
-## Delete a backup item
-
-You can delete backup items/instances even if the soft delete settings are enabled. However, if the soft delete is enabled, the deleted items don't get permanently deleted immediately and stays in soft deleted state as per [configured retention period](#enable-soft-delete-with-always-on-state). Soft delete delays permanent deletion of backup data by retaining deleted data for *14*-*180* days.
+With Secure by Default enabled, backup items can still be soft deleted and later permanently deleted based on configured retention period. However, when a backup item is deleted, it first enters a soft delete state and is retained for the configured retention period before permanent deletion. This retention window helps protect against accidental or malicious deletions by delaying permanent data removal for 14 to 180 days, allowing sufficient time to recover the deleted backup data if needed.
 
 **Choose a vault**
 
@@ -123,7 +60,7 @@ Follow these steps:
 
 Follow these steps:
 
-1. In the **Backup center**, go to the *backup instance* that you want to delete.
+1. In the **Resiliency**, go to the *backup instance* that you want to delete.
 
 1. Select **Stop backup**.
 
@@ -155,7 +92,7 @@ Follow these steps:
 
 1. Go to the *backup item* that you want to retrieve from the *soft deleted* state.
 
-   You can also use the **Backup center** to go to the item by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
+   You can also use the **Resiliency** to go to the item by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
 
 1. Select **Undelete** corresponding to the *soft deleted item*.
 
@@ -165,13 +102,16 @@ Follow these steps:
 
    All recovery points now appear and the backup item changes to *Stop protection with retain data* state. However, backups don't resume automatically. To continue taking backups for this item, select **Resume backup**.
 
+>[!Note]
+>Undeleting a soft deleted item reinstates the backup item into Stop backup with retain data state and doesn't automatically restart scheduled backups. You need to explicitly [resume backups](backup-azure-manage-vms.md#resume-protection-of-a-vm) if you want to continue taking new backups. Resuming backup also cleans up expired recovery points, if any. 
+
 # [Backup vault](#tab/backup-vault)
 
 Follow these steps:
 
 1. Go to the *deleted backup instance* that you want to recover.
 
-   You can also use the **Backup center** to go to the *instance* by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
+   You can also use the **Resiliency** to go to the *instance* by applying the filter **Protection status == Soft deleted** in the *Backup instances*.
 
 1. Select **Undelete** corresponding to the *soft deleted instance*.
 
@@ -202,9 +142,9 @@ Here are some points to note:
 
   You can undelete a container only if it's not registered to another vault. If it's registered, then you need to unregister it with the vault before performing the *undelete* operation.
 
-## Delete recovery points
+## Soft delete recovery points
 
-[Soft delete of recovery points](backup-azure-enhanced-soft-delete-about.md#soft-delete-of-recovery-points) is a part of enhanced soft delete that helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. Recovery points don't move to soft-deleted state immediately and have a *24 hour SLA* (same as before). The example here shows recovery points that were deleted as part of backup policy modifications.
+[Soft delete of recovery points](secure-by-default.md#soft-delete-of-recovery-points) helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. Recovery points don't move to soft-deleted state immediately and have a *24 hour SLA* (same as before). The example here shows recovery points that were deleted as part of backup policy modifications.
 
 Follow these steps:
 
@@ -242,19 +182,101 @@ Follow these steps:
 
    The impacted recovery points don't have the *soft deleted* label and can't in soft-deleted state. If there are recovery points that are still beyond the increased retention duration, these would continue to be in the soft-deleted state unless the retention is further increased.
 
-## Disable soft delete
+## Manage soft deleted vaults
+
+When vaults are moved to a soft deleted state, you can view, manage and undelete them before its permanently deleted.
+
+**Choose a vault**
+
+# [Recovery Services vault](#tab/recovery-services-vault)
 
 Follow these steps:
 
-1. Go to your *vault* > **Properties**.
+1. Go to the *Recovery Services Vaults* in Azure portal.
 
-1. On the **Properties** page, under **Soft delete**, select **Update**.
-1. In the **Soft Delete settings** blade, clear the **Enable soft delete** checkbox to disable soft delete. 
+2. Go to *Manage Deleted Vaults* in the top menu to view the list of soft deleted vaults with their scheduled purge time.
+
+3. Select the vault of your choice to view the overview and the soft deleted backup items inside the vault.
+
+# [Backup vault](#tab/backup-vault)
+
+Follow these steps:
+
+1. Go to the *Backup Vaults* in Azure portal.
+
+2. Go to *Manage Deleted Vaults* in the top menu to view the list of soft deleted vaults with their scheduled purge time.
+
+3. Select the vault of your choice to view the overview and the soft deleted backup items inside the vault.
+
+---
+
+## Recover soft deleted vaults
+
+If a vault and its backup items are soft-deleted, you can recover them by undeleting the vault and then restoring the backup items before permanent deletion.
+
+# [Recovery Services vault](#tab/recovery-services-vault)
+
+Follow these steps:
+
+1. Navigate to *Recovery Services Vaults* in Azure portal.
+
+2. Select  **Manage Deleted Vaults** from the top menu to view the list of soft-deleted vaults along with their scheduled purge time.
+
+3. Select the vault you want to undelete and review its overview and soft-deleted backup items.
+
+4. Click **Undelete Vault** and confirm the vault details. This action moves the vault back to an active state.
+
+5. After undeleting the vault, you must recover and undelete the backup items separately.
 
 >[!Note]
->- You can't disable soft delete if **Enable Always-on Soft Delete** is enabled for this vault.
->- You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
->- MUA for soft delete is currently supported for Recovery Services vaults only.
+> - System-assigned and user-assigned managed identities are **not restored** after undeleting the Recovery Services vault. You must reassign these identities manually.
+> - Private endpoint connections are removed during vault deletion. After undeleting the vault, you must recreate private endpoints in the required VNet before performing operations on backup data sources or containers
+
+
+# [Backup vault](#tab/backup-vault)
+
+1. Navigate to *Backup Vaults* in Azure portal.
+
+2. Select  **Manage Deleted Vaults** from the top menu to view the list of soft-deleted vaults along with their scheduled purge time.
+
+3. Select the vault you want to undelete and review its overview and soft-deleted backup items.
+
+4. Click **Undelete Vault** and confirm the vault details. This action moves the vault back to an active state.
+
+>[!Note]
+> - When a vault is deleted, its associated **system-assigned** and **user-assigned managed identities** are removed permanently.
+> - During the undelete process, you have an option to assign a system-managed identity by default.
+>    -    If you **leave the checkbox selected**, the vault will regain its system identity automatically.
+>    -    If you **uncheck the checkbox**, the undelete action will succeed, but any attempt to resume backups will fail because the vault lacks an identity. In this case, you can manually assign a new managed identity to the vault after the undelete operation.
+
+5. After undeleting the vault, you must recover and undelete the backup items separately.
+
+---
+
+## Manage customer-managed keys (CMKs) after undeletion
+
+To ensure CMKs are enabled after undeleting the vault, follow these steps:
+
+1. To reapply CMK settings, perform one of the following actions to activate CMK:
+
+   - Choose a different key and apply CMK settings and then revert back to the original CMK key.
+
+   - Choose a different managed identity than the identity used for CMK encryption before vault undeletion and reapply CMK settings.
+
+These actions will reactivate CMK on the vault after it is undeleted.
+
+## Resume backup for a soft-deleted backup item
+
+To resume backup for a soft-deleted backup item, follow these steps:
+
+1. Navigate to the backup instance and select **Resume Backup**.
+2. Choose **Grant Permissions** to ensure the associated managed identity has the required permissions.
+> [!NOTE]
+> - If permissions are not granted, the backup operation will fail.  
+> - The **Grant Permissions** option will not be available if the vault associated with the backup instance does not have a managed identity assigned.  
+>
+> To resolve this, assign the identity and configure permissions from **Identity** under the vault properties.
+
 
 ## Related content
 
@@ -264,4 +286,4 @@ For implementing other security measures on the vaults, see the following articl
 - [Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
 - [Private endpoints (v1 experience) for Azure Backup](private-endpoints-overview.md).
 - [Private endpoints (v2 experience) for Azure Backup](backup-azure-private-endpoints-concept.md).
-- [Secure by Default with Azure Backup (Preview)](secure-by-default.md).
+- [Secure by Default with Azure Backup ](secure-by-default.md).

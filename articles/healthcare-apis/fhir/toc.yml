@@ -25,16 +25,19 @@ items:
       href: get-started-with-fhir.md
     - name: Deploy a FHIR service
       items: 
-        - name: Using Azure portal
+        - name: Azure portal
           href: deploy-azure-portal.md
-        - name: Using Bicep
+        - name: Bicep
           href: fhir-service-bicep.md
-        - name: Using ARM template
+        - name: ARM template
           href: fhir-service-resource-manager-template.md
-    - name: Use Azure AD B2C for an identity provider
-      href: azure-ad-b2c-setup.md
+    - name: Use Microsoft Entra External ID for an identity provider
       expanded: true
       items: 
+        - name: Use Microsoft Entra External ID for an identity provider
+          href: azure-entra-external-id-setup.md
+        - name: Use Azure AD B2C for an identity provider
+          href: azure-ad-b2c-setup.md
         - name: Configure multiple service identity providers
           href: configure-identity-providers.md
         - name: Troubleshoot identity provider configuration
@@ -55,9 +58,11 @@ items:
       href: fhir-service-diagnostic-logs.md
     - name: Use Custom HTTP headers to add data to audit logs
       href: use-custom-headers-diagnosticlog.md
-- name: Interoperability and patient access
+- name: Compliance with mandates
   expanded: true
   items: 
+    - name: US Core
+      href: us-core.md
     - name: CMS Interoperability and Patient Access rule introduction
       href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
@@ -111,7 +116,7 @@ items:
     - name: $import
       expanded: false
       items:
-      - name: Configure settings for bulk-import  
+      - name: Configure settings for import  
         href: configure-import-data.md
       - name: Import FHIR data 
         href: import-data.md 
@@ -127,6 +132,10 @@ items:
           href: store-profiles-in-fhir.md
         - name: Use $validate
           href: validation-against-profiles.md
+    - name: $docref
+      href: fhir-docref.md
+    - name: $expand
+      href: fhir-expand.md
 - name: API reference
   items: 
     - name: Access the FHIR service

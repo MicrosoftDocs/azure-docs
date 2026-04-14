@@ -6,7 +6,7 @@ ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 10/07/2024
+ms.date: 10/30/2025
 zone_pivot_groups: grafana-cli-portal
 # CustomerIntent: As a developer or data analyst, I want know how I can migrate my Grafana instance to Azure Managed Grafana.
 # self-managed, self-hosted, Grafana Cloud

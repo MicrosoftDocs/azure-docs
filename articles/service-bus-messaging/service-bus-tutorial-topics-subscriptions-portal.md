@@ -422,7 +422,7 @@ Advance to the next tutorial to learn more about using the publish/subscribe cap
 > [!div class="nextstepaction"]
 > [Respond to events via Event Grid](service-bus-to-event-grid-integration-example.md)
 
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

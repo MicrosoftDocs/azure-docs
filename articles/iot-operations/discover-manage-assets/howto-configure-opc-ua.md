@@ -4,7 +4,7 @@ description: Use the operations experience web UI or the Azure CLI to configure 
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 07/28/2025
+ms.date: 02/09/2026
 
 
 #CustomerIntent: As an OT user, I want configure my Azure IoT Operations environment so that data can flow from my OPC UA servers through to the MQTT broker.
@@ -12,7 +12,7 @@ ms.date: 07/28/2025
 
 # Configure the connector for OPC UA
 
-_OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent tags. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
+_OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA data points_ that represent data points. OPC UA data points provide real-time or historical data about the status, performance, quality, or condition of assets.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
@@ -21,23 +21,32 @@ _OPC UA servers_ are software applications that communicate with assets. OPC UA 
 This article describes how to use the operations experience web UI and the Azure CLI to:
 
 - Define the devices that connect OPC UA servers to your Azure IoT Operations instance.
-- Add assets, and define their tags and events to enable data flow from OPC UA servers to the MQTT broker.
+- Add assets, and define their data points and events to enable data flow from OPC UA servers to the MQTT broker.
 
-These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
+These assets, data points, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
+
+The connector can use `anonymous` or `username password` user authentication when it connects to an OPC UA server.
+
+> [!NOTE]
+> This user authentication is separate from the certificate-based application authentication that's used to establish a secure channel between the connector for OPC UA and the OPC UA server. To learn more, see [Understand the OPC UA certificates infrastructure](overview-opc-ua-connector-certificates-management.md).
 
 ## Prerequisites
 
-To configure devices and assets, you need a running preview instance of Azure IoT Operations.
+To configure devices and assets, you need an instance of Azure IoT Operations with the connector for OPC UA enabled.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
-Your IT administrator must have configured the OPC UA connector template for your Azure IoT Operations instance in the Azure portal.
+Your IT administrator must configure the OPC UA connector template for your Azure IoT Operations instance in the Azure portal.
 
-An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the built-in OPC PLC simulator that comes with Azure IoT Operations.
+An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the OPC PLC simulator from the Azure IoT Operations samples repository.
+
+## Configure a certificate trust list for the connector
+
+[!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
 ## Create a device
 
-An Azure IoT Operations deployment can include an optional built-in OPC PLC simulator. To create a device that uses the built-in OPC PLC simulator:
+An Azure IoT Operations deployment can include a sample OPC PLC simulator. To create a device that uses the OPC PLC simulator:
 
 # [Operations experience](#tab/portal)
 
@@ -46,7 +55,7 @@ An Azure IoT Operations deployment can include an optional built-in OPC PLC simu
     :::image type="content" source="media/howto-configure-opc-ua/devices.png" alt-text="Screenshot that shows the devices page in the operations experience." lightbox="media/howto-configure-opc-ua/devices.png":::
 
     > [!TIP]
-    > You can use the filter box to search for devices.
+    > Use the filter box to search for devices.
 
 1. On the **Basics** page, enter a device name and select **New** on the **Microsoft.OpcUa** tile to add an endpoint for the device:
 
@@ -60,7 +69,7 @@ An Azure IoT Operations deployment can include an optional built-in OPC PLC simu
     | Connector for OPC UA URL | `opc.tcp://opcplc-000000:50000` |
     | User authentication | `Anonymous` |
 
-1. Select **Next** and on the **Additional Info** page, enter any custom properties for the device.
+1. Select **Next**. On the **Additional Info** page enter any custom properties for the device.
 
 1. Select **Next** to review your device details. Then select **Create**.
 
@@ -69,16 +78,67 @@ An Azure IoT Operations deployment can include an optional built-in OPC PLC simu
 Run the following commands:
 
 ```azurecli
-az iot ops ns device create -n opc-ua-connector-cli -g {your resource group name} --instance {your instance name} 
+az iot ops ns device create \
+  -n opc-ua-connector-cli \
+  -g {your resource group name} \
+  --instance {your instance name}
 
-az iot ops ns device endpoint inbound add opcua --device opc-ua-connector-cli -g {your resource group name} -i {your instance name} --name opc-ua-connector-0 --endpoint-address "opc.tcp://opcplc-000000:50000"
+az iot ops ns device endpoint inbound add opcua \
+  --device opc-ua-connector-cli \
+  -g {your resource group name} \
+  -i {your instance name} \
+  --name opc-ua-connector-0 \
+  --endpoint-address "opc.tcp://opcplc-000000:50000"
 ```
 
 To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 
+# [Bicep](#tab/bicep)
+
+Deploy the following Bicep template to create a device with an inbound endpoint for the OPC UA connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
+
+```bicep
+param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+  name: aioNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-10-01' = {
+  name: 'opc-ua-connector-bicep'
+  parent: namespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    endpoints: {
+      outbound: {
+        assigned: {}
+      }
+      inbound: {
+        'opc-ua-connector-0': {
+          endpointType: 'Microsoft.OpcUa'
+          address: 'opc.tcp://opcplc-000000:50000'
+          authentication: {
+            method: 'Anonymous'
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ---
 
-This configuration deploys a new `device` resource called `opc-ua-connector` to the cluster with an inbound endpoint called `opc-ua-connector-0`.
+This configuration deploys a new `device` resource called `opc-ua-connector-bicep` to the cluster with an inbound endpoint called `opc-ua-connector-0`.
 
 When the OPC PLC simulator is running, data flows from the simulator, to the connector for OPC UA, and then to the MQTT broker.
 
@@ -90,40 +150,42 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 # [Operations experience](#tab/portal)
 
-1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opc-ua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
-2. In the operations experience, select **Username password** for the **User authentication** field to configure the device endpoint to use these secrets. Then enter the following values for the **Username reference** and **Password reference** fields:
-
-| Field | Value |
-| --- | --- |
-| Username reference | `aio-opc-ua-broker-user-authentication/username` |
-| Password reference | `aio-opc-ua-broker-user-authentication/password` |
+[!INCLUDE [connector-username-password-portal](../includes/connector-username-password-portal.md)]
 
 # [Azure CLI](#tab/cli)
 
-1. Follow the steps in [Configure OPC UA user authentication with username and password](howto-configure-opc-ua-authentication-options.md#configure-username-and-password-authentication) to add secrets for username and password in Azure Key Vault, and project them into Kubernetes cluster.
+[!INCLUDE [connector-username-password-cli](../includes/connector-username-password-cli.md)]
 
-1. Use a command like the following example to create a device endpoint that uses the username and password authentication mode:
+# [Bicep](#tab/bicep)
 
-    ```azurecli
-    az iot ops ns device endpoint inbound add opcua --device opc-ua-connector-cli -g {your resource group name} -i {your instance name} --name opc-ua-connector-0 --endpoint-address "opc.tcp://opcplc-000000:50000"  --user-ref "aio-opc-ua-broker-user-authentication/username" --pass-ref "aio-opc-ua-broker-user-authentication/password"
-    ```
+[!INCLUDE [connector-username-password-bicep](../includes/connector-username-password-bicep.md)]
 
 ---
 
-## Add an asset, tags, and events
+### Other security options
+
+When you create the inbound endpoint, you can also select:
+
+| Option | Type | Description |
+| ------ | ---- | ----------- |
+| **Auto accept untrusted server certificate** | Yes/No | Automatically accept untrusted server certificates |
+| **Security policy** | Dropdown | Security policy used to establish secure channel with the OPC UA server |
+| **Security mode** | Dropdown | Security mode used to communicate within secure channel with the OPC UA server |
+
+## Add an asset, dataset, and data points
 
 # [Operations experience](#tab/portal)
 
-To add an asset in the operations experience:
+To add an asset in the operations experience, follow these steps:
 
 1. Select the **Assets** tab. Before you create any assets, you see the following screen:
 
     :::image type="content" source="media/howto-configure-opc-ua/create-asset-empty.png" alt-text="Screenshot that shows an empty Assets tab in the operations experience." lightbox="media/howto-configure-opc-ua/create-asset-empty.png":::
 
     > [!TIP]
-    > You can use the filter box to search for assets.
+    > Use the filter box to search for assets.
 
-1. Select **Create namespace asset**.
+1. Select **Create asset**.
 
 1. On the asset details screen, enter the following asset information:
 
@@ -144,64 +206,107 @@ To add an asset in the operations experience:
 
     :::image type="content" source="media/howto-configure-opc-ua/create-asset-details.png" alt-text="Screenshot that shows how to add asset details in the operations experience." lightbox="media/howto-configure-opc-ua/create-asset-details.png":::
 
-1. Select **Next** to go to the **Tags** page.
+1. Select **Next** to go to the **Datasets** page.
 
-### Add individual tags to an asset
+### Add a dataset to an asset
 
-Now you can define the tags associated with the asset. To add OPC UA tags:
+A dataset defines where the connector sends the data it collects from a collection of data points. An OPC UA asset can have multiple datasets. To create a dataset:
 
-1. Select **Add tag**.
+1. Select **Create dataset**.
 
-1. Enter your tag details:
+1. Enter the details for the dataset such as its name and destination. For OPC UA assets, the destination is an MQTT topic. For example:
+
+    :::image type="content" source="media/howto-configure-opc-ua/create-dataset.png" alt-text="Screenshot that shows how to create a dataset in the operations experience." lightbox="media/howto-configure-opc-ua/create-dataset.png":::
+
+    Use the **Start instance** field to specify the starting node for resolving relative browse paths for data points in the dataset. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-by-using-browse-paths).
+
+1. Select **Create and next** to create the dataset.
+
+> [!TIP]
+> Use the **Manage default settings** option to configure default dataset settings such as publishing interval, sampling interval, and queue size.
+
+### Add individual data points to a dataset
+
+> [!IMPORTANT]
+> The data point name `_ErrorMessage` is reserved and shouldn't be used.
+
+Now you can define the data points associated with the dataset. To add OPC UA data points:
+
+1. Select **Add data point**.
+
+1. Enter your data point details:
 
       - Data source. This value is the node ID from the OPC UA server.
-      - Tag name (Optional). This value is the friendly name that you want to use for the tag. If you don't specify a tag name, the node ID is used as the tag name.
-      - Publishing interval (milliseconds). You can override the default value for this tag.
-      - Sampling interval (milliseconds). You can override the default value for this tag.
-      - Queue size. You can override the default value for this tag.
-      - Key frame count. You can override the default value for this tag.
+      - Data point name (Optional). This value is the friendly name that you want to use for the data point. If you don't specify a data point name, the node ID is used as the data point name.
+      - Sampling interval (milliseconds). You can override the default value for this data point.
+      - Queue size. You can override the default value for this data point.
+      - Key frame count. By default, key frames are disabled. Use this setting to enable key frames and specify how frequently the connector generates key frames. For more information, see [Understand key frames for OPC UA data points](overview-opc-ua-connector.md#understand-key-frames-for-opc-ua-data-points).
 
-    :::image type="content" source="media/howto-configure-opc-ua/add-tag.png" alt-text="Screenshot that shows adding tags in the operations experience." lightbox="media/howto-configure-opc-ua/add-tag.png":::
+    :::image type="content" source="media/howto-configure-opc-ua/add-data-point.png" alt-text="Screenshot that shows adding data points in the operations experience." lightbox="media/howto-configure-opc-ua/add-data-point.png":::
 
-    The following table shows some example tag values that you can use with the built-in OPC PLC simulator:
+    The following table shows some example data point values that you can use with the built-in OPC PLC simulator:
 
-    | Data source | Tag name |
+    | Data source | Data point name |
     | ------- | -------- |
     | ns=3;s=FastUInt10 | Temperature |
     | ns=3;s=FastUInt100 | Humidity |
 
-1. To configure default settings for messages from the asset, select **Manage default settings**. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default settings include:
+    > [!NOTE]
+    > If you're using relative browse paths to resolve dynamic nodes, the **Data source** field contains a relative browse path. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-by-using-browse-paths).
 
-    - **Sampling interval (milliseconds)**: The sampling interval indicates the fastest rate at which the OPC UA server should sample its underlying source for data changes.
-    - **Publishing interval (milliseconds)**: The rate at which OPC UA server should publish data.
-    - **Queue size**: The depth of the queue to hold the sampling data before publishing it.
-
-1. To configure the MQTT topic to publish the tag data to, select **Manage default dataset**. Enter an MQTT topic name such as `azure-iot-operations/data/thermostat`, then select **Update**.
-
-1. On the **Tags** page, select **Next** to go to the **Add events** page.
+1. On the **data points** page, select **Next** to go to the **Add events** page.
 
 # [Azure CLI](#tab/cli)
 
-Use the following commands to add a "thermostat" namespace asset to your device by using the Azure CLI. The commands add a dataset and two tags to the asset by using the `point add` command:
+Use the following commands to add a thermostat asset to your device by using the Azure CLI. The commands add a dataset and two data points to the asset by using the `point add` command:
 
 ```azurecli
 # Create the asset
-az iot ops ns asset opcua create --name thermostat --instance {your instance name} -g  {your resource group name} --device opc-ua-connector --endpoint opc-ua-connector-0  --description 'A simulated thermostat asset'
+az iot ops ns asset opcua create \
+  --name thermostat \
+  --instance {your instance name} \
+  -g {your resource group name} \
+  --device opc-ua-connector-cli \
+  --endpoint opc-ua-connector-0 \
+  --description 'A simulated thermostat asset'
 
 # Add the dataset
-az iot ops ns asset opcua dataset add --asset thermostat --instance {your instance name} -g {your resource group name} --name default --data-source "ns=3;s=FastUInt10" --dest topic="azure-iot-operations/data/thermostat" retain=Keep qos=Qos1 ttl=3600
+az iot ops ns asset opcua dataset add \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name} \
+  --name oven \
+  --data-source "" \
+  --dest topic="azure-iot-operations/data/thermostat" retain=Never qos=Qos1 ttl=3600
 
-# Add the datapoints
-az iot ops ns asset opcua dataset point add --asset thermostat --instance {your instance name} -g {your resource group name} --dataset default --name temperature --data-source "ns=3;s=FastUInt10"
-az iot ops ns asset opcua dataset point add --asset thermostat --instance {your instance name} -g {your resource group name} --dataset default --name humidity --data-source "ns=3;s=FastUInt100"
+# Add the data points
+az iot ops ns asset opcua datapoint add \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name} \
+  --dataset oven \
+  --name temperature \
+  --data-source "ns=3;s=FastUInt10"
+
+az iot ops ns asset opcua datapoint add \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name} \
+  --dataset oven \
+  --name humidity \
+  --data-source "ns=3;s=FastUInt100"
 
 # Show the dataset and datapoints
-az iot ops ns asset opcua dataset show --asset thermostat -n default -g {your resource group name} --instance {your instance name}
+az iot ops ns asset opcua dataset show \
+  --asset thermostat \
+  -n oven \
+  -g {your resource group name} \
+  --instance {your instance name}
 ```
 
 When you create an asset by using the Azure CLI, you can define:
 
-- Multiple datapoints/tags by using the `point add` command multiple times.
+- Multiple data points by using the `point add` command multiple times.
 - Multiple events by using the `--event` parameter multiple times.
 - Optional information for the asset such as:
   - Manufacturer
@@ -212,29 +317,114 @@ When you create an asset by using the Azure CLI, you can define:
   - Software version
   - Serial number
   - Documentation URI
-- Default values for sampling interval, publishing interval, and queue size.
+- Dataset values for sampling interval, publishing interval, key frame count, and queue size.
 - Datapoint specific values for sampling interval, publishing interval, and queue size.
 - Event specific values for sampling publishing interval, and queue size.
-- The observability mode for each tag and event
+- The observability mode for each data point and event
+
+# [Bicep](#tab/bicep)
+
+Deploy the following Bicep template to create an asset that publishes messages from the device shown previously to an MQTT topic. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
+
+```bicep
+param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+  name: aioNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
+  name: 'thermostat'
+  parent: namespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    displayName: 'thermostat'
+    description: 'A simulated thermostat asset'
+    enabled: true
+
+    deviceRef: {
+      deviceName: 'opc-ua-connector-bicep'
+      endpointName: 'opc-ua-connector-0'
+    }
+
+    defaultDatasetsConfiguration: '{}'
+    defaultEventsConfiguration: '{}'
+
+    datasets: [
+      {
+        name: 'oven'
+        datasetConfiguration: '{}'
+        dataPoints: [
+          {
+            name: 'temperature'
+            dataSource: 'ns=3;s=FastUInt10'
+            dataPointConfiguration: '{}'
+          }
+          {
+            name: 'humidity'
+            dataSource: 'ns=3;s=FastUInt100'
+            dataPointConfiguration: '{}'
+          }
+        ]
+        destinations: [
+          {
+            target: 'Mqtt'
+            configuration: {
+              topic: 'azure-iot-operations/data/thermostat'
+              qos: 'Qos1'
+              retain: 'Never'
+              ttl: 3600
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ---
 
-### Add individual events to an asset
+## Add events and event groups
 
 # [Operations experience](#tab/portal)
 
-Now you can define the events associated with the asset. To add OPC UA events:
+### Add an event group to an asset
+
+An event group defines where the connector sends the data it receives from a collection of events. An OPC UA asset can have multiple event groups. To create an event group:
+
+1. Select **Create event group**.
+
+1. Enter a name for the event group and any other required details:
+
+    :::image type="content" source="media/howto-configure-opc-ua/create-event-group.png" alt-text="Screenshot that shows how to create an event group in the operations experience." lightbox="media/howto-configure-opc-ua/create-event-group.png":::
+
+1. Select **Create and next** to create the event group and go to the **List of events for alerts** page.
+
+### Add events to an event group
+
+Now you can define the events associated with the event group. To add OPC UA events:
 
 1. Select **Add event**.
 
 1. Enter your event details:
 
-      - Event notifier. This value is the event notifier from the OPC UA server.
+      - Data source. This value is the event notifier from the OPC UA server.
       - Event name (Optional). This value is the friendly name that you want to use for the event. If you don't specify an event name, the event notifier is used as the event name.
-      - Publishing interval (milliseconds). You can override the default value for this tag.
-      - Sampling interval (milliseconds). You can override the default value for this tag.
-      - Queue size. You can override the default value for this tag.
-      - Key frame count. You can override the default value for this tag.
+      - Topic. The MQTT topic that you want the event to be published to.
+      - Sampling interval (milliseconds). You can override the default value for this data point.
+      - Queue size. You can override the default value for this data point.
+      - Start instance. This value is the starting node for resolving relative browse paths for this event. This field is required if you use relative browse paths in the Data source field. For more information, see [Resolve nodes dynamically using browse paths](overview-opc-ua-connector.md#resolve-nodes-dynamically-by-using-browse-paths).
+      - Event filter. An optional configuration that defines the event filter for this event. For more information, see the [Event filters](#event-filters) section.
 
     :::image type="content" source="media/howto-configure-opc-ua/add-event.png" alt-text="Screenshot that shows adding events in the operations experience." lightbox="media/howto-configure-opc-ua/add-event.png":::
 
@@ -243,48 +433,254 @@ Now you can define the events associated with the asset. To add OPC UA events:
     - **Publishing interval (milliseconds)**: The rate at which OPC UA server should publish data.
     - **Queue size**: The depth of the queue to hold the sampling data before publishing it.
 
-### Review your changes
+# [Azure CLI](#tab/cli)
 
-Review your asset and OPC UA tag and event details and make any adjustments you need:
+To add an event group and events to an existing asset, use the `az iot ops ns asset opcua event-group` and `az iot ops ns asset opcua event` commands:
 
-:::image type="content" source="media/howto-configure-opc-ua/review-asset.png" alt-text="A screenshot that shows how to review your asset, tags, and events in the operations experience." lightbox="media/howto-configure-opc-ua/review-asset.png":::
+```azurecli
+# Add an event group to the thermostat asset
+az iot ops ns asset opcua event-group add \
+  --data-source "" \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name} \
+  --name alerts \
+  --dest topic="azure-iot-operations/events/test-thermostat-cli" retain=Never qos=Qos1 ttl=3600
+
+# Add an event to the event group
+az iot ops ns asset opcua event add \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name} \
+  --event-group alerts \
+  --name serverObjectNotifier \
+  --data-source "ns=0;i=2253"
+
+# List the event groups for the asset
+az iot ops ns asset opcua event-group list \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name}
+```
+
+When you add an event group by using the Azure CLI, you can configure:
+
+- Event group name and data source
+- Publishing interval and queue size
+- Event destinations (MQTT topic, QoS, retain, TTL)
+
+To add individual events to an event group, use the `az iot ops ns asset opcua event add` command with the `--event-group` parameter.
+
+To remove an event group, use the `az iot ops ns asset opcua event-group remove` command.
+
+# [Bicep](#tab/bicep)
+
+To add events and event groups to an asset by using Bicep, include the `eventGroups` array in the asset properties. Each event group can contain an `events` array with individual events:
+
+```bicep
+eventGroups: [
+  {
+    name: 'alerts'
+    eventGroupConfiguration: '{"publishingInterval":1000,"queueSize":10}'
+    events: [
+      {
+        name: 'serverObjectNotifier'
+        dataSource: 'ns=0;i=2253'
+        eventConfiguration: '{}'
+        destinations: [
+          {
+            target: 'Mqtt'
+            configuration: {
+              topic: 'azure-iot-operations/events/test-thermostat-bicep'
+              qos: 'Qos1'
+              retain: 'Never'
+              ttl: 3600
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+The `eventGroupConfiguration` property is a stringified JSON object that can include connector-specific settings such as `publishingInterval` and `queueSize`. Individual events use the `eventConfiguration` property for event-specific settings including per-event `destinations`.
+
+---
+
+### Event filters
+
+Define event filters to customize the information included in event notifications from the server. By default, the server sends a selection of standard fields in event notifications. The server determines the exact selection for each event type. For example:
+
+```json
+{
+    "EventId":"OkaXYhfr20yUoj1QBbzcIg==",
+    "EventType":"i=2130",
+    "SourceNode":"i=2253",
+    "SourceName":"WestTank",
+    "Time":"2025-10-10T15:09:13.3946878Z",
+    "ReceiveTime":"2025-10-10T15:09:13.3946881Z",
+    "Message":"Raising Events",
+    "Severity":500
+}
+```
+
+Use an event filter to:
+
+- Include extra fields in event notifications.
+- Exclude fields from event notifications.
+- Modify field names in event notifications.
+
+# [Operations experience](#tab/portal)
+
+The following screenshot shows an example event filter:
+
+:::image type="content" source="media/howto-configure-opc-ua/event-filter.png" alt-text="A screenshot that shows how to configure an event filter for an OPC UA asset." lightbox="media/howto-configure-opc-ua/event-filter.png":::
 
 # [Azure CLI](#tab/cli)
 
-When you create an asset by using the Azure CLI, you can define multiple events by using the `--event` parameter multiple times:
+The following command updates an existing event definition to include an event filter by using the `config` parameter:
 
 ```azurecli
-az iot ops ns asset opcua event add --asset thermostat -g {your resource group name} --instance {your instance name} --event_notifier='ns=3;s=FastUInt12', name=warning
+az iot ops ns asset opcua event add \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name} \
+  --event-group alerts \
+  --name serverObjectNotifier \
+  --data-source "ns=0;i=2253" \
+  --replace true \
+  --config "{\"eventFilter\":{\"selectClauses\":[{\"browsePath\":\"EventId\",\"typeDefinitionId\":\"ns=0;i=2041\",\"fieldId\":\"myEventId\"},{\"browsePath\":\"EventType\",\"typeDefinitionId\":\"ns=0;i=2041\",\"fieldId\":\"EventType\"},{\"browsePath\":\"SourceName\",\"typeDefinitionId\":\"\",\"fieldId\":\"mySourceName\"},{\"browsePath\":\"Severity\",\"typeDefinitionId\":\"\",\"fieldId\":\"Severity\"}]}}"
 ```
 
-For each event that you define, you can specify the:
+# [Bicep](#tab/bicep)
 
-- Event notifier. This value is the event notifier from the OPC UA server.
-- Event name. This value is the friendly name that you want to use for the event. If you don't specify an event name, the event notifier is used as the event name.
-- Observability mode.
-- Queue size.
+To configure event filters by using Bicep, include the filter configuration in the `eventConfiguration` property of individual events within an event group:
 
-You can also use the [az iot ops ns asset opcua event](/cli/azure/iot/ops/asset/event) commands to add and remove events from an asset.
+```bicep
+eventGroups: [
+  {
+    name: 'alerts'
+    eventGroupConfiguration: '{"publishingInterval":1000,"queueSize":10}'
+    events: [
+      {
+        name: 'serverObjectNotifier'
+        dataSource: 'ns=0;i=2253'
+        eventConfiguration: '{"eventFilter":{"selectClauses":[{"browsePath":"EventId","typeDefinitionId":"ns=0;i=2041","fieldId":"myEventId"},{"browsePath":"EventType","typeDefinitionId":"ns=0;i=2041","fieldId":"EventType"},{"browsePath":"SourceName","typeDefinitionId":"","fieldId":"mySourceName"},{"browsePath":"Severity","typeDefinitionId":"","fieldId":"Severity"}]}}'
+        destinations: [
+          {
+            target: 'Mqtt'
+            configuration: {
+              topic: 'azure-iot-operations/events/test-thermostat-bicep'
+              qos: 'Qos1'
+              retain: 'Never'
+              ttl: 3600
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+The `selectClauses` array defines which fields to include in the event notification and optionally renames them using the `alias` property.
 
 ---
+
+The complete event filter shown previously defines four output fields:
+
+| Browse path | Type definition ID | Field ID |
+| --- | --- | --- |
+| `EventId` | `ns=0;i=2041` | `myEventId` |
+| `EventType` | `ns=0;i=2041` | blank |
+| `SourceName` | blank | `mySourceName` |
+| `Severity` | blank | blank |
+
+The three properties for a filter row are:
+
+- _Browse path_. Required value that identifies the source field to include in the forwarded event notification.
+- _Type definition ID_. Optional value that specifies the OPC UA type definition of the source field.
+- _Field ID_. Optional value that specifies the name to use for the field in the forwarded event notification. If you don't specify a field ID, the original field name is used.
+
+The resulting message forwarded by the connector now looks like the following example:
+
+```json
+{
+    "myEventId":"OkaXYhfr20yUoj1QBbzcIg==",
+    "EventType":"i=2130",
+    "mySourceName":"WestTank",
+    "Severity":500
+}
+```
+
+### Review your changes
+
+# [Operations experience](#tab/portal)
+
+Review your asset and OPC UA data point and event details. Make any adjustments you need:
+
+:::image type="content" source="media/howto-configure-opc-ua/review-asset.png" alt-text="A screenshot that shows how to review your asset, data points, and events in the operations experience." lightbox="media/howto-configure-opc-ua/review-asset.png":::
+
+# [Azure CLI](#tab/cli)
+
+To review your asset configuration, use the following commands:
+
+```azurecli
+# View the complete asset details
+az iot ops ns asset show \
+  --name thermostat \
+  --instance {your instance name} \
+  -g {your resource group name}
+
+# List datasets and data points
+az iot ops ns asset opcua dataset list \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name}
+
+# List event groups
+az iot ops ns asset opcua event-group list \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name}
+```
+
+# [Bicep](#tab/bicep)
+
+To review your Bicep template before deployment, use the `what-if` operation:
+
+```azurecli
+az deployment group what-if --resource-group {your resource group name} --template-file asset.bicep
+```
+
+This command shows you what changes would be made to your Azure resources without actually deploying them.
+
+---
+
+## Add management groups and actions
+
+A management group is a logical grouping of actions that you can invoke against an OPC UA asset, such as writing a value to a tag or calling a method. Actions must belong to a management group.
+
+To create a management group and define actions for it, see [Control OPC UA servers](howto-control-opc-ua.md). That article explains the different types of actions (simple writes, complex writes, and method calls) and the MQTT topics you use to invoke them.
 
 ## Update an asset
 
 # [Operations experience](#tab/portal)
 
-Find and select the asset you created previously. Use the **Asset details**, **Tags**, and **Events** tabs to make any changes:
+Find and select the asset you created previously. Use the **Asset details**, **data points**, and **Events** tabs to make any changes:
 
 :::image type="content" source="media/howto-configure-opc-ua/asset-update-property-save.png" alt-text="A screenshot that shows how to update an existing asset in the operations experience." lightbox="media/howto-configure-opc-ua/asset-update-property-save.png":::
 
-On the **Tags** tab, you can add tags, update existing tags, or remove tags.
+On the **view data points** tab for a dataset, you can add data points, update existing data points, or remove data points.
 
-To update a tag, select an existing tag and update the tag information. Then select **Update**:
+To update a data point, select an existing data point and update the data point information. Then select **Update**:
 
-:::image type="content" source="media/howto-configure-opc-ua/asset-update-tag.png" alt-text="A screenshot that shows how to update an existing tag in the operations experience." lightbox="media/howto-configure-opc-ua/asset-update-tag.png":::
+:::image type="content" source="media/howto-configure-opc-ua/asset-update-data-point.png" alt-text="A screenshot that shows how to update an existing data point in the operations experience." lightbox="media/howto-configure-opc-ua/asset-update-data-point.png":::
 
-To remove tags, select one or more tags and then select **Remove tags**:
+To remove data points, select one or more data points and then select **Remove data points**:
 
-:::image type="content" source="media/howto-configure-opc-ua/asset-remove-data-points.png" alt-text="A screenshot that shows how to delete a tag in the operations experience." lightbox="media/howto-configure-opc-ua/asset-remove-data-points.png":::
+:::image type="content" source="media/howto-configure-opc-ua/asset-remove-data-points.png" alt-text="A screenshot that shows how to delete a data point in the operations experience." lightbox="media/howto-configure-opc-ua/asset-remove-data-points.png":::
 
 You can also add, update, and delete events and properties in the same way.
 
@@ -292,10 +688,14 @@ When you're finished making changes, select **Save** to save your changes.
 
 # [Azure CLI](#tab/cli)
 
-To list your namespace assets associated with a specific endpoint, use the following command:
+To list your assets associated with a specific endpoint, use the following command:
 
 ```azurecli
-az iot ops ns asset query --device {your device name} --endpoint-name {your endpoint name}
+az iot ops ns asset query \
+  --device {your device name} \
+  --endpoint {your endpoint name} \
+  -g {your resource group name} \
+  --instance {your instance name}
 ```
 
 > [!TIP]
@@ -304,36 +704,148 @@ az iot ops ns asset query --device {your device name} --endpoint-name {your endp
 To view the details of the thermostat asset, use the following command:
 
 ```azurecli
-az iot ops ns asset show --name thermostat --instance {your instance name} -g {your resource group}
+az iot ops ns asset show \
+  --name thermostat \
+  --instance {your instance name} \
+  -g {your resource group}
 ```
 
 To update an asset, use the `az iot ops ns asset opcua update` command. For example, to update the asset's description, use a command like the following example:
 
 ```azurecli
-az iot ops ns asset opcua update --name thermostat --instance {your instance name} -g {your resource group} --description "Updated factory PLC"
+az iot ops ns asset opcua update \
+  --name thermostat \
+  --instance {your instance name} \
+  -g {your resource group} \
+  --description "Updated factory PLC"
 ```
 
-To list the thermostat asset's tags in a dataset, use the following command:
+To list the thermostat asset's data points in a dataset, use the following command:
 
 ```azurecli
-az iot ops ns asset opcua dataset show --asset thermostat --name default -g {your resource group} --instance {your instance name}
+az iot ops ns asset opcua dataset show \
+  --asset thermostat \
+  --name oven \
+  -g {your resource group} \
+  --instance {your instance name}
 ```
 
-To list the thermostat asset's events, use the following command:
+To list the thermostat asset's event groups, use the following command:
 
 ```azurecli
-az iot ops ns asset opcua event list --asset thermostat -g {your resource group} --instance {your instance name}
+az iot ops ns asset opcua event-group list \
+  --asset thermostat \
+  -g {your resource group} \
+  --instance {your instance name}
 ```
 
-To add a new tag to the thermostat asset, use a command like the following example:
+To add a new data point to the thermostat asset, use a command like the following example:
 
 ```azurecli
-az iot ops ns asset opcua dataset point add --asset thermostat --instance {your instance name} -g {your resource group name} --dataset default --name humidity --data-source "ns=3;s=FastUInt100"
+az iot ops ns asset opcua datapoint add \
+  --asset thermostat \
+  --instance {your instance name} \
+  -g {your resource group name} \
+  --dataset oven \
+  --name humidity \
+  --data-source "ns=3;s=FastUInt100"
 ```
 
-To delete a tag, use the `az iot ops ns asset opcua dataset point remove` command.
+To delete a data point, use the `az iot ops ns asset opcua dataset point remove` command.
 
-You can manage an asset's events by using the `az iot ops ns asset opcua event` commands.
+You can manage an asset's event groups by using the `az iot ops ns asset opcua event-group` commands.
+
+# [Bicep](#tab/bicep)
+
+To retrieve an asset by using Bicep, use a template like the following example:
+
+```bicep
+param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+  name: aioNamespaceName
+}
+
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' existing = {
+  name: 'thermostat'
+  parent: namespace
+}
+
+output asset object = asset
+```
+
+To update an existing asset, for example to modify the description and add a data point, use a template like the following example:
+
+```bicep
+param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+  name: aioNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
+  name: 'thermostat'
+  parent: namespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    displayName: 'thermostat'
+    description: 'Updated thermostat asset with voltage data point'
+    enabled: true
+
+    deviceRef: {
+      deviceName: 'opc-ua-connector-bicep'
+      endpointName: 'opc-ua-connector-0'
+    }
+
+    defaultDatasetsConfiguration: '{}'
+    defaultEventsConfiguration: '{}'
+
+    datasets: [
+      {
+        name: 'oven'
+        datasetConfiguration: '{}'
+        dataPoints: [
+          {
+            name: 'temperature'
+            dataSource: 'ns=3;s=FastUInt10'
+            dataPointConfiguration: '{}'
+          }
+          {
+            name: 'humidity'
+            dataSource: 'ns=3;s=FastUInt100'
+            dataPointConfiguration: '{}'
+          }
+          {
+            name: 'voltage'
+            dataSource: 'ns=3;s=FastUInt101'
+            dataPointConfiguration: '{}'
+          }
+        ]
+        destinations: [
+          {
+            target: 'Mqtt'
+            configuration: {
+              topic: 'azure-iot-operations/data/thermostat'
+              qos: 'Qos1'
+              retain: 'Never'
+              ttl: 3600
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ---
 
@@ -350,14 +862,88 @@ To delete an asset, select the asset you want to delete. On the **Asset**  detai
 To delete an asset, use a command that looks like the following example:
 
 ```azurecli
-az iot ops ns asset delete --name thermostat -g {your resource group name} --instance {your instance name}
+az iot ops ns asset delete \
+  --name thermostat \
+  -g {your resource group name} \
+  --instance {your instance name}
 ```
+
+# [Bicep](#tab/bicep)
+
+To delete individual resources by using Bicep, see [Deployment stacks](/azure/azure-resource-manager/bicep/quickstart-create-deployment-stacks).
 
 ---
 
+
+## Configure a shared endpoint
+
+By default, each asset opens its own dedicated OPC UA session. You can configure a *shared* endpoint so that the connector uses a single session for all assets that reference the endpoint. To learn more about shared endpoints and when to use them, see [Shared endpoint mode](overview-opc-ua-connector.md#shared-endpoint-mode).
+
+To enable shared mode, set `"shared": true` in the `additionalConfiguration` JSON of a device inbound endpoint:
+
+```json
+{
+  "properties": {
+    "endpoints": {
+      "inbound": {
+        "my-opcua-endpoint": {
+          "address": "opc.tcp://my-plc.my-namespace:4840",
+          "endpointType": "Microsoft.OpcUa",
+          "authentication": {
+            "method": "Anonymous"
+          },
+          "additionalConfiguration": "{\"shared\": true}"
+        }
+      }
+    }
+  }
+}
+```
+
+If you omit the `shared` property from `additionalConfiguration`, the default value is `false` and each asset opens its own dedicated OPC UA session.
+
+The `shared` flag is also supported on legacy `AssetEndpointProfile` resources. However, for new deployments, use the device/asset (namespaced) resource model.
+
+Multiple assets can then reference the same shared endpoint:
+
+```yaml
+apiVersion: namespaces.deviceregistry.microsoft.com/v1
+kind: Asset
+metadata:
+  name: asset-temperature
+  namespace: azure-iot-operations
+spec:
+  deviceRef:
+    deviceName: my-shared-plc
+    endpointName: my-opcua-endpoint
+  datasets:
+    - name: temperature-data
+      dataPoints:
+        - name: temperature
+          dataSource: "ns=2;i=1001"
+---
+apiVersion: namespaces.deviceregistry.microsoft.com/v1
+kind: Asset
+metadata:
+  name: asset-pressure
+  namespace: azure-iot-operations
+spec:
+  deviceRef:
+    deviceName: my-shared-plc
+    endpointName: my-opcua-endpoint
+  datasets:
+    - name: pressure-data
+      dataPoints:
+        - name: pressure
+          dataSource: "ns=2;i=1002"
+```
+
+Both `asset-temperature` and `asset-pressure` reuse the single OPC UA session that the connector established for `my-opcua-endpoint`.
+
 ## Related content
 
-- [Manage asset and device configurations](howto-manage-assets-devices.md)
+- [Manage asset and device configurations](howto-use-operations-experience.md)
+- [Control OPC UA servers](howto-control-opc-ua.md)
 - [Connector for OPC UA overview](overview-opc-ua-connector.md)
-- [az iot ops asset](/cli/azure/iot/ops/asset)
-- [az iot ops device](/cli/azure/iot/ops/asset/endpoint)
+- [az iot ops ns asset](/cli/azure/iot/ops/ns/asset)
+- [az iot ops ns device](/cli/azure/iot/ops/ns/device)

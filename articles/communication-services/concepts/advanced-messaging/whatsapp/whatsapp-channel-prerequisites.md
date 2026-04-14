@@ -7,7 +7,7 @@ manager: darmour
 services: azure-communication-services
 ms.author: anniewang
 ms.date: 06/18/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---
@@ -33,7 +33,7 @@ The following video demonstrates this process.
 
 - [Facebook account](https://www.facebook.com/)
 - [Active Meta Business account](https://www.facebook.com/business/tools/meta-business-suite)
-- An Azure account with an active subscription where you have the role of an owner. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription where you have the role of an owner. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create an Azure Communication Services resource in Azure portal
 

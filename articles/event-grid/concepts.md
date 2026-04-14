@@ -1,9 +1,12 @@
 ---
 title: Concepts (push delivery) in Event Grid basic
-description: Describes Azure Event Grid concepts that pertain to push delivery. Defines several key components of Event Grid.
+ms.reviewer: spelluru
+ms.author: spelluru
+author: spelluru
+description: Understand Azure Event Grid's push delivery model, including event handlers, retry mechanisms, and supported formats like CloudEvents.
+#customer intent: As a developer, I want to understand the key concepts of Azure Event Grid push delivery so that I can design event-driven applications effectively.
 ms.topic: concept-article
-ms.date: 12/12/2024
-# Customer intent: I want to basic concepts of Azure Event Grid. 
+ms.date: 11/28/2025
 ---
 
 # Azure Event Grid's push delivery - concepts
@@ -15,11 +18,11 @@ This article describes the main Event Grid concepts related to push delivery.
 
 ## Events
 
-An event is the smallest amount of information that fully describes something that happened in a system. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the `URL` of the Capture file. An event about a new order in your Orders microservice might have an `orderId` attribute and a `URL` attribute to the order’s state representation. 
+An event is the smallest amount of information that fully describes something that happened in a system. Every event has common information like the `source` of the event, the `time` the event took place, and a unique identifier. Every event also has specific information that's only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the `URL` of the Capture file. An event about a new order in your Orders microservice might have an `orderId` attribute and a `URL` attribute to the order’s state representation. 
 
 ## CloudEvents
 
-Event Grid uses CNCF’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with the [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). The CloudEvents is an [extensible](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#cloudevent-attribute-extensions) event specification with [documented extensions](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/documented-extensions.md) for specific requirements. When using Event Grid, CloudEvents is the preferred event format because of its well-documented use cases ([modes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#13-content-modes) for transferring events, [event formats](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#14-event-formats), etc.), extensibility, and improved interoperability. CloudEvents improves interoperability by providing a common event format for publishing and consuming events. It allows for uniform tooling and standard ways of routing & handling events.
+Event Grid uses Cloud Native Computing Foundation (CNCF) open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification with the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) and the [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). CloudEvents is an [extensible](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#cloudevent-attribute-extensions) event specification with [documented extensions](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/documented-extensions.md) for specific requirements. CloudEvents is the preferred event format because of its well-documented use cases ([modes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#13-content-modes) for transferring events, [event formats](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#14-event-formats), and more), extensibility, and improved interoperability. CloudEvents improves interoperability by providing a common event format for publishing and consuming events. It allows for uniform tooling and standard ways of routing and handling events.
 
 The following table shows the current support for CloudEvents specification:
 
@@ -44,15 +47,15 @@ An event source is where the event happens. Each event source is related to one 
 
 ## Partners
 
-A partner is a kind of publisher that sends events from its system to make them available to Azure customers. A partner is typically a SaaS or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning?) provider that integrates with Azure Event Grid to help customers realize event-driven use cases across platforms. Partners not only can publish events to Azure Event Grid, but they can also receive events from it. These capabilities are enabled through the [Partner Events](partner-events-overview.md) feature.
+A partner is a kind of publisher that sends events from its system to make them available to Azure customers. A partner is typically a Software as a Service (SaaS) or [Enterprise Resource Planning (ERP)](https://en.wikipedia.org/wiki/Enterprise_resource_planning?) provider that integrates with Azure Event Grid to help customers realize event-driven use cases across platforms. Partners not only can publish events to Azure Event Grid, but they can also receive events from it. These capabilities are enabled through the [Partner Events](partner-events-overview.md) feature.
 
 ## Topics
 
-A topic holds events that have been published to Event Grid. You typically use a topic resource for a collection of related events. To respond to certain types of events, subscribers (an Azure service or other applications) decide which topics to subscribe to. There are several kinds of topics: custom topics, system topics, and partner topics.
+A topic holds events that you publish to Event Grid. You typically use a topic resource for a collection of related events. To respond to certain types of events, subscribers (an Azure service or other applications) decide which topics to subscribe to. There are several kinds of topics: custom topics, system topics, and partner topics.
 
 ## Custom topics
 
-Custom topics are also topics that are used with your applications. They were the first kind of topic designed to build event-driven integrations for custom applications. As a self-standing resource, they expose their own endpoint to which events are published.
+Custom topics are also topics that you use with your applications. They were the first type of topics designed to build event-driven integrations for custom applications. As a self-standing resource, they expose their own endpoint to which you publish events.
 
 Custom topics support [push delivery](push-delivery-overview.md). Consult [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if push delivery is the right approach given your requirements. You might also want to refer to article [Custom topics](custom-topics.md).
 
@@ -62,16 +65,16 @@ System topics are built-in topics provided by Azure services such as Azure Stora
 
 ## Partner topics
 
-Partner topics are a kind of topic used to subscribe to events published by a [partner](#partners). The feature that enables this type of integration is called [Partner Events](partner-events-overview.md). Through that integration, you get a partner topic where events from a partner system are made available. Once you have a partner topic, you create an [event subscription](#event-subscriptions) as you would do for any other kind of topic.
+Partner topics are a kind of topic used to subscribe to events published by a [partner](#partners). The feature that enables this type of integration is called [Partner Events](partner-events-overview.md). Through that integration, you get a partner topic where events from a partner system are made available. Once you have a partner topic, you create an [event subscription](#event-subscriptions) as you would do for any other type of topic.
 
 ## Event subscriptions
 
 > [!NOTE]
-> For information on event subscriptions under a namespace topic see this [concepts](concepts-event-grid-namespaces.md) article.
+> For information on event subscriptions under a namespace topic, see this [concepts](concepts-event-grid-namespaces.md) article.
 
-A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md). Event subscriptions for custom, system, and partner topics as well as Domains feature the same resource properties. 
+A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md). Event subscriptions for custom, system, partner topics, and domains feature the same resource properties. 
 
-For examples of creating subscriptions for custom, system, and partner topics as well as Domains, see:
+For examples of creating subscriptions for custom, system, partner topics, and domains, see:
 
 - [Create custom topic and subscribe to events using Azure CLI](scripts/cli-subscribe-custom-topic.md)
 - [Azure PowerShell samples for Event Grid](powershell-samples.md)
@@ -81,27 +84,27 @@ For information about getting your current Event Grid subscriptions, see [Query 
 
 ## Event subscription expiration
 
-You can set an expiration time for event subscriptions associated to custom, system, partner, and domain topics as well as to Domain subscriptions. The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time and you don't want to worry about cleaning up those subscriptions. For example, when creating an event subscription to test a scenario, you might want to set an expiration.
+You can set an expiration time for event subscriptions associated to custom, system, partner, and domain topics, and domain subscriptions. The event subscription automatically expires after that date. Set an expiration for event subscriptions that you only need for a limited time and you don't want to worry about cleaning up those subscriptions. For example, when creating an event subscription to test a scenario, you might want to set an expiration.
 
 For an example of setting an expiration, see [Subscribe with advanced filters](how-to-filter-events.md#subscribe-with-advanced-filters).
 
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent when using [push delivery](push-delivery-overview.md). The handler takes some further action to process the event. When using push delivery, Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
+From an Event Grid perspective, an event handler is the place where the event is sent when using [push delivery](push-delivery-overview.md). The handler takes some further action to process the event. Push delivery in Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
 
 For information about delivering events to any of the supported Event Grid handlers, see [Event handlers in Azure Event Grid](event-handlers.md).
 
 ## Security
 
-Event Grid provides security for subscribing to topics and when  publishing events to topics. When subscribing, you must have adequate permissions on the Event Grid topic. If using push delivery, the event handler is an Azure service, and a managed identity is used to authenticate Event Grid, the managed identity should have an appropriate RBAC role. For example, if sending events to Event Hubs, the managed identity used in the event subscription should be a member of the Event Hubs Data Sender role. When publishing, you must have a SAS token or key authentication for the topic. For more information, see [Event Grid security and authentication](security-authentication.md).
+Event Grid provides security for subscribing to topics and when publishing events to topics. When subscribing, you must have adequate permissions on the Event Grid topic. If you use push delivery, the event handler is an Azure service, and a managed identity authenticates Event Grid, the managed identity should have an appropriate RBAC role. For example, if you send events to Event Hubs, the managed identity used in the event subscription should be a member of the Event Hubs Data Sender role. When publishing, you must have a SAS token or key authentication for the topic. For more information, see [Event Grid security and authentication](security-authentication.md).
 
 ## Event delivery
 
-If Event Grid can't confirm that an event has been received by the subscriber's endpoint when using push delivery, it redelivers the event. For more information, see [Event Grid message delivery and retry](delivery-and-retry.md).
+If Event Grid can't confirm that the subscriber's endpoint received an event when using push delivery, it redelivers the event. For more information, see [Event Grid message delivery and retry](delivery-and-retry.md).
 
 ## Batching
 
-When you use a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios.
+When you use a custom topic, you must always publish events in an array. It can be a batch of one for low-throughput scenarios.
 
 ## Inline event type definitions
 
@@ -109,7 +112,7 @@ If you're a [partner](partner-events-overview-for-partners.md), you can define t
 
 ## Availability zones
 
-Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. For more information about availability zones, see [Regions and availability zones](../reliability/availability-zones-overview.md).
+Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, the remaining two zones support regional services, capacity, and high availability. For more information about availability zones, see [Regions and availability zones](/azure/reliability/availability-zones-overview).
 
 ## Related content
 

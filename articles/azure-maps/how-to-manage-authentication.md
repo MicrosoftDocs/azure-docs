@@ -186,7 +186,7 @@ Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 [application categories]: ../active-directory/develop/authentication-flows-app-scenarios.md#application-categories
 [Microsoft Entra ID]: ../active-directory/fundamentals/active-directory-whatis.md
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [managed identities for Azure resources]: ../active-directory/managed-identities-azure-resources/overview.md
 [Managed identity types]: ../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types
 [An Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account

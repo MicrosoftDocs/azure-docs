@@ -6,17 +6,16 @@ ms.topic: how-to
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: nijelsf
-ms.date: 03/31/2025 
+ms.date: 10/06/2025 
 ---
 
-# Use Managed Identity for SQL Database authentication in Azure HDInsight 
+# Use managed identity for SQL database authentication in Azure HDInsight 
 
+HDInsight added the Managed Identity (MI) option for authenticating SQL databases within its cluster offerings and providing a more secure authentication mechanism. 
 
-HDInsight added the Managed Identity option for authenticating SQL databases within its cluster offerings and providing a more secure authentication mechanism. 
+This article outlines the process of using the Managed Identity option for SQL database authentication when creating an HDInsight cluster. 
 
-This article outlines the process of using the Managed Identity (MSI) option for SQL Database authentication when creating an HDInsight cluster. 
-
-The Managed Identity (MI) option is available for the following Databases:
+The managed identity option is available for the following databases:
 
 | Databases | Host on Behalf of (HoBo)  DB  | Bring Your Own (BYO) DB |
 |-|-|-|
@@ -26,34 +25,33 @@ The Managed Identity (MI) option is available for the following Databases:
 |Ranger (ESP)|❌ | ❌ |
 
 > [!NOTE]
-> * Managed Identity (MI) is currently available only in public regions. It will be rolled out to other regions (Federal and China regions) in future releases.
-> * MI option isn't enabled by default. To get it enabled, submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with your subscription and region details.
+> Managed identity change is available in public regions. For use in other regions (Federal and China regions), please contact [support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) for assistance.
 
 > [!IMPORTANT]
-> * It's recommended not to update the Managed Identity after cluster recreation as it can disrupt cluster operation.
-> * When you recreate an MSI with the same name, you must recreate the contained user and reassign roles, as the new MSI will have different object and client IDs even if the name remains unchanged.
+> * It's recommended not to update the managed identity after cluster recreation as it can disrupt cluster operation.
+> * When you recreate a managed identity with the same name, you must recreate the contained user and reassign roles, as the new managed identity have different object ID and client ID even if the name remains unchanged.
 
-## Steps to Use Managed Identity during cluster creation in Azure portal
+## Steps to use managed identity during cluster creation in Azure portal
 
-1. During cluster creation, navigate to the Storage section and select the SQL database for Ambari/Hive/Oozie. Choose Managed Identity as the Authentication method.
+1. During cluster creation, navigate to the Storage section and select the SQL database for Ambari/Hive/Oozie. Choose managed identity as the authentication method.
   
    :::image type="content" source="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/basic-tab.png" alt-text="Screenshot showing the basic tab." border="true" lightbox="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/basic-tab.png":::
 
-1. Select the Managed Identity to authenticate with SQL Database.
+1. Select the managed identity to authenticate with the SQL database.
   
    :::image type="content" source="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/storage-tab.png" alt-text="Screenshot showing the storage tab." border="true" lightbox="./media/use-managed-identity-for-sql-database-authentication-in-azure-hdinsight/storage-tab.png":::
    
-1. Create a contained user with the Managed identity in the corresponding SQL database.
+1. Create a contained user with the managed identity in the corresponding SQL database.
 
    Follow these steps in the Azure SQL database query editor to create a database user and grant it read-write permissions. Perform these steps for each SQL Database you're going to use for different services such as Ambari, Hive, or Oozie.
    
 
    > [!NOTE]
-   > User name must contain the original MSI name extended by a user-defined suffix. As best practice, the suffix can include an initial part of its Object ID. 
+   > User name must contain the original managed identity name extended by a user-defined suffix. As best practice, the suffix can include an initial part of its Object ID. 
 Object ID of managed identity can be obtained from portal on the managed identity portal page.
    >
    > For example: 
-   > * MSI Name: contosoMSI 
+   > * MI Name: contosoMSI 
    > * Object ID: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`
    > * user_name could be `contosoMSI_aaaaaaaa`
 
@@ -83,4 +81,4 @@ Object ID of managed identity can be obtained from portal on the managed identit
     ALTER ROLE db_view_def ADD MEMBER {user_name};  
     ``` 
 
-1. After entering the necessary details, proceed with Cluster creation on the portal.  
+1. After entering the necessary details, proceed with cluster creation on the portal.  

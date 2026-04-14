@@ -1,8 +1,8 @@
 ---
 title: Configure Azure Event Hubs and Kafka data flow endpoints in Azure IoT Operations
 description: Learn how to configure data flow endpoints for Kafka in Azure IoT Operations.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -16,8 +16,6 @@ ms.custom:
 ---
 
 # Configure Azure Event Hubs and Kafka data flow endpoints
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 To set up bi-directional communication between Azure IoT Operations and Apache Kafka brokers, you can configure a data flow endpoint. This configuration allows you to specify the endpoint, Transport Layer Security (TLS), authentication, and other settings.
 
@@ -59,7 +57,7 @@ Once the Azure Event Hubs namespace and event hub are configured, you can create
 1. In the [operations experience](https://iotoperations.azure.com/), select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Azure Event Hubs** > **New**.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Event Hubs data flow endpoint.":::
+    :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Event Hubs data flow endpoint." lightbox="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png":::
 
 1. Enter the following settings for the endpoint:
 
@@ -169,7 +167,9 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -299,7 +299,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To use connection string for authentication to Event Hubs, use the SASL authentication method and configure with SASL type as "Plain" and configure name of the secret that contains the connection string.
 
@@ -339,7 +341,7 @@ To configure a data flow endpoint for non-Event-Hub Kafka brokers, set the host,
 1. In the [operations experience](https://iotoperations.azure.com/), select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Custom Kafka Broker** > **New**.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations experience to create a Kafka data flow endpoint.":::
+   :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations experience to create a Kafka data flow endpoint." lightbox="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png":::
 
 1. Enter the following settings for the endpoint:
 
@@ -439,7 +441,9 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -528,7 +532,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -576,7 +582,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -655,7 +663,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -735,7 +745,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
 kubectl create secret generic sasl-secret -n azure-iot-operations \
@@ -806,7 +818,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -826,7 +840,7 @@ You can set advanced settings for the Kafka data flow endpoint such as TLS, trus
 
 In the operations experience, select the **Advanced** tab for the data flow endpoint.
 
-:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations experience to set Kafka data flow endpoint advanced settings.":::
+:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations experience to set Kafka data flow endpoint advanced settings." lightbox="media/howto-configure-kafka-endpoint/kafka-advanced.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -880,7 +894,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Under `kafkaSettings`, you can configure additional settings for the Kafka endpoint.
 
@@ -937,7 +953,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -981,7 +999,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -1005,7 +1025,7 @@ kubectl create configmap client-ca-configmap --from-file root_ca.crt -n azure-io
 The consumer group ID is used to identify the consumer group that the data flow uses to read messages from the Kafka topic. The consumer group ID must be unique within the Kafka broker. 
 
 > [!IMPORTANT]
-> When the Kafka endpoint is used as [source](howto-create-dataflow.md#source), the consumer group ID is required. Otherwise, the data flow can't read messages from the Kafka topic, and you get an error "Kafka type source endpoints must have a consumerGroupId defined".
+> When the Kafka endpoint is used as [source](howto-configure-dataflow-source.md), the consumer group ID is required. Otherwise, the data flow can't read messages from the Kafka topic, and you get an error "Kafka type source endpoints must have a consumerGroupId defined".
 
 # [Operations experience](#tab/portal)
 
@@ -1030,7 +1050,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -1078,7 +1100,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -1137,7 +1161,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -1196,7 +1222,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -1246,7 +1274,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -1284,7 +1314,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -1309,7 +1341,7 @@ When a Kafka endpoint is a data flow destination, all MQTT v5 specification defi
 
 MQTT v5 user property key value pairs are directly translated to Kafka user headers. If a user header in a message has the same name as a built-in MQTT property (for example, a user header named "Correlation Data") then whether forwarding the MQTT v5 specification property value or the user property is undefined.
 
-Data flows never receive these properties from an MQTT Broker. Thus, a data flow never forwards them:
+Data flows never receive these properties from an MQTT broker. Thus, a data flow never forwards them:
 
 * Topic Alias
 * Subscription Identifiers
@@ -1441,7 +1473,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:

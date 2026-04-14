@@ -3,13 +3,15 @@ title: Use Microsoft Entra for cache authentication
 description: Learn how to use Microsoft Entra with Azure Cache for Redis.
 ms.custom: references_regions, ignite-2024
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/22/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ---
 
 # Use Microsoft Entra for cache authentication
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis offers two methods to [authenticate](cache-configure.md#authentication) to your cache instance: access keys and Microsoft Entra.
 

@@ -26,10 +26,7 @@ ms.custom:
 
 This article describes how [Azure App Service](overview.md) runs Python apps, how you can migrate existing apps to Azure, and how you can customize the behavior of App Service when you need to. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
-The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` when you deploy a [Git repository](deploy-local-git.md) or when you deploy a [zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy).
-
-> [!NOTE]
-> App Service currently requires `requirements.txt` in your project's root directory even if you have a `pyproject.toml`. See [Generate requirements.txt from pyproject.toml](#generate-requirementstxt-from-pyprojecttoml) for recommended approaches.
+The App Service deployment engine automatically activates a virtual environment and installs dependencies from a `requirements.txt`, `pyproject.toml`, or `setup.py` file when you deploy a [Git repository](deploy-local-git.md) or when you deploy a [zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy).
 
 This article provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used App Service, first complete the [Python quickstart](quickstart-python.md) and [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial.
 
@@ -62,7 +59,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
   - Set the Python version by using [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set):
 
     ```azurecli
-    az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.11"
+    az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.14"
     ```
 
   - Show all Python versions that are supported in App Service by using [az webapp list-runtimes](/cli/azure/webapp#az-webapp-list-runtimes):
@@ -84,7 +81,17 @@ The App Service build system, called Oryx, performs the following steps when you
 
 1. Run a custom pre-build script, if that step is specified by the `PRE_BUILD_COMMAND` setting. (The script can itself run other Python and Node.js scripts, pip and npm commands, and Node-based tools like Yarn, for example, `yarn install` and `yarn build`.)
 
-1. Run `pip install -r requirements.txt`. The *requirements.txt* file must be in the project's root folder. If it's not, the build process reports the error "Could not find setup.py or requirements.txt; Not running pip install."
+1. Install dependencies. The build system checks for the following files in the project root:
+    - *requirements.txt*: Runs `pip install -r requirements.txt`.
+    - *pyproject.toml* with *uv.lock*: Uses `uv`.
+    - *pyproject.toml* with *poetry.lock*: Uses `poetry`.
+    - *pyproject.toml*: Uses `poetry`.
+    - *setup.py*: Runs `pip install .`.
+
+    > [!NOTE]
+    > If *pyproject.toml* is present but *uv.lock* is missing, App Service defaults to using Poetry, even if *poetry.lock* is also missing. To use `uv`, you must include *uv.lock* in your deployment.
+
+    If none of these files are found, the build process reports the error "Could not find setup.py or requirements.txt; Not running pip install."
 
 1. If *manage.py* is found in the root of the repository (which indicates a Django app), run `manage.py collectstatic`. However, if the `DISABLE_COLLECTSTATIC` setting is `true`, this step is skipped.
 
@@ -112,50 +119,27 @@ For more information on how App Service runs and builds Python apps in Linux, se
 > [!NOTE]
 > Always use relative paths in all pre-build and post-build scripts because the build container in which Oryx runs is different from the runtime container in which the app runs. Never rely on the exact placement of your app project folder within the container (for example, that it's placed under *site/wwwroot*).
 
-## Generate requirements.txt from pyproject.toml
-
-Currently, App Service doesn't directly support `pyproject.toml`. If you use tools like Poetry or uv, the recommended approach is to generate a compatible *requirements.txt* file before deployment in your project's root:
-
-### Using Poetry
-
-Generate *requirements.txt* by using [Poetry](https://python-poetry.org/) with the [export plugin](https://github.com/python-poetry/poetry-plugin-export):
-
-```sh
-
-poetry export -f requirements.txt --output requirements.txt --without-hashes
-
-```
-
-### Using uv
-
-Generate *requirements.txt* by using [uv](https://docs.astral.sh/uv/concepts/projects/sync/#exporting-the-lockfile):
-
-```sh
-
-uv export --format requirements-txt --no-hashes --output-file requirements.txt
-
-```
 
 ## Migrate existing applications to Azure
 
 You can redeploy existing web applications to Azure as follows:
 
 1. **Source repository**. Maintain your source code in a suitable repository, like GitHub, which enables you to set up continuous deployment later in this process.
-    - Your *requirements.txt* file must be at the root of your repository if you want App Service to automatically install the necessary packages.
+    - Your dependency file (such as *requirements.txt*, *pyproject.toml*, or *setup.py*) must be at the root of your repository if you want App Service to automatically install the necessary packages.
 
 1. **Database**. If your app depends on a database, create the necessary resources on Azure as well.
 
 1. **App Service resources**. Create a resource group, App Service plan, and App Service web app to host your application. You can create these resources easily by running the Azure CLI command [`az webapp up`](/cli/azure/webapp#az-webapp-up). Or you can create and deploy resources as shown in the [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial. Replace the names of the resource group, App Service plan, and web app with names that are suitable for your application.
 
 1. **Environment variables**. If your application requires any environment variables, create equivalent [App Service application settings](configure-common.md#configure-app-settings). These App Service settings appear to your code as environment variables, as described in [Access environment variables](#access-app-settings-as-environment-variables).
-    - Database connections, for example, are often managed via such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md#3-secure-connection-secrets-and-add-secret_key).
+    - Database connections, for example, are often managed via such settings, as shown in [Tutorial: Deploy a Django web app with PostgreSQL - verify connection settings](tutorial-python-postgresql-app-django.md#secure-connection-secrets-and-add-secret_key).
     - See [Production settings for Django apps](#production-settings-for-django-apps) for specific settings for typical Django apps.
 
 1. **App startup**. Review the section [Container startup process](#container-startup-process) later in this article for information about how App Service attempts to run your app. App Service uses the Gunicorn web server by default. Gunicorn must be able to find your app object or *wsgi.py* folder. If you need to, you can [Customize the startup command](#customize-startup-command).
 
 1. **Continuous deployment**. Set up continuous deployment from GitHub Actions, Bitbucket, or Azure Repos as described in the article [Continuous deployment to Azure App Service](deploy-continuous-deployment.md). Or set up continuous deployment from local Git as described in the article [Local Git deployment to Azure App Service](deploy-local-git.md).
 
-1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container by using SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#5-generate-database-schema).
+1. **Custom actions**. To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container by using SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md#generate-database-schema).
     - When using continuous deployment, you can perform those actions by using post-build commands, as described earlier in the [Customize build automation](#customize-build-automation) section.
 
 With these steps completed, you should be able to commit changes to your source repository and have those updates automatically deployed to App Service.
@@ -244,13 +228,13 @@ This container has the following characteristics:
 - Apps are run by the [Gunicorn WSGI HTTP Server](https://gunicorn.org/) with the extra arguments `--bind=0.0.0.0 --timeout 600`.
   - You can provide configuration settings for Gunicorn by [customizing the startup command](#customize-startup-command).
 
-  - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy, as described in [Deploying Gunicorn](https://docs.gunicorn.org/en/latest/deploy.html).
+  - To protect your web app from accidental or deliberate DDOS attacks, Gunicorn is run behind an Nginx reverse proxy, as described in [Deploying Gunicorn](https://gunicorn.org/deploy).
 
 - By default, the base container image includes only the Flask web framework, but the container supports other frameworks that are WSGI-compliant and compatible with Python 3.6 and later, such as Django.
 
-- To install other packages, such as Django, create a [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files) file in the root of your project that specifies your direct dependencies. App Service then installs those dependencies automatically when you deploy your project.
+- To install other packages, such as Django, create a [*requirements.txt*](https://pip.pypa.io/en/stable/user_guide/#requirements-files), *pyproject.toml*, or *setup.py* file in the root of your project that specifies your direct dependencies. App Service then installs those dependencies automatically when you deploy your project.
 
-    The *requirements.txt* file must be in the project root or dependencies won't be installed. If this file isn't in the root, the build process reports the error "Could not find setup.py or requirements.txt; Not running pip install." If you encounter this error, check the location of your requirements file.
+    The dependency file must be in the project root or dependencies won't be installed. If this file isn't in the root, the build process reports the error "Could not find setup.py or requirements.txt; Not running pip install." If you encounter this error, check the location of your requirements file.
 
 - App Service automatically defines an environment variable named `WEBSITE_HOSTNAME` that contains the web app's URL, such as `msdocs-hello-world.azurewebsites.net`. It also defines `WEBSITE_SITE_NAME`, which contains the name of your app, such as `msdocs-hello-world`.
 
@@ -332,7 +316,7 @@ App Service ignores any errors that occur when processing a custom startup comma
     gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi
     ```
 
-    For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html). If you're using autoscale rules to scale your web app up and down, you should also dynamically set the number of Gunicorn workers by using the `NUM_CORES` environment variable in your startup command. For example, `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of Gunicorn workers, see [the Gunicorn FAQ](https://docs.gunicorn.org/en/stable/design.html#how-many-workers).
+    For more information, see [Running Gunicorn](https://gunicorn.org/run/). If you're using autoscale rules to scale your web app up and down, you should also dynamically set the number of Gunicorn workers by using the `NUM_CORES` environment variable in your startup command. For example, `--workers $((($NUM_CORES*2)+1))`. For more information on setting the recommended number of Gunicorn workers, see [the Gunicorn FAQ](https://gunicorn.org/design/#how-many-workers).
 
 - **Enable production logging for Django**: Add the `--access-logfile '-'` and `--error-logfile '-'` arguments to the command line:
 
@@ -343,7 +327,7 @@ App Service ignores any errors that occur when processing a custom startup comma
 
     These logs will appear in the [App Service log stream](#access-diagnostic-logs).
 
-    For more information, see [Gunicorn logging](https://docs.gunicorn.org/en/stable/settings.html#logging).
+    For more information, see [Gunicorn logging](https://gunicorn.org/deploy/#logging).
 
 - **Custom Flask main module**: By default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, you must customize the startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named *myapp*, this is the command:
 
@@ -403,7 +387,7 @@ Use the following steps to access the deployment logs:
 1. On the **Logs** tab, select the **Commit ID** for the most recent commit.
 1. On the **Log details** page that appears, select the **Show Logs** link that appears next to **Running oryx build**.
 
-Build issues, like incorrect dependencies in *requirements.txt* and errors in pre-build or post-build scripts, appear in these logs. Errors also appear if your requirements file isn't named *requirements.txt* or doesn't appear in the root folder of your project.
+Build issues, like incorrect dependencies in your dependency file and errors in pre-build or post-build scripts, appear in these logs. Errors also appear if your dependency file isn't found in the root folder of your project.
 
 ## Open SSH session in a browser
 
@@ -423,7 +407,7 @@ In general, the first step in troubleshooting is to use App Service diagnostics:
 1. Select **Availability and Performance**.
 1. Examine the information in **Application Logs**, **Container Crash**, and **Container Issues**, where the most common issues appear.
 
-Next, examine both the [deployment logs](#access-deployment-logs) and the [app logs](#access-diagnostic-logs) for any error messages. These logs often identify specific issues that can prevent app deployment or app startup. For example, the build can fail if your *requirements.txt* file has the wrong file name or isn't present in your project root folder.
+Next, examine both the [deployment logs](#access-deployment-logs) and the [app logs](#access-diagnostic-logs) for any error messages. These logs often identify specific issues that can prevent app deployment or app startup. For example, the build can fail if your dependency file isn't present in your project root folder.
 
 The following sections provide guidance for specific issues.
 
@@ -459,9 +443,9 @@ The following sections provide guidance for specific issues.
 
 #### Could not find setup.py or requirements.txt
 
-- **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."** The Oryx build process failed to find your *requirements.txt* file.
+- **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."** The Oryx build process failed to find your *requirements.txt*, *pyproject.toml*, or *setup.py* file.
 
-  - Connect to the web app's container via [SSH](#open-ssh-session-in-a-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make sure the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
+  - Connect to the web app's container via [SSH](#open-ssh-session-in-a-browser) and verify that your dependency file is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make sure the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
 
 #### ModuleNotFoundError when app starts
 
@@ -473,7 +457,7 @@ When attempting to run database migrations with a Django app, you might see "sql
 
 Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
 
-If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md), check that you completed the steps in [Verify connection settings](tutorial-python-postgresql-app-django.md#3-secure-connection-secrets-and-add-secret_key).
+If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app-django.md), check that you completed the steps in [Verify connection settings](tutorial-python-postgresql-app-django.md#secure-connection-secrets-and-add-secret_key).
 
 #### Other issues
 

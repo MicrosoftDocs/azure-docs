@@ -15,16 +15,15 @@ ms.collection: usx-security
 
 # Collect SAP HANA audit logs in Microsoft Sentinel
 
-This article explains how to collect audit logs from your SAP HANA database.
+This article explains how to collect audit logs from your SAP HANA database in customer managed environments.
 
 Content in this article is intended for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
 > [!IMPORTANT]
 > Microsoft Sentinel SAP HANA support is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-> [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Preview).
->
+> [!IMPORTANT]
+> For environments managed by SAP such as SAP RISE (S/4HANA Cloud, private edition), SAP HANA database audit logs are collected by SAP using the service **SAP LogServ** only. It integrates with Microsoft Sentinel for SAP applications natively re-using the built-in analytic rules. Learn more from the [Blog Series: SAP LogServ Integration with Microsoft Sentinel](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/ultimate-blog-series-sap-logserv-integration-with-microsoft-sentinel/ba-p/14126401)
 
 ## Prerequisites
 

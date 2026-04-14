@@ -3,7 +3,7 @@ title: Data tool to copy new and updated files incrementally
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files based on LastModifiedDate.
 author: dearandyxu
 ms.author: yexu
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
 ms.custom: sfi-image-nochange
@@ -29,7 +29,7 @@ In this tutorial, you'll complete these tasks:
 
 ## Prerequisites
 
-* **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure Storage account**: Use Blob storage for the source and sink data stores. If you don't have an Azure Storage account, follow the instructions in [Create a storage account](../storage/common/storage-account-create.md).
 
 ## Create two containers in Blob storage

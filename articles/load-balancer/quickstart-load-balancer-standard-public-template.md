@@ -7,7 +7,7 @@ author: mbender-ms
 manager: KumudD
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 11/26/2024
+ms.date: 01/28/2026
 ms.author: mbender
 ms.custom:
   - mvc
@@ -37,7 +37,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 
@@ -92,7 +92,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 1. Enter the values.
 
-   The template deployment creates three availability zones. Availability zones are supported only in [certain regions](../reliability/availability-zones-overview.md). Use one of the supported regions. If you aren't sure, enter **EastUS**.
+   The template deployment creates three availability zones. Availability zones are supported only in [certain regions](/azure/reliability/availability-zones-overview). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
    The resource group name is the project name with **`rg`** appended. You need the resource group name in the next section.
 

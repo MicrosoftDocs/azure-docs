@@ -277,5 +277,5 @@ For more information about programmatic access to [Azure Notification Hub Metric
 [Get started with Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Templates]: /previous-versions/azure/azure-services/dn530748(v=azure.100)
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
-[About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options
+[About FCM messages]: https://firebase.google.com/docs/cloud-messaging/
 [EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend

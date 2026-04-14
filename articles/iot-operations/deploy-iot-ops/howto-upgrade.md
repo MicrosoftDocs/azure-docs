@@ -16,7 +16,7 @@ Learn how to upgrade an Azure IoT Operations deployment to a newer version.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an account, you can create a [free account](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ## Understand upgrade support
@@ -128,7 +128,7 @@ To ensure zero data loss and high availability during deployment upgrades, the M
 
 If a failure occurs during the upgrade process, the health manager pod automatically restarts the upgrade process while ensuring no loss of data or connectivity.
 
-Rolling updates can only occur if the MQTT broker is deployed with two or more backend replicas. MQTT broker upgrades aren't supported for single-replica deployments. When you deploy Azure IoT Operations, you specify the number of backend replicas to create in the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command with the `--broker-backend-rf` parameter.
+Rolling updates can only occur if the MQTT broker is deployed with two or more backend replicas. MQTT broker upgrades aren't supported for single-replica deployments. When you deploy Azure IoT Operations, you specify the number of backend replicas to create in the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command with the `--broker-backend-rf` parameter. The minimum value for this parameter is `2`. Setting the backend redundancy factor to `1` results in a deployment error.
 
 ## Supported versions
 

@@ -218,6 +218,20 @@ To view the list of resources emitting logs to Elastic, select **Elastic deploym
 
 ## Monitor multiple subscriptions
 
+### Prerequisites
+
+- To perform these actions, you must have both of the following Azure permissions:
+
+   - `Microsoft.Authorization/roleAssignments/write`
+   - `Microsoft.Authorization/roleAssignments/delete`
+
+- The resource provider for Elastic (Elastic.Observability) must be registered in the target subscription.
+
+### Add subscriptions 
+
+> [!IMPORTANT]
+> When you link a subscription to an Elastic resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md).
+
 To monitor multiple subscriptions:
 
 1. Select **Elastic deployment configuration** > **Monitored Subscriptions**.
@@ -238,6 +252,9 @@ To monitor multiple subscriptions:
 Once the subscription is added, the status changes to *Active*.
 
 ### Remove subscriptions
+
+> [!IMPORTANT]
+> When you unlink a subscription from an Elastic resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md). 
 
 To unlink subscriptions from an Elastic resource:
 
@@ -462,11 +479,11 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 
 ## Get support
 
-Contact [Elastic](https://cloud.elastic.co/help) for customer support.
+Contact [Elastic](https://cloud.elastic.co/help) for customer support. If your Elastic Cloud resource is not fully set up and you’re not able to access the Support page, send an email to support@elastic.co.
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview). From the left menu, select **Support + Troubleshooting** > **New support request**.
 
 ## Related content
 
 - [What is Azure private link?](../../private-link/private-link-overview.md)
-
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md)

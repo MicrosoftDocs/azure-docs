@@ -37,7 +37,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 To complete this quickstart you need:
 
-1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=visual-studio-code-tutorial-app-service-extension&mktingSource=visual-studio-code-tutorial-app-service-extension).
+1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 1. A GitHub account to fork a repository.
 
 ## 1 - Fork the sample repository
@@ -160,7 +160,7 @@ To complete this quickstart you need:
 
 1. From the left navigation, select **Deployment Center**.
 
-    ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](../../media/quickstart-java/azure-portal-configure-app-service-deployment-center.png)  
+    ![Screenshot of the App Service in the Azure portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](../../media/quickstart-java/azure-portal-configure-app-service-deployment-center.png)  
 
 1.  Under **Settings**, select a **Source**. For this quickstart, select _GitHub_.
 

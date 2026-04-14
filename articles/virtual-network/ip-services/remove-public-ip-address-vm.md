@@ -28,19 +28,19 @@ You can use the Azure portal, the Azure CLI, or Azure PowerShell to dissociate a
 
 # [Azure portal](#tab/azureportal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A virtual machine with a public IP address associated to it.
 
 # [Azure CLI](#tab/azurecli/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A virtual machine with a public IP address associated to it.
 - Install the [Azure CLI](/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](../../cloud-shell/overview.md). The Azure Cloud Shell is a free shell that you can run directly within the Azure portal. It has the Azure CLI preinstalled and configured to use with your account.
     - If using the CLI locally in Bash, sign in to Azure with `az login`.
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A virtual machine with a public IP address associated to it.
 - Install [PowerShell](/powershell/azure/install-azure-powershell), or use the [Azure Cloud Shell](../../cloud-shell/overview.md). The Azure Cloud Shell is a free shell that you can run directly within the Azure portal. It has PowerShell preinstalled and configured to use with your account.
     - If using PowerShell locally, sign in to Azure with `Connect-AzAccount`.

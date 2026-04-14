@@ -50,40 +50,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Windows instances** | Allow inbound connections on WinRM port 5985 (HTTP) for discovery of Windows servers.
 **Linux instances** | Allow inbound connections on port 22 (TCP) for discovery of Linux servers.<br/><br/> The instances should use `bash` as the default shell, otherwise discovery will fail.
 
-## Prepare an Azure user account
-
-To create a project and register the Azure Migrate appliance, you need an account with:
-
-* Contributor or Owner permissions on an Azure subscription.
-* Permissions to register Microsoft Entra apps.
-
-If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
-
-1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
-
-    :::image type="content" source="./media/tutorial-discover-aws/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
-
-1. In the **Subscriptions** page, select the subscription in which you want to create a project.
-
-1. Select **Access control (IAM)**.
-
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-
-    | Setting | Value |
-    | --- | --- |
-    | Role | Contributor or Owner |
-    | Assign access to | User |
-    | Members | azmigrateuser |
-
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
-
-1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
-
-1. In the portal, go to **Microsoft Entra ID** > **Users**.
-
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+[!INCLUDE [migrate-rbac-permissions](includes/migrate-rbac-permissions.md)]
 
 ## Prepare AWS instances
 
@@ -94,7 +61,7 @@ Set up an account that the appliance can use to access AWS instances.
 - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
     - For Windows servers, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
     - For Linux servers:
-        1. Sign into each Linux  machine.
+        1. Sign into each Linux machine.
         2. Open the sshd_config file: vi /etc/ssh/sshd_config
         3. In the file, locate the **PasswordAuthentication** line, and change the value to **yes**.
         4. Save the file and close it. Restart the ssh service.
@@ -154,26 +121,7 @@ In **2: Download Azure Migrate appliance**, select **Download**.
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
-
-1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
-3.  Verify the latest appliance versions and hash values:
-    - For the public cloud:
-
-        **Scenario** | **Download*** | **Hash value**
-        --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
-
-    - For Azure Government:
-
-        **Scenario** | **Download*** | **Hash value**
-        --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
- 
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### 3. Run the Azure Migrate installer script
 The installer script does the following:

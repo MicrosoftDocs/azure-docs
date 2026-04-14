@@ -5,9 +5,10 @@ author: lindseyshep
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 05/01/2025
+ms.topic: how-to
+ms.date: 11/04/2025
 ms.author: jkinma
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Request a credit for Withholding Tax on your account (India customers)

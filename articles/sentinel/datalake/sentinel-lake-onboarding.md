@@ -1,25 +1,61 @@
 ---
-title: Onboarding to Microsoft Sentinel data lake and graph (preview)
+title: Onboarding to Microsoft Sentinel data lake and graph
 titleSuffix: Microsoft Security  
 description: This article describes how to onboard to the Microsoft Sentinel data lake and graph
 author: EdB-MSFT
 ms.topic: how-to  
-ms.date: 09/30/2025
+ms.date: 11/13/2025
 ms.author: edbaynash
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
+ms.subservice: sentinel-platform
   
 # Customer intent: As an administrator I want to onboard to the Microsoft Sentinel data lake so that I can benefit from the storage and analysis capabilities of the data lake.
 ---
   
-# Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph (preview)
+# Onboard to Microsoft Sentinel data lake and Microsoft Sentinel graph 
 
-The [Microsoft Sentinel data lake](sentinel-lake-overview.md)  is a tenant-wide repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. [Microsoft Sentinel graph (preview) ](sentinel-graph-overview.md) is a unified graph capability within Microsoft Sentinel platform powering graph-based experiences across security, compliance, identity, and the entire ecosystem. These solutions use advanced analytics, machine learning, graphs, and AI to help detect threats, investigate and respond to incidents, and improve overall security posture.
+The [Microsoft Sentinel data lake](sentinel-lake-overview.md)  is a tenant-wide repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. [Microsoft Sentinel graph](sentinel-graph-overview.md) is a unified graph capability within Microsoft Sentinel platform powering graph-based experiences across security, compliance, identity, and the entire ecosystem. These solutions use advanced analytics, machine learning, graphs, and AI to help detect threats, investigate and respond to incidents, and improve overall security posture.
 
 Microsoft Sentinel data lake and graph are available in the following solutions:
 +	[Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)
 +	[Microsoft Purview Data Security Investigations](/purview/insider-risk-management)
 +	[Microsoft Purview Insider Risk Management](/purview/data-security-investigations)
+
+## Prerequisites
+
+[!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
+
+To onboard to the Microsoft Sentinel data lake and graph in Microsoft Defender XDR, Data Security Investigations, and Insider Risk Management, you must meet the following prerequisites:
+
++ Microsoft Defender (`security.microsoft.com`) and Microsoft Sentinel must be configured. A Microsoft Defender XDR license isn't required to use Microsoft Sentinel data lake with Microsoft Sentinel in the Microsoft Defender portal.
++ An existing Azure [subscription](https://portal.azure.com/#view/Microsoft_Azure_Billing/CatalogBlade/appId/AddSubscriptionButton) and [resource group](https://portal.azure.com/#view/HubsExtension/ResourceGroupCreate.ReactView) to set up billing for the data lake. You must be the direct subscription owner - being the management-group-level subscription owner isn't sufficient. You can use your existing Microsoft Sentinel SIEM Azure subscription and resource group or create a new one. To learn more about billing, see [Plan costs and understand Microsoft Sentinel pricing and billing](../billing.md).
++ A Microsoft Sentinel primary workspace connected to Microsoft Defender portal. Your data lake is provisioned in the same region as your primary Sentinel workspace region.
++ You must have read privileges to the primary and other workspaces so they can be attached to the data lake. Only workspaces that reside in the same region as your primary Sentinel workspace region are attached to the data lake.
++ If your Microsoft 365 data isn't in the same region as the data lake, by onboarding to the data lake, you consent to ingest your Microsoft 365 data into the region where your data lake resides.
+
+> [!NOTE]
+> Before onboarding, check the availability of Microsoft Data Lake and Graph in your region by referring to [Geographical availability and data residency in Microsoft Sentinel](../geographical-availability-data-residency.md#supported-regions).
+
+
+### Other prerequisites for Microsoft Purview
+
++ Contributor access to the Microsoft Sentinel primary workspace to authorize ingestion of your Microsoft 365 activity data to the primary workspace.
++ Install and configure the following data connectors to send data to a Sentinel workspace attached to Defender:
+   - [Microsoft 365](../configure-data-connector.md#enable-a-data-connector). You must collect SharePoint record types for the graph to build.
+   - [Microsoft Entra ID](../connect-azure-active-directory.md). You must collect Sign-In Logs and User Risk Events.
+
+  The data risk graph is built from data ingested into Sentinel data lake through connectors for Office activity and Entra sign-in logs. 
+
+
+
+### Required roles
+
+To configure billing and enable asset data ingestion into the data lake, the following roles must be assigned to the tenant [member](/entra/fundamentals/users-default-permissions) account:
+
++ Azure Subscription owner or Subscription contributor for billing setup
++ Microsoft Entra Global Administrator, or Security Administrator for data ingestion authorization from Microsoft Entra, Microsoft 365, and Azure
++ Read access to all workspaces to enable their attachment to the data lake
+
 
 ## Changes that occur when onboarding to Sentinel data lake and graph
 When you onboard to data lake and graph, the process makes the following changes:
@@ -71,34 +107,7 @@ You can also use the following features in the Microsoft Purview solutions porta
 
 This article describes how customers using Microsoft Defender, Data Security Investigations, Insider Risk Management, and Microsoft Sentinel can onboard to the Microsoft Sentinel data lake. New Microsoft Sentinel customers can follow this procedure after their initial onboarding to these solutions.
 
-## Prerequisites
 
-[!INCLUDE [Customer-managed keys limitation](../includes/customer-managed-keys-limitation.md)]
-
-To onboard to the Microsoft Sentinel data lake and graph (preview) in Microsoft Defender XDR, Data Security Investigations, and Insider Risk Management, you must meet the following prerequisites:
-
-+ Microsoft Defender (`security.microsoft.com`) and Microsoft Sentinel must be configured. A Microsoft Defender XDR license isn't required to use Microsoft Sentinel data lake with Microsoft Sentinel in the Microsoft Defender portal.
-+ An existing Azure [subscription](https://portal.azure.com/#view/Microsoft_Azure_Billing/CatalogBlade/appId/AddSubscriptionButton) and [resource group](https://portal.azure.com/#view/HubsExtension/ResourceGroupCreate.ReactView) to set up billing for the data lake. You must be the direct subscription owner - being the management-group-level subscription owner is not sufficient. You can use your existing Microsoft Sentinel SIEM Azure subscription and resource group or create a new one. To learn more about billing, see [Plan costs and understand Microsoft Sentinel pricing and billing](../billing.md).
-+ A Microsoft Sentinel primary workspace connected to Microsoft Defender portal. Your data lake is provisioned in the same region as your primary Sentinel workspace region.
-+ You must have read privileges to the primary and other workspaces so they can be attached to the data lake. Only workspaces that reside in the same region as your primary Sentinel workspace region are attached to the data lake.
-+ If your Microsoft 365 data isn't in the same region as the data lake, by onboarding to the data lake, you consent to ingest your Microsoft 365 data into the region where your data lake resides.
-
-### Other prerequisites for Microsoft Purview
-
-+ Contributor access to the Microsoft Sentinel primary workspace to authorize ingestion of your Microsoft 365 activity data to the primary workspace.
-+ Install and configure the following data connectors to send data to a Sentinel workspace attached to Defender:
-   - [Microsoft 365](../configure-data-connector.md#enable-a-data-connector). You must collect SharePoint record types for the graph to build.
-   - [Microsoft Entra ID](../connect-azure-active-directory.md). You must collect Sign-In Logs and User Risk Events.
-
-  The data risk graph is built from data ingested into Sentinel data lake through connectors for Office activity and Entra sign-in logs. 
-
-### Required roles
-
-To configure billing and enable asset data ingestion into the data lake, the following roles must be assigned to the tenant [member](/entra/fundamentals/users-default-permissions) account:
-
-+ Azure Subscription owner for billing setup
-+ Microsoft Entra Global Administrator, or Security Administrator for data ingestion authorization from Microsoft Entra, Microsoft 365, and Azure
-+ Read access to all workspaces to enable their attachment to the data lake
 
 ## Policy exemption for Microsoft Sentinel data lake onboarding
 
@@ -114,7 +123,15 @@ During onboarding, your data lake is provisioned in the same [region](/azure/sen
 
 ## Existing Microsoft Sentinel workspaces
 
-You must connect your Microsoft Sentinel primary workspace to the Defender portal to onboard to the data lake. Your data lake is located in the same region as your primary Sentinel workspace. You can connect other workspaces in the same region as your primary workspace to the Defender portal so you can use them with the data lake. If you onboarded to the data lake, data in Microsoft Sentinel workspaces that are connected to Defender and enabled for use with the data lake. For more information on how to connect Microsoft Sentinel to the Defender portal, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
+You must connect your Microsoft Sentinel primary workspace to the Defender portal to onboard to the data lake. Your data lake is located in the same region as your primary Sentinel workspace. You can connect other workspaces in the same region as your primary workspace to the Defender portal so you can use them with the data lake. If you onboarded to the data lake, data in Microsoft Sentinel workspaces that are connected to Defender and enabled for use with the data lake. For more information on how to connect Microsoft Sentinel to the Defender portal, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard). 
+
+You can't choose which workspaces to onboard to the data lake. All workspaces connected to Defender in the same region as your primary Sentinel workspace are onboarded automatically. You can't offboard specific workspaces from the data lake on your own. If you want to offboard a workspace, [submit a support request](/defender-xdr/contact-defender-support).
+
+
+
+## Offboard from Microsoft Sentinel data lake and graph
+
+To disable Microsoft Sentinel data lake and graph, [submit a support request](/defender-xdr/contact-defender-support).
 
 ## Ready to get started?
 

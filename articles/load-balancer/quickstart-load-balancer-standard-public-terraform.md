@@ -7,7 +7,7 @@ author: mbender-ms
 manager: kumudD
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 04/01/2025
+ms.date: 01/28/2026
 ms.author: mbender
 ms.custom: devx-track-terraform
 #Customer intent: I want to create a load balancer by using Terraform so that I can load balance internet traffic to VMs.
@@ -32,7 +32,7 @@ This quickstart shows you how to deploy a standard load balancer to load balance
 > * Create an Azure Virtual Machine Extension using [azurerm_virtual_machine_extension](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_extension)
 
 ## Prerequisites
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 

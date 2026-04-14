@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.custom:
   - devx-track-azurecli
@@ -130,7 +130,7 @@ To reference a secret from Key Vault, you must first enable managed identity in 
 
 To enable managed identity in your container app, see [Managed identities](managed-identity.md).
 
-To grant access to Key Vault secrets, [create an access policy](/azure/key-vault/general/assign-access-policy) in Key Vault for the managed identity you created. Enable the "Get" secret permission on this policy.
+To grant access to Key Vault secrets, grant the Azure RBAC role [Key Vault Secrets User](/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-user) to the managed identity.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -586,6 +586,18 @@ To load specific secrets and specify their paths within the mounted volume, defi
 Mounting secrets as a volume isn't supported in PowerShell.
 
 ---
+
+## Troubleshoot Key Vault references
+
+When you reference secrets from Azure Key Vault, you might encounter issues during secret retrieval or synchronization. Here are common errors and resolutions:
+
+| Error | Cause | Resolution |
+|-------|-------|-----------|
+| Managed identity not enabled | The container app doesn't have a managed identity assigned. | Enable system-assigned or user-assigned managed identity on your container app. See [Managed identities](managed-identity.md). |
+| Identity not found | The specified managed identity doesn't exist or isn't assigned to the container app. | Verify the identity is created and assigned to the container app in the **Identity** section. |
+| Secret disabled in Key Vault | The secret is disabled in the Key Vault resource. | Go to your Key Vault in the Azure portal and enable the secret. |
+| Authentication failed | The managed identity lacks the required permissions to read the secret. | Grant the **Key Vault Secrets User** role to the managed identity on your Key Vault. See [Key Vault Secrets User](/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-user). |
+| RBAC permission denied | The managed identity has insufficient permissions to access the Key Vault. | Verify the RBAC role assignment on the Key Vault and ensure it includes read permissions for secrets. |
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Restore Azure PostgreSQL-Flexible server as Files using Azure portal
 description: Learn about how to restore Azure PostgreSQL-Flexible server as Files.
 ms.topic: how-to
-ms.date: 09/11/2025
+ms.date: 01/30/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -21,7 +21,7 @@ Before you restore from Azure Database for PostgreSQL Flexible server backups, r
 
 - Ensure that you have the required [permissions for the restore operation](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup).
 
-- Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the **AllowCrossTenantReplication** property set to **true**.
+- Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. Ensure that the target storage account for the restore has the **AllowCrossTenantReplication** property set to **true** and the **Permitted scope for copy operations** property set to **From any storage account**.
 
 - Ensure the target storage account for restoring backup as a file is accessible via a public network. If the storage account uses a private endpoint, [update its public network access settings](backup-azure-database-postgresql-flex-manage.md#enable-public-network-access-for-the-database-storage-account) before executing a restore operation.
 
@@ -36,7 +36,7 @@ To restore Azure PostgreSQL-Flexible database, Follow these steps:
 
 1. Go to **Backup vault** > **Backup Instances**. Select the PostgreSQL - Flexible server to be restored and select **Restore**.
 
-   Alternatively, go to [Backup center](./backup-center-overview.md) and select **Restore**.	  
+   Alternatively, go to [Resiliency](../resiliency/resiliency-overview.md) and select **Restore**.	  
   
 1. Select the point in time you would like to restore by using **Select restore point**. Change the date range by selecting **Time period**.
 
@@ -82,7 +82,7 @@ To restore the backup files from storage container to a new or existing PostgreS
 1. Then, restore the data in this database from the dump file by running the following command:
 
    ```azurecli-interactive
-   pg_restore -h <postgres-server-url> -p <port> -U <username> -d <database-name> --no-owner -v – 
+   pg_restore -h <postgres-server-url> -p <port> -U <username> -d <database-name> --no-owner -v <File Name>
    ```
    
    - `--account-name`: Name of the Target Storage Account. 
@@ -93,6 +93,9 @@ To restore the backup files from storage container to a new or existing PostgreS
    - `-j`: The number of jobs. 
    - `-C`: Begin the output with a command to create the database itself and then reconnect to it. 
  
+    >[!Note]
+    >If the command doesn't execute as expected, specify the complete file path instead of using only the file name.
+
    Alternatively, you can download the backup file and run the restore directly. 
 
 1. Restore only the required roles and privileges, and ignore the [common errors](backup-azure-database-postgresql-flex-support-matrix.md#restore-limitations). Skip this step if you're performing the restoration for compliance requirements and data retrieval, as a local admin.

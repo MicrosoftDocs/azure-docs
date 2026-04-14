@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 2/28/2025
+ms.date: 02/28/2025
 ms.author: mbender
 # Customer intent: "As a DevOps engineer, I want to configure Let's Encrypt certificates on my AKS cluster's Application Gateway, so that I can ensure secure TLS/SSL termination for my applications with automated certificate management."
 ---
@@ -95,13 +95,13 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
         # you prove ownership of a domain by ensuring that a particular
         # file is present at the domain
         solvers:
-          - http01:
+        - http01:
             ingress:
-             #   class: azure/application-gateway
-               ingressTemplate:
-                 metadata:
-                   annotations:
-                     kubernetes.io/ingress.class: azure/application-gateway
+              # class: azure/application-gateway
+              ingressTemplate:
+                metadata:
+                  annotations:
+                    kubernetes.io/ingress.class: azure/application-gateway
     EOF
     ```
 

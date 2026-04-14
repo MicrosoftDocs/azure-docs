@@ -3,13 +3,13 @@ title: Planning for an Azure Storage Discovery deployment
 titleSuffix: Azure Storage Discovery
 description: Considerations and best-practices for deploying the Azure Storage Discovery service
 author: fauhse
-ms.service: azure-storage-mover
+ms.service: azure-storage-discovery
 ms.topic: overview
-ms.date: 08/01/2025
+ms.date: 10/09/2025
 ms.author: fauhse
 ---
 
-# Planning for an Azure Storage Discovery preview deployment
+# Planning for an Azure Storage Discovery deployment
 
 Before you continue, be sure to get an [overview of the Storage Discovery service](overview.md) and the value it can provide to you.
 
@@ -65,9 +65,6 @@ Since you can only configure a limited number of scopes in a workspace, you may 
 If a workspace is to be used for higher-level insights, you can create one with one scope for your entire Azure Storage estate and then add scopes for each department.
 If a workspace is designated to provide insights for specific workloads, then you can create a workspace containing a scope for each workload.
 
-> [!IMPORTANT]
-> During the Azure Storage Discovery preview period, the Discovery service covers only storage accounts located in select regions. <br>The [Understand region limitations](#understand-region-limitations) section in this article has details.
-
 ### Review your Azure resource tags
 
 You can select which storage resources are included in a [workspace scope](management-components.md) by first selecting specific subscriptions or resource groups, and then filtering the storage resources within them by [Azure resource tags](../azure-resource-manager/management/tag-resources.md).
@@ -77,21 +74,11 @@ It's important that you familiarize yourself with the available resource tags on
 
 When you deploy a Storage Discovery workspace, you need to choose a region. The region you select determines where the computed insights about your Azure Storage resources are stored. You can still capture insights for Azure Storage resources that are located in other regions. A general best practice is to choose the region for your workspace according to metadata residency requirements that apply to you and in closer proximity to your location. Visualizing your insights from a workspace closer to you can have a slight performance advantage.
 
-Storage Discovery workspaces can be created in the following regions. More regions are added throughout the preview period.
+Storage Discovery workspaces can be created in the following regions:
 
 [!INCLUDE [control-plane-regions](includes/control-plane-regions.md)]
 
-## Understand region limitations
-
-While a Storage Discovery workspace can cover storage accounts from other subscriptions and resource groups, and even other regions, there's an important region limitation you need to be aware of for a successful Storage Discovery deployment.
-
-The Discovery service covers only storage accounts located in the following regions:
-<br><br>
-[!INCLUDE [data-plane-regions](includes/data-plane-regions.md)]
-<br>
-
-> [!WARNING]
-> The Discovery service currently can't consider storage accounts located in regions not included in the previously listed locations. Including storage accounts from unsupported regions in a scope can lead to an incomplete set of insights. A short-term limitation of the preview period.
+A Storage Discovery workspace can cover storage accounts located in any public cloud region. If a new Azure public cloud region becomes available, there may be a delay until storage resources from this new region get covered by the Storage Discovery service.
 
 ## Permissions
 
@@ -102,18 +89,7 @@ This sections covers:
 
 ### Permissions to your storage resources
 
-During the creation of a Storage Discovery workspace, you configure the [workspace root](management-components.md). The [management components](management-components.md) article provides more details for this configuration.
-In the workspace root, you list at least one and at most 100 Azure resources of different types:
-- subscriptions
-- resource groups
-- storage accounts
-
-The person deploying the workspace must have at least the RBAC role assignment *Reader* for every resource in the workspace root.
-*Reader* is the minimum permission level required. *Contributor* and *Owner* are also supported.
-
-It's possible that you see a subscription listed in the Azure portal, for which you don't have this direct *Reader* role assignment. When you can see a resource you don't have a role assignment to, then most likely you have permissions to a sub resource in this subscription. In this case, the existence of this "parent" was revealed to you, but you have no rights on the subscription resource itself. This example can be extended to resource groups as well. Missing a *Reader* or higher direct role assignment disqualifies an Azure resource from being the basis (root) of a workspace.
-
-Permissions are only validated when a workspace is created. Any change to permissions of the Azure account that created the workspace, including its deletion, has no effect on the workspace or the Discovery service functionality.
+[!INCLUDE [workspace-root-basics](includes/workspace-root-basics.md)]
 
 ### Permission considerations for a workspace resource
 
@@ -124,9 +100,8 @@ The Azure Storage Discovery workspace stores the computed insights for your stor
 |:--------|--------------------------------------------------------------------------------:|
 |Register a resource provider namespace with a subscription|	Subscription: `Contributor`	|
 |Deploy a Storage Discovery workspace <br>*([Resource provider namespace already registered](#resource-provider-namespace))*|	Resource group: `Contributor` |
-|Share the Storage Discovery insights with another person | Storage Discovery workspace: `Reader`|
+|Share the Storage Discovery insights with another person | Storage Discovery workspace: `Owner`|
 |Enable a person to make changes to the workspace configuration| Storage Discovery workspace: `Contributor`|
-|Enable a person to share these insights with others | Storage Discovery workspace: `Owner`|
 
 > [!CAUTION]
 > When you provide other users access to a workspace, you're disclosing all insights of the workspace. Other users might not be privileged to know about the existence of the Azure resources or insights about the data they store. Providing access to a workspace doesn't provide access to an individual storage account, resource group, or subscription. Individual resources remain governed by RBAC.

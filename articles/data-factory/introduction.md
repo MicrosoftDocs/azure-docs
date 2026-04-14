@@ -7,6 +7,7 @@ ms.reviewer: weetok
 ms.topic: overview
 ms.subservice: authoring
 ms.date: 02/13/2025
+#customer intent: As a data engineer, I want to understand what Azure Data Factory is and how to use it so that I can orchestrate and automate data movement and transformation in the cloud.
 ---
 
 # What is Azure Data Factory?
@@ -53,7 +54,8 @@ This visual guide provides a detailed overview of the complete Data Factory arch
 
 :::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="A detailed visual guide to the complete system architecture for Azure Data Factory, presented in a single high resolution image." lightbox="media\introduction\data-factory-visual-guide.png":::
 
-To see more detail, select the preceding image to zoom in, or browse to the [high resolution image](/azure/data-factory/media/introduction/data-factory-visual-guide.png). 
+To see more detail, select the preceding image to zoom in, or browse to the [high resolution image](/azure/data-factory/media/introduction/data-factory-visual-guide.png).
+Learn about the [development of this visual guide and the sketch the docs project here](https://dev.to/azure/a-visual-guide-to-azure-data-factory-53ik).
 
 ### Connect and collect
 

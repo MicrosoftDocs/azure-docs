@@ -66,7 +66,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | Not tested | [Configuration guide](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 | Not tested | [BGP over IKEv2/IPsec](https://help.uisp.com/hc/en-us/articles/22591174261271-EdgeRouter-Route-Based-Site-to-Site-VPN-to-Azure-BGP-over-IKEv2-IPsec)<br><br>[VTI over IKEv2/IPsec](https://help.uisp.com/hc/en-us/articles/22591212773143-EdgeRouter-Route-Based-Site-to-Site-VPN-to-Azure-VTI-over-IKEv2-IPsec) |
 | Ultra | 3E-636L3 | 5.2.0.T3 Build-13  | Not tested | Configuration guide |
-| WatchGuard |All |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| WatchGuard |All |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuration guide](https://techsearch.watchguard.com/KB/?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuration guide](https://techsearch.watchguard.com/KB/?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 | Zyxel |ZyWALL USG series<br>ZyWALL ATP series<br>ZyWALL VPN series | ZLD v4.32+ | Not tested | [VTI over IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br><br>[BGP over IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]

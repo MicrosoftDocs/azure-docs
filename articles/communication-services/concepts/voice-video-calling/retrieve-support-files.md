@@ -5,7 +5,7 @@ description: This article describes how to provide effective user feedback.
 author:      ahammer
 ms.author:   adamhammer
 ms.service:  azure-communication-services
-ms.topic:    conceptual
+ms.topic:    concept-article
 ms.date:     06/28/2025
 ---
 

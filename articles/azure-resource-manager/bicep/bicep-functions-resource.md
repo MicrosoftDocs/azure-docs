@@ -5,7 +5,7 @@ ms.topic: reference
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 06/18/2025
+ms.date: 12/22/2025
 ---
 
 # Resource functions for Bicep
@@ -68,7 +68,7 @@ param allowedLocations array = [
   'australiacentral'
 ]
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2025-03-01' = {
   name: 'locationRestriction'
   properties: {
     policyType: 'Custom'
@@ -88,7 +88,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01'
   }
 }
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
   name: 'locationAssignment'
   properties: {
     policyDefinitionId: policyDefinition.id
@@ -149,7 +149,7 @@ param adminLogin string
 @secure()
 param adminPassword string
 
-resource sqlServer 'Microsoft.Sql/servers@2023-08-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2024-11-01-preview' = {
   ...
 }
 ```
@@ -164,7 +164,7 @@ param subscriptionId string
 param kvResourceGroup string
 param kvName string
 
-resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource keyVault 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -198,8 +198,8 @@ A [namespace qualifier](bicep-functions.md#namespaces-for-functions) isn't neede
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| apiVersion |No |string |If you don't provide this parameter, the API version for the resource is used. Only provide a custom API version when you need the function to be run with a specific version. Use the format, **yyyy-mm-dd**. |
-| functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as `listAccountSas` on a storage account. An example of passing function values is shown in this article. |
+| apiVersion | No | string | If you don't provide this parameter, the API version for the resource is used. Only provide a custom API version when you need the function to be run with a specific version. Use the format, **yyyy-mm-dd**. |
+| functionValues | No | object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as `listAccountSas` on a storage account. An example of passing function values is shown in this article. |
 
 ### Valid uses
 
@@ -237,7 +237,7 @@ Other `list` functions have different return formats. To see the format of a fun
 The following example deploys a storage account and then calls `listKeys` on that storage account. The key is used when setting a value for [deployment scripts](../templates/deployment-script-template.md).
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'dscript${uniqueString(resourceGroup().id)}'
   location: location
   kind: 'StorageV2'
@@ -454,7 +454,7 @@ param allowedLocations array = [
 var mgScope = tenantResourceId('Microsoft.Management/managementGroups', targetMG)
 var policyDefinitionName = 'LocationRestriction'
 
-resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01' = {
+resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2025-03-01' = {
   name: policyDefinitionName
   properties: {
     policyType: 'Custom'
@@ -474,7 +474,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2023-04-01'
   }
 }
 
-resource location_lock 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
+resource location_lock 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
   name: 'location-lock'
   properties: {
     scope: mgScope
@@ -490,7 +490,7 @@ resource location_lock 'Microsoft.Authorization/policyAssignments@2024-04-01' = 
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -533,7 +533,7 @@ When the resource type or region doesn't support zones, an empty array is return
 
 ### Remarks
 
-There are different categories for Azure Availability Zones - zonal and zone-redundant. The `pickZones` function can be used to return an availability zone for a zonal resource. For zone redundant services (ZRS), the function returns an empty array. Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+There are different categories for Azure Availability Zones - zonal and zone-redundant. The `pickZones` function can be used to return an availability zone for a zonal resource. For zone redundant services (ZRS), the function returns an empty array. Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`. If the response isn't empty, the region supports availability zones.
 
@@ -581,7 +581,7 @@ The following example deploys a storage account. The first two outputs give you 
 param storageAccountName string = uniqueString(resourceGroup().id)
 param location string = resourceGroup().location
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   kind: 'Storage'
@@ -601,7 +601,7 @@ To get a property from an existing resource that isn't deployed in the template,
 ```bicep
 param storageAccountName string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
@@ -635,7 +635,7 @@ For example:
 param storageAccountName string
 param location string = resourceGroup().location
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   kind: 'Storage'
@@ -652,7 +652,7 @@ To get the resource ID for a resource that isn't deployed in the Bicep file, use
 ```bicep
 param storageAccountName string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
@@ -743,7 +743,7 @@ param policyDefinitionID string = '0a914e76-4921-4c19-b460-a2d36003525a'
 @description('Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides.')
 param policyAssignmentName string = guid(policyDefinitionID, resourceGroup().name)
 
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2024-04-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
   name: policyAssignmentName
   properties: {
     scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
@@ -777,7 +777,7 @@ A string representing the logical availability zone (for example, `1`, `2`, or `
 * The `toLogicalZone` function retrieves the logical zone mapping based on the subscription’s zone configuration in the specified region.
 * Logical zones are standardized identifiers (for example, `1`, `2`, `3`) used in resource configurations to ensure consistent zone assignments across Azure services.
 * Physical zone identifiers are region-specific and may vary between subscriptions. Use the [`toPhysicalZone`](#tophysicalzone) function to reverse this mapping.
-* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 * If the physical zone doesn't exist or isn't mapped for the subscription, the function returns an empty string.
 * This function is useful for aligning physical zone deployments with logical zone configurations in templates, especially for cross-subscription or multi-region scenarios.
 
@@ -807,7 +807,7 @@ param location string = 'westus2'
 
 var logicalZone = toLogicalZone(subscriptionId, location, physicalZone)
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'myVM'
   location: location
   zones: logicalZone != '' ? [logicalZone] : []
@@ -891,7 +891,7 @@ A string representing the physical availability zone identifier (for example, `w
 * The `toPhysicalZone` function retrieves the physical zone mapping based on the subscription’s zone configuration in the specified region.
 * Physical zones are data center-specific identifiers that may vary between subscriptions, while logical zones (for example, `1`, `2`, `3`) are standardized for resource configurations.
 * Use the `toLogicalZone` function to reverse this mapping, converting a physical zone to its logical equivalent.
-* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 * If the logical zone doesn't exist or isn't mapped for the subscription, the function returns an empty string.
 * This function is useful for scenarios requiring physical zone identifiers, such as logging, auditing, or cross-subscription zone alignment in multi-region deployments.
 
@@ -921,7 +921,7 @@ param location string = 'westus2'
 
 var physicalZone = toPhysicalZone(subscriptionId, location, logicalZone)
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: 'myVM'
   location: location
   zones: [logicalZone]

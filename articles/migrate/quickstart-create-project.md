@@ -15,8 +15,6 @@ ms.custom: engagement-fy23
 
 This article describes how to create, manage, and delete [projects](migrate-services-overview.md). 
 
-Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, the classic version of Azure Migrate will no longer be supported and the inventory metadata in the classic project will be deleted. If you're using classic projects, delete those projects and follow the steps to create a new project. You can't upgrade classic projects or components to Azure Migrate. View [FAQ](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) before you start the creation process.
-
 A project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project, you can track discovered assets, create assessments, and orchestrate migrations to Azure.  
 
 ## Verify permissions
@@ -24,8 +22,9 @@ A project is used to store discovery, assessment, and migration metadata collect
 Ensure you have the correct permissions to create a project using the following steps:
 
 1. In the Azure portal, open the relevant subscription, and select **Access control (IAM)**.
-2. In **Check access**, find the relevant account, and select it and view permissions. You should have *Contributor* or *Owner* permissions. 
-
+2. In **Check access**, find the relevant account, and select it and view permissions. You should have *Azure Migrate Owner* or a role with higher permissions. [Learn more](prepare-azure-accounts.md).
+> [!Note]
+> Starting November 2025, only users assigned the **Azure Migrate Owner** or a higher privileged role will be able to create Azure Migrate projects. Users without these role assignments will no longer have the required permissions to create new projects.
 ## Create a project for the first time
 
 Set up a new project in an Azure subscription.
@@ -67,7 +66,7 @@ After you create the project, perform the following steps to try out the new age
 
 Ensure that you install Az CLI to execute the required commands by following the steps provided in the documentation [here](/cli/azure/install-azure-cli).
 
-After you install the Az CLI (in PowerShell), open PowerShell on your system as an Administrator and execute the following commands:
+After you install the Az CLI (in PowerShell), go to PowerShell on your system as an Administrator and execute the following commands:
 
 1. Log in to the Azure tenant and set the Subscription.  
    - az log in --tenant <TENANT_ID>
@@ -126,7 +125,7 @@ To delete a project, follow these steps:
 
 > [!NOTE]
 > - When you delete, both the project and the metadata about discovered servers are deleted.
-> - If you're using the older version of Azure Migrate, open the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
+> - If you're using the older version of Azure Migrate, go to the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
 > - If you're using dependency analysis with an Azure Log Analytics workspace:
     > - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
     > - If you want to delete the Log Analytics workspace, do that manually.

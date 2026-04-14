@@ -1,17 +1,19 @@
 ---
-title: Connect to IBM MQ
-description: Connect to an MQ server on premises or in Azure from a workflow in Azure Logic Apps.
+title: Connect to IBM MQ from Workflows
+description: Connect to MQ servers on-premises or in Azure from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/08/2025
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to connect my integration workflows to MQ servers either on-premises or in Azure.
 ---
 
-# Connect to an IBM MQ server from a workflow in Azure Logic Apps
+# Connect to IBM MQ servers from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -82,7 +84,7 @@ For more information, review the [MQ managed connector reference](/connectors/mq
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * To connect with an on-premises MQ server, you must [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. For the MQ connector to work, the server with the on-premises data gateway also must have .NET Framework 4.6 installed.
 

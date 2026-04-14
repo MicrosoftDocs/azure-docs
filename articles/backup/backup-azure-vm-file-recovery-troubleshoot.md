@@ -166,8 +166,17 @@ To identify and resolve this issue, perform the following steps:
 
 >[!Tip]
 >Ensure you have the [right machine to run the script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
-
 If the protected Linux VM uses LVM or RAID Arrays, follow the steps in [Recover files from Azure virtual machine backup](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
+
+##### Disks are attached but volumes aren’t mounted on Linux VMs when multipath is enabled
+
+**Possible cause:**
+When you run Individual File Recovery (ILR) on a Linux VM, Azure Backup attaches the recovery disks to the VM using iSCSI. If multipath is enabled on the VM, the Linux OS might identify these iSCSI disks as multipath devices and claim them through the multipath daemon. As a result, the disks aren’t mounted as regular block devices during file recovery.
+This issue is commonly observed on Linux distributions where multipath is enabled by default.
+
+**Recommended action:**
+Update the multipath configuration on the VM to exclude iSCSI devices used for file recovery from multipath handling. After applying the configuration change and restarting the multipath service, rerun the file recovery script. For guidance on configuring multipath exclusions, refer to the documentation for your Linux distribution. 
+<br/> Ubuntu: [Multipath configuration options and overview](https://documentation.ubuntu.com/server/explanation/multipath/configuring-multipath/)
 
 ### You can't copy the files from mounted volumes
 
@@ -175,7 +184,7 @@ The copy might fail with the error **0x80070780: The file cannot be accessed by 
 
 Check if the source server has disk **deduplication** enabled. If the option is enabled, ensure the restore server also has **deduplication** enabled on the drives. You can leave deduplication unconfigured so that you don't deduplicate the drives on the restore server.
 
-### Disk is not unmount although clicked Unmount disks on Azure Portal (Linux OS)
+### Disk is not unmounted although Unmount disks is clicked on Azure portal (Linux OS)
 
 Unmount disks manually by running python script with the `clean` parameter. The following example shows installation of **python 3 package** by the machine.
 

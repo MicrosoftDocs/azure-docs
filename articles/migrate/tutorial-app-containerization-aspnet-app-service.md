@@ -143,7 +143,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 1. Select **Sign in** to sign in to your Azure account.
 
    You need a device code to authenticate with Azure. Selecting **Sign in** should open a window that contains the device code. If the window doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. Select **Copy code and Sign in** to copy the device code and open an Azure sign-in prompt in a new browser tab:
+2. Select **Copy code and Sign in** to copy the device code and go to an Azure sign-in prompt in a new browser tab:
 
     ![Screenshot that shows the Device code for Azure Sign in window.](./media/tutorial-containerize-apps-aks/login-modal.png)
 

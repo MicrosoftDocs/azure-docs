@@ -2,11 +2,11 @@
 title: Approve private endpoint connections across subscriptions
 titleSuffix: Azure Private Link
 description: Get started learning how to approve and manage private endpoint connections across subscriptions by using Azure Private Link.
-author: abell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 03/25/2025
+ms.date: 03/30/2026
 # Customer intent: As a network administrator, I want to approve Private Link connections across Azure subscriptions.
 
 ---
@@ -22,8 +22,6 @@ Azure Private Link enables you to connect privately to Azure resources. Private 
     - One subscription hosts the Azure resource and the other subscription contains the consumer private endpoint and virtual network.
 
 - An administrator account for each subscription or an account with permissions in each subscription to create and manage resources.
-
-- Azure Private Link requires the private endpoint and the Private Link service to be in the same tenant, as cross-tenant configurations are not supported.
 
 Resources used in this article:
 
@@ -162,9 +160,9 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 The private endpoint connection is in a **Pending** state until approved. Use the following steps to approve the private endpoint connection in **subscription-1**.
 
-1. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints**.
+1. In the search box at the top of the portal, enter **Private Link**. Select **Private Link** from the search results.
 
-1. Select **Pending connections**.
+1. In **Network foundation**, expand **Private Link** in the left menu and select **Pending connections**.
 
 1. Select the box next to your storage account in **subscription-1**.
 

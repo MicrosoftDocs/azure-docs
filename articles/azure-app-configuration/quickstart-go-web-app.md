@@ -23,7 +23,7 @@ The App Configuration provider for Go simplifies the effort of applying key-valu
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Go 1.21 or later. [Install Go](https://golang.org/doc/install).
 

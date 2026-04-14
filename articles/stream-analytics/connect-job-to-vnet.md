@@ -4,7 +4,7 @@ description: This article describes how to connect an Azure Stream Analytics job
 author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/18/2024
 ms.custom:
   - ignite-2024

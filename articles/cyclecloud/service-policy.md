@@ -2,10 +2,10 @@
 title: Service Policy
 description: Complete service policy for Azure CycleCloud. See release types, release cadence, supported Azure CycleCloud versions, how to get support, and more.
 services: azure cyclecloud
-author: KimliW
-ms.topic: conceptual
-ms.date: 07/01/2025
-ms.author: adjohnso
+author: adriankjohnson
+ms.topic: concept-article
+ms.date: 12/12/2025
+ms.author: padmalathas
 ---
 
 # Azure CycleCloud service policy
@@ -40,12 +40,11 @@ To continue receiving support, keep your Azure CycleCloud deployment current wit
 
 If your Azure CycleCloud installation is behind by more than two major release updates, it's considered out of compliance. You must update it to at least the minimum supported version.
 
-For example, if the previous and current major releases are versions 6 and 7, the three most recent update versions are:
+For example, the two most recently updated major releases are:
 
-* Version 6:  6.8.0, 6.7.0, 6.6.0
-* Version 7:  7.2.0, 7.1.1, 7.0.0
+* Version 8:  8.7.x, 8.8.x
 
-In this example, all versions listed earlier are supported, but versions 5.x.x and earlier versions are out of support. When version 8.x.x is released, version 6.x.x transitions to legacy unsupported.
+In this example, all versions listed are supported, and earlier versions are out of support.
 
 Azure CycleCloud software update packages are cumulative. If you defer one or more updates, you can install the latest update package to become compliant.
 

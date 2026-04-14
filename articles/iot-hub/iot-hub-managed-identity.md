@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Hub managed identity
 description: How to use managed identities to allow egress connectivity from your IoT Hub to other Azure resources.
-author: SoniaLopezBravo
+author: cwatson-cat
 
-ms.author: sonialopez
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 07/01/2025
@@ -270,7 +270,7 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+   For more information about role assignments, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. If you need to restrict the connectivity to your custom endpoint through a virtual network, you need to turn on the trusted Microsoft first party exception, to give your IoT hub access to the specific endpoint. For example, if you're adding an event hub custom endpoint, navigate to the **Firewalls and virtual networks** tab in your event hub and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access event hubs**, then select **Save**. This requirement also applies to storage account and service bus. Learn more about [IoT Hub support for virtual networks with Azure Private Link](./virtual-network-support.md).
 
@@ -323,7 +323,7 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+   For more information about role assignments, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     If you need to restrict the connectivity to your storage account through a virtual network, you need to turn on the trusted Microsoft first party exception, to give your IoT hub access to the storage account. On your storage account resource page, navigate to the **Firewalls and virtual networks** tab and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**, and then select **Save**. Learn more about [IoT Hub support for virtual networks with Azure Private Link](./virtual-network-support.md). 
 
@@ -361,7 +361,7 @@ IoT Hub supports the functionality to [import and export device information in b
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
+   For more information about role assignments, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 
 ### Using REST API or SDK for import and export jobs
 

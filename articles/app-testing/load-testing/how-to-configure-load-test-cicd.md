@@ -2,8 +2,8 @@
 title: 'Manually configure CI/CD for load tests'
 titleSuffix: Azure Load Testing
 description: 'This article shows how to run your load tests with Azure Load Testing in CI/CD. Learn how to add a load test to GitHub Actions, Azure Pipelines or other CI tools.'
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.service: azure-load-testing
 ms.custom: devx-track-azurecli
 ms.topic: how-to 
@@ -22,7 +22,7 @@ To add an existing load test to a CI/CD pipeline:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Load Testing test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md), use [an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) or [an existing Locust script](./quickstart-create-run-load-test-with-locust.md) to create a load test.
 
 # [Azure Pipelines](#tab/pipelines)

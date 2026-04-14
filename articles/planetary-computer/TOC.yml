@@ -6,10 +6,14 @@
     href: microsoft-planetary-computer-pro-overview.md
   - name: What's new in Microsoft Planetary Computer Pro
     href: whats-new.md
+  - name: US Government cloud support
+    href: us-government-cloud-support.md
   - name: STAC overview
     href: stac-overview.md
   - name: Supported data types
     href: supported-data-types.md
+  - name: Service usage meters
+    href: service-usage-meters.md
   expanded: true
 - name: Deploy & set up
   items:
@@ -71,18 +75,28 @@
     href: queryables-for-explorer-custom-search-filter.md
   - name: Supported color maps
     href: supported-colormaps.md
-  - name: Visualize assets
-    href: visualize-assets.md
-- name: Build and use applications
+- name: Connect and build applications
   items:
-  - name: Build applications
+  - name: Connect and build applications with your data
     href: build-applications-with-planetary-computer-pro.md
   - name: Use the explorer
     href: use-explorer.md
   - name: Application authentication
     href: application-authentication.md
+  - name: Build a web application
+    href: build-web-application.md
   - name: Connect to ArcGIS Pro
     href: create-connection-arc-gis-pro.md
+  - name: Connect to QGIS
+    href: configure-qgis.md
+  - name: Working with Partner Applications
+    items:
+    - name: Partner Application Overview
+      href: working-with-partner-applications.md
+    - name: Authorizing Partner Cross-Tenant Application Access
+      href: authorize-cross-tenant-partner-applications.md
+    - name: Authoring and Configuring a Partner Application
+      href: configure-cross-tenant-application.md
   - name: Azure Batch and Microsoft Planetary Computer Pro
     href: azure-batch.md
   - name: API Reference
@@ -93,7 +107,5 @@
     href: data-cube-overview.md
   - name: Get Started with data cubes
     href: data-cube-quickstart.md
-  - name: Visualize data cubes
-    href: visualize-assets.md
   - name: Get a collection SAS token
     href: get-collection-sas-token.md

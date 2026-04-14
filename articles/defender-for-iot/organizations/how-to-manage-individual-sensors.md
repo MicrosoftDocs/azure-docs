@@ -63,7 +63,7 @@ Take action by selecting the **Learn more** option under :::image type="icon" so
 
 ## Download software for OT sensors
 
-You may need to download software for your OT sensor if you're [installing Defender for IoT software](ot-deploy/install-software-ot-sensor.md) on your own appliances, or [updating software versions](update-ot-software.md).
+You might need to download software for your OT sensor if you're [installing Defender for IoT software](ot-deploy/install-software-ot-sensor.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
 In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 
@@ -193,7 +193,7 @@ When you're done, use the following procedures to validate your certificate file
 
 ## Update the OT sensor network configuration
 
-You'd configured your OT sensor network configuring during [installation](ot-deploy/install-software-ot-sensor.md). You may need to make changes as part of OT sensor maintenance, such as to modify network values or setting up a proxy configuration.
+After configuring your OT sensor network during [installation](ot-deploy/install-software-ot-sensor.md), you might need to make changes as part of OT sensor maintenance, such as modifying network values or setting up a proxy configuration.
 
 **To update the OT sensor configuration:**
 
@@ -201,7 +201,7 @@ You'd configured your OT sensor network configuring during [installation](ot-dep
 
 1. In the **Sensor network settings** pane, update the following details for your OT sensor as needed:
 
-    - **IP address**. Changing the IP address may require users to sign into your OT sensor again.
+    - **IP address**. Changing the IP address might require users to sign into your OT sensor again.
     - **Subnet mask**
     - **Default gateway**
     - **DNS**. Make sure to use the same hostname that's configured in your organization's DNS server.
@@ -250,6 +250,10 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
 
 > [!NOTE]
 > This procedure restarts your sensor software to implement any changes made.
+>
+> Defender for IoT ERSPAN monitoring is tested, certified, and supported **only when the ERSPAN tunnel originates from Cisco equipment.**
+>
+> ERSPAN tunnels from non-Cisco vendors are **not supported** and might fail due to differences in ERSPAN implementations.
 
 **To update your sensor's monitoring interfaces**:
 
@@ -268,19 +272,25 @@ For more information, see [ERSPAN ports](best-practices/traffic-mirroring-method
 
         |Name  |Description  |
         |---------|---------|
-        |**Mode**     | Select one of the following: <br><br>- **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring. <br>- **ERSPAN** if you're using ERSPAN mirroring. <br><br>For more information, see [Choose a traffic mirroring method for OT sensors](best-practices/traffic-mirroring-methods.md).       |
-        |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions may be helpful in understanding the purpose of each interface.  |
+        |**Mode**     | Select one of the following: <br><br>- **SPAN Traffic (no encapsulation)** to use the default SPAN port mirroring. <br>- **Tunneling** if you're using ERSPAN mirroring. <br><br>For more information, see [Choose a traffic mirroring method for OT sensors](best-practices/traffic-mirroring-methods.md).       |
+        |**Description**     |  Enter an optional description for the interface. You'll see this later on in the sensor's **System settings > Interface configurations** page, and these descriptions might be helpful in understanding the purpose of each interface.  |
+        |**Interface IP**     | The ERSPAN IP on the sensor side. <br> - The management interface IP and the ERSPAN interface IP must be configured on separate network subnets. <br>  - Configuring both the management and ERSPAN IP addresses on the same subnet might lead to asymmetric routing issues.   |
+        | **Subnet** | The subnet mask of the ERSPAN interface IP. |
+        |**Name**     | Enter a unique name for the virtual ERSPAN interface.|
+        |**ID** - ERSPAN tunnel ID | The ID value must be identical to the `erspan-id` value on the Cisco side. <br> In case of an ID mismatch, the sensor will discard all incoming tunnel traffic.  |
+        | **Source IP** | The IP address of the ERSPAN interface on the Cisco side that sends the tunnel traffic. |
+        | **Add tunneling** | The sensor supports adding multiple tunnels. Each tunnel must have a unique name and ID. |
         |**Auto negotiation**     | Relevant for physical machines only. Use this option to determine which sort of communication methods are used, or if the communication methods are automatically defined between components. <br><br>**Important**: We recommend that you change this setting only on the advice of your networking team. |
 
     For example:
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/configure-erspan.png" alt-text="Screenshot of how to configure ERSPAN on the Interface configurations page.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/tunneling-advanced-settings.png" alt-text="Screenshot of how to configure Tunneling for ERSPAN on the Interface configurations page." lightbox="media/how-to-manage-individual-sensors/tunneling-advanced-settings.png":::
 
 1. Select **Save** to save your changes. Your sensor software restarts to implement your changes.
 
 ## Synchronize time zones on an OT sensor
 
-You may want to configure your OT sensor with a specific time zone so that all users see the same times regardless of the user's location.
+You might want to configure your OT sensor with a specific time zone so that all users see the same times regardless of the user's location.
 
 Time zones are used in [alerts](how-to-view-alerts.md), [trends and statistics widgets](how-to-create-trends-and-statistics-reports.md), [data mining reports](how-to-create-data-mining-queries.md), [risk assessment reports](how-to-create-risk-assessment-reports.md), and [attack vector reports](how-to-create-attack-vector-reports.md).
 
@@ -331,7 +341,7 @@ Make sure you can reach the SMTP server from the [sensor's management port](./be
 
 ## Upload and play PCAP files
 
-When troubleshooting your OT sensor, you may want to examine data recorded by a specific PCAP file. To do so, you can upload a PCAP file to your OT sensor and replay the data recorded.
+When troubleshooting your OT sensor, you might want to examine data recorded by a specific PCAP file. To do so, you can upload a PCAP file to your OT sensor and replay the data recorded.
 
 The **Play PCAP** option is enabled by default in the sensor console's settings.
 
@@ -364,7 +374,7 @@ The **Play PCAP** option is now available in the sensor console's settings, unde
 
 By default, each OT network sensor analyzes ingested data using [built-in analytics engines](architecture.md#defender-for-iot-analytics-engines), and triggers alerts based on both real-time and prerecorded traffic.
 
-While we recommend that you keep all analytics engines on, you may want to turn off specific analytics engines on your OT sensors to limit the type of anomalies and risks monitored by that OT sensor.
+While we recommend that you keep all analytics engines on, you might want to turn off specific analytics engines on your OT sensors to limit the type of anomalies and risks monitored by that OT sensor.
 
 > [!IMPORTANT]
 > When you disable a policy engine, information that the engine generates won't be available to the sensor. For example, if you disable the Anomaly engine, you won't receive alerts on network anomalies. If you'd created a [forwarding alert rule](how-to-forward-alert-information-to-partners.md), anomalies that the engine learns won't be sent.
@@ -412,7 +422,7 @@ After clearing data on a cloud-connected sensor:
 - Some actions on corresponding alerts in the Azure portal are no longer supported, such as downloading PCAP files or learning alerts.
 
 > [!NOTE]
-> Network settings such as IP/DNS/GATEWAY will not be changed by clearing system data.
+> Network settings such as IP/DNS/GATEWAY won't be changed by clearing system data.
 
 **To clear system data**:
 

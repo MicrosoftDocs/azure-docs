@@ -32,7 +32,7 @@
     },
     {
       "source_path_from_root": "/articles/deployment-environments/concept-environments-reliability-availability.md",
-      "redirect_url": "/azure/reliability/reliability-deployment-environments",
+      "redirect_url": "/azure/deployment-environments/concept-reliability-deployment-environments",
       "redirect_document_id": false
     },
     {

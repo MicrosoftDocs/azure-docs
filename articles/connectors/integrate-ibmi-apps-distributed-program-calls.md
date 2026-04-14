@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
 ms.custom: sfi-image-nochange
-
-#customer intent: As a developer, I want to use the IBM i connector so I can integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps.
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to use the IBM i connector in Standard workflows so I can integrate COBOL and RPG programs on IBM midrange systems.
 ---
 
 # Integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps
@@ -27,11 +27,11 @@ This article describes the following aspects about the IBM i connector:
 
 ## Review the connector usage scenarios
 
-More than 50 years ago, IBM released the first midrange systems. IBM advertised them as "Small in size, small in price and Big in performance. It is a system for now and for the future." Over the years, the midrange systems evolved and became pervasive in medium-sized businesses or in large enterprises to extend mainframe environments. Midrange systems that run IBM i, typically Power Systems, support TCP/IP and SNA.
+More than 50 years ago, IBM released the first midrange systems. IBM advertised them as "Small in size, small in price and Big in performance. It's a system for now and for the future." Over the years, the midrange systems evolved and became pervasive in medium-sized businesses or in large enterprises to extend mainframe environments. Midrange systems that run IBM i, typically Power Systems, support TCP/IP, and SNA.
 
 The IBM i system includes the DPC server feature that allows most IBM i applications to interact with clients like Azure Logic Apps by using the client-initiated only request-reply pattern with minimum modifications. DPC is a documented protocol that supports program-to-program integration on an IBM i system, which client applications can easily access by using the TCP/IP networking protocol.
 
-Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IBM i systems by using TCP/IP and APPC LU6.2. For many years, customers have used the HIS Transaction Integrator to integrate on-premises IBM i systems and Windows. The **IBM i Program Call** connector uses the TCP/IP [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with IBM i COBOL and RPG programs.
+Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IBM i systems by using TCP/IP and APPC LU6.2. For many years, customers used the HIS Transaction Integrator to integrate on-premises IBM i systems and Windows. The **IBM i Program Call** connector uses the TCP/IP [programming model](/host-integration-server/core/choosing-the-appropriate-programming-model1) to interact with IBM i COBOL and RPG programs.
 
 The following diagram shows how the IBM i connector interacts with an IBM i system:
 
@@ -55,7 +55,7 @@ This operation also includes advanced parameters, which appear after you select 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Access to the midrange server that hosts the IBM i system.
 
@@ -103,7 +103,7 @@ Follow these steps to add an IBM i action and configure the necessary parameters
 
 1. If you don't have a trigger to start your workflow, follow [these general steps to add the trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   This example continues with the **Request** trigger named **When a HTTP request is received**:
+   This example continues with the **Request** trigger named **When an HTTP request is received**:
 
    :::image type="content" source="media/integrate-ibmi-apps-dpc/request-trigger.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and Request trigger." lightbox="media/integrate-ibmi-apps-dpc/request-trigger.png":::
 
@@ -119,7 +119,7 @@ Follow these steps to add an IBM i action and configure the necessary parameters
    | **Password** | No | <*password*> | The optional user password for connection authentication. |
    | **Port Number** | Yes | <*port-number*> | The port number to use for connection authentication. |
    | **Server Name** | Yes | <*server-name*> | The server name. |
-   | **Timeout** | No | <*timeout*> | The time-out period in seconds while waiting for responses from the server. |
+   | **Timeout** | No | <*timeout*> | The timeout period in seconds while waiting for responses from the server. |
    | **User Name** | No | <*user-name*> | The optional username for connection authentication. |
    | **Use TLS** | No | True or false | Secure the connection with Transport Security Layer (TLS). |
    | **Validate Server certificate** | No | True or false | Validate the server's certificate. |

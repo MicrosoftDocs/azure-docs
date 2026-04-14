@@ -8,7 +8,7 @@ ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
-ms.date: 04/29/2025
+ms.date: 01/05/2026
 # Customer intent: As an SAP system administrator, I want to implement a comprehensive disaster recovery strategy for SAP workloads on Azure, so that I can ensure business continuity and minimize downtime in the event of a disaster.
 ---
 
@@ -160,7 +160,8 @@ Backup and restore is other solution you can use to achieve disaster recovery fo
 | Database | [SAP HANA database in Azure VMs](../../backup/sap-hana-backup-support-matrix.md)                | Supported            |
 | Database | [SQL server in Azure VMs](../../backup/sql-support-matrix.md)                                   | Supported            |
 | Database | [Oracle](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup)          | Supported\*          |
-| Database | IBM DB2, SAP ASE                                                                                | Not Supported        |
+| Database | [SAP ASE](../../backup/sap-ase-backup-support-matrix.md)                                        | Supported            |
+| Database | IBM DB2                                                                                         | Not Supported        |
 
 > [!Note]
 >

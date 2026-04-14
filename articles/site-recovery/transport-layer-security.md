@@ -4,8 +4,8 @@ description: Learn how to enable Azure Site Recovery to use the encryption proto
 ms.topic: faq
 ms.service: azure-site-recovery
 ms.date: 12/15/2023
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 # Customer intent: "As an IT administrator, I want to enable TLS 1.2 for Azure Site Recovery, so that I can ensure secure data transfer and protect against potential security vulnerabilities."
 ---
 
@@ -16,6 +16,8 @@ Transport Layer Security (TLS) is an encryption protocol that keeps data secure 
 ## Enable TLS on older versions of Windows
 
 If the machine is running earlier versions of Windows, ensure to install the corresponding updates as detailed below and make the registry changes as documented in the respective KB articles.
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 |Operating system  |KB article |
 |---------|---------|

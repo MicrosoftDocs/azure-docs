@@ -82,7 +82,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
     PS C:\WINDOWS\system32> Set-AzResource -ResourceID $VirtualMachine.ID -Tag $tags -Force   
 
     Name              : myazvm
-    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myas
+    ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myas
                         eazrg/providers/Microsoft.Compute/virtualMachines/myazvm
     ResourceName      : myazvm
     ResourceType      : Microsoft.Compute/virtualMachines
@@ -142,7 +142,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
     PS C:\WINDOWS\system32> Set-AzureRmResource -ResourceID $VirtualMachine.ID -Tag $tags -Force
     
     Name              : myasetestvm1
-    ResourceId        : /subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/myaserg2/providers/Microsoft.Compute/virtua
+    ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myaserg2/providers/Microsoft.Compute/virtua
                         lMachines/myasetestvm1
     ResourceName      : myasetestvm1
     ResourceType      : Microsoft.Compute/virtualMachines
@@ -390,7 +390,7 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
     PS C:\WINDOWS\system32> Set-AzResource -ResourceId $VirtualMachine.Id -Tag $tags -Force
     
     Name              : myazvm
-    ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myas
+    ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myas
                         eazrg/providers/Microsoft.Compute/virtualMachines/myazvm
     ResourceName      : myazvm
     ResourceType      : Microsoft.Compute/virtualMachines
@@ -465,7 +465,7 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
     True
     PS C:\WINDOWS\system32> Set-AzureRMResource -ResourceID $VirtualMachine.ID -Tag $tags -Force
     Name              : myaselinuxvm1
-    ResourceId        : /subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGrou
+    ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGrou
                         ps/myaserg1/providers/Microsoft.Compute/virtualMachines/myaselin
                         uxvm1
     ResourceName      : myaselinuxvm1

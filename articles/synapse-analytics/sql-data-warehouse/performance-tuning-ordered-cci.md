@@ -7,7 +7,7 @@ ms.reviewer: nibruno
 ms.date: 02/13/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - azure-synapse
 ---

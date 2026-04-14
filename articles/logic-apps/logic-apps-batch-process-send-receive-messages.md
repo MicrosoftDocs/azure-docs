@@ -1,15 +1,17 @@
 ---
-title: Batch process messages as a group
-description: Send and receive messages in groups between your workflows by using batch processing in Azure Logic Apps.
-services: logic-apps
+title: Batch Process Messages in Groups
+description: Exchange messages between workflows in groups with batch processing in Azure Logic Apps.
+services: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 02/05/2025
+ms.update-cycle: 1095-days
+ms.date: 03/13/2026
 ms.custom: sfi-image-nochange
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to exchange groups of messages between workflows by setting up batch processing.
 ---
 
-# Send, receive, and batch process messages in Azure Logic Apps
+# Batch process and exchange messages in groups between workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -27,7 +29,7 @@ Your batch receiver and batch sender need to share the same Azure subscription *
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An email account with any [email provider supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 
@@ -131,7 +133,7 @@ Now create one or more batch sender logic app workflows that send messages to th
 
 * Make sure that you previously [created and deployed your batch receiver](#batch-receiver) so when you create your batch sender, you can select the existing batch receiver as the destination batch. While batch receivers don't need to know anything about batch senders, batch senders must know where to send messages.
 
-* Make sure that your batch receiver and batch sender share the same Azure region *and* Azure subscription. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
+* Make sure that your batch receiver and batch sender both share the same Azure region *and* Azure subscription. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
 
 1. Create another logic app resource and workflow named **BatchSender**.
 

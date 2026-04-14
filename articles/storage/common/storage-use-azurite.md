@@ -14,6 +14,7 @@ ms.custom:
   - ai-video-demo
   - sfi-image-nochange
   - sfi-ropc-nochange
+#customer intent: As a developer, I want a lightweight local emulator for Azure Storage so that I can develop and test storage scenarios without provisioning cloud resources.
 ---
 
 # Use the Azurite emulator for local Azure Storage development

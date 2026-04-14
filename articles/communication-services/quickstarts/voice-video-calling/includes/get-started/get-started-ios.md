@@ -19,7 +19,7 @@ You can download the sample app from GitHub at [Calling SDK for iOS](https://git
 
 To complete this tutorial, you need the following prerequisites:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
@@ -38,7 +38,17 @@ In Xcode, create a new iOS project and select the **App** template. This tutoria
 
 :::image type="content" source="../../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
-### Install the package and dependencies with CocoaPods
+### Install Calling SDK using Swift Package Manager [Recommended]
+Swift Package Manager is now the recommended installation method for the Azure Communications Calling SDK. CocoaPods support is being deprecated and will be removed in future versions. If you prefer to use Swift Package Manager, you can add the Azure Communication Calling SDK directly to your Xcode project.
+
+1. In Xcode, go to File > Add Package Dependencies...
+2. Enter the following repository URL: https://github.com/Azure/SwiftPM-AzureCommunicationCalling
+3. For Dependency Rule, select Exact Version and enter: 2.18.1
+4. Click Add Package
+5. Select the AzureCommunicationCalling product and add it to your target
+ 
+
+### Install the package and dependencies with CocoaPods (Alternative)
 
 1. To create a Podfile for your application, open the terminal and navigate to the project folder and run:
 

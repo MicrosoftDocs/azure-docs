@@ -1,12 +1,12 @@
 ---
-title: Tutorial - use parameter file to deploy template
-description: Use parameter files that contain the values to use for deploying your Azure Resource Manager template (ARM template).
-ms.date: 06/20/2024
+title: Tutorial - Use parameter files to deploy Azure Resource Manager templates
+description: Use parameter files that contain the values to use for deploying your Azure Resource Manager template.
+ms.date: 10/29/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
 
-# Tutorial: Use parameter files to deploy your ARM template
+# Tutorial: Use parameter files to deploy Azure Resource Manager template
 
 In this tutorial, you learn how to use [parameter files](parameter-files.md) to store the values you pass in during deployment. In the previous tutorials, you used inline parameters with your deployment command. This approach worked for testing your Azure Resource Manager template (ARM template), but when automating deployments it can be easier to pass a set of values for your environment. Parameter files make it easier to package parameter values for a specific environment. In this tutorial, you create parameter files for development and production environments. This instruction takes **12 minutes** to complete.
 
@@ -14,13 +14,132 @@ In this tutorial, you learn how to use [parameter files](parameter-files.md) to 
 
 We recommend that you complete the [tutorial about tags](template-tutorial-add-tags.md), but it's not required.
 
-You need to have [Visual Studio Code](https://code.visualstudio.com/), and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/) and either Azure PowerShell or the Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 
 Your template has many parameters you can provide during deployment. At the end of the previous tutorial, your template had the following JSON file:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 11
+    },
+    "storageSKU": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS",
+        "Premium_LRS",
+        "Premium_ZRS",
+        "Standard_GZRS",
+        "Standard_RAGZRS"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "appServicePlanName": {
+      "type": "string",
+      "defaultValue": "exampleplan"
+    },
+    "webAppName": {
+      "type": "string",
+      "metadata": {
+        "description": "Base name of the resource such as web app name and app service plan "
+      },
+      "minLength": 2
+    },
+    "linuxFxVersion": {
+      "type": "string",
+      "defaultValue": "php|7.0",
+      "metadata": {
+        "description": "The Runtime stack of current web app"
+      }
+    },
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Environment": "Dev",
+        "Project": "Tutorial"
+      }
+    }
+  },
+  "variables": {
+    "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
+    "webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[variables('uniqueStorageName')]",
+      "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2025-03-01",
+      "name": "[parameters('appServicePlanName')]",
+      "location": "[parameters('location')]",
+      "tags": "[parameters('resourceTags')]",
+      "sku": {
+        "name": "B1",
+        "tier": "Basic",
+        "size": "B1",
+        "family": "B",
+        "capacity": 1
+      },
+      "kind": "linux",
+      "properties": {
+        "perSiteScaling": false,
+        "reserved": true,
+        "targetWorkerCount": 0,
+        "targetWorkerSizeId": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2025-03-01",
+      "name": "[variables('webAppPortalName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[parameters('appServicePlanName')]"
+      ],
+      "tags": "[parameters('resourceTags')]",
+      "kind": "app",
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]",
+        "siteConfig": {
+          "linuxFxVersion": "[parameters('linuxFxVersion')]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "storageEndpoint": {
+      "type": "object",
+      "value": "[reference(variables('uniqueStorageName')).primaryEndpoints]"
+    }
+  }
+}
+```
 
 This template works well, but now you want to easily manage the parameters that you pass in for the template.
 
@@ -34,29 +153,79 @@ You don't have to provide a value for every parameter. If an unspecified paramet
 
 You can't specify a parameter name in your parameter file that doesn't match a parameter name in the template. You get an error when you provide unknown parameters.
 
-In Visual Studio Code, create a new file with the following content. Save the file with the name _azuredeploy.parameters.dev.json_.
+In Visual Studio Code, create a new file with the following content. Save the file with the name _azuredeploy.parameters.dev.json_:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "value": "devstore"
+    },
+    "storageSKU": {
+      "value": "Standard_LRS"
+    },
+    "appServicePlanName": {
+      "value": "devplan"
+    },
+    "webAppName": {
+      "value": "devapp"
+    },
+    "resourceTags": {
+      "value": {
+        "Environment": "Dev",
+        "Project": "Tutorial"
+      }
+    }
+  }
+}
+```
 
 This file is your parameter file for the development environment. Notice that it uses **Standard_LRS** for the storage account, names resources with a **dev** prefix, and sets the `Environment` tag to **Dev**.
 
-Again, create a new file with the following content. Save the file with the name _azuredeploy.parameters.prod.json_.
+Again, create a new file with the following content. Save the file with the name _azuredeploy.parameters.prod.json_:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "value": "contosodata"
+    },
+    "storageSKU": {
+      "value": "Standard_GRS"
+    },
+    "appServicePlanName": {
+      "value": "contosoplan"
+    },
+    "webAppName": {
+      "value": "contosowebapp"
+    },
+    "resourceTags": {
+      "value": {
+        "Environment": "Production",
+        "Project": "Tutorial"
+      }
+    }
+  }
+}
+```
 
 This file is your parameter file for the production environment. Notice that it uses **Standard_GRS** for the storage account, names resources with a **contoso** prefix, and sets the `Environment` tag to **Production**. In a real production environment, you would also want to use an app service with a SKU other than free, but we use that SKU for this tutorial.
 
 ## Deploy template
 
-Use either Azure CLI or Azure PowerShell to deploy the template.
+Use the Azure CLI or Azure PowerShell to deploy the template.
 
-As a final test of your template, let's create two new resource groups. One for the dev environment and one for the production environment.
+As a final test of your template, let's create two new resource groups-one for the dev environment and one for the production environment.
 
 For the template and parameter variables, replace `{path-to-the-template-file}`, `{path-to-azuredeploy.parameters.dev.json}`, `{path-to-azuredeploy.parameters.prod.json}`, and the curly braces `{}` with your template and parameter file paths.
 
 First, let's deploy to the dev environment.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $templateFile = "{path-to-the-template-file}"
@@ -73,7 +242,7 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
-To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of the Azure CLI.
 
 ```azurecli
 templateFile="{path-to-the-template-file}"
@@ -92,7 +261,7 @@ az deployment group create \
 
 Now, we deploy to the production environment.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $parameterFile="{path-to-azuredeploy.parameters.prod.json}"

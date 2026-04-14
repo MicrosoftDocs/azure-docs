@@ -17,7 +17,7 @@ ms.custom:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 - Create an [Application Insights Resources](/previous-versions/azure/azure-monitor/app/create-new-resource) in Azure portal.

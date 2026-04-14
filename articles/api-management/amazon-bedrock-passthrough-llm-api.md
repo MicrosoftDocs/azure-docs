@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 07/07/2025
+ms.date: 02/26/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
@@ -15,14 +15,14 @@ ms.custom: template-how-to, build-2024
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-In this article, you import an Amazon Bedrock language model API into your API Management instance as a passthrough API. This is an example of a model that's hosted on an inference provider other than Azure AI services. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+In this article, you import an Amazon Bedrock language model API into your API Management instance as a passthrough API. This example shows a model that's hosted on an inference provider other than Foundry Tools. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
-Learn more about managing AI APIs in API Management:
+For more information about managing AI APIs in API Management, see:
 
 * [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 * [Import a language model API](openai-compatible-llm-api.md)
 
-Learn more about Amazon Bedrock:
+For more information about Amazon Bedrock, see:
 
 * [What is Amazon Bedrock?](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)
 
@@ -30,22 +30,22 @@ Learn more about Amazon Bedrock:
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Amazon Web Services (AWS) account with access to Amazon Bedrock, and access to one or more Amazon Bedrock foundation models. [Learn more](https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started-console.html)
+- An Amazon Web Services (AWS) account with access to Amazon Bedrock, and access to one or more Amazon Bedrock foundation models. [Learn more](https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started-console.html).
 
 ## Create IAM user access keys
 
 To authenticate your API Management instance to Amazon API Gateway, you need access keys for an AWS IAM user. 
 
-To generate the required access key ID and secret key using the AWS Management Console, see [Create an access key for yourself](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-key-self-managed.html#Using_CreateAccessKey) in the AWS documentation. 
+To generate the required access key ID and secret key by using the AWS Management Console, see [Create an access key for yourself](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-key-self-managed.html#Using_CreateAccessKey) in the AWS documentation. 
 
 Save your access keys in a safe location. You'll store them as named values in the next step.
 
 > [!CAUTION]
-> Access keys are long-term credentials, and you should manage them as securely as you would a password. Learn more about [securing access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/securing_access-keys.html)
+> Access keys are long-term credentials, and you should manage them as securely as you would a password. Learn more about [securing access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/securing_access-keys.html).
 
 ## Store IAM user access keys as named values
 
-Securely store the two IAM user access keys as secret [named values](api-management-howto-properties.md) in your Azure API Management instance using the configuration recommended in the following table. 
+Securely store the two IAM user access keys as secret [named values](api-management-howto-properties.md) in your Azure API Management instance by using the configuration recommended in the following table. 
 
 
 | AWS secret | Name | Secret value | 
@@ -53,41 +53,41 @@ Securely store the two IAM user access keys as secret [named values](api-managem
 | Access key | *accesskey* | Access key ID retrieved from AWS |
 | Secret access key  | *secretkey* | Secret access key retrieved from AWS |
 
-## Import a Bedrock API using the portal
+## Import a Bedrock API by using the portal
 
 To import an Amazon Bedrock API to API Management:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the [Azure portal](https://portal.azure.com), go to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
 1. Under **Define a new API**, select **Language Model API**.
 
     :::image type="content" source="media/openai-compatible-llm-api/openai-api.png" alt-text="Screenshot of creating a passthrough language model API in the portal." :::
 
 1. On the **Configure API** tab:
-    1. Enter a **Display name** and optional **Description** for the API.
+    1. Enter a **Display name** and optional **Description**.
     1. Enter the following **URL** to the default Amazon Bedrock endpoint: `https://bedrock-runtime.<aws-region>.amazonaws.com`.
 
         Example: `https://bedrock-runtime.us-east-1.amazonaws.com`
-    1. Optionally select one or more **Products** to associate with the API.  
+    1. Optionally, select one or more **Products** to associate with the API.  
     1. In **Path**, append a path that your API Management instance uses to access the LLM API endpoints.
     1. In **Type**, select **Create a passthrough API**.
-    1. Leave values in **Access key** blank. 
+    1. Leave **Access key** blank. 
 
     :::image type="content" source="media/amazon-bedrock-passthrough-llm-api/configure-api.png" alt-text="Screenshot of language model API configuration in the portal.":::
 
 1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety. For details, see [Import a language model API](openai-compatible-llm-api.md).
 1. Select **Review**.
-1. After settings are validated, select **Create**. 
+1. After the portal validates the settings, select **Create**. 
 
 API Management creates the API and (optionally) policies to help you monitor and manage the API. 
 
 ## Configure policies to authenticate requests to the Amazon Bedrock API
 
-Configure API Management policies to sign requests to the Amazon Bedrock API. [Learn more about signing AWS API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html)
+Configure API Management policies to sign requests to the Amazon Bedrock API. [Learn more about signing AWS API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html).
 
-The following example uses the *accesskey* and *secretkey* named values you created previously for the AWS access key and secret key. Set the `region` variable to the appropriate value for your Amazon Bedrock API. The example uses `us-east-1` for the region.
+The following example uses the *accesskey* and *secretkey* named values you created previously for the AWS access key and secret key. Set the `region` variable to the appropriate value for your Amazon Bedrock API. The example uses `us-east-1`.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the [Azure portal](https://portal.azure.com), go to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs**.    
 1. Select the API that you created in the previous section.
 1. In the left menu, under **Design**, select **All operations**.
@@ -259,7 +259,7 @@ The following example uses the *accesskey* and *secretkey* named values you crea
 
 ## Call the Bedrock API
 
-To call the Bedrock API through API Management, you can use the AWS Bedrock SDK. This example uses the .NET SDK, but you can use any language that supports the AWS Bedrock API.
+To call the Bedrock API through API Management, you can use the AWS Bedrock SDK. This example uses the .NET SDK, but use any language that supports the AWS Bedrock API.
 
 The following example uses a custom HTTP client that instantiates classes defined in the accompanying file `BedrockHttpClientFactory.cs`. The custom HTTP client routes requests to the API Management endpoint and includes the API Management subscription key (if necessary) in the request headers.
 

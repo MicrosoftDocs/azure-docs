@@ -7,8 +7,8 @@ ms.subservice: desired-state-config
 ms.topic: how-to
 ms.date: 04/01/2025
 ms.custom:
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Enable Azure Automation State Configuration

@@ -1,6 +1,6 @@
 ---
-title: Using Azure Functions for Azure Cache for Redis
-description: Learn how to use Azure Functions Azure Cache for Redis
+title: Using Azure Functions for Azure Managed Redis
+description: Learn how to use Azure Functions Azure Managed Redis
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
@@ -96,11 +96,11 @@ When connecting to a cache instance with an Azure function, you can use one of t
 
 ### [User-assigned managed identity](#tab/user-assigned)
 
-A user-assigned mananged identity must be associated with your function app, and that identity must also be granted explicit permissions in your cache service. For more information, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
+A user-assigned managed identity must be associated with your function app, and that identity must also be granted explicit permissions in your cache service. For more information, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 ### [System-assigned managed identity](#tab/system-assigned)
 
-The built-in system-assigned mananged identity must be enabled in your function app, and that identity must also be granted explicit permissions in your cache service. For more information, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
+The built-in system-assigned managed identity must be enabled in your function app, and that identity must also be granted explicit permissions in your cache service. For more information, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
 ### [Connection string](#tab/connection-string)
 
@@ -185,5 +185,4 @@ Connections using Service Principal Secrets are only available during local deve
 ## Related content
 
 - [Introduction to Azure Functions](/azure/azure-functions/functions-overview)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
+- [Overview of Azure functions for Azure Redis](/azure/azure-functions/functions-bindings-cache)

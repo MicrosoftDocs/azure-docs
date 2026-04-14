@@ -18,7 +18,7 @@ This article describes how to grant consent to a server to receive calls directe
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create a free account](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Communication Services resource, see [Create a Communication Services resource](../create-communication-resource.md).
 

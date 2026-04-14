@@ -4,13 +4,12 @@ titleSuffix: Azure Storage
 description: Use Azure Blob Storage to store massive amounts of unstructured object data, such as text or binary data. Azure Blob Storage is highly scalable and available.
 services: storage
 author: akashdubey-ms
-
 ms.service: azure-blob-storage
 ms.topic: overview
 ms.date: 03/28/2023
 ms.author: akashdubey
 ms.custom: engagement-fy23
-# Customer intent: As a data engineer, I want to understand how to effectively utilize Blob Storage, so that I can store and manage large volumes of unstructured data efficiently while ensuring high availability and scalability.
+#customer intent: As a data engineer, I want to understand how to effectively utilize Blob Storage, so that I can store and manage large volumes of unstructured data efficiently while ensuring high availability and scalability.
 ---
 
 # Introduction to Azure Blob Storage
@@ -109,7 +108,7 @@ A number of solutions exist for migrating existing data to Blob Storage:
 - **Azure Data Factory** supports copying data to and from Blob Storage by using the account key, a shared access signature, a service principal, or managed identities for Azure resources. For more information, see [Copy data to or from Azure Blob Storage by using Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json).
 - **Blobfuse** is a virtual file system driver for Azure Blob Storage. You can use BlobFuse to access your existing block blob data in your Storage account through the Linux file system. For more information, see [What is BlobFuse? - BlobFuse2 (preview)](blobfuse2-what-is.md).
 - **Azure Data Box** service is available to transfer on-premises data to Blob Storage when large datasets or network constraints make uploading data over the wire unrealistic. Depending on your data size, you can request [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md), or [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md) devices from Microsoft. You can then copy your data to those devices and ship them back to Microsoft to be uploaded into Blob Storage.
-- The **Azure Import/Export service** provides a way to import or export large amounts of data to and from your storage account using hard drives that you provide. For more information, see [What is Azure Import/Export service?](../../import-export/storage-import-export-service.md).
+- The **Azure Import/Export service** provides a way to import or export large amounts of data to and from your storage account using hard drives that you provide. For more information, see [What is Azure Import/Export service?](../../import-export/storage-import-export-service.md)
 
 ## Next steps
 

@@ -187,7 +187,7 @@ Use the following task list to migrate a deployed `artifact manifest` resource, 
 > Resources created with NSDV and NFDV, which still have reference to artifact stores instead of artifact manifests, can't be used to find out decommissioned artifacts unless they're upgraded.
 
 ## Query to discover artifact manifest reference
-The following ARG query can be used to list all NFDVs or NSDVs which contain artifact-manifest references. If a resource appears in this ouptut, an attempt to delete the artifact manifest fails.
+The following ARG query can be used to list all NFDVs or NSDVs which contain artifact-manifest references. If a resource appears in this output, an attempt to delete the artifact manifest fails.
 ```powershell
 resources
  | where type == "microsoft.hybridnetwork/publishers/networkfunctiondefinitiongroups/networkfunctiondefinitionversions" or type  == "microsoft.hybridnetwork/publishers/networkservicedesigngroups/networkservicedesignversions"

@@ -1,9 +1,8 @@
 ---
 title: Azure IoT Hub communication protocols and ports
 description: This article describes the supported communication protocols for device-to-cloud and cloud-to-device communications and the port numbers that must be open for those protocols.
-author: SoniaLopezBravo
-
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 03/20/2025
@@ -26,7 +25,7 @@ IoT Hub allows devices to use the following protocols for device-side communicat
 * HTTPS
 
 > [!NOTE]
-> IoT Hub provides limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, see [Overview of the MQTT broker feature in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see the [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid) section of [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md).
+> IoT Hub provides limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, see [Overview of the MQTT broker feature in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see the [Compare MQTT support in IoT Hub and Event Grid](iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid) section of [Communicate with an IoT hub using the MQTT protocol](iot-mqtt-connect-to-iot-hub.md).
 
 For information about how these protocols support specific IoT Hub features, see [Device-to-cloud communications guidance](iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md).
 
@@ -53,8 +52,6 @@ Consider the following points when you choose your protocol for device-side comm
 > [!WARNING]
 > When devices use the HTTPS protocol, each device should poll for cloud-to-device messages no more than once every 25 minutes. In development, each device can poll more frequently, if desired.
 
-[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
-
 ## Port numbers
 
 Devices can communicate with IoT Hub in Azure using various protocols. Typically, the specific requirements of the solution determine the choice of protocol. The following table lists the outbound ports that must be open for a device to be able to use a specific protocol:
@@ -71,4 +68,4 @@ The IP address of an IoT hub is subject to change without notice. To learn how t
 
 ## Next steps
 
-For more information about how IoT Hub implements the MQTT protocol, see [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md).
+For more information about how IoT Hub implements the MQTT protocol, see [Communicate with an IoT hub using the MQTT protocol](iot-mqtt-connect-to-iot-hub.md).

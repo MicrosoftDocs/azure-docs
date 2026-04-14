@@ -1,10 +1,10 @@
 ---
 title: Secure your Azure IoT Hub deployment
 description: Learn how to secure Azure IoT Hub, with best practices for protecting your deployment.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 08/28/2025
 ai-usage: ai-assisted
@@ -48,9 +48,9 @@ Protecting data both in transit and at rest is vital for maintaining the confide
 
 - **Use hardware security modules for device secrets**: Store device certificates and private keys in hardware security modules (HSMs) to protect against extraction and tampering, enhancing the security of authentication credentials. See [Hardware security module](/azure/iot-dps/concepts-service#hardware-security-module).
 
-- **Implement device-level data encryption**: Encrypt sensitive data on devices before transmission to IoT Hub to add an additional layer of protection beyond TLS, particularly for highly sensitive information. See [Data protection at rest via standard encryption algorithms](/azure/iot-hub/iot-hub-tls-support).
+- **Implement device-level data encryption**: Encrypt sensitive data on devices before transmission to IoT Hub to add an additional layer of protection beyond TLS, particularly for highly sensitive information. In addition to encrypting sensitive data on devices before transmission to IoT Hub, ensure that any data stored in stateful components of Azure IoT, such as device twins, is also encrypted. This applies to both device-to-cloud and cloud-to-device communication. See [Data protection at rest via standard encryption algorithms](/azure/iot-hub/iot-hub-tls-support).
 
-- **Use the latest SDK versions**: Ensure you're using the most recent IoT Hub device SDKs which implement various security features including encryption and authentication. See [Azure IoT SDKs](/azure/iot/iot-sdks).
+- **Use the latest SDK versions**: Ensure you're using the most recent IoT Hub device SDKs which implement various security features including encryption and authentication. See [Azure IoT SDKs](iot-sdks.md).
 
 - **Keep root CA certificates updated**: Regularly update the trusted root certificates on your devices to maintain secure TLS connections, avoiding connection failures due to expired or revoked certificates. See [IoT Hub TLS support](/azure/iot-hub/iot-hub-tls-support#cipher-suites).
 

@@ -101,4 +101,4 @@ Follow these steps to check the access for a single user, group, service princip
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)
+> [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal)

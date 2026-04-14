@@ -3,7 +3,7 @@ title: App Service Environment Overview
 description: Learn about App Service Environments, which are fully isolated and single-tenant App Service deployments that provide high-scale, network-secured hosting.
 author: seligj95
 ms.topic: overview
-ms.date: 09/02/2025
+ms.date: 11/11/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -65,6 +65,9 @@ If you require physical isolation down to the hardware level, you can deploy you
   
 Only I1v2, I2v2, and I3v2 SKU sizes are available in an App Service Environment deployed on dedicated hosts. Extra charges apply for dedicated host deployments.
 
+> [!NOTE]
+> Dedicated host deployments are available only in limited regions, and expansion to additional regions isn't planned.
+
 Most customers don't require isolation down to the hardware level, so consider the limitations of dedicated host deployments before you use this feature. To determine whether a dedicated host deployment is right for you, review your security and compliance requirements before deployment.
 
 ## Virtual network support
@@ -94,7 +97,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
   - To make plans zone redundant, the App Service Environment must have zone redundancy enabled.
   - You can scale non-zone-redundant plans down to a single instance.
   
-  For more information, see [Reliability in App Service Environment](../../reliability/reliability-app-service-environment.md).
+  For more information, see [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
 
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
 
@@ -152,7 +155,7 @@ App Service Environment v3 is available in the following regions.
 | Israel Central       | ✅                           | ✅                          |
 | Italy North          | ✅                           | ✅**                        |
 | Japan East           | ✅                           | ✅                          |
-| Japan West           | ✅                           |                             |
+| Japan West           | ✅                           | ✅                          |
 | Jio India Central    | ✅**                         |                             |
 | Jio India West       | ✅**                         |                             |
 | Korea Central        | ✅                           | ✅                          |

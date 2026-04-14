@@ -20,7 +20,7 @@ ms.service: azure-app-service
 ::: zone pivot="platform-windows"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. You incur no costs to complete this quickstart because you use a free App Service tier.
 
-To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
+To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!NOTE]
 > Starting with ARM API version 2024-11-01, sites are created with basic authentication _disabled_ by default. Users can [manually enable it](/azure/templates/microsoft.web/sites/basicpublishingcredentialspolicies?pivots=deployment-language-arm-template) if required.
@@ -36,7 +36,7 @@ In the Azure portal, select **Create new** to create a new Resource Group and th
 ::: zone pivot="platform-linux"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. You incur no costs to complete this quickstart because you use a free App Service tier.
 
-To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
+To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!NOTE]
 > Starting with ARM API version 2024-11-01, sites are created with basic authentication _disabled_ by default. Users can [manually enable it](/azure/templates/microsoft.web/sites/basicpublishingcredentialspolicies?pivots=deployment-language-arm-template) if required.

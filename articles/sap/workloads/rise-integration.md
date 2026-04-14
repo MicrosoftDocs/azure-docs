@@ -8,12 +8,12 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 12/21/2023
+ms.date: 2/2/2026
 ms.author: robiro
 # Customer intent: "As an IT administrator managing SAP solutions in Azure, I want to integrate my SAP RISE environment with my Azure services, so that I can ensure seamless communication and optimize performance while maintaining security across my infrastructure."
 ---
 
-# Integrating Azure with SAP RISE managed workloads
+# Integrate Azure with SAP RISE managed workloads
 
 For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services (ECS) and SAP S/4HANA Cloud, private edition (PCE) deployed in Azure, integrating the SAP managed environment with their own Azure ecosystem and third party applications is of particular importance. The following articles explain the concepts and best practices to follow for a performant and secure solution.
 
@@ -37,7 +37,7 @@ Review the specifics within this document and then jump to individual documents 
 - [Enable Power App to consume SAP interfaces](./rise-integration-services.md#on-premises-data-gateway)
 - [Enable Power BI](./rise-integration-services.md#on-premises-data-gateway), Fabric and Synapse to consume SAP data.
 - [Enable Microsoft Entra ID as SSO provider](./rise-integration-security.md#single-sign-on-for-sap-rise)
-- [Defend SAP at machine speed with Sentinel](./rise-integration-security.md#microsoft-sentinel-with-sap-rise) to block compromised users during attacks.
+- [Defend SAP at machine speed with Sentinel](./rise-integration-security.md#microsoft-sentinel-solution-for-sap-with-sap-rise) to block compromised users during attacks.
 
 ## Azure support
 

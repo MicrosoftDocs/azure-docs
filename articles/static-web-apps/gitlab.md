@@ -2,11 +2,11 @@
 title: "Tutorial: Deploy GitLab repositories on Azure Static Web Apps"
 description: Use GitLab with Azure Static Web Apps
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic: quickstart
 ms.date: 06/24/2024
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Tutorial: Deploy GitLab repositories on Azure Static Web Apps
@@ -24,7 +24,7 @@ In this tutorial, you learn to:
 
 - [GitLab](https://gitlab.com) account
 - [Azure](https://portal.azure.com) account
-  - If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+  - If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a repository
 

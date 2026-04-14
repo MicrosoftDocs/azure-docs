@@ -4,13 +4,42 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 09/12/2025
+ms.date: 03/30/2026
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
 # What's new in Azure VMware Solution
 
-Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance-best-practices.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
+
+## March 2026
+
+**VMware NSX 4.2.3.2**
+
+All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.2.3.2 [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+**Microsoft Entra ID integration for Azure VMware Solution**
+
+Microsoft Entra ID intergration for Azure VMware Solution is now Generally Available (GA). This feature enables customers to utilize Microsoft Entra ID an an external identity source for vCenter, providing greater security and integration into Azure. [Learn More](configure-identity-source-vcenter.md#microsoft-entra-id-as-an-identity-source).
+
+## January 2026
+
+**Self-service maintenance orchestrator**
+
+Self-service maintenance orchestration is now Generally Available (GA). This feature enables customers to schedule and reschedule planned maintenance directly from the Azure portal, providing greater visibility into and control over upcoming maintenance events. [Learn More](self-service-maintenance-orchestration.md)
+
+
+## December 2025
+
+**Resource Health for Azure VMware Solution**
+
+Resource Health for Azure VMware Solution is now Generally Available! Resource Health, an Azure native feature, monitors the health of an Azure VMware Solution private cloud and suggests actions for existing issues. Set up Azure Monitor notifications on top of these alerts to notify stakeholders to remediate and ensure the private cloud is in a healthy and maintainable state. [Learn more](resource-health-for-azure-vmware-solution-overview.md)
+
+## November 2025
+
+**Disaster Recovery**
+
+Broadcom has introduced support for leveraging external storage as both a source and target in vSphere Replication for VMware Live Site Recovery across hyperscaler environments. Azure VMware Solution is actively validating this functionality to ensure seamless performance and operational integrity when using non-vSAN Azure first-party storage.
 
 ## September 2025
 
@@ -71,7 +100,7 @@ Azure Elastic SAN for AV64 SKU is now generally available. [Learn more](/azure/a
 
 ## December 2024
 
-Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution private cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](ecosystem-app-monitoring-solutions.md#azure-resource-health-for-azure-vmware-solution-private-cloud-public-preview) 
+Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution private cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](resource-health-for-azure-vmware-solution-overview.md)
 
 ## November 2024
 

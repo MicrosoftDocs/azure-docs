@@ -2,7 +2,6 @@
 title: Design secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the requirement and design phases of your web application project.
 author: msmbaldwin
-manager: rkarlin
 ms.author: mbaldwin
 ms.date: 05/28/2025
 ms.topic: article
@@ -238,7 +237,7 @@ Use two-factor authentication. Two-factor authentication is the current standard
 
 #### Use strong authentication and authorization platforms
 
-Use platform-supplied authentication and authorization mechanisms instead of custom code. This is because developing custom authentication code can be prone to error. Commercial code (for example, from Microsoft) often is extensively reviewed for security. [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is the Azure solution for identity and access management. These Microsoft Entra tools and services help with secure development:
+Use platform-supplied authentication and authorization mechanisms instead of custom code. This is because developing custom authentication code can be prone to error. Commercial code (for example, from Microsoft) often is extensively reviewed for security. [Microsoft Entra ID](/entra/fundamentals/what-is-entra) (Microsoft Entra ID) is the Azure solution for identity and access management. These Microsoft Entra tools and services help with secure development:
 
 * [Microsoft identity platform](../../active-directory/develop/index.yml) is a set of components that developers use to build apps that securely sign in users. The platform assists developers who are building single-tenant, line-of-business (LOB) apps and developers who are looking to develop multitenant apps. In addition to basic sign-in, apps built by using the Microsoft identity platform can call Microsoft APIs and custom APIs. The Microsoft identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
 

@@ -2,7 +2,7 @@
 title: Configure development environment for deployment scripts in Bicep | Microsoft Docs
 description: Configure development environment for deployment scripts in Bicep.
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ms.devlang: azurecli
 ms.custom:
   - devx-track-azurepowershell
@@ -88,7 +88,7 @@ var fileShareName = '${projectName}share'
 var containerGroupName = '${projectName}cg'
 var containerName = '${projectName}container'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -100,14 +100,14 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   }
 }
 
-resource fileShare 'Microsoft.Storage/storageAccounts/fileServices/shares@2024-01-01' = {
+resource fileShare 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-06-01' = {
   name: '${storageAccountName}/default/${fileShareName}'
   dependsOn: [
     storageAccount
   ]
 }
 
-resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2024-11-01-preview' = {
+resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2025-09-01' = {
   name: containerGroupName
   location: location
   properties: {
@@ -241,7 +241,7 @@ var fileShareName = '${projectName}share'
 var containerGroupName = '${projectName}cg'
 var containerName = '${projectName}container'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -253,14 +253,14 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   }
 }
 
-resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2024-01-01' = {
+resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-06-01' = {
   name: '${storageAccountName}/default/${fileShareName}'
   dependsOn: [
     storageAccount
   ]
 }
 
-resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2024-11-01-preview' = {
+resource containerGroup 'Microsoft.ContainerInstance/containerGroups@2025-09-01' = {
   name: containerGroupName
   location: location
   properties: {

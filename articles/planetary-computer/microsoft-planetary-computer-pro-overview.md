@@ -5,9 +5,9 @@ author: aloverro
 ms.author: adamloverro
 ms.service: planetary-computer-pro
 ms.topic: overview
-ms.date: 04/30/2025
+ms.date: 12/02/2025
 
-#customer intent: As a user of geospatial data and Azure cloud services, I want to undertand what Microsoft Planetary Computer Pro is so that I can determine it is the correct service for my use case.
+#customer intent: As a user of geospatial data and Azure cloud services, I want to understand what Microsoft Planetary Computer Pro is so that I can determine it is the correct service for my use case.
 ms.custom:
   - build-2025
 ---
@@ -60,7 +60,7 @@ The end-to-end GeoCatalog product lifecycle traverses the following stages:
 
 1. **GeoCatalog Deployment**: [Deploy the GeoCatalog](./deploy-geocatalog-resource.md) resource in an Azure Subscription
 1. **Manage Access**: [Assign Roles](./manage-access.md) to manage access to GeoCatalog capabilities
-1. **Create Collections**: Organize geospatial data with[STAC Collections](./create-stac-collection.md) 
+1. **Create Collections**: Organize geospatial data with [STAC Collections](./create-stac-collection.md) 
 1. **Data Ingestion**: Use the [Single Item](./create-stac-item.md) or [Bulk Ingestion](./bulk-ingestion-api.md) APIs to add data to a GeoCatalog
 1. **Visualize Data**: Use the [Explorer](./use-explorer.md) tool to visualize geospatial data assets
 1. **Query Assets**: Use the STAC API to search for STAC Items and Assets

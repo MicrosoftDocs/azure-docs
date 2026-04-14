@@ -88,8 +88,8 @@ You need two instances of a web app, one for the frontend and one for the backen
 1. Create the web apps. Replace `<frontend-app-name>` and `<backend-app-name>` with two globally unique names (valid characters are `a-z`, `0-9`, and `-`). For this tutorial, you're provided with sample Node.js apps. If you'd like to use your own apps, change the `--runtime` parameter accordingly. Run `az webapp list-runtimes` for the list of available runtimes.
 
     ```azurecli-interactive
-    az webapp create --name <frontend-app-name> --resource-group $groupName --plan $aspName --runtime "NODE:18-lts"
-    az webapp create --name <backend-app-name> --resource-group $groupName --plan $aspName --runtime "NODE:18-lts"
+    az webapp create --name <frontend-app-name> --resource-group $groupName --plan $aspName --runtime "NODE:24-lts"
+    az webapp create --name <backend-app-name> --resource-group $groupName --plan $aspName --runtime "NODE:24-lts"
     ```
 
 ## 2. Create network infrastructure
@@ -289,7 +289,7 @@ Your Deployment Center configuration has created a default workflow file in each
     
     env:
       AZURE_WEBAPP_NAME: <web-app-name>   # set this to your application's name
-      NODE_VERSION: '18.x'                # set this to the node version to use
+      NODE_VERSION: '24.x'                # set this to the node version to use
       AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
     
     jobs:

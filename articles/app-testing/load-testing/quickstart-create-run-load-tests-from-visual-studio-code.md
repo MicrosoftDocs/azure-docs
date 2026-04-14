@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create and run load tests from Visual Studio Code'
 titleSuffix: Azure Load Testing
-description: 'This quickstart shows how to create and run load tests using the Visual Studio Code extension for Azure Load Testing. Azure Load Testing is a managed, cloud-based load testing tool.'
+description: Create and run load tests using the Visual Studio Code extension and GitHub Copilot with Azure App Testing.
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: quickstart
@@ -16,12 +16,14 @@ Learn how to use the Azure Load Testing extension for Visual Studio Code to easi
 
 This quickstart guides you through generating, refining, and running realistic load tests. By the end, you have a fully functional load test script generated from a **Postman collection**, **Insomnia collection**, or **.http file**, enhanced with Copilot-powered improvements, and ready to scale in **Azure Load Testing**.
 
+> [!VIDEO e9b19925-4680-4d60-8d3e-930c1fedd932]
+
 ## Prerequisites
 
 - Azure Load Testing extension for VS Code. [Download and install it here](https://aka.ms/malt-vscode/get).  
 - GitHub Copilot. [Set up Copilot in VS Code](https://code.visualstudio.com/docs/copilot/setup) to generate and refine test scripts. If you don't have a subscription, you can activate a free trial.
 - Python & Locust. Required to run and validate your **Locust** test scripts locally from VS Code. [Install Locust here](https://docs.locust.io/en/stable/installation.html).
-- An Azure account with an active subscription. Needed to run load tests at scale in **Azure Load Testing**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. Needed to run load tests at scale in **Azure Load Testing**. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!TIP]
 > VS Code's GitHub Copilot Chat offers multiple AI models. You can switch models using the model picker in the chat input field. If you're unsure which one to use, we recommend GPT-4o.

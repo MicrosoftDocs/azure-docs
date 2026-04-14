@@ -9,16 +9,13 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 6/26/2024
+ms.date: 02/04/2026
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure Database for MySQL trigger binding for Azure Functions (preview)
-
-> [!NOTE]
-> Although input and output bindings are supported on all plans, Azure Database for MySQL trigger binding is available only on [Dedicated and Premium plans](functions-scale.md) during the preview.
+# Azure Database for MySQL trigger binding for Azure Functions
 
 Azure Database for MySQL trigger bindings monitor the user table for changes (inserts and updates) and invoke the function with updated row data.
 
@@ -702,7 +699,7 @@ Here's an example local.settings.json file with the optional settings:
 
 ## Set up change tracking (required)
 
-Setting up change tracking for use with the Azure Database for MySQL trigger requires you to add a column in a table by using a function. You can complete these steps from any MySQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions) or [Azure Data Studio](/azure-data-studio/download-azure-data-studio).
+Setting up change tracking for use with the Azure Database for MySQL trigger requires you to add a column in a table by using a function. You can complete these steps from any MySQL tool that supports running queries, including [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Oracle.mysql-shell-for-vs-code).
 
 Azure Database for MySQL trigger bindings use `az_func_updated_at` and column data to monitor the user table for changes. As such, you need to alter the table structure to allow change tracking on the MySQL table before you use the trigger support. You can enable the change tracking on a table through the following query. For example, enable it on the `Products` table:
 

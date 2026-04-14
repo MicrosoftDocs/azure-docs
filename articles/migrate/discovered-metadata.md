@@ -37,6 +37,7 @@ Number of cores | `vm.Config.Hardware.NumCPU`
 Memory (MB) | `vm.Config.Hardware.MemoryMB`
 Number of disks | `vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk).count`
 Disk size list | `vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk)`
+Storage Utilization | sum of `vm.guest.disk.capacity` - sum of `vm.guest.disk.freeSpace`
 Network adapters list | `vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count`
 CPU utilization | `cpu.usage.average`
 Memory utilization | `mem.usage.average`
@@ -297,6 +298,12 @@ Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-upda
 
 > [!NOTE]
 > If your Red Hat Enterprise Linux (RHEL) servers use `yum` and aren't patched regularly, pending updates data can consume storage in the cache under `var\tmp\yum\-<username>`. To manage disk space, it is recommended to clear the cache regularly.
+> [!NOTE]
+> To disable discovery of pending updates:
+> 1. Go to `HKLM:\SOFTWARE\Microsoft\AzureAppliance`.
+> 1. Set the `EnablePendingUpdatesDiscovery` registry value (type `REG_DWORD`) to `0`.
+> 1. Restart the appliance for the change to take effect. </be></br>
+> To re-enable discovery of pending updates, set the `EnablePendingUpdatesDiscovery` registry value to `1` and restart the appliance.
 
 ## SQL Server instance and database data
 

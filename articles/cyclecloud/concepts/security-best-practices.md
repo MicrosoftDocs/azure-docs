@@ -3,6 +3,7 @@ title: Security Best Practices
 description: Learn about Azure CycleCloud Security Best Practices
 author: prkannap
 ms.date: 08/02/2021
+ms.update-cycle: 3650-days
 ms.author: aevdokimova
 ---
 

@@ -226,7 +226,6 @@ The following table indicates:
 | Australia Central 2 | | ✅ |
 | Australia East | ✅ | ✅ |
 | Australia Southeast | ✅ | ✅ |
-| Brazil North East | | ✅ |
 | Brazil South | ✅ | ✅ |
 | Brazil Southeast | | ✅ |
 | Canada Central | ✅ | |

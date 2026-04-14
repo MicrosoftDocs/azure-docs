@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 07/16/2025
+ms.date: 04/07/2026
 ms.author: duau
 ms.custom:
   - references_regions
@@ -44,19 +44,29 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 
 | Metro location | Location address | Zone | Local Azure Region | ER Direct | Service Provider |
 |--|--|--|--|--|--|
-| Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>Digital Realty<br>Equinix<br>euNetworks<br>Megaport<br> |
+| Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>DE-CIX<br>Digital Realty<br>Equinix<br>euNetworks<br>Megaport<br>NL-IX<br>SURF |
 | Atlanta Metro | Equinix AT1<br>Digital Realty ATL14 | 1 | &cross; | &check; |  Equinix<br>Megaport<br>|
-| Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; |  Equinix<br>Megaport<sup>1</sup> |
-| Dallas Metro | Equinix DA6 <br>Digital Realty DFW10 | 1 | &cross; | &check; | Megaport<sup>1</sup>  |
-| Jakarta Metro | NeutraDC HDC<br>NTT GDC | 2 | Indonesia Central | &check; | DCI Indonesia<sup>1</sup><br>Telin<sup>1</sup><br>XL Axiata<sup>1</sup> |
-| Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>Equinix<br>Megaport<sup>1</sup> |
-| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Equinix<br>Megaport<sup>1</sup> |
-| Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>Megaport |
-| Taipei Metro | Chief Telecom<br>Chunghwa Telecom Co. Ltd | 2 | Taiwan North | &check; | |
-| Zurich Metro |  Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | Colt<br>Digital Realty |
-| Washington DC Metro | Equinix DC6<br>CoreSite VA3 | 1 | East US<br/>East US 2 | &check; |  Equinix<sup>1</sup><br>Megaport<sup>1</sup> |
+| Brussels Metro | Digital Realty BR4<br>LCL Brussels North | 1 | Belgium Central | &cross; | Belnet<br>Colt<br>Megaport<sup>1</sup>  |
+| Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; |  Equinix<br>Megaport |
+| Dallas Metro | Equinix DA6 <br>Digital Realty DFW10 | 1 | &cross; | &check; | Megaport |
+| Dublin Metro | Equinix DB3 <br>Digital Realty DUB02 | 1 | North Europe | &check; | Colt<sup>1</sup><br>Equinix<br>Megaport<sup>1</sup> |
+| Frankfurt Metro |  Digital Realty FRA11<br>Equinix FR7 | 1 | Germany West Central | &check; | Colt<sup>1</sup><br>DE-CIX<br>Equinix<sup>1</sup><br>Megaport |
+| Jakarta Metro | NeutraDC HDC<br>NTT GDC | 2 | Indonesia Central | &check; | DCI Indonesia<br>Telin<sup>1</sup><br>XL Axiata<sup>1</sup> |
+| Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>Equinix<br>Megaport<br>Telefonica<sup>1</sup> |
+| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Colt<br>Equinix<br>Megaport<br>Telecom Italia Sparkle<sup>1</sup><br>Telia Carrier (Arelion)<sup>1</sup> |
+| Mumbai Metro |  TATA LVSB<br>Nxtra Data| 2 | West India | &check; |  |
+| New York Metro | Equinix NY5<br>165 Halsey Street | 1 | &cross; | &check; |  Megaport<br>DE-CIX|
+| Oslo Metro |  DigiPlex Ulven <br>Bulk Data IX | 2 |  Norway East | &check; | Colt<sup>1</sup><br>GlobalConnect<sup>1</sup><br>Telenor<sup>1</sup> |
+| Silicon Valley Metro | Equinix SV10<br>CoreSite SV7 | 1 | West US | &check; | Megaport<br>Zayo<sup>1</sup> |
+| Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>Equinix<br>IX Reach<br>Megaport<br>MegaPOP (Singtel)<br>Singtel International |
+| Stockholm Metro | Equinix SK1<br>Digital Realty STO6 | 1 | Sweden Central | &check; | Megaport<sup>1</sup><br>Telia Carrier (Arelion) |
+| Taipei Metro | Chief Telecom<br>Chunghwa Telecom Co. Ltd | 2 | Taiwan North | &check; | Chunghwa Telecom<sup>1</sup> |
+| Toronto Metro | Cologix TOR1<br>Allied King West | 1 | Canda Central | &check; | Megaport<sup>1</sup><br>Zayo<sup>1</sup> |
+| Vienna Metro |  Digital Realty VIE1<br>NTT GDC | 1 | Austria East | &check; | A1 Telekom Austria<br>Colt<br>Next Layer GMBH |
+| Zurich Metro |  Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | BICS<sup>1</sup><br>Colt<br>Digital Realty<br>Swisscom |
+| Washington DC Metro | Equinix DC6<br>CoreSite VA3 | 1 | East US<br/>East US 2 | &check; |  Equinix<br>Megaport<br>Zayo<sup>1</sup> |
 
-<sup>1<sup> These service providers will be available in the future.
+<sup>1<sup> These service providers will be available in the future. While they are listed under the peering location, circuit creation is expected to fail until the providers become active.
 
 > [!NOTE]
 > The naming convention for Metro sites will utilize `City` and `City2` to denote the two unique peering locations within the same metropolitan region. As an illustration, Amsterdam and Amsterdam2 are indicative of the two separate peering locations within the metropolitan area of Amsterdam. In the Azure portal, these locations will be referred to as `Amsterdam Metro`.
@@ -65,7 +75,7 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 
 ### Create an ExpressRoute Metro circuit
 
-You can create an ExpressRoute Metro circuit in the Azure portal in any of the three metropolitan areas. Within the portal, specify one of the Metro peering locations and the corresponding service provider supported in that location. For more information, see [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview).
+You can create an ExpressRoute Metro circuit in the Azure portal in any of the metropolitan areas. Within the portal, specify one of the Metro peering locations and the corresponding service provider supported in that location. For more information, see [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview).
 
 :::image type="content" source="./media/metro/create-metro-circuit.png" alt-text="Screenshot of creating an ExpressRoute Metro circuit.":::
 

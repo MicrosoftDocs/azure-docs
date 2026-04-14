@@ -1,9 +1,9 @@
----
+﻿---
 title: Outputs in Bicep
 description: Learn how to define output values in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 05/09/2025
+ms.date: 12/22/2025
 ---
 
 # Outputs in Bicep
@@ -61,7 +61,7 @@ Decorators are written in the format `@expression` and are placed above output d
 | Decorator | Apply to | Argument | Description |
 | --------- | ---- | ----------- | ------- |
 | [description](#description) | all | string | This provides descriptions for the output. |
-| [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
+| [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type). |
 | [maxLength](#length-constraints) | array, string | int | This provides the maximum length for string and array outputs, and the value is inclusive. |
 | [maxValue](#integer-constraints) | int | int | This provides the maximum value for the integer output, and the value is inclusive. |
 | [metadata](#metadata) | all | object | This provides custom properties to apply to the output and can include a description property that's equivalent to the description decorator. |
@@ -182,7 +182,7 @@ param deployStorage bool = true
 param storageName string
 param location string = resourceGroup().location
 
-resource myStorageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = if (deployStorage) {
+resource myStorageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = if (deployStorage) {
   name: storageName
   location: location
   kind: 'StorageV2'
@@ -218,7 +218,7 @@ param orgNames array = [
   'Coho'
 ]
 
-resource nsg 'Microsoft.Network/networkSecurityGroups@2023-11-01' = [for name in orgNames: {
+resource nsg 'Microsoft.Network/networkSecurityGroups@2025-01-01' = [for name in orgNames: {
   name: 'nsg-${name}'
   location: nsgLocation
 }]
@@ -247,7 +247,7 @@ module publicIP 'modules/public-ip-address.bicep' = {
   name: 'public-ip-address-module'
 }
 
-resource loadBalancer 'Microsoft.Network/loadBalancers@2023-11-01' = {
+resource loadBalancer 'Microsoft.Network/loadBalancers@2025-01-01' = {
   name: loadBalancerName
   location: location
   properties: {

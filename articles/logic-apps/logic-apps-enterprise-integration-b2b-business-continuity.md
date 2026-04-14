@@ -1,14 +1,16 @@
 ---
-title: Disaster recovery for integration accounts
-description: Set up integration accounts and B2B artifacts for cross-region disaster recovery in Azure Logic Apps.
+title: Disaster Recovery for Integration Accounts
+description: Set up cross-region disaster recovery for integration accounts and B2B artifacts in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 02/20/2025
+ms.update-cycle: 1095-days
+ms.date: 03/13/2026
 ms.custom: sfi-image-nochange
+# Customer intent: As a B2B integration developer who works with Azure Logic Apps, I want to set up cross-region disaster recovery for my integration accounts and B2B artifacts.
 ---
 
 # Set up cross-region disaster recovery for integration accounts in Azure Logic Apps
@@ -310,6 +312,7 @@ and choose **Create**.
    Based on the time interval, the trigger polls the primary region 
    table and pulls the new records. The action updates them to the 
    secondary region integration account. 
+
    If there are no updates, the trigger status appears as **Skipped**.  
 
    ![Primary region table](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
@@ -319,6 +322,6 @@ replicates from the primary region to the secondary region.
 During a disaster event, when the primary region is not available, 
 direct traffic to the secondary region for business continuity. 
 
-## Next steps
+## Related content
 
 [Monitor B2B messages with Azure Monitor logs](../logic-apps/monitor-b2b-messages-log-analytics.md)

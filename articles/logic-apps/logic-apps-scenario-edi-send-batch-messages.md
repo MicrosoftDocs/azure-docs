@@ -1,44 +1,52 @@
 ---
-title: Batch process EDI messages as a group
-description: Send and receive EDI messages as batches, groups, or collections by using batch processing in Azure Logic Apps.
+title: Process EDI Messages in Batches or Groups
+description: Learn to send and receive EDI messages in batches, groups, or collections by using batch operations in Azure Logic Apps.
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
 ms.custom: sfi-image-nochange
+ms.date: 10/10/2025
+#Customer intent: As an integration developer working with Azure Logic Apps, I want to process EDI messages in batches or groups by using batch operations in my workflows.
 ---
 
-# Exchange EDI messages as batches or groups between trading partners in Azure Logic Apps
+# Exchange EDI messages in batches or groups between trading partners in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-In business to business (B2B) scenarios, partners often exchange messages in groups or *batches*. When you build a batching solution with Azure Logic Apps, you can send messages to trading partners and process those messages together in batches. This article shows how you can batch process EDI messages, using X12 as an example, by creating a "batch sender" logic app and a "batch receiver" logic app. 
+In business to business (B2B) scenarios, partners often exchange messages in groups or *batches*. When you build a batching solution with Azure Logic Apps, you can send messages to trading partners and process those messages together in batches.
 
-Batching X12 messages works like batching other messages. You use a batch trigger that collects messages into a batch and a batch action that sends messages to the batch. Also, X12 batching includes an X12 encoding step before the messages go to the trading partner or other destination. To learn more about the batch trigger and action, see [Batch process messages](logic-apps-batch-process-send-receive-messages.md).
+Processing X12 messages in batches works the same way as batching other messages. You use a batch trigger to collect messages into a batch. You use a batch action to send messages to the batch. Before the messages go to the trading partner or other destination, you also include an X12 encoding step. For more information, see [Send, receive, and batch process messages](logic-apps-batch-process-send-receive-messages.md).
 
-In this article, you'll build a batching solution by creating two logic apps within the same Azure subscription, Azure region, and following this specific order:
+This guide shows how to build a batching solution that processes Electronic Data Interchange (EDI) messages by creating two logic apps, a *batch sender* and a *batch receiver*. As an example, this solution handles X12 messages.
 
-* A ["batch receiver"](#receiver) logic app, which accepts and collects messages into a batch until your specified criteria is met for releasing and processing those messages. In this scenario, the batch receiver also encodes the messages in the batch by using the specified X12 agreement or partner identities.
+- The [batch receiver](#receiver) collects messages into a batch until specific criteria are met to release and process these messages. This batch receiver also encodes the messages in the batch by using the specified X12 agreement or partner identities.
 
-  Make sure that you first create the batch receiver so you can later select the batch destination when you create the batch sender.
+  You must first create the batch receiver as the batch destination. You can then later select the batch receiver when you create the batch sender.
 
-* A ["batch sender"](#sender) logic app workflow, which sends the messages to the previously created batch receiver.
+- The [batch sender](#sender) logic app workflow sends messages to the previously created batch receiver.
 
-Make sure that your batch receiver and batch sender logic app workflows use the same Azure subscription *and* Azure region. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
+Your batch receiver and batch sender must use the same Azure subscription *and* Azure region. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
+
+> [!NOTE]
+>
+> In a Standard logic app, you can create two workflows as the batch receiver and batch sender. Consumption logic app only has a single workflow, so you must create two logic apps.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* Basic knowledge about how to create logic app workflows. For more information, see [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md).
+- Basic knowledge about how to create logic app workflows. For more information, see the following documentation:
 
-* An existing [integration account](logic-apps-enterprise-integration-create-integration-account.md) that's associated with your Azure subscription and is linked to your logic apps.
+  - [Create a Consumption logic app workflow](quickstart-create-example-consumption-workflow.md)
+  - [Create a Standard logic app workflow](create-single-tenant-workflows-azure-portal.md)
 
-* At least two existing [partners](logic-apps-enterprise-integration-partners.md) in your integration account. Each partner must use the X12 (Standard Carrier Alpha Code) qualifier as a business identity in the partner's properties.
+- An [integration account](logic-apps-enterprise-integration-create-integration-account.md) that uses the same Azure subscription and is linked to your logic app.
 
-* An existing [X12 agreement](logic-apps-enterprise-integration-x12.md) in your integration account.
+- At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. Each partner must use the X12 (Standard Carrier Alpha Code) qualifier as a business identity in the partner properties.
+
+- An existing [X12 agreement](logic-apps-enterprise-integration-x12.md) in your integration account.
 
 [!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
@@ -46,127 +54,141 @@ Make sure that your batch receiver and batch sender logic app workflows use the 
 
 ## Create X12 batch receiver
 
-Before you can send messages to a batch, that batch must first exist as the destination where you send those messages. So first, you must create the "batch receiver" logic app, which starts with the **Batch** trigger. That way, when you create the "batch sender" logic app, you can select the batch receiver logic app. The batch receiver continues collecting messages until your specified criteria is met for releasing and processing those messages. While batch receivers don't need to know anything about batch senders, batch senders must know the destination where they send the messages.
+Before you can send messages to a batch, the batch must first exist as the destination batch. So, create the batch receiver first and start the workflow with the **Batch trigger**. That way, when you create the batch sender, you can select the batch receiver.
 
-For this batch receiver, you specify the batch mode, name, release criteria, X12 agreement, and other settings. 
+The batch receiver collects messages until the specified criteria are met to release and process these messages. Batch receivers don't have to know about the batch senders, but batch senders must know where to send the messages.
 
-1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, create a logic app with the following name: **BatchX12Messages**
 
-1. [Link your logic app to your integration account](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, create a logic app named **BatchX12Messages**.
 
-1. In workflow designer, add the **Batch** trigger, which starts your logic app workflow. 
+1. If you didn't previously link logic app to your integration account, [link your logic app now](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-1. [Follow these general steps to add a **Batch** trigger named **Batch messages**](create-workflow-with-trigger-or-action.md?tab=consumption#add-trigger).
 
-1. Set the batch receiver properties: 
+1. Follow these [general steps](add-trigger-action-workflow.md#add-trigger) to add a **Batch Operations** trigger named **Batch trigger**.
 
-   | Property | Value | Notes |
-   |----------|-------|-------|
-   | **Batch Mode** | Inline | |
-   | **Batch Name** | TestBatch | Available only with **Inline** batch mode |
-   | **Release Criteria** | Message count based, Schedule based | Available only with **Inline** batch mode |
-   | **Message Count** | 10 | Available only with **Message count based** release criteria |
-   | **Interval** | 10 | Available only with **Schedule based** release criteria |
-   | **Frequency** | minute | Available only with **Schedule based** release criteria |
+1. On the designer, select **Batch trigger** to open the trigger information pane.
 
-   ![Provide batch trigger details](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
+1. On the information pane, select the title for **Batch trigger**. Change the name to **Batch messages*.
+
+1. On the **Parameters** tab, provide values for the following parameters:
+
+   | Parameter | Value | Notes |
+   |-----------|-------|-------|
+   | **Mode** | **Inline** or **IntegrationAccount** | Only available for Consumption workflows. |
+   | **Batch Name** | \<*batch-name*\> | The batch name to use. This example uses `TestBatch`. <br><br>- Consumption workflows: Only available when **Mode** is **Inline**. This example uses `TestBatch`. <br>- Standard workflows: Always available. |
+   | **Release Criteria** | - **Message count based** <br>- **Size based** <br>- **Schedule based** | The release criteria type to use. <br><br>- Consumption workflows: Only available when **Mode** is **Inline**. <br>- Standard workflows: Always available. <br><br>This example uses **Message count based** and **Schedule based**. |
+   | **Message Count** | \<*integer*\> | Only available when **Release Criteria** is **Message count based**. Specifies the number of messages to collect and release. This example uses `10` as the value. |
+   | **Interval** | \<*integer*\> | Only available when **Release Criteria** is **Schedule based**. Specifies the number of time intervals for the recurrence. This example uses `10` as the value. |
+   | **Frequency** | \<*time-unit*\> | Only available when **Release Criteria** is **Schedule based**. Specifies the time unit for the recurrence. This example uses **Minute** as the value. |
+
+   :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png" alt-text="Screenshot shows the batch messages trigger pane where you can enter the parameter values.":::
 
    > [!NOTE]
    >
-   > This example doesn't set up a partition for the batch, so each batch 
-   > uses the same partition key. To learn more about partitions, see 
-   > [Batch process messages](logic-apps-batch-process-send-receive-messages.md#batch-sender).
+   > This example doesn't set up a partition for the batch. Each batch uses the same partition key. For more information about partitions, see [Create batch sender](logic-apps-batch-process-send-receive-messages.md#batch-sender).
 
-1. Now add an action that encodes each batch:
+1. Add an action that encodes each batch:
 
-   1. [Follow these general steps to add an **X12** action named: **Batch encode <*any-version*>**](create-workflow-with-trigger-or-action.md?tab=consumption#add-action) 
+   1. Follow these [general steps](add-trigger-action-workflow.md#add-action) to add an **X12** action named **Batch encode <*any-version*>**.
 
-   1. If you didn't previously connect to your integration account, create the connection now. Provide a name for your connection, select the integration account you want, and then select **Create**.
+   1. If you didn't previously connect to your integration account, create the connection now.
+   
+      1. Provide a name for your connection.
+      1. Provide values for the **Integration Account ID** and **Integration Account SAS URL** parameters.
+      1. Select **Create new**.
 
-      ![Create connection between batch encoder and integration account](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encoder-connect-integration-account.png)
+      :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-encoder-connect-integration-account.png" alt-text="Screenshot shows the connection name and integration account where you create a connection between batch encoder and integration account.":::
 
-   1. Set these properties for your batch encoder action:
+   1. On the designer, select the batch encoder action to open the action information pane. On the **Parameters** tab, provide values for the following parameters. If necessary, select parameters from **Advanced parameters**.
 
-      | Property | Description |
-      |----------|-------------|
-      | **Name of X12 agreement** | Open the list, and select your existing agreement. <p>If your list is empty, make sure you [link your logic app to the integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) that has the agreement you want. | 
-      | **BatchName** | Click inside this box, and after the dynamic content list appears, select the **Batch Name** token. | 
-      | **PartitionName** | Click inside this box, and after the dynamic content list appears, select the **Partition Name** token. | 
-      | **Items** | Close the item details box, and then click inside this box. After the dynamic content list appears, select the **Batched Items** token. | 
+      | Parameter | Description |
+      |-----------|-------------|
+      | **Name of X12 agreement** | From this list, select your agreement. <br><br>**Note**: If the list is empty, make sure you [link your logic app to the integration account](logic-apps-enterprise-integration-create-integration-account.md#link-account) that has your agreement. | 
+      | **BatchName** | Select inside this box to show the input options. Select the lighting icon to open the dynamic content list. From the list, under **Batch messages**, select the trigger output named **Batch Name**. | 
+      | **PartitionName** | Select inside this box to show the input options. Select the lightning icon to open the dynamic content list. From the list, under **Batch messages**, select **Partition Name**. | 
+      | **Items** | Select the **T** icon for **Switch to input entire array**. Select inside the **Items** box to show the input options. Select the lightning icon to open the dynamic content list. From this list, under **Batch messages**, select the trigger output named **Batched Items**. |
 
-      ![Batch Encode action details](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
+      :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png" alt-text="Screenshot shows the Batch encode by agreement name action where you can specify values." lightbox="./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png":::
 
       For the **Items** box:
 
-      ![Batch Encode action items](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-items.png)
-
-1. Save your logic app workflow.
-
-1. If you're using Visual Studio Code, make sure that you [deploy your batch receiver logic app to Azure](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code). Otherwise, you can't select the batch receiver when you create the batch sender.
-
-### Test your workflow
-
-To make sure your batch receiver works as expected, you can add an HTTP action for testing purposes, and send a batched message to the 
-[Request Bin service](https://requestbin.com/).
-
-1. [Follow these general steps to add the **HTTP** action named **HTTP**](create-workflow-with-trigger-or-action.md?tab=consumption#add-action).
-
-1. Set the properties for the HTTP action:
-
-   | Property | Description |
-   |----------|-------------|
-   | **Method** | From this list, select **POST**. |
-   | **Uri** | Generate a URI for your request bin, and then enter that URI in this box. |
-   | **Body** | Click inside this box, and after the dynamic content list opens, select the **Body** token, which appears in the section, **Batch encode by agreement name**. <p>If you don't see the **Body** token, next to **Batch encode by agreement name**, select **See more**. |
-
-   ![Provide HTTP action details](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
+      :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-items.png" alt-text="Screenshot shows the Items box where you specify Batched Items.":::
 
 1. Save your workflow.
 
-   Your batch receiver logic app looks like the following example: 
+1. If you use Visual Studio Code, first [deploy the batch receiver logic app to Azure](quickstart-create-logic-apps-visual-studio-code.md). Otherwise, you can't select the batch receiver when you create the batch sender.
 
-   ![Save your batch receiver logic app](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png)
+### Test your workflow
+
+To make sure your batch receiver works as expected, you can add an HTTP action for testing purposes, and send a batched message to the [Request Bin service](https://requestbin.com/).
+
+1. Follow these [general steps](add-trigger-action-workflow.md#add-action) to add the **HTTP** action named **HTTP**.
+
+1. On the designer, select the **HTTP** action to open the action information pane. On the **Parameters** tab, provide values for the following parameters:
+
+   | Parameter | Description |
+   |----------|-------------|
+   | **Method** | From this list, select **POST**. |
+   | **URI** | Generate a URI for your request bin, and then enter that URI in this box. |
+   | **Body** | Select inside this box to show the input options. Select the lighting icon to open the dynamic content list. From this list, under **Batch encode by agreement name**, select the action output named **Content**. <br><br>If **Content** doesn't appear, next to **Batch encode by agreement name**, select **See more**. |
+
+   :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png" alt-text="Screenshot shows an HTTP action where you specify values." lightbox="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png":::
+
+1. Save your workflow.
+
+   Your batch receiver workflow looks like the following example: 
+
+   :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png" alt-text="Screenshot shows the completed batch receiver workflow.":::
+   
+1. Continue to the next section where you create a batch sender to send messages to the batch receiver.
 
 <a name="sender"></a>
 
 ## Create X12 batch sender
 
-Now create one or more logic apps that send messages to the batch receiver logic app. In each batch sender, you specify the batch receiver logic app and batch name, message content, and any other settings. You can optionally provide a unique partition key to divide 
-the batch into subsets to collect messages with that key.
+Now you need one or more logic apps that send messages to the batch receiver. For each batch sender, specify the batch receiver and batch name, message content, and any other settings. You can optionally provide a unique partition key to divide the batch into subsets and collect messages with that key.
 
-* Make sure that you already [created your batch receiver](#receiver). That way, when you create your batch sender, you can select the existing batch receiver as the destination batch. While batch receivers don't need to know anything about batch senders, batch senders must know where to send messages.
+Before you start, make sure that you finished the following tasks:
 
-* Make sure that your batch receiver and batch sender logic app workflows use the same Azure subscription *and* Azure region. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
+- You [created your batch receiver](#receiver). The batch receiver must exist when you create your batch sender. Otherwise, you can't select the batch receiver as the destination batch. Batch receivers don't need to know about batch senders, but batch senders must know where to send messages.
 
-1. Create another logic app with the following name: **SendX12MessagesToBatch**
+- Make sure both the batch receiver and batch sender use the same Azure subscription *and* Azure region. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
 
-1. [Follow these general steps to add the **Request** trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tab=consumption#add-trigger).
+1. Create another logic app named **SendX12MessagesToBatch**.
 
-1. To add an action for sending messages to a batch, [follow these general steps to add a **Send messages to batch** action named **Choose a Logic Apps workflow with batch trigger**](create-workflow-with-trigger-or-action.md?tab=consumption#add-action).
+1. Follow these [general steps](create-workflow-with-trigger-or-action.md?tab=consumption#add-trigger) to add the **Request** trigger named **When a HTTP request is received**.
 
-   1. Select the **BatchX12Messages** logic app that you previously created.
+1. Follow these [general steps](create-workflow-with-trigger-or-action.md#add-action) to add the **Batch Operations** action based on your logic app type:
 
-   1. Select the **BatchX12Messages** action named **Batch_messages - <*your-batch-receiver*>**.
+   - Consumption: **Send to batch trigger workflow**
+   - Standard: **Send to batch**
 
-1. Set the batch sender's properties.
-
-   | Property | Description | 
-   |----------|-------------| 
-   | **Batch Name** | The batch name defined by the receiver logic app, which is "TestBatch" in this example <p>**Important**: The batch name gets validated at runtime and must match the name specified by the receiver logic app. Changing the batch name causes the batch sender to fail. | 
-   | **Message Content** | The content for the message you want to send, which is the **Body** token in this example | 
+   1. Follow the steps for your logic app type:
    
-   ![Set batch properties](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)
+      - Consumption: Select your previously created **BatchX12Messages** **>** **Batch_messages** **>** **Add action**.
+      - Standard: Skip this step and go to the next step.
+
+1. On the **Parameters** tab, provide values for the following parameters:
+
+   | Parameter | Description |
+   |-----------|-------------|
+   | **Batch Name** | The batch name defined in the batch receiver, which is `TestBatch` for this example. <br><br>**Important**: The batch name gets validated at runtime and must match the name specified by the batch receiver. Changing the batch name causes the batch sender to fail. |
+   | **Message Content** | The message content to send, which is the **Body** output from the **HTTP** trigger. <br><br>Select inside the **Message Content** box to show the input options. Select the lightning icon to open the dynamic content list. From the list, under **HTTP**, select **Body**. |
+   | - Consumption: **Workflow Id** <br>- Standard: **Workflow Name** | - Consumption workflows: The value is prepopulated. <br>- Standard: Enter the trigger name in the batch receiver workflow, which is **Batch messages** in this example. |
+   | **Trigger Name** | - Consumption workflows: The value is prepopulated. <br>- Standard: Enter the trigger name from the batch receiver workflow. |
+    
+   :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png" alt-text="Screenshot shows the BatchX12Messages action where you set the batch parameters." lightbox="./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png":::
 
 1. Save your workflow.
 
-   Your batch sender logic app looks like this example:
+   Your batch sender looks like the following example:
 
-   ![Save your batch sender logic app](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-finished.png)
+   :::image type="content" source="./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-finished.png" alt-text="Screenshot shows the workflow for your batch sender logic app.":::
 
 ## Test your workflows
 
-To test your batching solution, post X12 messages to your batch sender logic app workflow using your HTTP request tool and its instructions. Soon, you start getting X12 messages in your request bin, either every 10 minutes or in batches of 10, all with the same partition key.
+To test your batching solution, from your HTTP request tool, send HTTP POST requests with X12 messages to your batch sender. If you used the example values, you start getting X12 messages in your request bin, either every 10 minutes or in batches of 10, all with the same partition key.
 
-## Next steps
+## Related content
 
-* [Process messages as batches](../logic-apps/logic-apps-batch-process-send-receive-messages.md) 
+- [Process messages as batches](logic-apps-batch-process-send-receive-messages.md)

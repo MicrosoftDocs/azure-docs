@@ -1,13 +1,14 @@
 ### YamlMime:Landing
-title: Azure Redis Documentation
-summary: There are two fully managed Redis services on Azure - Azure Managed Redis and Azure Cache for Redis. Either service can be used as a data cache, session store, or messaging broker that provides high throughput and low-latency access to data for applications. Azure Managed Redis is the latest offering and provides higher performance and more advanced features. It can be used for more applications, such as storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Azure Managed Redis from any application on Azure. For information about Azure Cache for Redis, see the links on this page.
+title: Azure Managed Redis Documentation
+summary: Azure Managed Redis is a managed service that can be used as a data cache, session store, or messaging broker that provides high throughput and low-latency. It provides secure and reliable caching for use with your cloud architecture. Use Azure Managed Redis for applications such as storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Azure Managed Redis. For information about Azure Cache for Redis, see the links on this page.
 
 
 metadata:
-  title: Azure Redis Documentation
-  description: Learn how to use Azure Redis for secure data caches and messaging brokers that give applications fast access to data. Tutorials, API references, and more.
-  ms.date: 05/18/2025
+  title: Azure Managed Redis Documentation
+  description: Learn how to use Azure Managed Redis for secure data caches, storing embeddings vectors and as a semantic cache through Tutorials, API references, and more.
+  ms.date: 11/24/2025
   ms.topic: landing-page
+  ai-usage: ai-assisted
   ms.custom:
     - ignite-2024
     - build-2025
@@ -27,8 +28,10 @@ landingContent:
             url: best-practices-performance.md
       - linkListType: how-to-guide
         links:
-          - text: How to migrate to Azure Managed Redis from Azure Cache for Redis
-            url: migrate/migrate-overview.md
+          - text: Migrate Basic, Standard, and Premium tiers to Azure Managed Redis
+            url: migrate/migrate-basic-standard-premium-overview.md
+          - text: Migrate Enterprise tier to Azure Managed Redis
+            url: migrate/migrate-redis-enterprise-overview.md
       - linkListType: whats-new
         links:
           - text: What's new?
@@ -37,14 +40,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Code a .NET Framework app
-            url: dotnet-how-to-use-azure-redis-cache.md
-          - text: Code a .NET Core app
-            url: dotnet-core-quickstart.md
-          - text: Code an ASP.NET web app
-            url: web-app-cache-howto.md
-          - text: Code an ASP.NET Core web app
-            url: web-app-aspnet-core-howto.md
+          - text: Code a .NET app
+            url: dotnet.md
+          - text: Code an ASP.NET app
+            url: aspnet.md
           - text: Code a Java app
             url: java-get-started.md
           - text: Code a Node.js app
@@ -114,18 +113,10 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/redisenterprise
 
-  - title: About Azure Cache for Redis
+  - title: Azure Cache for Redis
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Cache for Redis?
             url: /azure/azure-cache-for-redis/cache-overview
-      - linkListType: video
-        links:
-          - text: Azure Cache for Redis Community Standup 
-            url: https://www.youtube.com/watch?v=hA3117yQnHg&list=PLI7iePan8aH4V7A_BMwvlBY3xW2FAGITp
-      - linkListType: whats-new
-        links:
-          - text: What's new with Azure Cache for Redis?
-            url: /azure/azure-cache-for-redis/cache-whats-new
-  
+

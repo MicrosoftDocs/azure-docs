@@ -1,9 +1,10 @@
 ---
-author: hhunter-ms
+author: greenie-msft
 ms.service: azure-functions
 ms.topic: include
 ms.date: 08/07/2023
-ms.author: hannahhunter
+ms.author: nigreenf
+ms.reviewer: hannahhunter
 ---
 
 >[!IMPORTANT]

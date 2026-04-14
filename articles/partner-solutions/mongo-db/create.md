@@ -2,10 +2,10 @@
 title: "Quickstart: Get Started with MongoDB Atlas"
 description: Learn how to create a MongoDB Atlas resource in the Azure portal.
 ms.topic: quickstart
-ms.date: 04/28/2025
+ms.date: 12/11/2025
 ---
 
-# Quickstart: Get started with MongoDB Atlas 
+# Quickstart: Get started with MongoDB Atlas
 
 In this quickstart, you create a MongoDB Atlas resource in the Azure portal.
 
@@ -19,33 +19,35 @@ In this quickstart, you create a MongoDB Atlas resource in the Azure portal.
 
 ### Basics tab
 
-The **Basics** tab has sections for details about the project, the Azure resource, and the MongoDB Atlas organization. Red asterisks identify required settings.
+The **Basics** tab has sections for details about the project, the Azure resource, and the MongoDB Atlas organization.
 
 :::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot of basic settings for creating a MongoDB Atlas organization in the Azure portal.":::
 
-1. Under **Project details**, enter these values:
+Red asterisks identify required settings. Enter values for each required setting.
 
-    | Setting               | Action                                                    |
+1. **Project details:**
+
+    | Setting             | Value                                                     |
     |---------------------|-----------------------------------------------------------|
     | **Subscription**        | Select a subscription from your existing subscriptions.   |
     | **Resource group**      | Use an existing resource group or create a new one.       |
 
-1. Under **Azure Resource Details**, enter these values:
+1. **Azure Resource Details:**
 
-    | Setting              | Action                                    |
+    | Setting            | Value                                     |
     |--------------------|-------------------------------------------|
     | **Resource name**      | Specify a unique name for the resource.   |
-    | **Region**             | Select a region to deploy your resource.  |
+    | **Region**             | Select the Azure region where this resource will be deployed. This selection is separate from the Atlas cluster region, which you will choose later during cluster setup. |
 
-1. Under **MongoDB Atlas Organization details**, enter this value:
+1. **MongoDB Atlas Organization details:**
 
-    | Setting                  | Action                                                                                           |
-    |------------------------|--------------------------------------------------------------------------------------------------|
-    | **Organization name**      | Specify the name of the MongoDB Atlas organization.                                               |
+    | Setting                | Value                                 |
+    |------------------------|---------------------------------------|
+    | **Organization name**   | Specify the name of the MongoDB Atlas organization.  |
 
     The remaining settings update themselves to reflect the details of the plan that you selected for this new organization.
 
-1. Select **Next**.
+1. Select **Next** to add tags, or select **Review and create**.
 
 ### Tags tab (optional)
 

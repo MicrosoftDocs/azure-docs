@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Notifications - Overview 
 description: This article provides information on Azure Event Grid events supported by Azure Resource Notifications. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2023
 ---
 
@@ -71,3 +71,4 @@ See the following articles:
 - [Azure Resource Notifications - Health Resources events in Azure Event Grid](event-schema-health-resources.md).
 - [Azure Resource Notifications - Azure Resource Manager events in Azure Event Grid](event-schema-resources.md).
 - [Azure Resource Notifications - Container Service events in Azure Event Grid](event-schema-containerservice-resources.md).
+- [Azure Resource Notifications - AKS events in Azure Event Grid](event-schema-aks-resources.md).

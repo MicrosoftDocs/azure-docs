@@ -9,7 +9,7 @@ ms.date: 04/08/2025
 
 ms.custom:
   - build-2025
-# customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to an Microsoft Planetary Computer Pro GeoCatalog.
+# customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to a Microsoft Planetary Computer Pro GeoCatalog.
 ---
 
 # Create a SpatioTemporal Asset Catalog (STAC) item
@@ -33,7 +33,7 @@ This tutorial shows and explains capabilities through code snippets, for an inte
 
 To complete this quickstart, you need:
 
-- An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure CLI: [Install Azure CLI](/cli/azure/install-azure-cli)
 - A Python environment with at least version 3.8.
 - Some familiarity with the STAC standard and its implementation in Microsoft Planetary Computer Pro [STAC Overview](./stac-overview.md)

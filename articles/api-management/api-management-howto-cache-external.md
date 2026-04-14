@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/11/2025
+ms.date: 10/27/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
 
@@ -44,10 +44,10 @@ To complete this tutorial, you need to:
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
 + Understand [caching in Azure API Management](api-management-howto-cache.md)
-+ Have an [Azure Managed Redis](../redis/quickstart-create-managed-redis.md), [Azure Cache for Redis](../azure-cache-for-redis/quickstart-create-redis.md), or another Redis-compatible cache available.
++ Have an [Azure Managed Redis](../redis/quickstart-create-managed-redis.md) or another Redis-compatible cache available.
 
     > [!IMPORTANT]
-    > Azure API Management uses a Redis connection string to connect to the cache. If you use Azure Cache for Redis or Azure Managed Redis, enable access key authentication in your cache to use a connection string. Currently, you can't use Microsoft Entra authentication to connect Azure API Management to Azure Cache for Redis or Azure Managed Redis.
+    > Azure API Management uses a Redis connection string to connect to the cache. If you use Azure Managed Redis, enable access key authentication in your cache to use a connection string. Currently, you can't use Microsoft Entra authentication to connect Azure API Management to Azure Managed Redis.
 
 ### Redis cache for Kubernetes
 
@@ -57,7 +57,7 @@ For an API Management self-hosted gateway, caching requires an external cache. F
 
 Follow the steps below to add an external Redis-compatible cache in Azure API Management. You can limit the cache to a specific gateway in your API Management instance.
 
-![Screenshot that shows how to add an external Azure Cache for Redis in Azure API Management.](media/api-management-howto-cache-external/add-external-cache.png)
+![Screenshot that shows how to add an external Azure Managed Redis cache in Azure API Management.](media/api-management-howto-cache-external/add-external-cache.png)
 
 ### Use from setting
 
@@ -76,7 +76,7 @@ The **Use from** setting in the configuration specifies the location of your API
 > [!NOTE]
 > You can configure the same external cache for more than one API Management instance. The API Management instances can be in the same or different regions. When sharing the cache for more than one instance, you must select **Default** in the **Use from** setting. 
 
-### Add an Azure Cache for Redis or Azure Managed Redis instance from the same subscription
+### Add an Azure Managed Redis instance from the same subscription
 
 1. Browse to your API Management instance in the Azure portal.
 1. In the left menu, under **Deployment + infrastructure** select **External cache**.
@@ -85,6 +85,9 @@ The **Use from** setting in the configuration specifies the location of your API
 1. In the [**Use from**](#use-from-setting) dropdown, select **Default** or specify the desired region. The **Connection string** is automatically populated.
 1. Select **Save**.
 
+> [!NOTE]
+> The default connection string is in the form `<cache-name>:10000,password=<cache-access-key>,ssl=True,abortConnect=False`. API Management stores the string as a secret named value. If you need to view or edit the string to  rotate the access key or troubleshoot connection issues, go to the **Named values** blade.
+
 ### Add a Redis-compatible cache hosted outside of the current Azure subscription or Azure in general
 
 1. Browse to your API Management instance in the Azure portal.
@@ -92,7 +95,7 @@ The **Use from** setting in the configuration specifies the location of your API
 1. Select **+ Add**.
 1. In the **Cache instance** dropdown, select **Custom**.
 1. In the [**Use from**](#use-from-setting) dropdown, select **Default** or specify the desired region.
-1. Enter your Azure Cache for Redis, Azure Managed Redis, or Redis-compatible cache connection string in the **Connection string** field.
+1. Enter your Azure Managed Redis or Redis-compatible cache connection string in the **Connection string** field.
 1. Select **Save**.
 
 ### Add a Redis cache to a self-hosted gateway

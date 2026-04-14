@@ -3,7 +3,7 @@ title: Bicep functions - flow control
 description: Describes the functions that incluence execution flow.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.date: 10/30/2025
 ---
 
 # Flow control functions for Bicep

@@ -15,7 +15,7 @@ In this tutorial, you'll learn how to write a .NET web server to authenticate an
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure Web PubSub service (must be Standard tier or above).
 * A client certificate in PEM format.
 * [.NET Runtime](https://dotnet.microsoft.com/download/dotnet) installed.

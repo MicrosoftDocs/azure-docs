@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot common Device Update for Azure IoT Hub issues | Microsoft Docs
 description: This document provides a list of tips and tricks to help remedy many possible issues you may be having with Device Update for IoT Hub.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 9/13/2022
 ms.topic: troubleshooting
 ms.service: azure-iot-hub
@@ -91,7 +91,7 @@ This condition can be caused by a service performance issue, a service bug, or a
 
 ### Q: I migrated from a device-level agent to adding the agent as a Module identity on the device. Now my update shows as 'in-progress' even though it's applied to the device
 
-This condition can happen if an older agent that was communicating over the Device Twin was not removed. When you provision the Device Update agent as a Module (see [how to](device-update-agent-provisioning.md)), all communications between the device and the Device Update service happen over the Module Twin. Remember to tag the Module Twin of the device when creating [groups](device-update-groups.md) and all [communications](device-update-plug-and-play.md) must happen over the module twin.
+This condition can happen if an older agent that was communicating over the device twin was not removed. When you provision the Device Update agent as a Module (see [how to](device-update-agent-provisioning.md)), all communications between the device and the Device Update service happen over the Module Twin. Remember to tag the Module Twin of the device when creating [groups](device-update-groups.md) and all [communications](device-update-plug-and-play.md) must happen over the module twin.
 
 ## <a name="download"></a> Downloading updates onto devices
 
@@ -233,7 +233,7 @@ The Device Update instance name is chosen by the user when first provisioned. Mo
 
 You may be asked to provide a device ID when reporting an issue related to device failures or deploying an update.
 
-The device ID is defined by the customer when the device is first provisioned. It can also be retrieved from the device's Device Twin.
+The device ID is defined by the customer when the device is first provisioned. It can also be retrieved from the device's device twin.
 
 ### Update ID
 

@@ -40,11 +40,14 @@ For Azure Migrate to work with Azure, you need these permissions before you star
 
 Task | Permissions | Details
 --- | --- | ---
-Create a project | Your Azure account needs permissions to create a project. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](create-project.md).
-Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to discover and assess servers with the Azure Migrate Discovery and Assessment tool, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Azure Migrate and Modernize tool. This appliance sends metadata and performance data to Azure Migrate.<br><br> During registration, the `Microsoft.OffAzure`, `Microsoft.Migrate`, and `Microsoft.KeyVault` resource providers are registered with the subscription chosen in the appliance, so that the subscription works with the resource providers. To register, you need Contributor or Owner access on the subscription.<br><br> **VMware**: During onboarding, Azure Migrate creates two Microsoft Entra apps. The first app communicates with the appliance agents and the Azure Migrate service. This app doesn't have permissions to make Azure resource management calls or have Azure role-based access control (RBAC) access for resources. The second app accesses an Azure key vault created in the user subscription for agentless VMware migration only. In agentless migration, Azure Migrate creates a key vault to manage access keys to the replication storage account in your subscription. The app has Azure RBAC access on the key vault (in the customer tenant) when discovery is initiated from the appliance.<br><br> **Hyper-V**: During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](create-project.md).
+Create a project | Your Azure account needs permissions to create a project. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](create-project.md).
+Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to discover and assess servers with the Azure Migrate Discovery and Assessment tool, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Azure Migrate and Modernize tool. This appliance sends metadata and performance data to Azure Migrate.<br><br> During registration, the `Microsoft.OffAzure`, `Microsoft.Migrate`, and `Microsoft.KeyVault` resource providers are registered with the subscription chosen in the appliance, so that the subscription works with the resource providers. To register, you need Contributor or Owner access on the subscription.<br><br> **VMware**: During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Migrate service. This app doesn't have permissions to make Azure resource management calls or have Azure role-based access control (RBAC) access for resources. <br><br> **Hyper-V**: During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](create-project.md).
 Create a key vault for VMware agentless migration | To migrate VMware VMs with the agentless Azure Migrate and Modernize tool, Azure Migrate creates a key vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, Contributor, and User Access Administrator) on the resource group where the project resides. | Set up [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
 
 ::: moniker range="migrate-classic"
+
+>[!IMPORTANT]
+> For detailed information about Azure Migrate built‑in roles and the permissions required for different migration tasks, see [Azure Migrate built‑in roles](prepare-azure-accounts.md).
 
 ## Supported geographies
 
@@ -61,6 +64,8 @@ Geography | Metadata storage location
 Africa | South Africa or North Africa
 Asia Pacific | East Asia
 Australia | Australia East or Australia Southeast
+Austria | AustriaEast
+Belgium | BelgiumCentral
 Brazil | Brazil South
 Canada | Canada Central or Canada East
 Europe | North Europe or West Europe
@@ -83,6 +88,7 @@ Switzerland | Switzerland North
 United Arab Emirates | UAE North
 United Kingdom | UK South or UK West
 United States | Central US or West US 2
+Chile | Chile Central
 
 > [!NOTE]
 > For Switzerland geography, Switzerland West is available only for REST API users and needs an approved subscription.

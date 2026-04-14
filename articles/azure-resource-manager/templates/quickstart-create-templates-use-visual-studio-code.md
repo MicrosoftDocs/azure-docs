@@ -17,7 +17,7 @@ In this Quickstart, you use Visual Studio Code to create Azure Resource Manager 
 > [!IMPORTANT]
 > [Azure Resource Manager (ARM) Tools extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) is deprecated and will no longer be supported after October 1, 2025. For Bicep development, we recommend using the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). To learn more, see [Quickstart: Create Bicep files with Visual Studio Code](../bicep/quickstart-create-bicep-use-visual-studio-code.md). Note that "transient install" methods like GitHub Codespaces will continue to function even after deprecation. To manually install the extension, you can get it [here](https://github.com/microsoft/vscode-azurearmtools/releases/tag/v0.15.15)."
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/). You also need either the [Azure CLI](/cli/azure/) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az) installed and authenticated.
 
@@ -49,7 +49,7 @@ Update the resources section with the following snippet to include a storage acc
 "resources": [{
   "name": "storageaccount1",
   "type": "Microsoft.Storage/storageAccounts",
-  "apiVersion": "2025-01-01",
+  "apiVersion": "2025-06-01",
   "tags": {
     "displayName": "storageaccount1"
   },
@@ -129,7 +129,7 @@ Upon completion, your template looks like:
     {
       "name": "[parameters('storageAccountName')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "tags": {
         "displayName": "storageaccount1"
       },

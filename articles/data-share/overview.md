@@ -1,11 +1,11 @@
 ---
 title: What is Azure Data Share?
 description: Learn about sharing data simply and securely to multiple customers and partners using Azure Data Share.
-author:  sidontha
-ms.author: sidontha
+author:  chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: overview
-ms.date: 02/12/2025
+ms.date: 01/09/2026
 ms.custom: references_regions
 ---
 
@@ -19,7 +19,7 @@ Using Data Share, a data provider can share data and manage their shares all in 
 
 Azure Data Share helps enhance insights by making it easy to combine data from third parties to enrich analytics and AI scenarios. Easily use the power of Azure analytics tools to prepare, process, and analyze data shared with Azure Data Share. 
 
-Both the data provider and data consumer must have an Azure subscription to share and receive data. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+Both the data provider and data consumer must have an Azure subscription to share and receive data. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Scenarios for Azure Data Share
 
@@ -27,7 +27,7 @@ Azure Data Share can be used in many different industries. For example, a retail
 
 Azure Data Share can also be used to establish a data marketplace for a specific industry. For example, a government or a research institution that regularly shares anonymized data about population growth with third parties. 
 
-Another use case for Azure Data Share is establishing a data consortium. For example, many different research institutions can share data with a single trusted body. Data is analyzed, aggregated or processed using Azure analytics tools and then shared with interested parties. 
+Another use case for Azure Data Share is establishing a data consortium. For example, many different research institutions can share data with a single trusted body. Data is analyzed, aggregated, or processed using Azure analytics tools and then shared with interested parties. 
 
 ## How it works
 
@@ -41,7 +41,7 @@ In snapshot-based sharing, data moves from the data provider's Azure subscriptio
 
 Data providers can offer their data consumers incremental updates to the data shared with them through a snapshot schedule. Snapshot schedules are offered on an hourly or a daily basis. When a data consumer accepts and configures their data share, they can subscribe to a snapshot schedule. This is beneficial in scenarios where the shared data is updated regularly, and the data consumer needs the most up-to-date data. 
 
-When a data consumer accepts a data share, they're able to receive the data in a data store of their choice. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. Similarly, if the data provider shares data from an Azure Synapse Analytics, the data consumer can choose whether they want to receive the data into an Azure Data Lake Store, an Azure SQL Database or an Azure Synapse Analytics. If sharing from SQL-based sources, the data consumer can also choose whether they receive data in parquet or csv. 
+When a data consumer accepts a data share, they're able to receive the data in a data store of their choice. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. Similarly, if the data provider shares data from an Azure Synapse Analytics, the data consumer can choose whether they want to receive the data into an Azure Data Lake Store, an Azure SQL Database, or an Azure Synapse Analytics. If sharing from SQL-based sources, the data consumer can also choose whether they receive data in parquet or csv. 
 
 ### In-place sharing
 
@@ -79,7 +79,7 @@ All key capabilities listed above are supported through the Azure portal or via 
 
 For a list of Azure regions that make Azure Data Share available, refer to the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) page and search for Azure Data Share. 
 
-For metadata stored by Azure Data Share, in Southeast Asia (Singapore), it's stored within the region and for all other supported regions, it's stored in the geo. Azure Data Share doesn't store a copy of the shared data itself. The data is stored in the underlying data store that is being shared. For example, if a data provider stores their data in an Azure Data Lake Storage account located in West US that is where the data is stored. If they're sharing data with an Azure Storage account located in West Europe via snapshot, typically the data is transferred directly to the Azure Storage account located in West Europe. 
+For metadata stored by Azure Data Share, in Southeast Asia (Singapore), it's stored within the region and for all other supported regions, it's stored in the geo. Azure Data Share doesn't store a copy of the shared data itself. The data is stored in the underlying data store that's being shared. For example, if a data provider stores their data in an Azure Data Lake Storage account located in West US that's where the data is stored. If they're sharing data with an Azure Storage account located in West Europe via snapshot, typically the data is transferred directly to the Azure Storage account located in West Europe. 
 
 The Azure Data Share service doesn't have to be available in your region to use the service. For example, if you have data stored in an Azure Storage account located in a region where Azure Data Share isn't yet available, you can still use the service to share your data. 
 

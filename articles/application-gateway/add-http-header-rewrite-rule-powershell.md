@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 This article describes how to use Azure PowerShell to configure an [Application Gateway v2 SKU](./application-gateway-autoscaling-zone-redundant.md) instance to rewrite HTTP headers in requests and responses. Header rewriting enables you to add, remove, or update HTTP headers while the request and response packets move between the client and backend pools.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

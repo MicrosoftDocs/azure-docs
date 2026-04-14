@@ -77,7 +77,7 @@ To deploy an Azure Migrate appliance to discover on-premises servers, follow the
 
 After the appliance begins discovering servers, you can group the servers you want to assess and run an assessment for the group with the assessment type **Azure VMware Solution (AVS)**.
 
-Follow these steps to create your first [Azure VMware Solution assessment]((how-to-create-azure-vmware-solution-assessment.md)
+Follow these steps to create your first [Azure VMware Solution assessment](how-to-create-azure-vmware-solution-assessment.md).
 
 ## What data does the appliance collect?
 
@@ -128,8 +128,8 @@ Here's what's included in an Azure VMware Solution assessment:
 **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.
 **Storage type** | Specifies the storage engine for Azure VMware Solution. vSAN is included in all AVS SKUs' storage. By default, Azure NetApp Files (Standard, Premium, and Ultra tiers) is used in the assessment if external storage can optimize the number of AVS nodes required. Alternatively, you can use Elastic SAN instead of Azure NetApp Files to assess the cost using Elastic SAN as the external storage option.
 **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates take the option chosen into account. [Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify "Discount (%)".
-**Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. By default, all node types available in the selected region are used for the assessment. Currently, AV64 node type can only be used along with AV36, AV36P, or AV52 and can't be used as a single node type in an SDDC. The node type available for use depends on the capacity availability of the SKU in the region.
-**FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. Total available storage after calculations also includes (a) space reserved for management objects such as vCenter Server and (b) 25% storage slack required for vSAN operations.
+**Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. By default, all node types available in the selected region are used for the assessment. The node type available for use depends on the capacity availability of the SKU in the region.
+**FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and RAID combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. vSAN ESA is supported for AV48 SKU. Total available storage after calculations also includes (a) space reserved for management objects such as vCenter Server and (b) 25% storage slack required for vSAN operations.
 **Sizing criterion** | Sets the criteria to be used to determine memory, cpu, and storage requirements for Azure VMware Solution nodes. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. To lift and shift, choose as on-premises. To obtain usage based sizing, choose performance based.
 **Performance history** | Sets the duration to consider in evaluating the performance data of servers. This property is applicable only when the sizing criteria are *performance-based*.
 **Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based.
@@ -138,9 +138,15 @@ Here's what's included in an Azure VMware Solution assessment:
 **Currency** | Shows the billing currency for your account. 
 **Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. 
 **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although it has no impact on Azure VMware Solution pricing due to the node-based price, customers can still apply the on-premises OS or SQL licenses (Microsoft based) in Azure VMware Solution using Azure Hybrid Benefits. Other software OS vendors have to provide their own licensing terms, such as RHEL for example. 
+**CPU headroom** | Specifies the CPU headroom required to be maintained for planned and unplanned maintenance operations and the headroom for CPU spikes for workloads.
 **vCPU Oversubscription** | Specifies the ratio of number of virtual cores tied to one physical core in the Azure VMware Solution node. The default value in the calculations is 4 vCPU: 1 physical core in Azure VMware Solution. API users can set this value as an integer. Note that vCPU Oversubscription > 4:1 may impact workloads depending on their CPU usage. When sizing, we always assume 100% utilization of the cores chosen.
 **Memory overcommit factor** | Specifies the ratio of memory overcommit on the cluster. A value of 1 represents 100% memory use, 0.5, for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place. 
 **Deduplication and compression factor** | Specifies the anticipated deduplication and compression factor for your workloads. Actual value can be obtained from on-premises vSAN or storage configurations. These vary by workload. A value of 3 would mean 3x so for 300 GB disk only 100 GB storage would be used. A value of 1 would mean no deduplication or compression. You can only add values from 1 to 10 up to one decimal place.
+**Average IOPS/GiB** | Average IOPS required by the inventory per Gibibyte of storage. This helps determine the right tier of external storage to be considered for the assessment.
+**Average throughput/GiB** | Average throughput required by the inventory per Gibibyte of storage. This helps determine the right tier of external storage to be considered for the assessment.
+**Networking ingress/egress cost (%)** | Networking costs consists of data ingress and egress between the Elastic SAN datastore and the AVS SDDC and cost of private endpoints. Provide the estimate of the data ingress and egress that you expect as a percentage of the total Elastic SAN costs. Networking costs are considered to be 15% of the storage cost on an average. This will vary depending upon the amount of ingress and egress and can vary largely depending upon these factors.
+**SKU cost with BYOL** | AVS node costs in the assessment indicate cost of a node assuming you are porting your on-premises VCF licenses over to AVS.
+
 
 ## Azure VMware Solution suitability analysis
 
@@ -241,13 +247,13 @@ The available storage on a 3 node cluster will be based on the default storage p
 
 The limiting factor shown in assessments could be CPU or memory or storage resources based on the utilization on nodes. It's the resource, which is limiting or determining the number of hosts/nodes required to accommodate the resources. For example, in an assessment if it was found that after migrating 8 VMware VMs to Azure VMware Solution, 50% of CPU resources will be utilized, 14% of memory is utilized and 18% of storage will be utilized on the 3 AV36 nodes and thus CPU is the limiting factor.
 
-## Confidence ratings
+## Performance coverage
 
-Each performance-based assessment in Azure Migrate is associated with a confidence rating that ranges from one (lowest) to five stars (highest).
+Each performance-based assessment in Azure Migrate is associated with a performance coverage that ranges from one (lowest) to five stars (highest).
 
-- The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment.
-- The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate.
-- Confidence ratings aren't applicable for *as on-premises* assessments.
+- The performance coverage is assigned to an assessment based on the availability of data points needed to compute the assessment.
+- The performance coverage of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate.
+- Performance coverage isn't applicable for *as on-premises* assessments.
 - For performance-based sizing, Azure VMware Solution assessments need the utilization data for CPU and VM memory. The following data is collected but not used in sizing recommendations for Azure VMware Solution:
 
   - The disk IOPS and throughput data for every disk attached to the VM.
@@ -255,9 +261,9 @@ Each performance-based assessment in Azure Migrate is associated with a confiden
 
   If any of these utilization numbers are unavailable in vCenter Server, the size recommendation might not be reliable.
 
-Depending on the percentage of data points available, the confidence rating for the assessment goes as follows.
+Depending on the percentage of data points available, the performance coverage for the assessment goes as follows.
 
-**Availability of data points** | **Confidence rating**
+**Availability of data points** | **Performance coverage**
 --- | --- 
 0-20% | 1 star
 21-40% | 2 stars
@@ -265,9 +271,9 @@ Depending on the percentage of data points available, the confidence rating for 
 61-80% | 4 stars
 81-100% | 5 stars
 
-### Low confidence ratings
+### Low performance coverage
 
-Here are a few reasons why an assessment could get a low confidence rating:
+Here are a few reasons why an assessment could get a low performance coverage:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you create the assessment with performance duration set to one day, you must wait at least a day after you start discovery for all the data points to get collected.
 - Assessment isn't able to collect the performance data for some or all the VMs in the assessment period. For a high confidence rating, ensure that:

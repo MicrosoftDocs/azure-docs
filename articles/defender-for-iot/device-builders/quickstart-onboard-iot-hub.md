@@ -14,7 +14,7 @@ This article explains how to enable Microsoft Defender for IoT on an Azure IoT h
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The ability to create a standard tier IoT Hub.
 

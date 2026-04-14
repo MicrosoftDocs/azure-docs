@@ -5,7 +5,7 @@ services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.custom: devx-track-azurecli
-ms.date: 10/31/2022
+ms.date: 01/22/2026
 ms.author: duau
 ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -27,7 +27,7 @@ For this article, you create a simplified single VNet with three subnets for eas
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
-* **Jump-SN** - The "jump" server is in this subnet. The jump server has a public IP address that you can connect to using Remote Desktop. From there, you can then connect to (using another Remote Desktop) the workload server.
+* **AzureBastionSubnet** - Azure Bastion is in this subnet, providing secure access to the workload server.
 
 :::image type="content" source="media/tutorial-firewall-rules-portal/Tutorial_network.png" alt-text="Diagram of network infrastructure." lightbox="media/tutorial-firewall-rules-portal/Tutorial_network.png":::
 
@@ -81,56 +81,48 @@ az network vnet subnet create \
   --vnet-name Test-FW-VN   \
   --address-prefix 10.0.2.0/24
 az network vnet subnet create \
-  --name Jump-SN \
+  --name AzureBastionSubnet \
   --resource-group Test-FW-RG \
   --vnet-name Test-FW-VN   \
-  --address-prefix 10.0.3.0/24
+  --address-prefix 10.0.3.0/26
 ```
 
-### Create virtual machines
-
-Now create the jump and workload virtual machines, and place them in the appropriate subnets.
-When prompted, type a password for the virtual machine.
-
-Create the Srv-Jump virtual machine.
-
-```azurecli-interactive
-az vm create \
-    --resource-group Test-FW-RG \
-    --name Srv-Jump \
-    --location eastus \
-    --image win2016datacenter \
-    --vnet-name Test-FW-VN \
-    --subnet Jump-SN \
-    --admin-username azureadmin
-az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
-```
-
-
+### Create a virtual machine
 
 Create a NIC for Srv-Work with specific DNS server IP addresses and no public IP address to test with.
 
 ```azurecli-interactive
 az network nic create \
-    -g Test-FW-RG \
-    -n Srv-Work-NIC \
+    --resource-group Test-FW-RG \
+    --name Srv-Work-NIC \
    --vnet-name Test-FW-VN \
    --subnet Workload-SN \
-   --public-ip-address "" \
    --dns-servers <replace with External DNS ip #1> <replace with External DNS ip #2>
 ```
 
-Now create the workload virtual machine.
-When prompted, type a password for the virtual machine.
+Now create the workload virtual machine. The following command creates an Ubuntu Server 22.04 LTS VM with SSH key authentication and installs Nginx. When prompted, save the generated private key to a `.pem` file for use when connecting through Azure Bastion.
 
 ```azurecli-interactive
 az vm create \
     --resource-group Test-FW-RG \
     --name Srv-Work \
     --location eastus \
-    --image win2016datacenter \
+    --image Ubuntu2204 \
     --nics Srv-Work-NIC \
-    --admin-username azureadmin
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+```
+
+Create a `cloud-init.txt` file with the following content to install Nginx:
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+runcmd:
+  - echo '<h1>'$(hostname)'</h1>' | sudo tee /var/www/html/index.html
 ```
 
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
@@ -162,10 +154,32 @@ az network firewall update \
 az network public-ip show \
     --name fw-pip \
     --resource-group Test-FW-RG
-fwprivaddr="$(az network firewall ip-config list -g Test-FW-RG -f Test-FW01 --query "[?name=='FW-config'].privateIpAddress" --output tsv)"
+fwprivaddr="$(az network firewall ip-config list --resource-group Test-FW-RG --firewall-name Test-FW01 --query "[?name=='FW-config'].privateIpAddress" --output tsv)"
 ```
 
 Note the private IP address. You'll use it later when you create the default route.
+
+## Deploy Azure Bastion
+
+Deploy Azure Bastion to securely connect to the Srv-Work virtual machine without requiring public IP addresses or a jump server.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group Test-FW-RG \
+    --name bastion-pip \
+    --sku Standard \
+    --location eastus
+az network bastion create \
+    --name Test-Bastion \
+    --public-ip-address bastion-pip \
+    --resource-group Test-FW-RG \
+    --vnet-name Test-FW-VN \
+    --location eastus \
+    --sku Basic
+```
+
+> [!NOTE]
+> Azure Bastion deployment can take approximately 10 minutes to complete.
 
 ## Create a default route
 
@@ -195,8 +209,8 @@ Associate the route table to the subnet
 
 ```azurecli-interactive
 az network vnet subnet update \
-    -n Workload-SN \
-    -g Test-FW-RG \
+    --name Workload-SN \
+    --resource-group Test-FW-RG \
     --vnet-name Test-FW-VN \
     --address-prefixes 10.0.2.0/24 \
     --route-table Firewall-rt-table
@@ -247,32 +261,31 @@ Now, test the firewall to confirm that it works as expected.
 
    ```azurecli-interactive
    az vm list-ip-addresses \
-   -g Test-FW-RG \
-   -n Srv-Work
+   --resource-group Test-FW-RG \
+   --name Srv-Work
    ```
 
-1. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address and sign in.
+1. In the Azure portal, navigate to the **Srv-Work** virtual machine and select **Connect** > **Connect via Bastion**.
 
-3. On **SRV-Work**, open a PowerShell window and run the following commands:
+1. Provide the username **azureuser** and upload the private key `.pem` file that was generated when you created the VM. Select **Connect** to open an SSH session.
 
-   ```
+1. In the SSH session, run the following commands to test DNS resolution:
+
+   ```bash
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
    Both commands should return answers, showing that your DNS queries are getting through the firewall.
 
-1. Run the following commands:
+1. Run the following commands to test web access:
 
-   ```
-   Invoke-WebRequest -Uri https://www.microsoft.com
-   Invoke-WebRequest -Uri https://www.microsoft.com
-
-   Invoke-WebRequest -Uri <Replace with external website>
-   Invoke-WebRequest -Uri <Replace with external website>
+   ```bash
+   curl https://www.microsoft.com
+   curl https://www.google.com
    ```
 
-   The `www.microsoft.com` requests should succeed, and the other `External Website` requests should fail. This demonstrates that your firewall rules are operating as expected.
+   The `www.microsoft.com` request should succeed and return HTML content, while the `www.google.com` request should fail or time out. This demonstrates that your firewall rules are operating as expected.
 
 So now you've verified that the firewall rules are working:
 
@@ -285,7 +298,7 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 ```azurecli-interactive
 az group delete \
-  -n Test-FW-RG
+  --name Test-FW-RG
 ```
 
 ## Next steps

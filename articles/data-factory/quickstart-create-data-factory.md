@@ -23,7 +23,7 @@ If you're new to Azure Data Factory, see the [introduction to the service](intro
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Make sure that you have the required Azure roles to create a data factory. For more information, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
 
 ## Create a data factory in Azure Data Factory Studio
@@ -58,7 +58,7 @@ When you use the Azure portal to create a data factory, the creation options are
    - Select an existing resource group from the dropdown list.
    - Select **Create new**, and then enter the name of a new resource group.
 
-   To learn about resource groups, see [What is a resource group?](../azure-resource-manager/management/overview.md#resource-groups).
+   To learn about resource groups, see [What is a resource group?](../azure-resource-manager/management/overview.md#resource-groups)
 
 1. For **Region**, select a location for the data factory.
 

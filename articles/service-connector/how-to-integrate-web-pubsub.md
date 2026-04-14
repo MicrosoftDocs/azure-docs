@@ -1,20 +1,22 @@
 ---
-title: Integrate Azure Web PubSub with service connector
-description: Integrate Azure Web PubSub into your application with Service Connector
+title: Integrate Azure Web PubSub using Service Connector
+description: Learn how to connect Web PubSub to supported Azure compute services by using Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 04/08/2026
+#customer intent: As an Azure app developer, I want to see authentication methods, environment variables, and sample code for using Service Connector with Web PubSub, so I can easily integrate Web PubSub into my apps.
+
 ---
 
-# Integrate Azure Web PubSub with service connector
+# Integrate Azure Web PubSub with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Web PubSub to other cloud services using Service Connector. You might still be able to connect to App Configuration using other methods. This page also shows default environment variable names and values you get when you create the service connection.
+This article shows supported clients, authentication methods, and sample code you can use to connect Azure Web PubSub to other Azure services using Service Connector. The article also shows the default environment variables you need to create the service connections. 
 
 ## Supported compute services
 
-Service Connector can be used to connect the following compute services to Azure Web PubSub:
+You can use Service Connector to connect the following Azure compute services to Web PubSub:
 
 - Azure App Service
 - Azure Container Apps
@@ -22,79 +24,107 @@ Service Connector can be used to connect the following compute services to Azure
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
-## Supported authentication types and client types
+## Supported clients and authentication types
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Web PubSub using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The following client types support connecting Web PubSub to Azure compute services by using Service Connector:
 
-| Client type | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
-|-------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
-| .NET        |                Yes               |               Yes              |            Yes           |        Yes        |
-| Java        |                Yes               |               Yes              |            Yes           |        Yes        |
-| Node.js     |                Yes               |               Yes              |            Yes           |        Yes        |
-| Python      |                Yes               |               Yes              |            Yes           |        Yes        |
+- .NET
+- Java
+- Node.js
+- Python
 
-This table indicates that all combinations of client types and authentication methods in the table are supported. Other client types are not supported to connect to Azure Web PubSub using Service Connector. 
+>[!NOTE]
+>You might be able to connect to Web PubSub in other programming languages without using Service Connector.
 
-## Default environment variable names or application properties and sample code
+All clients that support using Service Connector to connect Web PubSub to Azure compute services support all the following authentication types:
 
-Use the environment variable names and application properties listed below, according to your connection's authentication type and client type, to connect compute services to Web PubSub using .NET, Java, Node.js, or Python. For each example below, replace the placeholder texts `<name>`, `<client-id>`, `<client-secret`, `<access-key>`, and `<tenant-id>` with your own resource name, client ID, client secret, access-key, and tenant ID. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+- System-assigned managed identity
+- User-assigned managed identity
+- Service principal
+- Connection string
+
+> [!IMPORTANT]
+> The connection string authentication flow requires a high degree of trust in the application, and carries risks not present in other flows. You should use this flow only when more secure flows, such as managed identities, aren't viable.
+
+## Default environment variables
+
+Use the following connection details to connect supported Azure compute services to Web PubSub using the following authentication types:
+
+- [System-assigned managed identity](#system-assigned-managed-identity)
+- [User-assigned managed identity](#user-assigned-managed-identity)
+- [Service principal](#service-principal)
+- [Connection string](#connection-string)
+
+In the examples, replace the following placeholders with the values for your Web PubSub account:
+
+- `<name>`
+- `<client-ID>`
+- `<client-secret>`
+- `<access-key>`
+- `<tenant-ID>`
+
+For more information about naming conventions, see [Configuration naming convention](concept-service-connector-internals.md#configuration-naming-convention).
 
 ### System-assigned managed identity
+
+Use the following environment variables for system-assigned managed identity connections.
 
 | Default environment variable name | Description           | Sample value                   |
 | --------------------------------- | --------------------- | ------------------------------ |
 | AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host | `<name>.webpubsub.azure.com` |
 
-#### Sample code
-
-Refer to the steps and code below to connect to Azure Web PubSub using a system-assigned managed identity.
-[!INCLUDE [code for web pubsub](./includes/code-webpubsub-me-id.md)]
-
 ### User-assigned managed identity
+
+Use the following environment variables for user-assigned managed identity connections.
 
 | Default environment variable name | Description                | Sample value                   |
 | --------------------------------- | -------------------------- | ------------------------------ |
 | AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host      | `<name>.webpubsub.azure.com` |
-| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID | `<client-id>`                |
-
-#### Sample code
-
-Refer to the steps and code below to connect to Azure Web PubSub using a user-assigned managed identity.
-[!INCLUDE [code for web pubsub](./includes/code-webpubsub-me-id.md)]
-
-### Connection string
-
-> [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
-
-> [!div class="mx-tdBreakAll"]
->
-> | Default environment variable name | Description                        | Sample value                                                                        |
-> | --------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------- |
-> | AZURE_WEBPUBSUB_CONNECTIONSTRING  | Azure Web PubSub connection string | `Endpoint=https://<name>.webpubsub.azure.com;AccessKey=<access-key>;Version=1.0;` |
-
-#### Sample code
-
-Refer to the steps and code below to connect to Azure Web PubSub using a connection string.
-[!INCLUDE [code for web pubsub](./includes/code-webpubsub-secret.md)]
+| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID | `<client-ID>`                |
 
 ### Service principal
+
+Use the following environment variables for service principal connections.
 
 | Default environment variable name | Description                    | Sample value                   |
 | --------------------------------- | ------------------------------ | ------------------------------ |
 | AZURE_WEBPUBSUB_HOST              | Azure Web PubSub host          | `<name>.webpubsub.azure.com` |
-| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID     | `<client-id>`                |
+| AZURE_WEBPUBSUB_CLIENTID          | Azure Web PubSub client ID     | `<client-ID>`                |
 | AZURE_WEBPUBSUB_CLIENTSECRET      | Azure Web PubSub client secret | `<client-secret>`            |
-| AZURE_WEBPUBSUB_TENANTID          | Azure Web PubSub tenant ID     | `<tenant-id>`                |
+| AZURE_WEBPUBSUB_TENANTID          | Azure Web PubSub tenant ID     | `<tenant-ID>`                |
 
-#### Sample code
+### Connection string
 
-Refer to the steps and code below to connect to Azure Web PubSub using a service principal.
+Use the following environment variables for connection string connections.
+
+> [!IMPORTANT]
+> The connection string authentication flow requires a high degree of trust in the application, and carries risks not present in other flows. You should use this flow only when more secure flows, such as managed identities, aren't viable.
+
+| Default environment variable name | Description   | Sample value  |
+| --------------|------------------- | ------------------------------- |
+| AZURE_WEBPUBSUB_CONNECTIONSTRING  | Web PubSub connection string | `Endpoint=https://<name>.webpubsub.azure.com;AccessKey=<access-key>;Version=1.0;` |
+
+## Sample connection code
+
+The following steps and sample code connect to Web PubSub using Service Connector with [managed identity, service principal](#misp), or [connection string](#connection-string) authentication. The code gets the variable values from the environment variables Service Connector sets.
+
+<a name="misp"></a>
+### Managed identity or service principal
+
+Use the following steps and code to connect your services to Web PubSub using a managed identity or service principal. In the code, uncomment the lines for the authentication type you want to use: System-assigned managed identity, user-assigned managed identity, or service principal.
+
 [!INCLUDE [code for web pubsub](./includes/code-webpubsub-me-id.md)]
 
-## Next steps
+### Connection string
 
-Read the article listed below to learn more about Service Connector.
+Use the following steps and code to connect to Web PubSub using a connection string.
 
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+> [!IMPORTANT]
+> The connection string authentication flow requires a high degree of trust in the application, and carries risks not present in other flows. You should use this flow only when more secure flows, such as managed identities, aren't viable.
+
+[!INCLUDE [code for web pubsub](./includes/code-webpubsub-secret.md)]
+
+## Related content
+
+- [Service Connector concepts](concept-service-connector-internals.md)
+- [Configuration naming convention](concept-service-connector-internals.md#configuration-naming-convention)

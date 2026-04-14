@@ -1,10 +1,10 @@
 ---
-title: Connect Data Sources to Microsoft Sentinel Using Data Connectors
+title: Connect data sources to Microsoft Sentinel by using data connectors
 description: Learn how to connect data sources to Microsoft Sentinel using data connectors for improved threat detection.
-author: batamig
+author: EdB-MSFT
 ms.topic: how-to
 ms.date: 07/09/2025
-ms.author: bagol
+ms.author: edbaynash
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -89,6 +89,12 @@ Once you have set up your connector, configure data retention and tiering using 
 After you configure the data connector, it might take some time for the data to be ingested into Microsoft Sentinel. It takes 90 - 120 minutes for data to be ingested into the data lake. When the data connector is connected, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
 
    :::image type="content" source="media/configure-data-connector/connected-data-connector.png" alt-text="Screenshot of a data connector page with status connected and graph that shows the data received.":::
+
+## Enable User and Entity Behavior Analytics (UEBA) from supported connectors
+
+[User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md) analyzes logs and alerts from connected data sources to build baseline behavioral profiles of your organization's entities—such as users, hosts, IP addresses, and applications. Using machine learning, UEBA identifies anomalous activity that may indicate a compromised asset.
+
+[!INCLUDE [data-connector-behavior-analytics](includes/data-connector-behavior-analytics.md)] 
 
 ## Find your data
 

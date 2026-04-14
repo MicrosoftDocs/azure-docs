@@ -13,58 +13,14 @@ ms.custom: references_regions
 
 # Understand Azure NetApp Files backup
 
-Azure NetApp Files backup expands the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups. For more information, see [How Azure NetApp Files snapshots work](snapshots-introduction.md).
+Azure NetApp Files backup expands the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups. For more information, see [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md).
 
 ## Supported regions 
 
-Azure NetApp Files backup is supported for the following regions:   
+Azure NetApp Files backup is available in all Azure NetApp Files-enabled regions.
 
-* Australia Central
-* Australia Central 2
-* Australia East
-* Australia Southeast
-* Brazil South
-* Brazil Southeast 
-* Canada Central
-* Canada East
-* Central India
-* Central US
-* East Asia
-* East US
-* East US 2
-* France Central
-* Germany North
-* Germany West Central
-* Israel Central
-* Italy North 
-* Japan East
-* Japan West
-* Korea Central
-* Korea South
-* North Central US
-* North Europe
-* Norway East
-* Norway West
-* Qatar Central
-* South Africa North
-* South Central US
-* South India
-* Southeast Asia
-* Spain Central
-* Sweden Central
-* Switzerland North
-* Switzerland West 
-* UAE Central
-* UAE North
-* UK South
-* UK West
-* US Gov Arizona
-* US Gov Texas
-* US Gov Virginia
-* West Europe
-* West US
-* West US 2
-* West US 3
+>[!NOTE]
+>With Elastic zone-redundant storage, Azure NetApp Files backup is limited to regions that support [Elastic zone-redundant storage](elastic-zone-redundant-concept.md#supported-regions). 
 
 ## Backup vault 
 
@@ -104,4 +60,4 @@ If you choose to restore a backup of, for example, 600 GiB to a new volume, you'
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)
-* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+* [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md)

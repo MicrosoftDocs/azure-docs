@@ -1,14 +1,15 @@
 ---
 title: Deployment Planner for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn about the Azure Site Recovery Deployment Planner Hyper-V disaster recovery to Azure.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 03/13/2024
-ms.author: jsuri
+ms.date: 12/18/2025
+ms.author: v-gajeronika
 
 # Customer intent: As a disaster recovery planner, I want to analyze the network and storage requirements for Hyper-V to Azure replication, so that I can ensure effective and efficient disaster recovery strategies are in place to minimize downtime for my organization.
 ---
+
 # About the Azure Site Recovery Deployment Planner for Hyper-V disaster recovery to Azure
 
 This article is the Azure Site Recovery Deployment Planner user guide for Hyper-V-to-Azure production deployments.

@@ -6,7 +6,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 09/27/2023
+ms.date: 11/20/2025
 ms.author: kesheth
 ms.devlang: azurecli
 ms.custom:

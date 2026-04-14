@@ -1,8 +1,8 @@
 ---
 title: Build an event-driven app with Dapr
 description: Learn how to create a Dapr application that aggregates data and publishing on another topic using MQTT broker.
-author: SoniaLopezBravo 
-ms.author: sonialopez 
+author: dominicbetts 
+ms.author: dobett 
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
 ms.date: 10/22/2024

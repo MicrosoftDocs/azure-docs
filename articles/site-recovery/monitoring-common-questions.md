@@ -1,11 +1,12 @@
 ---
-title: Common questions about Azure Site Recovery monitoring 
+title: Common questions about Azure Site Recovery monitoring
 description: Get answers to common questions about Azure Site Recovery monitoring, using inbuilt monitoring and Azure Monitor (Log Analytics)
 ms.service: azure-site-recovery
-ms.date: 09/18/2024
+ms.date: 02/12/2026
 ms.topic: overview
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
+author: Jeronika-MS
 # Customer intent: As a cloud administrator, I want to understand how Azure Site Recovery monitoring works, so that I can effectively track replication status and ensure the reliability of backups during failover scenarios.
 ---
 # Common questions about Site Recovery monitoring
@@ -14,20 +15,20 @@ This article answers common questions about monitoring Azure [Site Recovery](sit
 
 ## General
 
-### How is the RPO value logged different from the latest available recovery point?
+### How is the logged RPO value different from the latest available recovery point?
 
-Site Recovery uses a multi-step, asynchronous process to replicate machines to Azure.
+Site Recovery uses a multistep, asynchronous process to replicate machines to Azure.
 
-- In the penultimate step of replication, recent changes on the machine, along with metadata, are copied into a log/cache storage account.
-- These changes, along with the tag that identifies a recoverable point, is written to the storage account/managed disk in the target region.
+- In the penultimate step of replication, recent changes on the machine, along with metadata, are copied into a log or cache storage account.
+- These changes, along with the tag that identifies a recoverable point, are written to the storage account or managed disk in the target region.
 - Site Recovery can now generate a recoverable point for the machine.
-- At this point, the RPO has been met for the changes uploaded to the storage account so far. In other words, the machine RPO at this point is equal to amount of time that's elapsed from the timestamp corresponding to the recoverable point.
+- At this point, the RPO is met for the changes uploaded to the storage account so far. In other words, the machine RPO at this point is equal to amount of time that's elapsed from the timestamp corresponding to the recoverable point.
 - Now, Site Recovery picks the uploaded data from the storage account, and applies it to the replica disks created for the machine.
 - Site Recovery then generates a recovery point, and makes this point available for recovery at failover.
-- Thus, the latest available recovery point indicates the timestamp corresponding to the latest recovery point that has already been processed, and applied to the replica disks.
+- Thus, the latest available recovery point indicates the timestamp corresponding to the latest recovery point that Site Recovery already processed and applied to the replica disks.
 
 
-An incorrect system time on the replicating source machine, or on on-premises infrastructure servers, will skew the computed RPO value. For accurate RPO reporting, make sure that the system clock is accurate on all servers and machines.
+An incorrect system time on the replicating source machine, or on on-premises infrastructure servers, skews the computed RPO value. For accurate RPO reporting, make sure that the system clock is accurate on all servers and machines.
 
 
 
@@ -36,11 +37,11 @@ An incorrect system time on the replicating source machine, or on on-premises in
 
 ### Why is the virtual machine count in the vault infrastructure view different from the total count shown in Replicated Items?
 
-The vault infrastructure view is scoped by replication scenarios. Only machines in the currently selected replication scenario are included in the count for the view. In addition, we only count VMs that are configured to replicate to Azure. Failed over machines, or machines replicating back to an on-premises site, aren't counted in the view.
+The vault infrastructure view is scoped by replication scenarios. Only machines in the currently selected replication scenario are included in the count for the view. In addition, the view only counts VMs that are configured to replicate to Azure. Failed over machines, or machines replicating back to an on-premises site, aren't counted in the view.
 
 ### Why is the count of replicated items in Essentials different from the total count of replicated items on the dashboard?
 
-Only machines for which initial replication has completed are included in the count shown in Essentials. The replicated items total includes all the machines in the vault, including those for which initial replication is currently in progress.
+The count shown in Essentials includes only machines for which initial replication is complete. The replicated items total includes all the machines in the vault, including those for which initial replication is currently in progress.
 
 ## Azure Monitor logging
 
@@ -57,11 +58,11 @@ Only machines for which initial replication has completed are included in the co
 
 For information on data retention, see [Data retention and archive in Azure Monitor logs](/azure/azure-monitor/logs/data-retention-archive).
 
-You can modify the default retention period in the **Usage and Estimated Cost** section in the Log Analytics workspace. Click on **Data Retention**, and choose the range.
+You can modify the default retention period in the **Usage and Estimated Cost** section in the Log Analytics workspace. Select **Data Retention**, and choose the range.
 
 ### What's the size of the resource logs? 
 
-Typically the size of a log is 15-20 KB. 
+Typically, the size of a log is 15-20 KB. 
 
 ## Built-in Azure Monitor alerts for Azure Site Recovery
 
@@ -71,13 +72,13 @@ With built-in Azure Monitor alerts, alerts for critical operations/failures gene
 
 ### Will the current email notification solution for Azure Site Recovery in Recovery Services vault continue to work? 
 
-As of today, the current email notification solution coexists in parallel with the new built-in Azure Monitor alerts solution. We recommend you to try out the Azure Monitor based alerting to familiarize yourself with the new experience and use its capabilities.
+The current email notification solution works in parallel with the new built-in Azure Monitor alerts solution. Try the Azure Monitor based alerting to familiarize yourself with the new experience and use its capabilities.
 
-### What is the difference between alert rule, alert processing rule and action group?
+### What is the difference between alert rule, alert processing rule, and action group?
 
-- Alert rule: Refers to a user-created rule that specifies the condition on which an alert should be fired.
-- Alert processing rule (earlier called Action rule): Refers to a user-created rule that specifies the notification channels a particular fired alert should be routed to. You can also use alert processing rules to suppress notifications for time. 
-- Action group: Refers to the notification channel (such as email, ITSM endpoint, logic app, webhook, and so on) that a fired alert can be routed to.
+- Alert rule: A user-created rule that specifies the condition for firing an alert.
+- Alert processing rule (earlier called Action rule): A user-created rule that specifies the notification channels for routing a particular fired alert. You can also use alert processing rules to suppress notifications for a set time. 
+- Action group: The notification channel, such as email, ITSM endpoint, logic app, webhook, and so on, that a fired alert can be routed to.
 
 In the case of built-in Azure Monitor alerts, as alerts already generate by default, you don't need to create an alert rule. To route these alerts to a notification channel, you should create an alert processing rule and an action group for these alerts. [Learn more](site-recovery-monitor-and-troubleshoot.md#configure-email-notifications-for-alerts)
 
@@ -88,6 +89,6 @@ In the case of built-in Azure Monitor alerts, as alerts already generate by defa
 
 ## Next steps
 
-Learn how to monitor with [Site Recovery inbuilt monitoring](site-recovery-monitor-and-troubleshoot.md), or [Azure Monitor](monitor-log-analytics.md).
+Learn how to monitor by using [Site Recovery inbuilt monitoring](site-recovery-monitor-and-troubleshoot.md) or [Azure Monitor](monitor-log-analytics.md).
 
 

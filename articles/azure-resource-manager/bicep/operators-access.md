@@ -3,7 +3,7 @@ title: Bicep accessor operators
 description: Describes Bicep resource access operator and property access operator.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/20/2025
+ms.date: 12/22/2025
 ---
 
 # Bicep accessor operators
@@ -109,7 +109,7 @@ Two functions - [getSecret](bicep-functions-resource.md#getsecret) and [list*](b
 The following example references an existing key vault, then uses `getSecret` to pass a secret to a module.
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -196,7 +196,7 @@ Output from the example:
 Typically, you use the property accessor with a resource deployed in the Bicep file. The following example creates a public IP address and uses property accessors to return a value from the deployed resource.
 
 ```bicep
-resource publicIp 'Microsoft.Network/publicIPAddresses@2023-11-01' = {
+resource publicIp 'Microsoft.Network/publicIPAddresses@2025-01-01' = {
   name: publicIpResourceName
   location: location
   properties: {

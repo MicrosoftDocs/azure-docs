@@ -1,127 +1,154 @@
 ---  
-title: Resolve Dev Box connectivity issues    
-description: Learn how to resolve connection issues with dev boxes, including disconnections and sign-in problems, to maintain a stable workflow.
-author: RoseHJM    
-ms.author: rosemalcolm  
-ms.service: dev-box    
-ms.topic: troubleshooting-general    
-ms.date: 10/22/2024
+title: Troubleshoot connectivity issues
+description: Investigate and resolve Microsoft Dev Box connectivity problems such as connection failures, sign-in issues, disconnections, and high latencies.
+author: RoseHJM
+ms.author: rosemalcolm
+ms.service: dev-box
+ms.topic: troubleshooting-general
+ms.date: 11/21/2025
   
-#customer intent: As a developer, I want to troubleshoot my Remote Desktop connection issues with dev boxes so that I can maintain a stable and efficient workflow.    
----  
-  
-# Resolve connectivity issues with dev boxes  
-  
-If you're experiencing problems with your Remote Desktop connection to your dev box, this guide can help you find and fix the issues quickly. Whether it's frequent disconnections, latency, or sign-in problems, we've got solutions that can get you back on track.  
-  
-## Prerequisites  
-  
-Before you begin troubleshooting, ensure you have:  
-  
-- Access to your dev box.  
-- Administrative permissions if needed.  
-- An understanding of your organization's policies related to dev boxes.  
+#customer intent: As a developer, I want to troubleshoot my connection issues with dev boxes so that I can maintain a stable and efficient workflow.
+---
 
-## Steps for troubleshooting 
-  
-Remote Desktop connections are essential for accessing your Dev Box. However, connectivity issues can sometimes arise due to various factors. This guide provides a comprehensive step-by-step approach to troubleshooting common Remote Desktop connection problems, ensuring that your workflow remains uninterrupted.
- 
-Before proceeding with troubleshooting, ensure that your Remote Desktop app is updated and both your client computer, and Dev Box have the latest updates installed. 
+# Troubleshoot dev box connectivity issues
 
-Any improper network configurations on your Dev Box can disrupt Remote Desktop connections. 
+This step-by-step troubleshooting guide can help you find and fix Microsoft Dev Box connection issues. These issues can include inability to connect, sign-in problems, frequent disconnections, or high latencies.
 
-Additionally, if you haven't accessed your Dev Box for some time, check whether your organization has a policy that removes users from Microsoft Entra ID due to inactivity. To regain access, contact your support team.
+## Prerequisites
 
-### Step 0: Preliminary Checks
-1. **Internet Connection:** Verify that your local machine has an active internet connection.
-1. **Dev Box Status:** Confirm that your Dev Box is running through the Dev Box portal.
-1. **Proxy Settings:** Incorrect internet proxy settings can interfere with the Remote Desktop experience, so ensure these settings are correctly configured.
+| Category | Requirements |
+|---------|--------------|
+| Tools | To create or access a dev box, an organization must set up Microsoft Dev Box with at least one project and one dev box pool. To set up Microsoft Dev Box for an organization, see [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).|
+| Tools | To connect to a dev box with the Windows App, [install the Windows App](https://apps.microsoft.com/detail/9n1f85v9t8bn) on your client device. |
+| Permissions | To create or access a dev box, you need [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) permissions in a project that has an available dev box pool. If you don't have permissions to a project, contact your admin.|
 
-### Step 1: Windows Update and App Restart
-1. **Pending Updates:** If Windows is updating, it can take up to 30 minutes, during which your Dev Box won't connect.
-1. **Restart Remote Desktop:** Close all instances of the Remote Desktop app, terminate any 'msrdc.exe' and 'msrdcw.exe' processes via Task Manager, and then to attempt reconnection, reopen the app.
+## Potential quick workaround
 
-### Step 2: Address App Hang and Authentication Issues
-1. **App Hang:** If the Remote Desktop app hangs, capture a process dump of MSRDC.exe and create a support request. Restart your computer and try connecting again.
-1. **Authentication Errors:** If denied sign-in despite correct credentials, check the join status using `dsregcmd.exe /status`. Resolve any errors with your support team and restart your computer. If authentication errors persist, unsubscribe and resubscribe to your Dev Box pool in the app. 
+To automatically identify and address dev box issues, try running **Troubleshoot & repair**. [Sign in to the developer portal](https://devbox.microsoft.com) and select **Troubleshoot & repair** from the **More actions** menu on the dev box tile. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md).
 
-### Step 3: Browser Client Connection
-1. **Browser Access:** Attempt to connect via the browser client by visiting https://DevBox.microsoft.com and selecting "Open in browser".
-1. **Black Screen Issue:** If the Remote Desktop Protocol (RDP) window is black, "Shutdown" or "Stop" your Dev Box via the portal and restart it.
+## Troubleshooting checklist
 
-### Step 4: Connection Drops During High CPU Load
-**Registry Adjustment:** If you experience frequent connection drops with the Remote Desktop app during high CPU load, ensure your Dev Box has the latest Windows 11 build. Set the `SetGpuRealtimePriority` registry value to DWORD 2 in the Dev Box and restart.
+> [!div class="checklist"]
+> * Verify that your client device has an active internet connection.
+> * Make sure your client device and dev box have the latest operating system and security updates installed.
+> * Ensure you have the latest [Windows App installed](https://apps.microsoft.com/detail/9n1f85v9t8bn) on your client device.
+> * Check for any improper network configurations or internet proxy settings on your client or dev box that could disrupt remote connections.
+> * Confirm that your dev box status is **Running**. If the status is **Stopped** or **Hibernated**, select **Start** or **Resume** from the **More actions** menu on the dev box tile in the [developer portal](https://devbox.microsoft.com).
+> * Check Windows Update. You can't connect to a dev box for up to 30 minutes while Windows is updating.
+> * If you can access your dev box, review security and connection information by selecting the icons on the top connection bar during a session.
+> * Review known connectivity issues at [Troubleshoot known Remote Desktop connectivity issues with dev boxes](how-to-troubleshoot-remote-desktop-connectivity.md).
 
-```
-key: HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations
-value name: SetGpuRealtimePriority
-value: DWORD 2
-```
+## Remote connectivity issues
 
-You can set the `SetGpuRealtimePriority` registry value by using this command in an elevated shell:
+If the Windows App connection to the dev box hangs or fails, try the following steps to connect.
 
-```
-reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" /v SetGpuRealtimePriority /d 2 /t REG_DWORD
-```  
+1. [Sign in to the developer portal](https://devbox.microsoft.com) and restart the dev box by selecting **Restart** from the **More actions** menu on the dev box tile.
+1. Once restarted, try again to connect by selecting **Connect via Windows app**.
+1. Try connecting via the browser by selecting the caret next to **Connect via Windows app** and then selecting **Open in browser**.
+1. Sign out and then back in to the developer portal, and try connecting again.
+1. Open Task Manager and terminate any running *msrdc.exe* or *msrdcw.exe* processes. Then try connecting again.
 
-### Step 5: Connection Drops During Low CPU Usage
+## Sign-in and authentication issues
 
-If you experience frequent connection drops with the Remote Desktop app despite low CPU usage on the Dev Box, switch Remote Desktop to use TCP instead of UDP. 
+If you have sign-in or authentication issues despite using correct credentials, try the following steps:
 
-You can configure this setting through a registry edit, or through Group Policy. 
+1. Use `dsregcmd.exe /status` to check your Microsoft Entra ID join status on your client device and on the dev box if possible. After resolving any errors with your support team, restart the machine.
+1. If you don't access your dev box for a while, Microsoft Entra ID might remove your account due to inactivity. To regain access, contact your support team.
+1. Try using `dsregcmd.exe /refreshprt` to refresh the Primary Refresh Token (PRT) for a session. Then sign out and sign back in.
+1. If you have administrative privileges, try using `dsregcmd.exe /forcerecovery` to reauthenticate and reregister, or `dsregcmd.exe /leave` and `dsregcmd.exe /join` to leave and rejoin Microsoft Entra ID. For more information, see [Troubleshoot devices by using the dsregcmd command](/entra/identity/devices/troubleshoot-device-dsregcmd).
+1. If you have admin privileges in the Azure portal, you might need to unsubscribe and resubscribe the dev box to the dev box pool by deleting and recreating the pool.
 
-#### Use TCP instead of UDP - Registry edit:
-Close the Remote Desktop app, apply the following registry setting on your client computer, and try reconnecting.
+## Connection issues during high CPU load
 
-```
-key: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client
-value name: fClientDisableUDP
-value: DWORD 1
-```
+If you experience frequent connection drops during high CPU load on the dev box, you can apply a registry setting to give more GPU priority to remote connection sessions.
 
-You can set the `fClientDisableUDP` registry value by using this command in an elevated shell:
+1. Ensure your dev box has the latest Windows 11 build.
+1. Open the Registry Editor on the dev box and add the following registry setting.
 
-```
+   Key: **HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations**<br>Setting: **SetGpuRealtimePriority**<br>Value: **DWORD 2**
+
+   Alternatively, you can add and set the **SetGpuRealtimePriority** registry setting and value by running this command in an elevated shell:
+
+   ```cmd
+   reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" /v SetGpuRealtimePriority /d 2 /t REG_DWORD
+   ``` 
+
+1. Restart the dev box.
+
+## Connection issues during low CPU usage
+
+If you experience frequent connection drops even with low CPU usage on the dev box, you can switch your remote desktop connection to use Transmission Control Protocol (TCP) instead of User Datagram Protocol (UDP). To ensure that the connection uses only TCP, change the settings on both the client device and the dev box.
+
+### Client settings
+
+Explicitly tell the client not to attempt a UDP connection.
+
+# [Windows client](#tab/windows)
+
+1. Open the Local Group Policy Editor `gpedit.msc`.
+1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client**.
+1. Set the policy setting **Turn Off UDP On Client** to **Enabled**, and then select **OK**.
+
+Alternatively, you can edit the registry to add the following **fClientDisableUDP** setting:
+
+Key: **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client**<br>Setting: **fClientDisableUDP**<br>Value: **DWORD 1**
+
+You can also apply the **fClientDisableUDP** registry setting and value by running the following command in an elevated shell:
+
+```cmd
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client" /v fClientDisableUDP /d 1 /t REG_DWORD
 ```
 
-#### Use TCP instead of UDP - Group policy:
-Alternatively, use Group Policy Editor on your Dev Box to set RDP transport protocols to "Use only TCP".
+# [Mac client](#tab/mac)
 
-1. Open the Group Policy Editor on your Dev Box.
-1. Navigate to **Computer Configuration > Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Connections**.
-1. Open the policy setting **Select RDP transport protocols**.
-1. Set it to **Enabled**.
-1. For **Select Transport Type**, select **Use only TCP**.
+In macOS clients, run the following command in the terminal to change connections to TCP instead of UDP.
 
-If the preceding steps don't resolve your issue, contact your support team. 
-
-Include the following details in your incident report:
-
-- The time the issue occurred
-- Impacted users
-- A detailed description of the problem
-- The Activity ID from your Remote Desktop session, if available. You can find this ID by clicking on the connection bar during your session.
-
-   :::image type="content" source="media/how-to-resolve-dev-box-connectivity-issues/troubleshooting-connection-bar.png" alt-text="Screenshot that shows the Remote Desktop connection bar.":::
-
-- Include information from the connection dialog.
- 
-   :::image type="content" source="media/how-to-resolve-dev-box-connectivity-issues/troubleshooting-connection-information-dialog.png" alt-text="Screenshot that shows the Troubleshooting connection information dialog box.":::
-
-In macOS clients, use the terminal to change connections to TCP instead of UDP:
-
-In the app:
-```
+```bash
 defaults write com.microsoft.rdc.macos ClientSettings.EnableAvdUdpSideTransport false
 ```
 
-In the beta app:
-```
-defaults write com.microsoft.rdc.osx.beta ClientSettings.EnableAvdUdpSideTransport false
-```
+---
 
+### Host settings
+
+Use Group Policy Editor to set the remote desktop transport protocols on your dev box to use only TCP.
+
+1. On your dev box, open the Local Group Policy Editor `gpedit.msc`.
+1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Connections**.
+1. Set the policy setting **Select RDP transport protocols** to **Enabled**.
+1. For **Select Transport Type**, select **Use only TCP**, and then select **OK**.
+
+After making these changes, run `gpupdate /force` in an elevated shell on both machines and restart them.
+
+## Get support
+
+If the preceding steps don't resolve your issue, you can contact your admin team, access more support resources, or file a support request.
+
+In the [developer portal](https://devbox.microsoft.com), select **Support** from the **More actions** menu on a dev box tile to open the **Dev box support** pane. In the pane, you can:
+
+- Select the **troubleshoot your dev box** link to troubleshoot dev box issues. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md).
+- Select **Copy support details** to copy details about your dev box and an **Issue ID** that you can give to your admin or support team.
+- Select the **contact Azure help + support** link to open the Azure portal **Help + support** page for your dev box project. On the **Help + support** page, you can select **Troubleshoot** under **Actions** to walk through troubleshooting steps, or select **Create a support request** to walk through creating a support request.
+
+If you file a support request, include:
+
+- A detailed description of the problem.
+- The time the issue occurred.
+- Impacted users.
+- Other information about your dev box and remote session if available, such as **Activity ID**.
+
+### Get dev box connection and security information
+
+If you can access your dev box, you can get security and connection information by selecting the corresponding icon on the top connection bar during your session.
+
+:::image type="content" source="media/how-to-resolve-dev-box-connectivity-issues/troubleshooting-connection-bar.png" alt-text="Screenshot that shows the Remote Desktop connection bar.":::
+
+To see connection details such as **Timestamp** and **Activity ID**, select **See details** in the connection dialog box. Copy the connection details by pressing **Ctrl**+**C**, and close the dialog by selecting **OK**.
+ 
+:::image type="content" source="media/how-to-resolve-dev-box-connectivity-issues/troubleshooting-connection-information-dialog.png" alt-text="Screenshot that shows the Troubleshooting connection information dialog box.":::
 
 ## Related content
-- [Troubleshoot and resolve dev box Remote Desktop connectivity issues](how-to-troubleshoot-repair-dev-box.md)
+
+- [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md)
+- [Troubleshoot known Remote Desktop connectivity issues with dev boxes](how-to-troubleshoot-remote-desktop-connectivity.md)
 - [Get support for Microsoft Dev Box](how-to-get-help.md)

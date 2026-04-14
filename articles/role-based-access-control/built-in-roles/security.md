@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2025
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -165,9 +165,9 @@ Can read write or delete the attestation provider instance
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
-> | Microsoft.Attestation/attestationProviders/attestation/write | Adds attestation service. |
-> | Microsoft.Attestation/attestationProviders/attestation/delete | Removes attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/write | Adds attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/delete | Removes attestation service. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -210,8 +210,8 @@ Can read the attestation provider properties
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
-> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/read | Gets the attestation service status. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -421,9 +421,9 @@ Perform any action on the certificates of a key vault, except manage permissions
 
 Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates.
 
-[Learn more](/azure/key-vault/general/security-features)
-
 [!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-contributor-role-warning.md)]
+
+[Learn more](/azure/key-vault/general/security-features)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1289,7 +1289,7 @@ Microsoft Sentinel Responder
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/indicators/appendTags/action | Append tags to Threat Intelligence Indicator |
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/indicators/replaceTags/action | Replace Tags of Threat Intelligence Indicator |
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/action | Query Threat Intelligence Indicators |
-> | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/businessApplicationAgents/systems/undoAction/action | Undoes an action |
+> | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/businessApplicationAgents/systems/undoAction/action |  |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
@@ -1487,8 +1487,8 @@ This is a legacy role. Please use Security Admin instead.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/*/read | Read configuration information classic virtual machines |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/*/write | Write configuration for classic virtual machines |
+> | Microsoft.ClassicCompute/*/read | Read configuration information classic virtual machines |
+> | Microsoft.ClassicCompute/virtualMachines/*/write | Write configuration for classic virtual machines |
 > | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/*/read | Read configuration information about classic network |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |

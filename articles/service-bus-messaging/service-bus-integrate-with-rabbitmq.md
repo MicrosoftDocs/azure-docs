@@ -20,7 +20,7 @@ Here's a few scenarios in which we can make use of these capabilities:
 
 The list goes on, but we can solve most of these use cases by [bridging](/azure/architecture/patterns/messaging-bridge) RabbitMQ to Azure.
 
-First you need to create a free Azure account by signing up [here](https://azure.microsoft.com/free/)
+First you need to create a free Azure account by signing up [here](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 Once you're signed in to your account, go to the [Azure portal](https://portal.azure.com/) and create a new Azure Service Bus [namespace](./service-bus-create-namespace-portal.md). Namespaces are the scoping containers where our messaging components will live, like queues and topics.
 
@@ -128,6 +128,10 @@ Congrats! You achieved a lot! You managed to get your messages from RabbitMQ to 
 By following the previous steps, you integrated areas of your org that were outside Azure. The Shovel plugin allowed you to ship messages from RabbitMQ to Azure Service Bus. This has enormous advantages since you can now allow trusted third parties to connect their apps with your Azure deployment.
 
 In the end, messaging is about enabling connections, and with this technique we just opened a new one.
+
+## Advanced scenarios
+
+If you need support for patterns like [request-reply](/azure/architecture/patterns/async-request-reply), whether that is initiated by the RabbitMQ side and replied from the Azure Service Bus side, or vice-versa, then more advanced tooling is needed. The [NServiceBus Messaging Bridge](https://docs.particular.net/nservicebus/bridge/) offers support for request-reply as well as [publish-subscribe](/azure/architecture/patterns/publisher-subscriber), across multiple other message broker technologies.
 
 ## Next steps
 

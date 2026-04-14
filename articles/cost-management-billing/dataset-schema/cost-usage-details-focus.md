@@ -123,7 +123,7 @@ You can view the latest changes to the FOCUS cost and usage details file schema 
 | 97 | x_SkuMeterSubcategory | Group of SKU Classes that address the same core need within the SKU Group. |
 | 98 | x_SkuOfferId | Microsoft Cloud subscription type. |
 | 99 | x_SkuOrderId | Unique identifier of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
-| 100 | x_SkuOrderName | Display name of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
+| 100 | x_SkuOrderName | Display name of the entitlement product for this charge. Same as MCA `ProductOrderName`. Not applicable for EA. |
 | 101 | x_SkuPlanName | The name of the Marketplace service plan. |
 | 102 | x_SkuPartNumber | Identifier to help categorize specific usage meters. |
 | 103 | x_SkuRegion | Region that the SKU operated in. It might be different from the resource region. |
@@ -228,7 +228,7 @@ FOCUS 1.0r2 is a follow-up release to the FOCUS 1.0 dataset that changes how dat
 | 88  | x_SkuMeterSubcategory | Group of SKU Classes that address the same core need within the SKU Group. |
 | 89  | x_SkuOfferId | Microsoft Cloud subscription type. |
 | 90  | x_SkuOrderId | Unique identifier of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
-| 91  | x_SkuOrderName | Display name of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
+| 91  | x_SkuOrderName | Display name of the entitlement product for this charge. Same as MCA `ProductOrderName`. Not applicable for EA. |
 | 92  | x_SkuPartNumber | Identifier to help categorize specific usage meters. |
 | 93  | x_SkuRegion | Region that the SKU operated in. It might be different from the resource region. |
 | 94  | x_SkuServiceFamily | Highest-level classification of a SKU based on the core function of the SKU. |
@@ -327,7 +327,7 @@ FOCUS 1.0r2 is a follow-up release to the FOCUS 1.0 dataset that changes how dat
 | 86 | x_SkuMeterSubcategory | Group of SKU Classes that address the same core need within the SKU Group. |
 | 87 | x_SkuOfferId | Microsoft Cloud subscription type. |
 | 88 | x_SkuOrderId | Unique identifier of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
-| 89 | x_SkuOrderName | Display name of the entitlement product for this charge. Same as MCA `ProductOrderId`. Not applicable for EA. |
+| 89 | x_SkuOrderName | Display name of the entitlement product for this charge. Same as MCA `ProductOrderName`. Not applicable for EA. |
 | 90 | x_SkuPartNumber | Identifier to help categorize specific usage meters. |
 | 91 | x_SkuRegion | Region that the SKU operated in. It might be different from the resource region. |
 | 92 | x_SkuServiceFamily | Highest-level classification of a SKU based on the core function of the SKU. |

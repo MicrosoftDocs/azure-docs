@@ -26,7 +26,7 @@ Resource Manager provides several functions for making comparisons in your Azure
 
 Returns first non-null value from the parameters. Empty strings, empty arrays, and empty objects aren't null.
 
-In Bicep, use the `??` operator instead. See [Coalesce ??](../bicep/operators-logical.md#coalesce-).
+In Bicep, use the `??` operator instead. See [Coalesce ??](../bicep/operators-logical.md#coalesce-)
 
 ### Parameters
 
@@ -125,7 +125,7 @@ The `equals` function is often used with the `condition` element to test if a re
   "condition": "[equals(parameters('newOrExisting'),'new')]",
   "type": "Microsoft.Storage/storageAccounts",
   "name": "[variables('storageAccountName')]",
-  "apiVersion": "2022-09-01",
+  "apiVersion": "2025-06-01",
   "location": "[resourceGroup().location]",
   "sku": {
     "name": "[variables('storageAccountType')]"

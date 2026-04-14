@@ -1,21 +1,17 @@
 ---
-title: Azure Firewall Draft + Deployment (preview)
+title: Azure Firewall Draft + Deployment 
 description: Learn how to use Azure Firewall's Draft and Deployment feature to make and apply bulk updates to your firewall policies efficiently. This article provides step-by-step guidance on creating, updating, and deploying drafts, along with supported scenarios and limitations.
 services: firewall
 author: vekannan
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 05/05/2025
+ms.date: 02/23/2026
 ms.author: duau
 ---
 
-# Azure Firewall Draft + Deployment (preview)
+# Azure Firewall Draft + Deployment
 
 Organizations often need to update their Azure Firewall Policy for various reasons, such as onboarding new applications or workloads, addressing security vulnerabilities, performing maintenance, or optimizing policies by merging or removing unused rules. These updates can involve multiple contributors, and each change can take several minutes to deploy.
-
->[!IMPORTANT]
-> **Azure Firewall Draft + Deployment** is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 With Azure Firewall Policy Draft + Deployment, you can streamline this process using a two-phase approach:
 
@@ -40,7 +36,7 @@ The Draft and Deployment feature is designed for specific use cases and has cert
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to get started.
+- If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) to get started.
 - To use this feature with the Azure CLI, ensure that you have the Azure Firewall extension installed and updated to version [1.2.3 or later](https://github.com/Azure/azure-cli-extensions/releases/tag/azure-firewall-1.2.3).
 
 > [!NOTE]

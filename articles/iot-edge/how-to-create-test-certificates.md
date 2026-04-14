@@ -3,7 +3,7 @@ title: Create test certificates - Azure IoT Edge
 description: Create test certificates and learn how to install them on an Azure IoT Edge device to prepare for production deployment. 
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/06/2025
+ms.date: 03/12/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -359,7 +359,7 @@ The certificates in this section are for the steps in the IoT Hub X.509 certific
 
 # [Linux](#tab/linux)
 
-1. Upload the root CA certificate file from your working directory, `certs\azure-iot-test-only.root.ca.cert.pem`, to your IoT hub.
+1. Upload the root CA certificate file from your working directory, `certs/azure-iot-test-only.root.ca.cert.pem`, to your IoT hub.
 
 2. If automatic verification isn't selected, use the code provided in the Azure portal to verify that you own that root CA certificate.
 

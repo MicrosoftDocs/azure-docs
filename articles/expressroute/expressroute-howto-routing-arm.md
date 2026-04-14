@@ -1,11 +1,10 @@
 ---
 title: 'Configure peering for ExpressRoute circuit - Azure PowerShell'
 description: This article shows you how to create and manage routing configuration for an ExpressRoute circuit in the Resource Manager deployment model using PowerShell.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 03/12/2026
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
 
@@ -18,7 +17,7 @@ This article helps you create and manage routing configuration for an ExpressRou
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [PowerShell (classic)](expressroute-howto-routing-classic.md)
+> * [PowerShell (classic)](/previous-versions/azure/expressroute/expressroute-howto-routing-classic)
 > 
 
 These instructions only apply to circuits created with service providers offering Layer 2 connectivity services. If you're using a service provider that offers managed Layer 3 services, typically an IPVPN, like MPLS, your connectivity provider configures and manages network routing for you.
@@ -51,7 +50,7 @@ In this tutorial, you learn how to:
 This section helps you create, get, update, and delete the Microsoft peering configuration for an ExpressRoute circuit.
 
 > [!IMPORTANT]
-> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md).
+> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-portal.md).
 > 
 
 ### To create Microsoft peering
@@ -164,29 +163,11 @@ This section helps you create, get, update, and delete the Azure private peering
 
 ### To create Azure private peering
 
-1. Import the PowerShell module for ExpressRoute.
+1. Sign in and select your subscription.
 
-   Install the latest PowerShell installer from [PowerShell Gallery](https://www.powershellgallery.com/). Then import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You need to run PowerShell as an Administrator.
+   If you installed PowerShell locally, sign in. If you're using Azure Cloud Shell, you can skip this step.
 
-   ```azurepowershell-interactive
-   Install-Module Az
-   ```
-
-   Import all of the Az.\* modules within the known semantic version range.
-
-   ```azurepowershell-interactive
-   Import-Module Az
-   ```
-
-   You can also just import a select module within the known semantic version range.
-
-   ```azurepowershell-interactive
-   Import-Module Az.Network 
-   ```
-
-   Sign in to your account.
-
-   ```azurepowershell-interactive
+   ```azurepowershell
    Connect-AzAccount
    ```
 

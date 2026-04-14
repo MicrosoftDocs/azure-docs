@@ -1,7 +1,7 @@
----
+﻿---
 title: Conditional deployment with templates
 description: Describes how to conditionally deploy a resource in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 07/23/2025
 ---
@@ -35,7 +35,7 @@ You can pass in a parameter value that indicates whether a resource is deployed.
     {
       "condition": "[parameters('deployZone')]",
       "type": "Microsoft.Network/dnsZones",
-      "apiVersion": "2024-07-01-preview",
+      "apiVersion": "2023-07-01-preview",
       "name": "myZone",
       "location": "global",
       "properties": {
@@ -77,7 +77,7 @@ You can use conditional deployment to create a new resource or use an existing o
     {
       "condition": "[equals(parameters('newOrExisting'), 'new')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -88,7 +88,7 @@ You can use conditional deployment to create a new resource or use an existing o
     {
       "condition": "[equals(parameters('newOrExisting'), 'existing')]",
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2025-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]"
     }
   ],
@@ -122,3 +122,4 @@ If you deploy a template with [complete mode](deployment-modes.md) and a resourc
 * For a Learn module that covers conditional deployment, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 * For recommendations about creating templates, see [ARM template best practices](./best-practices.md).
 * To create multiple instances of a resource, see [Resource iteration in ARM templates](copy-resources.md).
+

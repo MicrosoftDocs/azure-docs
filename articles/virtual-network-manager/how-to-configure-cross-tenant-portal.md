@@ -34,7 +34,7 @@ First, create the cross-tenant connection from the network manager. Then, create
   - The administrator of the central management tenant has a guest account in the target managed tenant.
   - The administrator guest account has *Network Contributor* permissions applied at the appropriate scope level (management group, subscription, or virtual network). 
 
-Need help setting up permissions? See how to [Add guest users in the Azure portal](/entra/external-id/b2b-quickstart-add-guest-users-portal) and how to [assign user roles to resources in the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+Need help setting up permissions? See how to [Add guest users in the Azure portal](/entra/external-id/b2b-quickstart-add-guest-users-portal) and how to [assign user roles to resources in the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Create a cross-tenant connection from the network manager
 

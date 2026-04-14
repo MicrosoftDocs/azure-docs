@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
-ms.date: 08/01/2025
+ms.date: 03/19/2026
 ms.author: radeltch
 # Customer intent: "As a system administrator, I want to set up Pacemaker with fencing on SUSE Linux Enterprise Server in Azure, so that I can ensure high availability and reliability for my applications running in the cloud."
 ---
@@ -589,7 +589,7 @@ This section applies only if you're using Azure fence agent as a fencing device.
 
 #### [Managed identity](#tab/msi)
 
-To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity is already enabled, then it would be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and higher.  
+To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity is already enabled, then it would be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and higher.  
 
 #### [Service principal](#tab/spn)
 
@@ -639,14 +639,14 @@ Use managed identity or service principal.
 
 #### [Managed identity](#tab/msi)
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource). Verify each VM's managed identity role assignment contains all cluster VMs.
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/entra/identity/managed-identities-azure-resources/grant-managed-identity-resource-access-azure-portal). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
-> Be aware assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
+> Be aware assignment and removal of authorization with managed identities [can be delayed](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization) until effective.
 
 #### [Service principal](#tab/spn)
 
-Assign the custom role *Linux fence agent Role* that you already created to the service principal. Don't use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+Assign the custom role *Linux fence agent Role* that you already created to the service principal. Don't use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.
 
@@ -871,37 +871,52 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
       ```bash
       sudo crm cluster init
-      # ! NTP is not configured to start at system boot.
-      # Do you want to continue anyway (y/n)? y
-      # /root/.ssh/id_rsa already exists - overwrite (y/n)? n
-      # Address for ring0 [10.0.0.6] Select Enter
-      # Port for ring0 [5405] Select Enter
-      # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? n
+      
+      # INFO: Detected "microsoft-azure" platform
+      # INFO: Loading "default" profile from /etc/crm/profiles.yml
+      # INFO: Loading "microsoft-azure" profile from /etc/crm/profiles.yml
+      # INFO: The user 'hacluster' will have the login shell configuration changed to /bin/bash 
+      # Continue (y/n)? y
+      # INFO: Address for ring0 [10.0.0.6] Select Enter
+      # INFO: Port for ring0 [5405] Select Enter
+      # INFO: Do you wish to use SBD (y/n)? y
+      # INFO: SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? n
       # Do you wish to configure an administration IP (y/n)? n
+      # INFO: Do you wish to configure a virtual IP address (y/n)? n
       ```
 
     - If you're *not* using SBD devices for fencing:
 
       ```bash
       sudo crm cluster init
-      # ! NTP is not configured to start at system boot.
-      # Do you want to continue anyway (y/n)? y
-      # /root/.ssh/id_rsa already exists - overwrite (y/n)? n
-      # Address for ring0 [10.0.0.6] Select Enter
-      # Port for ring0 [5405] Select Enter
-      # Do you wish to use SBD (y/n)? n
+
+      # INFO: Detected "microsoft-azure" platform
+      # INFO: Loading "default" profile from /etc/crm/profiles.yml
+      # INFO: Loading "microsoft-azure" profile from /etc/crm/profiles.yml
+      # INFO: The user 'hacluster' will have the login shell configuration changed to /bin/bash 
+      # Continue (y/n)? y
+      # INFO: Address for ring0 [10.0.0.6] Select Enter
+      # INFO: Port for ring0 [5405] Select Enter
+      # INFO: Do you wish to use SBD (y/n)? n
       # WARNING: Not configuring SBD - STONITH will be disabled.
       # Do you wish to configure an administration IP (y/n)? n
+      # INFO: Do you wish to configure a virtual IP address (y/n)? n
       ```
 
 14. **[2]** Add the node to the cluster.
 
     ```bash
     sudo crm cluster join
-    # ! NTP is not configured to start at system boot.
-    # Do you want to continue anyway (y/n)? y
-    # IP address or hostname of existing node (for example, 192.168.1.1) []10.0.0.6
-    # /root/.ssh/id_rsa already exists - overwrite (y/n)? n
+    # INFO: IP address or hostname of existing node (e.g.: 192.168.1.1) []10.0.0.6
+    # INFO: The user 'hacluster' will have the login shell configuration changed to /bin/bash
+    # INFO: Continue (y/n)? y
+    # INFO: Generating SSH key for hacluster
+    # INFO: Configuring SSH passwordless with hacluster@10.0.1.9
+    # INFO: Configuring csync2...done
+    # INFO: Merging known_hosts
+    # INFO: Probing for new partitions...done
+    # INFO: Address for ring0 [10.0.0.7] Select Enter
+    # INFO: Done (log saved to /var/log/crmsh/crmsh.log)
     ```
 
 15. **[A]** Change the hacluster password to the same password.
@@ -919,6 +934,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     a. Check the following section in the file and adjust, if the values aren't there or are different. Be sure to change the token to 30000 to allow memory-preserving maintenance. For more information, see the "Maintenance for virtual machines in Azure" article for [Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
 
     ```text
+    {
     [...]
       token:          30000
       token_retransmits_before_loss_const: 10
@@ -961,78 +977,95 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 > [!TIP]
 >
-> - To avoid fence races within a two-node pacemaker cluster, you can configure additional "priority-fencing-delay" cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enterprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+> - To avoid fence races within a two-node pacemaker cluster, you can configure additional "priority-fencing-delay" cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enterprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP7/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
 > - The property `priority-fencing-delay` is only applicable for two-node cluster. The instruction on setting "priority-fencing-delay" cluster property can be found in respective SAP ASCS/ERS (applicable only on ENSA2) and SAP HANA scale-up high availability document.
 > - When configuring a cluster for HANA scale-out, do not set the `pcmk_delay_max` property in the SBD Stonith resource.
 
 1. **[1]** If you're using an SBD device (iSCSI target server or Azure shared disk) as a fencing device, run the following commands. Enable the use of a fencing device, and set the fence delay.
 
    ```bash
-   sudo crm configure property stonith-timeout=210
-   sudo crm configure property stonith-enabled=true
-   
    # List the resources to find the name of the SBD device
    sudo crm resource list
    sudo crm resource stop stonith-sbd
    sudo crm configure delete stonith-sbd
+
    sudo crm configure primitive stonith-sbd stonith:external/sbd \
       params pcmk_delay_max="15" \
       op monitor interval="600" timeout="15"
+
+   # For SAP HANA scale-out only, configure stonith-sbd using following command
+   sudo crm configure primitive stonith-sbd stonith:external/sbd \
+      params pcmk_action_limit=-1 \
+      op monitor interval="600" timeout="15"
+
+   sudo crm configure property stonith-timeout=210
+   sudo crm configure property stonith-enabled=true
    ```
 
 1. **[1]** If you're using an Azure fence agent for fencing, run the following commands. After assigning roles to both cluster nodes, you can configure the fencing devices in the cluster.
 
-   ```bash
-   sudo crm configure property stonith-enabled=true
-   sudo crm configure property concurrent-fencing=true
-   ```
-
    > [!NOTE]
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
 
-#### [Managed identity](#tab/msi)
+   #### [Managed identity](#tab/msi)
 
    ```bash
-# Adjust the command with your subscription ID and resource group of the VM
+   # Adjust the command with your subscription ID and resource group of the VM
+   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+   params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
+   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+   meta failure-timeout=120s \
+   op monitor interval=3600 timeout=120
 
-sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
-pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-op monitor interval=3600 timeout=120
-   
-sudo crm configure property stonith-timeout=900
+   # For SAP HANA scale-out only, configure fence_azure_arm using following command
+   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+   params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
+   pcmk_monitor_retries=4 pcmk_action_limit=-1 power_timeout=240 pcmk_reboot_timeout=900 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+   meta failure-timeout=120s \
+   op monitor interval=3600 timeout=120
    ```
 
-#### [Service principal](#tab/spn)
+   #### [Service principal](#tab/spn)
 
    ```bash
    # Adjust the command with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
-   
    sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="application ID" passwd="password" \
    pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+   meta failure-timeout=120s \
    op monitor interval=3600 timeout=120
-   
+
+   # For SAP HANA scale-out only, configure fence_azure_arm using following command
+   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+   params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="application ID" passwd="password" \
+   pcmk_monitor_retries=4 pcmk_action_limit=-1 power_timeout=240 pcmk_reboot_timeout=900 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+   meta failure-timeout=120s \
+   op monitor interval=3600 timeout=120
+   ```
+
+    ---
+
+   ```bash
+   sudo crm configure property stonith-enabled=true
+   sudo crm configure property concurrent-fencing=true
    sudo crm configure property stonith-timeout=900
    ```
 
----
-
 If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
-   > [!IMPORTANT]
-   > The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.
+> [!IMPORTANT]
+> The monitoring and fencing operations are deserialized. As a result, if there's a longer-running monitoring operation and simultaneous fencing event, there's no delay to the cluster failover because the monitoring operation is already running.
 
-   > [!TIP]
-   >The Azure fence agent requires outbound connectivity to the public endpoints, as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+> [!TIP]
+> The Azure fence agent requires outbound connectivity to the public endpoints, as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. 
+Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events.
 
 Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a node-level health attribute `#health-azure` to `-1000000`. 
 
-When this special cluster health attribute is set for a node, the node is considered unhealthy by the cluster and all resources are migrated away from the affected node. The location constraint ensures resources with name starting with ‘health-‘ are excluded, as the agent needs to run in this unhealthy state. Once the affected cluster node is free of running cluster resources, scheduled event can execute its action, such as restart, without risk to running resources. 
+When this special cluster health attribute is set for a node, the node is considered unhealthy by the cluster and all resources are migrated away from the affected node. The location constraint ensures resources with name starting with ‘health-‘ are excluded, as the agent needs to run in this unhealthy state. Once the affected cluster node is free of running cluster resources, scheduled event can execute its action, such as restart, without risk to running resources.
 
 The `#heath-azure` attribute is set back to `0` on pacemaker startup once all events have been processed, marking the node as healthy again.
 

@@ -3,12 +3,11 @@ title: Asset data tables in Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Asset data tables in security data lake
 author: mberdugo  
-ms.service: microsoft-sentinel  
+ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform
 ms.topic: reference
-ms.custom: sentinel-graph
 ms.date: 06/11/2025
 ms.author: monaberdugo  
-
 ms.collection: ms-security
 
 # Customer intent: As a Microsoft Sentinel user, I want to view the asset data tables in the Microsoft Sentinel data lake so that I can understand the structure and content of the data available for analysis.
@@ -314,23 +313,3 @@ The following table mappings are available in the Microsoft Sentinel data lake f
 | _SnapshotTime                     | TimestampMicros   | DateTime     | DATETIME2(7)    | The timestamp (in microseconds) indicating when the snapshot of the data was taken. Useful for point-in-time analysis.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | _ReceivedTime                     | TimestampMicros   | DateTime     | DATETIME2(7)    | The timestamp (in microseconds) when the system received the data. Helps track data ingestion latency.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | TimeGenerated                     | TimestampMicros   | DateTime     | DATETIME2(7)    | The timestamp (in microseconds) when the data was originally generated at the source. Important for event sequencing and time-based analytics.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-
-## Microsoft 365 asset data tables
-
-### SharePointSitesAndLists
-
-| Property              | Parquet Type     | Kusto Type  | SQL Type       | Description                                                                     |
-|-----------------------|------------------|-------------|----------------|---------------------------------------------------------------------------------|
-| _ReceivedTime         | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp when the asset data was received into the system                  |
-| _SnapshotTime         | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp representing when the snapshot of the asset was taken.            |
-| FileType              | Utf8             | String      | NVARCHAR(MAX)  | The type or format of the file associated with the asset                        |
-| ItemUniqueId          | Utf8             | String      | NVARCHAR(MAX)  | Offshoot of the "ID" column from the original schema to handle ID differences.  |
-| LastModifiedById      | Utf8             | String      | NVARCHAR(MAX)  | Offshoot of "LastModifiedBy" from original schema; simplified to ID only.       |
-| LastModifiedDateTime  | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp when the asset was last modified.                                 |
-| Name                  | Utf8             | String      | NVARCHAR(MAX)  | The name of the asset or item.                                                  |
-| ObjectType            | Utf8             | String      | NVARCHAR(MAX)  | The type of object represented by the asset (for example, file, folder, site).  |
-| SensitivityLabelId    | Utf8             | String      | NVARCHAR(MAX)  | Offshoot of "SensitivityLabel" from original schema; simplified to ID.          |
-| TenantId              | Utf8             | String      | NVARCHAR(MAX)  | The unique identifier of the tenant to which the asset belongs.                 |
-| TimeGenerated         | TimestampMicros  | DateTime    | DATETIME2(7)   | The timestamp when the asset data was generated or logged                       |
-| WebUrl                | Utf8             | String      | NVARCHAR(MAX)  | The web URL points to the location of the asset.                                |
-| ReceivedTimeWindow    | TimestampMicros  | DateTime    | DATETIME2(7)   | The time window during which data was received.                                 |

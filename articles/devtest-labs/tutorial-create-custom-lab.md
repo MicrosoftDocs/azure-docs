@@ -26,7 +26,7 @@ If you're a developer, tester, or trainee, see [Access a lab in Azure DevTest La
 
 ## Prerequisites
 
-- To create a lab, you need at least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- To create a lab, you need at least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - To add a VM to a lab, you need at least [DevTest Labs User](/azure/role-based-access-control/built-in-roles#devtest-labs-user) role in the lab.
 

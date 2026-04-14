@@ -4,8 +4,8 @@ description: Automatic linting of API definitions in your API center helps you a
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 03/31/2025
-ms.author: danlep
-author: dlepow
+
+
 ms.custom: 
 # Customer intent: As an API developer or API program manager, I want to analyze the API definitions in my organization's API center for compliance with my organization's API style guide.
 ---

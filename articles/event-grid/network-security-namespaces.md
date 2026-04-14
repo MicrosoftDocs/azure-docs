@@ -1,7 +1,7 @@
 ---
 title: Network security for Azure Event Grid namespaces
 description: This article describes how to use service tags for egress, IP firewall rules for ingress, and private endpoints for ingress with Azure Event Grid namespaces.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - ignite-2023
 ms.date: 11/15/2023

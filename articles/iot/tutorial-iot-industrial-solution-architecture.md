@@ -25,7 +25,7 @@ This tutorial shows you how to deploy an industrial IoT solution by using Azure 
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+To complete the steps in this tutorial, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Reference solution architecture
 
@@ -107,25 +107,11 @@ Select the **Deploy** button to deploy all required resources to your Azure subs
 The deployment process prompts you to provide a password for the virtual machine (VM) that hosts the production line simulation and the Edge infrastructure. The password should include three of: a lowercase character, an uppercase character, a number, and a special character. The password length must be between 12 and 72 characters.
 
 > [!NOTE]
-> To reduce cost, the deployment creates a single Windows 11 Enterprise VM for both the production line simulation and the Edge infrastructure. In a production scenario, the production line simulation isn't required, and for the base OS you should use Windows IoT Enterprise Long Term Servicing Channel.
-
-When the deployment completes, use RDP to connect to the deployed Windows VM. You can download the RDP file from the **Connect** options on the page for your VM in the Azure portal. Sign in using the credentials you provided during the deployment, open a Windows command prompt, and use the following command to install the Windows Subsystem for Linux (WSL):
-
-```cmd  
-wsl --install
-```
-
-When the command finishes, reboot your VM and sign in again. A command prompt finishes the WSL installation and you're prompted to enter a new username and password for WSL. Then, in WSL, use the following command to install K3S, a lightweight Kubernetes runtime:
-
-```bash
-curl -sfL https://get.k3s.io | sh
-```
-
-Your VM is now ready to run the production line simulation.
+> To reduce cost, the deployment creates a single Linux VM for both the production line simulation and the edge infrastructure. In a production scenario, the production line simulation isn't required, and for the base OS you should use Azure Local.
 
 ## Run the production line simulation
 
-In the VM, open a Windows command prompt, enter *wsl*, and press **Enter**. Navigate to the `/mnt/c/ManufacturingOntologies-main/Tools/FactorySimulation` directory and run the **StartSimulation** shell script:
+Use SSH to connect to the deployed VM using the credentials you provided during the deployment (you may need to enable Just-in-time access in the Azure portal first). Navigate to the `/opt/ManufacturingOntologies-main/Tools/FactorySimulation` directory and run the **StartSimulation** shell script:
 
 ```bash
 sudo ./StartSimulation.sh "<Your Event Hubs connection string>"
@@ -133,11 +119,8 @@ sudo ./StartSimulation.sh "<Your Event Hubs connection string>"
 
 `<Your Event Hubs connection string>` is your Event Hubs namespace connection string. To learn more, see [Get an Event Hubs connection string](/azure/event-hubs/event-hubs-get-connection-string). A connection string looks like: `Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh=`
 
-> [!NOTE]
-> If the external IP address for a Kubernetes service shows as `<pending>`, use the following command to assign the external IP address of the `traefik` service: `sudo kubectl patch service <theService> -n <the service's namespace> -p '{"spec": {"type": "LoadBalancer", "externalIPs":["<the traefik external IP address>"]}}'`.
-
 > [!TIP]
-> To prevent WSL and K3s from automatically shutting down, keep your WSL command prompt open.
+> If the external IP address for some Kubernetes services shows as `<pending>`, use the following command to assign the external IP address of the `traefik` service: `sudo kubectl patch service <theService> -n <the service's namespace> -p '{"spec": {"type": "LoadBalancer", "externalIPs":["<the traefik external IP address>"]}}'`.
 
 ## UA Cloud Library
 
@@ -198,16 +181,9 @@ edges
 
 ## Optionally deploy Azure IoT Operations on the edge
 
-By default, the production line simulation sends data directly to the **data** hub endpoint in your Event Hubs namespace.
+You can use Azure IoT Operations on the edge. Azure IoT Operations is a unified data plane for the edge. It includes a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters.
 
-To manage this process, you can use Azure IoT Operations on the edge instead. Azure IoT Operations is a unified data plane for the edge. It includes a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters.
-
-Before you deploy Azure IoT Operations, confirm that you started the production line simulation. Then, follow these steps in [Azure IoT Operations deployment details](/azure/iot-operations/deploy-iot-ops/overview-deploy).
-
-> [!TIP]
-> You can use VM and K3S instance you deployed previously in this tutorial to deploy and run Azure IoT Operations.
-
-### Configure your Azure IoT Operations deployment
+Follow these steps in [Azure IoT Operations deployment details](/azure/iot-operations/deploy-iot-ops/overview-deploy).
 
 You can configure your Azure IoT Operations deployment by using the [operations experience](https://iotoperations.azure.com/) web UI. Add the asset endpoints, assets, and data flows to process the data from the production line simulation and route it to the **data** hub in your Event Hubs namespace.
 

@@ -2,12 +2,12 @@
 title: Review your Azure Enterprise Agreement bill
 description: Learn how to read and understand your usage and bill for Azure Enterprise Agreements.
 author: SandeepReddyAcc
-ms.reviewer: v-salin@microsoft.com
+ms.reviewer: v-salin
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 09/22/2025
-ms.author: v-salin@microsoft.com
+ms.author: v-salin
 ---
 # Understand your Azure Enterprise Agreement bill
 

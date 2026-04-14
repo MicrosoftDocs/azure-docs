@@ -19,7 +19,7 @@ In this Quickstart, you learn how to send events to and receive events from an e
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 
 To complete this quickstart, ensure you have the following prerequisites:  
-- **Microsoft Azure subscription**: Sign up for a [free trial](https://azure.microsoft.com/free/) if you don't have one.  
+- **Microsoft Azure subscription**: Sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.  
 - **Python 3.8 or later**: Ensure pip is installed and updated.  
 - **Visual Studio Code (recommended)**: Or use any other IDE of your choice.  
 - **Event Hubs namespace and event hub**: Follow [this guide](event-hubs-create.md) to create them in the [Azure portal](https://portal.azure.com).  

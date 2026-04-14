@@ -1,7 +1,7 @@
----
+﻿---
 title: Template functions in scoped deployments
 description: Describes how template functions are resolved in scoped deployments. The scope can be a tenant, management groups, subscriptions, and resource groups.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 08/05/2025
 ---
@@ -74,7 +74,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "defaultScopeTemplate",
       "resourceGroup": "inlineGroup",
       "properties": {
@@ -95,7 +95,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "innerScopeTemplate",
       "resourceGroup": "inlineGroup",
       "properties": {
@@ -119,7 +119,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "linkedTemplate",
       "resourceGroup": "linkedGroup",
       "properties": {
@@ -221,3 +221,4 @@ The output from the preceding example is:
 - To learn more about defining parameters in your template, see [the structure and syntax of ARM templates](./syntax.md).
 - For tips on resolving common deployment errors, see how to [troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 - For information about deploying a template that requires an SAS token, see how to [deploy private ARM template with SAS token](secure-template-with-sas-token.md).
+

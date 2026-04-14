@@ -110,8 +110,6 @@ Review your deployment information, then select **Create**.
 
 Once you deploy modules to your device, you can view all of them in the device details page of your IoT hub. This page displays the name of each deployed module, and useful information like the deployment status and exit code.
 
-Select **Next: Routes** and continue with deployment as described by [Specify routes](#specify-routes) and [Review deployment](#review-deployment) earlier in this article.
-
 ## Next steps
 
 Learn how to [Deploy IoT Edge modules at scale using the Azure portal](how-to-deploy-at-scale.md).

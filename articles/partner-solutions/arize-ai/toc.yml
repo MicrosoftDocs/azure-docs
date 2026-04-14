@@ -5,7 +5,9 @@ items:
   expanded: true
   items:
   - name: What is Arize AI?
-    href: overview.md 
+    href: overview.md
+  - name: FAQ
+    href: faq.yml 
 - name: Quickstart
   expanded: true
   items:

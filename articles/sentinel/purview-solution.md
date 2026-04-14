@@ -42,7 +42,7 @@ Diagnostics settings send log events only after a full scan is run, or when a ch
 
 1. Navigate to your Microsoft Purview account in the Azure portal and select **Diagnostic settings**.
 
-    :::image type="content" source="media/purview-solution/diagnostics-settings.png" alt-text="Screenshot of a Microsoft Purview account Diagnostics settings page.":::
+    :::image type="content" source="media/purview-solution/diagnostic-settings.png" alt-text="Screenshot of a Microsoft Purview account Diagnostic settings page.":::
 
 1. Select **+ Add diagnostic setting** and configure the new setting to send logs from Microsoft Purview to Microsoft Sentinel:
 

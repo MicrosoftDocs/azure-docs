@@ -1,7 +1,7 @@
----
+﻿---
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
 ms.date: 04/28/2025
 ---
@@ -208,7 +208,7 @@ The following example would accept `{"foo": "string", "bar": 1}`, but reject `{"
 }
 ```
 
-All properties are required unless the property’s [type definition](./definitions.md) has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
+All properties are required unless the property's [type definition](./definitions.md) has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
 
 ```json
 "parameters": {
@@ -456,7 +456,7 @@ To reference a parameter's value, use the [parameters](template-functions-deploy
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2021-06-01-preview",
+      "apiVersion": "2025-05-01",
       "name": "[parameters('vaultName')]",
       ...
     }
@@ -502,7 +502,7 @@ The following example shows a parameter that is an object. The default value sho
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('vNetSettings').name]",
       "location": "[parameters('vNetSettings').location]",
       "properties": {
@@ -545,3 +545,4 @@ The following examples demonstrate scenarios for using parameters.
 - To learn about the available properties for parameters, see [Understand the structure and syntax of ARM templates](./syntax.md).
 - To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](parameter-files.md).
 - For recommendations about creating parameters, see [Best practices - parameters](./best-practices.md#parameters).
+

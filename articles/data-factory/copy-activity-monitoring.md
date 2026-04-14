@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to monitor the copy activity execution in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/25/2024
 ms.author: jianleishen
 ms.custom:

@@ -1,7 +1,7 @@
 ---
 title: Scale an Azure Cache for Redis instance
 description: Learn how to scale your Azure Cache for Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2024
 appliesto:
   - ✅ Azure Cache for Redis
@@ -14,6 +14,8 @@ ms.custom:
 ---
 
 # Scale an Azure Cache for Redis instance
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis has different tier offerings that provide flexibility in the choice of cache size and features. Through scaling, you can change the size, tier, and number of nodes after creating a cache instance to match your application needs. This article shows you how to scale your cache using the Azure portal, plus tools such as Azure PowerShell and Azure CLI.
 
@@ -137,7 +139,7 @@ az redis update --cluster-name myCache --resource-group myGroup --set "sku.name"
 For more information on scaling with Azure CLI, see [Change settings of an existing Azure Cache for Redis](cache-manage-cli.md#scale).
 
 > [!NOTE]
-> When you scale a cache up or down programatically (e.g., using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation completes.
+> When you scale a cache up or down programmatically (e.g., using PowerShell or Azure CLI), any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation completes.
 
 ### [Scale out and in - Premium only](#tab/scale-out-and-in---premium-only)
 
@@ -380,7 +382,7 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
   
   Other clients might have different requirements. See [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering) for more information.
 
-- If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To locate keys in the same shard, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster).
+- If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To locate keys in the same shard, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 
 - If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers) for more information.
 

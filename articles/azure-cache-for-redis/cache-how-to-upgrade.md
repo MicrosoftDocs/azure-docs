@@ -1,10 +1,6 @@
 ---
 title: How to upgrade the Redis version of Azure Cache for Redis
 description: Learn how to upgrade the version of Azure Cache for Redis.
-
-
-
-
 ms.topic: how-to
 ms.date: 05/21/2024
 appliesto:
@@ -16,6 +12,8 @@ ms.custom:
 ---
 
 # How to upgrade the version of your Redis instance
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 New versions of Redis server software are frequently released with new features, more commands, and stability improvements. Maintaining Redis instances using the latest version of Redis is a good way to ensure that you get the best possible Redis experience.
 
@@ -124,7 +122,7 @@ For more information on how to export, see [Import and Export data in Azure Cach
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 ### Limitations
 

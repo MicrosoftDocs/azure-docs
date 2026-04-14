@@ -22,7 +22,7 @@ This article provides PowerShell examples for upgrading your Azure WAF policy to
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An existing Azure WAF policy with a Core Rule Set (CRS) or Default Rule Set (DRS) applied. If you don't have a WAF policy yet, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
 
@@ -53,8 +53,7 @@ When upgrading your Azure WAF ruleset version, make sure to:
     -Name $wafPolicyName ` 
     -ResourceGroupName $resourceGroupName 
     $currentExclusions = $wafPolicy.ManagedRules.Exclusions 
-    $currentManagedRuleset = $wafPolicy.ManagedRules.ManagedRuleSets 
-    | Where-Object { $_.RuleSetType -eq "OWASP" } 
+    $currentManagedRuleset = $wafPolicy.ManagedRules.ManagedRuleSets | Where-Object { $_.RuleSetType -eq "OWASP" } 
     $currentVersion = $currentManagedRuleset.RuleSetVersion
     ```
 
@@ -121,14 +120,15 @@ groups:
         foreach ($existingRule in $group.Rules) { 
     if (-not (Test-RuleIsRemovedFromDRS21 $existingRule.RuleId $currentVersion)) 
       { 
-       `$existingGroup = $groupOverrides | 
-    Where-Object { $_.RuleGroupName -eq $mappedGroupName } 
+       $existingGroup = $groupOverrides | Where-Object { $_.RuleGroupName -eq $mappedGroupName } 
     if ($existingGroup) { 
-    if (-not ($existingGroup.Rules | 
-    Where-Object { $_.RuleId -eq $existingRule.RuleId })) { 
+    if (-not ($existingGroup.Rules | Where-Object { $_.RuleId -eq $existingRule.RuleId })) { 
     $existingGroup.Rules.Add($existingRule) } } 
     else { 
-      $newGroup = New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride ` -RuleGroupName $mappedGroupName ` -Rule @($existingRule) $groupOverrides += $newGroup } } } }
+      $newGroup = New-AzApplicationGatewayFirewallPolicyManagedRuleGroupOverride ` 
+        -RuleGroupName $mappedGroupName ` 
+        -Rule @($existingRule) 
+      $groupOverrides += $newGroup } } } }
 
     ```
 

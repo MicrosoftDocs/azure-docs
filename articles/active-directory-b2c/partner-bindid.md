@@ -41,7 +41,7 @@ To get started, you need:
 
 ::: zone pivot="b2c-user-flow"
 
-* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Entra subscription.
 * [A registered web application](./tutorial-register-applications.md) in your Azure AD B2C tenant.
 * A Transmit Security tenant. Go to [transmitsecurity.com](https://transmitsecurity.com/).
@@ -49,7 +49,7 @@ To get started, you need:
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
+* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Entra subscription.
 * [A registered web application](./tutorial-register-applications.md) in your Azure AD B2C tenant.
 * [Azure AD B2C custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).

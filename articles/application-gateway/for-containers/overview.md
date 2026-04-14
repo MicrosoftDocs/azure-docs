@@ -6,7 +6,7 @@ author: mbender-ms
 ms.custom: references_regions
 ms.service: azure-appgw-for-containers
 ms.topic: overview
-ms.date: 8/21/2025
+ms.date: 2/7/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand how Application Gateway for Containers functions, so that I can effectively implement it for load balancing and traffic management within my Kubernetes cluster."
 ---
@@ -53,6 +53,7 @@ Application Gateway for Containers offers an elastic and scalable ingress to AKS
 
 Application Gateway for Containers supports the following features for traffic management:
 
+- AKS managed add-on
 - Automatic retries
 - Autoscaling
 - Availability zone resiliency
@@ -78,7 +79,7 @@ Application Gateway for Containers supports the following features for traffic m
 - TLS policies
 - URL redirect
 - URL rewrite
-- Web Application Firewall (WAF) (Preview)
+- Web Application Firewall (WAF)
 - WebSocket support
 
 ### Deployment strategies
@@ -155,4 +156,5 @@ To learn what's new with Application Gateway for Containers, see [Azure updates]
 ## Next steps
 
 - [Concepts: Application Gateway for Containers components](application-gateway-for-containers-components.md)
-- [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
+- [Quickstart: Deploy Application Gateway for Containers ALB Controller - Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md)
+- [Quickstart: Deploy Application Gateway for Containers ALB Controller - Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)

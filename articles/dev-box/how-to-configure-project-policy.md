@@ -139,4 +139,4 @@ To delete a project policy:
 
 ## Related content
 
-- Learn more about [key concepts for Microsoft Dev Box](concept-dev-box-concepts.md).
+- Learn more about [Microsoft Dev Box architecture and key concepts](concept-dev-box-architecture.md).

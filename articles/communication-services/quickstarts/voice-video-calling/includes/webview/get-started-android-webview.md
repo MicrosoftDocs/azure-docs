@@ -18,7 +18,7 @@ This article describes how to run webapps developed with the Azure Communication
 ## Prerequisites
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
 - A web application using the Azure Communication Calling Web SDK. [Get started with the web calling sample](../../../../samples/web-calling-sample.md).
 

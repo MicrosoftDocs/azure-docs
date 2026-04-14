@@ -2,7 +2,7 @@
 title: Configure and manage Azure Monitor based alert notifications for Azure Backup
 description: Learn how to configure Azure Monitor alert notifications.
 ms.topic: how-to
-ms.date: 12/30/2024
+ms.date: 11/26/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -18,9 +18,12 @@ This article describes how to configure and manage Azure Monitor based alert not
 
 To configure notifications for Azure Monitor alerts, create an [alert processing rule](/azure/azure-monitor/alerts/alerts-action-rules). To create an alert processing rule (earlier called *action rule*) to send email notifications to a given email address, follow these steps. Also, follow these steps to route these alerts to other notification channels, such as ITSM, webhook, logic app, and so on.
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts** to create or view alert processing rules. [Learn more](/azure/azure-monitor/alerts/alerts-processing-rules?tabs=portal&branch=main#configure-an-alert-processing-rule).
+1. In the [Azure portal](https://portal.azure.com/), go to **Resiliency** > **Monitoring + Reporting** > **Alerts** to create or view alert processing rules. [Learn more](/azure/azure-monitor/alerts/alerts-processing-rules?tabs=portal&branch=main#configure-an-alert-processing-rule).
 
 1. Send alerts to the notification channel of your choice using action groups as part of the alert processing rules. Learn [how to create action groups](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal).
+
+>[!Note]
+>To send notifications for an alert to multiple email addresses, you can select multiple **email** notifications during the action group configuration.
 
 ## Suppress notifications during a planned maintenance window
 
@@ -33,10 +36,10 @@ Learn more [about suppression of notifications during planned maintenance
 
 To create a suppression alert processing rule, follow these steps:
 
-1. Go to **Business Continuity Center** > **Monitoring + Reporting** > **Alerts**.
+1. Go to **Resiliency** > **Monitoring + Reporting** > **Alerts**.
 1. Select **Manage alerts** > **Manage alert processing rules**.
 
-   :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-blade-inline.png" alt-text="Screenshot showing alert processing rules blade in portal." lightbox="./media/move-to-azure-monitor-alerts/alert-processing-rule-blade-expanded.png":::
+   :::image type="content" source="./media/move-to-azure-monitor-alerts/alert-processing-rule-blade.png" alt-text="Screenshot showing alert processing rules blade in portal." lightbox="./media/move-to-azure-monitor-alerts/alert-processing-rule-blade.png":::
 
 1. Select **Create**.
 

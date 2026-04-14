@@ -9,7 +9,7 @@ metadata:
   ms.service: partner-services
   ms.subservice: datadog
   ms.topic: landing-page
-  ms.date: 02/16/2023
+  ms.date: 09/15/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -21,6 +21,8 @@ landingContent:
         links:
           - text: What is Datadog?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage your Datadog resource
@@ -52,5 +54,5 @@ landingContent:
           - text: REST API
             url: /rest/api/datadog
           - text: Terraform
-            url: "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/datadog_monitors"
+            url: "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/datadog_monitor"
         

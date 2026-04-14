@@ -1,19 +1,9 @@
 {
-    "redirections": [
-        {
-            "source_path_from_root": "/articles/reliability/migrate-app-service.md",
-            "redirect_url": "/azure/reliability/reliability-app-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/reliability/migrate-app-service-environment.md",
-            "redirect_url": "/azure/reliability/reliability-app-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/reliability/migrate-search-service.md",
-            "redirect_url": "/azure/search/search-reliability",
-            "redirect_document_id": false
-        }
-    ]
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/event-hubs/event-hubs-business-continuity-outages-disasters.md",
+      "redirect_url": "/azure/reliability/reliability-event-hubs",
+      "redirect_document_id": false
+    }
+  ]
 }

@@ -1,25 +1,25 @@
 ---
-title: Azure Front Door Web Application Firewall CAPTCHA (preview)
+title: Azure Front Door Web Application Firewall CAPTCHA
 description: Learn about the CAPTCHA feature in Azure Front Door Web Application Firewall (WAF) and how it helps protect your web applications from automated attacks.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 04/29/2025
+ms.date: 10/28/2025
 
 # Customer intent: "As a web application developer, I want to implement CAPTCHA through the Web Application Firewall, so that I can protect my application from automated attacks while ensuring a seamless user experience for legitimate users."
 ---
 
-# Azure Front Door Web Application Firewall CAPTCHA (preview)
-
-> [!IMPORTANT]
-> Web Application Firewall CAPTCHA on Azure Frond Door is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Azure Front Door Web Application Firewall CAPTCHA
 
 Azure Web Application Firewall (WAF) offers a CAPTCHA feature designed to differentiate human users from automated bots. This interactive challenge requires suspected traffic to complete a CAPTCHA test, blocking malicious automated requests while allowing legitimate users to proceed seamlessly. As a result, WAF helps protect applications from bot-driven attacks, including brute-force attempts and account takeover risks.
 
 CAPTCHA on Azure WAF is useful in login and sign-up flows where human authentication is crucial to protect sensitive user data. It acts as a strong defense against various automated threats, preventing bots from accessing critical website elements like login pages and forms, and reducing spam by ensuring only real users can submit comments, register accounts, or complete transactions.
 
 Incorporating CAPTCHA into Azure WAF not only enhances security but also minimizes friction for legitimate users. This balance strengthens the overall protection of web applications against sophisticated automated threats.
+
+> [!NOTE]
+> The CAPTCHA feature incurs additional usage-based charges. For detailed information on pricing, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## How it works
 
@@ -41,9 +41,13 @@ The WAF **Policy settings** define the CAPTCHA challenge cookie validity lifetim
 
 - **AJAX and API calls aren't supported**: CAPTCHA verification doesn't apply to AJAX and API requests.
 
-- **POST body size restriction**: The first request that triggers a CAPTCHA challenge will be blocked if its POST body exceeds 128 KB.
+- **POST body size restriction**: The first request that triggers a CAPTCHA challenge is blocked if its POST body exceeds 64 KB on Azure Front Door.
 
 - **Non-HTML embedded resources**: CAPTCHA is designed for HTML resources. Placing CAPTCHA in front of non-HTML resources, such as images, CSS, or JavaScript files, may likely result in issues with content loading and rendering.
 
 - **Browser compatibility**: CAPTCHA isn't supported on Microsoft Internet Explorer. It's compatible with the latest versions of Microsoft Edge, Chrome, Firefox, and Safari.
 
+## Related content
+
+- [Web Application Firewall JavaScript challenge](/azure/web-application-firewall/waf-javascript-challenge)
+- [Configure a custom response for Front Door WAF](/azure/web-application-firewall/afds/waf-front-door-configure-custom-response-code)

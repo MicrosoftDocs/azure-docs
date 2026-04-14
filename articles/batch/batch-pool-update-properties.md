@@ -2,7 +2,7 @@
 title: Update pool properties
 description: Learn how to update existing Batch pool properties.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 01/05/2026
 ms.custom:
 # Customer intent: As a cloud administrator, I want to update properties of existing Batch pools, so that I can adapt to evolving workloads and maintain optimal performance without needing to recreate the pools unnecessarily.
 ---
@@ -146,16 +146,10 @@ Request Body
 ### Data Plane: Pool - Patch or Update Properties
 
 The Data Plane offers the ability to either patch or update select pool properties. The
-available APIs are the [Pool - Patch API](/rest/api/batchservice/pool/patch) or the
-[Pool - Update Properties API](/rest/api/batchservice/pool/update-properties) as part of
+available API is the [Pool - Update Properties API](/rest/api/batchmanagement/pool/update) as part of
 the [Batch Data Plane API or SDK](batch-apis-tools.md#batch-service-apis).
 
-The [Patch API](/rest/api/batchservice/pool/patch) allows patching of select pool properties
-as specified in the documentation such as the `startTask`. Since this operation is a `PATCH`,
-only pool properties specified in the request are updated. If properties aren't specified as
-part of the request, then the existing values remain unmodified.
-
-The [Update Properties API](/rest/api/batchservice/pool/update-properties) allows select
+The [Update Properties API](/rest/api/batchmanagement/pool/update) allows select
 update of the pool properties as specified in the documentation. This request fully
 replaces the existing properties, therefore any property that isn't specified in the
 request is removed.

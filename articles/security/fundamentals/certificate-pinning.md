@@ -4,7 +4,7 @@ titleSuffix: Certificate pinning and Azure services
 description: Information about the history, usage, and risks of certificate pinning.
 ms.service: security
 ms.subservice: security-fundamentals
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/06/2023
 ms.author: sarahlipsey
 author: shlipsey3
@@ -49,5 +49,5 @@ As there's no single web standard for how certificate pinning is performed, we c
 
 ## Next steps
 
-- [Check the Azure Certificate Authority details for upcoming changes](azure-CA-details.md)
+- [Check the Azure Certificate Authority details for upcoming changes](azure-certificate-authority-details.md)
 - [Review the Azure Security Fundamentals best practices and patterns](best-practices-and-patterns.md)

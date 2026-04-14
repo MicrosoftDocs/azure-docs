@@ -3,7 +3,7 @@ title: Configure custom data access policies
 description: Learn how to create and configure a data access policy for Azure Cache for Redis and enable role-based access control via Microsoft Entra ID.
 ms.custom: references_regions, ignite-2024
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2025
 appliesto:
   - ✅ Azure Cache for Redis
@@ -11,6 +11,8 @@ appliesto:
 ---
 
 # Configure custom data access policies
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Managing access to your Azure Redis cache instance is critical to ensuring that the right users have access to the right set of data and commands. Redis version 6 introduced the [Access Control List](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/) (ACL), which lists the keys that specific users can access and the commands that they can execute. For example, you can prohibit specific users from using the [DEL](https://redis.io/commands/del/) command to delete keys in the cache.
 

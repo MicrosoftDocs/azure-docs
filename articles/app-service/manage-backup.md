@@ -4,7 +4,7 @@ description: Learn how to restore backups of your apps or configure custom backu
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 02/10/2025 
+ms.date: 11/28/2025 
 ms.custom: devx-track-azurecli
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 
@@ -120,6 +120,9 @@ There are two types of backups in App Service. If your app is in a supported pri
 1. At the top of the **Backups** page, select **Configure custom backups**.
 
 1. In **Storage account**, select an existing storage account in the same subscription or select **Create new**. Repeat in **Container**.
+    > [!NOTE]
+    > Custom backups for Azure App Service require an Azure Storage account that supports Shared Access Signature (SAS)–based authorization. Managed Identity–based authentication to the storage account isn't supported for App Service backup and restore operations.
+   
 
     To back up the linked databases, select **Next: Advanced** > **Include database**, and select the databases to backup.
 
@@ -168,7 +171,7 @@ To restore a database included in a custom backup:
 1. Follow the steps in [Restore a backup](#restore-a-backup).
 1. In **Advanced options**, select **Include database**.
 
-For troubleshooting information, see [Why is my linked database not backed up?](#why-is-my-linked-database-not-backed-up).
+For troubleshooting information, see [Why is my linked database not backed up?](#why-is-my-linked-database-not-backed-up)
 
 ## Deprecation of linked database backups
 Starting **3/31/2028**, Azure App Service custom backups will **no longer support backing up linked databases**. We recommend using the native backup and restore tools provided by each database service instead.

@@ -58,17 +58,17 @@ In this article, you use the [Azure Developer CLI](/azure/developer/azure-develo
 
 ::: zone pivot="blob-storage-quickstart-scratch"
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 1.8_101 or above
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ::: zone-end
 
 ::: zone pivot="blob-storage-quickstart-template"
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 1.8_101 or above
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 

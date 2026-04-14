@@ -1,14 +1,16 @@
 ---
 title: Set up replication policies for VMware disaster recovery with Azure Site Recovery| Microsoft Docs
+ms.reviewer: v-gajeronika
 description: Describes how to configure replication settings for VMware disaster recovery to Azure with Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: jsuri
-ms.date: 05/27/2021
+ms.author: v-gajeronika
+ms.date: 12/08/2025
 
 # Customer intent: As a system administrator managing VMware environments, I want to set up and modify replication policies for disaster recovery to Azure, so that I can ensure efficient data protection and recovery for my virtual machines.
 ---
+
 # Configure and manage replication policies for VMware disaster recovery
 
 This article describes how to configure a replication policy when you're replicate VMware VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
@@ -27,23 +29,22 @@ When you create a replication policy, a matching failback replication policy is 
 >[!NOTE]
 >High recovery point retention period in a policy may have an implication on storage cost since more recovery points may need to be saved. 
 
-
 ## Associate a configuration server
 
 Associate the replication policy with your on-premises configuration server.
 
 1. Select the replication policy.
     
-    ![Replication policy listing.](./media/vmware-azure-set-up-replication/replication-policy-listing.png)
+    :::image type="content" source="./media/vmware-azure-set-up-replication/replication-policy-listing.png" alt-text="Screenshot of Replication policy listing.":::
 2. Click **Associate**.
     
-    ![Associate configuration server.](./media/vmware-azure-set-up-replication/associate1.png)
+    :::image type="content" source="./media/vmware-azure-set-up-replication/associate1.png" alt-text="Screenshot of Associate configuration server.":::
 3. Select the configuration server.
 
-    ![Configuration server selection.](./media/vmware-azure-set-up-replication/select-config-server.png)
+    :::image type="content" source="./media/vmware-azure-set-up-replication/select-config-server.png" alt-text="Screenshot showing Configuration server selection.":::
 3. Click **OK**. The configuration server should be associated in one to two minutes.
 
-    ![Configuration server association.](./media/vmware-azure-set-up-replication/associate2.png)
+    :::image type="content" source="./media/vmware-azure-set-up-replication/associate2.png" alt-text="Screenshot showing Configuration server association option.":::
 
 ## Edit a policy
 
@@ -58,8 +59,6 @@ Edit a policy as follows:
 3. Click **Edit settings**, and update the RPO threshold/recovery point retention hours/app-consistent snapshot frequency fields as required.
 4. If you wish to turn off generation of application consistency points, choose "Off" value in the dropdown of the field **App-consistent snapshot frequency**.
 5. Click **Save**. The policy should be updated in 30 to 60 seconds.
-
-
 
 ## Disassociate or delete a replication policy
 

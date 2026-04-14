@@ -5,7 +5,7 @@ description: Learn how to
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/07/2025
 ms.author: kpunjabi
 ms.custom: public_preview

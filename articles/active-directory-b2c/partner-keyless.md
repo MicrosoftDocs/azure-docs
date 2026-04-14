@@ -32,7 +32,7 @@ Go to keyless.io to learn about:
 To get started, you'll need:
 
 * An Azure subscription 
-  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
 * A Keyless cloud tenant
   * Go to keyless.io to [Request a demo](https://keyless.io/demo-request)

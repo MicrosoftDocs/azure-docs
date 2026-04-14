@@ -76,8 +76,6 @@ To protect a copy operation, blob soft delete must be enabled for the destinatio
 
 Blob soft delete doesn't protect against operations to write blob metadata or properties. No soft-deleted snapshot is created when a blob's metadata or properties are updated.
 
-Blob soft delete doesn't afford overwrite protection for blobs in the archive tier. If a blob in the archive tier is overwritten with a new blob in any tier, then the overwritten blob is permanently deleted.
-
 For premium storage accounts, soft-deleted snapshots don't count toward the per-blob limit of 100 snapshots.
 
 ### Restoring soft-deleted objects
@@ -95,7 +93,7 @@ Data in a soft-deleted blob or snapshot can't be read until the object has been 
 For more information on how to restore soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.yml).
 
 > [!TIP]
-> You can use a _storage task_ to restore blobs at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
+> You can use a _storage task_ to restore blobs at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md)
 
 ## Blob soft delete and versioning
 
@@ -106,7 +104,7 @@ If blob versioning and blob soft delete are both enabled for a storage account, 
 
 If blob versioning and blob soft delete are both enabled for a storage account, then when you delete a blob, the current version of the blob becomes a previous version, and there's no longer a current version. No new version is created and no soft-deleted snapshots are created. All previous versions are retained until they're explicitly deleted, either with a direct delete operation or via a lifecycle management policy.
 
-Enabling soft delete and versioning together protects previous blob versions as well as current versions from deletion. When soft delete is enabled, explicitly deleting a previous version creates a soft-deleted version that is retained until the soft-delete retention period elapses. After the soft-delete retention period has elapsed, the soft-deleted blob version is permanently deleted.
+Enabling soft delete and versioning together protects previous blob versions as well as current versions from deletion. When soft delete is enabled, versions remain undeleted even if the blob is deleted. If you delete a version, then that version becomes soft-deleted. Soft-deleted versions are retained until the soft-delete retention period elapses. After the retention period has elapsed, the soft-deleted blob version is permanently deleted.
 
 You can use the **Undelete Blob** operation to restore soft-deleted versions during the soft-delete retention period. The **Undelete Blob** operation always restores all soft-deleted versions of the blob. It isn't possible to restore only a single soft-deleted version.
 

@@ -168,7 +168,7 @@ This project has adopted the Microsoft Open Source Code of Conduct. For more inf
 
 [webpubsubservice_docs]: ./index.yml
 [azure_cli]: /cli/azure
-[azure_sub]: https://azure.microsoft.com/free/
+[azure_sub]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [package]: https://pypi.org/project/azure-messaging-webpubsubservice/
 [default_cred_ref]: https://aka.ms/azsdk-python-identity-default-cred-ref
 [cla]: https://cla.microsoft.com

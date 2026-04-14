@@ -5,8 +5,8 @@ description: Learn the supported connectors in Azure Data Factory and Azure Syna
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 09/11/2025
+ms.topic: concept-article
+ms.date: 09/30/2025
 ms.author: jianleishen
 ---
 
@@ -14,7 +14,7 @@ ms.author: jianleishen
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory and Azure Synapse Analytics pipelines support the following data stores and formats via Copy, Data Flow, Look up, Get Metadata, and Delete activities. Click each data store to learn the supported capabilities and the corresponding configurations in details.
+Azure Data Factory and Azure Synapse Analytics pipelines support the following data stores and formats via Copy, Data Flow, Look up, Get Metadata, and Delete activities. Select each data store to learn the supported capabilities and the corresponding configurations in details.
 
 ## Supported data stores
 
@@ -22,14 +22,14 @@ Azure Data Factory and Azure Synapse Analytics pipelines support the following d
 
 ## Integrate with more data stores
 
-Azure Data Factory and Synapse pipelines can reach broader set of data stores than the list mentioned above. If you need to move data to/from a data store that is not in the service built-in connector list, here are some extensible options:
+Azure Data Factory and Synapse pipelines can reach broader set of data stores than the list mentioned above. If you need to move data to/from a data store that isn't in the service built-in connector list, here are some extensible options:
 - For database and data warehouse, usually you can find a corresponding ODBC driver, with which you can use [generic ODBC connector](connector-odbc.md).
 - For SaaS applications:
     - If it provides RESTful APIs, you can use [generic REST connector](connector-rest.md).
     - If it has OData feed, you can use [generic OData connector](connector-odata.md).
     - If it provides SOAP APIs, you can use [generic HTTP connector](connector-http.md).
     - If it has ODBC driver, you can use [generic ODBC connector](connector-odbc.md).
-- For others, check if you can load data to or expose data as any supported data stores, e.g. Azure Blob/File/FTP/SFTP/etc, then let the service pick up from there. You can invoke custom data loading mechanism via [Azure Function](control-flow-azure-function-activity.md), [Custom activity](transform-data-using-dotnet-custom-activity.md), [Databricks](transform-data-databricks-notebook.md)/[HDInsight](transform-data-using-hadoop-hive.md), [Web activity](control-flow-web-activity.md), etc.
+- For others, check if you can load data to or expose data as any supported data stores, for example, Azure Blob/File/FTP/SFTP/etc, then let the service pick up from there. You can invoke custom data loading mechanism via [Azure Function](control-flow-azure-function-activity.md), [Custom activity](transform-data-using-dotnet-custom-activity.md), [Databricks](transform-data-databricks-notebook.md)/[HDInsight](transform-data-using-hadoop-hive.md), [Web activity](control-flow-web-activity.md), etc.
 
 ## Supported file formats
 

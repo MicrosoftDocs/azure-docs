@@ -1,13 +1,12 @@
 ---
 title: Migration guidance from Change Tracking and inventory using Log Analytics to Azure Monitoring Agent
 description: An overview on how to migrate from Change Tracking and inventory using Log Analytics to Azure Monitoring Agent.
-
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: how-to
-ms.date: 01/03/2025
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.date: 11/17/2025
+ms.author: v-rochak2
+author: RochakSingh-blr
 ms.custom:
 ms.service: azure-automation
 ---
@@ -79,7 +78,7 @@ To onboard through Azure portal, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Machines-Azure Arc**.
 
-   :::image type="content" source="media/enable-vms-monitoring-agent/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="media/enable-vms-monitoring-agent/select-arc-machines-portal.png":::
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="media/guidance-migration-log-analytics-monitoring-agent/select-arc-machines-portal.png":::
 
 1. Select the specific Arc machine with Change Tracking V1 enabled that needs to be migrated to Change Tracking V2.
 
@@ -166,12 +165,12 @@ To obtain the Log Analytics Workspace resource ID, follow these steps:
 
 **For single VM and Automation Account**
 
-1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
+1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](/azure/azure-change-tracking-inventory/tutorial-change-workspace-configure-data-collection-rule?tabs=windows%2Csa-mi).
 1. If migration to different workspace is carried out, then alerts configured using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
 ### [Using PowerShell script](#tab/limit-policy)
 
-1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](manage-change-tracking-monitoring-agent.md#configure-file-content-changes).
+1. For File Content changes-based settings, you have to migrate manually from LA version to AMA version of Change Tracking & Inventory. Follow the guidance listed in [Track file contents](/azure/azure-change-tracking-inventory/tutorial-change-workspace-configure-data-collection-rule?tabs=windows%2Csa-mi).
 1. If migration to different workspace is carried out, then alerts configured using the Log Analytics Workspace must be [manually configured](configure-alerts.md).
 
 ---
@@ -185,4 +184,4 @@ The disable method incorporates the following:
 - [Removes change tracking with LA agent from the entire Log Analytics Workspace](remove-feature.md).
 
 ## Next steps
--  To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](../change-tracking/enable-vms-monitoring-agent.md).
+-  To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](/azure/azure-change-tracking-inventory/tutorial-change-workspace-configure-data-collection-rule?tabs=windows%2Csa-mi).

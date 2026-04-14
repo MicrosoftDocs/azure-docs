@@ -2,7 +2,7 @@
 title: Back up and recover Azure VMs with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 12/12/2025
 ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -32,7 +32,7 @@ The object hierarchy is summarized in the following diagram.
 
 Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.recoveryservices/) reference in the Azure library.
 
-## Set up and register
+## Set up Azure PowerShell for Azure VM backup
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -75,7 +75,7 @@ To begin:
 
     In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **[Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)** cmdlet again.
 
-## Create a Recovery Services vault
+## Create a Recovery Services vault for Azure VM backup
 
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
 
@@ -256,7 +256,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 
 If you want to selectively back up a few disks and exclude others as mentioned in [these scenarios](selective-disk-backup-restore.md#scenarios), you can configure protection and backup only the relevant disks as documented [here](selective-disk-backup-restore.md#enable-backup-with-powershell).
 
-## Monitoring a backup job
+## Monitor an Azure VM backup job
 
 You can monitor long-running operations, such as backup jobs, without using the Azure portal. To get the status of an in-progress job, use the [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. This cmdlet gets the backup jobs for a specific vault, and that vault is specified in the vault context. The following example gets the status of an in-progress job as an array, and stores the status in the $joblist variable.
 
@@ -496,7 +496,7 @@ $restorejob
 Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
 
 > [!IMPORTANT]
-> It's strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. If this parameter isn't given, then you can't benefit from the instant restore functionality and the restore operation will be slower in comparison. If the purpose is to restore managed disks as unmanaged disks, then don't provide this parameter and make the intention clear by providing the `-RestoreAsUnmanagedDisks` parameter. The `-RestoreAsUnmanagedDisks` parameter is available from Azure PowerShell 3.7.0 onwards. In future versions, it will be mandatory to provide either of these parameters for the right restore experience.
+> We recommend that you use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. The storage account is then used for the VM configuration file and temporary restore artifacts. Azure Backup doesn't support restoring disks as unmanaged disks. For legacy recovery points from VMs that used unmanaged disks, [restore them as managed disks](backup-azure-arm-restore-vms.md#restore-legacy-recovery-points-from-vms-that-used-unmanaged-disks).
 >
 >
 
@@ -591,7 +591,7 @@ If cross-region restore is enabled on the vault with which you've protected your
 
 #### Cross-zonal restore
 
-You can restore [Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](../reliability/availability-zones-overview.md) of the same region.
+You can restore [Azure zone pinned VMs](/azure/virtual-machines/windows/create-portal-availability-zone) in any [availability zones](/azure/reliability/availability-zones-overview) of the same region.
 
 To restore a VM to another zone, specify the `TargetZoneNumber` parameter in the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet.
 
@@ -630,7 +630,7 @@ After you restore the disks, use the following steps to create and configure the
 >
 > 1. AzureAz module 3.0.0 or higher is required. <br>
 > 2. To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role doesn't have this permission, create a custom role with this action. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md). <br>
-> 3. After restoring disks, you can now get a deployment template which you can directly use to create a new VM. YOu don't need different PowerShell cmdlets to create managed/unmanaged VMs which are encrypted/unencrypted.<br>
+> 3. After restoring disks, you can now get a deployment template which you can directly use to create a new VM. You don't need different PowerShell cmdlets to create managed VMs that are encrypted or unencrypted.<br>
 > <br>
 
 ### Create a VM using the deployment template
@@ -641,7 +641,7 @@ The resultant job details give the template URI that can be queried and deployed
    $properties = $details.properties
    $storageAccountName = $properties["Target Storage Account Name"]
    $containerName = $properties["Config Blob Container Name"]
-   $templateBlobURI = $properties["Template Blob Uri"]
+   $templateBlobURI = $properties["Create VM Template Blob Uri"]
 ```
 
 The template isn't directly accessible since it's under a customer's storage account and the given container. We need the complete URL (along with a temporary SAS token) to access this template.

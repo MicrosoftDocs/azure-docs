@@ -3,7 +3,7 @@ title: Set an external identity source for vCenter Server
 description: Learn how to set Windows Server Active Directory over LDAP or LDAPS for VMware vCenter Server as an external identity source.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/13/2024
+ms.date: 03/9/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a system administrator, I want to configure Windows Server Active Directory as an external identity source for vCenter Server, so that I can authenticate users and manage role-based access efficiently."
 ---
@@ -45,6 +45,25 @@ In this article, you learn how to:
 
 > [!NOTE]
 > For more information about LDAPS and certificate issuance, contact your security team or your identity management team.
+
+## Microsoft Entra ID as an Identity Source
+
+Integrating Microsoft Entra ID as your external identity provider for Azure VMware Solution vCenter transforms your administrative security and operational efficiency. While Azure VMware Solution traditionally relies on Windows Server Active Directory via LDAPS, native Entra ID federation (using OIDC in vSphere 8.0 U2+) offers a modernized approach. The primary advantage is centralized identity management, which breaks down authentication silos between your cloud and on-premises environments.
+
+By relying on Entra ID, you can natively enforce advanced security policies—such as Multi-Factor Authentication (MFA) and Conditional Access—without deploying additional infrastructure. Because this is a federated model, vCenter never directly handles or stores user credentials; instead, it trusts Entra ID's validation. This protects credentials, ensures a seamless Single Sign-On (SSO) experience for your administrators, and provides centralized audit trails for better compliance.
+
+Azure VMware Solution is a managed service, standard CloudAdmin accounts do not have the elevated native vCenter permissions required to manage external identity provider directly. To bridge this gap, you must use Run Commands—specifically packaged PowerShell cmdlets executed directly through the Azure portal.
+
+| Category | Component/Feature | Description |
+| --- | --- | --- |
+| **Security Benefits** | MFA & Conditional Access | Enforces native Entra ID security policies to protect vCenter Access. |
+|  | Credential Protection | Federated authentication ensures vCenter never sees raw credentials. | 
+| **Run Commands** | Add-VCenterCloudAdminRoleVcIdentityProvidersManagePrivilege | Add required permission for external identity provider to Cloudadmin account. |
+|  | Remove-AVSIdentityProviderEntraId | Deletes the configured Entra ID from vCenter Server. |
+| **Permissions** | VcIdentityProviders.Manage | vCenter privilege required to create, update, or delete external identiy providers. |
+
+> [!NOTE]
+> Use Microsoft Entra ID or LDAPS authentication for external identity sources with vCenter. Azure VMware Solution supports both options. 
 
 ## Export the certificate for LDAPS authentication (Optional)
 
@@ -108,7 +127,7 @@ Your Azure VMware Solution private cloud should now properly resolve your on-pre
 
 To add Windows Server Active Directory over LDAP with SSL as an external identity source to use with SSO to vCenter Server, run the New-LDAPSIdentitySource cmdlet.
 
-1. Go to your Azure VMware Solution private cloud and select **Run command** > **Packages** > **New-LDAPSIdentitySource**.
+1. Go to your Azure VMware Solution private cloud and select **Run command** > **Packages** > **Microsoft.AVS.Identity** >**New-LDAPSIdentitySource**.
 
 1. Provide the required values or modify the default values, and then select **Run**.
 
@@ -140,7 +159,7 @@ To add Windows Server Active Directory over LDAP with SSL as an external identit
 
 To add Windows Server Active Directory over LDAP as an external identity source to use with SSO to vCenter Server, run the New-LDAPIdentitySource cmdlet.
 
-1. Select **Run command** > **Packages** > **New-LDAPIdentitySource**.
+1. Select **Run command** > **Packages** > **Microsoft.AVS.Identity** >**New-LDAPIdentitySource**.
 
 1. Provide the required values or modify the default values, and then select **Run**.
 
@@ -168,7 +187,7 @@ To add Windows Server Active Directory over LDAP as an external identity source 
 
 Users in a CloudAdmin group have user rights that are equal to the CloudAdmin (`<cloudadmin@vsphere.local>`) role that's defined in vCenter Server SSO. To add an existing Windows Server Active Directory group to a CloudAdmin group, run the Add-GroupToCloudAdmins cmdlet.
 
-1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
+1. Select **Run command** > **Packages** > **Microsoft.AVS.Identity** >**Add-GroupToCloudAdmins**.
 
 1. Enter or select the required values, and then select **Run**.
 
@@ -190,7 +209,7 @@ To list all external identity sources that are already integrated with vCenter S
    > [!NOTE]
    > If you need access to the Azure for US Government portal, go to `<https://portal.azure.us/>`.
 
-1. Select **Run command** > **Packages** > **Get-ExternalIdentitySources**.
+1. Select **Run command** > **Packages** > **Microsoft.AVS.Identity** > **Get-ExternalIdentitySources**.
 
    :::image type="content" source="media/run-command/run-command-overview.png" alt-text="Screenshot that shows the Run command menu with available packages in the Azure portal." lightbox="media/run-command/run-command-overview.png":::
 
@@ -235,7 +254,7 @@ Users can now sign in to vCenter Server by using their Windows Server Active Dir
 
 To remove a specific Windows Server Active Directory group from the CloudAdmin role, run the Remove-GroupFromCloudAdmins cmdlet.
 
-1. Select **Run command** > **Packages** > **Remove-GroupFromCloudAdmins**.
+1. Select **Run command** > **Packages** > **Microsoft.AVS.Identity** > **Remove-GroupFromCloudAdmins**.
 
 1. Enter or select the required values, and then select **Run**.
 
@@ -252,7 +271,7 @@ To remove a specific Windows Server Active Directory group from the CloudAdmin r
 
 To remove all existing external identity sources at once, run the Remove-ExternalIdentitySources cmdlet.
 
-1. Select **Run command** > **Packages** > **Remove-ExternalIdentitySources**.
+1. Select **Run command** > **Packages** > **Microsoft.AVS.Identity** > **Remove-ExternalIdentitySources**.
 
 1. Enter or select the required values, and then select **Run**:
 
@@ -268,7 +287,7 @@ To remove all existing external identity sources at once, run the Remove-Externa
 
 1. Rotate the password of the account that's used for authentication with the Windows Server Active Directory source in the domain controller.
 
-1. Select **Run command** > **Packages** > **Update-IdentitySourceCredential**.
+1. Select **Run command** > **Packages** > **Microsoft.AVS.Identity** > **Update-IdentitySourceCredential**.
 
 1. Enter or select the required values, and then select **Run**.
 
@@ -288,7 +307,7 @@ To remove all existing external identity sources at once, run the Remove-Externa
 
 1. Optional: If the certificates are stored in default domain controllers, this step is optional. Leave the SSLCertificatesSasUrl parameter blank and the new certificates will be downloaded from the default domain controllers and updated in vCenter automatically. If you choose to not use the default way, [export the certificate for LDAPS authentication](#to-export-the-certificate) and [upload the LDAPS certificate to blob storage and generate an SAS URL](#upload-the-ldaps-certificate-to-blob-storage-and-generate-an-sas-url-optional). Save the SAS URL for the next step.
 
-1. Select **Run command** > **Packages** > **Update-IdentitySourceCertificates**.
+1. Select **Run command** > **Packages** > **Microsoft.AVS.Identity** > **Update-IdentitySourceCertificates**.
 
 1. Provide the required values and the new SAS URL (optional), and then select **Run**.
 

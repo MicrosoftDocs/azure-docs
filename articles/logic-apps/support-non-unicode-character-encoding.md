@@ -1,10 +1,14 @@
 ---
-title: Convert non-Unicode encoded text for compatibility
-description: Handle non-Unicode characters in Azure Logic Apps by converting text payloads to UTF-8 with base64 encoding and Azure Functions.
+title: Convert Non-Unicode Encoded Text for Compatibility
+description: Handle non-Unicode characters in logic app workflows for Azure Logic Apps by converting text payloads to UTF-8 with base64 encoding and Azure Functions.
+services: logic-apps
 ms.service: azure-logic-apps
+ms.suite: integration
 ms.topic: how-to
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
+ms.update-cycle: 1095-days
 ms.date: 03/27/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn how to edit and manage logic app workflows in the Azure portal.
 ---
 
 # Support non-Unicode character encoding in Azure Logic Apps

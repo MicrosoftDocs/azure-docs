@@ -19,5 +19,7 @@
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)  
 ::: zone-end
 ::: zone pivot="programming-language-python" 
-+ [Python 3.11](https://www.python.org/).
++ [Python 3.11](https://www.python.org/)
+
++ [Azurite storage emulator](../articles/storage/common/storage-use-azurite.md)
 ::: zone-end  

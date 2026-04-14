@@ -2,7 +2,7 @@
 title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
 ms.topic: overview
-ms.date: 07/17/2025
+ms.date: 11/18/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -41,11 +41,11 @@ Vaults have the following features:
 
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
 - You can monitor backed-up items in a vault, including Azure VMs and on-premises machines.
-- You can manage vault access with [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml).
+- You can manage vault access with [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal).
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect your data against server rack and drive failures, you can use LRS. LRS replicates your data three times within a single data center in the primary region. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. [Learn more](../storage/common/storage-redundancy.md#locally-redundant-storage)
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](../reliability/availability-zones-overview.md), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](/azure/reliability/availability-zones-overview), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - By default, Recovery Services vaults use GRS.
 
 Recovery Services vaults have the following additional features:
@@ -140,6 +140,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 - **Retention duration is increased / decreased:** When the retention duration is changed, the new retention duration is applied to the existing recovery points as well. As a result, some of the recovery points will be cleaned up. If the retention period is increased, the existing recovery points will have an increased retention as well.
 - **Changed from daily to weekly:** When the scheduled backups are changed from daily to weekly,  the existing daily recovery points are cleaned up.
 - **Changed from weekly to daily:** The existing weekly backups will be retained based on the number of days remaining according to the current retention policy.
+- **Schedule days/tags are changed, but retention is unchanged:** Existing recovery points continue to expire according to their current retention settings. New recovery points are no longer created for the removed schedule days/tags. Because Azure VM backup is incremental, storage reduction is gradual and depends on how much data in expired recovery points was overwritten by newer retained recovery points.
 
 ### Additional reference
 
@@ -186,12 +187,12 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 Azure VMs use disks to store their operating system, apps, and data. Each Azure VM has at least two disks: a disk for the operating system and a temporary disk. Azure VMs can also have data disks for app data. Disks are stored as VHDs.
 
 - VHDs are stored as page blobs in standard or premium storage accounts in Azure:
-  - **Standard storage:** Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use standard solid-state drive (SSD) disks or standard hard disk drive (HDD) disks.
-  - **Premium storage:** High-performance disk support. Uses premium SSD disks.
+  - **Standard storage:** Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use Standard SSDs or Standard HDDs.
+  - **Premium storage:** High-performance disk support. Uses Premium SSDs.
 - There are different performance tiers for disks:
-  - **Standard HDD disk:** Backed by HDDs, and used for cost-effective storage.
-  - **Standard SSD disk:** Combines elements of premium SSD disks and standard HDD disks. Offers more consistent performance and reliability than HDD, but still cost-effective.
-  - **Premium SSD disk:** Backed by SSDs, and provides high-performance and low-latency for VMs that are running I/O-intensive workloads.
+  - **Standard HDD:** Backed by HDDs, and used for cost-effective storage.
+  - **Standard SSD:** Combines elements of Premium SSDs and Standard HDDs. Offers more consistent performance and reliability than HDD, but still cost-effective.
+  - **Premium SSD:** Backed by SSDs, and provides high-performance and low-latency for VMs that are running I/O-intensive workloads.
 - Disks can be managed or unmanaged:
   - **Unmanaged disks:** Traditional type of disks used by VMs. For these disks, you create your own storage account and specify it when you create the disk. You then need to figure out how to maximize storage resources for your VMs.
   - **Managed disks:** Azure creates and manages the storage accounts for you. You specify the disk size and performance tier, and Azure creates managed disks for you. As you add disks and scale VMs, Azure handles the storage accounts.
@@ -232,6 +233,15 @@ With Azure Backup, the vaulted backup data is stored in Microsoft-managed Azure 
 In Azure, all communications and data in transit is securely transferred with *HTTPS* and *TLS 1.2+* protocols. This data remains on the Azure backbone network ensuring reliable and efficient data transmission. The backup data at rest is encrypted by default using *Microsoft-managed keys*. You can also bring your own keys for encryption if you require greater control over the data. To enhance protection, you can use [immutability](backup-azure-immutable-vault-concept.md), which prevents data from being altered or deleted before its retention period.  Azure Backup gives you diverse options such as [soft delete](backup-azure-enhanced-soft-delete-about.md), stop backup and delete data or retain data if you need to stop backups at any time. To protect critical operations, you can add [Multi-User Authorization (MUA)](multi-user-authorization-concept.md) that adds additional layer of protection by using an Azure resource called Azure Resource Guard.
 
 This robust approach ensures that even in a compromised environment, existing backups cannot be tampered with or deleted by unauthorized users.
+
+Learn more about vaulted backup for the following datasources:
+
+- [Azure Files](azure-file-share-backup-overview.md?tabs=vault-standard#architecture-for-azure-files-backup)
+- [Azure Blob](blob-backup-overview.md?tabs=vaulted-backup#how-the-azure-blobs-backup-works)
+- [Azure Data Lake Storage](azure-data-lake-storage-backup-overview.md), [Azure Kubernetes](azure-kubernetes-service-backup-overview.md#which-backup-storage-tier-does-aks-backup-support)
+- [PostgreSQL - Flexible server](tutorial-create-first-backup-azure-database-postgresql-flex.md#configure-backup--for-the-database)
+- [PostgreSQL database](backup-azure-database-postgresql-overview.md#changes-to-vaulted-backups-for-postgresql-single-servers)
+- [SAP ASE (Sybase) database](sap-ase-database-about.md#key-benefits-of-sap-ase-sybase-database-backup)
 
 ## Next steps
 

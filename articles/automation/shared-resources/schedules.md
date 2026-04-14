@@ -3,12 +3,12 @@ title: Manage schedules in Azure Automation
 description: This article tells how to create and work with a schedule in Azure Automation.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2024
+ms.date: 11/17/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage schedules in Azure Automation

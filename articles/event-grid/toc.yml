@@ -85,10 +85,12 @@ items:
                     href: mqtt-client-microsoft-entra-token-and-rbac.md
                   - name: OAuth 2.0 JSON Web Token authentication and authorization for clients
                     href: mqtt-client-custom-jwt.md
+                  - name: Custom webhook authentication
+                    href: mqtt-client-webhook-authentication.md
                   - name: Transport Layer Security connection with MQTT broker
                     href: mqtt-transport-layer-security-flow.md
               - name: Reliability
-                href: ../reliability/reliability-event-grid.md?toc=/azure/event-grid/toc.json
+                href: /azure/reliability/reliability-event-grid?toc=/azure/event-grid/toc.json
               - name: Security
                 items:
                   - name: Security baseline
@@ -213,6 +215,8 @@ items:
                 href: namespace-event-filtering.md
               - name: Custom domains for namespaces
                 href: custom-domains-namespaces.md
+              - name: Reliability
+                href: /azure/reliability/reliability-event-grid?toc=/azure/event-grid/toc.json
               - name: Security
                 items:
                   - name: Security baseline
@@ -431,6 +435,8 @@ items:
                         href: event-schema-resources.md
                       - name: Container Service Event Resources
                         href: event-schema-containerservice-resources.md
+                      - name: AKS resources
+                        href: event-schema-aks-resources.md
                   - name: Azure Service Bus
                     href: event-schema-service-bus.md
                   - name: Azure SignalR
@@ -449,6 +455,8 @@ items:
                 items:
                   - name: Auth0
                     href: auth0-overview.md
+                  - name: Stripe
+                    href: stripe-overview.md
                   - name: Tribal Group
                     href: subscribe-to-tribal-group-events.md
                   - name: Microsoft Graph API
@@ -515,8 +523,8 @@ items:
                 href: event-schema-compatibility.md
               - name: Custom delivery properties
                 href: delivery-properties.md
-          - name: Availability zones and disaster recovery
-            href: ../reliability/reliability-event-grid.md?toc=/azure/event-grid/toc.json
+          - name: Reliability
+            href: /azure/reliability/reliability-event-grid?toc=/azure/event-grid/toc.json
           - name: Security
             items:
               - name: Security baseline
@@ -572,6 +580,8 @@ items:
                 href: subscribe-to-partner-events.md
               - name: Subscribe to Tribal Group events
                 href: subscribe-to-tribal-group-events.md
+              - name: Subscribe to Stripe events
+                href: subscribe-to-stripe-events.md
               - name: Auth0
                 items:
                   - name: Subscribe to Auth0 events
@@ -622,6 +632,8 @@ items:
             href: subscribe-to-resource-notifications-resources-events.md
           - name: Subscribe to Azure Resource Notifications - Container Service events
             href: subscribe-to-resource-notifications-containerservice-events.md
+          - name: Subscribe to Azure Resource Notifications - AKS events
+            href: subscribe-to-resource-notifications-aks-resources-events.md
           - name: Track asynchronous REST operations
             href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
           - name: Relocate

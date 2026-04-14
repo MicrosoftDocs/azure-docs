@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub import concepts
 description: Understand key concepts for importing a new update into Azure Device Update for IoT Hub.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 01/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

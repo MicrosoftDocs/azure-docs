@@ -24,7 +24,7 @@ Azure Monitor provides centralized monitoring for all Azure services, including 
 
 Before you begin monitoring your Route Server, ensure you have:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Azure Route Server deployment. If you need to create a Route Server, see [Create and configure Azure Route Server](quickstart-configure-route-server-portal.md).
 - Appropriate permissions to view metrics in the Azure portal (Monitoring Reader role or higher).
 
@@ -68,6 +68,8 @@ The following table describes the metrics available for Azure Route Server monit
 | [BGP Peer Status](#bgp) | Scalability | Count | Maximum | BGP availability from Route Server to Peer | BGP Peer IP, BGP Peer Type, Route Server Instance | Yes |
 | [Count of Routes Advertised to Peer](#advertised) | Scalability | Count | Maximum | Count of routes advertised from Route Server to Peer | BGP Peer IP, BGP Peer Type, Route Server Instance | Yes |
 | [Count of Routes Learned from Peer](#received) | Scalability | Count | Maximum | Count of routes learned from Peer | BGP Peer IP, BGP Peer Type, Route Server Instance | Yes | 
+| Routing Infrastructure Units | Scalability | Count | Maximum | Total number of routing infrastructure units, which represents Route Server's capacity | none | No | 
+| Spoke VM Utilization | Scalability | Percent | Maximum | Number of deployed spoke VMs as a percentage of the total number of spoke VMs that Route Server's routing infrastructure units can support | none | No | 
 
 > [!IMPORTANT]
 > Azure Monitor includes a metric called **Data Processed by the Virtual Hub Router** that appears in Route Server monitoring. This metric doesn't apply to Route Server and should be ignored when monitoring your deployment.

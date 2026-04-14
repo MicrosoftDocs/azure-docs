@@ -1,14 +1,13 @@
 ---
-title: Migrate to virtual network flow logs
+title: Migrate to Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn how to migrate your Azure Network Watcher network security group flow logs to virtual network flow logs using the Azure portal and a PowerShell script.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 10/28/2024
+ms.date: 02/25/2026
 
-#CustomerIntent: As an Azure administrator, I want to migrate my network security group flow logs to the new virtual network flow logs so that I can use all the benefits of virtual network flow logs, which overcome some of the network security group flow logs limitations.
 # Customer intent: As an Azure administrator, I want to migrate my network security group flow logs to virtual network flow logs using a migration script, so that I can take advantage of the enhanced features of virtual network flow logs and address the limitations of the existing setup.
 ---
 
@@ -32,7 +31,7 @@ In this article, you learn how to migrate your existing network security group f
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - PowerShell 7 installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 

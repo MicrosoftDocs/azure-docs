@@ -43,6 +43,8 @@ landingContent:
         links:
           - text: ASP.NET
             url: quickstart-dotnetcore.md
+          - text: Aspire
+            url: quickstart-dotnet-aspire.md
           - text: Java
             url: quickstart-java.md
           - text: Node.js
@@ -72,8 +74,6 @@ landingContent:
             url: tutorial-ai-openai-chatbot-java.md            
           - text: Run a chatbot with a local SLM (Express.js)
             url: tutorial-ai-slm-expressjs.md
-          - text: Invoke a web app from Azure AI Agent
-            url: invoke-openapi-web-app-from-azure-ai-agent-service.md
 
   - title: Secure and deploy  
     linkLists:

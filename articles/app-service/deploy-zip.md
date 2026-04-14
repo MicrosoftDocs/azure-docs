@@ -4,7 +4,7 @@ description: Learn to deploy app packages, discrete libraries, static files, or 
 author: cephalin
 ms.author: cephalin
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 03/11/2026
 ms.custom: devx-track-azurecli
 
 #customer intent: As a web app developer, I want to deploy my Azure App Service code as a ZIP, WAR, JAR, or EAR package or deploy individual files.
@@ -36,17 +36,17 @@ This ZIP package deployment uses the same Kudu service that powers continuous in
 - A package size limit of 2,048 megabytes
 
 > [!NOTE]
-> Files in the ZIP package are copied only if their timestamps don't match what is already deployed.
+> Files in the ZIP package are copied only if their timestamps don't match what's already deployed.
 
 ### Deploy with ZIP deploy UI in Kudu
 
 1. Open your app in the Azure portal and select **Development Tools** > **Advanced Tools**, then select **Go**.
 1. In Kudu, select **Tools** > **Zip Push Deploy**.
-1. Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package). Drag it to the file explorer area on the web page.
+1. Upload the ZIP package you created in [Create a project ZIP package](/azure/app-service/deploy-zip#create-a-project-zip-package). Drag it to the file explorer area on the web page.
 
 When deployment is in progress, an icon in the top right corner shows you the progress percentage. The page also displays messages for the operation below the **File Explorer** area. When deployment finishes, the last message should say "Deployment successful."
 
-This endpoint doesn't work for App Service on Linux at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
+This endpoint doesn't work for App Service on Linux at this time. Consider using FTP or the [ZIP deploy API](/troubleshoot/azure/app-service/faqs-app-service-linux-new) instead.
 
 ### Deploy without ZIP deploy UI in Kudu
 
@@ -109,7 +109,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-## <a name = "deploy-warjarear-packages"></a> Deploy WAR, JAR, or EAR packages
+## <a name = "deploy-warjarear-packages"></a>Deploy WAR, JAR, or EAR packages
 
 You can deploy your [WAR](https://wikipedia.org/wiki/WAR_(file_format)), [JAR](https://wikipedia.org/wiki/JAR_(file_format)), or [EAR](https://wikipedia.org/wiki/EAR_(file_format)) package to App Service to run your Java web app by using the Azure CLI, PowerShell, or Kudu publish API.
 
@@ -221,7 +221,7 @@ curl -X POST \
 > [!NOTE]
 > Get the Kudu URL from the Azure portal: open your app and select **Development Tools** > **Advanced Tools**, then select **Go** to open the Kudu URL.
 
-### Deploy a library file
+## Deploy a library file
 
 The following example uses the cURL tool to deploy a library file for the application. Replace the placeholder *\<lib-file-path>*. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
 
@@ -244,7 +244,7 @@ curl -X POST \
 > [!NOTE]
 > Get the Kudu URL from the Azure portal: open your app and select **Development Tools** > **Advanced Tools**, then select **Go** to open the Kudu URL.
 
-### Deploy a static file
+## Deploy a static file
 
 The following example uses the cURL tool to deploy a config file for the application. Replace the placeholder *\<config-file-path>*. If you choose basic authentication, supply the [deployment credentials](deploy-configure-credentials.md) in *\<username>* and *\<password>*.
 
@@ -318,15 +318,15 @@ curl -X POST \
 
 # [ARM template](#tab/arm)
 
-Add the following JSON to your ARM template. Replace the placeholder *\<app-name>*.
+Add the following JSON to your ARM template. Replace the placeholder *\<app-name>* with your app name (for example, `myapp`).
 
 ```json
 {
     "type": "Microsoft.Web/sites/extensions",
     "apiVersion": "2021-03-01",
-    "name": "onedeploy",
+    "name": "<app-name>/onedeploy",
     "dependsOn": [
-        "[resourceId('Microsoft.Web/Sites', <app-name>')]"
+        "[resourceId('Microsoft.Web/sites', '<app-name>')]"
     ],
     "properties": {
         "packageUri": "<zip-package-uri>",
@@ -336,13 +336,16 @@ Add the following JSON to your ARM template. Replace the placeholder *\<app-name
 }
 ```
 
+> [!NOTE]
+> For child resources defined outside the parent resource, the `name` property must include the parent resource name. Use the format `{parent-name}/{child-name}` to match the resource type's segment structure. For more information, see [Set name and type for child resources](/azure/azure-resource-manager/templates/child-resource-name-type).
+
 Use the following reference to help you configure the properties:
 
-|Property | Description | Required |
-|-|-|-|
+| Property | Description | Required |
+| - | - | - |
 | `packageUri` | The URI of the package or file. For more information, see [Microsoft.Web sites/extensions 'onedeploy'](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template). | Yes |
 | `type` | See the `type` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | Yes |
-| `path` | See the `target-path` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | No |
+| `path` | See the `path` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | No |
 
 -----
 
@@ -352,17 +355,17 @@ The `publish` Kudu API allows you to specify the same parameters from the CLI co
 
 The following table shows the available query parameters, their allowed values, and descriptions.
 
-| Key | Allowed values | Description | Required | Type  |
-|-|-|-|-|-|
-| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | This is the type of the artifact being deployed. It sets the default target path and informs the web app how the deployment should be handled. <br/><br/> `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `target-path` parameter is optional. <br/><br/> `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `target-path`. <br/><br/> `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `target-path` parameter is ignored. <br/><br/> `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `target-path` parameter is ignored. <br/><br/> `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `target-path`. <br/><br/> `type=static`: Deploy a static file, such as a script. By default, the file is deployed to `/home/site/wwwroot`. <br/><br/> `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `target-path`. | Yes | String |
+| Key | Allowed values | Description | Required | Type |
+| - | - | - | - | - |
+| `type` | `war`\|`jar`\|`ear`\|`lib`\|`startup`\|`static`\|`zip` | This is the type of the artifact being deployed. It sets the default target path and informs the web app how the deployment should be handled. <br/><br/> `type=zip`: Deploy a ZIP package by unzipping the content to `/home/site/wwwroot`. `path` parameter is optional. <br/><br/> `type=war`: Deploy a WAR package. By default, the WAR package is deployed to `/home/site/wwwroot/app.war`. The target path can be specified with `path`. <br/><br/> `type=jar`: Deploy a JAR package to `/home/site/wwwroot/app.jar`. The `path` parameter is ignored. <br/><br/> `type=ear`: Deploy an EAR package to `/home/site/wwwroot/app.ear`. The `path` parameter is ignored. <br/><br/> `type=lib`: Deploy a JAR library file. By default, the file is deployed to `/home/site/libs`. The target path can be specified with `path`. <br/><br/> `type=static`: Deploy a static file, such as a script. By default, the file is deployed to `/home/site/wwwroot`. <br/><br/> `type=startup`: Deploy a script that App Service automatically uses as the startup script for your app. By default, the script is deployed to `D:\home\site\scripts\<name-of-source>` for Windows and `home/site/wwwroot/startup.sh` for Linux. The target path can be specified with `path`. | Yes | String |
 | `restart` | `true`\|`false` | By default, the API restarts the app following the deployment operation (`restart=true`). When you deploy multiple artifacts, you can prevent restarts on all but the final deployment by setting `restart=false`. | No | Boolean |
 | `clean` | `true`\|`false` | Specifies whether to clean (delete) the target deployment before deploying the artifact there. | No | Boolean |
 | `ignorestack` | `true`\|`false` | The publish API uses the `WEBSITE_STACK` environment variable to choose safe defaults depending on your site's language stack. Setting this parameter to `false` disables any language-specific defaults. | No | Boolean |
-| `target-path` | An absolute path | The absolute path to deploy the artifact to. For example, `/home/site/deployments/tools/driver.jar` or `/home/site/scripts/helper.sh`. | No | String |
+| `path` | An absolute path | The absolute path to deploy the artifact to. For example, `/home/site/deployments/tools/driver.jar` or `/home/site/scripts/helper.sh`. | No | String |
 
 ## Related content
 
 For more advanced deployment scenarios, try [deploying to Azure with Git](deploy-local-git.md). Git-based deployment to Azure enables version control, package restore, MSBuild, and more.
 
-- [Kudu: Deploying from a zip file](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+- [Kudu: Deploying from a zip file](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)
 - [Environment variables and app settings reference](reference-app-settings.md)

@@ -37,6 +37,7 @@ Ensures that virtual machines hosted in Azure VMware Solution can securely and c
 ## Prerequisite
 
 - Ensure the "Microsoft.BareMetal" resource provider is registered.
+- When updating an Automated Peering Sync setting, the user needs Role Based Access Control Administrator access on the remote virtual network.
 
 ## Deployment steps 
 

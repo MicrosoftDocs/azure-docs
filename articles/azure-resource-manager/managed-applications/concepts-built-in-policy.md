@@ -1,7 +1,7 @@
----
+﻿---
 title: Deploy associations for managed application using Azure Policy
 description: Learn about deploying associations for a managed application using Azure Policy.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/24/2024
 ---
 
@@ -48,3 +48,4 @@ In this article, you learned about using built-in policy to deploy associations.
 - [Quickstart: Create a custom resource provider and deploy custom resources](../custom-providers/create-custom-provider.md)
 - [How to: Adding custom actions to an Azure REST API](../custom-providers/custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to an Azure REST API](../custom-providers/custom-providers-resources-endpoint-how-to.md)
+

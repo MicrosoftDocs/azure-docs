@@ -23,7 +23,7 @@ This article shows you how to set criteria for dynamically changing the state of
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure App Configuration store.
 
 ## What is a feature filter?
@@ -70,6 +70,7 @@ You can create custom feature filters that turn on features based on specific cr
 1. To implement the feature filter in your application, see the instructions that are appropriate for your language or platform:
 
    - [ASP.NET Core](./howto-feature-filters-aspnet-core.md)
+   - [Spring Boot](./how-to-feature-filters-spring-boot.md)
    - [Node.js](./howto-feature-filters-javascript.md)
    - [Python](./howto-feature-filters-python.md)
    - [Go Gin](./howto-feature-filters-go.md)

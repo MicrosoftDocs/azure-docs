@@ -7,6 +7,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/redis/how-to-redis-cli-tool.md",
+            "redirect_url": "/azure/redis/how-to-redis-access-data",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/redis/high-availability.md",
             "redirect_url": "/azure/azure-cache-for-redis/cache-high-availability",
             "redirect_document_id": false
@@ -65,6 +70,41 @@
             "source_path_from_root": "/articles/redis/java-redisson-get-started.md",
             "redirect_url": "/azure/redis/java-get-started",
             "redirect_document_id": false
+        },
+                {
+            "source_path_from_root": "/articles/redis/tutorial-vector-similarity.md",
+            "redirect_url": "/azure/redis/overview-vector-similarity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/tutorial-semantic-cache.md",
+            "redirect_url": "/azure/redis/overview-vector-similarity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/dotnet-core-quickstart.md",
+            "redirect_url": "/azure/redis/dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/dotnet-how-to-use-azure-redis-cache.md",
+            "redirect_url": "/azure/redis/dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/web-app-aspnet-core-howto.md",
+            "redirect_url": "/azure/redis/aspnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/web-app-cache-howto.md",
+            "redirect_url": "/azure/redis/aspnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/migrate/migrate-overview.md",
+            "redirect_url": "/azure/redis/migrate/migrate-basic-standard-premium-overview",
+            "redirect_document_id": true
         }
     ]
 }

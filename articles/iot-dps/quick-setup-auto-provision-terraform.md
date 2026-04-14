@@ -3,10 +3,10 @@ title: Quickstart - Use Terraform to create a DPS instance
 description: Learn how to deploy an Azure IoT Device Provisioning Service (DPS) resource with Terraform in this quickstart.
 keywords: azure, devops, terraform, device provisioning service, DPS, IoT, IoT Hub DPS
 ms.topic: quickstart
-ms.date: 11/03/2022
+ms.date: 08/12/2025
 ms.custom: devx-track-terraform
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 services: iot-dps
 ms.subservice: azure-iot-hub-dps
@@ -14,7 +14,7 @@ ms.subservice: azure-iot-hub-dps
 
 # Quickstart: Use Terraform to create an Azure IoT Device Provisioning Service
 
-In this quickstart, you will learn how to deploy an Azure IoT Hub Device Provisioning Service (DPS) resource with a hashed allocation policy using Terraform.
+In this quickstart, you learn how to deploy an Azure IoT Hub Device Provisioning Service (DPS) resource with a hashed allocation policy using Terraform.
 
 This quickstart was tested with the following Terraform and Terraform provider versions:
 
@@ -37,12 +37,12 @@ In this article, you learn how to:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
 
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- Complete the steps in [Quickstart: Install and Configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Implement the Terraform code
 
 > [!NOTE]
-> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/developer/terraform/)
+> The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/). For more information, including articles and sample code showing how to use Terraform to manage Azure resources, see [Terraform on Azure documentation](/azure/developer/terraform/)
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 

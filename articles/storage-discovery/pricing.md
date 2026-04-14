@@ -3,19 +3,15 @@ title: Understand Storage Discovery Pricing | Microsoft Docs
 titleSuffix: Azure Storage Discovery
 description: Storage Discovery pricing and features available with each pricing plan.
 author: fauhse
-ms.service: azure-storage-mover
+ms.service: azure-storage-discovery
 ms.topic: overview
-ms.date: 09/30/2025
-ms.author: shaas
+ms.date: 10/09/2025
+ms.author: fauhse
 ---
 
-# Azure Storage Discovery preview pricing
+# Azure Storage Discovery pricing
 
 Azure Storage Discovery offers free and paid pricing plans. This article describes the differences and explains what influences the bill when choosing a paid option. 
-
-> [!TIP]
-> Billing for Azure Storage Discovery starts October 15, 2025. Until then, all pricing plans are free of charge.
-
 See the Azure.com [pricing page](https://azure.microsoft.com/pricing/details/azure-storage-discovery) for detailed pricing.
 
 ## Pricing plans

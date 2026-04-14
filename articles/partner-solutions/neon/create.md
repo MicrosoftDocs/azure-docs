@@ -8,6 +8,9 @@ ms.date: 05/06/2025
 ---
 # Quickstart: Create a Neon Serverless Postgres resource
 
+> [!Important]
+> Deprecation Note: The Neon Azure Native Integration is now retired. Existing customers can transfer projects to a Neon managed organization. Learn more here [Migrate from Neon Azure Native Integration](https://neon.com/docs/import/migrate-from-azure-native).
+
 This quickstart shows you how to create a Neon Serverless Postgres resource by using the Azure portal.
 
 ## Prerequisites
@@ -81,3 +84,4 @@ On the **Project** tab, enter the values for each setting, or continue with the 
 
 > [!div class="nextstepaction"]
 > [Manage your resource](manage.md)
+

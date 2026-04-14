@@ -6,14 +6,14 @@ author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/10/2024
+ms.date: 11/21/2025
 ms.author: zhenlwa
 ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Use dynamic configuration in an ASP.NET Core app
 
-This tutorial shows how you can enable dynamic configuration updates in an ASP.NET Core app. It builds on the web app introduced in the quickstarts. Your app will leverage the App Configuration provider library for its built-in configuration caching and refreshing capabilities. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+This tutorial shows how you can enable dynamic configuration updates in an ASP.NET Core app. It builds on the web app introduced in the quickstart. Your app will leverage the App Configuration provider library for its built-in configuration caching and refreshing capabilities. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
 In this tutorial, you learn how to:
 

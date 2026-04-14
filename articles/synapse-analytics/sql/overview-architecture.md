@@ -69,8 +69,6 @@ In serverless SQL pool, each Compute node is assigned task and set of files to e
 
 Data Movement Service (DMS) is the data transport technology in dedicated SQL pool that coordinates data movement between the Compute nodes. Some queries require data movement to ensure the parallel queries return accurate results. When data movement is required, DMS ensures the right data gets to the right location.
 
-> [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
-
 ## Distributions
 
 A distribution is the basic unit of storage and processing for parallel queries that run on distributed data in dedicated SQL pool. When dedicated SQL pool runs a query, the work is divided into 60 smaller queries that run in parallel.

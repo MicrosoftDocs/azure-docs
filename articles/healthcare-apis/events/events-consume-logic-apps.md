@@ -224,7 +224,7 @@ Next, select **Choose an operation** to display the **Add a Trigger** blade on t
 
 :::image type="content" source="media/events-logic-apps/events-logic-grid.png" alt-text="Screenshot of the search results for Azure Event Grid." lightbox="media/events-logic-apps/events-logic-grid.png":::
 
-When you see the "Azure Event Grid" icon, select it to display the **Triggers and Actions** available from Event Grid. For more information about Event Grid, see [What is Azure Event Grid?](./../../event-grid/overview.md).
+When you see the "Azure Event Grid" icon, select it to display the **Triggers and Actions** available from Event Grid. For more information about Event Grid, see [What is Azure Event Grid?](./../../event-grid/overview.md)
 
 Select **When a resource event occurs** to set up a trigger for the Azure Event Grid.
 

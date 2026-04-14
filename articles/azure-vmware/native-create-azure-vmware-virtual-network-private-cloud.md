@@ -29,6 +29,9 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
 - The newly created Azure Virtual Network and your Azure VMware Solution Gen 2 private cloud must be in the same Resource Group.
 - Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
 
+>[!IMPORTANT]
+>When deploying an Azure VMware Solution Generation 2 Private cloud the AV64 SKU is the correct host size to select.  There is no SKU with a Gen2 suffix available to select. 
+
 ## Deployment Steps
 
 1. Sign in to the Azure portal.
@@ -37,8 +40,8 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
 
 3. In the **Search services and marketplace** text box, type **Azure VMware Solution** and select it from the search results.
 
-4. On the **Azure VMware Solution** window, select **Create**. The following is the information needed to deploy the private cloud from your planning phase.
- 
+1. On the **Azure VMware Solution** window, select **Create**. The following is the information needed to deploy the private cloud from your planning phase.
+
    | Field                       | Value                                                                                                           |
    |-----------------------------|-----------------------------------------------------------------------------------------------------------------|
    | **Subscription**            | Select the subscription you plan to use for the deployment. All resources in an Azure subscription are billed together. |
@@ -46,8 +49,8 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
    | **Resource name**           | Provide the name of your Azure VMware Solution private cloud.                                                   |
    | **Location**                | Select a location, such as (US) East US 2. It's the region you defined during the planning phase.               |
    |**Size of host**            | Select the AV64 SKU.                                                                                            |
-   |**Availability zone**       | Select which availability zone you want your private cloud deployed in.                                         |
-   |**Number of hosts**         | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase or decrease after deployment. If these nodes aren't listed as available, contact support to request a quota increase. You can also select the link labeled If you need more hosts, request a quota increase in the Azure portal. |
+   |**Availability zone _(Optional)_**| Select the Availability Zone where you want your private cloud deployed.  If no Availability Zone is selected, the private cloud will use the default placement. This is used to place workloads closer to on-premises environments or other Azure services to meet latency and data-proximity requirements, or to support disaster recovery and high-availability strategies by deploying across multiple zones.|
+   |**Number of hosts**         | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase after deployment or decrease if you have 4 or more nodes deployed. If these nodes aren't listed as available, contact support to request a quota increase. You can also select the link labeled If you need more hosts, request a quota increase in the Azure portal. |
    |**Virtual Network**         | Azure Virtual Network with a minimum network address space of a /22 or 4 /24s. This can be a new or existing Virtual Network. The /22 or 4 /24s provided in your Virtual Network can be the same address space as the CIDR block you are planning to for your private cloud as long as the address space is not in use.|
    |**Address block for private cloud** | Provide an IP address block for the private cloud. The CIDR represents the private cloud management network and is used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22. The address should be unique and not overlap with other Azure Virtual Networks and with on-premises networks that are in use. |
    |**DNS Forward Lookup**      | Input on your DNS Forward Lookup Zone. Either Private or Public. If no option is selected, the default is Public. This can be changed after your private cloud is created. |
@@ -59,8 +62,8 @@ Before you begin, these items are required to create an Azure VMware Solution Ge
 
 6. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of **Succeeded** when the deployment is finished.
 
-6. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of Succeeded when the deployment is finished.
-    
+1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of Succeeded when the deployment is finished.
+
 7. Connect to vCenter Server and NSX Manager using the VMware credentials shown in your Private Cloud. For more information, see [Access an Azure VMware Solution private cloud](tutorial-access-private-cloud.md). 
 
 ## Next steps

@@ -2,7 +2,7 @@
 title: Restore all files in a volume with MARS
 description: Learn how to restore all the files in a volume using the MARS Agent.
 ms.topic: how-to
-ms.date: 09/04/2025
+ms.date: 11/24/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As an IT admin responsible for data recovery, I want to restore all backed-up files in a volume using the Recovery Services agent, so that I can quickly recover critical data to either the original machine or an alternate machine.
@@ -24,6 +24,14 @@ The MARS Agent enables seamless restoration of all files within a volume. By usi
 >The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 40 MBps), and is recommended for recovering large-sized data or entire volumes.
 >
 >The **Individual files and folders option** allows for quick access to the recovery point data. It's suitable for recovering individual files, and is recommended for a total size of less than 80 GB. It offers transfer or copy speeds of up to 6 MBps during recovery.
+
+>[!NOTE]
+>During Azure VM restore, you might experience performance issues in the following scenarios:
+> - The number of files to restore exceeds 8 million
+> - The total data size to restore is greater than 1 TB
+> - The backup set includes more than 20 chained incremental snapshots. 
+> 
+>The restore process can also interrupt due to operational issues such as high latency between the vault and the source machine, low download speed from Azure to the source machine, or limited bandwidth on your machine.
 
 ## Volume level restore to the same machine
 

@@ -52,6 +52,8 @@
         href: service-bus-quickstart-topics-subscriptions-portal.md
       - name: Azure CLI
         href: service-bus-tutorial-topics-subscriptions-cli.md
+      - name: Azure PowerShell
+        href: service-bus-tutorial-topics-subscriptions-powershell.md
       - name: ARM template
         href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
@@ -126,10 +128,10 @@
       href: service-bus-transactions.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
-    - name: Geo-Disaster Recovery
-      href: service-bus-geo-dr.md
     - name: Geo-Replication
       href: service-bus-geo-replication.md
+    - name: Geo-Disaster Recovery (metadata only)
+      href: service-bus-geo-dr.md
     - name: Asynchronous messaging and high availability
       href: service-bus-async-messaging.md
     - name: Handling outages and disasters
@@ -156,6 +158,8 @@
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
       - name: Acquire messages from Event Hubs
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
+  - name: Reliability
+    href: /azure/reliability/reliability-service-bus?toc=/azure/service-bus-messaging/TOC.json
   - name: Security
     items:
     - name: Security baseline
@@ -176,6 +180,10 @@
       href: ./security-controls-policy.md
     - name: Network security
       href: network-security.md
+    - name: Confidential computing
+      href: confidential-computing.md
+    - name: Network security perimeter
+      href: network-security-perimeter.md
   - name: Integration with other services
     items:
     - name: Azure Service Bus and Azure Event Grid integration

@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: how-to #Don't change
-ms.date: 04/23/2025
+ms.date: 01/09/2026
 
 #customer intent: As a developer or administrator, I want to set up application authentication and access to Microsoft Planetary Computer Pro so that my applications can securely interact with its resources.
 ms.custom:
@@ -19,9 +19,21 @@ This article provides step-by-step guidance for developers and administrators to
 > [!NOTE]
 > For applications that use Azure AD B2C or Microsoft Entra External ID supporting features like social identity providers, the applications need to continue using these identity solutions to proxy authentication traffic since Planetary Computer Pro doesn't support alternatives to Microsoft Entra ID authentication.  
 
+## Authentication options and recommendations
+
+The following table summarizes the recommended authentication approach based on where your application runs and how it accesses resources:
+
+| Application Hosting Environment | Access Type Required | Recommended Identity Type        | Explanation                                                                                                                               |
+| :------------------------------ | :------------------- | :------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Running on Azure** (VM, App Service, Functions, Container Apps, etc.) | App-Only (Application acts as itself) | Managed Identity (User-assigned recommended) | **Security & Manageability:** Eliminates the need to store and manage credentials (secrets or certificates) in code or configuration. Azure handles credential rotation automatically. User-assigned is preferred for sharing across multiple resources. |
+| **Running on Azure** (VM, App Service, Functions, Container Apps, etc.) | Delegated (Application acts on behalf of a user) | Managed Identity (User-assigned recommended) | **Leverages Azure Integration:** Combines the security benefits of Managed Identity for the application itself with standard user authentication flows. Simplifies infrastructure setup within Azure. |
+| **Running Outside Azure** (On-premises, other cloud, developer machine) | App-Only (Application acts as itself) | Service Principal | **Standard for External Apps:** The established method for non-Azure applications to authenticate with Microsoft Entra ID. Requires managing credentials (secrets or certificates) securely. |
+| **Running Outside Azure** (On-premises, other cloud, developer machine) | Delegated (Application acts on behalf of a user) | Service Principal | **Standard for External Apps:** Enables standard OAuth 2.0 flows for user sign-in and consent for applications outside Azure, using the application's registered identity in Entra ID. |
+| **Running Outside Azure (Alternative)** | App-Only or Delegated | Managed Identity | **Brings Azure Benefits:** By hosting the application in an Azure compute service (like a VM or Container App), it can use the enhanced security and manageability of Managed Identities, avoiding credential management even though the *origin* might be considered non-Azure. |
+
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [GeoCatalog resource](./deploy-geocatalog-resource.md).
 
 
@@ -61,10 +73,12 @@ In this access scenario, a user signed into a client application. The client app
 1. Select **Add a permission**
 1. Select the **APIs my organization uses** tab
 1. Type **Azure Orbital Planetary Computer** in the search field
-1. Select on the matching entry (app ID should be 6388acc4-795e-43a9-a320-33075c1eb83b). It shows up as **Azure Orbital Microsoft Planetary Computer Pro**.
+1. Select the matching entry (app ID should be 6388acc4-795e-43a9-a320-33075c1eb83b). It shows up as **Azure Orbital Microsoft Planetary Computer Pro**.
 1. Select on **Delegated permissions** box. Check the box next to **user_impersonation**.
 1. Select **Add permissions**
 1. Select the "Grant admin consent" link (assuming your intent is to grant admin consent in the tenant for this permission)
+
+The delegated authentication pattern is also used when connecting from [QGIS](./configure-qgis.md).
 
 ## Microsoft Planetary Computer Pro RBAC configuration for applications
 
@@ -117,8 +131,10 @@ If you can't use `DefaultAzureCredentials()` and instead use other methods such 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build Applications with Microsoft Planetary Computer Pro](./use-explorer.md)
+> [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
 
 ## Related content
 
+- [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
+- [Use Azure Batch with Microsoft Planetary Computer Pro](./azure-batch.md)
 - [Manage access for Microsoft Planetary Computer Pro](./manage-access.md)

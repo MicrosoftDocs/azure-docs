@@ -107,4 +107,4 @@ For roles and permissions information for other Azure networking services, see t
 
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
 
-- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
+- [Azure Role Based Access Control](/azure/role-based-access-control/role-assignments-list-portal)

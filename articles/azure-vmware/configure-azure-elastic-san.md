@@ -3,8 +3,8 @@ title: Use Azure VMware Solution with Azure Elastic SAN
 description: Learn how to use Elastic SAN  with Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-author: ju-shim
-ms.author: jushiman
+author: jjaygbay1 
+ms.author: jacobjaygbay
 ms.date: 6/18/2024
 ms.custom:
   - references_regions
@@ -17,13 +17,30 @@ ms.custom:
 
 This article explains how to use Azure Elastic SAN as backing storage for Azure VMware Solution. [Azure VMware Solution](introduction.md) supports attaching iSCSI datastores as a persistent storage option. You can create Virtual Machine File System (VMFS) datastores with Azure Elastic SAN volumes and attach them to clusters of your choice. By using VMFS datastores backed by Azure Elastic SAN, you can expand your storage instead of scaling the clusters.
 
-Azure Elastic storage area network (SAN) addresses the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. For more information on Azure Elastic SAN, see [What is Azure Elastic SAN?](../storage/elastic-san/elastic-san-introduction.md).
+Azure Elastic storage area network (SAN) addresses the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. For more information on Azure Elastic SAN, see [What is Azure Elastic SAN?](../storage/elastic-san/elastic-san-introduction.md)
 
 To accompany the steps below, you can use this [interactive demo](https://regale.cloud/microsoft/play/4092/expand-storage-with-elastic-san#/0/0) as a visual representation of what you need to do to connect Elastic SAN and AVS.
 
 ## Prerequisites
 
 The following prerequisites are required to continue.
+
+> [!IMPORTANT]
+> As of November 2025, creating and deleting an Azure Elastic SAN based datastore in Azure VMware Solution requires appropriate permissions. If you're using built-in roles such as Owner and Contributor across the these two services, no changes are necessary. If you're using custom roles, ensure you have the correct permissions configured.
+><details><summary>For a complete list of required permissions, expand this section.</summary>
+>
+>To create an Elastic SAN datastore, you must have the following permissions:
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read`
+>
+>To delete an Elastic SAN datastore, you must have the following permissions:
+>- `Microsoft.AVS/privateClouds/clusters/datastores/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/write`
+>- `Microsoft.ElasticSan/elasticSans/volumeGroups/volumes/read`
+>
+>For information about creating and modifying custom roles, see [create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md).
+</details>
 
 - Have a fully configured Azure VMware solution private cloud in a [region that Elastic SAN is available in](../storage/elastic-san/elastic-san-create.md).
     - Size your ExpressRoute gateways to handle your elastic SAN's bandwidth capabilities. For example, a single ultra performance ExpressRoute gateway supports a bandwidth of 1,280 mbps. An individual elastic SAN datastore used to its full potential would use the entirety of that bandwidth. Multiple gateways might be required depending on your needs.

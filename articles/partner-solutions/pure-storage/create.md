@@ -1,21 +1,21 @@
 ---
 title: "Quickstart: Create an Azure Native Pure Storage Cloud Resource"
-description: Learn how to create a resource for Pure Storage Cloud using the Azure portal.
+description: Learn how to create a resource for Pure Storage Cloud by using the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 07/14/2025
+ms.date: 12/10/2025
 
 ---
 # Quickstart: Create an Azure Native Pure Storage Cloud resource
 
-This quickstart shows you how to create a Pure Storage Cloud resource using the Azure portal.
+This quickstart shows you how to create a Pure Storage Cloud resource by using the Azure portal.
 
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [Subscribe to Azure Native Pure Storage Cloud](overview.md#subscribe-to-azure-native-pure-storage-cloud)
-- A dedicated [subnet](../../virtual-network/manage-subnet-delegation.md) delegated to `PureStorage.Block/storagePools`. The subnet requires a minimum size of **/27**.
+- You must [Subscribe to Azure Native Pure Storage Cloud](overview.md#subscribe-to-azure-native-pure-storage-cloud).
+- A dedicated [subnet](../../virtual-network/manage-subnet-delegation.md) delegated to *PureStorage.Block/storagePools*. The subnet requires a minimum size of **/27**.
 
 ## Create a resource
 
@@ -23,7 +23,7 @@ This quickstart shows you how to create a Pure Storage Cloud resource using the 
 
 ### Basics tab
 
-The *Basics* tab has four sections:
+The **Basics** tab has four sections:
 
 - Project Details
 - Instance Details
@@ -32,25 +32,25 @@ The *Basics* tab has four sections:
 
 :::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create an Azure Native Pure Storage Cloud Storage options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
-There are required fields that you need to fill out.
+Enter values for each required setting.
 
-1. Enter the values for each required setting under *Project Details*.
+1. **Project Details:**
 
-    | Setting           | Action                                     |
+    | Setting           | Value                                      |
     |-------------------|--------------------------------------------|
     | Subscription      | Select your subscription.                  |
-    | Resource group    | Specify a resource group.                 |
+    | Resource group    | Specify a resource group.                  |
 
-1. Enter the values for each required setting under *Instance Details*.
+1. **Instance Details:**
 
-    | Setting           | Action                                     |
+    | Setting           | Value                                      |
     |-------------------|--------------------------------------------|
     | Resource name     | Specify a unique name for the resource.    |
     | Region            | Select the region.                         |
 
-1. Enter the values for each required setting under *Company Details*.
+1. **Company Details:**
 
-    | Setting           | Action                                     |
+    | Setting           | Value                                      |
     |-------------------|--------------------------------------------|
     | Company Name      | Provide your company's name.               |
     | Address Line 1    | Provide your company's address.            |
@@ -59,7 +59,7 @@ There are required fields that you need to fill out.
     | First Name        | Provide your first name.                   |
     | Last Name         | Provide your last name.                    |
 
-1. Select the **Review and create** button at the bottom of the page.
+1. Select **Next** to add tags, or select **Review and create**.
 
 ### Tags tab (optional)
 

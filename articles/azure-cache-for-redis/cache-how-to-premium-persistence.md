@@ -1,14 +1,15 @@
 ---
 title: Data persistence
 description: Learn about Redis persistence, and how to configure and manage data persistence in your Premium and Enterprise tier Azure Cache for Redis instances.
-
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ---
 # Data persistence in Azure Cache for Redis
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 If an Azure Cache for Redis cache failure occurs, data loss is possible when nodes are down. [Redis persistence](https://redis.io/topics/persistence) allows you to persist the data stored in cache instances. If there's a hardware failure, the cache instance rehydrates with data from the persistence file when it comes back online.
 

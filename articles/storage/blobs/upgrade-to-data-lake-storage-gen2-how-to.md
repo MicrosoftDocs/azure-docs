@@ -4,7 +4,7 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 11/15/2024
+ms.date: 11/03/2025
 ms.author: normesta
 ms.custom:
   - devx-track-azurepowershell
@@ -66,6 +66,10 @@ After the upgrade has completed, break the leases you created to resume allowing
 
 > [!WARNING]
 > Breaking an active lease without gracefully disabling applications or virtual machines that are currently accessing those resources could have unexpected results. Be sure to quiesce any current write activities before breaking any current leases.
+
+### Make any planned changes to the names of archived blobs
+
+If you plan to change the name of an archived blob or any parent directory that leads up to the archived blob, make these modifications **before** you upgrade. If you change the name of an archived blob or any parent directory leading to the archived blob **after** the upgrade, then you won't be able to rehydrate it. This is a temporary limitation of the current release. 
 
 ## Perform the upgrade
 

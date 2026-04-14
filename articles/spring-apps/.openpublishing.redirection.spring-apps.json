@@ -807,8 +807,8 @@
         },
         {
             "source_path": "tutorial-authenticate-client-with-gateway.md",
-            "redirect_url": "/azure/spring-apps/enterprise/tutorial-authenticate-client-with-gateway",
-            "redirect_document_id": true
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
         },
         {
             "source_path": "tutorial-circuit-breaker.md",
@@ -1323,9 +1323,64 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "enterprise/tutorial-authenticate-client-with-gateway.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "migration/migrate-to-azure-container-apps-build-overview.md",
             "redirect_url": "/azure/spring-apps/migration/containerization-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "consumption-dedicated/index.yml",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "consumption-dedicated/how-to-custom-persistent-storage-with-standard-consumption.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "consumption-dedicated/overview-migration.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "consumption-dedicated/quickstart-access-standard-consumption-within-virtual-network.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "consumption-dedicated/quickstart-analyze-logs-and-metrics-standard-consumption.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "consumption-dedicated/quickstart-apps-autoscale-standard-consumption.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "consumption-dedicated/quickstart-standard-consumption-config-server.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "consumption-dedicated/quickstart-standard-consumption-custom-domain.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "consumption-dedicated/quickstart-standard-consumption-eureka-server.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "consumption-dedicated/standard-consumption-customer-responsibilities.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
         }
     ]
 }

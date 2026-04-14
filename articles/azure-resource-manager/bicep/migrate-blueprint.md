@@ -1,7 +1,7 @@
----
+﻿---
 title: Migrate blueprints to deployment stacks
 description: Learn how to migrate blueprints to deployment stacks.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 07/25/2025
 ---
@@ -50,7 +50,7 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
 }
 
 // Step 2 - create policy assignments
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
     name: policyAssignmentName
     scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
     properties: {
@@ -59,7 +59,7 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2022-06-01'
 }
 
 // Step 3 - create template artifacts via modules (or template specs)
-resource rg1 'Microsoft.Resources/resourceGroups@2021-01-01' = {
+resource rg1 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   name: rgName
   location: rgLocation
 }
@@ -70,3 +70,4 @@ module vnet 'templates/bicep/vnet.bicep' = if (rgName == 'myTestRg') {
   params: { location: rgLocation }
 }
 ```
+

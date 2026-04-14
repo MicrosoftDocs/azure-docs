@@ -4,10 +4,10 @@ description: This article tells how to create a watcher task in the Azure Automa
 services: automation
 ms.subservice: process-automation
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 11/17/2025
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Track updated files with a watcher task
@@ -33,7 +33,7 @@ This article walks you through creating a watcher task to monitor when a new fil
 
 To complete this article, the following are required:
 
-* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Automation account](./index.yml) to hold the watcher and action runbooks and the Watcher Task.
 * A [hybrid runbook worker](automation-hybrid-runbook-worker.md) where the watcher task runs.
 * PowerShell runbooks. PowerShell Workflow runbooks and Graphical runbooks aren't supported by watcher tasks.

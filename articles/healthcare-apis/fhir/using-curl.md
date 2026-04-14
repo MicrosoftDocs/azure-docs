@@ -5,7 +5,7 @@ services: healthcare-apis
 author: expekesheth
 ms.service: azure-health-data-services
 ms.topic: tutorial
-ms.date: 06/06/2022
+ms.date: 10/10/2025
 ms.author: kesheth
 ms.custom: sfi-image-nochange
 ---
@@ -18,14 +18,14 @@ In this article, you learn how to access Azure Health Data Services with cURL.
 
 ### PowerShell
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * If you want to run the code locally, install [PowerShell](/powershell/module/powershellget/) and [Azure Az PowerShell module PowerShell](/powershell/azure/install-azure-powershell).
 * Optionally, you can run the scripts in Visual Studio Code with the REST Client extension. For more information, see [Make a link to the REST Client doc](using-rest-client.md).
 * Download and install [cURL](https://curl.se/download.html).
 
 ### CLI
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * If you want to run the code locally, install [Azure CLI](/cli/azure/install-azure-cli). 
 * Optionally, install a Bash shell, such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org/).
 * Optionally, run the scripts in Visual Studio Code with the REST Client extension. For more information, see [Make a link to the REST Client doc](using-rest-client.md).

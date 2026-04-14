@@ -3,9 +3,9 @@ title: Track API Resource Dependencies - Azure API Center
 description: Learn how to track dependencies between APIs and related resources in your Azure API center.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 08/28/2025
-ms.author: danlep
-author: dlepow
+ms.date: 02/24/2026
+
+
 ms.custom: 
 # Customer intent: As an API developer or API program manager, I want to understand the dependencies between API resources in my organization's API center.
 ---
@@ -28,7 +28,7 @@ Each dependency identifies a *source* resource and a related *target* resource t
 ## Prerequisites
 
 * An [Azure API center](overview.md) resource in your Azure subscription.
-* Register one or more APIs in your API center. For instructions, see [Register APIs in your API inventory](register-apis.md).
+* Register one or more APIs in your API center. For instructions, see [Register APIs in your API inventory](./tutorials/register-apis.md).
 
 ## Add a dependency
 
@@ -37,7 +37,7 @@ Use the dependency tracker in the Azure portal to add a dependency.
 To add a dependency:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
-1. In the left menu, under **Assets**, select **Dependency tracker (preview)**.
+1. In the left menu, under **Inventory**, select **Dependency tracker (preview)**.
 1. Select **+ Add Dependency**.
 1. In the **Dependency Manager** window, enter a **Title** and optionally a **Description** of the dependency.
 1. In **Source details**, select a **Source Type** (for example, an API or a related resource). Depending on the type, enter or select identifying information such as a name or ID.
@@ -54,7 +54,7 @@ API Center provides a default table view that lists dependencies, and a graphica
 
 To see a graphical view:
 
-1. In the left menu, under **Assets**, select **Dependency tracker (preview)**.
+1. In the left menu, under **Inventory**, select **Dependency tracker (preview)**.
 1. Select the **Graph View** tab.
 
 In the graphical view, select the box representing any API center resource to see its details.
@@ -85,4 +85,4 @@ To delete a dependency:
 ## Related content
 
 * [Overview of Azure API center](overview.md)
-* [Register APIs in your API inventory](register-apis.md)
+* [Register APIs in your API inventory](./tutorials/register-apis.md)

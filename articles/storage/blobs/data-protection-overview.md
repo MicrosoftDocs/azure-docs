@@ -6,7 +6,7 @@ services: storage
 author: normesta
 ms.custom: copilot-scenario-highlight
 ms.service: azure-blob-storage
-ms.date: 07/29/2024
+ms.date: 12/10/2025
 ms.topic: overview
 ms.author: normesta
 ms.reviewer: prishet
@@ -34,7 +34,7 @@ These options, as well as other data protection options for other scenarios, are
 For an overview of the costs involved with these features, see [Summary of cost considerations](#summary-of-cost-considerations).
 
 > [!TIP]
-> You can use Microsoft Copilot in Azure to get suggestions on enhancing your storage account's data resiliency. For more information, see [Manage and troubleshoot storage accounts using Microsoft Copilot in Azure](/azure/copilot/improve-storage-accounts#enhance-data-resiliency).
+> You can use Azure Copilot to get suggestions on enhancing your storage account's data resiliency. For more information, see [Manage and migrate storage accounts using Azure Copilot](/azure/copilot/improve-storage-accounts#enhance-data-resiliency).
 
 ## Overview of data protection options
 
@@ -49,8 +49,8 @@ The following table summarizes the options available in Azure Storage for common
 | Automatically save the state of a blob in a previous version when it's overwritten. | Blob versioning<br />[Learn more...](versioning-overview.md) | Enable blob versioning, together with container soft delete and blob soft delete, for storage accounts where you need optimal protection for blob data.<br /><br />Store blob data that doesn't require versioning in a separate account to limit costs. | Every blob write operation creates a new version. The current version of a blob may be restored from a previous version if the current version is deleted or overwritten. | No |
 | Restore a deleted blob or blob version within a specified interval. | Blob soft delete<br />[Learn more...](soft-delete-blob-overview.md) | Enable blob soft delete for all storage accounts, with a minimum retention interval of seven days.<br /><br />Enable blob versioning and container soft delete together with blob soft delete for optimal protection of blob data.<br /><br />Store blobs that require different retention periods in separate storage accounts. | A deleted blob or blob version may be restored within the retention period. | Yes |
 | Restore a set of block blobs to a previous point in time. | Point-in-time restore<br />[Learn more...](point-in-time-restore-overview.md) | To use point-in-time restore to revert to an earlier state, design your application to delete individual block blobs rather than deleting containers. | A set of block blobs may be reverted to their state at a specific point in the past.<br /><br />Only operations performed on block blobs are reverted. Any operations performed on containers, page blobs, or append blobs aren't reverted. | No |
-| Manually save the state of a blob at a given point in time. | Blob snapshot<br />[Learn more...](snapshots-overview.md) | Recommended as an alternative to blob versioning when versioning isn't appropriate for your scenario, due to cost or other considerations, or when the storage account has a hierarchical namespace enabled. | A blob may be restored from a snapshot if the blob is overwritten. If the blob is deleted, snapshots are also deleted. | Yes, in preview |
-| A blob can be deleted or overwritten, but the data is regularly copied to a second storage account. | Azure Blob vaulted backup<br />[Learn more](../../backup/blob-backup-overview.md) | Enable vaulted backup to have an offsite copy of your data backed up to a Microsoft tenant with no-direct access | Provides selective backup of essential containers and enables the restore of individual containers to a storage account which is different from the source storage account | No<br /><br />Roll-your-own solution for copying data to a second account<br /><br />AzCopy and Azure Data Factory are supported.<br /><br />Object replication isn't supported. |
+| Manually save the state of a blob at a given point in time. | Blob snapshot<br />[Learn more...](snapshots-overview.md) | Recommended as an alternative to blob versioning when versioning isn't appropriate for your scenario, due to cost or other considerations, or when the storage account has a hierarchical namespace enabled. | A blob may be restored from a snapshot if the blob is overwritten. If the blob is deleted, snapshots are also deleted. | No|
+| A blob can be deleted or overwritten, but the data is regularly copied to a second storage account. | Azure Blob vaulted backup<br />[Learn more](../../backup/blob-backup-overview.md) | Enable vaulted backup to have an offsite copy of your data backed up to a Microsoft tenant with no-direct access | Provides selective backup of essential containers and enables the restore of individual containers to a storage account which is different from the source storage account | Yes<br /><br />AzCopy and Azure Data Factory are supported.<br /><br />Object replication isn't supported. |
 
 ## Data protection by resource type
 
@@ -118,6 +118,10 @@ Azure Storage always maintains multiple copies of your data so that it's protect
 If your storage account is configured for geo-redundancy, you have the option to initiate an unplanned failover from the primary to the secondary region during a data center failure. For more information, see [Disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#customer-managed-unplanned-failover). 
 
 Customer-managed failover currently supports storage accounts with a hierarchical namespace enabled in preview status only. For more information, see [Disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#plan-for-failover).
+
+## Microsoft Defender for Storage
+Microsoft Defender for Storage prevents malicious file uploads, sensitive data exfiltration, and data corruption, ensuring the security and integrity of your data and workloads. To learn more, see [What is Microsoft Defender for Storage](../common/azure-defender-storage-configure.md). 
+
 
 ## Next steps
 

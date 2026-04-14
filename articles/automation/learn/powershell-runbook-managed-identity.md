@@ -8,8 +8,8 @@ ms.date: 06/27/2025
 ms.topic: tutorial 
 #Customer intent: As a developer, I want PowerShell runbooks to execute code using a manged identity.
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Tutorial: Create Automation PowerShell runbook using managed identity
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Assign permissions to managed identities
 > * Create a PowerShell runbook
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

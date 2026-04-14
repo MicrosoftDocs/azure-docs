@@ -1,8 +1,8 @@
----
+﻿---
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
-ms.topic: conceptual
-ms.date: 02/06/2025
+ms.topic: article
+ms.date: 10/29/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -73,7 +73,7 @@ The following example shows a simple template for creating a storage account in 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2025-06-01",
       "name": "[concat('store', uniquestring(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "kind": "StorageV2",
@@ -131,7 +131,7 @@ You can also create template specs by using ARM templates. The following templat
   "resources": [
     {
       "type": "Microsoft.Resources/templateSpecs",
-      "apiVersion": "2021-05-01",
+      "apiVersion": "2022-02-01",
       "name": "[parameters('templateSpecName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -141,7 +141,7 @@ You can also create template specs by using ARM templates. The following templat
     },
     {
       "type": "Microsoft.Resources/templateSpecs/versions",
-      "apiVersion": "2021-05-01",
+      "apiVersion": "2022-02-01",
       "name": "[format('{0}/{1}', parameters('templateSpecName'), parameters('templateSpecVersionName'))]",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -166,7 +166,7 @@ You can also create template specs by using ARM templates. The following templat
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2019-06-01",
+              "apiVersion": "2025-06-01",
               "name": "[concat('store', uniquestring(resourceGroup().id))]",
               "location": "[resourceGroup().location]",
               "kind": "StorageV2",
@@ -436,7 +436,7 @@ The following example consists of a main template with two linked templates. The
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2025-04-01",
       ...
       "properties": {
         "mode": "Incremental",
@@ -447,7 +447,7 @@ The following example consists of a main template with two linked templates. The
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2025-04-01",
       ...
       "properties": {
         "mode": "Incremental",
@@ -480,7 +480,7 @@ The following example is similar to the earlier example, but you use the `id` pr
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2025-04-01",
       "name": "networkingDeployment",
       ...
       "properties": {
@@ -492,7 +492,7 @@ The following example is similar to the earlier example, but you use the `id` pr
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2025-04-01",
       "name": "storageDeployment",
       ...
       "properties": {
@@ -516,3 +516,4 @@ For more information about linking template specs, see [Tutorial: Deploy a templ
 * For more information about linking templates in template specs, see [Tutorial: Create a template spec with linked templates](template-specs-create-linked.md).
 
 * For more information about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).
+

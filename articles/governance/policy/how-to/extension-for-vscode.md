@@ -21,7 +21,7 @@ The Azure Policy extension for Visual Studio Code can be installed on Linux, mac
 The following items are required for completing the steps in this article:
 
 - An Azure subscription. If you don't have an Azure subscription, create a
-  [free account](https://azure.microsoft.com/free/) before you begin.
+  [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com).
 
 ## Install and configure the Azure Policy extension
@@ -188,7 +188,7 @@ schema.
 
 > [!NOTE]
 > The VS Code extension will only show the latest version of the policy definition. For more
-> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version-preview).
+> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version).
 
 ### Export objects
 

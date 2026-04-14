@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: identity
 ms.date: 07/19/2021
 ms.topic: include
 ms.custom: include file
-ms.author: chpalm
+ms.author: sundraman
 ms.custom: mode-other
 ---
 

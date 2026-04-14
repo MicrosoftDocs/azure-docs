@@ -4,8 +4,8 @@ description: Learn about how reserved capacity discounts are applied to Azure Bl
 author: pri-mittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 07/08/2025
+ms.topic: concept-article
+ms.date: 03/19/2026
 ms.author: primittal
 ---
 

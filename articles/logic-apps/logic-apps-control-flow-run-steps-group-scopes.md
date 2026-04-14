@@ -1,456 +1,226 @@
 ---
-title: Group and run actions by scope
-description: Group actions that run based on group status in Azure Logic Apps.
+title: Group Related Actions into Scopes
+description: Learn how to group related actions into scopes and run follow-up actions based on scope status in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 01/26/2026
+ms.custom: ai-assisted
+#Customer intent: As a integration developer who works with Azure Logic Apps, I want to group actions by using scopes and run subsequent actions based on scope results to support complex scenarios.
 ---
 
-# Run actions based on group status by using scopes in Azure Logic Apps
+# Group related actions into scopes and run follow-up actions based on scope status in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To run a group of actions only after another group of actions succeed or fail, you can nest the dependent actions inside a *scope*. This structure is useful when you want to organize actions as a logical group, evaluate that group's status, and perform actions that are based on the scope's status. After all the actions in a scope finish running, the scope also gets its own status. For example, you can use scopes when you want to implement [exception and error handling](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Sometimes your workflow has actions that you want to run only after a group of related actions succeeds or fails. For this scenario, add a **Scope** action as a logical container for these actions. After all the scope actions finish running, the scope gets its own status, such as:
 
-To check a scope's status, you can use the same criteria 
-that you use to determine a logic apps' run status, 
-such as **Succeeded**, **Failed**, **Cancelled**, and so on. 
-By default, when all the scope's actions succeed, 
-the scope's status is marked as **Succeeded**. 
-But when any action in the scope fails or is canceled, 
-the scope's status is marked **Failed**. 
-For limits on scopes, see 
-[Limits and config](../logic-apps/logic-apps-limits-and-config.md). 
+- **Succeeded**
+- **Failed**
+- **Skipped**
+- **TimedOut**
+- **Cancelled**
+- **Aborted**
 
-For example, here is a high-level logic app that uses a scope to 
-run specific actions and a condition to check the scope's status. 
-If any actions in the scope fail or end unexpectedly, 
-the scope is marked **Failed** or **Aborted** respectively, 
-and the logic app sends a "Scope failed" message. 
-If all the scoped actions succeed, the logic app sends a "Scope succeeded" message.
+Your workflow can evaluate the scope's status and choose the subsequent actions to run based on this status. To check a scope's status, you can use the same ways to check an action's run status. By default, when all the scope's actions succeed, the scope's status is marked as **Succeeded**. When any scope action fails, the scope's status is marked as **Failed**.
 
-![Diagram shows the logic app scope flow with examples of "Scope failed" and "Scope succeeded".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+Scopes are commonly used for [exception and error handling](logic-apps-exception-handling.md#scopes), cleanup logic, and post-processing after a set of actions finishes running. Scopes are suitable for when you have the following use cases:
+
+- Treat multiple actions as a single group.
+- Run follow-up actions only if all scope actions succeed.
+- Handle errors in one place, rather than after each action.
+- Separate primary logic from error handling or cleanup logic.
+
+The following high-level example shows a scope and a condition that check the scope's status. If any scope actions fail or end unexpectedly, the scope is marked as **Failed** or **Aborted** respectively. The workflow sends a *Scope failed* message. If all the scoped actions succeed, the workflow sends a *Scope succeeded* message.
+
+:::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/example-overview.png" alt-text="Screenshot shows a workflow with a scope that has examples of Scope failed and Scope succeeded.":::
+
+This guide shows how to add a scope to your workflow and how scopes work using a service-agnostic example.
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?WT.mc_id=A261C142F).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* An email account from any email provider supported by Azure Logic Apps.
+- A Consumption or Standard logic app resource and workflow
 
-  This example uses Outlook.com. If you use a different provider, the general flow stays the same, but your UI appears different.
+  If your workflow is blank, first [add a trigger](add-trigger-action-workflow.md#add-trigger) to run the workflow.
 
-* A Bing Maps key. To get this key, see [Get a Bing Maps key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
+  This guide's examples use the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md). To add this trigger, follow these steps:
 
-* Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md)
+  1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in the designer.
 
-## Create sample logic app
+  1. Follow the [general steps](add-trigger-action-workflow.md#add-trigger) to add the **Schedule** trigger named **Recurrence** trigger to your workflow.
 
-First, create this sample logic app so that you can add a scope later:
+  1. On the designer, select the trigger. After the trigger information pane opens, on the **Parameters** tab, set the trigger parameters to the following values:
 
-![Create sample logic app](./media/logic-apps-control-flow-run-steps-group-scopes/finished-sample-app.png)
+     | Parameter | Values |
+     |-----------|--------|
+     | **Interval** | `30` |
+     | **Frequency** | **Minute** |
 
-* A **Schedule - Recurrence** trigger that checks the 
-Bing Maps service at an interval that you specify
-* A **Bing Maps - Get route** action that checks the 
-travel time between two locations
-* A condition action that checks whether the 
-travel time exceeds your specified travel time
-* An action that sends you email that current 
-travel time exceeds your specified time
+     For example:
 
-You can save your logic app at any time, 
-so save your work often.
+     :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png" alt-text="Screenshot shows the Schedule trigger named Recurrence.":::
 
-1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-   if you haven't already. Create a blank logic app.
+## Add a Scope action
 
-1. Add the **Schedule - Recurrence** trigger with these settings: 
-   **Interval** = "1" and **Frequency** = "Minute"
+1. On the designer, under the trigger, follow the [general steps](add-trigger-action-workflow.md#add-action) to add the **Control** action named **Scope**.
 
-   ![Set up "Schedule - Recurrence" trigger](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
+1. Change the **Scope** action name to `Process order`, for example:
 
-   > [!TIP]
-   > To visually simplify your view and hide each action's details in the designer, 
-   > collapse each action's shape as you progress through these steps.
+   :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/rename-scope.png" alt-text="Screenshot shows the scope action renamed as Process order.":::
 
-1. Add the **Bing Maps - Get route** action.
+1. Save the workflow.
 
-   1. If you don't already have a Bing Maps connection, 
-   you're asked to create a connection.
+## Add actions to the scope
 
-      | Setting | Value | Description |
-      | ------- | ----- | ----------- |
-      | **Connection Name** | BingMapsConnection | Provide a name for your connection. | 
-      | **API Key** | <*your-Bing-Maps-key*> | Enter the Bing Maps key that you previously received. | 
-      ||||  
+For this example, the following steps simulate an order processing scenario as the actions to run in the scope.
 
-   1. Set up your **Get route** action as shown the table below this image:
+1. On the designer, on the `Process order` title bar, select the down arrow to expand the scope action, for example:
 
-      ![Set up "Bing Maps - Get route" action](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
+   :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/expand-scope.png" alt-text="Screenshot shows the selected down arrow to expand the scope action.":::
 
-      For more information about these parameters, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route).
+1. Follow the [general steps](add-trigger-action-workflow.md#add-action) to add the following actions to the scope:
 
-      | Setting | Value | Description |
-      | ------- | ----- | ----------- |
-      | **Waypoint 1** | <*start*> | Enter your route's origin. | 
-      | **Waypoint 2** | <*end*> | Enter your route's destination. | 
-      | **Avoid** | None | Enter items to avoid on your route, such as highways, tolls, and so on. For possible values, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route). | 
-      | **Optimize** | timeWithTraffic | Select a parameter to optimize your route, such as distance, time with current traffic information, and so on. This example uses this value: "timeWithTraffic" | 
-      | **Distance unit** | <*your-preference*> | Enter the unit of distance to calculate your route. This example uses this value: "Mile" | 
-      | **Travel mode** | Driving | Enter the mode of travel for your route. This example uses this value "Driving" | 
-      | **Transit Date-Time** | None | Applies to transit mode only. | 
-      | **Transit Date-Type Type** | None | Applies to transit mode only. | 
+   1. Add the **Data Operations** action named **Compose**:
 
-1. [Add a condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) 
-   that checks whether the current travel time with traffic exceeds a specified time. 
-   For this example, follow these steps:
+      1. Change the action name to `Validate order`.
 
-   1. Rename the condition with this description: 
-   **If traffic time is more than specified time**
+      1. In the **Inputs** box, enter `Order validated`.
 
-   1. In the leftmost column, select inside the **Choose a value** 
-   box so the dynamic content list appears. From that list, 
-   select the **Travel Duration Traffic** field, which is in seconds. 
+   1. Add the **Schedule** action named **Delay**:
 
-      ![Build condition](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
+      1. Change the name to `Fulfill order`.
 
-   1. In the middle box, select this operator: **is greater than**
+      1. Set **Count** to `5`. Set **Unit** to **Second**.
 
-   1. In the rightmost column, enter this comparison value, 
-   which is in seconds and equivalent to 10 minutes: **600**
+   1. Add the **Data Operations** action named **Compose**:
 
-      When you're done, your condition looks like this example:
+      1. Change the action name to `Complete order`.
 
-      ![Finished condition](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
+      1. In the **Inputs** box, enter `Order fulfilled`.
 
-1. In the **True** branch, add a "send email" action for your email provider. 
-   Set up this action by following the steps under this image:
+   When you're done, the scope action looks like the following example:
 
-   ![Add "Send an email" action to "True" branch](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
+   :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/scope-actions.png" alt-text="Screenshot shows the added Compose and Delay actions in the scope action.":::
 
-   1. In the **To** field, enter your email address for testing purposes.
+   Currently, all the actions in this scope succeed when the workflow runs.
 
-   1. In the **Subject** field, enter this text:
+1. Save the workflow.
 
-      `Time to leave: Traffic more than 10 minutes`
+## Add a condition to check scope status
 
-   1. In the **Body** field, enter this text with a trailing space: 
+1. Below the scope action, follow the [general steps](add-trigger-action-workflow.md#add-action) to add the **Control** action named **Condition**.
 
-      `Travel time:`
+1. Change the action name to `Did order processing fail`
 
-      While your cursor appears in the **Body** field,
-      the dynamic content list stays open so that you can
-      select any parameters that are available at this point.
+1. On the **Parameters** tab, set up the following condition with an expression that checks the scope status:
 
-   1. In the dynamic content list, select **Expression**.
+   1. Select inside the leftmost **Choose a value** box. When the input options appear, select the expression editor (function icon).
 
-   1. Find and select the **div()** function. 
-      Put your cursor in inside the function's parentheses.
+   1. In the expression editor box, enter the following expression:
 
-   1. While your cursor is inside the function's parentheses, 
-      select **Dynamic content** so that the dynamic content list appears. 
-   
-   1. From the **Get route** section, 
-      select the **Traffic Duration Traffic** field.
+      `actions('Process_order')?['status']`
 
-      ![Select "Traffic Duration Traffic"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
+      For example:
 
-   1. After the field resolves to JSON format, 
-      add a **comma** (```,```) followed by the number ```60``` 
-      so that you convert the value in **Traffic Duration Traffic** 
-      from seconds to minutes. 
-   
-      ```
-      div(body('Get_route')?['travelDurationTraffic'],60)
-      ```
+      :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-expression.png" alt-text="Screenshot shows the expression that checks the scope status.":::
 
-      Your expression now looks like this example:
+      The question mark (?) operator prevents the workflow from failing with a runtime error if the `status` property value is missing or the parent object is null.
 
-      ![Finish expression](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
+   1. When you're done, select **Add**.
 
-   1. When you're done, select **OK**.
+   1. In the middle operator box, make sure the value is set to `=`.
 
-   <!-- markdownlint-disable MD038 -->
-   1. After the expression resolves, add this text with a leading space: ` minutes`
-  
-      Your **Body** field now looks like this example:
+   1. In the rightmost **Choose a value** box, enter the value `Failed`.
 
-      ![Finished "Body" field](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
-   <!-- markdownlint-enable MD038 -->
+   When you're done, the condition looks like the following example:
 
-1. Save your logic app.
+   :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-condition.png" alt-text="Screenshot shows the condition that checks the scope status.":::
 
-Next, add a scope so that you can group 
-specific actions and evaluate their status.
+1. To make sure that the condition checks the scope status no matter how the scope ends, follow these steps to configure the run-after settings:
 
-## Add a scope
+   1. On the condition action's **Settings** tab, under **Run after**, expand the **Process order** section.
 
-1. If you haven't already, open your logic app in the workflow designer.
+   1. Select all the scope statuses:
 
-1. Add a scope at the workflow location that you want. For example, 
-to add a scope between existing steps in the logic app workflow, 
-follow these steps: 
+      - **Is successful**
+      - **Has timed out**
+      - **Is skipped**
+      - **Has failed**
 
-   1. Move your pointer over the arrow where you want to add the scope. 
-   Select the **plus sign** (**+**) > **Add an action**.
+1. Save the workflow.
 
-      ![Add a scope](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+## Add actions to run based on the scope result
 
-   1. In the search box, enter "scope" as your filter. 
-   Select the **Scope** action.
+1. On the designer, inside the condition, expand the **True** branch, if not expanded.
 
-## Add steps to scope
+1. In the **True** branch, add a **Compose** action, and then follow these steps:
 
-1. Now add the steps or drag existing steps that 
-you want to run inside the scope. For this example, 
-drag these actions into the scope:
-      
-   * **Get route**
-   * **If traffic time is more than specified time**, 
-   which includes both the **true** and **false** branches
+   1. Change the action name to `Handle failure`.
 
-   Your logic app now looks like this example:
+   1. In the **Inputs** box, enter `Order processing failed. Take appropriate action.`
 
-   ![Scope added](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
+   For example:
 
-1. Under the scope, add a condition that checks the scope's status. 
-Rename the condition with this description: **If scope failed**
+   :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/order-failure.png" alt-text="Screenshot shows the True branch with the Compose action that indicates order failure.":::
 
-   ![Add condition to check scope status](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
-  
-1. In the condition, add these expressions that check whether 
-the scope's status is equal to "Failed" or "Aborted".
+1. In the **False** branch, add a **Compose** action, and then follow these steps:
 
-   1. To add another row, select **Add**.
+   1. Change the action name to `Order succeeded`.
 
-   1. In each row, select inside the left box so the dynamic content list appears. 
-   From the dynamic content list, select **Expression**. In the edit box,
-   enter this expression, and then select **OK**:
-   
-      `actions('Scope')?['status']`
+   1. In the **Inputs** box, enter `Successfully processed order.`
 
-      ![Screenshot shows Expression editor with result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+   For example:
 
-   1. For both rows, select **is equal to** as the operator. 
-   
-   1. For the comparison values, in the first row, enter `Failed`. 
-   In the second row, enter `Aborted`. 
+   :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/order-success.png" alt-text="Screenshot shows the False branch with the Compose action that indicates order success.":::
 
-      When you're done, your condition looks like this example:
-
-      ![Add expression that checks the scope's status](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
-
-      Now, set the condition's `runAfter` property so the condition checks the 
-      scope status and runs the matching action that you define in later steps.
-
-   1. On the **If scope failed** condition, select the **ellipsis** (...) button, 
-   and then select **Configure run after**.
-
-      ![Configure `runAfter` property](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
-
-   1. Select all these scope statuses: **is successful**, 
-   **has failed**, **is skipped**, and **has timed out**
-
-      ![Select scope statuses](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
-
-   1. When you're finished, select **Done**. 
-   The condition now shows an "information" icon.
-
-1. In the **True** and **False** branches, 
-add the actions that you want to perform based on 
-each scope status, for example, send an email or message.
-
-   ![Add actions to take based on scope status](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
-
-1. Save your logic app.
-
-Your finished logic app now looks like this example:
-
-![Finished logic app with scope](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
+1. Save the workflow.
 
 ## Test your workflow
 
-On the designer toolbar, select **Run** > **Run**. If all the scoped actions succeed, you get a **Scope succeeded** message. If any scoped actions don't succeed, you get a **Scope failed** message.
+1. On the designer toolbar, from the **Run** menu, select **Run**.
 
-<a name="scopes-json"></a>
+1. On the sidebar, select **Run history**.
 
-## JSON definition
+1. On the **Run history** page, select the latest run, which shows **Succeeded** as the workflow status.
 
-If you're working in code view, you can define a scope in your workflow's JSON definition instead. The following sample shows the definition for a basic scope:
+   The run details page shows that the scope action successfully ran, for example:
 
-```json
-{
-   "actions": {
-      "Scope": {
-         "type": "Scope",
-         "actions": {
-            "Http": {
-               "inputs": {
-                   "method": "GET",
-                   "uri": "https://www.bing.com"
-               },
-               "runAfter": {},
-               "type": "Http"
-            }
-         }
-      }
-   }
-}
+   :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/scope-success.png" alt-text="Screenshot shows the successful scope action.":::
 
-The following example shows the JSON definition for the trigger and actions in the preceding workflow:
+1. Expand the scope action to review each action inside the scope.
 
-``` json
-"triggers": {
-  "Recurrence": {
-    "type": "Recurrence",
-    "recurrence": {
-       "frequency": "Minute",
-       "interval": 1
-    }
-  }
-},
-"actions": {
-  "If_scope_failed": {
-    "type": "If",
-    "actions": {
-      "Scope_failed": {
-        "type": "ApiConnection",
-        "inputs": {
-          "body": {
-            "Body": "Scope failed. Scope status: @{action('Scope')}",
-            "Subject": "Scope failed",
-            "To": "<your-email@domain.com>"
-          },
-          "host": {
-            "connection": {
-              "name": "@parameters('$connections')['outlook']['connectionId']"
-            }
-          },
-          "method": "post",
-          "path": "/Mail"
-        },
-        "runAfter": {}
-      }
-    },
-    "else": {
-      "actions": {
-        "Scope_succeeded": {
-          "type": "ApiConnection",
-          "inputs": {
-            "body": {
-              "Body": "Scope succeeded. Scope status: @{action('Scope')}",
-              "Subject": "Scope succeeded",
-              "To": "<your-email@domain.com>"
-            },
-            "host": {
-              "connection": {
-               "name": "@parameters('$connections')['outlook']['connectionId']"
-              }
-            },
-            "method": "post",
-            "path": "/Mail"
-          },
-          "runAfter": {}
-        }
-      }
-    },
-    "expression": {
-      "or": [ 
-         {
-            "equals": [ 
-              "@action('Scope')",
-              "Failed"
-            ]
-         },
-         {
-            "equals": [
-               "@action('Scope')",
-               "Aborted"
-            ]
-         } 
-      ]
-    },
-    "runAfter": {
-      "Scope": [
-        "Failed",
-        "Skipped",
-        "Succeeded",
-        "TimedOut"
-      ]
-    }
-  },
-  "Scope": {
-    "type": "Scope",
-    "actions": {
-      "Get_route": {
-        "type": "ApiConnection",
-        "inputs": {
-          "host": {
-            "connection": {
-              "name": "@parameters('$connections')['bingmaps']['connectionId']"
-            }
-          },
-          "method": "get",
-          "path": "/REST/V1/Routes/Driving",
-          "queries": {
-            "distanceUnit": "Mile",
-            "optimize": "timeWithTraffic",
-            "travelMode": "Driving",
-            "wp.0": "<start>",
-            "wp.1": "<end>"
-          }
-        },
-        "runAfter": {}
-      },
-      "If_traffic_time_is_more_than_specified_time": {
-        "type": "If",
-        "actions": {
-          "Send_mail_when_traffic_exceeds_10_minutes": {
-            "type": "ApiConnection",
-            "inputs": {
-              "body": {
-                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'],60)} minutes",
-                 "Subject": "Time to leave: Traffic more than 10 minutes",
-                 "To": "<your-email@domain.com>"
-              },
-              "host": {
-                "connection": {
-                   "name": "@parameters('$connections')['outlook']['connectionId']"
-                }
-              },
-              "method": "post",
-              "path": "/Mail"
-            },
-            "runAfter": {}
-          }
-        },
-        "expression": {
-          "and" : [
-            {
-               "greater": [ 
-                  "@body('Get_route')?['travelDurationTraffic']", 
-                  600
-               ]
-            }
-          ]
-        },
-        "runAfter": {
-          "Get_route": [
-            "Succeeded"
-          ]
-        }
-      }
-    },
-    "runAfter": {}
-  }
-},
-```
+   Each action in the scope successfully ran, for example:
+
+   :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/actions-scope-success.png" alt-text="Screenshot shows the successful actions inside the scope.":::
+
+1. Expand the condition action along with the **True** and **False** branches.
+
+   Only the **False** branch ran based on the scope action status, for example:
+
+   :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/false-branch-execution.png" alt-text="Screenshot shows that only the False branch ran.":::
+
+1. To test the failure path and force the **True** branch to run, follow these steps:
+
+   1. On the sidebar, select the designer.
+
+   1. In the scope action, add a **Compose** action that fails.
+
+      For example, in the **Compose** action, enter an expression that throws a failure at runtime, for example:
+
+      `int(triggerBody()?['forceFailure'])`
+
+   1. Save the workflow. Rerun the workflow. View the run history.
+
+      This time, the workflow status is **Succeeded**, but the scope action is **Failed**, and the failure branch runs, for example:
+
+      :::image type="content" source="./media/logic-apps-control-flow-run-steps-group-scopes/true-branch-execution.png" alt-text="Screenshot shows that updated workflow with forced error and only the True ran.":::
 
 ## Related content
 
-* [Run steps based on a condition (condition action)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Run steps based on different values (switch action)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Run and repeat steps (loops)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Run or merge parallel steps (branches)](../logic-apps/logic-apps-control-flow-branches.md)
+- [Run steps based on a condition (condition action)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+- [Run steps based on different values (switch action)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+- [Run and repeat steps (loops)](../logic-apps/logic-apps-control-flow-loops.md)
+- [Run or merge parallel steps (branches)](../logic-apps/logic-apps-control-flow-branches.md)

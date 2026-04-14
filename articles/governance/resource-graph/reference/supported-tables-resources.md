@@ -11,6 +11,9 @@ Azure Resource Graph supports the following **resource types** of
 [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is
 part of a **table** in Resource Graph.
 
+> [!NOTE]
+> Azure Resource Graph scrubs PII information from our tables so you may see not see the same result as if you made a GET request on your resource directly. The difference is due to security practices preventing the exposure of any identifiable information. 
+
 ## advisorresources
 
 For sample queries for this table, see [Resource Graph sample queries for advisorresources](../samples/samples-by-table.md#advisorresources).
@@ -2158,6 +2161,9 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - windowsserverassessment
 
 ## securityresources
+
+> [!NOTE]
+> Please note that ARG scrubs PII information from our tables so you may see not see the same result as if you made a GET request on your resource directly. The difference is due to security practices preventing the exposure of any identifiable information. 
 
 For sample queries for this table, see [Resource Graph sample queries for securityresources](../samples/samples-by-table.md#securityresources).
 

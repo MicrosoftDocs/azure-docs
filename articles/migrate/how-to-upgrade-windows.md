@@ -1,8 +1,8 @@
 ---
 title: Upgrade Windows Operating System
 description: Learn how to upgrade Windows OS during migration.
-author: AnuragMehrotra
-ms.author: anuragm
+author: vijain
+ms.author: vijain 
 ms.manager: vijain
 ms.topic: how-to
 ms.date: 05/08/2025
@@ -19,6 +19,7 @@ This article describes how to upgrade Windows Server OS while migrating to Azure
 > - The upgrade feature only works for Windows Server Standard, Datacenter, and Enterprise editions.
 > - The upgrade feature doesn't work for non en-US language servers. 
 > - This feature doesn't work for a Windows Server with an evaluation license and needs a full license. If you have any server with an evaluation license, upgrade to full edition before starting migration to Azure.
+> - Windows Server 2008 and Windows Server 2008 R2 have reached End of Support (EOS). For more information, see, [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2) and [Perform in-place upgrade to Windows Server 2016, 2019, 2022, or 2025](/azure/virtual-machines/windows-in-place-upgrade#perform-in-place-upgrade-to-windows-server-2016-2019-2022-or-2025). Review your usage and plan OS upgrades and migrations accordingly.
 
 ## Prerequisites 
 
@@ -58,15 +59,9 @@ Windows Server 2019 | Windows Server 2022
 
 To upgrade Windows during the test migration, follow these steps:
 
-1. Go to **Servers, databases and web apps**, select **Replicate**.
+1. In Azure Migrate project, Go to **Execute>Migrations**, select **Start execution**. [Learn more](end-to-end-portal-experience-server-migrations.md#execute-migrations) on how to start execution for servers you want to migrate.
 
-   A Start Replication job begins. When the Start Replication job finishes successfully, the machines begin their initial replication to Azure. 
-
-1. Select **Replicating servers** in **Migration and modernization** to monitor the replication status.
-
-1. In **Servers, databases and webapps** > **Migration and modernization**, select **Replicated servers** under **Replications**.  
-
-1. In the **Replicating machines** tab, right-click the VM to test and select **Test migrate**.
+1. In the **Migrations** page, click on the windows server for which you want to upgrade OS which is currently in **Testing** stage, select **Testing** drop-down menu and click **Start test migration**.
 
    :::image type="content" source="./media/how-to-upgrade-windows/test-migration.png" alt-text="Screenshot displays the Test Migrate option.":::
 
@@ -82,18 +77,17 @@ To upgrade Windows during the test migration, follow these steps:
 
 1. Select **Test migration** to initiate the test migration followed by the OS upgrade. 
 
-1. After the migration job is successful, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has the suffix *-Test*.  
+1. After the test migration job is successful, view the test migrated Azure VM in the same **Migrations** page in the Azure portal.
 
    You can now use this server with upgraded OS to complete any application testing. The original server continues running on-premises without any impact while you test the newly upgraded server in an isolated environment.   
 
-1. After the test is done, right-click the Azure VM in **Replicating machines**, and select **Clean up test migration**. This deletes the test VM and any resources associated with it.  
+1. After the test is done, navigate to the same **Testing** drop-down menu by clickung the server, and select **Clean up test migration**. This deletes the test VM and any resources associated with it.  
 
 ## Upgrade Windows OS during migration
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines. To upgrade Windows during the migration, follow these steps:
 
-1. In **Servers, databases and web apps**, select **Replicate**. A Start Replication job begins.
-2. In **Replicating machines**, right-click the VM and select **Migrate**.  
+1.  the **Migrations** page, click on the windows server for which you want to upgrade OS which is currently in **Testing** or **Completion** stage, select **Completion** drop-down menu and click **Migrate**.
 
    :::image type="content" source="./media/how-to-upgrade-windows/migration.png" alt-text="Screenshot displays the Migrate option.":::
 

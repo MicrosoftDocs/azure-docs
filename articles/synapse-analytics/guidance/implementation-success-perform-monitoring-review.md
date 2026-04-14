@@ -4,7 +4,7 @@ description: "Learn how to perform monitoring of your Azure Synapse solution."
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/31/2022
 ---
 

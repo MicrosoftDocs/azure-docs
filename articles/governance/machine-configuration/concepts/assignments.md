@@ -2,7 +2,7 @@
 title: Understand machine configuration assignment resources
 description: Machine configuration creates extension resources named machine configuration assignments that map configurations to machines.
 ms.date: 02/01/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 # Understand machine configuration assignment resources
 
@@ -33,6 +33,9 @@ resource for definitions with either `AuditIfNotExists` or `DeployIfNotExists` p
 resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure Policy uses
 the **complianceStatus** property of the guest assignment resource to report compliance status. For
 more information, see [getting compliance data][02].
+
+> [!NOTE]
+> When assigning a custom policy that deploys a guest configuration, the assignmentType property on the guest assignment resource may temporarily appear as "Null" before being updated to reflect the value specified in the policy definition. This is expected behavior and typically resolves within one hour.
 
 ### Deletion of guest assignments from Azure Policy
 

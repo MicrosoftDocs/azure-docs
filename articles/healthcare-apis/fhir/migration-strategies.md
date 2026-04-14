@@ -7,14 +7,14 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: evach
 author: evachen96
-ms.date: 9/27/2023
+ms.date: 02/25/2026
 ---
 
 # Migration strategies for moving from Azure API for FHIR
 
 [!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-Azure Health Data Services FHIR&reg; service is the next-generation platform for health data integration. It offers managed, enterprise-grade FHIR, DICOM, and MedTech services for diverse health data exchange. 
+Azure Health Data Services FHIR&reg; service is the next-generation platform for health data integration. It offers managed, enterprise-grade FHIR and DICOM services for diverse health data exchange. 
 
 When you migrate your FHIR data from Azure API for FHIR to Azure Health Data Services FHIR service, your organization can benefit from improved performance, scalability, security, and compliance. Organizations can also access new features and capabilities that aren't available in Azure API for FHIR. 
 
@@ -53,9 +53,7 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 
 - **Azure Health Data Services FHIR service does not support local RBAC and custom authority**. The token issuer authority needs to be the authentication endpoint for the tenant that the FHIR Service is running in.
 
-- **The IoT connector is only supported using an Azure API for FHIR service**. The IoT connector is succeeded by the MedTech service. You need to deploy a MedTech service and corresponding FHIR service within an existing or new Azure Health Data Services workspace, and point your devices to the new Azure Events Hubs device event hub. Use the existing IoT connector device and destination mapping files with the MedTech service deployment.
-
-If you want to migrate existing IoT connector device FHIR data from your Azure API for FHIR service to the Azure Health Data Services FHIR service, use the bulk export and import functionality in the migration tool. Another migration path would be to deploy a new MedTech service and replay the IoT device messages through the MedTech service.
+- **The IoT connector is only supported using an Azure API for FHIR service**. If you want to migrate existing IoT connector device FHIR data from your Azure API for FHIR service to the Azure Health Data Services FHIR service, use the bulk export and import functionality in the migration tool. 
 
 ## Step 2: Prepare to migrate
 
@@ -63,7 +61,7 @@ First, create a migration plan. We recommend the migration patterns described in
 
 |Migration pattern|Details|How?|
 |-----------------|-------|----|
-|**Lift and shift**|The simplest pattern. Ideal if your data pipeline can afford longer downtime.|Choose the option that works best for your organization: <br> • Configure a workflow to [$export](../azure-api-for-fhir/export-data.md) your data on Azure API for FHIR, and then [$import](configure-import-data.md) into Azure Health Data Services FHIR service. <br> • The [GitHub repo](https://github.com/Azure/apiforfhir-migration-tool/blob/main/lift-and-shift-resources/Liftandshiftresources_README.md) provides tips on running these commands, and a script to help automate creating the `$import` payload.  <br> • Create your own tool to migrate the data using `$export` and `$import`.|
+|**Lift and shift**|The simplest pattern. Ideal if your data pipeline can afford longer downtime.|Choose the option that works best for your organization: <br> • Configure a workflow to [$export](../azure-api-for-fhir/export-data.md) your data on Azure API for FHIR, and then [$import](configure-import-data.md) into Azure Health Data Services FHIR service. <br> • The [GitHub repo](https://github.com/Azure/apiforfhir-migration-tool/tree/main) provides tips on running these commands, and a script to help automate creating the `$import` payload.  <br> • Create your own tool to migrate the data using `$export` and `$import`.|
 |**Incremental copy**|Continuous version of lift and shift, with less downtime. Ideal for large amounts of data that take longer to copy, or if you want to continue running Azure API for FHIR during the migration.|Choose the option that works best for your organization. <br> • We created an [OSS migration tool](https://github.com/Azure/apiforfhir-migration-tool/tree/main/FHIR-data-migration-tool-docs) to help with this migration pattern. <br> • Create your own tool to migrate the data incrementally.|
 
 ### OSS migration tool considerations

@@ -6,7 +6,7 @@ author: mbender-ms
 ms.custom: references_regions
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 5/9/2024
+ms.date: 3/12/2026
 ms.author: mbender
 # Customer intent: As an application architect, I want to configure autoscaling for the Application Gateway for Containers, so that I can ensure high availability and performance while optimizing costs based on traffic demands.
 ---
@@ -25,7 +25,7 @@ Azure Application Gateway for Containers is always deployed in a highly availabl
 
 ## Maintenance
 
-Updates initiated to Application Gateway for Containers are applied one update domain at a time to eliminate downtime. During maintenance, operation and configuration updates continue to be applied. Active connections are gracefully drained for up to 5 minutes, establishing new connections to the remaining capacity in a different update domain prior to the update beginning. During update, Application Gateway for Containers temporarily runs at a reduced maximum capacity. The update process proceeds through each update domain, only proceeding to the next update domain once a healthy status is returned.
+Updates initiated to Application Gateway for Containers are applied one update domain at a time to eliminate downtime. During maintenance, operation and configuration updates continue to be applied. Active connections are gracefully drained for up to 5 minutes, establishing new connections to the remaining capacity in a different update domain prior to the update beginning. The update process proceeds through each update domain, only proceeding to the next update domain once a healthy status is returned.
 
 ## Next steps
 

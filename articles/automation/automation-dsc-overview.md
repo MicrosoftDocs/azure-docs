@@ -5,10 +5,10 @@ keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
 ms.service: azure-automation
 ms.subservice: desired-state-config
-ms.date: 10/22/2024
+ms.date: 03/05/2026
 ms.topic: overview
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Azure Automation State Configuration overview
@@ -60,6 +60,8 @@ this data to your Log Analytics workspace. See [Forward Azure Automation State C
 Consider the requirements in this section when using Azure Automation State Configuration.
 
 ### Operating system requirements
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 For nodes running Windows, the following versions are supported:
 

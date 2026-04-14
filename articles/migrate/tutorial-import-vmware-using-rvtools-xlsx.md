@@ -17,7 +17,7 @@ As part of your migration journey to Azure, you discover your on-premises invent
 This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
 
 > [!NOTE]
-> * RVTools has a supply chain attack on May 12, 2025. The attack injected malware to the RVTools installer. Customers should download RVTools only from official websites and verify that the installer’s file hash matches on the official website. Customers should run anti-malware software to find any harmful programs.
+> * RVTools had a supply chain attack on May 12, 2025. The attack injected malware to the RVTools installer. Customers should download RVTools only from official websites and verify that the installer’s file hash matches on the official website. Customers should run anti-malware software to find any harmful programs.
 > * Microsoft doesn't own or support RVTools. Customers use the software at their own risk.
 
 In this tutorial, you learn how to:
@@ -40,10 +40,18 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 - The file format should be XLSX.
 - File sensitivity is set to **General** or file protection is set to **Any user**.
 - [Operating system names](tutorial-discover-import.md#supported-operating-system-names) specified in the RVTools XLSX (preview) file contains and matches the supported names.
-- The XLSX file should contain the vInfo, vPartition & vMemory sheets. The columns in these sheets are as follows:
-    - **vInfo** - VM, Powerstate, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file, VM UUID.
-    - **vPartition** - VM, VM UUID, Capacity MiB, Consumed MiB.
-    - **vMemory** - VM, VM UUID, Size MiB, Reservation.
+- The XLSX file should contain the vInfo, vHost, vDatastore, vSnapshot, vPartition & vMemory sheets. The columns in these sheets are as follows:
+    - **vInfo** - VM, VM UUID, Powerstate, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file
+    - **vHost** - Host, Cluster, Datacenter, Config status, in Maintenance Mode, in Quarantine Mode, CPU Model, Speed, #CPU, Cores per CPU, # Cores, CPU usage %, # Memory, Memory usage %, VM Used memory, VM Memory Swapped, VM Memory Ballooned, #NICs, # vCPUs, vRAM, ESX Version, Vendor, Model, Object ID, UUID
+    - **vDatastore** - Name, Object ID, Type, Hosts, Capacity MiB, Provisioned MiB, In Use MiB
+    - **vSnapshot** - VM, VM UUID, Powerstate, Size MiB (vmsn), Size MiB (total), Quiesced, Datacenter, Cluster, Host
+    - **vPartition** - VM, VM UUID, Capacity MiB, Consumed MiB
+    - **vMemory** - VM, VM UUID, Size MiB, Reservation
+    - **vDisk** - VM, VM UUID, Shared Bus, Controller
+    - **vCD** - VM, VM UUID, Powerstate, Device Type, Connected
+    - **vUSB** - VM, VM UUID, Powerstate, Device Type, Connected
+    - **vNetwork** - VM, VM UUID, Switch, Connected
+    - **dvPort** - Object ID, Port, Switch, Type, VLAN, Allow Promiscuous, Mac changes, Forged Transmits
 
 > [!NOTE]
 > The number of disks that will be seen in the discovered and assessed machines will be one. However, the total configured and used storage capacity is being considered from the RVTools file import.
@@ -68,29 +76,40 @@ Follow the instructions on [how to set up an Azure Migrate project](tutorial-dis
 To import the servers using RVTools XLSX (preview) file, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Migrate**.
-1. Under **Migration goals**, select **Servers, databases and web apps**.
-1. On **Azure Migrate | Servers, databases and web apps** page, under **Assessment tools**, select **Discover** and then select **Using import**.
+    :::image type="content" source="./media/tutorial-discover-vmware/azure-migrate.png" alt-text="Screenshot that shows how to navigate to Azure Migrate on Azure portal." lightbox="./media/tutorial-discover-vmware/azure-migrate.png":::
 
-    :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png" alt-text="Screenshot that shows how to navigate to the RVTools import option." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png":::
+1. Click on **View all projects** to navigate to the list of all projects created in your subscription.
+    :::image type="content" source="./media/tutorial-discover-vmware/view-projects.png" alt-text="Screenshot that shows how to navigate to all projects created." lightbox="./media/tutorial-discover-vmware/view-projects.png":::
 
-1. In **Discover** page, in **File type**, select **VMware inventory (RVTools XLSX)**.
-1. In the **Step 1: Import the file** section, select the RVTools XLSX file and then select **Import**.
+1. Click on the search bar to filter the project you want to import the RVTools file into.
 
-    :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png" alt-text="Screenshot that shows to upload, check status and selecting import." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png":::
+    :::image type="content" source="./media/tutorial-discover-vmware/view-project.png" alt-text="Screenshot that shows how to filter project." lightbox="./media/tutorial-discover-vmware/view-project.png":::
 
-    We recommend that you don't close the browser tab or attempt to import again while the current import is in progress. The import status provides information on the following:
+1. Click on the name of the project you want to open.
+1. If you are importing data for the first time, click on **Start discovery** and then on **Using custom import**.
+    :::image type="content" source="./media/tutorial-discover-vmware/start-import.png" alt-text="Screenshot that shows how to start discovery using file import." lightbox="./media/tutorial-discover-vmware/start-import.png":::
+ 
+1. In the **File type** drop-down, choose **VMware inventory (RVTools XLSX)**.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/file-drop-down.png" alt-text="Screenshot that shows file type drop-down and to choose RVTools XLSX." lightbox="./media/tutorial-discover-vmware/file-drop-down.png":::
+
+1. Click on **Browse** and choose the RVTools XLSX file you want to import and click on **Import**.
+1. We recommend that you don't close the browser tab or attempt to import again while the current import is in progress. The import status provides information on the following:
     - If there are warnings in the status, you can either fix them or continue without addressing them.
     - To improve assessment accuracy, improve the server information as suggested in warnings. 
+
+    :::image type="content" source="./media/tutorial-discover-vmware/import-successful.png" alt-text="Screenshot that shows RVTools XLSX successful." lightbox="./media/tutorial-discover-vmware/import-successful.png":::
+
     - If the import status appears as **Failed**, you must fix the errors to continue with the import.
     
       :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png" alt-text="Screenshot that shows to status as failed." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png"::: 
    
     - To view and fix errors, follow these steps:
-        - Select *Download error details.XLSX* file. This operation downloads the XLSX with warnings included.
+        - Click on **Download this file, rectify the errors and re-upload the file.**. This downloads the XLSX with warnings and errors included.
         - Review and address the errors as necessary.
         - Upload the modified file again.
 
-When the **Import status** is marked as **Complete**, it implies that the server information is successfully imported.
+1. When the **Import status** is marked as **Complete**, it implies that the server information is successfully imported.
 
 ## Update server information
 To update the information for a server, follow these steps:

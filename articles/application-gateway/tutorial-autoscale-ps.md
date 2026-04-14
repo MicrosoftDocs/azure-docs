@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 # Tutorial: Create an application gateway that improves web application access
 
-If you're an IT administrator aiming to improve web application access, you can optimize your application gateway to scale dynamically based on customer demand and span multiple [availability zones](../reliability/availability-zones-overview.md). This tutorial helps you configure key Azure Application Gateway v2 features, including autoscaling, zone redundancy, and static VIPs, to achieve those improvements. You'll use Azure PowerShell cmdlets and the Azure Resource Manager deployment model to solve the problem.
+If you're an IT administrator aiming to improve web application access, you can optimize your application gateway to scale dynamically based on customer demand and span multiple [availability zones](/azure/reliability/availability-zones-overview). This tutorial helps you configure key Azure Application Gateway v2 features, including autoscaling, zone redundancy, and static VIPs, to achieve those improvements. You'll use Azure PowerShell cmdlets and the Azure Resource Manager deployment model to solve the problem.
 
 In this tutorial, you learn how to:
 
@@ -26,9 +26,9 @@ In this tutorial, you learn how to:
 > * Create the application gateway
 > * Test the application gateway
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-For more information about availability zone support in Application Gateway v2, see [Reliability for Application Gateway v2](../reliability/reliability-application-gateway-v2.md).
+For more information about availability zone support in Application Gateway v2, see [Reliability for Application Gateway v2](/azure/reliability/reliability-application-gateway-v2).
 
 ## Prerequisites
 

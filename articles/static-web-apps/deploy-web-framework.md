@@ -2,11 +2,11 @@
 title: Deploy your web app to Azure Static Web Apps.
 description: Learn to deploy your web app to Azure Static Web Apps.
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic: article
 ms.date: 09/18/2024
-ms.author: wujia
+ms.author: jikunchen
 zone_pivot_groups: swa-web-framework
 ---
 
@@ -171,7 +171,7 @@ On most systems, you can select the URL of the site to open it in your default b
 * [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
 
 <!-- Links -->
-[1]: https://azure.microsoft.com/free
+[1]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [2]: https://nodejs.org/
 [3]: /cli/azure/install-azure-cli
 [4]: https://code.visualstudio.com

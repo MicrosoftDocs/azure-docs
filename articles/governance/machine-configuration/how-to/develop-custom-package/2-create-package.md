@@ -3,8 +3,7 @@ title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
 ms.date: 07/22/2025
 ms.topic: how-to
-ms.custom:
-  - build-2025
+ms.custom: references_regions
 ---
 # How to create custom machine configuration package artifacts
 
@@ -175,6 +174,17 @@ $params = @{
 }
 New-GuestConfigurationPackage @params
 ```
+```powershell
+# Create a package that will audit the configuration at 180 minute intervals
+$params = @{
+    Name          = 'MyConfig'
+    Configuration = './MyConfig/MyConfig.mof'
+    Type          = 'Audit'
+    Force         = $true
+    FrequencyMinutes = 180
+}
+New-GuestConfigurationPackage @params
+```
 
 An object is returned with the **Name** and **Path** of the created package.
 
@@ -247,7 +257,7 @@ third-party platform in the content artifact.
 > [Test a custom machine configuration package](./3-test-package.md)
 
 <!-- Reference link definitions -->
-[01]: ../../overview.md
+[01]: ../../overview/01-overview-concepts.md
 [02]: /powershell/dsc/overview?view=dsc-2.0&preserve-view=true
 [03]: ./1-set-up-authoring-environment.md
 [05]: /powershell/dsc/resources/authoringResourceClass

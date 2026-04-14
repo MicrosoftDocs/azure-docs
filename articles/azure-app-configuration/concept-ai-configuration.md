@@ -5,7 +5,7 @@ author: MaryanneNjeri
 ms.author: mgichohi
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 09/30/2025
+ms.date: 11/21/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -52,9 +52,16 @@ Chat completion is an AI capability that produces human-like dialogue responses 
 Azure OpenAI Service supports a diverse set of models from OpenAI. For more information, see [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models). To learn more about models from Anthropic, refer to the [Claude models documentation](https://docs.anthropic.com/docs/about-claude/models/overview).  
 For more details about models provided by Google, see the [Gemini models documentation](https://ai.google.dev/gemini-api/docs/models).
 
+## Agent framework 
+
+Agent framework is a comprehensive multi-language framework for building, orchestrating and deploying AI agents with support for both .NET and Python. This framework provides everything from simple chat agents to complex multi-agents workflows. For more information, refer to the [Microsoft Agent Framework documentation](/agent-framework/overview/agent-framework-overview). To see how App Configuration can help configure Agent Framework applications, visit the [getting started](./howto-ai-agent-config.md) guide.
+
 ## Next steps
 
 Continue to the following instructions to use AI configuration in your application:
 
 > [!div class="nextstepaction"]
 > [Chat completion configuration](./howto-chat-completion-config.md)
+
+> [!div class="nextstepaction"]
+> [Agent framework](./howto-ai-agent-config.md)

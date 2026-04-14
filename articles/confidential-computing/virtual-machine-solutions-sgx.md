@@ -1,12 +1,11 @@
 ---
 title: Deploy Intel SGX virtual machines
 description: Learn about using Intel SGX virtual machines (VMs) in Azure confidential computing.
-author: ju-shim
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+author: cynthn
+ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 9/12/2023
-ms.author: jushiman
+ms.author: cynthn
 ms.custom: devx-track-arm-template
 # Customer intent: As a cloud architect, I want to deploy Intel SGX virtual machines in Azure, so that I can meet compliance and security requirements for sensitive workloads with enhanced isolation and control over my computing environment.
 ---
@@ -38,7 +37,7 @@ Consider the following factors when you plan your Intel SGX VM deployment on Azu
 
 ### Azure subscription
 
-To deploy a confidential computing VM instance, consider a pay-as-you-go subscription or other purchase option. [Azure free accounts](https://azure.microsoft.com/free/) don't have a high enough quota for the necessary number of Azure compute cores.
+To deploy a confidential computing VM instance, consider a pay-as-you-go subscription or other purchase option. [Azure free accounts](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) don't have a high enough quota for the necessary number of Azure compute cores.
 
 ### Pricing and regional availability
 

@@ -4,11 +4,11 @@ description: This article explains how to remove a user-assigned managed identit
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
-ms.date: 09/10/2024
+ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Remove user-assigned managed identity for Azure Automation account

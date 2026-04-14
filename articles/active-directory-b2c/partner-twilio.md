@@ -28,7 +28,7 @@ In this walkthrough, learn how to integrate a sample online payment app in Azure
 
 To get started, you'll need:
 
-* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 * A [trial account](https://www.twilio.com/try-twilio) at Twilio.
 
@@ -82,7 +82,7 @@ The following components make up the Twilio solution:
    - Update the following lines based on your certificate in the web.config:
    
      ```xml
-     <add key="ida:SigningCertThumbprint" value="4F39D6014818082CBB763E5BA5F230E545212E89" />
+     <add key="ida:SigningCertThumbprint" value="AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00" />
      <add key="ida:SigningCertAlgorithm" value="RS256" />
      ```
 

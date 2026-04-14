@@ -1,11 +1,11 @@
 ---
 title: Deploy private-only Bastion
 description: Learn how to deploy Bastion for a private-only scenario.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/31/2025
-ms.author: abell
+ms.author: cherylmc
 ms.custom:
   - ignite-2024
   - sfi-image-nochange
@@ -28,7 +28,7 @@ Items to consider:
 
 The steps in this article assume you have the following prerequisites:
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A [virtual network](../virtual-network/quick-create-portal.md) that doesn't have Azure Bastion deployment.
 
 ### <a name="values"></a>Example values
@@ -51,7 +51,7 @@ You can use the following example values when creating this configuration, or yo
 |Name | Value |
 | --- | --- |
 | **Name** | **VNet1-bastion** |
-| **Tier/SKU** | **Premium** |
+| **SKU** | **Premium** |
 | **Instance count (host scaling)**| **2** or greater |
 | **Assignment**  | **Static** |
 
@@ -66,7 +66,7 @@ This section helps you deploy Bastion as private-only to your virtual network.
 
 1. Create the subnet to which your Bastion resources will be deployed. In the left pane, select **Subnets  -> +Subnet** to add the *AzureBastionSubnet*.
 
-   * The subnet must be **/26** or larger (for example, **/26**, **/25**, or **/24**) to accommodate features available with the Premium SKU Tier.
+   * The subnet must be **/26** or larger (for example, **/26**, **/25**, or **/24**) to accommodate features available with the Premium SKU.
    * The subnet must be named **AzureBastionSubnet**.
 
 1. Select **Save** at the bottom of the pane to save your values.

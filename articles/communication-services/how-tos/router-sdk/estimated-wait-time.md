@@ -3,8 +3,8 @@ title: Estimated wait time and position of a Job in queue
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to get estimated wait time and position for a job in a queue
 manager: chpalm
-ms.author: chpalm
-author: tophpalmer
+ms.author: sundraman
+author: sundiraman
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 06/08/2023
@@ -19,7 +19,7 @@ In the context of a call center, customers might want to know how long they need
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 - Optional: Complete the how-to [accept job offers](../../how-tos/router-sdk/accept-decline-offer.md)

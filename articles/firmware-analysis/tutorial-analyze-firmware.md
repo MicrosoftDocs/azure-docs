@@ -9,19 +9,16 @@ ms.service: azure-iot-operations
 #Customer intent: As a device builder, I want to see what vulnerabilities or weaknesses might exist in my firmware image.
 ---
 
-# Tutorial: Analyze an IoT/OT firmware image with firmware analysis 
+# Tutorial: Analyze a firmware image with firmware analysis
 
 This tutorial describes how to use the **firmware analysis** page to upload a firmware image for security analysis and view analysis results.
 
 ## Prerequisites
 
-> [!NOTE]
-> The **firmware analysis** feature is automatically available if you currently access Defender for IoT using the Security Admin, Contributor, or Owner role. If you only have the Security Reader role or want to use **firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](./firmware-analysis-rbac.md).
->
-
-* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * If you have a subscription but don't have a resource group where you could upload your firmware images, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups).
-* If you already have a subscription and resource group, move on to the next section.
+* Make sure you have Security Admin, Contributor, or Owner role in your resource group. If you only have the Security Reader role or want to use **firmware analysis** as a standalone feature, then your Admin must give the Firmware Analysis Admin role. For additional information, please see [Firmware analysis Azure RBAC](./firmware-analysis-rbac.md).
+* If you already have a subscription and resource group, and have the proper permissions, move on to the next section.
 
 To use the **firmware analysis** page to analyze your firmware security, your firmware image must have the following prerequisites:
 
@@ -33,7 +30,7 @@ To use the **firmware analysis** page to analyze your firmware security, your fi
 
 ## Firmware analysis workspace limits
 
-Firmware analysis workspaces are currently available as a free tier. The free tier has the following capacity limitations. If you use more than the capacity, you will receive an indication in the Azure Portal that you are over the capacity but will not be prevented from going over the capacity limit.
+Firmware analysis workspaces are currently available as a free tier. The free tier has the following capacity limitations. If you use more than the capacity, you will receive an indication in the Azure portal that you are over the capacity but will not be prevented from going over the capacity limit.
 
 The following limits apply to [firmware analysis workspaces](firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy).
 

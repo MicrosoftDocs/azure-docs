@@ -23,7 +23,7 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Communication Services resource. For more information, see [Create a new Azure Communication Services resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
 - A new web service application that uses the Call Automation SDK.
 - An Azure AI multiservice resource and a custom domain.
@@ -76,7 +76,7 @@ After you create your agent, make sure to download the [sample](https://github.c
 
 - **Your connection string**: You can get your connection string from your Azure Communication Services resource.
 - **Microsoft Copilot Studio Direct Line key**: You saved your Web Channel Security key in step 3.
-- **Azure AI services custom endpoint**: You can get this endpoint from your Azure AI services resource.
+- **Azure AI Services custom endpoint**: You can get this endpoint from your Azure AI services resource.
 - **A port to receive event notifications from Azure Communication Services**: You can use tools like [dev tunnels](/azure/developer/dev-tunnels/overview) to help set one up.
 
 ## Step 6: Understand the code

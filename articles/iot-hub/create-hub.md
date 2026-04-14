@@ -2,9 +2,8 @@
 title: Create an Azure IoT hub
 titleSuffix: Azure IoT Hub
 description: How to create, manage, and delete Azure IoT hubs through the Azure portal, CLI, and PowerShell. Includes information about retrieving the service connection string.
-author: SoniaLopezBravo
-
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 06/25/2025
@@ -15,7 +14,7 @@ ms.custom:
 
 # Create and manage Azure IoT hubs
 
-This article describes how to create and manage an IoT hub.
+This article explains how to create an IoT hub **without** Azure Device Registry (ADR) and certificate management integration. If you want to create an IoT hub integrated with these preview features, see [Get started with ADR and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
 
 ## Prerequisites
 
@@ -137,7 +136,7 @@ The service connection string should look similar to the following example:
 
 ### Connect with role assignments
 
-Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure role-based access control (RBAC) provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you enforce Microsoft Entra authentication whenever possible. For more information, see [Control access to IoT Hub by using Microsoft Entra ID](./authenticate-authorize-azure-ad.md).
+Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure role-based access control (RBAC) provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you enforce Microsoft Entra authentication whenever possible. For more information, see [Control access to IoT Hub by using Microsoft Entra ID](authenticate-authorize-azure-ad.md).
 
 ## Delete an IoT hub
 
@@ -173,14 +172,8 @@ Remove-AzIotHub `
 
 In addition to the Azure portal and CLI, the following tools are available to help you work with IoT hubs in whichever way supports your scenario:
 
-* **IoT Hub resource provider REST API**
+* **IoT Hub resource provider REST API**: Use the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) set of operations.
 
-  Use the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) set of operations.
+* **Azure resource manager templates, Bicep, or Terraform**: Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson).
 
-* **Azure resource manager templates, Bicep, or Terraform**
-
-  Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson).
-
-* **Visual Studio Code**
-
-  Use the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md).
+* **Visual Studio Code**: Use the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md).

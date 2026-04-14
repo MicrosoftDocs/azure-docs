@@ -24,7 +24,7 @@ In this article, you can learn how to configure the [Cloudflare Web Application 
 
 To get started, you need:
 
-- An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription.
 - A [Cloudflare](https://dash.cloudflare.com/sign-up) account.
 

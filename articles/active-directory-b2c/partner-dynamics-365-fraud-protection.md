@@ -29,7 +29,7 @@ Learn more: [Overview of Microsoft Dynamics 365 Fraud Protection](/dynamics365/f
 To get started, you'll need:
 
 - An Azure subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A Microsoft DFP subscription
   - See, [Dynamics 365 pricing](https://dynamics.microsoft.com/pricing/#Sales)
@@ -94,7 +94,7 @@ Learn more: [UI customization documentation](./customize-ui-with-html.md?pivots=
 
 ### Add policy keys for your Microsoft DFP client app ID and secret
 
-1. In the Microsoft Entra tenant where Microsoft DFP is set up, create an [Microsoft Entra application and grant admin consent](/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
+1. In the Microsoft Entra tenant where Microsoft DFP is set up, create a [Microsoft Entra application and grant admin consent](/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
 2. Create a secret value for this application registration. Note the application client ID and client secret value.
 3. Save the client ID and client secret values as [policy keys in your Azure AD B2C tenant](./policy-keys-overview.md).
 
@@ -117,7 +117,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |{Settings:FacebookClientId}|App ID of the Facebook app you configured for federation with B2C| `000000000000000`|
 |{Settings:FacebookClientSecretKeyContainer}| Name of the policy key, in which you saved Facebook's app secret |`B2C_1A_FacebookAppSecret`|
 |{Settings:ContentDefinitionBaseUri}|Endpoint in where you deployed the UI files|`https://<my-storage-account>.blob.core.windows.net/<my-storage-container>`|
-|{Settings:DfpApiBaseUrl}|The base path for your DFP API instance, found in the DFP portal| `https://tenantname-00001111-aaaa-2222-bbbb-3333cccc4444.api.dfp.dynamics.com/v1.0/`|
+|{Settings:DfpApiBaseUrl}|The base path for your DFP API instance, found in the DFP portal| `https://tenantname-aaaabbbb-0000-cccc-1111-dddd2222eeee.api.dfp.dynamics.com/v1.0/`|
 |{Settings:DfpApiAuthScope}|The client_credentials scope for the DFP API service|`https://api.dfp.dynamics-int.com/.default or https://api.dfp.dynamics.com/.default`|
 |{Settings:DfpTenantId}|The ID of the Microsoft Entra tenant (not B2C) where DFP is licensed and installed|`00001111-aaaa-2222-bbbb-3333cccc4444` or `contoso.onmicrosoft.com` |
 |{Settings:DfpAppClientIdKeyContainer}|Name of the policy key-in which you save the DFP client ID|`B2C_1A_DFPClientId`|

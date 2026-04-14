@@ -5,7 +5,7 @@ author: msangapu-msft
 
 ms.topic: how-to
 ms.custom: devx-track-azurecli, linux-related-content
-ms.date: 03/04/2025
+ms.date: 02/09/2026
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-code
 #customer intent: As an app designer, I want to be able to mount Azure Storage to support my web apps in Azure App Service.

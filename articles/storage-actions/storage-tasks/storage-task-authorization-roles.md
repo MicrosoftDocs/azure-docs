@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/05/2025
 ms.author: normesta
 
@@ -19,7 +19,7 @@ This article describes the least privileged built-in Azure roles or RBAC actions
 
 ## Permission to manage a storage task
 
-You must assign a role to any security principal in your organization that needs access to the storage task. To learn how to assign an Azure role, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+You must assign a role to any security principal in your organization that needs access to the storage task. To learn how to assign an Azure role, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 While the **Contributor** role provides all of the permissions necessary to manage a storage task, the least privileged built-in role is the **Storage Actions Contributor** role.
 

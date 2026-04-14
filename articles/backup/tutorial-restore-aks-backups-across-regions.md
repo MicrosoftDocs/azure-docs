@@ -2,7 +2,7 @@
 title: Tutorial - Enable Vault Tier protection for Azure Kubernetes Cluster (AKS) clusters and restore backups in secondary region using Azure Backup
 description: Learn how to enable Vault Tier protection for AKS clusters and restore backups in secondary region using Azure Backup.
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 01/29/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -46,7 +46,7 @@ To set the retention policy in a backup policy, follow these steps:
 
    - **First successful backup taken every day**: In addition to the default rule, every first successful backup of the day can be retained in the Operational datastore and Vault-standard store. You can edit and delete this rule (if you want to retain backups in Operational datastore).
 
-With the new backup policy, you can [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backup) and store in both Operational Tier (as snapshot) and Vault Tier (as blobs). Once the configuration is complete, the backups stored in the vault are available in the Secondary Region (an [Azure paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions)) for restore that can be used when during regional outage.
+With the new backup policy, you can [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backup) and store in both Operational Tier (as snapshot) and Vault Tier (as blobs). Once the configuration is complete, the backups stored in the vault are available in the Secondary Region (an [Azure paired region](/azure/reliability/cross-region-replication-azure#azure-paired-regions)) for restore that can be used when during regional outage.
 
 
 ## Restore in secondary region
@@ -54,21 +54,18 @@ With the new backup policy, you can [configure protection for the AKS cluster](a
 If there is an outage in the primary region, you can use the recovery points stored in Vault Tier in the secondary region to restore the AKS cluster.
 Follow these steps:
 
-1. Go to **Backup center** and select **Restore**.
+1. Go to **Resiliency** and select **Recover**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/start-kubernetes-cluster-restore.png" alt-text="Screenshot shows how to start the restore process.":::
+1. On the **Recover** pane, select **Datasource type** as **Kubernetes Services**.
+1. For **Protected item**, click **Select** to choose a protected item, and then select **Continue**.
 
-2. On the next page, select **Select backup instance**, and then select the *instance* that you want to restore.
+2. On the **Restore** pane, on the **Basics** tab, select **Restore Region** as **Secondary Region**, and then select **Next: Restore point**.
 
-   If a disaster occurs and there is an outage in the Primary Region, select Secondary Region. Then, it allows you to choose recovery points available in the [Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions). 
-
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-backup-instance-for-restore.png" alt-text="Screenshot shows selection of backup instance for restore.":::
-
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/choose-instances-for-restore.png" alt-text="Screenshot shows choosing instances for restore.":::
+   If a disaster occurs and there is an outage in the Primary Region, select Secondary Region. Then, it allows you to choose recovery points available in the [Azure Paired Region](/azure/reliability/cross-region-replication-azure#azure-paired-regions). 
    
    :::image type="content" source="./media/tutorial-restore-aks-backups-across-regions/restore-to-secondary-region.png" alt-text="Screenshot shows the selection of the secondary region.":::
 
-3. Click **Select restore point** to select the *restore point* you want to restore. 
+3. On the **Restore point** tab, click **Select restore point** to select the *restore point* you want to restore. 
 
    If the restore point is available in both Vault and Operation datastore, select the one you want to restore from.
 

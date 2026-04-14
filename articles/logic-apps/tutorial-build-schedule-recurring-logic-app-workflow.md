@@ -38,7 +38,7 @@ You can create a similar workflow with a Standard logic app resource. However, t
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An email account from an email provider that's supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
@@ -84,8 +84,8 @@ You can create a similar workflow with a Standard logic app resource. However, t
    > [!NOTE]
    >
    > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
-   > [Azure regions that support availability zones](../reliability/availability-zones-region-support.md). 
-   > For more information, see [Reliability in Azure Functions](../reliability/reliability-functions.md#availability-zone-support) and 
+   > [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support). 
+   > For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#resilience-to-availability-zone-failures) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
    After you finish, your settings look similar to the following example:

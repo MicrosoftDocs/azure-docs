@@ -5,13 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: jcocchi
 ms.author: jucocchi
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
 ms.custom: sfi-image-nochange
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to access and manage documents in Azure Cosmos DB from my workflows.
 ---
 
-# Access, create, or process documents in Azure Cosmos DB with workflows in Azure Logic Apps
+# Access, create, or process documents in Azure Cosmos DB from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -27,7 +29,7 @@ You can connect to Azure Cosmos DB from both Consumption and Standard logic app 
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [Azure Cosmos DB account](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 
@@ -43,7 +45,7 @@ You can connect to Azure Cosmos DB from both Consumption and Standard logic app 
 
 In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met.
 
-If you're working with a Standard workflow, the built-in trigger named **When an item is created or modified** is available and is based on the [Azure Cosmos DB change feed design pattern](/azure/cosmos-db/sql/change-feed-design-patterns). This trigger is unavailable for Consumption workflows.
+If you're working with a Standard workflow, the built-in trigger named **When an item is created or modified** is available and is based on the [Azure Cosmos DB change feed design pattern](/azure/cosmos-db/change-feed-design-patterns). This trigger is unavailable for Consumption workflows.
 
 ### [Consumption](#tab/consumption)
 
@@ -66,7 +68,7 @@ To add an Azure Cosmos DB built-in trigger to a Standard workflow, follow these 
    | **Database Id** | Yes | <*database-name*> | The name of the database with the container to monitor. This database should also have the lease container. If you don't have a lease container, the connector creates one for you in a later step. |
    | **Monitored Container Id** | Yes | <*container-name*> | The name of the container to monitor. This container should exist in the specified database. |
    | **Lease Container Id** |  Yes | <*lease-container-name*> | The name of either an existing container or a new container to create. The trigger automatically populates with **`leases`** as the default name. |
-   | **Create Lease Container** | No | **No** or **Yes** | If the lease container exists in the specified database, select **No**. To create this container, select **Yes**. If you select **Yes** and are using manual throughput dedicated for each container, make sure to open the **Advanced parameters** list to select the **Lease Container Throughput** parameter. Enter the number of [request units (RUs)](/azure/cosmos-db/request-units) to provision for this container. |
+   | **Create Lease Container** | No | **No** or **Yes** | If the lease container exists in the specified database, select **No**. To create this container, select **Yes**. If you select **Yes** and are using manual throughput dedicated for each container, make sure to open the **Advanced parameters** list to select the **Lease Container Throughput** parameter. Enter the number of [request units (RUs)](/azure/cosmos-db/request-units) to deploy for this container. |
 
    > [!NOTE]
    >
@@ -99,7 +101,7 @@ To add an Azure Cosmos DB action to a Consumption workflow, follow these steps:
 
 1. If the workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
+   This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, follow [these general steps to add the **Azure Cosmos DB** action that you want](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=consumption#add-action).
 
@@ -136,9 +138,9 @@ To add an Azure Cosmos DB built-in action to a Standard workflow, follow these s
 
 1. If the workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create:
+   This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger), which uses a basic schema definition to represent the item that you want to create:
 
-   :::image type="content" source="./media/connectors-create-api-cosmos-db/http-trigger-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and trigger named When a HTTP request is received.":::
+   :::image type="content" source="./media/connectors-create-api-cosmos-db/http-trigger-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and trigger named When an HTTP request is received.":::
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, follow [these general steps to add the **Azure Cosmos DB** action that you want](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
@@ -159,7 +161,7 @@ To add an Azure Cosmos DB built-in action to a Standard workflow, follow these s
    | **Container Id** | Yes | <*container-ID*> | The container to query. |
    | **Item** | Yes | <*JSON-document*> | The JSON document to create. This example uses the **id** output from the Request trigger. <br><br>**Note**: If you use the **body** trigger output, make sure that the body content is well-formed JSON, and at a minimum, contains the **`id`** attribute and the **`partitionKey`** attribute for your document. If a document with these attributes exists, the document is updated. Otherwise, a new document is created. |
 
-   The following example shows the action named **Create or update item**, which includes the **Item** and **Partition Key** parameter values from the output for the trigger named **When a HTTP request is received**:
+   The following example shows the action named **Create or update item**, which includes the **Item** and **Partition Key** parameter values from the output for the trigger named **When an HTTP request is received**:
 
    :::image type="content" source="media/connectors-create-api-cosmos-db/create-action-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard workflow, and Azure Cosmos DB built-in action named Create or update item.":::
 
@@ -215,7 +217,7 @@ For a Standard workflow, an Azure Cosmos DB connection (built-in) requires the f
 
 ### Get iterable results from the Query items action
 
-The **Query items** built-in action in a Standard workflow has many dynamic content outputs available for use in subsequent actions. To get the query result items or item metadata as an iterable object, follow these steps:
+In a Standard workflow, the **Query items** built-in action produces many dynamic content output items for use in subsequent actions. To get the query result items or item metadata as an iterable object, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard workflow in the designer.
 

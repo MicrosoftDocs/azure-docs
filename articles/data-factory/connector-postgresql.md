@@ -4,8 +4,8 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from PostgreSQL V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 04/14/2025
+ms.topic: how-to
+ms.date: 02/09/2026
 ms.author: jianleishen
 ms.custom:
   - synapse
@@ -17,7 +17,7 @@ ms.custom:
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The [PostgreSQL V2 connector](connector-postgresql.md) provides improved native PostgreSQL support. If you are using the [PostgreSQL V1 connector](connector-postgresql-legacy.md) in your solution, please [upgrade your PostgreSQL connector](#upgrade-the-postgresql-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-postgresql-and-postgresql-legacy) for details on the difference between V2 and V1. 
+> The PostgreSQL V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the PostgreSQL connector](#upgrade-the-postgresql-linked-service) from V1 to V2.
 
 ## Supported capabilities
 
@@ -80,9 +80,9 @@ The following properties are supported for PostgreSQL linked service:
 | server | Specifies the host name - and optionally port - on which PostgreSQL is running. | Yes |
 | port | The TCP port of the PostgreSQL server.| No |
 | database | The PostgreSQL database to connect to. | Yes |
-| username | The username to connect with. Not required if using IntegratedSecurity. | Yes |
-| password | The password to connect with. Not required if using IntegratedSecurity. | Yes |
-| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: Fail the connection if the server doesn't support SSL.<br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
+| username | The username to connect with. | Yes |
+| password | The password to connect with. | Yes |
+| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disabled**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Preferred**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Required**: Fail the connection if the server doesn't support SSL.<br/>- **Verify_ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify_full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disabled (0) / Allow (1) / Preferred (2) **(Default)** / Required (3) / Verify_ca (4) / Verify_full (5) | No |
 | authenticationType | Authentication type for connecting to the database. Only supports **Basic**. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 | ***Additional connection properties:*** |  |  |

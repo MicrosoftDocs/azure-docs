@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 9/27/2023
+ms.date: 11/21/2025
 ms.author: kesheth
 ---
 
@@ -21,11 +21,11 @@ FHIR searches can be against a specific resource type, a specified [compartment]
 GET {{FHIR_URL}}/Patient
 ```
 
-You can also search using `POST`, which is useful if the query string is long. To search using `POST`, the search parameters can be submitted as a form body. This allows for longer, more complex series of query parameters that might be difficult to see and understand in a query string.
+You can also search using `POST`, which is useful if the query string is long. To search using `POST`, the search parameters can be submitted as a form body, allowing for a longer, more complex series of query parameters that might be difficult to see and understand in a query string.
 
 If the search request is successful, you receive a FHIR bundle response with the type `searchset`. If the search fails, you can find the error details in the `OperationOutcome` to help you understand why the search failed.
 
-In the following sections, we cover the various aspects involved in searching. Once you’ve reviewed these details, refer to our [samples page](search-samples.md) that has examples of searches that you can make in the Azure API for FHIR.
+In the following sections, we cover the various aspects involved in searching. After reviewing these details, refer to our [samples page](search-samples.md) that has examples of searches that you can make in the Azure API for FHIR.
 
 ## Search parameters
 
@@ -34,7 +34,7 @@ Searches are based on various attributes of the resource. These attributes are c
 Each search parameter has a defined [data types](https://www.hl7.org/fhir/search.html#ptypes). The following table outlines support for the various data types.
 
 > [!WARNING]
-> There is currently an issue when using `_sort` on the Azure API for FHIR with chained search. For more information, see the open-source issue [#2344](https://github.com/microsoft/fhir-server/issues/2344). This will be resolved during a release in December 2021. 
+> There was an issue using `_sort` on the Azure API for FHIR with chained search. This was resolved during a later release. For more information, see the open-source issue [#2344](https://github.com/microsoft/fhir-server/issues/2344).
 
 | **Search parameter type**  | **Azure API for FHIR** | **FHIR service in Azure Health Data Services** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
@@ -50,7 +50,7 @@ Each search parameter has a defined [data types](https://www.hl7.org/fhir/search
 
 ### Common search parameters
 
-There are [common search parameters](https://www.hl7.org/fhir/search.html#all) that apply to all resources. These are in the following list, along with their support within the Azure API for FHIR.
+There are [common search parameters](https://www.hl7.org/fhir/search.html#all) that apply to all resources. These parameters are given in the following list, along with their support within the Azure API for FHIR.
 
 | **Common search parameter** | **Azure API for FHIR** | **FHIR service in Azure Health Data Services** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
@@ -84,10 +84,10 @@ GET {{FHIR_URL}}/metadata
 To see the search parameters in the capability statement, navigate to `CapabilityStatement.rest.resource.searchParam` to see the search parameters for each resource, and `CapabilityStatement.rest.searchParam` to find the search parameters for all resources.
 
 > [!NOTE]
-> The Azure API for FHIR does not automatically create or index any search parameters that are not defined by the FHIR specification. However, we do provide support for you to define your own [search parameters](how-to-do-custom-search.md).
+> The Azure API for FHIR doesn't automatically create or index any search parameters not defined by the FHIR specification. However, we do provide support for you to define your own [search parameters](how-to-do-custom-search.md).
 
 ### Composite search parameters
-Composite search allows you to search against value pairs. For example, if you were searching for a height observation where the person was 60 inches, you would want to make sure that a single component of the observation contained the code of height **and** the value of 60. You wouldn't want to get an observation where a weight of 60 and height of 48 was stored, even though the observation would have entries that qualified for value of 60 and code of height, just in different component sections. 
+Composite search allows you to search against value pairs. For example, if you were searching for a height observation where the person was 60 inches, you would want to make sure that a single component of the observation contained the code of height **and** the value of 60. If not, you could get results that include 60, but not for height. For instance, a weight of 60 and height of 48. Both parameters meet the search condition, but not in the same field.
 
 With the Azure API for FHIR, we support the following search parameter type pairings.
 
@@ -101,7 +101,7 @@ With the Azure API for FHIR, we support the following search parameter type pair
 For more information, see the HL7 [Composite Search Parameters](https://www.hl7.org/fhir/search.html#composite). 
 
 > [!NOTE]
-> Composite search parameters do not support modifiers per the FHIR specification.
+> Composite search parameters don't support modifiers per the FHIR specification.
 
  ### Modifiers & prefixes
 
@@ -130,12 +130,12 @@ To help manage the returned resources, there are search result parameters that y
 | **Search result parameters**  | **Azure API for FHIR** | **FHIR service in Azure Health Data Services** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | _elements                     | Yes                  | Yes                       | |
-| _count                        | Yes                  | Yes                       | _count is limited to 1000 resources. If set higher than 1000, only 1000 are returned and a warning will be returned in the bundle. |
+| _count                        | Yes                  | Yes                       | _count is limited to 1,000 resources. If set higher than 1,000, only 1,000 are returned and a warning is returned in the bundle. |
 | _include                      | Yes                  | Yes                       | Included items are limited to 100. _include on PaaS and OSS on Azure Cosmos DB don't include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). |
 | _revinclude                   | Yes                  | Yes                       |Included items are limited to 100. _revinclude on PaaS and OSS on Azure Cosmos DB don't include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).  There's also an incorrect status code for a bad request [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Yes             | Yes                   | |
 | _total                        | Partial              | Partial                   | _total=none and _total=accurate |
-| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported on Azure API for FHIR and the FHIR service. For Azure API for FHIR and OSS Azure Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date. |
+| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported on Azure API for FHIR and the FHIR service. For Azure API for FHIR and OSS Azure Cosmos DB databases created after April 20, 2021, sort is supported on first name, family name, birthdate, and clinical date. |
 | _contained                    | No                   | No                        | |
 | _containedType                | No                   | No                        | |
 | _score                        | No                   | No                        | |
@@ -154,11 +154,11 @@ A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to 
 Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
 
 > [!NOTE]
-> In the Azure API for FHIR and the open source backed by Azure Cosmos DB, there's a limitation where each subquery required for the chained and reverse chained searches will only return 1000 items. If there are more than 1000 items found, you’ll receive the following error message: “Subqueries in a chained expression can't return more than 1000 results, please use a more selective criteria.” To get a successful query, you’ll need to be more specific in what you are looking for.
+> In the Azure API for FHIR and the open source backed by Azure Cosmos DB, there's a limitation where each subquery required for the chained and reverse chained searches only return 1,000 items. If more than 1,000 items found, you receive the following error message: "Subqueries in a chained expression can't return more than 1,000 results, please use a more selective criteria." A successful query needs to be specific regarding what you are looking for.
 
 ## Pagination
 
-As previously mentioned, the results from a search are a paged bundle. By default, the search returns 10 results per page, but this can be increased (or decreased) by specifying `_count`. Within the bundle, there will be a self link that contains the current result of the search. If there are additional matches, the bundle will contain a next link. You can continue to use the next link to get the subsequent pages of results. `_count` is limited to 1,000 items or less. 
+As previously mentioned, the results from a search are a paged bundle. By default the search returns 10 results per page, which can be increased (or decreased) by specifying `_count`. Within the bundle, there will be a self link that contains the current result of the search. If there are other matches, the bundle will contain a next link. You can continue to use the next link to get the subsequent pages of results. `_count` is limited to 1,000 items or less. 
 
 The next link in the bundle has a continuation token size limit of 3 KB. You have flexibility to tweak the continuation token size between 1 KB to 3 KB, using header `x-ms-documentdb-responsecontinuationtokenlimitinkb`.
 

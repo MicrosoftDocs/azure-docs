@@ -42,7 +42,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 
 | **Assessment type**  | **Data**|
 |------------------|----|
-| **Performance-based** | The compute recommendation is based on CPU and memory utilization data. <br> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Available disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.  |
+| **Performance-based** | The compute recommendation is based on CPU and memory utilization data. <br> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Available disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra Disks.  |
 | **As-is on-premises** | The compute recommendation is based on the on-premises server size. <br> The recommended storage is based on the selected storage type for the assessment.|
 
 You can review the source properties that were used for right-sizing the targets. For each on-premises workload, the configuration properties and the aggregated performance data are available. Review the allocated cores, allocated memory, CPU utilization, and memory utilization for compute right-sizing and disk size, read IO/s, and throughput for storage recommendations.  
@@ -55,7 +55,7 @@ On the **Target recommendations** page, you can review the target configuration 
 If you use as-is on-premises sizing, the assessment doesn't consider the performance history of the VMs and disks in the Azure VM assessment. 
 
 - **Compute sizing**: The assessment allocates an Azure VM SKU based on the size allocated on-premises. 
-- **Storage and disk sizing**: The assessment recommends the appropriate disk type based on the storage type specified in the assessment properties. Available storage types are Standard HDD, Standard SSD, Premium, and Ultra disk.  
+- **Storage and disk sizing**: The assessment recommends the appropriate disk type based on the storage type specified in the assessment properties. Available storage types are Standard HDD, Standard SSD, Premium, and Ultra Disk.  
 - **Network sizing**: The assessment considers the network adapter on the on-premises server. 
 
 ## Calculate sizing for performance-based assessment
@@ -75,22 +75,26 @@ If you don't want to use the performance data, reset the sizing criteria to as-i
 
 For storage sizing in an Azure VM assessment, Azure Migrate tries to map each disk that is attached to the server to an Azure disk. Sizing works as follows: 
 
-1. The assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. For import-based assessments, you can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU. 
+1. The assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. For import-based assessments, you can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
+   
+2. The disk size for the target disks are identified based on the actual utilization of storage allocated to the server on-premises. In case the machine has only one disk, the assessment provides two probable disk targets. One target disk  is of the size of allocated disk and the other is of the size calculated based on actual utilization. In case there are multiple disks attached to the server on-premises and the utilization is not available for each disk the recommended disk is identified by using total utilization at VM level and considering normal distribution across all the disks. For ease of migration three probables are provided sized at allocated size, at 50% of allocated size and at 25% of allocated size and you can choose the correct disk based on exact utilization. Migration using Azure Migrate server migration tool supports migration only to disks that of size equal to or greater than on-premises disks 
+> [!Note]
+> Migration using Azure Migrate server migration tool supports migration only to disks that are of size equal to or greater than on-premises disks. To migrate to the disk of recommended size that is smaller than the allocated disk, migration has to be done in two steps. First migrate to the disk equal to allocated size disk (target disk always available in the list of probables). Create a disk of recommended size, use _azcopy_ or _robocopy_ to move the data. Deallocate the disk and connect the new disk to Azure VM. 
 
-2. Disks are selected as follows: 
+3. Disks are selected as follows: 
    - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure. 
    - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings. 
    - If there are multiple eligible disks, assessment selects the disk with the lowest cost. 
-   - If performance data for any disk is unavailable, the configuration disk size is used to find a Standard SSD disk in Azure. 
-   - For Ultra disks, there's a range of IOPS and throughput that is allowed for a particular disk size, and thus the logic used in sizing is different from Standard and Premium disks. Three Ultra disk sizes are calculated: 
+   - If performance data for any disk is unavailable, the configuration disk size is used to find a Standard SSD in Azure. 
+   - For Ultra Disks, there's a range of IOPS and throughput that is allowed for a particular disk size, and thus the logic used in sizing is different from Standard and Premium disks. Three Ultra Disk sizes are calculated: 
       - One disk (Disk 1) is found that can satisfy the disk size requirement.
       - One disk (Disk 2) is found that can satisfy total IOPS requirement. IOPS to be provisioned = (source disk throughput) * 1024/256 
       - One disk (Disk 3) is found that can satisfy total throughput requirement 
-    - Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra disk size. 
+    - Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra Disk offering](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra Disk size. 
     - Provisioned IOPS is calculated using the following logic: 
-      - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS.
+      - If source throughput discovered is in the allowable range for the Ultra Disk size, provisioned IOPS is equal to source disk IOPS.
       - Else, provisioned IOPS is calculated using IOPS to be provisioned = (source disk throughput) *1024/256 
-      - Provisioned throughput range is dependent on provisioned IOPS. [Learn more](assessment-report.md#confidence-ratings-performance-based)
+      - Provisioned throughput range is dependent on provisioned IOPS. [Learn more](assessment-report.md#coverage)
       
 ### Network sizing 
 
@@ -110,6 +114,10 @@ After it calculates storage and network requirements, the assessment considers C
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended. 
 
 After sizing recommendations are completed, an Azure VM assessment in Azure Migrate calculates compute and storage costs for migration. 
+
+To right-size on-premises servers for B-Series VM targets, a minimum of seven days of performance data is required to establish the workload pattern. B-Series VMs are ideal for workloads that remain idle most of the time but occasionally require high CPU performance, such as development/test environments, small web servers, and batch jobs. These VMs use a CPU credit system that allows you to pay for baseline performance and burst when needed. When the workload runs below the base CPU level, credits accumulate and are stored up to a maximum limit; these credits are then consumed during spikes to enable higher performance. The assessment service analyzes seven days of performance data to ensure that the credits required during bursts are always less than the accumulated credits. If the on-premises VM passes this check, it is considered suitable for a B-Series target without risking performance degradation.
+Example:
+If a VM has a baseline CPU of 20% and runs at 10% for most of the day, it earns credits for the unused 10%. Over seven days, these credits accumulate and can be used during short spikes where CPU usage jumps to 80% for 15 minutes. If the accumulated credits are sufficient to cover these bursts, the VM qualifies for a B-Series recommendation.
 
 ## Compute cost 
 
@@ -134,9 +142,9 @@ The monthly storage cost for a server is calculated by aggregating the monthly c
 
 The cost for Standard or Premium disks is calculated based on the selected/recommended disk size. 
 
-### Ultra disk 
+### Ultra Disk 
 
-The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/).
+The cost for Ultra Disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 The cost is calculated using the following logic: 
 
@@ -144,7 +152,7 @@ The cost is calculated using the following logic:
 - Cost of provisioned IOPS is calculated by multiplying provisioned IOPS by hourly provisioned IOPS price.
 - Cost of provisioned throughput is calculated by multiplying provisioned throughput by hourly provisioned throughput price.
 
-The Ultra disk VM reservation fee isn't added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
+The Ultra Disk VM reservation fee isn't added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 The assessment calculates the total monthly storage costs by aggregating the storage costs of all servers. Currently, the calculation doesn't consider offers specified in the assessment settings. 
 

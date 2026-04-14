@@ -2,7 +2,7 @@
 title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: reference
-ms.date: 06/19/2025
+ms.date: 12/22/2025
 ms.custom:
   - devx-track-bicep
   - sfi-ropc-nochange
@@ -24,7 +24,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Yes |string |The value to return as a base64 representation. |
+| inputString | Yes | string | The value to return as a base64 representation. |
 
 ### Return value
 
@@ -66,7 +66,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Yes |string |The base64 representation to convert to a JSON object. |
+| base64Value | Yes | string | The base64 representation to convert to a JSON object. |
 
 ### Return value
 
@@ -109,7 +109,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Yes |string |The base64 representation to convert to a string. |
+| base64Value | Yes | string | The base64 representation to convert to a string. |
 
 ### Return value
 
@@ -221,8 +221,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |string or array |The first string or array for concatenation. |
-| more arguments |No |string or array |More strings or arrays in sequential order for concatenation. |
+| arg1 | Yes | string or array | The first string or array for concatenation. |
+| more arguments | No | string or array | More strings or arrays in sequential order for concatenation. |
 
 This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Strings are only concatenated with other strings.
 
@@ -278,8 +278,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| container |Yes |array, object, or string |The value that contains the value to find. |
-| itemToFind |Yes |string or int |The value to find. |
+| container | Yes | array, object, or string | The value that contains the value to find. |
+| itemToFind | Yes | string or int | The value to find. |
 
 ### Return value
 
@@ -335,7 +335,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Yes |string |The value to convert to a data URI. |
+| stringToConvert | Yes | string | The value to convert to a data URI. |
 
 ### Return value
 
@@ -372,7 +372,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Yes |string |The data URI value to convert. |
+| dataUriToConvert | Yes | string | The data URI value to convert. |
 
 ### Return value
 
@@ -409,7 +409,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it's empty or null. |
+| itemToTest | Yes | array, object, or string | The value to check if it's empty or null. |
 
 ### Return value
 
@@ -452,8 +452,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Yes |string |The value that contains the item to find. |
-| stringToFind |Yes |string |The value to find. |
+| stringToSearch | Yes | string | The value that contains the item to find. |
+| stringToFind | Yes | string | The value to find. |
 
 ### Return value
 
@@ -495,7 +495,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The value to retrieve the first element or character. |
+| arg1 | Yes | array or string | The value to retrieve the first element or character. |
 
 ### Return value
 
@@ -577,8 +577,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Yes |string |The value used in the hash function to create the GUID. |
-| additional parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
+| baseString | Yes | string | The value used in the hash function to create the GUID. |
+| additional parameters as needed | No | string | You can add as many strings as needed to create the value that specifies the level of uniqueness. |
 
 ### Remarks
 
@@ -641,8 +641,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Yes |string |The value that contains the item to find. |
-| stringToFind |Yes |string |The value to find. |
+| stringToSearch | Yes | string | The value that contains the item to find. |
+| stringToFind | Yes | string | The value to find. |
 
 ### Return value
 
@@ -682,8 +682,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputArray | Yes |An array of string. |An array of strings to join. |
-| delimiter | Yes |The delimiter to use for splitting the string. |
+| inputArray | Yes | An array of string. | An array of strings to join. |
+| delimiter | Yes | The delimiter to use for splitting the string. |
 
 ### Return value
 
@@ -735,7 +735,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The value to retrieve the last element or character. |
+| arg1 | Yes | array or string | The value to retrieve the last element or character. |
 
 ### Return value
 
@@ -775,8 +775,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Yes |string |The value that contains the item to find. |
-| stringToFind |Yes |string |The value to find. |
+| stringToSearch | Yes | string | The value that contains the item to find. |
+| stringToFind | Yes | string | The value to find. |
 
 ### Return value
 
@@ -816,7 +816,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array, string, or object |The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
+| arg1 | Yes | array, string, or object | The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
 
 ### Return value
 
@@ -907,7 +907,7 @@ param guidValue string = newGuid()
 
 var storageName = 'storage${uniqueString(guidValue)}'
 
-resource myStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource myStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageName
   location: 'West US'
   sku: {
@@ -938,9 +938,9 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Yes |string or int |The value to right-align. |
-| totalLength |Yes |int |The total number of characters in the returned string. |
-| paddingCharacter |No |single character |The character to use for left-padding until the total length is reached. The default value is a space. |
+| valueToPad | Yes | string or int | The value to right-align. |
+| totalLength | Yes | int | The total number of characters in the returned string. |
+| paddingCharacter | No | single character | The character to use for left-padding until the total length is reached. The default value is a space. |
 
 If the original string is longer than the number of characters to pad, no characters are added.
 
@@ -1050,9 +1050,9 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalString |Yes |string |The value that has all instances of one string replaced by another string. |
-| oldString |Yes |string |The string to be removed from the original string. |
-| newString |Yes |string |The string to add in place of the removed string. |
+| originalString | Yes | string | The value that has all instances of one string replaced by another string. |
+| oldString | Yes | string | The string to be removed from the original string. |
+| newString | Yes | string | The string to add in place of the removed string. |
 
 ### Return value
 
@@ -1088,8 +1088,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |array or string |The array or string to use for skipping. |
-| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it's larger than the length of the array or string, an empty array or string is returned. |
+| originalValue | Yes | array or string | The array or string to use for skipping. |
+| numberToSkip | Yes | int | The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it's larger than the length of the array or string, an empty array or string is returned. |
 
 ### Return value
 
@@ -1132,8 +1132,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| inputString |Yes |string |The string to split. |
-| delimiter |Yes |string or array of strings |The delimiter to use for splitting the string. |
+| inputString | Yes | string | The string to split. |
+| delimiter | Yes | string or array of strings | The delimiter to use for splitting the string. |
 
 ### Return value
 
@@ -1175,8 +1175,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Yes |string |The value that contains the item to find. |
-| stringToFind |Yes |string |The value to find. |
+| stringToSearch | Yes | string | The value that contains the item to find. |
+| stringToFind | Yes | string | The value to find. |
 
 ### Return value
 
@@ -1220,7 +1220,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Yes | Any |The value to convert to string. Any type of value can be converted, including objects and arrays. |
+| valueToConvert | Yes | Any | The value to convert to string. Any type of value can be converted, including objects and arrays. |
 
 ### Return value
 
@@ -1273,9 +1273,9 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Yes |string |The original string from which the substring is extracted. |
-| startIndex |No |int |The zero-based starting character position for the substring. |
-| length |No |int |The number of characters for the substring. Must refer to a location within the string. Must be zero or greater. If omitted, the remainder of the string from the start position will be returned.|
+| stringToParse | Yes | string | The original string from which the substring is extracted. |
+| startIndex | No | int | The zero-based starting character position for the substring. |
+| length | No | int | The number of characters for the substring. Must refer to a location within the string. Must be zero or greater. If omitted, the remainder of the string from the start position will be returned.|
 
 ### Return value
 
@@ -1318,8 +1318,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Yes |array or string |The array or string to take the elements from. |
-| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
+| originalValue | Yes | array or string | The array or string to take the elements from. |
+| numberToTake | Yes | int | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
 
 ### Return value
 
@@ -1362,7 +1362,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Yes |string |The value to convert to lower case. |
+| stringToChange | Yes | string | The value to convert to lower case. |
 
 ### Return value
 
@@ -1398,7 +1398,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Yes |string |The value to convert to upper case. |
+| stringToChange | Yes | string | The value to convert to upper case. |
 
 ### Return value
 
@@ -1434,7 +1434,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Yes |string |The value to trim. |
+| stringToTrim | Yes | string | The value to trim. |
 
 ### Return value
 
@@ -1468,8 +1468,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Yes |string |The value used in the hash function to create a unique string. |
-| additional parameters as needed |No |string |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
+| baseString | Yes | string | The value used in the hash function to create a unique string. |
+| additional parameters as needed | No | string | You can add as many strings as needed to create the value that specifies the level of uniqueness. |
 
 ### Remarks
 
@@ -1502,7 +1502,7 @@ uniqueString(resourceGroup().id, deployment().name)
 The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
@@ -1535,8 +1535,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Yes |string |The base uri string. Take care to observe the behavior regarding the handling of the trailing slash ('/'), as described following this table.  |
-| relativeUri |Yes |string |The relative uri string to add to the base uri string. |
+| baseUri | Yes | string | The base uri string. Take care to observe the behavior regarding the handling of the trailing slash ('/'), as described following this table.  |
+| relativeUri | Yes | string | The relative uri string to add to the base uri string. |
 
 * If `baseUri` ends with a trailing slash, the result is simply `baseUri` followed by `relativeUri`. If `relativeUri` also begins with a leading slash, the trailing slash and the leading slash will be combined into one.
 
@@ -1601,7 +1601,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Yes |string |The value to encode. |
+| stringToEncode | Yes | string | The value to encode. |
 
 ### Return value
 
@@ -1642,7 +1642,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Yes |string |The URI encoded value to convert to a string. |
+| uriEncodedString | Yes | string | The URI encoded value to convert to a string. |
 
 ### Return value
 

@@ -26,6 +26,8 @@ Connectors created using the CCF are fully SaaS, with no requirements for servic
 
 This article will show you how to complete each step and provide an [example codeless connector](#example) to build along the way.
 
+If you're a software development partner and need support to build a CCF data connector, contact Microsoft Sentinel Partners at [AzureSentinelPartner@microsoft.com](mailto:AzureSentinelPartner@microsoft.com) for assistance.
+
 ## How is this CCF different from the previous version?
 
 The initial version of the CCF was [announced](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-codeless-connector-platform/ba-p/3095455) in January of 2022. Since then, we've improved upon the platform and the [legacy release](create-codeless-connector-legacy.md) is no longer recommended. This new version of the CCF has the following key improvements:
@@ -134,10 +136,11 @@ To learn from an example, see the [Data connector definitions reference example 
 
 ### Data connection rules
 
-There are currently two kinds of data connection rules possible for defining your CCF data connector.
+There are currently three kinds of data connection rules possible for defining your CCF data connector.
 
 - `RestApiPoller` kind allows you to customize paging, authorization and expected request/response payloads for your data source. For more information, see [RestApiPoller data connector connection rules reference](data-connector-connection-rules-reference.md).
 - `GCP` kind allows you to decrease your development time by automatically configuring paging and expected response payloads for your Google Cloud Platform (GCP) data source. For more information, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md)
+- `StorageAccountBlobContainer` kind allows you to ingest from an Azure Storage Blob data source. For more information, see [Azure Storage Blob connectors API reference](data-connection-rules-reference-azure-storage.md).
 
 Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
@@ -226,7 +229,7 @@ If you're creating a Google Cloud Platform (GCP) CCF data connector, package the
 In addition to the example templates, published solutions available in the Microsoft Sentinel content hub use the CCF for their data connectors. Review the following solutions as more examples of how to stitch the components together into an ARM template.
 
 **`RestApiPoller`** CCF data connector examples
-- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Ermes%20Browser%20Security/Data%20Connectors/ErmesBrowserSecurityEvents_ccp)
+- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Ermes%20Browser%20Security/Data%20Connectors/ErmesBrowserSecurityEvents_CCF)
 - [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Palo%20Alto%20Prisma%20Cloud%20CWPP/Data%20Connectors/PaloAltoPrismaCloudCWPP_ccp)
 - [Sophos Endpoint Protection](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Sophos%20Endpoint%20Protection/Data%20Connectors/SophosEP_ccp)
 - [Workday](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Workday/Data%20Connectors/Workday_ccp)

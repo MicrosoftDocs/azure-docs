@@ -5,10 +5,10 @@ services: automation
 ms.service: azure-automation
 ms.subservice: desired-state-config
 ms.custom: linux-related-content
-ms.topic: conceptual
-ms.date: 10/22/2024
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.topic: how-to
+ms.date: 11/17/2025
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Remediate noncompliant Azure Automation State Configuration servers

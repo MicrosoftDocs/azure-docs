@@ -3,7 +3,7 @@ title: Best practices for memory management
 description: Learn how to manage your Azure Cache for Redis memory effectively.
 
 
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom:
   - ignite-2024
 ms.date: 04/14/2025
@@ -13,6 +13,8 @@ appliesto:
 ---
 
 # Memory management
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 This article describes best practices for memory management in Azure Cache for Redis.
 

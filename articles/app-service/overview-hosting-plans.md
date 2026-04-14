@@ -18,6 +18,8 @@ An *Azure App Service plan* defines a set of compute resources for a web app to 
 
 When you create an App Service plan in a certain region, you create a set of compute resources for that plan in that region. Whatever apps you put into the App Service plan run on those compute resources, as defined in the plan.
 
+[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
+
 Each App Service plan defines:
 
 - Operating system (Windows, Linux)
@@ -33,7 +35,7 @@ The pricing tier of an App Service plan determines what App Service features you
 | Category | Tiers | Description |
 |:-|:-|:-|
 | Shared compute | Free, Shared | Free and Shared, the two base tiers, run an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources. The resources can't scale out. These tiers are intended for only development and testing purposes. |
-| Dedicated compute | Basic, Standard, Premium, PremiumV2, PremiumV3, PremiumV4 | The Basic, Standard, Premium, PremiumV2, PremiumV3, and PremiumV4 tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances that are available to you for scale-out. |
+| Dedicated compute | Basic, Standard, Premium, PremiumV2, PremiumV3, PremiumV4 | The Basic, Standard, Premium, PremiumV2, PremiumV3, and PremiumV4 tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources (and those resources aren't shared with other customers). The higher the tier, the more VM instances that are available to you for scale-out. |
 | Isolated | IsolatedV2 | The IsolatedV2 tier runs dedicated Azure VMs on dedicated Azure virtual networks. This tier provides network isolation on top of compute isolation to your apps. It provides the maximum scale-out capabilities. |
 
 Each tier also provides a specific subset of App Service features. These features include custom domains and TLS/SSL certificates, autoscaling, deployment slots, backups, Azure Traffic Manager integration, and more. The higher the tier, the more features that are available. To find out which features are supported in each pricing tier, see the [App Service plan details](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing).
@@ -68,6 +70,13 @@ Except for the Free tier, an App Service plan carries a charge on the compute re
 
 - **Shared tier**: Each app receives a quota of CPU minutes, so *each app* is charged for the CPU quota.
 - **Dedicated compute tiers (Basic, Standard, Premium, PremiumV2, PremiumV3, PremiumV4)**: The App Service plan defines the number of VM instances that the apps are scaled to, so *each VM instance* in the App Service plan is charged. These VM instances are charged the same, regardless of how many apps are running on them. To avoid unexpected charges, see [Delete an App Service plan](app-service-plan-manage.md#delete-an-app-service-plan).
+
+> [!NOTE] 
+> In dedicated compute tiers, the VM resources are **dedicated to your App Service plan and are not shared with other customers**.  
+> However, **any apps you place inside the same App Service plan share those dedicated resources with each other**.    
+> This means compute is dedicated at the **plan level**, not the **per-app level**.  
+> To isolate compute per app, create a separate App Service plan.
+
 - **IsolatedV2 tier**: The App Service Environment defines the number of isolated workers that run your apps, and *each worker* is charged.
 
 You aren't charged for using the App Service features that are available to you. These features include configuring custom domains, TLS/SSL certificates, deployment slots, and backups. The exceptions are:
@@ -119,6 +128,24 @@ Isolate your app in a new App Service plan when:
 
 > [!NOTE]
 > An active slot is also classified as an active app because it's competing for resources in the same App Service plan.
+
+## Managed Instance on Azure App Service (preview)
+Managed Instance is a plan-scoped hosting option for Windows web apps that require operating system customization, optional private networking, and legacy Windows component support. It's designed for "lift and improve" migrations of infrastructure-dependent workloads that need COM components, registry access, MSI installers, or IIS customization while retaining App Service's managed platform features.
+
+Key features:
+
+- PowerShell configuration scripts for persistent OS and middleware setup
+- Plan-level virtual network integration with private DNS
+- Azure Key Vault-backed registry adapters for secure configuration
+- Storage mounts (Azure Files, UNC paths, local temporary storage)
+- Just-in-time RDP access via Azure Bastion for diagnostics
+- Plan-level managed identities for infrastructure authentication
+- Pre-installed .NET Framework (3.5, 4.8) and .NET 8 with support for custom runtimes
+- Best for: Legacy .NET Framework apps requiring Windows-specific dependencies, gradual modernization without complete rewrites, and plan-level network isolation for compliance.
+
+Current limitations (preview): Windows only, Pv4/Pmv4 SKUs, available in East Asia, West Central US, North Europe, and East US. Not available for Linux, containers, or in App Service Environment.
+
+[Learn more about Managed Instance](overview-managed-instance.md)
 
 ## Related content
 

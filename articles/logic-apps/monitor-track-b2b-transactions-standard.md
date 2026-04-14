@@ -1,15 +1,16 @@
 ---
-title: Monitor and track B2B transactions - Standard workflows
+title: Monitor and Track B2B Transactions - Standard workflows
 description: Set up monitoring and tracking for B2B transactions or messages in Standard workflows for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.topic: how-to
-ms.reviewer: estfan, divswa, pravagar, azla
-ms.date: 03/20/2025
-# As a B2B integration solutions developer, I want to learn how to monitor and track B2B transactions in my Standard workflows created with Azure Logic Apps.
+ms.reviewers: estfan, divswa, pravagar, azla
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
+#Customer intent: As a B2B integration developer who works with Azure Logic Apps, I want to monitor and track B2B transactions in my Standard workflows created with Azure Logic Apps.
 ---
 
-# Monitor and track B2B transactions in Standard workflows for Azure Logic Apps (Preview)
+# Monitor and track B2B transactions in Standard workflows for Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -45,7 +46,7 @@ The following table describes how various components work together to support B2
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Premium-level integration account. If you don't have this integration account, see [Create and manage integration accounts for B2B workflows in Azure Logic Apps](/azure/logic-apps/enterprise-integration/create-integration-account).
 

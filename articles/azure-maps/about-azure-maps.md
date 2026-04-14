@@ -32,6 +32,12 @@ The following video explains Azure Maps in depth:
 
 > [!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
 
+## Maps in Microsoft Fabric
+
+Maps (preview) in [Microsoft Fabric] is a powerful geospatial visualization tool within Real-Time Intelligence that turns static and real-time spatial data into actionable insights by uncovering patterns and trends often missed in traditional charts. With an intuitive interface, you can create interactive maps featuring multiple layers, and rich customization options. Seamlessly integrated with other Fabric experiences and powered by Azure Maps services, it delivers accurate, scalable, and secure mapping for enterprise scenarios. Whether monitoring IoT devices, tracking assets, or analyzing regional trends, Maps helps you make sense of spatial data in real time. For more information, see [Create a map].
+
+:::image type="content" source="./media/about-azure-maps/intro-fabric-maps.png" lightbox="./media/about-azure-maps/intro-fabric-maps.png" alt-text="A screenshot showing Maps in Microsoft Fabric.":::
+
 ## Map controls
 
 ### Web SDK
@@ -78,7 +84,7 @@ For more information, see [Route] in the Azure Maps REST API documentation.
 
 ### Search service
 
-The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. Also, services can [reverse geocode] addresses and cross streets based on latitudes and longitudes.
+The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. Also, services can [reverse geocode] addresses and cross streets based on latitudes and longitudes. [Geocode Autocomplete] (preview) suggests location completions as you type, based on partial input and optional location context.
 
 :::image type="content" source="./media/about-azure-maps/intro_search.png" lightbox="./media/about-azure-maps/intro_search.png"  alt-text="Example of a search on a map.":::
 
@@ -142,7 +148,7 @@ For more information, see [Traffic] in the Azure Maps REST API documentation.
 
 ### Weather service
 
-The Weather service offers API to retrieve weather information for a particular location. This information includes observation date and time, weather conditions, precipitation indicator flags, temperature, and wind speed information. Other details such as RealFeel™ Temperature and UV index are also returned.
+The Weather service offers API to retrieve weather information for a particular location. This information includes observation date and time, weather conditions, precipitation indicator flags, temperature, and wind speed information. Other details such as RealFeel&trade; Temperature and UV index are also returned.
 
 Developers can use the [Get Weather along route API] to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints affected by weather hazards, such as flooding or heavy rain.
 
@@ -180,7 +186,7 @@ Azure Maps uses a key-based authentication scheme. When you create your account,
 Azure Maps services are currently available except in the following countries/regions:
 
 * China
-* South Korea
+* Korea
 
 Verify that the location of your current IP address is in a supported country/region.
 
@@ -200,6 +206,7 @@ Stay up to date on Azure Maps:
 [Quickstart: Create a web app]: quick-demo-map-app.md
 
 <!---------   REST API Links     --------------->
+[Geocode Autocomplete]: /rest/api/maps/search/get-geocode-autocomplete
 [Geolocation]: /rest/api/maps/geolocation
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
@@ -211,8 +218,14 @@ Stay up to date on Azure Maps:
 [TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
+
 <!---------   JavaScript API Links     --------------->
 [JavaScript map control]: /javascript/api/azure-maps-control
+
+<!---------   Microsoft Fabric Maps Links     --------------->
+[Create a map]: /fabric/real-time-intelligence/map/create-map
+[Microsoft Fabric]: /fabric/fundamentals/microsoft-fabric-overview
+
 <!---------   External Links     --------------->
 [Azure Maps account]: https://azure.microsoft.com/services/azure-maps/
 [Azure Maps blog]: https://azure.microsoft.com/blog/topics/azure-maps/

@@ -261,6 +261,8 @@
       href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
     - name: REST API
       href: /rest/api/dtl/
+    - name: Deploy a DevTest Lab
+      href: https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/dev-test-lab/lab
     - name: ARM templates
       href: /azure/templates/microsoft.devtestlab/allversions
 - name: Resources

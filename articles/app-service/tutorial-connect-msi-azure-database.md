@@ -7,7 +7,7 @@ ms.author: cephalin
 ms.devlang: csharp
 # ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
-ms.date: 09/30/2024
+ms.date: 03/18/2026
 ms.service: azure-app-service
 ms.custom:
   - mvc
@@ -21,28 +21,29 @@ ms.custom:
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
 
-[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to Azure databases, including: 
+[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to Azure databases, including:
 
 - [Azure SQL Database](/azure/azure-sql/database/)
 - [Azure Database for MySQL](/azure/mysql/)
 - [Azure Database for PostgreSQL](/azure/postgresql/)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](/azure/cosmos-db/), which supports Microsoft Entra authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](/azure/cosmos-db/managed-identity-based-authentication).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](/azure/cosmos-db/), which supports Microsoft Entra authentication differently. For more information, see the Azure Cosmos DB documentation, such as [Use system-assigned managed identities to access Azure Cosmos DB data](/azure/cosmos-db/how-to-connect-role-based-access-control).
 
-Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
+Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities.
 
 <!-- ![Architecture diagram for tutorial scenario.](./media/tutorial-connect-msi-sql-database/architecture.png) -->
 
-What you will learn:
+What you'll learn:
 
 > [!div class="checklist"]
-> * Configure a Microsoft Entra user as an administrator for your Azure database.
-> * Connect to your database as the Microsoft Entra user.
-> * Configure a system-assigned or user-assigned managed identity for an App Service app.
-> * Grant database access to the managed identity.
-> * Connect to the Azure database from your code (.NET Framework 4.8, .NET 6, Node.js, Python, Java) using a managed identity.
-> * Connect to the Azure database from your development environment using the Microsoft Entra user.
+>
+> - Configure a Microsoft Entra user as an administrator for your Azure database.
+> - Connect to your database as the Microsoft Entra user.
+> - Configure a system-assigned or user-assigned managed identity for an App Service app.
+> - Grant database access to the managed identity.
+> - Connect to the Azure database from your code (.NET Framework 4.8, .NET 6, Node.js, Python, Java) using a managed identity.
+> - Connect to the Azure database from your development environment using the Microsoft Entra user.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -56,7 +57,6 @@ Prepare your environment for the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-
 ## 1. Install the Service Connector passwordless extension
 
 [!INCLUDE [CLI-samples-clean-up](../service-connector/includes/install-passwordless-extension.md)]
@@ -66,7 +66,7 @@ Prepare your environment for the Azure CLI.
 Next, create a passwordless connection with Service Connector.
 
 > [!TIP]
-> The Azure portal can help you compose the commands below. In the Azure portal, go to your [Azure App Service](../service-connector/quickstart-portal-app-service-connection.md) resource, select **Service Connector** from the left menu and select **Create**. Fill out the form with all required parameters. Azure automatically generates the connection creation command, which you can copy to use in the CLI or execute in Azure Cloud Shell.
+> The Azure portal can help you compose the following commands. In the Azure portal, go to your [Azure App Service](../service-connector/quickstart-portal-app-service-connection.md) resource, select **Service Connector** from the left menu, and select **Create**. Fill out the form with all required parameters. Azure automatically generates the connection creation command, which you can copy to use in the CLI or execute in Azure Cloud Shell.
 
 # [Azure SQL Database](#tab/sqldatabase-sc)
 
@@ -74,7 +74,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 1. Optionally run the `az webapp connection create sql -h` to get the supported client types.
 
-1. Choose a client type and run the corresponding command. Replace the placeholders below with your own information.
+1. Choose a client type and run the corresponding command. Replace the following placeholders with your own information.
 
     # [User-assigned managed identity](#tab/userassigned-sc)
 
@@ -107,9 +107,9 @@ The following Azure CLI command uses a `--client-type` parameter.
 # [Azure Database for MySQL](#tab/mysql-sc)
 
 > [!NOTE]
-> For Azure Database for MySQL - Flexible Server, you must first [manually set up Microsoft Entra authentication](/azure/mysql/flexible-server/how-to-azure-ad), which requires a separate user-assigned managed identity and specific Microsoft Graph permissions. This step can't be automated.
+> For Azure Database for MySQL - Flexible Server, you must first [manually set up Microsoft Entra authentication](/azure/mysql/flexible-server/security-how-to-entra), which requires a separate user-assigned managed identity and specific Microsoft Graph permissions. This step can't be automated.
 
-1. Manually [set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/how-to-azure-ad).
+1. Manually [set up Microsoft Entra authentication for Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/security-how-to-entra).
 
 1. Optionally run the command `az webapp connection create mysql-flexible -h` to get the supported client types.
 
@@ -179,7 +179,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
     -----
 
-1. Grant permission to pre-created tables
+1. Grant permission to precreated tables
 
 [!INCLUDE [PostgreSQL grant permission](../service-connector/includes/postgres-grant-permission.md)]
 
@@ -187,11 +187,11 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 This Service Connector command completes the following tasks in the background:
 
-* Enable system-assigned managed identity, or assign a user identity for the app `<server-name>` hosted by Azure App Service.
-* Set the Microsoft Entra admin to the current signed-in user.
-* Add a database user for the system-assigned managed identity or user-assigned managed identity. Grant all privileges of the database `<database-name>` to this user. The username can be found in the connection string in preceding command output.
-* Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
-* For App Service, the configurations are set in the **App Settings** blade.
+- Enable system-assigned managed identity, or assign a user identity for the app `<server-name>` hosted by Azure App Service.
+- Set the Microsoft Entra admin to the current signed-in user.
+- Add a database user for the system-assigned managed identity or user-assigned managed identity. Grant all privileges of the database `<database-name>` to this user. The username can be found in the connection string in preceding command output.
+- Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
+- For App Service, the configurations are set in the **App Settings** blade.
 
 If you encounter any problem when creating a connection, refer to [Troubleshooting](../service-connector/tutorial-passwordless.md#troubleshooting) for help.
 
@@ -229,7 +229,7 @@ Connectivity to the Azure Database for PostgreSQL in your code follows the `Defa
 
  This sample code uses `DefaultAzureCredential` to get a usable token for your Azure database from Microsoft Entra ID and then adds it to the database connection. While you can customize `DefaultAzureCredential`, it's already versatile by default. It gets a token from the signed-in Microsoft Entra user or from a managed identity, depending on whether you run it locally in your development environment or in App Service.
 
-Without any further changes, your code is ready to be run in Azure. To debug your code locally, however, your develop environment needs a signed-in Microsoft Entra user. In this step, you configure your environment of choice by signing in with your Microsoft Entra user. 
+Without any further changes, your code is ready to be run in Azure. To debug your code locally, however, your develop environment needs a signed-in Microsoft Entra user. In this step, you configure your environment of choice by signing in with your Microsoft Entra user.
 
 # [Visual Studio Windows](#tab/windowsclient)
 
@@ -239,7 +239,7 @@ Without any further changes, your code is ready to be run in Azure. To debug you
 
 # [Visual Studio for macOS](#tab/macosclient)
 
-1. Visual Studio for Mac is *not* integrated with Microsoft Entra authentication. However, the Azure Identity client library that you'll use later can also retrieve tokens from Azure CLI. To enable development and debugging in Visual Studio, [install Azure CLI](/cli/azure/install-azure-cli) on your local machine.
+1. Visual Studio for Mac *isn't* integrated with Microsoft Entra authentication. However, the Azure Identity client library that you'll use later can also retrieve tokens from Azure CLI. To enable development and debugging in Visual Studio, [install Azure CLI](/cli/azure/install-azure-cli) on your local machine.
 
 1. Sign in to Azure CLI with the following command using your Microsoft Entra user:
 
@@ -249,7 +249,7 @@ Without any further changes, your code is ready to be run in Azure. To debug you
 
 # [Visual Studio Code](#tab/vscode)
 
-1. Visual Studio Code is integrated with Microsoft Entra authentication through the Azure extension. Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension in Visual Studio Code.
+1. Visual Studio Code is integrated with Microsoft Entra authentication through the Azure extension. Install the [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack") extension in Visual Studio Code.
 
 1. In Visual Studio Code, in the [Activity Bar](https://code.visualstudio.com/docs/getstarted/userinterface), select the **Azure** logo.
 
@@ -296,27 +296,26 @@ You're now ready to develop and debug your app with the SQL Database as the back
 - [I get the error `SSL connection is required. Please specify SSL options and retry`.](#i-get-the-error-ssl-connection-is-required-please-specify-ssl-options-and-retry)
 - [I created my app with the Web App + Database template, and now I can't configure a managed identity connection with the Service Connector commands.](#i-created-my-app-with-the-web-app--database-template-and-now-i-cant-configure-a-managed-identity-connection-with-the-service-connector-commands)
 
-#### Does managed identity support SQL Server?
+### Does managed identity support SQL Server?
 
 Yes. For more information, see:
 
 - [Microsoft Entra authentication for SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-overview)
 - [Enable Microsoft Entra authentication for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm)
 
-#### I get the error `Login failed for user '<token-identified principal>'.`
+### I get the error `Login failed for user '<token-identified principal>'.`
 
-The managed identity you're attempting to request a token for is not authorized to access the Azure database.
+The managed identity you're attempting to request a token for isn't authorized to access the Azure database.
 
-#### I made changes to App Service authentication or the associated app registration. Why do I still get the old token?
+### I made changes to App Service authentication or the associated app registration. Why do I still get the old token?
 
 The back-end services of managed identities also [maintain a token cache](overview-managed-identity.md#configure-target-resource) that updates the token for a target resource only when it expires. If you modify the configuration *after* trying to get a token with your app, you don't actually get a new token with the updated permissions until the cached token expires. The best way to work around this is to test your changes with a new InPrivate (Edge)/private (Safari)/Incognito (Chrome) window. That way, you're sure to start from a new authenticated session.
 
-
 <a name='how-do-i-add-the-managed-identity-to-an-azure-ad-group'></a>
 
-#### How do I add the managed identity to a Microsoft Entra group?
+### How do I add the managed identity to a Microsoft Entra group?
 
-If you want, you can add the identity to an [Microsoft Entra group](../active-directory/fundamentals/active-directory-manage-groups.md), then grant  access to the Microsoft Entra group instead of the identity. For example, the following commands add the managed identity from the previous step to a new group called _myAzureSQLDBAccessGroup_:
+If you want, you can add the identity to a [Microsoft Entra group](/entra/fundamentals/concept-learn-about-groups), then grant access to the Microsoft Entra group instead of the identity. For example, the following commands add the managed identity from the previous step to a new group called *myAzureSQLDBAccessGroup*:
 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -327,14 +326,14 @@ az ad group member list -g $groupid
 
 To grant database permissions for a Microsoft Entra group, see documentation for the respective database type.
 
-#### I get the error `SSL connection is required. Please specify SSL options and retry`.
+### I get the error `SSL connection is required. Please specify SSL options and retry`.
 
-Connecting to the Azure database requires additional settings and is beyond the scope of this tutorial. For more information, see one of the following links:
+Connecting to the Azure database requires more settings and is beyond the scope of this tutorial. For more information, see one of the following links:
 
-[Configure TLS connectivity in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-ssl-connection-security)
-[Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](/azure/mysql/howto-configure-ssl)
+- [Configure TLS connectivity in Azure Database for PostgreSQL - Single Server](/azure/postgresql/security/security-tls-how-to-connect)
+- [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](/azure/mysql/flexible-server/security-tls-how-to-connect)
 
-#### I created my app with the Web App + Database template, and now I can't configure a managed identity connection with the Service Connector commands.
+### I created my app with the Web App + Database template, and now I can't configure a managed identity connection with the Service Connector commands.
 
 Service Connector needs network access to the database in order to grant access for the app identity. When you create a secure-by-default app and database architecture in the Azure portal with the Web App + Database template, the architecture locks down network access to the database and only allows connections from within the virtual network. It's also true for Azure Cloud Shell. However, you can [deploy Cloud Shell in the virtual network](../cloud-shell/vnet/deployment.md), then run the Service Connector command in that Cloud Shell.
 
@@ -343,21 +342,22 @@ Service Connector needs network access to the database in order to grant access 
 What you learned:
 
 > [!div class="checklist"]
-> * Configure a Microsoft Entra user as an administrator for your Azure database.
-> * Connect to your database as the Microsoft Entra user.
-> * Configure a system-assigned or user-assigned managed identity for an App Service app.
-> * Grant database access to the managed identity.
-> * Connect to the Azure database from your code (.NET Framework 4.8, .NET 6, Node.js, Python, Java) using a managed identity.
-> * Connect to the Azure database from your development environment using the Microsoft Entra user.
-
+>
+> - Configure a Microsoft Entra user as an administrator for your Azure database.
+> - Connect to your database as the Microsoft Entra user.
+> - Configure a system-assigned or user-assigned managed identity for an App Service app.
+> - Grant database access to the managed identity.
+> - Connect to the Azure database from your code (.NET Framework 4.8, .NET 6, Node.js, Python, Java) using a managed identity.
+> - Connect to the Azure database from your development environment using the Microsoft Entra user.
+>
 > [!div class="nextstepaction"]
 > [How to use managed identities for App Service and Azure Functions](overview-managed-identity.md)
-
+>
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
-
+>
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to Azure services that don't support managed identities (using Key Vault)](tutorial-connect-msi-key-vault.md)
-
+>
 > [!div class="nextstepaction"]
 > [Tutorial: Isolate back-end communication with Virtual Network integration](tutorial-networking-isolate-vnet.md)

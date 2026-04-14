@@ -22,7 +22,7 @@ This article explains how to create, change, or delete Azure virtual network pee
 
 ## Prerequisites
 
-If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Complete one of these tasks before starting the remainder of this article:
+If you don't have an Azure account with an active subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Complete one of these tasks before starting the remainder of this article:
 
 # [**Portal**](#tab/peering-portal)
 
@@ -308,6 +308,8 @@ az network vnet peering delete \
 ## Requirements and constraints
 
 - <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as **Global Virtual Network Peering**.
+
+- If the 2 Virtual Networks are in different subscriptions or different resource groups within same subscription, please note that you have to introduce the full resource URI of the remote Virtual Network when using Powershell or CLI.
 
 - When you create a global peering, the peered virtual networks can exist in any Azure public cloud region, China cloud region, or Government cloud region. However, you can't peer virtual networks across different clouds. For example, a virtual network in Azure public cloud can't connect to a virtual network in Microsoft Azure operated by 21Vianet cloud.
   

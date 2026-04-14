@@ -2,11 +2,11 @@
 title: Manage the configuration server for physical servers in Azure Site Recovery
 description: This article describes how to manage the Azure Site Recovery configuration server for physical server disaster recovery to Azure.
 services: site-recovery
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 07/27/2022
-ms.author: jsuri
+ms.date: 02/27/2026
+ms.author: v-gajeronika
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
@@ -20,6 +20,8 @@ You set up an on-premises configuration server when you use the [Azure Site Reco
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 The table summarizes the prerequisites for deploying the on-premises configuration server machine.
 

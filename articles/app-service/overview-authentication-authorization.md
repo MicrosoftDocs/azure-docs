@@ -2,7 +2,7 @@
 title: Authentication and Authorization
 description: Learn about the built-in authentication and authorization support in Azure App Service and Azure Functions, and how it can help secure your app.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/28/2025
 ms.update-cycle: 1095-days
 ms.reviewer: mahender
@@ -170,6 +170,27 @@ App Service authentication mitigates cross-site request forgery by inspecting cl
 
 When a request fulfills all these conditions, App Service authentication automatically rejects it. You can work around this mitigation logic by adding your external domain to the redirect list in **Settings** > **Authentication** > **Edit authentication settings** > **Allowed external redirect URLs**.
 
+### Protected resource metadata (preview)
+
+App Service can serve OAuth 2.0 protected resource metadata, as defined in [RFC 9728](https://datatracker.ietf.org/doc/html/rfc9728). This can help OAuth 2.0 clients understand how to interact with your app. It is required for [Model Context Protocol (MCP) server authorization](./configure-authentication-mcp.md).
+
+> [!NOTE]
+> Support for protected resource metadata is currently in preview, and the way you configure it may change before the feature is generally available.
+
+During the preview period, you can enable a default protected resource metadata document by configuring the `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` [application setting](./configure-common.md#configure-app-settings) with a comma-separated list of scopes needed by the application. For example, when you let App Service configure the Microsoft Entra provider for you, it will set up a scope like `api://<client-id>/user_impersonation`, replacing `<client-id>` with the actual client ID of your app registration.
+
+The default protected resource metadata document includes the following properties:
+
+| Property | Description |
+|-|-|
+| `resource` | The resource URI corresponding to the endpoint at which the protected resource metadata was accessed. |
+| `authorization_servers` | A list of authorization servers for the identity providers that you have configured. |
+| `scopes_supported` | The list of scopes that you specified in the `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` application setting. |
+
+Additional properties are not supported when using the default configuration.
+
+Configuring the default protected resource metadata document also changes how App Service handles unauthenticated requests for APIs. When the app issues an authorization challenge, it includes the URL of the protected resource metadata, which the client can then retrieve and process. The challenge also includes the scopes that you configured in the `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` application setting.
+
 ## Considerations for using Azure Front Door
 
 When you're using Azure App Service with authentication behind Azure Front Door or other reverse proxies, consider the following actions.
@@ -215,6 +236,40 @@ Ensure that `convention` is set to `Standard` to respect the `X-Forwarded-Host` 
 ```bash
 az rest --uri /subscriptions/REPLACE-ME-SUBSCRIPTIONID/resourceGroups/REPLACE-ME-RESOURCEGROUP/providers/Microsoft.Web/sites/REPLACE-ME-APPNAME/config/authsettingsV2?api-version=2020-09-01 --method put --body @auth.json
 ```
+
+## Client type and OAuth flow behavior
+
+### Confidential vs. public client
+
+When a client secret is configured for the identity provider, App Service authentication (Easy Auth) acts as a *confidential client*. For Microsoft Entra ID specifically:
+
+- **With a client secret configured**: App Service uses the [hybrid flow](/entra/identity-platform/v2-oauth2-auth-code-flow) (`response_type=code id_token`). In this flow, App Service exchanges the authorization code for tokens using the secret, which keeps the secret secure on the server side.
+- **Without a client secret configured**: App Service falls back to the [implicit flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow) (`response_type=id_token`). In this flow, the ID token is returned directly in the redirect without a code exchange.
+
+If your scenario requires a confidential client flow with secure token exchange, make sure a client secret is configured for the identity provider in your App Service authentication settings.
+
+### PKCE (Proof Key for Code Exchange) support
+
+App Service authentication doesn't generate PKCE parameters (`code_verifier` and `code_challenge`) on its own. However, it does support PKCE if the *client* provides the parameters when initiating the sign-in flow.
+
+To use PKCE, include both the `code_challenge` and `code_challenge_method` parameters when you redirect users to the sign-in endpoint:
+
+```text
+https://<your-app>.azurewebsites.net/.auth/login/<provider>?code_challenge=<value>&code_challenge_method=<method>
+```
+
+Both parameters must be provided together. If only one parameter is supplied, App Service rejects the request.
+
+To know the values of `code_challenge_method` that the authorization server supports, refer to the `code_challenge_methods_supported` in their Authorization Server Metadata containing the supported PKCE challenge methods.
+
+[RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636) defines two methods for generating the `code_challenge` from a `code_verifier`:
+
+- **`plain`**: The `code_challenge` is the same as the `code_verifier` (`code_challenge = code_verifier`). This method sends the verifier value directly without any transformation. Use `plain` only if the client can't support SHA-256 for technical reasons.
+- **`S256`** (recommended): The `code_challenge` is the Base64url-encoded SHA-256 hash of the `code_verifier` (`code_challenge = BASE64URL(SHA256(ASCII(code_verifier)))`). This method is more secure because the original `code_verifier` is never exposed during the authorization request.
+
+The `code_verifier` must be a cryptographically random string between 43 and 128 characters long, using only unreserved characters: `A-Z`, `a-z`, `0-9`, `-`, `.`, `_`, and `~`.
+
+For more information on how the authorization code flow works with PKCE, see [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
 ## Related content
 

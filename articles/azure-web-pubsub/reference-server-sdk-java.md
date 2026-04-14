@@ -4,7 +4,7 @@ description: This reference describes the Java SDK for the Azure Web PubSub serv
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/31/2023
 ms.custom:
   - devx-track-extended-java
@@ -75,7 +75,7 @@ WebPubSubServiceClient webPubSubServiceClient = new WebPubSubServiceClientBuilde
 ```java
 WebPubSubServiceClient webPubSubServiceClient = new WebPubSubServiceClientBuilder()
     .credential(new AzureKeyCredential("{access-key}"))
-    .endpoint("<Insert endpoint from Azure Portal>")
+    .endpoint("<Insert endpoint from Azure portal>")
     .hub("chat")
     .buildClient();
 ```
@@ -151,7 +151,7 @@ better performance compared to the default SSL implementation within the JDK. Fo
 
 <!-- LINKS -->
 
-[azure_subscription]: https://azure.microsoft.com/free
+[azure_subscription]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [jdk_link]: /java/azure/jdk
 [source_code]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/webpubsub/azure-messaging-webpubsub/src
 [product_documentation]: ./index.yml

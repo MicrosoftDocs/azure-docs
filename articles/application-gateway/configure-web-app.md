@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 10/06/2025
 ms.author: mbender
 ms.custom:
   - devx-track-azurepowershell
@@ -20,7 +20,7 @@ ms.custom:
 
 Azure Application Gateway allows you to have an App Service app or other multitenant service as a backend pool member. In this article, you learn to configure an App Service app with Application Gateway. The configuration for Application Gateway differs depending on how App Service can be accessed:
 
-- The first option makes use of a **custom domain** on both Application Gateway and the App Service in the backend.  
+- The first option makes use of a **custom domain** on both Application Gateway and the App Service in the backend. 
 - The second option is to have Application Gateway access App Service using its **default domain**, suffixed as ".azurewebsite.net."
 
 ## [Custom domain (recommended)](#tab/customdomain)
@@ -33,7 +33,7 @@ The same domain name to both Application Gateway and App Service in the backend 
 
 ## [Default domain](#tab/defaultdomain)
 
-This configuration is the easiest and doesn't require a custom domain. As such it allows for a quick convenient setup.  
+This configuration is the easiest and doesn't require a custom domain. As such it allows for a quick convenient setup. 
 
 > [!WARNING]
 > This configuration comes with limitations. We recommend reviewing the implications of using different host names between the client and Application Gateway and between Application and App Service in the backend. For more information, please review the article in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation)
@@ -62,6 +62,8 @@ In this article you learn how to:
 - App Service: If you don't have an existing App Service, see [App Service documentation](../app-service/index.yml).
 
 - A custom domain name and associated certificate (signed by a well known authority), stored in Key Vault. For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate)
+
+- A custom health probe configured in Application Gateway that uses the custom domain name as its host name. To create a custom health probe, see [Create a custom health probe](application-gateway-create-probe-portal.md).
 
 ### [Default domain](#tab/defaultdomain)
 
@@ -139,7 +141,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### [Azure portal](#tab/azure-portal/customdomain)
 
-An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**. The HTTP Setting is by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe).  While default health probes forward requests with the hostname in which traffic is received, the health probes can utilize 127.0.0.1 as the hostname to the Backend Pool since no hostname explicitly been defined. For this reason, we need to create a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
+An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**. The HTTP Setting is by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe). While default health probes forward requests with the hostname in which traffic is received, the health probes can utilize 127.0.0.1 as the hostname to the Backend Pool since no hostname explicitly been defined. For this reason, we need to create a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
 
 We connect to the backend using HTTPS.
 
@@ -281,7 +283,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### [PowerShell](#tab/azure-powershell/defaultdomain)
 
-In many cases, a public listener for HTTP on port 80 exists.  The below script creates one if that isn't yet the case.
+In many cases, a public listener for HTTP on port 80 exists. The below script creates one if that isn't yet the case.
 
 ```powershell
 $rgName = "<name of resource group for App Gateway>"
@@ -390,7 +392,7 @@ $gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
 Get-AzApplicationGatewayBackendHealth -ResourceGroupName $rgName -Name $appGwName
 ```
 
-To test the configuration, we'll request content from the App Service through Application Gateway using the custom domain:
+To test the configuration, we request content from the App Service through Application Gateway using the custom domain:
 
 ```powershell
 $customDomainName = "<FQDN for custom domain pointing to Application Gateway>"
@@ -412,7 +414,7 @@ $gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
 Get-AzApplicationGatewayBackendHealth -ResourceGroupName $rgName -Name $appGwName
 ```
 
-To test the configuration, we'll request content from the App Service through Application Gateway using the IP address:
+To test the configuration, we request content from the App Service through Application Gateway using the IP address:
 
 ```powershell
 $rgName = "<name of resource group for App Gateway>"

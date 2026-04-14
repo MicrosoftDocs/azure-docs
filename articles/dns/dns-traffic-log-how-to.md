@@ -11,11 +11,11 @@ ms.author: allensu
 
 # Secure and view DNS traffic
 
-This article shows you how to view and filter DNS traffic at the virtual network with [DNS security policy](dns-security-policy.md).
+This article shows you how to view and filter DNS traffic at the virtual network with [DNS security policy](dns-security-policy.md) and secure your DNS traffic with Threat intelligence feed in Azure DNS.
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A virtual network is required. For more information, see [Create a virtual network](../virtual-network/quick-create-portal.md).
 
 ## Create a security policy
@@ -132,6 +132,20 @@ To configure diagnostic settings:
 
     ![Screenshot of DNS traffic rules.](./media/dns-traffic-log-how-to/dns-traffic-rules.png)
 
+## Secure DNS traffic with Threat intelligence feed
+
+The threat intelligence feed is a fully managed domain list that’s continuously updated in the background. Within DNS Security Policy, it’s treated just like any other standard domain list — using the same configuration model for priority and for the chosen action (allow, block, or alert). 
+
+Select it by adding a new DNS traffic rule and configure it with the action you would like to apply and its respective priority. 
+
+Associate threat intelligence feed with a DNS traffic rule by selecting **Azure DNS threat intel**: 
+
+:::image type="content" source="./media/dns-traffic-log-how-to/enable-threat-intelligence-feed.png" alt-text="Screenshot of enablement of Threat intelligence feed." lightbox="./media/dns-traffic-log-how-to/enable-threat-intelligence-feed.png":::
+
+Configure the action and priority:
+
+:::image type="content" source="./media/dns-traffic-log-how-to/threat-intelligence-rule.png" alt-text="Screenshot of threat intelligence rule." lightbox="./media/dns-traffic-log-how-to/threat-intelligence-rule.png":::
+
 ## View and test DNS logs
 
 1. Navigate to your DNS security policy and then under **Monitoring**, select **Diagnostic settings**.
@@ -171,13 +185,31 @@ If the traffic rule is edited and set to **Block** contoso.com queries, the quer
 This change results in a failed query:
 
 ```
-C:\>dig db.sec.contoso.com
 
-; <<>> DiG 9.9.2-P1 <<>> db.sec.contoso.com
+C:\>dig @168.63.129.16 db.sec.contoso.com 
+; <<>> DiG 9.18.33-1~deb12u2-Debian <<>> db.sec.contoso.com
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 24053
-;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 26872
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
+ 
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1224
+; COOKIE: 336258f5985121ba (echoed)
+;; QUESTION SECTION:
+; db.sec.contoso.com. IN  A
+ 
+;; ANSWER SECTION:
+db.sec.contoso.com. 1006632960 IN CNAME blockpolicy.azuredns.invalid.
+ 
+;; AUTHORITY SECTION:
+blockpolicy.azuredns.invalid. 60 IN     SOA     ns1.azure-dns.com. support.azure.com. 1000 3600 600 1800 60
+ 
+;; Query time: 0 msec
+;; SERVER: 168.63.129.16#53(168.63.129.16) (UDP)
+;; WHEN: Mon Sep 08 11:06:59 UTC 2025
+;; MSG SIZE  rcvd: 183
+
 ```
 
 The failed query is recorded in log analytics:

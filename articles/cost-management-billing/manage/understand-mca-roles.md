@@ -6,9 +6,10 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/29/2025
+ms.date: 02/10/2026
 ms.author: jkinma
 ms.custom: sfi-ga-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Understand Microsoft Customer Agreement administrative roles in Azure
@@ -24,6 +25,7 @@ Watch the [Manage access to your MCA billing account](https://www.youtube.com/wa
 ## Billing role definitions
 
 The following table describes the billing roles you use to manage your billing account, billing profiles, and invoice sections. Permissions granted at the billing account level have the highest level of permission and will inherit permission on all billing groups and invoice sections under that billing account. These inherited permissions cannot be removed at the lower level as they are linked to the role granted at the higher level. If a user only needs access to a specific billing profile or invoice section, grant permission at that level rather than providing access at the billing account scope.
+
 
 |Role|Description|
 |---|---|
@@ -180,9 +182,11 @@ The following tables show what role you need to complete tasks in the context of
 |---|---|---|---|---|---|---|---|---|---|---|---|
 |View all Azure subscriptions for invoice section|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
 |Create Azure subscriptions|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|✘|✘|✘|✘|
 |Change invoice section for the Azure subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Request billing ownership of subscriptions from users in other billing accounts|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+
+¹ Azure subscription creator can only cancel the subscriptions they created.
 
 ## Subscription billing roles and tasks
 
@@ -194,7 +198,9 @@ The following table shows what role you need to complete tasks in the context of
 |Update cost center for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Change invoice section for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Change billing profile for the subscription|✘|✘|✘|✘|✔|✔|✘|✘|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|✘|✘|✘|✘|
+
+¹ Azure subscription creator can only cancel the subscriptions they created.
 
 ## Manage billing roles in the Azure portal
 
@@ -210,6 +216,9 @@ To assign billing roles, you might need to use a specific navigation path in the
    :::image type="content" border="true" source="./media/understand-mca-roles/billing-add-admin.png" alt-text="Screenshot that shows adding an admin to a billing account." lightbox="./media/understand-mca-roles/billing-add-admin.png":::
 6. To remove access for a user, select the user with the role assignment you want to remove. At the top of the page, select **Remove**.  
    :::image type="content" border="true" source="./media/understand-mca-roles/billing-remove-admin.png" alt-text="Screenshot that shows removing an admin from a billing account." lightbox="./media/understand-mca-roles/billing-remove-admin.png":::
+
+>[!NOTE]
+> You'll need to keep one user with “This scope” permissions. Removing the last user with this scope is not allowed.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

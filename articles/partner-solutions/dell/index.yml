@@ -1,0 +1,37 @@
+### YamlMime:Landing
+
+title: Dell PowerScale  
+summary: Dell PowerScale provides scalable, high-performance enterprise file storage, delivered as a native managed service.
+
+metadata:
+  title: Dell PowerScale  
+  description: Dell PowerScale provides scalable, high-performance enterprise file storage, delivered as an Azure Native Integration.
+
+  ms.topic: landing-page
+  ms.date: 03/24/2026
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Dell PowerScale
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Dell PowerScale?
+            url: overview.md
+  # Card
+  - title: Get started with Dell PowerScale
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a resource
+            url: create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage a resource
+            url: manage.md
+
+           
+
+  

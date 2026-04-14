@@ -5,10 +5,11 @@ author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 07/24/2025
+ms.topic: how-to
+ms.date: 11/11/2025
 ms.author: jkinma
 
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 # Add or change Azure subscription administrators
 
@@ -47,7 +48,7 @@ If you're not sure who the account billing administrator is for a subscription, 
 ### To assign a user as an administrator
 
 - Assign the Owner role to a user at the subscription scope.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+     For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Need help? Contact support
 

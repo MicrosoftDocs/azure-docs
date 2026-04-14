@@ -493,7 +493,7 @@ Learn more about Azure Maps REST services:
 [best practices for routing]: how-to-use-best-practices-for-routing.md
 [best practices for search]: how-to-use-best-practices-for-search.md
 [Calculate routes and directions]: #calculate-routes-and-directions
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Get Map Static Image]: /rest/api/maps/render/get-map-static-image
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
@@ -530,10 +530,8 @@ Learn more about Azure Maps REST services:
 [Route]: /rest/api/maps/route
 [Search for a location using Azure Maps Search services]: how-to-search-for-address.md
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
-[Spatial operations]: /rest/api/maps/spatial
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported map styles]: supported-map-styles.md
 [supported search categories]: supported-search-categories.md
 [supporting points]: /rest/api/maps/route/post-route-directions#request-body
 [Timezone]: /rest/api/maps/timezone
-[Traffic]: /rest/api/maps/traffic

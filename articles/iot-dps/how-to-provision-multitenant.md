@@ -2,10 +2,10 @@
 title: Tutorial - Provision devices for geo latency in DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: This tutorial shows how to provision devices for geolocation/geolatency with your Device Provisioning Service (DPS) instance
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: tutorial
-ms.date: 08/24/2022
+ms.date: 08/11/2025
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
 ms.custom:
@@ -18,9 +18,9 @@ ms.custom:
 
 This tutorial shows how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). IoT Hub Device Provisioning Service (DPS) supports various allocation scenarios through its built-in allocation policies and its support for custom allocation policies.
 
-Provisioning for *Geolocation/Geo latency* is a common allocation scenario. As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The built-in **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
+Provisioning for *geolocation/geo latency* is a common allocation scenario. As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub that's closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The built-in **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs.
 
-This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices across regions. You'll perform the following steps in this tutorial:
+This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) to demonstrate how to provision devices across regions. You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
 > * Use the Azure CLI to create two regional IoT hubs (**West US 2** and **East US**)
@@ -30,22 +30,22 @@ This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://
 > * Simulate the devices and verify that they're provisioned to the IoT hub in the closest region.
 
 >[!IMPORTANT]
-> Some regions may, from time to time, enforce restrictions on the creation of Virtual Machines. At the time of writing this guide, the *westus2* and *eastus* regions permitted the creation of VMs. If you're unable to create in either one of those regions, you can try a different region. To learn more about choosing Azure geographical regions when creating VMs, see [Regions for virtual machines in Azure](/azure/virtual-machines/regions)
+> Some regions might, from time to time, enforce restrictions on the creation of Virtual Machines. At the time of writing this guide, the *westus2* and *eastus* regions permitted the creation of VMs. If you're unable to create in either one of those regions, you can try a different region. To learn more about choosing Azure geographical regions when creating VMs, see [Regions for virtual machines in Azure](/azure/virtual-machines/regions)
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+* Complete the steps in [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create two regional IoT hubs
 
-In this section, you'll create an Azure resource group, and two new regional IoT hub resources. One IoT hub will be for the **West US 2** region and the other will be for the **East US** region.
+In this section, you create an Azure resource group, and two new regional IoT hub resources. One IoT hub is for the **West US 2** region and the other is for the **East US** region.
 
 >[!IMPORTANT]
->It's recommended that you use the same resource group for all resources created in this tutorial. This will make clean up easier after you're finished.
+>We recommend that you use the same resource group for all resources created in this tutorial. Using the same resource group makes cleaning up easier after you finish.
 
 1. In the Azure Cloud Shell, create a resource group with the following [az group create](/cli/azure/group#az-group-create) command:
 
@@ -53,13 +53,13 @@ In this section, you'll create an Azure resource group, and two new regional IoT
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Create an IoT hub in the *eastus* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command(replace `{unique-hub-name}` with your own unique name):
+2. Create an IoT hub in the *eastus* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command (replace `{unique-hub-name}` with your own unique name):
 
     ```azurecli-interactive
     az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location eastus --sku S1
     ```
 
-    This command may take a few minutes to complete.
+    This command might take a few minutes to complete.
 
 3. Now, create an IoT hub in the *westus2* location, and add it to the resource group you created with the following [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command(replace `{unique-hub-name}` with your own unique name):
 
@@ -67,13 +67,13 @@ In this section, you'll create an Azure resource group, and two new regional IoT
     az iot hub create --name {unique-hub-name} --resource-group contoso-us-resource-group --location westus2 --sku S1
     ```
 
-    This command may take a few minutes to complete.
+    This command might take a few minutes to complete.
 
 ## Create an enrollment for geo latency
 
-In this section, you'll create a new enrollment group for your devices.  
+In this section, you create a new enrollment group for your devices.  
 
-For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
+For simplicity, this tutorial uses [symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
@@ -111,7 +111,7 @@ For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetri
 
 1. Once your enrollment group is created, select its name *contoso-us-devices* from the enrollment groups list.
 
-1. Copy the *Primary key*. This key will be used later to generate unique device keys for both simulated devices.
+1. Copy the *Primary key*. This key is used later to generate unique device keys for both simulated devices.
 
 ## Create regional Linux VMs
 
@@ -139,9 +139,9 @@ To make clean-up easier, add these VMs to the same resource group that contains 
     --public-ip-sku Standard
     ```
 
-    This command will take a few minutes to complete.
+    This command takes a few minutes to complete.
 
-2. Once the command has completed, copy the **publicIpAddress** value for your East US region VM.
+2. Once the command is completed, copy the **publicIpAddress** value for your East US region VM.
 
 3. In the Azure Cloud Shell, run the command to create a **West US 2** region VM after making the following parameter changes in the command:
 
@@ -163,9 +163,9 @@ To make clean-up easier, add these VMs to the same resource group that contains 
     --public-ip-sku Standard
     ```
 
-    This command will take a few minutes to complete.
+    This command takes a few minutes to complete.
 
-4. Once the command has completed, copy the **publicIpAddress** value for your West US 2 region VM.
+4. Once the command is completed, copy the **publicIpAddress** value for your West US 2 region VM.
 
 5. Open two command-line shells.
 
@@ -187,7 +187,7 @@ To make clean-up easier, add these VMs to the same resource group that contains 
 
 ## Prepare the Azure IoT C SDK development environment
 
-In this section, you'll clone the Azure IoT C SDK on each VM. The SDK contains a sample that simulates a device provisioning from each region.
+In this section, you clone the Azure IoT C SDK on each VM. The SDK contains a sample that simulates a device provisioning from each region.
 
 For each VM:
 
@@ -200,7 +200,7 @@ For each VM:
 
 2. Find and copy the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
 
-3. Clone the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) on both VMs. Use the tag you found in the previous step as the value for the `-b` parameter, for example: `lts_01_2023`.
+3. Clone the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) on both VMs. Use the tag you found in the previous step as the value for the `-b` parameter, for example: `lts_03_2025`.
 
     ```bash
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -223,7 +223,7 @@ For each VM:
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-6. Once the build succeeds, the last few output lines will look similar to the following output:
+6. Once the build succeeds, the last few output lines look similar to the following output:
 
     ```bash
     -- IoT Client SDK Version = 1.7.0
@@ -249,14 +249,14 @@ For each VM:
 
 When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key from the enrollment group key for each device.
 
-In this part of the tutorial, you'll generate a device key from the group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
+In this part of the tutorial, you generate a device key from the group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result is then converted into Base64 format.
 
 >[!IMPORTANT]
 >Don't include your group master key in your device code.
 
 For **both** *eastus* and *westus2* devices:
 
-1. Generate your unique key using **openssl**. You'll use the following Bash shell script (replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice}`with your own unique registration ID for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
+1. Generate your unique key using **openssl**. You use the following Bash shell script (replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice}`with your own unique registration ID for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
 
     ```bash
     KEY={primary-key}
@@ -266,7 +266,7 @@ For **both** *eastus* and *westus2* devices:
     echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
     ```
 
-2. The script will output something like the following key:
+2. The script outputs something like the following key:
 
     ```bash
     p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=
@@ -276,13 +276,13 @@ For **both** *eastus* and *westus2* devices:
 
 ## Simulate the devices from each region
 
-In this section, you'll update a provisioning sample in the Azure IoT C SDK for both of the regional VMs. 
+In this section, you update a provisioning sample in the Azure IoT C SDK for both of the regional VMs. 
 
-The sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence causes the device to be recognized and assigned to the IoT hub that is closest based on latency.
+The sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence causes the device to be recognized and assigned to the IoT hub that's closest based on latency.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note down the **_ID Scope_** value.
 
-    :::image type="content" source="./media/how-to-provision-multitenant/copy-id-scope.png" alt-text="Extract Device Provisioning Service endpoint information from the portal blade.":::
+    :::image type="content" source="./media/how-to-provision-multitenant/copy-id-scope.png" alt-text="Extract Device Provisioning Service endpoint information from the Azure portal.":::
 
 2. On both VMS, open **~/azure-iot-sdk-c/provisioning\_client/samples/prov\_dev\_client\_sample/prov\_dev\_client\_sample.c** for editing.
 
@@ -296,7 +296,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
     static const char* id_scope = "0ne00002193";
     ```
 
-4. On both VMs, find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown below to match the enrollment group attestation method. 
+4. On both VMs, find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown in the following code example to match the enrollment group attestation method. 
 
     Save your changes to the files on both VMs.
 
@@ -314,7 +314,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function calls, and replace the placeholder values (including the angle brackets) with the unique registration IDs and derived device keys for each device that you derived in the previous section. The keys shown below are examples. Use the keys you generated earlier.
+    Uncomment the function calls, and replace the placeholder values (including the angle brackets) with the unique registration IDs and derived device keys for each device that you derived in the previous section. The keys shown in the following function calls are examples. Use the keys you generated earlier.
 
     East US:
     ```c
@@ -330,7 +330,7 @@ The sample code simulates a device boot sequence that sends the provisioning req
 
 6. On both VMs, save the file.
 
-7. On both VMs, navigate to the sample folder shown below, and build the sample.
+7. On both VMs, navigate to the sample folder shown in the following Bash script, and build the sample.
 
     ```bash
     cd ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/
@@ -394,13 +394,13 @@ To delete the resource group by name:
 
 3. In the **Filter by name...** textbox, type the name of the resource group containing your resources, **contoso-us-resource-group**.
 
-4. To the right of your resource group in the result list, click **...** then **Delete resource group**.
+4. To the right of your resource group in the result list, select **...** then **Delete resource group**.
 
-5. You'll be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then select **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
+5. You're asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then select **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 
 To learn more about custom allocation policies, see
 
 > [!div class="nextstepaction"]
-> [Understand custom allocation policies](concepts-custom-allocation.md)
+> [Understand custom allocation policies with Azure IoT Hub Device Provisioning Service](concepts-custom-allocation.md)

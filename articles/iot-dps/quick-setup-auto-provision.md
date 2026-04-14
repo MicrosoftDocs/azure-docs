@@ -2,8 +2,8 @@
 title: Quickstart - Set up in portal
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) in the Microsoft Azure portal
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: cwatson-cat
+ms.author: cwatson
 manager: lizross
 ms.date: 08/16/2024
 ms.topic: quickstart
@@ -29,7 +29,7 @@ Before you can provision your devices, you first perform the following steps:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create an IoT hub
 

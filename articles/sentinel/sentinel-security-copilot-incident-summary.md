@@ -7,8 +7,7 @@ ms.pagetype: security
 author: guywi-ms
 ms.author: guywild
 ms.localizationpriority: medium
-audience: ITPro
-ms.topic: conceptual
+ms.topic: how-to
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Defender portal

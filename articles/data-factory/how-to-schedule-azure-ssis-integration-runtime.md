@@ -3,7 +3,7 @@ title: Schedule an Azure-SSIS integration runtime
 description: This article describes how to schedule starting and stopping an Azure-SSIS integration runtime by using Azure Data Factory.
 ms.subservice: integration-services
 ms.devlang: powershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu
@@ -123,7 +123,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
 
    1. On your Data Factory page in the Azure portal, select **Access control (IAM)**.
    1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
       | Setting | Value |
       | --- | --- |

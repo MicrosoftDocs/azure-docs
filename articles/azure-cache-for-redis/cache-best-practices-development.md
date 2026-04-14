@@ -1,9 +1,7 @@
 ---
 title: Best practices for development
 description: Learn how to develop code for Azure Cache for Redis.
-
-
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom:
   - ignite-2024
 ms.date: 04/18/2024
@@ -13,6 +11,8 @@ appliesto:
 ---
 
 # Development
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 ## Connection resilience and server load
 

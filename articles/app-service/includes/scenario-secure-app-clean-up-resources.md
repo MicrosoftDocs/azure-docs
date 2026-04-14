@@ -1,15 +1,11 @@
 ---
 title: Tutorial - Clean up resources | Azure
 description: In this tutorial, you learn how to clean up the Azure resources allocated while creating the web app.
-services: storage, app-service-web
-author: rwike77
-manager: CelesteDG
-
+author: cephalin
+ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 09/15/2023
-ms.author: ryanwi
-ms.reviewer: stsoneff
 ms.custom:
   - azureday1
   - sfi-image-nochange
@@ -36,7 +32,7 @@ This command might take several minutes to run.
 
 ### Delete the app registration
 
-In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Applications** > **App registrations**. Then select the application you created.
+In the [Microsoft Entra admin center](https://entra.microsoft.com), select **App registrations**. Then select the application you created.
 :::image type="content" alt-text="Screenshot that shows selecting app registration." source="../media/scenario-secure-app-clean-up-resources/select-app-registration.png":::
 
 In the app registration overview, select **Delete**.
@@ -44,7 +40,7 @@ In the app registration overview, select **Delete**.
 
 ### Delete the external tenant
 
-If you created a new external tenant, you can [delete it](/entra/external-id/customers/how-to-delete-external-tenant-portal).  In to the [Microsoft Entra admin center](https://entra.microsoft.com), browse to **Identity** > **Overview** > **Manage tenants**.
+If you created a new external tenant, you can [delete it](/entra/external-id/customers/how-to-delete-external-tenant-portal).  In to the [Microsoft Entra admin center](https://entra.microsoft.com), browse to **Entra ID** > **Overview** > **Manage tenants**.
 
 Select the tenant you want to delete, and then select **Delete**.
 

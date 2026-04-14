@@ -19,7 +19,7 @@ This article walks you through integrating Kafka Connect with an event hub and d
 ## Prerequisites
 To complete this walkthrough, make sure you have the following prerequisites:
 
-- Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Git](https://www.git-scm.com/downloads)
 - Linux/macOS
 - Latest Kafka release available from [kafka.apache.org](https://kafka.apache.org/downloads)

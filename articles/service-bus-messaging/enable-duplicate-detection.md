@@ -77,7 +77,7 @@ Similarly, to **update a topic with a new detection window size**, use the [`az 
 az servicebus topic update \
     --resource-group myresourcegroup \
     --namespace-name mynamespace \
-    --name myqueue \
+    --name mytopic \
     --duplicate-detection-history-time-window P7D
 ```
  
@@ -134,8 +134,39 @@ Set-AzServiceBusTopic -ResourceGroup myresourcegroup `
     -TopicObj $topic
 ```
 
-## Using Azure Resource Manager template
+## Using a template
 To **create a queue with duplicate detection enabled**, set `requiresDuplicateDetection` to `true` in the queue properties section. For more information, see [Microsoft.ServiceBus namespaces/queues template reference](/azure/templates/microsoft.servicebus/namespaces/queues?tabs=json). Specify a value for the `duplicateDetectionHistoryTimeWindow` property to set the size of the duplicate detection window. In the following example, it's set to one day.  
+
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('Name of the Service Bus namespace')
+param serviceBusNamespaceName string
+
+@description('Name of the Queue')
+param serviceBusQueueName string
+
+@description('Location for all resources.')
+param location string = resourceGroup().location
+
+resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+  name: serviceBusNamespaceName
+  location: location
+  sku: {
+    name: 'Standard'
+  }
+
+  resource queue 'queues' = {
+    name: serviceBusQueueName
+    properties: {
+      requiresDuplicateDetection: true
+      duplicateDetectionHistoryTimeWindow: 'P1D'
+    }
+  }
+}
+```
+
+# [ARM template](#tab/arm)
 
 ```json
 {
@@ -165,20 +196,19 @@ To **create a queue with duplicate detection enabled**, set `requiresDuplicateDe
   "resources": [
     {
       "type": "Microsoft.ServiceBus/namespaces",
-      "apiVersion": "2018-01-01-preview",
+      "apiVersion": "2024-01-01",
       "name": "[parameters('serviceBusNamespaceName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard"
       },
-      "properties": {},
       "resources": [
         {
-          "type": "Queues",
-          "apiVersion": "2017-04-01",
+          "type": "queues",
+          "apiVersion": "2024-01-01",
           "name": "[parameters('serviceBusQueueName')]",
           "dependsOn": [
-            "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
+            "[parameters('serviceBusNamespaceName')]"
           ],
           "properties": {
             "requiresDuplicateDetection": true,
@@ -189,17 +219,49 @@ To **create a queue with duplicate detection enabled**, set `requiresDuplicateDe
     }
   ]
 }
-
 ```
 
+---
+
 To **create a topic with duplicate detection enabled**, set `requiresDuplicateDetection` to `true` in the topic properties section. For more information, see [Microsoft.ServiceBus namespaces/topics template reference](/azure/templates/microsoft.servicebus/namespaces/topics?tabs=json). 
+
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('Name of the Service Bus namespace')
+param serviceBusNamespaceName string
+
+@description('Name of the Topic')
+param serviceBusTopicName string
+
+@description('Location for all resources.')
+param location string = resourceGroup().location
+
+resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2024-01-01' = {
+  name: serviceBusNamespaceName
+  location: location
+  sku: {
+    name: 'Standard'
+  }
+
+  resource topic 'topics' = {
+    name: serviceBusTopicName
+    properties: {
+      requiresDuplicateDetection: true
+      duplicateDetectionHistoryTimeWindow: 'P1D'
+    }
+  }
+}
+```
+
+# [ARM template](#tab/arm)
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "service_BusNamespace_Name": {
+    "serviceBusNamespaceName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Service Bus namespace"
@@ -221,21 +283,20 @@ To **create a topic with duplicate detection enabled**, set `requiresDuplicateDe
   },
   "resources": [
     {
-      "apiVersion": "2018-01-01-preview",
-      "name": "[parameters('service_BusNamespace_Name')]",
       "type": "Microsoft.ServiceBus/namespaces",
+      "apiVersion": "2024-01-01",
+      "name": "[parameters('serviceBusNamespaceName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard"
       },
-      "properties": {},
       "resources": [
         {
-          "apiVersion": "2017-04-01",
-          "name": "[parameters('serviceBusTopicName')]",
           "type": "topics",
+          "apiVersion": "2024-01-01",
+          "name": "[parameters('serviceBusTopicName')]",
           "dependsOn": [
-            "[resourceId('Microsoft.ServiceBus/namespaces/', parameters('service_BusNamespace_Name'))]"
+            "[parameters('serviceBusNamespaceName')]"
           ],
           "properties": {
             "requiresDuplicateDetection": true,
@@ -247,6 +308,8 @@ To **create a topic with duplicate detection enabled**, set `requiresDuplicateDe
   ]
 }
 ```
+
+---
 
 
 ## Next steps

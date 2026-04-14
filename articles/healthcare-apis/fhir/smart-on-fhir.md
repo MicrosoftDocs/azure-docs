@@ -1,13 +1,13 @@
 ---
 title: SMART on FHIR - Azure Health Data Services
-description: This tutorial describes how to use a proxy to enable SMART on FHIR applications with the FHIR service.
+description: This tutorial describes how to enable SMART on FHIR applications with the FHIR service.
 services: healthcare-apis
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 11/10/2022
+ms.date: 10/10/2025
 ms.custom: sfi-image-nochange
 ---
 
@@ -23,7 +23,7 @@ The following tutorials provide steps to enable SMART on FHIR applications with 
 ## Prerequisites
 
 - An instance of the FHIR Service
-- .NET SDK 6.0
+- .NET SDK 8.0
 - [Enable cross-origin resource sharing (CORS)](configure-cross-origin-resource-sharing.md)
 - [Register public client application in Microsoft Entra ID](/azure/healthcare-apis/azure-api-for-fhir/register-public-azure-ad-client-app)
      - After registering the application, make note of the `applicationId` for client application.
@@ -32,16 +32,65 @@ The following tutorials provide steps to enable SMART on FHIR applications with 
 ## SMART on FHIR using Azure Health Data Services Samples (SMART on FHIR (Enhanced))
 
 ### Step 1: Set up FHIR SMART user role 
-Follow the steps listed in section [Manage Users: Assign Users to Role](../../role-based-access-control/role-assignments-portal.yml). Any user added to this role will be able to access the FHIR Service, provided their requests comply with the SMART on FHIR implementation Guide. The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+Follow the steps listed in section [Manage Users: Assign Users to Role](/azure/role-based-access-control/role-assignments-portal). Any user added to this role will be able to access the FHIR Service, provided their requests comply with the SMART on FHIR implementation Guide. The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
 
 > [!NOTE]
 > SMART on FHIR Implementation Guide defines access to FHIR resource types with scopes. These scopes impact the access an application may have to FHIR resources. A user with the SMART user role has access to perform read API interactions on FHIR service. SMART user role does not grant write access to FHIR service.
 
 ### Step 2: FHIR server integration with samples
-**[Click on this link](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir)** to navigate to Azure Health Data and AI Samples open source solution. The steps listed in the document enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
+Azure Health Data and AI Samples open source repo provides samples for [SMART on FHIR v1.0.0](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v1) and [SMART on FHIR v2.0.0](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v2). The steps listed in the document enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).
 
 > [!NOTE]
 > Samples are open-source code, and you should review the information and licensing terms on GitHub before using it. They are not part of the Azure Health Data Service and are not supported by Microsoft Support. These samples are used to demonstrate how Azure Health Data Services (AHDS) and other open-source tools can be used together to demonstrate [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg) compliance, using Microsoft Entra ID as the identity provider workflow.  
+
+ 
+
+The following lists the different scopes supported in SMART v1.0.0 and SMART v2.0.0. Please note that you cannot mix and match SMART v1.0.0 and SMART v.2.0.0 scopes in the same client app registration; you must choose one or the other. 
+
+#### SMART v1: 
+[SMART on FHIR v1.0.0 sample](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v1)
+
+
+Scopes:
+
+- patient/Observation.read 
+
+- user/Encounter.* 
+
+- patient/*.* 
+
+- system/Patient.read (commonly used for $export) 
+
+ 
+
+#### SMART v2: 
+ [SMART on FHIR v2.0.0 sample](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/smartonfhir-smart-v2)
+- Granular scopes: 
+
+    - r = read only 
+    
+    - s = search 
+    
+    - rs = read+search 
+    
+      - NOTE: rs scopes allow both direct reads and search operations; r alone does not allow any search or _include on direct record lookup. 
+
+
+- To map from SMART v1 scopes to SMART v2 scopes, use the following table:  
+ 
+| SMART v1 Scope          | SMART v2 Scope         |
+|------------------------|-----------------------|
+| patient/Observation.read | Patient/Observation.rs |
+| patient/*.read | Patient/*.rs | 
+| system/Patient.read | System/Patient.rs |
+
+- Parameter-constrained scopes:
+  - SMART v2 expands on standard scopes by introducing parameter-constrained scopes, allowing clients to access only the subset of resources matching specific query parameters.  
+    - Example: `Condition.rs?category=http://terminology.hl7.org/CodeSystem/condition-category|encounter-diagnosis`  
+    -   This scope grants read/search access only to Condition resources with that specific category. 
+  - Note: Chained, `_include`, and `_revinclude` are only supported in the normal search query, they are not supported in the granular scope query string.  
+
+
 
 ## SMART on FHIR Proxy
 <details>
@@ -49,7 +98,8 @@ Follow the steps listed in section [Manage Users: Assign Users to Role](../../ro
 
 > [!NOTE]
 > This is another option to SMART on FHIR(Enhanced) using the AHDS Samples previously mentioned. We suggest you to adopt SMART on FHIR(Enhanced). SMART on FHIR Proxy option is a legacy option.
-> SMART on FHIR(Enhanced) provides added capabilities to SMART on FHIR proxy. SMART on FHIR(Enhanced) meets requirements in [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg).
+> SMART on FHIR(Enhanced) provides added capabilities to SMART on FHIR proxy. SMART on FHIR(Enhanced) meets requirements in [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/), [SMART on FHIR Implementation Guide (v 2.0.0)](https://hl7.org/fhir/smart-app-launch/STU2/),  and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg).
+
 
 ### Step 1: Set admin consent for your client application
 

@@ -2,7 +2,7 @@
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Azure Policy assignment structure
@@ -12,7 +12,7 @@ Policy assignments define which resources are evaluated by a policy definition o
 You use JavaScript Object Notation (JSON) to create a policy assignment. The policy assignment contains elements for:
 
 - [scope](#scope)
-- [policy definition ID and version](#policy-definition-id-and-version-preview)
+- [policy definition ID and version](#policy-definition-id-and-version)
 - [display name](#display-name-and-description)
 - [description](#display-name-and-description)
 - [metadata](#metadata)
@@ -68,7 +68,7 @@ For example, the following JSON shows a sample policy assignment request in _DoN
 
 The scope used for assignment resource creation time is the primary driver of resource applicability. For more information on assignment scope, see [Understand scope in Azure Policy](./scope.md#assignment-scopes).
 
-## Policy definition ID and version (preview)
+## Policy definition ID and version
 
 This field must be the full path name of either a policy definition or an initiative definition. The `policyDefinitionId` is a string and not an array. The latest content of the assigned policy definition or initiative is retrieved each time the policy assignment is evaluated. The recommendation is that if multiple policies are often assigned together, to use an [initiative](./initiative-definition-structure.md) instead.
 
@@ -349,7 +349,7 @@ In this example, the parameters previously defined in the policy definition are 
 
 Policy assignments with effect set to `deployIfNotExists` or `modify` must have an identity property to do remediation on non-compliant resources. A single policy assignment can be associated with only one system-assigned or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
 
-Assignments using a system-assigned managed identity must also specify a top-level `location` property to determine where it will be deployed. The location cannot be set to `global`, and it cannot be changed. The `location` property is only specified in [Rest API](/rest/api/policy/policy-assignments/create) versions 2018-05-01 and later. If a location is specified in an assignment that doesn't use an identity, then the location will be ignored.
+Assignments using a system-assigned managed identity must also specify a top-level `location` property to determine where it will be deployed. The location cannot be set to `global`, and it cannot be changed. The `location` property is only specified in [Rest API](/rest/api/policy-authorization/policy-assignments/create) versions 2018-05-01 and later. If a location is specified in an assignment that doesn't use an identity, then the location will be ignored.
 
 
 ```json

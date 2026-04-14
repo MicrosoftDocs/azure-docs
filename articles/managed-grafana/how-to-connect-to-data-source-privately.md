@@ -25,7 +25,7 @@ When you use managed private endpoints, traffic between your Azure Managed Grafa
 
 To follow the procedures in this guide, you must have:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace in the Standard tier. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
 
 ## Supported data sources
@@ -41,6 +41,7 @@ Managed private endpoints work with Azure services that support private link. Us
 - Azure SQL server
 - Azure Databricks
 - Private link services
+- Azure Database for PostgreSQL flexible servers
 
 When you create a managed private endpoint in your Azure Managed Grafana workspace, a private endpoint connection is created in a *Pending* state. This action begins an approval workflow. The private link resource owner is responsible for approving or rejecting the new connection. If the owner approves the connection, the private link is established. Otherwise, the private link isn't set up.
 

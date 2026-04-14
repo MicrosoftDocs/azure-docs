@@ -1,11 +1,11 @@
 ---
 title: Migrate Bing Maps Find a Location by Point API to Azure Maps Get Reverse Geocoding API
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Bing Maps Find a Location by Point API to the Azure Maps Get Reverse Geocoding API.
+description: Learn how to migrate the Bing Maps Find a Location by Point API to the Azure Maps Get Reverse Geocoding API.
 author: pbrasil
 ms.author: peterbr 
 ms.date: 05/16/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: search
 ---
@@ -24,7 +24,7 @@ This article explains how to migrate the Bing Maps [Find a Location by Point] AP
 
 - Bing Maps Find a Location by Point API supports XML and JSON response formats. Azure Maps Get Reverse Geocoding API supports the [GeoJSON] response format.
 - Bing Maps Find a Location by Point API uses coordinates in the latitude/longitude format. Azure Maps Get Reverse Geocoding API uses coordinates in the longitude/latitude format, as defined by [GeoJSON].
-- Unlike Bing Maps Find a Location by Point API, Azure Maps Get Reverse Geocoding API doesn’t currently support address or street level data for China, Japan or South Korea.
+- Unlike Bing Maps Find a Location by Point API, Azure Maps Get Reverse Geocoding API doesn’t currently support address or street level data for China.
 - Unlike Bing Maps Find a Location by Point API, Azure Maps Get Reverse Geocoding API has a `view` input parameter, which is a string that represents an [ISO 3166-1 Alpha-2 region/country code]. The `view` input parameter will alter geopolitical disputed borders and labels to align with the specified user region. For more information, see [URI Parameters].
 - Unlike Bing Maps for Enterprise, Azure Maps is a global service that supports specifying a geographic scope, which allows you to limit data residency to the European (EU) or United States (US) geographic areas (geos). All requests (including input data) are processed exclusively in the specified geographic area. For more information, see [Azure Maps service geographic scope].
 
@@ -39,11 +39,11 @@ The following table lists the Bing Maps _Find a Location by Point_ request param
 | Bing Maps request parameter | Bing Maps request parameter alias | Azure Maps request parameter | Required in Azure Maps | Azure Maps data type | Description |
 |-----------------------------|-----------------------------------|------------------------------|------------------------|----------------------|-------------|
 | culture | c | Request Header: Accept-Language | False | string | In Azure Maps Get Reverse Geocoding API, this is the language in which search results should be returned. This is specified in the Azure Maps [request header]. Please refer to [Supported Languages] for details. |
-| include | incl | Not needed | Not needed | Not needed | In Bing Maps Find a Location by Point, the ‘include’ input parameter is required to get a two-letter ISO country code for the location result in the response. In Azure Maps Get Reverse Geocoding API, the two-letter ISO country code is returned by default. |
+| include | incl | Not needed | Not needed | Not needed | In Bing Maps Find a Location by Point, the `include` input parameter is required to get a two-letter ISO country code for the location result in the response. In Azure Maps Get Reverse Geocoding API, the two-letter ISO country code is returned by default. |
 | includeEntityTypes | | resultTypes | False | query | |
 | includeNeighborhood | inclnb | Not needed | Not needed | Not needed | In Azure Maps Get Reverse Geocoding API, neighborhood info is returned in the response by default, when available. |
 | point | | coordinates | True | number[] | In Bing Maps Find a Location by Point API, the coordinates in the request and the response are in latitude/longitude format, whereas Azure Maps Get Reverse Geocoding API requires the coordinates in the request and the coordinates in the response use longitude/latitude format, as defined by [GeoJSON]. |
-| userRegion | ur | view | False | string | A string that represents an [ISO 3166-1 Alpha-2 region/country code]. This will alter geopolitical disputed borders and labels to align with the specified user region. By default, the View parameter is set to “Auto” even if you haven’t defined it in the request.<br><br> Please refer to [Supported Views] for details and to see the available Views. |
+| userRegion | ur | view | False | string | A string that represents an [ISO 3166-1 Alpha-2 region/country code]. This will alter geopolitical disputed borders and labels to align with the specified user region. By default, the View parameter is set to "Auto" even if you haven't defined it in the request.<br><br> Please refer to [Supported Views] for details and to see the available Views. |
 | verboseplacenames | vbpn | Not supported | Not supported | Not supported | Azure Maps Get Reverse Geocoding API only supports returning [adminDistricts] short name (FL instead of Florida). |
 
 For more information about the Azure Maps Get Reverse Geocoding API request parameters, see [URI Parameters].
@@ -102,7 +102,7 @@ The following JSON sample shows what is returned in the body of the HTTP respons
 {
     "authenticationResultCode": "ValidCredentials",
     "brandLogoUri": "https://dev.virtualearth.net/Branding/logo_powered_by.png",
-    "copyright": "Copyright © 2024 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.",
+    "copyright": "Copyright &copy; 2024 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.",
     "resourceSets": [
         {
             "estimatedTotal": 1,

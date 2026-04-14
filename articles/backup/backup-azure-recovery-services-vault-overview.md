@@ -2,7 +2,7 @@
 title: Overview of Recovery Services vaults
 description: An overview of Recovery Services vaults.
 ms.topic: overview
-ms.date: 06/23/2025
+ms.date: 11/10/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -40,7 +40,7 @@ A Recovery Services vault is an entity that stores the backups and recovery poin
 
 - Azure Backup automatically handles storage for the vault. See how [storage settings can be changed](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [local](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zonal](../storage/common/storage-redundancy.md#zone-redundant-storage) redundancy.
+- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [local](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zone](../storage/common/storage-redundancy.md#zone-redundant-storage) redundancy.
 
 ## Encryption settings in the Recovery Services vault
 
@@ -78,3 +78,4 @@ Use the following articles to:
 - [Back up an IaaS VM](backup-azure-arm-vms-prepare.md).
 - [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 - [Back up a Windows Server](backup-windows-with-mars-agent.md).
+- [Reconfigure backup for datasources in an alternate vault](../business-continuity-center/tutorial-reconfigure-backup-alternate-vault.md).

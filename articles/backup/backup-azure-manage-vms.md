@@ -2,7 +2,7 @@
 title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.topic: how-to
-ms.date: 08/13/2025
+ms.date: 01/27/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -23,7 +23,7 @@ You can manage backups by using the dashboard and by drilling down to individual
 
 :::image type="content" source="./media/backup-azure-manage-vms/bottom-slider-inline.png" alt-text="Screenshot showing the full dashboard view with slider." lightbox="./media/backup-azure-manage-vms/bottom-slider-expanded.png":::
 
-[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+[!INCLUDE [resiliency.md](../../includes/resiliency.md)]
 
 ## View VMs on the dashboard
 
@@ -85,6 +85,11 @@ To manage a backup policy:
    To switch policies, select a different policy and then select **Save**. The new policy is immediately applied to the vault.
 
     :::image type="content" source="./media/backup-azure-manage-vms/backup-policy-create-new-inline.png" alt-text="Screenshot showing to choose a backup policy." lightbox="./media/backup-azure-manage-vms/backup-policy-create-new-expanded.png":::
+
+### Default backup policies in Recovery Services vaults
+When you create a Recovery Services vault, Azure Backup automatically creates a small set of system‑managed default backup policies. These policies ensure that baseline backup functionality is always available in any vault. Examples include policies such as HourlyBackup, DefaultPolicy, or Enhanced.
+These default policies are system‑managed, can be deleted temporarily but are recreated automatically and act as fallback policies when no custom policy is defined.
+You can safely ignore these default policies if your organization uses its own standards for policy naming, scheduling, or retention. Create custom backup policies that match your requirements and assign your protected items to those custom policies. The default policies will continue to exist in the vault but will not be used unless explicitly selected.
 
 ## Run an on-demand backup
 
@@ -191,7 +196,7 @@ To protect your data, Azure Backup includes the soft delete feature. With soft d
 ### Backup item where primary data source no longer exists
 
 * If Azure VMs configured for Azure Backup are deleted or moved (to another resource group or subscription) without stopping protection, then both scheduled backup jobs and on-demand backup jobs will fail with the error *UserErrorVmNotFoundV2*. The backup pre-check will appear as critical only for failed on-demand backup jobs (failed scheduled jobs doesn't appear).
-* These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the most recent recovery point) are cleaned according to the retention range set in the backup policy.
+* These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (the last hardened (vaulted) restore point and the latest restore point) are cleaned according to the retention range set in the backup policy.
 * To avoid any additional cost, we recommend deleting the backup items where the primary data source no longer exists. This is in a scenario where the backup item/data for the deleted resources is no longer required, since the most recent recovery point is retained forever and you're charged according to the applicable backup pricing.
 
 ## Re-install the VMSnapshot backup extension for Azure VM protection
@@ -245,6 +250,21 @@ To re-install the VMSnapshot extension on Windows operating system for the backu
 
 1. Restart the Azure VM.
 1. Run an on-demand backup of Azure VM; this operation installs a new `VMSnapshot` extension.
+
+## Reinstall the VMSnapshot backup extension for Linux Azure VM protection
+
+1. Login to Azure VM and move to the directory using the following cmdlet:
+
+    ``cd /var/lib/waagent``
+
+    ``ls -l | grep Recovery``
+    
+
+"Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.XXXX.X" directory should be displayed. ("XXXX.X" depends on user's environment)
+
+2. Delete  "Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.XXXX.X" directory so that  VmSnapshotLinux extension is uninstalled.
+3. If you want to reinstall the extension, trigger Azure VM Backup so that extension reinstalls on the VM.
+
 
 ## Next steps
 

@@ -122,6 +122,10 @@
           href: upgrade-basic-standard-with-powershell.md
     - name: Standard Load Balancer and Virtual Machine Scale Sets
       href: load-balancer-standard-virtual-machine-scale-sets.md
+    - name: Migration to Azure
+      items:
+        - name: Migrate AWS Network Load Balancing
+          href: network-load-balancing-aws-to-azure-how-to.md
     - name: IP-based backend
       items:
         - name: Create a public load balancer with an IP-based backend - Portal
@@ -129,9 +133,9 @@
     - name: Reliability
       items:
         - name: Availability zones and cross-region load balancer
-          href: ../reliability/reliability-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
+          href: /azure/reliability/reliability-load-balancer?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
         - name: Availability zone migration
-          href: ../reliability/migrate-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
+          href: /azure/reliability/migrate-load-balancer?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
     - name: Scaling and availability
       items:
         - name: Load balance a VM within a specific availability zone
@@ -150,19 +154,19 @@
       href: load-balancer-multiple-ip.md
     - name: Move a load balancer across regions
       href: move-across-regions-azure-load-balancer.md
+    - name: Migrate to Azure
 - name: Secure
   items:
-  - name: Secure your load balancer
-    href: secure-load-balancer.md
-  - name: Deploy public load balancer with DDoS protection
-    href: tutorial-protect-load-balancer.md
-  - name: Implement a secure hybrid networking
-    href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
-  - name: Azure Network security blog 
-    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-  expanded: false
+    - name: Secure your load balancer
+      href: secure-load-balancer.md
+    - name: Deploy public load balancer with DDoS protection
+      href: tutorial-protect-load-balancer.md
+    - name: Implement a secure hybrid networking
+      href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
+    - name: Azure Network security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Connectivity
   items:
     - name: Inbound connectivity

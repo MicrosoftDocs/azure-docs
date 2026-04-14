@@ -1,7 +1,7 @@
 ---
 title: Authenticate clients publishing events to Event Grid custom topics, domains, and partner namespaces.
 description: This article describes different ways of authenticating clients publishing events to Event Grid custom topics, domains, and partner namespaces. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: build-2023
 ms.date: 01/05/2022
 ---

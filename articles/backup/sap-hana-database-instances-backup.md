@@ -2,7 +2,7 @@
 title: Back up SAP HANA database instances on Azure VMs
 description: In this article, you'll learn how to back up SAP HANA database instances that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 02/16/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -17,13 +17,14 @@ Azure Backup now performs an SAP HANA storage snapshot-based backup of an entire
 
 
 >[!Note]
->- Currently, the snapshots are stored on your storage account/operational tier, and isn't stored in Recovery Services vault. Thus, the vault features, such as Cross-region restore,Cross-subscription restore, and security capabilities, aren't supported.
->- Original Location Restore (OLR) isn't supported.
->- HANA System Replication (HSR)) isn't supported.
+>- You can now store the Snapshot backups in a Recovery Services vault by using **Enhanced backup policy (preview)** for HANA Snapshot backup. This provides all the vault level features, such as Immutability, Soft-delete, cross-region restore, and more, for SAP HANA snapshot backups. This policy also ensures faster restores from **instant tier**.
 >- For pricing, as per SAP advisory, you must do a weekly full backup + logs streaming/Backint based backup so that the existing protected instance fee and storage cost are applied. For snapshot backup, the snapshot data created by Azure Backup is saved in your storage account and incurs snapshot storage charges. Thus, in addition to streaming/Backint backup charges, you're charged for per GB data stored in your snapshots, which is charged separately. Learn more about [Snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/) and [Streaming/Backint based backup pricing](https://azure.microsoft.com/pricing/details/backup/?ef_id=_k_CjwKCAjwp8OpBhAFEiwAG7NaEsaFZUxIBD-FH1IUIfF-7yZRWAYJSMHP67InGf0drY0X2Km71KOKDBoCktgQAvD_BwE_k_&OCID=AIDcmmf1elj9v5_SEM__k_CjwKCAjwp8OpBhAFEiwAG7NaEsaFZUxIBD-FH1IUIfF-7yZRWAYJSMHP67InGf0drY0X2Km71KOKDBoCktgQAvD_BwE_k_&gclid=CjwKCAjwp8OpBhAFEiwAG7NaEsaFZUxIBD-FH1IUIfF-7yZRWAYJSMHP67InGf0drY0X2Km71KOKDBoCktgQAvD_BwE).
 
 
-For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md). 
+To learn about the supported SAP HANA database backup and restore scenarios, region availability, and limitations, see the [support matrix](backup-azure-sql-database.md). For common questions, see the [frequently asked questions](sap-hana-faq-backup-azure-vm.yml).
+
+You can also [back up SAP HANA System Replication databases on Azure VMs using Azure portal](sap-hana-database-with-hana-system-replication-backup.md).
+
 
 ## Before you start
 
@@ -85,7 +86,12 @@ To create a policy for the SAP HANA database instance backup, follow these steps
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/select-sap-hana-instance-policy-type.png" alt-text="Screenshot that shows a list of policy types." lightbox="./media/sap-hana-database-instances-backup/select-sap-hana-instance-policy-type.png":::
 
-1. On the **Create policy** pane, do the following:
+1. On the **Create policy** pane, select the **Policy sub type**. Select the **Enhanced(Preview)** policy to retain your snapshot backups for long term in a Recovery Services Vault and leverage additional security features like immutability, soft-delete, MUA etc.
+
+   :::image type="content" source="./media/sap-hana-database-instances-backup/hana-vaulted-snapshot-enhanced-policy.png" alt-text="Screenshot that shows policy sub types." lightbox="./media/sap-hana-database-instances-backup/hana-vaulted-snapshot-enhanced-policy.png":::
+   
+
+1. On the **Create policy** pane, enter the following details:
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot that shows the 'Create policy' pane for configuring backup and restore." lightbox="./media/sap-hana-database-instances-backup/create-policy.png":::
 
@@ -96,7 +102,10 @@ To create a policy for the SAP HANA database instance backup, follow these steps
       >Azure Backup currently supports **Daily** backup only.
 
    1. **Instant Restore**: Set the retention of recovery snapshots from *1* to *35* days. The default value is *2*.  
-   1. **Resource group**: Select the appropriate resource group in the drop-down list.  
+   1. **Resource group**: Select the appropriate resource group in the drop-down list.
+   1. **Retention range**: If you have selected **Enhanced(Preview)** as the policy sub type, you can now provide the retention durations for backups stored in Recovery Services Vault. Provide the retention duration for your daily, weekly, monthly and yearly backup points as required.
+   
+       :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot that shows the 'Create policy' pane for configuring backup and restore." lightbox="./media/sap-hana-database-instances-backup/create-policy.png":::
    1. **Managed Identity**: Select a managed identity in the dropdown list to assign permissions for taking snapshots of the managed disks and place them in the resource group that you've selected in the policy.
    
       You can also create a new managed identity for snapshot backup and restore. To create a managed identity and assign it to the VM with SAP HANA database, follow these steps:
@@ -127,9 +136,9 @@ To create a policy for the SAP HANA database instance backup, follow these steps
 
 
 
-   You need to manually assign the permissions for the Azure Backup service to delete the snapshots as per the policy. Other [permissions are assigned in the Azure portal](#configure-snapshot-backup).
+   You need to manually assign the permissions for the Azure Backup service to delete the snapshots as per the policy. Other [permissions are assigned in the Azure portal](#configure-snapshot-backup-for-sap-hana-database-instance).
    
-   To assign the Disk Snapshot Contributor role to the Backup Management Service manually in the snapshot resource group, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
+   To assign the Disk Snapshot Contributor role to the Backup Management Service manually in the snapshot resource group, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 
 1. Select **Create**.
 

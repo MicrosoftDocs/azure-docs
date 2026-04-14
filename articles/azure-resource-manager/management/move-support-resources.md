@@ -1,8 +1,8 @@
----
+﻿---
 title: Azure resource types for move operations
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
-ms.topic: conceptual
-ms.date: 04/29/2025
+ms.date: 10/26/2025
+ms.topic: article
 ms.custom: tbd
 ---
 
@@ -333,6 +333,8 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | edgenodes | No | No | No |
 > | profiles | **Yes** | **Yes** | No |
 > | profiles / endpoints | **Yes** | **Yes** | No |
+> [!IMPORTANT]
+> **Azure Front Door Standard/Premium** objects (profiles, endpoints, routes, WAF policies) appear under the **Microsoft.Cdn** provider. The support move across **resource groups** and **subscriptions**. Region moves aren't supported. See the FAQ and **Networking move guidance** for prerequisites. 
 
 ## Microsoft.CertificateRegistration
 
@@ -1351,7 +1353,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | expressroutegateways | No | No | No |
 > | expressrouteserviceproviders | No | No | No |
 > | firewallpolicies | No | No | No |
-> | frontdoors | No | No | No |
+> | frontdoors (This row is for Front Door Classic tier only. For Front Door Standard/Premium, refer to [Microsoft.Cdn/profiles](#microsoftcdn))| No | No | No |
 > | ipallocations | **Yes** | **Yes** | No |
 > | ipgroups | No | No | No |
 > | loadbalancers | **Yes** - Basic SKU<br> **Yes** - Standard SKU | **Yes** - Basic SKU<br>No - Standard SKU | **Yes** <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move internal and external load balancers. |
@@ -1392,6 +1394,11 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | vpngateways (Virtual WAN) | No | No | No |
 > | vpnserverconfigurations | No | No | No |
 > | vpnsites (Virtual WAN) | No | No | No |
+
+> [!NOTE]
+> **Azure Front Door Standard/Premium** resources are provided under the **Microsoft.Cdn** resource provider (see the **Microsoft.Cdn** section below). The **support moves between resource groups and subscriptions**.  
+> If you're using **Front Door (classic)** (`Microsoft.Network/frontdoors`), **migrate to Standard or Premium first**, then perform the move.  
+> For more information, see [Front Door FAQ — move support](../../frontdoor/front-door-faq.yml#can-i-move-front-door-and-cdn-profiles-between-resource-groups-or-subscriptions-without-any-downtime-) and [Migrate Front Door (classic) to Standard/Premium](../../frontdoor/migrate-tier.md).
 
 ## Microsoft.NotificationHubs
 
@@ -2041,3 +2048,4 @@ Third-party services don't support move operations at this time.
 - For commands to move resources, see [Move Azure resources to a new resource group or subscription](move-resource-group-and-subscription.md).
 - [Learn more](../../resource-mover/overview.md) about the Azure Resource Mover service.
 - To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you need those properties and support for how to move regions, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).
+

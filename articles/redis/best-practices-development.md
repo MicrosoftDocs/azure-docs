@@ -2,7 +2,7 @@
 title: Best practices for development for Azure Managed Redis
 description: Learn how to develop code for Azure Managed Redis.
 ms.date: 05/18/2025
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom:
   - ignite-2024
   - build-2025
@@ -12,7 +12,7 @@ appliesto:
 
 # Development with Azure Managed Redis
 
-In this article, we discus how to develop code for Azure Managed Redis.
+In this article, we discuss how to develop code for Azure Managed Redis.
 
 ## Connection resilience and server load
 
@@ -83,7 +83,7 @@ Azure Managed Redis requires TLS encrypted communications by default. TLS versio
 
 ## Monitor memory usage, CPU usage metrics, client connections, and network bandwidth
 
-When using Azure Managed Redis instance in production, we recommend setting alerts for **Used Memory Percentage**, **CPU** metrics, **Connected Clients**. If these metrics are consistently above 75%, consider scaling your instance to a  bigger memory or better throughput tier. For more details, see [when to scale](how-to-scale.md#when-to-scale).
+When using Azure Managed Redis instance in production, we recommend setting alerts for **Used Memory Percentage**, **CPU** metrics, **Connected Clients**. If these metrics are consistently above 75%, consider scaling your instance to a  bigger memory or better throughput tier. For more details, see [when to scale](how-to-scale.md#when-to-scale). For details on how memory is reported and how to plan capacity, see [memory management](best-practices-memory-management.md).
 
 ## Consider enabling Data Persistence or Data Backup
 

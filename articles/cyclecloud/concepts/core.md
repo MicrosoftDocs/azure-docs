@@ -3,6 +3,7 @@ title: CycleCloud Architecture Concepts
 description: Azure CycleCloud Core Concepts
 author: jermth
 ms.date: 02/20/2020
+ms.update-cycle: 1095-days
 ms.author: jechia
 ---
 

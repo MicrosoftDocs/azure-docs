@@ -6,6 +6,7 @@ ms.date: 03/06/2024
 author: habibaum
 ms.author: v-uhabiba
 ms.topic: quickstart
+ms.update-cycle: 1095-days
 # Customer intent: As a system administrator, I want to deploy on-demand updates to selected Azure virtual machines, so that I can ensure they are compliant and maintain optimal performance.
 ---
 
@@ -17,7 +18,7 @@ This quickstart explains how to perform manual assessment and apply updates on s
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one yet, sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't have one yet, sign up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Your role must be either an [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) for an Azure VM and resource administrator for Azure Arc-enabled servers.
 - Ensure that the target machines meet the specific operating system requirements of the Windows Server and Linux. For more information, see [Overview](overview.md).
 

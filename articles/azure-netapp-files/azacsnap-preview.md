@@ -13,7 +13,7 @@ ms.custom: sfi-ropc-nochange
 
 # Preview features of the Azure Application Consistent Snapshot tool
 
-This article provides a guide on setup and usage of the new features in preview for the Azure Application Consistent Snapshot tool (AzAcSnap). For basic information about the tool, see [What is the Azure Application Consistent Snapshot tool?](./azacsnap-introduction.md).
+This article provides a guide on setup and usage of the new features in preview for the Azure Application Consistent Snapshot tool (AzAcSnap). For basic information about the tool, see [What is the Azure Application Consistent Snapshot tool?](./azacsnap-introduction.md)
 
 The preview features provided with AzAcSnap 11 are:
 

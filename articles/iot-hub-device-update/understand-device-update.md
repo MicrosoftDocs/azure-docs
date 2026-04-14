@@ -1,8 +1,8 @@
 ---
 title: Introduction to Device Update for Azure IoT Hub
 description: Learn how the Azure Device Update service for IoT Hub enables you to deploy over-the-air updates for your IoT devices.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 11/20/2024
 ms.topic: overview
 ms.service: azure-iot-hub

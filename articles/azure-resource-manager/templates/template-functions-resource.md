@@ -340,7 +340,7 @@ The next example shows a `list` function that takes a parameter. In this case, t
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines if a resource type supports zones for the specified location or region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+Determines if a resource type supports zones for the specified location or region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 In Bicep, use the [`pickZones`](../bicep/bicep-functions-resource.md#pickzones) function.
 
@@ -383,7 +383,7 @@ When the resource type or region doesn't support zones, an empty array is return
 
 ### Remarks
 
-There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](/azure/reliability/availability-zones-service-support).
 
 To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`.  If the response isn't empty, the region supports availability zones.
 
@@ -438,7 +438,7 @@ Azure Cosmos DB isn't a zonal resource, but you can use the `pickZones` function
 "resources": [
   {
     "type": "Microsoft.DocumentDB/databaseAccounts",
-    "apiVersion": "2021-04-15",
+    "apiVersion": "2025-05-01-preview",
     "name": "[variables('accountName_var')]",
     "location": "[parameters('location')]",
     "kind": "GlobalDocumentDB",
@@ -521,7 +521,7 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 ```json
 {
   "type": "Microsoft.KeyVault/vaults",
-  "apiVersion": "2022-07-01",
+  "apiVersion": "2025-05-01",
   "name": "vaultName",
   "properties": {
     "tenantId": "[subscription().tenantId]",
@@ -639,7 +639,7 @@ The following example deploys a resource and references it:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -830,7 +830,7 @@ The following example deploys a resource collection and references that resource
         "count": "[length(range(0, parameters('numWorkers')))]"
       },
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2025-09-01",
       "name": "[format('worker-{0}', range(0, parameters('numWorkers'))[copyIndex()])]",
       "location": "[parameters('location')]",
       "properties": {
@@ -869,7 +869,7 @@ The following example deploys a resource collection and references that resource
     },
     "containerController": {
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2025-09-01",
       "name": "controller",
       "location": "[parameters('location')]",
       "properties": {
@@ -1198,7 +1198,7 @@ Often, you need to use this function when using a storage account or virtual net
   "resources": [
     {
       "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2022-11-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('nicName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -1413,7 +1413,7 @@ The following template creates and assigns a policy definition. It uses the `man
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2021-06-01",
+      "apiVersion": "2025-03-01",
       "name": "[variables('policyDefinitionName')]",
       "properties": {
         "policyType": "Custom",
@@ -1434,7 +1434,7 @@ The following template creates and assigns a policy definition. It uses the `man
     },
     "location_lock": {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2022-06-01",
+      "apiVersion": "2025-03-01",
       "name": "location-lock",
       "properties": {
         "scope": "[variables('mgScope')]",
@@ -1506,7 +1506,7 @@ Built-in policy definitions are tenant-level resources. To deploy a policy assig
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "[parameters('policyAssignmentName')]",
-      "apiVersion": "2022-06-01",
+      "apiVersion": "2025-03-01",
       "properties": {
         "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
         "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"

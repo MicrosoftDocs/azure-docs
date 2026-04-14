@@ -5,7 +5,7 @@ description: Learn about traffic coverage in Azure Maps. See whether information
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 03/24/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: traffic
 ---

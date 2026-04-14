@@ -24,7 +24,7 @@ Microsoft and [Elastic](https://www.elastic.co/) developed these services and ma
 
 You can provision the Elastic resources through a resource provider named **Microsoft.Elastic**. Elastic owns and runs the SaaS application including the Elastic accounts created. Data is stored in the Azure region where the service is deployed.
 
-You can find Elastic offerings in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/).
+You can find Elastic offerings in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview).
 
 ## Key features
 
@@ -32,8 +32,8 @@ The Elastic integration with Azure includes the following technical capabilities
 
 - **Integrated onboarding** – Deploy Elastic resources directly from Azure portal using the Microsoft.Elastic resource provider.
 - **Azure billing integration** – Track Elastic resource consumption and charges through the Azure billing system.
-- **Azure Active Directory authentication** – Access Elastic services using Azure AD credentials for single sign-on.
-- **Log forwarding** – Route Azure subscription activity and resource logs to Elastic for indexing and analysis.
+- **Microsoft Entra ID authentication** – Access Elastic services using Entra ID credentials for single sign-on.
+- **Log forwarding** – Route Azure subscription activity and resource logs to Elastic for indexing and analysis. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 - **Centralized management** – Configure and monitor log shipping from Azure services to Elastic through a unified interface.
 - **Flexible deployment options** – Choose between serverless projects for usage-based scaling and cloud-hosted projects for dedicated, managed clusters.
 - **Elastic Agent deployment** – Deploy and manage Elastic Agents on Azure virtual machines using integrated workflows.

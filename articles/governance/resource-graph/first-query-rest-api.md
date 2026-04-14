@@ -14,7 +14,7 @@ to get a general understanding of REST API, specifically request URI and request
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Latest version of [PowerShell](/powershell/scripting/install/installing-powershell) or Bash shell like Git Bash.
 - Latest version of [Azure CLI](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/).

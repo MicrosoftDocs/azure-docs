@@ -3,7 +3,7 @@ title: Script Sample - Configuring Backup for on-premises Windows server
 description: Learn how to use a script to configure Backup for on-premises Windows server.
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.date: 12/03/2024
+ms.date: 12/04/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to configure backup for my on-premises Windows server using a PowerShell script, so that I can automate the backup process and ensure data protection efficiently."
@@ -13,7 +13,7 @@ ms.author: v-mallicka
 
 This script helps you to configure Backup for your on-premises Windows server, right from creating a vault to configuring MARS agent and policy.
 
-## Sample
+## Sample script for backup configuration of on-premises Windows server
 
 ```azurepowershell
 # Create Recovery Services Vault (RSV)

@@ -1,9 +1,9 @@
 ---
-title: Intelligent app with Azure OpenAI (Express.js)
-description: Learn how to build and deploy a Node.js web app to Azure App Service that connects to Azure OpenAI using managed identity.
+title: Build and deploy an Azure OpenAI (Express.js) chatbot
+description: Learn how to build a Node.js web app that connects to Azure OpenAI and deploy it to Azure App Service using managed identity.
 author: jefmarti
 ms.author: jefmarti
-ms.date: 05/19/2025
+ms.date: 03/03/2026
 ms.update-cycle: 180-days
 ms.topic: tutorial
 ms.custom:
@@ -12,25 +12,28 @@ ms.custom:
   - build-2025
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-app-service
+#customer intent: As a Node.js web app developer, I want to build an intelligent AI application that uses Azure OpenAI and deploy it to Azure App Service so I can offer a cloud chatbot app to my users.
 ---
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Express.js)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Node.js application and deploying it to Azure App Service. You'll create an Express app with a view and a controller that sends chat completion requests to a model in Azure OpneAI.
+In this tutorial, you build an intelligent AI application by integrating Azure OpenAI with a Node.js web application, and deploy it to Azure App Service.
 
-:::image type="content" source="media/tutorial-ai-openai-chatbot-nodejs/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
+You create an Express app with a view and a controller that sends chat completion requests to a model in Azure OpenAI. You connect to the app in Azure by using a managed identity.
 
-In this tutorial, you learn how to:
+You learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure OpenAI resource and deploy a language model.
 > * Build an Express.js application that connects to Azure OpenAI.
 > * Deploy the application to Azure App Service.
-> * Implement passwordless secure authentication both in the development environment and in Azure.
+> * Implement passwordless secure authentication in the development environment and in Azure.
+
+:::image type="content" source="media/tutorial-ai-openai-chatbot-nodejs/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
 ## Prerequisites
 
-- An [Azure account](https://azure.microsoft.com/free/) with an active subscription
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) with an active subscription
 - A [GitHub account](https://github.com/join) for using GitHub Codespaces
 
 ## 1. Create an Azure OpenAI resource
@@ -39,25 +42,25 @@ In this tutorial, you learn how to:
 
 ## 2. Create and set up an Express.js web app
 
-1. In your Codespace terminal, create an Express.js template in the workspace and try running it the first time.
+1. In your codespace terminal, create an Express.js template in the workspace and run it.
 
-    ```bash
-    npx express-generator . --view ejs
-    npm audit fix --force
-    npm install && npm start
-    ```
+   ```bash
+   npx express-generator . --view ejs
+   npm audit fix --force
+   npm install && npm start
+   ```
 
-    You should see a notification in GitHub Codespaces indicating that the app is available at a specific port. Select **Open in browser** to launch the app in a new browser tab.
+1. You see a notification in GitHub Codespaces that the app is available at a specific port. Select **Open in browser** to launch the app in a new browser tab.
 
-2. Back in the Codespace terminal, stop the app with Ctrl+C.
+1. In the codespace terminal, stop the app by pressing Ctrl+C.
 
-3. Install the NPM dependencies for working with Azure OpenAI:
+1. Install the NPM dependencies for working with Azure OpenAI.
 
-    ```bash
-    npm install openai @azure/openai @azure/identity
-    ```
-    
-4. Open *views/index.ejs* and replace it with the following code, for a simple chat interface.
+   ```bash
+   npm install openai @azure/openai @azure/identity
+   ```
+
+1. In the file tree, open *views/index.ejs* and replace its contents with the following code for a simple chat interface.
 
     ```html
     <!DOCTYPE html>
@@ -88,7 +91,7 @@ In this tutorial, you learn how to:
     </html>
     ```
     
-5. Open routes/index.js and replace its content with the following code, for a simple chat completion call with Azure OpenAI:
+1. Open *routes/index.js* and replace its content with the following code for a simple chat completion call with Azure OpenAI:
 
     ```javascript
     var express = require('express');
@@ -136,7 +139,7 @@ In this tutorial, you learn how to:
     module.exports = router;
     ```
     
-6. In the terminal, retrieve your OpenAI endpoint:
+1. In the terminal, retrieve your OpenAI endpoint:
 
     ```bash
     az cognitiveservices account show \
@@ -146,74 +149,70 @@ In this tutorial, you learn how to:
       --output tsv
     ```
 
-7. Run the app again by adding `AZURE_OPENAI_ENDPOINT` with its value from the CLI output:
+1. Run the app by adding `AZURE_OPENAI_ENDPOINT` with its value from the preceding CLI output:
 
    ```bash
    AZURE_OPENAI_ENDPOINT=<output-from-previous-cli-command> npm start
    ```
 
-8. Select **Open in browser** to launch the app in a new browser tab. Submit a question and see if you get a response message.
+1. Select **Open in browser** to launch the app in a new browser tab. Submit a question to see a response message.
 
 ## 3. Deploy to Azure App Service and configure OpenAI connection
 
-Now that your app works locally, let's deploy it to Azure App Service and set up a service connection to Azure OpenAI using managed identity.
+Now that your app works locally, deploy it to Azure App Service and set up a service connection to Azure OpenAI using managed identity.
 
-1. First, deploy your app to Azure App Service using the Azure CLI command `az webapp up`. This command creates a new web app and deploys your code to it:
+1. First, deploy your app to Azure App Service using the Azure CLI command `az webapp up`. This command creates a new web app in the same resource group as your OpenAI resource and deploys your code to it. The command might take a few minutes to complete.
 
-    ```azurecli
-    az webapp up \
-      --resource-group $RESOURCE_GROUP \
-      --location $LOCATION \
-      --name $APPSERVICE_NAME \
-      --plan $APPSERVICE_NAME \
-      --sku B1 \
-      --os-type Linux \
-      --track-status false
-    ```
+   ```azurecli
+   az webapp up \
+     --resource-group $RESOURCE_GROUP \
+     --location $LOCATION \
+     --name $APPSERVICE_NAME \
+     --plan $APPSERVICE_NAME \
+     --sku B1 \
+     --os-type Linux \
+     --track-status false
+   ```
 
-   This command might take a few minutes to complete. It creates a new web app in the same resource group as your OpenAI resource.
+1. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity. The following command creates a connection between your web app and the Azure OpenAI resource by: 
 
-2. After the app is deployed, create a service connection between your web app and the Azure OpenAI resource using managed identity:
+   - Generating system-assigned managed identity for the web app.
+   - Adding the **Cognitive Services OpenAI Contributor** role to the managed identity for the Azure OpenAI resource.
+   - Adding the `AZURE_OPENAI_ENDPOINT` app setting to your web app.
 
-    ```azurecli
-    az webapp connection create cognitiveservices \
-      --resource-group $RESOURCE_GROUP \
-      --name $APPSERVICE_NAME \
-      --target-resource-group $RESOURCE_GROUP \
-      --account $OPENAI_SERVICE_NAME \
-      --connection azure-openai \
-      --system-identity
-    ```
+   ```azurecli
+   az webapp connection create cognitiveservices \
+     --resource-group $RESOURCE_GROUP \
+     --name $APPSERVICE_NAME \
+     --target-resource-group $RESOURCE_GROUP \
+     --account $OPENAI_SERVICE_NAME \
+     --connection azure_openai \
+     --system-identity
+   ```
 
-   This command creates a connection between your web app and the Azure OpenAI resource by: 
+1. Find the URL of your deployed app in the terminal output from the `az webapp up` command, and navigate to the app in your web browser.
 
-    - Generating system-assigned managed identity for the web app.
-    - Adding the Cognitive Services OpenAI Contributor role to the managed identity for the Azure OpenAI resource.
-    - Adding the `AZURE_OPENAI_ENDPOINT` app setting to your web app.
+   ```azurecli
+   az webapp browse
+   ```
 
-3. Open the deployed web app in the browser. Find the URL of the deployed web app in the terminal output. Open your web browser and navigate to it.
+1. In your web app, enter a message in the textbox and select **Send**. Give the app a few seconds to reply with the message from Azure OpenAI.
 
-    ```azurecli
-    az webapp browse
-    ```    
-
-4. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
-
-    :::image type="content" source="media/tutorial-ai-openai-chatbot-nodejs/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
+   :::image type="content" source="media/tutorial-ai-openai-chatbot-nodejs/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
 Your app is now deployed and connected to Azure OpenAI with managed identity.
 
 ## Frequently asked questions
 
-- [What if I want to connect to OpenAI instead of Azure OpenAI?](#what-if-i-want-to-connect-to-openai-instead-of-azure-openai)
-- [Can I connect to Azure OpenAI with an API key instead?](#can-i-connect-to-azure-openai-with-an-api-key-instead)
-- [How does DefaultAzureCredential work in this tutorial?](#how-does-defaultazurecredential-work-in-this-tutorial)
+- [How can I connect to OpenAI instead of Azure OpenAI?](#how-can-i-connect-to-openai-instead-of-azure-openai)
+- [Can I connect to Azure OpenAI with an API key instead of managed identity?](#can-i-connect-to-azure-openai-with-an-api-key-instead-of-managed-identity)
+- [How does the DefaultAzureCredential work?](#how-does-the-defaultazurecredential-work)
 
 ---
 
-### What if I want to connect to OpenAI instead of Azure OpenAI?
+### How can I connect to OpenAI instead of Azure OpenAI?
 
-To connect to OpenAI instead, use the following code:
+To connect to OpenAI instead of Azure OpenAI, use the following code:
 
 ```javascript
 const { OpenAI } = require('openai');
@@ -225,31 +224,31 @@ const client = new OpenAI({
 
 For more information, see [OpenAI API authentication](https://platform.openai.com/docs/api-reference/authentication).
 
-When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
+>[!IMPORTANT]
+>When working with connection secrets like API keys in App Service, you should [use Azure Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your code. This practice ensures that sensitive information remains secure and is managed centrally.
 
 ---
 
-### Can I connect to Azure OpenAI with an API key instead?
+### Can I connect to Azure OpenAI with an API key instead of managed identity?
 
-Yes, you can connect to Azure OpenAI using an API key instead of managed identity. For more information, see the [Azure OpenAI JavaScript quickstart](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript).
+Yes, you can connect to Azure OpenAI using an API key instead of managed identity. For more information, see [Use the Azure OpenAI Responses API](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript).
 
-When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
+>[!IMPORTANT]
+>When working with connection secrets like API keys in App Service, you should [use Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your code. This practice ensures that sensitive information remains secure and is managed centrally.
 
 ---
 
-### How does DefaultAzureCredential work in this tutorial?
+### How does the DefaultAzureCredential work?
 
-The `DefaultAzureCredential` simplifies authentication by automatically selecting the best available authentication method:
+The `DefaultAzureCredential` simplifies authentication by automatically selecting the best available authentication method.
 
-- **During local development**: After you run `az login`, it uses your local Azure CLI credentials.
-- **When deployed to Azure App Service**: It uses the app's managed identity for secure, passwordless authentication.
+- During local development, after you run `az login`, the `DefaultAzureCredential` uses your local Azure CLI credentials.
+- For Azure App Service deployments, the `DefaultAzureCredential` uses the app's managed identity for secure, passwordless authentication.
 
 This approach lets your code run securely and seamlessly in both local and cloud environments without modification.
 
-## Next steps
+## Related content
 
-- [Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (Express.js)](tutorial-ai-openai-search-nodejs.md)
+- [Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (Express.js)](tutorial-ai-openai-search-nodejs.md)
 - [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (Express.js)](tutorial-ai-slm-expressjs.md)
-- [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource)
-- [Configure Azure App Service](/azure/app-service/configure-common)
-- [Enable managed identity for your app](overview-managed-identity.md)
+- [Use managed identities for App Service and Azure Functions](overview-managed-identity.md)

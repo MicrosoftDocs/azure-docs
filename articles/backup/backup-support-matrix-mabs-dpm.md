@@ -2,7 +2,7 @@
 title: MABS & System Center DPM support matrix
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
 ms.service: azure-backup
-ms.date: 07/17/2025
+ms.date: 09/11/2025
 ms.topic: reference
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -55,6 +55,22 @@ For more information:
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
 **Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server.<br/> The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is 2.0.8719.0.  | DPM/MABS must be running on-premises.
+
+> [!NOTE]
+> Backup of virtual machines hosted on public cloud platforms such as Azure VMs or AWS EC2 using DPM/MABS is not supported.
+> 
+> Also, Bare Metal Recovery (BMR) with MABS is supported only for recovery on the same hardware; recovery to different hardware or cloud environments (such as Azure VM or AWS EC2) isn't supported.
+
+> **System state recovery support matrix**
+> 
+> | Scenario | Supported |
+| --- | --- |
+| Recover system state after BMR on the same hardware | ✅ Yes |
+| Recover system state after BMR on different hardware | ❌ No |
+| Recover system state after non-BMR full restore (same/different hardware) | ❌ No |
+
+>[!Note]
+>This limitation is primarily due to the fact that **system state backups contain hardware-dependent information**, making recovery on different environments technically infeasible.
 
 ## Supported deployments
 
@@ -146,6 +162,10 @@ BitLocker can only be enabled after you add the disk the storage pool. Don't ena
 
 Network-attached storage (NAS) isn't supported for use in the DPM storage pool.
 
+>[!NOTE]
+>Microsoft Azure Backup Server (MABS)/DPM supports a maximum total replica (protected data) size of 75 TB per server. Exceeding this threshold can lead to missed backup SLAs and may render the server unresponsive. 
+>In case consider to add another MABS Server.
+
 **Storage** | **Details**
 --- | ---
 **MBS** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.
@@ -167,7 +187,7 @@ For information on the various servers and workloads that you can protect with A
 
 ## Supported backups to DPM
 
-For information on the various servers and workloads that you can protect with Data Protection Manager, refer to the article [What can DPM back up?](/system-center/dpm/dpm-protection-matrix).
+For information on the various servers and workloads that you can protect with Data Protection Manager, refer to the article [What can DPM back up?](/system-center/dpm/dpm-protection-matrix)
 
 - Clustered workloads backed up by DPM/MABS should be in the same domain as DPM/MABS or in a child/trusted domain.
 - You can use NTLM/certificate authentication to back up data in untrusted domains or workgroups.

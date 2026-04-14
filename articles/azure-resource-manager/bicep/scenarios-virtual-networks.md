@@ -1,9 +1,9 @@
----
+﻿---
 title: Create virtual network resources by using Bicep
 description: Describes how to create virtual networks, network security groups, and route tables by using Bicep.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 04/25/2025
+ms.date: 12/22/2025
 ---
 
 # Create virtual network resources by using Bicep
@@ -30,7 +30,7 @@ var virtualNetworkName = 'my-vnet'
 var subnet1Name = 'Subnet-1'
 var subnet2Name = 'Subnet-2'
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: virtualNetworkName
   location: location
   properties: {

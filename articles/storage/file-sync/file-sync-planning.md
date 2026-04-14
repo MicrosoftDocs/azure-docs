@@ -179,9 +179,39 @@ The following table shows the interoperability state of NTFS file system feature
 | Mount points | Partially supported | Mount points might be the root of a server endpoint, but they're skipped if a server endpoint's namespace contains them. |
 | Junctions | Skipped | Examples are Distributed File System (DFS) `DfrsrPrivate` and `DFSRoots` folders. |
 | Reparse points | Skipped | |
-| NTFS compression | Partially supported | Azure File Sync doesn't support server endpoints located on a volume that compresses the system volume information (SVI) directory. |
+| NTFS compression | Partially supported | Azure File Sync doesn't support server endpoints located on a volume that compresses the system volume information (SVI) directory. | 
 | Sparse files | Fully supported | Sparse files sync (aren't blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
 | Alternate Data Streams (ADS) | Preserved, but not synced | For example, classification tags that File Classification Infrastructure creates aren't synced. Existing classification tags on files on each of the server endpoints are untouched. |
+
+> [!NOTE]
+> **NTFS compression with cloud tiering**
+>
+> Using NTFS compression on tiered files can cause significant performance impact. It is recommended not to use cloud tiering with compressed files.  
+>
+> If compressed files have already been tiered, they must be uncompressed after recalling the data from the cloud by running:
+>
+> ```powershell
+> Invoke-StorageSyncFileRecall -FilePath <path>
+> compact /U /S <filepath>
+> ```
+> Using NTFS compression on tiered files can cause significant performance impact. It is recommended not to use cloud tiering with compressed files.
+> 
+> You can uncompress files using the [compact](/windows-server/administration/windows-commands/compact) command.
+>
+> On Windows Server 2019 or later, the **compact** command skips tiered files, so you must recall the file first before uncompressing it.
+> ```powershell
+> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+> Invoke-StorageSyncFileRecall -FilePath <path>
+> compact /U /S <filepath>
+> ```
+>
+> If file recalls lead to low disk space issues, you should wait for background tiering to kick in and tier the file back before recalling more files or tier the file back
+> after uncompressing by running the cmdlet
+> ```powershell
+> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+> Invoke-StorageSyncCloudTiering -Path <path>
+> ```
+
 
 <a id="files-skipped"></a>Azure File Sync also skips certain temporary files and system folders:
 
@@ -343,7 +373,21 @@ For more information, see [Azure File Sync performance metrics](./file-sync-scal
 
 ## Identity
 
-The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
+The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service. 
+
+When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
+ 
+1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
+ 
+2. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
+ 
+3. Select **Create role assignment**, and then click **Select**.
+ 
+4. Select **Add expression**, and then select **Request**.
+ 
+5. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
+ 
+6. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
 
 Azure File Sync works with your standard Active Directory-based identity without any special setup beyond setting up sync. When you're using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Because the server endpoints are on Windows Server, and Windows Server supports Active Directory and Windows-style ACLs, you don't need anything beyond ensuring that the Windows file servers registered with the storage sync service are domain joined. Azure File Sync stores ACLs on the files in the Azure file share, and it replicates those ACLs to all server endpoints.
 

@@ -17,7 +17,7 @@ Standard Public Azure Load Balancer frontend IPv4 and IPv6 addresses support tes
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) and access to the Azure portal.
 
 - A standard public load balancer with an IPv4 and IPv6 frontend in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer](/azure/load-balancer/quickstart-load-balancer-standard-public-portal) to load balance VMs using the Azure portal.
 
@@ -112,7 +112,7 @@ This section describes how to test reachability of a standard public load balanc
     | **Source** | Enter **Any** |
     | **Source port ranges** | Enter **\*** |
     | **Destination** | Enter **Any** |
-    | **Service** | Ender **Custom** |
+    | **Service** | Enter **Custom** |
     | **Destination port ranges** | Enter **\*** |
     | **Protocol** | Select **ICMP** |
     | **Action** | Select **Allow** |
@@ -211,7 +211,9 @@ Based on the current health probe state of your backend instances, you receive d
 
 - ICMP pings can't be disabled and are allowed by default on Standard Public Load Balancers.
 - ICMP pings with packet sizes larger than 64 bytes will be dropped, leading to timeouts.
-- Outbound ICMP pings are not supported on a Load Balancer.  
+- Outbound ICMP pings are not supported on a Standard Load Balancer.
+- ICMP pings are not supported on Global or Gateway Load Balancers.
+- ICMP pings are not supported for regional load balancers (load balancers that are deployed behind a Global Load Balancer). 
 
 > [!NOTE]
 > ICMP ping requests are not sent to the backend instances; they are handled by the Load Balancer.

@@ -98,7 +98,7 @@ Defaults:AzMigrateLeastprivuser !requiretty
 | Operating system| Versions |
 | --- | --- | 
 | Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x, 9.x, 9.5|
-| Ubuntu | 524.04, 22.04, 12.04, 14.04, 16.04, 18.04, 20.04, 22.04|
+| Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04, 22.04, 24.04|
 | Oracle Linux| 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5|
 | SUSE Linux| 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3|
 | Debian | 7, 8, 9, 10, 11|
@@ -291,7 +291,7 @@ Select **Start discovery** to begin discovering the validated servers. After dis
 ### Verify servers in the portal
 
 After discovery finishes, you can verify that the servers appear in the portal.
-1.	Open the Azure Migrate dashboard.
+1.	Go to the Azure Migrate dashboard.
 2.	In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for discovered servers.
 
 ## View License support status
@@ -311,7 +311,7 @@ To see how many months are left until the end of support, select **Columns** > *
 After discovery starts, you can delete any added server from the appliance configuration manager by searching for the server name in the **Add discovery source** table and selecting **Delete**.
 
 >[!Note]
-> If you delete a server after discovery starts, it stops the ongoing discovery and assessment. This action might affect the confidence rating of the assessment that includes the server. [Learn more](common-questions-discovery-assessment.md#why-is-the-confidence-rating-of-my-assessment-low).
+> If you delete a server after discovery starts, it stops the ongoing discovery and assessment. This action might affect the performance coverage of the assessment that includes the server. [Learn more](common-questions-discovery-assessment.md#why-is-the-performance-coverage-of-my-assessment-low).
 
 ## Next steps
 

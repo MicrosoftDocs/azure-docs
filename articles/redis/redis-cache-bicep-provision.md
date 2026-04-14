@@ -1,19 +1,18 @@
 ---
-title: Deploy Azure Cache for Redis using Bicep
-description: Learn how to use Bicep to deploy an Azure Cache for Redis resource.
-ms.date: 05/18/2025
-ms.topic: conceptual
+title: Deploy Azure Managed Redis cache using Bicep
+description: Learn how to use Bicep to deploy an Azure Managed Redis resource.
+ms.date: 01/28/2026
+ms.topic: quickstart-bicep
 ms.custom:
   - subject-armqs
   - devx-track-bicep
   - ignite-2024
   - build-2025
 appliesto:
-  - ✅ Azure Cache for Redis
-  - ✅ Azure Managed Redis
+    - ✅ Azure Managed Redis
 ---
 
-# Quickstart: Create an Azure Cache for Redis using Bicep
+# Quickstart: Create an Azure Managed Redis cache using Bicep
 
 Learn how to use Bicep to deploy a cache using Azure Cache for Redis. After you deploy the cache, use it with an existing storage account to keep diagnostic data. Learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this Bicep file for your own deployments, or customize it to meet your requirements.
 
@@ -21,7 +20,7 @@ Learn how to use Bicep to deploy a cache using Azure Cache for Redis. After you 
 
 ## Prerequisites
 
-- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - **A storage account**: To create one, see [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal). The storage account is used for diagnostic data. Create the storage account in a new resource group named **exampleRG**.
 
 ## Azure Cache for Redis

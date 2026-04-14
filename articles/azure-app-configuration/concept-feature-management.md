@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devdivchpfy22
 ms.topic: concept-article
-ms.date: 03/24/2025
+ms.date: 11/21/2025
 ---
 
 # Feature management overview
@@ -80,6 +80,9 @@ To start using feature flags with Azure App Configuration, continue to the follo
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [Aspire](./quickstart-feature-flag-aspire.md)
 
 > [!div class="nextstepaction"]
 > [.NET/.NET Framework](./quickstart-feature-flag-dotnet.md)

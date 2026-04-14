@@ -19,7 +19,7 @@ When you access queue data using the [Azure portal](https://portal.azure.com), t
 
 ## Permissions needed to access queue data
 
-Depending on how you want to authorize access to queue data in the Azure portal, you need specific permissions. In most cases, these permissions are provided via Azure role-based access control (Azure RBAC). For more information about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
+Depending on how you want to authorize access to queue data in the Azure portal, you need specific permissions. In most cases, these permissions are provided via Azure role-based access control (Azure RBAC). For more information about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ### Use the account access key
 
@@ -71,7 +71,7 @@ If you're authenticating using the account access key, you see **Access Key** sp
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing queues with the account key":::
 
-If you want to switch to use the Microsoft Entra account, select the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you're able to proceed. If you don't have the right permissions, you see an error message and no blobs appear in the list.
+If you want to switch to use the Microsoft Entra account, select the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you're able to proceed. If you don't have the right permissions, you see an error message and no queue messages appear in the list.
 
 Select the **Switch to access key** link to use the access key for authentication again.
 
@@ -83,7 +83,7 @@ If you're authenticating using your Microsoft Entra account, you see **Microsoft
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing queues with Microsoft Entra account":::
 
-If you want to switch to use the account access key, select the link highlighted in the image. If you have access to the account key, then you're able to proceed. If you don't have access to the account key, you see an error message and no blobs appear in the list.
+If you want to switch to use the account access key, select the link highlighted in the image. If you have access to the account key, then you're able to proceed. If you don't have access to the account key, you see an error message and no queue messages appear in the list.
 
 Select the **Switch to Microsoft Entra user account** link to use your Microsoft Entra account for authentication again.
 

@@ -3,11 +3,12 @@ title: Web app as MCP server in GitHub Copilot Chat agent mode (.NET)
 description: Empower GitHub Copilot Chat with your existing .NET web apps by integrating their capabilities as Model Context Protocol servers, enabling Copilot Chat to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
-ms.date: 06/17/2025
+ms.date: 11/10/2025
 ms.topic: tutorial
 ms.custom:
   - devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.service: azure-app-service
 ---
 
@@ -221,7 +222,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 When your MCP server is called by an agent powered by large language models (LLM), be aware of [prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) attacks. Consider the following security best practices:
 
-- **Authentication and Authorization**: Protect your MCP endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
+- **Authentication and Authorization**: Secure your MCP server with Microsoft Entra authentication to ensure only authorized users or agents can access your tools. See [Secure Model Context Protocol calls to Azure App Service from Visual Studio Code with Microsoft Entra authentication](configure-authentication-mcp-server-vscode.md) for a step-by-step guide.
 - **Input Validation and Sanitization**: The example code in this tutorial omits input validation and sanitization for simplicity and clarity. In production scenarios, always implement proper validation and sanitization to protect your application. For ASP.NET Core, see [Model validation in ASP.NET Core](/aspnet/core/mvc/models/validation).
 - **HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
 - **Least Privilege Principle**: Expose only the necessary tools and data required for your use case. Avoid exposing sensitive operations unless necessary.

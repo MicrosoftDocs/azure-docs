@@ -1,8 +1,8 @@
 ---
 title: Create Azure Device Update for IoT Hub resources
 description: Create an Azure Device Update for IoT Hub account and instance by using the Azure portal or Azure CLI.
-author: eshashah-msft
-ms.author: eshashah
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 12/06/2024
 ms.topic: how-to
 ms.service: azure-iot-hub

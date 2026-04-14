@@ -1,9 +1,9 @@
----
+﻿---
 title: User-defined types in Bicep
 description: This article describes how to define and use user-defined data types in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 07/01/2025
+ms.date: 12/22/2025
 ---
 
 # User-defined data types in Bicep
@@ -143,7 +143,13 @@ The valid type expressions include:
 - Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#use-decorators) in Bicep, so only literals are permitted as members.
 
     ```bicep
-    type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
+    type oneOfSeveralObjects = {
+      foo: 'bar'
+    } | {
+      fizz: 'buzz'
+    } | {
+      snap: 'crackle'
+    }
     type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
     ```
 
@@ -192,7 +198,7 @@ param storageAccountName string
 ])
 param storageAccountSKU string = 'Standard_LRS'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -216,7 +222,7 @@ type storageAccountConfigType = {
 
 param storageAccountConfig storageAccountConfigType
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountConfig.name
   location: location
   sku: {
@@ -454,7 +460,7 @@ param storageAccountProps resourceInput<'Microsoft.Storage/storageAccounts@2023-
 }
 
 // Resource declaration using the typed parameter
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'mystorageacct123'
   location: resourceGroup().location
   sku: {
@@ -476,3 +482,4 @@ Unlike user-defined data types, resource-derived types are checked by Bicep when
 ## Related content
 
 For a list of the Bicep data types, see [Data types](./data-types.md).
+

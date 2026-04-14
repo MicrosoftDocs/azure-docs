@@ -2,8 +2,8 @@
 title: Azure Functions best practices
 description: Learn best practices for designing, deploying, and maintaining efficient function code running in Azure.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.topic: conceptual
-ms.date: 05/06/2025
+ms.topic: concept-article
+ms.date: 01/20/2026
 ms.devlang: csharp
 ms.custom:
   - build-2024
@@ -13,36 +13,36 @@ ms.custom:
 ---
 # Best practices for reliable Azure Functions
 
-Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure App Service application platform with capabilities to implement code triggered by events occurring in Azure, in a partner service, and in on-premises systems. Functions lets you build solutions by connecting to data sources or messaging solutions, which makes it easier to process and react to events. Functions runs on Azure data centers, which are complex with many integrated components. In a hosted cloud environment, it's expected that VMs can occasionally restart or move, and systems upgrades occur. Your functions apps also likely depend on external APIs, Azure Services, and other databases, which are also prone to periodic unreliability.
+Azure Functions is an event-driven, compute-on-demand service that extends the existing Azure App Service application platform. It adds capabilities to implement code triggered by events occurring in Azure, in a partner service, and in on-premises systems. By using Functions, you can build solutions that connect to data sources or messaging solutions, which makes it easier to process and react to events. Functions runs in Azure data centers, which are complex with many integrated components. In a hosted cloud environment, it's expected that VMs can occasionally restart or move, and systems upgrades occur. Your functions apps also likely depend on external APIs, Azure Services, and other databases, which are also prone to periodic unreliability.
 
 This article details some best practices for designing and deploying efficient function apps that remain healthy and perform well in a cloud-based environment.
 
 ## Choose the correct hosting plan
 
-When you create a function app in Azure, you must choose a hosting plan for your app. The plan you choose has an effect on performance, reliability, and cost. These options are the hosting plans provided by Azure Functions:
+When you create a function app in Azure, you must choose a hosting plan for your app. The plan you choose affects performance, reliability, and cost. Azure Functions provides the following hosting plans:
 
 - [Flex Consumption plan](./flex-consumption-plan.md)
 - [Premium plan](functions-premium-plan.md)
 - [Dedicated (App Service) plan](dedicated-plan.md)
 - [Consumption plan](consumption-plan.md)
 
-The [Flex Consumption plan](./flex-consumption-plan.md) is generally recommended for hosting your dynamic scale apps.  
+When possible, use the [Flex Consumption plan](./flex-consumption-plan.md) to host your dynamic scale apps.  
 
-In the context of the App Service platform, the *Premium* plan used to dynamically host your functions is the Elastic Premium plan (EP). There are other Dedicated (App Service) plans called Premium. For more information, see [Azure Functions Premium plan](functions-premium-plan.md).
+In the context of the App Service platform, the *Premium* plan that dynamically hosts your functions is the Elastic Premium plan (EP). Other Dedicated (App Service) plans are called Premium. For more information, see [Azure Functions Premium plan](functions-premium-plan.md).
 
 The hosting plan you choose determines the following behaviors:
 
-- How your function app is scaled based on demand and how instances allocation is managed.
+- How your function app scales based on demand and how instance allocation is managed.
 - The resources available to each function app instance.
 - Support for advanced functionality, such as Azure Virtual Network connectivity.
 
-To learn more about choosing the correct hosting plan and for a detailed comparison between the plans, see [Azure Functions hosting options](functions-scale.md).
+For more information about choosing the correct hosting plan and a detailed comparison between the plans, see [Azure Functions hosting options](functions-scale.md).
 
-It's important that you choose the correct plan when you create your function app. Functions provides a limited ability to switch your hosting plan, primarily between Consumption and Elastic Premium plans. For more information, see [Plan migration](functions-how-to-use-azure-function-app-settings.md?tabs=portal#plan-migration).
+Choose the correct plan when you create your function app. Functions provides a limited ability to switch your hosting plan, primarily between Consumption and Elastic Premium plans. For more information, see [Plan migration](functions-how-to-use-azure-function-app-settings.md?tabs=portal#plan-migration).
 
 ## Configure storage correctly
 
-Functions requires a storage account be associated with your function app. The storage account connection is used by the Functions host for operations such as managing triggers and logging function executions. It's also used when dynamically scaling function apps. For more information, see [Storage considerations for Azure Functions](storage-considerations.md).
+Functions requires a storage account be associated with your function app. The Functions host uses the storage account connection for operations such as managing triggers and logging function executions. It's also used when dynamically scaling function apps. For more information, see [Storage considerations for Azure Functions](storage-considerations.md).
 
 A misconfigured file system or storage account in your function app can affect the performance and availability of your functions. For help with troubleshooting an incorrectly configured storage account, see the [storage troubleshooting](functions-recover-storage-account.md) article.
 
@@ -53,9 +53,9 @@ Function apps that scale dynamically can run either from an Azure Files endpoint
 - [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](functions-app-settings.md#website_contentazurefileconnectionstring)
 - [WEBSITE_CONTENTSHARE](functions-app-settings.md#website_contentshare)
 
-These settings are only supported when you run in a Premium plan or in a Consumption plan on Windows. They aren't required by the Flex Consumption plan, which uses a Blob storage container to host deployment packages instead of an Azure Files share.
+The Premium plan and the Consumption plan on Windows support these settings. The Flex Consumption plan doesn't require these settings and uses a Blob storage container to host deployment packages instead of an Azure Files share.
 
-When you create your function app either in the Azure portal or by using Azure CLI or Azure PowerShell, these settings are created for your function app when needed. When you create your resources from an Azure Resource Manager template (ARM template), you need to also include `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` in the template.
+When you create your function app in the Azure portal or by using Azure CLI or Azure PowerShell, you create these settings for your function app when needed. When you create your resources from an Azure Resource Manager template (ARM template), you need to also include `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` in the template.
 
 On your first deployment using an ARM template, don't include `WEBSITE_CONTENTSHARE`, which is generated for you.
 
@@ -96,15 +96,15 @@ For more information on how to organize your functions, see [Function organizati
 
 ## Optimize deployments
 
-When deploying a function app, it's important to keep in mind that the unit of deployment for functions in Azure is the function app. All functions in a function app are deployed at the same time, usually from the same deployment package.  
+When you deploy a function app, remember that the unit of deployment for functions in Azure is the function app. You deploy all functions in a function app at the same time, usually from the same deployment package.  
 
 Consider these options for a successful deployment:
 
 - Have your functions run from the deployment package. This [run from package approach](run-functions-from-deployment-package.md) provides the following benefits:
 
-  - Reduces the risk of file copy locking issues.
-  - Can be deployed directly to a production app, which does trigger a restart.
-  - Know that all files in the package are available to your app.
+  - Reduces the risk of file copy locking problems.
+  - Can be deployed directly to a production app and doesn't trigger a restart.
+  - All files in the package are available to your app.
   - Improves the performance of ARM template deployments.
   - Might reduce cold-start times, particularly for JavaScript functions with large npm package trees.
 
@@ -112,44 +112,46 @@ Consider these options for a successful deployment:
 
 - For [Premium plan hosting](functions-premium-plan.md), consider adding a warmup trigger to reduce latency when new instances are added. For more information, see [Azure Functions warm-up trigger](functions-bindings-warmup.md).
 
-- To minimize deployment downtime and to be able to roll back deployments, consider using deployment slots. For more information, see [Azure Functions deployment slots](functions-deployment-slots.md).
+- To minimize deployment downtime, use deployment slots for Consumption, Premium, and Dedicated plans. Or, configure rolling updates for zero-downtime deployments in the Flex Consumption plan. For more information, see [Azure Functions deployment slots](functions-deployment-slots.md) and [site update strategies in Flex Consumption](flex-consumption-site-updates.md).
 
 ## Write robust functions
 
-There are several design principles you can follow when writing your function code that help with general performance and availability of your functions. These principles include:
+Follow design principles that help with the general performance and availability of your functions. These principles include:
 
 - [Avoid long running functions](performance-reliability.md#avoid-long-running-functions)
 - [Plan cross-function communication](performance-reliability.md#cross-function-communication)
 - [Write functions to be stateless](performance-reliability.md#write-functions-to-be-stateless)
 - [Write defensive functions](performance-reliability.md#write-defensive-functions)
 
-Because transient failures are common in cloud computing, you should use a [retry pattern](/azure/architecture/patterns/retry) when accessing cloud-based resources. Many triggers and bindings already implement retry.
+Transient failures are common in cloud computing, so use a [retry pattern](/azure/architecture/patterns/retry) when accessing cloud-based resources. Many triggers and bindings already implement retry.
+
+Prioritize integration testing by continuously testing your functions in the context of the full application and in your build automation pipelines.
 
 ## Design for security
 
-Security is best considered during the planning phase and not after your functions are ready to go. To Learn how to securely develop and deploy functions, see [Securing Azure Functions](security-concepts.md).  
+Consider security during the planning phase, not after your functions are ready. For more information, see [Securing Azure Functions](security-concepts.md).  
 
 ## Consider concurrency
 
-As demand builds on your function app as a result of incoming events, function apps running in Consumption and Premium plans are scaled out. It's important to understand how your function app responds to load and how the triggers can be configured to handle incoming events. For a general overview, see [Event-driven scaling in Azure Functions](event-driven-scaling.md).
+As demand builds on your function app because of incoming events, Consumption and Premium plans scale out the function apps. It's important to understand how your function app responds to load and how the triggers can be configured to handle incoming events. For a general overview, see [Event-driven scaling in Azure Functions](event-driven-scaling.md).
 
-Dedicated (App Service) plans require you to provide for scaling out your function apps.
+Dedicated (App Service) plans require you to provide scaling for your function apps.
 
 ### Worker process count
 
-In some cases, it's more efficient to handle the load by creating multiple processes, called language worker processes, in the instance before scale-out. The maximum number of language worker processes allowed is controlled by the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) setting. The default for this setting is `1`, which means that multiple processes aren't used. After the maximum number of processes are reached, the function app is scaled out to more instances to handle the load. This setting doesn't apply for [C# class library functions](functions-dotnet-class-library.md), which run in the host process.
+In some cases, it's more efficient to handle the load by creating multiple processes, called language worker processes, in the instance before scale-out. The [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) setting controls the maximum number of language worker processes allowed. The default for this setting is `1`, which means that multiple processes aren't used. After the maximum number of processes are reached, the function app scales out to more instances to handle the load. This setting doesn't apply for [C# class library functions](functions-dotnet-class-library.md), which run in the host process.
 
-When using `FUNCTIONS_WORKER_PROCESS_COUNT` on a Premium plan or Dedicated (App Service) plan, keep in mind the number of cores provided by your plan. For example, the Premium plan `EP2` provides two cores, so you should start with a value of `2` and increase by two as needed, up to the maximum.
+When you use `FUNCTIONS_WORKER_PROCESS_COUNT` on a Premium plan or Dedicated (App Service) plan, consider the number of cores provided by your plan. For example, the Premium plan `EP2` provides two cores, so you should start with a value of `2` and increase by two as needed, up to the maximum.
 
 ### Trigger configuration
 
-When planning for throughput and scaling, it's important to understand how the different types of triggers process events. Some triggers allow you to control the batching behaviors and manage concurrency. Often adjusting the values in these options can help each instance scale appropriately for the demands of the invoked functions. These configuration options are applied to all triggers in a function app, and are maintained in the host.json file for the app. See the Configuration section of the specific trigger reference for settings details.
+When you plan for throughput and scaling, understand how the different types of triggers process events. Some triggers give you control over batching behaviors and concurrency. Adjusting these values can help each instance scale appropriately for the demands of the invoked functions. You apply these configuration options to all triggers in a function app, and maintain them in the host.json file for the app. For settings details, see the Configuration section of the specific trigger reference.
 
 To learn more about how Functions processes message streams, see [Azure Functions reliable event processing](functions-reliable-event-processing.md).
 
 ### Plan for connections
 
-Function apps running in [Consumption plan](consumption-plan.md) are subject to connection limits. These limits are enforced on a per-instance basis. Because of these limits and as a general best practice, you should optimize your outbound connections from your function code. For more information, see [Manage connections in Azure Functions](manage-connections.md).
+Connection limits apply to function apps running in [Consumption plan](consumption-plan.md). These limits apply to each instance. Because of these limits and as a general best practice, optimize your outbound connections from your function code. For more information, see [Manage connections in Azure Functions](manage-connections.md).
 
 ### Language-specific considerations
 
@@ -183,12 +185,13 @@ For your language of choice, keep in mind the following considerations:
 
 ## Maximize availability
 
-Cold start is a key consideration for serverless architectures. For more information, see [Cold starts](event-driven-scaling.md#cold-start). If cold start is a concern for your scenario, you can find a deeper dive in the post [Understanding serverless cold start](https://azure.microsoft.com/blog/understanding-serverless-cold-start/).
+Cold start is a key consideration for serverless architectures. For more information, see [Cold starts](event-driven-scaling.md#cold-start). If cold start is a concern for your scenario, see [Understanding serverless cold start](https://azure.microsoft.com/blog/understanding-serverless-cold-start/).
 
-Premium plan is the recommended plan for reducing colds starts while maintaining dynamic scale. You can use the following guidance to reduce cold starts and improve availability in all three hosting plans.
+Both Flex Consumption and Premium plans are recommended for reducing cold starts while maintaining dynamic scale. Use the following guidance to reduce cold starts and improve availability in all hosting plans.
 
 | Plan | Guidance |
 |:--- |: --- |
+| **Flex Consumption plan** | • [Use always ready instances to keep instances running](flex-consumption-plan.md#always-ready-instances)<br/>• [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts) |
 | **Premium plan** | • [Implement a Warmup trigger in your function app](functions-bindings-warmup.md)<br/>• [Set the values for Always-Ready instances and Max Burst limit](functions-premium-plan.md#plan-and-sku-settings)<br/>• [Use virtual network trigger support when using non-HTTP triggers on a virtual network](functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers)|
 | **Dedicated plans** | • [Run on at least two instances with Azure App Service Health Check enabled](../app-service/monitor-instances-health-check.md)<br/>• [Implement autoscaling](/azure/architecture/best-practices/auto-scaling)|
 | **Consumption plan** | • Review your use of Singleton patterns and the concurrency settings for bindings and triggers to avoid artificially placing limits on how your function app scales.<br/>• [Review the `functionAppScaleLimit` setting, which can limit scale-out](event-driven-scaling.md#limit-scale-out)<br/>• Check for a Daily Usage Quota (GB-Sec) limit set during development and testing. Consider removing this limit in production environments. |
@@ -197,17 +200,17 @@ Premium plan is the recommended plan for reducing colds starts while maintaining
 
 Azure Functions offers built-in integration with Azure Application Insights to monitor your function execution and traces written from your code. For more information, see [Monitor executions in Azure Functions](functions-monitoring.md). Azure Monitor also provides facilities for monitoring the health of the function app itself. For more information, see [Monitor Azure Functions](monitor-functions.md).
 
-You should be aware of the following considerations when using Application Insights integration to monitor your functions:
+Be aware of the following considerations when using Application Insights integration to monitor your functions:
 
-- Make sure that the [AzureWebJobsDashboard](functions-app-settings.md#azurewebjobsdashboard) application setting is removed. This setting was supported in older version of Functions. If it exists, removing `AzureWebJobsDashboard` improves performance of your functions.
+- Remove the [AzureWebJobsDashboard](functions-app-settings.md#azurewebjobsdashboard) application setting. This setting was supported in older versions of Functions. Removing `AzureWebJobsDashboard` improves the performance of your functions.
 
-- Review the [Application Insights logs](analyze-telemetry-data.md). If data you expect to find is missing, consider adjusting the sampling settings to better capture your monitoring scenario. You can use the `excludedTypes` setting to exclude certain types from sampling, such as `Request` or `Exception`. For more information, see [Configure sampling](configure-monitoring.md?tabs=v2#configure-sampling).
+- Review the [Application Insights logs](analyze-telemetry-data.md). If data you expect to find is missing, consider adjusting the sampling settings to better capture your monitoring scenario. Use the `excludedTypes` setting to exclude certain types from sampling, such as `Request` or `Exception`. For more information, see [Configure sampling](configure-monitoring.md?tabs=v2#configure-sampling).
 
 Azure Functions also allows you to [send system-generated and user-generated logs to Azure Monitor Logs](functions-monitor-log-analytics.md). Integration with Azure Monitor Logs is currently in preview.
 
 ## Build in redundancy
 
-Your business needs might require that your functions always be available, even during a data center outage. To learn how to use a multi-regional approach to keep your critical functions always running, see [Reliability in Azure Functions](../reliability/reliability-functions.md).
+Your business needs might require that your functions always be available, even during a data center outage. To learn how to use a multiregional approach to keep your critical functions always running, see [Reliability in Azure Functions](/azure/reliability/reliability-functions).
 
 ## Next steps
 

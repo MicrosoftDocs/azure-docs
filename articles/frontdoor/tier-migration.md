@@ -53,7 +53,7 @@ Azure Front Door creates a new Standard or Premium profile based on your Front D
 During the preparation phase, Azure Front Door creates a copy of each WAF policy associated to the Front Door (classic) profile. The WAF policy tier is specific to the tier you're migrating to. A default name is provided for each WAF policy and you can change the name during this phase. You also can select an existing WAF policy that matches the tier you're migrating to instead of making a copy. Once the preparation phase is completed, a read-only view of the new Front Door profile is provided for you to verify configurations.
 
 > [!IMPORTANT]
-> You won't be able to make changes to the Front Door (classic) configuration once the preparation phase has been initiated.
+> You won't be able to make changes to the Front Door (classic) configuration once the preparation phase has been initiated. 
 
 #### Enable managed identity
 
@@ -64,10 +64,12 @@ During this step, you configure managed identity for Azure Front Door to access 
 This step adds managed identity access to all Azure Key Vaults used in the Front Door (classic) profile. 
 
 #### Migrate
-    
-Once migration begins, the Azure Front Door (classic) profile gets disabled and the Azure Front Door Standard, or Premium profile gets activated. Traffic starts flowing through the new profile once the migration completes.
 
-If you decided you no longer want to move forward with the migration process, you can select **Abort migration**. Aborting the migration deletes the new Front Door profile that was created. The Azure Front Door (classic) profile remains active and you can continue to use it. Any WAF policy copies need to be manually deleted.
+Before committing to migration in this step, if you decided you no longer want to move forward with the migration process, you can select **Abort migration**. Aborting the migration deletes the new Front Door profile that was created. The Azure Front Door (classic) profile remains active and you can continue to use it. Any WAF policy copies need to be manually deleted. 
+
+**However, once customer commits to migration in this step, there is no abortion or rollback.** Once migration begins, the Azure Front Door (classic) profile gets disabled and the Azure Front Door Standard, or Premium profile gets activated. Traffic starts flowing through the new profile once the migration completes.
+ 
+The migration is on control plane and the data plane remains the same. In normal cases, the migration won't fail. However, in rare cases, if the migration fails at this step, there is no impact on traffic delivery. The only impact is customer won't be able to make changes to AFD profile.
 
 Service charges for Azure Front Door Standard or Premium tier start once migration is completed.
 

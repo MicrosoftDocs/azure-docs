@@ -27,6 +27,9 @@ All VNet and branch connections are associated and propagating to the default ro
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1.png" alt-text="Diagram that shows a Virtual WAN design with two ExpressRoute circuits and two V P N branches." :::
 
+> [!NOTE]
+> In the diagrams throughout this article, each network entity is assigned a distinct BGP Autonomous System Number (ASN). VPN Branch 1 uses ASN 65501, while SDWAN Branch 4 uses ASN 65504. The different ASNs reflect the different connectivity types (site-to-site VPN vs. integrated SDWAN NVA) and follow a numbering convention based on the branch number. Other ASNs shown include 65012 for the NVA in VNet 12, 65102 for the SDWAN NVA in Hub 2, and 65001 for the ExpressRoute circuits.
+
 > [!IMPORTANT]
 > The previous diagram shows two secured virtual hubs. This topology is supported with Routing Intent. For more information, see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].
 

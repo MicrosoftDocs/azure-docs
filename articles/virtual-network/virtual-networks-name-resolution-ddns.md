@@ -2,7 +2,7 @@
 title: Use dynamic DNS to register hostnames in Azure
 description: Learn how to set up dynamic DNS to register hostnames in your own DNS servers.
 services: dns
-author: greg-lindsay
+author: asudbring
 manager: kumud
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: azure-dns

@@ -24,7 +24,7 @@ This article shows you how to use the Azure Spring Apps Maven plugin to configur
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An already provisioned Azure Spring Apps instance.
 * [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 * [Apache Maven](https://maven.apache.org/download.cgi)

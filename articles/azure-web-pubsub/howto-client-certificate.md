@@ -18,7 +18,7 @@ You can restrict access to your instance of Azure Web PubSub by turning on diffe
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure Web PubSub instance at a minimum Standard tier.
 * A function created in Azure Functions to handle connect events.
 * A client certificate. You need to know its SHA-1 thumbprint.

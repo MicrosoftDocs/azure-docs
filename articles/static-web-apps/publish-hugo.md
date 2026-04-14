@@ -2,11 +2,11 @@
 title: "Deploy a Hugo site to Azure Static Web Apps"
 description: Learn how to deploy a Hugo application to Azure Static Web Apps.
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 01/10/2024
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Deploy a Hugo site to Azure Static Web Apps
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
 - A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 

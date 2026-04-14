@@ -2,7 +2,7 @@
 title: Tutorial - SAP HANA DB backup on Azure using Azure CLI 
 description: In this tutorial, learn how to back up SAP HANA databases running on an Azure VM to an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 10/20/2024
+ms.date: 01/09/2026
 ms.custom: devx-track-azurecli, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -77,7 +77,7 @@ az backup vault create --resource-group hanarghsr2     --name hanavault10     --
 
 ## Register and protect the SAP HANA instance
 
-For the SAP HANA instance (the VM with SAP HANA installed on it) to be discovered by the Azure services, a [pre-registration script](https://aka.ms/scriptforpermsonhana) must be run on the SAP HANA machine. Make sure that all the [prerequisites](./tutorial-backup-sap-hana-db.md#prerequisites) are met before running the script. To learn more about what the script does, refer to the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
+For the SAP HANA instance (the VM with SAP HANA installed on it) to be discovered by the Azure services, a [pre-registration script](https://aka.ms/scriptforpermsonhana) must be run on the SAP HANA machine. Make sure that all the [prerequisites](./tutorial-backup-sap-hana-db.md#prerequisites) are met before running the script. To learn more about what the script does, refer to the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup) section.
 
 Once the script is run, the SAP HANA instance can be registered with the Recovery Services vault we created earlier. 
 
@@ -254,7 +254,7 @@ To enable database instance backup, follow these steps:
 
 ---
 
-## Trigger an on-demand backup
+## Trigger an on-demand backup for SAP HANA database
 
 While the section above details how to configure a scheduled backup, this section talks about triggering an on-demand backup. To do this, we use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) command.
 

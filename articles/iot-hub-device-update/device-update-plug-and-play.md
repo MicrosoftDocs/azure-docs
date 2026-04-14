@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub and IoT Plug and Play
 description: Understand how Azure Device Update for IoT Hub uses IoT Plug and Play interfaces to discover and manage devices that are over-the-air update capable.
-author: eshashah-msft
-ms.author: eshashah
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 01/21/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
@@ -11,13 +11,13 @@ ms.subservice: device-update
 
 # IoT Plug and Play in Azure Device Update for IoT Hub
 
-Device Update for IoT Hub uses [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) to discover and manage devices that are over-the-air update capable. This article describes how the Device Update service sends and receives properties and messages to and from devices by using IoT Plug and Play interfaces.
+Device Update for IoT Hub uses [IoT Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play) to discover and manage devices that are over-the-air update capable. This article describes how the Device Update service sends and receives properties and messages to and from devices by using IoT Plug and Play interfaces.
 
-For more information, see the [IoT Plug and Play device developer guide](../iot/concepts-developer-guide-device.md) and [How To Build the Device Update Agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
+For more information, see the [IoT Plug and Play device developer guide](/previous-versions/azure/iot/concepts-developer-guide-device) and [How To Build the Device Update Agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
 ## Device Update models
 
-Smart devices use IoT Plug and Play model IDs to advertise their capabilities to Azure IoT applications. Device Update requires the IoT Plug and Play smart device to announce a model ID as part of the device connection. For more information, see [Model ID announcement](../iot/concepts-developer-guide-device.md#model-id-announcement).
+Smart devices use IoT Plug and Play model IDs to advertise their capabilities to Azure IoT applications. Device Update requires the IoT Plug and Play smart device to announce a model ID as part of the device connection. For more information, see [Model ID announcement](/previous-versions/azure/iot/concepts-developer-guide-device#model-id-announcement).
 
 Device Update has several defined IoT Plug and Play models that support Device Update features. The Device Update model `**dtmi:azure:iot:deviceUpdateContractModel;3**` supports core Device Update functionality and uses the Device Update core interface to send update actions and metadata to devices and receive update status from devices.
 
@@ -78,7 +78,7 @@ IoT Hub device twin example:
 ```
 
 >[!NOTE]
->The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component. For more information, see [IoT Plug and Play conventions](../iot/concepts-convention.md#sample-multiple-components-writable-property).
+>The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component. For more information, see [IoT Plug and Play conventions](/previous-versions/azure/iot/concepts-convention#sample-multiple-components-writable-property).
 
 #### Device properties
 
@@ -130,9 +130,9 @@ Service metadata contains fields that the Device Update service uses to communic
 
 ## Device information interface
 
-The device information interface is a concept used within [IoT Plug and Play architecture](../iot/overview-iot-plug-and-play.md). The interface contains device-to-cloud properties that provide information about the device hardware and operating system. Device Update uses the `DeviceInformation.manufacturer` and `DeviceInformation.model` properties for telemetry and diagnostics. For an example of the device information interface, see [https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+The device information interface is a concept used within [IoT Plug and Play architecture](/previous-versions/azure/iot/overview-iot-plug-and-play). The interface contains device-to-cloud properties that provide information about the device hardware and operating system. Device Update uses the `DeviceInformation.manufacturer` and `DeviceInformation.model` properties for telemetry and diagnostics. For an example of the device information interface, see [https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-When you implement this interface, the expected component name in your model is **deviceInformation**. For more information, see the [IoT Plug and Play modeling guide](../iot/concepts-modeling-guide.md).
+When you implement this interface, the expected component name in your model is **deviceInformation**. For more information, see the [IoT Plug and Play modeling guide](/previous-versions/azure/iot/concepts-modeling-guide).
 
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|

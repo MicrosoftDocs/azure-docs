@@ -3,16 +3,17 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
 ms.topic: include
-ms.date: 12/30/2019
+ms.date: 11/04/2025
 ms.custom: sfi-image-nochange
 ---
 
 ## Create a container registry
 
-In this tutorial, you use the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.
+In this tutorial, you use the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions to build a module and create a container image from the files. Then you push this image to a registry that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.
 
 > [!IMPORTANT]
 > The Azure IoT Edge Visual Studio Code extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+>
 
 You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](/azure/container-registry/index) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry.
 
@@ -25,7 +26,7 @@ If you don't already have a container registry, follow these steps to create a n
    | Field | Value |
    | ----- | ----- |
    | Subscription | Select a subscription from the drop-down list. |
-   | Resource group | Use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
+   | Resource group | Use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials; for example, **IoTEdgeResources**. |
    | Registry name | Provide a unique name. |
    | Location | Choose a location close to you. |
    | SKU | Select **Basic**. |

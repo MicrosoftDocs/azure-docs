@@ -2,8 +2,8 @@
 title: Guidance for developing Azure Functions
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.topic: conceptual
-ms.date: 06/26/2024
+ms.topic: reference
+ms.date: 12/03/2025
 ms.custom:
   - devx-track-extended-java
   - devx-track-js
@@ -40,7 +40,7 @@ If you prefer to jump right in, you can complete a quickstart tutorial using [Vi
 
 ## Code project
 
-At the core of Azure Functions is a language-specific code project that implements one or more units of code execution called _functions_. Functions are simply methods that run in the Azure cloud based on events, in response to HTTP requests, or on a schedule. Think of your Azure Functions code project as a mechanism for organizing, deploying, and collectively managing your individual functions in the project when they're running in Azure. For more information, see [Organize your functions](functions-best-practices.md#organize-your-functions). 
+At the core of Azure Functions is a language-specific code project that implements one or more units of code execution called _functions_. Functions are simply methods that run in the Azure cloud based on events, in response to HTTP requests, or on a schedule. Think of your Azure Functions code project as a mechanism for organizing, deploying, and collectively managing your individual functions in the project when they're running in Azure. For more information, see [Organize your functions](functions-best-practices.md#organize-your-functions).
 
 ::: zone pivot="programming-language-csharp"
 The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For detailed language-specific guidance, see the [C# developers guide](dotnet-isolated-process-guide.md).
@@ -59,24 +59,24 @@ The way that you lay out your code project and how you indicate which methods in
 ::: zone-end
 All functions must have a trigger, which defines how the function starts and can provide input to the function. Your functions can optionally define input and output bindings. These bindings simplify connections to other services without you having to work with client SDKs. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-Azure Functions provides a set of language-specific project and function templates that make it easy to create new code projects and add functions to your project. You can use any of the tools that support Azure Functions development to generate new apps and functions using these templates.  
+Azure Functions provides a set of language-specific project and function templates that make it easy to create new code projects and add functions to your project. You can use any of the tools that support Azure Functions development to generate new apps and functions using these templates.
 
 ## Development tools
 
 The following tools provide an integrated development and publishing experience for Azure Functions in your preferred language:
 
-::: zone pivot="programming-language-csharp" 
+::: zone pivot="programming-language-csharp"
 + [Visual Studio](./functions-develop-vs.md)
 ::: zone-end
 + [Visual Studio Code](./functions-develop-vs-code.md)
 
-+ [Azure Functions Core Tools](./functions-develop-local.md) (command prompt) 
++ [Azure Functions Core Tools](./functions-develop-local.md) (command prompt)
 ::: zone pivot="programming-language-java"
 + [Eclipse](functions-create-maven-eclipse.md )
 
 + [Gradle](functions-create-first-java-gradle.md)
 
-+ [IntelliJ IDEA](functions-create-maven-intellij.md) 
++ [IntelliJ IDEA](functions-create-maven-intellij.md)
 
 + [Quarkus](functions-create-first-quarkus.md)
 
@@ -87,24 +87,24 @@ These tools integrate with [Azure Functions Core Tools](./functions-develop-loca
 
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 <a id="fileupdate"></a> There's also an editor in the Azure portal that lets you update your code and your *function.json* definition file directly in the portal. You should only use this editor for small changes or creating proof-of-concept functions. You should always develop your functions locally, when possible. For more information, see [Create your first function in the Azure portal](functions-create-function-app-portal.md).
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Portal editing is only supported for [Node.js version 3](functions-reference-node.md?pivots=nodejs-model-v3), which uses the function.json file.  
-::: zone-end  
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+Portal editing is only supported for [Node.js version 3](functions-reference-node.md?pivots=nodejs-model-v3), which uses the function.json file.
+::: zone-end
 
 ## Deployment
 
-When you publish your code project to Azure, you're essentially deploying your project to an existing function app resource. A function app provides an execution context in Azure in which your functions run. As such, it's the unit of deployment and management for your functions. From an Azure Resource perspective, a function app is equivalent to a site resource (`Microsoft.Web/sites`) in Azure App Service, which is equivalent to a web app. 
+When you publish your code project to Azure, you're essentially deploying your project to an existing function app resource. A function app provides an execution context in Azure in which your functions run. As such, it's the unit of deployment and management for your functions. From an Azure Resource perspective, a function app is equivalent to a site resource (`Microsoft.Web/sites`) in Azure App Service, which is equivalent to a web app.
 
-A function app is composed of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same [pricing plan](functions-scale.md), [deployment method](functions-deployment-technologies.md), and [runtime version](functions-versions.md). For more information, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
+A function app is composed of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same [pricing plan](functions-scale.md), [deployment method](functions-deployment-technologies.md), and [runtime version](functions-versions.md). For more information, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md).
 
 When the function app and any other required resources don't already exist in Azure, you first need to create these resources before you can deploy your project files. You can create these resources in one of these ways:
 ::: zone pivot="programming-language-csharp"
-+ During [Visual Studio](./functions-develop-vs.md#publish-to-azure) publishing   
-::: zone-end 
++ During [Visual Studio](./functions-develop-vs.md#publish-to-azure) publishing
+::: zone-end
 + Using [Visual Studio Code](./functions-develop-vs-code.md#publish-to-azure)
 
-+ Programmatically using [Azure CLI](./scripts/functions-cli-create-serverless.md), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep files](functions-create-first-function-bicep.md)
++ Programmatically using [Azure CLI](functions-cli-samples.md#create), [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c), [ARM templates](functions-create-first-function-resource-manager.md), or [Bicep files](functions-create-first-function-bicep.md)
 
 + In the [Azure portal](functions-create-function-app-portal.md)
 
@@ -114,11 +114,11 @@ In addition to tool-based publishing, Functions supports other technologies for 
 
 A major requirement of any cloud-based compute service is reading data from and writing data to other cloud services. Functions provides an extensive set of bindings that makes it easier for you to connect to services without having to work with client SDKs.
 
-Whether you use the binding extensions provided by Functions or you work with client SDKs directly, you securely store connection data and do not include it in your code. For more information, see [Connections](#connections).   
+Whether you use the binding extensions provided by Functions or you work with client SDKs directly, you securely store connection data and do not include it in your code. For more information, see [Connections](#connections).
 
 ### Bindings
 
-Functions provides bindings for many Azure services and a few third-party services, which are implemented as extensions. For more information, see the [complete list of supported bindings](functions-triggers-bindings.md#supported-bindings). 
+Functions provides bindings for many Azure services and a few third-party services, which are implemented as extensions. For more information, see the [complete list of supported bindings](functions-triggers-bindings.md#supported-bindings).
 
 Binding extensions can support both inputs and outputs, and many triggers also act as input bindings. Bindings let you configure the connection to services so that the Functions host can handle the data access for you. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
@@ -126,9 +126,9 @@ If you're having issues with errors coming from bindings, see the [Azure Functio
 
 ### Client SDKs
 
-While Functions provides bindings to simplify data access in your function code, you're still able to use a client SDK in your project to directly access a given service, if you prefer. You might need to use client SDKs directly should your functions require a functionality of the underlying SDK that's not supported by the binding extension. 
+While Functions provides bindings to simplify data access in your function code, you're still able to use a client SDK in your project to directly access a given service, if you prefer. You might need to use client SDKs directly should your functions require a functionality of the underlying SDK that's not supported by the binding extension.
 
-When using client SDKs, you should use the same process for [storing and accessing connection strings](#connections) used by binding extensions.  
+When using client SDKs, you should use the same process for [storing and accessing connection strings](#connections) used by binding extensions.
 ::: zone pivot="programming-language-csharp"
 When you create a client SDK instance in your functions, you should get the connection info required by the client from [Environment variables](functions-dotnet-class-library.md#environment-variables).
 ::: zone-end
@@ -147,7 +147,7 @@ When you create a client SDK instance in your functions, you should get the conn
 
 ## Connections
 
-As a security best practice, Azure Functions takes advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services. Application settings in Azure are stored encrypted and can be accessed at runtime by your app as environment variable `name` `value` pairs. For triggers and bindings that require a connection property, you set the application setting name instead of the actual connection string. You can't configure a binding directly with a connection string or key. 
+As a security best practice, Azure Functions takes advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services. Application settings in Azure are stored encrypted and can be accessed at runtime by your app as environment variable `name` `value` pairs. For triggers and bindings that require a connection property, you set the application setting name instead of the actual connection string. You can't configure a binding directly with a connection string or key.
 
 For example, consider a trigger definition that has a `connection` property. Instead of the connection string, you set `connection` to the name of an environment variable that contains the connection string. Using this secrets access strategy both makes your apps more secure and makes it easier for you to change connections across environments. For even more security, you can use identity-based connections.
 
@@ -188,6 +188,7 @@ The following components support identity-based connections:
 | Azure Event Grid output binding       | All             | [Azure Event Grid extension version 3.3.0 or later][eventgrid],<br/>[Extension bundle 3.3.0 or later][eventgrid] |
 | Azure Cosmos DB triggers and bindings         | All | [Azure Cosmos DB extension version 4.0.0 or later][cosmosv4],<br/> [Extension bundle 4.0.2 or later][cosmosv4]|
 | Azure SignalR triggers and bindings           | All | [Azure SignalR extension version 1.7.0 or later][signalr] <br/>[Extension bundle 3.6.1 or later][signalr] |
+| Azure Web PubSub triggers and bindings           | All | [Azure Web PubSub extension version 1.10.0 or later][web-pubsub] <br/>[Extension bundle 3.6.1 or later][web-pubsub] |
 | Durable Functions storage provider (Azure Storage) | All | [Durable Functions extension version 2.7.0 or later][durable-identity],<br/>[Extension bundle 3.3.0 or later][durable-identity] |
 | Host-required storage ("AzureWebJobsStorage") | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity)                        |
 
@@ -199,7 +200,8 @@ The following components support identity-based connections:
 [cosmosv4]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4
 [tablesv1]: ./functions-bindings-storage-table.md#table-api-extension
 [signalr]: ./functions-bindings-signalr-service.md#install-extension
-[durable-identity]: ./durable/durable-functions-configure-managed-identity.md
+[web-pubsub]: ./functions-bindings-web-pubsub.md#install-extension
+[durable-identity]: durable-functions/durable-functions-configure-managed-identity.md
 [azuresql-identity]: ./functions-identity-access-azure-sql-with-managed-identity.md
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
@@ -238,6 +240,10 @@ Choose one of these tabs to learn about permissions for each component:
 
 You need to create a role assignment that provides access to Azure SignalR Service data plane REST APIs. We recommend you to use the built-in role [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner). Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) aren't sufficient.
 
+# [Azure Web PubSub extension](#tab/web-pubsub)
+
+You need to create a role assignment that provides access to Azure Web PubSub Service data plane REST APIs. We recommend you to use the built-in role [Azure Web PubSub Owner](../role-based-access-control/built-in-roles/web-and-mobile.md#web-pubsub-service-owner). Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) aren't sufficient.
+
 # [Durable Functions storage provider](#tab/durable)
 
 [!INCLUDE [functions-durable-permissions](../../includes/functions-durable-permissions.md)]
@@ -252,11 +258,14 @@ You need to create a role assignment that provides access to Azure SignalR Servi
 
 An identity-based connection for an Azure service accepts the following common properties, where `<CONNECTION_NAME_PREFIX>` is the value of your `connection` property in the trigger or binding definition:
 
-| Property    |  Environment variable template | Description |
+| Property | Environment variable template | Description |
 |---|---|---|
-| Token Credential |  `<CONNECTION_NAME_PREFIX>__credential` | Defines how a token should be obtained for the connection. This setting should be set to `managedidentity` if your deployed Azure Function intends to use managed identity authentication. This value is only valid when a managed identity is available in the hosting environment. |
-| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` shouldn't be set. |
-| Resource ID | `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the resource Identifier to be used when obtaining a token. The property accepts a resource identifier corresponding to the resource ID of the user-defined managed identity. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` shouldn't be set.
+| Token Credential |  `<CONNECTION_NAME_PREFIX>__credential` | This property determines how a token should be obtained for the connection. The property shouldn't be set in [local development scenarios]. When you intend to use managed identity authentication, set this property to `managedidentity`. When you intend to [connect to a resource in another tenant][cross-tenant scenarios], instead use `managedidentityasfederatedidentity`. |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used.<br/><br/>This property is used differently in cross-tenant scenarios. See the [cross-tenant scenarios] section.<br/><br/>This property is used differently in [local development scenarios], when `credential` shouldn't be set. |
+| Resource ID | `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a resource identifier corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used.|
+
+[local development scenarios]: #local-development-with-identity-based-connections
+[cross-tenant scenarios]: #connecting-to-a-resource-in-another-tenant
 
 Other options may be supported for a given connection type. Refer to the documentation for the component making the connection.
 
@@ -287,7 +296,7 @@ Your identity may already have some role assignments against Azure resources use
 
 In some cases, you may wish to specify use of a different identity. You can add configuration properties for the connection that point to the alternate identity based on a client ID and client Secret for a Microsoft Entra service principal. **This configuration option is not supported when hosted in the Azure Functions service.** To use an ID and secret on your local machine, define the connection with the following extra properties:
 
-| Property    | Environment variable template | Description |
+| Property | Environment variable template | Description |
 |---|---|---|
 | Tenant ID | `<CONNECTION_NAME_PREFIX>__tenantId` | The Microsoft Entra tenant (directory) ID. |
 | Client ID | `<CONNECTION_NAME_PREFIX>__clientId` |  The client (application) ID of an app registration in the tenant. |
@@ -334,6 +343,38 @@ If you're configuring `AzureWebJobsStorage` using a storage account that uses th
 | `AzureWebJobsStorage__accountName` | The account name of a storage account, valid only if the account isn't in a sovereign cloud and doesn't have a custom DNS. This syntax is unique to `AzureWebJobsStorage` and can't be used for other identity-based connections. | <storage_account_name> |
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
+
+#### Connecting to a resource in another tenant
+
+If your function needs to connect to a resource in a different Microsoft Entra tenant, your connection needs to use a _federated identity credential_. This requires a user-assigned managed identity and a multitenant Entra ID app registration. You cannot use a system-assigned managed identity for cross-tenant connections.
+
+> [!IMPORTANT]
+> When you configure a trigger for a cross-tenant connection in the Consumption or Flex Consumption plan types, the platform no longer scales the function app based on that trigger.
+
+To configure a cross-tenant identity-based connection, you first need to set up your infrastructure using the following steps:
+
+1. In the tenant where your function app is deployed, [create a new user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+1. [Assign that identity](../app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json#add-a-user-assigned-identity) to the function app.
+1. In the same tenant, [create a multitenant Entra app registration](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity#configure-a-multi-tenant-app-registration) that represents the cross-tenant resource you want to access.
+1. [Add the managed identity as a federated identity credential for the app registration.](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity)
+1. In the tenant where the resource is deployed, [create an enterprise application for the app registration](/entra/identity/enterprise-apps/create-service-principal-cross-tenant).
+1. Assign permissions for the enterprise application to access the resource.
+
+A cross-tenant identity-based connection uses the following properties, where `<CONNECTION_NAME_PREFIX>` is the value of your `connection` property in the trigger or binding definition:
+
+| Property | Environment variable template | Description |
+|---|---|---|
+| Token Credential | `<CONNECTION_NAME_PREFIX>__credential` | **Required.** When connecting to a resource in another tenant, set this property to `managedidentityasfederatedidentity`. |
+| Azure Cloud | `<CONNECTION_NAME_PREFIX>__azureCloud` | **Required.** This property determines the Azure cloud environment. Allowed values are "public" for Azure Public Cloud, "usgov" for Azure US Government Cloud, and "china" for Azure operated by 21Vianet. |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | **Required.** When `credential` is set to `managedidentityasfederatedidentity`, set this property to the client ID (app ID) of the app registration.<br/><br/>This property is used differently in single-tenant identity-based connections. See the [common properties](#common-properties-for-identity-based-connections) section.<br/><br/>This property is used differently in [local development scenarios], when `credential` shouldn't be set. |
+| Tenant ID  | `<CONNECTION_NAME_PREFIX>__tenantId` | **Required.** When `credential` is set to `managedidentityasfederatedidentity`, set this property to the tenant ID of the resource tenant.<br/><br/>This property is used differently in [local development scenarios], when `credential` shouldn't be set. |
+| Managed Identity Client ID | `<CONNECTION_NAME_PREFIX>__managedIdentityClientId` | When `credential` is set to `managedidentityasfederatedidentity`, this property specifies the user-assigned identity that you configured as a federated identity credential and assigned to the application.<sup>1</sup> The property accepts a client ID corresponding to that user-assigned identity. |
+| Managed Identity Object ID | `<CONNECTION_NAME_PREFIX>__managedIdentityObjectId` | When `credential` is set to `managedidentityasfederatedidentity`, this property specifies the user-assigned identity that you configured as a federated identity credential and assigned to the application.<sup>1</sup> The property accepts an object ID (principal ID) corresponding to that user-assigned identity. |
+| Managed Identity Resource ID | `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentityasfederatedidentity`, this property specifies the user-assigned identity that you configured as a federated identity credential and assigned to the application.<sup>1</sup> The property accepts a resource identifier corresponding to that user-assigned identity. |
+
+<sup>1</sup> When `credential` is set to `managedidentityasfederatedidentity`, your connection must specify exactly one of `managedIdentityClientId`, `managedIdentityObjectId`, or `managedIdentityResourceId`.
+
+This is also [documented by the Azure SDK](/dotnet/azure/sdk/authentication/create-token-credentials-from-configuration?tabs=client-id#managed-identity-as-a-federated-identity-credential) in a JSON format.
 
 ## Reporting Issues
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

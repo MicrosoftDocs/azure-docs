@@ -1,19 +1,21 @@
 ---
-title: Connect to other Azure or third-party services via Dapr components
-description: Learn more about connecting Dapr components with Azure and external services.
-ms.author: hannahhunter
-author: hhunter-ms
+title: Connect to other Azure or partner services via Dapr components
+description: Learn more about connecting Dapr components with Azure and non-Microsoft services.
+ms.author: nigreenf
+ms.reviewer: hannahhunter
+author: greenie-msft
 ms.service: azure-container-apps
+ms.subservice: dapr
 ms.custom: build-2023
-ms.topic: conceptual
-ms.date: 12/10/2024
+ms.topic: concept-article
+ms.date: 02/03/2026
 ---
 
-# Connect to other Azure or third-party services via Dapr components
+# Connect to other Azure or partner services by using Dapr components
 
-Securely establish connections to Azure and third-party services for Dapr components using managed identity or Azure Key Vault secret stores. 
+Securely establish connections to Azure and non-Microsoft services for Dapr components by using managed identity or Azure Key Vault secret stores. 
 
-Before getting started, [learn more about the offered support for Dapr components.][supported-dapr-components]
+Before getting started, learn more about the [offered support for Dapr components][supported-dapr-components].
 
 ## Recommendations
 
@@ -21,33 +23,33 @@ Whenever possible, it's recommended that you use Azure components that provide m
 
 | Service type | Recommendation |
 | ------------ | -------------- |
-| Azure component with managed identity support | [Use the managed identity flow (recommended)](#using-managed-identity-recommended) |
+| Azure component with managed identity support | [Use the managed identity flow (recommended)](#use-managed-identity-recommended) |
 | Azure component without managed identity support | [Use an Azure Key Vault secret store](#azure-key-vault-secret-stores) |
 | Non-Azure components | [Use an Azure Key Vault secret store](#azure-key-vault-secret-stores) |
 
 
-## Using managed identity (recommended)
+## Use managed identity (recommended)
 
-For Azure-hosted services, Dapr can use [the managed identity of the scoped container apps][aca-managed-id] to authenticate to the backend service provider. When using managed identity, you don't need to include secret information in a component manifest. **Using managed identity is recommended** as it eliminates storage of sensitive input in components and doesn't require managing a secret store.
+For Azure-hosted services, Dapr can use the [managed identity of the scoped container apps][aca-managed-id] to authenticate to the backend service provider. When using managed identity, you don't need to include secret information in a component manifest. *Using managed identity is recommended* as it eliminates storage of sensitive input in components and doesn't require managing a secret store.
 
 > [!NOTE]
-> The `azureClientId` metadata field (the client ID of the managed identity) is **required** for any component authenticating with user-assigned managed identity.
+> The `azureClientId` metadata field (the client ID of the managed identity) is *required* for any component authenticating with user-assigned managed identity.
 
-## Using a Dapr secret store component reference
+## Use a Dapr secret store component reference
 
 When you create Dapr components for non-Entra ID enabled services or components that don't support managed identity authentication, certain metadata fields require sensitive input values. For this approach, retrieve these secrets by referencing an existing Dapr secret store component that securely accesses secret information.
 
 To set up a reference:
 
-1. [Create a Dapr secret store component using the Azure Container Apps schema.](#creating-a-dapr-secret-store-component) The component type for all supported Dapr secret stores begins with `secretstores.`.
-1. [Create extra components (as needed) which reference the Dapr secret store component](#referencing-dapr-secret-store-components) you created to retrieve the sensitive metadata input.
+1. Create a [Dapr secret store component using the Azure Container Apps schema](#create-a-dapr-secret-store-component). The component type for all supported Dapr secret stores begins with `secretstores`.
+1. Create [extra components (as needed) that reference the Dapr secret store component](#reference-dapr-secret-store-components) you created to retrieve the sensitive metadata input.
 
-### Creating a Dapr secret store component
+### Create a Dapr secret store component
 
 When creating a secret store component in Azure Container Apps, you can provide sensitive information in the metadata section in either of the following ways:
 
-- [For an **Azure Key Vault secret store**,](#using-managed-identity-recommended) use managed identity to establish the connection. 
-- [For **non-Azure secret stores**,](#platform-managed-kubernetes-secrets) use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
+- For an [**Azure Key Vault secret store**](#use-managed-identity-recommended), use managed identity to establish the connection. 
+- For [**non-Azure secret stores**](#platform-managed-kubernetes-secrets), use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
 
 #### Azure Key Vault secret stores
 
@@ -70,7 +72,7 @@ scopes:
 
 #### Platform-managed Kubernetes secrets
 
-As an alternative to Kubernetes secrets, Local environment variables, and Local file Dapr secret stores, Azure Container Apps provides a platform-managed approach for creating and leveraging Kubernetes secrets. This approach can be used to connect to non-Azure services or in dev/test scenarios for quickly deploying components via the CLI without setting up a secret store or managed identity.
+As an alternative to Kubernetes secrets, local environment variables, and local file Dapr secret stores, Azure Container Apps provides a platform-managed approach for creating and using Kubernetes secrets. This approach can be used to connect to non-Azure services or in dev/test scenarios for quickly deploying components via the CLI without setting up a secret store or managed identity.
 
 This component configuration defines the sensitive value as a secret parameter that can be referenced from the metadata section. 
 
@@ -96,9 +98,9 @@ scopes:
   - subscriber-app
 ```
 
-### Referencing Dapr secret store components
+### Reference Dapr secret store components
 
-Once you [create a Dapr secret store using one of the previous approaches](#creating-a-dapr-secret-store-component), you can reference that secret store from other Dapr components in the same environment. The following example demonstrates using Entra ID authentication.
+Once you [create a Dapr secret store using one of the previous approaches](#create-a-dapr-secret-store-component), you can reference that secret store from other Dapr components in the same environment. The following example demonstrates using Microsoft Entra ID authentication.
 
 ```yaml
 componentType: pubsub.azure.servicebus.queue
@@ -120,9 +122,9 @@ scopes:
   - subscriber-app
 ```
 
-## Next steps
+## Related content
 
-[Learn how to set Dapr component resiliency.][dapr-resiliency]
+- [Dapr component resiliency (preview)][dapr-resiliency]
 
 <!-- Links Internal -->
 

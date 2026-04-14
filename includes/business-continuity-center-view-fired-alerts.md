@@ -1,14 +1,14 @@
 ---
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
-ms.date: 12/30/2024
+ms.author: v-mallicka
+ms.date: 11/01/2025
 ms.topic: include
-ms.service: azure-backup
+ms.service: azure-business-continuity-center
 ---
 
 To monitor the alerts, follow these steps:
 
-1. On **Business Continuity Center**, go to **Monitoring + Reporting** > **Alerts**. 
+1. On **Resiliency**, go to **Monitoring + Reporting** > **Alerts**. 
 
    The count of all alert rules appears that have at least one or more fired alerts in the selected time range.
 

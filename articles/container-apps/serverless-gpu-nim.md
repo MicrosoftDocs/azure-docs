@@ -22,7 +22,7 @@ This tutorial uses a premium instance of Azure Container Registry to improve col
 
 | Resource | Description |
 |---|---|
-| Azure account | An Azure account with an active subscription.<br><br>If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Azure account | An Azure account with an active subscription.<br><br>If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 | NVIDIA NGC API key | You can get an API key from the [NVIDIA GPU Cloud (NGC) website](https://catalog.ngc.nvidia.com). |
 
@@ -48,7 +48,8 @@ This tutorial uses a premium instance of Azure Container Registry to improve col
     CONTAINERAPPS_ENVIRONMENT="my-environment-name"
     GPU_TYPE="Consumption-GPU-NC24-A100"
     CONTAINER_APP_NAME="llama3-nim"
-    CONTAINER_AND_TAG="llama-3.1-8b-instruct:latest"
+    CONTAINER_AND_TAG="meta/llama-3.1-8b-instruct:latest"
+    NGC_SECRET=<Your NVIDIA NGC API Key>
     ```
 
 [!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
@@ -67,22 +68,12 @@ This tutorial uses a premium instance of Azure Container Registry to improve col
       --sku premium
     ```
 
-## Pull, tag, and push your image
+## Import the NVIDIA NIM image into your Azure Container Registry
 
-Next, pull the image from NVIDIA GPU Cloud and push to Azure Container Registry.
+Next, import the image from NVIDIA GPU Cloud to Azure Container Registry.
 
 > [!NOTE]
 > NVIDIA NICs each have their own hardware requirements. Make sure the GPU type you select supports the [NIM](https://build.nvidia.com/models?filters=nimType%3Anim_type_run_anywhere&q=llama) of your choice. The Llama3 NIM used in this tutorial can run on NVIDIA A100 GPUs.
-
-1. Authenticate to the NVIDIA container registry.
-
-    ```bash
-    docker login nvcr.io
-    ```
-
-    After you run this command, the sign in process prompts you to enter a username. Enter **$oauthtoken** for your user name value.
-
-    Then you're prompted for a password. Enter your NVIDIA NGC API key here. Once authenticated to the NVIDIA registry, you can authenticate to the Azure registry.
 
 1. Authenticate to Azure Container Registry.
 
@@ -90,30 +81,24 @@ Next, pull the image from NVIDIA GPU Cloud and push to Azure Container Registry.
     az acr login --name $ACR_NAME
     ```
 
-1. Pull the Llama3 NIM image.
-
-    ```azurecli
-    docker pull nvcr.io/nim/meta/$CONTAINER_AND_TAG
-    ```
-
-1. Tag the image.
-
-    ```azurecli
-    docker tag nvcr.io/nim/meta/$CONTAINER_AND_TAG $ACR_NAME.azurecr.io/$CONTAINER_AND_TAG
-    ```
-
 1. Push the image to Azure Container Registry.
 
     ```azurecli
-    docker push $ACR_NAME.azurecr.io/$CONTAINER_AND_TAG
+    az acr import \
+        --name $ACR_NAME \
+        --source nvcr.io/nim/$CONTAINER_AND_TAG \
+        --image $CONTAINER_AND_TAG \
+        --username '$oauthtoken' \
+        --password $NGC_SECRET
+        
     ```
 
 ## Enable artifact streaming (recommended but optional)
 
-When your container app runs, it pulls the container from your container registry. When you have larger images like in the case of AI workloads, this image pull may take some time. By enabling artifact streaming, you reduce the time needed, and your container app can take a long time to start if you don't enable artifact streaming. Use the following steps to enable artifact streaming.
+When your container app runs, it pulls the container from your container registry. When you have larger images like in the case of AI workloads, this image pull may take some time. By enabling artifact streaming, your container app will load the essential parts of your image first, reducing the amount of time to startup your container. Use the following steps to enable artifact streaming.
 
 > [!NOTE]
-> The following commands can take a few minutes to complete.
+> The following commands can take a long time to complete.
 
 1. Enable artifact streaming on your container registry.
 
@@ -136,14 +121,13 @@ When your container app runs, it pulls the container from your container registr
 
 Next you create a container app with the NVIDIA GPU Cloud API key.
 
-1. Create the container app.
+1. Create the container app environment.
 
     ```azurecli
     az containerapp env create \
       --name $CONTAINERAPPS_ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
-      --location $LOCATION \
-      --enable-workload-profiles
+      --location $LOCATION
     ```
 
 1. Add the GPU workload profile to your environment.
@@ -176,6 +160,9 @@ Next you create a container app with the NVIDIA GPU Cloud API key.
     ```
 
     This command returns the URL of your container app. Set this value aside in a text editor for use in a following command.
+
+> [!NOTE]
+> Some NIMs have longer startup times. To account for this, you can configure a [health probe](./health-probes.md) or set your container app's min-replica count with `--min-replicas 1` to keep a replica running at all times.
 
 ## Verify the application works
 

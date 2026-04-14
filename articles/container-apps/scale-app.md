@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal-bicep
@@ -45,6 +45,7 @@ As you define your scaling rules, it's important to consider the following items
 - You aren't billed usage charges if your container app scales to zero.
 - Replicas that aren't processing, but remain in memory might be billed at a lower "idle" rate. For more information, see [Billing](./billing.md).
 - If you want to ensure that an instance of your revision is always running, set the minimum number of replicas to 1 or higher.
+- During platform upgrades or maintenance, you might temporarily see more replicas than expected. Container Apps ensures your production workload isn't affected by pre-warming new replicas before shifting traffic, similar to default Kubernetes behavior. The extra replicas are removed automatically once the operation completes.
 
 ## Scale rules
 
@@ -321,6 +322,9 @@ You can create a custom Container Apps scaling rule based on any [ScaledObject](
 |--|--|
 | Polling interval | 30 |
 | Cool down period | 300 |
+
+> [!NOTE]
+> Cool down period only takes effect when scaling in from the final replica to 0. The cool down period does not affect scaling as any other replicas are removed. 
 
 For [event-driven Container Apps jobs](jobs.md#event-driven-jobs), you can create a custom scaling rule based on any [ScaledJob](https://keda.sh/docs/latest/concepts/scaling-jobs/)-based KEDA scalers.
 
@@ -1112,7 +1116,7 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 | HTTP | 0 | 10 |
 
 > [!IMPORTANT]
-> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app scales to zero and have no way of starting back up.
+> Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app scales to zero and has no way of starting back up.
 
 ## Scale behavior
 

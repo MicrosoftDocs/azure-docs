@@ -3,7 +3,7 @@ title: Manage Azure Native Qumulo
 description: Learn how to manage your Azure Native Qumulo settings.
 
 ms.topic: how-to 
-ms.date: 02/09/2024
+ms.date: 03/09/2025
 ms.custom:
   - ignite-2023
 ---
@@ -38,7 +38,16 @@ Below the essentials, you can navigate to other details about your resource.
 
 ## Manage a resource
 
-To manage your Qumulo file system or to mount your file system for data access, select **Qumulo config** > **IP addresses** from the service menu. 
+### Manage IP addresses
+
+To get IP addresses to manage your Qumulo file system or to mount your file system for data access, select **Qumulo config** > **IP addresses** from the service menu.
+
+### Customize performance
+
+To increase or decrease the performance capacity for an Azure Native Qumulo (ANQ) resource, select **Pre-provisioned performance** in **Essentials**.
+
+In the pane that opens, select the performance level you want, and then select **Save**.
+
 
 ## Delete a resource
 

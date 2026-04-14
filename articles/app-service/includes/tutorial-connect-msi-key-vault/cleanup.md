@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli
 ms.service: azure-app-service
 ---
 
-1. Configure the Azure AI services secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY`.
+1. Configure the Foundry Tools secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY`.
 
     ```azurecli-interactive
     # Get subscription key for Cognitive Services resource
@@ -64,9 +64,9 @@ At the moment, connection secrets are stored as app settings in your App Service
     az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="@Microsoft.KeyVault(SecretUri=$csResourceKVUri)" CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)"
     ```
 
-1. In the browser, navigate to `<app-name>.azurewebsites.net` again. If you get detection results back, then you're connecting to the Azure AI services endpoint with key vault references.
+1. In the browser, navigate to `<app-name>.azurewebsites.net` again. If you get detection results back, then you're connecting to the Azure AI Services endpoint with key vault references.
 
-Congratulations, your app is now connecting to Azure AI services using secrets kept in your key vault, without any changes to your application code.
+Congratulations, your app is now connecting to Foundry Tools using secrets kept in your key vault, without any changes to your application code.
 
 ## Clean up resources
 

@@ -3,7 +3,6 @@ title: Improve your security defenses for ransomware attacks with Azure Firewall
 description: In this article, you learn how Azure Firewall Premium can help you protect against ransomware.
 services: security
 author: elazulai
-manager: rkarlin
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
@@ -14,6 +13,9 @@ ms.author: mbaldwin
 ---
 # Improve your security defenses for ransomware attacks with Azure Firewall Premium
 In this article, you learn how Azure Firewall Premium can help you protect against ransomware.
+
+> [!TIP]
+> For comprehensive ransomware protection guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware). This article focuses specifically on Azure Firewall Premium capabilities for ransomware protection.
 
 ## What is ransomware?
 Ransomware is a type of malicious software designed to block access to your computer system until a sum of money is paid. The attacker usually exploits an existing vulnerability in your system to penetrate your network and execute the malicious software on the target host.
@@ -48,7 +50,15 @@ Firewall Policy can be used for centralized configuration of firewalls. This hel
 Detection is equally important as prevention. Azure Firewall solution for Azure Sentinel gets you both detection and prevention in the form of an easy-to-deploy solution. Combining prevention and detection allows you to ensure that you both prevent sophisticated threats when you can, while also maintaining an “assume breach mentality” to detect and quickly respond to cyberattacks.
 
 ## Next steps
+
+For comprehensive ransomware protection guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
+
 See [Ransomware protection in Azure](ransomware-protection.md) to learn more about defenses for ransomware attacks in Azure and for guidance on how to proactively protect your assets.
+
+Other Azure ransomware articles:
+- [Prepare for a ransomware attack](ransomware-prepare.md)
+- [Detect and respond to ransomware attack](ransomware-detect-respond.md)
+- [Azure features and resources that help you protect, detect, and respond](ransomware-features-resources.md)
 
 To learn more about Azure Firewall Premium, see:
 

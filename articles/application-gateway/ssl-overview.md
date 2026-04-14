@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 06/09/2023
+ms.date: 03/13/2026
 ms.author: mbender
 
 # Customer intent: "As a cloud architect, I want to configure end to end TLS on the application gateway, so that I can ensure secure communication and compliance for sensitive data transmitted between clients and backend servers."
@@ -63,7 +63,7 @@ End-to-end TLS allows you to encrypt and securely transmit sensitive data to the
 
 When configured with end-to-end TLS communication mode, Application Gateway terminates the TLS sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application Gateway then initiates a new TLS connection to the backend server and re-encrypts data using the backend server's public key certificate before transmitting the request to the backend. Any response from the web server goes through the same process back to the end user. End-to-end TLS is enabled by setting protocol setting in [Backend HTTP Setting](./configuration-overview.md#backend-settings) to HTTPS, which is then applied to a backend pool.
 
-In Application Gateway v1 SKU gateways, [TLS policy](./application-gateway-ssl-policy-overview.md) applies the TLS version only to frontend traffic and the defined ciphers to both frontend and backend targets.  In Application Gateway v2 SKU gateways, TLS policy only applies to frontend traffic, backend TLS connections will always be negotiated via TLS 1.0 to TLS 1.2 versions.
+In Application Gateway v1 SKU gateways, [TLS policy](./application-gateway-ssl-policy-overview.md) applies the TLS version only to frontend traffic and the defined ciphers to both frontend and backend targets.  In Application Gateway v2 SKU, the TLS policy applies only to frontend traffic. Backend TLS connections are always negotiated using TLS 1.3, and if unavailable, fall back to TLS 1.2.
 
 Application Gateway only communicates with those backend servers that have either allow-listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. These include the trusted Azure services such as Azure App Service/Web Apps and Azure API Management.
 
@@ -120,40 +120,40 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 
 ### Frontend TLS connection (client to application gateway)
 
-
-|Scenario | v1 | v2 |
+| Scenario | v1 | v2 |
 | --- | --- | --- |
-| If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Returns the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners|
-| If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners
-| If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate configured in the basic listener |
+| If the client specifies SNI header and all the multi-site listeners are enabled with "Require SNI" flag | Returns the appropriate certificate and if the site doesn't exist (according to the server_name), then the connection is reset. | Returns appropriate certificate if available, otherwise, returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners |
+| If the client doesn't specify a SNI header and if all the multi-site headers are enabled with "Require SNI" | Resets the connection | Returns the certificate of the first HTTPS listener according to the order specified by the request routing rules associated with the HTTPS listeners |
+| If the client doesn't specify SNI header and if there's a basic listener configured with a certificate | Returns the certificate configured in the basic listener to the client (default or fallback certificate) | Returns the certificate of the HTTPS listener with the highest priority routing rule. The basic listener certificate is **not** used as a fallback. |
 
-> [!NOTE]
-> When the client does not specify an SNI header, it is recommended that the user add a basic listener and rule to present a default SSL/TLS certificate.
+> [!IMPORTANT]
+> **V2 SKU default certificate behavior:** When a client connects without an SNI header (for example, using an IP address), Application Gateway V2 does **not** fall back to a basic listener's certificate. Instead, it always returns the certificate from the HTTPS listener whose associated request routing rule has the **highest priority** (lowest priority number). This behavior differs from the V1 SKU, which returns the basic listener's certificate as a fallback.
 
 > [!TIP]
-> The SNI flag can be configured with PowerShell or by using an ARM template. For more information, see [RequireServerNameIndication](/powershell/module/az.network/set-azapplicationgatewayhttplistener#-requireservernameindication) and [Quickstart: Direct web traffic with Azure Application Gateway - ARM template](quick-create-template.md#review-the-template).
+> **Controlling the default certificate with an SNI hole:** To prevent Application Gateway V2 from exposing a production site certificate when clients connect by IP address without SNI, you can configure an "SNI hole":
+>
+> 1. Create a **multi-site HTTPS listener** with a dummy hostname that doesn't match any real site (for example, `sni-hole.invalid`).
+> 2. Upload a **self-signed certificate** to this listener.
+> 3. Create a **request routing rule** associated with this listener and assign it the **highest priority** (lowest priority number) among all your rules.
+>
+> With this configuration, any connection without a matching SNI header receives the self-signed certificate instead of a valid site certificate. This prevents IP-only connections from obtaining information about your hosted sites.
 
 ### Backend TLS connection (application gateway to the backend server)
 
 #### For probe traffic
 
 
-|Scenario | v1 | v2 |
+| Scenario | v1 | v2 |
 | --- | --- | --- |
-| SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the custom probe attached to the HTTP settings (if configured), otherwise from the hostname mentioned in the HTTP settings, otherwise from the FQDN mentioned in the backend pool. The order of precedence is custom probe > HTTP settings > backend pool. <br> **Note:** If the hostnames configured in HTTP settings and custom probe are different, then according to the precedence, SNI will be set as the hostname from the custom probe.
-| If the backend pool address is an IP address (v1) or if custom probe hostname is configured as IP address (v2) | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | In the order of precedence mentioned previously, if they have IP address as hostname, then SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Note:** SNI also won't be set in v2 probes if no custom probe is configured and no hostname is set on HTTP settings or backend pool |
-
-> [!NOTE] 
-> If a custom probe isn't configured, then Application Gateway sends a default probe in this format - \<protocol\>://127.0.0.1:\<port\>/. For example, for a default HTTPS probe, it will be sent as https://127.0.0.1:443/. Note that, the 127.0.0.1 mentioned here is only used as HTTP host header and as per RFC 6066, won't be used as SNI header. For more information on health probe errors, check the [backend health troubleshooting guide](application-gateway-backend-health-troubleshooting.md).
+| When an FQDN or SNI is configured | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. | The SNI value is set based on the [TLS validation type](configuration-http-settings.md?tabs=backendhttpsettings#backend-https-validation-settings) in the Backend Settings.<br><br> 1. **Complete validation** – The probes uses the SNI in the following order of precedence:<br> a) Custom Health Probe's hostname <br> b) Backend Setting's hostname (as per Overridden value or Pick from backend server) <br><br> 2.	**Configurable** <br> Use specific SNI: The probes use this fixed hostname for validation.<br> Skip SNI: No Subject Name validation. |
+| When an FQDN or SNI is NOT configured (only IP address is available) | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | If the Custom Probe or Backend Settings use an IP address in the hostname field, the SNI is not set, in accordance with [RFC 6066](https://tools.ietf.org/html/rfc6066). This includes cases where the default probe uses 127.0.0.1. |
 
 #### For live traffic
 
-
-|Scenario | v1 | v2 |
+| Scenario | v1 | v2 |
 | --- | --- | --- |
-| SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses aren't permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the HTTP settings, otherwise, if *PickHostnameFromBackendAddress* option is chosen or if no hostname is mentioned, then it will be set as the FQDN in the backend pool configuration
-| If the backend pool address is an IP address or hostname isn't set in HTTP settings | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry isn't an FQDN | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
-| Hostname isn't provided in HTTP Settings, but an FQDN is specified as the Target for a backend pool member | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname. | SNI will be set as the hostname from the input FQDN from the client and the backend certificate's CN has to match with this hostname.
+| When an FQDN or SNI is available | The SNI is set using the backend server's FQDN. | The SNI value is set based on the [TLS validation type](configuration-http-settings.md?tabs=backendhttpsettings#backend-https-validation-settings) in the Backend Settings.<br><br> 1. **Complete validation** – SNI is set according to the following order of precedence: <br> a) Backend Setting's hostname (as per Overridden value or Pick from backend server) <br> b) Host header of the incoming client request <br><br> 2. **Configurable** <br> Use specific SNI: Uses this fixed hostname for validation. <br> Skip SNI: No Subject Name validation. |
+| When an FQDN or SNI is NOT available (only IP address is available) | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066) if the backend pool entry isn't an FQDN | SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). |
 
 ## Next steps
 

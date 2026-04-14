@@ -1,6 +1,6 @@
 ---
-title: Create a workload profiles environment with the Azure CLI
-description: Learn to create an environment with a specialized hardware profile using the Azure CLI.
+title: Create a Container Apps environment with the Azure CLI
+description: Learn to create an environment with specialized hardware profiles using the Azure CLI.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -13,7 +13,7 @@ zone_pivot_groups: container-apps-vnet-types
 
 # Manage workload profiles with the Azure CLI
 
-Learn to manage a workload profiles environment using the Azure CLI.
+Learn to manage workload profiles in your Container Apps environment using the Azure CLI.
 
 <a id="create"></a>
 
@@ -43,7 +43,7 @@ When you create an environment with a custom VNet, you have full control over th
 
 ::: zone-end
 
-Use the following commands to create a workload profiles environment.
+Use the following commands to create a Container Apps environment.
 
 ::: zone pivot="aca-vnet-custom"
 
@@ -85,7 +85,7 @@ Use the following commands to create a workload profiles environment.
 
     ::: zone-end
 
-1. Create *workload profiles* environment
+1. Create a Container Apps environment.
 
     ::: zone pivot="aca-vnet-custom"
 
@@ -96,7 +96,6 @@ Use the following commands to create a workload profiles environment.
 
     ```bash
     az containerapp env create \
-      --enable-workload-profiles \
       --resource-group "<RESOURCE_GROUP>" \
       --name "<NAME>" \
       --location "<LOCATION>"
@@ -106,7 +105,6 @@ Use the following commands to create a workload profiles environment.
 
     ```bash
     az containerapp env create \
-      --enable-workload-profiles \
       --resource-group "<RESOURCE_GROUP>" \
       --name "<NAME>" \
       --location "<LOCATION>" \
@@ -122,7 +120,6 @@ Use the following commands to create a workload profiles environment.
 
     ```bash
     az containerapp env create \
-      --enable-workload-profiles \
       --resource-group "<RESOURCE_GROUP>" \
       --name "<NAME>" \
       --location "<LOCATION>"
@@ -190,7 +187,7 @@ az containerapp env workload-profile add \
   --max-nodes <MAX_NODES>
 ```
 
-The value you select for the `<WORKLOAD_PROFILE_NAME>` placeholder is the workload profile *friendly name*.
+When selecting a workload profile to add it is important to ensure regional availability. The value you select for the `<WORKLOAD_PROFILE_NAME>` placeholder is the workload profile *friendly name*.
 
 Using friendly names allow you to add multiple profiles of the same type to an environment. The friendly name is what you use as you deploy and maintain a container app in a workload profile.
 
@@ -242,16 +239,23 @@ az containerapp env workload-profile list-supported \
 The response resembles a table similar to the below example:
 
 ```output
-Name         Cores    MemoryGiB    Category
------------  -------  -----------  ---------------
-D4           4        16           GeneralPurpose
-D8           8        32           GeneralPurpose
-D16          16       64           GeneralPurpose
-E4           4        32           MemoryOptimized
-E8           8        64           MemoryOptimized
-E16          16       128          MemoryOptimized
-E32          32       256          MemoryOptimized
-Consumption  4        8            Consumption
+Name                       Cores    MemoryGiB    Category
+-------------------------  -------  -----------  --------------------
+D4                         4        16           GeneralPurpose
+D8                         8        32           GeneralPurpose
+D16                        16       64           GeneralPurpose
+D32                        32       128          GeneralPurpose
+E4                         4        32           MemoryOptimized
+E8                         8        64           MemoryOptimized
+E16                        16       128          MemoryOptimized
+E32                        32       256          MemoryOptimized
+Consumption                4        8            Consumption
+Consumption-GPU-NC24-A100  24       220          Consumption-GPU-A100
+Consumption-GPU-NC8as-T4   8        56           Consumption-GPU-T4
+Flex                       4        16           Consumption
+NC24-A100                  24       220          GPU-NC-A100
+NC48-A100                  48       440          GPU-NC-A100
+NC96-A100                  96       880          GPU-NC-A100
 ```
 
 Select a workload profile and use the *Name* field when adding or updating workload profiles with the `az containerapp env workload-profile add` or `az containerapp env workload-profile update` commands for the `--workload-profile-type` option.

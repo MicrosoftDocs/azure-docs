@@ -2,7 +2,7 @@
 title: 'Quickstart: Create Bicep files with Visual Studio Code'
 description: Learn how to use Visual Studio Code and the Bicep extension to create Bicep files and deploy Azure resources.
 ms.topic: quickstart
-ms.date: 03/25/2025
+ms.date: 01/30/2026
 ms.custom:
   - mode-ui
   - devx-track-bicep
@@ -14,11 +14,13 @@ ms.custom:
 
 This quickstart guides you how to use Visual Studio Code to create a [Bicep file](overview.md). You create a storage account and a virtual network. You also learn how the Bicep extension provides type safety, syntax validation, and autocompletion to simplify development.
 
+The Bicep MCP (Model Context Protocol) server provides AI agents with tools to help generate high-quality Bicep code. See [Quickstart: Create Bicep files with Visual Code and Bicep MCP Server](./quickstart-create-bicep-use-visual-studio-code-model-context-protocol.md).
+
 Visual Studio supports a similar authoring experience. See [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md) for more information.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you start.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you start.
 
 To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) installed. You also have either the latest [Azure CLI](/cli/azure/) version or [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
@@ -36,7 +38,7 @@ Launch Visual Studio Code, and create a new file named _main.bicep_. In _main.bi
 Your Bicep file now contains the following code:
 
 ```bicep
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'name'
   location: location
   properties: {
@@ -157,7 +159,7 @@ After the single quote for the resource type, add **=** and a space. You're pres
 This option adds all of the properties for the resource type that are required for deployment. After selecting this option, your storage account has the following properties:
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name:
   location:
   sku: {
@@ -184,7 +186,7 @@ When finished, you have:
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'exampleVNet'
   location: location
   properties: {
@@ -210,7 +212,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   }
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -252,7 +254,7 @@ This visualizer shows the resources defined in the Bicep file and the connectors
 
 1. From **Select a parameters file**, select **None**.
 
-It takes a few moments to create the resources. For more information, see [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md).
+It takes a few moments to create the resources. For more information, see [Deploy Bicep files with Visual Studio Code](./deploy-visual-studio-code.md).
 
 You can also use the Azure CLI or Azure PowerShell to deploy the Bicep file:
 
@@ -297,4 +299,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Explore [Learn modules for Bicep](learn-bicep.md).
+> [Create template specs](./quickstart-create-template-specs.md).

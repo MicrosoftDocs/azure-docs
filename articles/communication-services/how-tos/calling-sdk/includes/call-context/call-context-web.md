@@ -19,6 +19,9 @@ The maximum length of a VOIP header key is 64 chars. The maximum length of VOIP 
 When adding these custom headers as a developer you can choose to add only SIP headers, only VoIP headers or both can be included.
 
 > [!NOTE]
+> When sending SIP headers, we recommend URL-encoding header values. Even if the values contain only valid characters, intermediary carriers may fail to parse them correctly unless they are URL-encoded.
+
+> [!NOTE]
 > Currently, adding custom User-to-User Information headers is only supported when initiating a 1:1 call. Passing User-to-User Information headers in group calls isn't currently supported. To work around this constraint after starting the 1:1 call, you can add participants while maintaining the User-to-User Information within the calls. 
 
 For details about the custom context interface API, see [custom context API resource](/javascript/api/azure-communication-services/@azure/communication-calling/customcontext?view=azure-communication-services-js&preserve-view=true).

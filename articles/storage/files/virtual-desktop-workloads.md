@@ -4,7 +4,7 @@ description: Learn how to use SMB Azure file shares for virtual desktop workload
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/27/2025
+ms.date: 11/03/2025
 ms.author: kendownie
 # Customer intent: "As an IT administrator managing virtual desktop environments, I want to use Azure Files to store user profiles and disk images, so that I can ensure high availability, performance, and scalability for our users across multiple sessions."
 ---
@@ -15,7 +15,7 @@ Azure Files provides fully managed, scalable SMB file shares that are an excelle
 
 ## What is VDI?
 
-Virtual desktop infrastructure (VDI) centralizes desktop environments on servers, enabling secure remote access and simplified management across devices. [Azure Virtual Desktop](/azure/virtual-desktop/overview) (AVD) is Microsoft’s cloud-based VDI solution, offering scalable, multi-session Windows 10 and 11 desktops with seamless integration into Microsoft 365 and Microsoft Entra ID, ideal for remote work and secure resource access. Other VDI offerings include Citrix/VMWare Horizon on Azure infrastructure.
+Virtual desktop infrastructure (VDI) centralizes desktop environments on servers, enabling secure remote access and simplified management across devices. [Azure Virtual Desktop](/azure/virtual-desktop/overview) is Microsoft’s cloud-based VDI solution, offering scalable, multi-session Windows 10 and 11 desktops with seamless integration into Microsoft 365 and Microsoft Entra ID, ideal for remote work and secure resource access. Other VDI offerings include Citrix/VMWare Horizon on Azure infrastructure.
 
 ## Why Azure Files for VDI?
 
@@ -35,13 +35,13 @@ Virtual desktops with home directories can benefit from [metadata caching](smb-p
 
 You must use identity-based authentication and assign the correct permissions and Azure RBAC roles to enable users to securely access their profile or application.
 
-You can use one of the following three identity sources to authenticate users to access the Azure file share:
+You can use one of the following identity sources to authenticate users to access the Azure file share:
 
 - [On-premises Active Directory Domain Services (AD DS)](/fslogix/how-to-configure-profile-container-azure-files-active-directory): This option requires virtual desktop users to have unimpeded network connectivity to domain controllers.
 
-- [Microsoft Entra Kerberos](/fslogix/how-to-configure-profile-container-entra-id-hybrid) (hybrid identities only): This option requires an existing AD DS deployment, which is then synced to your Microsoft Entra tenant so that Microsoft Entra ID can authenticate your hybrid identities. It's a good fit for virtual desktop workloads because it doesn't require users to have unimpeded network connectivity to domain controllers. With this option, you can store profiles that can be accessed by hybrid user identities from Microsoft Entra joined or Microsoft Entra hybrid joined session hosts.
+- [Microsoft Entra Kerberos](/fslogix/how-to-configure-profile-container-entra-id-hybrid) (hybrid or cloud-only identities): Microsoft Entra Kerberos is a good fit for virtual desktop workloads because it doesn't require users to have unimpeded network connectivity to domain controllers. With this option, you can store profiles that can be accessed by hybrid or cloud-only user identities from Microsoft Entra joined or Microsoft Entra hybrid joined session hosts.
 
-- [Microsoft Entra Domain Services](/fslogix/how-to-configure-profile-container-azure-files-active-directory): If you don't have an AD DS and need to authenticate cloud-only identities, choose this option.
+- [Microsoft Entra Domain Services](/fslogix/how-to-configure-profile-container-azure-files-active-directory): If you need to authenticate cloud-only identities and want a managed directory service, this can be a good option.
 
 To configure storage permissions, see [Configure SMB storage permissions for FSLogix](/fslogix/how-to-configure-storage-permissions).
 

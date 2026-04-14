@@ -307,12 +307,12 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-export-subscriptions.md",
-            "redirect_url": "/powershell/module/servicemanagement/azure.service/get-azuresubscription",
+            "redirect_url": "/powershell/module/az.accounts/get-azsubscription",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/billing-export-subscriptions.md",
-            "redirect_url": "/powershell/module/servicemanagement/azure.service/get-azuresubscription",
+            "redirect_url": "/powershell/module/az.accounts/get-azsubscription",
             "redirect_document_id": false
         },
         {
@@ -1378,6 +1378,36 @@
         {
             "source_path_from_root": "/articles/cost-management-billing/reservations/azure-openai.md",
             "redirect_url": "/azure/cost-management-billing/reservations/azure-ai-foundry",
+            "redirect_document_id": true
+        },
+          {
+            "source_path_from_root": "/articles/cost-management-billing/manage/manage-azure-credits.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/credits/manage-azure-credits",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/manage-azure-discount.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/discounts/manage-azure-discount",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/manage-consumption-commitment.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/macc/manage-consumption-commitment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/mca-check-azure-credits-balance.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/credits/mca-check-azure-credits-balance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/track-consumption-commitment.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/macc/track-consumption-commitment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/azure-ai-foundry.md",
+            "redirect_url": "/azure/cost-management-billing/reservations/microsoft-foundry",
             "redirect_document_id": true
         }
     ]

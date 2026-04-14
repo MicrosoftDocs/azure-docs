@@ -1,7 +1,7 @@
 ---
 title: Migrate to Azure Cache for Redis
 description: Learn how to migrate an existing cache to Azure Cache for Redis or migrate between Azure Cache for Redis instances.
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.custom:
   - ignite-2024
 ms.collection: 
@@ -13,6 +13,8 @@ appliesto:
 
 ---
 # Migrate to or between Azure Cache for Redis instances
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 This article describes several Azure Cache for Redis migration scenarios. You can migrate open-source Redis caches running on-premises or in cloud virtual machines (VMs), or hosted caches from other cloud platforms, to Azure Cache for Redis.
 

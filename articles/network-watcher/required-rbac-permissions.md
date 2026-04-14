@@ -1,5 +1,5 @@
 ---
-title: Azure RBAC permissions
+title: Azure RBAC Permissions
 titleSuffix: Azure Network Watcher
 description: Learn about the required Azure role-based access control (Azure RBAC) permissions to have in order to use each of the Azure Network Watcher capabilities.
 author: halkazwini
@@ -8,7 +8,6 @@ ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 06/24/2025
 
-#CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 # Customer intent: As an Azure administrator, I want to understand the Azure RBAC permissions required for Network Watcher capabilities, so that I can effectively manage user access and ensure they can utilize the features needed for their roles.
 ---
 
@@ -24,7 +23,7 @@ To use Azure Network Watcher capabilities, the account you log into Azure with, 
 > - Microsoft.Compute/* actions listed in [Additional actions](#additional-actions) section.
 > - Microsoft.OperationalInsights/workspaces/\*, Microsoft.Insights/dataCollectionRules/* or Microsoft.Insights/dataCollectionEndpoints/* actions listed in [Traffic analytics](#traffic-analytics) section.
 
-To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
+To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
 The following sections list the minimum required permissions to use Network Watcher and its capabilities. For a full list of related Azure permissions, see [Microsoft.Network permissions](/azure/role-based-access-control/permissions/networking?toc=/azure/network-watcher/toc.json#microsoftnetwork), [Microsoft.Compute permissions](/azure/role-based-access-control/permissions/compute?toc=/azure/network-watcher/toc.json#microsoftcompute), [Microsoft.Storage permissions](/azure/role-based-access-control/permissions/storage?toc=/azure/network-watcher/toc.json#microsoftstorage), [Microsoft.Insights permissions](/azure/role-based-access-control/permissions/monitor?toc=/azure/network-watcher/toc.json#microsoftinsights), and [Microsoft.OperationalInsights permissions](/azure/role-based-access-control/permissions/monitor?toc=/azure/network-watcher/toc.json#microsoftoperationalinsights).
 

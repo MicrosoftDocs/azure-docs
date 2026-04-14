@@ -2,7 +2,7 @@
 author: SoniaLopezBravo
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 03/09/2023
+ms.date: 10/14/2025
 ms.author: sonialopez
 ms.subservice: azure-iot-hub-dps
 ---
@@ -36,12 +36,12 @@ ms.subservice: azure-iot-hub-dps
 
 1. Select **Next: Device settings**
 
-1. On the **Device settings** tab of the **Add enrollment** page, provide the following information to define how newly provisioned devices will be configured:
+1. On the **Device settings** tab of the **Add enrollment** page, provide the following information to define how newly provisioned devices are configured:
 
    | Field | Description |
    | :---- | :---------- |
-   | **Device ID** | Provide a device ID that will be assigned to the provisioned device in IoT Hub. If you don't provide a device ID, the registration ID will be used. |
-   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if the provisioned device will run [Azure IoT Edge](../articles/iot-edge/about-iot-edge.md). Uncheck this box if this enrollment is for a non-IoT Edge-enabled device. |
+   | **Device ID** | Provide a device ID that is assigned to the provisioned device in IoT Hub. If you don't provide a device ID, the registration ID is used. |
+   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if the provisioned device run [Azure IoT Edge](../articles/iot-edge/about-iot-edge.md). Uncheck this box if this enrollment is for a non-IoT Edge-enabled device. |
    | **Device tags** | Use this text box to provide any tags that you want to apply to the device twin of the provisioned device. |
    | **Desired properties** | Use this text box to provide any desired properties that you want to apply to the device twin of the provisioned device. |
 

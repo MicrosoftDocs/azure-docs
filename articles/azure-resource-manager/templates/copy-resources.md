@@ -72,7 +72,7 @@ The following example creates the number of storage accounts specified in the `s
         "count": "[length(range(0, parameters('storageCount')))]"
       },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}storage{1}', range(0, parameters('storageCount'))[copyIndex()], uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -138,7 +138,7 @@ The following example creates one storage account for each name provided in the 
         "count": "[length(parameters('storageNames'))]"
       },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}{1}', parameters('storageNames')[copyIndex()], uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -175,7 +175,7 @@ If you want to return values from the deployed resources, you can [use copy in t
   "resources": {
     "myStorages": {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}storage{1}', copyIndex(), uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -240,7 +240,7 @@ The value for `batchSize` can't exceed the value for `count` in the copy element
         "batchSize": 2
       },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}storage{1}', range(0, 4)[copyIndex()], uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {

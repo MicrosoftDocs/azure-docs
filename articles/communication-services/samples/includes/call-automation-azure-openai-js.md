@@ -22,7 +22,7 @@ This server-side application helps you create a virtual assistant that can handl
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Visual Studio Code](https://code.visualstudio.com/download) installed.
 - [Node.js](https://nodejs.org/en/download) installed.
 - An Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
@@ -31,7 +31,7 @@ This server-side application helps you create a virtual assistant that can handl
 - An Azure OpenAI resource and deployed model. For more information, see [Create an Azure OpenAI resource and deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
 > [!NOTE]
-> Bidirectional streaming in Azure Communication Services is generally available, but the Azure OpenAI real-time API has its own release schedule. For up-to-date information on the API's availability, see [Azure OpenAI in Azure AI Foundry models](/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#audio-models).
+> Bidirectional streaming in Azure Communication Services is generally available, but the Azure OpenAI real-time API has its own release schedule. For up-to-date information on the API's availability, see [Azure OpenAI in Microsoft Foundry models](/azure/ai-services/openai/concepts/models?tabs=global-standard%2Cstandard-chat-completions#audio-models).
 
 ## Before you run the sample for the first time
 

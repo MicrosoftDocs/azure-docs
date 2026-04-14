@@ -15,12 +15,9 @@ ms.custom:
   - ai-gen-description
 ---
 
-# Publish MQTT messages via HTTP with Azure Event Grid (preview)
+# Publish MQTT messages via HTTP with Azure Event Grid
 
 Azure Event Grid now supports publishing Message Queuing Telemetry Transport (MQTT) messages via HTTP. Event Grid enables back-end systems to send messages to devices without maintaining persistent MQTT connections. This approach simplifies integration for applications that prefer stateless communication. It uses secure authentication with Microsoft Entra ID and provides scalable, reliable delivery to MQTT clients. In this article, you learn how to use the HTTP Publish API. You also learn how to obtain the necessary credentials and verify message delivery by using popular tools like Bruno and MQTTX.
-
-> [!NOTE]
-> This feature is currently in preview.
 
 This article explains how to publish MQTT messages via HTTP with Event Grid.
 
@@ -51,14 +48,14 @@ Save this token to use in the `Authorization: Bearer <TOKEN>` header.
 Here's an example curl command to simulate HTTP Publish:
 
 ```http
-curl -X POST "https://contoso.westus3-1.ts.eventgrid.azure.net/mqtt/messages?topic=devices%2XXXX-0000%2Fprompt&api-version=2025-08-01-preview" \ 
-  -H "Authorization: Bearer <ENTRA_TOKEN_HERE>" \ 
-  -H "mqtt-qos: 1" \ 
-  -H "mqtt-retain: 0" \ 
-  -H "mqtt-response-topic: devices%2XXXX-00000%2Freply" \ 
-  -H "mqtt-correlation-data: XXXXXXX" \ 
-  -H "mqtt-user-properties: XXXXXXXXXXXX" \ 
-  -H "Content-Type: text/plain;charset=UTF-8" \ 
+curl -X POST "https://contoso.westus3-1.ts.eventgrid.azure.net/mqtt/messages?topic=devices%2XXXX-0000%2Fprompt&api-version=2025-02-15-preview" \  
+  -H "Authorization: Bearer <ENTRA_TOKEN_HERE>" \  
+  -H "mqtt-qos: 1" \  
+  -H "mqtt-retain: 0" \  
+  -H "mqtt-response-topic: devices%2XXXX-00000%2Freply" \  
+  -H "mqtt-correlation-data: XXXXXXX" \  
+  -H "mqtt-user-properties: XXXXXXXXXXXX" \  
+  -H "Content-Type: text/plain;charset=UTF-8" \  
   --data-raw "Please accept terms of licensing and agreement" 
 ```
 
@@ -76,88 +73,92 @@ In this sample command:
 1. Select **Import Collection**, and then select `EventGrid_HTTP_Publish_Postman_Collection.json`. Here's the content for the JSON file:
 
     ```json
-    {
-      "info": {
-        "name": "Event Grid MQTT Broker - HTTP Publish",
-        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-      },
-      "item": [
-        {
-          "name": "HTTP Publish to MQTT Broker",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{entra_token}}"
-              },
-              {
-                "key": "mqtt-qos",
-                "value": "1"
-              },
-              {
-                "key": "mqtt-retain",
-                "value": "0"
-              },
-              {
-                "key": "mqtt-response-topic",
-                "value": "devices%2FCXa-23112%2Freply"
-              },
-              {
-                "key": "mqtt-correlation-data",
-                "value": "PlXCscK2wrbCuy8="
-              },
-              {
-                "key": "mqtt-user-properties",
-                "value": "[{\"Urgency\":\"alert\"},{\"RequestId\":\"55f4a7ee-b0b4-4d7f-8eb5-2edba2ced5d7\"}]"
-              },
-              {
-                "key": "Content-Type",
-                "value": "text/plain;charset=UTF-8"
-              }
+    { 
+    
+      "info": { 
+        "name": "Event Grid MQTT Broker - HTTP Publish",  
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"     
+      },     
+      "item": [    
+        {     
+          "name": "HTTP Publish to MQTT Broker",     
+          "request": {     
+            "method": "POST",     
+            "header": [     
+              {     
+                "key": "Authorization",     
+                "value": "Bearer {{entra_token}}"     
+              },     
+              {     
+                "key": "mqtt-qos",     
+                "value": "1"     
+              },     
+              {     
+                "key": "mqtt-retain",     
+                "value": "0"     
+              },     
+              {     
+                "key": "mqtt-response-topic",     
+                "value": "devices%2FCXa-23112%2Freply"     
+              },     
+              {     
+                "key": "mqtt-correlation-data",     
+                "value": "PlXCscK2wrbCuy8="     
+              },     
+              { 
+    
+                "key": "mqtt-user-properties",     
+                "value": "[{\"Urgency\":\"alert\"},{\"RequestId\":\"55f4a7ee-b0b4-4d7f-8eb5-2edba2ced5d7\"}]"     
+              },     
+              { 
+    
+                "key": "Content-Type",     
+                "value": "text/plain;charset=UTF-8"     
+              }     
             ],
-            "url": {
-              "raw": "https://{{namespace}}/mqtt/messages?topic={{topic}}&api-version=2025-08-01-preview",
-              "host": [
-                "{{namespace}}"
-              ],
-              "path": [
-                "mqtt",
-                "messages"
-              ],
-              "query": [
-                {
-                  "key": "topic",
-                  "value": "{{topic}}"
-                },
-                {
-                  "key": "api-version",
-                  "value": "2025-02-15-preview"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "Please accept terms of licensing and agreement"
-            }
-          }
-        }
-      ],
-      "variable": [
-        {
-          "key": "namespace",
-          "value": "contoso.westus3-1.ts.eventgrid.azure.net"
-        },
-        {
-          "key": "topic",
-          "value": "devices/CXa-23112/prompt"
-        },
-        {
-          "key": "entra_token",
-          "value": "<ENTRA_TOKEN_HERE>"
-        }
-      ]
-    }
+    
+            "url": {     
+              "raw": "https://{{namespace}}/mqtt/messages?topic={{topic}}&api-version=2025-02-15-preview",     
+              "host": [     
+                "{{namespace}}"     
+              ],     
+              "path": [     
+                "mqtt",     
+                "messages"     
+              ],     
+              "query": [     
+                {     
+                  "key": "topic",     
+                  "value": "{{topic}}"     
+                },     
+                {     
+                  "key": "api-version",     
+                  "value": "2025-02-15-preview"     
+                }     
+              ]     
+            },     
+            "body": {     
+              "mode": "raw",     
+              "raw": "Please accept terms of licensing and agreement"     
+            }     
+          }     
+        }     
+      ],     
+      "variable": [     
+        {     
+          "key": "namespace",     
+          "value": "contoso.westus3-1.ts.eventgrid.azure.net"     
+        },     
+        {     
+          "key": "topic",     
+          "value": "devices/CXa-23112/prompt"     
+        },     
+        {     
+          "key": "entra_token",     
+          "value": "<ENTRA_TOKEN_HERE>"     
+        }     
+      ]     
+    } 
     ```
 
 1. On the **Variables** tab:

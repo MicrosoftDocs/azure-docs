@@ -20,7 +20,7 @@ ms.custom:
 **This article applies to:** ✅ Java ❎ C#
 
 **This article applies to:** <br>
-❎ Standard consumption and dedicated (Preview) ✅ Basic/Standard ❎ Enterprise
+✅ Basic/Standard ❎ Enterprise
 
 This article shows you how to observe your production applications deployed on Azure Spring Apps and diagnose and investigate production issues. Observability is the ability to collect insights, analytics, and actionable intelligence through the logs, metrics, traces, and alerts.
 

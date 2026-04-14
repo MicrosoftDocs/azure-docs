@@ -29,7 +29,7 @@ If you're looking to start with a complete example, see [Quickstart: Azure Blob 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [Go 1.18+](https://go.dev/doc/install)
 

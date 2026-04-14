@@ -1,17 +1,17 @@
 ---
-title: How Azure NetApp Files snapshots work
-description: Explains how Azure NetApp Files snapshots work, including ways to create snapshots, ways to restore snapshots, how to use snapshots in cross-region replication settings.
+title: Understand Azure NetApp Files snapshot-based data protection
+description: Explains how Azure NetApp Files snapshot-based data protection work, including ways to create snapshots, ways to restore snapshots, how to use snapshots in cross-region replication settings.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/21/2025
+ms.date: 11/14/2025
 ms.author: anfdocs
 # Customer intent: As a data administrator, I want to create and manage snapshots in Azure NetApp Files, so that I can ensure efficient data protection, quick recovery options, and scalable storage management for my organization's critical data.
 ---
-# How Azure NetApp Files snapshots work
+# Understand Azure NetApp Files snapshot-based data protection 
 
-This article explains how Azure NetApp Files snapshots work. Azure NetApp Files snapshot technology delivers stability, scalability, and faster recoverability, with no impact to performance. Snapshots provide the foundation for data protection solutions, including single-file restores, volume restores and clones, cross-region replication, cross-zone replication, and long-term retention. 
+This article explains how Azure NetApp Files snapshot-based data protection work. Azure NetApp Files snapshot technology delivers stability, scalability, and faster recoverability, with no impact to performance. Snapshots provide the foundation for data protection solutions, including single-file restores, volume restores and clones, cross-region replication, cross-zone replication, and long-term retention. 
 
 To create volume snapshots, see [Manage snapshots using Azure NetApp Files](azure-netapp-files-manage-snapshots.md). For considerations about snapshot management in cross-region and cross-zone replication, see [Requirements and considerations for Azure NetApp Files replication](replication-requirements.md).
 
@@ -129,7 +129,7 @@ When you restore a snapshot to a new volume, the Volume overview page displays t
 
 ### Creating a short-term clone 
 
-Short-term clones are volumes clones created from snapshots that are designed explicity for temporary use such as development, testing, data analytics, or data forensics. Short-term clones inherit the data in the base snapshot used to create them. In contrast to regular clones, short-term clones are more space efficient, sharing the same data blocks with its parent volume for common data. Writes specifically to the short-term clone consume their own data blocks.
+Short-term clones are volumes clones created from snapshots that are designed explicitly for temporary use such as development, testing, data analytics, or data forensics. Short-term clones inherit the data in the base snapshot used to create them. In contrast to regular clones, short-term clones are more space efficient, sharing the same data blocks with its parent volume for common data. Writes specifically to the short-term clone consume their own data blocks.
 
 A short-term clone is designed to be used for a fixed period of time. After 32 days, the short-term clone is automatically converted into a regular volume. For more information about creating a short-term clone and its related quota consumption, see [Create a short-term clone volume](create-short-term-clone.md).
 
@@ -152,7 +152,7 @@ See [Revert a volume using snapshot revert](snapshots-revert-volume.md) about ho
 
 ### Restoring files or directories from online snapshots using a client
 
-The [snapshot path visibility](snapshots-edit-hide-path.md) option controls whether the snapshot path of a volume is visible. Hiding the snapshot path adds an extra layer of protection to your snapshots, hiding snapshot paths from accidental discovery. During [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume creation, you can specify whether the snapshot path should be hidden. You can edit [snapshot path visibility](snapshots-edit-hide-path.md) as needed. 
+The [snapshot path visibility]() option controls whether the snapshot path of a volume is visible. Hiding the snapshot path adds an extra layer of protection to your snapshots, hiding snapshot paths from accidental discovery. During [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) or [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) volume creation, you can specify whether the snapshot path should be hidden. You can edit [snapshot path visibility](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option) as needed. 
 
 The following diagram shows file or directory access to a snapshot using a client: 
 

@@ -29,8 +29,6 @@ landingContent:
             url: nat-gateway-resource.md
           - text: NAT gateway metrics and alerts
             url: nat-metrics.md
-          - text: NAT gateway resource health
-            url: resource-health.md
       - linkListType: learn
         links:
           - text: Introduction to Azure NAT Gateway
@@ -49,8 +47,12 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create and validate NAT gateway
-            url: quickstart-create-nat-gateway.md    
+          - text: Create and validate a Standard V2 NAT gateway
+            url: quickstart-create-nat-gateway-v2.md    
+      - linkListType: concept
+        links:
+          - text: Azure NAT Gateway SKUs
+            url: nat-sku.md
       - linkListType: tutorial
         links:
           - text: Integrate NAT gateway with a public load balancer

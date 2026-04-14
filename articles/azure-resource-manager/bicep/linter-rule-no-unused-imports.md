@@ -3,7 +3,7 @@ title: Linter rule - no unused imports
 description: Linter rule - no unused imports
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 06/06/2025
+ms.date: 12/22/2025
 ---
 
 # Linter rule - no unused imports

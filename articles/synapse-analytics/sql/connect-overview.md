@@ -6,7 +6,7 @@ ms.author: stefanazaric
 ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql
-ms.date: 09/23/2024
+ms.date: 02/04/2026
 ms.reviewer:  stefanazaric
 ms.custom:
   - devx-track-csharp
@@ -36,11 +36,11 @@ To find the fully qualified server name:
 
 ## Supported tools
 
-Use [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio (SSMS)](https://aka.ms/ssms).
+Use [SQL Server Management Studio (SSMS)](https://aka.ms/ssms) or the [MSSQL extension for Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code).
 
-For serverless SQL pools:
-- [Azure Data Studio](/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. 
-- [SQL Server Management Studio](https://aka.ms/ssms) is partially supported starting from version 18.5, you can use it to connect and query only.
+For serverless SQL pools, the following tools are partially supported (connect and query only):
+- [Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code)
+- [SQL Server Management Studio](https://aka.ms/ssms)
 
 ## Supported drivers and connection strings
 Synapse SQL supports [ADO.NET](/dotnet/framework/data/adonet/), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?f=255&MSPPError=-2147217396), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server). To find the latest version and documentation, select one of the preceding drivers. To automatically generate the connection string for the driver that you're using from the Azure portal, select **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
@@ -92,7 +92,7 @@ Synapse SQL standardizes some settings during connection and object creation. Th
 
 ## Recommendations
 
-For executing **serverless SQL pool** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
+For executing **serverless SQL pool** queries, the recommended tool Azure Synapse Studio.
 
 ## Related content
 

@@ -2,7 +2,6 @@
 title: Develop secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the implementation and verification phases of your web application project.
 author: msmbaldwin
-manager: rkarlin
 ms.author: mbaldwin
 ms.date: 05/28/2025
 ms.topic: article
@@ -94,7 +93,7 @@ If the application must autogenerate passwords, ensure that the generated passwo
 
 If your application allows [file uploads](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), consider precautions that you can take for this risky activity. The first step in many attacks is to get some malicious code into a system that is under attack. Using a file upload helps the attacker accomplish this. OWASP offers solutions for validating a file to ensure that the file you're uploading is safe.
 
-Antimalware protection helps identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Microsoft Defender Antivirus in Windows](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10), and [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
+Antimalware protection helps identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/en-us/antivirus.html), [Microsoft Defender Antivirus in Windows](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10), and [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md) includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. You can integrate Microsoft Antimalware and partner solutions with [Microsoft Defender for Cloud](../../security-center/security-center-partner-integration.md) for ease of deployment and built-in detections (alerts and incidents).
 

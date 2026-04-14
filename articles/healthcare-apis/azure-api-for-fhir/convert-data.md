@@ -6,7 +6,7 @@ author: irenepjoseph
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 09/27/2023
+ms.date: 11/20/2025
 ms.author: irenejoseph
 ms.custom: sfi-image-nochange
 ---
@@ -143,7 +143,7 @@ Change the status to **On** to enable managed identity in Azure API for FHIR.
 
    [![Screen image of Add role assignment page.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png#lightbox) 
 
-For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.yml).
+For more information about assigning roles in the Azure portal, see [Azure built-in roles](/azure/role-based-access-control/role-assignments-portal).
 
 ### Register the ACR servers in Azure API for FHIR
 

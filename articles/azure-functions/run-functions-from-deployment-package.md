@@ -1,9 +1,9 @@
 ---
-title: Run your functions from a package file in Azure 
+title: Run your Functions from a Package File in Azure 
 description: Learn how to configure Azure Functions to run your function app from a deployment package file that contains your function app project.
 ms-service: azure-functions
-ms.topic: conceptual
-ms.date: 06/28/2024
+ms.topic: how-to
+ms.date: 03/20/2026
 
 # Customer intent: As a function developer, I want to understand how to run my function app from a deployment package file, so I can make my function app run faster and easier to update.
 ---
@@ -24,8 +24,6 @@ There are several benefits to running functions from a package file:
 + Improves the performance of [Azure Resource Manager deployments](functions-infrastructure-as-code.md).
 + Reduces cold-start times, particularly for JavaScript functions with large npm package trees.
 
-For more information, see [this announcement](https://github.com/Azure/app-service-announcements/issues/84).
-
 ## Enable functions to run from a package
 
 Function apps on the [Flex Consumption](./flex-consumption-plan.md) hosting plan run from a package by default. No special configuration needs to be done.
@@ -34,7 +32,7 @@ To enable your function app to run from a package on the [Consumption](./consump
 
 | Value  | Description  |
 |---------|---------|
-| **`1`**  | Indicates that the function app runs from a local package file deployed in the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app.  |
+| **`1`**  | Indicates that the function app runs from a local package file deployed in the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app. This is the default option when you use [Azure Functions Core Tools](/azure/azure-functions/functions-run-local).  |
 |**`<URL>`**  | Sets a URL that is the remote location of the specific package file you want to run. Required for functions apps running on Linux in a Consumption plan.  |
 
 The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values for deployment to a specific operating system and hosting plan:
@@ -47,7 +45,7 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 
 ## General considerations
 
-+ Do not add the `WEBSITE_RUN_FROM_PACKAGE` app setting to apps on the [Flex Consumption](./flex-consumption-plan.md) plan.
++ Don't add the `WEBSITE_RUN_FROM_PACKAGE` app setting to apps on the [Flex Consumption](./flex-consumption-plan.md) plan.
 + The package file must be .zip formatted. Tar and gzip formats aren't supported.
 + [Zip deployment](#integration-with-zip-deployment) is recommended.
 + When deploying your function app to Windows, you should set `WEBSITE_RUN_FROM_PACKAGE` to `1` and publish with zip deployment.
@@ -58,7 +56,7 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 + If your project needs to use remote build, don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting. Instead, add the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization app setting. For Linux, also add the `ENABLE_ORYX_BUILD=true` setting. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 > [!NOTE]
-> The `WEBSITE_RUN_FROM_PACKAGE` app setting does not work with MSDeploy as described in [MSDeploy VS. ZipDeploy](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy). You will receive an error during deployment, such as `ARM-MSDeploy Deploy Failed`. To resolve this error, change `/MSDeploy` to `/ZipDeploy`.
+> The `WEBSITE_RUN_FROM_PACKAGE` app setting doesn't work with MSDeploy as described in [MSDeploy VS. ZipDeploy](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy). You receive an error during deployment, such as `ARM-MSDeploy Deploy Failed`. To resolve this error, change `/MSDeploy` to `/ZipDeploy`.
 
 ### Add the WEBSITE_RUN_FROM_PACKAGE setting
 
@@ -84,18 +82,18 @@ This section provides information about how to run your function app from a loca
 
 Zip deployment is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder.
 
-When you set the `WEBSITE_RUN_FROM_PACKAGE` app setting value to `1`, the zip deployment APIs copy your package to the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder instead of extracting the files to `c:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux). It also creates the `packagename.txt` file. After your function app is automatically restarted, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
+When you set the `WEBSITE_RUN_FROM_PACKAGE` app setting value to `1`, the zip deployment APIs copy your package to the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder instead of extracting the files to `c:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux). It also creates the *packagename.txt* file. After your function app is automatically restarted, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
 > [!NOTE]
-> When a deployment occurs, a restart of the function app is triggered. Function executions currently running during the deploy are terminated. For information about how to write stateless and defensive functions, sett [Write functions to be stateless](performance-reliability.md#write-functions-to-be-stateless).
+> When a deployment occurs, a restart of the function app is triggered. Function executions currently running during the deploy are terminated. For information about how to write stateless and defensive functions, set [Write functions to be stateless](performance-reliability.md#write-functions-to-be-stateless).
 
-## Use WEBSITE_RUN_FROM_PACKAGE = URL
+## Use WEBSITE_RUN_FROM_PACKAGE = \<URL>
 
-This section provides information about how to run your function app from a package deployed to a URL endpoint. This option is the only one supported for running from a Linux-hosted package with a Consumption plan. This option is not supported in the [Flex Consumption](./flex-consumption-plan.md) plan.
+This section provides information about how to run your function app from a package deployed to a URL endpoint. This option is the only one supported for running from a Linux-hosted package with a Consumption plan. This option isn't supported in the [Flex Consumption](./flex-consumption-plan.md) plan.
 
 ### Considerations for deploying from a URL
 
-+ Do not set `WEBSITE_RUN_FROM_PACKAGE = <URL>` in apps on the [Flex Consumption](./flex-consumption-plan.md) plan. This option is not supported.
++ Don't set `WEBSITE_RUN_FROM_PACKAGE = <URL>` in apps on the [Flex Consumption](./flex-consumption-plan.md) plan. This option isn't supported.
 + Function apps running on Windows experience a slight increase in [cold-start time](event-driven-scaling.md#cold-start) when the application package is deployed to a URL endpoint via `WEBSITE_RUN_FROM_PACKAGE = <URL>`.
 + When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package.
 + The Functions runtime must have permissions to access the package URL.

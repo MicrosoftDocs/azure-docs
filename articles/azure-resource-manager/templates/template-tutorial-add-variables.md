@@ -1,12 +1,12 @@
 ---
-title: Tutorial - add variable to template
-description: Add variables to your Azure Resource Manager template (ARM template) to simplify the syntax.
-ms.date: 06/20/2024
+title: Tutorial - Add variables to your Azure Resource Manager template
+description: Learn how to add variables to your Azure Resource Manager template to simplify the syntax.
+ms.date: 10/29/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
 
-# Tutorial: Add variables to your ARM template
+# Tutorial: Add variables to your Azure Resource Manager template
 
 In this tutorial, you learn how to add a variable to your Azure Resource Manager template (ARM template). Variables simplify your templates. They let you write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
 
@@ -14,21 +14,114 @@ In this tutorial, you learn how to add a variable to your Azure Resource Manager
 
 We recommend that you complete the [tutorial about functions](template-tutorial-add-functions.md), but it's not required.
 
-You need to have [Visual Studio Code](https://code.visualstudio.com/), and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/), and either Azure PowerShell or the Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 
 At the end of the previous tutorial, your template had the following JSON file:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 24
+    },
+    "storageSKU": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS",
+        "Premium_LRS",
+        "Premium_ZRS",
+        "Standard_GZRS",
+        "Standard_RAGZRS"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[parameters('storageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ]
+}
+```
 
 Your [Azure storage account](../../storage/common/storage-account-create.md) name needs to be unique to easily continue to build your ARM template. If you've completed the earlier tutorials in this series, you're tired of coming up with a unique name. You solve this problem by adding a variable that creates a unique name for your storage account.
 
 ## Use variable
 
-The following example highlights the changes to add a variable to your template that creates a unique storage account name. Copy the whole file and replace your template with its contents.
+The following example shows the changes to add a variable to your template that creates a unique storage account name. Copy the whole file, and replace your template with its contents:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 11
+    },
+    "storageSKU": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS",
+        "Premium_LRS",
+        "Premium_ZRS",
+        "Standard_GZRS",
+        "Standard_RAGZRS"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[variables('uniqueStorageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ]
+}
+```
 
 Notice that it includes a variable named `uniqueStorageName`. This variable uses four functions to create a string value.
 
@@ -50,7 +143,7 @@ Let's deploy the template. Deploying this template is easier than the previous t
 
 If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -63,7 +156,7 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
-To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of the Azure CLI.
 
 ```azurecli
 az deployment group create \

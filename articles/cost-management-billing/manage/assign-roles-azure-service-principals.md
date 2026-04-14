@@ -6,7 +6,7 @@ ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: how-to
-ms.date: 06/25/2025
+ms.date: 12/12/2025
 ms.author: prsaini
 ms.custom: sfi-image-nochange
 ---
@@ -48,8 +48,9 @@ Here's an example of the application registration page.
 
 You need the service principal's object ID and the tenant ID. You need this information for permission assignment operations later in this article. All applications are registered in Microsoft Entra ID in the tenant. Two types of objects get created when the app registration is completed:
 
-- Application object - The application ID is what you see under Enterprise Applications. *Don't* use the ID to grant any EA roles.
-- Service Principal object - The Service Principal object is what you see in the Enterprise Registration window in Microsoft Entra ID. The object ID is used to grant EA roles to the service principal.
+- Application object - This ID is what you see in the Application Registration window. Don't use this ID to grant EA roles to the application. 
+
+- Service Principal object - The Service Principal object's ID is what you see in the Enterprise Application window in Microsoft Entra ID. This object ID is used to grant EA roles to the service principal.
 
 1. Open Microsoft Entra ID, and then select **Enterprise applications**.
 1. Find your app in the list.
@@ -80,7 +81,7 @@ Later in this article, you give permission to the Microsoft Entra app to act by 
 | Partner Admin Reader | View data for all enrollments under the partner organization. This role is only available for the following APIs:<br>- [Balances](/rest/api/consumption/balances/get-by-billing-account)<br>- [Exports V2 (api-version 2025-03-01 only)](/rest/api/cost-management/exports)<br>- [Generate Cost Details Report](/rest/api/cost-management/generate-cost-details-report)<br>- [Marketplaces](/rest/api/consumption/marketplaces/list)<br>- [Consumption Price sheet](/rest/api/consumption/price-sheet)<br>- [Cost Management Price sheet Download](/rest/api/cost-management/price-sheet/download-by-billing-account)<br>- [Generate Reservation Details Report](/rest/api/cost-management/generate-reservation-details-report/by-billing-account-id)<br>- [Reservation Summaries](/rest/api/consumption/reservations-summaries)<br>- [Reservation Recommendations](/rest/api/consumption/reservation-recommendations/list)<br>- [Reservation Transactions](/rest/api/consumption/reservation-transactions) | 4f6144c0-a809-4c55-b3c8-7f9b7b15a1bf |
 
 The following user roles are required to assign each service principal role:
-  - **EnrollmentReader:** user assigning must have _enrollment writer_ role.
+- **EnrollmentReader:** user assigning must have _enrollment writer_ role.
   - **DepartmentReader:** user assigning must have _enrollment writer_ or _department writer_ role.
   - **SubscriptionCreator:** user assigning must be the _enrollment account owner_ (EA administrator).
   - **EA purchaser:** user assigning must have _enrollment writer_ role.

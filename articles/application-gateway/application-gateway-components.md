@@ -44,8 +44,8 @@ A port is where a listener listens for the client request. You can configure por
 
 | SKU | Supported port range | Exception(s) |
 | ---------- | ---------- | ---------- |
-| V2 | 1 to 64999 | 22, 53 |
-| V1 | 1 to 65502 | 3389 |
+| V2 | 1 to 64999 | Use of port 22 is not supported with for [Private Link-enabled gateways](private-link.md). Port 53 |
+| V1 | 1 to 65502 | Port 3389 |
 
 ### Protocols
 
@@ -130,8 +130,8 @@ A backend pool routes request to backend servers, which serve the request. Backe
 - Virtual machine scale sets
 - Public IP addresses
 - Internal IP addresses
-- FQDN
-- Multitenant backends (such as App Service)
+- FQDN (fully qualified domain names) or short names (single-label domain names), provided your DNS server can resolve them
+- Multitenant backends such as Azure App Service and Azure Container Apps. See [Protect Container Apps with Application Gateway and WAF](../container-apps/waf-app-gateway.md) for implementation guidance.
 
 Application Gateway backend pool members aren't tied to an availability set. An application gateway can communicate with instances outside of the virtual network that it's in. As a result, the members of the backend pools can be across clusters, across datacenters, or outside Azure, as long as there's IP connectivity.
 

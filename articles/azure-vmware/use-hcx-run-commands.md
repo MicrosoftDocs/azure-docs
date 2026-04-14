@@ -3,8 +3,8 @@ title: Use VMware HCX Run Commands
 description: Use VMware HCX Run Commands in Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
-ms.custom: engagement-fy23
-ms.date: 3/22/2024
+ms.custom: engagement-fy26
+ms.date: 3/5/2026
 # Customer intent: As a cloud administrator, I want to execute VMware HCX Run Commands in an Azure VMware Solution, so that I can manage and scale the HCX Manager efficiently while maintaining service integrity during operations.
 ---
 
@@ -35,31 +35,73 @@ Optional run command parameters.
 1. Wait for command to finish. It can take few minutes for the VMware HCX appliance to come online. 
 
 ## Scale VMware HCX manager  
-Use the Scale VMware HCX Cloud Manager Run Command to increase the resource allocation of your VMware HCX Cloud Manager virtual machine to 8 vCPUs and 24-GB RAM from the default setting of 4 vCPUs and 12-GB RAM, ensuring scalability. 
+Use the Scale VMware HCX Cloud Manager Run Command to increase the resource allocation of your VMware HCX Cloud Manager virtual machine, ensuring scalability for larger deployments and increased concurrent migrations.
+
+**Supported in HCX 4.10+**
 
 **Scenario**: Mobility Optimize Networking (MON) requires VMware HCX Scalability. For more details on [MON scaling](https://kb.vmware.com/s/article/88401)  
 
 >[!NOTE] 
 > VMware HCX Cloud Manager will be rebooted during this operation, and this may affect any ongoing migration processes. 
 
-1. Navigate to the Run Command panel on in an Azure VMware Solution private cloud on the Azure portal. 
+1. Navigate to the **Run Command** panel under **Operations** in an Azure VMware Solution private cloud on the Azure portal. 
 
-1. Select the **Microsoft.AVS.HCX** package dropdown menu and select the **Set-HcxScaledCpuAndMemorySetting** command.
+2. Select the **Microsoft.AVS.HCX** package dropdown menu and select the **Set-HcxScaledCpuAndMemorySetting** command.
  
     :::image type="content" source="media/hcx-commands/set-hcx-scale.png" alt-text="Diagram that shows run command parameters for Set-HcxScaledCpuAndMemorySetting command." border="false" lightbox="media/hcx-commands/set-hcx-scale.png"::: 
  
-1. Agree to restart VMware HCX by toggling ``AgreeToRestartHCX`` to **True**. 
-    You need to acknowledge that the virtual machine will be restarted.  
-    
-     
-    >[!NOTE]
-    > If this required parameter is set to false that cmdlet execution will fail. 
+3. Set parameters and select Run. Optional run command parameters.
 
-1. Select **Run** to execute.
-    This process takes between 10-15 minutes.  
+   If the parameters are used incorrectly, they can halt active migrations and replications and cause other issues. Brief description of each parameter with an example of when it should be used:
+
+   **ScaleFormFactor Parameter** - Specifies the target form factor for the HCX Manager VM — *"Medium"* or *"Large"*. Defaults to *"Medium"* if not specified. See [Form Factor Specification](use-hcx-run-commands.md) for details on each size.
+
+   **DiskStorageFormat Parameter** - Specifies the storage format for the new disk added during scaling — *"Thin"*, *"Thick"*, or *"EagerZeroedThick"*. Defaults to *"Thin"*. See [Disk Storage Formats] for guidance on choosing a format.
+
+   **AgreeToRestartHCX Parameter** (required) - Acknowledgment that the HCX Manager VM will be restarted during the scaling operation. Must be set to *True* for the command to execute. If set to *False*, the cmdlet execution will fail.
+
+   **Force Parameter** - Bypasses safety checks such as active migration and replication detection and existing snapshot validation. Use this parameter when a migration is stuck in an active state and you still need to proceed with scaling.
+
+   **SkipSnapshot Parameter** - Skips the creation of a pre-scaling snapshot. Requires the *-Force* parameter to be set. Not recommended, as the automatic snapshot provides a safety net for failure recovery.
+
+4. Select **Run** to execute. This process takes between 10-15 minutes.  
    
-    >[!NOTE]
-    > VMware HCX cloud manager will be unavailable during the scaling. 
+ >[!NOTE]
+ > VMware HCX Cloud Manager will be unavailable during the scaling.
+
+### Form Factor Specifications
+
+| Form Factor | vCPU | Memory | Disk | Use Case |
+| :--- | :--- | :--- | :--- | :--- |
+| **Small** (current default) | 4 | 12 GB | 60 GB | Small deployments, <500 VMs |
+| **Medium** | 8 | 24 GB | 120 GB | Medium deployments, 500-2000 VMs |
+| **Large** | 32 | 48 GB | 300 GB | Large deployments, >2000 VMs |
+>[!NOTE]
+>"Small" is the default form factor already deployed. It is not a selectable option in the *Set-HcxScaledCpuAndMemorySetting* command. The command only scales up to **Medium** or **Large**.
+
+### Disk Storage Formats
+
+| Format | Description | Performance | Space Efficiency | Use Case |
+| :--- | :--- | :--- | :--- | :--- |
+| **Thin**  | Lazy-zeroed thin provisioning | Good | High | Default, most environments |
+| **Thick** | Eager-zeroed thick provisioning | Better | Low | Performance-critical |
+| **EagerZeroedThick** | Zeroed at creation | Best | Lowest | Maximum performance |
+
+>[!NOTE]
+>Use the default "Thin" unless specific performance requirements dictate otherwise. Thin disks grow on-demand, while Thick and EagerZeroedThick allocate full space immediately.
+
+### Automatic Failure Recovery
+If scaling fails at any point during execution, the system automatically recovers:
+
+1. **Snapshot revert** - Automatically reverts to the pre-scaling snapshot.
+   
+2. **Power on** - Powers on HCX Manager from the snapshot state (last known good configuration).
+   
+3. **Error reporting** - Returns detailed error information.
+ 
+4. **No manual intervention required** - The systems automatically recovers to a working state.
+
+**Recovery time**: Typically 5-10 minutes to revert and power on.
 
 ## Take a snapshot of VMware HCX Cloud Manager 
 

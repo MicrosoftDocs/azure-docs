@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 01/15/2025
 ms.custom: devx-track-terraform
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 #customer intent: As a Terraform user, I want to learn how to create an Azure resource group, create an Azure Automation account with a system-assigned identity, and assign a "Reader" role to the account.
 content_well_notification: 
   - AI-contribution
@@ -31,7 +31,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Options for your new Automation account are organized into tabs in the **Create an Automation Account** page of the Azure portal.
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Options for your new Automation account are organized into tabs in the **Create an Automation Account** page of the Azure portal.
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 

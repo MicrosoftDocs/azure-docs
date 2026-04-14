@@ -19,7 +19,7 @@ ms.subservice: b2c
 
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-[Grit Software Systems Visual Identity Experience Framework (IEF) Editor](https://www.gritiam.com/iefeditor.html), is a tool that saves time during Azure Active Directory B2C (Azure AD B2C) authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.
+[Grit Software Systems Visual Identity Experience Framework (IEF) Editor](https://www.gritiam.com/visual_authentication.html), is a tool that saves time during Azure Active Directory B2C (Azure AD B2C) authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.
 
 Use the Visual IEF Editor to:
 
@@ -31,7 +31,7 @@ Use the Visual IEF Editor to:
 
 To get started with the IEF Editor, ensure the following prerequisites are met:
 
-- A Microsoft Entra subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
+- A Microsoft Entra subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure AD B2C tenant linked to the Azure subscription. Learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 - [Visual IEF Editor](/azure/active-directory-b2c/partner-grit-editor) is free and works only with Google Chrome browser.
 - Review and download policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)

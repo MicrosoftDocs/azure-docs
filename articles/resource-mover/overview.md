@@ -1,12 +1,12 @@
 ---
 title: What is Azure Resource Mover?
 description: Learn about Azure Resource Mover.
-author: jasminemehndir
-ms.author: v-jasmineme
+author: RochakSingh-blr
+ms.author: v-rochak2
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: overview
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 ms.custom: mvc, engagement-fy23, UpdateFrequency.5
 # Customer intent: As an Azure administrator, I want to understand how Resource Mover simplifies the process of relocating Azure resources across regions, so that I can efficiently manage my resources in response to strategic business needs and compliance requirements.
 ---
@@ -49,7 +49,7 @@ After all dependencies are resolved, Resource Mover walks you through a simple m
 2. After the initial move, you can decide whether to commit and complete the move or discard the move.
 3. After the move is done you can decide whether you want to delete the resources in the source location.
 
-You can move resources across regions in the Resource Mover hub or from within a resource group. [Learn more](select-move-tool.md)
+You can move resources across regions in the Resource Mover hub or from within a resource group. [Learn more](select-options-to-move-resources.md)
 
 ## What resources can I move across regions?
 
@@ -67,7 +67,7 @@ Using Resource Mover, you can currently move the following resources across regi
 
 To move over services and resource not supported by Resource Mover or to move any service and resource by manual methods, see:
 
-- [Availability zone migration guidance overview for Microsoft Azure products and services](../reliability/availability-zones-migration-overview.md).
+- [Availability zone migration guidance overview for Microsoft Azure products and services](/azure/reliability/availability-zones-migration-overview).
 - [Azure services relocation guidance overview](/azure/operational-excellence/overview-relocation)
 
 

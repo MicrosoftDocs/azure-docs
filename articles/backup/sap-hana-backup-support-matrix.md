@@ -2,7 +2,7 @@
 title: SAP HANA Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
 ms.topic: reference
-ms.date: 08/26/2025
+ms.date: 02/16/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -12,7 +12,8 @@ ms.author: v-mallicka
 
 # Support matrix for backup of SAP HANA databases on Azure VMs
 
-Azure Backup supports the backup of SAP HANA databases to Azure. This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP HANA databases on Azure VMs.
+Azure Backup supports the backup of SAP HANA databases to Azure. This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP HANA databases on Azure VMs. For common questions, see the [frequently asked questions](sap-hana-faq-backup-azure-vm.yml).
+
 
 > [!IMPORTANT]
 > Linux distributions listed below shouldn't be in an End-of-Life (EOL) state by their vendors. Make sure it is a current, active and supported release.
@@ -36,11 +37,12 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
 | **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](sap-hana-database-restore.md#cross-subscription-restore). |          |
 | **Number of full backups per day**     |   One scheduled backup.  <br><br>   Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.  |
-| **HANA deployments** | HANA System Replication (HSR) |           |
+| **HANA deployments** | HANA System Replication (HSR) <br><br> HANA Scale-out system i.e one HANA system distributed across multiple nodes(PREVIEW)|           |
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |
 | **Compression** | You can enable HANA Native compression via the Backup policy. [See the SAP HANA document](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/86943e9f8d5343c59577755edff8296b.html). |       |
 | **Multi-streaming backup** | You can increase your streaming backup throughput from *420 MBps* to *1.5 GBps*. [Learn more](#support-for-multistreaming-data-backups). |      |
 | **File System types** | File Systems `ext3` and `xfs` are supported for SAP HANA database instance snapshots backup. | Other File Systems aren't supported. |
+| **Server-side secure stores** | SSFS (Secure Store in the File System) is supported. | Local Secure Store (LSS) is not supported. |
 
 ------
 
@@ -53,7 +55,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 - **Parameters to enable SAP HANA settings for multistreaming**: 
   - *parallel_data_backup_backint_channels*
   - *data_backup_buffer_size (optional)*
-
+Maximum number of channels that can be opened are 32 however maximum throughput that can be achieved is 1.5GBps.
   >[!Note]
   >By setting the above HANA parameters will lead to increased memory and CPU utilization. We recommend that you monitor the memory consumption and CPU utilization as overutilization might negatively impact the backup and other HANA operations.
 
@@ -86,6 +88,9 @@ The following table lists the required parameters for adding/removing SAP HANA i
 | --- | --- | --- | --- |
 | **Add an instance** | `--sid` | SAP HANA database instance that you want to protect. <br><br> By default, the first instance is selected. | `./msawb-plugin-config-com-sap-hana.sh --add --sid HXE` <br><br> Or <br><br> `./msawb-plugin-config-com-sap-hana.sh  --sid HXE` <br><br>  (Default mode is `add` for the script.) <br><br> After you add instances, registration needs to be done on recovery services vault. If a new instance is added later, re-registration is required.|
 | **Remove an instance** | `--sid` | SAP HANA database instance that you want to remove protection. <br><br> **SID** is a mandate parameter for remove. | `./msawb-plugin-config-com-sap-hana.sh --remove --sid HXE` |
+
+## Support for HANA Scale-out (PREVIEW)
+Backup for HANA systems distributed across multiple nodes i.e. HANA Scale-out is now available in PREVIEW. Reach out to AskAzureBackupTeam@microsoft.com to gain access to the preview experience. 
 
 ## Next steps
 

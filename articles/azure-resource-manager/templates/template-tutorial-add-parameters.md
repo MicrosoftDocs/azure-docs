@@ -1,7 +1,7 @@
 ---
-title: Tutorial - add parameters to template
-description: Add parameters to your Azure Resource Manager template (ARM template) to make it reusable.
-ms.date: 06/20/2024
+title: Tutorial - Add parameters to your Azure Resource Manager template
+description: Learn how to add parameters to your Azure Resource Manager template to make it reusable.
+ms.date: 10/29/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
@@ -14,31 +14,78 @@ In the [previous tutorial](template-tutorial-add-resource.md), you learned how t
 
 We recommend that you complete the [tutorial about resources](template-tutorial-add-resource.md), but it's not required.
 
-You need to have [Visual Studio Code](https://code.visualstudio.com/), and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/), and either Azure PowerShell or the Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Review template
 
 At the end of the previous tutorial, your template has the following JSON file:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "{provide-unique-name}",
+      "location": "eastus",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ]
+}
+```
 
 You may notice that there's a problem with this template. The storage account name is hard-coded. You can only use this template to deploy the same storage account every time. To deploy a storage account with a different name, you need to create a new template, which obviously isn't a practical way to automate your deployments.
 
 ## Make template reusable
 
-To make your template reusable, let's add a parameter that you can use to pass in a storage account name. The highlighted JSON file in the following example shows the changes in your template. The `storageName` parameter is identified as a string. The storage account name is all lowercase letters or numbers and has a limit of 24 characters.
+To make your template reusable, let's add a parameter that you can use to pass in a storage account name. The JSON file in the following example shows the changes in your template. The `storageName` parameter is identified as a string. The storage account name is all lowercase letters or numbers and has a limit of 24 characters.
 
-Copy the whole file and replace your template with its contents.
+Copy the whole file, and replace your template with its contents:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 24
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[parameters('storageName')]",
+      "location": "eastus",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ]
+}
+```
 
 ## Deploy template
 
-Let's deploy the template. The following example deploys the template with Azure CLI or PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name you used in the previous tutorial.
+Let's deploy the template. The following example deploys the template with the Azure CLI or Azure PowerShell. Notice that you provide the storage account name as one of the values in the deployment command. For the storage account name, provide the same name that you used in the previous tutorial.
 
 If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you set the `templateFile` variable to the path of the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -50,7 +97,7 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
-To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of the Azure CLI.
 
 ```azurecli
 az deployment group create \
@@ -74,9 +121,50 @@ This way of handling updates means your template can include all of the resource
 
 Parameters let you customize the deployment by providing values that are tailored for a particular environment. You can pass different values, for example, based on whether you're deploying to a development, testing, or production environment.
 
-The previous template always deploys a standard locally redundant storage (LRS) **Standard_LRS** account. You might want the flexibility to deploy different stock keeping units (SKUs) depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file and paste it over your template.
+The previous template always deploys a standard locally redundant storage (LRS) **Standard_LRS** account. You might want the flexibility to deploy different stock keeping units (SKUs) depending on the environment. The following example shows the changes to add a parameter for SKU. Copy the whole file, and paste it over your template:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 24
+    },
+    "storageSKU": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS",
+        "Premium_LRS",
+        "Premium_ZRS",
+        "Standard_GZRS",
+        "Standard_RAGZRS"
+      ]
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[parameters('storageName')]",
+      "location": "eastus",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ]
+}
+```
 
 The `storageSKU` parameter has a default value. Use this value when the deployment doesn't specify it. It also has a list of allowed values. These values match the values that are needed to create a storage account. You want your template users to pass SKUs that work.
 
@@ -84,7 +172,7 @@ The `storageSKU` parameter has a default value. Use this value when the deployme
 
 You're ready to deploy again. Because the default SKU is set to **Standard_LRS**, you've already provided a parameter value.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -111,7 +199,7 @@ az deployment group create \
 
 To see the flexibility of your template, let's deploy it again. This time set the SKU parameter to standard geo-redundant storage (GRS) **Standard_GRS**. You can either pass in a new name to create a different storage account or use the same name to update your existing storage account. Both options work.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -136,7 +224,7 @@ az deployment group create \
 
 Finally, let's run one more test and see what happens when you pass in an SKU that isn't one of the allowed values. In this case, we test the scenario where your template user thinks **basic** is one of the SKUs.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `

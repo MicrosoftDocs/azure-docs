@@ -3,7 +3,7 @@ title: Troubleshooting analytics rules in Microsoft Sentinel
 description: Learn how to deal with certain known issues that can affect analytics rules, and understand the meaning of AUTO DISABLED.
 author: guywi-ms
 ms.author: guywild
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.custom: devx-track-arm-template
 ms.date: 03/26/2024
 
@@ -12,6 +12,9 @@ ms.date: 03/26/2024
 ---
 
 # Troubleshooting analytics rules in Microsoft Sentinel
+
+>[!IMPORTANT]
+> [**Custom detections**](/defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) is now the best way to create new rules across Microsoft Sentinel SIEM Microsoft Defender XDR. With custom detections, you can reduce ingestion costs, get unlimited real-time detections, and benefit from seamless integration with Defender XDR data, functions, and remediation actions with automatic entity mapping. For more information, read [this blog](https://techcommunity.microsoft.com/blog/microsoftthreatprotectionblog/custom-detections-are-now-the-unified-experience-for-creating-detections-in-micr/4463875).
 
 This article explains how to deal with certain issues that may arise with execution of [scheduled analytics rules](detect-threats-custom.md) in Microsoft Sentinel.
 

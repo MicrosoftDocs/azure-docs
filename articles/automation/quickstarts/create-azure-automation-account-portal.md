@@ -2,14 +2,14 @@
 title: Quickstart - Create an Azure Automation account using the portal
 description: This quickstart helps you to create a new Automation account using Azure portal.
 services: automation
-ms.date: 08/28/2023
+ms.date: 11/17/2025
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc, mode-ui, engagement-fy24
 #Customer intent: As an administrator, I want to create an Automation account so that I can further use the Automation services.
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Quickstart: Create an Automation account using the Azure portal
@@ -18,7 +18,7 @@ You can create an Azure [Automation account](../automation-security-overview.md)
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create Automation account
 

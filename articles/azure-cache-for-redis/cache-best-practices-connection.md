@@ -2,13 +2,15 @@
 title: Best practices for connection resilience
 description: Learn how to make your Azure Cache for Redis connections resilient.
 ms.custom: linux-related-content, ignite-2024
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 04/22/2024
 appliesto:
   - ✅ Azure Cache for Redis
 ---
 
 # Connection resilience
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 ## Retry commands
 

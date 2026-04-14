@@ -62,7 +62,7 @@ Common concerns for enterprises that migrate workloads to the cloud include:
 
 - Alternatively, you can use a [Visual Studio subscription](https://azure.microsoft.com/pricing/member-offers/visual-studio-subscriptions) for the pilot deployment, and take advantage of free Azure credits.
 
-- You can also create and use a [free Azure account](https://azure.microsoft.com/free/search/?&OCID=AID719825_SEM_g4lyBqgB&lnkd=Bing_Azure_Brand&msclkid=ecc4275a31b61375749e7a5322c20de8&dclid=CMGW5-m78-ICFaLt4QodmUwGtQ) for the pilot.
+- You can also create and use a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) for the pilot.
  
 -  To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:
     - [Buy an MSDN subscription](https://www.visualstudio.com/products/how-to-buy-vs).

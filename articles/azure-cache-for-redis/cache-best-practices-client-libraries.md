@@ -3,7 +3,7 @@ title: Best practices for client libraries
 description: Learn about recommended client libraries for Azure Cache for Redis, including a section devoted to Redisson best practices.
 
 
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/05/2025
 appliesto:
   - ✅ Azure Cache for Redis
@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 ---
 
 # Client libraries
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis is based on the Redis open-source, in-memory data store. Redis clients for many programming languages can access Azure Redis. Your application can use any client library that's compatible with open-source Redis to connect to your Azure Redis cache.
 
@@ -50,13 +52,9 @@ For client library-specific guidance and best practices, see the following links
 
 Besides the reference documentation, you can use the following tutorials to get started with Azure Redis using different languages and cache clients:
 
-- [Code a .NET Framework app](../redis/dotnet-how-to-use-azure-redis-cache.md)
-- [Code a .NET Core app](../redis/dotnet-core-quickstart.md)
-- [Code an ASP.NET web app](../redis/web-app-cache-howto.md)
-- [Code an ASP.NET Core web app](../redis/web-app-aspnet-core-howto.md)
+<!-- - [Code a .NET app](../redis/dotnet.md) -->
+<!-- - [Code an ASP.NET app](../redis/aspnet.md) -->
 - [Code a Java app](../redis/java-get-started.md)
-- [Code a Node.js app](../redis/nodejs-get-started.md)
-- [Code a Python app](../redis/python-get-started.md)
 
 ## Best practices for Redisson (Java)
 
@@ -73,8 +71,6 @@ Here are some recommended best practices for the [Redisson](https://redisson.pro
   Redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are large. The large defaults could contribute to aggressive reconnect behaviors or connection storms. To reduce this risk, consider using fewer connections. You can efficiently pipeline commands or batches of commands over a few connections.
 
 - Reset the idle connection timeout if necessary. Redisson has a default 10-second idle connection timeout, which can lead to more closing and reopening of connections than ideal.
-
-- For information about using Redisson with Java EE JCache to store HTTP session state on an Azure Kubernetes Service (AKS) cluster, see [Using Azure Redis as session cache for WebSphere Liberty or Open Liberty](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 
 - Use the following recommended baseline configuration for cluster mode, and modify it as needed.
 

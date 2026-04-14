@@ -2,7 +2,7 @@
 title: "SAS Authentication for Azure Event Hubs Resources"
 description: Learn how to authenticate access to Azure Event Hubs resources using shared access signatures (SAS). Get granular control over permissions and security. Includes code examples in C#, Java, and Node.js to implement SAS authentication.
 #customer intent: Based on the content you've provided about SAS authentication for Azure Event Hubs, here are 10 customer intent statements following the agile user story format:
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/25/2025
 ms.devlang: csharp
 ms.custom:

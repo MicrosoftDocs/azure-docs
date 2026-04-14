@@ -1,10 +1,10 @@
 ---
 title: Configure replication for Azure VMs in Azure Site Recovery
 description: Learn how to configure replication to another region for Azure VMs, using Site Recovery.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
-ms.date: 06/17/2025
+ms.date: 10/31/2025
 ms.service: azure-site-recovery
 ms.custom: sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to configure replication for Azure VMs to another region, so that I can ensure disaster recovery and maintain business continuity in the event of a regional outage."
@@ -48,6 +48,9 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
 1. In **Replication settings**, you can configure the following settings:
     1. Under **Location and Resource group**,
        - **Target location**: Select the location where your source virtual machine data must be replicated. Depending on the location of selected machines, Site Recovery provides you with the list of suitable target regions. We recommend that you keep the target location the same as the Recovery Services vault location.
+         >[!NOTE]
+         >If the selected target region doesn't support an NVMe-capable VM SKU (preview), Azure Site Recovery blocks the enable replication action and displays a validation error before replication starts.
+         >
        - **Target subscription**: Select the target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription.
        - **Target resource group**: Select the resource group to which all your replicated virtual machines belong.
            - By default, Site Recovery creates a new resource group in the target region with an *asr* suffix in the name.
@@ -76,7 +79,7 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
        - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. High Churn is the only option available to protect VMs using Premium SSD v2/Ultra Disks.
          >[!Note]
          >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
-         >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churns.png" alt-text="Screenshot of churn.":::    
+         >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn.":::    
     
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]
@@ -107,6 +110,9 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
    :::image type="review" source="./media/azure-to-azure-how-to-enable-replication/review.png" alt-text="Screenshot that displays the review tab.":::
 
 1.  After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**. The time taken for initial replication depends on various factors such as the disk size, used storage on the disks, etc. Data transfer happens at ~23% of the disk throughput. Initial replication creates a snapshot of the disk and transfers that snapshot.
+
+>[!TIP]
+>In scenarios where you successfully migrate the disk controller from SCSI to NVMe (preview) after replication, Azure Site Recovery automatically detects the controller update and continues replication without interruption. New recovery points reflect the updated NVMe disk controller type. 
 
 ### Enable replication for added disks
 

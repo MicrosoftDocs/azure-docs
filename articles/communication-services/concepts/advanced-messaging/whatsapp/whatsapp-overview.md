@@ -7,7 +7,7 @@ manager: sundraman
 services: azure-communication-services
 ms.author: darmour
 ms.date: 02/12/2024
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---
@@ -28,6 +28,13 @@ The key features of Azure Communications Services Advanced Messaging for WhatsAp
 * Initiate conversations with WhatsApp users using templates.
 * Reply to user’s inquiries and trigger automation using Azure Event Grid notifications.
 * Receive delivery reports for messages sent, delivered, and read.
+
+## WhatsApp usernames and business-scoped user IDs
+
+WhatsApp is launching usernames in 2026, allowing users to display a username instead of their phone number. To support this change, Meta introduces a new identifier called the **business-scoped user ID (BSUID)**. BSUIDs begin appearing in webhook payloads and will be supported as recipient identifiers in send requests starting in June 2026.
+
+> [!WARNING]
+> **Breaking change:** The `from` and `to` fields in Advanced Messaging events may now be empty when a user hides their phone number. Update your event handlers to use the new `fromBSUID` and `toBSUID` fields. For more information, see [WhatsApp usernames and BSUIDs](./whatsapp-username-support-overview.md).
 
 ## Next steps
 

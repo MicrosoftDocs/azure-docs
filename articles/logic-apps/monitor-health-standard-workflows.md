@@ -1,12 +1,13 @@
 ---
-title: Monitor Standard workflows with Health Check
+title: Monitor Standard Workflows with Health Check
 description: Set up Health Check to monitor health for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/15/2025
-# Customer intent: As a developer, I want to monitor the health for my Standard logic app workflows in single-tenant Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to monitor the health for Standard workflows in Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
 # Monitor health for Standard workflows in Azure Logic Apps with Health Check
@@ -35,7 +36,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Standard logic app resource with the following attributes:
 
@@ -43,7 +44,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
   - A "health" workflow that specifically runs the health check and the following elements:
 
-    - Starts with the **Request** trigger named **When a HTTP request is received**.
+    - Starts with the **Request** trigger named **When an HTTP request is received**.
 
     - Includes the **Request** action named **Response**. Set this action to return a status code inclusively between **200** to **299**.
 
@@ -93,7 +94,7 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
    1. When you finish, select **Save**.
 
-## Troubleshooting
+## Troubleshoot problems
 
 ### After I set the health path, my health workflow doesn't trigger.
 
@@ -133,19 +134,25 @@ This behavior can happen if the logic app resource isn't healthy, or typically, 
 
 ### My workflow intermittently stops processing messages for hours but runs well most other times.
 
-If your Standard logic app uses the hosting option named **Workflow Service Plan** and isn't hosted in an App Service Environment, make sure that **Runtime Scale Monitoring** is turned on and that **Always Ready Instances** is set to at least **1**.
+If your Standard logic app uses the hosting option named **Workflow Service Plan**, make sure that **Runtime Scale Monitoring** is turned on and that **Always Ready Instances** is set to at least **1**.
 
-1. In the [Azure portal](https://portal.azure.com), find and open your logic app, if not already open.
+1. In the [Azure portal](https://portal.azure.com), open your logic app.
 
-1. On the logic app menu, under **Settings**, select **Configuration**.
+1. On the logic app sidebar, under **Settings**, select **Configuration**.
 
-1. On the **Workflow runtime settings** tab, next to **Runtime Scale Monitoring**, select **On**.
+1. On the **Workflow runtime settings** tab, next to **Runtime Scale Monitoring**, select **On**, then select **Apply**.
 
-1. On the **Configuration** page toolbar, select **Save**.
-
-1. On the logic app menu, under **Settings**, select **Scale out (App Service plan)**.
+1. On the logic app sidebar, under **App Service plan**, select **Scale out**.
 
 1. Under **App Scale out**, make sure that the **Always Ready Instances** value *isn't set* to **0**.
+
+If your Standard logic app is hosted in App Service Environment, make sure that **Always on** is turned on.
+
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app.
+
+1. On the logic app sidebar, under **Settings**, select **Configuration**.
+
+1. On the **General settings** tab, select **Always on** to turn on, then select **Apply**.
 
 ## Related content
 

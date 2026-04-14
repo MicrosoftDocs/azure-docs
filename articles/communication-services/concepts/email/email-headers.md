@@ -7,7 +7,7 @@ manager: koagbakp
 services: azure-communication-services
 ms.author: anmolbohra
 ms.date: 01/09/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 # Adding Reserved Custom headers

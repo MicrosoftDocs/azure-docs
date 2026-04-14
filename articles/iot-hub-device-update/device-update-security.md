@@ -1,8 +1,8 @@
 ---
 title: Security for Device Update for Azure IoT Hub
 description: Understand how Device Update for IoT Hub ensures devices are updated securely.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 08/19/2022
 ms.topic: concept-article
 ms.service: azure-iot-hub

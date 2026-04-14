@@ -2,10 +2,12 @@
 title: Available States for Azure Cloud Services (extended support)
 description: Available Power and Provisioning States for Azure Cloud Services (extended support)
 ms.topic: concept-article
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-cloud-services-classic
 author: surbhijain
 ms.author: surbhijain
 ms.date: 07/24/2024
+ms.update-cycle: 1095-days
+ms.custom: cloud-services-extended-support
 
 # Customer intent: As a cloud administrator, I want to understand the provisioning and power states for Azure Cloud Services (extended support) so that I can monitor and troubleshoot resource deployments and role instance behavior effectively.
 ---

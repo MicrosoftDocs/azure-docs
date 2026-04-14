@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
-ms.date: 04/15/2024
+ms.date: 03/30/2026
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
 ---
@@ -15,7 +15,7 @@ ms.author: rolyon
 
 As an administrator, you might get several requests to grant access to Azure resources that you want to delegate to someone else. You could assign a user the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles, but these are highly privileged roles. This article describes a more secure way to [delegate role assignment management](delegate-role-assignments-overview.md) to other users in your organization, but add restrictions for those role assignments. For example, you can constrain the roles that can be assigned or constrain the principals the roles can be assigned to.
 
-The following diagram shows how a delegate with conditions can only assign the Backup Contributor or Backup Reader roles to only the Marketing or Sales groups.
+The following diagram shows how a delegate with conditions can only assign (or remove) the Backup Contributor or Backup Reader roles to only the Marketing or Sales groups.
 
 :::image type="content" source="./media/delegate-role-assignments-portal/delegate-role-assignments.png" alt-text="Diagram that shows an administrator delegating role assignment management with conditions." lightbox="./media/delegate-role-assignments-portal/delegate-role-assignments.png":::
 
@@ -28,17 +28,20 @@ The following diagram shows how a delegate with conditions can only assign the B
 To help determine the permissions the delegate needs, answer the following questions:
 
 - What roles can the delegate assign?
+- What role assignments can the delegate remove?
 - What types of principals can the delegate assign roles to?
 - Which principals can the delegate assign roles to?
-- Can delegate remove any role assignments?
 
 Once you know the permissions that delegate needs, you use the following steps to add a condition to the delegate's role assignment. For example conditions, see [Examples to delegate Azure role assignment management with conditions](delegate-role-assignments-examples.md).
+
+> [!NOTE]
+> The conditions you add in these steps apply to assigning specific roles, but they also typically apply to removing role assignments for those same roles.
 
 ## Step 2: Start a new role assignment
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Follow the steps to [open the Add role assignment page](role-assignments-portal.yml).
+1. Follow the steps to [open the Add role assignment page](/azure/role-based-access-control/role-assignments-portal).
 
 1. On the **Roles** tab, select the **Privileged administrator roles** tab.
 
@@ -70,10 +73,10 @@ There are two ways that you can add a condition. You can use a condition templat
 
     | Condition template | Select this template to |
     | --- | --- |
-    | Constrain roles | Allow user to only assign roles you select |
-    | Constrain roles and principal types | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principal types you select (users, groups, or service principals) |
-    | Constrain roles and principals | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principals you select |
-    | Allow all except specific roles | Allow user to assign all roles except the roles you select |
+    | [Constrain roles](delegate-role-assignments-examples.md#example-constrain-roles) | Allow user to only assign roles you select<br/>Allow user to only remove role assignments for the selected roles |
+    | [Constrain roles and principal types](delegate-role-assignments-examples.md#example-constrain-roles-and-principal-types) | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principal types you select (users, groups, or service principals)<br/>Allow user to only remove role assignments for the selected roles and principal types |
+    | [Constrain roles and principals](delegate-role-assignments-examples.md#example-constrain-roles-and-specific-groups) | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principals you select<br/>Allow user to only remove role assignments for the selected roles and principals |
+    | Allow all except specific roles | Allow user to assign all roles except the roles you select<br/>Allow user to remove role assignments for all roles except the selected roles |
 
 1. In the configure pane, add the required configurations.
 
@@ -163,7 +166,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
 ## Step 5: Delegate assigns roles with conditions
 
-- Delegate can now follow steps to [assign roles](role-assignments-portal.yml).
+- Delegate can now follow steps to [assign roles](/azure/role-based-access-control/role-assignments-portal).
 
     :::image type="content" source="./media/shared/groups-constrained.png" alt-text="Diagram of role assignments constrained to specific roles and specific groups." lightbox="./media/shared/groups-constrained.png":::
 

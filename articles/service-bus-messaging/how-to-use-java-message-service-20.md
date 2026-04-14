@@ -13,12 +13,52 @@ ms.custom:
 This article explains how to use the popular **Java Message Service (JMS) 2.0** API to interact with Azure Service Bus over the Advanced Message Queueing Protocol (AMQP) 1.0 protocol.
 
 ## Important notes
-Here are a few important points: 
 
-- Support for JMS 2.0 API is available only in the premium tier and when you use the **azure-servicebus-jms** library. 
-- If you use JMS libraries other than **azure-servicebus-jms** (for example, latest **qpid-jms-client**) against a premium namespace, you observe the **JMS 1.1** behavior, and some of the JMS 2.0 features might not work as expected. The azure-servicebus-jms library doesn't create a vendor lock of any kind as it still takes a dependency on qpid-jms-client. All APIs that work on qpid-jms-client work on azure-servicebus-jms library as well. 
-- The azure-servicebus-jms is also an [open-source library](https://github.com/azure/azure-servicebus-jms). The azure-servicebus-jms library was mainly created so that the Service Bus service can distinguish between customers needing the JMS 1.1 behavior (backwards compatibility) versus the JMS 2.0 behavior when working against a premium namespace. The azure-servicebus-jms library also provides some necessary defaults such as prefetch policy values, reconnect policies, Microsoft Entra ID, Managed Identity support, support for Auto Delete on Idle for entities out of the box.
-- The following path to the azure-servicebus-jms package is the latest version of the library that is based on the Jakarta Messaging specification (Jakarta.* APIs): Maven Central: [com.azure:azure-servicebus-jms](https://central.sonatype.com/artifact/com.azure/azure-servicebus-jms). And, the following path to the azure-servicebus-jms is the latest version of library before the Jakarta Messaging specification  (javax.* APIs): Maven Central: [com.microsoft.azure:azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/versions).
+- JMS 2.0 API support requires the **Azure Service Bus Premium tier** and the **azure-servicebus-jms** library. Using other JMS libraries (for example, **qpid-jms-client** directly) against a premium namespace results in JMS 1.1 behavior, and some JMS 2.0 features might not work as expected.
+- The library is [open source](https://github.com/azure/azure-servicebus-jms) and built on top of **qpid-jms-client** — all qpid-jms-client APIs work with it, so there is no vendor lock-in. It also provides defaults for prefetch policies, reconnect policies, Microsoft Entra ID, Managed Identity support, and Auto Delete on Idle.
+- The library is available in two variants for **Jakarta EE** and **Java EE**. See [Jakarta EE and javax support](#jakarta-ee-and-javax-support) for details on which artifact to use.
+
+## Jakarta EE and javax support
+
+The `azure-servicebus-jms` library is available in two variants to support both the legacy Java EE (`javax.jms`) and the newer Jakarta EE (`jakarta.jms`) API namespaces.
+
+| API namespace | Maven artifact | Versions | JMS specification |
+|---|---|---|---|
+| `jakarta.jms` (Jakarta EE 9+) | [com.azure:azure-servicebus-jms](https://central.sonatype.com/artifact/com.azure/azure-servicebus-jms) | 2.0.0+ | Jakarta Messaging (JMS 2.0) |
+| `javax.jms` (Java EE) | [com.microsoft.azure:azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/versions) | 1.0.x | JMS 2.0 |
+
+**Which artifact should I use?**
+
+- If your project uses **Jakarta EE 9 or later** (for example, Spring Boot 3.x, Quarkus 3.x, or any framework that imports `jakarta.jms.*`), use the `com.azure` artifact:
+
+    ```xml
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-servicebus-jms</artifactId>
+      <version>2.1.0</version>
+    </dependency>
+    ```
+
+- If your project still uses **Java EE** (imports `javax.jms.*`), continue using the `com.microsoft.azure` artifact:
+
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure-servicebus-jms</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+    ```
+
+> [!IMPORTANT]
+> Do not mix the two artifacts. Using `com.azure:azure-servicebus-jms` in a project that imports `javax.jms.*` results in compilation errors, and vice versa.
+
+**Migrating from javax to Jakarta**
+
+If you're upgrading your application from Java EE to Jakarta EE:
+
+1. Replace your Maven dependency group ID from `com.microsoft.azure` to `com.azure` and update the version to `2.0.0` or later.
+2. Update all `javax.jms.*` imports in your code to `jakarta.jms.*`.
+3. The `ServiceBusJmsConnectionFactory` API and configuration remain the same across both variants, so no code changes are needed beyond the import and dependency updates.
 
 ## Prerequisites
 
@@ -42,10 +82,30 @@ To learn more about how to prepare your developer environment for Java on Azure,
 
 ## Downloading the Java Message Service (JMS) client library
 
-To utilize all the features available in the premium tier, add the following library to the build path of the project: [azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.0). This package provides some necessary defaults such as prefetch policy values, reconnect policies, Microsoft Entra ID, and Managed Identity support out of the box.
+To utilize all the features available in the premium tier, add the **azure-servicebus-jms** library to the build path of your project. This package provides necessary defaults such as prefetch policy values, reconnect policies, Microsoft Entra ID, and Managed Identity support out of the box. Choose the artifact that matches your project's API namespace (see [Jakarta EE and javax support](#jakarta-ee-and-javax-support) for details):
+
+**Jakarta EE (jakarta.jms):**
+
+```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-servicebus-jms</artifactId>
+  <version>2.1.0</version>
+</dependency>
+```
+
+**Java EE (javax.jms):**
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-servicebus-jms</artifactId>
+  <version>1.0.2</version>
+</dependency>
+```
 
 > [!NOTE]
-> To add the [azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/1.0.0) to the build path, use the preferred dependency management tool for your project like [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/).
+> To add the library to the build path, use the preferred dependency management tool for your project like [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/).
 
 ## Coding Java applications
 

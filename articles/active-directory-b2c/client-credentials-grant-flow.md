@@ -152,7 +152,7 @@ There are no specific actions to enable the client credentials for user flows or
 | grant_type | `client_credentials` |
 | client_id | The **Client ID** from the [Step 2 Register an application](#step-2-register-an-application). |
 | client_secret | The **Client secret** value from [Step 2.1 Create a client secret](#step-21-create-a-client-secret). |
-| scope | The **Application ID URI** from [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes) and `.default`. For example `https://contoso.onmicrosoft.com/api/.default`, or `https://contoso.onmicrosoft.com/00001111-aaaa-2222-bbbb-3333cccc4444/.default`.|
+| scope | The **Application ID URI** from [Step 1.1 Define web API roles (scopes)](#step-11-define-web-api-roles-scopes) and `.default`. For example `https://contoso.onmicrosoft.com/api/.default`, or `https://contoso.onmicrosoft.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/.default`.|
 
 The actual POST request looks like the following example:
 

@@ -46,7 +46,7 @@ Before you begin, make sure that you have the following prerequisites:
 
 - Verify that you have [CLI](references-work-with-defender-for-iot-cli-commands.md) access to all Defender for IoT appliances in your enterprise.
 
-- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 

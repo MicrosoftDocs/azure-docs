@@ -1,9 +1,9 @@
----
+﻿---
 title: Module setting for Bicep config
 description: Describes how to customize configuration values for modules in Bicep deployments.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ---
 
 # Add module settings in the Bicep config file
@@ -126,7 +126,7 @@ You can override the public module registry alias definition in the [bicepconfig
 
 ## Configure profiles and credentials
 
-To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can manually configure `currentProfile` and `credentialPrecedence` in the [Bicep config file](./bicep-config.md) for authenticating to the registry. 
+To [publish](bicep-cli.md#publish) modules to a private module registry or to [restore](bicep-cli.md#restore) external modules to the local cache, the account must have the correct permissions to access the registry. You can manually configure `currentProfile` and `credentialPrecedence` in the [Bicep config file](./bicep-config.md) for authenticating to the registry.
 
 ```json
 {

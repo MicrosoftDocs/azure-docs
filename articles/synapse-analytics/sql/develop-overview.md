@@ -6,7 +6,7 @@ ms.author: fipopovi
 ms.date: 03/23/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: hub-page
 ---
 
 # Design decisions and coding techniques for Synapse SQL features in Azure Synapse Analytics

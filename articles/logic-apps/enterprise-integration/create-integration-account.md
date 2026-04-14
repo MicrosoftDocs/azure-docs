@@ -36,7 +36,7 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Make sure that you use the same Azure subscription for both your integration account and logic app resource.
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Make sure that you use the same Azure subscription for both your integration account and logic app resource.
 
 * Whether you're working on a Consumption or Standard logic app workflow, your logic app resource must already exist if you need to link your integration account.
 
@@ -136,7 +136,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
 
    ```azurecli
    az logic integration-account create --resource-group myresourcegroup \
-       --name integration_account_01 --location westus --sku name=Standard
+       --name integration_account_01 --location westus --sku Standard
    ```
 
    Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses (()), and periods (.).
@@ -190,7 +190,7 @@ To read artifacts and write any state information, your Premium integration acco
    | **Resource** | <*Azure-storage-account-name*> | The name for the Azure storage account to access. <br><br>**Note** If you get an error that you don't have permissions to add role assignments at this scope, you need to get those permissions. For more information, see [Microsoft Entra built-in roles](../../active-directory/roles/permissions-reference.md). |
    | **Role** | - **Storage Account Contributor** <br><br>- **Storage Blob Data Contributor** <br><br>- **Storage Table Data Contributor** | The roles that your Premium integration account requires to access your storage account. |
 
-   For more information, see [Assign Azure role to system-assigned managed identity](../../role-based-access-control/role-assignments-portal-managed-identity.yml)
+   For more information, see [Assign Azure role to system-assigned managed identity](/azure/role-based-access-control/role-assignments-portal-managed-identity)
 
 <a name="set-up-private-endpoint"></a>
 

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.custom: security
+ms.custom: security, horz-security
 ms.date: 08/15/2025
 ai-usage: ai-assisted
 ---
@@ -34,7 +34,7 @@ Network security for Application Gateway involves controlling traffic flow, impl
 
 Web Application Firewall provides essential protection against common web vulnerabilities and attacks targeting your applications.
 
-* **Deploy Web Application Firewall**: Enable WAF on your Application Gateway to protect against OWASP Top 10 threats including SQL injection, cross-site scripting, and other common web attacks. Start in Detection mode to understand traffic patterns, then switch to Prevention mode to actively block threats. For more information, see [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview).
+* **Deploy Web Application Firewall**: Enable WAF on your Application Gateway to protect against OWASP Top 10 threats including SQL injection, cross-site scripting, and other common web attacks. Start in Detection mode to understand traffic patterns, then switch to Prevention mode to actively block threats. For more information, see [What is Azure Web Application Firewall on Azure Application Gateway?](/azure/web-application-firewall/ag/ag-overview)
 
 * **Configure custom WAF rules**: Create custom rules to address specific threats targeting your applications, including rate limiting, IP blocking, and geo-filtering. Custom rules provide targeted protection beyond managed rule sets. For more information, see [Create and use v2 custom rules](/azure/web-application-firewall/ag/create-custom-waf-rules).
 

@@ -48,6 +48,9 @@ Before you begin this tutorial, you should:
 - [Review](../site-recovery/migrate-tutorial-windows-server-2008.md#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
 
 > [!NOTE]
+>  Windows Server 2008 and Windows Server 2008 R2 have reached End of Support (EOS). For more information, see, [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2) and [Perform in-place upgrade to Windows Server 2016, 2019, 2022, or 2025](/azure/virtual-machines/windows-in-place-upgrade#perform-in-place-upgrade-to-windows-server-2016-2019-2022-or-2025). Review your usage and plan OS upgrades and migrations accordingly.
+
+> [!NOTE]
 > If you're planning to upgrade your Windows operating system, Azure Migrate and Modernize might download the Windows SetupDiag utility for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
 
 ## Prepare Azure
@@ -58,6 +61,9 @@ Task | Details
 --- | ---
 Create an Azure Migrate project | Your Azure account needs Contributor or Owner permissions to [create a new project](./create-manage-projects.md).
 Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure managed disk.
+
+>[!NOTE]
+> For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
 
 ### Assign permissions to create a project
 
@@ -107,7 +113,7 @@ Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-
 
 The Azure Site Recovery Replication appliance is used to replicate machines to Azure. [Learn more](../site-recovery/physical-server-azure-architecture-modernized.md).
 
-To set up a new appliance, you can use PowerShell installer script. Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. 
+To set up a new appliance, you can use PowerShell installer script. Ensure you meet the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. 
 
 > [!NOTE]
 > The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.
@@ -116,11 +122,12 @@ To set up a new appliance, you can use PowerShell installer script. Ensure you m
 
 The first step of migration is to set up the replication appliance. To set up the appliance for physical server migration, download the installer file for the appliance. Then run it on the machine you prepared. After you install the appliance, register it with your migrate project using the key copied from the portal.
 
-## Classic experience (Deprecated)
+## Classic experience (Retiring)
 
 > [!NOTE]
-> Starting **October 30, 2025**, replication initialization will no longer be supported in the classic experience.
-> For agent-based migration of VMware servers and migration of physical servers, use the simplified experience for all new replications. The classic experience is scheduled for deprecation in **September 2026** [Learn more](../site-recovery/vmware-physical-azure-classic-deprecation.md)
+>Enabling replications via classic experience appliance will be blocked from **31 March 2026**. Switch to the simplified experience appliance to enable replications.Final recovery point for existing replications will be on **31 May 2026**. Support for migrations will continue until the retirement date (**30 September 2026**)
+> Switch sooner to gain the richer benefits of [simplified experience](simplified-experience-for-azure-migrate.md). [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the Simplified Experience.
+
 
 ### Download the replication appliance installer
 
@@ -155,17 +162,17 @@ The mobility service agent must be installed on the servers to get them discover
 
 ## Simplified experience (Recommended)
 
-This section introduces a new process, which is simplified experience. Users will follow a streamlined flow that begins with discovery, followed by replication, and finally migration.
+This section introduces a new process, which is simplified experience. Users follow a streamlined flow that begins with discovery, followed by replication, and finally migration.
 
 It introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2022 for the replication appliance, and utilize a unified OS support matrix. 
 
-## Navigate to Azure Migrate project
+## Access the Azure Migrate project
 
 Follow the steps to navigate to the Azure Migrate project:
 
-**Step 1**: Navigate to Azure Migrate project
+**Step 1**: Go to Azure Migrate project
 
-1. Open [Azure portal](https://portal.azure.com). 
+1. Go to [Azure portal](https://portal.azure.com). 
 1. Search for the **Azure Migrate** service.
 1. Create a new project or select an existing one. [Learn more](/azure/migrate/).
 
@@ -272,7 +279,7 @@ Use the following steps to register the appliance:
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replication-appliance-connectivity.png" alt-text=" Screenshot shows how to select replication appliance connectivity":::.
 
 1. After saving the connectivity details, select **Continue** to proceed with registration in Microsoft Azure. 
-1. Ensure the [prerequisites](../site-recovery/replication-appliance-support-matrix.md#pre-requisites) are met, and then proceed with the registration.
+1. Ensure the [prerequisites](../site-recovery/replication-appliance-support-matrix.md#prerequisites) are met, and then proceed with the registration.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Screenshot shows the registry with recovery service vault.":::.
 1. **Friendly name of appliance**: Provide a friendly name to track this appliance in the Azure portal under Recovery Services Vault infrastructure. 
@@ -331,7 +338,7 @@ This information is used to retrieve details about the virtual machines managed 
 
 ## Install the Mobility service agent
 
-When you enable replication for VMware virtual machines and physical servers, the Mobility service is installed on each on-premises machine. The Mobility service captures data, writes it to the machine, and forwards it to the Site Recovery process server.
+When you enable replication for VMware virtual machines and physical servers, the Mobility service is installed on each on-premises machine. The Mobility service captures data writes it to the machine, and forwards it to the Site Recovery process server.
 
 You can install the Mobility service using the Mobility service agent software. The following methods are available for deployment:
 
@@ -399,9 +406,10 @@ Now, select machines for migration.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use. 
-    - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that are not eligible for Trusted Launch are automatically configured as **standard security VMs**. 
+    - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that aren't eligible for Trusted Launch are automatically configured as **standard security VMs**. 
+    - **Capacity reservation**: If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. You can associate a reservation now or skip this step and configure it later during the migration. The capacity reservation for the SKU can be in any resource group within the target subscription and location. [Learn more](/azure/virtual-machines/capacity-reservation-create).
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (Standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, they won't be present on the Azure VM after migration.
 
@@ -414,7 +422,7 @@ Now, select machines for migration.
 1. In **Review and start replication**, review the settings and select **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
-> You can update replication settings any time before replication starts. Select **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
+> You can update replication settings anytime before replication starts. Select **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
 
 ## Track and monitor
 
@@ -459,7 +467,7 @@ To do a test migration:
 
 After you verify that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project, select **Migrationss** > **Replications summary** and then select **Other** under **Replications**.
+1. In the Azure Migrate project, select **Migrations** > **Replications summary** and then select **Other** under **Replications**.
 1. In **Replicating machines**, right-click the VM and select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **No** > **OK**.
 
@@ -467,6 +475,7 @@ After you verify that the test migration works as expected, you can migrate the 
     > For minimal data loss, we recommend that you bring the application down manually as part of the migration window. (Don't let the applications accept any connections.) Then initiate the migration. The server needs to be kept running so that remaining changes can be synchronized before the migration is finished.
 
 1. You can upgrade the Windows Server OS during migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
+1. If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. The capacity reservation for the SKU can be in any resource group within the target subscription and location. [Learn more](/azure/virtual-machines/capacity-reservation-create).
 1. A migration job starts for the VM. Track the job in Azure notifications.
 1. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
@@ -562,9 +571,9 @@ Now, select machines for migration.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use. 
-    - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that are not eligible for Trusted Launch are automatically configured as **standard security VMs**. 
+    - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that aren't eligible for Trusted Launch are automatically configured as **standard security VMs**. 
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (Standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, they won't be present on the Azure VM after migration.
 
@@ -577,7 +586,7 @@ Now, select machines for migration.
 1. In **Review and start replication**, review the settings and select **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
-> You can update replication settings any time before replication starts. Select **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
+> You can update replication settings anytime before replication starts. Select **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
 
 ## Track and monitor
 
@@ -630,6 +639,7 @@ After you verify that the test migration works as expected, you can migrate the 
     > For minimal data loss, we recommend that you bring the application down manually as part of the migration window. (Don't let the applications accept any connections.) Then initiate the migration. The server needs to be kept running so that remaining changes can be synchronized before the migration is finished.
 
 1. You can upgrade the Windows Server OS during migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
+1. If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. [Learn more](/azure/virtual-machines/capacity-reservation-create). The capacity reservation for the SKU can be in any resource group within the target subscription and location.
 1. A migration job starts for the VM. Track the job in Azure notifications.
 1. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 

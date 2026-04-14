@@ -2,7 +2,7 @@
 title: Bicep functions - arrays
 description: Describes the functions to use in a Bicep file for working with arrays.
 ms.topic: reference
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ms.custom:
   - devx-track-bicep
   - sfi-ropc-nochange
@@ -209,7 +209,7 @@ param dnsServers array = []
 
 ...
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: vnetName
   location: location
   properties: {
@@ -652,7 +652,7 @@ param availabilityZones array = [
   '2'
 ]
 
-resource exampleApim 'Microsoft.ApiManagement/service@2023-05-01-preview' = {
+resource exampleApim 'Microsoft.ApiManagement/service@2024-10-01-preview' = {
   name: apiManagementName
   location: location
   sku: {
@@ -802,7 +802,7 @@ The following example is extracted from a quickstart template, [Two VMs in VNET 
 ...
 var numberOfInstances = 2
 
-resource networkInterface 'Microsoft.Network/networkInterfaces@2023-11-01' = [for i in range(0, numberOfInstances): {
+resource networkInterface 'Microsoft.Network/networkInterfaces@2025-01-01' = [for i in range(0, numberOfInstances): {
   name: '${networkInterfaceName}${i}'
   location: location
   properties: {
@@ -810,7 +810,7 @@ resource networkInterface 'Microsoft.Network/networkInterfaces@2023-11-01' = [fo
   }
 }]
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = [for i in range(0, numberOfInstances): {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = [for i in range(0, numberOfInstances): {
   name: '${vmNamePrefix}${i}'
   location: location
   properties: {

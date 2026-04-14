@@ -24,7 +24,7 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 ## Prerequisites
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 If you prefer, you can complete this quickstart using [Azure CLI](private-dns-getstarted-cli.md).
 

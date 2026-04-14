@@ -1,96 +1,87 @@
 ---
-title: Manage a Microsoft Dev Box dev center
+title: Manage a dev center
 titleSuffix: Microsoft Dev Box
-description: Microsoft Dev Box dev centers help you manage dev box resources, grouping projects with similar settings. Learn how to create, delete, and manage dev centers.
+description: Learn how to create, delete, and manage dev centers to group Microsoft Dev Box projects with similar settings.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/14/2024
+ms.date: 11/20/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box implementation.
 ---
 
 # Manage a Microsoft Dev Box dev center
 
-In this article, you learn how to manage a dev center in Microsoft Dev Box by using the Azure portal.
+Development teams can vary in their functions and needs. A Microsoft Dev Box dev center helps you manage different scenarios by grouping and applying the same settings to similar projects.
 
-Development teams vary in the way they function and can have different needs. A dev center helps you manage these scenarios by enabling you to group similar sets of projects together and apply similar settings.
+You can create as many dev centers as you need, depending on how you organize and manage your development teams. You can delete dev centers and create new ones to support organizational changes, new business requirements, or new regional centers.
 
-## Permissions
+You can add users to a dev center to do administrative tasks, and you can attach network connections to dev centers. This article shows you how to use the Azure portal to create and manage a Microsoft Dev Box dev center.
 
-To manage a dev center, you need the following permissions:
+>[!NOTE]
+>Microsoft Dev Box uses [Microsoft-hosted networks](/windows-365/enterprise/deployment-options#microsoft-hosted-network) to host dev box pools by default. However, you can host dev boxes in your own virtual networks instead. To use your own network with Microsoft Dev Box, you must [create a network connection](how-to-configure-network-connections.md#create-a-network-connection) and then [attach the network connection to a dev center](#attach-network-connection).
+ 
+ ## Permissions
 
-| Action | Permissions required |
+| Category | Requirement |
 |---|---|
-| _Create or delete a dev center_ | Owner or Contributor permissions on an Azure subscription or a specific resource group. |
-| _Manage a dev center_ | Owner or Contributor role, or specific Write permission to the dev center. |
-| _Attach or remove a network connection_ | Network Contributor permissions on an existing network connection (Owner or Contributor). |
+| Permissions | - To create or delete a dev center, **Owner** or **Contributor** role in the Azure subscription or resource group.<br> - To manage a dev center, **Owner** or **Contributor** role or specific **Write** permissions to the dev center.<br> - To attach or remove a network connection, **Owner** or **Contributor** role or **Network Contributor** permissions on the network connection. |
+| Connectivity | To attach or remove a network connection, an existing network connection in the same Azure subscription as the dev center.
+| Authentication | To attach or remove a network connection, Microsoft Entra ID for identity and access management and Microsoft Intune for device management. |
 
 ## Create a dev center
 
-Your development teams' requirements change over time. You can create a new dev center in Microsoft Dev Box to support organizational changes like a new business requirement or a new regional center.
-
-You can create as many or as few dev centers as you need, depending on how you organize and manage your development teams.
-
-To create a dev center in the Azure portal: 
+To create a dev center in the Azure portal:
 
 [!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
 
-## Delete a dev center
+## Assign dev center permissions to users
 
-You might choose to delete a dev center to reflect organizational or workload changes. Deleting a dev center in Microsoft Dev Box is irreversible, and you must prepare for the deletion carefully.
+You can assign users or groups to the following built-in Azure or Microsoft Dev Box roles.
 
-A dev center can't be deleted while any projects are associated with it. You must delete the projects before you can delete the dev center.
+- **Owner** grants full access to manage all resources in the dev center, including the ability to assign roles in Azure role-based access control (RBAC).
+- **Contributor** grants full access to manage all resources in the dev center, but not assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+- **Reader** grants the ability to view all resources in the dev center, but not make any changes.
+- **DevCenter Owner** provides access to manage all Microsoft.DevCenter resources and access to them.
+- **DevCenter Project Admin** provides access to manage project resources.
+- **DevCenter Dev Box User** provides access to create and manage dev boxes and can be granted to users by project admins.
 
-Attached network connections and their associated virtual networks aren't deleted when you delete a dev center.
+To assign roles to users:
 
-When you're ready to delete your dev center, follow these steps:
+1. In the [Azure portal](https://portal.azure.com), go to the page for the dev center you want to assign users to.
+1. On the dev center page, select **Access control (IAM)** in the left navigation menu.
+1. On the **Access control (IAM)** page, select **Add role assignment**.
+1. On the **Role** tab of the **Add role assignment** page, select one of the built-in roles, and then select the **Members** tab.
+1. On the **Members** tab, select **User, group, or service principal**, and then select the **Select members** link.
+1. On the **Select members** screen, search for and select users or groups you want to assign the role, and select **Select**.
+1. Select **Review + assign**, and then select **Review + assign** again.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-1. In the search box, enter **dev centers**. In the search results, select **Dev centers** from the **Services** list.
-
-1. On the **Dev centers** page, open the dev center that you want to delete.
-
-1. Select **Delete**.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/delete-dev-center.png" alt-text="Screenshot of the Delete button on the page for a dev center." lightbox="./media/how-to-manage-dev-center/delete-dev-center.png":::
-
-1. In the confirmation message, select **OK**.
-
+<a name="attach-network-connection"></a>
 [!INCLUDE [attach or remove a network connection](./includes/attach-remove-network-connections.md)]
 
-## Assign permissions for users
+## Delete a dev center
 
-You can assign multiple users permissions to a dev center to help with administrative tasks. You can assign users or groups to the following built-in roles:
+You can delete a Microsoft Dev Box dev center to reflect organizational or workload changes.
 
-- **Owner**: Grants full access to manage all resources, including the ability to assign roles in Azure role-based access control (RBAC).
-- **Contributor**: Grants full access to manage all resources, but doesn't allow the user to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
-- **Reader**: Grants the ability to view all resources, but doesn't allow the user to make any changes.
+- Deleting a dev center is irreversible.
+- You can't delete a dev center that has any projects associated with it. You must delete the projects before you can delete the dev center.
+- Attached network connections and their associated virtual networks aren't deleted when you delete a dev center.
 
-To make role assignments:
+To delete a dev center:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), go to the page for the dev center you want to delete.
+1. On the dev center page, select **Delete**.
 
-1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
+   :::image type="content" source="./media/how-to-manage-dev-center/delete-dev-center.png" alt-text="Screenshot of the Delete button on the page for a dev center.":::
 
-1. Select the dev center that you want to give access to.
-
-1. On the left menu, select **Access Control (IAM)**.
-
-1. Select **Add** > **Add role assignment**.
-
-1. Assign a role by configuring the following settings. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-
-    | Setting | Value |
-    |---|---|
-    | **Role** | Select **Owner**, **Contributor**, or **Reader**. |
-    | **Assign access to** | Select **User, group, or service principal**. |
-    | **Members** | Select the users or groups that you want to be able to access the dev center. |
+1. Select **OK** in the confirmation message.
 
 ## Related content
 
-- [Provide access to projects for project admins](./how-to-project-admin.md)
+- [Manage a Microsoft Dev Box project](how-to-manage-dev-box-projects.md)
+- [Provide access to projects for project admins](how-to-project-admin.md)
 - [Create a dev box definition](how-to-manage-dev-box-definitions.md#create-a-dev-box-definition)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

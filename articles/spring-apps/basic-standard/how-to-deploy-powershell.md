@@ -3,7 +3,7 @@ title: Create and Deploy Applications in Azure Spring Apps by Using PowerShell
 description: How to create and deploy applications in Azure Spring Apps by using PowerShell
 author: KarlErickson
 ms.author: karler
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-spring-apps
 ms.devlang: azurepowershell
 ms.date: 08/19/2025
@@ -23,7 +23,7 @@ This article describes how you can create an instance of Azure Spring Apps by us
 
 The requirements for completing the steps in this article depend on your Azure subscription:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 

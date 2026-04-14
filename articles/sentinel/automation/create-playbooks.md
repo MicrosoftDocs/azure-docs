@@ -27,7 +27,7 @@ This article describes how to create and manage Microsoft Sentinel playbooks. Yo
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - To create and manage playbooks, you need access to Microsoft Sentinel with one of the following Azure roles:
 

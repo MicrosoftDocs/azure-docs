@@ -2,7 +2,7 @@
 title: Back up Azure Files with REST API
 description: Learn how to use REST API to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 02/20/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to use the REST API to backup Azure Files stored in a Recovery Services vault, so that I can automate the protection and management of file shares without relying solely on graphical interfaces.
@@ -10,7 +10,7 @@ ms.author: v-mallicka
 
 # Backup Azure Files using Azure Backup via REST API
 
-This article describes how to back up an Azure Files using Azure Backup via REST API.
+This article describes how to back up an Azure Files using Azure Backup via REST API. You can also back up Azure Files using [Azure portal](backup-azure-files.md), [CLI](backup-afs-cli.md), and [Azure PowerShell](backup-azure-afs-automation.md).
 
 This article assumes you've already created a Recovery Services vault and policy for configuring backup for your File Share. If you haven’t, refer to the [create vault](./backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
 
@@ -25,6 +25,9 @@ For this article, we'll use the following resources:
 - **Storage Account**: `testvault2`
 
 - **File Share**: `testshare`
+
+To learn about the supported Azure Files backup and restore scenarios, region availability, and limitations, see the [support matrix](azure-file-share-support-matrix.md). For common questions, see the [frequently asked questions](backup-azure-files-faq.yml).
+
 
 ## Configure backup for an unprotected Azure Files using REST API
 
@@ -538,7 +541,7 @@ Once the operation completes, it returns 200 (OK) with the ID of the resulting b
 }
 ```
 
-Since the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](./backup-azure-arm-userestapi-managejobs.md#track-the-job).
+Since the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](./backup-azure-arm-userestapi-managejobs.md#track-the-backup-and-restore-jobs).
 
 ## Next steps
 

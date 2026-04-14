@@ -5,7 +5,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 01/14/2025
+ms.date: 02/25/2026
+
 # Customer intent: As a security administrator, I want to configure Azure Web Application Firewall policies on Azure Front Door, so that I can protect my web applications from malicious attacks and ensure compliance with security standards while maintaining high availability.
 ---
 
@@ -17,7 +18,7 @@ Azure Web Application Firewall on Azure Front Door is a global and centralized s
 
 A WAF prevents malicious attacks close to the attack sources before they enter your virtual network. You get global protection at scale without sacrificing performance. A WAF policy easily links to any Azure Front Door profile in your subscription. New rules can be deployed within minutes, so you can respond quickly to changing threat patterns.
 
-![Screenshot that shows Azure Web Application Firewall.](../media/overview/wafoverview.png)
+:::image type="content" source="../media/overview/wafoverview.png" alt-text="Screenshot that shows Azure Web Application Firewall.":::
 
 [!INCLUDE [ddos-waf-recommendation](../../../includes/ddos-waf-recommendation.md)]
 
@@ -114,7 +115,7 @@ Three bot categories are supported: *Bad*, *Good*, and *Unknown*. The WAF platfo
 
 The WAF platform manages and dynamically updates bot signatures. You can set custom actions to block, allow, log, or redirect for different types of bots.
 
-![Screenshot that shows a bot protection rule set.](../media/afds-overview/botprotect2.png)
+:::image type="content" source="../media/afds-overview/botprotect2.png" alt-text="Screenshot that shows a bot protection rule set." lightbox="../media/afds-overview/botprotect2.png":::
 
 If bot protection is enabled, incoming requests that match bot rules are blocked, allowed, or logged based on the configured action. Bad bots are blocked, good bots are allowed, and unknown bots are logged by default. You can set custom actions to block, allow, log, or JS challenge for different types of bots. You can access WAF logs from a storage account, event hub, log analytics, or send logs to a partner solution.
 

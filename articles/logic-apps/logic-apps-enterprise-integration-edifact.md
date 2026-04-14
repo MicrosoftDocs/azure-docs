@@ -1,17 +1,19 @@
 ---
-title: Exchange EDIFACT messages in B2B workflows
-description: Exchange EDIFACT messages between partners by creating workflows with Azure Logic Apps and Enterprise Integration Pack.
+title: Exchange EDIFACT Messages in B2B Workflows
+description: Exchange EDIFACT messages between partners for B2B workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.update-cycle: 1095-days
+ms.date: 03/11/2026
 ms.custom: sfi-image-nochange
+# Customer intent: As a B2B integration developer who works with Azure Logic Apps, I want to set up message communication between trading partners in enterprise workflows.
 ---
 
-# Exchange EDIFACT messages using workflows in Azure Logic Apps
+# Exchange EDIFACT messages for B2B workflows in Azure Logic Apps
 
 To send and receive EDIFACT messages in workflows that you create using Azure Logic Apps, use the **EDIFACT** connector, which provides operations that support and manage EDIFACT communication.
 
@@ -57,7 +59,7 @@ The **EDIFACT** built-in connector has the following actions, which are similar 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An [integration account resource](./enterprise-integration/create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
@@ -254,7 +256,7 @@ The **EDIFACT** managed connector action named **Decode EDIFACT message** action
 
   * Split Interchange as transaction sets - suspend interchange on error.
 
-    The decoding action splits the interchange into transaction sets and parses each transaction set. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
+    The decoding action splits the interchange into transaction sets and parses each transaction set. If one or more transaction sets in the interchange fail validation, the action outputs the transaction sets in that interchange to `badMessages`.
 
   * Preserve Interchange - suspend transaction sets on error.
 
@@ -262,7 +264,7 @@ The **EDIFACT** managed connector action named **Decode EDIFACT message** action
 
   * Preserve Interchange - suspend interchange on error.
 
-    The decoding action preserves the interchange and processes the entire batched interchange. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
+    The decoding action preserves the interchange and processes the entire batched interchange. If one or more transaction sets in the interchange fail validation, the action outputs the transaction sets in that interchange to `badMessages`.
 
 * Generate a technical acknowledgment, functional acknowledgment, or both, if configured.
 
@@ -380,6 +382,6 @@ To handle an EDIFACT document or process an EDIFACT message that has a UN2.5 seg
 
      ![Screenshot showing the Azure portal with an EDIFACT agreement's "sendAgreement" section in the JSON editor, and the "schemaReferences" section is highlighted.](./media/logic-apps-enterprise-integration-edifact/agreement-send-schema-references.png)
 
-## Next steps
+## Related content
 
-* [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md)
+- [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md)

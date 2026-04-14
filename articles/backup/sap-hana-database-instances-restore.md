@@ -2,7 +2,7 @@
 title: Restore SAP HANA database instances on Azure VMs
 description: In this article, you'll learn how to restore SAP HANA database instances on Azure virtual machines.
 ms.topic: how-to
-ms.date: 08/19/2025
+ms.date: 02/16/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -29,6 +29,8 @@ Here are the two workflows:
 >
 >- Both the backed-up VM and the target VM have the same backup key (including username and password). This means that the HANA backup service can connect with the same credentials and continue to recover tenant databases.
 >- If the backed-up VM and the target VM have different keys, the preregistration script must be run after the system database recovery. This action updates the credentials on the target VM, and then the tenant databases can be recovered.
+
+To learn about the supported SAP HANA database backup and restore scenarios, region availability, and limitations, see the [support matrix](backup-azure-sql-database.md). For common questions, see the [frequently asked questions](sap-hana-faq-backup-azure-vm.yml).
 
 ## Prerequisites
 

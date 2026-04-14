@@ -2,10 +2,9 @@
 title: Increase Private Endpoint virtual network limits
 titleSuffix: Azure Private Link
 description: Learn how to increase private endpoints virtual network limits by upgrading to High Scale Private Endpoints.
-services: private-link
 author: ivapplyr
 ms.author: ivapplyr
-ms.date: 04/01/2025
+ms.date: 03/30/2026
 ms.service: azure-private-link
 ms.topic: how-to
 #customer intent: As a network administrator, I want to increase private endpoint limits so that I can scale my virtual network infrastructure effectively.
@@ -18,13 +17,10 @@ Today, users are [limited](/azure/azure-resource-manager/management/azure-subscr
 
 For users looking to surpass these current limits, we recommend upgrading to *High Scale Private Endpoints*. This feature increases standard limits to 5,000 private endpoints in a singular virtual network and 20,000 private endpoints across peered networks. This article details how to opt into this feature and provide extra considerations before enablement.
 
-> [!NOTE]
-> This feature is currently in public preview and available in select regions. We recommend reviewing all considerations before enabling it for your subscription.
 
 ## Prerequisites
 
-* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* Register feature flag Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath on current subscription, see [Enable Azure preview features](/azure/azure-resource-manager/management/preview-features).
+* An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Understanding of [Hub and Spoke](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology) or [Mesh network](/azure/virtual-network-manager/concept-connectivity-configuration) topology.
 * A virtual network with private endpoint configured, see [Create a private endpoint](/azure/private-link/create-private-endpoint-portal).
 * Private Endpoint Network Policies set to **Enabled** or **RouteTableEnabled** for all Private Endpoint Subnets, see [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy).
@@ -115,7 +111,7 @@ $vnet | Set-AzVirtualNetwork
 #### [**CLI**](#tab/ARG-HSP-CLI)
 
 ```azurecli-interactive
-vnetName = "myVirtualNetwork"
+vnetName="myVirtualNetwork"
 resourceGroupName="myResourceGroup"
 
 az network vnet update --name $vnetName --resource-group $resourceGroupName --pe-vnet-policies="Basic"
@@ -150,13 +146,13 @@ To validate the configuration, verify all necessary properties are set correctly
 
 #### [**PowerShell**](#tab/validate-PowerShell)
 
-```Powershell
+```azurepowershell-interactive
 
 $vnetName = "myVirtualNetwork"
 $resourceGroupName = "myResourceGroup"
-$vnet = Get-AzVirtualNetwork /
--ResourceGroupName $resourceGroupName /
--Name $vnetName /
+$vnet = Get-AzVirtualNetwork `
+    -ResourceGroupName $resourceGroupName `
+    -Name $vnetName
 $vnet.PrivateEndpointVNetPolicies
 
 ```
@@ -177,7 +173,6 @@ $vnet.PrivateEndpointVNetPolicies
 
 | **Limit** | **Description** |
 |---|---|
-| Subscription must be enabled before enabling High Scale Private Endpoints. | Enabling Private Endpoint virtual network Policies before allow listing subscription feature flag requires a reconfiguration. |
 | Access to Baremetal subnets from an HSPE enabled peered VNet isn't supported | Connections destined to Azure baremetal subnets won't work  |
 | Feature currently available in all public regions | Mooncake and Azure Gov regions aren't supported at this time |
 

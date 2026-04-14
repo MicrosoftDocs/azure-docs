@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Azure Communication Services resource. [Create an Azure Communication Services resource](../../../create-communication-resource.md).
 - An Azure Communication Services token. See [this example](../../../identity/quick-create-identity.md).
 

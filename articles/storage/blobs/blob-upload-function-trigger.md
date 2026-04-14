@@ -1,6 +1,6 @@
 ---
 title: Upload and analyze a file with Azure Functions and Blob Storage
-description: Learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Azure AI services
+description: Learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Foundry Tools
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
@@ -28,12 +28,12 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Upload images and files to Blob Storage
 > - Use an Azure Function event trigger to process data uploaded to Blob Storage
-> - Use Azure AI services to analyze an image
+> - Use Foundry Tools to analyze an image
 > - Write data to Table Storage using Azure Function output bindings
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Visual Studio 2022](https://visualstudio.microsoft.com)
 
 ## Create the storage account and container
@@ -113,7 +113,7 @@ Copy the value of the `connectionString` property and paste it somewhere to use 
 
 ## Create the Computer Vision service
 
-Next, create the Computer Vision service account that processes our uploaded files.  Computer Vision is part of Azure AI services and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/azure/ai-services/computer-vision/overview).
+Next, create the Computer Vision service account that processes our uploaded files.  Computer Vision is part of Foundry Tools and offers various features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/azure/ai-services/computer-vision/overview).
 
 ### [Azure portal](#tab/azure-portal)
 

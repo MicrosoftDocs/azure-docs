@@ -13,13 +13,13 @@ ms.author: kpunjabi
 
 ## Prerequisites
 
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Have Python installed, you can install from the [official site](https://www.python.org/).
 
 ### For AI features 
-- Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create and connect [Foundry Tools to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 
 ## Create a new Python application
@@ -102,7 +102,7 @@ play_source = FileSource(url=audioUri)
 
 ### Play source - Text-To-Speech 
 
-To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
+To play audio using Text-To-Speech through Foundry Tools, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Foundry Tools, full list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 
 ``` python
 text_to_play = "Welcome to Contoso"
@@ -158,7 +158,7 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
 
 ### Play source - Text-To-Speech with SSML 
 
-If you want to customize your Text-To-Speech output even more with Azure AI services you can use [Speech Synthesis Markup Language SSML](/azure/ai-services/speech-service/speech-synthesis-markup) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
+If you want to customize your Text-To-Speech output even more with Foundry Tools you can use [Speech Synthesis Markup Language SSML](/azure/ai-services/speech-service/speech-synthesis-markup) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
 
 ``` python
 ssmlToPlay = '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US"><voice name="en-US-JennyNeural">Hello World!</voice></speak>'

@@ -13,7 +13,7 @@ ms.custom:
 
 # Move DevTest Labs and Schedules
 
-You can move DevTest Labs and their associated schedules to another region or resource group. You can move resource groups through the Azure Portal. To move a lab, create a copy of an existing lab in another region. When you've moved your lab, and you have a virtual machine (VM) in the target region, you can move your lab schedules..
+You can move DevTest Labs and their associated schedules to another region or resource group. You can move resource groups through the Azure portal. To move a lab, create a copy of an existing lab in another region. When you've moved your lab, and you have a virtual machine (VM) in the target region, you can move your lab schedules..
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -47,12 +47,12 @@ The following section describes how to move resources to a different resource gr
 
 You can move a schedule without moving a lab, if you have a VM in the target region. If you want to move a schedule without moving a lab, see [Move a schedule](#move-a-schedule).
 
-### Move Resource Groups using Azure Portal
+### Move Resource Groups using Azure portal
 Moving resources between resource groups in different locations is now seamlessly enabled in DevTest Labs. You can effortlessly transfer any resource from one group to another within the same subscription.
 
 To begin, select the resource you wish to move. On the resource's **Overview** page, you'll find the current **Resource Group** displayed at the top. Next to the resource group name, you'll see the word `(move)` in parentheses.
 
-Click the hyperlinked `move` text, which will direct you to a new page where you can relocate the resource to any other resource group within the same subscription. Please note that moving the resource will not change its location, even if the destination resource group is in a different location. If you're not moving resources through the Azure Portal or if you're transferring to a resource group in a different subscription, alternative methods using ARM are outlined below.
+Click the hyperlinked `move` text, which will direct you to a new page where you can relocate the resource to any other resource group within the same subscription. Please note that moving the resource will not change its location, even if the destination resource group is in a different location. If you're not moving resources through the Azure portal or if you're transferring to a resource group in a different subscription, alternative methods using ARM are outlined below.
 
 ### Move Labs to a Different Region
 

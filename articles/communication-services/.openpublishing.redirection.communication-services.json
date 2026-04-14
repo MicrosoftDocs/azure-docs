@@ -1,3 +1,4 @@
+
 {
     "redirections": [
         {
@@ -168,11 +169,6 @@
         {
             "source_path_from_root": "/articles/communication-services/quickstarts/identity/access-token-teams-external-users.md",
             "redirect_url": "/azure/communication-services/quickstarts/identity/access-tokens",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/communication-services/quickstarts/identity/microsoft-entra-id-authentication-integration.md",
-            "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal",
             "redirect_document_id": false
         },
         {
@@ -463,7 +459,7 @@
         },
         {
             "source_path_from_root": "/articles/communication-services/concepts/advanced-messaging/message-analysis.md",
-            "redirect_url": "/articles/communication-services/concepts/advanced-messaging/message-analysis/message-analysis.md",
+            "redirect_url": "/azure/communication-services/concepts/advanced-messaging/whatsapp/whatsapp-overview",
             "redirect_document_id": false
         },
         {
@@ -484,6 +480,21 @@
         {
             "source_path_from_root": "/azure/communication-services/concepts/interop/calling-chat.md",
             "redirect_url": "/azure/communication-services/concepts/interop/teams-user-calling",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/advanced-messaging/message-analysis/message-analysis-transparency-faq.md",
+            "redirect_url": "/azure/communication-services/concepts/advanced-messaging/whatsapp/whatsapp-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/advanced-messaging/message-analysis/message-analysis.md",
+            "redirect_url": "/azure/communication-services/concepts/advanced-messaging/whatsapp/whatsapp-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/quickstarts/advanced-messaging/message-analysis/message-analysis-with-azure-openai-quickstart.md",
+            "redirect_url": "/azure/communication-services/quickstarts/advanced-messaging/whatsapp/get-started",
             "redirect_document_id": false
         },
         {

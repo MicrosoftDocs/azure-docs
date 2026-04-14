@@ -4,7 +4,7 @@ description: This article introduces key IoT Central architectural concepts such
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ms.custom: [iot-central-frontdoor]
@@ -62,7 +62,7 @@ IoT Central can also control devices by calling commands on the device. For exam
 
 The telemetry, properties, and commands that a device implements are collectively known as the device capabilities. You define these capabilities in a model that the device and the IoT Central application share. In IoT Central, this model is part of the device template that defines a specific type of device. To learn more, see [Assign a device to a device template](concepts-device-templates.md#assign-a-device-to-a-device-template).
 
-The device implementation should follow the [IoT Plug and Play conventions](../../iot/concepts-convention.md) to ensure that it can communicate with IoT Central. For more information, see the various language [SDKs and samples](../../iot/iot-sdks.md).
+The device implementation should follow the [IoT Plug and Play conventions](/previous-versions/azure/iot/concepts-convention) to ensure that it can communicate with IoT Central. For more information, see the various language [SDKs and samples](../../iot-hub/iot-sdks.md).
 
 Devices connect to IoT Central using one the supported protocols: [MQTT, AMQP, or HTTP](../../iot-hub/iot-hub-devguide-protocols.md).
 
@@ -106,6 +106,9 @@ IoT Central applications internally use multiple Azure services such as IoT Hub 
 
 IoT Central automatically scales its IoT hubs based on the load profiles in your application. IoT Central can scale up individual IoT hubs and scale out the number of IoT hubs in an application. IoT Central also automatically scales other underlying services.
 
+> [!NOTE]
+> IoT Central's auto scale behavior doesn't consider **file-upload operations**. If your solution relies heavily on file uploads, you may need to manually scale the underlying IoT Hub instance to avoid throttling. If this is the case, contact Microsoft support.
+
 ### Data export
 
 IoT Central applications often use other, user configured services. For example, you can configure your IoT Central application to continuously export data to services such as Azure Event Hubs and Azure Blob Storage.
@@ -134,7 +137,7 @@ Use the `az iot central device manual-failover` command to check if your applica
 
 For highly available device connectivity, an IoT Central application always has at least two IoT hubs. The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
 
-IoT Central also uses [availability zones](../../reliability/availability-zones-overview.md) to make various services it uses highly available.
+IoT Central also uses [availability zones](/azure/reliability/availability-zones-overview) to make various services it uses highly available.
 
 An incident that requires disaster recovery could range from a subset of services becoming unavailable to a whole region becoming unavailable. IoT Central follows different recovery processes depending on the nature and scale of the incident. For example, if an entire Azure region becomes unavailable in the wake of a catastrophic failure, disaster recovery procedures failover applications to another region in the same geography.
 

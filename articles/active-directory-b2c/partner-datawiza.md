@@ -26,7 +26,7 @@ In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2
 To get started, you'll need:
 
 - A Microsoft Entra subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - [Docker](https://docs.docker.com/get-docker/), an open platform for developing, shipping, and running applications, is required to run DAB
   - Your applications can run on platforms such as virtual machine and bare metal

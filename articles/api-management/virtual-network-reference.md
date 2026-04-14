@@ -49,7 +49,6 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | Outbound | VirtualNetwork | * | Sql | 1433                     |  TCP                | Allow          | **Access to Azure SQL endpoints**                           | External & Internal  |
 | Outbound | VirtualNetwork | * | AzureKeyVault | 443                     |  TCP                | Allow                | **Access to Azure Key Vault**                         | External & Internal  |
 | Outbound | VirtualNetwork | * | EventHub | 5671, 5672, 443          |  TCP                | Allow            | Dependency for [Log to Azure Event Hubs policy](api-management-howto-log-event-hubs.md) and [Azure Monitor](api-management-howto-use-azure-monitor.md) (optional) | External & Internal  |
-| Outbound | VirtualNetwork | * | Storage | 445                      |  TCP                | Allow             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md) (optional)                   | External & Internal  |
 | Outbound | VirtualNetwork | * | AzureMonitor | 1886, 443                     |  TCP                | Allow         | **Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](/azure/service-health/resource-health-overview), and [Application Insights](api-management-howto-app-insights.md)**                  | External & Internal  |
 | Inbound & Outbound | VirtualNetwork | * | Virtual Network | 6380              | TCP                | Allow     | Access external Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
 | Inbound & Outbound | VirtualNetwork | * | VirtualNetwork | 6381 - 6383              |  TCP                | Allow     | Access internal Azure Cache for Redis service for [caching](api-management-caching-policies.md) policies between machines (optional)        | External & Internal  |
@@ -64,7 +63,7 @@ NSG rules allowing outbound connectivity to Storage, SQL, and Azure Event Hubs s
 
 ## TLS functionality  
 
-To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity on ports `80` and `443` to `ocsp.msocsp.com`, `oneocsp.msocsp.com`, `mscrl.microsoft.com`, `crl.microsoft.com`, `cacerts.digicert.com`, `crl3.digicert.com` and `csp.digicert.com`. 
+To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity on ports `80` and `443` to `mscrl.microsoft.com`, `crl.microsoft.com`, `oneocsp.microsoft.com`, `cacerts.digicert.com`, `crl3.digicert.com` and `csp.digicert.com`. 
 
 
 ## DNS access

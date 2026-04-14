@@ -1,7 +1,7 @@
 ---
 title: Use condition in templates
 description: Learn how to deploy Azure resources based on conditions. Shows how to either deploy a new resource or use an existing resource.
-ms.date: 06/20/2024
+ms.date: 10/29/2025
 ms.topic: tutorial
 ---
 
@@ -30,7 +30,7 @@ This tutorial only covers a basic scenario of using conditions. For more informa
 
 For a Learn module that covers conditions, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

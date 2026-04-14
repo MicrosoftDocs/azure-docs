@@ -1,11 +1,12 @@
 ---
 title: Set up Active Directory/DNS disaster recovery with Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: This article describes how to implement a disaster recovery solution for Active Directory and DNS with Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 04/01/2020
-ms.author: jsuri
+ms.date: 02/27/2026
+ms.author: v-gajeronika
 ms.custom: sfi-image-nochange
 # Customer intent: "As an IT administrator, I want to implement a disaster recovery solution for Active Directory and DNS using cloud services, so that I can ensure business continuity and minimize downtime during disruptions."
 ---
@@ -48,6 +49,8 @@ For the virtual machine that hosts the domain controller or DNS, in Site Recover
 ## Protect Active Directory
 
 ### Site-to-site protection
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that's being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often it occurs. For more information, see [Scheduling replication between sites](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731862(v=ws.11)).
 

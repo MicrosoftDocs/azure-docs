@@ -2,8 +2,8 @@
 title: Disconnected device update using Microsoft Connected Cache
 titleSuffix:  Device Update for Azure IoT Hub
 description: Understand how the Microsoft Connected Cache module for Azure IoT Edge enables updating disconnected device with Device Update for Azure IoT Hub
-author: andyrivMSFT
-ms.author: andyriv
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 04/14/2023
 ms.topic: concept-article
 ms.service: azure-iot-hub

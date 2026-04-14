@@ -2,7 +2,7 @@
 title: Explore your Azure resources
 description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
 ms.date: 06/03/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 

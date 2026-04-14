@@ -6,7 +6,13 @@ items:
   expanded: true
   items:
     - name: What is Azure Machine Configuration?
-      href: ./overview.md
+      href: ./overview/01-overview-concepts.md
+    - name: Prerequisites and Environment Setup
+      href: ./overview/02-setup-prerequisites.md
+    - name: Network Requirements
+      href: ./overview/03-network-requirements.md
+    - name: Troubleshooting Machine Configuration
+      href: ./overview/04-operations-troubleshooting.md
     # Planned, not yet written
     # - name: Glossary
     #   href: ./glossary.md
@@ -31,6 +37,18 @@ items:
 
 - name: How-to guides
   items:
+    - name: Discover and assign built-in policies
+      href: ./how-to/assign-built-in-policies.md
+    - name: (Preview) Assign customizable security baselines 
+      items:
+        - name: Security baselines overview
+          href: ./how-to/assign-security-baselines/overview-page.md
+        - name: Specify custom parameters for baseline policy
+          href: ./how-to/assign-security-baselines/specify-custom-parameters-for-baseline-policy.md
+        - name: Understand the baseline settings parameter format
+          href: ./how-to/assign-security-baselines/understand-baseline-settings-parameter.md
+        - name: Deploy a baseline policy assignment
+          href: ./how-to/assign-security-baselines/deploy-a-baseline-policy-assignment.md
     - name: Develop a custom package
       items:
         - name: Overview
@@ -64,6 +82,9 @@ items:
           href: ./how-to/assign-configuration/rest-api.md
         - name: Using Terraform
           href: ./how-to/assign-configuration/terraform.md
+    - name: View compliance reporting
+      href: ./how-to/view-compliance.md
+
 
 - name: Concepts
   items:

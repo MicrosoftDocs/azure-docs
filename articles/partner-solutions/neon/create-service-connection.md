@@ -9,6 +9,9 @@ ms.custom: service-connector
 
 # Connect apps to Neon Serverless Postgres
 
+> [!Important]
+> Deprecation Note: The Neon Azure Native Integration is now retired. Existing customers can transfer projects to a Neon managed organization. Learn more here [Migrate from Neon Azure Native Integration](https://neon.com/docs/import/migrate-from-azure-native).
+
 In this guide, learn how to connect your app to a database within a Neon Serverless Postgres resource by using Service Connector.
 
 Service Connector is an Azure feature that simplifies the process of connecting Azure resources together. Service Connector manages your connection's network and authentication settings to simplify the operation.
@@ -17,7 +20,7 @@ This guide shows step-by-step instructions for connecting an app deployed in Azu
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing Neon Serverless Postgres resource. If you don't have one yet, refer to [Create a Neon Serverless Postgres resource](./create.md).
 - An app deployed to an [Azure compute service that Service Connector supports](../../service-connector/overview.md#what-services-are-supported-by-service-connector).
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.date: 07/23/2024
+ms.date: 01/28/2026
 ms.topic: quickstart
 ms.service: azure-load-balancer
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart, engagement-fy23
@@ -19,7 +19,7 @@ Get started with Azure Load Balancer by using Azure PowerShell to create a publi
 :::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 
@@ -433,7 +433,7 @@ In this quickstart, you:
 
 * Created an Azure Load Balancer
 
-* Attached 2 VMs to the load balancer
+* Attached two VMs to the load balancer
 
 * Tested the load balancer
 

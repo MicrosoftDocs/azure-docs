@@ -2,12 +2,12 @@
 title: 'QuickStart: Create and configure Azure DDoS Network Protection - Bicep'
 description: Learn how to create and enable an Azure DDoS Protection plan using Bicep.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.author: abell
-ms.date: 03/17/2025
+ms.author: duau
+ms.date: 03/05/2026
 # Customer intent: As a cloud infrastructure engineer, I want to create and configure an Azure DDoS protection plan using Bicep, so that I can effectively safeguard my virtual networks against DDoS attacks across multiple subscriptions.
 ---
 
@@ -21,7 +21,7 @@ This QuickStart describes how to use Bicep to create a distributed denial of ser
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

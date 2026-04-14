@@ -13,29 +13,29 @@ ms.author: ruxu
 # Tutorial: Build machine learning applications using Synapse Machine Learning
 
 In this article, you will learn how to use Synapse Machine Learning ([SynapseML](https://github.com/microsoft/SynapseML)) to create machine learning applications. 
-SynapseML expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure AI services](/azure/ai-services/what-are-ai-services), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
+SynapseML expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Foundry Tools](/azure/ai-services/what-are-ai-services), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
 Synapse Spark provide built-in SynapseML libraries including:
 
 - [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
-- [MMLSpark: Unifying Machine Learning Ecosystems at Massive Scales](https://arxiv.org/abs/1810.08744) – To combine the feature of Azure AI services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
+- [MMLSpark: Unifying Machine Learning Ecosystems at Massive Scales](https://arxiv.org/abs/1810.08744) – To combine the feature of Foundry Tools in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
 - [LightGBM](https://github.com/Microsoft/LightGBM) – LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is designed to be distributed and higher efficiency.
 - Conditional KNN - Scalable KNN Models with Conditional Queries.
 - HTTP on Spark – Enables distributed Microservices orchestration in integrating Spark and HTTP protocol-based accessibility.
 
-This tutorial covers samples using Azure AI services in SynapseML for 
+This tutorial covers samples using Foundry Tools in SynapseML for 
 
 - Text Analytics - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
 - Bing Image Search - search the web for images related to a natural language query.
 - Anomaly Detector - detect anomalies within a time series data.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites 
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
-- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
+- Pre-configuration steps described in the tutorial [Configure Foundry Tools in Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
 
 
 ## Get started
@@ -46,7 +46,7 @@ import synapse.ml
 from synapse.ml.cognitive import *
 from notebookutils import mssparkutils
 
-# An Azure AI services multi-service resource key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
+# A Foundry Tools multi-service resource key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
 ai_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_SERVICE_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME") 
 # A Bing Search v7 subscription key
 bingsearch_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_BING_SEARCH_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")

@@ -1,8 +1,8 @@
 ---
 title: Import manifest schema for Azure Device Update for IoT Hub
 description: Understand the schema used to create the required import manifest for importing updates into Azure Device Update for IoT Hub.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 01/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

@@ -3,8 +3,7 @@ title: Virtual Machine Metablob Disk
 description: Information on Virtual Machine Metablob Disk (VMMD)
 author: linuxelf001
 ms.topic: concept-article
-ms.service: azure-virtual-machines
-ms.subservice: sizes
+ms.service: azure-confidential-computing
 ms.date: 09/05/2025
 ms.author: raginjup
 ms.reviewer: raginjup
@@ -20,7 +19,7 @@ This article outlines the changes to be aware when using confidential virtual ma
 
 Before you begin, ensure you have the following:
 
-* An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free)
+* An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * A confidential virtual machine with managed disks.
 * The appropriate version of the tools you are using:
     * Azure REST API version 2025-01-02 or later.
@@ -231,9 +230,14 @@ When using UploadPreparedSecure, upload the VMMD blob in addition to the OS and 
 
 ## FAQ
 
-**Q: What is the VMMD blob?**
+1. What is the VMMD blob? <br>
+   The VMMD (Virtual Machine Metadata) blob contains metadata for a confidential VM.
+          
+3. Do we currently have support for incremental snapshots for confidential VM with VMMD <br>
+   At this moment, confidential VMs with VMMD blob do not support incremental snapshots yet.
 
-**A:** The VMMD (Virtual Machine Metadata) blob contains metadata for a confidential VM.
+4. Can we convert confidential VMs with VMMD and VMGS blob to confidential VMs with VMGS only <br>
+   Unfortunately, this conversion is not supported at the moment.
 
 For more, see our [confidential VM FAQ](/azure/confidential-computing/confidential-vm-faq) and our [managed disk FAQ](/azure/virtual-machines/faq-for-disks)
 

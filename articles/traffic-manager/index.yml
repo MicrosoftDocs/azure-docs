@@ -49,7 +49,7 @@ landingContent:
             url: traffic-manager-configure-geographic-routing-method.md
           - text: Configure the weighted traffic routing method
             url: traffic-manager-configure-weighted-routing-method.md
-          - text: Configure priority traffic routing method
+          - text: Configure the priority traffic routing method
             url: traffic-manager-configure-priority-routing-method.md
           - text: Control traffic routing with weighted endpoints
             url: tutorial-traffic-manager-weighted-endpoint-routing.md
@@ -73,7 +73,7 @@ landingContent:
             url: traffic-manager-manage-endpoints.md
           - text: Manage a Traffic Manager profile
             url: traffic-manager-manage-profiles.md
-          - text: Using load-balancing services in Azure
+          - text: Use load-balancing services in Azure
             url: traffic-manager-load-balancing-azure.md
           - text: Point a company Internet domain to an Azure Traffic Manager domain
             url: traffic-manager-point-internet-domain.md

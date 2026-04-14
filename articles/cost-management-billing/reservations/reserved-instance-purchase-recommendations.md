@@ -6,8 +6,8 @@ ms.author: primittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 07/08/2025
+ms.topic: concept-article
+ms.date: 03/19/2026
 ---
 
 # Reservation recommendations
@@ -25,6 +25,9 @@ The following steps define how recommendations are calculated:
 5. The recommendation calculations include any special discounts that you might have for your on-demand usage rates.
 
 The recommendations account for existing reservations and savings plans. So, previously purchased reservations and savings plans are excluded when providing recommendations.
+
+> [!NOTE]
+> Some compute products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 3 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
 
 ## Recommendations in the Azure portal
 

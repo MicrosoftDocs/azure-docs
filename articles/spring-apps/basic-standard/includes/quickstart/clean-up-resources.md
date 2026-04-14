@@ -8,7 +8,7 @@ ms.update-cycle: 1095-days
 ---
 
 <!-- 
-For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal or AZD.
+For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure portal or AZD.
 
 [!INCLUDE [clean-up-resources](includes/quickstart/clean-up-resources.md)]
 
@@ -56,7 +56,7 @@ Use the following steps to delete the resource group by using Visual Studio Code
 
 ::: zone-end
 
-::: zone pivot="sc-consumption-plan,sc-standard"
+::: zone pivot="sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 

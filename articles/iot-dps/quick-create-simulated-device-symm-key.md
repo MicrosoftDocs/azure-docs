@@ -1,9 +1,9 @@
 ---
 title: Quickstart - Provision a simulated symmetric key device to Microsoft Azure IoT Hub
 description: Learn how to provision a device that authenticates with a symmetric key in the Azure IoT Hub Device Provisioning Service (DPS)
-author: SoniaLopezBravo
-ms.author: sonialopez
-ms.date: 04/06/2023
+author: cwatson-cat
+ms.author: cwatson
+ms.date: 08/12/2025
 ms.topic: quickstart
 ms.service: azure-iot-hub
 services: iot-dps
@@ -26,16 +26,16 @@ In this quickstart, you create a simulated device on your Windows machine. The s
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
-This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [Tutorial: provision for geo latency](how-to-provision-multitenant.md).
+This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+* Complete the steps in [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 ::: zone pivot="programming-language-ansi-c"
 
-* If you're using a Windows development environment, install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+* If you're using a Windows development environment, install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 or later with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
 ::: zone-end
 
@@ -83,7 +83,7 @@ In this section, you prepare a development environment that's used to build the 
 1. Download the latest [CMake build system](https://cmake.org/download/).
 
     >[!IMPORTANT]
-    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
 
 2. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
@@ -91,7 +91,7 @@ In this section, you prepare a development environment that's used to build the 
 
 4. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step, for example: `lts_01_2023`.
+5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step, for example: `lts_03_2025`.
 
     ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -115,7 +115,7 @@ In this section, you prepare a development environment that's used to build the 
     ```
 
     >[!TIP]
-    >If `cmake` does not find your C++ compiler, you may get build errors while running the previous command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+    >If `cmake` doesn't find your C++ compiler, you might get build errors while running the previous command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 8. When the build completes successfully, the last few output lines look similar to the following output:
 
@@ -139,7 +139,7 @@ In this section, you prepare a development environment that's used to build the 
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
+2. Clone the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-csharp.git
@@ -151,7 +151,7 @@ In this section, you prepare a development environment that's used to build the 
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository using the following command:
+2. Clone the [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-node.git --recursive
@@ -163,14 +163,14 @@ In this section, you prepare a development environment that's used to build the 
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python/tree/v2) GitHub repository using the following command:
+2. Clone the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v2) GitHub repository using the following command:
 
    ```cmd
    git clone -b v2 https://github.com/Azure/azure-iot-sdk-python.git --recursive
    ```
 
    >[!NOTE]
-   >The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta. 
+   >The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. The **v3** branch of the Python SDK is available to use in beta. 
 
 ::: zone-end
 
@@ -213,7 +213,7 @@ Once you create the individual enrollment, a **primary key** and **secondary key
 
 1. Copy the value of the generated **Primary key**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-device-enrollment-primary-key.png" alt-text="Screenshot showing the enrollment details, highlighting the Copy button for the primary key of the device enrollment":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-device-enrollment-primary-key.png" alt-text="Screenshot that shows the enrollment details, highlighting the Copy button for the primary key of the device enrollment.":::
 
 <a id="firstbootsequence"></a>
 
@@ -227,7 +227,7 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 1. Authenticates your device with your Device Provisioning resource using the following three parameters:
 
-    * The ID Scope of your Device Provisioning Service
+    * The ID Scope of your Device Provisioning Service instance
     * The registration ID for your device enrollment.
     * The primary symmetric key for your device enrollment.
 
@@ -235,11 +235,11 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning Service, select **Overview**.
+1. In the service menu of your Device Provisioning Service instance, select **Overview**.
 
 2. Copy the **ID Scope** value.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints.png" alt-text="Screenshot showing the overview of the Device Provisioning Service instance, highlighting the ID Scope value for the instance.":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints.png" alt-text="Screenshot that shows the overview of the Device Provisioning Service instance, highlighting the ID Scope value for the instance.":::
 
 3. In Visual Studio, open the *azure_iot_sdks.sln* solution file that was generated by running CMake. The solution file should be in the following location:
 
@@ -250,7 +250,7 @@ To update and run the provisioning sample with your device information:
     ```
 
     >[!TIP]
-    >If the file was not generated in your cmake directory, make sure you used a recent version of the CMake build system.
+    >If the file wasn't generated in your cmake directory, make sure you used a recent version of the CMake build system.
 
 4. In Visual Studio's *Solution Explorer* window, go to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
@@ -312,7 +312,7 @@ The sample provisioning code accomplishes the following tasks:
 
 1. Authenticates your device with your Device Provisioning resource using the following three parameters:
 
-    * The ID Scope of your Device Provisioning Service
+    * The ID Scope of your Device Provisioning Service instance
     * The registration ID for your device enrollment.
     * The primary symmetric key for your device enrollment.
 
@@ -322,11 +322,11 @@ The sample provisioning code accomplishes the following tasks:
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning Service, select **Overview**.
+1. In the service menu of your Device Provisioning Service instance, select **Overview**.
 
 2. Copy the **ID Scope** value.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints.png" alt-text="Screenshot showing the overview of the Device Provisioning Service instance, highlighting the ID Scope value for the instance.":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints.png" alt-text="Screenshot that shows the overview of the Device Provisioning Service instance, highlighting the ID Scope value for the instance.":::
 
 3. Open a command prompt and go to the *SymmetricKeySample* in the cloned sdk repository:
 
@@ -391,11 +391,11 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning Service, select **Overview**.
+1. In the service menu of your Device Provisioning Service instance, select **Overview**.
 
 2. Copy the **ID Scope** and **Global device endpoint** values.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot showing the overview of the Device Provisioning Service instance, highlighting the global device endpoint and ID Scope values for the instance.":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot that shows the overview of the Device Provisioning Service instance, highlighting the global device endpoint and ID Scope values for the instance.":::
 
 3. Open a command prompt for executing Node.js commands, and go to the following directory:
 
@@ -479,13 +479,13 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning Service, select **Overview**.
+1. In the service menu of your Device Provisioning Service instance, select **Overview**.
 
 2. Copy the **ID Scope** and **Global device endpoint** values.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot showing the overview of the Device Provisioning Service instance, highlighting the global device endpoint and ID Scope values for the instance.":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot that shows the overview of the Device Provisioning Service instance, highlighting the global device endpoint and ID Scope values for the instance.":::
 
-3. Open a command prompt and go to the directory where the sample file, _provision_symmetric_key.py_, is located.
+3. Open a command prompt and go to the directory where the sample file, *provision_symmetric_key.py*, is located.
 
    ```cmd
    cd azure-iot-sdk-python\samples\async-hub-scenarios
@@ -514,13 +514,13 @@ To update and run the provisioning sample with your device information:
     set PROVISIONING_SYMMETRIC_KEY=<primarykey>
     ```
 
-5. Install the _azure-iot-device_ library by running the following command.
+5. Install the *azure-iot-device* library by running the following command.
 
     ```cmd
     pip install azure-iot-device
     ```
 
-6. Run the Python sample code in *_provision_symmetric_key.py_*.
+6. Run the Python sample code in *provision_symmetric_key.py*.
 
     ```cmd
     python provision_symmetric_key.py
@@ -578,11 +578,11 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning Service, select **Overview**.
+1. In the service menu of your Device Provisioning Service instance, select **Overview**.
 
 2. Copy the **ID Scope** and **Global device endpoint** values. These values are your `SCOPE_ID` and `GLOBAL_ENDPOINT` parameters, respectively.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot showing the overview of the Device Provisioning Service instance, highlighting the global device endpoint and ID Scope values for the instance.":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot that shows the overview of the Device Provisioning Service instance, highlighting the global device endpoint and ID Scope values for the instance.":::
 
 3. Open the Java device sample code for editing. The full path to the device sample code is:
 
@@ -648,13 +648,13 @@ To update and run the provisioning sample with your device information:
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-2. On the left-hand menu or on the portal page, select **All resources**.
+2. On the portal menu or on the portal page, select **All resources**.
 
 3. Select the IoT hub to which your device was assigned.
 
-4. In the **Device management** menu, select **Devices**.
+4. In the service menu, under **Device management**, select **Devices**.
 
-5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *Enabled*. If you don't see your device, select **Refresh** at the top of the page.
+5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *Enabled*. If you don't see your device, select **Refresh** at the top of the pane.
 
     :::zone pivot="programming-language-ansi-c"
 
@@ -697,33 +697,33 @@ If you plan to continue working on and exploring the device client sample, don't
 
 1. Close the device client sample output window on your machine.
 
-2. From the left-hand menu in the Azure portal, select **All resources**.
+2. From the portal menu in the Azure portal, select **All resources**.
 
-3. Select your Device Provisioning Service.
+3. Select your Device Provisioning Service instance.
 
-4. In the **Settings** menu, select **Manage enrollments**.
+4. In the service menu, under **Settings**, select **Manage enrollments**.
 
-5. Select the **Individual enrollments** tab.
+5. In the working pane, select the **Individual enrollments** tab.
 
 6. Select the check box next to the registration ID of the device you enrolled in this quickstart.
 
-7. At the top of the page, select  **Delete**.
+7. At the top of the pane, select **Delete**.
 
 ### Delete your device registration from IoT Hub
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
+1. From the portal menu in the Azure portal, select **All resources**.
 
 2. Select your IoT hub.
 
-3. In the **Device management** menu, select **Devices**.
+3. In the service menu, under **Device management**, select **Devices**.
 
-4. Select the check box next to the device ID of the device you registered in this quickstart.
+4. In the working pane, select the check box next to the device ID of the device you registered in this quickstart.
 
-5. At the top of the page, select  **Delete**.
+5. At the top of the pane, select **Delete**.
 
 ## Next steps
 
 In this quickstart, you provisioned a single device to your IoT hub using an individual enrollment. Next, learn how to provision multiple devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Manage IoT hub assignment with custom allocation policies](tutorial-custom-allocation-policies.md)
+> [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md)

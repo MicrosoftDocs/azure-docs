@@ -31,7 +31,7 @@ Based on your use case, you can choose from the following types of loop actions:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 
 - A logic app resource where you can create and edit a workflow. See [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 

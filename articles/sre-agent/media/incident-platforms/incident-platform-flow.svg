@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 140">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0078d4"/>
+    </marker>
+  </defs>
+  
+  <rect width="700" height="140" fill="#fafafa"/>
+  
+  <!-- Incident Platform Sources -->
+  <rect x="20" y="35" width="120" height="70" rx="8" fill="#ffcdd2" stroke="#c62828" stroke-width="2" filter="url(#shadow)"/>
+  <text x="80" y="58" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#b71c1c">Incident Platform</text>
+  <text x="80" y="78" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#c62828">PagerDuty</text>
+  <text x="80" y="91" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#c62828">Azure Monitor</text>
+  
+  <!-- Arrow -->
+  <path d="M140 70 L175 70" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="157" y="60" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#666">Alert</text>
+  
+  <!-- Response Plan Filter -->
+  <rect x="185" y="35" width="100" height="70" rx="8" fill="#fff3e0" stroke="#f57c00" stroke-width="2" filter="url(#shadow)"/>
+  <text x="235" y="58" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#e65100">Response</text>
+  <text x="235" y="73" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#e65100">Plan</text>
+  <text x="235" y="91" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#bf360c">Filter + Mode</text>
+  
+  <!-- Arrow -->
+  <path d="M285 70 L320 70" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="302" y="60" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#666">Match</text>
+  
+  <!-- Agent Investigation -->
+  <rect x="330" y="35" width="110" height="70" rx="8" fill="#ff8f00" filter="url(#shadow)"/>
+  <text x="385" y="58" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="white">Agent</text>
+  <text x="385" y="73" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="white">Investigates</text>
+  <text x="385" y="91" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#fff8e1">Automatically</text>
+  
+  <!-- Arrow -->
+  <path d="M440 70 L475 70" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="457" y="60" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#666">Findings</text>
+  
+  <!-- Action/Update -->
+  <rect x="485" y="35" width="100" height="70" rx="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="535" y="58" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#2e7d32">Take Action</text>
+  <text x="535" y="78" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#388e3c">Mitigate issue</text>
+  <text x="535" y="91" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#388e3c">Update incident</text>
+  
+  <!-- Arrow -->
+  <path d="M585 70 L620 70" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Metrics -->
+  <rect x="630" y="35" width="55" height="70" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="657" y="65" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#0d47a1">Track</text>
+  <text x="657" y="80" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#0d47a1">Metrics</text>
+  
+  <!-- Bottom label -->
+  <text x="350" y="125" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#666">Connect your incident platform → Agent responds automatically → Track effectiveness</text>
+</svg>

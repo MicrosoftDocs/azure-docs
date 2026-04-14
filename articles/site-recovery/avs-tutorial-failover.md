@@ -1,11 +1,12 @@
 ---
-title: Fail over Azure VMware Solution VMs to Azure by using Site Recovery 
+title: Fail over Azure VMware Solution VMs to Azure by using Site Recovery
 description: Learn how to fail over Azure VMware Solution VMs to Azure in Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 02/19/2024
-ms.author: jsuri
+ms.date: 02/12/2026
+ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
 ms.custom: MVC, engagement-fy23
 # Customer intent: As a cloud administrator, I want to fail over Azure VMware Solution VMs to Azure using disaster recovery tools, so that I can ensure business continuity and protect against data loss during outages.
 ---
@@ -13,7 +14,7 @@ ms.custom: MVC, engagement-fy23
 
 This tutorial describes how to fail over Azure VMware Solution virtual machines (VMs) to Azure by using [Azure Site Recovery](site-recovery-overview.md).
 
-This is the fifth tutorial in a series that shows you how to set up disaster recovery to Azure for Azure VMware Solution VMs.
+This tutorial is the fifth in a series that shows you how to set up disaster recovery to Azure for Azure VMware Solution VMs.
 
 In this tutorial, you learn how to:
 
@@ -32,9 +33,9 @@ To better understand the following tasks, you can learn about the [types of fail
 Before you begin, complete the previous tutorials. Confirm that you finished these tasks:
 
 1. [Set up Azure](avs-tutorial-prepare-azure.md) for disaster recovery to Azure.
-2. [Prepare your Azure VMware Solution deployment](avs-tutorial-prepare-avs.md) for disaster recovery to Azure.
-3. [Set up disaster recovery](avs-tutorial-replication.md) for Azure VMware Solution VMs.
-4. [Run a disaster recovery drill](avs-tutorial-dr-drill-azure.md) to make sure that everything works as expected.
+1. [Prepare your Azure VMware Solution deployment](avs-tutorial-prepare-avs.md) for disaster recovery to Azure.
+1. [Set up disaster recovery](avs-tutorial-replication.md) for Azure VMware Solution VMs.
+1. [Run a disaster recovery drill](avs-tutorial-dr-drill-azure.md) to make sure that everything works as expected.
 
 ## Verify VM properties
 
@@ -42,9 +43,9 @@ Before you run a failover, check the VM properties to make sure that the VMs mee
 
 1. In **Protected Items**, select **Replicated Items**, and then select the VM that you want to verify.
 
-2. On the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Select **Properties** to view more details.
+1. On the **Replicated item** pane, you see a summary of VM information, health status, and the latest available recovery points. Select **Properties** to view more details.
 
-3. In **Compute and Network**, you can modify these properties as needed:
+1. In **Compute and Network**, you can modify these properties as needed:
 
    * Azure name
    * Resource group
@@ -54,23 +55,23 @@ Before you run a failover, check the VM properties to make sure that the VMs mee
 
    You can also view and modify network settings, including:
 
-    * The network and subnet in which the Azure VM will be located after failover.
-    * The IP address that will be assigned to the network and subnet.
+    * The network and subnet in which the Azure VM is located after failover.
+    * The IP address that you assign to the network and subnet.
 
-4. In **Disks**, you can get information about the operating system and data disks on the VM.
+1. In **Disks**, you can get information about the operating system and data disks on the VM.
 
 ## Run a failover to Azure
 
 1. In **Settings** > **Replicated items**, select the VM that you want to fail over, and then select **Failover**.
-2. In **Failover**, for **Recovery Point**, select a recovery point to fail over to. You can use one of the following options:
+1. In **Failover**, for **Recovery Point**, select a recovery point to fail over to. Use one of the following options:
    * **Latest**: This option first processes all the data sent to Site Recovery. It provides the lowest recovery point objective (RPO) because the Azure VM that's created after failover has all the data that was replicated to Site Recovery when the failover was triggered.
-   * **Latest processed**: This option fails over the VM to the latest recovery point that Site Recovery processed. This option provides a low recovery time objective (RTO) because no time is spent processing unprocessed data.
+   * **Latest processed**: This option fails over the VM to the latest recovery point that Site Recovery processed. This option provides a low recovery time objective (RTO) because the process doesn't spend any time on unprocessed data.
    * **Latest app-consistent**: This option fails over the VM to the latest app-consistent recovery point that Site Recovery processed.
    * **Custom**: This option lets you specify a recovery point.
 
-3. Select **Shut down machine before beginning failover** to try to shut down source VMs before triggering the failover. Failover continues even if the shutdown fails. You can follow the failover progress on the **Jobs** page.
+1. Select **Shut down machine before beginning failover** to try to shut down source VMs before triggering the failover. Failover continues even if the shutdown fails. You can follow the failover progress on the **Jobs** page.
 
-In some scenarios, failover requires additional processing that takes around 8 to 10 minutes to complete. You might notice longer test failover times for:
+In some scenarios, failover requires extra processing that takes around 8 to 10 minutes to complete. You might notice longer test failover times for:
 
 * VMware vSphere VMs running a Mobility service version older than 9.8.
 * VMware vSphere Linux VMs.
@@ -78,16 +79,16 @@ In some scenarios, failover requires additional processing that takes around 8 t
 * VMware vSphere VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
-> Don't cancel a failover in progress. Before failover is started, VM replication stops. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
+> Don't cancel a failover in progress. Before failover starts, VM replication stops. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
 
 ## Connect to a failed-over VM
 
-If you want to connect to an Azure VM after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH):
+To connect to an Azure VM after failover by using Remote Desktop Protocol (RDP) or Secure Shell (SSH):
 
 1. Verify that you meet [the requirements](failover-failback-overview.md#connect-to-azure-after-failover).
-2. After failover, go to the VM and validate by [connecting](/azure/virtual-machines/windows/connect-logon) to it.
-3. Use **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option will no longer be available.
-4. After validation, select **Commit** to finalize the recovery point of the VM after failover.
+1. After failover, go to the VM and validate by [connecting](/azure/virtual-machines/windows/connect-logon) to it.
+1. Select **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option isn't available.
+1. After validation, select **Commit** to finalize the recovery point of the VM after failover.
 
    After you commit, all the other available recovery points are deleted. This step completes the failover.
 

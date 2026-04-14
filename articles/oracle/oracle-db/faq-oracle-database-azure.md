@@ -48,7 +48,7 @@ Latency between Azure resources and Oracle AI Database@Azure is within the Azure
 
 ### Does Oracle AI Database@Azure support deploying Oracle Base Database, or do I need to migrate to the Autonomous Database service?
 
-No, Base Database isn't currently supported with Oracle AI Database@Azure. You can deploy single-instance, self-managed databases on Azure VMs. If you need Oracle-managed databases with Oracle RAC, we recommend that you use Autonomous Database via Oracle AI Database@Azure. For more information, see [Autonomous Database](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous AI Database](provision-autonomous-oracle-databases.md).
+Yes, Oracle Base Database service is now generally available on Azure. You can now run any Oracle Database service with version flexibility (19c or 23ai).
 
 ### For the Oracle AI Database@Azure service, does automated disaster recovery use the Azure backbone or the OCI backbone?
 
@@ -103,9 +103,9 @@ Ingress and egress for managed services occurs via the Azure/OCI backbone and do
 
 This section includes questions related to onboarding, provisioning, and migrating to Oracle AI Database@Azure.
 
-### Can a CSP or an outsourcer use Oracle AI Database@Azure?
+### Can a CSP, reseller, or an outsourcer use Oracle Database@Azure?
 
-No. Oracle AI Database@Azure doesn't support cloud service providers (CSPs), Outsourcer Channel Agreement (OCAs), or multi-party private offers (MPPOs).  
+Oracle Database@Azure doesn't support Outsourcer Channel Agreements (OCAs) and Cloud Solution Providers (CSPs) . However, Oracle Database@Azure supports multiparty private offers (MPO). Multiparty private offers are supported in US, UK, and Canada. For more information on MPO, refer to the [Azure Marketplace documentation](/partner-center/marketplace-offers/multiparty-private-offers-for-channel-partners). For more details on CSP, refer to the [CSP documentation](/partner-center/marketplace-offers/isv-csp-reseller).
 
 ### To set up Oracle AI Database@Azure, what role assignments does the Azure user need?
 
@@ -141,9 +141,9 @@ This section includes questions related to networking for Oracle AI Database@Azu
 
 We support a comprehensive list of connectivity patterns and network features for Oracle AI Database@Azure. The list evolves as we continuously release new features and capabilities. For more information, see [Network planning for Oracle AI Database@Azure](oracle-database-network-plan.md).
 
-### How does Data Guard route traffic between availability zones in the same Azure region work?
+### How does Data Guard route traffic between availability zones in the same Azure region or in cross region work?
 
-You can configure an Oracle Data Guard network path when you set up your deployment. You can configure *cross-zone* Data Guard traffic to traverse only the Azure backbone. However, *cross-region* traffic must traverse the Azure and OCI network backbones.
+While configuring Oracle Data Guard, you can route network traffic through either the Azure or OCI backbone including cross-zone and cross-region connectivity. For cross-region configurations, enable advanced networking features and utilize cross-region VNet peering to ensure that Data Guard traffic exclusively traverses the Azure backbone.
 
 ### What is the latency impact of using OCI connections?
 

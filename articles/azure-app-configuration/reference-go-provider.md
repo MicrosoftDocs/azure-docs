@@ -138,6 +138,27 @@ The `Selector` struct supports the following fields:
 > [!NOTE]
 > When multiple selectors include overlapping keys, later selectors take precedence over earlier ones.
 
+#### Tag filters
+
+The `TagFilters` parameter selects key-values with specific tags. A key-value is only loaded if it has all of the tags and corresponding values specified in the filters.
+
+```golang
+options := &azureappconfiguration.Options{
+	Selectors: []azureappconfiguration.Selector{
+		{
+			// Load configuration values with prefix "App:" and specific tags
+			KeyFilter:   "App:*",
+			TagFilters: []string{"env=prod"},
+		},
+	},
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+> [!NOTE]
+> The characters asterisk (`*`), comma (`,`), and backslash (`\`) are reserved and must be escaped with a backslash when used in a tag filter.
+
 ### Trim prefix from keys
 
 When loading configuration values with specific prefixes, you can use the `TrimKeyPrefixes` option to remove those prefixes from the keys in your configuration. This creates cleaner configuration keys in your application while maintaining organization in your App Configuration store.
@@ -161,6 +182,9 @@ For example, if your App Configuration store contains a key named `TestApp:Setti
 ### JSON content type handling
 
 You can create JSON key-values in App Configuration. When a key-value with the content type `"application/json"` is read, the configuration provider will parse it into nested structures. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
+
+> [!NOTE]
+> Starting with version *1.2.0*, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
 
 ## Consume configuration
 
@@ -525,9 +549,51 @@ options := &azureappconfiguration.Options{
 appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
 ```
 
+## Snapshot
+
+[Snapshot](./concept-snapshots.md) is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
+
+You can configure `SnapshotName` filed in the `Selector` struct to load key-values from a snapshot:
+
+```golang
+options := &azureappconfiguration.Options{
+	Selectors: []azureappconfiguration.Selector{
+		{KeyFilter: "app*", LabelFilter: "prod"},
+		{SnapshotName: "my-snapshot"},
+	},
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+### Snapshot reference
+
+A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike adding a snapshot selector, which requires code changes and/or restarts to switch to a new snapshot.
+
+For more information about creating a snapshot reference, go to [snapshot reference concept](./concept-snapshot-references.md).
+
+> [!NOTE] 
+> To use snapshot references, use the version *1.6.0* or later of `azureappconfiguration`.
+
 ## Geo-replication
 
 For information about using geo-replication, go to [Enable geo-replication](./howto-geo-replication.md).
+
+## Startup retry
+
+Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
+
+You can customize this behavior via the `Options.StartupOptions`:
+
+```golang
+options := &azureappconfiguration.Options{
+	StartupOptions: azureappconfiguration.StartupOptions{
+		Timeout: 5 * time.Minute,
+	},
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
 
 ## Next steps
 

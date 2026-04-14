@@ -25,6 +25,20 @@ The following table lists the metrics available for the Microsoft.Network/azureF
 
 [!INCLUDE [Microsoft.Network/azureFirewalls](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-azurefirewalls-metrics-include.md)]
 
+
+### Observed capacity
+
+The Observed Capacity metric is the primary tool for understanding how your firewall is scaling in practice.
+
+#### Best practices for using Observed Capacity
+
+- **Validate your prescaling setup:** Confirm that your firewall consistently maintains the minCapacity you defined.
+- **Track real-time scaling behavior:** Use the Avg aggregation to see real-time capacity units.
+- **Forecast future needs:** Combine historical Observed Capacity with traffic trends (for example, monthly spikes or seasonal events) to refine your capacity planning.
+- **Set proactive alerts:** Configure Azure Monitor alerts on Observed Capacity thresholds (for example, alert when scaling exceeds 80% of maxCapacity).
+- **Correlate with performance metrics:** Pair Observed Capacity with Throughput, Latency Probe, and SNAT Port Utilization to diagnose whether scaling keeps up with demand.
+
+
 ### Firewall health state
 
 In the preceding table, the *Firewall health state* metric has two dimensions:
@@ -48,30 +62,36 @@ If your firewall is running into SNAT port exhaustion, you should add at least f
 
 #### AZFW Latency Probe
 
-The *AZFW Latency Probe* metric measures the overall or average latency of Azure Firewall in milliseconds. Administrators can use this metric for the following purposes:
+The AZFW Latency Probe metric measures the overall or average latency of Azure Firewall in milliseconds. Administrators can use this metric for the following purposes:
 
-- Diagnose if Azure Firewall is the cause of latency in the network
-- Monitor and alert if there are any latency or performance issues, so IT teams can proactively engage.  
-- There might be various reasons that can cause high latency in Azure Firewall. For example, high CPU utilization, high throughput, or a possible networking issue.
+- Diagnose whether Azure Firewall causes latency in the network
+- Monitor and alert for latency or performance issues, so IT teams can proactively engage
+- Identify various factors that can cause high latency in Azure Firewall, such as high CPU utilization, high throughput, or networking issues
 
-**What the AZFW Latency Probe Metric Measures (and Doesn't):**
+#### What the AZFW Latency Probe metric measures
 
-- What it measures: The latency of the Azure Firewall within the Azure platform
-- What it doesn't measure: The metric does not capture end-to-end latency for the entire network path. Instead, it reflects the performance within the firewall, rather than how much latency Azure Firewall introduces into the network. 
-- Error reporting: If the latency metric isn't functioning correctly, it reports a value of 0 in the metrics dashboard, indicating a probe failure or interruption.
+- **Measures:** The latency of Azure Firewall within the Azure platform
+- **Doesn't measure:** End-to-end latency for the entire network path. The metric reflects the performance within the firewall rather than the latency Azure Firewall introduces into the network
+- **Error reporting:** If the latency metric isn't functioning correctly, it reports a value of 0 in the metrics dashboard, indicating a probe failure or interruption
 
-**Factors that impact latency:**
+#### Factors that impact latency
+
+Several factors can affect firewall latency:
+
 - High CPU utilization
 - High throughput or traffic load
 - Networking issues within the Azure platform
 
-**Latency Probes: From ICMP to TCP**
-The latency probe currently uses Microsoft's Ping Mesh technology, which is based on ICMP (Internet Control Message Protocol). ICMP is suitable for quick health checks, like ping requests, but it may not accurately represent real-world application traffic, which typically relies on TCP. However, ICMP probes prioritize differently across the Azure platform, which can result in variation across SKUs. To reduce these discrepancies, Azure Firewall plans to transition to TCP-based probes. 
+#### Latency probes: From ICMP to TCP
 
-- Latency spikes: With ICMP probes, intermittent spikes are normal and are part of the host network's standard behavior. These should not be misinterpreted as firewall issues unless they are persistent.
-- Average latency: On average, the latency of Azure Firewall is expected to range from 1ms to 10 ms, depending on the Firewall SKU and deployment size.
+The latency probe currently uses Microsoft's Ping Mesh technology, which is based on ICMP (Internet Control Message Protocol). ICMP is suitable for quick health checks, such as ping requests, but it might not accurately represent real-world application traffic, which typically relies on TCP. However, ICMP probes prioritize differently across the Azure platform, which can result in variation across SKUs. To reduce these discrepancies, Azure Firewall plans to transition to TCP-based probes.
 
-**Best Practices for Monitoring Latency**
+**Important considerations:**
+
+- **Latency spikes:** With ICMP probes, intermittent spikes are normal and part of the host network's standard behavior. Don't misinterpret these spikes as firewall issues unless they persist.
+- **Average latency:** On average, Azure Firewall latency ranges from 1 ms to 10 ms, depending on the Firewall SKU and deployment size.
+
+#### Best practices for monitoring latency
 - Set a baseline: Establish a latency baseline under light traffic conditions for accurate comparisons during normal or peak usage.
 
   > [!NOTE]
@@ -99,23 +119,117 @@ The latency probe currently uses Microsoft's Ping Mesh technology, which is base
 
 [!INCLUDE [Microsoft.Network/azureFirewalls](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-azurefirewalls-logs-include.md)]
 
-Azure Firewall has two specialized diagnostic logs that can help monitor your firewall, but these logs currently do not show application rule details.
-- Top flows
-- Flow trace
+## DNS Flow Trace Logs
 
+The DNS Flow Trace logs provide deeper visibility into DNS activity, helping administrators troubleshoot resolution issues and verify traffic behavior.
+
+Previously, DNS Proxy logging was limited to:
+
+- **AZFWDNSQuery** - the initial client query
+- **AZFWInternalFqdnResolutionFailure** - FQDN resolution failures
+
+With the DNS flow trace logs, administrators can trace the complete DNS resolution flow from the client query through Azure Firewall as a DNS proxy, to the external DNS server, and back to the client.
+
+### DNS resolution stages
+
+The logs capture the following stages:
+
+1. **Client query**: The initial DNS query sent by the client
+2. **Forwarder query**: Azure Firewall forwarding the query to an external DNS server (if not cached)
+3. **Forwarder response**: The DNS server's response to Azure Firewall
+4. **Client response**: The final resolved response from Azure Firewall back to the client
+
+The following diagram shows a high-level visual representation of the DNS query flow:
+
+:::image type="content" source="media/dns-proxy/dns-query-flow.png" alt-text="Diagram showing DNS query flow from client through Azure Firewall to external DNS server and back.":::
+
+These logs provide valuable insights, such as:
+
+- The DNS server queried
+- Resolved IP addresses
+- Whether the Azure Firewall cache was used
+
+### Enabling DNS Flow Trace Logs
+
+Before setting up DNS Flow Trace Logs, you must first enable the feature using Azure PowerShell.
+
+#### Enable logs (prerequisite)
+
+Run the following commands in Azure PowerShell, replacing placeholders with your values:
+
+```powershell
+Set-AzContext -SubscriptionName <SubscriptionName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+$firewall.EnableDnstapLogging = $true
+Set-AzFirewall -AzureFirewall $firewall
+```
+
+#### Disable logs (optional)
+
+To disable the logs, use the same previous Azure PowerShell command and set the value to *False*:
+
+```powershell
+Set-AzContext -SubscriptionName <SubscriptionName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+$firewall.EnableDnstapLogging = $false
+Set-AzFirewall -AzureFirewall $firewall
+```
+
+### Configure DNS proxy and DNS flow trace logs
+
+Use the following steps to configure DNS proxy and enable DNS flow trace logs:
+
+1. **Enable DNS proxy:**
+    1. Navigate to Azure Firewall DNS settings and enable DNS Proxy.
+    2. Configure a custom DNS server or use the default Azure DNS.
+    3. Navigate to Virtual Network DNS settings and set the Firewall's private IP as the primary DNS server.
+
+2. **Enable DNS flow trace logs:**
+    1. Navigate to Azure Firewall in the Azure portal.
+    2. Select **Diagnostic settings** under **Monitoring**.
+    3. Choose an existing diagnostic setting or create a new one.
+    4. Under the **Log** section, select **DNS Flow Trace Logs**.
+    5. Choose your desired destination (Log Analytics or Storage Account).
+    
+    > [!NOTE]
+    > DNS Flow Trace Logs are not supported with Event Hub as a destination.
+    
+    6. Save the settings.
+
+3. **Test the configuration:**
+    1. Generate DNS queries from clients and verify the logs in the chosen destination.
+
+### Understand the logs
+
+Each log entry corresponds to a specific stage in the DNS resolution process. The following table describes the log types and key fields:
+
+Type | Description | Key Fields
+--- | --- | ---
+`Client Query` | The initial DNS query sent by the client. | `SourceIp`: The client's internal IP address making the DNS request, `QueryMessage`: The full DNS query payload, including the requested domain
+`Forwarder Query` | Azure Firewall forwarding the DNS query to an external DNS server (if not cached). | `ServerIp`: The IP address of the external DNS server that receives the query, `QueryMessage`: The forwarded DNS query payload, identical or based on the client request    
+`Forwarder Response` | The DNS server's response to Azure Firewall. | `ServerMessage`: The DNS response payload from the external server., `AnswerSection`: Contains resolved IP addresses, CNAMEs, and any DNSSEC validation results (if applicable).
+`Client Response` | The final resolved response from Azure Firewall back to the client. | `ResolvedIp`: The IP address (or addresses) resolved for the queried domain., `ResponseTime`: The total time taken to resolve the query, measured from the client’s request to the returned answer
+
+The above fields are only a subset of the available fields in each log entry.
+
+Key notes:
+- If the DNS cache is used, only **Client Query** and **Client Response** entries are generated.
+- Logs include standard metadata such as timestamps, source/destination IPs, protocols, and DNS message content.
+- To avoid excessive log volume in environments with many short-lived queries, enable additional DNS Proxy logs only when deeper DNS troubleshooting is required.
 
 
 ## Top flows
 
-The top flows log is known in the industry as *fat flow log* and in the preceding table as *Azure Firewall Fat Flow Log*. The top flows log shows the top connections that are contributing to the highest throughput through the firewall.
+The top flows log is known in the industry as *fat flow log* and in the preceding table as *Azure Firewall Fat Flow Log*. The top flows log shows the top connections that contribute to the highest throughput through the firewall.
 
 > [!TIP]
 > Activate Top flows logs only when troubleshooting a specific issue to avoid excessive CPU usage of Azure Firewall.
->
 
 The flow rate is defined as the data transmission rate in megabits per second units. It's a measure of the amount of digital data that can be transmitted over a network in a period of time through the firewall. The Top Flows protocol runs periodically every three minutes. The minimum threshold to be considered a Top Flow is 1 Mbps.
 
-Enable the Top flows log using the following Azure PowerShell commands:
+#### Enable Top flows logs
+
+Use the following Azure PowerShell commands to enable Top flows logs:
 
 ```powershell
 Set-AzContext -SubscriptionName <SubscriptionName>
@@ -124,9 +238,9 @@ $firewall.EnableFatFlowLogging = $true
 Set-AzFirewall -AzureFirewall $firewall
 ```
 
-To disable the logs, use the same previous Azure PowerShell command and set the value to *False*. 
+#### Disable Top flows logs
 
-For example:
+To disable the logs, use the same Azure PowerShell command and set the value to *False*. For example:
 
 ```powershell
 Set-AzContext -SubscriptionName <SubscriptionName>
@@ -135,7 +249,9 @@ $firewall.EnableFatFlowLogging = $false
 Set-AzFirewall -AzureFirewall $firewall
 ```
 
-There are a few ways to verify the update was successful, but you can navigate to firewall **Overview** and select **JSON view** on the top right corner. Here’s an example:
+#### Verify the configuration
+
+There are multiple ways to verify the update was successful. Navigate to the firewall **Overview** and select **JSON view** on the top right corner. Here's an example:
 
 :::image type="content" source="media/enable-top-ten-and-flow-trace/firewall-log-verification.png" alt-text="Screenshot of JSON showing additional log verification.":::
 
@@ -143,18 +259,20 @@ To create a diagnostic setting and enable Resource Specific Table, see [Create d
 
 ## Flow trace
 
-The firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *SYN* packet. However, such an entry doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing occurred. The Azure Firewall Flow Trace Log addresses this concern.
+The firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *SYN* packet. However, such an entry doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped or asymmetric routing occurred. The Azure Firewall Flow Trace Log addresses this concern.
 
 > [!TIP]
 > To avoid excessive disk usage caused by Flow trace logs in Azure Firewall with many short-lived connections, activate the logs only when troubleshooting a specific issue for diagnostic purposes.
 
+#### Flow trace properties
+
 The following properties can be added:
 
-- SYN-ACK: ACK flag that indicates acknowledgment of SYN packet.
-- FIN: Finished flag of the original packet flow. No more data is transmitted in the TCP flow.
-- FIN-ACK: ACK flag that indicates acknowledgment of FIN packet.
-- RST: The Reset flag indicates the original sender doesn't receive more data.
-- INVALID (flows): Indicates packet can’t be identified or don't have any state.
+- **SYN-ACK**: ACK flag that indicates acknowledgment of SYN packet.
+- **FIN**: Finished flag of the original packet flow. No more data is transmitted in the TCP flow.
+- **FIN-ACK**: ACK flag that indicates acknowledgment of FIN packet.
+- **RST**: The Reset flag indicates the original sender doesn't receive more data.
+- **INVALID (flows)**: Indicates packet can't be identified or doesn't have any state.
 
   For example:
 
@@ -163,7 +281,9 @@ The following properties can be added:
   - Connection Tracking table entry is full and new connections can't be accepted
   - Overly delayed ACK packets
 
-Enable the Flow trace log using the following Azure PowerShell commands or navigate in the portal and search for **Enable TCP Connection Logging**:
+#### Enable Flow trace logs
+
+Use the following Azure PowerShell commands to enable Flow trace logs. Alternatively, navigate in the portal and search for **Enable TCP Connection Logging**:
 
 ```powershell
 Connect-AzAccount 
@@ -174,13 +294,17 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 It can take several minutes for this change to take effect. Once the feature is registered, consider performing an update on Azure Firewall for the change to take effect immediately.
 
-To check the status of the AzResourceProvider registration, you can run the Azure PowerShell command:
+#### Check registration status
+
+To check the status of the AzResourceProvider registration, run the following Azure PowerShell command:
 
 ```powershell
 Get-AzProviderFeature -FeatureName "AFWEnableTcpConnectionLogging" -ProviderNamespace "Microsoft.Network"
 ```
 
-To disable the log, you can use the following Azure PowerShell commands:
+#### Disable Flow trace logs
+
+To disable the log, use the following Azure PowerShell commands:
 
 ```powershell
 Connect-AzAccount 
@@ -219,4 +343,5 @@ To create a diagnostic setting and enable Resource Specific Table, see [Create d
 ## Related content
 
 - See [Monitor Azure Firewall](monitor-firewall.md) for a description of monitoring Azure Firewall.
+- See [Track rule set changes](rule-set-change-tracking.md) for detailed Azure Resource Graph queries to track firewall rule modifications.
 - See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

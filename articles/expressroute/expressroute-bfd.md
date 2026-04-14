@@ -1,11 +1,10 @@
 ---
 title: 'Azure ExpressRoute: Configure BFD'
 description: This article provides instructions on how to configure BFD (Bidirectional Forwarding Detection) over private-peering of an ExpressRoute circuit.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/03/2024
+ms.date: 03/12/2026
 ms.author: duau
 ---
 
@@ -16,7 +15,7 @@ ExpressRoute supports Bidirectional Forwarding Detection (BFD) both over private
 ## Need for BFD
 
 The following diagram shows the benefit of enabling BFD over ExpressRoute circuit:
-[![1]][1]
+:::image type="content" source="./media/expressroute-bfd/bfd-need.png" alt-text="Diagram showing how BFD expedites link failure detection time.":::
 
 You can enable ExpressRoute circuit either by Layer 2 connections or managed Layer 3 connections. In both cases, if there are more than one Layer-2 devices in the ExpressRoute connection path, the responsibility of detecting any link failures in the path lies with the overlying BGP session.
 
@@ -33,10 +32,6 @@ In this scenario, BFD can help. BFD provides low-overhead link failure detection
 ## Enabling BFD
 
 BFD is configured by default under all the newly created ExpressRoute private and Microsoft peering interfaces on the MSEEs. As such, to enable BFD, you only need to configure BFD on both your primary and secondary devices. Configuring BFD is two-step process. You configure the BFD on the interface and then link it to the BGP session.
-
-> [!NOTE]
-> BFD is only supported on IPv4 peering. 
->
 
 An example CE/PE (using Cisco IOS XE) configuration is shown as followed: 
 
@@ -60,7 +55,7 @@ router bgp 65020
 ```
 
 >[!NOTE]
->To enable BFD under an already existing private or Microsoft peering, you'll need to reset the peering. This will need to be done on circuits configured with private peering before August 2018 and Microsoft peering before January 2020. See [Reset ExpressRoute peerings][ResetPeering]. While configuring BFD on your primary and secondary devices is optional, the BFD configuration on the Azure devices for new peerings is not optional and cannot be removed.
+>To enable BFD under an already existing private or Microsoft peering, you'll need to reset the peering. For IPv4 peering, this will need to be done on Circuits configured with private peering before August 2018 and Microsoft peering before January 2020. For IPv6 peering, this will need to be done on Circuits configured before November 2025. Peerings configured after these dates will have BFD enabled by default. See [Reset ExpressRoute peerings](./expressroute-howto-reset-peering.md). While configuring BFD on your primary and secondary devices is optional, the BFD configuration on the Azure devices for new peerings is not optional and cannot be removed.
 >
 
 ## BFD Timer Negotiation
@@ -75,13 +70,6 @@ Between BFD peers, the slower of the two peers determine the transmission rate. 
 
 For more information or help, check out the following links:
 
-- [Create and modify an ExpressRoute circuit][CreateCircuit]
-- [Create and modify routing for an ExpressRoute circuit][CreatePeering]
+- [Create and modify an ExpressRoute circuit](./expressroute-howto-circuit-portal-resource-manager.md)
+- [Create and modify routing for an ExpressRoute circuit](./expressroute-howto-routing-portal-resource-manager.md)
 
-<!--Image References-->
-[1]: ./media/expressroute-bfd/bfd-need.png "BFD expedites link failure deduction time"
-
-<!--Link References-->
-[CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md
-[CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
-[ResetPeering]: ./expressroute-howto-reset-peering.md

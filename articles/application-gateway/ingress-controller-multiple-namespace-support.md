@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 2/28/2025
+ms.date: 02/28/2025
 ms.author: mbender
 # Customer intent: "As an AKS administrator, I want to enable multiple-namespace support for the Application Gateway Ingress Controller, so that I can efficiently manage ingress resources across different namespaces with appropriate configurations."
 ---

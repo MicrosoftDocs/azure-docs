@@ -179,5 +179,5 @@ To estimate the costs of backing up Azure file shares using the [snapshot-based 
 
 ## Related content
 
-- [What is the Azure Backup service?](backup-overview.md).
+- [What is the Azure Backup service?](backup-overview.md)
 - [FAQ: Understand the Azure Backup pricing calculator](/answers/questions/2128908/understanding-the-azure-backup-estimate-calculator).

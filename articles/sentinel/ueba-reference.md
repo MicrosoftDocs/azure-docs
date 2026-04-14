@@ -14,9 +14,9 @@ ms.collection: usx-security
 
 ---
 
-# Microsoft Sentinel User and Entity Behavior Analytics (UEBA) reference
+# Microsoft Sentinel User and Entity Behavior Analytics (UEBA) data sources and schema enrichments
 
-This reference article lists the input data sources for the [User and Entity Behavior Analytics service in Microsoft Sentinel](./identify-threats-with-entity-behavior-analytics.md). It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
+This article lists the input data sources for the [User and Entity Behavior Analytics service in Microsoft Sentinel](./identify-threats-with-entity-behavior-analytics.md). It also describes the enrichments that UEBA adds to entities, providing needed context to alerts and incidents.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -26,16 +26,16 @@ These are the data sources from which the UEBA engine collects and analyzes data
 
 | Data source | Connector | Log Analytics table | Analyzed event categories |
 | ----------- | --------- | ------------------- | ------------------ |
-| AAD managed identity sign-in logs (Preview) | Microsoft Entra ID | [AADManagedIdentitySignInLogs](/azure/azure-monitor/reference/tables/aadmanagedidentitysigninlogs) | All managed identity sign-in events |
-| AAD service principal sign-in logs  (Preview)| Microsoft Entra ID | [AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/aadserviceprincipalsigninlogs) | All service principal sign-in events |
-| Audit Logs | Microsoft Entra ID | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
-| AWS CloudTrail  (Preview)| Amazon Web Services<br>Amazon Web Services S3 | [AWSCloudTrail](/azure/azure-monitor/reference/tables/awscloudtrail) | Console sign-in events.<br>Identified by `EventName = "ConsoleLogin"` and `EventSource = "signin.amazonaws.com"`. Events must have a valid `UserIdentityPrincipalId`. |
-| Azure Activity | Azure Activity | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |
-| Device Logon Events  (Preview)| Microsoft Defender XDR | [DeviceLogonEvents](/azure/azure-monitor/reference/tables/devicelogonevents) | All device logon events |
-| GCP Audit Logs  (Preview)| GCP Pub/Sub Audit Logs | [GCPAuditLogs](/azure/azure-monitor/reference/tables/gcpauditlogs) | `apigee.googleapis.com` - API Management Platform<br>`iam.googleapis.com` - Identity and Access Management (IAM) service<br>`iamcredentials.googleapis.com` - IAM Service Account Credentials API<br>`cloudresourcemanager.googleapis.com` - Cloud Resource Manager API<br>`compute.googleapis.com` - Compute Engine API<br>`storage.googleapis.com` - Cloud Storage API<br>`container.googleapis.com` - Kubernetes Engine API<br>`k8s.io` - Kubernetes API<br>`cloudsql.googleapis.com` - Cloud SQL API<br>`bigquery.googleapis.com` - BigQuery API<br>`bigquerydatatransfer.googleapis.com` - BigQuery Data Transfer Service API<br>`cloudfunctions.googleapis.com` - Cloud Functions API<br>`appengine.googleapis.com` - App Engine API<br>`dns.googleapis.com` - Cloud DNS API<br>`bigquerydatapolicy.googleapis.com` - BigQuery Data Policy API<br>`firestore.googleapis.com` - Firestore API<br>`dataproc.googleapis.com` - Dataproc API<br>`osconfig.googleapis.com` - OS Config API<br>`cloudkms.googleapis.com` - Cloud KMS API<br>`secretmanager.googleapis.com` - Secret Manager API<br>Events must have a valid:<br>- `PrincipalEmail` - The user or service account that called the API<br>- `MethodName` - The specific Google API method called<br>- Principal email, in `user@domain.com` format. |
-| Okta CL  (Preview)| Okta Single Sign-On (using Azure Functions) | Okta_CL | Authentication, multifactor authentication (MFA), and session events, including:<br>`app.oauth2.admin.consent.grant_success`<br>`app.oauth2.authorize.code_success`<br>`device.desktop_mfa.recovery_pin.generate`<br>`user.authentication.auth_via_mfa`<br>`user.mfa.attempt_bypass`<br>`user.mfa.factor.deactivate`<br>`user.mfa.factor.reset_all`<br>`user.mfa.factor.suspend`<br>`user.mfa.okta_verify`<br>`user.session.impersonation.grant`<br>`user.session.impersonation.initiate`<br>`user.session.start`<br>Events must have a valid User ID (`actor_id_s`). |
-| Security Events | Windows Security Events via AMA<br>Windows Forwarded Events | [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)<br>[SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) | 4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
-| Sign-in Logs | Microsoft Entra ID | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) | All sign-in events |
+| AAD managed identity sign-in logs (Preview) | [Microsoft Entra ID](data-connectors-reference.md#microsoft-entra-id) | [AADManagedIdentitySignInLogs](/azure/azure-monitor/reference/tables/aadmanagedidentitysigninlogs) | All managed identity sign-in events |
+| AAD service principal sign-in logs  (Preview)| [Microsoft Entra ID](data-connectors-reference.md#microsoft-entra-id) | [AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/aadserviceprincipalsigninlogs) | All service principal sign-in events |
+| Audit Logs | [Microsoft Entra ID](data-connectors-reference.md#microsoft-entra-id) | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | ApplicationManagement<br>DirectoryManagement<br>GroupManagement<br>Device<br>RoleManagement<br>UserManagementCategory |
+| AWS CloudTrail  (Preview)| [Amazon Web Services](data-connectors-reference.md#amazon-web-services)<br>[Amazon Web Services S3](data-connectors-reference.md#amazon-web-services-s3) | [AWSCloudTrail](/azure/azure-monitor/reference/tables/awscloudtrail) | Console sign-in events.<br>Identified by `EventName = "ConsoleLogin"` and `EventSource = "signin.amazonaws.com"`. Events must have a valid `UserIdentityPrincipalId`. |
+| Azure Activity | [Azure Activity](data-connectors-reference.md#azure-activity) | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Authorization<br>AzureActiveDirectory<br>Billing<br>Compute<br>Consumption<br>KeyVault<br>Devices<br>Network<br>Resources<br>Intune<br>Logic<br>Sql<br>Storage |
+| Device Logon Events  (Preview)| [Microsoft Defender XDR](data-connectors-reference.md#microsoft-defender-xdr) | [DeviceLogonEvents](/azure/azure-monitor/reference/tables/devicelogonevents) | All device logon events |
+| GCP Audit Logs  (Preview)| [GCP Pub/Sub Audit Logs](data-connectors-reference.md#gcp-pubsub-audit-logs) | [GCPAuditLogs](/azure/azure-monitor/reference/tables/gcpauditlogs) | `apigee.googleapis.com` - API Management Platform<br>`iam.googleapis.com` - Identity and Access Management (IAM) service<br>`iamcredentials.googleapis.com` - IAM Service Account Credentials API<br>`cloudresourcemanager.googleapis.com` - Cloud Resource Manager API<br>`compute.googleapis.com` - Compute Engine API<br>`storage.googleapis.com` - Cloud Storage API<br>`container.googleapis.com` - Kubernetes Engine API<br>`k8s.io` - Kubernetes API<br>`cloudsql.googleapis.com` - Cloud SQL API<br>`bigquery.googleapis.com` - BigQuery API<br>`bigquerydatatransfer.googleapis.com` - BigQuery Data Transfer Service API<br>`cloudfunctions.googleapis.com` - Cloud Functions API<br>`appengine.googleapis.com` - App Engine API<br>`dns.googleapis.com` - Cloud DNS API<br>`bigquerydatapolicy.googleapis.com` - BigQuery Data Policy API<br>`firestore.googleapis.com` - Firestore API<br>`dataproc.googleapis.com` - Dataproc API<br>`osconfig.googleapis.com` - OS Config API<br>`cloudkms.googleapis.com` - Cloud KMS API<br>`secretmanager.googleapis.com` - Secret Manager API<br>Events must have a valid:<br>- `PrincipalEmail` - The user or service account that called the API<br>- `MethodName` - The specific Google API method called<br>- Principal email, in `user@domain.com` format. |
+| Okta CL  (Preview)| [Okta Single Sign-On (using Azure Functions)](data-connectors-reference.md#okta-single-sign-on-using-azure-functions) | Okta_CL | Authentication, multifactor authentication (MFA), and session events, including:<br>`app.oauth2.admin.consent.grant_success`<br>`app.oauth2.authorize.code_success`<br>`device.desktop_mfa.recovery_pin.generate`<br>`user.authentication.auth_via_mfa`<br>`user.mfa.attempt_bypass`<br>`user.mfa.factor.deactivate`<br>`user.mfa.factor.reset_all`<br>`user.mfa.factor.suspend`<br>`user.mfa.okta_verify`<br>`user.session.impersonation.grant`<br>`user.session.impersonation.initiate`<br>`user.session.start`<br>Events must have a valid User ID (`actor_id_s`). |
+| Security Events | [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)<br>[Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events) | [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent)<br>[SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) | 4624: An account was successfully logged on<br>4625: An account failed to log on<br>4648: A logon was attempted using explicit credentials<br>4672: Special privileges assigned to new logon<br>4688: A new process has been created |
+| Sign-in Logs | [Microsoft Entra ID](data-connectors-reference.md#microsoft-entra-id) | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) | All sign-in events |
 
 ## UEBA enrichments
 
@@ -113,7 +113,7 @@ The following table describes the enrichments featured in the **DevicesInsights*
 | **Device type**<br>*(DeviceType)* | The client device type used in the action | Desktop |
 | **ISP**<br>*(ISP)* | The internet service provider used in the action. |  |
 | **Operating system**<br>*(OperatingSystem)* | The operating system used in the action. | Windows 10 |
-| **Threat intel indicator description**<br>*(ThreatIntelIndicatorDescription)* | Description of the observed threat indicator resolved from the IP address used in the action. | Host is member of botnet: azorult |
+| **Threat intel indicator description**<br>*(ThreatIntelIndicatorDescription)* | Description of the observed threat indicator resolved from the IP address used in the action. | Host is member of botnet: azorult |
 | **Threat intel indicator type**<br>*(ThreatIntelIndicatorType)* | The type of the threat indicator resolved from the IP address used in the action. | Botnet, C2, CryptoMining, Darknet, Ddos, MaliciousUrl, Malware, Phishing, Proxy, PUA, Watchlist |
 | **User agent**<br>*(UserAgent)* | The user agent used in the action. | Microsoft Azure Graph Client Library 1.0,<br>​Swagger-Codegen/1.4.0.0/csharp,<br>EvoSTS |
 | **User agent family**<br>*(UserAgentFamily)* | The user agent family used in the action. | Chrome, Microsoft Edge, Firefox |
@@ -212,6 +212,8 @@ The following tables describe the enrichments featured in the **ActivityInsights
 | **Unusual number of devices deleted**<br>*(UnusualNumberOfDevicesDeleted)* | 5 | A user deleted an unusual number of devices. | True, False |
 | **Unusual number of users added to group**<br>*(UnusualNumberOfUsersAddedToGroup)* | 5 | A user added an unusual number of users to a group. | True, False |
 
+</details>
+
 ### IdentityInfo table
 
 After you [enable and configure UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, user data from your Microsoft identity providers is synchronized to the *IdentityInfo* table in Log Analytics for use in Microsoft Sentinel.
@@ -270,6 +272,9 @@ There are multiple versions of the *IdentityInfo* table:
     Defender portal customers without UEBA enabled, or without Microsoft Sentinel at all, continue to use the [prior release of the *Advanced hunting* version](/defender-xdr/advanced-hunting-identityinfo-table), without the UEBA-generated fields.
 
     For more information on the unified version, see [IdentityInfo in the *Advanced hunting* documentation](/defender-xdr/advanced-hunting-identityinfo-table).
+
+> [!IMPORTANT]
+> When you transition to the Defender portal, the `IdentityInfo` table becomes a native Defender table that doesn't support table-level RBAC (Role-Based Access Control). If your organization uses table-level RBAC to restrict access to the `IdentityInfo` table in the Azure portal, this access control will no longer be available after you transition to the Defender portal.
 
 #### Schema
 
@@ -385,7 +390,6 @@ The following fields, while they exist in the Log Analytics schema, should be di
 
 These fields don't exist at all in the new, unified schema.
 
----
 
 ## Next steps
 

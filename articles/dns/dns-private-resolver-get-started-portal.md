@@ -24,7 +24,7 @@ Azure DNS Private Resolver enables you to query Azure DNS private zones from an 
 ## In this article: 
 
 - Two VNets are created: **myvnet** and **myvnet2**.
-- An Azure DNS Private Resolver is created in the first VNet with an inbound endpoint at **10.10.0.4**.
+- An Azure DNS Private Resolver is created in the first VNet with an inbound endpoint at **10.0.0.4**.
 - A DNS forwarding ruleset is created for the private resolver.
 - The DNS forwarding ruleset is linked to the second VNet.
 - Example rules are added to the DNS forwarding ruleset.
@@ -38,7 +38,7 @@ The following figure summarizes the setup used in this article:
 ## Prerequisites
 
 An Azure subscription is required.
-- If you don't already have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- If you don't already have an Azure subscription, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Register the Microsoft.Network provider namespace
 

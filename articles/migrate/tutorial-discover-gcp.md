@@ -49,40 +49,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Windows server instances** | Allow inbound connections on WinRM port 5985 (HTTP) for discovery of Windows servers.
 **Linux server instances** | Allow inbound connections on port 22 (TCP) for discovery of Linux servers.
 
-## Prepare an Azure user account
-
-To create a project and register the Azure Migrate appliance, you need an account with:
-
-* Contributor or Owner permissions on an Azure subscription.
-* Permissions to register Microsoft Entra apps.
-
-If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
-
-1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
-
-    :::image type="content" source="./media/tutorial-discover-gcp/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
-
-1. In the **Subscriptions** page, select the subscription in which you want to create a project.
-
-1. Select **Access control (IAM)**.
-
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-
-    | Setting | Value |
-    | --- | --- |
-    | Role | Contributor or Owner |
-    | Assign access to | User |
-    | Members | azmigrateuser |
-
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of role assignment page in Azure portal.":::
-
-1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps**.
-
-1. In the portal, go to **Microsoft Entra ID** > **Users**.
-
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+[!INCLUDE [migrate-rbac-permissions](includes/migrate-rbac-permissions.md)]
 
 ## Prepare GCP instances
 
@@ -156,26 +123,7 @@ In **2: Download Azure Migrate appliance**, select **Download**.
 
 ### Verify security
 
-Check that the zipped file is secure before you deploy it.
-
-1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
-3.  Verify the latest appliance versions and hash values:
-    - For the public cloud:
-
-        **Scenario** | **Download** | **Hash value**
-        --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
-
-    - For Azure Government:
-
-        **Scenario** | **Download** | **Hash value**
-        --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
- 
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### 3. Run the Azure Migrate installer script
 The installer script does the following:
@@ -242,7 +190,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
     1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
-    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
+    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
@@ -316,7 +264,7 @@ Select **Start discovery**, to kick off discovery of the successfully validated 
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
-1. Open the Azure Migrate dashboard.
+1. Go to the Azure Migrate dashboard.
 2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 ## Next steps

@@ -9,17 +9,20 @@ metadata:
   ms.service: azure-migrate
   author: markingmyname
   ms.author: maghan
-  ms.reviewr: robbymillsap, chkittel, prwilk
+  ms.reviewer: rhackenberg, chkittel
   ms.date: 03/25/2025
   ms.collection:
    - migration
    - aws-to-azure
+  ms.custom: migration-hub
 
 landingContent:
   - title: Migration strategy
     linkLists:
       - linkListType: concept
         links:
+          - text: Migrate a workload to Azure from Amazon Web Services (AWS)
+            url:  ./migrate-workload-from-aws-introduction.md
           - text: Migrate workloads to Azure from other cloud-based services
             url:  ./migrate-to-azure.md
 
@@ -75,6 +78,8 @@ landingContent:
             url: /azure/data-factory/data-migration-guidance-s3-azure-storage
           - text: Connect AWS and Azure using a BGP-enabled VPN gateway
             url: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
+          - text: Migrate Amazon API Gateway to Azure API Management
+            url: /azure/api-management/migrate-amazon-api-gateway-to-api-management
 
   - title: Migration training modules
     linkLists:

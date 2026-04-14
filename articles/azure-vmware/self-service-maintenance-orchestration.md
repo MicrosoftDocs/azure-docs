@@ -5,23 +5,24 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/25/2024
+ms.date: 03/17/2026
 ms.custom: engagement-fy24
 # Customer intent: As a cloud administrator, I want to reschedule planned maintenance for my Azure VMware Solution, so that I can manage my resources effectively and minimize downtime during critical business periods.
 ---
 
-# Plan self-service maintenance for Azure VMware Solution (public preview)
+# Plan self-service maintenance for Azure VMware Solution
 
 In this article, you learn about how to use the self-service maintenance orchestration feature to schedule or reschedule planned maintenance directly from the Azure portal. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md).
 
 ## Prerequisites
 
-Before scheduling or rescheduling maintenance, ensure the following:
+Before scheduling or rescheduling maintenance, ensure you have the following setup:
 
 - An Azure VMware Solution private cloud in place.
-- A subscription with Early Access and Self Serve for Maintenance features enabled, available under Preview Features in the Azure portal.
+- Contributor Level access is required to view and edit the information on Maintenance on the left navigation.
 
 ## Schedule maintenance
+
 To schedule maintenance, follow these steps:
 
 1.	Access the Maintenance pane by clicking the Schedule link in the banner. You see a list of upcoming maintenance events.
@@ -38,7 +39,7 @@ To schedule maintenance, follow these steps:
 ## Check maintenance readiness
 
 Before scheduling, verify the Maintenance Ready status for the event:
-- If the status is No, there may be configuration issues blocking maintenance.
+- If the status is No, there could be configuration issues blocking maintenance.
 - To view detailed information with an action plan to address the issues, select the provided hyperlink.
 
 Addressing readiness issues ensures a smooth maintenance process and prevents automatic cancellations.
@@ -46,9 +47,9 @@ Addressing readiness issues ensures a smooth maintenance process and prevents au
 ## Reschedule maintenance
 
 If the assigned maintenance slot isn't suitable, you can reschedule the event using the following steps:
-1. Navigate to Operations in the left menu and select Maintenance.
-1. Under the Upcoming Maintenance tab, select the Reschedule option next to the event.
-1. Input your revised date and time, then confirm by clicking Reschedule.
+1. Navigate to **Operations** in the left menu and select **Maintenance**.
+1. Under the **Upcoming Maintenance** tab, select the **Reschedule** option next to the event.
+1. Input your revised date and time, then confirm by clicking **Reschedule**.
 Once rescheduled, the system updates the schedule with the new date, visible in the portal.
 
 > [!Note]
@@ -56,7 +57,11 @@ Once rescheduled, the system updates the schedule with the new date, visible in 
 
 ## Errors and restrictions
 The following system error or warning messages appear while trying to reschedule maintenance tasks:
-- You can schedule/reschedule maintenance only before the upgrade deadline and on freeze days.
+- Each maintenance event has an internal deadline. You can schedule/reschedule maintenance only before the maintenance deadline. Dates beyond the deadline appear greyed out on the portal. To reschedule past this point, raise a support ticket. 
+
+- Critical maintenance or fixes for critical security vulnerabilities can cause the reschedule option to be disabled.
 - You can reschedule maintenance up to 24 hours before the start of the maintenance.
-- Each maintenance task has an internal deadline. Dates beyond this appear greyed out on the portal. To reschedule past this point, raise a support ticket. Critical maintenance or fixes for critical security vulnerabilities may have the reschedule option disabled.
-- This feature is enabled only for specific maintenance activities. As a result, not all Azure VMware Solution maintenance tasks appear in this section or have the option to reschedule.
+
+- Weekend scheduling isn't currently supported through the portal. For urgent or specific weekend requirements, raise a support request.
+
+- This feature is enabled only for specific maintenance activities. As a result, not all Azure VMware Solution maintenance tasks appear in this section or provide the option to reschedule.

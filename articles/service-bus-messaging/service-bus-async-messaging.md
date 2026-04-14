@@ -11,6 +11,8 @@ Asynchronous messaging can be implemented in a variety of different ways. With q
 
 Applications typically use asynchronous messaging patterns to enable a number of communication scenarios. You can build applications in which clients can send messages to services, even when the service is not running. For applications that experience bursts of communications, a queue can help [level the load](/azure/architecture/patterns/queue-based-load-leveling) by providing a place to buffer communications. Finally, you can get a simple but effective load balancer to distribute messages across multiple machines.
 
+For a real-world analogy of asynchronous scalability and expected delays or retries, see Gregor Hohpe’s [Starbucks Does Not Use Two-Phase Commit](https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html) and the follow-up [What Starbucks Can Teach Us About Software Scalability](https://particular.net/blog/what-starbucks-can-teach-us-about-software-scalability). They offer a clear mental model for how Service Bus behaves under load.
+
 In order to maintain availability of any of these entities, consider a number of different ways in which these entities can appear unavailable for a durable messaging system. Generally speaking, we see the entity becomes unavailable to applications we write in the following different ways:
 
 * Unable to send messages.
@@ -20,7 +22,11 @@ In order to maintain availability of any of these entities, consider a number of
 
 For each of these failures, different failure modes exist that enable an application to continue to perform work at some level of reduced capability. For example, a system that can send messages but not receive them can still receive orders from customers but cannot process those orders. This topic discusses potential issues that can occur, and how those issues are mitigated. Service Bus has introduced a number of mitigations which you must opt into, and this topic also discusses the rules governing the use of those opt-in mitigations.
 
-## Reliability in Service Bus
+> [!NOTE]
+> To learn about how Service Bus is resilient to a range of problems, and the capabilities that you can use to increase its reliability, see [Reliability in Azure Service Bus](/azure/reliability/reliability-service-bus?toc=/azure/service-bus-messaging/TOC.json).
+
+## Failure mode types
+
 There are several ways to handle message and entity issues, and there are guidelines governing the appropriate use of those mitigations. To understand the guidelines, you must first understand what can fail in Service Bus. Due to the design of Azure systems, all of these issues tend to be short-lived. At a high level, the different causes of unavailability appear as follows:
 
 * Throttling from an external system on which Service Bus depends. Throttling occurs from interactions with storage and compute resources.
@@ -30,8 +36,6 @@ There are several ways to handle message and entity issues, and there are guidel
 
 > [!NOTE]
 > The term **storage** can mean both Azure Storage and SQL Azure.
-> 
-> 
 
 Service Bus contains a number of mitigations for these issues. The following sections discuss each issue and their respective mitigations.
 
@@ -48,10 +52,7 @@ Other components within Azure can occasionally have service issues. For example,
 ### Service Bus failure on a single subsystem
 With any application, circumstances can cause an internal component of Service Bus to become inconsistent. When Service Bus detects this, it collects data from the application to aid in diagnosing what happened. Once the data is collected, the application is restarted in an attempt to return it to a consistent state. This process happens fairly quickly, and results in an entity appearing to be unavailable for up to a few minutes, though typical down times are much shorter.
 
-In these cases, the client application generates a timeout exception or a messaging exception. Service Bus contains a mitigation for this issue in the form of automated client retry logic. Once the retry period is exhausted and the message is not delivered, you can explore using other mentioned in the article on [handling outages and disasters][handling outages and disasters].
+In these cases, the client application generates a timeout exception or a messaging exception. Service Bus contains a mitigation for this issue in the form of automated client retry logic. Once the retry period is exhausted and the message is not delivered, you can use [geo-replication](./service-bus-geo-replication.md), [geo-disaster recovery](./service-bus-geo-dr.md), or another approach to [switch to a different namespace](./service-bus-outages-disasters.md).
 
 ## Next steps
-Now that you've learned the basics of asynchronous messaging in Service Bus, read more details about [handling outages and disasters][handling outages and disasters].
-
-[Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
-[handling outages and disasters]: service-bus-outages-disasters.md
+Now that you've learned the basics of asynchronous messaging in Service Bus, read more details about [Reliability in Azure Service Bus][/azure/reliability/reliability-service-bus?toc=/azure/service-bus-messaging/TOC.json].

@@ -19,7 +19,7 @@ Azure PowerShell is a set of cmdlets for managing Azure resources directly from 
 
 In this quickstart, you learn to create an Azure Synapse Analytics workspace by using Azure PowerShell.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -115,7 +115,7 @@ Install-Module -Name Az.Synapse
 
 1. After it's deployed, more permissions are required.
 
-   - In the Azure portal, assign other users of the workspace to the Contributor role in the workspace. For instructions, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+   - In the Azure portal, assign other users of the workspace to the Contributor role in the workspace. For instructions, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
    - Assign other users the appropriate [Azure Synapse Analytics role-based access control roles](security/synapse-workspace-synapse-rbac-roles.md) by using Synapse Studio.
    - A member of the Owner role of the Azure Storage account must assign the Storage Blob Data Contributor role to the Azure Synapse Analytics workspace managed service identity and other users.
 

@@ -4,7 +4,7 @@ description: The reference describes Azure Web PubSub trigger and bindings for A
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/12/2024
 ms.custom: sfi-ropc-nochange
 ---
@@ -794,7 +794,7 @@ The following table explains the binding configuration properties that you set i
 ### Setting up console logging
 You can also easily [enable console logging](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Diagnostics.md#logging) if you want to dig deeper into the requests you're making against the service.
 
-[azure_sub]: https://azure.microsoft.com/free/
+[azure_sub]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [samples_ref]: https://github.com/Azure/azure-webpubsub/tree/main/samples/functions
 
 ## Next steps

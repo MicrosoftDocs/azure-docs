@@ -18,6 +18,9 @@ ms.custom:
 
 # Tutorial: Use dynamic configuration using push refresh in a .NET app
 
+> [!IMPORTANT]
+> Setting up push notifications requires careful setup. The poll model for configuration refresh provides a simpler setup and should be used in most cases unless there is a specific need for push notifications. To learn more about how to use the poll model, visit the [dynamic configuration tutorial for .NET](./enable-dynamic-configuration-dotnet-core.md).
+
 The Azure App Configuration .NET client library provides support for updating configuration settings on demand without requiring an application to restart. You can configure an application to detect changes in App Configuration by using one or both of the following two approaches:
 
 * A poll model: This approach is the default behavior. It uses polling to detect changes in the configuration. After the refresh interval of a setting elapses, the next call to `TryRefreshAsync` or `RefreshAsync` sends a request to the server. The request checks for changes in the configuration. If needed, it also pulls the updated configuration.

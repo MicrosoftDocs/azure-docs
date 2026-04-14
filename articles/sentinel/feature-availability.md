@@ -182,13 +182,13 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure operated by 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[Active Directory sync via MDI](enable-entity-behavior-analytics.md#how-to-enable-user-and-entity-behavior-analytics) |Public preview |Yes |Yes |No |
+|[Active Directory sync via MDI](enable-entity-behavior-analytics.md#enable-ueba-from-workspace-settings) |Public preview |Yes |Yes |No |
 |[Azure resource entity pages](entity-pages.md) |Public preview |Yes |Yes |No |
 |[Entity insights](identify-threats-with-entity-behavior-analytics.md) |GA |Yes |Yes |Yes |
 |[Entity pages](entity-pages.md) |GA |Yes |Yes |Yes |
 |[Identity info table data ingestion](investigate-with-ueba.md) |GA |Yes |Yes |Yes |
 |[IoT device entity page](/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) |Public preview	|Yes |Yes |No |
-|[Peer/Blast radius enrichments](identify-threats-with-entity-behavior-analytics.md#what-is-ueba) |Public preview |Yes |No |No |
+|[Peer/Blast radius enrichments](identify-threats-with-entity-behavior-analytics.md#how-ueba-works) |Public preview |Yes |No |No |
 |[SOC-ML anomalies](soc-ml-anomalies.md#what-are-customizable-anomalies) |GA |Yes |Yes |No |
 |[UEBA anomalies](soc-ml-anomalies.md#ueba-anomalies) |GA |Yes |Yes |No |
 |[UEBA enrichments\insights](investigate-with-ueba.md) |GA |Yes |Yes |Yes |

@@ -1,8 +1,8 @@
 ---
 title: Root Key Rotation for Azure Device Update for IoT Hub | Microsoft Docs
 description: Information about the rotation of Azure Device Update for IoT Hub root keys.
-author: andrewbrownmsft
-ms.author: andbrown
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 2/21/2025
 ms.topic: how-to
 ms.service: azure-iot-hub

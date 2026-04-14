@@ -28,7 +28,7 @@ Search jobs across certain data sets might incur extra charges. For more informa
 
 ### Implementation considerations
 
-See [Search job limitations](/azure/azure-monitor/logs/search-jobs#limitations) in the Azure Monitor documentation.
+See [Search job considerations](/azure/azure-monitor/logs/search-jobs#considerations) in the Azure Monitor documentation.
 
 ## Start a search job
 
@@ -46,27 +46,23 @@ Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft De
    :::image type="content" source="media/search-jobs/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 90 days, and table selected." lightbox="media/search-jobs/search-job-criteria.png":::
    ---
 
-1. Select the **Start**  to open the advanced Kusto Query Language (KQL) editor and preview of the results for a set time range.
+1. Select the **Start**  to preview your results for a set time range in **Simple Mode**. If needed, go to the dropdown menu and switch from **Simple mode** to **KQL mode** to open the advanced Kusto Query Language (KQL) editor.
 
-1. Change the KQL query as needed and select **Run** to get an updated preview of the search results.
+1. Change the KQL query as needed and select **Run** to get an updated preview of the search results. Resolve any KQL issues indicated by a squiggly red line in the editor.
 
    :::image type="content" source="media/search-jobs/search-job-advanced-kql-edit.png" alt-text="Screenshot of KQL editor with revised search.":::
  
-1. When you're satisfied with the query and the search results preview, select the ellipses **...** and toggle  **Search job mode** on.
+1. When you're satisfied with the query and the search results preview, select the ellipses **...** and select **Search job** to open the **Search Job Mode** window.
 
-   :::image type="content" source="media/search-jobs/search-job-advanced-kql-ellipsis.png" alt-text="Screenshot of KQL editor with revised search with ellipsis highlighted for Search job mode." lightbox="media/search-jobs/search-job-advanced-kql-ellipsis.png":::
+   :::image type="content" source="media/search-jobs/search-job-advanced-kql-ellipsis.png" alt-text="Screenshot of KQL editor with revised search with ellipsis highlighted in order to select Search job, which will open the Search Job Mode window." lightbox="media/search-jobs/search-job-advanced-kql-ellipsis.png":::
 
 1. Specify the search job date range using the **Time range** selector. If your query also specifies a time range, Microsoft Sentinel runs the search job on the union of the time ranges.
 
-1. Resolve any KQL issues indicated by a squiggly red line in the editor.
-
-1. When you're ready to start the search job, select **Search job**.
-
 1. Enter a new table name to store the search job results.
 
-1. Select **Run a search job**.
+1. Select **Run search job**.
 
-1. Wait for the notification **Search job is done** to view the results.
+1. Wait for the notification **Search job is done** and select the button to go to the table and view the results.
 
 ## View search job results
 

@@ -160,7 +160,7 @@ Content-type: application/json
 }
 ```
 
-The exact claims sent to the API depend on the information is provided by the identity provider. 'email' is always sent.
+The exact claims sent to the API depend on the information provided by the identity provider. 'email' is always sent.
 
 ### Expected response types from the web API at this step
 

@@ -3,12 +3,12 @@ title: Runbook authoring using VS Code in Azure Automation
 description: This article provides an overview authoring runbooks in Azure Automation using the visual studio code.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 11/17/2025
 ms.topic: overview
 ms.custom:
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Runbook authoring through VS Code in Azure Automation
@@ -18,7 +18,7 @@ This article explains about the Visual Studio extension that you can use to crea
 Azure Automation provides a new extension from VS Code to create and manage runbooks. Using this extension, you can perform all runbook management operations such as, creating and editing runbooks, triggering a job, tracking recent jobs output, linking a schedule, asset management, and local debugging. 
 
 ## Prerequisites 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).  
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).  
 - [Visual Studio Code](https://code.visualstudio.com/).
 - PowerShell modules and Python packages used by runbook must be locally installed on the machine to run the runbook locally. 
 

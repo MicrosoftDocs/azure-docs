@@ -4,7 +4,7 @@ description: This article walks you through the process of identifying deprecate
 author: anilgodavarthy
 ms.author: angodavarthy
 ms.service: microsoft-sentinel
-ms.topic: conceptual 
+ms.topic: concept-article
 ms.date: 12/30/2024
 
 #CustomerIntent: As a Microsoft Sentinel user, I should be able to find and manage the lifecycle deprecated solutions in Microsoft Sentinel so that I can always have the latest updates.

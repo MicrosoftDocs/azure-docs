@@ -1,10 +1,10 @@
 ---
-title: GlusterFS to Azure Files migration guide
+title: GlusterFS to Azure Files Migration Guide
 description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of its support lifecycle. Use this guide to migrate GlusterFS volumes to Azure Files.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 11/06/2025
 ms.author: kendownie
 # Customer intent: As an IT administrator managing legacy storage, I want to migrate GlusterFS volumes to a supported cloud file service, so that my organization can ensure ongoing support, security updates, and optimized performance.
 ---
@@ -42,7 +42,7 @@ Windows clients connecting to Azure Files via SMB should meet the following requ
 > [!IMPORTANT]
 > We strongly recommend using SMB 3.1.1 protocol for Azure Files access. SMB 3.0 and 2.0 should only be used for legacy clients, and you must plan an OS upgrade to mitigate unpatched security vulnerabilities.
 
-For a complete list of requirements and setup instructions, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md#prerequisites).
+For a complete list of requirements and setup instructions, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 ### NFS requirements
 
@@ -142,14 +142,14 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
 
 1. Select the appropriate protocol. In most cases, you'll want to use SMB for Windows workloads and NFS for Linux workloads.
 
-1. Select HDD or SSD, and size your Azure file shares appropriately:
-   - Standard (HDD): Up to 100 TiB
-   - Premium (SSD): Up to 100 TiB with higher performance
+1. Select HDD (standard) or SSD (premium), and size your Azure file shares appropriately:
+   - HDD: Up to 256 TiB (provisioned v2) or 100 TiB (pay-as-you-go)
+   - SSD: Up to 256 TiB (provisioned v2) or 100 TiB (provisioned v1)
 
 ### Step 2: Prepare Azure environment
 
 1. [Create a storage account](../common/storage-account-create.md) in the appropriate Azure region.
-   - Choose the right performance tier (Standard or Premium) based on your needs. Premium is required for NFS file shares.
+   - Choose the right media tier (HDD or SSD) based on your needs. SSD is required for NFS file shares.
 
 1. Configure networking. See [Azure Files networking considerations](storage-files-networking-overview.md).
    - SMB: Configure firewall and private endpoints as needed. See [Configure Azure Storage firewalls](../common/storage-network-security.md) and [Configure network endpoints for accessing Azure file shares](storage-files-networking-endpoints.md).
@@ -159,35 +159,19 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
 
 ### Step 3: Mount Azure file share
 
-Before migrating the data, you must mount the Azure file share(s). 
+Before migrating the data, you must first mount the Azure file share.
 
 # [Windows](#tab/windows)
 
-#### For Windows clients (SMB):
+#### Windows clients (SMB)
 
-This article shows how to mount the Azure file share using NTLMv2 authentication (storage account key). In non-administrative scenarios, using [identity-based authentication](storage-files-active-directory-overview.md) is preferred for security reasons. 
-
-You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
-
-To mount the file share, run the following command. Be sure to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with your actual values.
-
-```powershell
-net use Z: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
-```
-
-For more information, see [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
+To mount an Azure file share as a local network drive on Windows, see [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md). Be sure to mount the share using either the [Windows permission model for SMB admin](storage-files-identity-configure-file-level-permissions.md#use-the-windows-permission-model-for-smb-admin) or the storage account key (not recommended).
 
 # [Linux](#tab/linux)
 
-#### For Linux clients (NFS):
+#### Linux clients (NFS or SMB)
 
-To mount the file share, run the following command. Be sure to replace `<storage-account-name>`, `<share-name>`, and `<mount-point>` with your actual values.
-
-```bash
-sudo mount -t nfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> <mount-point> -o vers=4.1,sec=sys
-```
-
-For more information, see [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md).
+To mount an Azure file share on Linux, see [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md) or [Mount SMB Azure file shares on Linux](storage-how-to-use-files-linux.md).
 
 ---
 
@@ -197,7 +181,7 @@ After you've mounted the Azure file share, you can perform the data migration.
 
 # [Windows](#tab/windows)
 
-#### For Windows workloads using Robocopy:
+#### For Windows workloads using Robocopy
 
 Open a command prompt or PowerShell window with administrator privileges, and run the following command:
 
@@ -207,7 +191,7 @@ robocopy X:\GlusterFSData Z:\AzureFilesData /MIR /Z /MT:8 /W:1 /R:3 /LOG:C:\migr
 
 # [Linux](#tab/linux)
 
-#### For Linux workloads using rsync:
+#### For Linux workloads using rsync
 
 Execute the following command:
 
@@ -256,7 +240,7 @@ Follow these recommendations to optimize performance when migrating from Gluster
 
 ### Optimize NFS performance
 
-- Always use Premium (SSD) file shares for NFS workloads (required).
+- Always use SSD file shares for NFS workloads (required).
 - Provision sufficient capacity based on your [throughput requirements](understand-performance.md).
 - Optimize client-side settings like read/write buffer sizes.
 - Use nconnect, a client-side mount option that allows you to use multiple TCP connections between the client and your NFS file share. We recommend the optimal setting of `nconnect=4`.

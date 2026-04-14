@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.reviewer: ushan
 ms.topic: how-to
-ms.date: 01/16/2025
+ms.date: 11/28/2025
 
 #customer intent: As a build developer, I want to learn how to automate my deployment of web apps by using Azure App Service and GitHub.
 
@@ -22,7 +22,7 @@ Use [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) to
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).
 
 ## Set up GitHub Actions deployment when creating an app
@@ -92,7 +92,7 @@ The following procedure describes the steps for creating a Microsoft Entra appli
 1. Create a new role assignment by subscription and object. By default, the role assignment is tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, `$webappName` with your web app name, and `$assigneeObjectId` with the generated `id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/$webappName --assignee-principal-type ServicePrincipal
+    az role assignment create --role "Website Contributor" --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/$webappName --assignee-principal-type ServicePrincipal
     ```
 
 1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Microsoft Entra app.
@@ -140,7 +140,7 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [`az ad sp create-for-rbac`](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command by using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting **Open Cloud Shell**.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor \
+az ad sp create-for-rbac --name "myApp" --role "Website Contributor" \
                             --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
                             --json-auth
 ```
@@ -244,6 +244,7 @@ The following examples show the part of the workflow that builds the web app, in
 - [How do I deploy a WAR file through the Azure CLI?](#how-do-i-deploy-a-war-file-through-the-azure-cli)
 - [How do I deploy a startup file?](#how-do-i-deploy-a-startup-file)
 - [How do I deploy to a container?](#how-do-i-deploy-to-a-container)
+- [How do I deploy to a deployment slot?](#how-do-i-deploy-to-a-deployment-slot)
 - [How do I update the Tomcat configuration after deployment?](#how-do-i-update-the-tomcat-configuration-after-deployment)
 
 ### How do I deploy a WAR file through the Maven plugin?
@@ -291,6 +292,22 @@ Use the GitHub Action for the Azure CLI. For example:
 ### How do I deploy to a container?
 
 With the **Azure Web Deploy** action, you can automate your workflow to deploy custom containers to App Service by using GitHub Actions. For more information, see [Deploy to a container](/azure/app-service/deploy-container-github-action).
+
+### How do I deploy to a deployment slot?
+
+You can deploy to a [deployment slot](deploy-staging-slots.md) instead of the production slot by using the `slot-name` parameter in the `azure/webapps-deploy@v3` action. To deploy to a slot, add the `slot-name` parameter to the deployment step in your workflow:
+
+```yaml
+- name: Deploy to Azure Web App
+  uses: azure/webapps-deploy@v3
+  with:
+    app-name: 'my-app-name'
+    slot-name: 'staging'  # Deploy to the 'staging' slot instead of production
+    package: './output'
+```
+
+> [!NOTE]
+> When you use OpenID Connect or service principal authentication, ensure that the identity has the **Website Contributor** role on both the app and the deployment slot. For publish profile authentication, download the publish profile for the specific slot from the Azure portal (**Deployment** > **Deployment slots** > select slot > **Download publish profile**).
 
 ### How do I update the Tomcat configuration after deployment?
 

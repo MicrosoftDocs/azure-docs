@@ -5,7 +5,7 @@ description: This article helps you better understand data included in Cost Mana
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 06/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai
@@ -72,7 +72,7 @@ The following offers aren't supported:
 
 ### Free trial to pay-as-you-go upgrade
 
-For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
+For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### View billing account
 

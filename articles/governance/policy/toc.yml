@@ -184,12 +184,30 @@
       href: ./samples/resource-graph-samples-guest-configuration.md
     - name: Compute security baselines
       items:
+      - name: CIS Security Benchmarks for Linux Workloads - Overview
+        href: ./samples/guest-configuration-baseline-cis-linux.md
+      - name: CIS Security Benchmarks - AlmaLinux
+        href: ./samples/cis-linux/alma-ado.md
+      - name: CIS Security Benchmarks - Debian Linux
+        href: ./samples/cis-linux/debian-ado.md
+      - name: CIS Security Benchmarks - Oracle Linux
+        href: ./samples/cis-linux/oracle-ado.md
+      - name: CIS Security Benchmarks - Red Hat Enterprise Linux
+        href: ./samples/cis-linux/rhel-ado.md
+      - name: CIS Security Benchmarks - Rocky Linux
+        href: ./samples/cis-linux/rocky-ado.md
+      - name: CIS Security Benchmarks - SUSE Linux Enterprise
+        href: ./samples/cis-linux/suse-ado.md
+      - name: CIS Security Benchmarks - Ubuntu Linux
+        href: ./samples/cis-linux/ubuntu-ado.md
       - name: Docker host security baseline
         href: ./samples/guest-configuration-baseline-docker.md
       - name: Linux security baseline
         href: ./samples/guest-configuration-baseline-linux.md
       - name: Windows security baseline
         href: ./samples/guest-configuration-baseline-windows.md
+      - name: Windows security 2025 baseline
+        href: ./samples/guest-configuration-baseline-windows-server-2025.md  
 - name: Concepts
   items:
   - name: Definition structure
@@ -283,6 +301,9 @@
   - name: Design Azure Policy as Code workflows
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./concepts/policy-as-code.md
+  - name: System Policy
+    displayName: system policy, system restriction
+    href: ./concepts/systempolicy.md
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark

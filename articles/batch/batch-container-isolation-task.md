@@ -2,7 +2,7 @@
 title: Configure container isolation in Azure Batch task
 description: Learn how to configure isolation at task level in Azure Batch.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 01/06/2026
 ms.devlang: csharp
 ms.custom: batch
 # Customer intent: As an Azure Batch user, I want to configure task-level container isolation, so that I can customize data paths and enhance security by preventing data leakage between containers.
@@ -58,7 +58,7 @@ Refer to the listed data paths that you can choose to attach to the container. A
 
 > [!Note]
 > * If you use an empty list, the NodeAgent will not mount any data paths into the task's container. If you use null, the NodeAgent will mount the entire ephemeral disk (in Windows) or `AZ_BATCH_NODE_ROOT_DIR` (in Linux).
-> * If you don't mount the task data path into the container, you must set the task's property [workingDirectory](/rest/api/batchservice/task/add?tabs=HTTP#containerworkingdirectory) to containerImageDefault.
+> * If you don't mount the task data path into the container, you must set the task's property [workingDirectory](/rest/api/batchservice/tasks/create-task#containerworkingdirectory) to containerImageDefault.
 
 Before running a container isolation task, you must create a pool with a container. For more information on how to create it, see this guide [Docker container workload](batch-docker-container-workloads.md).
 

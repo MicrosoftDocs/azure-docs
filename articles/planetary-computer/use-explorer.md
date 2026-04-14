@@ -5,7 +5,7 @@ author: beharris
 ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: quickstart
-ms.date: 05/08/2025
+ms.date: 01/09/2026
 #customer intent: As a Microsoft Planetary Computer Pro user, I want to navigate through the Explorer so that I can visualize my SpatioTemporal Access Catalog (STAC) data.
 ms.custom:
   - build-2025
@@ -17,7 +17,7 @@ In this Quickstart, you learn how to interact with the Microsoft Planetary Compu
 
 ## Prerequisites
 
-* An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+* An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An [Azure Microsoft Planetary Computer Pro GeoCatalog](./deploy-geocatalog-resource.md)
 * A collection with:
   * Item assets defined in the collection's JSON. Learn how to [create a collection](./create-stac-collection.md).
@@ -158,8 +158,21 @@ You can set a thumbnail for a collection, the image that represents that collect
 
     [ ![Screenshot of set as thumbnail in Explorer.](./media/set-thumbnail.png) ](./media/set-thumbnail.png#lightbox)
 
+## Next steps
+
+Ready to build custom applications beyond the Explorer? Here are some recommended paths:
+
+> [!div class="nextstepaction"]
+> [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
+
+> [!div class="nextstepaction"]
+> [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
+
 ## Related content
 
+* [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
+* [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
+* [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
 * [Create a GeoCatalog](./deploy-geocatalog-resource.md)
 * [Create a collection](./create-stac-collection.md)
 * [Ingest STAC items](./ingestion-source.md)

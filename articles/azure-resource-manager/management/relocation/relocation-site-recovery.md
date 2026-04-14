@@ -5,7 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 ms.topic: how-to
 ms.date: 09/15/2025
-ms.author: ankitadutta
+ms.author: sogangul
 ms.custom: subject-relocation
 ---
 

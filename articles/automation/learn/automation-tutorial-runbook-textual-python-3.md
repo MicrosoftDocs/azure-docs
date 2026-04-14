@@ -3,12 +3,12 @@ title: Create a Python 3.8 runbook in Azure Automation
 description: This article teaches you to create, test, and publish a simple Python 3.8 runbook in your Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/17/2023
+ms.date: 11/17/2025
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python, py-fresh-zinc
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Tutorial: Create a Python 3.8 runbook
@@ -25,7 +25,7 @@ This tutorial walks you through the creation of a [Python 3.8 runbook](../automa
 
 To complete this tutorial, you need:
 
-- An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An [Automation account](../automation-security-overview.md) to hold the runbook and authenticate to Azure resources using Managed Identities. A managed identity is automatically created for you when you create the Automation account.
  
@@ -133,7 +133,7 @@ When you add these packages, select a runtime version that matches your runbook.
 To use managed identity, ensure that it is enabled:
 
 * To verify if the Managed identity is enabled for the Automation account go to your **Automation account** > **Account Settings** > **Identity** and set the **Status** to **On**.
-* The managed identity has a role assigned to manage the resource. In this example of managing a virtual machine resource, add the "Virtual Machine Contributor" role on the resource group of that contains the Virtual Machine. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
+* The managed identity has a role assigned to manage the resource. In this example of managing a virtual machine resource, add the "Virtual Machine Contributor" role on the resource group of that contains the Virtual Machine. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 
 With the manage identity role configured, you can start adding code.
 

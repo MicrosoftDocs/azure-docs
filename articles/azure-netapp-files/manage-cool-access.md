@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/17/2025
+ms.date: 10/28/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -27,14 +27,19 @@ There are several considerations to be aware of when using cool access.
 ### General considerations for cool access
 
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers.
-* Although cool access is available for the Standard, Premium, and Ultra service levels, how you're billed for using the feature differs from the hot tier service-level charges. For details and examples, see the [Billing section](cool-access-introduction.md#billing).
+* Although cool access is available for the Standard, Premium, Ultra, and Flexible service levels, how you're billed for using the feature differs from the hot tier service-level charges. For details and examples, see the [Billing section](cool-access-introduction.md#billing).
 * Cool access supports two tiering policies: `Auto` and `SnapshotOnly`. The `SnapshotOnly` policy limits data tiering to data in snapshots, while all data blocks associated with files in the active file system remain in the hot tier. The `Auto` policy encompasses both snapshot copy data and data in the active file system.
     Throughput is based on the [the service level](azure-netapp-files-service-levels.md#supported-service-levels) for both the `Auto` and `SnapshotOnly` tiering policies.
 * To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to **Default** or **Never**. For more information about the retrieval policy, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
 * Files moved to the cool tier remain there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
-* Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
 * Flexible service level capacity pools with cool access maintain the user-configured throughput limits. Unlike Premium or Ultra pools, performance isn't reduced when cool access is enabled.
+
+### Considerations for large volumes
+
+* Cool access is supported with large volumes. Confirm that you're [registered to use large volumes](large-volumes-requirements-considerations.md#register-the-feature) before creating a cool-access-enabled large volume. 
+* With cool access enabled, you can create large volumes at sizes between 2,400 GiB and 7.2 PiB. You must be [registered to use large volumes up to 7.2 PiB](large-volumes-requirements-considerations.md#register-for-large-volumes-up-to-72-pib).
+    * With large volumes up to 7.2 PiB, more than 80% of the data must reside on the cool tier. 
 
 ### Considerations for cool access-enabled capacity pools 
 
@@ -56,11 +61,9 @@ There are several considerations to be aware of when using cool access.
 
 ### Considerations for throughput in Premium and Ultra service level volumes with cool access
 
-- Enabling cool access on volumes in Premium and Ultra capacity pools results in reduced throughput: 
-    - For the Premium service level, throughput is 36 MiB/s per 1 TiB (compared to 64 MiB/s per 1 TiB without cool access) 
-    - For the Ultra service level, throughput is 68 MiB/second per 1 TiB (compared to 128 MiB/second per 1 TiB without cool access) 
-    - Reduced throughput limits are applicable to the `Auto` and `SnapshotOnly` tiering policies.
-- This reduced throughput remains in effect even if the cool access feature is subsequently turned off for the volume.  
+>[!IMPORTANT]
+>Throughput calculations for cool access with the Premium and Ultra service levels depends on the QoS of the capacity pool and the amount of data in the cool tier. To learn more, see [Throughput in the Premium and Ultra service levels](cool-access-introduction.md#throughput-for-premium-and-ultra-service-levels).
+
 - When cool access is enabled on a volume, you benefit from a reduced price. You don't receive additional discounts specifically for the reduced bandwidth. Instead, you pay the cool access price, which inherently includes the reduced throughput. 
 
 ### Considerations for deleting data on a cool access enabled volume
@@ -71,7 +74,6 @@ There are several considerations to be aware of when using cool access.
 
 - **Data rehydration:** Data isn't rehydrated to the hot tier when the volume is deleted, ensuring the deletion process is efficient and mitigating unnecessary data movement. 
     - The only way to rehydrate data from the cool tier to the hot tier is for the client or application to read the data block. 
-
 
 ### Considerations for cross-region and cross-zone replication 
 
@@ -88,55 +90,9 @@ There are several considerations to be aware of when using cool access.
 
 ## Enable cool access 
 
-You must register for cool access with the Flexible, Premium, or Ultra service levels before you can enable it at the capacity pool and volume levels. No registration is required for the Standard service level. 
+You must register for cool access with the Flexible service level before you can enable it at the capacity pool and volume levels. No registration is required for the Standard, Premium and Ultra service levels. 
 
-### Register the feature 
-
-# [Ultra](#tab/ultra)
-
-Before using cool access at the Ultra service level for the first time, you need to register the feature. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra 
-    ```
-
-2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessUltra
-    ```
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-# [Premium](#tab/premium)
-
-Before using cool access at the Premium service level for the first time, you need to register the feature. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium 
-    ```
-
-2. Check the status of the feature registration: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessPremium
-    ```
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-# [Standard](#tab/standard)
-
-No registration is required to use cool access at the Standard service level.
-
-# [Flexible](#tab/flexible)
+### Register the feature
 
 You must register cool access with the Flexible service level before using it. 
 
@@ -156,7 +112,6 @@ You must register cool access with the Flexible service level before using it.
 
     You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
     
----
 
 ### Configure the capacity pool for cool access
 
@@ -168,7 +123,7 @@ Before you create or enable a cool-access volume, configure a capacity pool with
 #### <a name="enable-cool-access-new-pool"></a> Enable cool access on a new capacity pool
 
 1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).  
-1. Select the **Enable Cool Access** checkbox, and then select **Create**.
+1. When creating the capacity pool, select the **Enable Cool Access** checkbox.
 
 #### <a name="enable-cool-access-existing-pool"></a> Enable cool access on an existing capacity pool  
 

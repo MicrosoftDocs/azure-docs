@@ -2,14 +2,14 @@
 metadata:
   title: Back up Azure Files FAQ
   description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-  ms.date: 06/11/2025
+  ms.date: 02/17/2026
   ms.topic: faq
   ms.service: azure-backup
   author: AbhishekMallick-MS
   ms.author: v-mallicka
 title: Frequently asked questions about backing up Azure Files
 summary: |
-  This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [Microsoft Q&A question page for discussion](/answers/topics/azure-backup.html).
+  This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [Microsoft Q&A question page for discussion](/answers/topics/azure-backup.html). To learn about the supported Azure Files backup and restore scenarios, region availability, and limitations, see the [support matrix](azure-file-share-support-matrix.md).
   
   To quickly scan the sections in this article, use the links to the right, under **In this article**.
   
@@ -112,7 +112,11 @@ sections:
           Will the retention policy delete a recovery point selected for restore  before the restore operation completes?
         answer: |
           No. Azure Backup takes a lease on the recovery point during restore, ensuring it isn't deleted before completion.
-
+          
+      - question: |
+          What are the permissions used by Azure Backup during backup and restore operation?
+        answer: |
+          Azure Backup uses key-based access for backup and restore operations. Ensure that you [enable keys access](../storage/common/shared-key-authorization-prevent.md?tabs=portal) on both source and target storage accounts, even if using identity-based access is configured.
 
   - name: Manage backup
     questions:

@@ -25,29 +25,37 @@ Advanced network features enhance the virtual networking experience, offering im
 * Australia East
 * Australia Southeast
 * Brazil South
+* Brazil Southeast
 * Canada Central
+* Canada East
 * Central India
 * Central US 
 * East US 
 * East US2
 * France Central
+* France South
 * Germany North
 * Germany West Central
+* India South
 * Italy North 
 * Japan East
 * Japan West
+* North Central US
 * North Europe
 * South Central US
+* South India
 * Southeast Asia
 * Spain Central
 * Sweden Central
+* Switzerland North
 * UAE Central
 * UAE North
 * UK South 
 * UK West
 * US West
 * US West 2
-* US West 3 
+* US West 3
+* West Europe
 
 
 
@@ -87,6 +95,8 @@ The following table describes the network topologies that are supported by each 
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|Yes|
 |Connectivity from an Oracle AI Database cluster on Oracle AI Database@Azure nodes to Azure resources|Yes|Yes|
 |Azure Container Apps supported for advanced network features|No|Yes|
+|Connectivity from Azure NetApp Files with Basic network features (ANF and Oracle Database@Azure must be deployed in separate VNETs)|No|Yes|
+|Connectivity from Azure NetApp Files with Standard network features (ANF and Oracle Database@Azure must be deployed in separate VNETs)|Yes|Yes
 
 ## Constraints
 
@@ -105,6 +115,8 @@ The following table describes required configurations of supported network featu
 |Dual stack (IPv4 and IPv6) virtual network|Only IPv4 is supported| Only IPv4 is supported|
 | Service tags support| No | Yes | 
 |Virtual network flow logs| No | Yes |
+|Connecting to ODAA instances via Private Endpoint | No | No |
+|Standard V2 NAT GW support | No | No |
 
 > [!NOTE]
 > When using NSGs (Network Security Groups) on the Azure side, ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. Misalignment between these policies could lead to unintended access issues or operational disruptions. 
@@ -147,7 +159,7 @@ When routing traffic to Oracle AI Database@Azure through a Network Virtual Appli
 > 
 > For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall.
 
- 
+
 
 ## FAQ 
 ### What are advanced network features? 

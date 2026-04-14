@@ -5,7 +5,7 @@ ms.author: yexu
 author: dearandyxu
 ms.reviewer: douglasl, whhender
 ms.topic: tutorial
-ms.date: 10/03/2024
+ms.date: 02/04/2026
 ms.subservice: data-movement
 ms.custom:
   - devx-track-azurepowershell
@@ -59,7 +59,7 @@ Here are the important steps to create this solution:
     :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png" alt-text="Incrementally load data":::
 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 ## Prerequisites
 
@@ -68,9 +68,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create source tables in your SQL Server database
 
-1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
+1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code), and connect to your SQL Server database.
 
-2. In **Server Explorer (SSMS)** or in the **Connections pane (Azure Data Studio)**, right-click the database and choose **New Query**.
+2. In **Server Explorer (SSMS)** or in the **Connections pane (Visual Studio Code)**, right-click the database and choose **New Query**.
 
 3. Run the following SQL command against your database to create tables named `customer_table` and `project_table`:
 
@@ -107,9 +107,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create destination tables in your Azure SQL Database
 
-1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/azure-data-studio/download-azure-data-studio), and connect to your SQL Server database.
+1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code), and connect to your SQL Server database.
 
-2. In **Server Explorer (SSMS)** or in the **Connections pane (Azure Data Studio)**, right-click the database and choose **New Query**.
+2. In **Server Explorer (SSMS)** or in the **Connections pane (Visual Studio Code)**, right-click the database and choose **New Query**.
 
 3. Run the following SQL command against your database to create tables named `customer_table` and `project_table`:
 

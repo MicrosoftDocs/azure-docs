@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project.
-ms.date: 04/25/2024
+ms.date: 02/26/2026
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp
@@ -25,10 +25,10 @@ This article shows you how to use Visual Studio Code to connect [Azure Cosmos DB
 Before you begin, you must complete the [quickstart: Create a C# function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-csharp). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-javascript?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the [quickstart: Create a JavaScript function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-javascript). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 
 >[!NOTE]
->This article currently only supports [Node.js v3 for Functions](./functions-reference-node.md?pivots=nodejs-model-v3).   
+>This article supports [Node.js v4 for Functions](./functions-reference-node.md?pivots=nodejs-model-v4).  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 Before you begin, you must complete the [quickstart: Create a Python function in Azure using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-python). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
@@ -170,9 +170,9 @@ In this code, `arg_name` identifies the binding parameter referenced in your cod
 ## Add code that uses the output binding
 
 ::: zone pivot="programming-language-csharp"  
-Replace the existing Run method with the following code:
+Replace the existing `Run` method with the following code:
 
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db-isolated/HttpExample.cs" range="11-34":::
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db-isolated/HttpExample.cs" range="17-34":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"   
@@ -188,7 +188,7 @@ This code now returns a `MultiResponse` object that contains both a document and
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-Update *HttpExample\\function_app.py* to match the following code. Add the `outputDocument` parameter to the function definition and `outputDocument.set()` under the `if name:` statement:
+Update *function_app.py* to match the following code. Add the `outputDocument` parameter to the function definition and `outputDocument.set()` under the `if name:` statement:
 
 ```python
 import azure.functions as func
@@ -197,9 +197,9 @@ import logging
 app = func.FunctionApp()
 
 @app.function_name(name="HttpTrigger1")
-@app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
+@app.route(route="hello", auth_level=func.AuthLevel.FUNCTION)
 @app.queue_output(arg_name="msg", queue_name="outqueue", connection="AzureWebJobsStorage")
-@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", container_name="my-container", connection="CosmosDbConnectionSetting")
+@app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", container_name="my-container", connection="CosmosDbConnectionString")
 def test_function(req: func.HttpRequest, msg: func.Out[func.QueueMessage],
     outputDocument: func.Out[func.Document]) -> func.HttpResponse:
      logging.info('Python HTTP trigger function processed a request.')
@@ -259,7 +259,7 @@ The document `{"id": "name"}` is created in the database collection specified in
 
 1. Choose the function app that you created in the first article. Because you're redeploying your project to the same app, select **Deploy** to dismiss the warning about overwriting files.
 
-1. After deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
+1. After deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure. This command automatically retrieves the function access key and uses it when calling the HTTP trigger endpoint.
 
 1. Again [check the documents created in your Azure Cosmos DB container](#verify-that-a-json-document-has-been-created) to verify that the output binding again generates a new JSON document.
 

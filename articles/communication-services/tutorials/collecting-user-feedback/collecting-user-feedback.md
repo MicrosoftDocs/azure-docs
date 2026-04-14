@@ -19,7 +19,7 @@ This comprehensive guide is designed to assist developers in integrating enhance
 
 ## Prerequisites
 
-- **Azure Subscription:** You need an active Azure subscription. If you don't have one, you can create a free account at [Azure Free Account](https://azure.microsoft.com/free/).
+- **Azure Subscription:** You need an active Azure subscription. If you don't have one, you can create a free account at [Azure Free Account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **Azure Communication Services Resource:** An ACS resource is required to use calling and chat functionalities. You can create one in the Azure portal.
 - **Development Environment Setup:** Ensure that your development environment is set up for one or more target platforms – Android, iOS, or web.
 - **Azure Storage Account:** For storing user feedback and related data securely, an Azure Storage account is necessary. 

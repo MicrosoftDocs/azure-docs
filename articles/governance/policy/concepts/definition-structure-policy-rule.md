@@ -2,7 +2,7 @@
 title: Details of the policy definition structure policy rules
 description: Describes how policy definition policy rules are used to establish conventions for Azure resources in your organization.
 ms.date: 03/19/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Azure Policy definition structure policy rule
@@ -81,6 +81,8 @@ A condition evaluates whether a value meets certain criteria. The supported cond
 - `"exists": "bool"`
 
 For `less`, `lessOrEquals`, `greater`, and `greaterOrEquals`, if the property type doesn't match the condition type, an error is thrown. String comparisons are made using `InvariantCultureIgnoreCase`.
+
+When using the `contains` and `notContains` conditions, the wildcard character (`*`) cannot be provided in the value.
 
 When using the `like` and `notLike` conditions, you provide a wildcard character (`*`) in the value. The value shouldn't have more than one wildcard character.
 
@@ -636,6 +638,37 @@ The following functions are only available in policy rules:
 - `requestContext().apiVersion`
   - Returns the API version of the request that triggered policy evaluation (example: `2021-09-01`). This value is the API version that was used in the PUT/PATCH request for evaluations on resource creation/update. The latest API version is always used during compliance evaluation on existing resources.
 
+- `requestContext().identity` 
+  - `idtyp`: returns the request caller's identity that triggered policy evaluation (example: `user`). Accepted values include: `app`, `user`, `null`.
+ 
+      ```json
+      {
+      "value": "[tryGet(requestContext().identity, 'idtyp')]",
+      "equals": "user"
+      }
+    ```
+  - `appid`: returns the client application ID that the request was executed from (example: Portal's application ID)
+     ```json
+     {
+      "value": "[tryGet(requestContext().identity, 'appid')]",
+      "notIn": "[parameters('allowedClientAppIds')]"
+     }
+    ```
+  
+  - `acrs`: returns whether a request was authenticated with multi-factor authentication (MFA)
+ 
+    ```json
+      {
+       "value": "p1",
+       "notIn": "[split(requestContext().identity.acrs, ',')]"
+      }
+    ```
+
+  - `http: //schemas.microsoft.com/identity/claims/objectidentifier`: returns the user (or object) ID associated with the request.
+  ```json
+   "value": "[tryGet(requestContext().identity, 'http: //schemas.microsoft.com/identity/claims/objectidentifier')]",
+   "in": ['userId']
+```
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).
 

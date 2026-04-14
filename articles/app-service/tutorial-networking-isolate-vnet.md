@@ -3,7 +3,7 @@ title: 'Tutorial: Isolate back-end communication with Virtual Network integratio
 description: Connections from App Service to back-end services are routed through shared network infrastructure with other apps and subscriptions. Learn how to isolate traffic by using Virtual Network integration.
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 10/26/2021
+ms.date: 02/05/2026
 
 ms.reviewer: jordanselig
 author: cephalin
@@ -13,7 +13,7 @@ ms.service: azure-app-service
 
 # Tutorial: Isolate back-end communication in Azure App Service with Virtual Network integration
 
-In this article you will configure an App Service app with secure, network-isolated communication to backend services. The example scenario used is in [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-key-vault.md). When you're finished, you have an App Service app that accesses both Key Vault and Azure AI services through an [Azure virtual network](../virtual-network/virtual-networks-overview.md), and no other traffic is allowed to access those back-end resources. All traffic will be isolated within your virtual network using [virtual network integration](web-sites-integrate-with-vnet.md) and [private endpoints](../private-link/private-endpoint-overview.md).
+In this article you will configure an App Service app with secure, network-isolated communication to backend services. The example scenario used is in [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-key-vault.md). When you're finished, you have an App Service app that accesses both Key Vault and Foundry Tools through an [Azure virtual network](../virtual-network/virtual-networks-overview.md), and no other traffic is allowed to access those back-end resources. All traffic will be isolated within your virtual network using [virtual network integration](web-sites-integrate-with-vnet.md) and [private endpoints](../private-link/private-endpoint-overview.md).
 
 As a multi-tenanted service, outbound network traffic from your App Service app to other Azure services shares the same environment with other apps or even other subscriptions. While the traffic itself can be encrypted, certain scenarios may require an extra level of security by isolating back-end communication from other network traffic. These scenarios are typically accessible to large enterprises with a high level of expertise, but App Service puts it within reach with virtual network integration.  
 
@@ -45,6 +45,9 @@ The tutorial continues to use the following environment variables from the previ
     csResourceName=<cs-resource-name>
     appName=<app-name>
     vaultName=<vault-name>
+    planName=<plan-name>
+    csResourceKVUri=<cs-resource-kv-uri>
+    csKeyKVUri=<cs-key-kv-uri>
 ```
 
 ## Create virtual network and subnets
@@ -61,7 +64,7 @@ The tutorial continues to use the following environment variables from the previ
 1. Create a subnet for the App Service virtual network integration.
 
     ```azurecli-interactive
-    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name vnet-integration-subnet --address-prefixes 10.0.0.0/24 --delegations Microsoft.Web/serverfarms --disable-private-endpoint-network-policies false
+    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name vnet-integration-subnet --address-prefixes 10.0.0.0/24 --delegations Microsoft.Web/serverfarms --private-endpoint-network-policies Enabled
     ```
 
     For App Service, the virtual network integration subnet is recommended to have a CIDR block of `/26` at a minimum (see [Virtual network integration subnet requirements](overview-vnet-integration.md#subnet-requirements)). `/24` is more than sufficient. `--delegations Microsoft.Web/serverfarms` specifies that the subnet is [delegated for App Service virtual network integration](../virtual-network/subnet-delegation-overview.md).
@@ -69,7 +72,7 @@ The tutorial continues to use the following environment variables from the previ
 1. Create another subnet for the private endpoints.
 
     ```azurecli-interactive
-    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name private-endpoint-subnet --address-prefixes 10.0.1.0/24 --disable-private-endpoint-network-policies true
+    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name private-endpoint-subnet --address-prefixes 10.0.1.0/24 --private-endpoint-network-policies Disabled
     ```
 
     For private endpoint subnets, you must [disable private endpoint network policies](../private-link/disable-private-endpoint-network-policy.md).
@@ -105,7 +108,7 @@ Because your Key Vault and Azure AI services resources will sit behind [private 
     az network private-endpoint create --resource-group $groupName --name securecstext-pe --location $region --connection-name securecstext-pc --private-connection-resource-id $csResourceId --group-id account --vnet-name $vnetName --subnet private-endpoint-subnet
     ```
 
-1. Create a DNS zone group for the Azure AI services private endpoint. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint.  
+1. Create a DNS zone group for the Azure AI Services private endpoint. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint.  
 
     ```azurecli-interactive
     az network private-endpoint dns-zone-group create --resource-group $groupName --endpoint-name securecstext-pe --name securecstext-zg --private-dns-zone privatelink.cognitiveservices.azure.com --zone-name privatelink.cognitiveservices.azure.com
@@ -114,7 +117,7 @@ Because your Key Vault and Azure AI services resources will sit behind [private 
 1. Block public traffic to the Azure AI services resource.
 
     ```azurecli-interactive
-    az rest --uri $csResourceId?api-version=2021-04-30 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
+    az rest --uri $csResourceId?api-version=2024-10-01 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
 
     # Repeat following command until output is "Succeeded"
     az cognitiveservices account show --resource-group $groupName --name $csResourceName --query properties.provisioningState
@@ -153,7 +156,7 @@ The two private endpoints are only accessible to clients inside the virtual netw
 1. Scale the app up to a supported pricing tier (see [Integrate your app with an Azure virtual network](overview-vnet-integration.md)).
 
     ```azurecli-interactive
-    az appservice plan update --name $appName --resource-group $groupName --sku S1
+    az appservice plan update --name $planName --resource-group $groupName --sku S1
     ```
 
 1. Unrelated to our scenario but also important, enforce HTTPS for inbound requests.
@@ -170,7 +173,7 @@ The two private endpoints are only accessible to clients inside the virtual netw
     
     Virtual network integration allows outbound traffic to flow directly into the virtual network. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the virtual network, which is what you need for the private endpoints. To route all your traffic to the virtual network, see [Manage virtual network integration routing](configure-vnet-integration-routing.md). Routing all traffic can also be used if you want to route internet traffic through your virtual network, such as through an [Azure Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
 
-1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the integration to take effect. If you get an HTTP 500 error, wait a few minutes and try again. If you can load the page and get detection results, then you're connecting to the Azure AI services endpoint with key vault references.
+1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the integration to take effect. If you get an HTTP 500 error, wait a few minutes and try again. If you can load the page and get detection results, then you're connecting to the Azure AI Services endpoint with key vault references.
 
     >[!NOTE]
     > If keep getting HTTP 500 errors after a long time, it may help to force a refetch of the [key vault references](app-service-key-vault-references.md) again, like so:

@@ -9,7 +9,7 @@ ms.author: pgrandhi
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install the [Azure Az PowerShell Module](/powershell/azure/).
 - An [Azure Communication Services resource](../../create-communication-resource.md).
 - To receive events, create a Webhook. See [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md).

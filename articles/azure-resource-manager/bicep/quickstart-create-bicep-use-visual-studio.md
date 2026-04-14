@@ -1,7 +1,7 @@
 ---
 title: Create Bicep files - Visual Studio
 description: Use Visual Studio and the Bicep extension to create Bicep files for deploy Azure resources.
-ms.date: 03/17/2025
+ms.date: 12/22/2025
 ms.topic: quickstart
 ms.custom: devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio to create and edit Bicep files, so I can use them to deploy Azure resources.
@@ -9,34 +9,34 @@ ms.custom: devx-track-bicep
 
 # Quickstart: Create Bicep files with Visual Studio
 
-This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio. You'll create a storage account and a virtual network. You'll also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
+This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio. You create a storage account and a virtual network. You also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
 
-Similar authoring experience is also supported in Visual Studio Code.  See [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+Similar authoring experience is also supported in Visual Studio Code. See [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 
 ## Prerequisites
 
-- Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- Visual Studio version 17.3.0 preview 3 or newer.  See [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/).
-- Visual Studio Bicep extension.  See [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
+- Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+- Visual Studio version 17.3.0 preview 3 or newer. See [Visual Studio Preview](https://visualstudio.microsoft.com/vs/preview/).
+- Visual Studio Bicep extension. See [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
 - Bicep file deployment requires either the latest [Azure CLI](/cli/azure/) or the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 
 ## Add resource snippet
 
 Launch Visual Studio and create a new file named **main.bicep**.
 
-Visual Studio with the Bicep extension simplifies development by providing pre-defined snippets. In this quickstart, you'll add a snippet that creates a virtual network.
+Visual Studio with the Bicep extension simplifies development by providing predefined snippets. In this quickstart, you add a snippet that creates a virtual network.
 
 In *main.bicep*, type **vnet**. Select **res-vnet** from the list, and then press **[TAB]** or **[ENTER]**.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio/add-snippet.png" alt-text="Screenshot of adding snippet for virtual network.":::
 
 > [!TIP]
-> If you don't see those intellisense options in Visual Studio, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, but you will not have intellisense options until it starts.
+> If you don't see those intellisense options in Visual Studio, make sure you've installed the Bicep extension as specified in [Prerequisites](#prerequisites). If you have installed the extension, give the Bicep language service some time to start after opening your Bicep file. It usually starts quickly, but you won't have intellisense options until it starts.
 
 Your Bicep file now contains the following code:
 
 ```bicep
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'name'
   location: location
   properties: {
@@ -73,7 +73,7 @@ Notice **location** has a red curly underline. This indicates a problem. Hover y
 
 ## Add parameters
 
-Now, we'll add two parameters for the storage account name and the location. At the top of file, add:
+Now, we add two parameters for the storage account name and the location. At the top of file, add:
 
 ```bicep
 param storageName
@@ -89,7 +89,7 @@ You have the following parameter:
 param storageName string
 ```
 
-This parameter works fine, but storage accounts have limits on the length of the name. The name must have at least 3 characters and no more than 24 characters. You can specify those requirements by adding decorators to the parameter.
+This parameter works fine, but storage accounts have limits on the length of the name. The name must have at least three characters and no more than 24 characters. You can specify those requirements by adding decorators to the parameter.
 
 Add a line above the parameter, and type **@**. You see the available decorators. Notice there are decorators for both **minLength** and **maxLength**.
 
@@ -122,9 +122,9 @@ param location string = resourceGroup().location
 
 ## Add resource
 
-Instead of using a snippet to define the storage account, we'll use intellisense to set the values. Intellisense makes this step much easier than having to manually type the values.
+Instead of using a snippet to define the storage account, we use intellisense to set the values. Intellisense makes this step easier than having to manually type the values.
 
-To define a resource, use the `resource` keyword.  Below your virtual network, type **resource exampleStorage**:
+To define a resource, use the `resource` keyword. Below your virtual network, type **resource exampleStorage**:
 
 ```bicep
 resource exampleStorage
@@ -147,7 +147,7 @@ After the single quote for the resource type, add `=` and a space. You're presen
 This option adds all of the properties for the resource type that are required for deployment. After selecting this option, your storage account has the following properties:
 
 ```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
 	name: 1
 	location: 2
 	sku: {
@@ -168,7 +168,7 @@ When you've finished, you have:
 param storageName string
 param location string = resourceGroup().location
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: storageName
   location: location
   properties: {
@@ -194,7 +194,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   }
 }
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageName
   location: location
   sku: {
@@ -208,7 +208,7 @@ For more information about the Bicep syntax, see [Bicep structure](./file.md).
 
 ## Deploy the Bicep file
 
-Bicep file deployment can't be done from Visual Studio yet.  You can deploy the Bicep file by using Azure CLI or Azure PowerShell:
+Bicep file deployment can't be done from Visual Studio yet. You can deploy the Bicep file by using Azure CLI or Azure PowerShell:
 
 # [CLI](#tab/CLI)
 
@@ -251,4 +251,4 @@ Remove-AzResourceGroup -Name exampleRG
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn modules for Bicep](learn-bicep.md)
+> [Create Bicep files by using Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md)

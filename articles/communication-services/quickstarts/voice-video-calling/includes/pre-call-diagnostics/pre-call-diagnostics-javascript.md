@@ -2,12 +2,12 @@
 title: Azure Communication Services pre-call diagnostics
 titleSuffix: An Azure Communication Services concept document
 description: Overview of the pre-call diagnostic API feature.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 12/12/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ---
 
@@ -19,7 +19,7 @@ The pre-call API feature enables developers to programmatically validate a clien
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 - An active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - A User Access Token to instantiate the call client. Learn how to [create and manage user access tokens](../../../identity/access-tokens.md). You can also use the Azure CLI and run the next command with your connection string to create a user and an access token. Remember to copy the connection string from the resource through Azure portal.

@@ -11,7 +11,7 @@ ms.date: 09/05/2023
 
 # How to mask sensitive data on Azure Web Application Firewall
 
-The Web Application Firewall's (WAF's) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive data. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
+The Web Application Firewall's (WAF's) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive data. In order to work correctly, your content-type header and request body type must match. Once specified sensitive content is identified, the tool scrubs that information from your logs and replaces it with _*******_.
 
 > [!NOTE]
 > The log scrubbing feature is only supported on Web Application Firewalls running the [latest WAF engine](waf-engine.md).  Select OWASP CRS 3.2 or Default Rule Set 2.1 as the managed rule set.

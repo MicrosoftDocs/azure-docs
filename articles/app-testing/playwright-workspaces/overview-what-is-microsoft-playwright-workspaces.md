@@ -1,7 +1,7 @@
 ---
 title: What is Playwright Workspaces?
 titleSuffix: Playwright Workspaces
-description: 'Playwright Workspaces is a fully managed service for end-to-end testing built on top of Playwright. Run Playwright tests with high parallelization across different operating system and browser combinations simultaneously.'
+description: 'Run Playwright tests with high parallelization across different OS and browser combinations using Playwright Workspaces, a fully managed testing service.'
 ms.topic: overview
 ms.date: 08/07/2025
 ms.service: azure-app-testing

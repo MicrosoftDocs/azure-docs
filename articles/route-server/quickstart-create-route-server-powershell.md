@@ -23,7 +23,7 @@ By completing this quickstart, you have a functioning Route Server that can faci
 
 Before you begin, ensure you have the following requirements:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Familiarity with [Azure Route Server service limits](route-server-faq.md#limitations).
 - Access to Azure Cloud Shell or Azure PowerShell installed locally.
 
@@ -76,11 +76,16 @@ Route Server requires a public IP address to ensure connectivity to the backend 
     $publicIp = New-AzPublicIpAddress -ResourceGroupName 'myResourceGroup' -Name 'myRouteServerIP' -Location 'EastUS' -AllocationMethod 'Static' -Sku 'Standard' -IpAddressVersion 'Ipv4'
     ```
 
+1. Configure Route Server's capacity using the [New-AzVirtualRouterAutoScaleConfiguration](/powershell/module/az.network/new-azvirtualrouterautoscaleconfiguration) cmdlet. For more information, see [Route Server Capacity](route-server-capacity.md).
+     ```azurepowershell-interactive
+    $autoscale = New-AzVirtualRouterAutoScaleConfiguration -MinCapacity 4
+    ```
+
 1. Create the Route Server using the [New-AzRouteServer](/powershell/module/az.network/new-azrouteserver) cmdlet:
 
     ```azurepowershell-interactive
     # Create the Route Server
-    New-AzRouteServer -RouteServerName 'myRouteServer' -ResourceGroupName 'myResourceGroup' -Location 'EastUS' -HostedSubnet $subnetId -PublicIP $publicIp
+    New-AzRouteServer -RouteServerName 'myRouteServer' -ResourceGroupName 'myResourceGroup' -Location 'EastUS' -HostedSubnet $subnetId -PublicIP $publicIp -VirtualRouterAutoScaleConfiguration $autoscale
     ```
 
     [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]

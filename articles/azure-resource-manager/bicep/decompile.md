@@ -3,7 +3,7 @@ title: Decompile a JSON Azure Resource Manager template to Bicep
 description: Learn the commands for decompiling JSON Azure Resource Manager templates to Bicep files.
 ms.topic: how-to
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 03/25/2025
+ms.date: 10/30/2025
 ---
 
 # Decompile a JSON Azure Resource Manager template to Bicep
@@ -72,7 +72,7 @@ Suppose you have the following ARM template:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-04-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -108,7 +108,7 @@ param location string = resourceGroup().location
 
 var storageAccountName = 'store${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -132,7 +132,7 @@ To rename across the file, right-click the name, and then select **Rename symbol
 The resource has a symbolic name that you might want to change. Instead of `storageAccountName` for the symbolic name, use `exampleStorage`.
 
 ```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
 ```
 
 The complete file is:
@@ -152,7 +152,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = 'store${uniqueString(resourceGroup().id)}'
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {

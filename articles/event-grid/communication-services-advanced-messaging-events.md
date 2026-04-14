@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services - Advanced Messaging events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for Advanced Messaging Events.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/15/2024
 author: shamkh
 ms.author: shamkh
@@ -21,7 +21,6 @@ Azure Communication Services emits the following Advanced Messaging event types:
 | --- | --- |
 | [Microsoft.Communication.AdvancedMessageReceived](#microsoftcommunicationadvancedmessagereceived-event) | Published when Communication Services Advanced Messaging receives a message. |
 | [Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated](#microsoftcommunicationadvancedmessagedeliverystatusupdated-event) | Published when Communication Services Advanced Messaging receives a status update for a previously sent message notification. |
-| [Microsoft.Communication.AdvancedMessageAnalysisCompleted(Preview)](#microsoftcommunicationadvancedmessageanalysiscompletedpreview-event) | Published when Communication Service completes an AI Analysis with a customer message. |
 
 ## Event responses
 
@@ -37,6 +36,9 @@ Example scenario: A WhatsApp user sends a WhatsApp message to a WhatsApp Busines
 
 #### Attribute list
 
+> [!WARNING]
+> **Breaking change:** The `from` field may now be empty when a WhatsApp user has adopted a username and hidden their phone number. Update your event handlers to use the new `fromBSUID` field instead of relying solely on `from`. For more information, see [WhatsApp usernames and BSUIDs](/azure/communication-services/concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview).
+
 Details for the attributes specific to `Microsoft.Communication.AdvancedMessageReceived` events.
 
 | Attribute  | Type  | Nullable | Description |
@@ -44,7 +46,8 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 | channelType  | `string` | ❌ | Channel type of the channel that the message was sent on. For example: `"whatsapp"`. |
 | messageId  | `string` | ❌ | Message Id of the message receive event as GUID. |
 | messageType  | `string` | ❌ | Message Type of the message receive event. Such as: `"interactive"`, `"sticker"`, `"reaction"`. |
-| from    | `string` | ❌ | Sender ID that sent the message.  |
+| from    | `string` | ✔️ | Sender ID that sent the message. May be empty when the sender has adopted a WhatsApp username and hidden their phone number.  |
+| fromBSUID | `string` | ✔️ | The sender's business-scoped user ID (BSUID). Present for all WhatsApp messages when available, regardless of whether the user adopted a username. For more information, see [WhatsApp usernames and BSUIDs](/azure/communication-services/concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview). |
 | to | `string` | ❌ | The channel ID that received the message, formatted as a GUID.  |
 | receivedTimestamp | `DateTimeOffset`   | ❌ | Timestamp when the message is received.|
 | content | `string` | ✔️ | The text content in the message.  |
@@ -119,6 +122,9 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
 
 #### Examples
 
+> [!WARNING]
+> **Breaking change:** The `subject` field uses the format `advancedMessage/sender/{sender@id}/recipient/{channel-id}`. When a user hides their phone number, `{sender@id}` contains a BSUID instead of a phone number. If you have Event Grid subscriptions with subject filters or automation code that parses the subject, update them to handle BSUID values. For more information, see [WhatsApp usernames and BSUIDs](/azure/communication-services/concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview).
+
 ##### Text message received
 
 ```json
@@ -131,6 +137,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "messageType": "text",
     "from": "{sender@id}",
+    "fromBSUID": "{sender-bsuid}",
     "to": "{channel-id}",
     "receivedTimestamp": "2023-07-06T18:30:19+00:00"
   },
@@ -346,13 +353,17 @@ Example scenario: Contoso uses an active Advanced Messaging channel connected to
 
 #### Attribute list
 
+> [!WARNING]
+> **Breaking change:** The `to` field may now be empty when the message was sent to a BSUID. Update your event handlers to use the new `toBSUID` field instead of relying solely on `to`. For more information, see [WhatsApp usernames and BSUIDs](/azure/communication-services/concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview).
+
 Details for the attributes specific to `Microsoft.Communication.AdvancedMessageReceived` events.
 
 | Attribute | Type | Nullable | Description |
 |:--------- |:---:|:--------:| --- |
 | channelType | `string` | ❌ | Channel type of the channel that the message was sent on. |
-| from | `string` | ❌ | The channel ID that sent the message, formatted as a GUID. |
-| to   | `string` | ❌ | Recipient ID that the message was sent to. |
+| from | `string` | ✔️ | The channel ID that sent the message, formatted as a GUID. |
+| to   | `string` | ✔️ | Recipient ID that the message was sent to. May be empty when the message was sent to a BSUID. |
+| toBSUID | `string` | ✔️ | The recipient's business-scoped user ID (BSUID). Present when available, regardless of whether the user adopted a username. For more information, see [WhatsApp usernames and BSUIDs](/azure/communication-services/concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview). |
 | receivedTimestamp | `DateTimeOffset` | ❌ | Timestamp of the message. |
 | messageId | `string` | ✔️ | The ID of the message, formatted as a GUID. |
 | status    | `string` | ✔️ | Status of the message. Possible values include `Sent`, `Delivered`, `Read`, and `Failed`. For more information, see [Status](#status). |
@@ -389,6 +400,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "from": "{sender@id}",
     "to": "{receiver@id}",
+    "toBSUID": "{receiver-bsuid}",
     "receivedTimestamp": "2023-07-06T18:42:28+00:00"
   },
   "eventType": "Microsoft.Communication.AdvancedMessageDeliveryStatusUpdated",
@@ -411,6 +423,7 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
     "channelType": "whatsapp",
     "from": "{sender@id}",
     "to": "{receiver@id}",
+    "toBSUID": "{receiver-bsuid}",
     "receivedTimestamp": "2023-07-06T18:42:28+00:00",
     "error": {
  "channelCode": "131026",
@@ -421,69 +434,6 @@ Details for the attributes specific to `Microsoft.Communication.AdvancedMessageR
   "dataVersion": "1.0",
   "metadataVersion": "1",
   "eventTime": "2023-07-06T18:42:28.8454662Z"
-}]
-```
-
-
-### Microsoft.Communication.AdvancedMessageAnalysisCompleted(Preview) event
-
-Published when Communication Service completes an AI Analysis with a customer message.
-
-Example scenario: A WhatsApp user sends a message to a WhatsApp Business Number connected to an active Advanced Messaging channel in a Communication Services resource that opted in for Message Analysis feature. As a result, the system publishes a `Microsoft.Communication.AdvancedMessageAnalysisCompleted` with the analysis of the user's WhatsApp message.
-
-#### Attribute list
-
-Details for the attributes specific to `Microsoft.Communication.AdvancedMessageAnalysisCompleted` events.
-
-| Attribute | Type | Nullable | Description |
-|:--------- |:---:|:---:| --- |
-| channelType  | `string` | ✔️ | Channel type of the channel that the message was sent on.   |
-| from    | `string` | ✔️ | The channel ID that sent the message, formatted as a GUID.  |
-| to | `string` | ✔️ | Recipient ID that the message was sent to.   |
-| receivedTimestamp | `DateTimeOffset` | ✔️ | Timestamp of the message. |
-| originalMessage    | `string` | ✔️ | The original user message.    |
-| intentAnalysis  | `string` | ✔️ | The intent analysis of the received user message.    |
-| languageDetection   | [`LanguageDetection`](#languagedetection) | ✔️ | Contains the language detection of the received user message.   |
-| extractedKeyPhrases   | `List<string>` | ✔️ | Contains the key phrases of  of the received user message.|
-
-##### LanguageDetection
-
-| Attribute | Type| Nullable | Description   |
-|:--------- |:---:|:---:| --- |
-| language    | `string` | ✔️ | The language detected.    |
-| confidenceScore | `float` | ✔️ | The confidence score of the language detected. |
-| translation | `string` | ✔️ | The message translation. |
-
-#### Examples
-
-##### Message analysis completed
-
-```json
-[{
-  "id": "df1c2d92-6155-4ad7-a865-cb8497106c52",
-  "topic": "/subscriptions/{subscription-id}/resourcegroups/{resourcegroup-name}/providers/microsoft.communication/communicationservices/acsxplatmsg-test",
-  "subject": "advancedMessage/sender/{sender@id}/recipient/00000000-0000-0000-0000-000000000000",
-  "data": {
-    "originalMessage": "Hello, could u help me order some flowers for Mother’s Day?",
-    "channelType": "whatsapp",
-    "languageDetection": {
- "language": "English",
- "confidenceScore": 0.99
-    },
-    "intentAnalysis": "Order request: The customer is contacting customer service to request assistance with ordering flowers for Mother's Day.",
-    "extractedKeyPhrases": [
- "order",
- "flowers",
- "Mother's Day"
-    ],
-    "from": "{sender@id}",
-    "to": "00000000-0000-0000-0000-000000000000",
-    "receivedTimestamp": "2024-07-05T19:10:35.28+00:00"
-  },
-  "eventType": "Microsoft.Communication.AdvancedMessageAnalysisCompleted",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2024-07-05T19:10:35.2806524Z"
 }]
 ```
 

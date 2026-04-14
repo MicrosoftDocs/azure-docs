@@ -20,7 +20,7 @@ In Azure Functions, input and output bindings provide a declarative way to make 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - Follow the directions in [Create your first function in the Azure portal](./functions-create-function-app-portal.md), omitting the **Clean up resources** step, to create the function app and function to use in this article.
 

@@ -24,6 +24,9 @@ You can configure a geo-filtering policy for your Azure Front Door instance by u
 > [!IMPORTANT]
 > Include the country code `ZZ` whenever you use geo-filtering. The `ZZ` country code (or `Unknown` country/region) captures IP addresses that aren't yet mapped to a country or region in our dataset. Use this code to avoid false positives.
 
+> [!Note]
+> You can only include a maximum of ten country/region codes in a single custom rule.
+
 ## Country/Region code reference
 
 |Country/Region code | Country/Region name |

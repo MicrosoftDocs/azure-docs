@@ -4,7 +4,7 @@ description: Understand the default Redis configuration for Azure Cache for Redi
 
 
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2024
 appliesto:
   - ✅ Azure Cache for Redis
@@ -13,6 +13,8 @@ ms.custom: engagement-fy23
 ---
 
 # How to configure Azure Cache for Redis
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 This article describes the configurations available for your Azure Cache for Redis instances. This article also covers the [default Redis server configuration](#default-redis-server-configuration) for Azure Cache for Redis instances.
 
@@ -68,7 +70,7 @@ Select **Activity log** to view actions done to your cache. You can also use fil
 
 ### Access control (IAM)
 
-The **Access control (IAM)** section provides support for Azure role-based access control (Azure RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Azure role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+The **Access control (IAM)** section provides support for Azure role-based access control (Azure RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Azure role-based access control in the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ### Tags
 

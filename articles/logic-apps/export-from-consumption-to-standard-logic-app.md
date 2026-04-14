@@ -1,13 +1,13 @@
 ---
-title: Export workflows from Consumption to Standard
-description: Export logic app workflows created in the consumption sku to a Standard logic app using Visual Studio Code.
+title: Export Workflows from Consumption to Standard
+description: Export Consumption logic app workflows to a Standard logic app using Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, wsilveira
+ms.reviewers: estfan, wsilveira, azla
 ms.topic: how-to
-ms.date: 02/19/2025
+ms.date: 10/27/2025
 ms.custom: sfi-image-nochange
-#Customer intent: As a developer, I want to export one or more Consumption workflows to a Standard workflow.
+#Customer intent: As an integration developer working with Azure Logic Apps, I want to export one or more Consumption workflows to a Standard workflow.
 ---
 
 # Export Consumption workflows to a Standard logic app
@@ -51,23 +51,25 @@ This article provides information about the export process and shows how to expo
 
 ## Prerequisites
 
-- One or more logic apps to deploy to the same subscription and Azure region, for example, East US 2.
+- An Azure account and subscription associated with the Consumption logic apps to export.
 
-- Azure reader subscription-level access to the subscription where the logic apps are currently deployed.
+- One or more Consumption logic apps to deploy to the same subscription and Azure region, for example, East US 2.
 
-- Azure contributor resource group-level access, if you select the option for **Deploy managed connectors**.
+- Azure [Reader](../role-based-access-control/built-in-roles/general.md#reader) subscription-level access to the subscription where the logic apps are currently deployed.
 
-- Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- Azure [Contributor](../role-based-access-control/built-in-roles/privileged.md#contributor) resource group-level access, if you want to later select the option for **Deploy managed connectors**.
 
-> [!NOTE]
->
-> Make sure to install version 2.0.16 or higher for the Azure Logic Apps (Standard) extension for 
-> Visual Studio Code. Some conversion scenarios require the latest workflow designer, which is 
-> available with this version.
+- [Visual Studio Code with the Azure Logic Apps (Standard) extension installed and their prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+
+  > [!NOTE]
+  >
+  > Make sure to install version 2.0.16 or higher for the Azure Logic Apps (Standard) extension for 
+  > Visual Studio Code. Some conversion scenarios require the latest workflow designer, which is 
+  > available with this version.
 
 ## Group logic apps for export
 
-With the Azure Logic Apps (Standard) extension, you can combine multiple Consumption logic app workflows into a single Standard logic app project. In single-tenant Azure Logic Apps, one Standard logic app resource can have multiple workflows. With this approach, you can pre-validate your workflows so that you don't miss any dependencies when you select logic apps for export.
+With the Azure Logic Apps (Standard) extension, you can combine multiple Consumption logic app workflows into a single Standard logic app project. In single-tenant Azure Logic Apps, one Standard logic app resource can have multiple workflows. With this approach, you can prevalidate your workflows so that you don't miss any dependencies when you select the logic apps to export.
 
 Consider the following recommendations when you select logic apps for export:
 
@@ -79,19 +81,19 @@ Consider the following recommendations when you select logic apps for export:
 
 ### Select logic apps for export
 
-1. In Visual Studio Code, sign in to Azure, if you haven't already.
+1. In Visual Studio Code, sign in to Azure.
 
 1. On the Visual Studio Code Activity Bar, select **Azure** to open the **Azure** window (Shift + Alt + A).
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-azure-view.png" alt-text="Screenshot showing Visual Studio Code Activity Bar with Azure icon selected." lightbox="media/export-from-consumption-to-standard-logic-app/select-azure-view.png":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-azure-view.png" alt-text="Screenshot shows Visual Studio Code Activity Bar with Azure icon selected." lightbox="media/export-from-consumption-to-standard-logic-app/select-azure-view.png":::
 
-1. On the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Export logic app**.
+1. On the **Workspace** toolbar, from the **Azure Logic Apps** menu, select **Export logic app**.
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-export-logic-app.png" alt-text="Screenshot showing Azure window, Workspace section toolbar, and Export Logic App selected." lightbox="media/export-from-consumption-to-standard-logic-app/select-export-logic-app.png":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-export-logic-app.png" alt-text="Screenshot shows Azure window, Workspace section toolbar, and Export Logic App selected." lightbox="media/export-from-consumption-to-standard-logic-app/select-export-logic-app.png":::
 
 1. After the **Export** tab opens, select your Azure subscription and region, and then select **Next**.
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-subscription-consumption.png" alt-text="Screenshot showing Export tab with Azure subscription and region selected." lightbox="media/export-from-consumption-to-standard-logic-app/select-subscription-consumption.png":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-subscription-consumption.png" alt-text="Screenshot shows Export tab with Azure subscription and region selected." lightbox="media/export-from-consumption-to-standard-logic-app/select-subscription-consumption.png":::
 
 1. Select the logic apps to export. Each selected logic app appears on the **Selected logic apps** list to the side.
 
@@ -122,13 +124,13 @@ Consider the following recommendations when you select logic apps for export:
 
      For example, **SourceLogicApp2** has an error and can't be exported until fixed:
 
-     :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-back-button-remove-app.png" alt-text="Screenshot showing 'Review export status' section and validation status for logic app workflow with error." lightbox="media/export-from-consumption-to-standard-logic-app/select-back-button-remove-app.png":::
+     :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-back-button-remove-app.png" alt-text="Screenshot shows Review export status section and validation status for logic app workflow with error." lightbox="media/export-from-consumption-to-standard-logic-app/select-back-button-remove-app.png":::
 
    - Logic apps that pass validation with or without warnings are still eligible for export. To continue, select **Export** if all apps validate successfully, or select **Export with warnings** if apps have warnings.
 
      For example, **SourceLogicApp3** has a warning, but you can still continue to export:
 
-     :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-export-with-warnings.png" alt-text="Screenshot showing 'Review export status' section and validation status for logic app workflow with warning." lightbox="media/export-from-consumption-to-standard-logic-app/select-export-with-warnings.png":::
+     :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-export-with-warnings.png" alt-text="Screenshot shows Review export status section and validation status for logic app workflow with warning." lightbox="media/export-from-consumption-to-standard-logic-app/select-export-with-warnings.png":::
 
    The following table provides more information about each validation icon and status:
 
@@ -140,27 +142,27 @@ Consider the following recommendations when you select logic apps for export:
 
 1. After the **Finish export** section appears, for **Export location**, browse and select a local folder for your new Standard logic app project.
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-local-folder.png" alt-text="Screenshot showing 'Finish export' section and 'Export location' property with selected local export project folder." lightbox="media/export-from-consumption-to-standard-logic-app/select-local-folder.png":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-local-folder.png" alt-text="Screenshot shows Finish export section and Export location property with selected local export project folder." lightbox="media/export-from-consumption-to-standard-logic-app/select-local-folder.png":::
 
-1. If your workflow has *managed* connections that you want to deploy, which is only recommended for non-production environments, select **Deploy managed connections**, which shows existing resource groups in your Azure subscription. Select the resource group where you want to deploy the managed connections.
+1. If your workflow has *managed* connections that you want to deploy, which is only recommended for non-production environments, select **Deploy managed connections**, which shows existing resource groups in your Azure subscription. Select an existing resource group or select **Create new** to create a resource group for where to deploy the managed connections.
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-deploy-managed-connections-resource-group.png" alt-text="Screenshot showing 'Finish export' section with selected local export folder, 'Deploy managed connections' selected, and target resource group selected." lightbox="media/export-from-consumption-to-standard-logic-app/select-deploy-managed-connections-resource-group.png":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/select-deploy-managed-connections-resource-group.png" alt-text="Screenshot shows Finish export section with selected local export folder, Deploy managed connections selected, and target resource group selected." lightbox="media/export-from-consumption-to-standard-logic-app/select-deploy-managed-connections-resource-group.png":::
 
 1. Under **After export steps**, review any required post-export steps, for example:
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/review-post-export-steps.png" alt-text="Screenshot showing 'After export steps' section and required post-export steps, if any." lightbox="media/export-from-consumption-to-standard-logic-app/review-post-export-steps.png":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/review-post-export-steps.png" alt-text="Screenshot shows After export steps section and required post-export steps, if any." lightbox="media/export-from-consumption-to-standard-logic-app/review-post-export-steps.png":::
 
 1. Based on your scenario, select **Export and finish** or **Export with warnings and finish**.
 
    The export tool downloads your project to your selected folder location, expands the project in Visual Studio Code, and deploys any managed connections, if you selected that option.
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/export-status.png" alt-text="Screenshot showing the 'Export status' section with export progress." lightbox="media/export-from-consumption-to-standard-logic-app/export-status.png":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/export-status.png" alt-text="Screenshot show Export status section with export progress." lightbox="media/export-from-consumption-to-standard-logic-app/export-status.png":::
 
 1. After this process completes, Visual Studio Code opens a new workspace. You can now safely close the export window.
 
 1. From your Standard logic app project, open and review the README.md file for the required post-export steps.
 
-   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/open-readme.png" alt-text="Screenshot showing a new Standard logic app project with README.md file opened." lightbox="media/export-from-consumption-to-standard-logic-app/open-readme.png":::
+   :::image type="content" source="media/export-from-consumption-to-standard-logic-app/open-readme.png" alt-text="Screenshot shows new Standard logic app project with README file opened." lightbox="media/export-from-consumption-to-standard-logic-app/open-readme.png":::
 
 ## Post-export steps
 
@@ -196,6 +198,6 @@ The following table describes these new folders and files added by the export pr
 | | exportValidation.json | Validation report raw file, which includes the validation results for each exported logic app |
 | | README.md | Markdown file with export results summary, including the created logic apps and all the required next steps |
 
-## Next steps
+## Related content
 
 - [Run, test, and debug locally](create-single-tenant-workflows-visual-studio-code.md#run-test-and-debug-locally)

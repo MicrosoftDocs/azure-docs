@@ -1,11 +1,10 @@
 ---
 title: 'Azure ExpressRoute: Asymmetric routing'
 description: This article walks you through the issues you might face with asymmetric routing in a network that has multiple links to a destination.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 07/11/2024
+ms.date: 03/12/2026
 ms.author: duau
 ---
 
@@ -23,7 +22,7 @@ There are two concepts you need to know to understand asymmetric routing. The fi
 
 When an enterprise network has only one link to the internet through an internet service provider, all traffic to and from the internet travels the same path. It's common that companies purchase multiple circuits to create redundant paths to improve network uptime. With this type of configuration it's possible that traffic goes out one link to the internet and returns through a different link. This scenario is commonly known as asymmetric routing. In asymmetric routing, the return network traffic takes a different path from the original out going flow.
 
-![Network with multiple paths](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
+:::image type="content" source="./media/expressroute-asymmetric-routing/AsymmetricRouting3.png" alt-text="Diagram of a network with multiple paths showing asymmetric routing.":::
 
 Although asymmetric routing usually occurs when going to the internet. It also happens when a combination of multiple paths gets introduced. The first example is when you have an internet path and a private path that goes to the same destination. The second example is when you have multiple private paths that are also going to the same destination.
 
@@ -49,7 +48,7 @@ When you connect to Microsoft through Azure ExpressRoute, your network changes l
 
 To understand the effect of how these two changes have on a network, let’s consider some scenarios. As an example, you have a circuit to the internet and you consume all Microsoft services through the internet. The traffic from your network to and from Microsoft traverses the same internet link and passes through a firewall. The firewall records the flow when it sees the first packet. Every ensuing packets of that conversation are permitted because the flow exists in the state table.
 
-![Asymmetric routing with ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
+:::image type="content" source="./media/expressroute-asymmetric-routing/AsymmetricRouting1.png" alt-text="Diagram of asymmetric routing with an ExpressRoute connection.":::
 
 You then bring up an ExpressRoute circuit to consume services offered by Microsoft over ExpressRoute. All other services from Microsoft are consumed over the internet. You deploy a separate firewall at your edge that is connected to ExpressRoute connection. Microsoft advertises more specific prefixes to your network over ExpressRoute for certain services. Your routing infrastructure chooses ExpressRoute as the preferred path for those prefixes. 
 
@@ -68,7 +67,7 @@ If you want to use ExpressRoute for authentication, make sure you're advertising
 ### Source-based NAT
 Another way to solve the asymmetric routing problem is by using SNAT. For example, you choose not to advertise the public IP address of an on-premises Simple Mail Transfer Protocol (SMTP) server over ExpressRoute. Instead you intend to use the internet for this type of communication. A request originating from Microsoft that goes to your on-premises SMTP server traverses the internet. You SNAT the incoming request to an internal IP address. The return traffic from the SMTP server goes to the edge firewall (which you use for NAT) instead of through ExpressRoute. As the result, the return traffic takes the internet path.
 
-![Source-based NAT network configuration](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
+:::image type="content" source="./media/expressroute-asymmetric-routing/AsymmetricRouting2.png" alt-text="Diagram of a source-based NAT network configuration for resolving asymmetric routing.":::
 
 ## Asymmetric routing detection
 Traceroute is the best way to make sure that your network traffic is traversing the expected path. If you expect traffic from your on-premises SMTP server to Microsoft to take the internet path, the expected traceroute is from the SMTP server to Microsoft 365. The result validates that traffic is indeed leaving your network toward the internet and not toward ExpressRoute.

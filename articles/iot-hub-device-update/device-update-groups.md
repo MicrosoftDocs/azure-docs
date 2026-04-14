@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub device groups
 description: Understand Azure Device Update for IoT Hub user-assigned and default device groups and subgroups based on device classes.
-author: aysancag
-ms.author: aysancag
+author: cwatson-cat
+ms.author: cwatson
 ms.date: 01/23/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

@@ -8,7 +8,7 @@ ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
 ms.date: 11/13/2024
-ms.reviewer: jushiman
+ms.reviewer: cynthn
 # Customer intent: "As a cloud architect, I want to distribute workloads across multiple regions using a compute fleet, so that I can enhance scalability, optimize performance, and ensure fault tolerance for my applications."
 ---
 

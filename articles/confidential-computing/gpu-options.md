@@ -4,7 +4,7 @@ description: Learn about Azure Confidential VMs with confidential GPU.
 author: kphande
 ms.author: khande
 ms.reviewer: mattmcinnes
-ms.service: azure-virtual-machines
+ms.service: azure-confidential-computing
 ms.custom: confidential-compute
 ms.topic: concept-article
 ms.date: 07/16/2024
@@ -54,7 +54,7 @@ Consider the following settings and choices before deploying confidential GPU VM
 
 ### Azure subscription
 
-To deploy a confidential GPU VM instance, consider a [pay-as-you-go subscription](/azure/virtual-machines/linux/azure-hybrid-benefit-linux) or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate number of Azure compute cores.
+To deploy a confidential GPU VM instance, consider a [pay-as-you-go subscription](/azure/virtual-machines/linux/azure-hybrid-benefit-linux) or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), the quota doesn't allow the appropriate number of Azure compute cores.
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 

@@ -8,7 +8,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 03/24/2025
+ms.date: 10/29/2025
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to understand the performance benchmarks of Azure NetApp Files for Linux use cases, so that I can optimize volume sizing and workload configurations for our applications.
 ---
@@ -20,7 +20,7 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
 * The Azure NetApp Files large volumes feature offers [four service levels](azure-netapp-files-service-levels.md), each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
 
-    * Standard, Preimium, and Ultra service levels: 12,800 MiB/s
+    * Standard, Premium, and Ultra service levels: 12,800 MiB/s
     * [Flexible service](azure-netapp-files-service-levels.md#Flexible): The Flexible service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS
 
     The Ultra service level was used in these tests. 
@@ -60,7 +60,6 @@ The graph represents a 256-KiB sequential workload using 12 virtual machines rea
 The graph represents an 8-KiB random workload and a 1 TiB working set. The graph shows that an Azure NetApp Files large volume can handle between approximately 474,000 pure random writes and approximately 709,000 pure random reads.
 
 :::image type="content" source="./media/performance-large-volumes-linux/random-workload-chart.png" alt-text="Bar chart of a random workload on a large volume." lightbox="./media/performance-large-volumes-linux/random-workload-chart.png":::
-
 
 ## Linux scale-up tests 
 

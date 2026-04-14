@@ -36,6 +36,8 @@ The minimum file size for a file to tier is based on the file system cluster siz
 |1 MiB (1,048,576 bytes) | 2 MiB |
 |2 MiB (2,097,152 bytes) | 4 MiB |
 
+The volume cluster size can be found by executing the command `fsutil fsinfo ntfsinfo volumedriveletter:` from an administrative command prompt. The **Bytes Per Cluster** field displays the volume cluster size in bytes, and the value in kilobytes is shown in parentheses.
+
 Azure File Sync supports cloud tiering on volumes with cluster sizes up to 2 MiB.
 
 All file systems that are used by Windows organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes don't come out to an even multiple of the cluster size, additional space must be used to hold the file - up to the next multiple of the cluster size.
@@ -70,6 +72,21 @@ If the number of files constantly recalled from Azure is larger than you want, y
 Keeping more data local means lower egress costs as fewer files will be recalled from Azure, but also requires a larger amount of on-premises storage, which comes at its own cost.
 
 When adjusting your volume free space policy, the amount of data you should keep local is determined by the following factors: your bandwidth, dataset's access pattern, and budget. With a low-bandwidth connection, you may want more local data, to ensure minimal lag for users. Otherwise, you can base it on the churn rate during a given period. As an example, if you know that 10% of your 1 TiB dataset changes or is actively accessed each month, then you might want to keep 100 GiB local so you aren't frequently recalling files. If your volume is 2 TiB, then you will want to keep 5% (or 100 GiB) local, meaning the remaining 95% is your volume free space percentage. However, you should add a buffer for periods of higher churn – in other words, start with a larger volume free space percentage, and then adjust it if needed later.
+
+## Impact of aggressive cloud tiering configurations
+
+When configuring Azure File Sync cloud tiering, evaluate the volume free space percentage and the date policy 'number of days' based on the usage of the Azure File Sync server. For example, if you expect the last 7 days of recent data to be cached on the server, you may set the date policy to 7 days and ensure that the total volume size and current free space on the volume allow for the last 7 days of churn (new content and recalls due to access to some already tiered content to get cached upon recall). Assuming the volume size is 100 GiB and the last 7 days of churn is ~10 GiB, your volume must allow the latest 10 GiB to be cached and tier the remaining data to cloud. A volume free space of 20% would be fair in this case, as Azure File Sync will try to keep 20% (i.e., 20 GiB free space), which allows for 10 GiB of new content over 7 days and provides some extra room for file system overhead and occasional excess data to also be cached.
+
+Setting a very high volume free space can significantly reduce the amount of data kept locally on the server. This would mean you expect almost all the files to be tiered. If the local cache contains only a small percentage of the working dataset, users might experience more frequent recalls from Azure. This can increase access latency and might result in additional transaction and data transfer costs for Azure Files.
+
+Because the volume free space policy takes precedence over the date policy, Azure File Sync will tier files as needed to reach the configured free space target, regardless of when those files were accessed recently. Similarly, configuring a small day count for date policy threshold might cause files to be tiered shortly after they become inactive, even if volume free space policy doesn't force excess tiering.
+
+Microsoft recommends the following approach:
+- Configure a volume free space policy that aligns with the volume capacity and expected working set to be cached on server.
+- Select a date policy that reflects actual file usage patterns. This setting is optional.
+- Monitor current free space, cache hit rate, recall size, data tiering size, and overall workload performance to fine tune the free space policy or the total volume size.
+
+This approach helps maintain an appropriate balance between local performance and cloud storage utilization.
 
 ## Standard operating procedures
 

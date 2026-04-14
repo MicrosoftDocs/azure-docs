@@ -1,15 +1,16 @@
 ---
 title: Migrate Storage from Amazon Web Services (AWS) to Azure
 description: Learn about concepts, how-tos, and best practices for migrating storage services from Amazon Web Services (AWS) to Azure.
-author: chasedmicrosoft
-ms.author: doveychase
-ms.reviewer: prwilk, chkittel
-ms.date: 03/25/2025
-ms.topic: conceptual
+author: stevenmatthew
+ms.author: shaas
+ms.reviewer: rhackenberg, chkittel
+ms.date: 03/10/2026
+ms.topic: concept-article
 ms.service: azure
 ms.collection:
  - migration
  - aws-to-azure
+ms.custom: migration-hub
 ---
 
 # Migrate storage from Amazon Web Services (AWS) to Azure

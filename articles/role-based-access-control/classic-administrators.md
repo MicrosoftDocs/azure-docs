@@ -6,7 +6,7 @@ manager: pmwongera
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 03/12/2025
+ms.date: 02/26/2026
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: sfi-image-nochange
@@ -15,7 +15,7 @@ ms.custom: sfi-image-nochange
 # Azure classic subscription administrators
 
 > [!IMPORTANT]
-> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. Starting on **April 30, 2025**, any Co-Administrator or Service Administrator role assignments will lose access. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately. Starting in **December 2025**, Azure will begin to automatically assign the Owner role at subscription scope to users in the public cloud who are still assigned the Co-Administrator or Service Administrator role.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). If you're still using the classic deployment model, you'll need to migrate your resources from classic deployment to Resource Manager deployment. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -27,13 +27,13 @@ What happens to classic administrator role assignments after August 31, 2024?
 
 - Co-Administrator and Service Administrator roles are retired and no longer supported. You should convert these role assignments to Azure RBAC immediately.
 
-What happens to classic administrator role assignments after April 30, 2025?
+What happens to classic administrator role assignments after December 2025?
 
-- Co-Administrator and Service Administrator role assignments will lose access. If you don't have an Owner role assignment at subscription scope, you will lose access to manage the subscription.
+- Azure will begin to automatically assign the Owner role at subscription scope to users in the public cloud who are still assigned the Co-Administrator or Service Administrator role. For more information, see [Automatic assignment to Owner role](#automatic-assignment-to-owner-role).
 
 How do I know what subscriptions have classic administrators?
 
-- You can use an Azure Resource Graph query to list subscriptions with Service Administrator or Co-Administrator role assignments. For steps see [List classic administrators](#list-classic-administrators).
+- You can use the Azure portal to list subscriptions with Service Administrator or Co-Administrator role assignments. For steps see [List classic administrators](#list-classic-administrators).
 
 What is the equivalent Azure role I should assign for Co-Administrators?
 
@@ -59,13 +59,18 @@ What should I do if I lose access to a subscription?
     - Assign the Owner role at subscription scope for a user.
     - Remove elevated access.
 
-What should I do if I have a strong dependency on Co-Administrators or Service Administrator?
+## Automatic assignment to Owner role
 
-- Email ACARDeprecation@microsoft.com and describe your scenario.
+Starting in December 2025, if you don't take any action and you still have classic administrators in the public cloud, Azure will begin to automatically assign the classic administrators the Owner role at subscription scope. These role assignments will have the following properties:
+
+- description: `The Classic Admin role was converted to an Azure Owner role on behalf of the user due to Classic Admin retirement`
+- createdBy: `0469d4cd-df37-4d93-8a61-f8c75b809164`
+
+:::image type="content" source="./media/classic-administrators/classic-administrator-owner-description.png" alt-text="Screenshot of Access control (IAM) page that shows the description for an Owner role assignment that was automatically assigned." lightbox="./media/classic-administrators/classic-administrator-owner-description.png":::
+
+If Azure automatically assigns the Owner role, it **doesn't** automatically remove the classic administrator role assignment. You should remove this classic administrator role assignment. For steps on how to remove this role assignment, see [remove Co-Administrator](#how-to-remove-a-co-administrator). If you don't want the Owner role assignment, you must remove both the Owner and Co-Administrator role assignments to remove access for the user.
 
 ## List classic administrators
-
-# [Azure portal](#tab/azure-portal)
 
 Follow these steps to list the Service Administrator and Co-Administrators for a subscription using the Azure portal.
 
@@ -79,42 +84,6 @@ Follow these steps to list the Service Administrator and Co-Administrators for a
 
     :::image type="content" source="./media/shared/classic-administrators.png" alt-text="Screenshot of Access control (IAM) page with Classic administrators tab selected." lightbox="./media/shared/classic-administrators.png":::
 
-# [Azure Resource Graph](#tab/azure-resource-graph)
-
-Follow these steps to list the number of Service Administrators and Co-Administrators in your subscriptions using Azure Resource Graph.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
-
-1. Open the **Azure Resource Graph Explorer**.
-
-1. Select **Scope** and set the scope for the query.
-
-    Set scope to **Directory** to query your entire tenant, but you can narrow the scope to particular subscriptions.
-
-    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
-
-1. Select **Set authorization scope** and set the authorization scope to **At, above and below** to query all resources at the specified scope.
-
-    :::image type="content" source="./media/shared/resource-graph-authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="./media/shared/resource-graph-authorization-scope.png":::
-
-1. Run the following query to list the number Service Administrators and Co-Administrators based on the scope.
-
-    ```kusto
-    authorizationresources
-    | where type == "microsoft.authorization/classicadministrators"
-    | mv-expand role = parse_json(properties).role
-    | mv-expand adminState = parse_json(properties).adminState
-    | where adminState == "Enabled"
-    | where role in ("ServiceAdministrator", "CoAdministrator")
-    | summarize count() by subscriptionId, tostring(role)
-    ```
-
-    The following shows an example of the results. The **count_** column is the number of Service Administrators or Co-Administrators for a subscription.
-
-    :::image type="content" source="./media/classic-administrators/resource-graph-classic-admin-list.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows the number Service Administrators and Co-Administrators based on the subscription." lightbox="./media/classic-administrators/resource-graph-classic-admin-list.png":::
-
----
-
 ## Co-Administrators retirement
 
 If you still have classic administrators, use the following steps to help you convert Co-Administrator role assignments.
@@ -123,7 +92,7 @@ If you still have classic administrators, use the following steps to help you co
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
-1. Use the Azure portal or Azure Resource Graph to [list of your Co-Administrators](#list-classic-administrators).
+1. Use the Azure portal to [list your Co-Administrators](#list-classic-administrators).
 
 1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Co-Administrators to assess whether they're active users.
 
@@ -139,6 +108,8 @@ If you still have classic administrators, use the following steps to help you co
 
 1. After reviewing activity of user, if user is no longer active, [remove Co-Administrator](#how-to-remove-a-co-administrator).
 
+1. If user already has the [Owner](built-in-roles.md#owner) role assignment, [remove Co-Administrator](#how-to-remove-a-co-administrator).
+
 ### Step 3: Convert Co-Administrators to job function roles
 
 Most users don't need the same permissions as a Co-Administrator. Consider a job function role instead.
@@ -147,7 +118,7 @@ Most users don't need the same permissions as a Co-Administrator. Consider a job
 
 1. Determine the [scope](scope-overview.md) user needs.
 
-1. Follow steps to [assign a job function role to user](role-assignments-portal.yml).
+1. Follow steps to [assign a job function role to user](/azure/role-based-access-control/role-assignments-portal).
 
 1. [Remove Co-Administrator](#how-to-remove-a-co-administrator).
 
@@ -157,7 +128,7 @@ Some users might need more access than what a job function role can provide. If 
 
 1. Assign the Owner role with conditions.
 
-    For example, assign the [Owner role at subscription scope with conditions](role-assignments-portal-subscription-admin.yml). If you have PIM, make the user [eligible for Owner role assignment](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
+    For example, assign the [Owner role at subscription scope with conditions](/azure/role-based-access-control/role-assignments-portal-subscription-admin). If you have PIM, make the user [eligible for Owner role assignment](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles).
 
 1. [Remove Co-Administrator](#how-to-remove-a-co-administrator).
 
@@ -215,7 +186,7 @@ If you still have classic administrators, use the following steps to help you co
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
-1. Use the Azure portal or Azure Resource Graph to [list your Service Administrator](#list-classic-administrators).
+1. Use the Azure portal to [list your Service Administrator](#list-classic-administrators).
 
 1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Service Administrator to assess whether they're an active user.
 
@@ -235,7 +206,7 @@ Your Service Administrator might be a Microsoft account or a Microsoft Entra acc
 
 1. If Service Administrator user is a Microsoft Entra account and you want this user to keep the same permissions, [convert the Service Administrator to Owner role](#how-to-convert-the-service-administrator-to-owner-role).
 
-1. If you want to change the Service Administrator user to a different user, [assign the Owner role](role-assignments-portal.yml) to this new user at subscription scope without conditions. Then, [remove the Service Administrator](#how-to-remove-the-service-administrator).
+1. If you want to change the Service Administrator user to a different user, [assign the Owner role](/azure/role-based-access-control/role-assignments-portal) to this new user at subscription scope without conditions. Then, [remove the Service Administrator](#how-to-remove-the-service-administrator).
 
 ### How to convert the Service Administrator to Owner role
 
@@ -281,5 +252,5 @@ The easiest way to convert the Service Administrator role assignment to the [Own
 ## Next steps
 
 - [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Understand Microsoft Customer Agreement administrative roles in Azure](../cost-management-billing/manage/understand-mca-roles.md)

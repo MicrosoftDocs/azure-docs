@@ -1,9 +1,9 @@
 ---
-title: Migrate an existing agent-based hybrid workers to extension-based-workers in Azure Automation
+title: Migrate existing agent-based hybrid workers to extension-based-workers in Azure Automation
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/07/2025
+ms.date: 03/05/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-bicep
@@ -12,8 +12,8 @@ ms.custom:
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers
@@ -54,7 +54,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 - Two cores
 - 4 GB of RAM
-- **Non-Azure machines** must have the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+- **Non-Azure machines** must have the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the installation process through the Azure portal.
 
 ### Supported operating systems
@@ -85,7 +85,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
 
 > [!NOTE]
-> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
+> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets.
 > 
 > - We strongly recommend that you never configure Hybrid Worker extension on a Virtual machine hosting domain controller. Security best practices don't advise such a setup due to the high-risk nature of exposing domain controllers to potential attack vectors via Azure Automation jobs. Domain controllers should be highly secured and isolated from non-essential services to prevent unauthorized access and maintain the integrity of the Active Directory Domain Services (ADDS) environment.
 
@@ -102,7 +102,7 @@ If extension-based Hybrid Worker is using custom Hybrid Worker credentials, then
 > [!NOTE]
 > - When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-runbooks-go-into-a-suspended-state-on-a-hybrid-runbook-worker-when-using-a-custom-account-on-a-server-with-user-account-control-uac-enabled).
 > - For the Arc-enabled server, ensure to reassign the permissions as they get removed whenever the ARC agent is updated.
-> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
+> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets.
 
 ## Migrate an existing Agent based Hybrid Worker to Extension based Hybrid Worker
 
@@ -112,7 +112,7 @@ To install Hybrid worker extension on an existing agent based hybrid worker, ens
 
 1. Under **Process Automation**, select **Hybrid worker groups**, and then select your existing hybrid worker group to go to the **Hybrid worker group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers** > **+ Add** to go to the **Add machines as hybrid worker** page.
-1. Select the checkbox next to the existing Agent based (V1) Hybrid worker. If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers, or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+1. Select the checkbox next to the existing Agent based (V1) Hybrid worker. If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers, or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/perform-vm-ops-through-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 
    :::image type="content" source="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-inline.png" alt-text="Screenshot of adding machines as hybrid worker." lightbox="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-expanded.png":::
 
@@ -126,6 +126,8 @@ For at-scale migration of multiple Agent based Hybrid Workers, you can also use 
 
 
 ## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, Azure CLI, and PowerShell
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 #### [Bicep file](#tab/bicep-file)
 

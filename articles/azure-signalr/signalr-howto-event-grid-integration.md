@@ -165,7 +165,7 @@ dotnet run
 You've now connected a client to the SignalR Service. Navigate to your Event Grid Viewer web app, and you should see a `ClientConnectionConnected` event. If you terminate the client, you'll also see a `ClientConnectionDisconnected` event.
 
 <!-- LINKS - External -->
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [sample-app]: https://github.com/dbarkol/azure-event-grid-viewer
 
 <!-- LINKS - Internal -->

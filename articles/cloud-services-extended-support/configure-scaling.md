@@ -2,12 +2,13 @@
 title: Configure scaling for Azure Cloud Services (extended support)
 description: How to enable scaling options for Azure Cloud Services (extended support)
 ms.topic: how-to
-ms.service: azure-cloud-services-extended-support
-ms.subservice: autoscale
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As a cloud administrator, I want to configure scaling options for Azure Cloud Services (extended support) so that I can optimize resource usage and maintain high availability based on workload demands.
 ---
 

@@ -33,7 +33,7 @@ This quickstart uses the following template. It deploys an App Service plan and 
 ```bicep
 param webAppName string = uniqueString(resourceGroup().id) // Generate a unique string for the web app name
 param sku string = 'F1' // Tier of the App Service plan
-param linuxFxVersion string = 'node|20-lts' // Runtime stack of the web app
+param linuxFxVersion string = 'node|24-lts' // Runtime stack of the web app
 param location string = resourceGroup().location // Location for all resources
 param repositoryUrl string = 'https://github.com/Azure-Samples/nodejs-docs-hello-world'
 param branch string = 'main'
@@ -87,7 +87,7 @@ The template contains the following parameters that are predefined for your conv
 | `webAppName` | string  | `webApp-<uniqueString>` | App name. For more information, see [String functions for ARM templates](../azure-resource-manager/templates/template-functions-string.md#uniquestring). |
 | `location`   | string  | `resourceGroup().location` | App region. For more information, see [Resource functions for ARM templates](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup). |
 | `sku`        | string  | `F1`                         | Instance size.  |
-| `linuxFxVersion`   | string  | `NODE`&#124;`20-LTS`       | Programming language stack and version. |
+| `linuxFxVersion`   | string  | `NODE`&#124;`24-LTS`       | Programming language stack and version. |
 | `repositoryUrl`    | string  | `https://github.com/Azure-Samples/nodejs-docs-hello-world`    | External Git repo (optional). |
 | `branch`    | string  | `master`    | Default branch for the code sample. |
 
@@ -108,15 +108,17 @@ az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup --template-file <path-to-template>
 ```
 
-To deploy a different language stack, update `linuxFxVersion` with appropriate values. The following table lists examples. To show current versions, run the following command in Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`.
+To deploy a different language stack, update `linuxFxVersion` with appropriate values. The following table lists examples. To show the current version, run the following command in Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`.
 
-| Language    | Example                                              |
-|-------------|------------------------------------------------------|
-| .NET    | `linuxFxVersion="DOTNETCORE&#124;3.0"`                 |
-| PHP     | `linuxFxVersion="PHP&#124;7.4"`                        |
-| Node.js | `linuxFxVersion="NODE&#124;10.15"`                     |
-| Java    | `linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0"` |
-| Python  | `linuxFxVersion="PYTHON&#124;3.8"`                     |
+| Language | Example |
+|--------|---------|
+| .NET | `linuxFxVersion="DOTNETCORE|8.0"` |
+| PHP | `linuxFxVersion="PHP|8.2"` |
+| Node.js | `linuxFxVersion="NODE|20-lts"` |
+| Java | `linuxFxVersion="TOMCAT|9.0-jre8"` |
+| Python | `linuxFxVersion="PYTHON|3.11"` |
+
+Use the `az webapp list-runtimes --os linux` command to review the current list of supported Linux runtime values. 
 
 ---
 

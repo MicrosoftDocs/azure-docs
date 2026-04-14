@@ -1,7 +1,7 @@
 ---
 title: Publish modules to private module registry
 description: Publish Bicep modules to private module registry and use the modules.
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to publish Bicep modules to private module registry.
@@ -9,11 +9,11 @@ ms.custom: mode-api, devx-track-bicep
 
 # Quickstart: Publish Bicep modules to private module registry
 
-Learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization. To learn more, see [Create private registry for Bicep modules](./private-module-registry.md). 
+In this quickstart, you learn how to publish Bicep modules to private modules registry, and how to call the modules from your Bicep files. Private module registry allows you to share Bicep modules within your organization. To learn more, see [Create private registry for Bicep modules](./private-module-registry.md).
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 To work with module registries, you must have [Bicep CLI](./install.md) version **0.4.1008** or later. To use with [Azure CLI](/cli/azure/install-azure-cli), you must also have Azure CLI version **2.31.0** or later; to use with [Azure PowerShell](/powershell/azure/install-azure-powershell), you must also have Azure PowerShell version **7.0.0** or later.
 
@@ -45,7 +45,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2024-01-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -66,13 +66,13 @@ Save the Bicep file as **storage.bicep**.
 
 If you don't have an Azure container registry (ACR), see [Prerequisites](#prerequisites) to create one.  The login server name of the ACR is needed. The format of the login server name is: `<registry-name>.azurecr.io`. To get the login server name:
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az acr show --resource-group <resource-group-name> --name <registry-name> --query loginServer
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"  | Select-Object LoginServer
@@ -82,13 +82,13 @@ Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<regis
 
 Use the following syntax to publish a Bicep file as a module to a private module registry.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 -DocumentationUri https://www.contoso.com/exampleregistry.html
@@ -108,13 +108,13 @@ br:<registry-name>.azurecr.io/<file-path>:<tag>
 
 To verify the published modules, you can list the ACR repository:
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az acr repository list --name <registry-name> --output table
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzContainerRegistryRepository -RegistryName <registry-name>
@@ -153,7 +153,7 @@ module stgModule 'br:ace1207.azurecr.io/bicep/modules/storage:v1' = {
 
 Save the Bicep file locally, and then use Azure CLI or Azure PowerShell to deploy the Bicep file:
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 resourceGroupName = "{provide-a-resource-group-name}"
@@ -164,7 +164,7 @@ az group create --name $resourceGroupName --location eastus
 az deployment group create --resource-group $resourceGroupName --template-file $templateFile
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = "{provide-a-resource-group-name}"
@@ -183,7 +183,7 @@ From the Azure portal, verify the storage account has been created successfully.
 
 When the Azure resources are no longer needed, use the Azure CLI or Azure PowerShell module to delete the quickstart resource group.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 resourceGroupName = "{provide-the-resource-group-name}"
@@ -191,7 +191,7 @@ resourceGroupName = "{provide-the-resource-group-name}"
 az group delete --name $resourceGroupName
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = "{provide-the-resource-group-name}"
@@ -204,4 +204,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn modules for Bicep](learn-bicep.md)
+> [Create Bicep files by using Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

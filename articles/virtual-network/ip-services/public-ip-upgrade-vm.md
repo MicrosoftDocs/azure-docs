@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: This article shows you how to upgrade a public IP address attached to a VM to a standard public IP address
 author: mbender-ms
 ms.author: mbender
-ms.date: 01/08/2025
+ms.date: 11/20/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.topic: how-to
 # Upgrade public IP addresses attached to VM from Basic to Standard
 
 > [!IMPORTANT]
-> On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. This article will help guide you through the upgrade process.
+> On September 30, 2025, Basic SKU public IPs were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs as soon as possible. This article will help guide you through the upgrade process.
 
 For more information about the retirement of Basic SKU Public IPs and the benefits of Standard SKU Public IPs, see [here](public-ip-basic-upgrade-guidance.md)
 

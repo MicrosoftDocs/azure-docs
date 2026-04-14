@@ -15,7 +15,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 
 ## Prerequisites
 
-- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Mac running [Xcode](https://developer.apple.com/xcode/), along with a valid developer certificate installed into your Keychain.
 - Create an active Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
@@ -34,7 +34,21 @@ In Xcode, create a new iOS project and select the Single View App template. This
 
 :::image type="content" source="../../media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
-### Installing CocoaPods
+
+### Install Calling SDK using Swift Package Manager [Recommended]
+
+Swift Package Manager is now the recommended installation method for the Azure Communication Calling SDK. CocoaPods support is being deprecated and will be removed in future versions.
+If you prefer to use Swift Package Manager, you can add the Azure Communication Calling SDK directly to your Xcode project.
+
+Installation Steps
+1. In Xcode, go to File > Add Package Dependencies...
+2. Enter the following repository URL: [https://github.com/Azure/SwiftPM-AzureCommunicationCalling](https://github.com/Azure/SwiftPM-AzureCommunicationCalling)
+3. For Dependency Rule, select Exact Version and enter: 2.18.1
+4. Click Add Package
+5. Select the AzureCommunicationCalling product and add it to your target
+
+
+### Installing Calling SDK using CocoaPods [Alternative]
 
 Use this guide to [install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) on your Mac.
 
@@ -57,14 +71,13 @@ end
 
 4. Open the `.xcworkspace` with Xcode.
 
+
 ### Using XCFramework directly
 
-If you aren't using `CocoaPods` as a dependency manager, you can directly download the `AzureCommunicationCalling.xcframework` directly from our [release page](https://github.com/Azure/Communication/releases). 
-
-Is important to know that `AzureCommunicationCalling` has a dependency on [`AzureCommunicationCommon`](https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication/AzureCommunicationCommon) so you need to install it as well in your project. 
+If you aren't using CocoaPods or Swift Package Manager, you can directly download the AzureCommunicationCalling.xcframework from our release page.
 
 >[!NOTE]
- > Although [`AzureCommunicationCommon`](https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication/AzureCommunicationCommon) is a pure swift package, you cannot install it using [`Swift Package Manager`](https://www.swift.org/package-manager/) to use it with `AzureCommunicationCalling` because the latter is an Objective-C framework and [`Swift Package Manager`](https://www.swift.org/package-manager/) deliberately do not support Swift ObjC interface headers by design which means is not possible to work together with `AzureCommunicationCalling` if installed using [`Swift Package Manager`](https://www.swift.org/package-manager/). You would have to either install via another dependency manager or generate a `xcframework` from [`AzureCommunicationCommon`](https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication/AzureCommunicationCommon) sources and import into your project.
+ > Keep in mind that AzureCommunicationCalling has a dependency on AzureCommunicationCommon, so you need to install both in your project. You would need to generate an xcframework from AzureCommunicationCommon sources and import it into your project.
 
 ### Request access to the microphone and camera
 

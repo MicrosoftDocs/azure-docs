@@ -1,11 +1,11 @@
----
+﻿---
 title: Use extensions in Bicep
 description: This article describes how to use Bicep extensions.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 05/14/2025
+ms.date: 12/22/2025
 ---
 
 # Use Bicep extensions

@@ -3,7 +3,7 @@ title: Manage session level libraries for Apache Spark
 description: Learn how to add and manage libraries on Spark Notebook sessions for Azure Synapse Analytics.
 author: shuaijunye
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/20/2023
 ms.author: shuaijunye
 ms.subservice: spark

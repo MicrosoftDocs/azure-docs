@@ -1,9 +1,9 @@
 ---
 title: Symmetric key attestation with Azure DPS
 description: This article provides a conceptual overview of symmetric key attestation using IoT Device Provisioning Service (DPS).
-author: SoniaLopezBravo
-ms.author: sonialopez
-ms.date: 03/12/2024
+author: cwatson-cat
+ms.author: cwatson
+ms.date: 08/07/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.custom: devx-track-csharp
@@ -44,7 +44,7 @@ Here are the components of each token:
 | {URL-encoded-resourceURI} |Lower case URL-encoding of the lower case resource URI |
 | {policyName} |The name of the shared access policy to which this token refers. The policy name used when provisioning with symmetric key attestation is **registration**. |
 
-For code examples that create a SAS token, see [SAS tokens](../iot-hub/iot-hub-dev-guide-sas.md#sas-token-structure).
+For code examples that create a SAS token, see [SAS token structure](../iot-hub/iot-hub-dev-guide-sas.md#sas-token-structure).
 
 ## Individual enrollments with symmetric keys
 
@@ -54,13 +54,13 @@ When a device is attesting with an individual enrollment, the device uses the sy
 
 Unlike an individual enrollment, the symmetric key of an enrollment group isn't used directly by devices when they provision. Instead, devices that provision through an enrollment group do so using a derived device key. The derived device key is a hash of the device's registration ID and is computed using the symmetric key of the enrollment group. The device can then use its derived device key to sign the SAS token it uses to register with DPS. Because the device sends its registration ID when it registers, DPS can use the enrollment group symmetric key to regenerate the device's derived device key and verify the signature on the SAS token.
 
-First, a unique registration ID is defined for each device authenticating through an enrollment group. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus valid special characters: `- . _ :`. The last character must be alphanumeric or dash (`'-'`). The registration ID should be something unique that identifies the device. For example, a MAC address or serial number available to uniquely identify a device. In that case, a registration ID can be composed of the MAC address and serial number similar to the following:
+First, a unique registration ID is defined for each device authenticating through an enrollment group. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus valid special characters: `- . _ :`. The last character must be alphanumeric or dash (`'-'`). The registration ID should be something unique that identifies the device. For example, a MAC address or serial number available to uniquely identify a device. In that case, a registration ID can be composed of the MAC address and serial number similar to the following example:
 
 ```text
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Once a registration ID has been defined for the device, the symmetric key for the enrollment group is used to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the registration ID to produce a derived device key. Some example approaches to computing the derived device key are given in the tabs below.  
+Once a registration ID is defined for the device, the symmetric key for the enrollment group is used to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the registration ID to produce a derived device key. Some example approaches to computing the derived device key are given in the following tabs.  
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -158,21 +158,21 @@ The resulting device key is then used to generate a SAS token to be used for att
 
 ### Install the derived device key
 
-Ideally, device keys are derived and installed in the factory. This method guarantees that the group key is never included in any software deployed to the device. When the device is assigned a MAC address or serial number, the key can be derived and injected into the device however the manufacturer chooses to store it.
+Ideally, device keys are derived and installed in the factory. This method guarantees that the group key is never included in any software deployed to the device. When a MAC address or serial number is assigned to a device, the key can be derived and injected into the device however the manufacturer chooses to store it.
 
 Consider the following diagram that shows a table of device keys generated in a factory by hashing each device registration ID with the group enrollment key (**K**).
 
 :::image type="content" source="./media/concepts-symmetric-key-attestation/key-diversification.png" alt-text="Diagram that shows device keys being assigned at a factory.":::
 
-The identity of each device is represented by the registration ID and derived device key that is installed at the factory. The device key is never copied to another location and the group key is never stored on a device.
+The registration ID and derived device key that is installed at the factory represents the identity of each device. The device key is never copied to another location and the group key is never stored on a device.
 
-If the device keys aren't installed in the factory, a [hardware security module HSM](concepts-service.md#hardware-security-module) should be used to securely store the device identity.
+If the device keys aren't installed in the factory, a [hardware security module](concepts-service.md#hardware-security-module) (HSM) should be used to securely store the device identity.
 
 ## Next steps
 
 Now that you have an understanding of symmetric key attestation, check out the following articles to learn more:
 
-* [Understand custom allocation policies for assigning devices to IoT hubs](./quick-setup-auto-provision.md) 
-* [Device reprovisioning concepts](concepts-device-reprovision.md)
-* [Roles and operations in the provisioning process](concepts-roles-operations.md)
+* [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) 
+* [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
+* [Roles and operations](concepts-roles-operations.md)
 

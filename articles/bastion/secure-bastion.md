@@ -1,12 +1,12 @@
 ---
 title: Secure Your Azure Bastion Deployment
 description: Learn how to secure your Azure Bastion deployment using actionable guidance aligned to the Microsoft Cloud Security Benchmark.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: subject-security-benchmark
 ms.date: 08/28/2025
-ms.author: abell
+ms.author: cherylmc
 ai-usage: ai-assisted
 ---
 
@@ -15,6 +15,8 @@ ai-usage: ai-assisted
 Azure Bastion is a fully managed platform-as-a-service (PaaS) that provides secure and seamless RDP and SSH connectivity to virtual machines directly in the Azure portal over TLS. Because Bastion acts as a critical gateway to your virtual networks and VMs, securing your deployment is essential to protect your infrastructure from unauthorized access and network threats.
 
 This article provides guidance on how to best secure your Azure Bastion deployment.
+> [!NOTE]
+> Entra ID authentication for RDP connections is now available in preview! See [Microsoft Entra ID](bastion-connect-vm-rdp-windows.md#microsoft-entra-id-authentication-preview) for details.
 
 ## Network security
 
@@ -64,7 +66,7 @@ Privileged access management for Azure Bastion ensures that only authorized user
 
 Data protection for Azure Bastion focuses on protecting data integrity and preventing unauthorized access to session data and configuration information.
 
-* **Leverage built-in TLS encryption**: Azure Bastion automatically uses TLS to encrypt data in transit between users and virtual machines. This encryption is managed by Microsoft and doesn't require additional configuration. For more information, see [Azure Bastion key features](./bastion-overview.md#key).
+* **Leverage built-in TLS encryption**: Azure Bastion automatically uses TLS to encrypt data in transit between users and virtual machines. This encryption is managed by Microsoft and doesn't require additional configuration. For more information, see [Azure Bastion key benefits](./bastion-overview.md#key-benefits).
 
 ## Session management and monitoring
 
@@ -114,7 +116,7 @@ Asset management for Azure Bastion involves implementing governance controls, mo
 
 * **Monitor compliance continuously**: Use Azure Policy to continuously audit and enforce network configurations for your Bastion resources, ensuring they remain compliant with organizational security standards.
 
-* **Choose appropriate SKU for security requirements**: Select the SKU tier based on required security features. Use Premium SKU for session recording and private-only deployments, Standard SKU for shareable links and host scaling, or Basic SKU for standard deployments. For more information, see [About Bastion configuration settings](./configuration-settings.md).
+* **Choose appropriate SKU for security requirements**: Select the SKU based on required security features. Use Premium SKU for session recording and private-only deployments, Standard SKU for shareable links and host scaling, or Basic SKU for standard deployments. For more information, see [About Bastion configuration settings](./configuration-settings.md).
 
 ## Next steps
 

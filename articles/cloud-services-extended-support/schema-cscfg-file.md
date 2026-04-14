@@ -2,11 +2,13 @@
 title: Azure Cloud Services (extended support) Definition Schema (.cscfg File) | Microsoft Docs
 description: Information related to the definition schema for Cloud Services (extended support)
 ms.topic: concept-article
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-cloud-services-classic
 ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+ms.update-cycle: 1095-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As a cloud architect, I want to configure role instances, OS settings, and networking details in the service configuration file, so that I can properly deploy and manage Azure Cloud Services (extended support) applications.
 ---
 

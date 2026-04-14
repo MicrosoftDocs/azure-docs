@@ -7,9 +7,9 @@ metadata:
   
   ms.service: azure-automation
   ms.topic: landing-page
-  ms.date: 08/30/2022
-  ms.author: v-jasmineme
-  author: jasminemehndir
+  ms.date: 03/09/2025
+  ms.author: v-rochak2
+  author: RochakSingh-blr
 
 landingContent:
 
@@ -101,3 +101,16 @@ landingContent:
         links:
           - text: Recommendations to implement Automation
             url: /azure/well-architected/operational-excellence/automate-tasks#evaluate-tasks-to-automate
+
+  - title: Troubleshoot Azure Automation
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot Runbook Issues
+            url: troubleshoot/runbooks.md
+          - text: Troubleshoot Extension-based Hybrid Runbook Worker Issues
+            url: troubleshoot/extension-based-hybrid-runbook-worker.md
+          - text: Troubleshoot Managed Identity Issues
+            url: troubleshoot/managed-identity.md
+          - text: Data to Collect when Opening a Case for Azure Automation
+            url: troubleshoot/collect-data-microsoft-azure-automation-case.md

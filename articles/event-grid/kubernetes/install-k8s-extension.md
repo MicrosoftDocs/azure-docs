@@ -34,7 +34,7 @@ The operation that installs an Event Grid service instance on a Kubernetes clust
 Before proceeding with the installation of Event Grid, make sure the following prerequisites are met. 
 
 1. A cluster running on one of the [supported Kubernetes distributions](#supported-kubernetes-distributions).
-1. [An Azure subscription](https://azure.microsoft.com/free/).
+1. [An Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 1. [PKI Certificates](#pki-certificate-requirements) to be used for establishing an HTTPS connection with the Event Grid broker.
 1. [Connect your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
@@ -121,7 +121,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     :::image type="content" source="./media/install-k8s-extension/review-create-page.png" alt-text="Install Event Grid extension - Review and Create page":::   
     
     > [!IMPORTANT]
-    > The installation of Event Grid is an asynchronous operation that may run longer on the Kubernetes cluster than the time you see a notification on the Azure Portal informing the deployment is complete. Wait at least 5 minutes after you see a notification that "Your deployment is complete" before attempting to create a custom location (next step). If you have access to the Kubernetes cluster, on a bash session you can execute the following command to validate if the Event Grid broker and Event Grid operator pods are in Running state, which would indicate the installation has completed:
+    > The installation of Event Grid is an asynchronous operation that may run longer on the Kubernetes cluster than the time you see a notification on the Azure portal informing the deployment is complete. Wait at least 5 minutes after you see a notification that "Your deployment is complete" before attempting to create a custom location (next step). If you have access to the Kubernetes cluster, on a bash session you can execute the following command to validate if the Event Grid broker and Event Grid operator pods are in Running state, which would indicate the installation has completed:
 
     ```bash
     kubectl get pods -n \<release-namespace-name\>

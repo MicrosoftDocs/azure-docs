@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: reference
-ms.date: 06/24/2025
+ms.date: 01/29/2026
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -32,8 +32,8 @@ The following table describes the features of Recovery Services vaults:
 
 **Feature** | **Details**
 --- | ---
-**Vaults in subscription** | Up to 500 Recovery Services vaults or Backup vaults in a single subscription.
-**Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault.<br/><br/> Up to 50 MABS servers can be registered in a single vault.
+**Vaults in subscription** | Up to 500 Recovery Services vaults or Backup vaults in a single subscription.<br><br>Up to 5000 Backup Policies for each Data Source under Recovery Services Vault or Backup Vault.
+**Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault, but due to security constraints only 250 VM registrations are allowed per day.<br/><br/> Up to 50 MABS servers can be registered in a single vault.<br><br>Up to 100 VM’s can be protected in a single policy.
 **Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
 **Backups between vaults** | Backup is within a region and subscription.<br/><br/> You need a vault in every Azure region and subscription that contains VMs you want to back up. You can't back up to a different region. Cross subscription backup (RS vault and protected VMs are in different subscriptions) isn't a supported scenario.
@@ -154,7 +154,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
+| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) that use managed disks. Not supported for legacy recovery points from VMs that used unmanaged disks or for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
 | MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
 | DPM/MABS | No                        |                      N/A                   |
@@ -212,7 +212,7 @@ The following table lists the workload specific operations supported even if zon
 Azure Backup provides the following monitoring and reporting capabilities on backup operations:
 
 - Backup Alerts are available for all workloads in both Recovery Services vault and Backup vault.
-- Backup Alerts view and manage capabilities are available on Azure Monitor, Business Continuity Center, Recovery Services vault, Backup vault.
+- Backup Alerts view and manage capabilities are available on Azure Monitor, Resiliency, Recovery Services vault, Backup vault.
 
 Learn [about the different backup alerts currently available via Azure Monitor and the supported workload/vault types](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 

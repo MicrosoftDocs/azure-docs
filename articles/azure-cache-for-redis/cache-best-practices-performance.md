@@ -4,7 +4,7 @@ titleSuffix: Azure Cache for Redis
 description: Learn how to test the performance of Azure Cache for Redis.
 
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - ignite-2024
 ms.date: 08/18/2025
@@ -13,6 +13,8 @@ appliesto:
 ---
 
 # Performance testing
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
 

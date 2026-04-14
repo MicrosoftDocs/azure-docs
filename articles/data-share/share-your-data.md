@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Share outside your org - Azure Data Share'
 description: Tutorial - Share data with customers and partners using Azure Data Share  
-author:  sidontha
-ms.author: sidontha
+author:  chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 02/12/2025
+ms.date: 01/21/2026
 ---
 
 # Tutorial: Share data using Azure Data Share  
 
-In this tutorial, you'll learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
+In this tutorial, you learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Data Share.
@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Your recipient's Azure e-mail address (using their e-mail alias won't work).
 * If the source Azure data store is in a different Azure subscription than the one you'll use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
 
@@ -210,7 +210,7 @@ Use these commands to create the resource:
 
    :::image type="content" source="./media/datasets.png" alt-text="Screenshot of the datasets page in share creation, the add datasets button is highlighted.":::
 
-1. Select the dataset type that you would like to add. You'll see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you'll be prompted for authentication method to list tables. Select Microsoft Entra authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
+1. Select the dataset type that you would like to add. You see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. If sharing from an Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you are prompted for authentication method to list tables. Select Microsoft Entra authentication, and check the checkbox **Allow Data Share to run the above 'create user' script on my behalf**.
 
    :::image type="content" source="./media/add-datasets.png" alt-text="Screenshot showing the available dataset types.":::
 

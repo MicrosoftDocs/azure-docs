@@ -16,15 +16,15 @@ ms.custom:
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal
 
+> [!IMPORTANT]
+> ExpressRoute gateway migrations are temporarily paused. Don't initiate migrations at this time. You will be notified when migrations can resume.
+
 When creating an ExpressRoute virtual network gateway, you must select a [gateway SKU](expressroute-about-virtual-network-gateways.md). Higher-level SKUs allocate more CPUs and network bandwidth, enabling the gateway to support higher throughput and more reliable connections to the virtual network.
 
 ## Prerequisites
 
 - Review the [gateway migration](gateway-migration.md) article before starting.
 - Ensure you have an existing [ExpressRoute virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md) in your Azure subscription.
-
-> [!TIP]
-> You can now deploy two ExpressRoute gateways within the same virtual network. To do this, create a second ExpressRoute gateway with its admin state set to **disabled**. Once the second gateway is deployed, initiate the *Prepare* step in the migration tool. This step establishes the connection without redeploying the gateway, as it's already in place. Finally, run the *Migrate* step, which will change the new gateway's admin state to **_enabled_**, completing the migration process. This method minimizes the migration or maintenance window, significantly reducing downtime when transitioning from a non-zonal to a zone-redundant gateway.
 
 ## Steps to migrate to a new gateway in Azure portal
 

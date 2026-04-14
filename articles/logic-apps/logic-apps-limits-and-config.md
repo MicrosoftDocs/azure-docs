@@ -1,11 +1,11 @@
 ---
-title: Limits and configuration reference guide
+title: Limits and Configuration Reference Guide
 description: Reference guide about the limits and configuration settings for logic app resources and workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 07/31/2025
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -25,7 +25,7 @@ This reference guide describes the limits and configuration information for Azur
 
 The following table briefly summarizes differences between a Consumption logic app and a Standard logic app.
 
-[!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
+[!INCLUDE [Logic app resource type and environment differences](includes/logic-apps-resource-environment-differences-table.md)]
 
 <a name="definition-limits"></a>
 
@@ -58,7 +58,7 @@ The following table lists the values for a single workflow run:
 | Name | Multitenant | Single-tenant | Notes |
 |------|-------------|---------------|-------|
 | Run history retention in storage | 90 days | 90 days <br>(Default) | The amount of time to keep a workflow's run history in storage after a run starts. <br><br>**Note**: If the workflow's run duration exceeds the retention limit, this run is removed from the run history in storage. If a run isn't immediately removed after reaching the retention limit, the run is removed within 7 days. <br><br>Whether a run completes or times out, retention is always calculated by using the run's start time and the retention limit at the *time when the run started*, not the current limit. You can find the retention limit in the workflow setting, [**Run history retention in days**](#change-retention). <br><br>For more information, review [Change duration and run history retention in storage](#change-retention). |
-| Run duration | 90 days | - Stateful workflow: 90 days <br>(Default) <br><br>- Stateless workflow: 5 min <br>(Default) | The amount of time that a workflow can continue running before forcing a time-out. The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <br><br>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <br><br>For more information, review [Change run duration and history retention in storage](#change-duration). |
+| Run duration | 90 days | - Stateful workflow: 90 days <br>(Default) <br><br>- Stateless workflow: 5 min <br>(Default) | The amount of time that a workflow can continue running before forcing a timeout. The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <br><br>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <br><br>For more information, review [Change run duration and history retention in storage](#change-duration). |
 | Recurrence interval | - Min: 1 sec <br><br>- Max: 500 days | - Min: 1 sec <br><br>- Max: 500 days ||
 
 <a name="change-duration"></a>
@@ -166,7 +166,7 @@ The following table lists the values for an **Until** loop:
 | Name | Multitenant | Single-tenant | Notes |
 |------|-------------|---------------|-------|
 | Iterations | - Default: 60 <br>- Min: 1 <br>- Max: 5,000 | Stateful workflow: <br><br>- Default: 60 <br>- Min: 1 <br>- Max: 5,000 <br><br>Stateless workflow: <br><br>- Default: 60 <br>- Min: 1 <br>- Max: 100 | The number of cycles that an **Until** loop can have during a workflow run. <br><br>To change this value in multitenant Azure Logic Apps, in the **Until** loop shape, select **Change limits**, and specify the value for the **Count** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Time-out | Default: PT1H (1 hour) | Stateful workflow: PT1H (1 hour) <br><br>Stateless workflow: PT5M (5 min) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The time-out value is evaluated for each loop cycle. If any action in the loop takes longer than the time-out limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <br><br>To change this value in multitenant Azure Logic Apps, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Timeout | Default: PT1H (1 hour) | Stateful workflow: PT1H (1 hour) <br><br>Stateless workflow: PT5M (5 min) | The amount of time that the **Until** loop can run before exiting and is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). The timeout value is evaluated for each loop cycle. If any action in the loop takes longer than the timeout limit, the current cycle doesn't stop. However, the next cycle doesn't start because the limit condition isn't met. <br><br>To change this value in multitenant Azure Logic Apps, in the **Until** loop shape, select **Change limits**, and specify the value for the **Timeout** property. <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 
 <a name="concurrency-debatching"></a>
 
@@ -175,7 +175,7 @@ The following table lists the values for an **Until** loop:
 | Name | Multitenant | Single-tenant | Notes |
 |------|-------------|---------------|-------|
 | Trigger - concurrent runs | Concurrency off: Unlimited <br><br>Concurrency on (irreversible): <br><br>- Default: 25 <br>- Min: 1 <br>- Max: 100 | Concurrency off: Unlimited <br><br>Concurrency on (irreversible): <br><br>- Default: 100 <br>- Min: 1 <br>- Max: 100 | The number of concurrent runs that a trigger can start at the same time, or in parallel. <br><br>**Note**: When concurrency is turned on, the debatching or **Split on** limit is reduced to 100 items for [debatching arrays](logic-apps-workflow-actions-triggers.md#split-on-debatch). <br><br>To change this value in multitenant Azure Logic Apps, see [Change trigger concurrency limit](logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) or [Trigger instances sequentially](logic-apps-workflow-actions-triggers.md#sequential-trigger). <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Maximum waiting runs | Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br>(Default)<br>- Max: 100 runs | Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br>(Default)<br>- Max: 200 runs <br> | The number of workflow instances that can wait to run when your current workflow instance is already running the maximum concurrent instances. This setting takes effect only if concurrency is turned on. <br><br>To change this value in multitenant Azure Logic Apps, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). <br><br>To change the default value in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Maximum waiting runs | Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br>(Default)<br>- Max: 100 runs | Concurrency on: <br><br>- Min: 10 runs plus the number of concurrent runs <br>(Default)<br>- Max: 200 runs <br> | The number of workflow instances that can wait to run when your current workflow instance is already running the maximum concurrent instances. This setting takes effect only if concurrency is turned on. The **Recurrence** trigger doesn't support waiting runs and ignores any **Maximum waiting runs** value set on the trigger.  <br><br>To change this value in multitenant Azure Logic Apps, see [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). <br><br>To change the default value in single-tenant Azure Logic Apps, see [Edit host and app settings for Standard workflows in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
 | Debatch or **Split on** items | Concurrency off: 100,000 items <br><br>Concurrency on: 100 items | Concurrency off: 100,000 items <br><br>Concurrency on: 100 items | For triggers that return arrays, you can specify an expression that uses the `splitOn` property, which [splits or debatches array items into multiple workflow instances](logic-apps-workflow-actions-triggers.md#split-on-debatch) for processing, rather than use a **For each** loop. This expression references the array to use for creating and running a workflow instance for each array item. <br><br>**Note**: When concurrency is turned on, the debatching or **Split on** limit is reduced to 100 items. |
 
 <a name="throughput-limits"></a>
@@ -405,18 +405,16 @@ The following tables list the values for a single inbound or outbound call:
 
 <a name="http-time-out-limits"></a>
 
-### Time-out duration
+### Timeout duration
 
-By default, the HTTP action and API connection actions follow the [standard asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the time-out for these operations might be longer than the following limits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
+By default, the HTTP action and API connection actions follow the [standard asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the following limits. For more information, see [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and the [Workflow triggers and actions page](logic-apps-workflow-actions-triggers.md#http-action).
 
-> [!NOTE]
->
-> For a Standard logic app resource in single-tenant Azure Logic Apps, stateless workflows can only run *synchronously*.
+For Standard logic app resources in single-tenant Azure Logic Apps, stateless workflows can only run *synchronously*. Stateless workflows only save each action's inputs, outputs, and states in memory, not external storage. As a result, stateless workflows perform faster with quicker response times, provide higher throughput, reduce running costs from not using external storage, and shorter runs usually finish in 5 minutes or less. However, if outages happen, interrupted runs aren't automatically restored. The caller must manually resubmit interrupted runs. For the best performance, make sure that a stateless workflow handles data or content that doesn't exceed 64 KB in total file size. Larger sizes, such as multiple large attachments, might significantly slow workflow performance or even cause the workflow to crash from out-of-memory exceptions. If you require a workflow to handle larger file sizes, create a stateful workflow instead.
 
 | Name | Multitenant | Single-tenant | Notes |
 |------|-------------|---------------|-------|
-| Outbound request | 120 sec <br>(2 min) | 235 sec <br>(3.9 min) <br>(Default) | Examples of outbound requests include calls made by the HTTP trigger or action. <br><br>**Tip**: For longer running operations, use an [asynchronous polling pattern](logic-apps-create-api-app.md#async-pattern) or an ["Until" loop](logic-apps-workflow-actions-triggers.md#until-action). To work around time-out limits when you call another workflow that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the designer's operation picker under **Built-in**. <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Inbound request | 120 sec <br>(2 min) | 235 sec <br>(3.9 min) <br>(Default) | Examples of inbound requests include calls received by the Request trigger, HTTP Webhook trigger, and HTTP Webhook action. <br><br>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). <br><br>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Outbound request | 120 sec <br>(2 min) | 225 sec <br>(3 min and 45 seconds) <br>(Default) | Examples of outbound requests include calls made by the HTTP trigger or action. If the server doesn't respond within the timeout limit, the HTTP action fails. <br><br>**Tip**: For longer running operations, use an [asynchronous polling pattern](logic-apps-create-api-app.md#async-pattern) or an ["Until" loop](logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another workflow that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the designer's operation picker under **Built-in**. <br><br>To change the default timeout limit in the single-tenant service, follow these steps in the Azure portal or see [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md): <br><br>1. On the designer, in the workflow, select the **HTTP** action. <br>2. In the action pane, select the **Settings** tab. <br>3. Under **Request options - Timeout**, change the duration. |
+| Inbound request | 120 sec <br>(2 min) | 225 sec <br>(3 min and 45 seconds) <br>(Default) | Examples of inbound requests include calls received by the **Request** trigger, **HTTP Webhook** trigger, and **HTTP Webhook** action. <br><br>**Note**: For the original caller to get the response when the **Response** action has the **Asynchronous response** setting turned off (default), all steps in the response must finish within the time limit. Otherwise, if the **Response** action has the **Asynchronous response** setting turned on, or if your workflow doesn't include a **Response** action, the call pattern is asynchronous. Your workflow can take whatever time is needed to respond. |
 
 <a name="content-storage-size-limits"></a>
 
@@ -491,7 +489,7 @@ The following table lists the values for custom connectors:
 | APIs per service | SOAP-based: 50 | Not applicable ||
 | Parameters per API | SOAP-based: 50 | Not applicable ||
 | Requests per minute for a custom connector | 500 requests per minute per connection | Based on your implementation ||
-| Connection time-out | 2 min | Idle connection: <br>4 min <br><br>Active connection: <br>10 min ||
+| Connection timeout | 2 min | Idle connection: <br>4 min <br><br>Active connection: <br>10 min ||
 
 For more information, review the following documentation:
 
@@ -547,7 +545,7 @@ The following tables list the values for the number of artifacts limited to each
 | Artifact | Limit | Notes |
 | -------- | ----- | ----- |
 | Assembly | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](logic-apps-enterprise-integration-schemas.md). |
-| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). <br><br>**Note**: The amount of data or records that a map can successfully process is based on the message size and action time-out limits in Azure Logic Apps. For example, if you use an HTTP action, based on [HTTP message size and time-out limits](#http-limits), a map can process data up to the HTTP message size limit if the operation completes within the HTTP time-out limit. |
+| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). <br><br>**Note**: The amount of data or records that a map can successfully process is based on the message size and action timeout limits in Azure Logic Apps. For example, if you use an HTTP action, based on [HTTP message size and timeout limits](#http-limits), a map can process data up to the HTTP message size limit if the operation completes within the HTTP timeout limit. |
 | Schema | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](logic-apps-enterprise-integration-schemas.md). |
 
 <a name="integration-account-throughput-limits"></a>
@@ -599,7 +597,7 @@ Before you set up your firewall with IP addresses, review these considerations:
   | Service tag | Description |
   |-------------|-------------|
   | **LogicAppsManagement** | Inbound IP address prefixes for the Azure Logic Apps service. |
-  | **LogicApps** | Outbound IP address prefixes for the Azure Logic Apps service. |
+  | **LogicApps** | Outbound IP address prefixes for the multitenant Azure Logic Apps service. |
   | **AzureConnectors** | IP address prefixes required for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, such as Azure Blob Storage or Azure Event Hubs. This tag and its IP addresses also apply to any customer connector operations in your workflows. |
 
 * For Standard logic app workflows in single-tenant Azure Logic Apps, you must allow access for any trigger or action connections in your workflows. To allow traffic, use [service tags](/azure/virtual-network/service-tags-overview) and the same level of restrictions or policies as Azure App Service. You must also find and use the fully qualified domain names (FQDNs) for your connections. For more information, see the corresponding sections in the following documentation:
@@ -653,6 +651,7 @@ This section lists the inbound IP addresses that Azure Logic Apps requires for t
 | Australia East | 20.11.76.135, 20.11.77.54, 4.200.57.191, 20.11.77.111, 4.200.48.30, 4.198.185.192, 4.200.48.37, 4.200.57.70 |
 | Australia Southeast | 20.211.194.165, 20.70.118.30, 4.198.78.245, 20.70.114.85, 20.70.116.201, 20.92.62.87, 20.211.194.79, 20.92.62.64, 13.77.55.128, 13.77.55.129 |
 | Austria East | 68.210.183.164, 68.210.183.162, 68.210.183.167, 68.210.183.161, 68.210.183.160, 68.210.183.163, 68.210.183.166, 68.210.183.165 |
+| Belgium Central | 9.160.56.245, 9.160.56.241, 9.160.56.243, 9.160.56.242, 9.160.56.247, 9.160.56.246, 9.160.56.244, 9.160.56.240 |
 | Brazil South | 20.201.111.44, 20.201.110.210, 20.201.95.184, 20.201.111.106, 20.201.110.239, 20.201.111.218, 20.201.111.204, 4.228.78.206 |
 | Brazil Southeast | 108.140.19.183, 108.140.16.189, 108.140.19.38, 108.140.17.2, 108.140.19.189, 108.140.20.8, 108.140.19.206, 108.140.20.2 |
 | Canada Central | 20.175.241.90, 20.116.229.122, 4.172.59.88, 52.237.58.32, 20.116.231.233, 20.116.229.68, 4.172.57.90, 20.116.230.165 |
@@ -660,6 +659,7 @@ This section lists the inbound IP addresses that Azure Logic Apps requires for t
 | Central India | 4.186.8.164, 20.235.200.244, 20.235.200.100, 20.235.200.92, 4.188.187.112, 4.188.187.170, 4.188.187.173, 4.188.188.52 |
 | Central US | 172.212.239.224, 172.212.239.225, 172.212.239.226, 172.212.239.227, 172.212.239.228, 172.212.239.229, 172.212.239.230, 172.212.239.231 |
 | Chile Central | 68.211.20.55, 68.211.20.53, 68.211.20.52, 68.211.20.54, 68.211.20.48, 68.211.20.51, 68.211.20.49, 68.211.20.50 |
+| Denmark East | 9.205.48.240,9.205.48.241,9.205.48.242,9.205.48.243,9.205.48.244,9.205.48.245,9.205.48.246,9.205.48.247 |
 | East Asia | 20.6.149.94, 4.144.32.35, 20.255.186.54, 20.6.149.151, 20.255.121.88, 20.255.104.187, 20.255.121.57, 20.6.177.230 |
 | East US | 4.156.26.80, 4.156.25.14, 4.156.25.189, 20.242.168.44, 4.156.241.183, 4.156.243.174, 4.156.242.86, 4.156.243.165, 52.224.145.162, 4.156.242.96, 4.156.243.173, 4.156.241.195, 4.156.242.97, 4.156.242.26, 4.156.242.13, 172.212.37.35 |
 | East US 2 | 20.122.237.191, 52.251.20.210, 20.122.237.232, 20.122.237.221, 4.152.129.54, 4.152.128.241, 20.1.240.241, 4.152.129.229, 4.152.127.230, 4.152.126.158, 4.153.195.56, 4.153.201.240 |
@@ -713,10 +713,10 @@ This section lists the inbound IP addresses that Azure Logic Apps requires for t
 
 | Azure Government region | Azure Logic Apps IP |
 |-------------------------|---------------------|
-| US Gov Arizona | 52.244.67.164, 52.244.67.64, 52.244.66.82, 52.126.52.254, 52.126.53.145, 52.244.187.241, 52.244.17.238, 52.244.23.110, 52.244.20.213, 52.244.16.162, 52.244.15.25, 52.244.16.141, 52.244.15.26 |
-| US Gov Texas | 52.238.119.104, 52.238.112.96, 52.238.119.145, 52.245.171.151, 52.245.163.42, 52.238.78.169, 52.238.164.135, 52.238.164.111, 52.238.164.44, 52.243.250.114, 52.243.248.33, 52.243.253.54, 52.243.253.44, 52.127.38.96, 52.127.38.97 |
-| US Gov Virginia | 52.227.159.157, 52.227.152.90, 23.97.4.36, 13.77.239.182, 13.77.239.190, 20.159.220.127, 62.10.96.217, 62.10.102.236, 62.10.102.136, 62.10.111.137, 62.10.111.152, 62.10.111.128, 62.10.111.123 |
-| US DoD Central | 52.182.49.204, 52.182.52.106, 52.182.49.105, 52.182.49.175, 52.180.225.24, 52.180.225.43, 52.180.225.50, 52.180.252.28, 52.180.225.29, 52.180.231.56, 52.180.231.50, 52.180.231.65 |
+| US Gov Arizona | 52.244.187.241, 52.244.17.238, 52.244.23.110, 52.244.20.213, 52.244.16.162, 52.244.15.25, 52.244.16.141, 52.244.15.26 |
+| US Gov Texas | 52.238.78.169, 52.238.164.135, 52.238.164.111, 52.238.164.44, 52.243.250.114, 52.243.248.33, 52.243.253.54, 52.243.253.44, 52.127.38.96, 52.127.38.97 |
+| US Gov Virginia | 20.159.220.127, 62.10.96.217, 62.10.102.236, 62.10.102.136, 62.10.111.137, 62.10.111.152, 62.10.111.128, 62.10.111.123 |
+| US DoD Central | 52.180.225.24, 52.180.225.43, 52.180.225.50, 52.180.252.28, 52.180.225.29, 52.180.231.56, 52.180.231.50, 52.180.231.65 |
 
 <a name="outbound"></a>
 
@@ -751,6 +751,7 @@ This section lists the outbound IP addresses that Azure Logic Apps requires for 
 | Australia East | 20.53.72.170, 20.53.106.182, 20.11.76.122, 20.11.77.49, 4.200.57.71, 20.11.77.107, 4.198.187.22, 4.198.185.90, 4.198.185.246, 4.200.58.227 |
 | Australia Southeast | 52.158.133.57, 20.70.114.10, 20.70.117.240, 20.70.116.106, 20.70.114.97, 20.211.194.242, 20.70.109.46, 20.11.136.137, 20.70.116.240, 20.211.194.233, 20.11.154.170, 4.198.89.96, 20.92.61.254, 20.70.95.150, 20.70.117.21, 20.211.194.127, 20.92.61.242, 20.70.93.143, 13.77.53.224, 13.77.53.225 |
 | Austria East | 68.210.183.197, 68.210.183.198, 68.210.183.193, 68.210.183.195, 68.210.183.194, 68.210.183.192, 68.210.183.196, 68.210.183.199 |
+| Belgium Central | 9.160.57.199, 9.160.57.193, 9.160.57.198, 9.160.57.194, 9.160.57.197, 9.160.57.196, 9.160.57.192, 9.160.57.195 |
 | Brazil South | 20.201.64.135, 191.237.207.21, 20.201.111.36, 20.201.110.208, 20.201.91.95, 20.201.110.244, 20.201.110.234, 20.201.111.212, 20.201.111.203, 4.228.72.24 |
 | Brazil Southeast | 20.206.41.20, 20.206.40.250, 108.140.19.0, 108.140.16.168, 108.140.17.240, 108.140.17.223, 108.140.19.181, 108.140.20.3, 108.140.19.68, 108.140.16.195 |
 | Canada Central | 20.104.9.221, 20.48.132.222, 20.175.241.76, 20.116.229.92, 4.172.57.144, 52.237.56.228, 20.116.231.222, 20.116.229.57, 4.172.57.52, 20.116.230.54 |
@@ -758,6 +759,7 @@ This section lists the outbound IP addresses that Azure Logic Apps requires for 
 | Central India | 20.204.202.72, 20.204.212.8, 4.186.8.62, 4.186.8.18, 20.235.200.242, 20.235.200.237, 20.235.200.79, 20.235.200.44, 20.235.200.70, 20.235.200.32, 4.188.187.109, 4.188.187.86, 4.188.187.140, 4.188.185.15, 4.188.187.145, 4.188.187.107, 4.188.187.184, 4.188.187.64 |
 | Central US | 52.141.218.55, 20.109.202.29, 20.118.195.232, 20.118.195.233, 20.118.195.234, 20.118.195.235, 20.118.195.236, 20.118.195.237, 20.118.195.238, 20.118.195.239 |
 | Chile Central | 68.211.20.135, 68.211.20.133, 68.211.20.134, 68.211.20.132, 68.211.20.130, 68.211.20.131, 68.211.20.129, 68.211.20.128 |
+| Denmark East | 9.205.49.192,9.205.49.193,9.205.49.194,9.205.49.195,9.205.49.196,9.205.49.197,9.205.49.198,9.205.49.199 |
 | East Asia | 20.187.250.221, 20.187.188.136, 20.239.240.181, 20.6.152.201, 20.2.52.61, 20.255.43.37, 20.255.41.243, 4.192.72.182, 20.6.177.234, 20.255.113.33 |
 | East US | 52.226.216.187, 40.76.148.50, 20.84.29.18, 40.76.174.39, 4.156.27.7, 4.156.28.117, 4.156.25.188, 20.242.168.24, 4.156.241.165, 4.156.243.170, 4.156.242.49, 4.156.243.164, 52.224.145.30, 4.156.242.92, 4.156.243.172, 4.156.241.191, 4.156.241.47, 4.156.241.229, 4.156.242.12, 172.212.32.196 |
 | East US 2 | 20.96.58.139, 20.96.89.48, 20.96.89.234, 20.122.237.189, 52.253.79.47, 20.122.237.225, 20.122.237.205, 4.152.128.227, 4.152.128.205, 4.153.159.226, 4.152.129.221, 4.152.127.229, 4.152.125.62, 4.153.194.246, 4.153.201.239 |
@@ -811,10 +813,10 @@ This section lists the outbound IP addresses that Azure Logic Apps requires for 
 
 | Region | Azure Logic Apps IP |
 |--------|---------------------|
-| US DoD Central | 52.182.48.215, 52.182.92.143, 52.182.53.147, 52.182.52.212, 52.182.49.162, 52.182.49.151, 52.180.225.0, 52.180.251.16, 52.180.250.135, 52.180.251.20, 52.180.231.89, 52.180.224.251, 52.180.252.222, 52.180.225.21 |
-| US Gov Arizona | 52.244.67.143, 52.244.65.66, 52.244.65.190, 52.126.50.197, 52.126.49.223, 52.126.53.144, 52.126.36.100, 52.244.187.5, 52.244.19.121, 52.244.18.105, 52.244.51.113, 52.244.17.113, 52.244.26.122, 52.244.22.195, 52.244.19.137 |
-| US Gov Texas | 52.238.114.217, 52.238.115.245, 52.238.117.119, 20.141.120.209, 52.245.171.152, 20.141.123.226, 52.245.163.1, 52.238.164.53, 52.238.72.216, 52.238.164.123, 52.238.160.255, 52.243.237.44, 52.249.101.31, 52.243.251.37, 52.243.252.22, 52.127.38.64, 52.127.38.65 |
-| US Gov Virginia | 13.72.54.205, 52.227.138.30, 52.227.152.44, 13.77.239.177, 13.77.239.140, 13.77.239.187, 13.77.239.184, 20.159.219.180, 62.10.96.177, 62.10.102.138, 62.10.102.94, 62.10.111.134, 62.10.111.151, 62.10.110.102, 62.10.109.190 |
+| US DoD Central | 52.182.52.212, 52.182.49.151, 52.180.225.0, 52.180.251.16, 52.180.250.135, 52.180.251.20, 52.180.231.89, 52.180.224.251, 52.180.252.222, 52.180.225.21 |
+| US Gov Arizona | 52.126.49.223, 52.126.53.144, 52.126.36.100, 52.244.187.5, 52.244.19.121, 52.244.18.105, 52.244.51.113, 52.244.17.113, 52.244.26.122, 52.244.22.195, 52.244.19.137 |
+| US Gov Texas | 52.245.171.152, 20.141.123.226, 52.245.163.1, 52.238.164.53, 52.238.72.216, 52.238.164.123, 52.238.160.255, 52.243.237.44, 52.249.101.31, 52.243.251.37, 52.243.252.22, 52.127.38.64, 52.127.38.65 |
+| US Gov Virginia | 13.77.239.140, 13.77.239.184, 20.159.219.180, 62.10.96.177, 62.10.102.138, 62.10.102.94, 62.10.111.134, 62.10.111.151, 62.10.110.102, 62.10.109.190 |
 
 ## Related content
 

@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 03/20/2025
+ms.date: 10/08/2025
 ms.custom:
   - build-2025
 ---
@@ -14,7 +14,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premiumv2](../../includes/api-management-availability-premiumv2.md)] 
 
-This article guides you through the requirements to inject your Azure API Management Premium v2 (preview) instance in a virtual network. 
+This article guides you through the requirements to inject your Azure API Management Premium v2 instance in a virtual network. 
 
 > [!NOTE]
 > To inject a classic Developer or Premium tier instance in a virtual network, the requirements and configuration are different. [Learn more](virtual-network-injection-resources.md).
@@ -32,7 +32,7 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 
 > [!IMPORTANT]
-> * Virtual network injection described in this article is available only for API Management instances in the Premium v2 tier (preview). For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
+> * Virtual network injection described in this article is available only for API Management instances in the Premium v2 tier. For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
 > * Currently, you can inject a Premium v2 instance into a virtual network only when the instance is **created**. You can't inject an existing Premium v2 instance into a virtual network. However, you can update the subnet settings for injection after the instance is created.
 > * Currently, you can't switch between virtual network injection and virtual network integration for a Premium v2 instance.
 
@@ -54,6 +54,30 @@ If you want to enable *public* inbound access to an API Management instance in t
 * Minimum: /27 (32 addresses)
 * Recommended: /24 (256 addresses) - to accommodate scaling of API Management instance
 
+#### Examples
+
+The following table shows subnet sizing examples for API Management virtual network injection, illustrating how different CIDR blocks affect the number of scale-out units possible:
+
+| Subnet CIDR | Total IP addresses | Azure reserved IPs | API Management instance IPs | Internal load balancer IP | Remaining IPs for scale-out | Max scale-out units | Total max units |
+|-------------|---------------------|---------------------|------------------------------|----------------------------|-----------------------------|----------------------|------------------|
+| /27         | 32                  | 5                   | 2                            | 1                          | 24                          | 12                   | 13               |
+| /26         | 64                  | 5                   | 2                            | 1                          | 56                          | 28                   | 29               |
+| /25         | 128                 | 5                   | 2                            | 1                          | 120                         | 30*                  | 30*              |
+
+<sup>*</sup> Premium v2 limit
+
+#### Key points
+
+- **Minimum subnet size**: /27 (provides 24 usable IP addresses for API Management)
+- **Azure reserved IPs**: 5 addresses per subnet (first and last for protocol conformance, plus 3 for Azure services)
+- **Scale-out requirement**: Each scale-out unit requires 2 IP addresses
+- **Internal load balancer**: Only required when API Management is deployed in internal virtual network mode
+- **Premium V2 limit**: Currently supports up to 30 units maximum.
+
+> [!IMPORTANT]
+> - API Management is a member of Azure Integration Services and is typically deployed as a pivotal service in enterprise architectures. It is prudent to err on the higher side of available IPs for the API Management subnet as changing it later can have far-reaching impact.
+> - The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
+
 ### Network security group
 
 [!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
@@ -64,13 +88,7 @@ The subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** se
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-internal.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/hostingEnvironments in the portal.":::
 
-
-> [!NOTE]
-> You might need to register the `Microsoft.Web/hostingEnvironments` resource provider in the subscription so that you can delegate the subnet to the service.
-
-For more information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
-
-[!INCLUDE [api-management-virtual-network-address-prefix](../../includes/api-management-virtual-network-address-prefix.md)]
+[!INCLUDE [api-management-virtual-network-v2-delegation-requirement](../../includes/api-management-virtual-network-v2-delegation-requirement.md)]
 
 ### Permissions
 
@@ -81,8 +99,6 @@ You must have at least the following role-based access control permissions on th
 | Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
-
-
 
 ## Inject API Management in a virtual network
 

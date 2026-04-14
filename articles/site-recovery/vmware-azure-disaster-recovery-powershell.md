@@ -1,16 +1,18 @@
 ---
 title: Set up VMware disaster recovery using PowerShell in Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: jsuri
-ms.date: 03/07/2024
+ms.author: v-gajeronika
+ms.date: 12/08/2025
 ms.custom: devx-track-azurepowershell
 
 
 # Customer intent: "As a cloud architect, I want to set up disaster recovery for VMware VMs to Azure using PowerShell, so that I can ensure business continuity and quick recovery in case of a disaster."
 ---
+
 # Set up disaster recovery of VMware VMs to Azure with PowerShell
 
 > [!CAUTION]
@@ -28,7 +30,6 @@ You learn how to:
 > - Create storage accounts to hold replication logs or data, and replicate the VMs.
 > - Perform a failover. Configure failover settings, perform a settings for replicating virtual machines.
 
-
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
@@ -41,7 +42,7 @@ Before you start:
 
 ## Log in to Azure
 
-Log into your Azure subscription using the Connect-AzAccount cmdlet:
+Log in to your Azure subscription using the Connect-AzAccount cmdlet:
 
 ```azurepowershell
 Connect-AzAccount
@@ -415,7 +416,7 @@ Failover settings for protected machines can be updated using the Set-ASRReplica
 * Name of the virtual machine to be created on failover
 * VM size of the virtual machine to be created on failover
 * Azure virtual network and subnet that the NICs of the virtual machine should be connected to on failover
-* Failover to managed disks
+* Fail over to managed disks
 * Apply Azure Hybrid Use Benefit
 * Assign a static IP address from the target virtual network to be assigned to the virtual machine on failover.
 

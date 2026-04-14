@@ -359,7 +359,7 @@ To see the results of the code sample, run it locally:
 http://localhost:7071/api/tileserver?zoom={z}&x={x}&y={y}
 ```
 
-[Microsoft Azure Cloud]: https://azure.microsoft.com/free/cloud-services
+[Microsoft Azure Cloud]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [USGS EarthExplorer]: https://earthexplorer.usgs.gov/
 [QGIS]: https://www.qgis.org/en/site/forusers/download.html
 [rio-rgbify]: https://pypi.org/project/rio-rgbify/

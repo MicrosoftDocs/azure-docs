@@ -1,12 +1,12 @@
 ---
 title: Configure MQTT broker authentication
 description: Configure MQTT broker authentication.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 04/10/2025
+ms.date: 03/25/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -15,8 +15,6 @@ ms.custom:
 ---
 
 # Configure MQTT broker authentication
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 An MQTT broker supports multiple authentication methods for clients. You can configure each listener port to have its own authentication settings with a BrokerAuthentication resource. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperations/broker-authentication) API reference.
 
@@ -106,7 +104,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To inspect the default broker authentication resource, run:
 
@@ -360,7 +360,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Modify the BrokerAuthentication resource for an authentication policy by adding new methods to the `authenticationMethods` section. The following example shows multiple authentication methods for a BrokerAuthentication resource:
 
@@ -457,6 +459,9 @@ To get started with X.509 authentication, import the trusted CA certificate into
 ```bash
 kubectl create configmap client-ca --from-file=ca.pem -n azure-iot-operations
 ```
+
+> [!IMPORTANT]
+> The ConfigMap name is used as a Kubernetes volume name internally by the broker operator. Volume names must conform to [RFC 1123 label rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names), which means they can only contain lowercase alphanumeric characters and hyphens. For example, `client-ca` and `my-root-ca` are valid names, but `my-root-ca.crt` is not. If the ConfigMap name contains dots or other invalid characters, the broker's reconciliation fails silently and listeners don't provision correctly.
 
 In this example, the CA certificate is imported under the key `ca.pem`. The MQTT broker trusts all CA certificates in the ConfigMap, so you can use anything for the name of the key.
 
@@ -595,7 +600,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -730,7 +737,9 @@ x509Settings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 x509Settings:
@@ -774,7 +783,7 @@ With Azure Device Registry integration enabled:
 - Disabled or removed devices are automatically denied access.
 
 Before you enable this feature, create a corresponding device in the Azure Device Registry for each client certificate. The device name must match the certificate's Common Name (CN). To create and manage devices in the Azure Device Registry, see:
-- [Use the operations experience to manage resources such as assets, devices, and data flows](../discover-manage-assets/howto-manage-assets-devices.md)
+- [Use the operations experience to manage resources such as assets, devices, and data flows](../discover-manage-assets/howto-use-operations-experience.md)
 - [Understand assets and devices](../discover-manage-assets/concept-assets-devices.md)
 
 To enable Azure Device Registry integration, set the `additionalValidation` field to `AzureDeviceRegistry` in your X.509 settings. The `additionalValidation` field performs additional validation of the client certificate using the specified method, with supported values of `AzureDeviceRegistry` or `None` (default):
@@ -822,7 +831,9 @@ x509Settings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -1042,7 +1053,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -1220,7 +1233,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 This example shows all possible parameters. The exact parameters that are required depend on each custom server's requirements.
 
@@ -1281,7 +1296,9 @@ az iot ops broker listener port add --resource-group myResourceGroupName --insta
 
 To disable authentication, omit `authenticationRef` in the `ports` setting of your BrokerListener resource.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To disable authentication, omit `authenticationRef` in the `ports` setting of your BrokerListener resource.
 

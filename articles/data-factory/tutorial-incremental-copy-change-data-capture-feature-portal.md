@@ -42,7 +42,7 @@ In this tutorial, you create a pipeline that performs the following operations:
    2. Create an **If Condition** to check whether there are changed records and if so, invoke the copy activity.
    3. Create a **copy activity** to copy the inserted/updated/deleted data between the CDC table to Azure Blob Storage.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 ## Prerequisites
 * **Azure SQL Managed Instance**. You use the database as the **source** data store. If you don't have an Azure SQL Managed Instance, see the [Create an Azure SQL Database Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart) article for steps to create one.

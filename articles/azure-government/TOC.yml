@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Government?
     href: documentation-government-welcome.md
+  - name: Azure Government product General Availability
+    href: documentation-government-product-roadmap.md
   - name: Compare Azure Government and global Azure
     href: compare-azure-government-global-azure.md
 - name: Quickstarts
@@ -55,7 +57,7 @@
       href: documentation-government-developer-guide.md
     - name: Azure Storage
       href: documentation-government-get-started-connect-to-storage.md
-    - name: Azure AI services
+    - name: Foundry Tools
       href: documentation-government-cognitiveservices.md
     - name: Integrate Microsoft Entra authentication
       href: documentation-government-aad-auth-qs.md
@@ -89,6 +91,9 @@
     href: compliance/compliance-tic.md
   - name: Cloud services by audit scope
     href: compliance/azure-services-in-fedramp-auditscope.md
+  - name: Recommended Secure Configuration
+    href: ./compliance/recommended-secure-configuration.md
+    displayName: Configuration
   - name: Accelerate your path to ATO with Azure
     href: compliance/documentation-accelerate-compliance.md
 - name: Reference

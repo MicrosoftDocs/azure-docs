@@ -24,11 +24,11 @@ The following example fails because in _azuredeploy.json_ the leading curly brac
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters":
-    "comboBox":
+  "parameters": {
+    "comboBox": {
       "type": "string"
     },
-    "location":
+    "location": {
       "type": "string"
     }
   },

@@ -2,8 +2,7 @@
 title: Create a confidential VM with the Azure CLI for Azure confidential computing
 description: Learn how to use the Azure CLI to create a confidential virtual machine for use with Azure confidential computing.
 author: simranparkhe
-ms.service: azure-virtual-machines
-mms.subservice: confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: simranparkhe
@@ -21,7 +20,7 @@ This quickstart shows you how to use the Azure Command-Line Interface (Azure CLI
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Launch Azure Cloud Shell
 
@@ -52,7 +51,7 @@ Choose `VMGuestStateOnly` for no OS disk confidential encryption. Or, choose `Di
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --size Standard_DC4es_v5 \
+  --size Standard_DC4es_v6 \
   --admin-username <azure-username> \
   --admin-password <azure-password> \
   --enable-vtpm true \

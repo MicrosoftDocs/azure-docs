@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Automate load tests with CI/CD'
 titleSuffix: Azure Load Testing
-description: 'Learn how to automate an existing load test by adding it to Azure Pipelines directly from the Azure portal. Run load tests in your CI/CD pipeline to automate performance regression testing.'
+description: 'Automate performance testing by adding it to your CI/CD workflows in Azure Pipelines directly from the Azure portal. Run existing load tests in your CI/CD pipelines to catch performance regressions early.'
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: quickstart
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.date: 08/05/2023
 adobe-target: true
 ---
@@ -15,11 +15,13 @@ adobe-target: true
 
 In this article, you learn how to automate an existing load test by creating a CI/CD pipeline in Azure Pipelines. Select your test in Azure Load Testing, and directly configure a pipeline in Azure DevOps that triggers your load test with every source code commit. Automate load tests with CI/CD to continuously validate your application performance and stability under load.
 
+> [!VIDEO 96505273-6006-439c-a578-cc2ef0bb0115] 
+
 If you want to automate your load test with GitHub Actions, learn how to [manually configure a CI/CD pipeline for Azure Load Testing](./how-to-configure-load-test-cicd.md).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Your Azure account needs to have the [Application Administrator](/azure/active-directory/roles/permissions-reference#application-administrator) role. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 

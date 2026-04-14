@@ -5,9 +5,9 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 07/23/2025
+ms.date: 01/12/2026
 ms.author: mbender
-# Customer intent: As an IT administrator, I want to configure a TLS policy for the Application Gateway, so that I can centralize certificate management and ensure compliance with security standards while optimizing backend performance.
+#customer intent: As an IT administrator, I want to configure a TLS policy for the Application Gateway, so that I can centralize certificate management and ensure compliance with security standards while optimizing backend performance.
 ---
 
 # Application Gateway TLS policy overview
@@ -42,8 +42,8 @@ The following table shows the list of cipher suites and minimum protocol version
 | **Minimum Protocol Version** | 1.0 | 1.1 | 1.2 | 1.2 | 1.2 |
 | **Enabled protocol versions** | 1.0<br/>1.1<br/>1.2 | 1.1<br/>1.2 | 1.2 | 1.2<br/>1.3 | 1.2<br/>1.3 |
 | **Default** | True<br/>(for API version < 2023-02-01) | False | False | True<br/>(for API version >= 2023-02-01) | False |
-| TLS_AES_128_GCM_SHA256 | &cross; | &cross; | &cross; | &check; | &check; |
 | TLS_AES_256_GCM_SHA384 | &cross; | &cross; | &cross; | &check; | &check; |
+| TLS_AES_128_GCM_SHA256 | &cross; | &cross; | &cross; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | &check; | &check; | &check; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | &check; | &check; | &check; | &check; | &check; |
 | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | &check; | &cross; | &cross; | &check; | &cross; |
@@ -136,7 +136,7 @@ Application Gateway supports the following cipher suites from which you can choo
 
 ## Limitations
 
-- The connections to backend servers are always with preferred TLS v1.3 and upto TLS v1.0. The TLS version and cipher suites cannot be customized for the backend TLS connections.
+- The connections to backend servers prefer TLS 1.3 when available, with fallback support for TLS 1.2. The TLS version and cipher suites for backend connections cannot be customized.
 - As of now, the TLS 1.3 implementation is not enabled with &#34;Zero Round Trip Time (0-RTT)&#34; feature.
 - TLS session (ID or Tickets) resumption is not supported.
 - Application Gateway v2 doesn't support the following DHE ciphers. These won't be used for the TLS connections with clients even though they are mentioned in the predefined policies. Instead of DHE ciphers, secure and faster ECDHE ciphers are recommended.

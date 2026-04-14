@@ -14,7 +14,10 @@ ms.custom:
 
 ## Prerequisites
 
-If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+
+>[!Note]
+>Event Grid integration with Azure Service Bus does not support all receive modes and scenarios. In particular, **Peek-Lock** behavior and message settlement patterns may differ from native Service Bus triggers. If your workflow requires Peek-Lock semantics or advanced settlement control, use a Service Bus–native trigger or receiver instead of Event Grid. Ensure your topic and subscription are configured for Event Grid compatibility before using this sample.
 
 ## Create a Service Bus namespace
 

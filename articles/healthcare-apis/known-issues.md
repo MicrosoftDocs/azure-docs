@@ -12,7 +12,7 @@ ms.author: kavitagaddam
 
 # Known issues: Azure Health Data Services
 
-This article describes known issues with Azure Health Data Services, which includes the FHIR&reg;, DICOM&reg;, and MedTech services.
+This article describes known issues with Azure Health Data Services, which includes the FHIR&reg; and DICOM&reg;.
 
 Refer to the table for details about resolution dates or possible workarounds. 
 

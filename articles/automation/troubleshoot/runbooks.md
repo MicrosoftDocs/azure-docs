@@ -5,8 +5,8 @@ services: automation
 ms.date: 05/09/2024
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Troubleshoot runbook issues
@@ -179,7 +179,7 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 ### Resolution
 
-Ensure that your Run As account has [permissions to access any resources](../../role-based-access-control/role-assignments-portal.yml) used in your script.
+Ensure that your Run As account has [permissions to access any resources](/azure/role-based-access-control/role-assignments-portal) used in your script.
 
 ## <a name="sign-in-failed"></a>Scenario: Sign-in to Azure account failed
 

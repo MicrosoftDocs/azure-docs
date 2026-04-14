@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: overview
-ms.date: 07/16/2024
+ms.date: 03/03/2026
 ms.author: duau
 ---
 
@@ -30,7 +30,7 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 * Dynamic routing between your network and Microsoft via BGP.
 * Built-in redundancy in every peering location for higher reliability.
 * Connection uptime [SLA](https://azure.microsoft.com/support/legal/sla/).
-* QoS support for Skype for Business.
+* QoS support for Microsoft Teams.
 
 For more information, see the [ExpressRoute FAQ](expressroute-faqs.md).
 
@@ -100,7 +100,7 @@ Microsoft operates isolated cloud environments for special geopolitical regions 
 
 ### ExpressRoute Direct
 
-ExpressRoute Direct provides customers the opportunity to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100-Gbps connectivity, which supports Active/Active connectivity at scale.
+ExpressRoute Direct provides customers the opportunity to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 10-Gbps, 100-Gbps or 400-Gbps connectivity, which supports Active/Active connectivity at scale.
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 

@@ -4,8 +4,8 @@ description: Learn how to create Azure custom roles with Azure role-based access
 author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
-ms.topic: conceptual
-ms.date: 02/26/2025
+ms.topic: how-to
+ms.date: 10/23/2025
 ms.author: rolyon
 ---
 
@@ -155,7 +155,7 @@ Permission strings are case-insensitive. When you create your custom roles, the 
 
 ## Wildcard permissions
 
-`Actions`, `NotActions`, `DataActions`, and `NotDataActions` support wildcards (`*`) to define permissions. A wildcard (`*`) extends a permission to everything that matches the action string you provide. For example, suppose that you wanted to add all the permissions related to Azure Cost Management and exports. You could add all of these action strings:
+`Actions`, `NotActions`, `DataActions`, and `NotDataActions` support wildcards (`*`) to define permissions. A wildcard (`*`) extends a permission to everything that matches the action string you provide. For example, suppose that you wanted to add all the permissions related to Microsoft Cost Management and exports. You could add all of these action strings:
 
 ```
 Microsoft.CostManagement/exports/action
@@ -193,10 +193,10 @@ Before you can delete a custom role, you must remove any role assignments that u
 
 Here are steps to help find the role assignments before deleting a custom role:
 
-- List the [custom role definition](role-definitions-list.yml).
+- List the [custom role definition](/azure/role-based-access-control/role-definitions-list).
 - In the [AssignableScopes](role-definitions.md#assignablescopes) section, get the management groups, subscriptions, and resource groups.
-- Iterate over the `AssignableScopes` and [list the role assignments](role-assignments-list-portal.yml).
-- [Remove the role assignments](role-assignments-remove.yml) that use the custom role.
+- Iterate over the `AssignableScopes` and [list the role assignments](/azure/role-based-access-control/role-assignments-list-portal).
+- [Remove the role assignments](/azure/role-based-access-control/role-assignments-remove) that use the custom role.
 - If you are using [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles), remove eligible custom role assignments.
 - [Delete the custom role](custom-roles-portal.md#delete-a-custom-role).
 
@@ -216,7 +216,7 @@ The following list describes the limits for custom roles.
 - Custom roles with `DataActions` can't be assigned at the management group scope.
 - You can create a custom role with `DataActions` and one management group in `AssignableScopes`. You can't assign the custom role at the management group scope itself; however, you can assign the custom role at the scope of the subscriptions within the management group. This can be helpful if you need to create a single custom role with `DataActions` that needs to be assigned in multiple subscriptions, instead of creating a separate custom role for each subscription.
 
-For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
+For more information about custom roles and management groups, see [What are Azure management groups?](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment)
 
 ## Input and output formats
 

@@ -3,8 +3,8 @@ title: Use Azure Private Link to securely connect networks to Azure Automation
 description: Use Azure Private Link to securely connect networks to Azure Automation
 ms.topic: overview
 ms.date: 09/10/2024
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ms.custom: sfi-image-nochange
 ---
 
@@ -184,4 +184,4 @@ For more information, see [Azure Private Endpoint DNS configuration](../../priva
 
 ## Next steps
 
-To learn more about Private Endpoint, see [What is Azure Private Endpoint?](../../private-link/private-endpoint-overview.md).
+To learn more about Private Endpoint, see [What is Azure Private Endpoint?](../../private-link/private-endpoint-overview.md)

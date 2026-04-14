@@ -1,8 +1,8 @@
 ---
 title: Failover and patching - Azure Managed Redis
 description: Learn about failover, patching, and the update process for Azure Managed Redis.
-ms.date: 05/18/2025
-ms.topic: conceptual
+ms.date: 02/26/2026
+ms.topic: concept-article
 ms.custom:
   - engagement-fy23
   - ignite-2024
@@ -55,10 +55,10 @@ The Azure Managed Redis service regularly updates your cache with the latest pla
 3. One by one, all nodes being patched are removed from the cluster. Any shards on these VMs will be demoted and migrated to one of the new VMs.
 4. Finally, all VMs that were replaced are deleted.
 
-
 Each shard of a clustered cache is patched separately and doesn't close connections to another shard.
 
-Multiple caches in the same resource group and region are also patched one at a time. Caches that are in different resource groups or different regions might be patched simultaneously.
+> [!NOTE]
+> Multiple caches in the same region might be patched at the same time. If this affects your application, configure [maintenance schedules](scheduled-maintenance.md) such that each cache is patched at a different time.
 
 Because full data synchronization happens before the process repeats, data loss is unlikely to occur for your cache. You can further guard against data loss by [exporting](how-to-import-export-data.md#export) data and enabling [persistence](how-to-persistence.md).
 
@@ -87,9 +87,13 @@ Maintenance includes these updates:
 - Redis Server updates: Any update or patch of the Redis server binaries.
 - Virtual machine (VM) updates: Any updates of the virtual machine hosting the Redis service. VM updates include patching software components in the hosting environment to upgrading networking components or decommissioning.
 
-### Does maintenance appear in the service health in the Azure portal before a patch?
+### Does maintenance history appear in the Azure portal?
 
-No, maintenance doesn't appear under [service health](/azure/service-health/) in the portal or any other place.
+To learn about maintenance history in the Azure portal, check the Azure [Activity log](/azure/azure-monitor/essentials/activity-log) for your cache instance. The "healthevent" event is emitted when maintenance begins.
+
+:::image type="content" source="media/failover/activity-log-event.png" alt-text="Screenshot of maintenance event in Activity log in the portal.":::
+
+To receive notifications automatically, [set up an alert](/azure/azure-monitor/alerts/alerts-activity-log) on the Activity log.
 
 ### Client network-configuration changes
 

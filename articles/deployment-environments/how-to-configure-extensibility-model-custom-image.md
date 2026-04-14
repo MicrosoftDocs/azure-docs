@@ -31,7 +31,7 @@ In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deplo
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure Deployment Environments set up in your Azure subscription. 
   - To set up ADE, follow the [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
@@ -158,7 +158,7 @@ To start with, you can use the published GitHub workflow from the Leveraging ADE
 In order to use the workflow, you will need to:
 
 - Fork this repository into your personal account
-- Allow GitHub Actions to connect to Azure via an Microsoft Entra ID application's federated credentials through OIDC. You can find more documentation about this process here
+- Allow GitHub Actions to connect to Azure via a Microsoft Entra ID application's federated credentials through OIDC. You can find more documentation about this process here
 - Set up Repository Secrets for your repository containing your Microsoft Entra ID application's application ID set as AZURE_CLIENT_ID, the subscription ID set as AZURE_SUBSCRIPTION_ID, and the tenant ID set as AZURE_TENANT_ID
 - Set up Repository Variables for your repository containing your personal Azure Container Registry (ACR) name as REGISTRY_NAME, your preferred repository name as REPOSITORY_NAME, and your preferred tag as TAG for the created image. You can modify your variables between workflow runs to push the generated image to different registries, repositories and tags.
  
@@ -487,7 +487,7 @@ To assign the AcrPull role to the Project Environment Type:
 1. In the Azure portal, go to the ACR that you want to configure.
 1. On the left menu, select **Access Control (IAM)**.
 1. Select **Add** > **Add role assignment**.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |
@@ -503,6 +503,10 @@ In this configuration, ADE uses the Managed Identity for the PET, whether system
 
 > [!Tip]
 > This role assignment has to be made for every project environment type. It can be automated through the Azure CLI.
+
+> [!Tip]
+> If your ACR uses Microsoft Entra attribute-based access control (ABAC) for repository permissions, you may need to make additional role assignments like `Container Registry Repository Reader` to the PET identity. For more information, see [Microsoft Entra ABAC for repository permissions](/azure/container-registry/container-registry-rbac-abac-repository-permissions).
+
 
 When you're ready to push your image to your registry, run the following command:
 

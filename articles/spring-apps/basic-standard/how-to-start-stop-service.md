@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❎ Standard consumption and dedicated (Preview) ✅ Basic/Standard ✅ Enterprise
+**This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
 This article shows you how to start or stop your Azure Spring Apps service instance.
 

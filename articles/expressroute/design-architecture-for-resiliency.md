@@ -1,11 +1,10 @@
 ---
 title: Design and architect Azure ExpressRoute for resiliency
 description: Learn how to design and architect Azure ExpressRoute for resiliency to ensure high availability and reliability in your network connections between on-premises and Azure.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 07/16/2024
+ms.date: 03/12/2026
 ms.author: duau
 ms.custom: ai-usage
 # Customer intent: As a network architect, I want to design Azure ExpressRoute for maximum resiliency, so that I can ensure high availability and reliability for our on-premises connections to Azure, supporting critical workloads without interruption.
@@ -31,7 +30,7 @@ There are three ExpressRoute resiliency architectures that can be utilized to en
 
 ### Maximum resiliency
 
-The Maximum resiliency architecture in ExpressRoute is structured to eliminate any single point of failure within the Microsoft network path. This set up is achieved by configuring a pair of circuits across two distinct locations for site diversity with ExpressRoute. The objective of Maximum resiliency is to enhance reliability, resiliency, and availability, as a result ensuring the highest level of resilience for business and/or mission-critical workloads. For such operations, we recommend that you configure maximum resiliency. This architectural design is recommended as part of the [Well Architected Framework](/azure/well-architected/service-guides/azure-expressroute#reliability) under the reliability pillar. The ExpressRoute engineering team developed a [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) to assist you in configuring maximum resiliency.
+The Maximum resiliency architecture in ExpressRoute is structured to eliminate any single point of failure within the Microsoft network path. This setup is achieved by configuring a pair of circuits across two distinct locations for site diversity with ExpressRoute. The objective of Maximum resiliency is to enhance reliability, resiliency, and availability, as a result ensuring the highest level of resilience for business and/or mission-critical workloads. For such operations, Microsoft recommends that you configure maximum resiliency. This architectural design is recommended as part of the [Well Architected Framework](/azure/well-architected/service-guides/azure-expressroute#reliability) under the reliability pillar. The ExpressRoute engineering team developed a [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) to assist you in configuring maximum resiliency.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/maximum-resiliency.png" alt-text="Diagram of maximum resiliency for an ExpressRoute connection.":::
 
@@ -43,21 +42,21 @@ High resiliency, also referred to as ExpressRoute Metro, enables the use of mult
 
 ### Standard resiliency
 
-Standard resiliency in ExpressRoute is a single circuit with two connections configured at a single site. Built-in redundancy (Active-Active) is configured to facilitate failover across the two connections of the circuit. Today, ExpressRoute offers two connections at a single peering location. If a failure happens at this site, users might experience loss of connectivity to their Azure workloads. This configuration is also known as *single-homed* as it represents users with an ExpressRoute circuit configured with only one peering location. This configuration is considered the *least* resilient and **not recommended** for business or mission-critical workloads because it doesn't provide site resiliency.
+Standard resiliency in ExpressRoute is a single circuit with two connections configured at a single site. Built-in redundancy (Active-Active) is configured to facilitate failover across the two connections of the circuit. ExpressRoute offers two connections at a single peering location. If a failure happens at this site, users might experience loss of connectivity to their Azure workloads. This configuration is also known as *single-homed* as it represents users with an ExpressRoute circuit configured with only one peering location. This configuration is considered the *least* resilient and **not recommended** for business or mission-critical workloads because it doesn't provide site resiliency.
 
 :::image type="content" source="./media/design-architecture-for-resiliency/standard-resiliency.png" alt-text="Diagram illustrating a single ExpressRoute circuit, with each link configured at a single peering location.":::
 
-## Zonal resiliency for ExpressRoute
+## Zone resiliency for ExpressRoute
 
 [Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions) are an integral part of your ExpressRoute design and resiliency strategy. These regions are geographical locations of data centers that host Azure services. Regions are interconnected through a dedicated low-latency network and are designed to be highly available, fault-tolerant, and scalable.
 
-Azure offers several features to ensure regional resiliency. One such feature is [availability zones](../reliability/availability-zones-overview.md). Availability zones protect applications and data from data center failures by spanning across multiple physical locations within a region. Regions and availability zones are central to your application design and resiliency strategy. By utilizing availability zones, you can achieve higher availability and resilience in your deployments. For more information, see [Regions & availability zones](../reliability/overview.md).
+Azure offers several features to ensure regional resiliency. One such feature is [availability zones](/azure/reliability/availability-zones-overview). Availability zones protect applications and data from data center failures by spanning across multiple physical locations within a region. Regions and availability zones are central to your application design and resiliency strategy. By utilizing availability zones, you can achieve higher availability and resilience in your deployments. For more information, see [Regions & availability zones](/azure/reliability/overview).
 
-We recommend deploying your [ExpressRoute Virtual Network Gateways](expressroute-about-virtual-network-gateways.md) as zone redundant across availability zones within a region. These availability zones are separate physical locations with independent infrastructure (power, cooling, and networking). The purpose is to protect your on-premises network connectivity to Azure from zone level failures. [Zone-redundant ExpressRoute gateways](../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=%2Fazure%2Fexpressroute%2Ftoc.json) provide resiliency, scalability, and higher availability for accessing mission-critical services on Azure. 
+Microsoft recommends deploying your [ExpressRoute Virtual Network Gateways](expressroute-about-virtual-network-gateways.md) as zone redundant across availability zones within a region. These availability zones are separate physical locations with independent infrastructure (power, cooling, and networking). The purpose is to protect your on-premises network connectivity to Azure from zone level failures. [Zone-redundant ExpressRoute gateways](../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=%2Fazure%2Fexpressroute%2Ftoc.json) provide resiliency, scalability, and higher availability for accessing mission-critical services on Azure. 
 
 Equipment failures or disasters in regional and zonal data centers can affect ExpressRoute gateway deployments in virtual networks. If gateways aren't deployed as zone-redundant, such failures within an Azure data center can affect the ability for users to access their Azure workloads.  
 
-If you have an existing non-zone redundant ExpressRoute gateways, there's now the ability to [migrate to an availability zone enabled gateway](gateway-migration.md).
+If you have an existing non-zone redundant ExpressRoute gateways, there's the ability to [migrate to an availability zone enabled gateway](gateway-migration.md).
 
 ## Recommendations
 
@@ -76,7 +75,7 @@ During the initial planning phase, it's crucial to determine whether to configur
 
 #### Evaluate the resiliency of multi-site redundant ExpressRoute circuits
 
-After deploying multi-site redundant ExpressRoute circuits with [maximum resiliency](expressroute-howto-circuit-portal-resource-manager.md), it's essential to ensure that on-premises routes are advertised over the redundant circuits to fully utilize the benefits of multi-site redundancy. To evaluate the resiliency and test the failover of redundant circuits and routes Learn more here. 
+After deploying multi-site redundant ExpressRoute circuits with [maximum resiliency](expressroute-howto-circuit-portal-resource-manager.md), it's essential to ensure that on-premises routes are advertised over the redundant circuits to fully utilize the benefits of multi-site redundancy. To evaluate the resiliency and test the failover of redundant circuits and routes, see [Evaluate ExpressRoute circuit resiliency](evaluate-circuit-resiliency.md). 
 
 #### Plan for active-active configuration
 
@@ -108,7 +107,7 @@ To maximize availability, both the customer and service provider segments on you
 
 #### Plan for geo-redundancy
 
-For disaster recovery planning, we recommend setting up ExpressRoute circuits in multiple peering locations and regions. ExpressRoute circuits can be created in the same metropolitan area or different metropolitan areas, and different service providers can be used for diverse paths through each circuit. Geo-redundant ExpressRoute circuits are utilized to create a robust backend network connectivity for disaster recovery. To learn more, see [Designing for high availability](designing-for-high-availability-with-expressroute.md).
+For disaster recovery planning, Microsoft recommends setting up ExpressRoute circuits in multiple peering locations and regions. ExpressRoute circuits can be created in the same metropolitan area or different metropolitan areas, and different service providers can be used for diverse paths through each circuit. Geo-redundant ExpressRoute circuits are utilized to create a robust backend network connectivity for disaster recovery. To learn more, see [Designing for high availability](designing-for-high-availability-with-expressroute.md).
 
 > [!NOTE] 
 > Using site-to-site VPN as a backup solution for ExpressRoute connectivity is not recommended when dealing with latency-sensitive, mission-critical, or bandwidth-intensive workloads. In such cases, it's advisable to design for disaster recovery with ExpressRoute multi-site resiliency to ensure maximum availability.
@@ -124,7 +123,7 @@ Virtual Network (VNet) Peering provides a more efficient and direct method, enab
 
 #### Configure monitoring & alerting for ExpressRoute circuits 
 
-As a baseline, we recommend configuring [Network Insights](expressroute-network-insights.md) within Azure Monitor to view all ExpressRoute circuit metrics, including ExpressRoute Direct and Global Reach. Within the circuits card you can visualize topologies and dependencies for peerings, connections, and gateways. The insights available for circuits include availability, throughput, and packet drops.
+As a baseline, Microsoft recommends configuring [Network Insights](expressroute-network-insights.md) within Azure Monitor to view all ExpressRoute circuit metrics, including ExpressRoute Direct and Global Reach. Within the circuits card you can visualize topologies and dependencies for peerings, connections, and gateways. The insights available for circuits include availability, throughput, and packet drops.
 
 #### Configure service health alerts for ExpressRoute circuit maintenance notifications 
 

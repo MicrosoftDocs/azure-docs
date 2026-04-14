@@ -169,11 +169,11 @@ Every cloud service deployed in Azure has a publicly addressable virtual IP (VIP
 
 ### Do virtual networks support IPv6?
 
-Yes. Virtual networks can be IPv4 only or dual stack (IPv4 + IPv6). For details, see [What is IPv6 for Azure Virtual Network?](./ip-services/ipv6-overview.md).
+Yes. Virtual networks can be IPv4 only or dual stack (IPv4 + IPv6). For details, see [What is IPv6 for Azure Virtual Network?](./ip-services/ipv6-overview.md)
 
 ### Can a virtual network span regions?
 
-No. A virtual network is limited to a single region. But a virtual network does span availability zones. To learn more about availability zones, see [What are Azure regions and availability zones?](../reliability/availability-zones-overview.md).
+No. A virtual network is limited to a single region. But a virtual network does span availability zones. To learn more about availability zones, see [What are Azure regions and availability zones?](/azure/reliability/availability-zones-overview)
 
 You can connect virtual networks in different regions by using virtual network peering. For details, see [Virtual network peering](virtual-network-peering-overview.md).
 
@@ -209,7 +209,7 @@ If you change your DNS server list, you need to perform a DHCP lease renewal on 
 Azure-provided DNS is a multitenant DNS service from Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution:
 
 * By host name for VMs and role instances in the same cloud service.
-* By fully qualified domain main (FQDN) for VMs and role instances in the same virtual network.
+* By fully qualified domain name (FQDN) for VMs and role instances in the same virtual network.
 
 To learn more about DNS, see [Name resolution for resources in Azure virtual networks](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -311,7 +311,7 @@ Yes. For details, see [Deploy dedicated Azure services into virtual networks](vi
 
 ### How can I restrict access to Azure PaaS resources from a virtual network?
 
-Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database) can restrict network access to virtual networks through the use of virtual network service endpoints or Azure Private Link. For details, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md) and [What is Azure Private Link?](../private-link/private-link-overview.md).
+Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database) can restrict network access to virtual networks through the use of virtual network service endpoints or Azure Private Link. For details, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md) and [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 ### Can I move my services in and out of virtual networks?
 
@@ -345,7 +345,7 @@ No. You must set the [FlowTimeoutInMinutes](/powershell/module/az.network/set-az
 
 ```Powershell
 $Allvnet = Get-AzVirtualNetwork
-$time = 4 #The value should be 4 to 30 minutes (inclusive) to enable tracking, or null to disable tracking. 
+$time = 4 #The value should be from 4 to 30 minutes (inclusive) to enable tracking, or null to disable tracking. 
 ForEach ($vnet in $Allvnet)
 {
     $vnet.FlowTimeoutInMinutes = $time
@@ -389,7 +389,7 @@ The following resources can use basic load balancers, which means you can't reac
 
 * VMs behind basic load balancers
 * Virtual machine scale sets with basic load balancers
-* Azure Cache for Redis
+* Azure Managed Redis
 * Azure Application Gateway v1
 * Azure Service Fabric
 * Azure API Management stv1
@@ -506,7 +506,7 @@ Certain services (such as Azure SQL and Azure Cosmos DB) allow exceptions to the
 Turning on the service endpoints on the network side can lead to a connectivity drop, because the source IP changes from a public IPv4 address to a private address. Setting up virtual network ACLs on the Azure service side before turning on service endpoints on the network side can help avoid a connectivity drop.
 
 >[!NOTE]
-> If you enable Service Endpoint on certain services like "Microsoft.AzureActiveDirectory" you can see IPV6 address connections on Sign-In Logs. Microsoft use an internal IPV6 private range for this type of connection.
+> If you enable Service Endpoint on certain services like "Microsoft.AzureActiveDirectory" you can see IPv6 address connections on Sign-In Logs. Microsoft use an internal IPv6 private range for this type of connection.
 
 ### Do all Azure services reside in the Azure virtual network that the customer provides? How does a virtual network service endpoint work with Azure services?
 
@@ -639,7 +639,7 @@ Azure Service Manager is the old deployment model of Azure that was responsible 
 
 ### What is Azure Resource Manager?
 
-Azure Resource Manager is the latest deployment and management model in Azure that's responsible for creating, managing, and deleting resources in your Azure subscription. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md).
+Azure Resource Manager is the latest deployment and management model in Azure that's responsible for creating, managing, and deleting resources in your Azure subscription. For more information, see [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md)
 
 ### Can I revert the migration after resources have been committed to Resource Manager?
 

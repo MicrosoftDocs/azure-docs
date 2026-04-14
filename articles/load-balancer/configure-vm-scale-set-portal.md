@@ -21,7 +21,7 @@ In this article, you'll learn how to configure a Virtual Machine Scale Set with 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - - An [Azure Virtual Network](../virtual-network/quick-create-portal.md) for the Virtual Machine Scale Set and the load balancer.
 - An existing [standard sku load balancer](quickstart-load-balancer-standard-internal-portal.md) in the subscription where the Virtual Machine Scale Set will be deployed. Ensure the load balancer has a backend pool.
 
@@ -94,7 +94,7 @@ In this section, you'll create a Virtual Machine Scale Set in the Azure portal w
 
 ## Prerequisites 
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - You need an existing [standard sku load balancer](quickstart-load-balancer-standard-internal-cli.md) in the subscription where the Virtual Machine Scale Set will be deployed. Ensure the load balancer has a backend pool.
 - You need an [Azure Virtual Network](../virtual-network/quick-create-cli.md) for the Virtual Machine Scale Set.
  
@@ -154,7 +154,7 @@ az vmss create \
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - - An [Azure Virtual Network](../virtual-network/quick-create-powershell.md) for the Virtual Machine Scale Set and the load balancer.
 - An existing [standard sku load balancer](quickstart-load-balancer-standard-internal-powershell.md) in the subscription where the Virtual Machine Scale Set will be deployed. Ensure the load balancer has a backend pool.
 

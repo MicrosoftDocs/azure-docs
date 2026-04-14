@@ -1,7 +1,7 @@
 ---
 title: "Deploy a virtual machine in an Extended Zone using Azure CLI"
 description: Learn how to deploy a virtual machine in an Azure Extended Zone using Azure CLI.
-author: svaldes
+author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: quickstart
@@ -19,7 +19,7 @@ In this quickstart, you learn how to deploy a virtual machine (VM) in an Extende
 
 You can also complete this quickstart using the [Azure portal](deploy-vm-portal.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

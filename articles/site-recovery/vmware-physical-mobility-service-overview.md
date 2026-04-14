@@ -1,11 +1,11 @@
 ---
 title: About the Mobility service for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn about the Mobility service agent for disaster recovery of VMware VMs and physical servers to Azure using the Azure Site Recovery service.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: jsuri
-ms.date: 04/03/2025
+ms.author: v-gajeronika
+ms.date: 02/27/2026
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -393,6 +393,8 @@ On the configuration server, go to the folder _%ProgramData%\ASR\home\svsystems\
 > The file names use the syntax shown in the following table with _version_ and _date_ as placeholders for the real values. The actual file names will look similar to these examples:
 > - `Microsoft-ASR_UA_9.30.0.0_Windows_GA_22Oct2019_release.exe`
 > - `Microsoft-ASR_UA_9.30.0.0_UBUNTU-16.04-64_GA_22Oct2019_release.tar.gz`
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 Installer file | Operating system (64-bit only)
 --- | ---

@@ -3,7 +3,7 @@ title: Use template deployment scripts | Microsoft Docs
 description: Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates).
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: tutorial
-ms.date: 06/20/2024
+ms.date: 10/29/2025
 ---
 
 # Tutorial: Use deployment scripts to create a self-signed certificate
@@ -28,7 +28,7 @@ For a Learn module that covers deployment scripts, see [Extend ARM templates by 
 
 To complete this article, you need:
 
-* **[Visual Studio Code](https://code.visualstudio.com/).
+* **[Visual Studio Code](https://code.visualstudio.com/)**.
 * **A user-assigned managed identity**. This identity is used to perform Azure-specific actions in the script. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). You need the identity ID when you deploy the template. The format of the identity is:
 
   ```json
@@ -104,9 +104,6 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     },
     ```
 
-    > [!NOTE]
-    > The Resource Manager template extension of Visual Studio Code isn't capable to format deployment scripts yet. Don't use Shift+Alt+F to format the `deploymentScripts` resources, like the following one.
-
 1. Add a parameter for configuring the key vault access policies so that the managed identity can add certificates to the key vault:
 
     ```json
@@ -124,7 +121,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     }
     ```
 
-1. Update the existing key vault access policies to:
+1. Update the existing key vault access policies of the `Microsoft.KeyVault/vaults` resource to:
 
     ```json
     "accessPolicies": [
@@ -178,7 +175,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     ```json
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "createAddCertificate",
       "location": "[resourceGroup().location]",
       "dependsOn": [

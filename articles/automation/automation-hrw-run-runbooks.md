@@ -7,8 +7,8 @@ ms.date: 07/29/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Run Automation runbooks on a Hybrid Runbook Worker
@@ -16,10 +16,7 @@ author: jasminemehndir
 
 > [!IMPORTANT]
 > - Starting 1st April 2025, all jobs running on agent-based Hybrid Worker will be stopped. 
-> - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
-
-> [!NOTE]
-> Azure Automation Run As Account has retired on September 30, 2023 and is replaced with Managed Identities. Follow the guidelines on [how to start migrating your runbooks to use managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md#sample-scripts).
+> - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md)
 
 
 Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they are used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
@@ -57,15 +54,15 @@ Jobs for Hybrid Runbook Workers run under the local **System** account.
 
 **PowerShell 7.4**
 
-To run PowerShell 7.4 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5).
+To run PowerShell 7.4 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 
-After PowerShell 7.4 installation is complete, create an environment variable with Variable name as powershell_7_4_path and Variable value as location of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
+After PowerShell 7.4 installation is complete, create an environment variable with Variable name as powershell_7_4_path and Variable value as path of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **PowerShell 7.2**
 
 To run PowerShell 7.2 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
 
-After PowerShell 7.2 installation is complete, create an environment variable with Variable name as powershell_7_2_path and Variable value as location of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
+After PowerShell 7.2 installation is complete, create an environment variable with Variable name as powershell_7_2_path and Variable value as path of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **PowerShell 7.1**
 
@@ -76,7 +73,7 @@ Ensure to add the *PowerShell* file to the PATH environment variable and restart
 
 To run Python 3.10 runbooks on a Windows Hybrid Worker, install *Python* on the Hybrid Worker. See [Install Python on Windows](https://docs.python.org/3/using/windows.html).
 
-After Python 3.10 installation is complete, create an environment variable with Variable name as python_3_10_path and Variable value as location of the executable *Python*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
+After Python 3.10 installation is complete, create an environment variable with Variable name as python_3_10_path and Variable value as path of the executable *Python*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **Python 3.8**
 
@@ -96,7 +93,7 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 
 > [!NOTE]
 >- PowerShell 7.4 and Python 3.10 runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.23 or above.
->- PowerShell 5.1, PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
+>- PowerShell 7.1 (preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
 >- PowerShell 7.2 runbook is supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
 
 #### Extension-based Hybrid Workers
@@ -109,21 +106,25 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 
 **PowerShell 7.4**
 
-To run PowerShell 7.4 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. See [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.5).
+To run PowerShell 7.4 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. See [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
 
-After PowerShell 7.4 installation is complete, create an environment variable with **Variable name** as powershell_7_4_path and **Variable value** as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
+After PowerShell 7.4 installation is complete, create an environment variable with **Variable name** as powershell_7_4_path and **Variable value** as path of the executable *PowerShell* file, for example: `powershell_7_4_path="/usr/bin/pwsh"`
+
+Restart the Hybrid Runbook Worker after an environment variable is created successfully.
 
 **PowerShell 7.2**
 
 To run PowerShell 7.2 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. For more information, see [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
 
-After PowerShell 7.2 installation is complete, create an environment variable with **Variable name** as *powershell_7_2_path* and **Variable value** as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
+After PowerShell 7.2 installation is complete, create an environment variable with **Variable name** as *powershell_7_2_path* and **Variable value** as path of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
 
 **Python 3.10**
 
 To run Python 3.10 runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker. For more information, see [Install Python 3.10 on Linux](https://docs.python.org/3/using/unix.html).
 
-After Python 3.10 installation is complete, create an environment variable with **Variable name** as *python_3_10_path* and **Variable value** as location of the executable *Python* file. Restart the Hybrid Runbook Worker after environment variable is created successfully.
+After Python 3.10 installation is complete, create an environment variable with **Variable name** as *python_3_10_path* and **Variable value** as path of the executable *Python* file,  for example: `python_3_10_path="/usr/bin/python3.10"`
+
+Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **Python 3.8**
 
@@ -220,7 +221,7 @@ There are two ways to use the Managed Identities in Hybrid Runbook Worker script
     # [VM's user-assigned managed identity](#tab/ua-mi)
 
     1. [Configure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss.md#user-assigned-managed-identity) a User Managed Identity for the VM.
-    1. Grant this identity the [required permissions](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) within the Subscription to perform its tasks.
+    1. Grant this identity the [required permissions](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal) within the Subscription to perform its tasks.
     1. Update the runbook to use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet with the `Identity ` and `AccountID` parameters to authenticate to Azure resources. This configuration reduces the need to use a Run As account and perform the associated account management.
 
     ```powershell

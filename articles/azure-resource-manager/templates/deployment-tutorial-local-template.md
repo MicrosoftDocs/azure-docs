@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
-description: Learn how to deploy an Azure Resource Manager template (ARM template) from your local computer.
-ms.date: 04/28/2025
+description: Learn how to deploy an Azure Resource Manager template from your local computer.
+ms.date: 10/27/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
 
-# Tutorial: Deploy a local ARM template
+# Tutorial: Deploy a local Azure Resource Manager template
 
 Learn how to deploy an Azure Resource Manager template (ARM template) from your local machine. It takes about **8 minutes** to complete.
 
@@ -18,14 +18,14 @@ Make sure you have the tools you need to deploy templates.
 
 ### Command-line deployment
 
-To deploy the template, you need either Azure PowerShell or Azure CLI. For the installation instructions, see:
+To deploy the template, you need either Azure PowerShell or the Azure CLI. For the installation instructions, see:
 
 - [Install Azure PowerShell](/powershell/azure/install-azure-powershell)
-- [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
-- [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
-- [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
+- [Install the Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
+- [Install the Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
+- [Install the Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
 
-After installing either Azure PowerShell or Azure CLI, sign in for the first time. For help, see [Sign in - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Sign in - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
+After installing either Azure PowerShell or the Azure CLI, sign in for the first time. For help, see [Sign in - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Sign in - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
 
 ### Editor (Optional)
 
@@ -35,7 +35,115 @@ Templates are JSON files. To review or edit templates, you can use [Visual Studi
 
 The template deploys a storage account, app service plan, and web app. If you're interested in creating the template, see [Quickstart templates tutorial](template-tutorial-quickstart-template.md). However, you don't need to create the template to complete this tutorial.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "projectName": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 11,
+      "metadata": {
+        "description": "Specify a project name that is used to generate resource names."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specify a location for the resources."
+      }
+    },
+    "storageSKU": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS",
+        "Premium_LRS",
+        "Premium_ZRS",
+        "Standard_GZRS",
+        "Standard_RAGZRS"
+      ],
+      "metadata": {
+        "description": "Specify the storage account type."
+      }
+    },
+    "linuxFxVersion": {
+      "type": "string",
+      "defaultValue": "php|7.0",
+      "metadata": {
+        "description": "Specify the Runtime stack of current web app"
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[format('{0}{1}', parameters('projectName'), uniqueString(resourceGroup().id))]",
+    "webAppName": "[format('{0}WebApp', parameters('projectName'))]",
+    "appServicePlanName": "[format('{0}Plan', parameters('projectName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2025-03-01",
+      "name": "[variables('appServicePlanName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "B1",
+        "tier": "Basic",
+        "size": "B1",
+        "family": "B",
+        "capacity": 1
+      },
+      "kind": "linux",
+      "properties": {
+        "perSiteScaling": false,
+        "reserved": true,
+        "targetWorkerCount": 0,
+        "targetWorkerSizeId": 0
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2025-03-01",
+      "name": "[variables('webAppName')]",
+      "location": "[parameters('location')]",
+      "kind": "app",
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+        "siteConfig": {
+          "linuxFxVersion": "[parameters('linuxFxVersion')]"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
+      ]
+    }
+  ],
+  "outputs": {
+    "storageEndpoint": {
+      "type": "object",
+      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').primaryEndpoints]"
+    }
+  }
+}
+```
 
 > [!IMPORTANT]
 > Storage account names must be unique, between 3 and 24 characters in length, and use **numbers** and **lowercase** letters only. The sample template's `storageAccountName` variable combines the `projectName` parameter's maximum of 11 characters with a [uniqueString](./template-functions-string.md#uniquestring) value of 13 characters.
@@ -44,9 +152,9 @@ Save a copy of the template to your local computer with the _.json_ extension, f
 
 ## Sign in to Azure
 
-To start working with Azure PowerShell/Azure CLI to deploy a template, sign in with your Azure credentials.
+To start working with Azure PowerShell or the Azure CLI to deploy a template, sign in with your Azure credentials.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
@@ -62,7 +170,7 @@ az login
 
 If you have multiple Azure subscriptions, select the subscription you want to use. Replace `[SubscriptionID/SubscriptionName]` and the square brackets `[]` with your subscription information:
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Set-AzContext [SubscriptionID/SubscriptionName]
@@ -78,9 +186,9 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 ## Create resource group
 
-When you deploy a template, you specify a resource group for the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell. To choose between Azure PowerShell and Azure CLI, select the tabs in the following code section. The CLI examples in this article are written for the Bash shell.
+When you deploy a template, you specify a resource group for the resources. Before running the deployment command, create the resource group with the Azure CLI or Azure PowerShell. To choose between Azure PowerShell and the Azure CLI, select the tabs in the following code section. The CLI examples in this article are written for the Bash shell.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource and resource group names"
@@ -109,7 +217,7 @@ az group create \
 
 Use one or both deployment options to deploy the template.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name"
@@ -143,7 +251,7 @@ az deployment group create \
   --verbose
 ```
 
-To learn more about deploying template by using Azure CLI, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md).
+To learn more about deploying template by using the Azure CLI, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md).
 
 ---
 

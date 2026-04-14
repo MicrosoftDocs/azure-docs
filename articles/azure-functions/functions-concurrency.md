@@ -50,7 +50,7 @@ For trigger types that support concurrency configuration, the concurrency settin
 
 _Applies only to the Flex Consumption plan_ 
 
-HTTP trigger concurrency is a special type of fixed per-instance concurrency. In HTTP trigger concurrency, the default concurrency also depends on the [instance memory size](./flex-consumption-plan.md#instance-memory).
+HTTP trigger concurrency is a special type of fixed per-instance concurrency. In HTTP trigger concurrency, the default concurrency also depends on the [instance size](./flex-consumption-plan.md#instance-sizes).
 
 The Flex Consumption plan scales all HTTP trigger functions together as a group. For more information, see [Per-function scaling](event-driven-scaling.md#per-function-scaling).
 

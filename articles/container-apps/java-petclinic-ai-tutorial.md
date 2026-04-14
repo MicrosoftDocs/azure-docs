@@ -29,8 +29,8 @@ For information on the architectural details of this application, see [Java PetC
 
 ## Prerequisites
 
-- An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
-- `Contributor` and `User Access Administrator` roles, or the `Owner` role. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
+- An Azure subscription. [Create one for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- `Contributor` and `User Access Administrator` roles, or the `Owner` role. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 - [A GitHub account](https://github.com/join).
 - The latest version of [git](https://git-scm.com/downloads).
 - The [Microsoft Build of Open JDK](/java/openjdk/install), version 17 or higher.
@@ -93,8 +93,8 @@ For information on the architectural details of this application, see [Java PetC
     (✓) Done: Virtual Network: vnet-my-first-ai (7.357s)
     (✓) Done: Container Registry: crb36onby7z5ooc (25.742s)
     (✓) Done: Azure OpenAI: openai-my-first-ai (25.324s)
-    (✓) Done: Azure AI Services Model Deployment: openai-my-first-ai/text-embedding-ada-002 (42.909s)
-    (✓) Done: Azure AI Services Model Deployment: openai-my-first-ai/gpt-4o (44.21s)
+    (✓) Done: Foundry Tools Model Deployment: openai-my-first-ai/text-embedding-ada-002 (42.909s)
+    (✓) Done: Foundry Tools Model Deployment: openai-my-first-ai/gpt-4o (44.21s)
     (✓) Done: Container Apps Environment: aca-env-my-first-ai (3m1.361s)
     (✓) Done: Container App: petclinic-ai (22.701s)
     

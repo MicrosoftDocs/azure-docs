@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
+ms.date: 11/05/2024
 ms.author: mbender
 # Customer intent: "As a cloud operator, I want to configure path, header, and query string routing for my application using Gateway API, so that I can manage traffic and direct requests to the appropriate backend services efficiently."
 ---
@@ -25,8 +25,8 @@ Application Gateway for Containers enables traffic routing based on URL path, qu
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md))
+2. If following the ALB managed deployment strategy, ensure you have provisioned your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
    Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.
 
@@ -210,6 +210,9 @@ spec:
       port: 8080
 EOF
 ```
+
+>[!Tip]
+>Application Gateway for Containers supports regular expression matching for `headers`, `queryParams`, and `path` rules using Regular Expression 2 (RE2) syntax. More information can be found in the [Gateway API specification](https://gateway-api.sigs.k8s.io/reference/spec/?h=RegularExpression#headermatchtype).
 
 Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
 

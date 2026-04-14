@@ -3,9 +3,9 @@ title: Microsoft Sentinel data lake overview
 titleSuffix: Microsoft Security  
 description: An overview of Microsoft Sentinel data lake, a cloud-native platform that extends Microsoft Sentinel with highly scalable, cost-effective long-term storage, advanced analytics, and AI-driven security operations.
 author: EdB-MSFT  
-ms.service: microsoft-sentinel  
-ms.subservice: sentinel-graph
-ms.topic: conceptual
+ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform  
+ms.topic: concept-article
 ms.custom: references_regions
 ms.date: 08/11/2025
 ms.author: edbaynash  
@@ -99,7 +99,7 @@ For more information on audited data lake activities, see [Audit log for Microso
 
 ## Supported regions
 
-See [Regions supported for Microsoft Sentinel data lake](../geographical-availability-data-residency.md#regions-supported-for-microsoft-sentinel-data-lake) for supported regions.
+See [Regions supported for Microsoft Sentinel data lake](../geographical-availability-data-residency.md#supported-regions) for supported regions.
  
 
  

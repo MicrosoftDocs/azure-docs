@@ -1,28 +1,29 @@
 ---
-title: Integrate web app with OpenAPI in Azure AI Foundry Agent Service (.NET)
-description: Empower your existing .NET web apps by integrating their capabilities into Azure AI Foundry Agent Service with OpenAPI, enabling AI agents to perform real-world tasks.
+title: Integrate web app with OpenAPI in Foundry Agent Service (.NET)
+description: Empower your existing .NET web apps by integrating their capabilities into Foundry Agent Service with OpenAPI, enabling AI agents to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
-ms.date: 06/16/2025
+ms.date: 12/05/2025
 ms.topic: tutorial
 ms.custom:
   - devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.service: azure-app-service
 ---
 
-# Add an App Service app as a tool in Azure AI Foundry Agent Service (.NET)
+# Add an App Service app as a tool in Foundry Agent Service (.NET)
 
-In this tutorial, you'll learn how to expose an ASP.NET Core app's functionality through OpenAPI, add it as a tool to Azure AI Foundry Agent Service, and interact with your app using natural language in the agents playground. 
+In this tutorial, you'll learn how to expose an ASP.NET Core app's functionality through OpenAPI, add it as a tool to Foundry Agent Service, and interact with your app using natural language in the agents playground. 
 
-If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available to an AI agent in Azure AI Foundry Agent Service. By simply adding an OpenAPI schema to your app, you enable the agent to understand and use your app's capabilities when it responds to users' prompts. This means anything your app can do, your AI agent can do too, with minimal effort beyond creating an OpenAPI endpoint for your app. In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent through conversational AI.
+If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available to an AI agent in Foundry Agent Service. By simply adding an OpenAPI schema to your app, you enable the agent to understand and use your app's capabilities when it responds to users' prompts. This means anything your app can do, your AI agent can do too, with minimal effort beyond creating an OpenAPI endpoint for your app. In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent through conversational AI.
 
 :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
 
 > [!div class="checklist"]
 > * Add OpenAPI functionality to your web app.
-> * Make sure OpenAPI schema compatible with Azure AI Foundry Agent Service.
-> * Register your app as an OpenAPI tool in Azure AI Foundry Agent Service.
+> * Make sure OpenAPI schema compatible with Foundry Agent Service.
+> * Register your app as an OpenAPI tool in Foundry Agent Service.
 > * Test your agent in the agents playground.
 
 ## Prerequisites
@@ -45,14 +46,14 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     dotnet add package Swashbuckle.AspNetCore.Annotations --version 6.5.0
     ```
     
-1. In *Controllers/TodosController.cs*, add the following API methods. To make them compatible with the Azure AI Foundry Agent Service, you must specify the `OperationId` property in the `SwaggerOperation` attribute (see [How to use Azure AI Foundry Agent Service with OpenAPI Specified Tools: Prerequisites](/azure/ai-services/agents/how-to/tools/openapi-spec#prerequisites)).
+1. In *Controllers/TodosController.cs*, add the following API methods. To make them compatible with the Foundry Agent Service, you must specify the `OperationId` property in the `SwaggerOperation` attribute (see [How to use Foundry Agent Service with OpenAPI Specified Tools: Prerequisites](/azure/ai-services/agents/how-to/tools/openapi-spec#prerequisites)).
 
     ```csharp
-        // GET: api/TodosApi
-        [HttpGet]
+        // GET: api/todos
+        [HttpGet("api/todos")]
         [SwaggerOperation(Summary = "Gets all Todo items", OperationId = "GetTodos")]
         [ProducesResponseType(typeof(IEnumerable<Todo>), 200)]
-        public async Task<ActionResult<IEnumerable<Todo>> GetTodos()
+        public async Task<ActionResult<IEnumerable<Todo>>> GetTodos()
         {
             return await _context.Todo.ToListAsync();
         }
@@ -128,16 +129,15 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     }
     ```
     
-1. At the top of *Controllers/TodosController.cs*, add the following usings:
+1. At the top of *Controllers/TodosController.cs*, add the following using:
 
     ```csharp
-    using Microsoft.AspNetCore.Http;
     using Swashbuckle.AspNetCore.Annotations;
     ```
     
     This code is duplicating the functionality of the existing controller, which is unnecessary, but you'll keep it for simplicity. A best practice would be to move the app logic to a service class, then call the service methods both from the MVC actions and from the API methods.
 
-1. In *Program.cs*, register the Swagger generator service. This enables OpenAPI documentation for your API, which lets Azure AI Foundry Agent Service understand your APIs. Be sure to specify the server URL. Azure AI Foundry Agent Service needs a schema that contains the server URL.
+1. In *Program.cs*, register the Swagger generator service. This enables OpenAPI documentation for your API, which lets Foundry Agent Service understand your APIs. Be sure to specify the server URL. Foundry Agent Service needs a schema that contains the server URL.
 
     ```csharp
     builder.Services.AddSwaggerGen(c =>
@@ -170,35 +170,19 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 1. Once your changes are deployed, navigate to `https://<your-app's-url>/swagger/v1/swagger.json` and copy the schema for later.
 
-## Create an agent in Azure AI Foundry
+## Create an agent in Microsoft Foundry
 
-1. Create an agent in the Azure AI Foundry portal by following the steps at: [Quickstart: Create a new agent](/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal).
-
-    Note the [models you can use and the available regions](/azure/ai-services/agents/concepts/model-region-support#azure-openai-models). 
-
-1. Select the new agent and add an action with the OpenAPI 3.0 specified tool by following the steps at [How to use the OpenAPI spec tool](/azure/ai-services/agents/how-to/tools/openapi-spec-samples?pivots=portal).
-
-1. In the **Define schema** page, paste the schema that you copied earlier. Review and save the action.
+[!INCLUDE [create-agent](includes/tutorial-ai-integrate-azure-ai-agent-dotnet/create-agent.md)]
 
 ## Test the agent
 
-1. If the agents playground isn't already opened in the foundry portal, select the agent and select **Try in playground**.
-
-1. In **Instructions**, give some simple instructions, like *"Please use the todosApp tool to help manage tasks."*
-
-1. Chat with the agent with the following prompt suggestions:
-
-    - Show me all the tasks.
-    - Create a task called "Come up with three lettuce jokes."
-    - Change that to "Come up with three knock-knock jokes."
-    
-    :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
+[!INCLUDE [test-agent](includes/tutorial-ai-integrate-azure-ai-agent-dotnet/test-agent.md)]
 
 ## Security best practices
 
 When exposing APIs via OpenAPI in Azure App Service, follow these security best practices:
 
-- **Authentication and Authorization**: Protect your OpenAPI endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
+- **Authentication and Authorization**: Protect your OpenAPI endpoints with Microsoft Entra authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md). You can also protect your endpoints behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
 - **Validate input data:** The sample code checks `ModelState.IsValid` in the `CreateTodo` method, which ensures that the incoming data matches the model's validation attributes. For more information, see [Model validation in ASP.NET Core](/aspnet/core/mvc/models/validation).
 - **Use HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
 - **Limit CORS:** Restrict Cross-Origin Resource Sharing (CORS) to trusted domains only. For more information, see [Enable CORS](app-service-web-tutorial-rest-api.md#enable-cors).
@@ -213,14 +197,14 @@ For more information, see [Secure your App Service app](overview-security.md) an
 
 ## Next step
 
-You've now enabled your App Service app to be used as a tool by Azure AI Foundry Agent Service and interact with your app's APIs through natural language in the agents playground. From here, you can continue add features to your agent in the Foundry portal, integrate it into your own applications using the Azure AI Foundry SDK or REST API, or deploy it as part of a larger solution. Agents created in Azure AI Foundry can be run in the cloud, integrated into chatbots, or embedded in web and mobile apps.
+You've now enabled your App Service app to be used as a tool by Foundry Agent Service and interact with your app's APIs through natural language in the agents playground. From here, you can continue add features to your agent in the Foundry portal, integrate it into your own applications using the Microsoft Foundry SDK or REST API, or deploy it as part of a larger solution. Agents created in Microsoft Foundry can be run in the cloud, integrated into chatbots, or embedded in web and mobile apps.
 
 To take the next step and learn how to run your agent directly within Azure App Service, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)](tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md)
+> [Build an agentic web app in Azure App Service with Microsoft Agent Framework or Foundry Agent Service (.NET)](tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md)
 
 ## More resources
 
 - [Integrate AI into your Azure App Service applications](overview-ai-integration.md)
-- [What is Azure AI Foundry Agent Service?](/azure/ai-services/agents/overview)
+- [What is Foundry Agent Service?](/azure/ai-services/agents/overview)

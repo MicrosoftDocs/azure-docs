@@ -62,7 +62,7 @@ Remember, you need sufficient network capacity to support daily data transfers w
 To determine how much bandwidth you need, use the following resources:
 
 - Reports from your backup software.
-- Commvault provides standard reports to determine [change rate](https://documentation.commvault.com/v11/essential/index.html) and [total backup set size](https://documentation.commvault.com/v11/essential/index.html) for the initial baseline transfer to Azure.
+- Commvault provides standard reports to determine [change rate](https://documentation.commvault.com/11.40/software/reports_overview.html) and [total backup set size](https://documentation.commvault.com/11.40/software/reports_overview.html) for the initial baseline transfer to Azure.
 - Backup software-independent assessment and reporting tools such as:
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
@@ -131,7 +131,7 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
 1. Open the Azure portal, and search for **storage accounts**. 
     
-    ![Screen capture showing how to search for resources by typing 'storage' in the Azure Portal search box.](../media/locate-storage-account.png)
+    ![Screen capture showing how to search for resources by typing 'storage' in the Azure portal search box.](../media/locate-storage-account.png)
 
     You can also select the default **Storage accounts** icon.
 
@@ -211,8 +211,8 @@ You can also [create log alerts](/azure/service-health/alerts-activity-log-servi
 
 #### Commvault Command Center
 
-- [Create an alert for cloud storage pools](https://documentation.commvault.com/v11/essential/configuring_settings_for_dashboard_alert.html).
-- [View Dashboards](https://documentation.commvault.com/2023e/essential/dashboards.html).
+- [Create an alert for cloud storage pools](https://documentation.commvault.com/11.40/software/creating_alert.html).
+- [View Dashboards](https://documentation.commvault.com/2023e/software/dashboards.html).
 
 ### How to open support cases
 
@@ -241,7 +241,7 @@ In the [Azure portal](https://portal.azure.com) search for **support** in the se
 
 See the following Commvault documentation for further detail:
 
-- [Commvault User Guide](https://documentation.commvault.com/2023e/essential/quick_start_guide.html)
+- [Commvault User Guide](https://documentation.commvault.com/2023e/software/quick_start_guide.html)
 
 ### Marketplace offerings
 

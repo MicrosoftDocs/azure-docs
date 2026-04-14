@@ -3,7 +3,7 @@ title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 08/05/2025
+ms.date: 01/06/2026
 ---
 
 # Deployment functions for ARM templates
@@ -81,9 +81,9 @@ In Bicep, use the [`deployment`](../bicep/bicep-functions-deployment.md#deployme
 
 This function returns the object that's  passed during deployment. The properties in the returned object differ based on if you're:
 
-- Deploying a template or a template spec.
-- Deploying a template that's  a local file or deploying a template that's  a remote file accessed through a URI.
-- Deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management groups](deploy-to-management-group.md), or [tenants](deploy-to-tenant.md)).
+* Deploying a template or a template spec.
+* Deploying a template that's  a local file or deploying a template that's  a remote file accessed through a URI.
+* Deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management groups](deploy-to-management-group.md), or [tenants](deploy-to-tenant.md)).
 
 When deploying a local template to a resource group, the function returns the following format:
 
@@ -188,7 +188,8 @@ When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template,
   "location": "",
   "properties": {
     "template": {
-      "contentVersion": ""
+      "contentVersion": "",
+      "metadata": {}
     },
     "templateLink": {
       "id": "",
@@ -197,6 +198,8 @@ When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template,
   }
 }
 ```
+
+The `location` property is included only for deployments at the [subscription](./deploy-to-subscription.md), [management group](./deploy-to-management-group.md), or [tenant](./deploy-to-tenant.md) scope. The `templateLink` property is included only when the user provides a linked template rather than an inline template.
 
 ### Remarks
 
@@ -405,7 +408,7 @@ Typically, you use parameters to set resource values. The following example sets
 }, "resources": [
   {
     "type": "Microsoft.Web/Sites",
-    "apiVersion": "2016-08-01",
+    "apiVersion": "2025-03-01",
     "name": "[parameters('siteName')]",
     ...
   }

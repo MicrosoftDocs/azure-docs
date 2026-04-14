@@ -1,7 +1,7 @@
----
+﻿---
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management-group scope in an Azure Resource Manager template.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 08/01/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
@@ -172,7 +172,7 @@ To target another management group, add a nested deployment and specify the `sco
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedDeployment",
       "scope": "[variables('mgId')]",
       "location": "eastus",
@@ -201,7 +201,7 @@ To target a subscription within the management group, use a nested deployment an
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedSub",
       "location": "westus2",
       "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -235,7 +235,7 @@ To target a resource group within the management group, use a nested deployment.
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedRGDeploy",
       "subscriptionId": "00000000-0000-0000-0000-000000000000",
       "resourceGroup": "demoResourceGroup",
@@ -271,7 +271,7 @@ To use a nested deployment, set `scope` and `location`:
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedDeployment",
       "location": "centralus",
       "scope": "/",
@@ -308,7 +308,7 @@ The following example creates a new management group in the root management grou
   "resources": [
     {
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2024-02-01-preview",
       "name": "[parameters('mgName')]",
       "scope": "/",
       "location": "eastus",
@@ -343,7 +343,7 @@ The next example creates a new management group in the management group specifie
     {
       "name": "[parameters('mgName')]",
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2024-02-01-preview",
       "scope": "/",
       "location": "eastus",
       "properties": {
@@ -411,7 +411,7 @@ The following example shows how to [define](../../governance/policy/concepts/def
     {
       "type": "Microsoft.Authorization/policyDefinitions",
       "name": "[variables('policyDefinition')]",
-      "apiVersion": "2020-09-01",
+      "apiVersion": "2025-03-01",
       "properties": {
         "policyType": "Custom",
         "mode": "All",
@@ -433,7 +433,7 @@ The following example shows how to [define](../../governance/policy/concepts/def
     {
       "type": "Microsoft.Authorization/policyAssignments",
       "name": "location-lock",
-      "apiVersion": "2020-09-01",
+      "apiVersion": "2025-03-01",
       "dependsOn": [
         "[variables('policyDefinition')]"
       ],
@@ -471,7 +471,7 @@ From a management-group-level deployment, you can target a subscription within t
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedSub",
       "location": "[parameters('nestedLocation')]",
       "subscriptionId": "[parameters('nestedSubId')]",
@@ -487,7 +487,7 @@ From a management-group-level deployment, you can target a subscription within t
           "resources": [
             {
               "type": "Microsoft.Resources/resourceGroups",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2025-04-01",
               "name": "[parameters('nestedRG')]",
               "location": "[parameters('nestedLocation')]"
             }
@@ -497,7 +497,7 @@ From a management-group-level deployment, you can target a subscription within t
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "nestedRG",
       "subscriptionId": "[parameters('nestedSubId')]",
       "resourceGroup": "[parameters('nestedRG')]",
@@ -512,7 +512,7 @@ From a management-group-level deployment, you can target a subscription within t
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2025-06-01",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('nestedLocation')]",
               "kind": "StorageV2",
@@ -533,3 +533,4 @@ From a management-group-level deployment, you can target a subscription within t
 * To learn about assigning roles, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * For an example of deploying workspace settings for Microsoft Defender for Cloud, see [_deployASCwithWorkspaceSettings.json_](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * You can also deploy templates at the [subscription level](deploy-to-subscription.md) and [tenant level](deploy-to-tenant.md).
+

@@ -1,14 +1,13 @@
 ---
-title: Manage NSG flow logs
+title: Manage NSG Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn how to create, change, enable, disable, or delete Azure Network Watcher network security group (NSG) flow logs.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 04/18/2025
+ms.date: 12/18/2025
 
-#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
 # Customer intent: As an Azure network administrator, I want to create, manage, and analyze NSG flow logs, so that I can monitor and understand the IP traffic flowing through my network security groups effectively.
 ---
 
@@ -24,7 +23,7 @@ In this article, you learn how to create, change, enable, disable, or delete a n
 
 # [**Portal**](#tab/portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
@@ -34,7 +33,7 @@ In this article, you learn how to create, change, enable, disable, or delete a n
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
@@ -50,7 +49,7 @@ In this article, you learn how to create, change, enable, disable, or delete a n
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 

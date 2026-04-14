@@ -1,9 +1,9 @@
----
+﻿---
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 04/28/2025
+ms.date: 01/13/2026
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -387,7 +387,7 @@ For inline comments, you can use either `//` or `/* ... */`. In Visual Studio Co
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2023-03-01",
+  "apiVersion": "2025-04-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "dependsOn": [ /* storage account and network interface must be deployed first */
@@ -434,7 +434,7 @@ For `resources`, add a `comments` element or a `metadata` object. The following 
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2022-09-01",
+    "apiVersion": "2025-06-01",
     "name": "[format('{0}{1}', 'storage', uniqueString(resourceGroup().id))]",
     "comments": "Storage account used to store VM disks",
     "location": "[parameters('location')]",
@@ -482,7 +482,7 @@ You can break a string into multiple lines. For example, see the `location` prop
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2023-03-01",
+  "apiVersion": "2025-04-01",
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[
     parameters('location')
@@ -497,7 +497,7 @@ You can break a string into multiple lines. For example, see the `location` prop
   ],
 ```
 
-In Bicep, see [multi-line strings](../bicep/file.md#multi-line-strings).
+In Bicep, see [multi-line strings](../bicep/data-types.md#multi-line-strings).
 
 ## languageVersion 2.0
 
@@ -548,3 +548,4 @@ Using any of following Bicep features automatically enables language version 2.0
 * To combine several templates during deployment, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
 * For recommendations about creating templates, see [ARM template best practices](./best-practices.md).
 * For answers to common questions, see [Frequently asked questions about ARM templates](frequently-asked-questions.yml).
+

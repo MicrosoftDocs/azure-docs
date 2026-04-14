@@ -3,16 +3,15 @@ title: Apache Kafka bindings for Azure Functions
 description: Learn to integrate Azure Functions with an Apache Kafka stream.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 01/12/2023
+ms.date: 12/11/2025
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Apache Kafka bindings for Azure Functions overview
 
-The Kafka extension for Azure Functions lets you write values out to [Apache Kafka](https://kafka.apache.org/) topics by using an output binding. You can also use a trigger to invoke your functions in response to messages in Kafka topics. 
+The Kafka extension for Azure Functions enables you to write values to [Apache Kafka](https://kafka.apache.org/) topics by using an output binding. You can also use a trigger to invoke your functions in response to messages in Kafka topics. 
 
-> [!IMPORTANT]
-> Kafka bindings are only available for Functions on the [Elastic Premium Plan](functions-premium-plan.md) and [Dedicated (App Service) plan](dedicated-plan.md). They are only supported on version 3.x and later version of the Functions runtime.
+[!INCLUDE [functions-binding-kafka-plan-support-note](../../includes/functions-binding-kafka-plan-support-note.md)]
 
 | Action | Type |
 |---------|---------|
@@ -27,7 +26,7 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 # [Isolated worker model](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
+Functions run in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka).
 
@@ -36,7 +35,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+Functions run in the same process as the Functions host. For more information, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Kafka).
 
@@ -92,7 +91,7 @@ The following properties, which are inherited from the [Apache Kafka C/C++ clien
 | LibkafkaDebug	| Both | `debug` |
 | MaxPartitionFetchBytes	| Trigger | `max.partition.fetch.bytes` |
 | MaxPollIntervalMs	| Trigger | `max.poll.interval.ms` |
-| MetadataMaxAgeMs | Both | `metadata.max.age.ms` |
+| MetadataMaxAgeMs | Both | `metadata.max.age.ms`|
 | QueuedMinMessages	| Trigger | `queued.min.messages` |
 | QueuedMaxMessagesKbytes	| Trigger | `queued.max.messages.kbytes` |
 | ReconnectBackoffMs | Trigger | `reconnect.backoff.max.ms` |	

@@ -7,7 +7,7 @@ metadata:
   ms.topic: faq
   ms.service: azure-compute-fleet
   ms.date: 06/19/2024
-  ms.reviewer: jushiman
+  ms.reviewer: cynthn
   ms.custom: references_regions, build-2024
 title: FAQ for Azure Compute Fleet
 summary: Get answers to the most frequently asked questions about Azure Compute Fleet.

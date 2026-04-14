@@ -56,7 +56,7 @@ The following architecture diagram illustrates the implementation described in t
 
 ## Prerequisites
 
-* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/)
+* A Microsoft Entra subscription. If you don't have one, get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Entra subscription
 * [A registered web application](./tutorial-register-applications.md) in your Azure AD B2C tenant
 * [Azure AD B2C custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
@@ -127,7 +127,7 @@ To integrating Transmit DRS into the B2C sign-in page, follow these steps:
 
 Azure AD B2C can obtain a risk recommendation from Transmit using a [API connector](./add-api-connector.md). Passing this request through an intermediate web API (such as using [Azure Functions](/azure/azure-functions/)) provides more flexibility in your implementation logic. 
 
-Follow these steps to create an Azure function that uses the action token from the frontend application to get a recommendation from the [Transmit DRS endpoint](https://developer.transmitsecurity.com/openapi/risk/recommendations/#operation/getRiskRecommendation).
+Follow these steps to create an Azure function that uses the action token from the frontend application to get a recommendation from the [Transmit DRS endpoint](https://developer.transmitsecurity.com/guides/risk/recommendations#operation/getRiskRecommendation).
 
 1. Create the entry point of your Azure Function, an HTTP-triggered function that processes incoming HTTP requests.
 

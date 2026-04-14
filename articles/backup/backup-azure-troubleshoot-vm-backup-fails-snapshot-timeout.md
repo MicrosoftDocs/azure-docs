@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Backup failures caused by agent or extension issues
 description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.topic: troubleshooting
-ms.date: 04/15/2025
+ms.date: 12/18/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ms.reviewer: sooryar
@@ -168,8 +168,8 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
   **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\\<extension version\>\iaasvmprovider.dll** <br>   To resolve this issue, check if the module is compatible with x86 (32-bit)/x64 (64-bit) version of _regsvr32.exe_, and then follow these steps:
 
   1. In the affected VM, go to **Control panel** -> **Program and features**.
-  1. Uninstall **Visual C++ Redistributable x64** for **Visual Studio 2013**.
-  1. Reinstall **Visual C++ Redistributable** for **Visual Studio 2013** in the VM. To install, follow these steps:
+  1. Uninstall **Visual C++ Redistributable (x64)** for **Visual Studio 2015**.
+  1. Reinstall **Visual C++ Redistributable (x64)** for **Visual Studio 2015** in the VM. To install, follow these steps:
      1. Go to the folder: **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\\<LatestVersion\>**
      1. Search and run the **vcredist2013_x64** file to install.
   1. Retry the backup operation.
@@ -212,6 +212,21 @@ This error is reported from the IaaS VM. To identify the root cause of the issue
 **Error message**: Backup failed: This virtual machine is not (actively) protected by Azure Backup.
 
 Check if the given virtual machine is actively (not in pause state) protected by Azure Backup. To overcome this issue, ensure the virtual machine is active and then retry the operation.
+
+## UserErrorConnectivityDnsResolutionFailure - Connectivity issues due to DNS
+
+**Error code**: `UserErrorConnectivityDnsResolutionFailure`
+
+**Error message**: The operation failed because Azure Backup workload extension couldn't connect to the required Azure endpoints due to DNS resolution failures.
+
+**Cause**: This error occurs when the VM can't resolve the Domain Name System (DNS) names for the required Azure Backup service endpoints.
+
+**Recommended action**: To resolve this issue, follow these steps:
+
+1. **Verify the DNS Resolution**: Ensure that the DNS solution (Azure DNS or custom DNS) configured for the VM can correctly resolve public Azure endpoints.
+1. **Check private endpoints**: If you use private endpoints for the Recovery Services vault, ensure the required DNS records are configured in your Private DNS Zones. Missing entries often cause this error. To list and verify the necessary DNS entries, see the [Private Endpoint DNS requirements](../private-link/private-endpoint-dns.md).
+1. **Verify Network Access**: Check that Network Security Groups (NSGs) or Firewalls don't block outbound DNS traffic (UDP/TCP port 53) or access to the required Azure Backup and Storage service tags.
+1. **Test Connectivity**: From the VM, use `nslookup` or `Test-NetConnection` to resolve the vault and storage URLs. Ensure the URLs point to the correct IP addresses (internal IPs if using Private Endpoints, public IPs otherwise).
 
 ## Causes and solutions
 

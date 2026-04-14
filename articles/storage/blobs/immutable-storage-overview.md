@@ -165,13 +165,13 @@ For more information about blob inventory, see [Azure Storage blob inventory](bl
 
 ## Configuring policies at scale
 
-You can use a _storage task_ to configure a immutability policies at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
+You can use a _storage task_ to configure a immutability policies at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md)
 
 ## Pricing
 
 There's no extra capacity charge for using immutable storage. Immutable data is priced in the same way as mutable data. If you're using version-level WORM, the bill might be higher because you've enabled versioning, and there's a cost associated with extra versions being stored. Review the versioning pricing policy for more information.  For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-Creating, modifying, or deleting a time-based retention policy or legal hold on a blob version results in a write transaction charge.
+Creating or deleting a time-based retention policy or legal hold on a blob version results in a write transaction charge. Modifying a time-based retention policy (either locking it or extending it) results in an other operation charge. If you are interested in learning more about transaction charges, please see [Operations and Data Transfer](https://azure.microsoft.com/pricing/details/storage/blobs/#pricing) here.
 
 If you fail to pay your bill and your account has an active time-based retention policy in effect, normal data retention policies apply as stipulated in the terms and conditions of your contract with Microsoft. For general information, see [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
 

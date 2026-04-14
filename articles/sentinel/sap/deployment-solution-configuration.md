@@ -22,6 +22,8 @@ While deploying a Microsoft Sentinel data collector and solution for SAP provide
 
 :::zone pivot="connection-agent"
 
+[!INCLUDE [data-connector-agent-deprecation](../includes/data-connector-agent-deprecation.md)]
+
 :::image type="content" source="media/deployment-steps/settings.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Configure solution settings step." border="false":::
 
 :::zone-end
@@ -34,15 +36,14 @@ While deploying a Microsoft Sentinel data collector and solution for SAP provide
 
 Content in this article is relevant for your **security** team.
 
-> [!IMPORTANT]
-> Some components of the Microsoft Sentinel solution for SAP applications are currently in PREVIEW. The agentless data connector is in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## Prerequisites
 
 Before configuring the settings described in this article, you must have a Microsoft Sentinel SAP solution installed and a data connector configured.
 
 For more information, see [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md) and [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
+
+> [!TIP]
+> Use the blog series "[How to successfully evaluate the SAP for Sentinel solution and implement it in production](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/how-to-successfully-evaluate-the-sap-for-sentinel-solution-and-implement-it-in-p/4357962)" for a detailed walk through with best practices.
 
 ## Start enabling analytics rules
 

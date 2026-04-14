@@ -63,7 +63,7 @@ Audit logs are collected and ingested every minute, while other logs might be in
 :::zone-end
 
 :::zone pivot="connection-agentless"
-## Logs collected by the agentless data connector (Preview)
+## Logs collected by the agentless data connector
 
 The following built-in Log Analytics tables are collected by the agentless data connector:
 

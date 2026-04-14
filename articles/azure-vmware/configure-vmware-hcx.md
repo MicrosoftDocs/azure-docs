@@ -3,7 +3,7 @@ title: Configure VMware HCX in Azure VMware Solution
 description: In this tutorial, learn how to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 02/26/2024
+ms.date: 02/18/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -27,7 +27,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - Install [VMware HCX Connector](install-vmware-hcx.md).
 
-- VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. HCX Enterprise is automatically installed for all new HCX add-on requests, and existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. 
+- VMware HCX Enterprise is available and supported on Azure VMware Solution at no extra cost. HCX Enterprise is automatically installed for all new HCX add-on requests, and existing HCX Advanced customers can upgrade to HCX Enterprise using the Azure portal. 
 
 - If you plan to [enable VMware HCX MON](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/extending-networks-with-vmware-hcx/hcx-network-extension-with-mobility-optimized-networking/configuring-hcx-mobility-optimized-networking.html), make sure you have:  
 
@@ -36,15 +36,15 @@ After you complete these steps, you'll have a production-ready environment for c
    - One or more active stretched network segments.
 
 
-- Meet the [VMware software version requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/software-version-requirements.html).
+- Verify you meet the [VMware software version requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/software-version-requirements.html).
 
-- Your on-premises vSphere environment (source environment) meets the [minimum requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/system-requirements-for-hcx.html).
+- Verify your on-premises vSphere environment (source environment) meets the [minimum requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/system-requirements-for-hcx.html).
 
-- [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) is configured between on-premises and Azure VMware Solution private cloud ExpressRoute circuits.
+- Verify [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) is configured between on-premises and Azure VMware Solution private cloud ExpressRoute circuits.
 
-- [All required ports](https://ports.broadcom.com/home/VMware-HCX) are open for communication between on-premises components and Azure VMware Solution private.
+- Verify [all required ports](https://ports.broadcom.com/home/VMware-HCX) are open for communication between on-premises components and Azure VMware Solution private.
 
-- [Define VMware HCX network segments](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  The primary use cases for VMware HCX are workload migrations and disaster recovery.
+- [Define VMware HCX network segments](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments). The primary use cases for VMware HCX are workload migrations and disaster recovery.
 
 - [Review the VMware HCX Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/overview.html) for information on using HCX.
 
@@ -83,7 +83,7 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
    > [!NOTE]
    > * For Azure VMware Solution connected via VPN, set Uplink Network Profile MTU's to 1350 to account for IPsec overhead.
    > * Azure VMware Solution defaults to 1500 MTU, which is sufficient for most ExpressRoute implementations.
-   >   * If your ExpressRoute provider does not support jumbo frames, you may need to lower the MTU in ExpressRoute setups as well.
+   >   * If your ExpressRoute provider doesn't support jumbo frames, you might need to lower the MTU in ExpressRoute setups as well.
    >   * Adjust MTU settings on both HCX Connector (on-premises) and HCX Cloud Manager (Azure VMware Solution) network profiles.
 
 1. Under **Infrastructure**, select **Interconnect** > **Multi-Site Service Mesh** > **Network Profiles** > **Create Network Profile**.
@@ -165,14 +165,14 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 1. Review the prepopulated sites, and then select **Continue**.
 
    > [!NOTE]
-   > If this is your first service mesh configuration, you won't need to modify this screen.
+   > For your first service mesh configuration, you don't need to modify the screen.
 
 1. Select the source and remote compute profiles from the drop-down lists, and then select **Continue**.
 
    The selections define the resources where VMs can consume VMware HCX services.
 
    > [!NOTE]
-   > In a mixed-mode SDDC with an AV64 cluster, deploying service mesh appliances on the AV64 cluster is not viable or supported. Nevertheless, this doesn't impede you from conducting HCX migration or network extension directly onto AV64 clusters. The deployment container can be cluster-1, hosting the HCX appliances. 
+   > In a mixed-mode SDDC with an AV64 cluster, deploying service mesh appliances on the AV64 cluster isn't viable or supported. Nevertheless, it doesn't impede you from conducting HCX migration or network extension directly onto AV64 clusters. The deployment container can be cluster-1, hosting the HCX appliances. 
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-source.png" alt-text="Screenshot that shows selecting the source compute profile." lightbox="media/tutorial-vmware-hcx/select-compute-profile-source.png":::
 
@@ -211,11 +211,11 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Screenshot displaying options to check the status of the appliance." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
    >[!NOTE]
-   >After establishing the service mesh, you may notice a new datastore and a new host in your private cloud. This is normal behavior after establishing a service mesh.
+   >After establishing the service mesh, you might notice a new datastore and a new host in your private cloud, which is normal behavior after establishing a service mesh.
    >
    >:::image type="content" source="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png" alt-text="Screenshot displaying the HCX service mesh datastore and host." lightbox="media/tutorial-vmware-hcx/hcx-service-mesh-datastore-host.png":::
 
-The HCX interconnect tunnel status should display **UP** in green. Now you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations with or without a network extension that allow you to migrate workloads in your vSphere environment, create networks on-premises, and deploy VMs onto those networks. For more information, see the [VMware HCX Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10.html).
+The HCX interconnect tunnel status should display **UP** in green. Now you're ready to migrate and protect Azure VMware Solution VMs using VMware HCX. Azure VMware Solution supports workload migrations with or without a network extension, which allows you to migrate workloads in your vSphere environment, create networks on-premises, and deploy VMs onto those networks. For more information, see the [VMware HCX Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10.html).
 
 For an end-to-end overview of this procedure, watch the [Azure VMware Solution: Service Mesh](https://www.youtube.com/embed/COY3oIws108) video.
 

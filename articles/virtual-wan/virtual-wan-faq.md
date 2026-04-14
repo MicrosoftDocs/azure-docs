@@ -183,6 +183,17 @@ To learn more about support limits for gateway scale units, see:
 * [What is the recommended algorithm and Packets per second per site-to-site instance in Virtual WAN hub? How many tunnels is support per instance? What is the max throughput supported in a single tunnel?](virtual-wan-faq.md#packets) for Site-to-Site VPN Gateways
 * [For User VPN (point-to-site)- how many clients are supported?](virtual-wan-faq.md#p2s-concurrent) for User VPN (point-to-site) Gateways
 
+### What is the impact of changing the gateway scale units for a Virtual WAN ExpressRoute gateway?
+When changing gateway scale units, be aware of the following considerations:
+
+* **Traffic capacity**: Ensure that the provisioned scale units can support your [traffic requirements](virtual-wan-faq.md#in-virtual-wan-what-are-the-estimated-performances-by-expressroute-gateway-sku).
+
+* **TCP reconnections**: You may experience TCP reconnects during the scale unit change which may cause minor disruptions.
+
+* **Private Endpoints impact**: Scale unit changes may affect connectivity for Private Endpoints. Review your deployment and follow the best practices outlined in [Use Private Link in Virtual WAN](howto-private-link.md#routing-considerations-with-private-link-in-virtual-wan).
+
+For more information about gateway scale units and capacity planning, see [About Virtual WAN gateway settings](gateway-settings.md).
+
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
 Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. When you connect a site to a Virtual WAN VPN gateway, it's different from a regular virtual network gateway that uses a gateway type 'site-to-site VPN'. When you want to connect remote users to Virtual WAN, you use a gateway type 'point-to-site VPN'. The point-to-site and site-to-site VPN gateways are separate entities in the Virtual WAN hub and must be individually deployed. Similarly, when you connect an ExpressRoute circuit to a Virtual WAN hub, it uses a different resource for the ExpressRoute gateway than the regular virtual network gateway that uses gateway type 'ExpressRoute'.
@@ -419,19 +430,11 @@ The Virtual WAN hub drops routes with an ASN of 0 in the AS-Path. To ensure thes
 Yes. This option is currently available via PowerShell only. The Virtual WAN portal requires that the hubs are in the same resource group as the Virtual WAN resource itself.
 
 ### What is the recommended hub address space during hub creation?
-The recommended address space for a Virtual WAN hub is **/23**. It's important to note that the hub address space **cannot be modified after the hub is created**. To change the hub address space, you must redeploy the virtual hub, which can result in downtime.
 
-The Virtual WAN hub automatically assigns subnets from the specified address space to various Azure services, including:
-
-- Virtual Hub Router
-- ExpressRoute
-- Site-to-site VPN
-- Point-to-site VPN
-- Azure Firewall
-
-For scenarios where Network Virtual Appliances (NVAs) are deployed inside the virtual hub, an additional subnet is allocated for the NVA instances. Typically, a **/28 subnet** is assigned for a small number of NVAs. However, if multiple NVAs are provisioned, a **/27 subnet** might be allocated.
-
-To accommodate future scalability and architectural needs, while the minimum address space for a Virtual WAN hub is **/24**, it is recommended to specify a **/23 address space** during hub creation.
+The Virtual WAN hub address space **can't be modified after the hub is created**. Use the following information to select the proper hub address size for your deployment:
+* To accommodate future scalability and architectural needs, while the minimum address space for a Virtual WAN hub is **/24**, it is recommended to specify a **/23 address space** or larger during hub creation.
+* If you are using an Azure Firewall within Virtual WAN, a minimum hub address space of **/22** is required to ensure Azure Firewall is able to allocate sufficient IP addresses to scale to maximum throughput.
+* If you are using Network Virtual Appliances in the Virutal WAN hub, the size of your Virtual WAN hub determines the number of usable IP addresses allocated to NVAs. See [NVA documentation](about-nva-hub.md#hubspace) for the mapping between hub address space and alloctable IP addresses to NVAs.
 
 ### Is there support for IPv6 in Virtual WAN?
 
@@ -598,6 +601,9 @@ We recommend aggregating the prefixes before advertising them over ExpressRoute 
 ### Can I use user-defined route tables on spoke Virtual Networks connected to Virtual WAN hub?
 
 Yes. The routes that Virtual WAN hub advertises to resources deployed in connected spoke Virtual Networks are routes of type Border Gateway Protocol (BGP). If a user-defined route table is associated to a subnet connected to Virtual WAN, the "Propagate Gateway Routes" setting **must** be set to "Yes"  for Virtual WAN to advertise  to resources deployed in that subnet. Azure's underlying software-defined networking platform uses the following algorithm to select routes based on the [Azure route selection algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
+
+###  Why do I face connectivity issues after advertising Azure routes back into Azure?
+If you plan to remove Azure BGP communities from virtual network and UDR routes, don't advertise these routes back into Azure, as this causes routing issues. We don't recommend advertising Azure routes back into Azure.
 
 ## Next steps
 

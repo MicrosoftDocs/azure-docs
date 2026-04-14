@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: concept-article
-ms.date: 05/08/2025
+ms.date: 02/20/2026
 ---
 
 # Confidential computing at the edge
@@ -44,13 +44,13 @@ The Open Enclave repository includes samples to help developers get started. For
 
 ## Hardware
 
-Currently, [TrustBox by Scalys](https://scalys.com/) is the only device supported with manufacturer service agreements for deploying confidential applications as IoT Edge modules. The TrustBox is built on  The TrustBox Edge and TrustBox EdgeXL devices both come preloaded with the Open Enclave SDK and Azure IoT Edge.
+Currently, [TrustBox by Scalys](https://scalys.com/) is the only device supported with manufacturer service agreements for deploying confidential applications as IoT Edge modules. The TrustBox Edge and TrustBox EdgeXL devices both come preloaded with the Open Enclave SDK and Azure IoT Edge.
 
 For more information, see [Getting started with Open Enclave for the Scalys TrustBox](https://aka.ms/scalys-trustbox-edge-get-started).
 
 ## Develop and deploy
 
-When you're ready to develop and deploy your confidential application, the [Microsoft Open Enclave](https://marketplace.visualstudio.com/items?itemName=ms-iot.msiot-vscode-openenclave) extension for Visual Studio Code can help. You can use either Linux or Windows as your development machine to develop modules for the TrustBox.
+When you're ready to develop and deploy your confidential application, the [Open Enclave SDK](https://github.com/openenclave/openenclave) can help. You can use either Linux or Windows as your development machine to develop modules for the TrustBox.
 
 ## Next steps
 

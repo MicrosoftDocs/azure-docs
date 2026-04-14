@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/25/2025
+ms.date: 01/08/2026
 ms.author: anfdocs
 ---
 # Create a short-term clone volume in Azure NetApp Files 
@@ -36,26 +36,6 @@ By default, short-term clones convert to regular volumes after 32 days.
 * During the clone operation, the parent volume is accessible; you can capture new snapshots of the parent volume. 
 * You can create five short-term clones per regular volume.
 
-## Register the feature
-
-To take advantage of the feature, you must first register it. 
-
-1. Register the feature:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
-    ```
-
-1. Registration for short-term clones isn't automatic and may take up to a week. Check the registration status with the command: 
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFShortTermClone
-    ```
-
-    When the `RegistrationState` field output displays "Registered", you can create a short-term clone. 
-
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
 ## Create a short-term clone
 
 >[!NOTE]
@@ -68,8 +48,10 @@ To take advantage of the feature, you must first register it.
 
 	Provide a **Volume name**.
 	Select a **Capacity pool**.
-	Choose if you want to **Delete base snapshot** once the short-term clone is created. 
 	Provide a **Quota** value.
+
+    >[!NOTE]
+    >Deleting the base snapshot is not available for short-term clone volumes. The option is greyed out in the portal as the base snapshot is shared with the original source volume. The base snapshot can only be deleted if the short-term clone volume is converted to a regular volume.
     
     >[!NOTE]
     >The quota value is the space for anticipated writes to the short-term clone volume. For example, some database workloads may require a 10 percent change to the existing data files. The minimum quota value is 50 GiB.
@@ -88,5 +70,5 @@ To take advantage of the feature, you must first register it.
 
 ## Next steps
 
-* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+* [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)

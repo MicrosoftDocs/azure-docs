@@ -3,37 +3,34 @@ title: Asset data in Microsoft Sentinel data lake
 titleSuffix: Microsoft Security  
 description: Asset data in security data lake 
 author: mberdugo  
-ms.service: microsoft-sentinel  
-ms.topic: conceptual
-ms.custom: sentinel-graph
-ms.date: 06/11/2025
+ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform  
+ms.topic: concept-article
+ms.date: 11/04/2025
 ms.author: monaberdugo  
-
 ms.collection: ms-security
 
-#Customer intent: As a Microsoft Sentinel user, I want to enable and manage data connectors in the Microsoft Sentinel data lake so that I can ingest and analyze security-related data from various sources.
+#Customer intent: As a Microsoft Sentinel user, I want to understand the ingestion of asset data and analysis of security-related data from various sources.
 ---
 
-# Enable asset data ingestion in the Microsoft Sentinel data lake (preview)
-
-Asset data refers to structured information about digital or physical entities, such as devices, services, applications, or infrastructure components, that are relevant to an organization’s operations, security, or analytics. This article explains how to enable and manage asset data in Microsoft Sentinel's data lake.  
+# Asset data ingestion in the Microsoft Sentinel data lake
 
 Asset data in cybersecurity refers to an organization’s physical and digital entities such as computers, identities, software, cloud services, and networks. It shows what exists so you know what must be protected. Microsoft Sentinel’s data lake adds powerful value by storing this asset data in a scalable, cost-efficient way that supports long-term retention, advanced analytics, and AI-driven threat detection. With unified visibility across systems and flexible data management, Sentinel lake helps security teams understand their environment, spot unusual activity, and respond to threats.
 
-## Considerations for enabling asset data in Sentinel data lake
+## How is asset data ingestion enabled in Sentinel data lake?
 
-* When you onboard to Sentinel lake, asset data is automatically ingested if you have appropriate permissions (see[Required permissions for asset sources](#required-permissions-for-asset-sources)).
+* When you onboard to Sentinel lake, asset data is automatically ingested if you have appropriate permissions. For more information, see [Required permissions for asset sources](#required-permissions-for-asset-sources).
 
-* If you have insufficient permissions, asset tables are created but they will be empty. To ingest data, you need to enable connectors. To manually enable asset data ingestion:
+* If you don't have sufficient permissions, asset tables are created but no data is ingested. Manually enable asset data ingestion as follows:
 
   1. Go to the Microsoft Sentinel workspace in the Azure portal.
-  1. Navigate to the "Data connectors" page.
+  1. Navigate to the **Data connectors** page.
   1. Find the relevant asset data source connector.
   1. Select the connector and follow the prompts to enable ingestion.
 
-* Asset data is ingested into the Microsoft Sentinel data lake tier only. After onboarding, asset dataIt can take up to 24 hours to arrive in the lake.
+* Asset data is ingested into the Microsoft Sentinel data lake tier only. After onboarding, asset data, it can take up to 24 hours to arrive in the lake.
 
-* Asset data is retained for 30 days by default. Retention can be expanded for up to 12 years.
+* Asset data is retained for 30 days by default. Retention can be expanded for up to 12 years. For more information on managing table retention, see [Table Management documentation](../manage-table-tiers-retention.md).
 
 ## Billing considerations
 
@@ -53,9 +50,6 @@ The following table describes the various asset data sources and their data conn
 |-------------|--------|------------|------------------------|
 | **Azure Resource Graph (ARG)** | [ARGResources](./asset-data-tables.md#argresources) <br> [ARGResourceContainers](./asset-data-tables.md#argresourcecontainers) <br> [ARGAuthorizationResources](./asset-data-tables.md#argauthorizationresources) | Subscription Owner | Azure Resource Graph  |
 | **Microsoft Entra ID** | [EntraApplications](./asset-data-tables.md#entraapplications) <br> [EntraGroupMemberships](./asset-data-tables.md#entragroupmemberships) <br> [EntraGroups](./asset-data-tables.md#entragroups) <br> [EntraMembers](./asset-data-tables.md#entramembers) <br> [EntraOrganizations](./asset-data-tables.md#entraorganizations) <br> [EntraServicePrincipals](./asset-data-tables.md#entraserviceprincipals) <br> [EntraUsers](./asset-data-tables.md#entrausers) | None | Microsoft Entra ID Asset |
-| **Microsoft 365**<sup>1</sup> | [SharePointSitesAndLists](./asset-data-tables.md#sharepointsitesandlists) | <ul> <li> Global Admin/Security Admin</li> <li> Sentinel workspace contributor</li> </ul> | Microsoft 365 Assets  |
-
-<sup>1</sup> Microsoft 365 Activity log connector must be already enabled in the same workspace.
 
 > [!NOTE]
 > Certain data connectors, including but not limited to asset connectors, contribute to the construction of data risk graphs in Purview. If these graphs are active, disabling the associated connectors interrupts their generation. Connector descriptions indicate if they're involved in building data risk graphs.
@@ -67,7 +61,7 @@ To manage asset data connectors, you need to meet the following prerequisites:
 * Ensure you have the necessary [access and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake) to Microsoft Sentinel, as specified *Permissions* column of the [previous table](#required-permissions-for-asset-sources).
 * Search for the relevant solution containing the data connector in the Content Hub. Content Hub can be found under the **Microsoft Sentinel** menu **Content Management** > **Content Hub**. Install the solution if not already installed.
 
-:::image type="content" source="./media/enable-data-connectors/data-connectors.png" alt-text="Screenshot of Sentinel Defender data connectors page with the Azure Resource Graph data connector displayed.":::
+:::image type="content" source="./media/enable-data-connectors/data-connectors.png" alt-text="Screenshot of Sentinel Defender data connectors page with the Azure Resource Graph data connector displayed." lightbox="./media/enable-data-connectors/data-connectors.png":::
 
 ## Configure and Manage
 
@@ -83,7 +77,7 @@ Access the connector page in one of the following ways:
 To edit the table retention period, select on the three dots (…) to the right of the table name in the table manage grid. Select a retention period for up to 12 years.
 When asset data connector shows a *Connected* status, the toggle button text shows *Disconnect*. This indicates that ingestion is enabled. To disable the ingestion, select the *Disconnect* button. Once disconnected, the connector status shows *Disconnected* and the button text toggles to *Connect*.
 
-:::image type="content" source="./media/enable-data-connectors/disconnect.png" alt-text="Screenshot of asset home page with connect button.":::
+:::image type="content" source="./media/enable-data-connectors/disconnect.png" alt-text="Screenshot of asset home page with connect button." lightbox="./media/enable-data-connectors/disconnect.png":::
 
 ## Use asset data to enrich activity data
 
@@ -99,6 +93,23 @@ SigninLogs
 ) on $left.UserPrincipalName == $right.userPrincipalName
 | project Identity, UserPrincipalName, IsRisky, IPAddress, department, employeeHireDate
 ```
+
+## Execute KQL queries on asset data
+
+To execute KQL queries on asset data in the Sentinel data lake, ensure that you are querying within the correct workspace scope. Follow these steps:
+
+1. Navigate to the **Microsoft Sentinel** menu **Data lake exploration** > **KQL queries**
+1. Select the **Selected workspace** button.
+
+    :::image type="content" source="./media/enable-data-connectors/select-workspace.png" alt-text="Screenshot of the KQL queries information bar showing a button to select the workspace.":::
+
+1. Ensure that the *System tables* workspace is selected.
+
+    :::image type="content" source="./media/enable-data-connectors/workspace-scope.png" alt-text="Screenshot of the KQL queries information bar showing the System tables workspace selected.":::
+
+Asset data tables are shown under the Asset category:
+
+:::image type="content" source="./media/enable-data-connectors/kql-queries.png" alt-text="Screenshot of the KQL queries table picker showing asset data tables under the Asset category." lightbox="./media/enable-data-connectors/kql-queries.png":::
 
 ## Next Steps
 

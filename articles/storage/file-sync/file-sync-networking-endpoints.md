@@ -27,7 +27,7 @@ We recommend reading [Azure File Sync networking considerations](file-sync-netwo
 
 This article assumes that:
 
-- You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - You've already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json).
 - You allow domain traffic to the following endpoints, see [Azure service endpoints](../file-sync/file-sync-firewall-and-proxy.md#firewall):
 
@@ -564,6 +564,16 @@ Access restriction to the public endpoint is done using the storage account fire
 
 > [!NOTE]
 > The **Allow Azure services on the trusted services list to access this storage account** exception must be selected on your storage account to allow trusted first party Microsoft services such as Azure File Sync to access the storage account. To learn more, see [Grant access to trusted Azure services](../common/storage-network-security.md#grant-access-to-trusted-azure-services).
+
+> [!IMPORTANT]
+> **Azure File Sync has a known limitation with network security perimeters (NSP).**
+> Storage Sync Services can't be placed inside a perimeter, and full perimeter integration isn't supported.
+>
+> To connect a Storage Sync Service to a storage account protected by an NSP:
+> 1. Configure the Storage Sync Service to use [Managed Identities](file-sync-managed-identities.md).
+> 2. Create an NSP inbound profile rule that allowlists the subscription hosting the Storage Sync Service.
+>
+> Storage Sync Services must remain outside the perimeter for sync to function correctly.
 
 #### Grant access to trusted Azure services and disable access to the storage account public endpoint
 

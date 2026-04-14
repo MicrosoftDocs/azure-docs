@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 07/07/2025
+ms.date: 01/27/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -10,11 +10,44 @@ ms.custom: devx-track-bicep
 
 This article describes the data types that are supported in [Bicep](./overview.md). To define custom data types, see [User-defined data types](./user-defined-data-types.md).
 
+## Any
+
+With Bicep version v0.38.3 and later, the `any` type in Bicep is a permissive type that disables compile-time type checking for the associated symbol. A value of type `any` can hold data of any type, including `string`, `int`, `bool`, `array`, `object`, or complex expressions.
+
+```bicep
+param foo any
+output bar any = foo
+```
+
+In the preceding example, `foo` can accept any type of value, and `bar` outputs the same value as `foo` regardless of its type.
+
+Because `any` bypasses Bicep's type safety, it should be used only when the exact type can't be determined ahead of time. For example, when passing data through a module that handles multiple data shapes or when working with untyped JSON input.
+
+Using `any` makes Bicep less predictable and can lead to runtime errors. When possible, prefer specific types or a union of expected types to preserve validation and IntelliSense support. The [No explicit Any](linter-rule-no-explicit-any.md) linter rule helps identify and discourage the use of the `any` type in Bicep files.
+
 ## Arrays
 
 A **array** in Bicep is an ordered collection of values—such as strings, integers, objects, or even other arrays—commonly used to group related items like resource names, configuration settings, or parameters. Arrays are helpful for organizing deployment data, passing lists to resources, and iterating over multiple values.
 
 Arrays in Bicep are immutable. Once declared, their contents can't be changed. To "modify" an array, create a new array using functions like [`concat`](./bicep-functions-array.md#concat), [`map`](./bicep-functions-lambda.md#map), or [`filter`](./bicep-functions-lambda.md#filter).
+
+```bicep
+param usLocations array = [
+  'eastus'
+  'westus2'
+]
+
+param euroLocations string[] = [
+  'northeurope'
+  'westeurope'
+]
+
+param numbers int[] = [
+  1
+  2
+  3
+]
+```
 
 You can declare arrays in Bicep using either single-line or multi-line syntax. Multi-line array declarations require [Bicep CLI version 0.7.X or later](https://github.com/Azure/bicep/releases/tag/v0.7.4).
 
@@ -320,16 +353,11 @@ All strings in Bicep support interpolation. To inject an expression, surround it
 var storageName = 'storage${uniqueString(resourceGroup().id)}'
 ```
 
-### Multi-line strings
+## Multi-line strings
 
-In Bicep, multi-line strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
+You can define a multi-line string by enclosing it in three single quotation marks (`'''`). The string content is preserved exactly as written, so escape characters are not required. The delimiter `'''` cannot appear within the string.
 
-> [!NOTE]
-> The Bicep parser reads every character as it is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
->
-> Interpolation isn't currently supported in multi-line strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
->
-> Multi-line strings that contain `'''` aren't supported.
+The string may begin immediately after the opening delimiter or on the following line. In both cases, the resulting value does not include a leading newline. Line breaks are interpreted as `\r\n` or `\n`, depending on the line-ending format of the Bicep file.
 
 ```bicep
 // evaluates to "hello!"
@@ -356,11 +384,26 @@ var myVar5 = '''
 comments // are included
 /* because everything is read as-is */
 '''
+```
 
+With Bicep CLI version v0.40.2 or higher, string interpolation is supported. An optional `$` prefix can be added before the opening delimiter to enable string interpolation using standard Bicep `${...}` syntax. If you need to include `${...}` as a literal value without escaping, you can control interpolation by repeating the `$` prefix. Interpolation is only performed when the number of `$` characters preceding `${...}` matches the number of `$` characters used in the opening delimiter.
+
+```bicep
 // evaluates to "interpolation\nis ${blocked}"
 // note ${blocked} is part of the string, and is not evaluated as an expression
 var myVar6 = '''interpolation
 is ${blocked}'''
+
+// evaluates to "this is a test"
+var interpolated = 'a test'
+var myVar7 = $'''
+this is ${interpolated}'''
+
+// evaluates to "this is a test\nthis is not ${interpolated}"
+var interpolated = 'a test'
+var myVar8 = $$'''
+this is $${interpolated}
+this is not ${interpolated}'''
 ```
 
 ### String-related operators
@@ -451,7 +494,7 @@ output optionalValue int? = null
 
 Secure strings use the same format as string, and secure objects use the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
 
-When you set a parameter (or an output) to a secure string or secure object, the value of the parameter (or the output) isn't saved to the deployment history or logged. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
+When you set a parameter (or an output) to a secure string or secure object, the value of the parameter (or the output) isn't saved to the deployment history or logged. However, when using the `--debug` flag during deployment, secure values are logged in clear text. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 
 The following example shows two secure parameters:
 

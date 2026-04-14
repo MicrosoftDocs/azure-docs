@@ -33,7 +33,7 @@ Azure Front Door offloads the TLS sessions at the edge and decrypts client reque
 Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. All Azure Front Door profiles created after September 2019 use TLS 1.2 as the default minimum with TLS 1.3 enabled. Currently, Azure Front Door doesn't support client/mutual authentication (mTLS).
 
 > [!IMPORTANT]
-> As of March 1, 2025, TLS 1.0 and 1.1 aren't allowed on new Azure Front Door profiles. 
+> TLS 1.0 and 1.1 aren't supported. 
 
 For Azure Front Door Standard and Premium, you can configure predefined TLS policy or choose the TLS cipher suite based on your organization's security needs. For more information, see [Azure Front Door TLS policy](/azure/frontdoor/standard-premium/tls-policy) and [configure TLS policy on a Front Door custom domain](/azure/frontdoor/standard-premium/tls-policy-configure).
 
@@ -101,7 +101,7 @@ For the Azure Front Door Standard/Premium managed certificate option, the certif
 
 > [!IMPORTANT]
 > - For Azure Front Door Classic and Azure CDN Classic, managed certificates will no longer be supported starting August 15, 2025. To avoid service disruption, either switch to **Bring Your Own Certificate (BYOC)** or migrate to Azure Front Door Standard/Premium before this date. Existing managed certificates will continue to autorenew until August 15, 2025, and remain valid until April 14, 2026. However, it's highly recommended to switch to **BYOC** or migrate to Front Door Standard/Premium before August 15, 2025, to avoid unexpected certificate revocation.
-> - Auto-rotation for managed certificates fails if your domains don't have direct CNAME mapping to Azure Front Door Classic or Azure CDN Classic endpoints. See [Azure CDN Classic HTTPS for custom domains](/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#tlsssl-certificates) and [Azure Front Door Classic HTTPS for custom domains](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell#option-1-default-use-a-certificate-managed-by-front-door).
+> - Azure Front Door (AFD) Standard and Premium use DigiCert‑issued managed TLS certificates, and DigiCert is retiring the G1 root certificate that expires on April 14, 2026, replacing it with the G2 root certificate. Azure Front Door will automatically rotate AFD‑managed certificates before expiration for custom domains that directly CNAME to the Azure Front Door endpoint, and no customer action is required. Customers whose domains do not directly CNAME to Azure Front Door must manually rotate their certificates to use the DigiCert G2 root certificate before April 14, 2026 to avoid TLS connectivity issues.
 
 For your own custom TLS/SSL certificate:
 
@@ -110,7 +110,7 @@ For your own custom TLS/SSL certificate:
 1. If a specific version is selected, autorotation isn’t supported. You'll have to reselect the new version manually to rotate certificate. It takes up to 24 hours for the new version of the certificate/secret to be deployed.
 
     > [!NOTE]
-    > Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint or points indirectly to a Traffic Manager endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
+    > Azure Front Door (AFD) Standard and Premium automatically rotate managed certificates only when the custom domain CNAME points directly to the AFD endpoint; for indirect CNAME configurations, we strongly recommend using a bring‑your‑own certificate, as AFD will attempt domain validation via file‑based token validation when traffic reaches AFD but successful validation is not guaranteed.
  
     The service principal for Front Door must have access to the key vault. The updated certificate rollout operation by Azure Front Door won't cause any production downtime, as long as the subject name or subject alternate name (SAN) for the certificate hasn't changed.
 
@@ -128,12 +128,13 @@ For TLS 1.2/1.3, the following cipher suites are supported:
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 > [!NOTE]
-> Old TLS versions and weak ciphers are no longer supported.
+> Older TLS versions and weak ciphers are no longer supported.
+> Support for DHE cipher suites will end on April 1, 2026. See [documentation](diffie-hellman-ciphers.md) for more details.
 
 Use *TLS policy* to configure specific cipher suites. Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy: you can use either a predefined policy or a custom policy per your own needs. For more information, see [Configure TLS policy on a Front Door custom domain](standard-premium/tls-policy-configure.md).
 
 > [!NOTE]
-> For Windows 10 and later versions, we recommend enabling one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC and DHE cipher suites have been provided for compatibility with those operating systems. 
+> For Windows 10 and later versions, we recommend enabling one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC cipher suites have been provided for compatibility with those operating systems. 
 
 ## Related content
 

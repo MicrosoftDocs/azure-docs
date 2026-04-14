@@ -6,8 +6,9 @@ ms.author: rosemalcolm
 ms.service: dev-box
 ms.custom:
   - ignite-2024
+  - ai-usage: ai-assisted
 ms.topic: concept-article
-ms.date: 05/10/2025
+ms.date: 02/06/2026
 
 #customer intent: As a Dev Center admin or project admin, I want to understand how to use Dev Box customizations so that I can create efficient, ready-to-code configurations for my development teams.
 ---
@@ -27,14 +28,15 @@ Dev Box offers two ways to use customizations:
 - **Team customizations**: Used to create a standard shared configuration for a team of developers in place of creating multiple standard or *golden* images for your teams.
 - **User customizations**: Used by developers to create configurations for their personal preferences. With user customizations, developers can store their configurations in files and run them when they create dev boxes. Customizations provide consistency across all dev boxes.
 
-| Feature                     | Team customizations       | User customizations |
-|-----------------------------|---------------------------|---------------------------|
-| Configure on            | Dev box pool             | Dev box                   |
-| Customizations apply to | All dev boxes in pool    | Individual dev box        |
-| Easily shareable        | Yes                      | No                        |
-| Customizations file name| `imagedefinition.yaml`    | `myfilename.yaml`         |
-| Sourced from            | Catalog or personal repository | Uploaded or from personal repository |
-| Supports key vault secrets | Yes                  | Yes                       |
+### Choose the right customization type
+
+| If you want to... | Use |
+|-------------------|-----|
+| Standardize tools for your entire team | Team customizations |
+| Apply personal preferences to your dev box | User customizations |
+| Enforce security policies across dev boxes | Team customizations |
+| Install software that requires admin approval | Team customizations |
+| Install personal tools (approved tasks only) | User customizations |
 
 ## What is a customization file?
 
@@ -57,6 +59,20 @@ You can use both system and user tasks in your image definition file. The tasks 
 - **User tasks**: These tasks run as the user after the user's first sign-in to the dev box. They're typically used for user-level configurations, like installing user-specific applications or configuring user settings under user context. For example, users often prefer to install Python and Visual Studio Code under user context instead of systemwide. Put WinGet tasks in the `userTasks` section for better results when they don't work under tasks.
 
 Standard users who set up user customizations can use only user tasks. They can't use system tasks.
+
+## Permissions for customizations
+
+Different actions require different roles and permissions. The following table shows what you need for common customization scenarios.
+
+| Action | Permission or role |
+|--------|-------------------|
+| Enable project-level catalogs for a dev center | Platform engineer with write access on the subscription |
+| Enable catalog sync settings for a project | Platform engineer with write access on the subscription |
+| Attach a catalog to a project | Project Admin or Contributor permissions on the project |
+| Create a customization file | None specified (anyone can create a file) |
+| Upload and apply a YAML file during dev box creation | Dev Box User |
+| Add tasks to a catalog | Permission to add to the repository that hosts the catalog |
+| Create, delete, or update a dev box pool | Owner or Contributor permissions on an Azure subscription, DevCenter Owner, or DevCenter Project Admin |
 
 
 ## Differences between team customizations and user customizations
@@ -83,31 +99,15 @@ Configuring Dev Box team customizations for your organization requires careful p
 
 :::image type="content" source="media/concept-what-are-dev-box-customizations/dev-box-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box team customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-dev-box-customizations/dev-box-customizations-workflow.svg":::
 
-#### Configure Dev Box for team customizations
+Team customizations involve these high-level steps:
 
-To set up Dev Box to support team customizations, follow these steps:
+1. Configure your dev center and enable project-level catalogs.
+1. Decide whether to use built-in tasks (WinGet, PowerShell, Git-Clone) or create custom tasks in a catalog.
+1. Create an image definition file (`imagedefinition.yaml`) that specifies the tasks to run.
+1. Attach the catalog to your project and configure a dev box pool to use the image definition.
+1. Optionally, build a reusable image to optimize dev box creation time.
 
-1. Configure your dev center:
-   1. Enable project-level catalogs.
-   1. Assign permissions for project admins.
-1. Decide whether to use a catalog with custom reusable components:
-   - Built-in (provided by the platform):
-      1. Use PowerShell or WinGet built-in tasks (starts with ~/). We recommend that you start with the built-in tasks.
-   - Your own catalog:
-      1. Host in Azure Repos or GitHub.
-      1. Add tasks.
-      1. Attach to a dev center.
-1. Create a YAML customization file called `imagedefinition.yaml`.
-1. Specify an image in a dev box pool:
-   1. Create or modify a dev box pool.
-   1. Specify `imagedefinition.yaml` as the image definition.
-1. Choose how to use the image definition:
-   - Run the tasks in the image definition at the time of every dev box creation.
-   - Optimize your image definition into a custom image.
-1. Create your dev box from the configured pool by using the developer portal.
-
-To learn more about team customization and writing image definitions, see [Configure team customizations](how-to-configure-team-customizations.md).
-Then, to learn how to optimize your image definition into a custom image, see [Configure dev center imaging](how-to-configure-dev-center-imaging.md).
+To learn more, see [Configure team customizations](how-to-configure-team-customizations.md) and [Configure dev center imaging](how-to-configure-dev-center-imaging.md).
 
 # [User customizations](#tab/user-customizations)
 
@@ -117,30 +117,18 @@ Individual developers can attach a YAML-based customization file when they creat
 
 :::image type="content" source="media/concept-what-are-dev-box-customizations/dev-box-user-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box user customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-dev-box-customizations/dev-box-user-customizations-workflow.svg":::
 
-#### Configure Dev Box for user customizations
+User customizations involve these high-level steps:
 
-To set up Dev Box to support user customizations, follow these steps:
+1. Create a customization file that uses approved tasks from your organization's catalog or built-in tasks.
+1. When creating a dev box, upload your customization file through the developer portal.
+1. Validate the customization file and create your dev box.
 
-1. Decide whether to use a catalog with custom reusable components:
-    - Built-in (provided by the platform):
-        1. Use PowerShell or WinGet built-in tasks (starts with ~/). We recommend that you start with the built-in tasks.
-    - Your own catalog:
-        1. Host in Azure Repos or GitHub.
-        1. Add tasks.
-        1. Attach to a dev center.
-1. Create a customization file.
-1. Create a dev box:
-    1. Create your dev box from the configured pool by using the developer portal.
-    1. Upload and validate your customization file as you create your dev box.
-
-The dev box is created with customizations.
-
-To learn more about user customizations, see [Configure user customizations for dev boxes](how-to-configure-user-customizations.md).
+To learn more, see [Configure user customizations for dev boxes](how-to-configure-user-customizations.md).
 
 ---
 
 ## Related content
 
-- [Quickstart: Create a dev box by using team customizations](quickstart-team-customizations.md)
+- [Configure team customizations](how-to-configure-team-customizations.md)
 - [Configure dev center imaging](how-to-configure-dev-center-imaging.md)
 

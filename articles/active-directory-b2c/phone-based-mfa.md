@@ -1,5 +1,5 @@
 ---
-title: Securing phone-based MFA in Azure AD B2C
+title: Secure phone-based MFA in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn tips for securing phone-based multifactor authentication in your Azure AD B2C tenant by using Azure Monitor Log Analytics reports and alerts. Use our workbook to identify fraudulent phone authentications and mitigate fraudulent sign-ups. =
 
@@ -7,7 +7,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 02/03/2026
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: sfi-image-nochange
@@ -17,7 +17,7 @@ ms.custom: sfi-image-nochange
 #Customer intent: As an Azure AD B2C administrator, I want to monitor phone authentication failures and mitigate fraudulent sign-ups, so that I can protect against malicious use of the telephony service and ensure a secure authentication process.
 
 ---
-# Securing phone-based multifactor authentication
+# Secure phone-based multifactor authentication
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 With Microsoft Entra multifactor authentication, users can choose to receive an automated voice call at a phone number they register for verification. Malicious users could take advantage of this method by creating multiple accounts and placing phone calls without completing the MFA registration process. These numerous failed sign-ups could exhaust the allowed sign-up attempts, preventing other users from signing up for new accounts in your Azure AD B2C tenant. To help protect against these attacks, you can use Azure Monitor to monitor phone authentication failures and mitigate fraudulent sign-ups.
@@ -93,7 +93,7 @@ Take the following actions to help mitigate fraudulent sign-ups.
    - [Configure a Conditional Access policy](conditional-access-user-flow.md) to block sign-ins based on location (applies to sign-in flows only, not sign-up flows).
    - To prevent automated attacks on your consumer-facing apps, [enable CAPTCHA](add-captcha.md). Azure AD B2C’s CAPTCHA supports both audio and visual CAPTCHA challenges, and applies to both sign-up and sign-in flows for your local accounts.
 
-- Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
+- Remove country/region codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
     
    1. Sign in to the [Azure portal](https://portal.azure.com) as the [External ID User Flow Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator) of your Azure AD B2C tenant.
    1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
@@ -104,9 +104,9 @@ Take the following actions to help mitigate fraudulent sign-ups.
 
    1. Open the JSON file that was downloaded in the previous step. In the file, search for `DEFAULT`, and replace the line with `"Value": "{\"DEFAULT\":\"Country/Region\",\"US\":\"United States\"}"`. Be sure to set `Overrides` to `true`.
 
- To implement SMS blocking effectively, make sure the Overrides setting is enabled (set to true) only for your organization’s primary or default language. Do not enable Overrides for any secondary or non-primary languages, as this can cause unexpected SMS blocking. Since the countryList in the JSON file acts as an allow list, be sure to include all countries that should be permitted to send SMS in this list for the primary language configuration when Overrides is true.
+ To implement SMS blocking effectively, make sure the Overrides setting is enabled (set to true) only for your organization’s primary or default language. Do not enable Overrides for any secondary or non-primary languages, as this can cause unexpected SMS blocking. Since the countryList in the JSON file acts as an allow list, be sure to include all countries/regions that should be permitted to send SMS in this list for the primary language configuration when Overrides is true.
    > [!NOTE]
-   > You can customize the list of allowed country codes in the `countryList` element (see the [Phone factor authentication page example](localization-string-ids.md#phone-factor-authentication-page-example)).
+   > You can customize the list of allowed country/region codes in the `countryList` element (see the [Phone factor authentication page example](localization-string-ids.md#phone-factor-authentication-page-example)).
 
    1. Save the JSON file. In the language details panel, under **Upload new overrides**, select the modified JSON file to upload it.
    1. Close the panel and select **Run user flow**. For this example, confirm that **United States** is the only country code available in the dropdown:
@@ -115,11 +115,39 @@ Take the following actions to help mitigate fraudulent sign-ups.
 
 ## Mitigate fraudulent sign-ups for custom policy
 
-To help prevent fraudulent sign-ups, remove any country codes that do not apply to your organization by following these steps:
+To help prevent fraudulent sign-ups, remove any country/region codes that do not apply to your organization by following these steps:
 
-1. Locate the policy file that defines the `RelyingParty`. For example, in the [Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), this is usually the SignUpOrSignin.xml file.
+1. Locate the policy file that defines the `RelyingParty`. For example, in the [Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), this is usually the SignUpOrSignin.xml file. See the following snippet.
 
-1. In the `BuildingBlocks` section of this policy file, add the following code. Make sure to include only the country codes relevant to your organization:
+     ```xml
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
+      PolicySchemaVersion="0.3.0.0"
+      TenantId="yourtenant.onmicrosoft.com"
+      PolicyId="B2C_1A_signup_signin"
+      PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin">
+    
+      <BasePolicy>
+        <TenantId>yourtenant.onmicrosoft.com</TenantId>
+        <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
+      </BasePolicy>
+
+      <!-- Add this BuildingBlocks section to the relying party policy. -->
+      <BuildingBlocks>
+         <!-- Add the XML code outlined in Step 2 in this section. -->
+      </BuildingBlocks>
+    
+      <RelyingParty>
+        ...
+      </RelyingParty>
+    </TrustFrameworkPolicy>
+    ```
+      > [!IMPORTANT]
+      >Add the code in step 2 to the _relying party policy_ to enforce country/region code restrictions on the server side. You must not define these elements only in parent policies; put them in the relying party policy.
+
+1. In the `BuildingBlocks` section of this policy file, add the following code. Make sure to include only the country/region codes relevant to your organization:
 
    ```xml
     <BuildingBlocks>
@@ -155,10 +183,10 @@ To help prevent fraudulent sign-ups, remove any country codes that do not apply 
      </BuildingBlocks>
     ```
    
-The countryList acts as an allow list. Only the countries you specify in this list (for example, Japan, Bulgaria, and the United States) are permitted to use MFA. All other countries are blocked.
+    The countryList acts as an allow list. Only the countries/regions you specify in this list (for example, Japan, Bulgaria, and the United States) are permitted to use MFA. All other countries/regions are blocked.
+
+
 
 ## Related content
 
 - Learn about [Identity Protection and Conditional Access for Azure AD B2C](conditional-access-identity-protection-overview.md) 
-
-- Apply [Conditional Access to user flows in Azure Active Directory B2C](conditional-access-user-flow.md)

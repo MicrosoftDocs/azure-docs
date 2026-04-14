@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.author: mbender
-ms.date: 05/08/2024
+ms.date: 01/28/2026
 ms.custom:
   - subject-armqs
   - mode-arm
@@ -33,7 +33,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 
@@ -57,7 +57,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 ## Deploy the template
 
-In this step, you deploy the template using Azure PowerShell with the `[New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)` command. 
+In this step, you deploy the template using Azure PowerShell with the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) command. 
 
 1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 

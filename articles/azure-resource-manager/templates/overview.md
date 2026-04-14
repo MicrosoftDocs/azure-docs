@@ -3,7 +3,7 @@ title: Templates overview
 description: Describes the benefits of using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: overview
 ms.custom: devx-track-arm-template
-ms.date: 01/29/2025
+ms.date: 10/29/2025
 ---
 
 # What are ARM templates?
@@ -15,7 +15,7 @@ To meet these challenges, automate deployments and use the practice of infrastru
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. You can also specify in which resource group those resources are deployed.
 
 > [!TIP]
-> We introduced a new language named [Bicep](../bicep/overview.md) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend looking at Bicep. For more information, see [What is Bicep?](../bicep/overview.md).
+> We introduced a new language named [Bicep](../bicep/overview.md) that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. If you're considering infrastructure as code options, we recommend looking at Bicep. For more information, see [What is Bicep?](../bicep/overview.md)
 
 ## Why choose ARM templates?
 
@@ -35,10 +35,10 @@ If you're trying to decide between using ARM templates and one of the other infr
         "defaultValue": "[resourceGroup().location]"
       }
     },
-    "resources": {
-      "mystore": {
+    "resources": [
+      {
         "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2023-04-01",
+        "apiVersion": "2025-06-01",
         "name": "mystorageaccount",
         "location": "[parameters('location')]",
         "sku": {
@@ -46,7 +46,7 @@ If you're trying to decide between using ARM templates and one of the other infr
         },
         "kind": "StorageV2"
       }
-    }
+    ]
   }
   ```
 
@@ -104,7 +104,7 @@ When you deploy a template, Resource Manager converts the template into REST API
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2022-09-01",
+    "apiVersion": "2025-06-01",
     "name": "mystorageaccount",
     "location": "centralus",
     "sku": {

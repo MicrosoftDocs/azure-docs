@@ -4,7 +4,7 @@ description: Learn how to import and export data to and from blob storage with y
 
 
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - ignite-2024
 ms.date: 04/29/2025
@@ -12,6 +12,8 @@ appliesto:
   - ✅ Azure Cache for Redis
 ---
 # Import and export data in Azure Cache for Redis
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis import and export functionality imports or exports data to or from Azure Redis cache instances as Redis Database (RDB) snapshots. The snapshots are imported or exported using a blob in an Azure Storage account.
 

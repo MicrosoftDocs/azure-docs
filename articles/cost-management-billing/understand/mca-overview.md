@@ -5,9 +5,10 @@ author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 04/27/2025
+ms.topic: get-started
+ms.date: 11/18/2025
 ms.author: jkinma
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Get started with your Microsoft Customer Agreement billing account
@@ -28,7 +29,7 @@ Roles on the billing account have the highest level of permissions. By default, 
 
 ## Billing profiles
 
-Use a billing profile to manage your invoice and payment methods. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges for all Azure subscriptions from the previous month.
+Use a billing profile to manage your invoice and payment methods. This billing profile inherits the country/region and currency of the billing account and cannot be changed. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges for all Azure subscriptions from the previous month.
 
 A billing profile is automatically created for your billing account. It contains one invoice section by default. You can create more sections to easily track and organize costs based on your needs whether is it per project, department, or development environment. The sections are shown on the billing profile's invoice reflecting the usage of each subscription and purchases you assigned to it.
 
@@ -39,7 +40,7 @@ Roles on the billing profiles have permissions to view and manage invoices and p
 
 ### Each billing profile gets a monthly invoice
 
-A monthly invoice is generated at the beginning of the month for each billing profile. The invoice contains all charges from the previous month.
+A monthly invoice is generated at the beginning of the month for each billing profile. The invoice contains all usage charges from the previous month.  User-based subscriptions will be billed separately.
 
 You can view the invoice, download documents, and the change setting to get future invoices by email, in the Azure portal. For more information, see [download invoices for a Microsoft Customer Agreement](../manage/download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
@@ -55,7 +56,7 @@ Each billing profile has its own payment methods that are used to pay its invoic
 
 | Type             | Definition  |
 |------------------|-------------|
-|Azure credits    |  Credits are automatically applied to the eligible charges on your invoice, reducing the amount that you need to pay. For more information, see [track Azure credit balance for your billing profile](../manage/mca-check-azure-credits-balance.md). |
+|Azure credits    |  Credits are automatically applied to the eligible charges on your invoice, reducing the amount that you need to pay. For more information, see [track Azure credit balance for your billing profile](../benefits/credits/mca-check-azure-credits-balance.md). |
 |Wire transfer | If your account is approved for payment through wire transfer, you can pay the amount due for your invoice with a wire transfer. The instructions for payment are given on the invoice. |
 |Credit card | Customers who sign up for Azure through the Azure website can pay through a credit card. |
 

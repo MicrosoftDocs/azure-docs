@@ -24,7 +24,7 @@ By completing this quickstart, you have a functioning Route Server that can faci
 
 Before you begin, ensure you have the following requirements:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Familiarity with [Azure Route Server service limits](route-server-faq.md#limitations).
 - Access to Azure Cloud Shell or Azure CLI installed locally.
 

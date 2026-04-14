@@ -7,8 +7,8 @@ ms.date: 07/15/2025
 ms.topic: overview
 ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Azure Automation runbook types
@@ -26,7 +26,7 @@ The Azure Automation Process Automation feature supports several types of runboo
 To learn about the process automation environment, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
 
 > [!NOTE]
-> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent the products, [PowerShell](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/), respectively. We recommend that you use runbooks with supported language versions.
+> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by the parent products, [PowerShell](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/), respectively. We recommend that you use runbooks with supported language versions.
 
 Take into account the following considerations when determining which type to use for a particular runbook:
 
@@ -43,7 +43,7 @@ The PowerShell version is determined by the **Runtime Version** specified.
 The same Azure sandbox and Hybrid Runbook Worker can execute multiple **PowerShell** runbooks targeting different runtime versions side by side.
 
 > [!NOTE]
-> - Currently, PowerShell 7.4 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Brazil Southeast and Gov clouds. 
+> - Currently, PowerShell 7.4 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Brazil Southeast and Gov clouds.
 > - At the time of runbook execution, if you select **Runtime Version** as **7.4**, PowerShell modules targeting 7.4 runtime version is used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version is used.
 
 Ensure that you select the right Runtime Version for modules.

@@ -2,15 +2,19 @@
 title: Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
 description: How to interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
 author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: sidandrews
 ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 11/02/2021
-ms.author: imotiwala
+ms.date: 12/08/2025
+ms.update-cycle: 1825-days
 ms.custom: cosmos-db, mode-other
 ---
 
 # Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
+
+[!INCLUDE[](../includes/appliesto-cosmos-synapse-link.md)]
 
 > [!NOTE]
 > For Azure Synapse Link for Azure Cosmos DB using Spark 3, refer to this article [Azure Synapse Link for Azure Cosmos DB on Spark 3](how-to-query-analytical-store-spark-3.md)
@@ -130,7 +134,7 @@ df.write.format("cosmos.oltp").
 In this gesture, you'll use Spark Streaming capability to load data from a container into a dataframe. The data will be stored in the primary data lake account (and file system) you connected to the workspace.
 
 > [!NOTE]
-> If you're looking to reference external libraries in Synapse Apache Spark, learn more [here](../spark/apache-spark-azure-portal-add-libraries.md). For instance, if you're looking to ingest a Spark DataFrame to a container of Azure Cosmos DB for MongoDB, you can use the [MongoDB connector for Spark](https://docs.mongodb.com/spark-connector/master/).
+> If you're looking to reference external libraries in Synapse Apache Spark, learn more [here](../spark/apache-spark-azure-portal-add-libraries.md).
 
 ## Load streaming DataFrame from Azure Cosmos DB container
 In this example, you'll use Spark's structured streaming capability to load data from an Azure Cosmos DB container into a Spark streaming DataFrame using the change feed functionality in Azure Cosmos DB. The checkpoint data used by Spark will be stored in the primary data lake account (and file system) that you connected to the workspace.

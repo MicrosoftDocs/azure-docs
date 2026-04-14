@@ -6,7 +6,7 @@ metadata:
   author: zhenlan
   ms.service: azure-app-configuration
   ms.topic: faq
-  ms.date: 10/01/2024
+  ms.date: 08/25/2025
   ms.author: zhenlwa
   ms.custom: references_regions
 title: Azure App Configuration FAQ
@@ -117,14 +117,14 @@ sections:
               Standard tier stores have a daily usage charge, which includes the first 200,000 requests each day. Requests beyond this daily allocation incur an overage charge.
 
               Premium tier stores also have a daily usage charge and include a replica. The first 800,000 requests for the origin and the first 800,000 requests for the replica each day are included in the daily charge. Requests exceeding this daily allocation incur an overage charge.
-          
+
       - question: Can I upgrade or downgrade an App Configuration store?
         answer: |
           You can upgrade an App Configuration store at any time, for example, from the Free tier to the Developer, Standard or Premium tier, or from the Developer, Standard tier to the Premium tier.
           
           You can downgrade an App Configuration store from the Premium tier to the Standard tier, as both tiers are designed for production usage. However, downgrading to a non-production tier, such as the Free tier, isn't supported. To achieve this, you can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
           
-          Before downgrading an App Configuration store from the Premium tier to the Standard tier, ensure that your usage of regular storage and snapshot storage is below the limits of the Standard tier. You can verify your current usage through the [Azure Monitor metrics](monitor-app-configuration.md#analyzing-metrics), Daily Storage Usage and Snapshot Storage Size, of your App Configuration store in the Azure portal.
+          Before downgrading an App Configuration store from the Premium tier to the Standard tier, ensure that your usage of regular storage and snapshot storage is below the limits of the Standard tier. You can verify your current usage through the [Azure Monitor metrics](monitor-app-configuration.md#metrics-analysis), Daily Storage Usage and Snapshot Storage Size, of your App Configuration store in the Azure portal.
 
       - question: Where does data stored in App Configuration reside? 
         answer: |
@@ -134,9 +134,9 @@ sections:
         answer: |
           Azure App Configuration supports [geo-replication](./concept-geo-replication.md) for enhanced resiliency to regional outages.
 
-          Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of three availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Azure regions with availability zone support](../reliability/availability-zones-region-support.md).
+          Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of three availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Azure regions with availability zone support](/azure/reliability/availability-zones-region-support).
           
-          [!INCLUDE [Azure App Configuration availability zones table](../../includes/azure-app-configuration-availability-zones.md)]
+          [!INCLUDE [Azure App Configuration availability zones table](~/reusable-content/ce-skilling/azure/includes/azure-app-configuration-availability-zones.md)]
 
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |        
@@ -182,13 +182,21 @@ sections:
           - **Reduce key-value revision retention** if you perform frequent key-value updates and you don't need to retain revisions for the maximum duration allowed by your App Configuration store. Revisions count toward your store's total storage usage. If the storage quota is exceeded, you'll no longer be able to create or modify key-values or feature flags.
           - **Improve your application resiliency**: Consider integrating geo-replication to allow failover and load balancing. Check the best practices for [building highly resilient applications](./howto-best-practices.md#building-applications-with-high-resiliency).
 
+      - question: How can I use App Configuration in client applications with hyperscale configuration?
+        answer: |
+          See [best practices for client applications in App Configuration](./howto-best-practices.md#client-applications-in-app-configuration)
+
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
         answer: |
-          All App Configuration stores in the Standard and Premium tiers have automatically enabled the [soft-delete](concept-soft-delete.md) feature. When a Standard or Premium tier App Configuration store is deleted, its name is reserved for the retention period. To recreate a store with the same name before the retention period expires, you need to [purge the soft-deleted store](howto-recover-deleted-stores-in-azure-app-configuration.md#list-recover-or-purge-a-soft-deleted-app-configuration-store) first, provided the store doesn't have purge protection enabled. If the purge protection is enabled, you must wait for the retention period to elapse. Use the purge function or set a shorter retention period if you often need to recreate a store with the same name. Workflows that require recreating a store with the same name should allow for one hour between purging a configuration store and performing the subsequent create. This recommendation is in place because once a purge is requested the actual cleanup of configuration store resources is performed asynchronously, requiring a bit of extra time to finalize. To avoid any need to wait, workflows that create ephemeral configuration stores are recommended to use unique names.
+          All App Configuration stores in the Standard and Premium tiers have automatically enabled the [soft-delete](concept-soft-delete.md) feature. When a Standard or Premium tier App Configuration store is deleted, its name is reserved for the retention period. To recreate a store with the same name before the retention period expires, you need to [purge the soft-deleted store](howto-recover-deleted-stores-in-azure-app-configuration.md#list-recover-or-purge-a-soft-deleted-app-configuration-store) first, provided the store doesn't have purge protection enabled. If the purge protection is enabled, you must wait for the retention period to elapse. Use the purge function or set a shorter retention period if you often need to recreate a store with the same name. Workflows that require recreating a store with the same name should allow for one hour between purging a configuration store and performing the subsequent create. This recommendation is in place because, once a purge is requested, the actual cleanup of configuration store resources is performed asynchronously, requiring a bit of extra time to finalize. To avoid any need to wait, workflows that create ephemeral configuration stores are recommended to use unique names.
 
       - question: How can I restore an App Configuration store that I deleted mistakenly?
         answer: |
           All App Configuration stores in the Standard and Premium tiers support the [soft-delete](concept-soft-delete.md) feature, which can't be disabled. You can recover a deleted store within its retention period. Follow these [instructions](howto-recover-deleted-stores-in-azure-app-configuration.md) to recover a mistakenly deleted App Configuration store.
+
+      - question: How do I determine who has accessed my App Configuration store?
+        answer: |
+          Use [Activity logs](./monitor-app-configuration.md#activity-logs) to see who accessed or modified the control plane of your App Configuration store. Use [Resource logs](./monitor-app-configuration.md#resource-logs) to identify who accessed the data plane.
 
       - question: Can I create and update feature flags or Key Vault references programmatically?
         answer: |
@@ -211,7 +219,7 @@ sections:
 
           When the Spring profile is set to `dev`, the value of `config.message` will be `Hello from dev`. When the Spring profile is set to `prod`, the value of `config.message` will be `Hello from prod`.
 
-          This default behavior can be overridden by setting the label filter in your bootstrap file. The Spring provider library loads key-values with the specified label(s) regardless of the active Spring profile.
+          This default behavior can be overridden by setting the label filter in your application properties file. The Spring provider library loads key-values with the specified label(s) regardless of the active Spring profile.
 
           ```yaml
           spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter: my-label

@@ -2,10 +2,10 @@
 title: Tutorial - Sign and Make Requests to the Communication Services SMS API with Postman
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to sign and make requests for Azure Communication Services with Postman to send an SMS message.
-author: tophpalmer
+author: sundiraman
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). The free account gives you $200 in Azure credits to try out any combination of services.
+- An Azure account with an active subscription. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). The free account gives you $200 in Azure credits to try out any combination of services.
 - An active Communication Services resource and connection string. If you don't have a resource, see [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 - A Communication Services telephone number that can send SMS messages. To get a telephone number, see [Get a phone number](../quickstarts/telephony/get-phone-number.md).
 

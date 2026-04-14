@@ -3,7 +3,7 @@ title: Set Up Staging Environments
 description: Learn how to deploy apps to a nonproduction slot and automatically swap into production. Increase the reliability and eliminate app downtime from deployments.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: how-to
-ms.date: 03/28/2025
+ms.date: 11/28/2025
 author: cephalin
 ms.author: cephalin
 ai-usage: ai-assisted
@@ -138,19 +138,9 @@ At any point in the swap operation, all work of initializing the swapped apps ha
 > [!NOTE]
 > Your former production instances are swapped into staging after this swap operation. Those instances are recycled in the last step of the swap process. If you have any long-running operations in your application, they're abandoned when the workers recycle. This fact also applies to function apps. Make sure that your application code is written in a fault-tolerant way.
 
-### <a name = "which-settings-are-swapped"></a> Steps for making a slot unswappable
+### <a name = "which-settings-are-swapped"></a> Which settings are swapped
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
-
-To configure an app setting or connection string to stick to a specific slot that isn't swapped:
-
-1. Go to **Settings** > **Environment Variable** for that slot.
-
-1. Add or edit a setting, and then select **Deployment slot setting**. Selecting this checkbox tells App Service that the setting isn't swappable.
-
-1. Select **Apply**.
-
-:::image type="content" source="media/web-sites-staged-publishing/set-slot-app-setting.png" alt-text="Screenshot that shows the checkbox for configuring an app setting as a slot setting in the Azure portal.":::
 
 <a name="Swap"></a>
 
@@ -337,6 +327,54 @@ For more information, see [Set-AzWebAppSlot](/powershell/module/az.websites/set-
 -----
 
 If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps) later in this article.
+
+## Make an app setting unswappable
+
+# [Azure portal](#tab/portal)
+
+To configure an app setting as slot-specific (not swapped):
+
+1. Go to **Settings** > **Environment Variable** for that slot.
+
+1. Add or edit a setting, and then select **Deployment slot setting**. Selecting this checkbox tells App Service that the setting isn't swappable.
+
+1. Select **Apply**.
+
+:::image type="content" source="media/web-sites-staged-publishing/set-slot-app-setting.png" alt-text="Screenshot that shows the checkbox for configuring an app setting as a slot setting in the Azure portal.":::
+
+# [Azure CLI](#tab/cli)
+
+To configure an app setting as slot-specific (not swapped), run the following command in a terminal and add the setting name to `--slot-settings`:
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <group-name> --slot <slot-name> --settings <setting-name>=<value> --slot-settings <setting-name>
+```
+
+To configure a connection string as slot-specific, run the following command and add the connection string name to `--slot-settings`:
+
+```azurecli-interactive
+az webapp config connection-string set --name <app-name> --resource-group <group-name> --slot <slot-name> --connection-string-type <type> --settings <connection-string-name>=<value> --slot-settings <connection-string-name>
+```
+
+For more information, see [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) and [az webapp config connection-string set](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-set).
+
+# [Azure PowerShell](#tab/powershell)
+
+To configure an app setting as slot-specific (not swapped), run the following cmdlet in an Azure PowerShell terminal:
+
+```azurepowershell-interactive
+Set-AzWebAppSlotConfigName -ResourceGroupName "<group-name>" -Name "<app-name>" -AppSettingNames "<setting-name>"
+```
+
+To configure a connection string as slot-specific, run the following cmdlet:
+
+```azurepowershell-interactive
+Set-AzWebAppSlotConfigName -ResourceGroupName "<group-name>" -Name "<app-name>" -ConnectionStringNames "<connection-string-name>"
+```
+
+For more information, see [Set-AzWebAppSlotConfigName](/powershell/module/az.websites/set-azwebappslotconfigname).
+
+-----
 
 <a name="Warm-up"></a>
 

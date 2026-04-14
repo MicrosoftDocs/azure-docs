@@ -2,11 +2,11 @@
 title: Service limits for Azure Communication Services
 titleSuffix: An Azure Communication Services article
 description: Learn how to handle service limits for Azure Communication Services APIs.
-author: tophpalmer
+author: sundiraman
 manager: sundraman
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 03/31/2023
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -189,7 +189,6 @@ For more information, see:
 ### Send email to more than 50 recipients
 
 If you want to send emails to more than 50 recipients, make a [support request](../support.md).
-However, sending emails via SMTP to more than 50 recipients is not supported. 
 
 ### Action to take
 
@@ -197,7 +196,6 @@ To increase your email quota, follow the instructions in [Quota increase for ema
 
 > [!NOTE]
 > Email quota increase requests might take up to 72 hours for evaluation and approval, especially for requests that come in on Friday afternoon.
-> The quota increase requests for the number of recipients in email of SMTP is not supported at this time.
 
 ## Chat
 
@@ -219,9 +217,11 @@ Azure Communication Services supports chat.
 | Operation | Scope | Limit per 10 seconds | Limit per minute |
 | --- | --- | --- | --- |
 | Create chat thread | Per user | 10 | - |
+| Create chat thread | Per resource | - | 3000 |
 | Delete chat thread | Per user | 10 | - |
 | Update chat thread | Per chat thread | 5 | - |
 | Add participants or remove participants | Per chat thread | 10 | 30 |
+| Add participants | Per resource | - | 3000 |
 | Get chat thread or list chat threads | Per user | 50 | - |
 | Get chat message | Per user, per chat thread | 50 | - |
 | Get chat message | Per chat thread | 250 | - |

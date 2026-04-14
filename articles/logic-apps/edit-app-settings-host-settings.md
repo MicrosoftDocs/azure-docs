@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 03/15/2026
 ms.custom:
   - fasttrack-edit
   - sfi-image-nochange
@@ -244,7 +244,7 @@ For a workflow that starts with a function-based trigger, you might try to [set 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the duration for a workflow action job to run before timing out and retrying. To change the default timeout for a built-in operation such as SAP, also set the **`functionTimeout`** host setting. For more information, see the next entry. |
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the duration for a workflow action job to run before timing out and retrying. The maximum duration is 2 hours (`02:00:00`). To change the default timeout for a built-in operation such as SAP, also set the `functionTimeout` host setting. For more information, see the next entry. |
 | `functionTimeout` | `00:30:00` <br>(30 minutes) | Sets the duration to run before timing out for calls from Azure Functions and some built-in operations, such as SAP, that work as function calls. Standard logic apps use the same underlying design as function apps. So, the **`functionTimeout`** host setting in Azure Functions also affects built-in operations that run as function calls. For more information, see [**functionTimeout**](/azure/azure-functions/functions-host-json#functiontimeout). <br><br>**Note**: In the **host.json** file, the **`functionTimeout`** setting exists at the same level as the **`extensions`** object where the host settings exist for a Standard logic app. For more information, see the example in this section: [Change timeout value for function-based built-in operations](#change-timeout-value-for-function-based-built-in-operations). |
 
 #### Change timeout value for function-based built-in operations
@@ -260,7 +260,7 @@ For built-in operations that run as function calls in Azure Functions, add both 
    },
    "extensions": {
       "workflow": {
-         "settings": {
+         "Settings": {
             "Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout": "01:00:00"
          }
       }
@@ -503,7 +503,7 @@ To add a setting, follow these steps:
 
 1. If the **host.json** file is already open, return to the **host.json** file. Otherwise, follow the preceding steps to open the **host.json** file.
 
-1. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
+1. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `Settings` objects, for example:
 
    ```json
    {
@@ -514,14 +514,14 @@ To add a setting, follow these steps:
       },
       "extensions": {
          "workflow": {
-            "settings": {
+            "Settings": {
             }
          }
       }
    }
    ```
 
-1. In the `settings` object, add a flat list with the host settings that you want to use for all the workflows in your logic app, whether those workflows run locally or in Azure, for example:
+1. In the `Settings` object, add a flat list with the host settings that you want to use for all the workflows in your logic app, whether those workflows run locally or in Azure, for example:
 
    ```json
    {
@@ -532,7 +532,7 @@ To add a setting, follow these steps:
       },
       "extensions": {
          "workflow": {
-            "settings": {
+            "Settings": {
                "Runtime.Trigger.MaximumWaitingRuns": "100"
             }
          }
@@ -552,13 +552,13 @@ To review the host settings for your logic app in Visual Studio Code, follow the
 
 1. In your logic app project, at the root project level, find and open the **host.json** file.
 
-1. In the `extensions` object, under `workflows` and `settings`, review any host settings that were previously added for your logic app. Otherwise, the `extensions` object doesn't appear in the file.
+1. In the `extensions` object, under `workflows` and `Settings`, review any host settings that were previously added for your logic app. Otherwise, the `extensions` object doesn't appear in the file.
 
    For more information about host settings, see [Reference for host settings - host.json](#reference-host-json).
 
 To add a host setting, follow these steps:
 
-1. In the **host.json** file, under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
+1. In the **host.json** file, under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `Settings` objects, for example:
 
    ```json
    {
@@ -569,14 +569,14 @@ To add a host setting, follow these steps:
       },
       "extensions": {
          "workflow": {
-            "settings": {
+            "Settings": {
             }
          }
       }
    }
    ```
 
-1. In the `settings` object, add a flat list with the host settings that you want to use for all the workflows in your logic app, whether those workflows run locally or in Azure, for example:
+1. In the `Settings` object, add a flat list with the host settings that you want to use for all the workflows in your logic app, whether those workflows run locally or in Azure, for example:
 
    ```json
    {
@@ -587,7 +587,7 @@ To add a host setting, follow these steps:
       },
       "extensions": {
          "workflow": {
-            "settings": {
+            "Settings": {
                "Runtime.Trigger.MaximumWaitingRuns": "100"
             }
          }

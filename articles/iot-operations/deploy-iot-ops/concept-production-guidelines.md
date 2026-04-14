@@ -1,8 +1,8 @@
 ---
 title: Production deployment guidelines
 description: Learn about the recommendations and guidelines for preparing Azure IoT Operations for a production deployment.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: dominicbetts
+ms.author: dobett
 ms.topic: concept-article
 ms.date: 03/13/2025
 ms.service: azure-iot-operations
@@ -18,7 +18,7 @@ Decide whether you're deploying Azure IoT Operations to a single-node or multi-n
 
 ## Platform
 
-Currently, K3s on Ubuntu 24.04 is the only generally available platform for deploying Azure IoT Operations in production.
+Use a [supported environment](../overview-support.md#supported-environments) for deploying Azure IoT Operations in production.
 
 ## Cluster setup
 
@@ -26,14 +26,14 @@ Ensure that your hardware setup is sufficient for your scenario and that you beg
 
 ### System configuration
 
-Create an Arc-enabled K3s cluster that meets the system requirements.
+Create an Arc-enabled cluster that meets the system requirements.
 
 * Use a [supported environment for Azure IoT Operations](../overview-support.md#supported-environments).
 * [Configure the cluster](./howto-prepare-cluster.md) according to documentation.
 * If you expect intermittent connectivity for your cluster, ensure that you allocate enough disk space to the cluster cache data and messages while the cluster is offline. Azure IoT Operations can operate offline for a maximum of 72 hours.
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
 * [Turn off autoupgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
-* *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-multi-node-clusters-for-azure-container-storage) to prepare for enabling fault tolerance during deployment.
+* *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-multi-node-clusters-for-azure-container-storage-enabled-by-azure-arc) to prepare for enabling fault tolerance during deployment.
 
 ### Security
 
@@ -45,9 +45,11 @@ Consider the following measures to ensure your cluster setup is secure before de
 * Use [user-assigned managed identities](./howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
 * Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
 
+[!INCLUDE [aks-imds-restriction](../includes/aks-imds-restriction.md)]
+
 ### Networking
 
-If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoints](./overview-deploy.md#azure-iot-operations-endpoints) to your allowlist.
+If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoints](./overview-deploy.md#azure-iot-operations-endpoints) to your allow list.
 
 ### Observability
 
@@ -72,6 +74,9 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
   | **backendPartitions** | 1 | 5 |
   | [Memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile) | Low | High |
 
+  > [!NOTE]
+  > The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support.
+
 * [Encrypt internal traffic](../manage-mqtt-broker/howto-encrypt-internal-traffic.md).
 
 * Set [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) with a max size that prevents RAM overflow.
@@ -83,15 +88,12 @@ In the Azure portal deployment wizard, the schema registry and its required stor
 
 * The storage account must have hierarchical namespace enabled.
 * The schema registry's managed identity must have contributor permissions for the storage account.
-* The storage account is only supported with public network access enabled.
-
-For production deployments, scope the storage account's public network access to allow traffic only from trusted Azure services. For example:
-
-1. In the [Azure portal](https://portal.azure.com), navigate to the storage account that your schema registry uses.
-1. Select **Security + networking > Networking** from the navigation menu.
-1. For the public network access setting, select **Enabled from selected virtual networks and IP addresses**.
-1. In the **Exceptions** section of the networking page, ensure that the **Allow trusted Microsoft services to access this resource** option is selected.
-1. Select **Save** to apply the changes.
+* For production deployments, scope the storage account's public network access to allow traffic only from trusted Azure services. For example:
+  1. In the [Azure portal](https://portal.azure.com), navigate to the storage account that your schema registry uses.
+  1. Select **Security + networking > Networking** from the navigation menu.
+  1. For the public network access setting, select **Enabled from selected virtual networks and IP addresses**.
+  1. In the **Exceptions** section of the networking page, ensure that the **Allow trusted Microsoft services to access this resource** option is selected.
+  1. Select **Save** to apply the changes.
 
 For more information, see [Configure Azure Storage firewalls and virtual networks > Grant access to trusted Azure services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
@@ -122,7 +124,7 @@ When you create a new resource, manage its authorization:
 
 * [Create a BrokerAuthorization resource](../manage-mqtt-broker/howto-configure-authorization.md) and provide the least privilege needed for the topic asset.
 
-### OPC UA broker
+### Connector for OPC UA
 
 For connecting to assets at production, [configure OPC UA authentication](../discover-manage-assets/overview-opc-ua-connector-certificates-management.md):
 

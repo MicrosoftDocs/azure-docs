@@ -1,12 +1,12 @@
 ---
 title: Develop APIs with GitHub Copilot for Azure - API Center plugin
 description: With AI assistance, API developers can use the Azure API Center plugin for GitHub Copilot for Azure to design and develop compliant APIs.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 09/26/2025
 ms.update-cycle: 180-days
-ms.author: danlep 
+ 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment and GitHub Copilot for Azure to generate Open API specs from natural language prompts.

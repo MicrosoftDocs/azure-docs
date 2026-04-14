@@ -96,6 +96,10 @@ Route tables now have features for association and propagation. A pre-existing r
 
 Virtual hub **Reset** is available only in the Azure portal. Resetting provides you with a way to bring any failed resources such as route tables, hub router, or the virtual hub resource itself back to its rightful provisioning state. Consider resetting the hub before contacting Microsoft for support. This operation doesn't reset any of the gateways in a virtual hub.
 
+## <a name="reset"></a>Router reset
+
+If your Virtual Hub Router enters a failed state, you may be unable to update routes, even though network connectivity might still work. In this scenario, use the **Reset router** option in the vHub settings to restore normal operation. This process typically takes less than 10 minutes and rarely disrupts network traffic. Use this option if the Hub status is in a succeeded state while the routing status is in a failed state.
+
 ## <a name="considerations"></a>Additional considerations
 
 Consider the following items when configuring Virtual WAN routing:

@@ -3,6 +3,7 @@ title: Special Parsing for Parameters
 description: Read about special parsing for parameters. Azure CycleCloud is able to resolve parameter values and perform logical evaluation of functions.
 author: mvrequa
 ms.date: 06/30/2025
+ms.update-cycle: 1095-days
 ms.author: mirequa
 ---
 

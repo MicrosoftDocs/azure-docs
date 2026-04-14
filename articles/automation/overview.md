@@ -6,8 +6,8 @@ keywords: azure automation, DSC, powershell, state configuration, change trackin
 ms.date: 04/24/2025
 ms.topic: overview
 ms.custom: linux-related-content
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # What is Azure Automation?

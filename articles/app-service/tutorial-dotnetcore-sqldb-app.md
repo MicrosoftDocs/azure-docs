@@ -3,7 +3,7 @@
 title: Deploy ASP.NET Core and Azure SQL Database app
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
-ms.date: 06/30/2025
+ms.date: 03/19/2026
 ms.update-cycle: 180-days
 author: cephalin
 ms.author: cephalin
@@ -30,6 +30,7 @@ In this tutorial, you learn how to deploy a data-driven ASP.NET Core app to Azur
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a secure-by-default App Service, SQL Database, and Redis cache architecture.
 > * Secure connection secrets using a managed identity and Key Vault references.
 > * Deploy a sample ASP.NET Core app to App Service from a GitHub repository.
@@ -45,16 +46,16 @@ In this tutorial, you learn how to:
 
 ::: zone pivot="azure-portal"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * A GitHub account. You can also [get one for free](https://github.com/join).
 * Knowledge of ASP.NET Core development.
-* **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
+* **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions). A 30-day free trial is available.
 
 ::: zone-end
 
 ::: zone pivot="azure-developer-cli"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
 * Knowledge of ASP.NET Core development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
@@ -75,7 +76,7 @@ azd up
 
 ## 1. Run the sample
 
-First, you set up a sample data-driven app as a starting point. For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), which means you can run the sample on any computer with a web browser.
+First, you set up a sample data-driven app as a starting point. For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/codespaces/about-codespaces/what-are-codespaces), which means you can run the sample on any computer with a web browser.
 
 :::row:::
     :::column span="2":::
@@ -221,8 +222,8 @@ The creation wizard generated the connectivity variable for you already as [.NET
 
 :::row:::
     :::column span="2":::
-        **Step 1: Retrieve the existing connection string** 
-        1. In the left menu of the App Service page, select **Settings > Environment variables > Connection strings**. 
+        **Step 1: Retrieve the existing connection string**
+        1. In the left menu of the App Service page, select **Settings > Environment variables > Connection strings**.
         1. Select **AZURE_SQL_CONNECTIONSTRING**.
         1. In **Add/Edit connection string**, in the **Value** field, find the *Password=* part at the end of the string.
         1. Copy the password string after *Password=* for use later.
@@ -253,7 +254,6 @@ The creation wizard generated the connectivity variable for you already as [.NET
         1. In **Resource group**, select **msdocs-core-sql-XYZ_group**.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Name**, type **msdocs-core-sql-XYZVvaultEndpoint**.
-        1. In **Location**, select the same location as your App Service app.
         1. In **Virtual network**, select the virtual network in the **msdocs-core-sql-XYZ_group** group.
         1. In **Subnet**, select the available compatible subnet. The Web App wizard created it for your convenience.
         1. Select **OK**.
@@ -272,7 +272,7 @@ The creation wizard generated the connectivity variable for you already as [.NET
         1. Select the **Authentication** tab.
         1. In **Password**, paste the password you copied earlier.
         1. Select **Store Secret in Key Vault**.
-        1. Under **Key Vault Connection**, select **Create new**. 
+        1. Under **Key Vault Connection**, select **Create new**.
         A **Create connection** dialog is opened on top of the edit dialog.
     :::column-end:::
     :::column:::
@@ -281,7 +281,7 @@ The creation wizard generated the connectivity variable for you already as [.NET
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5: Establish the Key Vault connection** 
+        **Step 5: Establish the Key Vault connection**
         1. In the **Create connection** dialog for the Key Vault connection, in **Key Vault**, select the key vault you created earlier.
         1. Select **Review + Create**.
         1. When validation completes, select **Create**.
@@ -304,11 +304,11 @@ The creation wizard generated the connectivity variable for you already as [.NET
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7: Configure the Redis connector to use Key Vault secrets** 
+        **Step 7: Configure the Redis connector to use Key Vault secrets**
         1. In the Service Connector page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
         1. Select the **Authentication** tab.
         1. Select **Store Secret in Key Vault**.
-        1. Under **Key Vault Connection**, select the key vault you created. 
+        1. Under **Key Vault Connection**, select the key vault you created.
         1. Select **Next: Networking**.
         1. Select **Configure firewall rules to enable access to target service**.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
@@ -322,7 +322,7 @@ The creation wizard generated the connectivity variable for you already as [.NET
         **Step 8: Verify the Key Vault integration**
         1. From the left menu, select **Settings > Environment variables > Connection strings** again.
         1. Next to **AZURE_SQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
-        1. To verify the Redis connection string, select the **App setting** tab. Next to **AZURE_REDIS_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)` too.
+        1. To verify the Redis connection string, select the **App settings** tab. Next to **AZURE_REDIS_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)` too.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-8.png" alt-text="A screenshot showing how to see the value of the .NET connection string in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-8.png":::
@@ -331,10 +331,10 @@ The creation wizard generated the connectivity variable for you already as [.NET
 
 To summarize, the process for securing your connection secrets involved:
 
-- Retrieving the connection secrets from the App Service app's environment variables.
-- Creating a key vault.
-- Creating a Key Vault connection with the system-assigned managed identity.
-- Updating the service connectors to store the secrets in the key vault.
+* Retrieving the connection secrets from the App Service app's environment variables.
+* Creating a key vault.
+* Creating a Key Vault connection with the system-assigned managed identity.
+* Updating the service connectors to store the secrets in the key vault.
 
 ## 4. Deploy sample code
 
@@ -342,7 +342,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`. 
+        **Step 1:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`.
         This pulls the newly committed workflow file into your codespace.
     :::column-end:::
     :::column:::
@@ -353,8 +353,8 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 2 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace How does the app connect to the database and the cache?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*. 
-        1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file. 
+        1. Ask, "*@workspace How does the app connect to the database and the cache?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*.
+        1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps that follow and even tell you to make the change in the *Program.cs* file.
         1. Open *Program.cs* in the explorer and add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -366,7 +366,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 2 (Option 2: without GitHub Copilot):**  
         1. Open *Program.cs* in the explorer.
-        1. Find the commented code (lines 12-21) and uncomment it. 
+        1. Find the commented code (lines 12-21) and uncomment it.
         This code connects to the database by using `AZURE_SQL_CONNECTIONSTRING` and connects to the Redis cache by using the app setting `AZURE_REDIS_CONNECTIONSTRING`.
     :::column-end:::
     :::column:::
@@ -376,7 +376,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2":::
         **Step 3 (Option 1: with GitHub Copilot):**
-        1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. This file was created by the App Service create wizard.
+        1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. The App Service create wizard created this file.
         1. Highlight the `dotnet publish` step and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
         1. Ask Copilot, "*Install dotnet ef, then create a migrations bundle in the same output folder.*"
         1. If the suggestion is acceptable, select **Accept**.
@@ -389,7 +389,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2":::
         **Step 3 (Option 2: without GitHub Copilot):**
-        1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. This file was created by the App Service create wizard.
+        1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. The App Service create wizard created this file
         1. Under the `dotnet publish` step, add a step to install the [Entity Framework Core tool](/ef/core/cli/dotnet) with the command `dotnet tool install -g dotnet-ef --version 8.*`.
         1. Under the new step, add another step to generate a database [migration bundle](/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles) in the deployment package: `dotnet ef migrations bundle --runtime linux-x64 -o ${{env.DOTNET_ROOT}}/myapp/migrationsbundle`.
         The migration bundle is a self-contained executable that you can run in the production environment without needing the .NET SDK. The App Service linux container only has the .NET runtime and not the .NET SDK.
@@ -434,11 +434,11 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 5. Generate database schema
 
-With the SQL Database protected by the virtual network, the easiest way to run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the Linux container in App Service. 
+With the SQL Database protected by the virtual network, the easiest way to run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the Linux container in App Service.
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page, in the left menu, 
+        **Step 1:** Back in the App Service page, in the left menu,
         1. Select **Development Tools** > **SSH**.
         1. Select **Go**. (The start up takes a few minutes.)
     :::column-end:::
@@ -484,7 +484,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 :::row-end:::
 
 > [!TIP]
-> The sample application implements the [cache-aside](/azure/architecture/patterns/cache-aside) pattern. When you visit a data view for the second time, or reload the same page after making data changes, **Processing time** in the webpage shows a much faster time because it's loading the data from the cache instead of the database.
+> The sample application implements the [cache-aside](/azure/architecture/patterns/cache-aside) pattern. When you visit a data view for the second time, or reload the same page after making data changes, **Processing time** in the webpage shows a faster time because it's loading the data from the cache instead of the database.
 
 ## 7. Stream diagnostic logs
 
@@ -534,7 +534,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** 
+        **Step 3:**
         1. Enter the resource group name to confirm your deletion.
         1. Select **Delete**.
     :::column-end:::
@@ -560,10 +560,10 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     ```
 
 1. When prompted, give the following answers:
-    
+
     |Question  |Answer  |
     |---------|---------|
-    |The current directory is not empty. Would you like to initialize a project here in '\<your-directory>'?     | **Y**        |
+    |The current directory isn't empty. Would you like to initialize a project here in '\<your-directory>'?     | **Y**        |
     |What would you like to do with these files?     | **Keep my existing files unchanged**        |
     |Enter a new environment name     | Type a unique name. The AZD template uses this name as part of the DNS name of your web app in Azure (`<app-name>-<hash>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
 
@@ -583,17 +583,17 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
-    - **Resource group**: The container for all the created resources.
-    - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
-    - **App Service**: Represents your app and runs in the App Service plan.
-    - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-    - **Private endpoints**: Access endpoints for the key vault, the database server, and the Redis cache in the virtual network.
-    - **Network interfaces**: Represents private IP addresses, one for each of the private endpoints.
-    - **Azure SQL Database server**: Accessible only from behind its private endpoint.
-    - **Azure SQL Database**: A database and a user are created for you on the server.
-    - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
-    - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
-    - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
+    * **Resource group**: The container for all the created resources.
+    * **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+    * **App Service**: Represents your app and runs in the App Service plan.
+    * **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
+    * **Private endpoints**: Access endpoints for the key vault, the database server, and the Redis cache in the virtual network.
+    * **Network interfaces**: Represents private IP addresses, one for each of the private endpoints.
+    * **Azure SQL Database server**: Accessible only from behind its private endpoint.
+    * **Azure SQL Database**: A database and a user are created for you on the server.
+    * **Azure Cache for Redis**: Accessible only from behind its private endpoint.
+    * **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
+    * **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
 
     Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
 
@@ -602,7 +602,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 ## 3. Verify connection strings
 
 > [!TIP]
-> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead) 
+> The default SQL database connection string uses SQL authentication. For more secure, passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead)
 
 The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
 
@@ -616,7 +616,7 @@ The AZD template you use generated the connectivity variables for you already as
         - AZURE_KEYVAULT_SCOPE
     </pre>
 
-    `AZURE_SQL_CONNECTIONSTRING` contains the connection string to the SQL Database in Azure, and `AZURE_REDIS_CONNECTIONSTRING` contains the connection string to the Azure Redis cache. You need to use them in your code later. 
+    `AZURE_SQL_CONNECTIONSTRING` contains the connection string to the SQL Database in Azure, and `AZURE_REDIS_CONNECTIONSTRING` contains the connection string to the Azure Redis cache. You need to use them in your code later.
 
 1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
 
@@ -626,11 +626,11 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [With GitHub Copilot](#tab/copilot)
 
-1. In the GitHub codespace, start a new chat session by selecting the **Chat** view, then selecting **+**. 
+1. In the GitHub codespace, start a new chat session by selecting the **Chat** view, then selecting **+**.
 
 1. Ask, "*@workspace How does the app connect to the database and the cache?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*.
 
-1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file.
+1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps that follow and even tell you to make the change in the *Program.cs* file.
 
 1. Open *Program.cs* in the explorer and add the code suggestion.
 
@@ -640,7 +640,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. From the explorer, open *Program.cs*.
 
-1. In the `contextIntialized()` method, find the commented code (lines 12-21) and uncomment it. 
+1. In the `contextIntialized()` method, find the commented code (lines 12-21) and uncomment it.
 
     ```csharp
     else
@@ -654,7 +654,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
         });
     } 
     ```
-    
+
     When the app isn't in development mode (like in Azure App Service), this code connects to the database by using `AZURE_SQL_CONNECTIONSTRING` and connects to the Redis cache by using the app setting `AZURE_REDIS_CONNECTIONSTRING`.
 
 -----
@@ -688,7 +688,7 @@ With the SQL Database protected by the virtual network, the easiest way to run d
     Open SSH session to App Service container at: &lt;URL>
     </pre>
 
-1. In the SSH session, run the following commands: 
+1. In the SSH session, run the following commands:
 
     ```bash
     cd /home/site/wwwroot
@@ -709,7 +709,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
     <pre>
     Deploying services (azd deploy)
-    
+
       (✓) Done: Deploying service web
       - Endpoint: &lt;URL>
     </pre>
@@ -736,7 +736,7 @@ In the AZD output, find the link to stream App Service logs and navigate to it i
 Stream App Service logs at: &lt;URL>
 </pre>
 
-Learn more about logging in .NET apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore).
+Learn more about logging in .NET apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -752,10 +752,10 @@ azd down
 
 ## Troubleshooting
 
-- [The portal deployment view for Azure SQL Database shows a Conflict status](#the-portal-deployment-view-for-azure-sql-database-shows-a-conflict-status)
-- [In the Azure portal, the log stream UI for the web app shows network errors](#in-the-azure-portal-the-log-stream-ui-for-the-web-app-shows-network-errors)
-- [The SSH session in the browser shows `SSH CONN CLOSED`](#the-ssh-session-in-the-browser-shows-ssh-conn-closed)
-- [The portal log stream page shows `Connected!` but no logs](#the-portal-log-stream-page-shows-connected-but-no-logs)
+* [The portal deployment view for Azure SQL Database shows a Conflict status](#the-portal-deployment-view-for-azure-sql-database-shows-a-conflict-status)
+* [In the Azure portal, the log stream UI for the web app shows network errors](#in-the-azure-portal-the-log-stream-ui-for-the-web-app-shows-network-errors)
+* [The SSH session in the browser shows `SSH CONN CLOSED`](#the-ssh-session-in-the-browser-shows-ssh-conn-closed)
+* [The portal log stream page shows `Connected!` but no logs](#the-portal-log-stream-page-shows-connected-but-no-logs)
 
 ### The portal deployment view for Azure SQL Database shows a Conflict status
 
@@ -767,7 +767,7 @@ This error is most likely caused by a limit on your subscription for the region 
 
 ### In the Azure portal, the log stream UI for the web app shows network errors
 
-You might see this error: 
+You might see this error:
 
 <pre>
 Unable to open a connection to your app. This may be due to any network security groups or IP restriction rules that you have placed on your app. To use log streaming, please make sure you are able to access your app directly from your current network.
@@ -785,33 +785,32 @@ After you configure diagnostic logs, the app is restarted. You might need to ref
 
 ## Frequently asked questions
 
-- [How much does this setup cost?](#how-much-does-this-setup-cost)
-- [How do I connect to the Azure SQL Database server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-azure-sql-database-server-thats-secured-behind-the-virtual-network-with-other-tools)
-- [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
-- [How do I debug errors during the GitHub Actions deployment?](#how-do-i-debug-errors-during-the-github-actions-deployment)
-- [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead)
-- [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
-- [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+* [How much does this setup cost?](#how-much-does-this-setup-cost)
+* [How do I connect to the Azure SQL Database server that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-azure-sql-database-server-thats-secured-behind-the-virtual-network-with-other-tools)
+* [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
+* [How do I debug errors during the GitHub Actions deployment?](#how-do-i-debug-errors-during-the-github-actions-deployment)
+* [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead)
+* [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
+* [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 ### How much does this setup cost?
 
 Pricing for the created resources is as follows:
 
-- The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
-- The Azure SQL Database is created in general-purpose, serverless tier on Standard-series hardware with the minimum cores. There's a small cost and can be distributed to other regions. You can minimize cost even more by reducing its maximum size, or you can scale it up by adjusting the serving tier, compute tier, hardware configuration, number of cores, database size, and zone redundancy. See [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single/).
-- The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
-- The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
-- The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/).
+* The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
+* The Azure SQL Database is created in general-purpose, serverless tier on Standard-series hardware with the minimum cores. There's a small cost and can be distributed to other regions. You can minimize cost even more by reducing its maximum size, or you can scale it up by adjusting the serving tier, compute tier, hardware configuration, number of cores, database size, and zone redundancy. See [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single/).
+* The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
+* The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
+* The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/).
 
 ### How do I connect to the Azure SQL Database server that's secured behind the virtual network with other tools?
 
-- For basic access from a command-line tool, you can run `sqlcmd` from the app's SSH terminal. The app's container doesn't come with `sqlcmd`, so you must [install it manually](/sql/tools/sqlcmd/sqlcmd-utility?tabs=go%2Clinux&pivots=cs1-bash#download-and-install-sqlcmd). Remember that the installed client doesn't persist across app restarts.
-- To connect from a SQL Server Management Studio client or from Visual Studio, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
+* For basic access from a command-line tool, you can run `sqlcmd` from the app's SSH terminal. The app's container doesn't come with `sqlcmd`, so you must [install it manually](/sql/tools/sqlcmd/sqlcmd-utility?tabs=go%2Clinux&pivots=cs1-bash#download-and-install-sqlcmd). Remember that the installed client doesn't persist across app restarts.
+* To connect from a SQL Server Management Studio client or from Visual Studio, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 
 ### How does local app development work with GitHub Actions?
 
 Take the autogenerated workflow file from App Service as an example, each `git push` kicks off a new build and deployment run. From a local clone of the GitHub repository, you make the desired updates push it to GitHub. For example:
-
 
 ```terminal
 git add .
@@ -829,7 +828,7 @@ See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-
 
 ### How do I change the SQL Database connection to use a managed identity instead?
 
-The default connection string to the SQL database is managed by Service Connector, with the name *defaultConnector*, and it uses SQL authentication. To replace it with a connection that uses a managed identity, run the following commands in the [cloud shell](https://shell.azure.com) after replacing the placeholders:
+Service Connector manages the default connection string to the SQL database, with the name *defaultConnector*, and it uses SQL authentication. To replace it with a connection that uses a managed identity, run the following commands in the [cloud shell](https://shell.azure.com) after replacing the placeholders:
 
 ```azurecli-interactive
 az extension add --name serviceconnector-passwordless --upgrade
@@ -841,34 +840,34 @@ az sql server update --enable-public-network false
 
 By default, the command `az webapp connection create sql --client-type dotnet --system-identity --config-connstr` does the following:
 
-- Sets your user as the Microsoft Entra ID administrator of the SQL database server.
-- Create a system-assigned managed identity and grants it access to the database.
-- Generates a passwordless connection string called `AZURE_SQL_CONNECTIONGSTRING`, which your app is already using at the end of the tutorial.
+* Sets your user as the Microsoft Entra ID administrator of the SQL database server.
+* Create a system-assigned managed identity and grants it access to the database.
+* Generates a passwordless connection string called `AZURE_SQL_CONNECTIONGSTRING`, which your app is already using at the end of the tutorial.
 
 Your app should now have connectivity to the SQL database. For more information, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
 
 > [!TIP]
-> **Don't want to enable public network connection?** You can skip `az sql server update --enable-public-network true` by running the commands from an [Azure cloud shell that's integrated with your virtual network](../cloud-shell/vnet/deployment.md) if you have the **Owner** role assignment on your subscription. 
-> 
+> **Don't want to enable public network connection?** You can skip `az sql server update --enable-public-network true` by running the commands from an [Azure cloud shell that's integrated with your virtual network](../cloud-shell/vnet/deployment.md) if you have the **Owner** role assignment on your subscription.
+>
 > To grant the identity the required access to the database that's secured by the virtual network, `az webapp connection create sql` needs direct connectivity with Entra ID authentication to the database server. By default, the Azure cloud shell doesn't have this access to the network-secured database.
 
 ### What can I do with GitHub Copilot in my codespace?
 
-You might have noticed that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
+You might have noticed that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available).
 
 A few tips for you when you talk to GitHub Copilot:
 
-- In a single chat session, the questions and answers build on each other and you can adjust your questions to fine-tune the answer you get.
-- By default, GitHub Copilot doesn't have access to any file in your repository. To ask questions about a file, open the file in the editor first.
-- To let GitHub Copilot have access to all of the files in the repository when preparing its answers, begin your question with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
-- In the chat session, GitHub Copilot can suggest changes and (with `@workspace`) even where to make the changes, but it's not allowed to make the changes for you. It's up to you to add the suggested changes and test it.
+* In a single chat session, the questions and answers build on each other and you can adjust your questions to fine-tune the answer you get.
+* By default, GitHub Copilot doesn't have access to any file in your repository. To ask questions about a file, open the file in the editor first.
+* To let GitHub Copilot have access to all of the files in the repository when preparing its answers, begin your question with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/developer-skills/github/how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
+* In the chat session, GitHub Copilot can suggest changes and (with `@workspace`) even where to make the changes, but it's not allowed to make the changes for you. It's up to you to add the suggested changes and test it.
 
 Here are some other things you can say to fine-tune the answer you get:
 
 * I want this code to run only in production mode.
 * I want this code to run only in Azure App Service and not locally.
 * The --output-path parameter seems to be unsupported.
- 
+
 ## Related content
 
 Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
@@ -880,6 +879,6 @@ Or, check out other resources:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
-
+>
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)

@@ -2,7 +2,7 @@
 title: Enable Private Link on an Azure HDInsight cluster
 description: Learn how to connect to an outside HDInsight cluster by using Azure Private Link.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/06/2025
 ms.custom: sfi-image-nochange
 ---

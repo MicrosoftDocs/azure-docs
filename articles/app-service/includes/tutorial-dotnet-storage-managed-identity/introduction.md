@@ -1,12 +1,9 @@
 ---
-services: storage, app-service-web
-author: rwike77
-manager: CelesteDG
+author: cephalin
+ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 02/16/2022
-ms.author: ryanwi
-ms.reviewer: stsoneff
 ms.devlang: azurecli
 ms.custom:
   - azureday1
@@ -17,7 +14,7 @@ ms.custom:
 ---
 Learn how to access Azure services, _such as Azure Storage_, from a web app (not a signed-in user) running on Azure App Service by using managed identities. This tutorial demonstrates connecting to Azure Storage as an example. 
 
-[Any service](../../../active-directory/managed-identities-azure-resources/managed-identities-status.md) that supports managed identity (_B_ in the following image) can be securely accessed using this tutorial: 
+[Any service](/entra/identity/managed-identities-azure-resources/managed-identities-status) that supports managed identity (_B_ in the following image) can be securely accessed using this tutorial: 
 
 * Azure Storage
 * Azure SQL Database
@@ -25,7 +22,7 @@ Learn how to access Azure services, _such as Azure Storage_, from a web app (not
 
 :::image type="content" alt-text="Diagram that shows how to access storage." source="../../media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-You want to add secure access to Azure services (Azure Storage, Azure SQL Database, Azure Key Vault, or other services) from your web app. You could use a shared key, but then you have to worry about operational security of who can create, deploy, and manage the secret. It's also possible that the key could be checked into GitHub, which hackers know how to scan for. A safer way to give your web app access to data is to use [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md).
+You want to add secure access to Azure services (Azure Storage, Azure SQL Database, Azure Key Vault, or other services) from your web app. You could use a shared key, but then you have to worry about operational security of who can create, deploy, and manage the secret. It's also possible that the key could be checked into GitHub, which hackers know how to scan for. A safer way to give your web app access to data is to use [managed identities](/entra/identity/managed-identities-azure-resources/overview).
 
 A managed identity from Microsoft Entra ID allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. People don't have to worry about managing secrets or app credentials.
 
@@ -67,7 +64,7 @@ Blobs in Azure Storage are organized into containers. Before you can upload a bl
 
 To create a general-purpose v2 storage account in the Azure portal, follow these steps.
 
-1. On the Azure portal menu, select **All services**. In the list of resources, enter **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
+1. On the Azure portal menu, enter **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
 
 1. In the **Storage Accounts** window that appears, select **Create**.
 
@@ -79,15 +76,14 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 
 1. Select a location (region) for your storage account, or use the default value.
 
+1. Under **Preferred storage type** field, select **Azure Blob Storage or Azure Data Lake Storage Gen2**.
+
 1. Leave these fields set to their default values:
 
     |Field|Value|
     |--|--|
-    |Deployment model|Resource Manager|
     |Performance|Standard|
-    |Account kind|StorageV2 (general-purpose v2)|
-    |Replication|Read-access geo-redundant storage (RA-GRS)|
-    |Access tier|Hot|
+    |Redundancy|Geo-redundant storage|
 
 1. Select **Review + Create** to review your storage account settings and create the account.
 
@@ -99,7 +95,7 @@ To create a Blob Storage container in Azure Storage, follow these steps.
 
 1. In the left menu for the storage account, scroll to the **Data storage** section, and then select **Containers**.
 
-1. Select the **+ Container** button.
+1. Select the **+ Add Container** button.
 
 1. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character.
 
@@ -180,7 +176,7 @@ You need to grant your web app access to the storage account before you can crea
 
 In the [Azure portal](https://portal.azure.com), go into your storage account to grant your web app access. Select **Access control (IAM)** in the left pane, and then select **Role assignments**. You'll see a list of who has access to the storage account. Now you want to add a role assignment to a robot, the app service that needs access to the storage account. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-Assign the **Storage Blob Data Contributor** role to the **App Service** at subscription scope.  For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.yml).
+Assign the **Storage Blob Data Contributor** role to the **App Service** at subscription scope.  For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 Your web app now has access to your storage account.
 

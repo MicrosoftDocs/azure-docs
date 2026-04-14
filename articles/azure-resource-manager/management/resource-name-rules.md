@@ -1,8 +1,8 @@
 ---
 title: Naming rules and restrictions for Azure resources
 description: Learn the rules and restrictions for naming Azure resources.
-ms.topic: conceptual
-ms.date: 08/04/2025
+ms.topic: article
+ms.date: 02/27/2026
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -87,8 +87,8 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | configurationStores\* | global | 5-50 | Alphanumerics and hyphens<br><br>Can’t contain a sequence of more than two hyphens.<br><br>Can’t start with or end with a hyphen. |
-> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can’t exceed 60 characters.| Only alphanumerics are valid. |
+> | configurationStores\* | global | 5-50 | Alphanumerics and hyphens<br><br>Can't contain a sequence of more than two hyphens.<br><br>Can't start with or end with a hyphen. |
+> | configurationStores / replicas | configurationStore | 1-50<br><br>The combined length of the configurationStore name and the replica name can't exceed 60 characters.| Only alphanumerics are valid. |
 
 \* {storeName}-{replicaName} needs to be globally unique.
 
@@ -644,6 +644,7 @@ In the following tables, the term alphanumeric refers to:
 > | netAppAccounts / snapshots | NetApp account | 1-255 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / snapshotPolicies | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
 > | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
+> | netAppAccounts / buckets | NetApp account |13-64 |  Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
 > | netAppAccounts / volumeGroups | NetApp account | 3-64 | Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
 
 ## Microsoft.Network
@@ -960,3 +961,4 @@ In the following tables, the term alphanumeric refers to:
 - For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 - Resources with public endpoints can't include reserved words or trademarks in their names. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
+

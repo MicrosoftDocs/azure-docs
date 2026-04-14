@@ -1,9 +1,9 @@
 ---
 title: Monitor Azure Functions
 description: Start here to learn how to monitor Azure Functions.
-ms.date: 03/08/2024
+ms.date: 12/08/2025
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-functions
 ---
 
@@ -16,11 +16,11 @@ ms.service: azure-functions
 
 ### Application Insights
 
-Azure Functions offers built-in integration with Application Insights to monitor functions executions. For detailed information about how to integrate, configure, and use Application Insights to monitor Azure Functions, see the following articles:
+Azure Functions has built-in integration with Application Insights to monitor function executions. For detailed information about how to integrate, configure, and use Application Insights to monitor Azure Functions, see the following articles:
 
 - [Monitor executions in Azure Functions](functions-monitoring.md)
 - [Configure monitoring for Azure Functions](configure-monitoring.md)
-- [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md).
+- [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md)
 - [Monitor Azure Functions with Application Insights](/azure/azure-monitor/app/monitor-functions)
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
@@ -42,6 +42,13 @@ Azure Functions integrates with Azure Monitor Logs to monitor functions. For det
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Functions, see [Azure Functions monitoring data reference](monitor-functions-reference.md#resource-logs).
 
+>[!IMPORTANT]
+>Application Insights processes telemetry in batches. When a batch payload is too large or contains unescaped special characters, log entries might be dropped. To help prevent data loss:
+>
+>+ Limit individual log messages to 10,000 characters, especially when you log large XML or JSON payloads.
+>+ Escape special characters in log data.
+>+ Summarize or truncate large payloads before you log them.
+
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 ## Other logs
@@ -54,9 +61,13 @@ Azure Functions also offers the ability to collect more than Azure Monitor resou
 
 ### Analyze metrics for Azure Functions
 
-The following examples use Azure Monitor metrics to help estimate the cost of running your function app on a Consumption plan. To learn more about estimating Consumption plan costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
+Functions provides these two dynamic scale plans that support serverless hosting:
+
+[!INCLUDE [functions-consumption-plans-compare-tabs](../../includes/functions-consumption-plans-compare-tabs.md)]
 
 [!INCLUDE [functions-monitor-metrics-consumption](../../includes/functions-monitor-metrics-consumption.md)]  
+
+To learn more about estimating costs for these plans, see [Estimating consumption plan costs](functions-consumption-costs.md).
 
 ### Analyze logs for Azure Functions
 
@@ -113,7 +124,7 @@ FunctionAppLogs
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
 ### Azure Functions alert rules
-The following table lists common and recommended alert rules for Azure Functions. These are just recommended alerts. You can set alerts for any metric, log entry, or activity log entry listed in the [Monitoring data reference for Azure Functions](monitor-functions-reference.md).
+The following table lists common and recommended alert rules for Azure Functions. These alerts are just recommendations. You can set alerts for any metric, log entry, or activity log entry listed in the [Monitoring data reference for Azure Functions](monitor-functions-reference.md).
 
 
 | Alert type | Condition | Description  |

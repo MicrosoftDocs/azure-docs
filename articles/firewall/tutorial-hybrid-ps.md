@@ -1,14 +1,12 @@
----
+﻿---
 title: Deploy and configure Azure Firewall in a hybrid network by using PowerShell
-description: In this article, you learn how to deploy and configure Azure Firewall by using Azure PowerShell. 
-services: firewall
+description: Deploy and configure Azure Firewall in a hybrid network by using Azure PowerShell.
 author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 10/27/2022
-ms.author: duau 
+ms.date: 03/28/2026
 ms.custom: devx-track-azurepowershell
-#Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 # Customer intent: "As a network administrator, I want to deploy and configure Azure Firewall in a hybrid network using PowerShell, so that I can control access between on-premises and Azure virtual networks effectively."
 ---
 
@@ -32,32 +30,32 @@ If you want to use the Azure portal instead to complete the procedures in this a
 
 ## Prerequisites
 
-This article requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This article requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
 
-There are three key requirements for this scenario to work correctly:
+Three key requirements ensure this scenario works correctly:
 
-- A user-defined route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. Virtual network gateway route propagation must be *disabled* on this route table.
-- A UDR on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
+- A user-defined route (UDR) on the spoke subnet points to the Azure Firewall IP address as the default gateway. You must *disable* virtual network gateway route propagation on this route table.
+- A UDR on the hub gateway subnet points to the firewall IP address as the next hop to the spoke networks.
 
-  No UDR is required on the Azure Firewall subnet, because it learns routes from Border Gateway Protocol (BGP).
-- Be sure to set `AllowGatewayTransit` when you're peering **VNet-Hub** to **VNet-Spoke**. Set `UseRemoteGateways` when you're peering **VNet-Spoke** to **VNet-Hub**.
+- No UDR is required on the Azure Firewall subnet, because it learns routes from Border Gateway Protocol (BGP).
+- Set `AllowGatewayTransit` when you're peering **VNet-Hub** to **VNet-Spoke**. Set `UseRemoteGateways` when you're peering **VNet-Spoke** to **VNet-Hub**.
 
 The [Create the routes](#create-the-routes) section later in this article shows how to create these routes.
 
->[!NOTE]
->Azure Firewall must have direct internet connectivity. If your **AzureFirewallSubnet** subnet learns a default route to your on-premises network via BGP, you must configure Azure Firewall in forced tunneling mode. If this is an existing Azure Firewall instance that can't be reconfigured in forced tunneling mode, we recommend that you add a 0.0.0.0/0 UDR on the **AzureFirewallSubnet** subnet with the `NextHopType` value set as `Internet` to maintain direct internet connectivity.
+> [!NOTE]
+> Azure Firewall must have direct internet connectivity. If your **AzureFirewallSubnet** subnet learns a default route to your on-premises network via BGP, you must configure Azure Firewall in forced tunneling mode. If this is an existing Azure Firewall instance that can't be reconfigured in forced tunneling mode, add a 0.0.0.0/0 UDR on the **AzureFirewallSubnet** subnet with the `NextHopType` value set as `Internet` to maintain direct internet connectivity.
 >
->For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
+> For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
 Traffic between directly peered virtual networks is routed directly, even if a UDR points to Azure Firewall as the default gateway. To send subnet-to-subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
 
-To review the related Azure PowerShell reference documentation, see [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
+Use [New-AzFirewall](/powershell/module/az.network/new-azfirewall) as the primary cmdlet to deploy and configure the firewall throughout this article.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Declare the variables
 
-The following example declares the variables by using the values for this article. In some cases, you might need to replace some values with your own to work in your subscription. Modify the variables if needed, and then copy and paste them into your PowerShell console.
+The following example declares the variables by using the values for this article. In some cases, you might need to replace some values with your own values to work in your subscription. Modify the variables if needed, and then copy and paste them into your PowerShell console.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -98,179 +96,253 @@ $GWOnprempipName = "VNet-Onprem-GW-pip"
 $SNnameGW = "GatewaySubnet"
 ```
 
-## Create the firewall hub virtual network
+## Create the virtual networks
 
-First, create the resource group to contain the resources for this article:
+### Create the hub virtual network
 
-```azurepowershell
-  New-AzResourceGroup -Name $RG1 -Location $Location1
-  ```
-
-Define the subnets to be included in the virtual network:
+Use [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) to create the resource group for this article:
 
 ```azurepowershell
-$FWsub = New-AzVirtualNetworkSubnetConfig -Name $SNnameHub -AddressPrefix $SNHubPrefix
-$GWsub = New-AzVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWHubPrefix
+New-AzResourceGroup `
+    -Name $RG1 `
+    -Location $Location1
 ```
 
-Create the firewall hub virtual network:
+Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) and [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to define the subnets and create the hub virtual network:
 
 ```azurepowershell
-$VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
+$FWsub = New-AzVirtualNetworkSubnetConfig `
+    -Name $SNnameHub `
+    -AddressPrefix $SNHubPrefix
+
+$GWsub = New-AzVirtualNetworkSubnetConfig `
+    -Name $SNnameGW `
+    -AddressPrefix $SNGWHubPrefix
+
+$VNetHub = New-AzVirtualNetwork `
+    -Name $VNetnameHub `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -AddressPrefix $VNetHubPrefix `
+    -Subnet $FWsub,$GWsub
 ```
 
-Request a public IP address to be allocated to the VPN gateway that you'll create for your virtual network. Notice that the `AllocationMethod` value is `Dynamic`. You can't specify the IP address that you want to use. It's dynamically allocated to your VPN gateway.
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to request a public IP address for the VPN gateway. Set the `AllocationMethod` value to `Dynamic`, which means Azure dynamically allocates the address.
 
 ```azurepowershell
-$gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
--Location $Location1 -AllocationMethod Dynamic
+$gwpip1 = New-AzPublicIpAddress `
+    -Name $GWHubpipName `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -AllocationMethod Dynamic
 ```
 
-## Create the spoke virtual network
+### Create the spoke virtual network
 
-Define the subnets to be included in the spoke virtual network:
+Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) and [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to define the subnets and create the spoke virtual network:
 
 ```azurepowershell
-$Spokesub = New-AzVirtualNetworkSubnetConfig -Name $SNnameSpoke -AddressPrefix $SNSpokePrefix
-$GWsubSpoke = New-AzVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNSpokeGWPrefix
+$Spokesub = New-AzVirtualNetworkSubnetConfig `
+    -Name $SNnameSpoke `
+    -AddressPrefix $SNSpokePrefix
+$GWsubSpoke = New-AzVirtualNetworkSubnetConfig `
+    -Name $SNnameGW `
+    -AddressPrefix $SNSpokeGWPrefix
+$VNetSpoke = New-AzVirtualNetwork `
+    -Name $VnetNameSpoke `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -AddressPrefix $VNetSpokePrefix `
+    -Subnet $Spokesub,$GWsubSpoke
 ```
 
-Create the spoke virtual network:
+### Create the on-premises virtual network
+
+Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) and [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to define the subnets and create the on-premises virtual network:
 
 ```azurepowershell
-$VNetSpoke = New-AzVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
+$Onpremsub = New-AzVirtualNetworkSubnetConfig `
+    -Name $SNNameOnprem `
+    -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzVirtualNetworkSubnetConfig `
+    -Name $SNnameGW `
+    -AddressPrefix $SNGWOnpremPrefix
+$VNetOnprem = New-AzVirtualNetwork `
+    -Name $VNetnameOnprem `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -AddressPrefix $VNetOnpremPrefix `
+    -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-## Create the on-premises virtual network
-
-Define the subnets to be included in the virtual network:
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to request a public IP address for the on-premises virtual network gateway:
 
 ```azurepowershell
-$Onpremsub = New-AzVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-Create the on-premises virtual network:
-
-```azurepowershell
-$VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-
-Request a public IP address to be allocated to the gateway that you'll create for the virtual network. Notice that the `AllocationMethod` value is `Dynamic`. You can't specify the IP address that you want to use. It's dynamically allocated to your gateway.
-
-```azurepowershell
-$gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
--Location $Location1 -AllocationMethod Dynamic
+$gwOnprempip = New-AzPublicIpAddress `
+    -Name $GWOnprempipName `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -AllocationMethod Dynamic
 ```
 
 ## Configure and deploy the firewall
 
-Now, deploy the firewall into the hub virtual network:
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) and [New-AzFirewall](/powershell/module/az.network/new-azfirewall) to deploy the firewall into the hub virtual network:
 
 ```azurepowershell
 # Get a public IP for the firewall
-$FWpip = New-AzPublicIpAddress -Name "fw-pip" -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Static -Sku Standard
+$FWpip = New-AzPublicIpAddress `
+    -Name "fw-pip" `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -AllocationMethod Static `
+    -Sku Standard
 # Create the firewall
-$Azfw = New-AzFirewall -Name AzFW01 -ResourceGroupName $RG1 -Location $Location1 -VirtualNetworkName $VNetnameHub -PublicIpName fw-pip
+$Azfw = New-AzFirewall `
+    -Name AzFW01 `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -VirtualNetworkName $VNetnameHub `
+    -PublicIpName fw-pip
 
-#Save the firewall private IP address for future use
-
+# Save the firewall private IP address for future use
 $AzfwPrivateIP = $Azfw.IpConfigurations.privateipaddress
 $AzfwPrivateIP
-
 ```
 
-Configure network rules:
+Use [New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule) and [New-AzFirewallNetworkRuleCollection](/powershell/module/az.network/new-azfirewallnetworkrulecollection) to configure network rules. Then, use [Set-AzFirewall](/powershell/module/az.network/set-azfirewall) to apply them:
 
 ```azurepowershell
-$Rule1 = New-AzFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort 80
+$Rule1 = New-AzFirewallNetworkRule `
+    -Name "AllowWeb" `
+    -Protocol TCP `
+    -SourceAddress $SNOnpremPrefix `
+    -DestinationAddress $VNetSpokePrefix `
+    -DestinationPort 80
 
-$Rule2 = New-AzFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
+$Rule2 = New-AzFirewallNetworkRule `
+    -Name "AllowRDP" `
+    -Protocol TCP `
+    -SourceAddress $SNOnpremPrefix `
+    -DestinationAddress $VNetSpokePrefix `
+    -DestinationPort 3389
 
-$Rule3 = New-AzFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort
+$Rule3 = New-AzFirewallNetworkRule `
+    -Name "AllowPing" `
+    -Protocol ICMP `
+    -SourceAddress $SNOnpremPrefix `
+    -DestinationAddress $VNetSpokePrefix `
+    -DestinationPort *
 
-$NetRuleCollection = New-AzFirewallNetworkRuleCollection -Name RCNet01 -Priority 100 `
-   -Rule $Rule1,$Rule2 -ActionType "Allow"
+$NetRuleCollection = New-AzFirewallNetworkRuleCollection `
+    -Name RCNet01 `
+    -Priority 100 `
+    -Rule $Rule1,$Rule2,$Rule3 `
+    -ActionType "Allow"
 $Azfw.NetworkRuleCollections = $NetRuleCollection
 Set-AzFirewall -AzureFirewall $Azfw
 ```
 
 ## Create and connect the VPN gateways
 
-The hub and on-premises virtual networks are connected via VPN gateways.
+You connect the hub and on-premises virtual networks through VPN gateways.
 
 ### Create a VPN gateway for the hub virtual network
 
-Create the VPN gateway configuration for the hub virtual network. The VPN gateway configuration defines the subnet and the public IP address to use.
+Use [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) to create the VPN gateway configuration for the hub virtual network. The configuration defines the subnet and the public IP address to use.
 
 ```azurepowershell
-$vnet1 = Get-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1
-$subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
-$gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfNameHub `
--Subnet $subnet1 -PublicIpAddress $gwpip1
+$vnet1 = Get-AzVirtualNetwork `
+    -Name $VNetnameHub `
+    -ResourceGroupName $RG1
+$subnet1 = Get-AzVirtualNetworkSubnetConfig `
+    -Name "GatewaySubnet" `
+    -VirtualNetwork $vnet1
+$gwipconf1 = New-AzVirtualNetworkGatewayIpConfig `
+    -Name $GWIPconfNameHub `
+    -Subnet $subnet1 `
+    -PublicIpAddress $gwpip1
 ```
 
-Now, create the VPN gateway for the hub virtual network. Network-to-network configurations require a `VpnType` value of `RouteBased`. Creating a VPN gateway can often take 45 minutes or more, depending on the SKU that you select.
+Use [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) to create the VPN gateway for the hub virtual network. Network-to-network configurations require a `VpnType` value of `RouteBased`. Creating a VPN gateway can often take 45 minutes or more, depending on the SKU that you select.
 
 ```azurepowershell
-New-AzVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
--Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
--VpnType RouteBased -GatewaySku basic
+New-AzVirtualNetworkGateway `
+    -Name $GWHubName `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -IpConfigurations $gwipconf1 `
+    -GatewayType Vpn `
+    -VpnType RouteBased `
+    -GatewaySku basic
 ```
 
 ### Create a VPN gateway for the on-premises virtual network
 
-Create the VPN gateway configuration for the on-premises virtual network. The VPN gateway configuration defines the subnet and the public IP address to use.
+Use [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) to create the VPN gateway configuration for the on-premises virtual network. The configuration defines the subnet and the public IP address to use.
 
 ```azurepowershell
-$vnet2 = Get-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
-$subnet2 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
-$gwipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem `
--Subnet $subnet2 -PublicIpAddress $gwOnprempip
+$vnet2 = Get-AzVirtualNetwork `
+    -Name $VNetnameOnprem `
+    -ResourceGroupName $RG1
+$subnet2 = Get-AzVirtualNetworkSubnetConfig `
+    -Name "GatewaySubnet" `
+    -VirtualNetwork $vnet2
+$gwipconf2 = New-AzVirtualNetworkGatewayIpConfig `
+    -Name $GWIPconfNameOnprem `
+    -Subnet $subnet2 `
+    -PublicIpAddress $gwOnprempip
 ```
 
-Now, create the VPN gateway for the on-premises virtual network. Network-to-network configurations require a `VpnType` value of `RouteBased`. Creating a VPN gateway can often take 45 minutes or more, depending on the SKU that you select.
+Use [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) to create the VPN gateway for the on-premises virtual network:
 
 ```azurepowershell
-New-AzVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
--Location $Location1 -IpConfigurations $gwipconf2 -GatewayType Vpn `
--VpnType RouteBased -GatewaySku basic
+New-AzVirtualNetworkGateway `
+    -Name $GWOnpremName `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -IpConfigurations $gwipconf2 `
+    -GatewayType Vpn `
+    -VpnType RouteBased `
+    -GatewaySku basic
 ```
 
 ### Create the VPN connections
 
 Create the VPN connections between the hub and on-premises gateways.
 
-#### Get the VPN gateways
-
-```azurepowershell
-$vnetHubgw = Get-AzVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1
-$vnetOnpremgw = Get-AzVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1
-```
-
 #### Create the connections
 
-In this step, you create the connection from the hub virtual network to the on-premises virtual network. The examples show a shared key, but you can use your own values for the shared key. The important thing is that the shared key must match for both connections. Creating a connection can take a short while to complete.
+Use [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) to retrieve the gateway objects, then use [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) to create the connections. The examples show a shared key, but you can use your own values. The important thing is that the shared key matches for both connections. Creating a connection can take a short while to complete.
 
 ```azurepowershell
-New-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1 `
--VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetOnpremgw -Location $Location1 `
--ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+$vnetHubgw = Get-AzVirtualNetworkGateway `
+    -Name $GWHubName `
+    -ResourceGroupName $RG1
+$vnetOnpremgw = Get-AzVirtualNetworkGateway `
+    -Name $GWOnpremName `
+    -ResourceGroupName $RG1
+New-AzVirtualNetworkGatewayConnection `
+    -Name $ConnectionNameHub `
+    -ResourceGroupName $RG1 `
+    -VirtualNetworkGateway1 $vnetHubgw `
+    -VirtualNetworkGateway2 $vnetOnpremgw `
+    -Location $Location1 `
+    -ConnectionType Vnet2Vnet `
+    -SharedKey 'AzureA1b2C3'
 ```
 
 Create the virtual network connection from on-premises to the hub. This step is similar to the previous one, except that you create the connection from **VNet-Onprem** to **VNet-Hub**. Make sure that the shared keys match. The connection is established after a few minutes.
 
 ```azurepowershell
-New-AzVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
--VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
--ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+New-AzVirtualNetworkGatewayConnection `
+    -Name $ConnectionNameOnprem `
+    -ResourceGroupName $RG1 `
+    -VirtualNetworkGateway1 $vnetOnpremgw `
+    -VirtualNetworkGateway2 $vnetHubgw `
+    -Location $Location1 `
+    -ConnectionType Vnet2Vnet `
+    -SharedKey 'AzureA1b2C3'
 ```
 
 #### Verify the connection
@@ -280,7 +352,9 @@ You can verify a successful connection by using the `Get-AzVirtualNetworkGateway
 Use the following cmdlet example, but configure the values to match your own. If you're prompted, select `A` to run `All`. In the example, `-Name` refers to the name of the connection that you want to test.
 
 ```azurepowershell
-Get-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1
+Get-AzVirtualNetworkGatewayConnection `
+    -Name $ConnectionNameHub `
+    -ResourceGroupName $RG1
 ```
 
 After the cmdlet finishes, view the values. The following example shows a connection status of `Connected`, along with ingress and egress bytes:
@@ -293,14 +367,23 @@ After the cmdlet finishes, view the values. The following example shows a connec
 
 ## Peer the hub and spoke virtual networks
 
-Now, peer the hub and spoke virtual networks:
+Use [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) to peer the hub and spoke virtual networks:
 
 ```azurepowershell
 # Peer hub to spoke
-Add-AzVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -RemoteVirtualNetworkId $VNetSpoke.Id -AllowGatewayTransit
+Add-AzVirtualNetworkPeering `
+    -Name HubtoSpoke `
+    -VirtualNetwork $VNetHub `
+    -RemoteVirtualNetworkId $VNetSpoke.Id `
+    -AllowGatewayTransit
 
 # Peer spoke to hub
-Add-AzVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
+Add-AzVirtualNetworkPeering `
+    -Name SpoketoHub `
+    -VirtualNetwork $VNetSpoke `
+    -RemoteVirtualNetworkId $VNetHub.Id `
+    -AllowForwardedTraffic `
+    -UseRemoteGateways
 ```
 
 ## Create the routes
@@ -310,61 +393,57 @@ Use the following commands to create these routes:
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
 
+Use [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) and [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) to create the route table and route for the hub gateway subnet. Then, use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to associate it with the subnet:
+
 ```azurepowershell
-#Create a route table
 $routeTableHubSpoke = New-AzRouteTable `
-  -Name 'UDR-Hub-Spoke' `
-  -ResourceGroupName $RG1 `
-  -location $Location1
+    -Name 'UDR-Hub-Spoke' `
+    -ResourceGroupName $RG1 `
+    -Location $Location1
 
-#Create a route
 Get-AzRouteTable `
-  -ResourceGroupName $RG1 `
-  -Name UDR-Hub-Spoke `
-  | Add-AzRouteConfig `
-  -Name "ToSpoke" `
-  -AddressPrefix $VNetSpokePrefix `
-  -NextHopType "VirtualAppliance" `
-  -NextHopIpAddress $AzfwPrivateIP `
- | Set-AzRouteTable
-
-#Associate the route table to the subnet
+    -ResourceGroupName $RG1 `
+    -Name UDR-Hub-Spoke `
+    | Add-AzRouteConfig `
+    -Name "ToSpoke" `
+    -AddressPrefix $VNetSpokePrefix `
+    -NextHopType "VirtualAppliance" `
+    -NextHopIpAddress $AzfwPrivateIP `
+    | Set-AzRouteTable
 
 Set-AzVirtualNetworkSubnetConfig `
-  -VirtualNetwork $VNetHub `
-  -Name $SNnameGW `
-  -AddressPrefix $SNGWHubPrefix `
-  -RouteTable $routeTableHubSpoke | `
-Set-AzVirtualNetwork
+    -VirtualNetwork $VNetHub `
+    -Name $SNnameGW `
+    -AddressPrefix $SNGWHubPrefix `
+    -RouteTable $routeTableHubSpoke `
+    | Set-AzVirtualNetwork
+```
 
-#Now, create the default route
+Use [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) and [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) to create the default route table for the spoke subnet. The `-DisableBgpRoutePropagation` parameter disables virtual network gateway route propagation on this route table. Then, use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to associate it with the subnet:
 
-#Create a table, with BGP route propagation disabled. The property is now called "Virtual network gateway route propagation," but the API still refers to the parameter as "DisableBgpRoutePropagation."
+```azurepowershell
 $routeTableSpokeDG = New-AzRouteTable `
-  -Name 'UDR-DG' `
-  -ResourceGroupName $RG1 `
-  -location $Location1 `
-  -DisableBgpRoutePropagation
+    -Name 'UDR-DG' `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -DisableBgpRoutePropagation
 
-#Create a route
 Get-AzRouteTable `
-  -ResourceGroupName $RG1 `
-  -Name UDR-DG `
-  | Add-AzRouteConfig `
-  -Name "ToFirewall" `
-  -AddressPrefix 0.0.0.0/0 `
-  -NextHopType "VirtualAppliance" `
-  -NextHopIpAddress $AzfwPrivateIP `
- | Set-AzRouteTable
-
-#Associate the route table to the subnet
+    -ResourceGroupName $RG1 `
+    -Name UDR-DG `
+    | Add-AzRouteConfig `
+    -Name "ToFirewall" `
+    -AddressPrefix 0.0.0.0/0 `
+    -NextHopType "VirtualAppliance" `
+    -NextHopIpAddress $AzfwPrivateIP `
+    | Set-AzRouteTable
 
 Set-AzVirtualNetworkSubnetConfig `
-  -VirtualNetwork $VNetSpoke `
-  -Name $SNnameSpoke `
-  -AddressPrefix $SNSpokePrefix `
-  -RouteTable $routeTableSpokeDG | `
-Set-AzVirtualNetwork
+    -VirtualNetwork $VNetSpoke `
+    -Name $SNnameSpoke `
+    -AddressPrefix $SNSpokePrefix `
+    -RouteTable $routeTableSpokeDG `
+    | Set-AzVirtualNetwork
 ```
 
 ## Create virtual machines
@@ -375,29 +454,83 @@ Create the spoke workload and on-premises virtual machines, and place them in th
 
 Create a virtual machine in the spoke virtual network that runs Internet Information Services (IIS), has no public IP address, and allows pings in. When you're prompted, enter a username and password for the virtual machine.
 
+Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) and [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the inbound rules and security group:
+
 ```azurepowershell
-# Create an inbound network security group rule for ports 3389 and 80
-$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name Allow-RDP  -Protocol Tcp `
-  -Direction Inbound -Priority 200 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix $SNSpokePrefix -DestinationPortRange 3389 -Access Allow
-$nsgRuleWeb = New-AzNetworkSecurityRuleConfig -Name Allow-web  -Protocol Tcp `
-  -Direction Inbound -Priority 202 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix $SNSpokePrefix -DestinationPortRange 80 -Access Allow
+# Create inbound network security group rules for ports 3389 and 80
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
+    -Name Allow-RDP `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 200 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix $SNSpokePrefix `
+    -DestinationPortRange 3389 `
+    -Access Allow
+$nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
+    -Name Allow-web `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 202 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix $SNSpokePrefix `
+    -DestinationPortRange 80 `
+    -Access Allow
 
-# Create a network security group
-$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $RG1 -Location $Location1 -Name NSG-Spoke02 -SecurityRules $nsgRuleRDP,$nsgRuleWeb
+# Create the network security group
+$nsg = New-AzNetworkSecurityGroup `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -Name NSG-Spoke02 `
+    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
+```
 
-#Create the NIC
-$NIC = New-AzNetworkInterface -Name spoke-01 -ResourceGroupName $RG1 -Location $Location1 -SubnetId $VnetSpoke.Subnets[0].Id -NetworkSecurityGroupId $nsg.Id
+Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) to create the NIC and attach it to the security group:
 
-#Define the virtual machine
-$VirtualMachine = New-AzVMConfig -VMName VM-Spoke-01 -VMSize "Standard_DS2"
-$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName Spoke-01 -ProvisionVMAgent -EnableAutoUpdate
-$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
-$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2016-Datacenter' -Version latest
+```azurepowershell
+$NIC = New-AzNetworkInterface `
+    -Name spoke-01 `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -SubnetId $VnetSpoke.Subnets[0].Id `
+    -NetworkSecurityGroupId $nsg.Id
+```
 
-#Create the virtual machine
-New-AzVM -ResourceGroupName $RG1 -Location $Location1 -VM $VirtualMachine -Verbose
+Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem), and [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to define the virtual machine configuration, then use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the virtual machine:
 
-#Install IIS on the VM
+```azurepowershell
+$VirtualMachine = New-AzVMConfig `
+    -VMName VM-Spoke-01 `
+    -VMSize "Standard_DS2"
+$VirtualMachine = Set-AzVMOperatingSystem `
+    -VM $VirtualMachine `
+    -Windows `
+    -ComputerName Spoke-01 `
+    -ProvisionVMAgent `
+    -EnableAutoUpdate
+$VirtualMachine = Add-AzVMNetworkInterface `
+    -VM $VirtualMachine `
+    -Id $NIC.Id
+$VirtualMachine = Set-AzVMSourceImage `
+    -VM $VirtualMachine `
+    -PublisherName 'MicrosoftWindowsServer' `
+    -Offer 'WindowsServer' `
+    -Skus '2016-Datacenter' `
+    -Version latest
+
+New-AzVM `
+    -ResourceGroupName $RG1 `
+    -Location $Location1 `
+    -VM $VirtualMachine `
+    -Verbose
+```
+
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install IIS and create a Windows Firewall rule to allow pings:
+
+```azurepowershell
+# Install IIS
 Set-AzVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -408,21 +541,21 @@ Set-AzVMExtension `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
 
-#Create a host firewall rule to allow pings in
+# Create a Windows Firewall rule to allow pings
 Set-AzVMExtension `
     -ResourceGroupName $RG1 `
-    -ExtensionName IIS `
+    -ExtensionName AllowPing `
     -VMName VM-Spoke-01 `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
-    -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4"}' `
+    -SettingString '{"commandToExecute":"powershell New-NetFirewallRule -DisplayName \"Allow ICMPv4-In\" -Protocol ICMPv4"}' `
     -Location $Location1
 ```
 
 ### Create the on-premises virtual machine
 
-Create a simple virtual machine that you can use to connect via remote access to the public IP address. From there, you can connect to the on-premises server through the firewall. When you're prompted, enter a username and password for the virtual machine.
+Use [New-AzVm](/powershell/module/az.compute/new-azvm) to create a simple virtual machine that you can use to connect through remote access to the public IP address. From there, you can connect to the on-premises server through the firewall. When prompted, enter a username and password for the virtual machine.
 
 ```azurepowershell
 New-AzVm `
@@ -439,7 +572,7 @@ New-AzVm `
 
 ## Test the firewall
 
-1. Get and then note the private IP address for the **VM-spoke-01** virtual machine:
+1. Get and note the private IP address for the **VM-spoke-01** virtual machine:
 
    ```azurepowershell
    $NIC.IpConfigurations.privateipaddress
@@ -447,25 +580,25 @@ New-AzVm `
 
 1. From the Azure portal, connect to the **VM-Onprem** virtual machine.
 
-1. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**. You should get a reply.
+1. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**. You get a reply.
 
 1. Open a web browser on **VM-Onprem**, and browse to `http://<VM-spoke-01 private IP>`. The IIS default page should open.
 
 1. From **VM-Onprem**, open a remote access connection to **VM-spoke-01** at the private IP address. Your connection should succeed, and you should be able to sign in by using your chosen username and password.
 
-Now that you've verified that the firewall rules are working, you can:
+After you verify that the firewall rules are working, you can:
 
 - Ping the server on the spoke virtual network.
-- Browse to web server on the spoke virtual network.
+- Browse to the web server on the spoke virtual network.
 - Connect to the server on the spoke virtual network by using RDP.
 
 Next, run the following script to change the action for the collection of firewall network rules to `Deny`:
 
 ```azurepowershell
-$rcNet = $azfw.GetNetworkRuleCollectionByName("RCNet01")
+$rcNet = $Azfw.GetNetworkRuleCollectionByName("RCNet01")
 $rcNet.action.type = "Deny"
 
-Set-AzFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $Azfw
 ```
 
 Close any existing remote access connections. Run the tests again to test the changed rules. They should all fail this time.

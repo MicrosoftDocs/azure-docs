@@ -2,7 +2,7 @@
 title: Azure Monitor Logs in Azure Backup
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
 ms.topic: how-to
-ms.date: 12/30/2024
+ms.date: 11/26/2025
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -14,14 +14,14 @@ ms.custom:
 
 # Azure Monitor Logs
 
-Azure Backup provides [built-in monitoring and alerting capabilities](backup-azure-monitoring-built-in-monitor.md) in a Recovery Services vault. These capabilities are available without any additional management infrastructure. The only pre-requisite for this capability is to have Log Analytics workspace configured. This feature is supported in the following scenarios:
+Azure Backup provides [built-in monitoring and alerting capabilities](backup-azure-monitoring-built-in-monitor.md) in a Recovery Services vault. These capabilities are available without any extra management infrastructure. The only prerequisite for this capability is to have Log Analytics workspace configured. This feature is supported in the following scenarios:
 
 - Monitoring data from multiple Recovery Services vaults across Subscriptions
 - Visibility into custom scenarios
 - Configuring alerts for custom scenarios
-- Viewing information from an on-premises component.  For example, System Center Data Protection Manager information  in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs) or [**Backup Alerts**](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault)
+- Viewing information from an on-premises component. For example, System Center Data Protection Manager information  in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs) or [**Backup Alerts**](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault)
 
-## Using Log Analytics workspace
+## Monitor backup jobs using Log Analytics workspace
 
 ### Prerequisites for using Log Analytics workspace
 
@@ -42,7 +42,7 @@ Open the **Logs** section of the Log Analytics workspace and create a query for 
 
 ![Create an alert in a Log Analytics workspace](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 
-Here the resource is already marked as the Log Analytics workspace, and action group integration is provided.
+Here, the resource is already marked as the Log Analytics workspace, and action group integration is provided.
 
 ![The Log Analytics alert-creation page](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
@@ -52,7 +52,7 @@ The defining characteristic of an alert is its triggering condition. Select **Co
 
 ![Setting up an alert condition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-If necessary, you can edit the Kusto query. Choose a threshold, period, and frequency. The threshold determines when the alert will be raised. The period is the window of time in which the query is run. For example, if the threshold is greater than 0, the period is 5 minutes, and the frequency is 5 minutes, then the rule runs the query every 5 minutes, reviewing the previous 5 minutes. If the number of results is greater than 0, you're notified through the selected action group.
+If necessary, you can edit the Kusto query. Choose a threshold, period, and frequency. The threshold determines when the alert is raised. The period is the window of time in which the query is run. For example, if the threshold is greater than 0, the period is 5 minutes, and the frequency is 5 minutes, then the rule runs the query every 5 minutes, reviewing the previous 5 minutes. If the number of results is greater than 0, you're notified through the selected action group.
 
 > [!NOTE]
 > To run the alert rule once a day, across all the events/logs that were created on the given day, change the value of both 'period' and 'frequency' to 1440, that is, 24 hours.
@@ -71,7 +71,7 @@ For more information, see [Create, view, and manage log alerts by using Azure Mo
 
 The default graphs give you Kusto queries for basic scenarios on which you can build alerts. You can also modify the queries to fetch the data you want to be alerted on. Paste the following sample Kusto queries on the **Logs** page, and then create alerts on the queries.
 
-Recovery Services vaults and Backup vaults send data to a common set of tables that are listed in this article. However, there are slight differences in the schema for Recovery Services vaults and Backup vaults ([learn more](backup-azure-monitoring-built-in-monitor.md)). So, this section is split into multiple sub-sections that helps you to use the right queries depending on which workload or vault types you want to query.
+Recovery Services vaults and Backup vaults send data to a common set of tables that are listed in this article. However, there are slight differences in the schema for Recovery Services vaults and Backup vaults ([learn more](backup-azure-monitoring-built-in-monitor.md)). So, this section is split into multiple subsections that helps you to use the right queries depending on which workload or vault types you want to query.
 
 #### Queries common across Recovery Services vaults and Backup vaults 
 
@@ -95,7 +95,7 @@ Recovery Services vaults and Backup vaults send data to a common set of tables t
 
 #### Queries specific to Recovery Services vault workloads
 
-- All successful Azure VM backup jobs
+- All successful Azure Virtual Machine (VM) backup jobs
 
     ````Kusto
     AddonAzureBackupJobs
@@ -198,7 +198,7 @@ Recovery Services vaults and Backup vaults send data to a common set of tables t
 
 ### Diagnostic data update frequency
 
-The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace *20 to 30 minutes* after it's pushed from the Recovery Services vault. Here are further details about the lag:
+The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace *20 to 30 minutes* after being pushed from the Recovery Services vault. Here are further details about the lag:
 
 - Across all solutions, the backup service's built-in alerts are pushed as soon as they're created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
 - Across all solutions, on-demand backup jobs and restore jobs are pushed as soon as they *finish*.
@@ -210,7 +210,7 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 > [!NOTE]
 > The same delay applies to other destinations for diagnostics data, such as Storage accounts and Event Hubs.
 
-## Using the Recovery Services vault's activity logs
+## Monitor backup jobs using the Recovery Services vault's activity logs
 
 > [!CAUTION]
 > The following steps apply only to *Azure VM backups.* You can't use these steps for solutions such as the Azure Backup agent, SQL backups within Azure, or Azure Files.
@@ -233,11 +233,11 @@ To identify the appropriate log and create an alert:
 
    ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Here the resource is the Recovery Services vault itself. Repeat the same steps for all of the vaults in which you want to be notified through activity logs. The condition won't have a threshold, period, or frequency because this alert is based on events. As soon as the relevant activity log is generated, the alert is raised.
+Here, the resource is the Recovery Services vault itself. Repeat the same steps for all of the vaults in which you want to be notified through activity logs. The condition doesn't have a threshold, period, or frequency because this alert is based on events. As soon as the relevant activity log is generated, the alert is raised.
 
-## Using Log Analytics to monitor at scale
+## Monitor at scale using Log Analytics workspace
 
-You can view all alerts created from activity logs and Log Analytics workspaces in Azure Monitor. Just open the **Alerts** pane on the left.
+You can view all alerts created from activity logs and Log Analytics workspaces in Azure Monitor. Just open the **Alerts** pane.
 
 Although you can get notifications through activity logs, we highly recommend using Log Analytics rather than activity logs for monitoring at scale. Here's why:
 

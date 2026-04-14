@@ -84,7 +84,7 @@ To configure backup and retention on the server where you downloaded the agent, 
 
 2. On the Recovery Services agent console, select **Schedule Backup** under the **Actions Pane**.
 
-    ![Screenshot shows tbe Schedule Backup option.](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Screenshot shows the Schedule Backup option.](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
 3. Select **Next** to go to the **Select Items to Back up** pane.
 

@@ -2,7 +2,7 @@
 title: Best practices for Kubernetes-hosted client apps
 description: Learn about best practices for using Azure Cache for Redis in Kubernetes-hosted client applications.
 ms.custom: linux-related-content, ignite-2024
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 05/28/2025
 appliesto:
   - ✅ Azure Cache for Redis
@@ -10,6 +10,8 @@ appliesto:
 ---
 
 # Kubernetes-hosted client applications
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 This article provides best practices for using Azure Cache for Redis in Kubernetes-hosted client applications.
 

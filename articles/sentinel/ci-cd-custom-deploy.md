@@ -38,7 +38,7 @@ After the connection is made, the following prerequisites apply:
 - Actions enabled for GitHub and Pipelines enabled for Azure DevOps
 - Ensure custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 
-For more information on deployable content types, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
+For more information on deployable content types, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 
 ## Customize the workflow or pipeline
 

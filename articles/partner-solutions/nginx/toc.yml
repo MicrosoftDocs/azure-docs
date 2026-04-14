@@ -5,6 +5,8 @@ items:
   items:
   - name: What is NGINXaaS – An Azure Native ISV Service?
     href: overview.md
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:

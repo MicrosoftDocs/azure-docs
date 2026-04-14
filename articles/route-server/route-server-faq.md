@@ -20,7 +20,7 @@ Azure Route Server is a fully managed service that allows you to easily manage r
 
 ### Is Azure Route Server just a virtual machine?
 
-No. Azure Route Server is a service designed with high availability. Your Route Server has zone-level redundancy if you deploy it in an Azure region that supports [Availability Zones](../reliability/availability-zones-overview.md).
+No. Azure Route Server is a service designed with high availability. Your Route Server has zone-level redundancy if you deploy it in an Azure region that supports [Availability Zones](/azure/reliability/availability-zones-overview).
 
 ### Do I need to peer each NVA with both Azure Route Server instances?
 Yes, you must peer each NVA instance with both instances of Route Server to ensure that Route Server successfully receives routes and to configure high availability. You must also advertise the same routes to both instances. We also recommend that you peer at least two NVA instances with both instances of Route Server.
@@ -52,6 +52,12 @@ These public endpoints are required for Azure's underlying software-defined netw
 No. If you deploy a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this breaks connectivity for IPv6 traffic.
 
 You can peer a virtual network with an IPv6 address space to Route Server's virtual network, and IPv4 connectivity with this peered dual-stack virtual network continues to function. IPv6 connectivity with this peered virtual network isn't supported. 
+
+### What are routing infrastructure units?
+
+By default, an Azure Route Server is deployed with a capacity of two routing infrastructure units. This default deployment supports 4,000 connected VMs deployed in Route Server's virtual network and all peered virtual networks. 
+
+You can specify more routing infrastructure units to increase Route Server's capacity in increments of 1,000 VMs. Each additional routing infrastructure unit costs $0.10/hour in the United States. Prices in other regions may vary. Full pricing, including regional differences, will be available in mid-December in the official [Azure pricing page](https://azure.microsoft.com/pricing/details/route-server/).
 
 
 ## Routing
@@ -118,6 +124,12 @@ Yes. When you create or delete a Route Server in a virtual network that contains
 ### Does Azure Route Server exchange routes by default between NVAs and the virtual network gateways (VPN or ExpressRoute)?
 
 No. By default, Azure Route Server doesn't propagate routes it receives from an NVA and a virtual network gateway to each other. The Route Server exchanges these routes after you enable **branch-to-branch** in it.
+
+### Do NVA-advertised routes get propagated from one Route Server to another Route Server via ExpressRoute MSEE? 
+
+No. If **branch-to-branch** is enabled, then the NVA-advertised routes will be advertised to the ExpressRoute-connected on-premises. However, the NVA-advertised routes will be dropped by the second Route Server. To illustrate this, the diagram below shows the SDWAN on-premises advertising 10.3.0.0/16 to the SDWAN NVA. This route gets learned by the first Route Server, and so any workloads in VNet 1 (or peered to VNet 1) also learn this route. In addition, the ExpressRoute-connected on-premises learns the 10.3.0.0/16 route if **branch-to-branch** is enabled. However, the second Route Server (in VNet 2) does not learn the 10.3.0.0/16 route, and so this route will not be learned by any workloads in VNet 2. As a result, the 10.3.0.0/16 on-premises network will be unreachable from any workloads in VNet 2 and peered to VNet 2.
+
+:::image type="content" source="./media/faq/route-server-msee-hairpin.png" alt-text="Diagram showing NVA-advertised route not being learned by second Route Server via ExpressRoute MSEE bow-tie.":::
 
 ### When the same route is learned over ExpressRoute, VPN, or SD-WAN, which network is preferred?
 

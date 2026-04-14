@@ -1,8 +1,8 @@
 ---
 title: Common questions about Azure virtual machine disaster recovery with Azure Site Recovery
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.date: 07/25/2025
 ms.topic: faq
 ms.service: azure-site-recovery
@@ -153,17 +153,17 @@ Azure Site Recovery uses this new Automation Account to manage the site recovery
 
 #### If the source disk IOPS is changed after enable replication, will it reflect during failover?
 
-The IOPS of the source Premium SSD v2 disk at the time of enable replication are copied and reflected in the failover disk. Any changes made to the IOPS of the Premium SSD v2 disk after protection aren't reflected in the failover disk. You can change the IOPS of the failed over disk in the target region after completion of failover process.
+The IOPS of the source Premium SSD v2 at the time of enable replication are copied and reflected in the failover disk. Any changes made to the IOPS of the Premium SSD v2 after protection aren't reflected in the failover disk. You can change the IOPS of the failed over disk in the target region after completion of failover process.
 
 #### What disk sector size is supported when I protect VMs with Premium SSD v2 disks?
 
 Azure Site Recovery supports both 512 and 4096 sector size disks in public preview.
  
-#### Does Azure Site Recovery support Premium SSD v2 disk capability to live resize?
+#### Does Azure Site Recovery support Premium SSD v2 capability to live resize?
 
 Azure Site Recovery supports live resync. Once resize is completed, resync of Replica disk is performed by Azure Site Recovery and the older recovery points are deleted. Once the resync is completed and new recovery points start generating, you can failover using the new recovery points.
  
-#### Are there any changes in performance of Azure Site Recovery between Premium SSD v1 and SSD v2 disks?
+#### Are there any changes in performance of Azure Site Recovery between Premium SSD v1 and Premium SSD v2 disks?
 
 The RPO and RTO SLAs of Azure Site Recovery remain the same for both disk types. However, Premium SSD v2 disks take more time to complete the enable protection process. Also, as Azure Site Recovery uses Premium SSD v1 disks as replica disks, during failover, the new Premium SSD v2 disks created in target using the replica disk, would need some time for data hydration. However, this would not impact the environment availability.
  
@@ -228,7 +228,7 @@ Because of extra content, app-consistent snapshots are the most involved, and ta
 
 #### Do app-consistent recovery points impact performance?
 
- Because app-consistent recovery points capture all data in memory and process, if they capture frequently, it can affect performance when the workload is already busy. We don't recommend that you capture too often for nondatabase workloads. Even for database workloads, one hour should be enough.
+Because app-consistent recovery points capture all data in memory and process, if they capture frequently, it can affect performance when the workload is already busy. We don't recommend that you capture too often for nondatabase workloads. Depending on your workload and its RPO requirements, you can evaluate whether to capture app-consistent points and their frequency.
 
 #### What's the minimum frequency for generating app-consistent recovery points?
 

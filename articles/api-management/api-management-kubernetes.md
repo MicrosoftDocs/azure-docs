@@ -10,7 +10,7 @@ ms.topic: concept-article
 ms.date: 05/15/2025
 ms.author: danlep
 
-#customer intent: As an API developer, I want to learn about using API Management to publish microservices-based architecures as APIs.
+#customer intent: As an API developer, I want to learn about using API Management to publish microservices-based architectures as APIs.
 ---
 
 # Use Azure API Management with microservices deployed in Azure Kubernetes Service

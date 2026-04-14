@@ -86,12 +86,9 @@ Second, the issue could be related to lack of resources. You can set the *EflowV
 1. Check the available CPU cores. Make sure that *NumberOfLogicalProcessors* is greater than *EflowVmAssignedCPUcores*.
    ```powershell
     wmic cpu get NumberOfLogicalProcessors
-    ```ssignedCPUcores*.
-   ```powershell
-    wmic cpu get NumberOfLogicalProcessors
     ```
 
-Finally, the issue might be related to networking. For more information about EFLOW VM networking issues, see [How to troubleshoot Azure IoT Edge for Linux on Windows networking](./troubleshoot-common-errors.md).
+Finally, the issue might be related to networking. For more information about EFLOW VM networking issues, see [How to troubleshoot Azure IoT Edge for Linux on Windows networking](./troubleshoot-iot-edge-for-linux-on-windows-networking.md).
 
 ## Check the status of the IoT Edge runtime
 

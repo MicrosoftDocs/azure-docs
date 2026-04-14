@@ -17,7 +17,7 @@ sections:
       - question: |
           What happens after I use my $100 credit or when I'm at the end of 12 months?
         answer: |
-          If you exhaust your available credit before 12 months and you want to continue to use Azure, you can upgrade to a [pay-as-you-go subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md) in the Azure portal. If you don't upgrade, your Azure subscription is canceled.
+          If you exhaust your available credit before 12 months and you want to continue to use Azure, you can upgrade to a [pay-as-you-go subscription](../../cost-management-billing/manage/upgrade-azure-subscription.md) in the [Azure portal](https://portal.azure.com/). If you don't upgrade, your Azure subscription is canceled.
           
           If you're at the end of 12 months, you can renew your subscription by signing up again for the offer. For more information, see the [terms and conditions for the Azure for Students offer](https://azure.microsoft.com/offers/ms-azr-0170p/).
       
@@ -174,7 +174,7 @@ sections:
       - question: |
           Why do I see a $0 balance in the Azure portal?
         answer: |
-          When you go to your subscription details in the Azure portal, you see $0.00. The offer places a 100% discount on all services. The portal shows what you're charged during your monthly usage period, which should be $0.00.
+          When you go to your subscription details in the [Azure portal](https://portal.azure.com/), you see $0.00. The offer places a 100% discount on all services. The portal shows what you're charged during your monthly usage period, which should be $0.00.
 
           To view your balance and sponsorship information, go to the [Azure Sponsorships portal](https://www.microsoftazuresponsorships.com/balance) and sign in to your account.
           
@@ -211,7 +211,7 @@ sections:
       - question: |
           How do I know if my subscription is on the Azure course credit offer?
         answer: |
-          1. In the Azure portal, go to **Subscriptions**.
+          1. In the [Azure portal](https://portal.azure.com/), go to **Subscriptions**.
           1. In a specific subscription, check for **Offer Name** as one of the properties. If the **Offer Name** value says **Azure Sponsorship**, the subscription is connected to your course credits. If **Azure Sponsorship** doesn't appear, contact [Azure support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to get it converted.
 
   - name: Azure Dev Tools for Teaching
@@ -263,7 +263,7 @@ sections:
       - question: |
           How do I distribute software to students?
         answer: |
-          Because you're an Azure Dev Tools for Teaching subscriber, your students access the available software in the [Education Hub Store](https://azureforeducation.microsoft.com/devtools), which is part of the [Azure portal](https://portal.azure.com/). Students must sign in to the Azure portal with their school (or Azure Dev Tools for Teaching) credentials.
+          Because you're an Azure Dev Tools for Teaching subscriber, your students access the available software in the [Education Hub Store](https://azureforeducation.microsoft.com/devtools), which is part of the [Azure portal](https://portal.azure.com/). Students must sign in to the [Azure portal](https://portal.azure.com/) with their school (or Azure Dev Tools for Teaching) credentials.
           
       - question: |
           Is Azure Dev Tools for Teaching available internationally?

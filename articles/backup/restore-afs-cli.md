@@ -3,7 +3,7 @@ title: Restore Azure Files with the Azure CLI
 description: Learn how to use the Azure CLI to restore backed-up Azure Files in the Recovery Services vault
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
-ms.date: 06/03/2025
+ms.date: 02/17/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to restore backed-up Azure Files using the command line, so that I can efficiently recover entire shares or specific files as needed, ensuring quick restoration and minimal impact on operations.
@@ -22,6 +22,9 @@ By the end of this article, you'll learn how to perform the following operations
 >[!NOTE]
 >- Azure Files restore is only supported within the same subscription when using PowerShell or CLI.
 >- Azure Backup now supports restoring multiple files or folders to the original or an alternate location using Azure CLI. Refer to the [Restore multiple files or folders to original or alternate location](#restore-multiple-files-or-folders-to-original-or-alternate-location) section of this document to learn more.
+
+To learn about the supported Azure Files backup and restore scenarios, region availability, and limitations, see the [support matrix](azure-file-share-support-matrix.md). For common questions, see the [frequently asked questions](backup-azure-files-faq.yml).
+
 
 ## Prerequisites
 

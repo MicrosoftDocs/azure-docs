@@ -4,11 +4,11 @@ description: This article tells how to configure data based on DoD STIG for Azur
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.subservice: desired-state-config
-ms.date: 08/08/2019
-ms.topic: conceptual
+ms.date: 11/17/2025
+ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Configure data based on Security Technical Information Guide (STIG)

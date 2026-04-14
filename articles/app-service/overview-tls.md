@@ -26,7 +26,7 @@ App Service supports TLS to help ensure:
 
 > [!TIP]
 >
-> You can also ask Copilot in Azure, an AI-powered assistant in the Azure portal, these questions:
+> You can also ask [Azure Copilot](/azure/copilot/) these questions:
 >
 > - *What versions of TLS are supported in App Service?*
 > - *What are the benefits of using TLS 1.3 instead of earlier versions?*
@@ -40,7 +40,7 @@ App Service supports the following TLS versions for incoming requests to your we
 
 - **TLS 1.3**. The latest and most secure version, now fully supported.
 - **TLS 1.2**. The default minimum TLS version for new web apps.
-- **TLS 1.1 and TLS 1.0**. Versions supported for backward compatibility but not recommended.
+- **TLS 1.1 and TLS 1.0**. These are legacy protocols and are no longer considered secure.
 
 You can configure the *minimum TLS version* for incoming requests to your web app and its Source Control Manager (SCM) site. By default, the minimum is set to **TLS 1.2**.
 
@@ -71,12 +71,7 @@ App Service uses a secure set of TLS 1.2 cipher suites to help ensure encrypted 
 
 ### TLS 1.1 and TLS 1.0
 
-TLS 1.1 and TLS 1.0 are legacy protocols and are no longer considered secure. These versions are supported on App Service only for backward compatibility and should be avoided when possible. The default minimum TLS version for new apps is TLS 1.2, and we recommend that you migrate apps that use TLS 1.1 or TLS 1.0.
-
-> [!IMPORTANT]
-> Incoming requests to web apps and incoming requests to Azure are handled differently. App Service continues to support TLS 1.1 and TLS 1.0 for incoming requests to web apps.
->
-> For incoming requests made directly to the Azure control plane, for example, through Azure Resource Manager or API calls, we don't recommend that you use TLS 1.1 or TLS 1.0.
+TLS 1.1 and TLS 1.0 are legacy protocols and are no longer considered secure. The default minimum TLS version for new apps is TLS 1.2, and we recommend that you migrate apps that use TLS 1.1 or TLS 1.0 to using TLS 1.2 or higher.
 
 ## Minimum TLS cipher suite
 

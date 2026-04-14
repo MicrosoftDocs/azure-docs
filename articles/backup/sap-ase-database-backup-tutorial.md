@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Back up SAP ASE (Sybase) database using Azure Business Continuity Center
-description: In this tutorial, learn how to back up an SAP ASE (Sybase) database that's running on an Azure virtual machine using Azure Business Continuity Center.
+title: Tutorial - Back up SAP ASE (Sybase) database using Resiliency
+description: In this tutorial, learn how to back up an SAP ASE (Sybase) database that's running on an Azure virtual machine using Resiliency.
 ms.topic: tutorial
-ms.date: 05/13/2025
+ms.date: 11/28/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -11,9 +11,9 @@ ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to back up my SAP ASE database running on an Azure virtual machine, so that I can ensure data protection and compliance with recovery requirements.
 ---
 
-# Tutorial: Back up SAP ASE (Sybase) database using Azure Business Continuity Center
+# Tutorial: Back up SAP ASE (Sybase) database using Resiliency
 
-This tutorial describes how to back up an SAP Adaptive Server Enterprise (ASE) (Sybase) database that's running on an Azure Virtual Machine (VM) using [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md).
+This tutorial describes how to back up an SAP Adaptive Server Enterprise (ASE) (Sybase) database that's running on an Azure Virtual Machine (VM) using [Resiliency](../resiliency/resiliency-overview.md).
 
 Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
 
@@ -269,7 +269,7 @@ In the Recovery Services vault, you can enable [Cross Region Restore](backup-azu
 
 To discover the SAP ASE databases, follow these steps:
 
-1. Go to the **Business Continuity Center**, and then select **+ Configure protection**.
+1. Go to the **Resiliency**, and then select **+ Configure protection**.
 
 1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **SAP ASE (Sybase) in Azure VM**, and **Solution** as **Azure Backup**.
 
@@ -388,7 +388,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 To run on-demand backups for SAP ASE database, follow these steps:
 
-1.	Go to **Business Continuity Center**, and then select **Vaults**.
+1.	Go to **Resiliency**, and then select **Vaults**.
 1. On the **Vaults** pane, select the Recovery Services vault from the list that is used to configure backup.
 1. On the selected **Recovery Services vault**, select **Backup items**.
 1.	On the **Backup Item** pane, select the **Backup Management Type** as **SAP ASE (Sybase) in Azure VM**.

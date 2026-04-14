@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and file storage. AzCopy is a command-lin
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 10/28/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 # Customer intent: As a user of a cloud file storage service, I want to transfer files to and from storage accounts using a command-line tool, so that I can efficiently manage and synchronize large amounts of data between my local environment and the cloud.
@@ -19,15 +19,15 @@ AzCopy is a command-line utility that you can use to copy files to or from a sto
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article show the use of a SAS token to authorize access. However, for commands that target files and directories, you can now provide authorization credentials by using Microsoft Entra ID and omit the SAS token from those commands. You'll still have to use a SAS token in any command that targets only the file share or the account (For example: `'azcopy make https://mystorageaccount.file.core.windows.net/myfileshare'` or `'azcopy copy 'https://mystorageaccount.file.core.windows.net'`. 
+> The examples in this article show the use of a SAS token to authorize access. However, for commands that target files and directories, you can now provide authorization credentials by using Microsoft Entra ID and omit the SAS token from those commands. You still have to use a SAS token in any command that targets only the file share or the account (for example: `'azcopy make https://mystorageaccount.file.core.windows.net/myfileshare'` or `'azcopy copy 'https://mystorageaccount.file.core.windows.net'`. 
 > 
-> To learn more, see [Authorize AzCopy](storage-use-azcopy-authorize-azure-active-directory.md). 
+> To learn more, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy) 
 
 > [!TIP]
-> When using Azure Files NFS, it is mandatory to specify the ``--from-to`` CLI switch with one of the following supported options: ``FileNFSLocal``, ``LocalFileNFS``, or ``FileNFSFileNFS`` in your commands.
+> When using Azure Files NFS, you must specify the `--from-to` CLI switch with one of the following supported options: `FileNFSLocal`, `LocalFileNFS`, or `FileNFSFileNFS` in your commands.
 >
-> The upload and download scenarios using LocalFileNFS and FileNFSLocal are supported only on local Linux environments. These operations are not supported on Windows or macOS.
-> In contrast, the FileNFSFileNFS scenario, which uses the server-to-server copy API, is supported across Windows, Linux, and macOS. Users can run the associated commands from any of these platforms.
+> The upload and download scenarios that use LocalFileNFS and FileNFSLocal are supported only on local Linux environments. These operations aren't supported on Windows or macOS.
+> In contrast, the FileNFSFileNFS scenario, which uses the server-to-server copy API, is supported across Windows, Linux, and macOS. You can run the associated commands from any of these platforms.
 
 
 ## Create file shares
@@ -67,7 +67,7 @@ For detailed reference docs, see [azcopy make](https://github.com/Azure/azure-st
 
 ## Upload files
 
-You can use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command to upload files and directories from your local computer.
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command to upload files and directories from your local computer.
 
 > [!TIP]
 > The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -81,7 +81,7 @@ This section contains the following examples:
 > - Upload a specific file
 
 > [!TIP]
-> You can tweak your upload operation by using optional flags. Here's a few examples.  
+> Use optional flags to customize your upload operation. Here are a few examples:    
 >
 > |Scenario|Flag|
 > |---|---|
@@ -91,7 +91,7 @@ This section contains the following examples:
 > For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
 
 > [!NOTE]
-> AzCopy doesn't automatically calculate and store the file's md5 hash code for a file greater than 256 MB. If you want AzCopy to do that, then append the `--put-md5` flag to each copy command. That way, when the file is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash.
+> AzCopy doesn't automatically calculate and store the file's MD5 hash code for a file greater than 256 MB. If you want AzCopy to do that, append the `--put-md5` flag to each copy command. That way, when the file is downloaded, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the file's `Content-md5` property matches the calculated hash.
 
 ### Upload a file
 
@@ -122,7 +122,7 @@ You can also upload a file by using a wildcard symbol (*) anywhere in the file p
 
 ### Upload a directory
 
-This example copies a directory (and all of the files in that directory) to a file share. The result is a directory in the file share by the same name.
+This example copies a directory and all of the files in that directory to a file share. The result is a directory in the file share with the same name.
 
 **Syntax**
 
@@ -189,7 +189,7 @@ azcopy copy '/myDirectory/*' 'https://mystorageaccount.file.core.windows.net/myf
 <a id="uploaddirectorycontents"></a>
 
 > [!NOTE]
-> Append the `--recursive` flag to upload files in all sub-directories.
+> To upload files in all subdirectories, add the `--recursive` flag.
 
 ### Upload specific files
 
@@ -197,7 +197,7 @@ You can upload specific files by using complete file names, partial names with w
 
 #### Specify multiple complete file names
 
-Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-path` option. Separate individual file names with a semicolon (`;`).
 
 **Syntax**
 
@@ -255,7 +255,7 @@ The `--include-pattern` and `--exclude-pattern` options apply only to filenames 
 
 #### Upload files that were modified after a date and time
 
-Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-after` option. Specify a date and time in ISO 8601 format (For example: `2020-08-19T15:04:00Z`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-after` option. Specify a date and time in ISO 8601 format (for example: `2020-08-19T15:04:00Z`).
 
 **Syntax**
 
@@ -277,12 +277,20 @@ azcopy copy '/myDirectory/*' 'https://mystorageaccount.file.core.windows.net/myf
 
 <a id="uploaddatetime"></a>
 
+### Specifying source and destination types when uploading blobs
 
-For detailed reference, see the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection might fail, such as in piping scenarios or emulators. This parameter helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `LocalFileSMB`         | Upload from local file system to SMB share in Azure File Storage                      |
+| `LocalFileNFS`         | Upload from local file system (Linux only) to NFS share in Azure File Storage         |
+| `PipeFile`             | Stream data from a pipe to Azure File Storage                                         |
+
 
 ## Download files
 
-You can use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command to download files, directories, and file shares to your local computer.
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command to download files, directories, and file shares to your local computer.
 
 > [!TIP]
 > The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -296,7 +304,7 @@ This section contains the following examples:
 > - Download specific files
 
 > [!TIP]
-> You can tweak your download operation by using optional flags. Here are a few examples:
+> Use optional flags to customize your download operation. Here are a few examples:
 >
 > |Scenario|Flag|
 > |---|---|
@@ -343,7 +351,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFi
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' 'C:\myDirectory'  --recursive --preserve-permissions=true --preserve-info=true
 ```
 
-This example results in a directory named `C:\myDirectory\myFileShareDirectory` that contains all of the downloaded files.
+This example creates a directory named `C:\myDirectory\myFileShareDirectory` that contains all of the downloaded files.
 
 #### [Azure Files NFS](#tab/nfs-downloaddirectory)
 
@@ -351,7 +359,7 @@ This example results in a directory named `C:\myDirectory\myFileShareDirectory` 
 azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?[SAS]' '/myDirectory'  --recursive --preserve-permissions=true --preserve-info=true --from-to=FileNFSLocal
 ```
 
-This example results in a directory named `/myDirectory/myFileShareDirectory` that contains all of the downloaded files.
+This example creates a directory named `/myDirectory/myFileShareDirectory` that contains all of the downloaded files.
 
 ---
 
@@ -382,7 +390,7 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileSh
 <a id="downloaddirectorycontent"></a>
 
 > [!NOTE]
-> Append the `--recursive` flag to download files in all sub-directories.
+> To download files in all subdirectories, add the `--recursive` flag.
 
 ### Download specific files
 
@@ -390,7 +398,7 @@ You can download specific files by using complete file names, partial names with
 
 #### Specify multiple complete file names
 
-Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-path` option. Separate individual file names with a semicolon (`;`).
 
 **Syntax**
 
@@ -446,7 +454,7 @@ The `--include-pattern` and `--exclude-pattern` options apply only to filenames 
 
 #### Download files that were modified after a date and time
 
-Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-after` option. Specify a date and time in ISO-8601 format (for example: `2020-08-19T15:04:00Z`).
 
 **Syntax**
 
@@ -511,6 +519,17 @@ azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileSh
 ```
 
 ---
+
+### Specifying source and destination types when downloading files
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection might fail, such as in piping scenarios or emulators. This parameter helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `FileSMBLocal`         | Download from SMB share in Azure File Storage to local file system                    |
+| `FileNFSLocal`         | Download from NFS share in Azure File Storage to local file system (Linux only)       |
+| `FileSMBLocal`         | Download from SMB share to local file system                                          |
+| `FilePipe`             | Stream data from Azure File Storage to a pipe                                         |
 
 <a id="downloadsnapshotdirectory"></a>
 
@@ -703,6 +722,20 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?[SAS]&sharesnapshot=2
 
 ---
 
+### Specifying source and destination types when copying files
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection might fail, such as in piping scenarios or emulators. This parameter helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `FileBlob`             | Copy from Azure File Storage to Azure Blob Storage                                    |
+| `FileBlobFS`           | Copy from Azure File Storage to Azure Data Lake Gen2 (BlobFS)                         |
+| `FileSMBFileSMB`       | Copy between two SMB shares in Azure File Storage                                     |
+| `FileNFSFileNFS`       | Copy between two NFS shares in Azure File Storage                                     |
+| `FileNFSFileSMB`       | Copy from Azure File Storage NFS to Azure Files Storage SMB                           |
+| `FileSMBFileNFS`       | Copy from Azure File Storage SMB to Azure Files Storage NFS                           |
+
+
 <a id="copyaccountsnapshottoaccount"></a>
 
 ## Synchronize files
@@ -782,9 +815,9 @@ azcopy sync 'https://mystorageaccount.file.core.windows.net/myfileShare?[SAS]' '
 
 <a id="syncaccounttolocal"></a>
 
-### Update a file share with changes to another file share
+### Update a file share with changes from another file share
 
-The first file share that appears in this command is the source. The second one is the destination.
+The first file share in this command is the source. The command copies changes from this source file share. The second file share is the destination.
 
 **Syntax**
 
@@ -857,7 +890,7 @@ To learn more about share snapshots, see [Overview of share snapshots for Azure 
 ## Properties and permissions to be preserved 
 
 > [!TIP]
-> When downloading files to a local Linux system, elevated privileges are necessary if the specified owner or group differs from that of the current user. To change the ownership or group of downloaded files, azcopy should be executed with sudo or as the root user. 
+> When you download files to a local Linux system, you need elevated privileges if the specified owner or group differs from that of the current user. To change the ownership or group of downloaded files, run azcopy with sudo or as the root user. 
 
 | **Type**                | **Properties (--preserve-info)**                                                                 | **Permissions (--preserve-permissions)** |
 |-------------------------|--------------------------------------------------------------------------------------------------|------------------------------------------|

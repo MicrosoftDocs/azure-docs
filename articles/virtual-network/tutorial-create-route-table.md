@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table.
 author: asudbring
 ms.service: azure-virtual-network
-ms.date: 07/11/2025
+ms.date: 02/05/2026
 ms.author: allensu
 ms.topic: tutorial
 ms.custom: 
@@ -38,11 +38,11 @@ In this tutorial, you learn how to:
 
 ### [Portal](#tab/portal)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -64,43 +64,120 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
 
 ### [Portal](#tab/portal)
 
-[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
+## Create a resource group
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a resource group**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription. |
+    | Resource group | Enter **test-rg**. |
+    | Region | Select **East US 2**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+## Create a virtual network
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-1. In **Virtual networks**, select **vnet-1**.
+1. Select **+ Create**.
 
-1. In **vnet-1**, select **Subnets** from the **Settings** section.
+1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
 
-1. In the virtual network's subnet list, select **+ Subnet**.
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **vnet-1**. |
+    | Region | Select **East US 2**. |
 
-1. In **Add subnet**, enter or select the following information:
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP Addresses** tab.
+
+1. In the address space box in **Subnets**, select the **default** subnet.
+
+1. In **Edit subnet**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Subnet details** |  |
+    | Subnet template | Leave the default **Default**. |
+    | Name | Enter **subnet-1**. |
+    | Starting address | Leave the default of **10.0.0.0**. |
+    | Subnet size | Leave the default of **/24 (256 addresses)**. |
+
+1. Select **Save**.
+
+1. Select **+ Add a subnet**.
+
+1. In **Add a subnet**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Subnet purpose | Leave the default of **Default**. |
+    | **Subnet details** | |
+    | Subnet template | Leave the default **Default**. |
     | Name | Enter **subnet-private**. |
-    | **IPv4** |
-    | IPv4 address range | Leave the default of **10.0.0.0/16**. |
     | Starting address | Enter **10.0.2.0**. |
-    | Size | Leave the default of **/24 (256 addresses)**. |
+    | Subnet size | Leave the default of **/24 (256 addresses)**. |
 
 1. Select **Add**.
 
-1. Select **+ Subnet**.
+1. Select **+ Add a subnet**.
 
-1. In **Add subnet**, enter or select the following information:
+1. In **Add a subnet**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Subnet purpose | Leave the default of **Default**. |
+    | **Subnet details** | |
+    | Subnet template | Leave the default **Default**. |
     | Name | Enter **subnet-dmz**. |
-    | **IPv4** |
-    | IPv4 address range | Leave the default of **10.0.0.0/16**. |
     | Starting address | Enter **10.0.3.0**. |
-    | Size | Leave the default of **/24 (256 addresses)**. |
+    | Subnet size | Leave the default of **/24 (256 addresses)**. |
 
 1. Select **Add**.
+
+1. Select **Review + create** at the bottom of the screen, and when validation passes, select **Create**.
+
+## Deploy Azure Bastion
+
+Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+
+>[!NOTE]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **+ Create**.
+
+1. In the **Basics** tab of **Create a Bastion**, enter or select the following information:
+
+    | Setting | Value |
+    |---|---|
+    | **Project details** |  |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **test-rg**. |
+    | **Instance details** |  |
+    | Name | Enter **bastion**. |
+    | Region | Select **East US 2**. |
+    | Tier | Select **Developer**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **vnet-1**. |
+    | Subnet | The **AzureBastionSubnet** is created automatically with an address space of **/26** or larger. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
 
 ### [PowerShell](#tab/powershell)
 
@@ -191,6 +268,7 @@ $bastionParams = @{
     PublicIpAddressName = "public-ip-bastion"
     PublicIpAddressRgName = "test-rg"
     VirtualNetworkRgName = "test-rg"
+    Sku = "Basic"
 }
 New-AzBastion @bastionParams -AsJob
 ```
@@ -263,7 +341,8 @@ az network bastion create \
     --name bastion \
     --vnet-name vnet-1 \
     --public-ip-address public-ip-bastion \
-    --location eastus2
+    --location eastus2 \
+    --sku Basic \
     --no-wait
 ```
 
@@ -295,10 +374,10 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |   |
-    | Authentication type | Select **Password**. |
+    | Authentication type | Select **SSH public key**. |
     | Username | Enter a username. |
-    | Password | Enter a password. |
-    | Confirm password | Reenter password. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter **vm-nva-key**. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
@@ -332,12 +411,14 @@ $vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
     Name = "vm-nva"
-    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
+    Image = "Ubuntu2204"
     Size = "Standard_DS1_v2"
     Credential = $cred
     VirtualNetworkName = "vnet-1"
     SubnetName = "subnet-dmz"
-    PublicIpAddressName = $null  # No public IP address
+    PublicIpAddressName = ""  # No public IP address
+    SshKeyName = "vm-nva-ssh-key"
+    GenerateSshKey = $true
 }
 
 # Create the virtual machine
@@ -357,7 +438,7 @@ az vm create \
     --subnet subnet-dmz \
     --vnet-name vnet-1 \
     --admin-username azureuser \
-    --authentication-type password
+    --generate-ssh-keys
 ```
 
 The virtual machine takes a few minutes to create. Don't continue to the next step until Azure finishes creating the virtual machine and returns output for the virtual machine.
@@ -394,10 +475,10 @@ The public virtual machine is used to simulate a machine in the public internet.
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |   |
-    | Authentication type | Select **Password**. |
+    | Authentication type | Select **SSH public key**. |
     | Username | Enter a username. |
-    | Password | Enter a password. |
-    | Confirm password | Reenter password. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter **vm-public-key**. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
@@ -439,10 +520,10 @@ The public virtual machine is used to simulate a machine in the public internet.
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |   |
-    | Authentication type | Select **Password**. |
+    | Authentication type | Select **SSH public key**. |
     | Username | Enter a username. |
-    | Password | Enter a password. |
-    | Confirm password | Reenter password. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter **vm-private-key**. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
@@ -467,20 +548,19 @@ The public virtual machine is used to simulate a machine in the public internet.
 Create a virtual machine in the *subnet-1* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a virtual machine named *vm-public* in the *subnet-public* subnet of the *vnet-1* virtual network.
 
 ```azurepowershell-interactive
-# Create a credential object
-$cred = Get-Credential
-
 # Define the virtual machine parameters
 $vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
     Name = "vm-public"
-    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
+    Image = "Ubuntu2204"
     Size = "Standard_DS1_v2"
     Credential = $cred
     VirtualNetworkName = "vnet-1"
     SubnetName = "subnet-1"
-    PublicIpAddressName = $null  # No public IP address
+    PublicIpAddressName = ""  # No public IP address
+    SshKeyName = "vm-public-ssh-key"
+    GenerateSshKey = $true
 }
 
 # Create the virtual machine
@@ -490,20 +570,19 @@ New-AzVM @vmParams
 Create a virtual machine in the *subnet-private* subnet.
 
 ```azurepowershell-interactive
-# Create a credential object
-$cred = Get-Credential
-
 # Define the virtual machine parameters
 $vmParams = @{
     ResourceGroupName = "test-rg"
     Location = "EastUS2"
     Name = "vm-private"
-    ImageName = "Canonical:ubuntu-24_04-lts:server-gen1:latest"
+    Image = "Ubuntu2204"
     Size = "Standard_DS1_v2"
     Credential = $cred
     VirtualNetworkName = "vnet-1"
     SubnetName = "subnet-private"
-    PublicIpAddressName = $null  # No public IP address
+    PublicIpAddressName = ""  # No public IP address
+    SshKeyName = "vm-private-ssh-key"
+    GenerateSshKey = $true
 }
 
 # Create the virtual machine
@@ -525,7 +604,7 @@ az vm create \
     --subnet subnet-1 \
     --public-ip-address "" \
     --admin-username azureuser \
-    --authentication-type password \
+    --generate-ssh-keys \
     --no-wait
 ```
 
@@ -540,7 +619,7 @@ az vm create \
     --subnet subnet-private \
     --public-ip-address "" \
     --admin-username azureuser \
-    --authentication-type password
+    --generate-ssh-keys
 ```
 ---
 
@@ -603,40 +682,61 @@ az network nic update \
 
 ## Enable IP forwarding in the operating system
 
-In this section, turn on IP forwarding for the operating system of the **vm-nva** virtual machine to forward network traffic. Use the Azure Bastion service to connect to the **vm-nva** virtual machine.
+In this section, turn on IP forwarding for the operating system of the **vm-nva** virtual machine to forward network traffic. Use the Run Command feature to execute a script on the virtual machine.
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 1. In **Virtual machines**, select **vm-nva**.
 
-1. Select **Connect**, then **Connect via Bastion** in the **Overview** section.
+1. Expand **Operations** then select **Run command**.
 
-1. Enter the username and password you entered when the virtual machine was created.
+1. Select **RunShellScript**.
 
-1. Select **Connect**.
-
-1. Enter the following information at the prompt of the virtual machine to enable IP forwarding:
+1. Enter the following script in the **Run Command Script** window:
 
     ```bash
-    sudo vim /etc/sysctl.conf
-    ``` 
-
-1. In the Vim editor, remove the **`#`** from the line **`net.ipv4.ip_forward=1`**:
-
-    Press the **Insert** key.
-
-    ```bash
-    # Uncomment the next line to enable packet forwarding for IPv4
-    net.ipv4.ip_forward=1
+    sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
+    sudo sysctl -p
     ```
 
-    Press the **Esc** key.
+1. Select **Run**.
 
-    Enter **`:wq`** and press **Enter**.
+1. Wait for the script to complete. The output shows the IP forwarding setting has been enabled.
 
-1. Close the Bastion session.
+1. Return to the **Overview** page of **vm-nva** and select **Restart** to restart the virtual machine.
 
-1. Restart the virtual machine.
+### [PowerShell](#tab/powershell)
+
+Enable IP forwarding in the operating system of the **vm-nva** virtual machine with [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand). The following example enables IP forwarding in the operating system.
+
+```azurepowershell-interactive
+$runCommandParams = @{
+    ResourceGroupName = "test-rg"
+    VMName = "vm-nva"
+    CommandId = "RunShellScript"
+    ScriptString = @"
+sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
+sudo sysctl -p
+"@
+}
+Invoke-AzVMRunCommand @runCommandParams
+```
+
+### [CLI](#tab/cli)
+
+Enable IP forwarding in the operating system of the **vm-nva** virtual machine with [az vm run-command invoke](/cli/azure/vm/run-command). The following example enables IP forwarding in the operating system.
+
+```azurecli-interactive
+az vm run-command invoke \
+    --resource-group test-rg \
+    --name vm-nva \
+    --command-id RunShellScript \
+    --scripts "sudo sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf" "sudo sysctl -p"
+```
+
+---
 
 ## Create a route table
 
@@ -799,7 +899,13 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
 
 1. Select **Connect** then **Connect via Bastion** in the **Overview** section.
 
-1. Enter the username and password you entered when the virtual machine was created.
+1. In the **Bastion** connection page, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Authentication Type | Select **SSH Private Key from Local File**. |
+    | Username | Enter the username you created. |
+    | Local File | Select the **vm-public-key** private key file you downloaded. |
 
 1. Select **Connect**.
 
@@ -834,7 +940,13 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
 
 1. Select **Connect** then **Connect via Bastion** in the **Overview** section.
 
-1. Enter the username and password you entered when the virtual machine was created.
+1. In the **Bastion** connection page, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Authentication Type | Select **SSH Private Key from Local File**. |
+    | Username | Enter the username you created. |
+    | Local File | Select the **vm-private-key** private key file you downloaded. |
 
 1. Select **Connect**.
 

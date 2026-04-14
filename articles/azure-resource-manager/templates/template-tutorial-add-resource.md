@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Add resource to template
-description: Describes the steps to create your first Azure Resource Manager template (ARM template). You learn about the template file syntax and how to deploy a storage account.
-ms.date: 06/20/2024
+title: Tutorial - Add a resource to your Azure Resource Manager template
+description: Understand the steps to create your first Azure Resource Manager template. Learn about the template file syntax and how to deploy a storage account.
+ms.date: 10/29/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
 
-# Tutorial: Add a resource to your ARM template
+# Tutorial: Add a resource to your Azure Resource Manager template
 
 In the [previous tutorial](template-tutorial-create-first-template.md), you learned how to create and deploy your first blank Azure Resource Manager template (ARM template). Now, you're ready to deploy an actual resource to that template. In this case, an [Azure storage account](../../storage/common/storage-account-create.md). This instruction takes **9 minutes** to complete.
 
@@ -14,18 +14,38 @@ In the [previous tutorial](template-tutorial-create-first-template.md), you lear
 
 We recommend that you complete the [introductory tutorial about templates](template-tutorial-create-first-template.md), but it's not required.
 
-You need to have [Visual Studio Code](https://code.visualstudio.com/), and either Azure PowerShell or Azure Command-Line Interface (CLI). For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
+You need to have [Visual Studio Code](https://code.visualstudio.com/), and either Azure PowerShell or the Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
 ## Add resource
 
-To add an Azure storage account definition to the existing template, look at the highlighted JSON file in the following example. Instead of trying to copy sections of the template, copy the whole file and replace your template with its contents.
+To add an Azure storage account definition to the existing template, look at the JSON file in the following example. Instead of trying to copy sections of the template, copy the whole file and replace your template with its contents.
 
 Replace `{provide-unique-name}` and the curly braces `{}` with a unique storage account name.
 
 > [!IMPORTANT]
 > The storage account name needs to be unique across Azure. It's only lowercase letters or numbers and has a limit of 24 characters. You can use a name like **store1** as a prefix and then add your initials and today's date. The name, for example, can be **store1abc06132022**.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "{provide-unique-name}",
+      "location": "eastus",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ]
+}
+```
 
 Guessing a unique name for a storage account isn't easy and doesn't work well for automating large deployments. Later in this tutorial series, you use template features that make it easier to create a unique name.
 
@@ -55,7 +75,7 @@ You can deploy the template to create the storage account. Give your deployment 
 
 If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the `templateFile` variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -66,7 +86,7 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
-To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+To run this deployment command, you need to have the [latest version](/cli/azure/install-azure-cli) of the Azure CLI.
 
 ```azurecli
 az deployment group create \

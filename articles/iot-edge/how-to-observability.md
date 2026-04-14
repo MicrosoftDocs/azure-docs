@@ -207,7 +207,7 @@ To deploy this solution, you need:
 
 - [PowerShell](/powershell/scripting/install/installing-powershell)
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 1. Clone the [IoT Elms](https://github.com/Azure-Samples/iotedge-logging-and-monitoring-solution) repository.
 

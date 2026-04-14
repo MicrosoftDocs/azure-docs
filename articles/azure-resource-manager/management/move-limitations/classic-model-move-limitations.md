@@ -1,7 +1,7 @@
----
+﻿---
 title: Move Azure classic deployment resources
 description: Use Azure Resource Manager to move classic deployment resources to a new resource group or subscription.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/15/2025
 ms.custom: devx-track-arm-template
 ---
@@ -117,3 +117,4 @@ The domain name and the public IP are still the same as before migration. Under 
 If you have trouble moving classic resources, contact [Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 For commands to move resources, see [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md).
+

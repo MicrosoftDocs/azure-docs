@@ -1,7 +1,7 @@
 ---
 title: What Azure Backup Server V3 RTM can back up
 description: This article provides a protection matrix listing all workloads, data types, and installations that Azure Backup Serve V3 RTM protects.
-ms.date: 07/14/2025
+ms.date: 03/09/2026
 ms.topic: reference
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -10,6 +10,9 @@ ms.author: v-mallicka
 ---
 
 # Azure Backup Server V3 RTM protection matrix
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
 
 The following matrix lists what can be protected with Azure Backup Server V3 RTM and earlier versions.
 

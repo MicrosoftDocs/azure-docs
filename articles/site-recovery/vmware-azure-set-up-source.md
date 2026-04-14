@@ -1,11 +1,11 @@
 ---
 title: Set up source settings for VMware disaster recovery to Azure with Azure Site Recovery
 description: This article describes how to set up your on-premises environment to replicate VMware VMs to Azure with Azure Site Recovery.
-author: jyothisuri
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: jsuri
-ms.date: 04/26/2025
+ms.author: v-gajeronika
+ms.date: 04/06/2026
 
 # Customer intent: As a IT administrator, I want to configure my on-premises VMware environment for replication to the cloud, so that I can ensure disaster recovery and data protection for my virtual machines.
 ---
@@ -13,6 +13,8 @@ ms.date: 04/26/2025
 # Set up the source environment for VMware to Azure replication
 
 This article describes how to set up your source on-premises environment, to replicate VMware VMs to Azure. The article includes steps for selecting your replication scenario, setting up an on-premises machine as the Site Recovery configuration server, and automatically discovering on-premises VMs.
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 ## Prerequisites
 

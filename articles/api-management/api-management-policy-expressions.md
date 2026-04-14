@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: devx-track-dotnet
 ms.topic: reference
-ms.date: 03/07/2023
+ms.date: 01/15/2026
 ms.author: danlep
 ---
 # API Management policy expressions
@@ -142,7 +142,7 @@ The following table lists the .NET Framework types and members allowed in policy
 |`System.Security.Cryptography.SHA384Managed`|All|
 |`System.Security.Cryptography.SHA512`|All|
 |`System.Security.Cryptography.SHA512Managed`|All|
-|`System.Security.Cryptography.SymmetricAlgorithm`|All|
+|`System.Security.Cryptography.SymmetricAlgorithm`|All except parameterless `Create()`|
 |`System.Security.Cryptography.X509Certificates.PublicKey`|All|
 |`System.Security.Cryptography.X509Certificates.RSACertificateExtensions`|All|
 |`System.Security.Cryptography.X509Certificates.X500DistinguishedName`|`Name`|
@@ -202,8 +202,9 @@ The `context` variable is implicitly available in every policy [expression](api-
 
 |Context Variable|Allowed methods, properties, and parameter values|
 |----------------------|-------------------------------------------------------|
-|`context`|[`Api`](#ref-context-api): [`IApi`](#ref-iapi)<br /><br /> [`Deployment`](#ref-context-deployment)<br /><br /> Elapsed: `TimeSpan` - time interval between the value of `Timestamp` and current time<br /><br /> [`GraphQL`](#ref-context-graphql)<br /><br />[`LastError`](#ref-context-lasterror)<br /><br /> [`Operation`](#ref-context-operation)<br /><br /> [`Request`](#ref-context-request)<br /><br /> `RequestId`: `Guid` - unique request identifier<br /><br /> [`Response`](#ref-context-response)<br /><br /> [`Subscription`](#ref-context-subscription)<br /><br />`Timestamp`: `DateTime` - point in time when request was received<br /><br /> `Tracing`: `bool` - indicates if tracing is on or off <br /><br /> [User](#ref-context-user)<br /><br /> [`Variables`](#ref-context-variables): `IReadOnlyDictionary<string, object>`<br /><br /> `void Trace(message: string)` <br /><br /> [`Workspace`](#ref-context-workspace) |
+|`context`|[`Api`](#ref-context-api): [`IApi`](#ref-iapi)<br /><br /> [`Backend`](#ref-context-backend)<br /><br /> [`Deployment`](#ref-context-deployment)<br /><br /> Elapsed: `TimeSpan` - time interval between the value of `Timestamp` and current time<br /><br /> [`GraphQL`](#ref-context-graphql)<br /><br />[`LastError`](#ref-context-lasterror)<br /><br /> [`Operation`](#ref-context-operation)<br /><br /> [`Request`](#ref-context-request)<br /><br /> `RequestId`: `Guid` - unique request identifier<br /><br /> [`Response`](#ref-context-response)<br /><br /> [`Subscription`](#ref-context-subscription)<br /><br />`Timestamp`: `DateTime` - point in time when request was received<br /><br /> `Tracing`: `bool` - indicates if tracing is on or off <br /><br /> [User](#ref-context-user)<br /><br /> [`Variables`](#ref-context-variables): `IReadOnlyDictionary<string, object>`<br /><br /> `void Trace(message: string)` <br /><br /> [`Workspace`](#ref-context-workspace) |
 |<a id="ref-context-api"></a>`context.Api`|`Id`: `string`<br /><br /> `IsCurrentRevision`: `bool`<br /><br />  `Name`: `string`<br /><br /> `Path`: `string`<br /><br /> `Revision`: `string`<br /><br /> `ServiceUrl`: [`IUrl`](#ref-iurl)<br /><br /> `Version`: `string` |
+|<a id="ref-context-backend"></a>`context.Backend`|`AzureRegion`: `string`<br /><br /> `Id`: `string`<br /><br /> `Type`: `enum BackendType {Single, Pool}`|
 |<a id="ref-context-deployment"></a>`context.Deployment`|[`Gateway`](#ref-context-gateway)<br /><br /> `GatewayId`: `string` (returns 'managed' for managed gateways)<br /><br /> `Region`: `string`<br /><br /> `ServiceId`: `string`<br /><br /> `ServiceName`: `string`<br /><br />[`SustainabilityInfo`](#ref-context-sustainability)<br/><br/> `Certificates`: `IReadOnlyDictionary<string, X509Certificate2>`|
 |<a id="ref-context-gateway"></a>`context.Deployment.Gateway`|`Id`: `string` (returns 'managed' for managed gateways)<br /><br /> `InstanceId`: `string` (returns 'managed' for managed gateways)<br /><br /> `IsManaged`: `bool`|
 |<a id="ref-context-sustainability"></a>`context.Deployment.SustainabilityInfo`| `CurrentCarbonIntensity`: Enum [CarbonIntensityCategory](sustainability.md#carbon-intensity-categories)|
@@ -211,7 +212,8 @@ The `context` variable is implicitly available in every policy [expression](api-
 |<a id="ref-context-lasterror"></a>`context.LastError`|`Source`: `string`<br /><br /> `Reason`: `string`<br /><br /> `Message`: `string`<br /><br /> `Scope`: `string`<br /><br /> `Section`: `string`<br /><br /> `Path`: `string`<br /><br /> `PolicyId`: `string`<br /><br /> For more information about `context.LastError`, see [Error handling](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>`context.Operation`|`Id`: `string`<br /><br /> `Method`: `string`<br /><br /> `Name`: `string`<br /><br /> `UrlTemplate`: `string`|
 |<a id="ref-context-product"></a>`context.Product`|`ApprovalRequired`: `bool`<br /><br /> `Groups`: `IEnumerable<`[`IGroup`](#ref-igroup)`>`<br /><br /> `Id`: `string`<br /><br /> `Name`: `string`<br /><br /> `State`: `enum ProductState {NotPublished, Published}`<br /><br /> `SubscriptionsLimit`: `int?`<br /><br /> `SubscriptionRequired`: `bool`|
-|<a id="ref-context-request"></a>`context.Request`|`Body`: [`IMessageBody`](#ref-imessagebody) or `null` if request doesn't have a body.<br /><br /> `Certificate`: `System.Security.Cryptography.X509Certificates.X509Certificate2`<br /><br /> [`Headers`](#ref-context-request-headers): `IReadOnlyDictionary<string, string[]>`<br /><br /> `IpAddress`: `string`<br /><br /> `MatchedParameters`: `IReadOnlyDictionary<string, string>`<br /><br /> `Method`: `string`<br /><br /> `OriginalUrl`: [`IUrl`](#ref-iurl)<br /><br /> `Url`: [`IUrl`](#ref-iurl)<br /><br /> `PrivateEndpointConnection`: [`IPrivateEndpointConnection`](#ref-iprivateendpointconnection) or `null` if request doesn't come from a private endpoint connection.|
+|<a id="ref-context-request"></a>`context.Request`|`Body`: [`IMessageBody`](#ref-imessagebody) or `null` if request doesn't have a body.<br /><br /> `Certificate`: `System.Security.Cryptography.X509Certificates.X509Certificate2`<br /><br /> [`Foundry`](#ref-context-request-foundry)<br /><br /> [`Headers`](#ref-context-request-headers): `IReadOnlyDictionary<string, string[]>`<br /><br /> `IpAddress`: `string`<br /><br /> `MatchedParameters`: `IReadOnlyDictionary<string, string>`<br /><br /> `Method`: `string`<br /><br /> `OriginalUrl`: [`IUrl`](#ref-iurl)<br /><br /> `Url`: [`IUrl`](#ref-iurl)<br /><br /> `PrivateEndpointConnection`: [`IPrivateEndpointConnection`](#ref-iprivateendpointconnection) or `null` if request doesn't come from a private endpoint connection.|
+|<a id="ref-context-request-foundry"></a>`context.Request.Foundry`|`Deployment`: `string` - The model deployment ID in Microsoft Foundry associated with the request.|
 |<a id="ref-context-request-headers"></a>`string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)`|`headerName`: `string`<br /><br /> `defaultValue`: `string`<br /><br /> Returns comma-separated request header values or `defaultValue` if the header isn't found.|
 |<a id="ref-context-response"></a>`context.Response`|`Body`: [`IMessageBody`](#ref-imessagebody)<br /><br /> [`Headers`](#ref-context-response-headers): `IReadOnlyDictionary<string, string[]>`<br /><br /> `StatusCode`: `int`<br /><br /> `StatusReason`: `string`|
 |<a id="ref-context-response-headers"></a>`string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)`|`headerName`: `string`<br /><br /> `defaultValue`: `string`<br /><br /> Returns comma-separated response header values or `defaultValue` if the header isn't found.|

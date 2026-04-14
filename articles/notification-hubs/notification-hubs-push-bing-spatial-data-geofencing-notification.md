@@ -36,7 +36,7 @@ In this tutorial, you take the following steps:
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription,  [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription,  [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) or later ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409).
 * Latest version of the [Azure SDK](https://azure.microsoft.com/downloads/).
 * [Bing Maps Dev Center account](https://www.bingmapsportal.com/) (you can create one for free and associate it with your Microsoft account).

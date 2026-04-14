@@ -2,8 +2,8 @@
 title: Enable push notifications
 titleSuffix: An Azure Communication Services article
 description: Use Azure Communication Services SDKs to enable push notifications for calls.
-author: tophpalmer
-ms.author: chpalm
+author: sundiraman
+ms.author: sundraman
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to
@@ -39,7 +39,7 @@ If you want to revoke an identity, follow [this process](../../concepts/identity
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 

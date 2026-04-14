@@ -7,7 +7,7 @@ manager: rcole
 services: azure-communication-services
 ms.author: henikaraa
 ms.date: 05/02/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 

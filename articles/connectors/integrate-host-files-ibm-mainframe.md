@@ -5,11 +5,11 @@ services: logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 04/08/2025
-
-#customer intent: As a developer, I want to use the IBM Host File connector so I can parse and generate offline IBM host files from IBM mainframes with Standard workflows in Azure Logic Apps.
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to use the IBM Host File connector in Standard workflows so I can parse and generate offline IBM host files from IBM mainframes.
 ---
 
 # Parse and generate host files from IBM mainframes for Standard workflows in Azure Logic Apps
@@ -70,7 +70,7 @@ The following table summarizes the parameters for the **Generate Host File Conte
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The Host Integration Designer XML (HIDX) file that provides the necessary metadata for the **IBM Host File** connector to recognize the host file data structure.
 

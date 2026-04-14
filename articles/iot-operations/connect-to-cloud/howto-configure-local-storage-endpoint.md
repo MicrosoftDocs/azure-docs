@@ -1,8 +1,8 @@
 ---
 title: Configure local storage data flow endpoint in Azure IoT Operations
 description: Learn how to configure a local storage data flow endpoint in Azure IoT Operations.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -13,8 +13,6 @@ ai-usage: ai-assisted
 ---
 
 # Configure data flow endpoints for local storage
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 To send data to local storage in Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the endpoint, authentication, table, and other settings.
 
@@ -126,7 +124,9 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -158,24 +158,30 @@ The only supported serialization format is Parquet.
 
 ## Use Azure Container Storage enabled by Azure Arc (ACSA)
 
-You can use the local storage data flow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration) to store data locally or send data to a cloud destination.
+You can use the local storage data flow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to store data locally or send data to a cloud destination.
+
+> [!IMPORTANT]
+> You must install [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/howto-install-edge-volumes) before using it with a local storage data flow endpoint.
 
 ### Local shared volume
 
-To write to a local shared volume, first create a PersistentVolumeClaim (PVC) according to the instructions from [Local Shared Edge Volumes](/azure/azure-arc/container-storage/local-shared-edge-volumes).
+To write to a local shared volume, first create a PersistentVolumeClaim (PVC) according to the instructions from [Local Shared Edge Volumes](/azure/azure-arc/container-storage/tutorial-create-local-shared-volume).
 
 Then, when configuring your local storage data flow endpoint, input the PVC name under `persistentVolumeClaimRef`.
 
 ### Cloud ingest
 
-To write your data to the cloud, follow the instructions in [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/cloud-ingest-edge-volume-configuration) to create a PVC and attach a subvolume for your desired cloud destination.
+To write your data to the cloud, follow the instructions in [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to create a PVC and attach a subvolume for your desired cloud destination.
+
+> [!IMPORTANT]
+> To configure cloud ingest, your cluster must have secure settings enabled. The cloud ingest feature relies on [workload identity federation](../deploy-iot-ops/howto-enable-secure-settings.md#enable-the-cluster-for-secure-settings).
 
 > [!IMPORTANT]
 > Don't forget to create the subvolume after creating the PVC, or else the data flow fails to start and the logs show a "read-only file system" error.
 
 Then, when configuring your local storage data flow endpoint, input the PVC name under `persistentVolumeClaimRef`.
 
-Finally, when you create the data flow, the [data destination](howto-create-dataflow.md#configure-data-destination-topic-container-or-table) parameter must match the `spec.path` parameter you created for your subvolume during configuration.
+Finally, when you create the data flow, the [data destination](howto-configure-dataflow-destination.md#configure-the-data-destination-topic-container-or-table) parameter must match the `spec.path` parameter you created for your subvolume during configuration.
 
 ## Next steps
 

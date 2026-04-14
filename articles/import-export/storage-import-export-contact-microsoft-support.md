@@ -40,7 +40,7 @@ Do the following steps to create a support request:
      |**Problem type**|Select a problem type from among the problem types for Import/Export orders.|
      |**Problem subtype**|Select the appropriate subtype for the problem type.|
  
-     ![Screenshot showing info on the Basics screen for an Import/Export Service support request. The button that opens teh Solutions tab is highlighted.](./media/storage-import-export-contact-microsoft-support/import-export-support-02.png)
+     ![Screenshot showing info on the Basics screen for an Import/Export Service support request. The button that opens the Solutions tab is highlighted.](./media/storage-import-export-contact-microsoft-support/import-export-support-02.png)
 
    Select **Next: Solutions>>** to continue.
 

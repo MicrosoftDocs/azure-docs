@@ -38,6 +38,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **25.2** | | | |
+| 25.2.2 | 02/2026 | Minor |01/2027 |
+| 25.2.1 | 12/2025 | Minor |11/2026 |
 | 25.2.0 | 09/2025 | Major |08/2026 |
 | **25.1** | | | |
 | 25.1.2 | 06/2025 | Minor |05/2026 |
@@ -67,7 +69,7 @@ Earlier versions use a legacy support model, with support dates [detailed for ea
 
 ### On-premises appliance security
 
-The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control are allowed only through the [management port](best-practices/understand-network-architecture.md), via HTTP for web access and SSH for the support shell.
+The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control are allowed only through the [management port](best-practices/understand-network-architecture.md), via HTTPS for web access and SSH for the support shell.
 
 Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle, including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and shouldn't be modified.
 
@@ -84,6 +86,20 @@ Version numbers are listed only in this article and in the [What's new in Micros
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
 ## Versions 25.2.x
+
+### Version 25.2.2
+
+**Release date**: 02/2026
+
+**Supported until**: 01/2027
+
+### Version 25.2.1
+
+**Release date**: 12/2025
+
+**Supported until**: 11/2026
+
+This version includes bug fixes for stability improvements.
 
 ### Version 25.2.0
 

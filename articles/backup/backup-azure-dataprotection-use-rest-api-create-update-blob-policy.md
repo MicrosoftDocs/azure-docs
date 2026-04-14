@@ -2,7 +2,7 @@
 title: Create Azure Backup policies for blobs using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for blobs using REST API.
 ms.topic: how-to
-ms.date: 02/09/2025
+ms.date: 02/23/2026
 ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
 ms.service: azure-backup
 ms.custom: engagement-fy23
@@ -24,7 +24,7 @@ This article describes how to create a policy for blobs in a storage account. Le
 
 >[!NOTE]
 >Restoring over long durations may lead to restore operations taking longer to complete. Further, the time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period.
->For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
+>For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past won't be recommended for an account with this rate of change.
 
 In this article, you'll learn about:
 
@@ -33,7 +33,7 @@ In this article, you'll learn about:
 > - Create the request body
 > - Responses
 
-## Create a policy
+## Create a policy for Azure Blob backup
 
 To create an Azure Backup policy, use the following *PUT* operation:
 
@@ -46,7 +46,7 @@ The `{policyName}` and `{vaultName}` are provided in the URI. You can find addit
 > [!IMPORTANT]
 > Currently, we don't support updating or modifying an existing policy. So, you can create a new policy with the required details and assign it to the relevant backup instance.
 
-## Create the request body
+## Create the request body for the Azure Blob backup policy
 
 For example, to create a policy for Blob backup, use the following component of the request body:
 
@@ -182,9 +182,9 @@ To configure a backup policy with the vaulted backup, use the following JSON scr
 ```
 
 > [!IMPORTANT]
-> The supported time formats is *DateTime* only. They don't support *Time* format alone.
+> The supported time formats are *DateTime* only. They don't support *Time* format alone.
 
-## Responses
+## Responses for Azure Blob Backup Policy creation or updates
 
 The backup policy creation/update is an asynchronous operation and returns *OK* once the operation is successful.
 

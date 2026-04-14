@@ -1,38 +1,38 @@
 ---
-title: 'Quickstart: Configure an Azure virtual network gateway with Terraform'
-description: In this quickstart, you create a resource group, a virtual network, a subnet for the gateway, a public IP for the gateway, an Azure ExpressRoute gateway, an ExpressRoute circuit, and an ExpressRoute circuit peering in Azure.
+title: 'Quickstart: Create an ExpressRoute circuit and virtual network gateway with Terraform'
+description: In this quickstart, you create a resource group, a virtual network, a subnet for the gateway, an Azure ExpressRoute gateway, an ExpressRoute circuit, and an ExpressRoute circuit peering in Azure using Terraform.
 ms.topic: quickstart
-ms.date: 01/29/2025
+ms.date: 10/09/2025
 ms.custom: devx-track-terraform
 ms.service: azure-expressroute
 author: duongau
 ms.author: duau
-#customer intent: As a Terraform user, I want to see how to create a resource group, a virtual network, a subnet for the gateway, a public IP for the gateway, an Azure ExpressRoute gateway, an ExpressRoute circuit, and an ExpressRoute circuit peering in Azure.
 content_well_notification: 
   - AI-contribution
 # Customer intent: As a Terraform user, I want to configure an Azure ExpressRoute circuit and its associated resources so that I can establish a dedicated network connection for reliable performance and security.
 ---
 
-# Quickstart: Configure an Azure virtual network gateway with Terraform
+# Quickstart: Create an ExpressRoute circuit and virtual network gateway with Terraform
 
-In this quickstart, you use Terraform to create an Azure ExpressRoute circuit with *Equinix* as the service provider. The circuit uses a *Standard SKU* with a bandwidth of *50 Mbps* and the peering location of *Washington, D.C.* Private peering is enabled with a primary and secondary subnet of *192.168.10.16/30* and *192.168.10.20/30*, respectively. The script also creates a virtual network and a *HighPerformance ExpressRoute gateway*.
+In this quickstart, you use Terraform to create an Azure ExpressRoute circuit and its associated infrastructure. The Terraform template creates a complete ExpressRoute setup including a virtual network, ExpressRoute gateway, circuit configuration, and private peering. All resources are deployed with configurable parameters that allow you to customize the deployment for your specific requirements.
 
-:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of an Azure ExpressRoute circuit deployment environment using Bicep." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of an Azure ExpressRoute circuit deployment environment using Terraform." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure resource group with a unique name.
-> * Create a virtual network with a subnet for the gateway.
-> * Create a public IP for the gateway.
-> * Create an ExpressRoute circuit and configure private peering.
-> * Output the resource group name, ExpressRoute circuit ID, gateway name, gateway IP, and the service key.
+> * Create an Azure resource group with a unique name
+> * Create a virtual network with a subnet for the gateway
+> * Create an ExpressRoute gateway with configurable SKU
+> * Create an ExpressRoute circuit with configurable service provider settings
+> * Configure private peering for the ExpressRoute circuit
+> * Output key resource identifiers and configuration details
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
@@ -79,10 +79,22 @@ In this article, you learn how to:
    resource_group_name=$(terraform output -raw resource_group_name)
    ```
 
+1. Get the ExpressRoute circuit name.
+
+   ```bash
+   circuit_name=$(terraform output -raw expressroute_circuit_name)
+   ```
+
 1. Get the gateway name.
 
    ```bash
    gateway_name=$(terraform output -raw gateway_name)
+   ```
+
+1. Run [`az network express-route show`](/cli/azure/network/express-route#az-network-express-route-show) to view the ExpressRoute circuit.
+
+   ```azurecli
+   az network express-route show --name $circuit_name --resource-group $resource_group_name
    ```
 
 1. Run [`az network vnet-gateway show`](/cli/azure/network/vnet-gateway#az-network-vnet-gateway-show) to view the Azure virtual network gateway.
@@ -99,10 +111,22 @@ In this article, you learn how to:
    $resource_group_name=$(terraform output -raw resource_group_name)
    ```
 
+1. Get the ExpressRoute circuit name.
+
+   ```powershell
+   $circuit_name=$(terraform output -raw expressroute_circuit_name)
+   ```
+
 1. Get the gateway name.
 
    ```powershell
    $gateway_name=$(terraform output -raw gateway_name)
+   ```
+
+1. Run [`Get-AzExpressRouteCircuit`](/powershell/module/az.network/get-azexpressroutecircuit) to view the ExpressRoute circuit.
+
+   ```azurepowershell
+   Get-AzExpressRouteCircuit -Name $circuit_name -ResourceGroupName $resource_group_name
    ```
 
 1. Run [`Get-AzVirtualNetworkGateway`](/powershell/module/az.network/get-azvirtualnetworkgateway#:~:text=Example%202:%20Get%20a%20Virtual%20Network%20Gateway) to view the Azure virtual network gateway.

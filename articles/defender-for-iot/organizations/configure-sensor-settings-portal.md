@@ -19,7 +19,7 @@ The OT sensor settings listed in this article are also available directly from t
 
 To define OT sensor settings, make sure that you have the following:
 
-- **An Azure subscription onboarded to Defender for IoT**. If you need to, [sign up for a free account](https://azure.microsoft.com/free/), and then use the [Quickstart: Get started with Defender for IoT](getting-started.md) to start a free trial.
+- **An Azure subscription onboarded to Defender for IoT**. If you need to, [sign up for a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), and then use the [Quickstart: Get started with Defender for IoT](getting-started.md) to start a free trial.
 
 - **Permissions**:
 

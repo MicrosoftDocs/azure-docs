@@ -2,7 +2,7 @@
 title: Monitor Azure Web PubSub
 description: Learn how to monitor Azure Web PubSub with Azure Monitor
 author: wanlwanl
-ms.author: wanl
+ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: how-to 
 ms.date: 05/15/2023

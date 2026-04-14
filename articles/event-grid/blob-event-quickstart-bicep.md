@@ -17,7 +17,7 @@ In this article, you use a Bicep file to create a Blob storage account, subscrib
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Create a message endpoint
 
@@ -31,7 +31,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 1. You see the site but no events are posted to it yet.
 
-   ![Screenshot that shows how to view the new site.](./media/blob-event-quickstart-portal/view-site.png)
+   ![Screenshot that shows how to view the new site.](./media/blob-event-quickstart-portal/event-grid-viewer-site.png)
 
 ## Review the Bicep file
 

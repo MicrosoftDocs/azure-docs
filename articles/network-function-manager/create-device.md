@@ -18,7 +18,7 @@ In this quickstart, you create a **Device** resource for Azure Network Function 
 
 Verify the following prerequisites:
 
-* Verify that you have an Azure account with an active subscription. If you need an account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Verify that you have an Azure account with an active subscription. If you need an account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * You have met all the prerequisites listed in the [Prerequisites and requirements](requirements.md) article.
 * You have the proper permissions assigned. For more information, see [Resource Provider registration and permissions](resources-permissions.md).
 * Review the [Region Availability](overview.md#regions) section before creating a Device resource.

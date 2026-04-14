@@ -2,11 +2,11 @@
 title: 'Deploy a Blazor app on Azure Static Web Apps'
 description: Learn to deploy a Blazor app on Azure Static Web Apps.
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 09/27/2024
-ms.author: wujia
+ms.author: jikunchen
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -22,7 +22,7 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 ## Prerequisites
 
 - [GitHub](https://github.com) account
-- [Azure](https://portal.azure.com) account. If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+- [Azure](https://portal.azure.com) account. If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## 1. Create a repository
 

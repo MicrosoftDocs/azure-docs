@@ -2,7 +2,7 @@
 title: Use Archive tier
 description: Learn about using Archive tier Support for Azure Backup.
 ms.topic: how-to
-ms.date: 09/24/2025
+ms.date: 02/04/2026
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-portaltier-powershelltier-clitier
 ms.service: azure-backup
@@ -90,15 +90,17 @@ You can move all recovery points for a particular SQL/SAP HANA database at one g
 
 Follow these steps:
 
-1. Select the backup item (database in SQL Server or SAP HANA in Azure VM) whose recovery points you want to move to the Vault-archive tier.
+1. Go to **Resiliency** > **Protected items**.
+1. On the **Protected items** pane, select the protected item (database in SQL Server or SAP HANA in Azure VM) whose recovery points you want to move to the Vault-archive tier.
+1. On the selected protected item pane, select the associated item.
 
-1. Select **click here** to view the list of all eligible achievable recovery points.
+1. To view the list of all eligible achievable recovery points, on the selected associated item, select **click here**.
 
-   :::image type="content" source="./media/use-archive-tier-support/view-old-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points that are older than seven days." lightbox="./media/use-archive-tier-support/view-old-recovery-points-expanded.png":::
+   :::image type="content" source="./media/use-archive-tier-support/view-old-recovery-points.png" alt-text="Screenshot that shows the process to view recovery points that are older than seven days." lightbox="./media/use-archive-tier-support/view-old-recovery-points.png":::
 
-1. Select **Move recovery points to archive** to move all recovery points to the Vault-archive tier.
+1. On the **Move recovery points to vault-archive** pane, select **Move recovery points to vault-archive** to move all recovery points to the Vault-archive tier.
 
-   :::image type="content" source="./media/use-archive-tier-support/move-all-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-recovery-points-to-vault-expanded.png":::
+   :::image type="content" source="./media/use-archive-tier-support/move-all-recovery-points-to-vault.png" alt-text="Screenshot that shows the option to start the move process of all recovery points to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-recovery-points-to-vault.png":::
 
    >[!Note]
    >This option moves all the archivable recovery points to the Vault-archive tier.
@@ -111,15 +113,17 @@ You can move all recommended recovery points for selected Azure Virtual Machines
 
 Follow these steps:
 
-1. Select the Virtual Machine whose recovery points you want to move to the Vault-archive tier.
+1. Go to **Resiliency** > **Protected items**.
+1. On the **Protected items** pane, select the protected item (Azure Virtual Machine) whose recovery points you want to move to the Vault-archive tier.
+1. On the selected protected item pane, select the associated item.
 
-1. Select **click here** to view recommended recovery points.
+1. To view the list of all eligible achievable recovery points, on the selected associated item, select **click here**.
 
-   :::image type="content" source="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points for Virtual Machines that are older than seven days." lightbox="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points-expanded.png":::
+   :::image type="content" source="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points.png" alt-text="Screenshot that shows the process to view recovery points for Virtual Machines that are older than seven days." lightbox="./media/use-archive-tier-support/view-old-virtual-machine-recovery-points.png":::
 
-1. Select **Move recovery points to archive** to move all the recommended recovery points to Archive tier.
+1. On the **Move recovery points to vault-archive** pane, select **Move recovery points to vault-archive** to move all recovery points to the Vault-archive tier.
 
-   :::image type="content" source="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points for Virtual Machines to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault-expanded.png":::
+   :::image type="content" source="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault.png" alt-text="Screenshot that shows the option to start the move process of all recovery points for Virtual Machines to the Vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-virtual-machine-recovery-points-to-vault.png":::
 
 >[!Note]
 >To ensure cost savings, you need to move all the recommended recovery points to the Vault-archive tier. To verify, follow steps 1 and 2. If the list of recovery points is empty in step 3, all the recommended recovery points are moved to the Vault-archive tier.
@@ -304,7 +308,7 @@ For more information about various restore methods for Azure Virtual Machines, s
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` cmdlet requires two other parameters, `RehydrationDuration` and `RehydrationPriority`.
+To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-databases-in-azure-vms). The `Restore-AzRecoveryServicesBackupItem` cmdlet requires two other parameters, `RehydrationDuration` and `RehydrationPriority`.
 
 ## View jobs
 

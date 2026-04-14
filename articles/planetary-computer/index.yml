@@ -29,6 +29,10 @@ landingContent:
         links:
           - text: What's new in Microsoft Planetary Computer Pro
             url: whats-new.md
+      - linkListType: reference
+        links:
+          - text: US Government cloud support
+            url: us-government-cloud-support.md
       - linkListType: concept
         links:
           - text: STAC overview
@@ -126,22 +130,32 @@ landingContent:
             url: supported-colormaps.md
 
   # Card
-  - title: Build and use applications
+  - title: Connect and build applications
     linkLists:
       - linkListType: concept
         links:
-          - text: Build applications
+          - text: Connect and build applications with your data
             url: build-applications-with-planetary-computer-pro.md
+          - text: Working with Partner Applications
+            url: working-with-partner-applications.md
       - linkListType: quickstart
         links:
           - text: Use the explorer
             url: use-explorer.md
+          - text: Build a web application
+            url: build-web-application.md
+          - text: Authoring and Configuring a Partner Application
+            url: configure-cross-tenant-application.md
       - linkListType: how-to-guide
         links:
           - text: Application authentication
             url: application-authentication.md
           - text: Connect to ArcGIS Pro
             url: create-connection-arc-gis-pro.md
+          - text: Connect to QGIS
+            url: configure-qgis.md
+          - text: Authorizing Partner Cross-Tenant Application Access
+            url: authorize-cross-tenant-partner-applications.md
       - linkListType: quickstart
         links:
           - text: Azure Batch and Microsoft Planetary Computer Pro
@@ -162,10 +176,6 @@ landingContent:
         links:
           - text: Get started with data cubes
             url: data-cube-quickstart.md
-      - linkListType: how-to-guide
-        links:
-          - text: Visualize data cubes
-            url: visualize-assets.md
       - linkListType: quickstart
         links:
           - text: Get a collection SAS token

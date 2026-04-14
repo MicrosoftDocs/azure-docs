@@ -1,8 +1,8 @@
----
+﻿---
 title: Configure your Bicep environment
 description: Learn how to configure your environment for Bicep file deployments.
-ms.topic: conceptual
-ms.date: 01/10/2025
+ms.topic: article
+ms.date: 10/30/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -135,6 +135,8 @@ The [Bicep linter](linter.md) checks Bicep files for syntax errors and best prac
 
 You can enable experimental features by adding the following section to your _bicepconfig.json_ file. Using experimental features automatically enables [language version 2.0](../templates/syntax.md#languageversion-20) code generation.
 
+[!INCLUDE [Bicep-experimental-features-not-supported](../../../includes/resource-manager-experimental-features.md)]
+
 Here's an example of enabling features 'assertions' and 'testFramework`. 
 
 ```json
@@ -152,3 +154,4 @@ See [Experimental Features](https://aka.ms/bicep/experimental-features) for more
 
 - Learn how to add [module settings](bicep-config-modules.md) and [linter settings](bicep-config-linter.md) in the Bicep config file.
 - Learn about the [Bicep linter](linter.md).
+

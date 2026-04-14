@@ -148,11 +148,10 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    -StartOn $startTime.ToUniversalTime() `
    -Description "<description>" `
    -Enabled:$true `
-   -TargetPrefix $targetPrefix `
-   -TargetExcludePrefix ""
+   -TargetPrefix $targetPrefix
    ```
-
-2. Give the storage task permission to perform operations on the target storage account by assigning a role to the managed identity. You can choose the managed identity type (system-assigned or user-assigned) when you create the storage task.  
+   
+5. Give the storage task permission to perform operations on the target storage account by assigning a role to the managed identity. You can choose the managed identity type (system-assigned or user-assigned) when you create the storage task.  
 
    The following commands assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task. 
 

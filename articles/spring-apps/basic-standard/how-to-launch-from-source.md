@@ -30,7 +30,7 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 2. [Install JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
 4. [Install the Azure CLI](/cli/azure/install-azure-cli)
-5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+5. [Sign up for an Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 > [!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../../cloud-shell/overview.md)

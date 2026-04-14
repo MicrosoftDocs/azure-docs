@@ -11,7 +11,7 @@ ms.date: 04/23/2025
 
 [!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
-On June 9, 2025, Azure Lab Services will delete all virtual machines (VMs) that have been inactive since July 1, 2023. 
+Starting June 9, 2025, Azure Lab Services will automatically delete any virtual machines (VMs) that have been inactive for more than two years, as part of a monthly cleanup process.
 
 A virtual machine is considered inactive if no operations were performed on it. These operations include actions such as starting, stopping, resetting passwords, and reimaging. Any associated labs for these virtual machines will also be deleted. This policy applies to template VMs and production VMs.
 

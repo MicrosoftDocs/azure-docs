@@ -1,9 +1,6 @@
 ---
 title: What is Azure Cache for Redis?
 description: Learn about Azure Cache for Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
-
-
-
 ms.topic: overview
 ms.date: 11/15/2024
 appliesto:
@@ -11,6 +8,8 @@ appliesto:
 ---
 
 # What is Azure Cache for Redis?
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis provides an in-memory data store based on the [Redis](https://redis.io/) software. Redis improves the performance and scalability of an application that uses backend data stores heavily. It's able to process large volumes of application requests by keeping frequently accessed data in the server memory, which can be written to and read from quickly. Redis brings a critical low-latency and high-throughput data storage solution to modern applications.
 
@@ -110,9 +109,6 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 ## Related content
 
 - [Create an open-source Redis cache](quickstart-create-redis.md)
-- [Use Azure Cache for Redis in an ASP.NET web app](../redis/web-app-cache-howto.md)
-- [Use Azure Cache for Redis in .NET Core](../redis/dotnet-core-quickstart.md)
-- [Use Azure Cache for Redis in .NET Framework](../redis/dotnet-how-to-use-azure-redis-cache.md)
 - [Use Azure Cache for Redis in Node.js](../redis/nodejs-get-started.md)
 - [Use Azure Cache for Redis in Java](../redis/java-get-started.md)
 - [Use Azure Cache for Redis in Python](../redis/python-get-started.md)

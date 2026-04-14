@@ -19,7 +19,7 @@ Get started with Azure Communication Services by using Azure Event Grid to handl
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Communication Services resource. For detailed information, see [Create an Azure Communication Services resource](../create-communication-resource.md).
 - An Email resource with a provisioned domain. [Create an Email Resource](../email/create-email-communication-resource.md).
 

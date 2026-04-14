@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Calculate Azure Blob Storage container statistics'
-description: Description goes here  
+description: Learn how to calculate container statistics by using Databricks 
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: tutorial
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - An Azure storage account - [create a storage account](../common/storage-account-create.md) 
   

@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 01/22/2025
 ms.custom: devx-track-terraform
 ms.service: azure-bastion
-author: abell
-ms.author: abell
+author: cherylmc
+ms.author: cherylmc
 #customer intent: As a Terraform user, I want to learn how to use Terraform to create Azure resources that set up Azure Bastion host. The Azure resources in an Azure Bastion deployment include an Azure resource group, a virtual network, an Azure Bastion subnet, a public IP, and an Azure Bastion host.
 content_well_notification: 
   - AI-contribution
@@ -19,7 +19,7 @@ In this Quickstart, you learn how to use Terraform to deploy [Azure Bastion](bas
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-Deploying Azure Bastion allows you to use RDP and SSH to access to your virtual machines within the Azure portal. This service is provisioned directly in your virtual network and supports all virtual machines there, reducing exposure to public network connections. When you deploy Bastion automatically, Bastion is deployed with the Standard SKU. To deploy with Bastion Developer instead, see [Quickstart: Connect with Azure Bastion Developer](quickstart-developer.md). See the [Azure Bastion deployment guidance](design-architecture.md) for more information about how to customize your Azure Bastion deployment.
+Deploying Azure Bastion allows you to use RDP and SSH to access to your virtual machines within the Azure portal. This service is provisioned directly in your virtual network and supports all virtual machines there, reducing exposure to public network connections. When you deploy Bastion automatically, Bastion is deployed with the Standard SKU. To deploy with Bastion Developer instead, see [Quickstart: Deploy Bastion from the Azure portal](quickstart-host-portal.md). See the [Azure Bastion deployment guidance](design-architecture.md) for more information about how to customize your Azure Bastion deployment.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -33,7 +33,7 @@ Deploying Azure Bastion allows you to use RDP and SSH to access to your virtual 
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 

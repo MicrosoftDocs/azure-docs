@@ -4,11 +4,11 @@ description: This article describes how to set up a user-assigned managed identi
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
-ms.date: 08/16/2024
+ms.date: 11/17/2025
 ms.topic: how-to 
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Using a user-assigned managed identity for an Azure Automation account
@@ -18,7 +18,7 @@ This article shows you how to add a user-assigned managed identity for an Azure 
 > [!NOTE]
 > It is not possible to use a User Assigned Managed Identity on a Hybrid Runbook Worker when a Managed Identity (either System or User assigned) has been created for the Automation Account. If Managed Identity has not been assigned to the Automation Account, then it is possible to use the VM’s System or User Assigned Managed Identity on a Hybrid Runbook Worker that is an Azure VM with the assigned managed identities. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -297,7 +297,7 @@ Before you can use your user-assigned managed identity for authentication, set u
 
 Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.
 
-This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example and may or may not be required in your case. Alternatively, you can also assign the role to the target Azure resource in the [Azure portal](../role-based-access-control/role-assignments-portal.yml).
+This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example and may or may not be required in your case. Alternatively, you can also assign the role to the target Azure resource in the [Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ```powershell
 New-AzRoleAssignment `

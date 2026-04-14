@@ -5,7 +5,7 @@ author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 02/04/2026
 ms.author: stefanazaric
  
 ---
@@ -14,8 +14,6 @@ ms.author: stefanazaric
 # Connect to serverless SQL pool with Power BI Professional
 
 > [!div class="op_single_selector"]
->
-> - [Azure Data Studio](get-started-azure-data-studio.md)
 > - [Power BI](get-started-power-bi-professional.md)
 > - [Visual Studio](../sql/get-started-visual-studio.md)
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
@@ -29,7 +27,7 @@ You need the following tools to issue queries:
 
 - SQL client of your choice:
 
-  - Azure Data Studio
+  - Visual Studio Code
   - SQL Server Management Studio
 
 - Power BI desktop installed
@@ -103,4 +101,4 @@ Write the URL for the database and the name of the database where the view resid
 
 ## Next steps
 
-Advance to [Query storage files](get-started-azure-data-studio.md) to learn how to connect to serverless SQL pool using Azure Data Studio.
+Use sqlcmd to [connect and query](get-started-connect-sqlcmd.md) serverless SQL pool and dedicated SQL pool within Synapse SQL.

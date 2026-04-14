@@ -17,7 +17,7 @@ By completing this quickstart, you have a functioning Route Server that can faci
 
 :::image type="content" source="./media/route-server-diagram.png" alt-text="Diagram showing Azure Route Server deployment environment with BGP peering to network virtual appliances using the Azure portal.":::
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin, ensure you have the following requirements:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Familiarity with [Azure Route Server service limits](route-server-faq.md#limitations).
 
 ## Create a Route Server
@@ -51,6 +51,7 @@ This section walks you through creating Azure Route Server using the Azure porta
     | Name | Enter **myRouteServer**. |
     | Region | Select **East US** or any region you prefer to create the Route Server in. |
     | Routing Preference | Select **ExpressRoute**. Other available options: **VPN** and **ASPath**. |
+    | Route Server capacity | Select from the dropdown. For more information, see [Route Server Capacity](route-server-capacity.md). |
     | **Configure virtual networks** |  |
     | Virtual network | Select **Create new**. <br>In **Name**, enter **myVirtualNetwork**. <br>In **Address range**, enter **10.0.0.0/16**. <br>In **Subnet name** and **Address range**, enter **RouteServerSubnet** and **10.0.1.0/26** respectively. <br>Select **OK**. |
     | Subnet | Once you created the virtual network and subnet, the **RouteServerSubnet** populates. <br>- The subnet must be named **RouteServerSubnet**.<br>- The subnet must be a minimum of /26 or larger. |

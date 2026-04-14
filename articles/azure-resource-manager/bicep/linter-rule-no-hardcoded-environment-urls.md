@@ -3,7 +3,7 @@ title: Linter rule - no hardcoded environment URL
 description: Linter rule - no hardcoded environment URL
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 03/12/2026
 ---
 
 # Linter rule - no hardcoded environment URL
@@ -45,7 +45,7 @@ In some cases, you can fix it by getting a property from a resource you've deplo
 param storageAccountName string
 param location string = resourceGroup().location
 
-resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource sa 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -73,22 +73,18 @@ By default, this rule uses the following settings for determining which URLs are
       "no-hardcoded-env-urls": {
         "level": "warning",
         "disallowedhosts": [
-          "gallery.azure.com",
-          "management.core.windows.net",
-          "management.azure.com",
-          "database.windows.net",
-          "core.windows.net",
-          "login.microsoftonline.com",
-          "graph.windows.net",
-          "trafficmanager.net",
-          "datalake.azure.net",
-          "azuredatalakestore.net",
-          "azuredatalakeanalytics.net",
-          "vault.azure.net",
-          "api.loganalytics.io",
-          "asazure.windows.net",
-          "region.asazure.windows.net",
-          "batch.core.windows.net"
+            "azuredatalakeanalytics.net",
+            "azuredatalakestore.net",
+            "batch.core.windows.net",
+            "core.windows.net",
+            "database.windows.net",
+            "datalake.azure.net",
+            "gallery.azure.com",
+            "graph.windows.net",
+            "login.microsoftonline.com",
+            "management.azure.com",
+            "management.core.windows.net",
+            "vault.azure.net"
         ],
         "excludedhosts": [
           "schema.management.azure.com"

@@ -30,7 +30,7 @@ Access the full code for this tutorial at [UI Library Sample - File Sharing usin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 - [Node.js](https://nodejs.org/), Active LTS, and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
@@ -243,10 +243,10 @@ const uploadFileToAzureBlob = async (uploadTask: AttachmentUploadTask) => {
   // The https://learn.microsoft.com/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
   // tutorial uses 'username' parameter to specify the storage container name.
   // the container in the tutorial is private by default. To get default downloads working in
-  // this sample, you need to change the container's access level to Public via Azure Portal.
+  // this sample, you need to change the container's access level to Public via Azure portal.
   const username = "ui-library";
 
-  // You can get function url from the Azure Portal:
+  // You can get function url from the Azure portal:
   const azFunctionBaseUri = "<YOUR_AZURE_FUNCTION_URL>";
   const uri = `${azFunctionBaseUri}&username=${username}&filename=${filename}`;
 

@@ -1,7 +1,7 @@
 ---
 title: 'Access control for MQTT clients'
 description: 'Describes the main concepts for access control for MQTT clients in Azure Event Grid’s MQTT broker feature.'
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - ignite-2023
 ms.date: 11/15/2023

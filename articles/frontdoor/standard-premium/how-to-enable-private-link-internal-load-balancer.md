@@ -20,7 +20,7 @@ This article guides you through how to configure Azure Front Door Premium to con
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An Azure Front Door Premium profile. For more information, see [Create an Azure Front Door](../create-front-door-portal.md).
 
@@ -46,7 +46,7 @@ In this section, you map the Private Link service to a private endpoint created 
     * **Name** - Enter a name to identify this origin.
     * **Origin type** - Select the **Custom** origin type.
     * **Host name** - The host name is used for SNI (SSL negotiation) and should match your server side certificate. |
-    * **Origin host header** | The origin host header can be the private link private IP for the internal load balancer or a valid domain name.
+    * **Origin host header** - The origin host header can be the private link private IP for the internal load balancer or a valid domain name. When a private link service is enabled, this field is used only for the HTTP request header.
     * **Certificate subject name validation** - Select the checkbox to enable certificate subject name validation. This validation checks the certificate subject name against the host name. If the certificate subject name doesn't match the host name, the connection is rejected. **This validation is required if private link is enabled.**
     * **HTTP port** - 80 (default)
     * **HTTPS port** 443 (default)
@@ -79,6 +79,7 @@ In this section, you map the Private Link service to a private endpoint created 
 The following are common mistakes when configuring an origin with Azure Private Link enabled:
 
 * Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+* Private Link changes how the **Host name** and the **Origin host header** fields operate. It doesn't change the NAT behavior of the flow to the private link service origin.
 
 ## Related content
 

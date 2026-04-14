@@ -2,7 +2,7 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 12/06/2024
+ms.date: 11/12/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -116,7 +116,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Backup file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li></ul>| Disable the other backup product to resolve the issue.
+| Backup file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li><li>Another Azure Backup job may be in progress.</li></ul>| Disable the other backup product to resolve the issue. In case there is any other Azure Backup job in progress, wait for its completion.
 
 
 ### UserErrorSQLPODoesNotExist
@@ -268,7 +268,7 @@ These symptoms may arise for one or more of the following reasons:
 - The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
 - One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.
 
-In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. See [here](./backup-azure-sql-automation.md#enable-backup) for instructions on how to perform this task in PowerShell.
+In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. See [here](./backup-azure-sql-automation.md#enable-backup-for-sql-databases) for instructions on how to perform this task in PowerShell.
 
 ## Size limit for files
 

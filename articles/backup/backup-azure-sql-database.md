@@ -2,7 +2,7 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: overview
-ms.date: 04/23/2025
+ms.date: 02/13/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to implement SQL Server backups to Azure, so that I can ensure reliable data recovery and minimize downtime in case of data loss."
@@ -16,7 +16,10 @@ ms.author: v-mallicka
 - Point-in-time recovery up to a second
 - Individual database level back up and restore
 
-To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support).
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
+
+>[!Note]
+>Private Preview for Snapshot based backup is now available! Snapshot based backup will help you backup large sized databases in a performant way and will also ensure faster restores from instant restore tier.
 
 ## Backup process
 
@@ -209,9 +212,9 @@ To configure simultaneous backups, follow these steps:
 
 ## Next steps
 
-* [Learn about](backup-sql-server-database-azure-vms.md) backing up SQL Server databases.
-* [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
-* [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.
+* [Back up SQL Server databases running on an Azure VM](backup-sql-server-database-azure-vms.md).
+* [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
+* [Manage backed up SQL Server databases](manage-monitor-sql-database-backup.md).
 
 
 ## Related content

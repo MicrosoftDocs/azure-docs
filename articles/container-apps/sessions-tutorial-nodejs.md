@@ -28,7 +28,7 @@ You need the following resources before you begin this tutorial.
 
 | Resource | Description |
 |---|---|
-| Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli). |
 
 ## Setup	
@@ -163,7 +163,7 @@ Now that you have a bearer token to establish the security context, and the sess
 Run the following command to run the JavaScript code to log "hello world" in your application.
 
 ```bash
-curl -v -X 'POST' -H "$AUTH_HEADER" "$SESSION_POOL_MANAGEMENT_ENDPOINT/code/execute?api-version=2024-02-02-preview&identifier=test" -H 'Content-Type: application/json' -d '
+curl -v -X 'POST' -H "$AUTH_HEADER" "$SESSION_POOL_MANAGEMENT_ENDPOINT/executions?api-version=2025-10-02-preview&identifier=test" -H 'Content-Type: application/json' -d '
 {
     "properties": {
         "codeInputType": "inline",

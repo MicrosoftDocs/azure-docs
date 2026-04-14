@@ -3,7 +3,7 @@ title: Apache Airflow on Astro developer resources and tools
 description: Learn about resources and developer tools available with Apache Airflow on Astro - An Azure Native ISV Service.
 
 ms.topic: overview
-ms.date: 03/11/2024
+ms.date: 09/15/2025
 
 # CustomerIntent: As a developer implementing Astro and Airflow, I want to know about other resources and tools available so that create applications that use Astro and Airflow for data orchestration.
 
@@ -44,7 +44,7 @@ If you’re using Apache Airflow with other Azure data services:
 - [Create an Azure Blob Storage connection in Airflow](https://docs.astronomer.io/learn/connections/azure-blob-storage)
 - [Run a task in Azure Container Instances with Airflow](https://docs.astronomer.io/learn/airflow-azure-container-instances)
 - [Run an Azure Data Explorer query with Airflow](https://docs.astronomer.io/learn/airflow-azure-data-explorer)
-- [Integrate Airflow with Azure Data Factory](https://docs.astronomer.io/learn/category/azure-data-factory)
+- [Integrate Airflow with Azure Data Factory](https://www.astronomer.io/docs/learn/2.x/airflow-azure-data-factory-integration)
 
 ## Developer tools
 

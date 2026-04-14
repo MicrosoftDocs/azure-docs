@@ -1,20 +1,21 @@
 ---
-title: Create a High Availability Pacemaker cluster provider for Azure Monitor for SAP solutions
-description: Learn how to configure high-availability (HA) Pacemaker cluster providers for Azure Monitor for SAP solutions.
+title: Create a high-availability Pacemaker cluster provider for Azure Monitor for SAP solutions
+description: Learn how to configure a high-availability (HA) Pacemaker cluster provider for Azure Monitor for SAP solutions.
 author: MightySuz
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
-ms.date: 08/21/2024
-ms.author: sujaj
+ms.date: 03/18/2026
+ms.author: jacobjaygbay
 ms.custom: sfi-image-nochange
-#Customer intent: As a developer, I want to create a high-availability Pacemaker cluster so that I can use the resource with Azure Monitor for SAP solutions.
 # Customer intent: As a system administrator, I want to configure a high-availability Pacemaker cluster for Azure Monitor for SAP solutions, so that I can ensure reliable and continuous monitoring of my SAP systems.
 ---
 
-# Create high-availability cluster provider for Azure Monitor for SAP solutions
+# Create a high-availability cluster provider for Azure Monitor for SAP solutions
 
-In this how-to guide, you learn how to create a high-availability (HA) Pacemaker cluster provider for Azure Monitor for SAP solutions. You install the HA agent and then create the provider for Azure Monitor for SAP solutions.
+[Azure Monitor for SAP solutions](about-azure-monitor-sap-solutions.md) lets you monitor SAP landscapes running on Azure. A high-availability (HA) Pacemaker cluster provider collects metrics from your cluster nodes so you can track cluster health and resource status.
+
+In this article, you install the HA agent on each cluster node and then create the provider in Azure Monitor for SAP solutions.
 
 ## Prerequisites
 
@@ -23,92 +24,91 @@ In this how-to guide, you learn how to create a high-availability (HA) Pacemaker
 
 ## Install an HA agent
 
-Before you add providers for HA (Pacemaker) clusters, install the appropriate agent for RHEL/SUSE in your environment in each of the cluster node.
+Before you add providers for HA (Pacemaker) clusters, install the appropriate agent for RHEL or SUSE in each cluster node.
 
-For SUSE-based clusters, install **ha_cluster_provider** in each node. For more information, see the [HA cluster exporter installation guide](https://github.com/ClusterLabs/ha_cluster_exporter#installation). Supported SUSE versions include SLES for SAP 12 SP3 and later versions.
+For SUSE-based clusters, install `ha_cluster_provider` in each node. For more information, see the [HA cluster exporter installation guide](https://github.com/ClusterLabs/ha_cluster_exporter#installation). Supported SUSE versions include SLES for SAP 12 SP3 and later versions.
 
-For SUSE-based Pacemaker clusters, Please follow below steps to install in each of the cluster node
+For RHEL-based clusters, install Performance Co-Pilot (PCP) and the `pcp-pmda-hacluster` subpackage in each node. For more information, see the [PCP HACLUSTER agent installation guide](https://access.redhat.com/articles/6139852). Supported RHEL versions include 8.2, 8.4, and later versions.
 
-### Install an HA cluster exporter on SUSE
+### Install an HA cluster exporter
 
-1. Install the required packages for Prometheus cluster exporter on the system.
+# [SUSE](#tab/suse)
 
-    ```bash
-    sudo zypper install prometheus-ha_cluster_exporter
-    ```
+1. Install the required packages for the Prometheus cluster exporter.
 
-1. Enable and start the Prometheus cluster exporter as service
+   ```bash
+   sudo zypper install prometheus-ha_cluster_exporter
+   ```
 
-    ```bash
-    sudo systemctl start prometheus-ha_cluster_exporter
-    ```
+1. Enable and start the Prometheus cluster exporter service.
 
-    ```bash
-    sudo systemctl enable prometheus-ha_cluster_exporter
-    ```
+   ```bash
+   sudo systemctl start prometheus-ha_cluster_exporter
+   ```
 
-1. Data is collected in the system through the ha_cluster_exporter. You can export the data via URL `http://<ip address of the server>:9664/metrics`. 
-To check if the metrics are fetched via URL on the server where the ha_cluster_exporter is installed, Run the following command on the server.
+   ```bash
+   sudo systemctl enable prometheus-ha_cluster_exporter
+   ```
 
-    ```bash
-     curl http://localhost:9664/metrics
-    ```
+1. The `ha_cluster_exporter` collects data. Export the data by using the URL `http://<ip-address>:9664/metrics`. To check that the metrics are accessible on the server where `ha_cluster_exporter` is installed, run the following command:
 
-For RHEL-based clusters, install **performance co-pilot (PCP)** and the **pcp-pmda-hacluster** subpackage in each node. For more information, see the [PCP HACLUSTER agent installation guide](https://access.redhat.com/articles/6139852). Supported RHEL versions include 8.2, 8.4, and later versions.
+   ```bash
+   curl http://localhost:9664/metrics
+   ```
 
-For RHEL-based Pacemaker clusters, Please follow below steps to install in each of the cluster node
+# [RHEL](#tab/rhel)
 
-### Install an HA cluster exporter on RHEL
+1. Install the required packages for PCP.
 
-1. Install the required packages for PCP on the system.
+   ```bash
+   sudo yum install pcp pcp-pmda-hacluster
+   ```
 
-    ```bash
-    sudo yum install pcp pcp-pmda-hacluster
-    ```
+1. Enable and start the required PCP collector services.
 
-1. Enable and start the required PCP Collector Services.
+   ```bash
+   sudo systemctl start pmcd
+   ```
 
-    ```bash
-    sudo systemctl start pmcd
-    ```
+   ```bash
+   sudo systemctl enable pmcd
+   ```
 
-    ```bash
-    sudo systemctl enable pmcd
-    ```
+1. Install and enable the HA cluster PMDA. Replace `$PCP_PMDAS_DIR` with the path where `hacluster` is installed. Use the `find` command in Linux to find the path. The path is usually `/var/lib/pcp/pmdas`.
 
-1. Install and enable the HA cluster PMDA. Replace `$PCP_PMDAS_DIR` with the path where `hacluster` is installed. Use the `find` command in Linux to find the path of "hacluster" bits. Usually hacluster is in path "/var/lib/pcp/pmdas".
-Example: cd /var/lib/pcp/pmdas/hacluster
+   ```bash
+   cd $PCP_PMDAS_DIR/hacluster
+   ```
 
-    ```bash
-    cd $PCP_PMDAS_DIR/hacluster
-    ```
-
-    ```bash
-    sudo ./Install
-    ```
+   ```bash
+   sudo ./Install
+   ```
 
 1. Enable and start the `pmproxy` service.
 
-    ```bash
-    sudo systemctl start pmproxy
-    ```
+   ```bash
+   sudo systemctl start pmproxy
+   ```
 
-    ```bash
-    sudo systemctl enable pmproxy
-    ```
+   ```bash
+   sudo systemctl enable pmproxy
+   ```
 
-1. Data gets collected in the system by PCP. You can export the data by using `pmproxy` via URL `http://<ipaddress of the server>:44322/metrics?names=ha_cluster`. 
-To check if the metrics are fetched via URL on the server where the hacluster is installed, Run the following command on the server.
-    
-    ```bash
-     curl http://localhost:44322/metrics?names=ha_cluster
-    ```
+1. PCP collects data. Export the data by using `pmproxy` at the URL `http://<ip-address>:44322/metrics?names=ha_cluster`. To check that the metrics are accessible on the server where `hacluster` is installed, run the following command:
 
-## Prerequisites to enable secure communication
+   ```bash
+   curl http://localhost:44322/metrics?names=ha_cluster
+   ```
 
-To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps in [this article](https://github.com/ClusterLabs/ha_cluster_exporter#tls-and-basic-authentication).
+---
+
+## Enable secure communication (optional)
+
+To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow the steps described in the [HA cluster exporter TLS and basic authentication guide](https://github.com/ClusterLabs/ha_cluster_exporter#tls-and-basic-authentication).
 
 ## Create a provider for Azure Monitor for SAP solutions
+
+After you install the HA agent on each cluster node, create a provider in Azure Monitor for SAP solutions to start collecting cluster metrics.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the Azure Monitor for SAP solutions service.
@@ -116,30 +116,33 @@ To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md), follow
 1. On the resource menu, under **Settings**, select **Providers**.
 1. Select **Add** to add a new provider.
 
-    ![Diagram that shows Azure Monitor for SAP solutions resource in the Azure portal, showing button to add a new provider.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-start.png)
+   ![Screenshot that shows the Azure Monitor for SAP solutions resource in the Azure portal, with the button to add a new provider.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-start.png)
 
 1. For **Type**, select **High-availability cluster (Pacemaker)**.
 1. (Optional) Select **Enable secure communication** and choose a certificate type.
 1. Configure providers for each node of the cluster by entering the endpoint URL for **HA Cluster Exporter Endpoint**.
 
-    1. For SUSE-based clusters, enter `http://<IP-address>:9664/metrics`.
-    
-        ![Diagram that shows the setup for an Azure Monitor for SAP solutions resource, showing the fields for SUSE-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-suse.png)
+   1. For SUSE-based clusters, enter `http://<IP-address>:9664/metrics`.
 
-    1. For RHEL-based clusters, enter `http://<'IP address'>:44322/metrics?names=ha_cluster`.
+      ![Screenshot that shows the setup for an Azure Monitor for SAP solutions provider, with the fields for SUSE-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-suse.png)
 
-        ![Diagram that shows the setup for an Azure Monitor for SAP solutions resource, showing the fields for RHEL-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-rhel.png)
+   1. For RHEL-based clusters, enter `http://<IP-address>:44322/metrics?names=ha_cluster`.
 
-1. Enter the SID - SAP system ID, Hostname - SAP hostname of the Virtual machine (Command `hostname -s` for SUSE and RHEL based servers provide hostname detail), and Cluster - Provide any custom name that is easy to identify the SAP system cluster - this Name is visible in the workbook for metrics (need not have to be the cluster name configured on the server). 
+      ![Screenshot that shows the setup for an Azure Monitor for SAP solutions provider, with the fields for RHEL-based clusters.](./media/provider-ha-pacemaker-cluster/azure-monitor-providers-ha-cluster-rhel.png)
 
-1. Select "Start test" under "Prerequisite check (Preview) - highly recommended" - This test helps validate the connectivity from AMS subnet to the SAP source system and list out if any errors  are found - which need to be addressed before provider creation otherwise the provider creation will fail with error.
-1. Select **Create** to finish creating the Provider.
+1. Enter the following values:
 
-1. Create provider for each of the servers in the cluster to be able to see the metrics in the workbook. For example, if the Cluster has three servers configured, Create three providers for each of the three servers with all of the above steps followed.
+   - **SID**: The SAP system ID.
+   - **Hostname**: The SAP hostname of the virtual machine. Run `hostname -s` on SUSE or RHEL servers to get the hostname.
+   - **Cluster**: A custom name that identifies the SAP system cluster. This name appears in the workbook for metrics and doesn't need to match the cluster name configured on the server.
 
-## Troubleshooting
+1. Under **Prerequisite check (Preview) - highly recommended**, select **Start test**. This test validates connectivity from the Azure Monitor for SAP solutions subnet to the SAP source system and identifies any errors that you must address before you create the provider.
+1. Select **Create** to finish creating the provider.
+1. Repeat these steps for each server in the cluster. Create a provider for each server to see all metrics in the workbook.
 
-Use the following troubleshooting steps for common errors.
+## Troubleshoot common errors
+
+Use the following steps to resolve common errors.
 
 ### Unable to reach the Prometheus endpoint
 
@@ -147,17 +150,17 @@ When the provider settings validation operation fails with the code `PrometheusU
 
 1. Restart the HA cluster exporter agent.
 
-    ```bash
-    sudo systemctl start pmproxy
-    ```
+   ```bash
+   sudo systemctl start pmproxy
+   ```
 
-1. Reenable the HA cluster exporter agent.
+1. Re-enable the HA cluster exporter agent.
 
-    ```bash
-    sudo systemctl enable pmproxy
-    ```
+   ```bash
+   sudo systemctl enable pmproxy
+   ```
 
-1. Verify that the Prometheus endpoint is reachable from the subnet that you provided when you created the Azure Monitor for SAP solutions resource.
+1. Check that the Prometheus endpoint is reachable from the subnet that you provided when you created the Azure Monitor for SAP solutions resource.
 
 ## Next steps
 

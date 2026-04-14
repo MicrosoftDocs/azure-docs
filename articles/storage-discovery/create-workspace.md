@@ -3,30 +3,15 @@ title: Create and manage an Azure Storage Discovery Workspace
 titleSuffix: Azure Storage Discovery
 description: Learn how to create an Azure Storage Discovery Workspace.
 author: fauhse
-
 ms.service: azure-storage-discovery
-ms.topic: overview
-ms.date: 07/22/2025
+ms.topic: how-to
+ms.date: 10/09/2025
 ms.author: fauhse
 ---
 
-<!-- 
-!########################################################
-STATUS: DRAFT
+# Deploy the Azure Storage Discovery service
 
-CONTENT: IN PROGRESS
-
-REVIEW Stephen/Fabian: IN PROGRESS
-EDIT PASS: IN PROGRESS
-
-Document score: 100 - 495/0 (words, issues)
-
-!########################################################
--->
-
-# Create and manage a storage discovery preview workspace
-
-The Azure Storage Discovery workspace is a central resource within the Azure Storage Discovery (preview) platform. A discovery workspace is designed to help users manage and visualize storage data across various scopes such as tenants, subscriptions, and resource groups.
+To deploy the Azure Storage Discovery service, you need to create a Discovery workspace resource in one of your resource groups. With this resource, you define which storage resources you want to cover across your Microsoft Entra tenant and how you want to segment reporting for them. The workspace offers prebuilt reports in the Azure portal that you can use to retrieve the insights you need about your storage resources.
 
 Follow the steps in this article to create an Azure Storage Discovery workspace resource.
 
@@ -38,7 +23,7 @@ You can create a storage discovery workspace using the Azure portal, Azure Power
 
 Create an Azure Storage Discovery Workspace resource in the Azure portal by selecting **Create** as shown in the following image.
 
-:::image source="media/create-workspace/create-resource-sml.png" alt-text="Screenshot of the Create ASDW page."  lightbox="media/create-workspace/create-resource.png":::
+:::image source="media/create-workspace/create-resource-sml.png" alt-text="Screenshot of the Create workspace page."  lightbox="media/create-workspace/create-resource.png":::
 
 Choose the **Subscription** and **Resource group** in which to create the discovery workspace. The following table describes each element.
 
@@ -60,11 +45,12 @@ Select the subscriptions and/or resource groups you want to include in the works
 
 > [!NOTE]
 > - Ensure that the user or service principal deploying the workspace is granted at least **Reader** access to each specified root.
-> - Up to 100 resources - subscriptions and/or resource groups can be included in one ASDW.
+> - Up to 100 resources - subscriptions and/or resource groups can be included in one workspace.
+> - The default limit of 100 resources per workspace can be increased. Reach out [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Provide the tenantID, SubscriptionID where you would want this limit to be increased.
 
 :::image source="media/create-workspace/workspace-roots-checks-sml.png" alt-text="Screenshot of the workspaceRoots."  lightbox="media/create-workspace/workspace-roots-checks.png":::
 
-After you add your subscriptions, resource groups, or tenant to your workspace, the service runs an access check to verify that the user has `Microsoft.Storage/storageAccounts/read` on the added resources. The following image provides an example of an access check failure with the associated status message.
+After you add your subscriptions or resource groups to your workspace, the service runs an access check to verify that the user has `Microsoft.Storage/storageAccounts/read` on the added resources. The following image provides an example of an access check failure with the associated status message.
 
 :::image source="media/create-workspace/create-access-sml.png" alt-text="Screenshot of the access check on workspaceRoots."  lightbox="media/create-workspace/create-access.png":::
 
@@ -78,12 +64,12 @@ Scopes are logical groupings of storage accounts within the defined workspaceRoo
 > [!IMPORTANT]
 > A **default Scope** is added automatically, which includes all storage accounts within subscriptions or resource groups added in the **workspaceRoots**.
 
-Add tags on the ASDW resource, if needed, and select **Review and Create**. You aren't able to deploy the resource until an access validation is complete. If the check for the workspaceRoots resources isn't complete, a message is displayed.
+You can optionally add tags to this workspace resource. Then select **Review and Create**. If the access validation is still running, you can't create the workspace resource yet. Wait for this check to finish, correct any issues, then confirm by selecting **Create**.
 
 :::image source="media/create-workspace/access-check-sml.png" alt-text="Screenshot of access checks running."  lightbox="media/create-workspace/access-check.png":::
 
 > [!NOTE]
-> Discovery resource creation fails if the access checks on any subscription, resource group, or tenant isn't successful.
+> Discovery resource creation fails if the access checks on any subscription or resource group isn't successful.
 
 After the access checks complete successfully, the resource can be deployed as shown in the following sample image.
 
@@ -116,6 +102,39 @@ New-AzStorageDiscoveryWorkspace -Name $workSpaceName  -ResourceGroupName $resGro
 -Sku Standard   -Scope $scope1
 
 ```
+
+### [Azure CLI](#tab/cli)
+
+Create an Azure Storage Discovery workspace resource using CLI.
+
+```cli
+
+az storage-discovery workspace create \
+            --resource-group <your-resource-group> \
+            --name <your-workspace-name> \
+            --location <azure-region> \
+            --workspace-roots "/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>" \
+            --scopes '[{"displayName":"basic","resourceTypes":["Microsoft.Storage/storageAccounts"]}]' \
+            --sku Standard \
+            --description "Optional description"
+
+```
+#### Required parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| resource-group | The resource group where the workspace is created. |
+| name | The name of the workspace. |
+| location | Azure region for deployment. |
+| workspace-roots | The workspace root designates the storage resources to get insights for. This `string[]` can contain a combination of subscription IDs and resource group IDs. You may mix and match these resource types. The identity under which you deploy the workspace [must have permissions](deployment-planning.md#permissions-to-your-storage-resources) to all resources you list at the time of deployment. |
+| scopes | You can create several scopes in a workspace. A scope allows you to filter the storage resources the workspace covers and obtain different reports for each of these scopes. Filtering is based on ARM resource tags on your storage resources. This property expects a `JSON` object containing sections for `tag key name` : `value` combinations or `tag key names` only. When your storage resources have matching ARM resource tags, they're included in this scope. |
+| sku | Pricing tier (Free or Standard). |
+
+#### Optional parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| description | Optional metadata for the workspace. |
 
 ---
 

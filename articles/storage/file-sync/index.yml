@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: kendownie
-  ms.date: 09/08/2022
+  ms.date: 01/29/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -35,8 +35,8 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create/use file shares - Windows
-            url: ../files/storage-files-quick-create-use-windows.md?toc=/azure/storage/file-sync/toc.json
+          - text: Create a classic file share
+            url: ../files/create-classic-file-share.md?toc=/azure/storage/file-sync/toc.json
           - text: Manage your server with Azure File Sync
             url: file-sync-server-registration.md
       - linkListType: tutorial

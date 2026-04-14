@@ -1,4 +1,4 @@
-- name: Azure Automation User Documentation
+- name: Azure Automation Documentation
   href: index.yml
 - name: Overview
   items:
@@ -109,8 +109,6 @@
         href: disable-managed-identity-for-automation.md
       - name: Remove user-assigned managed identity
         href: remove-user-assigned-identity.md
-      - name: Troubleshoot managed identity
-        href: troubleshoot/managed-identity.md
     - name: Run As account
       items:
       - name: Delete Run As account
@@ -163,8 +161,6 @@
       href: python-packages.md
     - name: Manage Python 3 packages
       href: python-3-packages.md
-    - name: Troubleshoot shared resources
-      href: troubleshoot/shared-resources.md
   - name: Process automation
     items:
     - name: Use existing runbooks and modules
@@ -203,12 +199,6 @@
         href: automation-runbook-graphical-error-handling.md
       - name: Forward Azure Automation diagnostic logs to Azure Monitor
         href: automation-manage-send-joblogs-log-analytics.md
-    - name: Troubleshoot runbooks
-      items:
-      - name: Troubleshoot runbook issues
-        href: troubleshoot/runbooks.md
-      - name: Data to collect when opening a case for Microsoft Azure Automation
-        href: troubleshoot/collect-data-microsoft-azure-automation-case.md
     - name: Work with Hybrid Runbook Worker
       items:
       - name: Deploy extension-based worker
@@ -223,10 +213,6 @@
         href: automation-hrw-run-runbooks.md
       - name: Use Azure Policy to enforce job execution
         href: enforce-job-execution-hybrid-worker.md
-      - name: Troubleshoot extension-based worker issues
-        href: troubleshoot/extension-based-hybrid-runbook-worker.md
-      - name: Troubleshoot agent-based worker issues
-        href: troubleshoot/hybrid-runbook-worker.md
     - name: Use source control integration
       href: source-control-integration.md
   - name: Configuration Management
@@ -255,14 +241,10 @@
         href: automation-dsc-diagnostics.md
       - name: Work with State Configuration extension version history
         href: automation-dsc-extension-history.md
-      - name: Troubleshoot State Configuration issues
-        href: troubleshoot/desired-state-configuration.md
   - name: Change Tracking and Inventory using AMA
     items:
     - name: About Change tracking and inventory
       href: change-tracking/overview-monitoring-agent.md
-    - name: Change tracking extension version
-      href: change-tracking/extension-version-details.md
     - name: Supported regions
       href: change-tracking/region-mappings-monitoring-agent.md
     - name: Enable change tracking and inventory
@@ -271,10 +253,10 @@
         href: change-tracking/enable-change-tracking-at-scale-machines-blade.md
       - name: At scale using Azure Policy
         href: change-tracking/enable-change-tracking-at-scale-policy.md
-      - name: At scale using Azure portal - Virtual machines
-        href: change-tracking/enable-vms-monitoring-agent.md
-    - name: Manage change tracking and inventory
-      href: change-tracking/manage-change-tracking-monitoring-agent.md
+      - name: Quickstart - Enable Azure Change Tracking and Inventory
+        href: /azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory?pivots=single-portal
+    - name: Tutorial - Change a workspace and configure Data Collection Rule
+      href: /azure/azure-change-tracking-inventory/tutorial-change-workspace-configure-data-collection-rule?tabs=windows%2Csa-mi
   - name: Migration from Change Tracking and Inventory using LA to Change Tracking using AMA
     items:
     - name: Migration from Log Analytics to Azure Monitoring Agent version
@@ -299,6 +281,24 @@
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
     - name: Automate start/stop of Azure-SSIS IR
       href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-an-azure-automation-runbook-that-starts-and-stops-an-azure-ssis-ir
+- name: Troubleshoot
+  items:
+  - name: Troubleshoot Managed Identity Issues
+    href: troubleshoot/managed-identity.md
+  - name: Troubleshoot Shared Resources Issues
+    href: troubleshoot/shared-resources.md
+  - name: Troubleshoot Runbook Issues
+    href: troubleshoot/runbooks.md
+  - name: Troubleshoot Hybrid Runbook Worker Issues
+    items:
+    - name: Troubleshoot Extension-based Hybrid Runbook Worker Issues
+      href: troubleshoot/extension-based-hybrid-runbook-worker.md
+    - name: Troubleshoot Agent-based Hybrid Runbook Worker Issues
+      href: troubleshoot/hybrid-runbook-worker.md
+  - name: Troubleshoot State Configuration Issues
+    href: troubleshoot/desired-state-configuration.md
+  - name: Data to Collect when Opening a Case for Microsoft Azure Automation
+    href: troubleshoot/collect-data-microsoft-azure-automation-case.md
 - name: Reference
   items:
   - name: Azure CLI
