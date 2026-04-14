@@ -1,157 +1,125 @@
 ---
-title: 'Quickstart: Deploy an existing container image in the Azure portal'
-description: Deploy an existing container image to Azure Container Apps using the Azure portal.
+title: 'Quickstart: Deploy an Existing Container Image in the Azure Portal'
+description: Deploy an existing container image to Azure Container Apps by using the Azure portal.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 10/14/2024
+ms.date: 03/26/2026
 ms.author: cshoe
-zone_pivot_groups: container-apps-registry-types
 ---
 
 # Quickstart: Deploy an existing container image in the Azure portal
 
-Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+Azure Container Apps allows you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
-This article demonstrates how to deploy an existing container to Azure Container Apps using the Azure portal.
+This article demonstrates how to deploy an existing container to Azure Container Apps by using the Azure portal.
 
 > [!NOTE]
 > Private registry authorization is supported via registry username and password.
 
 ## Prerequisites
 
-- Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-## Setup
-
-Begin by signing in to the [Azure portal](https://portal.azure.com).
+- An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a container app
 
 To create your container app, start at the Azure portal home page.
 
-1. Search for **Container Apps** in the top search bar.
-1. Select **Container Apps** in the search results.
-1. Select the **Create** button.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select **Container Apps** in the search bar.
+
+1. Select the **Create** button, then choose **+ Container App**.
 
 ### Basics tab
 
-In the *Basics* tab, do the following actions.
-
-#### Enter project details
+On the **Basics** tab, enter the following information:
 
 | Setting | Action |
 |---|---|
 | Subscription | Select your Azure subscription. |
-| Resource group | Select **Create new** and enter **my-container-apps**. |
-| Container app name | Enter **my-container-app**. |
+| Resource group | Select **Create new** and enter *my-container-apps*. |
+| Container app name | Enter *my-container-app*. |
+| Optimize for Azure Functions | Leave the checkbox unchecked. |
+| Deployment source | Select **Container image**. |
+| Region | Select **Canada Central**. |
+| Container Apps environment | Accept the default. |
 
-#### Create an environment
+Select **Next: Container**.
 
-1. In the *Create Container App environment* field, select **Create new**.
-1. In the *Create Container App Environment* page on the *Basics* tab, enter the following values:
+### Container tab
 
-    | Setting | Value |
-    |---|---|
-    | Environment name | Enter **my-environment**. |
-    | Region | Select **Canada Central**. |
+On the **Container** tab, enter the following information:
 
-1. Select the **Monitoring** tab to create a Log Analytics workspace.
-1. Select **Create new** in the *Log Analytics workspace* field.
-1. Enter **my-container-apps-logs** in the *Name* field of the *Create new Log Analytics Workspace* dialog.
-  
-    The *Location* field is pre-filled with *Canada Central* for you.
-
-1. Select **OK**.
-1. Select the **Create** button at the bottom of the *Create Container App Environment* page.
-1. Select the **Next: App settings** button at the bottom of the page.
-
-### App settings tab
-
-In the *App settings* tab, do the following actions:
-
-::: zone pivot="container-apps-private-registry"
 | Setting | Action |
 |---|---|
-| Use quickstart image | **Uncheck** the checkbox. |
-| Name | Enter **my-portal-app**. |
+| Use quickstart image | Uncheck the checkbox. |
+| Name | Enter *my-portal-app*. |
 | Image source | Select your container image repository source. If your container is hosted in a registry other than **Azure Container Registry**, select **Docker Hub or other registries**. |
-| Image type | Select **Private**. |
-| Registry login server | Enter the domain (including subdomain) of your container registry. |
-| Registry user name | Enter your user name for the registry. |
-| Registry password | Enter your password for the registry. |
-| Image and tag | Enter the image name, including tag. |
-::: zone-end
+| Subscription | Select your Azure subscription. |
+| Registry | Select your registry. |
+| Image and image tag | Enter the image name, including tag. |
 
-::: zone pivot="container-apps-public-registry"
-| Setting | Action |
-|---|---|
-| Use quickstart image | **Uncheck** the checkbox. |
-| Name | Enter **my-portal-app**. |
-| Image source | Select your container image repository source. If your container is hosted in a registry other than **Azure Container Registry**, select **Docker Hub or other registries**. |
-| Registry login server | Enter the domain (including subdomain) of your container registry. |
-| Image type | Select **Public**. |
-| Image and tag | Enter the image name, including tag. |
-::: zone-end
+Select **Next: Ingress**.
 
-#### Application ingress settings
+### Ingress tab
 
 | Setting | Action |
 |---|---|
-| Ingress | Select **Enabled** or **Disabled**. |
+| Ingress | Check or uncheck the checkbox. |
 
-If you enabled ingress, configure the following settings:
+If you checked the box to enable ingress, configure the following settings:
 
 | Setting | Action |
 |---|---|
-| Ingress visibility | Select **Internal** to only allow ingress from other apps in the same virtual network, and select **External** to publicly expose your container app. |
+| Ingress traffic | Select **Limited to Container App Environment** to restrict traffic to this container app. Select **Accepting traffic from anywhere** to publicly expose your container app. |
 | Target port | Enter the port you want to expose your container app. |
 
 ### Deploy the container app
 
-1. Select the **Review and create** button at the bottom of the page.  
+1. Select the **Review and create** button.  
 
-    Next, the settings in the Container App are verified. If no errors are found, the *Create* button is enabled.  
+    If no errors are found, the **Create** button is enabled.  
 
-    If there are errors, any tab containing errors is marked with a red dot. Navigate to the appropriate tab. Fields containing an error is highlighted in red. Once all errors are fixed, select **Review and create** again.
+    If there are errors, any tab containing errors is marked with a red dot. Navigate to the appropriate tab. Fields containing an error are highlighted in red. Once all errors are fixed, select **Review and create** again.
 
 1. Select **Create**.
 
-    A page with the message *Deployment is in progress* is displayed. Once the deployment is successfully completed, you see the message: *Your deployment is complete*.
+    A page with the message **Deployment is in progress** is displayed. Once the deployment is successfully completed, you see the message: **Your deployment is complete**.
 
 ### Verify deployment
 
-You can verify your deployment is successful by querying the Log Analytics workspace. You might need to wait a 5 to 10 minutes for the analytics to arrive for the first time before you're able to query the logs.
-
-After 5 to 10 minutes of creating the container app, follow these steps to view logged messages:
+You can verify your deployment is successful by querying the Log Analytics workspace. You might need to wait 5 to 10 minutes for the analytics to arrive for the first time before you're able to query the logs.
 
 1. Select **Go to resource** to view your new container app.
-1. Select **Logs** under the *Monitoring* header.
-1. Select the **Load to editor** button from any of the cards.
-1. Replace the generated code with the following query:
+
+1. Under **Monitoring**, select **Logs**.
+
+1. Select **KQL mode** from the menu bar.
+
+1. Enter the following query:
 
     ```text
     ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated
     ```
 
 1. Select the **Run** button.
+
 1. Inspect the results in the table.
 
 ## Clean up resources
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
 
-1. Select the **my-container-apps** resource group from the *Overview* section.
-1. Select the **Delete resource group** button at the top of the resource group *Overview*.
-1. Enter the resource group name **my-container-apps** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
-1. Select **Delete**.  
-    The process to delete the resource group might take a few minutes to complete.
+1. Select your resource group from the **Overview** section, then select the **Delete resource group** button.
+
+1. Confirm the resource group name, and then select **Delete**. The process to delete the resource group might take a few minutes to complete.
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Communication between microservices](communicate-between-microservices.md)

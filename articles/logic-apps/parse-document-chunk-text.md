@@ -1,21 +1,21 @@
 ---
 title: Parse Documents and Chunk Text in Workflows
-description: Parse documents and chunk text in logic app workflows for Azure Logic Apps.
+description: Parse documents and chunk text to transform content into tokenized strings for workflows in Azure Logic Apps.
 services: azure-logic-apps
 ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.update-cycle: 180-days
-ms.date: 03/11/2026
-# Customer intent: As an integration developer who uses Azure Logic Apps, I want to parse a document or chunk text for Azure AI Search or Azure OpenAI actions in logic app workflows.
+ms.date: 04/13/2026
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to parse a document or chunk text as tokenized strings for Azure AI Search or Azure OpenAI actions in my workflows.
 ---
 
-# Parse documents and chunk text for AI actions in workflows for Azure Logic Apps
+# Parse documents and chunk text as tokenized strings for workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Sometimes you have to convert content into tokens, which are words or chunks of characters, or divide a large document into smaller pieces before you can use this content with some actions. For example, the **Azure AI Search** or **Azure OpenAI** actions expect tokenized input and can handle only a limited number of tokens.
+Sometimes you have to convert content into tokens, which are words or chunks of characters, or divide a large document into smaller pieces before you can use this content with specific actions. For example, the **Azure AI Search** or **Azure OpenAI** actions expect tokenized input and can handle only a limited number of tokens.
 
 For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your logic app workflow. These actions respectively transform content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens. You can then reference and use these outputs with subsequent actions in your workflow.
 
@@ -35,7 +35,24 @@ This guide shows how to add and set up actions for parsing documents and chunkin
 
 ## Known issues and limitations
 
-The **Parse a document** and **Chunk text** actions currently don't support host files, for example, mainframe and midrange binary files such as Virtual Storage Access Method (VSAM) files. However, if you're working with Standard workflows, you can use the [**IBM Host File** built-in action named **Parse Host File Contents**](/azure/connectors/integrate-host-files-ibm-mainframe) instead.
+- In Consumption workflows, the **Parse a document** action is available only in the following Azure regions:
+
+  - Australia East
+  - Brazil South
+  - East Asia
+  - East US
+  - East US 2
+  - North Europe
+  - South Central US
+  - Southeast Asia
+  - Sweden Central
+  - West US 2
+  - West US 3
+  - UK South
+
+  These regions provide data source connections, document tracking, document chunking, support for Azure OpenAI embedding models, and built-in indexing support for pulling data. For more information, see [Automate indexing in AI Search with workflows in Azure Logic Apps](/azure/search/search-how-to-index-logic-apps#supported-regions).
+
+- The **Parse a document** and **Chunk text** actions currently don't support host files, for example, mainframe and midrange binary files such as Virtual Storage Access Method (VSAM) files. However, if you're working with Standard workflows, you can use the [**IBM Host File** built-in action named **Parse Host File Contents**](/azure/connectors/integrate-host-files-ibm-mainframe) instead.
 
 ## Prerequisites
 

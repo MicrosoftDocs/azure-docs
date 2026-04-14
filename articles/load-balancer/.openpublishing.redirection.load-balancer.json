@@ -468,6 +468,46 @@
             "source_path_from_root": "/articles/load-balancer/load-balancer-multiple-ip-powershell.md",
             "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/load-balancer/load-balancer-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-troubleshoot-backend-traffic.md",
+            "redirect_url": "/troubleshoot/azure/load-balancer/load-balancer-troubleshoot-backend-traffic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-troubleshoot-health-probe-status.md",
+            "redirect_url": "/troubleshoot/azure/load-balancer/load-balancer-troubleshoot-health-probe-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-troubleshoot-health-event-logs.md",
+            "redirect_url": "/troubleshoot/azure/load-balancer/load-balancer-troubleshoot-health-event-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/troubleshoot-outbound-connection.md",
+            "redirect_url": "/troubleshoot/azure/load-balancer/troubleshoot-outbound-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/troubleshoot-load-balancer-imds.md",
+            "redirect_url": "/troubleshoot/azure/load-balancer/troubleshoot-load-balancer-imds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/troubleshoot-rhc.md",
+            "redirect_url": "/troubleshoot/azure/load-balancer/troubleshoot-rhc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-common-deployment-errors.md",
+            "redirect_url": "/troubleshoot/azure/load-balancer/load-balancer-common-deployment-errors",
+            "redirect_document_id": false
         }
     ]
 }

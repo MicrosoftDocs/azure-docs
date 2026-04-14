@@ -34,7 +34,9 @@ To configure any of the supported providers in API Management, first configure a
 
 * Depending on the provider and your scenario, you might need to retrieve other settings, like authorization endpoint URLs or scopes.
 
-* The provider's authorization endpoints must be reachable over the internet from your API Management instance. If your API Management instance is secured in a virtual network, configure network or firewall rules to allow access to the provider's endpoints.
+* The provider's authorization endpoints must be reachable over the internet from your API Management instance. If your API Management instance is secured in a virtual network, configure network or firewall rules to allow access to the provider's endpoints. 
+
+    Additionally, requests for tokens need to go out of the customer's network to the credential manager endpoint, which remains in a Microsoft network. To reach the credential manager endpoint, allow outbound access from the virtual network to the **AzureConnections** service tag on port 443.
 
 ## Microsoft Entra provider
 

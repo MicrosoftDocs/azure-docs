@@ -214,8 +214,8 @@ To use VM Image Builder with Azure Compute Gallery, you need a gallery and an im
          "source": {
             "type": "PlatformImage",
             "publisher": "MicrosoftWindowsDesktop",
-            "offer": "Windows-11",
-            "sku": "win11-21h2-ent",
+            "offer": "windows-ent-cpc",
+            "sku": "win11-25h2-ent-cpc",
             "version": "latest"
          },
            "customize": [

@@ -129,12 +129,12 @@ landingContent:
     linkLists:
         - linkListType: how-to-guide
           links:
-          - text: Troubleshoot Azure Load Balancer
-            url: /azure/load-balancer/load-balancer-troubleshoot
+          - text: Support and troubleshooting for Azure Load Balancer
+            url: /azure/load-balancer/load-balancer-support-help
           - text: Testing reachability of Azure Load Balancer
             url: /azure/load-balancer/load-balancer-test-frontend-reachability
-          - text: Troubleshoot Azure Load Balancer health probe status
-            url: /azure/load-balancer/load-balancer-troubleshoot-health-probe-status
+          - text: Azure Load Balancer troubleshooting documentation
+            url: /troubleshoot/azure/load-balancer/welcome-azure-load-balancer
   # Card
   - title: Related load balancing and content delivery services
     linkLists:

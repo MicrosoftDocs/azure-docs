@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 06/17/2025
+ms.date: 04/10/2026
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -45,7 +45,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 | Outbound | VirtualNetwork | * | Internet | 80                  |  TCP | Allow  | **Validation and management of Microsoft-managed and customer-managed certificates**      | External & Internal  |
 | Outbound | VirtualNetwork | * | Storage | 443                  |  TCP                | Allow             | **Dependency on Azure Storage**                             | External & Internal  |
 | Outbound | VirtualNetwork |  * | AzureActiveDirectory | 443                             | TCP                | Allow | [Microsoft Entra ID, Microsoft Graph,](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
-| Outbound | VirtualNetwork | * | AzureConnectors | 443                  |  TCP                | Allow | [managed connections](credentials-overview.md) dependency (optional)              | External & Internal  |
+| Outbound | VirtualNetwork | * | AzureConnectors | 443                  |  TCP                | Allow | [API Management credential manager endpoint](credentials-overview.md) dependency (optional)              | External & Internal  |
 | Outbound | VirtualNetwork | * | Sql | 1433                     |  TCP                | Allow          | **Access to Azure SQL endpoints**                           | External & Internal  |
 | Outbound | VirtualNetwork | * | AzureKeyVault | 443                     |  TCP                | Allow                | **Access to Azure Key Vault**                         | External & Internal  |
 | Outbound | VirtualNetwork | * | EventHub | 5671, 5672, 443          |  TCP                | Allow            | Dependency for [Log to Azure Event Hubs policy](api-management-howto-log-event-hubs.md) and [Azure Monitor](api-management-howto-use-azure-monitor.md) (optional) | External & Internal  |
