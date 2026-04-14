@@ -217,7 +217,7 @@ items:
     - name: Log Analytics
       href: ./ag/log-analytics.md
     - name: Troubleshoot
-      href: ./ag/web-application-firewall-troubleshoot.md
+      href: /troubleshoot/azure/web-application-firewall/web-application-firewall-troubleshoot
   - name: Front Door
     items:
     - name: Best practices

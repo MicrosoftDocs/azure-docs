@@ -17,7 +17,16 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## April 2026
+
+## April 2026 
+
+* [Advanced ransomware protection](ransomware-configure.md) is now generally available (GA)
+
+    Azure NetApp Files advanced ransomware protection is designed to help organizations proactively detect, respond to, and recover from ransomware threats on cloud volumes. Advanced ransomware protection monitors Azure NetApp Files volumes for suspicious activity using file extension profiling, entropy, and I/OPS patterns. When a threat is detected, the system creates a point-in-time snapshot, enabling rapid evaluation and recovery. Notifications are sent through the Azure Activity log, and attack reports are retained for 30 days. 
+
+* [User and group quota reporting](generate-user-group-quota-reports.md) is now generally available (GA)
+
+    If you're using individual user and group quotas in Azure NetApp Files to manage capacity on NFS, SMB, and dual-protocol volumes, the user and group quota reporting feature now offers clear visibility into key metrics such as quota limits, used capacity, and percentage utilization for each target user and quota rule. Administrators can generate quota usage reports and modify quota rules directly within the Azure portal for any volume with quota rules, removing the previous dependency on host-based tools and the need to mount the volume for reporting.
 
 * [Secure object REST API access using Azure Key Vault certificates and credentials](object-rest-api-access-configure.md) (preview)
 

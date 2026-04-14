@@ -80,7 +80,21 @@ A horizontal stacked bar chart breaks down incidents by severity level. Each bar
 
 ### Response plan performance
 
-Below the charts, a **Response Plan Performance** grid shows per-plan metrics with seven sortable columns.\n\n| Column | Description |\n|--------|-------------|\n| **Response Plan Name** | Select to filter the entire dashboard to this plan |\n| **Mode** | Autonomy level badge (Autonomous, Copilot, and so on) |\n| **Incidents** | Distinct incident count |\n| **Agent Mitigated** | Count of autonomous resolutions |\n| **Success Rate** | Percentage with color coding |\n| **Avg TTM** | Average time to mitigate |\n| **Quality** | Star rating plus numeric Intent Met score |\n\nSelect any row to filter the entire dashboard. All KPI cards, charts, and the treemap update to show data for only that response plan. A back arrow appears at the top. Select it to return to the overview.\n\nThis grid is where you make decisions. You can see at a glance which plans run in [Autonomous mode](run-modes.md) and resolve incidents without human involvement versus plans in Review mode that still require approval. If a plan consistently shows a low success rate, adjust the response plan's instructions or increase its autonomy level.
+Below the charts, a **Response Plan Performance** grid shows per-plan metrics with seven sortable columns.
+
+| Column | Description |
+|--------|-------------|
+| **Response Plan Name** | Select to filter the entire dashboard to this plan |
+| **Mode** | Autonomy level badge (Autonomous, Copilot, and so on) |
+| **Incidents** | Distinct incident count |
+| **Agent Mitigated** | Count of autonomous resolutions |
+| **Success Rate** | Percentage with color coding |
+| **Avg TTM** | Average time to mitigate |
+| **Quality** | Star rating plus numeric Intent Met score |
+
+Select any row to filter the entire dashboard. All KPI cards, charts, and the treemap update to show data for only that response plan. A back arrow appears at the top. Select it to return to the overview.
+
+This grid is where you make decisions. You can see at a glance which plans run in [Autonomous mode](run-modes.md) and resolve incidents without human involvement versus plans in Review mode that still require approval. If a plan consistently shows a low success rate, adjust the response plan's instructions or increase its autonomy level.
 
 ### Intent Met score
 

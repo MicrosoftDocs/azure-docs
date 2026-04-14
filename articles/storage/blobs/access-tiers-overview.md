@@ -94,7 +94,7 @@ Migrating a storage account from LRS to GRS is supported as long as no blobs wer
 
 ## Minimum billable object size on cooler tiers
 
-For storage accounts that use Azure Blob Storage or Azure Data Lake Storage, a minimum billable object size of **128 KiB** applies to objects stored in the **cool**, **cold**, and archive access tiers. Objects in these tiers that are smaller than 128 KiB are billed as 128 KiB objects at the rate for the corresponding tier. Billing uses the existing capacity billing meters (data stored), and there is no change to transaction billing.
+For storage accounts that use Azure Blob Storage or Azure Data Lake Storage, a minimum billable object size of **128 KiB** applies to objects stored in the **cool**, **cold**, and **archive** access tiers. Objects in these tiers that are smaller than 128 KiB are billed as 128 KiB objects at the rate for the corresponding tier. Billing uses the existing capacity billing meters (data stored), and there is no change to transaction billing.
 
 This billing behavior will be introduced in two stages:
 
@@ -103,7 +103,7 @@ This billing behavior will be introduced in two stages:
 
 The creation time of a storage account, which is part of the account-level metadata, determines which stage applies.
 
-The **hot** access tier continues to have no minimum object size. To reduce potential cost impact, consider [packaging small objects into larger objects](access-tiers-best-practices.md#pack-small-files-before-moving-data-to-cooler-tiers) before moving data to cooler tiers, or using [smart tier](access-tiers-smart.md) to automatically keep small objects on the hot access tier.
+The **hot** access tier continues to have no minimum billable object size. To reduce potential cost impact, consider [packaging small objects into larger objects](access-tiers-best-practices.md#pack-small-files-before-moving-data-to-cooler-tiers) before moving data to cooler tiers, or using [smart tier](access-tiers-smart.md) to automatically keep small objects on the hot access tier.
 
 To support this change, the **Blob Capacity** metrics in the Azure portal will introduce new blob types: **BlockBlobSmall** and Azure **Data Lake Storage Small**.
 

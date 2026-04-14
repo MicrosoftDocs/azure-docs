@@ -50,7 +50,7 @@ Information in the following table is updated regularly. Capacity availability i
 | South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |
-| Sweden Central | ✅ | ✅ | | |
+| Sweden Central | ✅ | ✅ | ✅ | |
 | South India | ✅ | ✅ |  |  |
 | Switzerland North | ✅ |✅ |  | |
 | UAE North | ✅ | ✅ | |  |
@@ -59,6 +59,7 @@ Information in the following table is updated regularly. Capacity availability i
 | West Europe  | ✅ | ✅ | | ✅ |
 | West US | ✅ | ✅ |  | ✅ |
 | West US 2 | ✅ | ✅ |  | |
+| West US 3 | | ✅ |  | |
 
 ¹ New instance creation temporarily unavailable. See the capacity limitation note above.
 

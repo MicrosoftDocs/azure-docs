@@ -1,12 +1,12 @@
 ---
 ms.assetid: 
 title: Include file
-description: Include file with notes on end of support information for Windows Server 2008 and 2008 R2.
+description: Include file with notes on end of life information for Windows Server 2008 and 2008 R2.
 author: RochakSingh-blr
 ms.author: v-rochak2
-ms.date: 03/12/2026
+ms.date: 03/13/2026
 ms.topic:  Include
-
+ms.service: azure-automation
 
 ---
 > [!NOTE]

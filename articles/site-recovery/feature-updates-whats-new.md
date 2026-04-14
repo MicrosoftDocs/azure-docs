@@ -5,7 +5,7 @@ ms.topic: concept-article
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 06/13/2025
+ms.date: 04/14/2026
 # Customer intent: "As a disaster recovery manager, I want to stay informed about the latest updates in Azure Site Recovery features, so that I can ensure optimal protection and monitoring of our critical workloads."
 ---
 
@@ -14,6 +14,12 @@ ms.date: 06/13/2025
 The Azure Site Recovery service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest feature releases. This page is updated regularly.
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
+
+## Updates (April 2026)
+
+### Azure Site Recovery support for Windows Azure VMs with NVMe disk controllers (Preview)
+
+Azure Site Recovery now supports replication and disaster recovery for Windows Azure Virtual Machines running on NVMe-enabled Generation 2 VM families, such as the Da/Ea/Fa v6-series and Ebsv5/Ebdsv5 in the Azure-to-Azure scenario. This enhancement allows you to enable disaster recovery for your Azure VMs running high performance, I/O-intensive workloads (subject to ASR churn support) with the NVMe disk controller. This capability is supported across all Azure public cloud regions. [Learn more](azure-to-azure-support-matrix.md).
 
 ## Updates (June 2025)
 
