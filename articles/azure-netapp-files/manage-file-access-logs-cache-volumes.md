@@ -20,7 +20,8 @@ File access logs provide file access logging for individual volumes, capturing f
 ## Considerations
 
 >[!IMPORTANT]
->The file access logs feature is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
+> * The file access logs feature is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
+> * The file access logs feature is only supported on cache volumes from API version 2026-04-01 and onwards.
 
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
