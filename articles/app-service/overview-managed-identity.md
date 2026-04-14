@@ -2,7 +2,7 @@
 title: Managed Identities
 description: Learn how managed identities work in Azure App Service and Azure Functions and how to configure a managed identity and generate a token for a back-end resource.
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 04/14/2026
 ms.reviewer: yevbronsh,mahender
 author: cephalin
 ms.author: cephalin
@@ -450,7 +450,7 @@ The `IDENTITY_ENDPOINT` variable is a local URL from which your app can request 
 > | `client_id`         | Query  | (Optional) The client ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used. |
 > | `principal_id`      | Query  | (Optional) The principal ID of the user-assigned identity to be used. The `object_id` parameter is an alias that can be used instead. It can't be used on a request that includes `client_id`, `mi_res_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
 > | `mi_res_id`         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used. |
-
+>
 > [!IMPORTANT]
 > If you're trying to get tokens for user-assigned identities, include one of the optional properties. Otherwise, the token service tries to get a token for a system-assigned identity, which might or might not exist.
 
