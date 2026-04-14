@@ -7,7 +7,7 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/13/2025
 ms.author: jacobjaygbay
-# Customer intent: As a cloud engineer, I want to automate the provisioning and management of Oracle Database resources on Azure using HashiCorp Terraform, enabling efficient, repeatable, and scalable infrastructure deployment and configuration management.
+# Customer intent: As a cloud engineer, I want to automate the provisioning and management of Oracle AI Database resources on Azure using HashiCorp Terraform, enabling efficient, repeatable, and scalable infrastructure deployment and configuration management.
 ---
 
 # Oracle Exadata Database on dedicated infrastructure logs on Azure for Enhanced Observability
@@ -40,7 +40,7 @@ the Azure portal provides a broad range of benefits, including:
 ## 1. Centralized Monitoring and Management
 
 - **Unified view** of logs from various Azure services (for example, VMs, App
-  Services, AKS, and Oracle Databases@Azure).
+  Services, AKS, and Oracle AI Databases@Azure).
 
 - Simplifies troubleshooting by correlating logs across services in one
   place.
@@ -100,7 +100,7 @@ the Azure portal provides a broad range of benefits, including:
 
 ## Prerequisites
 
-- Oracle Database@Azure provisioned: Deploy an Exadata virtual machine
+- Oracle AI Database@Azure provisioned: Deploy an Exadata virtual machine
   (VM) cluster in a delegated subnet in an Azure virtual network. First,
   we need to create an Exadata Infrastructure.
 
