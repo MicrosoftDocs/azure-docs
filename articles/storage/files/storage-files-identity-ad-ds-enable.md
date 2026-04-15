@@ -250,7 +250,7 @@ $StorageAccountName = "<StorageAccountName>"
 $ComputerName = "<ComputerAccountName>"           # Base computer account name, without trailing $
 $ComputerSam = "$ComputerName`$"                  # Computer account sAMAccountName
 
-$DomainDNSRoot = "<domain.com>"
+$DomainDNSRoot = "<domain-dns-root>"
 $DomainNetBIOS = "<domain>"
 $ForestName = "<forest-name>"
 $DomainGuid = "<domain-guid>"
@@ -266,7 +266,7 @@ setspn -S cifs/$StorageAccountName.file.core.windows.net $ComputerSam
 
 # STEP 3 – Set password (AD team)
 $SecurePassword = ConvertTo-SecureString $KerbKey -AsPlainText -Force
-Set-ADAccountPassword -Identity $ComputerIdentity -Reset -NewPassword $SecurePassword
+Set-ADAccountPassword -Identity $ComputerSam -Reset -NewPassword $SecurePassword
 
 # STEP 4 – Enable AD DS authentication (Azure team)
 Set-AzStorageAccount `
@@ -283,7 +283,7 @@ Set-AzStorageAccount `
     -ActiveDirectoryAccountType "Computer"
 
 # STEP 5 – Configure AES-256 encryption (AD team - recommended)
-Set-ADComputer -Identity $ComputerName -KerberosEncryptionType "AES256"
+Set-ADComputer -Identity $ComputerSam -KerberosEncryptionType "AES256"
 
 # STEP 6 – Regenerate Kerberos key (Azure team)
 New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName kerb1
@@ -293,6 +293,7 @@ $KerbKey = (Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name 
 $SecurePassword = ConvertTo-SecureString $KerbKey -AsPlainText -Force
 Set-ADAccountPassword -Identity $ComputerSam -Reset -NewPassword $SecurePassword
 ```
+
 ### [Service logon account (user)](#tab/user-account)
 
 ```powershell
