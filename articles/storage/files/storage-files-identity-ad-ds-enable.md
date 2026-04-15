@@ -247,8 +247,8 @@ This section provides a consolidated, script-based approach for manual configura
 # VARIABLES
 $ResourceGroupName = "<ResourceGroupName>"
 $StorageAccountName = "<StorageAccountName>"
-$ComputerName = "<ComputerAccountName>"   # WITHOUT trailing $
-$ComputerSam = "$ComputerName`$"
+$ComputerName = "<ComputerAccountName>"           # Base computer account name, without trailing $
+$ComputerSam = "$ComputerName`$"                  # Computer account sAMAccountName
 
 $DomainDNSRoot = "<domain.com>"
 $DomainNetBIOS = "<domain>"
@@ -256,7 +256,6 @@ $ForestName = "<forest-name>"
 $DomainGuid = "<domain-guid>"
 $DomainSid = "<domain-sid>"
 $StorageSid = "<storage-account-sid>"
-$DomainController = "<domain-controller>"
 
 # STEP 1 – Generate Kerberos key (Azure team)
 New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName kerb1
@@ -267,7 +266,7 @@ setspn -S cifs/$StorageAccountName.file.core.windows.net $ComputerSam
 
 # STEP 3 – Set password (AD team)
 $SecurePassword = ConvertTo-SecureString $KerbKey -AsPlainText -Force
-Set-ADAccountPassword -Identity $ComputerSam -Reset -NewPassword $SecurePassword
+Set-ADAccountPassword -Identity $ComputerIdentity -Reset -NewPassword $SecurePassword
 
 # STEP 4 – Enable AD DS authentication (Azure team)
 Set-AzStorageAccount `
@@ -280,7 +279,7 @@ Set-AzStorageAccount `
     -ActiveDirectoryDomainGuid $DomainGuid `
     -ActiveDirectoryDomainSid $DomainSid `
     -ActiveDirectoryAzureStorageSid $StorageSid `
-    -ActiveDirectorySamAccountName $ComputerName `
+    -ActiveDirectorySamAccountName $ComputerSam `
     -ActiveDirectoryAccountType "Computer"
 
 # STEP 5 – Configure AES-256 encryption (AD team - recommended)
@@ -302,13 +301,12 @@ $ResourceGroupName = "<ResourceGroupName>"
 $StorageAccountName = "<StorageAccountName>"
 $UserSamAccountName = "<UserSamAccountName>"
 
-$DomainDNSRoot = "<domain-dns-root>"
+$DomainDNSRoot = "<domain.com>"
 $DomainNetBIOS = "<domain-netbios-name>"
 $ForestName = "<forest-name>"
 $DomainGuid = "<domain-guid>"
 $DomainSid = "<domain-sid>"
 $StorageSid = "<storage-account-sid>"
-$DomainController = "<domain-controller>"
 
 # STEP 1 – Generate Kerberos key (Azure team)
 New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName kerb1
