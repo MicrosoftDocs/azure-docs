@@ -1,19 +1,19 @@
 ---
 title: Delegated subnet limits
-description: Learn about Delegated subnet limits for Oracle Database@Azure.
+description: Learn about Delegated subnet limits for Oracle AI Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
-# Customer intent: As a network administrator, I want to understand delegated subnet limits for Oracle Database@Azure, so that I can effectively manage and plan my cloud network resources.
+# Customer intent: As a network administrator, I want to understand delegated subnet limits for Oracle AI Database@Azure, so that I can effectively manage and plan my cloud network resources.
 ---
 
 # Delegated subnet limits 
 
-In this article, you learn about delegated subnet limits for Oracle Database@Azure.
+In this article, you learn about delegated subnet limits for Oracle AI Database@Azure.
 
-Oracle Database@Azure infrastructure resources are connected to your Azure virtual network using a virtual NIC from your [delegated subnets](/azure/virtual-network/subnet-delegation-overview) (delegated to `Oracle.Database/networkAttachment`). By default, the Oracle Database@Azure service can use up to five delegated subnets. If you need more delegated subnet capacity, you can request a service limit increase.
+Oracle AI Database@Azure infrastructure resources are connected to your Azure virtual network using a virtual NIC from your [delegated subnets](/azure/virtual-network/subnet-delegation-overview) (delegated to `Oracle.Database/networkAttachment`). By default, the Oracle AI Database@Azure service can use up to five delegated subnets. If you need more delegated subnet capacity, you can request a service limit increase.
 
 ## Service limits in the OCI Console
 
@@ -25,10 +25,10 @@ When submitting a service limit increase, note the following:
 
 -   The service name is `Multicloud`.
 -   The resource name is `Delegated Subnet Multicloud Links`.
--   The  service limit name for Oracle Database@Azure delegated subnets is `azure-delegated-subnet-count`.
+-   The  service limit name for Oracle AI Database@Azure delegated subnets is `azure-delegated-subnet-count`.
 -   The limit is applied at the regional level.
 
 ## Next steps
 
-[Network planning for Oracle Database@Azure](oracle-database-network-plan.md) in the Azure documentation for information about network topologies and constraints for Oracle Database@Azure.
+[Network planning for Oracle AI Database@Azure](oracle-database-network-plan.md) in the Azure documentation for information about network topologies and constraints for Oracle AI Database@Azure.
 

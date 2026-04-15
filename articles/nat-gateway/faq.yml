@@ -275,7 +275,7 @@ sections:
       
       - question: Can I use a NAT gateway with Azure Kubernetes Service? 
         answer: |
-          Yes. Standard NAT Gateway can be used as either a Managed NAT Gateway or user-assigend NAT Gateway. StandardV2 NAT Gateway can only be used as a user-assigned NAT Gateway. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway](/azure/aks/nat-gateway).
+          Yes. StandardV2 and Standard NAT Gateway can be deployed with either a Managed NAT Gateway or user-assigned NAT Gateway. StandardV2 NAT Gateway can only be used as a user-assigned NAT Gateway. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway](/azure/aks/nat-gateway).
 
       - question: When is NAT gateway used to connect from my AKS cluster to the AKS API server?
         answer: |
