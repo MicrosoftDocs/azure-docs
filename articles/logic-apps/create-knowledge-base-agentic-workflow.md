@@ -24,21 +24,24 @@ ms.date: 04/14/2026
 
 Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. By using the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge base* that agent loops in agentic workflows can use to complete tasks. A knowledge base is a logical *container* that organizes related knowledge sources such as documents or files related to a specific domain.
 
-For example, you might create a knowledge base that contains all the documents related to HR policies and procedures. When you create a knowledge base, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
+For example, you might create a knowledge base that contains all the documents related to HR policies and procedures. When you create a knowledge base, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies. For more information, see [Azure Cosmos DB databases, containers, and items](/azure/cosmos-db/resource-model#azure-cosmos-db-containers.md).
 
-This guide shows how to create a *knowledge base*, upload knowledge sources, and add the knowledge base as a tool that an agent loop can use in a Standard agentic workflow. For more information, see [Azure Cosmos DB databases, containers, and items](/azure/cosmos-db/resource-model#azure-cosmos-db-containers.md).
+This guide shows how to create a *knowledge base*, upload knowledge sources, and add the knowledge base as a tool that an agent loop can use in a Standard agentic workflow.
 
 ## Limitations
 
-This release currently supports only the following capabilities:
+This preview release has the following limitations:
 
-- Uploaded files as the source type for knowledge artifacts.
+- This preview supports the following capabilities:
 
-- Files with the following formats: DOC, DOCX, HTML, MD, PDF, PPT, PPTX, TXT, XLS, XLSX.
+  - Uploaded files as the source type for knowledge artifacts.
+  - Files with the following formats: DOC, DOCX, HTML, MD, PDF, PPT, PPTX, TXT, XLS, XLSX.
+  - Text-based content parsing in documents, not images.
+  - Default chunking settings, not custom chunking.
 
-- Text-based content parsing in documents, not images.
+- After you create your knowledge base connection, you can edit only the display names for the connection and Azure OpenAI models. You can't edit any other values such as the authentication type or endpoint information.
 
-- Default chunking settings, not custom chunking.
+- Only the Azure portal is currently supported for this capability.
 
 ## How a knowledge base works
 
@@ -58,24 +61,19 @@ The KBaaS has the following pipelines:
 
   - Your resource needs the following deployed models:
 
-    - A completions model, such as **gpt-4o**
-    - An embeddings model, such as **text-embedding-3-small**
+    - A completions model, such as **gpt-4o**.
+    - An embeddings model, such as **text-embedding-3-small**.
 
-  - To work in Visual Studio Code, you need the following values from your OpenAI resource to connect your Azure OpenAI resource and knowledge base:
+- An Azure Cosmos DB for NoSQL account.
 
-    - API endpoint URL
-    - API key resource. See [Authentication](#authentication).
+  - Before you create your knowledge base, [enable vector search](/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) on your Cosmos DB account. This operation might take up to 15 minutes before completion.
 
-- An Azure Cosmos DB for NoSQL account. For more information, see [Quickstart: Create an Azure Cosmos DB for NoSQL account using the Azure portal](/azure/cosmos-db/quickstart-portal).
+    For more information, see:
+  
+    - [Quickstart: Create an Azure Cosmos DB for NoSQL account using the Azure portal](/azure/cosmos-db/quickstart-portal)
+    - [Vector search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/vector-search)
 
-  - Before you create your knowledge base, [enable vector search](/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) on your Cosmos DB account. This operation might take up to 15 minutes before completion. For more information, see [Vector search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/vector-search).
-
-  - To work in Visual Studio Code, you need the following values from your Cosmos database to connect your database and knowledge base:
-
-    - Endpoint URL
-    - Access key. See [Authentication](#authentication).
-
-- A Standard logic app and agentic workflow. You can work on either the logic app resource in the Azure portal or project in Visual Studio Code.
+- A Standard logic app and agentic workflow.
 
   For more information, see:
 
@@ -84,7 +82,7 @@ The KBaaS has the following pipelines:
 
 ## Authentication
 
-The KBaaS capability supports authentication by using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) or an API key. If possible, [set up and use a managed identity](/azure/logic-apps/authenticate-with-managed-identity) for optimal and superior security. You don't have to manually provide and manage credentials, secrets, or access keys. After you enable managed identity authentication, in the `knowledgeHubConnections` JSON object described in this guide, update the corresponding `authentication` sections.
+The KBaaS capability supports authentication by using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) or an API key. If possible, [set up and use a managed identity](/azure/logic-apps/authenticate-with-managed-identity) for optimal and superior security. You don't have to manually provide and manage credentials, secrets, or access keys.
 
 If you use an API key, secure and protect sensitive and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information with the highest available or supported level of security. Securely store such information by using Microsoft Entra ID and [Azure Key Vault](/azure/key-vault/general/overview). Don't hardcode this information, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets in case they become compromised.
 
@@ -96,11 +94,9 @@ For more information, see the following resources:
 
 ## 1: Create the knowledge base connection
 
-Based on whether you're working in the Azure portal or Visual Studio Code, follow the corresponding steps to create the knowledge base connection by associating your Cosmos database and Azure OpenAI resource models:
+To create the knowledge base connection, associate your Cosmos database and Azure OpenAI resource models by following these steps:
 
-### [Azure portal](#tab/portal)
-
-#### 1a: Set up the Cosmos database connection
+### 1a: Set up the Cosmos database connection
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -121,7 +117,7 @@ Based on whether you're working in the Azure portal or Visual Studio Code, follo
 
 1. When you finish, select **Next**.
 
-#### 1b: Set up the Azure OpenAI resource connection
+### 1b: Set up the Azure OpenAI resource connection
 
 1. On the **Model** tab, provide the following information:
 
@@ -137,16 +133,12 @@ Based on whether you're working in the Azure portal or Visual Studio Code, follo
 
 1. When you finish, select **Create**.
 
+<!---
 ### [Visual Studio Code](#tab/visual-studio-code)
-
-#### 
-follow the steps to open the *connections.json* file.
-
 
 ####: Set up the connection
 
 After you add the app settings, set up the knowledge base connection in your logic app's *connections.json* file. This connection defines the OpenAI models and Cosmos DB account that the knowledge base uses.
-
 
 1. Open your logic app project workspace.
 
@@ -167,7 +159,6 @@ After you add the app settings, set up the knowledge base connection in your log
    | **agent_openAIKey** | The OpenAI resource access key. |
    | **cosmosdbEndpoint** | The Cosmos DB account endpoint URL. |
    | **cosmosdbKey** | The Cosmos DB account access key. |
-
 
    ```json
    {
@@ -209,7 +200,7 @@ After you add the app settings, set up the knowledge base connection in your log
    }
     ```
 
----
+--->
 
 <a name="add-knowledge-artifacts"></a>
 
