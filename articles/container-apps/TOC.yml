@@ -236,7 +236,7 @@ items:
           href: troubleshooting.md
         - name: Errors and failures
           items:
-            - name: Container create
+            - name: Container exits
               href: troubleshoot-container-create-failures.md
             - name: Open Container Initiative (OCI)
               href: troubleshoot-open-container-initiative-errors.md

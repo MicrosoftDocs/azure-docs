@@ -1,6 +1,145 @@
 {
   "redirections": [
     {
+      "source_path": "articles/web-application-firewall/ag/web-application-firewall-troubleshoot.md",
+      "redirect_url": "/troubleshoot/azure/web-application-firewall/web-application-firewall-troubleshoot",
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/concepts-machine-learning.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/concepts-machine-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/concepts-power-bi.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/concepts-power-bi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/concepts-teams.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/concepts-teams",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/configure-metrics.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/configure-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/deploy-arm-template.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/deploy-arm-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/deploy-bicep-powershell-cli.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/deploy-bicep-powershell-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/deploy-choose-method.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/deploy-choose-method",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/deploy-json-powershell-cli.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/deploy-json-powershell-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/deploy-manual-portal.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/deploy-manual-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/device-messages-through-iot-hub.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/device-messages-through-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/frequently-asked-questions.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/frequently-asked-questions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/get-started.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/git-projects.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/git-projects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/how-to-enable-diagnostic-settings.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/how-to-enable-diagnostic-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/how-to-use-calculatedcontent-templates.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/how-to-use-calculatedcontent-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/how-to-use-custom-functions.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/how-to-use-custom-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/how-to-use-iotjsonpathcontent-templates.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/how-to-use-iotjsonpathcontent-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/how-to-use-mapping-debugger.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/how-to-use-mapping-debugger",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/how-to-use-monitoring-and-health-checks-tabs.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/how-to-use-monitoring-and-health-checks-tabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/index.yml",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/overview-of-device-data-processing-stages.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/overview-of-device-data-processing-stages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/overview-of-device-mapping.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/overview-of-device-mapping",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/overview-of-fhir-destination-mapping.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/overview-of-fhir-destination-mapping",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/overview-of-samples.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/overview-of-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/overview.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/troubleshoot-errors-deployment.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/troubleshoot-errors-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/iot/troubleshoot-errors-logs.md",
+      "redirect_url": "/previous-versions/azure/healthcare-apis/iot/troubleshoot-errors-logs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sentinel/datalake/sentinel-mcp-chatgpt-connector.md",
       "redirect_url": "/azure/sentinel/datalake/sentinel-mcp-chatgpt-claude-connector",
       "redirect_document_id": false

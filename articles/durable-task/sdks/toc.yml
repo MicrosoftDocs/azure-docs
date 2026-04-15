@@ -21,6 +21,14 @@
     href: ../scheduler/quickstart-work-item-filtering-durable-task.md?toc=/azure/durable-task/sdks/toc.json
 - name: Concepts
   items:
+  - name: AI and agents
+    items:
+    - name: Overview
+      href: durable-task-for-ai-agents.md
+    - name: Agentic application patterns
+      href: durable-agents-patterns.md
+    - name: Microsoft Agent Framework extension (Preview)
+      href: durable-agents-microsoft-agent-framework.md
   - name: Fundamentals
     items:
     - name: Programming model
@@ -29,6 +37,8 @@
       href: ../common/durable-task-orchestrations.md?pivots=durable-task-sdks&toc=/azure/durable-task/sdks/toc.json
     - name: Sub-orchestrations
       href: ../common/durable-task-sub-orchestrations.md?pivots=durable-task-sdks&toc=/azure/durable-task/sdks/toc.json
+    - name: Task hubs
+      href: ../common/durable-task-hubs.md?pivots=durable-task-sdks&toc=/azure/durable-task/sdks/toc.json
     - name: Durable entities
       href: ../common/durable-task-entities.md?pivots=durable-task-sdks&toc=/azure/durable-task/sdks/toc.json
     - name: Timers and timeouts
@@ -67,6 +77,8 @@
       href: ../common/durable-task-error-handling.md?pivots=durable-task-sdks&toc=/azure/durable-task/sdks/toc.json
     - name: Orchestration versioning
       href: ../common/durable-orchestration-versioning.md?pivots=durable-task-sdks&toc=/azure/durable-task/sdks/toc.json
+    - name: Agentic workflows
+      href: durable-task-for-ai-agents.md
 - name: Tutorials
   items:
   - name: Configure autoscale for Azure Container Apps hosting

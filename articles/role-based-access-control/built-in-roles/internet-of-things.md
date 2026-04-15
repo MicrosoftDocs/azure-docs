@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -23,17 +23,17 @@ Allows for full access to IoT devices within Azure Device Registry Namespace.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.deviceregistry/namespaces/read | Get a Namespace |
-> | microsoft.deviceregistry/namespaces/devices/* |  |
-> | microsoft.deviceregistry/namespaces/discovereddevices/* |  |
-> | microsoft.deviceregistry/namespaces/credentials/read | Get a Credential |
-> | microsoft.deviceregistry/namespaces/credentials/policies/read | List Policy resources by Credential |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/read | Get a Namespace |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/devices/* |  |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/discovereddevices/* |  |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/credentials/read | Get a Credential |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/credentials/policies/read | List Policy resources by Credential |
 > | [microsoft.devices](../permissions/internet-of-things.md#microsoftdevices)/iothubs/certificates/* |  |
 > | [microsoft.devices](../permissions/internet-of-things.md#microsoftdevices)/iothubs/read | Gets the IotHub resource(s) |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | microsoft.deviceregistry/namespaces/credentials/policies/issueCertificate/action | Allows certificate issuance using certificate based policies. |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/credentials/policies/issueCertificate/action | Allows certificate issuance using certificate based policies. |
 > | [microsoft.devices](../permissions/internet-of-things.md#microsoftdevices)/iothubs/devices/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -78,8 +78,9 @@ Allows for full access to manage credentials and policies within Azure Device Re
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.deviceregistry/namespaces/credentials/* |  |
-> | microsoft.deviceregistry/namespaces/credentials/policies/* |  |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/credentials/* |  |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/credentials/policies/* |  |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/devices/revoke/action | Allows device revocation using device based policies. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -99,7 +100,8 @@ Allows for full access to manage credentials and policies within Azure Device Re
     {
       "actions": [
         "microsoft.deviceregistry/namespaces/credentials/*",
-        "microsoft.deviceregistry/namespaces/credentials/policies/*"
+        "microsoft.deviceregistry/namespaces/credentials/policies/*",
+        "microsoft.deviceregistry/namespaces/devices/revoke/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -119,13 +121,14 @@ Allows for full access to Azure Device Registry Namespace and X.509 certificate 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | Microsoft.DeviceRegistry/namespaces/read | Get a Namespace |
-> | Microsoft.DeviceRegistry/namespaces/write | Update a Namespace |
-> | Microsoft.DeviceRegistry/namespaces/delete | Delete a Namespace |
-> | Microsoft.DeviceRegistry/namespaces/credentials/* |  |
-> | Microsoft.DeviceRegistry/namespaces/credentials/policies/* |  |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/read | Get a Namespace |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/write | Update a Namespace |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/delete | Delete a Namespace |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/credentials/* |  |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/credentials/policies/* |  |
 > | [Microsoft.Devices](../permissions/internet-of-things.md#microsoftdevices)/iothubs/* |  |
 > | [Microsoft.Devices](../permissions/internet-of-things.md#microsoftdevices)/provisioningServices/* |  |
+> | [microsoft.deviceregistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/namespaces/devices/revoke/action | Allows device revocation using device based policies. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -151,7 +154,8 @@ Allows for full access to Azure Device Registry Namespace and X.509 certificate 
         "Microsoft.DeviceRegistry/namespaces/credentials/*",
         "Microsoft.DeviceRegistry/namespaces/credentials/policies/*",
         "Microsoft.Devices/iothubs/*",
-        "Microsoft.Devices/provisioningServices/*"
+        "Microsoft.Devices/provisioningServices/*",
+        "microsoft.deviceregistry/namespaces/devices/revoke/action"
       ],
       "notActions": [],
       "dataActions": [
@@ -286,13 +290,13 @@ View, create, edit and delete AIO resources. Manage all resources, including ins
 > | --- | --- |
 > | Microsoft.IoTOperations/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | Microsoft.DeviceRegistry/Assets/* |  |
-> | Microsoft.DeviceRegistry/AssetEndpointProfiles/* |  |
-> | Microsoft.DeviceRegistry/Namespaces/Assets/* |  |
-> | Microsoft.DeviceRegistry/Namespaces/Devices/* |  |
-> | Microsoft.DeviceRegistry/Namespaces/DiscoveredAssets/* |  |
-> | Microsoft.DeviceRegistry/Namespaces/DiscoveredDevices/* |  |
-> | Microsoft.DeviceRegistry/SchemaRegistries/* |  |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/Assets/* |  |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/AssetEndpointProfiles/* |  |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/Namespaces/Assets/* |  |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/Namespaces/Devices/* |  |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/Namespaces/DiscoveredAssets/* |  |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/Namespaces/DiscoveredDevices/* |  |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/SchemaRegistries/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -350,11 +354,11 @@ User can Azure arc connect and deploy Azure IoT Operations securely.
 > | Actions | Description |
 > | --- | --- |
 > | Microsoft.IoTOperations/* |  |
-> | Microsoft.DeviceRegistry/register/action | Register the subscription for Microsoft.DeviceRegistry |
-> | Microsoft.DeviceRegistry/schemaRegistries/read | Get a SchemaRegistry |
-> | Microsoft.DeviceRegistry/schemaRegistries/write | Update a SchemaRegistry |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/register/action | Register the subscription for Microsoft.DeviceRegistry |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/schemaRegistries/read | Get a SchemaRegistry |
+> | [Microsoft.DeviceRegistry](../permissions/internet-of-things.md#microsoftdeviceregistry)/schemaRegistries/write | Update a SchemaRegistry |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/write |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -365,6 +369,8 @@ User can Azure arc connect and deploy Azure IoT Operations securely.
 > | *none* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {ba92f5b4-2d11-453d-a403-e96b0029c9fe, b24988ac-6180-42a0-ab88-20f7382dd24c})) | Add role assignments for the following roles:<br/>Storage Blob Data Contributor<br/>Contributor |
 
 ```json
 {
@@ -382,7 +388,7 @@ User can Azure arc connect and deploy Azure IoT Operations securely.
         "Microsoft.DeviceRegistry/schemaRegistries/read",
         "Microsoft.DeviceRegistry/schemaRegistries/write",
         "Microsoft.Authorization/*/read",
-        "Microsoft.Authorization/*/write",
+        "Microsoft.Authorization/roleAssignments/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
@@ -390,7 +396,9 @@ User can Azure arc connect and deploy Azure IoT Operations securely.
       ],
       "notActions": [],
       "dataActions": [],
-      "notDataActions": []
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {ba92f5b4-2d11-453d-a403-e96b0029c9fe, b24988ac-6180-42a0-ab88-20f7382dd24c}))"
     }
   ],
   "roleName": "Azure IoT Operations Onboarding",
@@ -491,10 +499,11 @@ Gives you full access to management and content operations
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/read | Returns the list of Device Update Accounts |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/instances/read | Returns the list of Device Update Instances |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -519,10 +528,11 @@ Gives you full access to management and content operations
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
-        "Microsoft.Insights/alertRules/*"
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.DeviceUpdate/accounts/read",
+        "Microsoft.DeviceUpdate/accounts/instances/read"
       ],
       "notActions": [],
       "dataActions": [
@@ -552,10 +562,11 @@ Gives you full access to content operations
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/read | Returns the list of Device Update Accounts |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/instances/read | Returns the list of Device Update Instances |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -577,10 +588,11 @@ Gives you full access to content operations
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
-        "Microsoft.Insights/alertRules/*"
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.DeviceUpdate/accounts/read",
+        "Microsoft.DeviceUpdate/accounts/instances/read"
       ],
       "notActions": [],
       "dataActions": [
@@ -607,10 +619,11 @@ Gives you read access to content operations, but does not allow making changes
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/read | Returns the list of Device Update Accounts |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/instances/read | Returns the list of Device Update Instances |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -630,10 +643,11 @@ Gives you read access to content operations, but does not allow making changes
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
-        "Microsoft.Insights/alertRules/*"
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.DeviceUpdate/accounts/read",
+        "Microsoft.DeviceUpdate/accounts/instances/read"
       ],
       "notActions": [],
       "dataActions": [
@@ -658,10 +672,11 @@ Gives you full access to management operations
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/read | Returns the list of Device Update Accounts |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/instances/read | Returns the list of Device Update Instances |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -684,10 +699,11 @@ Gives you full access to management operations
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
-        "Microsoft.Insights/alertRules/*"
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.DeviceUpdate/accounts/read",
+        "Microsoft.DeviceUpdate/accounts/instances/read"
       ],
       "notActions": [],
       "dataActions": [
@@ -715,10 +731,11 @@ Gives you read access to management operations, but does not allow making change
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/read | Returns the list of Device Update Accounts |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/instances/read | Returns the list of Device Update Instances |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -739,10 +756,11 @@ Gives you read access to management operations, but does not allow making change
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
-        "Microsoft.Insights/alertRules/*"
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.DeviceUpdate/accounts/read",
+        "Microsoft.DeviceUpdate/accounts/instances/read"
       ],
       "notActions": [],
       "dataActions": [
@@ -768,10 +786,11 @@ Gives you read access to management and content operations, but does not allow m
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/read | Returns the list of Device Update Accounts |
+> | [Microsoft.DeviceUpdate](../permissions/internet-of-things.md#microsoftdeviceupdate)/accounts/instances/read | Returns the list of Device Update Instances |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -792,10 +811,11 @@ Gives you read access to management and content operations, but does not allow m
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
-        "Microsoft.Insights/alertRules/*"
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.DeviceUpdate/accounts/read",
+        "Microsoft.DeviceUpdate/accounts/instances/read"
       ],
       "notActions": [],
       "dataActions": [
@@ -871,7 +891,7 @@ View firmware images but not upload them or perform any workspace configuration
 > | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/workspaces/firmwares/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | **NotActions** |  |
 > | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/firmwareGroups/* |  |
 > | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/workspaces/firmwares/write | The operation to update firmware. |
@@ -896,7 +916,7 @@ View firmware images but not upload them or perform any workspace configuration
         "Microsoft.IoTFirmwareDefense/workspaces/firmwares/*",
         "Microsoft.Authorization/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Resources/deployments/*"
+        "Microsoft.Resources/deployments/read"
       ],
       "notActions": [
         "Microsoft.IoTFirmwareDefense/firmwareGroups/*",
@@ -925,7 +945,7 @@ Upload and analyze firmware images but not perform any workspace configuration
 > | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | **NotActions** |  |
 > | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/firmwareGroups/* |  |
 > | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/register/action | Register the subscription for Microsoft.IoTFirmwareDefense |
@@ -951,7 +971,7 @@ Upload and analyze firmware images but not perform any workspace configuration
         "Microsoft.IoTFirmwareDefense/*",
         "Microsoft.Authorization/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Resources/deployments/*"
+        "Microsoft.Resources/deployments/read"
       ],
       "notActions": [
         "Microsoft.IoTFirmwareDefense/firmwareGroups/*",

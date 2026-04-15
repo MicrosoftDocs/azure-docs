@@ -17,12 +17,26 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## April 2026
+## April 2026 
 
 * [Support for Red Hat IdM and Oracle Unified Directory (OUD)](configure-directory-server.md) (preview)
  
     Azure NetApp Files now supports Red Hat IdM and Oracle Unified Directory, enabling seamless integration with widely used enterprise directory services. This capability allows organizations to leverage their existing LDAP-based identity infrastructure for authentication and access control providing simplified identity management, enhanced security and compliance, and improved scalability. This feature is ideal for enterprises-grade LDAP service with advanced scalability and security features. This feature is available in all Azure NetApp Files supported regions. This feature in currently in preview.
     
+* [Advanced ransomware protection](ransomware-configure.md) is now generally available (GA)
+
+    Azure NetApp Files advanced ransomware protection is designed to help organizations proactively detect, respond to, and recover from ransomware threats on cloud volumes. Advanced ransomware protection monitors Azure NetApp Files volumes for suspicious activity using file extension profiling, entropy, and I/OPS patterns. When a threat is detected, the system creates a point-in-time snapshot, enabling rapid evaluation and recovery. Notifications are sent through the Azure Activity log, and attack reports are retained for 30 days. 
+
+* [User and group quota reporting](generate-user-group-quota-reports.md) is now generally available (GA)
+
+    If you're using individual user and group quotas in Azure NetApp Files to manage capacity on NFS, SMB, and dual-protocol volumes, the user and group quota reporting feature now offers clear visibility into key metrics such as quota limits, used capacity, and percentage utilization for each target user and quota rule. Administrators can generate quota usage reports and modify quota rules directly within the Azure portal for any volume with quota rules, removing the previous dependency on host-based tools and the need to mount the volume for reporting.
+
+* [Secure object REST API access using Azure Key Vault certificates and credentials](object-rest-api-access-configure.md) (preview)
+
+    Azure NetApp Files now supports Azure Key Vault–based certificates and credentials for the object REST API, enabling secure, S3‑compatible access to volumes. Certificates can be generated and stored directly in Azure Key Vault and automatically retrieved during bucket creation, while access credentials are securely managed in Key Vault, eliminating the need to manually upload or store sensitive information.
+
+    This native integration with Azure Key Vault simplifies certificate lifecycle management, centralizes certificate and credential storage, strengthens security, and aligns object REST API access with enterprise key and credential management best practices.
+     
 * [Storage with cool access enhancement](cool-access-introduction.md#throughput-for-premium-and-ultra-service-levels) for Premium and Ultra service levels (preview)
 
     Azure NetApp Files introduces an enhancement to storage with cool access for Premium and Ultra service levels that more precisely aligns throughput with data tiering. When cool access is enabled, maximum throughput is dynamically calculated based on the amount of data tiered to cool access storage, rather than applying a fixed reduction. Hot data retains its configured performance, and throughput is adjusted only when data is tiered to the cool tier. This enhancement delivers more predictable QoS behavior while optimizing performance and cost as data access patterns evolve, without requiring manual tuning or reconfiguration.
@@ -33,7 +47,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Large volumes operational improvement no longer requires a support ticket to increase a large volume past the 30% imposed limit. This allows customer to automate their large volume size increases without waiting for approval and human intervention.
     
-## January 2026
+  ## January 2026
 
 * [Elastic zone-redundant storage service level](elastic-zone-redundant-concept.md) (preview)
 

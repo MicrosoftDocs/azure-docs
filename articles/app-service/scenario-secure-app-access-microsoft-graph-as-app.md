@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: tutorial
-ms.date: 04/05/2023
+ms.date: 03/13/2026
 ms.devlang: csharp
 ms.custom: azureday1, devx-track-dotnet, AppServiceIdentity
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.

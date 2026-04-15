@@ -217,7 +217,7 @@ items:
     - name: Log Analytics
       href: ./ag/log-analytics.md
     - name: Troubleshoot
-      href: ./ag/web-application-firewall-troubleshoot.md
+      href: /troubleshoot/azure/web-application-firewall/web-application-firewall-troubleshoot
   - name: Front Door
     items:
     - name: Best practices
@@ -280,3 +280,5 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-waf
+- name: Support and troubleshooting
+  href: support-help.md

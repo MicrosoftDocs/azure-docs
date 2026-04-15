@@ -99,6 +99,6 @@ Select **Next** to proceed to the repository selection step.
 
 ## Related content
 
-- [Managed identity for ADO repos](managed-identity-ado-repos.md)
+- [Azure DevOps connector](ado-connector.md): All ADO authentication options including managed identity, OAuth, and PAT
 - [Connect knowledge sources](connect-knowledge.md)
 - [Set up Azure DevOps connector](azure-devops-connector.md)

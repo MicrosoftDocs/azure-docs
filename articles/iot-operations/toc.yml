@@ -263,8 +263,12 @@ items:
         items:
           - name: Overview
             href: manage-layered-network/overview-layered-network.md
-          - name: IoT Operations in layered network
-            href: manage-layered-network/concept-iot-operations-in-layered-network.md
+          - name: Deploy with private connectivity
+            href: manage-layered-network/howto-private-connectivity.md
+            displayName: Private Link, Arc Gateway, explicit proxy, private endpoints, storage, dataflow
+          - name: Troubleshoot private connectivity
+            href: manage-layered-network/howto-troubleshoot-private-connectivity.md
+            displayName: DNS, Private Endpoint, RBAC, SecretSync, Schema Registry, data flow, troubleshooting
       - name: Configure observability and monitoring
         items:
           - name: Deploy observability resources
@@ -283,19 +287,31 @@ items:
             displayName: MQTT, client app, developer, C#, .Net, Go, Rust, quickstart, get started
           - name: Define custom processing with WASM
             items:
-              - name: Build WASM modules with VS Code extension
-                href: develop-edge-apps/howto-build-wasm-modules-vscode.md
-                displayName: VS Code, extension, develop, dataflow, graph, connector
               - name: Build WASM modules
-                href: develop-edge-apps/howto-develop-wasm-modules.md
-                displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
+                href: develop-edge-apps/howto-build-wasm-modules.md
+                displayName: VS Code, extension, data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
+              - name: Create stateful WASM graphs with the state store
+                href: develop-edge-apps/howto-wasm-state-store.md
+                displayName: data flow, WASM, WebAssembly, state store, stateful, operators
+              - name: Use schema registry with WASM modules
+                href: develop-edge-apps/howto-wasm-schema-registry.md
+                displayName: data flow, WASM, WebAssembly, schema registry, validation, JSON schema
+              - name: Debug WASM modules
+                href: develop-edge-apps/howto-debug-wasm-modules.md
+                displayName: data flow, WASM, WebAssembly, debug, breakpoints, VS Code, LLDB
+              - name: Test WASM modules
+                href: develop-edge-apps/howto-test-wasm-modules.md
+                displayName: data flow, WASM, WebAssembly, test, unit test, integration test
+              - name: Understand WASM module capabilities
+                href: develop-edge-apps/concepts-wasm-modules.md
+                displayName: develop, dataflow, graph, connector
               - name: Configure graph definitions
                 href: develop-edge-apps/howto-configure-wasm-graph-definitions.md
                 displayName: data flow, WASM, WebAssembly, graph definitions, YAML, configuration, workflow
               - name: Configure registry endpoints
                 href: develop-edge-apps/howto-configure-registry-endpoint.md
                 displayName: data flow, endpoint, northbound, registry, connectors
-              - name: Deploy graph definitions
+              - name: Deploy modules and graphs
                 href: develop-edge-apps/howto-deploy-wasm-graph-definitions.md
                 displayName: data flow, WASM, WebAssembly, graph definitions, deploy, container, registry
               - name: AI inference with ONNX
@@ -360,6 +376,9 @@ items:
           - name: Secure communication with TLS, X.509, and ABAC
             href: manage-mqtt-broker/tutorial-tls-x509.md
             displayName: tutorial, MQTT, auth, authn, X.509, certificate, CA
+          - name: Deploy in layered network with private connectivity
+            href: end-to-end-tutorials/tutorial-layered-network-private-connectivity.md
+            displayName: tutorial, layered network, Purdue, private connectivity, ExpressRoute, Private Link
       - name: Troubleshoot
         items:
           - name: Troubleshoot

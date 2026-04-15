@@ -111,7 +111,7 @@ If you're running classic firewall rules without Firewall policy, migrate to Fir
     - `firewallPolicy.id` with your policy ID.
 
 1. [Create a new firewall policy](/azure/firewall-manager/create-policy-powershell) using the configuration of the source region and reflect changes introduced by the new target region (IP Address Ranges, Public IP, Rule Collections).
-1. If you're using Premium SKU and you want to enable TLS Inspection, update the newly created firewall policy and enable TLS inspection by following [the instructions here](https://techcommunity.microsoft.com/t5/azure-network-security-blog/building-a-poc-for-tls-inspection-in-azure-firewall/ba-p/3676723).
+1. If you're using Premium SKU and you want to enable TLS Inspection, update the newly created firewall policy and enable TLS inspection by following [the instructions here](https://techcommunity.microsoft.com/blog/azurenetworksecurityblog/building-a-poc-for-tls-inspection-in-azure-firewall/3676723).
 1. Review and update the following settings to reflect the changes required for the target region.
 
     - **IP Groups.** To include IP addresses from the target region, if different from the source, *IP Groups* should be reviewed. The IP addresses included in the groups must be modified.

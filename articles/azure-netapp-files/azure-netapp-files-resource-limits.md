@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/29/2026
+ms.date: 04/14/2026
 ms.author: anfdocs
 # Customer intent: As an IT administrator managing Azure NetApp Files, I want to understand the resource limits and how to request limit increases, so that I can effectively plan and allocate storage resources for my organization’s needs.
 ---
@@ -57,6 +57,7 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Maximum number of volumes supported for cool access per subscription per region |  500  |  Yes  |
 | Maximum number of [short-term clones](create-short-term-clone.md) per volume | 5 | No | 
 | Maximum number of [short-term clones](create-short-term-clone.md) per subscription | 16 | No | 
+| Advanced ransomware protection volumes per subscription | 10 | Yes | 
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
