@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
-ms.date: 04/10/2026
+ms.date: 04/14/2026
 #Customer intent: As an AI integration developer who works with Azure Logic Apps, I want to create knowledge bases from unstructured documents so my agentic workflows can retrieve relevant information.
 ---
 
@@ -27,6 +27,18 @@ Your organization generates unstructured data from documents, spreadsheets, APIs
 For example, you might create a knowledge base that contains all the documents related to HR policies and procedures. When you create a knowledge base, the KBaaS automatically sets up the required Azure Cosmos DB databases, containers, and indexing policies.
 
 This guide shows how to create a *knowledge base*, upload knowledge sources, and add the knowledge base as a tool that an agent loop can use in a Standard agentic workflow. For more information, see [Azure Cosmos DB databases, containers, and items](/azure/cosmos-db/resource-model#azure-cosmos-db-containers.md).
+
+## Limitations
+
+This release currently supports only the following capabilities:
+
+- Uploaded files as the source type for knowledge artifacts.
+
+- Files with the following formats: DOC, DOCX, HTML, MD, PDF, PPT, PPTX, TXT, XLS, XLSX.
+
+- Text-based content parsing in documents, not images.
+
+- Default chunking settings, not custom chunking.
 
 ## Prerequisites
 
@@ -69,15 +81,6 @@ The KBaaS has the following pipelines:
 - *Ingestion pipeline*: When you upload a document, or knowledge source, to your knowledge base, the service automatically parses, chunks, summarizes, and vectorizes the content. The service then stores the results in Azure Cosmos DB.
 
 - *Retrieval pipeline*: When the agent loop queries your knowledge base, the service rewrites the query if needed, generates a vector representation, performs a semantic search against Azure Cosmos DB, and returns the most relevant chunks to the large language model (LLM) for response generation.
-
-## Limitations
-
-This release currently supports only the following capabilities:
-
-- Uploaded files as the source type for knowledge sources. Other source types are in planning.
-- Unstructured file formats such as PDF, Word, and TXT. Structured data formats such as JSON and CSV are in planning.
-- Text-based content parsing in documents, not images.
-- Default chunking settings, not custom chunking.
 
 ## Authentication
 
