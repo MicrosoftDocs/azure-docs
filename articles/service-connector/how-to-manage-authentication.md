@@ -56,6 +56,7 @@ Service Connector offers the following authentication options:
 | Azure Event Hubs                              | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Files                                   | No                               | No                             | Yes               | No                |
 | Azure Key Vault                               | Yes                              | Yes                            | No                | Yes               |
+|Azure Managed Redis|No|No|Yes|No|
 | Azure Queue Storage                           | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Service Bus                             | Yes                              | Yes                            | Yes               | Yes               |
 | Azure SignalR Service                         | Yes                              | Yes                            | Yes               | Yes               |

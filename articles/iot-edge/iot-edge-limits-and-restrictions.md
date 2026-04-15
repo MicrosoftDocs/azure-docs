@@ -84,9 +84,9 @@ Not supported query syntax:
 
 ### Restart policies
 
-Don't use `on-unhealthy` or `on-failure` as values in modules' `restartPolicy` because they are unimplemented and won't initiate a restart. Only `never` and `always` restart policies are implemented.
+The `on-unhealthy` restart policy value is accepted by the schema but the runtime doesn't currently derive unhealthy status from Docker health checks, so it has no practical effect. The `on-failure` restart policy restarts modules that exit with a non-zero exit code. Only `never`, `on-failure`, and `always` restart policies produce observable behavior.
 
-The recommended way to automatically restart unhealthy IoT Edge modules is noted in [this workaround](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check.
+To automatically restart modules that become unhealthy, use the workaround noted in [this GitHub issue](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check.
 
 ### Troubleshooting logs
 

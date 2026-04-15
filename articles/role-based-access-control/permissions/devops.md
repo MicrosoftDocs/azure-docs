@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -475,6 +475,8 @@ Azure service: [Azure Load Testing](/azure/load-testing/)
 > | `Microsoft.LoadTestService/locations/quotas/read` | Get/List the available quotas for quota buckets per region per subscription. |
 > | `Microsoft.LoadTestService/locations/quotas/checkAvailability/action` | Check Quota Availability on quota bucket per region per subscription. |
 > | `Microsoft.LoadTestService/operations/read` | read operations |
+> | `Microsoft.LoadTestService/PlaywrightWorkspaces/Write` | Creates, updates or deletes Playwright workspace resource |
+> | `Microsoft.LoadTestService/PlaywrightWorkspaces/Read` | Reads Playwright workspace resource |
 > | `Microsoft.LoadTestService/PlaywrightWorkspaces/AccessTokens/Write` | Creates and deletes access tokens for Playwright workspace resource. |
 > | `Microsoft.LoadTestService/PlaywrightWorkspaces/Quotas/Read` | Get details of Quotas for Playwright Workspace. |
 > | `Microsoft.LoadTestService/PlaywrightWorkspaces/TestRuns/Write` | Creates, executes and deletes test runs on Playwright workspace resource. |
@@ -486,8 +488,6 @@ Azure service: [Azure Load Testing](/azure/load-testing/)
 > | `Microsoft.LoadTestService/loadtests/writeTest/action` | Create or Update Load Tests |
 > | `Microsoft.LoadTestService/loadtests/deleteTest/action` | Delete Load Tests |
 > | `Microsoft.LoadTestService/loadtests/readTest/action` | Read Load Tests |
-> | `Microsoft.LoadTestService/PlaywrightWorkspaces/Write` | Creates, updates or deletes Playwright workspace resource |
-> | `Microsoft.LoadTestService/PlaywrightWorkspaces/Read` | Reads Playwright workspace resource |
 > | `Microsoft.LoadTestService/testProfileRuns/write` | Write Test Profile Runs |
 > | `Microsoft.LoadTestService/testProfileRuns/read` | Read Test Profile Runs |
 > | `Microsoft.LoadTestService/testProfileRuns/delete` | Delete Test Profile Runs |

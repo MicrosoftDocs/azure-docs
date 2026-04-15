@@ -214,8 +214,10 @@
           href: private-dns-arg.md
 - name: Troubleshoot
   items:
-    - name: Troubleshoot public DNS
-      href: dns-troubleshoot.md
+    - name: Troubleshoot Azure DNS
+      href: /troubleshoot/azure/dns/welcome-azure-dns?toc=/azure/dns/TOC.json
+- name: Support and troubleshooting
+  href: dns-support-help.md
 - name: Reference
   items:
     - name: Public DNS

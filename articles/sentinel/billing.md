@@ -20,7 +20,7 @@ ms.custom:
 
 # Plan costs and understand Microsoft Sentinel pricing and billing
 
-To help estimate your Microsoft Sentinel expected costs, [contact a Security sales specialist](https://info.microsoft.com/ww-landing-microsoft-defender-contact-me.html) for more information on pricing or to request a quote.
+To estimate your expected Microsoft Sentinel costs, use the [Microsoft Sentinel cost estimator tool,](https://microsoft.com/en-us/security/pricing/microsoft-sentinel/cost-estimator) and [work directly with a Security sales specialist](https://aka.ms/contactsecuritysaleslink) for a custom quote or additional guidance.
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs and understand the billing for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
@@ -115,7 +115,7 @@ Any notebook/Spark compute and Data lake storage consumed for data transformatio
 
 #### Sentinel Model Context Protocol (MCP) server
 
-Sentinel MCP server is an interface layer that exposes Sentinel platform capabilities to AI agents. There's no extra cost for using the MCP server itself. MCP tools use underlying Sentinel platform services, such as data lake queries or graph operations, which are billed based on their respective meters. In addition, certain tools, such as entity analyzer, may consume Security Compute Units (SCUs) when AI reasoning execution is required. Customers are charged only for the underlying platform services and compute they consume.
+Sentinel MCP server is an interface layer that exposes Sentinel platform capabilities to AI agents. There's no extra cost for using the MCP server itself. MCP tools use underlying Sentinel platform services, such as data lake queries or graph operations, which are billed based on their respective meters. In addition, certain tools, such as entity analyzer, may consume [Security Compute Units (SCUs)](/copilot/security/manage-usage) when AI reasoning execution is required. Customers are charged only for the underlying platform services and compute they consume.
 
 ##### Microsoft Sentinel MCP data lake tools
 

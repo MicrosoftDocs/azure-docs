@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 03/30/2026
 ms.author: cshoe
 ---
 
@@ -29,8 +29,8 @@ In this tutorial, you learn to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* [Azure CLI](/cli/azure/install-azure-cli).
+- An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Considerations
 
@@ -339,8 +339,8 @@ The following table describes the different Git backend configuration values ava
 | `spring.cloud.config.server.git.password` <br/> `spring.cloud.config.server.git.repos.{repoName}.password`                                  | Password for authentication with remote repository.                                                                                                                                                                                                                                                                                                                   |
 | `spring.cloud.config.server.git.search-paths` <br/> `spring.cloud.config.server.git.repos.{repoName}.search-paths`                          | Search paths to use within local working copy. By default, searches only the root.                                                                                                                                                                                                                                                                                    |
 | `spring.cloud.config.server.git.force-pull` <br/> `spring.cloud.config.server.git.repos.{repoName}.force-pull`                              | Flag to indicate that the repository should force pull. If `true`, discard any local changes and take from the remote repository.                                                                                                                                                                                                                                     |
-| `spring.cloud.config.server.git.default-label`  <br/> `spring.cloud.config.server.git.repos.{repoName}.default-label`                       | The default label used for Git is **main**. If you don't set `spring.cloud.config.server.git.default-label` and a branch named **main** doesn't exist, the config server by default also tries to checkout a branch named **master**. If you'd like to disable the fallback branch behavior, you can set `spring.cloud.config.server.git.tryMasterBranch` to `false`. |
-| `spring.cloud.config.server.git.try-master-branch`  <br/> `spring.cloud.config.server.git.repos.{repoName}.try-master-branch`               | The config server by default tries to checkout a branch named **master**.                                                                                                                                                                                                                                                                                             |
+| `spring.cloud.config.server.git.default-label`  <br/> `spring.cloud.config.server.git.repos.{repoName}.default-label`                       | The default label used for Git is **main**. If you don't set `spring.cloud.config.server.git.default-label` and a branch named **main** doesn't exist, the config server by default also tries to check out a branch named **master**. If you'd like to disable the fallback branch behavior, you can set `spring.cloud.config.server.git.tryMasterBranch` to `false`. |
+| `spring.cloud.config.server.git.try-master-branch`  <br/> `spring.cloud.config.server.git.repos.{repoName}.try-master-branch`               | The config server by default tries to check out a branch named **master**.                                                                                                                                                                                                                                                                                             |
 | `spring.cloud.config.server.git.skip-ssl-validation` <br/> `spring.cloud.config.server.git.repos.{repoName}.skip-ssl-validation`            | You can disable the configuration server's validation of the Git server's TLS/SSL certificate by setting the `git.skipSslValidation` property to `true`.                                                                                                                                                                                                              |
 | `spring.cloud.config.server.git.clone-on-start` <br/> `spring.cloud.config.server.git.repos.{repoName}.clone-on-start`                      | Flag to indicate that the repository should be cloned on startup, not on demand. Generally leads to slower startup but faster first query.                                                                                                                                                                                                                            |
 | `spring.cloud.config.server.git.timeout`  <br/> `spring.cloud.config.server.git.repos.{repoName}.timeout`                                   | Timeout in seconds for obtaining HTTP or SSH connection, if applicable. The default value is 5 seconds.                                                                                                                                                                                                                                                               |
@@ -350,7 +350,7 @@ The following table describes the different Git backend configuration values ava
 | `spring.cloud.config.server.git.host-key-algorithm`  <br/> `spring.cloud.config.server.git.repos.{repoName}.host-key-algorithm`             | One of `ssh-dss`, `ssh-rsa`, `ssh-ed25519`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Must be set if `host-key` is also set.                                                                                                                                                                                                            |
 | `spring.cloud.config.server.git.strict-host-key-checking`  <br/> `spring.cloud.config.server.git.repos.{repoName}.strict-host-key-checking` | `true` or `false`. If `false`, ignore errors with host key.                                                                                                                                                                                                                                                                                                           |
 | `spring.cloud.config.server.git.repos.{repoName}`                                                                                           | URI of remote repository.                                                                                                                                                                                                                                                                                                                                             |
-| `spring.cloud.config.server.git.repos.{repoName}.pattern`                                                                                   | The pattern format is a comma-separated list of `{application}/{profile}` names with wildcards. If `{application}/{profile}` does not match any of the patterns, it uses the default URI defined under.                                                                                                                                                               |
+| `spring.cloud.config.server.git.repos.{repoName}.pattern`                                                                                   | The pattern format is a comma-separated list of `{application}/{profile}` names with wildcards. If `{application}/{profile}` doesn't match any of the patterns, it uses the default URI defined under.                                                                                                                                                               |
 
 The following list describes common configurations:
 
@@ -366,7 +366,7 @@ The following list describes common configurations:
   - You can change the priority of all overrides in the client to be more like default values, letting applications supply their own values in environment variables or System properties, by setting the `spring.cloud.config.override-none=true` flag - the default is false - in the remote repository.
 
 - `spring.cloud.config.allow-override`
-  - If you enable config first bootstrap, you can allow client applications to override configuration from the config server by placing two properties within the applications configuration coming from the config server.
+  - If you enable config first bootstrap, you can allow client applications to override configuration from the config server. The override is done by placing two properties within the applications configuration coming from the config server.
 
 - `spring.cloud.config.server.health.*`
   - You can configure the Health Indicator to check more applications along with custom profiles and custom labels.

@@ -62,10 +62,6 @@ items:
             href: ado-connector.md
           - name: Cross-account ADO access
             href: cross-account-ado-oauth.md
-          - name: Managed identity for ADO repos
-            href: managed-identity-ado-repos.md
-          - name: Remove resources from scope
-            href: configuration-deletion.md
       - name: Diagnose
         items:
           - name: Incident response
@@ -82,6 +78,8 @@ items:
             href: deep-investigation.md
           - name: Diagnose with Azure observability
             href: diagnose-azure-observability.md
+          - name: Azure Monitor alerts
+            href: azure-monitor-alerts.md
           - name: Diagnose with external observability
             href: diagnose-observability.md
           - name: Troubleshoot App Service
@@ -122,6 +120,8 @@ items:
             href: upload-knowledge-document.md
           - name: Kusto tools
             href: kusto-tools.md
+          - name: Azure Data Explorer connector
+            href: kusto-cluster-grouping.md
           - name: MCP connectors
             href: mcp-connectors.md
       - name: Access

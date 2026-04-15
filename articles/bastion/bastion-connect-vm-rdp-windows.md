@@ -87,7 +87,7 @@ Use the Azure portal to create a browser-based RDP connection to your Windows vi
 1. Select **Connect** to open the RDP connection to your virtual machine in a new browser tab.
 
 > [!NOTE]
-> For troubleshooting tips, see [Troubleshooting RDP connections](troubleshoot.md) and [Troubleshoot Microsoft Entra sign in for a Windows virtual machine in Azure or Arc-enabled Windows Server](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows#troubleshoot-sign-in-problems)
+> For troubleshooting tips, see [Troubleshooting RDP connections](/troubleshoot/azure/bastion/troubleshoot-bastion) and [Troubleshoot Microsoft Entra sign in for a Windows virtual machine in Azure or Arc-enabled Windows Server](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows#troubleshoot-sign-in-problems)
 
 
 # [IP address (portal)](#tab/ip-address)

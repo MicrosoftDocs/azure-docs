@@ -102,7 +102,7 @@ After you map linked services to Fabric connections, select **Confirm** to compl
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-synapse-analytics-pipelines-to-fabric/successful-migration-completion.png" alt-text="Screenshot showing successful migration." lightbox="media/how-to-assess-and-upgrade-your-azure-synapse-analytics-pipelines-to-fabric/successful-migration-completion.png":::
 
-After migration completes, go to your Fabric workspace to review the migrated pipelines. Each pipeline is created under the workspace and prefixed with its source factory name.
+After migration completes, go to your Fabric workspace to review the migrated pipelines. Each pipeline is created under the workspace and prefixed with its source Synapse workspace name.
 
 > [!NOTE]
 > Pipelines migrate safely with **triggers disabled by default**, so you stay in control of execution.

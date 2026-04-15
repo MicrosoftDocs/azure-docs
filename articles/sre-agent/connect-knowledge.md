@@ -43,7 +43,7 @@ The following table describes the three types of knowledge sources.
 |---|---|---|
 | **Files** | Runbooks, troubleshooting guides, architecture docs, configuration references | Upload via portal, drag-and-drop, or let your agent create them during conversations |
 | **Web pages** | External documentation, status pages, internal wiki URLs | Add by URL. Your agent indexes the content of the given URL. |
-| **Repositories** | Source code for root cause analysis, deployment configs, infrastructure-as-code | Connect GitHub or Azure Repos |
+| **Repositories** | Source code for root cause analysis, deployment configs, infrastructure-as-code | Connect GitHub or Azure DevOps repos |
 
 Each entry shows its **name**, **indexing status** (Indexed, Pending, or Not indexed), **type**, and **last modified** date.
 
@@ -75,9 +75,30 @@ The following table compares uploading knowledge documents and sharing files in 
 
 ## Connect source code
 
-Connect your GitHub or Azure DevOps repositories so your agent can read code, search for errors, and correlate deployments with incidents. The knowledge base displays repositories with clone and indexing status.
+Connect GitHub or Azure DevOps repositories so your agent can search code, correlate errors with recent changes, and reference deployment configurations during investigations.
 
-- To connect a GitHub repository, see [Connect source code](connect-source-code.md).
+### Add repositories
+
+From **Builder** > **Knowledge base**, select **Add repository** to open a guided wizard that walks you through three steps:
+
+| Step | What you do |
+|------|------------|
+| **1. Choose a platform** | Select **GitHub** or **Azure DevOps**. For Azure DevOps, enter your organization name. |
+| **2. Authenticate** | Sign in with OAuth or enter a personal access token (PAT). Azure DevOps also supports managed identity. |
+| **3. Add repositories** | Browse available repos from the dropdown or enter URLs manually. Add a display name and optional description for each entry. For Azure DevOps, select a project first to filter the repo list. |
+
+You can add multiple repositories in a single session. Select **+** to add rows, then select **Save** when done.
+
+After saving, your repositories appear in the knowledge base list with indexing status. Once indexed, your agent can reference the code in conversations.
+
+### Supported platforms and authentication
+
+| Platform | Auth methods | What you need |
+|----------|-------------|--------------|
+| **GitHub** | OAuth, Personal access token | GitHub account with repo access. For PAT, create a token with `repo` scope. |
+| **Azure DevOps** | OAuth, Personal access token, Managed identity | Azure DevOps organization access. For managed identity, assign a user-assigned managed identity to the agent resource. |
+
+- To learn more about connecting GitHub repositories, see [Connect source code](connect-source-code.md).
 - To connect an Azure DevOps repository, see [Set up an Azure DevOps connector](azure-devops-connector.md).
 
 ## Next step

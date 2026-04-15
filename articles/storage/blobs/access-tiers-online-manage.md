@@ -34,7 +34,7 @@ The default access tier setting for a general-purpose v2 storage account determi
 
 When you change the default access tier setting for an existing general-purpose v2 storage account, the change applies to all blobs in the account for which an access tier hasn't been explicitly set. Changing the default access tier may have a billing impact. For details, see [Default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting).
 
-For storage accounts that leverage the smart tier public preview, moving objects into smart tier is only possible through the default account access tier setting. Objects in smart tier can be moved individually to different tiers by explicitly setting a different tier for an object. Once moved to an explicit tier, objects cannot be tiered back to smart tier. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
+For storage accounts that leverage smart tier, moving objects into smart tier is only possible through the default account access tier setting. Objects in smart tier can be moved individually to different tiers by explicitly setting a different tier for an object. Once moved to an explicit tier, objects cannot be tiered back to smart tier. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
 
 #### [Portal](#tab/azure-portal)
 
@@ -64,7 +64,7 @@ To update the default access tier for an existing storage account in the Azure p
 
 To change the default access tier setting for a storage account with PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command, specifying the new default access tier.
 
-```azurepowershell
+```azurepowershell-interactive
 $rgName = <resource-group>
 $accountName = <storage-account>
 
@@ -74,9 +74,9 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier C
 
 #### [Azure CLI](#tab/azure-cli)
 
-To change the default access tier setting for a storage account with PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command, specifying the new default access tier.
+To change the default access tier setting for a storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command, specifying the new default access tier.
 
-```azurecli
+```azurecli-interactive
 # Change the storage account tier to cool
 az storage account update \
     --resource-group <resource-group> \
@@ -125,7 +125,7 @@ To upload a blob or set of blobs to a specific tier from the Azure portal, follo
 
 To upload a blob or set of blobs to a specific tier with PowerShell, call the [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
-```azurepowershell
+```azurepowershell-interactive
 $rgName = <resource-group>
 $storageAccount = <storage-account>
 $containerName = <container>
@@ -156,7 +156,7 @@ Get-ChildItem -Path "C:\sample-blobs" -File -Recurse |
 
 To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. Replace the `<tier>` placeholder with `hot`, `cool`, `cold`, or `archive`.
 
-```azurecli
+```azurecli-interactive
 az storage blob upload \
     --account-name <storage-account> \
     --container-name <container> \
@@ -168,7 +168,7 @@ az storage blob upload \
 
 To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. Replace the `<tier>` placeholder with `hot`, `cool`, `cold`, or `archive`.
 
-```azurecli
+```azurecli-interactive
 az storage blob upload-batch \
     --destination <container> \
     --source <source-directory> \
@@ -229,7 +229,7 @@ If a blob's access tier is inferred from the default account access tier setting
 
 To determine a blob's access tier and whether it's inferred from Azure PowerShell, retrieve the blob, then check its **AccessTier** and **AccessTierInferred** properties.
 
-```azurepowershell
+```azurepowershell-interactive
 $rgName = "<resource-group>"
 $storageAccount = "<storage-account>"
 $containerName = "<container>"
@@ -251,7 +251,7 @@ $blob.BlobProperties.AccessTierInferred
 
 To determine a blob's access tier and whether it's inferred from Azure CLI, retrieve the blob, then check its **blobTier** and **blobTierInferred** properties.
 
-```azurecli
+```azurecli-interactive
 az storage blob show \
     --container-name <container> \
     --name <blob> \
@@ -300,7 +300,7 @@ To change a blob's tier to a cooler tier in the Azure portal, follow these steps
 
 To change a blob's tier to a cooler tier with PowerShell, use the blob's **BlobClient** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference. Remember to replace placeholders in angle brackets with your own values:
 
-```azurepowershell
+```azurepowershell-interactive
 # Initialize these variables with your values.
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
@@ -322,7 +322,7 @@ $blob.BlobClient.SetAccessTier($tier, $null, "Standard")
 
 To change a blob's tier to a cooler tier with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az-storage-blob-set-tier) command. Remember to replace placeholders in angle brackets with your own values:
 
-```azurecli
+```azurecli-interactive
 az storage blob set-tier \
     --account-name <storage-account> \
     --container-name <container> \
@@ -368,7 +368,7 @@ N/A
 
 To copy a blob to from cool to hot with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier. Remember to replace placeholders in angle brackets with your own values:
 
-```azurepowershell
+```azurepowershell-interactive
 # Initialize these variables with your values.
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
@@ -395,7 +395,7 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
 
 To copy a blob to a warmer tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az-storage-blob-copy-start) command and specify the target tier. Remember to replace placeholders in angle brackets with your own values:
 
-```azurecli
+```azurecli-interactive
 az storage blob copy start \
     --source-container <source-container> \
     --source-blob <source-blob> \
@@ -436,7 +436,7 @@ N/A
 
 #### [PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 # Initialize these variables with your values.
     $rgName = "<resource-group>"
     $accountName = "<storage-account>"
@@ -475,7 +475,7 @@ N/A
 
 #### [Azure CLI](#tab/azure-cli)
 
-```azurecli
+```azurecli-interactive
 az storage blob list --account-name $accountName --account-key $key \
     --container-name $containerName --prefix $folderName \
     --query "[?properties.blobTier == 'Cool'].name" --output tsv \

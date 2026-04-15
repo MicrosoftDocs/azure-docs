@@ -67,6 +67,9 @@ Reservation discounts apply to the following eligible subscriptions and offer ty
 - CSP subscriptions
 - Microsoft Azure Sponsorship subscriptions (offer number: MS-AZR-0036P)
 
+> [!NOTE]
+> Reservations may be applied to eligible resources running in Sponsorship-backed subscriptions; however, Azure Sponsorship credits cannot be used to purchase Reservations.
+
 Resources that run in a subscription with other offer types don't receive the reservation discount.
 
 Some Azure services do not support Reservation (RI) discounts, so it's important to check eligibility before making a purchase to avoid unnecessary costs. For example: Azure SQL Serverless and Azure Cosmos DB serverless

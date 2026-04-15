@@ -34,6 +34,7 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_SKU` | Read-only. Pricing tier of the app. Possible values are `Free`, `Shared`, `Basic`, and `Standard`. |
 | `SITE_BITNESS` | Read-only. Shows whether the app is 32 bit (`x86`) or 64 bit (`AMD64`). |
 | `WEBSITE_HOSTNAME` | Read-only. Primary host name for the app. This setting doesn't account for custom host names. |
+| `WEBSITE_DEFAULT_HOSTNAME` | Read-only. The default host name for the app. This could be either in the original format `<sitename>.azurewebsites.net` or the unique hostname `<sitename>-<randomhash>.<region>.azurewebsites.net`. This setting is sticky and not swappable. |
 | `WEBSITE_VOLUME_TYPE` | Read-only. Shows the storage volume type currently in use. |
 | `WEBSITE_NPM_DEFAULT_VERSION` | Default npm version that the app is using. |
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for concurrent WebSocket requests. For the `Standard` tier and higher, the value is `-1`, but there's still a per-VM limit based on your VM size. See [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits). |
@@ -306,7 +307,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > | `WORDPRESS_ADMIN_EMAIL` | Deployment only | Not applicable | Not applicable | WordPress admin email. |
 > | `WORDPRESS_ADMIN_PASSWORD` | Deployment only | Not applicable | Not applicable | WordPress admin password. This setting is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [Reset your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password). |
 > | `WORDPRESS_ADMIN_USER` | Deployment only | Not applicable | Not applicable|WordPress admin username. |
-> | `WORDPRESS_ADMIN_LOCALE_CODE` | Deployment only | Not applicable | Not applicable | Database username used to connect to WordPress. |
+> | `WORDPRESS_LOCALE_CODE` | Deployment only | `en_US` | Not applicable | WordPress localization code for site language. |
 
 ## Domain and DNS
 

@@ -353,7 +353,8 @@ The request section defines how the CCF data connector sends requests to your da
 |Field |Required |Type |Description	|
 | ---- | ---- | ---- | ---- |
 | `ApiEndpoint` | True. | String | This field determines the URL for the remote server and defines the endpoint from which to pull data. |
-| `RateLimitQPS` |  | Integer | This field defines the number of calls or queries allowed in a second. |
+| `RateLimitQPS` |  | Integer | This field defines the number of calls or queries allowed in a second for the initial request. It does not apply to paginated requests. To throttle pagination, also set `PaginatedCallsPerSecond`. |
+| `PaginatedCallsPerSecond` |  | Double (0...1000) | This field defines the number of calls per second allowed for paginated requests to the RESTful API. It introduces a delay of `(1000 / paginatedCallsPerSecond)` milliseconds between each paginated API call. This throttling applies only to pagination requests and is separate from `RateLimitQPS`, which controls the initial request rate. Typically, this will be set the same value as `RateLimitQPS` to respect the data source's rate limit across all requests. `0` value means no pagination throttling is applied. |
 | `RateLimitConfig` |  | Object | This field defines the rate-limit configuration for the RESTful API. For more, go to [`RateLimitConfig` example](#ratelimitconfig-example). |
 | `QueryWindowInMin` |  | Integer | This field defines the available query window in minutes. The minimum is 1 minute. The default is 5 minutes.|
 | `HttpMethod` |  | String | This field defines the API method: `GET`(default) or `POST`. |

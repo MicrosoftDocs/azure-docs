@@ -84,7 +84,7 @@ Use the Azure portal to create a browser-based RDP connection to your Linux virt
 1. Enter the **Username** and **Password**, and then select **Connect**. The RDP connection to this virtual machine via Bastion opens directly in the browser (over HTML5) using port 443 and the Bastion service.
 
 > [!NOTE]
-> For troubleshooting tips, see [Troubleshooting](troubleshoot.md).
+> For troubleshooting tips, see [Troubleshooting](/troubleshoot/azure/bastion/welcome-azure-bastion).
 
 # [IP address (portal)](#tab/ip-address)
 

@@ -33,7 +33,7 @@ In this tutorial, you:
 
 Follow these steps to create a new scheduled task from the portal.
 
-1. Go to your agent, and select **Builder** > **Scheduled tasks**.
+1. Go to your agent, and select **Scheduled tasks** in the left sidebar.
 
     :::image type="content" source="media/common/portal-scheduled-tasks.png" alt-text="Screenshot of scheduled tasks dashboard showing task list and toolbar.":::
 
@@ -46,7 +46,7 @@ Follow these steps to create a new scheduled task from the portal.
     | **Task name** | Daily Health Check |
     | **Task details** | Check Azure Resource Health for all resources in prod-rg. Summarize healthy, warning, and critical counts. |
     | **Frequency** | Daily |
-    | **Time of day** | 9:00 AM |
+    | **Time of day (*timezone*)** | 9:00 AM |
 
     Don't change the default values for optional fields:
 
@@ -84,7 +84,7 @@ To change the schedule, update instructions, or switch the agent mode, edit the 
 
     | What to change | Field to update |
     |----------------|-----------------|
-    | When it runs | **Frequency** and **Time of day** |
+    | When it runs | **Frequency** and **Time of day (*timezone*)** |
     | What it does | **Task details** |
     | Who handles it | **Response subagent** |
     | How long it runs | **Repeat until** or **Run limit** |

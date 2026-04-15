@@ -586,6 +586,9 @@ items:
     - name: What-if check
       displayName: whatif, what if
       href: deploy-what-if.md
+    - name: Preflight check
+      displayName: preflight, pre-flight
+      href: deploy-preflight.md
     - name: Deploy - VS Code
       displayName: visual studio code,vscode
       href: deploy-vscode.md
@@ -778,3 +781,6 @@ items:
       href: diagnostics/bcp420.md
     - name: BCP422
       href: diagnostics/bcp422.md
+  - name: Programmatic Bicep usage with JSON-RPC
+    href: bicep-cli-jsonrpc.md
+    displayName: jsonrpc,json-rpc,rpc,pipe,socket,stdio,programmatic
