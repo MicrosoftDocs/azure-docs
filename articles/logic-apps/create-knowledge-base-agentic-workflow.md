@@ -40,6 +40,16 @@ This release currently supports only the following capabilities:
 
 - Default chunking settings, not custom chunking.
 
+## How a knowledge base works
+
+KBaaS simplifies data transformation and provides an abstraction layer over Azure Cosmos DB and Azure OpenAI so that your workflows can more easily consume, process, and retrieve structured knowledge without building a custom Retrieval-Augmented Generation (RAG) pipeline. 
+
+The KBaaS has the following pipelines:
+
+- *Ingestion pipeline*: When you upload a document, or knowledge source, to your knowledge base, the service automatically parses, chunks, summarizes, and vectorizes the content. The service then stores the results in Azure Cosmos DB.
+
+- *Retrieval pipeline*: When the agent loop queries your knowledge base, the service rewrites the query if needed, generates a vector representation, performs a semantic search against Azure Cosmos DB, and returns the most relevant chunks to the large language model (LLM) for response generation.
+
 ## Prerequisites
 
 - An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
@@ -51,16 +61,16 @@ This release currently supports only the following capabilities:
     - A completions model, such as **gpt-4o**
     - An embeddings model, such as **text-embedding-3-small**
 
-  - To create a connection later between your OpenAI resource and knowledge base, you need the following values from your OpenAI resource:
+  - To work in Visual Studio Code, you need the following values from your OpenAI resource to connect your Azure OpenAI resource and knowledge base:
 
-    - Endpoint URL
-    - Access key. See [Authentication](#authentication).
+    - API endpoint URL
+    - API key resource. See [Authentication](#authentication).
 
 - An Azure Cosmos DB for NoSQL account. For more information, see [Quickstart: Create an Azure Cosmos DB for NoSQL account using the Azure portal](/azure/cosmos-db/quickstart-portal).
 
   - Before you create your knowledge base, [enable vector search](/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) on your Cosmos DB account. This operation might take up to 15 minutes before completion. For more information, see [Vector search in Azure Cosmos DB for NoSQL](/azure/cosmos-db/vector-search).
 
-  - To create a connection later between your Cosmos DB and knowledge base, you need the following values from your Cosmos DB:
+  - To work in Visual Studio Code, you need the following values from your Cosmos database to connect your database and knowledge base:
 
     - Endpoint URL
     - Access key. See [Authentication](#authentication).
@@ -71,16 +81,6 @@ This release currently supports only the following capabilities:
 
   - [Create autonomous agentic workflows without human interactions in Azure Logic Apps](/azure/logic-apps/create-autonomous-agent-workflows?tabs=standard)
   - [Create conversational agentic workflows with chat interactions in Azure Logic Apps](/azure/logic-apps/create-conversational-agent-workflows?tabs=standard)
-
-## How the knowledge base works
-
-KBaaS simplifies data transformation and provides an abstraction layer over Azure Cosmos DB and Azure OpenAI so that your workflows can more easily consume, process, and retrieve structured knowledge without building a custom Retrieval-Augmented Generation (RAG) pipeline. 
-
-The KBaaS has the following pipelines:
-
-- *Ingestion pipeline*: When you upload a document, or knowledge source, to your knowledge base, the service automatically parses, chunks, summarizes, and vectorizes the content. The service then stores the results in Azure Cosmos DB.
-
-- *Retrieval pipeline*: When the agent loop queries your knowledge base, the service rewrites the query if needed, generates a vector representation, performs a semantic search against Azure Cosmos DB, and returns the most relevant chunks to the large language model (LLM) for response generation.
 
 ## Authentication
 
@@ -94,17 +94,72 @@ For more information, see the following resources:
 - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
 - [Secrets in Azure Key Vault](/azure/key-vault/secrets/)
 
-## 1: Add app settings for the knowledge base
+## 1: Create the knowledge base connection
 
-Before you create a knowledge base, add the required knowledge base connection information as app settings to your Standard logic app resource:
+Based on whether you're working in the Azure portal or Visual Studio Code, follow the corresponding steps to create the knowledge base connection by associating your Cosmos database and Azure OpenAI resource models:
+
+### [Azure portal](#tab/portal)
+
+#### 1a: Set up the Cosmos database connection
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app sidebar, under **Settings**, select **Environment variables**.
+1. On the logic app sidebar, under **Agents**, select **Knowledge base**.
 
-1. On the **App settings** tab toolbar, select **Add**.
+1. On the **Knowledge base** page, select **Set up**.
 
-1. On the **Add/Edit application setting** pane, add each app setting with the corresponding value, and then select **Apply** to save your changes:
+1. In the **Set up** pane, on the **Basics** tab, provide the following information:
+
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
+   | **Display name** | Yes | A human-readable name for your knowledge base connection. Use the same name as the knowledge base that you plan to create so the retrieval action can associate the correct connection. |
+   | **Authentication type** | Yes | **Key-based** or **Managed Service Identity** |
+   | **Subscription** | Yes | Your Azure subscription. |
+   | **Database** | Yes | Your Cosmos database. |
+   | **URL endpoint** | Yes | Your database selection automatically populates this value. |
+   | **Key** | Yes | Available only if you select **Key-based** authentication. Your database selection automatically populates this value. |
+
+1. When you finish, select **Next**.
+
+#### 1b: Set up the Azure OpenAI resource connection
+
+1. On the **Model** tab, provide the following information:
+
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
+   | **Authentication type** | Yes | **URL and key-based authentication** or **Managed Service Identity** |
+   | **Subscription** | Yes | Your Azure subscription. |
+   | **Azure OpenAI resource** | Yes | Your Azure OpenAI resource. |
+   | **API endpoint** | Yes | Your Azure OpenAI resource selection automatically populates this value. |
+   | **API key** | Yes | Available only if you select **URL and key-based authentication**. Your Azure OpenAI resource selection automatically populates this value. |
+   | **Completions model** | Yes | Enter the display name for the completions model deployed for your Azure OpenAI resource. |
+   | **Embeddings model** | Yes | Enter the display name for the embeddings model deployed for your Azure OpenAI resource. |
+
+1. When you finish, select **Create**.
+
+### [Visual Studio Code](#tab/visual-studio-code)
+
+#### 
+follow the steps to open the *connections.json* file.
+
+
+####: Set up the connection
+
+After you add the app settings, set up the knowledge base connection in your logic app's *connections.json* file. This connection defines the OpenAI models and Cosmos DB account that the knowledge base uses.
+
+
+1. Open your logic app project workspace.
+
+1. On the Activity Bar, open the **Explorer** window.
+
+1. From the logic app project, open the **connections.json** file.
+
+1. At the file's root level, add the `knowledgeHubConnections` JSON object with the following structure. Manually replace the placeholders with the following values:
+
+   | Placeholder | Required | Value |
+   |-------------|----------|-------|
+   | `<connection-name>` | Yes | A name for your knowledge base connection. Use the same name as the knowledge base that you plan to create so that the retrieval action can associate the correct connection. |
+   | `<connection-display-name>` | Yes | A human-readable label for the connection. |
 
    | App setting name | Description |
    |------------------|-------------|
@@ -113,98 +168,62 @@ Before you create a knowledge base, add the required knowledge base connection i
    | **cosmosdbEndpoint** | The Cosmos DB account endpoint URL. |
    | **cosmosdbKey** | The Cosmos DB account access key. |
 
-1. Continue to the next section to create the knowledge base connection.
 
-## 2: Set up the knowledge base connection
-
-After you add the app settings, set up the knowledge base connection in your logic app's *connections.json* file. This connection defines the OpenAI models and Cosmos DB account that the knowledge base uses.
-
-### 2a: Open the connections.json file
-
-Based on whether you're working in the Azure portal or Visual Studio Code, follow the steps to open the *connections.json* file.
-
-#### [Azure portal](#tab/portal)
-
-1. On the logic app sidebar, under **Development Tools**, select **Advanced Tools**.
-
-1. On the **Advanced Tools** page, select **Go**.
-
-1. Confirm that you want to leave the Azure portal and go to the Kudu Services page.
-
-1. On the **Kudu+** toolbar, from the **Debug Console** menu, select **CMD**.
-
-1. Go to the following folder: **site/wwwroot**
-
-1. Next to the **connections.json** file, select **Edit** (pencil icon) to open the file.
-
-#### [Visual Studio Code](#tab/visual-studio-code)
-
-1. Open the logic app project workspace.
-
-1. On the Activity Bar, open the **Explorer** window.
-
-1. From the logic app project, open the **connections.json** file.
+   ```json
+   {
+       "agentConnections": {},
+       "managedApiConnections": {},
+       "serviceProviderConnections": {},
+       "knowledgeHubConnections": {
+           "<connection-name>": {
+               "completionsOpenAI": {
+                   "completionsModel": "gpt-4o",
+                   "openAI": {
+                       "authentication": {
+                           "key": "@appsetting('agent_openAIKey')",
+                           "type": "Key"
+                       },
+                       "endpoint": "@appsetting('agent_openAIEndpoint')"
+                   }
+               },
+               "cosmosDB": {
+                   "authentication": {
+                       "key": "@appsetting('cosmosdbKey')",
+                       "type": "Key"
+                   },
+                   "endpoint": "@appsetting('cosmosdbEndpoint')"
+               },
+               "displayName": "<connection-display-name>",
+               "embeddingsOpenAI": {
+                   "embeddingsModel": "text-embedding-3-small",
+                   "openAI": {
+                       "authentication": {
+                           "key": "@appsetting('agent_openAIKey')",
+                           "type": "Key"
+                       },
+                       "endpoint": "@appsetting('agent_openAIEndpoint')"
+                   }
+               }
+           }
+       }
+   }
+    ```
 
 ---
 
-### 2b: Add the `knowledgeHubConnections` object
+<a name="add-knowledge-artifacts"></a>
 
-At the file's root level, add the `knowledgeHubConnections` JSON object with the following structure. Manually replace the placeholders with the specified values:
+## 2: Add knowledge artifacts
 
-| Placeholder | Required | Value |
-|-------------|----------|-------|
-| `<connection-name>` | Yes | A name for your knowledge base connection. Use the same name as the knowledge base that you plan to create so that the retrieval action can associate the correct connection. |
-| `<connection-display-name>` | Yes | A human-readable label for the connection. |
-
-```json
-{
-   "agentConnections": {},
-   "managedApiConnections": {},
-   "serviceProviderConnections": {},
-   "knowledgeHubConnections": {
-      "<connection-name>": {
-         "completionsOpenAI": {
-            "completionsModel": "gpt-4o",
-            "openAI": {
-               "authentication": {
-                  "key": "@appsetting('agent_openAIKey')",
-                  "type": "Key"
-               },
-               "endpoint": "@appsetting('agent_openAIEndpoint')"
-            }
-         },
-         "cosmosDB": {
-            "authentication": {
-               "key": "@appsetting('cosmosdbKey')",
-               "type": "Key"
-            },
-            "endpoint": "@appsetting('cosmosdbEndpoint')"
-         },
-         "displayName": "<connection-display-name>",
-         "embeddingsOpenAI": {
-            "embeddingsModel": "text-embedding-3-small",
-            "openAI": {
-               "authentication": {
-                  "key": "@appsetting('agent_openAIKey')",
-                  "type": "Key"
-               },
-               "endpoint": "@appsetting('agent_openAIEndpoint')"
-            }
-         }
-      }
-   }
-}
-```
-
-<a name="create-knowledge-base"></a>
-
-## 3: Create a knowledge base
+After you create your knowledge base connection, add the source information files you want to use as knowledge artifacts in your knowledge base.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On the logic app sidebar, under **Agents**, select **Knowledge base**.
 
-1. On the **Knowledge base** page, select **Add files**.
+1. If you want to create a group before you add files, on the **Knowledge base** page toolbar, select **New** > **Create new group**, and then follow the prompts to create the group.
+
+1. On the **Knowledge base** page, select **Add files**. Or, on the page toolbar, select **New** > **Add files**.
 
 1. On the **Add files** pane, complete the following tasks:
 
@@ -217,8 +236,8 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 
    1. In the **Add files** section, select **browse to upload**, or drag and drop files to your group. For each file, enter the following information:
 
-      | Property | Required | Value | Description |
-      |----------|----------|-------|-------------|
+      | Parameter | Required | Value | Description |
+      |-----------|----------|-------|-------------|
       | **Name** | Yes | <*source-name*> | A name for the file as a knowledge source, for example, `HRPolicyDocument`. |
       | **Description** | No | <*source-description*> | An optional description for the file as a knowledge source. |
 
@@ -243,11 +262,11 @@ At the file's root level, add the `knowledgeHubConnections` JSON object with the
 
 <a name="add-knowledge-base-as-tool"></a>
 
-## 4: Add the knowledge base as a tool
+## 3: Add the knowledge base as a tool
 
 You can now add the knowledge base to your agent loop to use as a tool in your agentic Standard workflows. Agent loops automatically query the knowledge base to retrieve semantically relevant information from your uploaded documents.
 
-1. In the same Standard logic app that has your knowledge base, in the designer, open your agentic workflow, and select the agent loop you want.
+1. In the same Standard logic app that includes your knowledge base, in the designer, open your agentic workflow, and select the agent loop you want.
 
 1. In the agent information pane, in the **Knowledge base** section, from the **Sources** list, select the knowledge base.
 
