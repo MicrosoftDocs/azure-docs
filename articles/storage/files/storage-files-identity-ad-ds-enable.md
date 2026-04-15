@@ -279,7 +279,7 @@ Set-AzStorageAccount `
     -ActiveDirectoryDomainGuid $DomainGuid `
     -ActiveDirectoryDomainSid $DomainSid `
     -ActiveDirectoryAzureStorageSid $StorageSid `
-    -ActiveDirectorySamAccountName $ComputerSam `
+    -ActiveDirectorySamAccountName $ComputerName `
     -ActiveDirectoryAccountType "Computer"
 
 # STEP 5 – Configure AES-256 encryption (AD team - recommended)
