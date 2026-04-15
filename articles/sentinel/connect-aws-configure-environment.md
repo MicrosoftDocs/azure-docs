@@ -155,6 +155,7 @@ Microsoft Sentinel provides these AWS connectors:
 
 - [Amazon Web Services Web Application Firewall (WAF) connector](connect-aws-s3-waf.md): Ingests AWS WAF logs, collected in AWS S3 buckets, to Microsoft Sentinel.
 - [Amazon Web Services service log connector](connect-aws.md): Ingests AWS service logs, collected in AWS S3 buckets, to Microsoft Sentinel.
+- [Amazon Web Services Elastic Kubernetes Service (EKS) log connector](connect-aws-eks.md): Ingests AWS EKS audit logs, collected in AWS S3 buckets, to Microsoft Sentinel.
  
 ---
 

@@ -24,7 +24,7 @@ landingContent:
           - text: Plan your migration
             url:  /azure/cloud-adoption-framework/migrate/plan-migration
           - text: Select your migration strategy
-            url:  /azure/cloud-adoption-framework/plan/select-cloud-migration-strategy?utm_source=chatgpt.com
+            url:  /azure/cloud-adoption-framework/plan/select-cloud-migration-strategy
 
   - title: Data
     linkLists:

@@ -96,7 +96,7 @@ Path patterns describe multi-hop relationships in your graph:
 ```gql
 (a)-[e1]->;(b)-[e2]->(c)     -- 2-hop path 
 (a)-[e]->;{2,4}(b)              -- 2 to 4 hops
-(a)-[e]->{1,}(b)             -- 1 or more hops
+(a)-[e]->{1,}(b)             -- 1 to maximum of 8 hops
 (a)-[:knows|likes]->;{1,3}(b)  -- 1-3 hops via knows/likes 
 p=()-[:works_at]->()         -- Binding a path variable 
 ```
@@ -104,8 +104,10 @@ p=()-[:works_at]->()         -- Binding a path variable
 **Variable-length paths:**
 
 - `{2,4}`: Exactly 2 to 4 hops
-- `{1,}`: 1 or more hops (unbounded)
-- `{,3}`: Up to 3 hops
+- `{1,}`: 1 or more hops (unbounded). Unbounded path queries are limited to 8 hops.
+
+- `{,5}`: Up to 5 hops
+
 - `{5}`: Exactly 5 hops
 
 ### Path variables
