@@ -88,31 +88,6 @@ There are several considerations to be aware of when using cool access.
 * When you [restore a snapshot of a cool access-enabled volume to a new volume](snapshots-restore-new-volume.md), the new volume inherits the cool access configuration from the parent volume. After the new volume is created, you can modify the cool access settings.  
 * You can't restore from a snapshot of a non-cool-access volume to a cool access volume. Likewise, you can't restore from a snapshot of a cool access volume to a non-cool-access volume.
 
-## Enable cool access 
-
-You must register for cool access with the Flexible service level before you can enable it at the capacity pool and volume levels. No registration is required for the Standard, Premium and Ultra service levels. 
-
-### Register the feature
-
-You must register cool access with the Flexible service level before using it. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessFlexible
-    ```
-
-2. Check the status of the feature registration: 
-    > [!NOTE]
-    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccessFlexible
-    ```
-
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-    
-
 ### Configure the capacity pool for cool access
 
 Before you create or enable a cool-access volume, configure a capacity pool with cool access. You can do so in one of the following ways: 
