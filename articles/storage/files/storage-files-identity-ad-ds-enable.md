@@ -349,6 +349,8 @@ $SecurePassword = ConvertTo-SecureString $KerbKey -AsPlainText -Force
 Set-ADAccountPassword -Identity $UserSamAccountName -Reset -NewPassword $SecurePassword
 ```
 
+---
+
 ## Confirm the feature is enabled
 
 Check if AD DS is enabled as the identity source on your storage account by using the following script. Replace `<resource-group-name>` and `<storage-account-name>` with your values.
