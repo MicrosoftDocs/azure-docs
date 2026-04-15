@@ -419,7 +419,7 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
 ## Create or connect to a knowledge base
 
-Optionally, to help your agent loop answer questions and complete tasks related to a specific domain, create a *knowledge base* or connect to an existing knowledge base for your agent loop to use. A knowledge base is a logical *container* that organizes related knowledge sources such as documents or files.
+Optionally, in Standard agentic workflows, to help your agent loop answer questions and complete tasks related to a specific domain, create a *knowledge base* or connect to an existing knowledge base for your agent loop to use. A knowledge base is a logical *container* that organizes related knowledge sources such as documents or files.
 
 Your organization generates data from documents, spreadsheets, APIs, and internal systems. When you use the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into structured and more searchable information that your agent loop can use.
 
