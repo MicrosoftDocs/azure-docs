@@ -39,6 +39,7 @@ Advanced ransomware protection (ARP) in Azure NetApp Files is a built-in capabil
 - Japan West 
 - Korea Central 
 - Korea South
+- Malaysia West 
 - New Zealand North 
 - North Central US 
 - North Europe 
