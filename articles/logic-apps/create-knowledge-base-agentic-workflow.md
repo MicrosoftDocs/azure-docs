@@ -28,6 +28,8 @@ For example, you might create a knowledge base that contains all the documents r
 
 This guide shows how to create a *knowledge base*, upload knowledge sources, and add the knowledge base as a tool that an agent loop can use in a Standard agentic workflow.
 
+:::image type="content" source="media/create-knowledge-base-agentic-workflow/entry-point.png" alt-text="Screenshot shows the Azure portal, Standard logic app resource, expanded Agents sidebar section with Knowledge base selected, and set up option.":::
+
 ## Limitations
 
 This preview release has the following limitations:
