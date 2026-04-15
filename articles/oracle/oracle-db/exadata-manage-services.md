@@ -11,13 +11,13 @@ ms.date: 08/01/2024
 
 # Exadata services
 
-Oracle Database@Azure (OracleDB@Azure) provides you with seamless integration of Oracle resources within your Microsoft Azure cloud environment.
+Oracle AI Database@Azure (OracleDB@Azure) provides you with seamless integration of Oracle resources within your Microsoft Azure cloud environment.
 
 You access the OracleDB@Azure service through the Microsoft Azure portal. You create and manage Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources with direct access to the Oracle Cloud Infrastructure (OCI) portal for creation and management of Oracle Exadata Databases, including all Container Databases (CDBs) and Pluggable Databases (PDBs).
 
-There are IP address requirement differences between Oracle Database@Azure and Oracle Cloud Infrastructure (OCI). In the [Requirements for IP Address Space](https://docs.oracle.com/iaas/exadatacloud/exacs/ecs-network-setup.html#GUID-D5C577A1-BC11-470F-8A91-77609BBEF1EA) documentation, the following changes for Oracle Database@Azure must be considered.
-* Oracle Database@Azure only supports Exadata X9M. Other shapes are unsupported.
-* Oracle Database@Azure reserves 13 IP addresses for the client subnet versus 3 for OCI requirements.
+There are IP address requirement differences between Oracle AI Database@Azure and Oracle Cloud Infrastructure (OCI). In the [Requirements for IP Address Space](https://docs.oracle.com/iaas/exadatacloud/exacs/ecs-network-setup.html#GUID-D5C577A1-BC11-470F-8A91-77609BBEF1EA) documentation, the following changes for Oracle AI Database@Azure must be considered.
+* Oracle AI Database@Azure only supports Exadata X9M. Other shapes are unsupported.
+* Oracle AI Database@Azure reserves 13 IP addresses for the client subnet versus 3 for OCI requirements.
 
 The following articles provide specifics of the creation and management tasks associated with each resource type.
 
