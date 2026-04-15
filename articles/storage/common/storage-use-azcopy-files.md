@@ -897,7 +897,28 @@ To learn more about share snapshots, see [Overview of share snapshots for Azure 
 | **Azure Files SMB**     | NTFSFileAttributes (ReadOn ReadOnly, Hidden, System, Directory, Archive, None, Temporary, Offline, NotContentIndexed, NoScrubData) (x-ms-file-attributes) <br> CreationTime (x-ms-file-creation-time) <br> LastWriteTime (x-ms-file-last-write-time) | ACLs (x-ms-file-permission)              |
 | **Azure Files NFS**     | CreationTime (x-ms-file-creation-time) <br> LastWriteTime (x-ms-file-last-write-time)                                                | Owner (x-ms-owner) <br> Group (x-ms-group) <br> FileMode (x-ms-mode) |
 
+## Hardlink handling for Azure Files NFS
 
+AzCopy supports configurable handling of hardlinked files when transferring data involving **Azure Files NFS**, including uploads to Azure Files NFS shares, downloads from Azure Files NFS shares, and service‑to‑service transfers between Azure Files NFS shares. You can control this behavior by using the `--hardlinks` option.
+
+### Hardlink modes
+
+| **Mode (`--hardlinks`)** | **Behavior** |
+|--------------------------|--------------|
+| `follow` (default) | Hardlinked files are treated as independent files and transferred separately. |
+| `skip` | All hardlinked files are skipped during the transfer. |
+| `preserve` | Hardlink relationships are preserved at the destination. Source and destination file systems must support hardlinks. |
+
+### Behavior when `--hardlinks=preserve` is used
+
+- **Upload and service‑to‑service transfers (Azure Files NFS as destination)**  
+  Existing hardlinks on the destination that are not part of the transfer are preserved. AzCopy writes file content in place by using the Azure Files REST API rather than a temporary file followed by a rename. As a result, the file’s inode is updated directly, and all existing hardlinked paths continue to reference the updated data.
+
+- **Download (local file system as destination)**  
+  Existing hardlinks on the destination that are not part of the transfer are broken. AzCopy uses a temporary file followed by a rename operation (similar to `rsync`), which replaces the directory entry with a new inode. Existing hardlinked paths continue to point to the original inode and therefore to stale data.
+
+> [!NOTE]  
+> Hardlink preservation requires both the source and destination to be on file systems that support hardlinks.
 
 ## Next steps
 
