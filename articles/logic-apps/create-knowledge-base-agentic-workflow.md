@@ -94,6 +94,8 @@ For more information, see the following resources:
 - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
 - [Secrets in Azure Key Vault](/azure/key-vault/secrets/)
 
+<a id="create-connection"></a>
+
 ## 1: Create the knowledge base connection
 
 To create the knowledge base connection, associate your Cosmos database and Azure OpenAI resource models by following these steps:
@@ -208,7 +210,7 @@ After you add the app settings, set up the knowledge base connection in your log
 
 ## 2: Add knowledge artifacts
 
-After you create your knowledge base connection, add the source information files you want to use as knowledge artifacts in your knowledge base.
+After you create your knowledge base connection, add the source information files to use as knowledge artifacts in your knowledge base.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -261,7 +263,9 @@ You can now add the knowledge base to your agent loop to use as a tool in your a
 
 1. In the same Standard logic app that includes your knowledge base, in the designer, open your agentic workflow, and select the agent loop you want.
 
-1. In the agent information pane, in the **Knowledge base** section, from the **Sources** list, select the knowledge base.
+1. On the agent information pane, in the **Knowledge base** section, select **Create**.
+
+1. On the **Create Connection** pane, from the **Sources** list, select the knowledge base.
 
 1. To upload more files to your knowledge base, select **+ Upload**.
 
