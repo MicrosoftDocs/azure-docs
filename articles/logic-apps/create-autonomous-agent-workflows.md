@@ -106,7 +106,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
     >
     > Use this authentication option only for the examples in this guide, exploratory scenarios, nonproduction scenarios, or if your organization's policy specifies that you can't use managed identity authentication.
     >
-        > In general, make sure that you secure and protect sensitive data and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information by using the highest available or supported level of security. Don't hardcode sensitive data, share secrets with other users, or save them in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets if they become compromised.
+    > In general, make sure that you secure and protect sensitive data and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information by using the highest available or supported level of security. Don't hardcode sensitive data, share secrets with other users, or save them in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets if they become compromised.
     >
     > For more information, see:
     >
