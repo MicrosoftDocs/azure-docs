@@ -462,7 +462,7 @@ Here, you can configure some common settings for the app. Some settings require 
   - **HTTPS Only**: Enable if you want to redirect all HTTP traffic to HTTPS.
   - **Minimum TLS version**: Select the minimum TLS encryption version that your app requires.
 
-- **Debugging**: Enable remote debugging for [ASP.NET](/visualstudio/debugger/remote-debugging-azure-app-service?view=visualstudio#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
+- **Debugging**: Enable remote debugging for [ASP.NET](/visualstudio/debugger/remote-debugging-azure-app-service#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
 - **Incoming client certificates**: Require client certificates in [mutual authentication](app-service-web-configure-tls-mutual-auth.md).
 
 You may also choose the **Stack settings** tab to configure settings for the software stack to run the app, including the language and SDK versions. For Linux apps, you can select the language runtime version and set an optional startup command.
