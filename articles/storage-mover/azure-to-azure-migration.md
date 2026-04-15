@@ -204,12 +204,57 @@ az storage-mover endpoint create-for-storage-container \
 
 ### [Azure portal](#tab/portal)
 
-When you create an Azure Blob Storage source or target endpoint through the Azure portal, the **Storage Blob Data Owner** RBAC role is automatically assigned to the system-assigned managed identity of the endpoint. No other steps are required.
+When you create an Azure Blob Storage source or target endpoint through the Azure portal, the **Storage Account Contributor** and **Storage Blob Data Owner** RBAC roles are automatically assigned to the system-assigned managed identity of the endpoint. No other steps are required.
 
 
 ### [Azure PowerShell](#tab/powershell)
 
-Assign the **Storage Blob Data Owner** RBAC role on the source and target blob storage container to the system-assigned managed identity of the target endpoint. First, retrieve the principal ID of the target endpoint's managed identity by using the `Get-AzStorageMoverAzStorageContainerEndpoint` command:
+Assign the **Storage Account Contributor** RBAC role on the source and target blob storage accounts to the system-assigned managed identity of the target endpoint. 
+First, retrieve the principal ID of the target endpoint's managed identity by using the `Get-AzStorageMoverAzStorageContainerEndpoint` command:
+
+```powershell
+$endpoint = Get-AzStorageMoverAzStorageContainerEndpoint `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -Name <String>
+
+$principalId = $endpoint.Identity.PrincipalId
+```
+
+Then, use the `New-AzRoleAssignment` command to assign the role:
+
+```powershell
+New-AzRoleAssignment `
+    -ObjectId <String> `
+    -RoleDefinitionName "Storage Account Contributor" `
+    -Scope <String>
+```
+
+**Parameters:**
+
+- **ObjectId**: The object ID (principal ID) of the system-assigned managed identity of the target endpoint.
+- **RoleDefinitionName**: Set to **"Storage Account Contributor"**.
+- **Scope**: The Azure resource ID of the source or target blob storage account.
+
+**Example:**
+
+```powershell
+# Get the source or target endpoint
+$endpoint = Get-AzStorageMoverEndpoint `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -Name "my-blob-endpoint"
+
+# Assign the RBAC role using the principal ID
+New-AzRoleAssignment `
+    -ObjectId $endpoint.Identity.PrincipalId `
+    -RoleDefinitionName "Storage Account Contributor" `
+    -Scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+```
+
+
+Assign the **Storage Blob Data Owner** RBAC role on the source and target blob storage container to the system-assigned managed identity of the target endpoint. 
+First, retrieve the principal ID of the target endpoint's managed identity by using the `Get-AzStorageMoverAzStorageContainerEndpoint` command:
 
 ```powershell
 $endpoint = Get-AzStorageMoverAzStorageContainerEndpoint `
@@ -253,6 +298,55 @@ New-AzRoleAssignment `
 
 ### [Azure CLI](#tab/CLI)
 
+Assign the **Storage Account Contributor** RBAC role on the source and target blob storage accounts to the system-assigned managed identity of the target endpoint. 
+First, retrieve the principal ID of the source or target endpoint's managed identity by using the `az storage-mover endpoint show` command:
+
+```bash
+az storage-mover endpoint show \
+    --resource-group <String> \
+    --storage-mover-name <String> \
+    --name <String> \
+    --query identity.principalId \
+    --output tsv
+```
+
+Then, use the `az role assignment create` command to assign the role:
+
+```bash
+az role assignment create \
+    --assignee-object-id <String> \
+    --assignee-principal-type ServicePrincipal \
+    --role "Storage Account Contributor" \
+    --scope <String>
+```
+
+**Parameters:**
+
+- **assignee-object-id**: The object ID (principal ID) of the system-assigned managed identity of the target endpoint.
+- **assignee-principal-type**: Set to **"ServicePrincipal"**.
+- **role**: Set to **"Storage Account Contributor"**.
+- **scope**: The Azure resource ID of the source or target blob storage account.
+
+**Example:**
+
+```bash
+# Get the principal ID
+PRINCIPAL_ID=$(az storage-mover endpoint show \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-mover-name "myStorageMover" \
+    --name "my-blob-endpoint" \
+    --query identity.principalId \
+    --output tsv)
+
+# Assign the RBAC role using the principal ID
+az role assignment create \
+    --assignee-object-id $PRINCIPAL_ID \
+    --assignee-principal-type ServicePrincipal \
+    --role "Storage Account Contributor" \
+    --scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+```
+
+Assign the **Storage Blob Data Owner** RBAC role on the source and target blob storage container to the system-assigned managed identity of the target endpoint. 
 First, retrieve the principal ID of the source or target endpoint's managed identity by using the `az storage-mover endpoint show` command:
 
 ```bash

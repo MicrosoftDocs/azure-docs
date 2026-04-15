@@ -1,6 +1,6 @@
 ---
-title: Support for Oracle Database@Azure 
-description: Learn about support for Oracle Database@Azure.
+title: Support for Oracle AI Database@Azure 
+description: Learn about support for Oracle AI Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 04/15/2025
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
-# Customer intent: "As a database administrator managing Oracle Database on Azure, I want clear guidance on support procedures and contacts for both Oracle and Azure, so that I can efficiently resolve any issues and maintain optimal database performance."
+# Customer intent: "As a database administrator managing Oracle AI Database on Azure, I want clear guidance on support procedures and contacts for both Oracle and Azure, so that I can efficiently resolve any issues and maintain optimal database performance."
 ---
 
-# Support for Oracle Database@Azure
+# Support for Oracle AI Database@Azure
 
 This article outlines the support scope, contact details, and procedures for both Oracle and Microsoft Azure, helping you quickly address any issues.
 
@@ -25,18 +25,18 @@ This article outlines the support scope, contact details, and procedures for bot
 
 ## Oracle support scope and contact information 
 
-Oracle Support is your first line of support for all Oracle Database@Azure issues. Oracle Support can help you with the following types of Oracle Database@Azure issues:
+Oracle Support is your first line of support for all Oracle AI Database@Azure issues. Oracle Support can help you with the following types of Oracle AI Database@Azure issues:
 
 - Database connection issues (Oracle TNS)
-- Oracle Database performance issues
-- Oracle Database error resolution
+- Oracle AI Database performance issues
+- Oracle AI Database error resolution
 - Networking issues related to communications with the OCI tenancy associated with the service
 - Quota (limits) increases to receive more capacity
-- Scaling to add more compute and storage capacity to Oracle Database@Azure
+- Scaling to add more compute and storage capacity to Oracle AI Database@Azure
 - New generation hardware upgrades
-- Billing issues related to Oracle Database@Azure
+- Billing issues related to Oracle AI Database@Azure
 
-If you contact Oracle Support, be sure to tell your Oracle Support agent that your issue is related to Oracle Database@Azure. Support requests are handled by a  support team that specializes in these deployments. A member of this specialized team contacts you directly.
+If you contact Oracle Support, be sure to tell your Oracle Support agent that your issue is related to Oracle AI Database@Azure. Support requests are handled by a  support team that specializes in these deployments. A member of this specialized team contacts you directly.
 
 1. Call **1-800-223-1711.** If you're outside of the United States, visit [Oracle Support Contacts Global Directory](https://www.oracle.com/support/contact.html) to find contact information for your country or region.
 2. Choose option "2" to open a new Service Request (SR).
@@ -44,7 +44,7 @@ If you contact Oracle Support, be sure to tell your Oracle Support agent that yo
 4. Enter "#" each time you're asked for your CSI number. At the third attempt, your call is directed to an Oracle Support agent.
 5. Let the agent know that you have an issue with your multicloud system, and the name of the product (for example, or). An internal Service Request is opened on your behalf and a  support engineer contacts you directly.
 
-You can also submit a question to the Oracle Database@Azure forum in Oracle's [Cloud Customer Connect](https://community.oracle.com/customerconnect/categories/oracle-cloud-infrastructure-and-platform) community. This option is available to all customers.
+You can also submit a question to the Oracle AI Database@Azure forum in Oracle's [Cloud Customer Connect](https://community.oracle.com/customerconnect/categories/oracle-cloud-infrastructure-and-platform) community. This option is available to all customers.
 
 ## Azure support scope and contact information
 

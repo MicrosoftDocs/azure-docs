@@ -45,9 +45,9 @@ The database tier deploys the VMs and their disks and also deploys a [Standard i
 
 You can set the size of database VMs with the parameter `size` for this tier. For example, use `"size": "S4Demo"` for HANA databases or `"size": "1 TB"` for AnyDB databases. For possible values, see the **Size** parameter in the tables of [HANA database VM options](configure-extra-disks.md#hana-databases) and [AnyDB database VM options](configure-extra-disks.md#anydb-databases).
 
-By default, the automation framework calculates the disk configuration for HANA database deployments based on VM size. For AnyDB database deployments, the framework calculates the disk configuration based on database size. You can set a disk size as needed by creating a custom JSON file in your deployment. For an example, see the [custom sizing file](configure-extra-disks.md#custom-sizing-file) and replace values as necessary for your configuration. Then, define the parameter `db_disk_sizes_filename` in the parameter file for the database tier. An example is `db_disk_sizes_filename = "path/to/JSON/file"`.
+By default, the automation framework calculates the disk configuration for HANA database deployments based on VM size. For AnyDB database deployments, the framework calculates the disk configuration based on database size. You can set a disk size as needed by creating a custom JSON file in your deployment. For an example, see the [custom sizing file](configure-extra-disks.md#create-a-custom-sizing-file) and replace values as necessary for your configuration. Then, define the parameter `db_disk_sizes_filename` in the parameter file for the database tier. An example is `db_disk_sizes_filename = "path/to/JSON/file"`.
 
-You can also [add extra disks to a new system](configure-extra-disks.md#custom-sizing-file) or [add extra disks to an existing system](configure-extra-disks.md#add-extra-disks-to-an-existing-system).
+You can also [add extra disks to a new system](configure-extra-disks.md#create-a-custom-sizing-file) or [add extra disks to an existing system](configure-extra-disks.md#add-extra-disks-to-an-existing-system).
 
 ## Core configuration
 

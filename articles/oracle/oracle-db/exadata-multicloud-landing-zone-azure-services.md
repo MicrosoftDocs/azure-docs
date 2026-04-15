@@ -6,23 +6,23 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
-# Customer intent: As a cloud architect, I want to provision Oracle Database on Azure using Terraform/OpenTofu modules, so that I can efficiently set up a multicloud environment that meets my organization's database management requirements.
+# Customer intent: As a cloud architect, I want to provision Oracle AI Database on Azure using Terraform/OpenTofu modules, so that I can efficiently set up a multicloud environment that meets my organization's database management requirements.
 ---
 
 # Exadata - OCI Multicloud landing zone for Azure
 
 Oracle Cloud Infrastructure (OCI) partnered with Microsoft Azure to develop and distribute HashiCorp Terraform/OpenTofu modules that streamline the provisioning process.
 
-Both OCI Multicloud Landing Zone for Azure (OCI LZ) and Microsoft Verified Modules (MVM) use multiple templates to empower Oracle Database@Azure. These Terraform/OpenTofu modules use four (4) terraform providers, AzureRM, AzureAD, AzAPI, and OCI, covering IAM, networking, and database layer resources. Apply these reference implementations for a quick start deployment, or customize them for a more complex topology fit to your needs.
+Both OCI Multicloud Landing Zone for Azure (OCI LZ) and Microsoft Verified Modules (MVM) use multiple templates to empower Oracle AI Database@Azure. These Terraform/OpenTofu modules use four (4) terraform providers, AzureRM, AzureAD, AzAPI, and OCI, covering IAM, networking, and database layer resources. Apply these reference implementations for a quick start deployment, or customize them for a more complex topology fit to your needs.
 
-The following diagram illustrates where Terraform or OpenTofu can be introduced to streamline the identity, access, networking, and provisioning processes within Oracle Database@Azure.
+The following diagram illustrates where Terraform or OpenTofu can be introduced to streamline the identity, access, networking, and provisioning processes within Oracle AI Database@Azure.
 
 :::image type="content" source="media/architecture-diagram.png" alt-text="Architectural diagram showing the Terraform components.":::
 
 
 ## Prerequisites
 
-- Complete, at a minimum, steps 1-2 of the [Onboarding with Oracle Database@Azure](onboard-oracle-database.md).
+- Complete, at a minimum, steps 1-2 of the [Onboarding with Oracle AI Database@Azure](onboard-oracle-database.md).
 - Have a Terraform/OpenTofu, OCI CLI, Azure CLI, and python (minimum 3.4) environment. For more information, see the [Oracle Multicloud Landing Zone for Azure README](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure?tab=readme-ov-file#prerequisites).
 
 ## Dependencies
@@ -66,7 +66,7 @@ For module details, see [Oracle Multicloud Landing Zone for Azure](https://githu
 
 ## More Terraform/OpenTofu resources
 
-* [QuickStart Oracle Database@Azure with Terraform or OpenTofu Modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html) [Terraform: Set Up OCI Terraform](https://docs.oracle.com/iaas/developer-tutorials/tutorials/tf-provider/01-summary.htm)
+* [QuickStart Oracle AI Database@Azure with Terraform or OpenTofu Modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html) [Terraform: Set Up OCI Terraform](https://docs.oracle.com/iaas/developer-tutorials/tutorials/tf-provider/01-summary.htm)
 * [Import OCI Resources into a Terraform State File](https://docs.oracle.com/en/learn/terraform-statefile-oci-resources/index.html)
 * [Azure Verified Module for Virtual Network](https://github.com/Azure/terraform-azurerm-avm-res-network-virtualnetwork)
 * [Quickstart: Install and Configure Terraform For Azure](/azure/developer/terraform/quickstart-configure)

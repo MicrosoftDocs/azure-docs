@@ -79,6 +79,8 @@ items:
             href: monitor-diagnostic-settings.md
           - name: List of Redis metrics
             href: monitor-cache-reference.md#metrics
+          - name: Enable Redis keyspace notifications
+            href: enable-redis-keyspace-notifications.md
           - name: Dashboards with Grafana
             href: grafana-dashboards.md
       - name: Scaling and performance
