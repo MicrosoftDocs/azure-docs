@@ -34,16 +34,16 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
   > [!NOTE]
   > SMB protocol cache volume cannot be created when the NetApp account is configured with shared Active Directory. You should [configure the account with dedicated Active Directory connections](create-active-directory-connections.md#multi-ad) to create SMB protocol cache volumes.
 
-1.	Initiate the cache volume creation using the PUT caches API call. For information about cache operations, see [API documentation](/rest/api/netapp/caches?view=rest-netapp-2025-09-01-preview&preserve-view=true).
+1.	Initiate the cache volume creation using the PUT caches API call. For information about cache operations, see [API documentation](/rest/api/netapp/caches?view=rest-netapp-2026-01-01-preview&preserve-view=true).
 
       ```
-       PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview 
+       PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2026-01-01-preview 
       ```
    
 2.  Monitor if the cache state is available for cluster peering with a GET request.
 
       ```
-      GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
+      GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2026-01-01-preview
       ```
 
     When the `cacheState = ClusterPeeringOfferSent`, execute the POST `listPeeringPassphrases` call to obtain the command and passphrase necessary to complete the cluster peering.
@@ -51,7 +51,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
     Example listPeeringPassprhases:
 
       ```
-      POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/listPeeringPassphrases?api-version=2025-09-01-preview 
+      POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/listPeeringPassphrases?api-version=2026-01-01-preview 
       ```
       Example Response: 
    
@@ -80,7 +80,7 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 3.	Monitor if the cache state is available for storage VM peering using a GET request.
 
     ```
-  	GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview  
+  	GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2026-01-01-preview  
     ```
     When the `cacheState = VserverPeeringOfferSent`, go to the ONTAP system that contains the external origin volume and execute the `vserver peer show` command until an entry appears where the remote storage VM displays the `<value of the -peer-vserver in the vserverPeeringCommand>`. The peer state shows "pending."
 
@@ -98,10 +98,13 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 ## Cache creation request body examples
 
+  > [!NOTE]
+  > The peerClusterName needs to exactly match the name of the external cluster hosting the origin volume.
+
 # [NFS](#tab/NFS)
 
 ```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview 
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2026-01-01-preview 
 
 Body:
 {
@@ -110,7 +113,7 @@ Body:
     "1"
   ],
   "properties": {
-    "filepath": "cache1",
+    "filePath": "cache1",
     "size": 53687091200,
     "protocolTypes": [
       "NFSv4"
@@ -151,7 +154,7 @@ Body:
 # [SMB](#tab/SMB)
 
 ```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview 
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2026-01-01-preview 
 
 Body:
 {
@@ -160,7 +163,7 @@ Body:
   ],
   "location": "southcentralus",
   "properties": {
-    "filepath": "smb-cache",
+    "filePath": "smb-cache",
     "cacheSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
     "peeringSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
     "size": 53687091200,
@@ -183,14 +186,14 @@ Body:
 # [Dual-protocol](#tab/DualProtocol)
 
 ```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview 
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2026-01-01-preview 
 
 Body:
 {
   "zones": ["2"],
   "location": "southcentralus",
   "properties": {
-    "filepath": "dual-cache2",
+    "filePath": "dual-cache2",
     "cacheSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
     "peeringSubnetResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
     "size": 53687091200,
@@ -233,7 +236,7 @@ Body:
 # [LDAP](#tab/LDAP)
 
 ```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview 
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2026-01-01-preview 
 
 Body:
 {
@@ -242,7 +245,7 @@ Body:
     "1"
   ],
   "properties": {
-    "filepath": "cache1",
+    "filePath": "cache1",
     "size": 53687091200,
     "protocolTypes": [
       "NFSv4"
@@ -289,7 +292,7 @@ Example patch request body to update a cache volume:
 
 ```
 PATCH
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2026-01-01-preview
 
 Example Body:
 {
@@ -305,21 +308,29 @@ You can delete a cache volume if it's no longer required using a DELETE API call
 
 ```
 DELETE
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2026-01-01-preview
 ```
 
 If the cache volume has `writeBack` enabled, issue a PATCH call to disable `writeBack` then issue the DELETE request. 
 
 ## Modify cluster peering
 
-You can update the peer addresses associated with an existing cluster peer by using the API call
+You can update the peer addresses associated with an existing cluster peer by using a POST API call
+
+Before you modify cluster peering, you should:
+
+* Add the IP addresses of the new IC LIFs to the existing cluster peer
+* Provide the full set of peer addresses to be used by the cluster peer (not just new ones or ones that have changed).
+* Execute the modifyClusterPeer call against one cache volume using the cluster peer.
 
 ```
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/modifyClusterPeer
+POST
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/modifyClusterPeer?api-version=2026-01-01
+
 
 Example body:
 
-"originClusterInformation": {
+"newPeerAddresses": [ "1.1.1.1“,”1.1.1.2” ] {
   "peerClusterName": “origin_cluster",
   "peerAddresses": [
   "1.1.1.1“,”1.1.1.2”
