@@ -81,8 +81,8 @@ Then enable large payload storage in [host.json](../../azure-functions/durable-f
       "storageProvider": {
         "type": "azureManaged",
         "connectionStringName": "DTS_CONNECTION_STRING",
-        "largePayloadStorageEnabled": true,
-        "largePayloadStorageThresholdBytes": 900000
+        "payloadStorageEnabled": true,
+        "payloadStorageThresholdBytes": 900000
       },
       "hubName": "%TASKHUB_NAME%"
     }
@@ -90,7 +90,7 @@ Then enable large payload storage in [host.json](../../azure-functions/durable-f
 }
 ```
 
-Set `largePayloadStorageThresholdBytes` below the Durable Task Scheduler message size boundary so the runtime externalizes payloads before they approach the limit.
+Set `payloadStorageThresholdBytes` below the Durable Task Scheduler message size boundary so the runtime externalizes payloads before they approach the limit.
 
 Use the standard Durable Functions APIs in your orchestrator and activity code. The runtime automatically resolves blob references before `context.GetInput<T>()` and `context.CallActivityAsync<T>()` return data.
 
@@ -145,7 +145,7 @@ Register an externalized payload store, choose a threshold, and enable payload r
 ```csharp
 builder.Services.AddExternalizedPayloadStore(options =>
 {
-    options.ExternalizeThresholdBytes = 900_000;
+    options.ThresholdBytes = 900_000;
     options.ConnectionString = builder.Configuration["PAYLOAD_STORAGE_CONNECTION_STRING"]
         ?? "UseDevelopmentStorage=true";
     options.ContainerName = "durabletask-payloads";
@@ -166,7 +166,7 @@ builder.Services.AddDurableTaskWorker(worker =>
 
 If you use Microsoft Entra ID instead of a storage connection string, set `options.AccountUri` and `options.Credential`. The sample uses `DefaultAzureCredential` and can optionally target a user-assigned managed identity.
 
-Keep `ExternalizeThresholdBytes` at or below `1,048,576` bytes. The sample uses `900,000` bytes so payloads are offloaded before they approach the 1 MiB scheduler message boundary.
+Keep `ThresholdBytes` at or below `1,048,576` bytes. The sample uses `900,000` bytes so payloads are offloaded before they approach the 1 MiB scheduler message boundary.
 
 For an end-to-end .NET example, see the [Durable Task SDK large payload sample](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/dotnet/LargePayload).
 

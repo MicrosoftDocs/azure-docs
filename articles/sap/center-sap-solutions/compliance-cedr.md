@@ -1,66 +1,73 @@
 ---
-title: Customer enabled disaster recovery in Azure Center for SAP Solutions
-description: Find out about  Customer enabled disaster recovery in Azure Center for SAP Solutions
+title: Configure customer-enabled disaster recovery in Azure Center for SAP solutions
+description: Learn how to configure customer-enabled disaster recovery for Virtual Instance for SAP solutions resources in Azure Center for SAP solutions.
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.topic: overview
-ms.custom:  references_regions
+ms.topic: how-to
+ms.custom: references_regions
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
-ms.date: 05/15/2023
+ms.date: 04/16/2026
 # Customer intent: As an SAP administrator, I want to configure customer-enabled disaster recovery for my SAP systems in Azure, so that I can ensure cross-region resiliency and minimize downtime during regional outages.
 ---
-#  Customer enabled disaster recovery in *Azure Center for SAP solutions*
-Azure Center for SAP solutions service is a zone redundant service. So, service may experience downtime because no paired region exists. There will be no Microsoft initiated failover in the event of a region outage. This article explains some of the strategies that you can use to achieve cross-region resiliency for Virtual Instance for SAP solutions resources with customer enabled disaster recovery. It has detailed steps for you to follow when a region in which your Virtual Instance for SAP solutions resource exists is down. 
 
-You must configure disaster recovery for SAP systems that you deploy using Azure Center for SAP solutions using [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide). 
+# Configure customer-enabled disaster recovery in Azure Center for SAP solutions
 
-In case of a region outage, customers will be notified about it. This article has the steps you can follow to get the Virtual Instance for SAP solutions resources up and running in a different region. 
+Azure Center for SAP solutions is a zone-redundant service. The service might experience downtime because no paired region exists, and there's no Microsoft-initiated failover during a region outage. This article explains strategies to achieve cross-region resiliency for Virtual Instance for SAP solutions resources with customer-enabled disaster recovery (DR). Also, steps to follow when a region where your Virtual Instance for SAP solutions resource exists is down.
 
-## Prerequisites for Customer enabled disaster recovery in Azure Center for SAP solutions. 
-Configure disaster recovery for your SAP system deployed using Azure Center for SAP solutions or otherwise using the [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide).
+You must configure disaster recovery for SAP systems that you deploy by using Azure Center for SAP solutions. For more information, see [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide).
 
-## Region Down Scenarios and Mitigation Steps:
+When a region outage occurs, you're notified. The following sections describe the steps you can follow to get the Virtual Instance for SAP solutions resources running in a different region.
 
-| Case # | ACSS Service Region  | SAP Workload Region  | Scenario                 | Mitigation Steps       |
-|--------|-----------------|------------------|--------------------------|------------------------|
-| Case 1 | A (Down)        | B                | ACSS Service region is down   | Register the workload with ACSS service available in another region using PowerShell or CLI which allow to select an available service location. |
-| Case 2 | A               | B (Down)         | SAP Workload region is down  | 1. Customers should perform workload failover to DR region (outside of ACSS). <br> 2. Register the failed over workload with ACSS using PowerShell or CLI.  |
-| Case 3 | A (Down)        | B (Down)         | ACSS Service and SAP workload regions are down   | 1. Customers should perform workload failover to DR region (outside of ACSS). <br> 2. Register the failed over workload with ACSS service available in another region using PowerShell or CLI which allow to select an available service location.
+## Prerequisites
 
-## Steps to re-register the SAP system with Azure Center for SAP solutions in case of regional outage:
+- An SAP system deployed by using Azure Center for SAP solutions or registered with Azure Center for SAP solutions.
+- DR configured for your SAP system by using the [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide).
 
-1. In case the region where your SAP workload exists is down (case 1 and 2 mentioned in the above section), perform workload failover to DR region (outside of ACSS) and have the workload running in a secondary region.
+## Understand region-down scenarios and mitigation steps
 
-2. In case the Azure Center for SAP solutions service is down (case 1 and 3 mentioned in the above section) in the region where your Virtual Instance for SAP solutions resource exists, register your SAP system with  another available region. 
+| Case | Service region | Workload region | Scenario | Mitigation steps |
+|------|----------------|-----------------|----------|------------------|
+| 1 | A (down) | B | Azure Center for SAP solutions service region is down. | Register the workload with an Azure Center for SAP solutions service available in another region by using PowerShell or CLI, which allow you to select an available service location. |
+| 2 | A | B (down) | SAP workload region is down. | 1. Perform workload failover to the DR region (outside of Azure Center for SAP solutions). <br><br> 2. Register the failed-over workload by using PowerShell or CLI. |
+| 3 | A (down) | B (down) | Both the service and SAP workload regions are down. | 1. Perform workload failover to the DR region (outside of Azure Center for SAP solutions). <br><br> 2. Register the failed-over workload with an Azure Center for SAP solutions service available in another region by using PowerShell or CLI. |
 
-    ```azurepowershell-interactive
-    New-AzWorkloadsSapVirtualInstance `
-    -ResourceGroupName 'TestRG' `
-    -Name L46 `
-    -Location eastus `
-    -Environment 'NonProd' `
-    -SapProduct 'S4HANA' `
-    -CentralServerVmId '/subscriptions/sub1/resourcegroups/rg1/providers/microsoft.compute/virtualmachines/l46ascsvm' `
-    -Tag @{k1 = "v1"; k2 = "v2"} `
-    -ManagedResourceGroupName "acss-L46-rg" `
-    -ManagedRgStorageAccountName 'acssstoragel46' `
-    -IdentityType 'UserAssigned' `
-    -UserAssignedIdentity @{'/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-MSI'= @{}} `
-    ```
-3. Following table has the list of locations where Azure Center for SAP solutions service is available. It is recommended that you choose a region within the same geography where your SAP infrastructure resources are located.  
+## Re-register the SAP system during a regional outage
 
-    | **Azure Center for SAP solutions service locations** |
-    | --------------------------------------------------- |
-    | East US |
-    | East US 2 |
-    | West US 3 |
-    | West Europe |
-    | North Europe | 
-    | Australia East | 
-    | East Asia | 
-    | Central India | 
+1. If the region where your SAP workload exists is down (cases 1 and 2), perform workload failover to the DR region outside of Azure Center for SAP solutions and have the workload running in a secondary region.
 
-## Next steps
-> [!div class="nextstepaction"]
-> [Deploy a new SAP system with Azure Center for SAP solutions](/azure/sap/center-sap-solutions/deploy-s4hana)
+1. If the Azure Center for SAP solutions service is down (cases 1 and 3) in the region where your Virtual Instance for SAP solutions resource exists, register your SAP system with another available region.
+
+   ```azurepowershell-interactive
+   New-AzWorkloadsSapVirtualInstance `
+       -ResourceGroupName 'TestRG' `
+       -Name L46 `
+       -Location eastus `
+       -Environment 'NonProd' `
+       -SapProduct 'S4HANA' `
+       -CentralServerVmId '/subscriptions/sub1/resourcegroups/rg1/providers/microsoft.compute/virtualmachines/l46ascsvm' `
+       -Tag @{k1 = "v1"; k2 = "v2"} `
+       -ManagedResourceGroupName "acss-L46-rg" `
+       -ManagedRgStorageAccountName 'acssstoragel46' `
+       -IdentityType 'UserAssigned' `
+       -UserAssignedIdentity @{'/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-MSI'= @{}}
+   ```
+
+The following table lists the locations where Azure Center for SAP solutions is available. Choose a region within the same geography where your SAP infrastructure resources are located.
+
+| Azure Center for SAP solutions service locations |
+|---|
+| Australia East |
+| Central India |
+| East Asia |
+| East US |
+| East US 2 |
+| North Europe |
+| West Europe |
+| West US 3 |
+
+## Related content
+
+- [Deploy a new SAP system with Azure Center for SAP solutions](deploy-s4hana.md)
+- [Register an existing SAP system](register-existing-system.md)
+- [Disaster recovery overview and infrastructure guidelines for SAP workload](/azure/sap/workloads/disaster-recovery-overview-guide)

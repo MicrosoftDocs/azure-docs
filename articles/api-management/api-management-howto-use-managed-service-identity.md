@@ -315,6 +315,12 @@ You can use a system-assigned managed identity to access Key Vault to store and 
 
 Use the system-assigned identity to authenticate to a backend service via the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
 
+> [!CAUTION]
+> **Security consideration:** Users with permissions to edit API Management policies (for example, users assigned the [API Management Service Contributor](/azure/role-based-access-control/built-in-roles#api-management-service-contributor) role) can use the [`authentication-managed-identity`](authentication-managed-identity-policy.md) policy to authenticate as the service's managed identity. When you assign roles or permissions to the API Management resouce, be aware that any user who can edit policies may be able to access those same resources through the managed identity. To mitigate risk:
+> - Follow the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access) when assigning roles to managed identities.
+> - Only grant the API Management Contributor role or policy editing permissions to trusted users.
+> - Regularly review and audit managed identity role assignments and who has access to edit API Management policies.
+
 ### Connect to Azure resources behind an IP firewall by using a system-assigned managed identity
 
 API Management is a trusted Microsoft service to the following resources. This trusted status enables the service to connect to the following resources behind a firewall when the firewall enables the **Allow Trusted Microsoft Services to bypass this firewall** setting. After you explicitly assign the appropriate Azure role to the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) for a resource instance, the scope of access for the instance corresponds to the Azure role that's assigned to the managed identity.
@@ -480,6 +486,12 @@ You can use a user-assigned managed identity to access Key Vault to store and ma
 ### Authenticate to a backend by using a user-assigned identity
 
 You can use the user-assigned identity to authenticate to a backend service via the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
+
+> [!CAUTION]
+> **Security consideration:** Users with permissions to edit API Management policies (for example, users assigned the [API Management Service Contributor](/azure/role-based-access-control/built-in-roles#api-management-service-contributor) role) can use the [`authentication-managed-identity`](authentication-managed-identity-policy.md) policy to authenticate as the service's managed identity. When you assign roles or permissions to the API Management resouce, be aware that any user who can edit policies may be able to access those same resources through the managed identity. To mitigate risk:
+> - Follow the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access) when assigning roles to managed identities.
+> - Only grant the API Management Contributor role or policy editing permissions to trusted users.
+> - Regularly review and audit managed identity role assignments and who has access to edit API Management policies.
 
 ### Log events to an event hub
 

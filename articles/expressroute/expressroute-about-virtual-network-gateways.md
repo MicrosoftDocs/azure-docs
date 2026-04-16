@@ -103,7 +103,7 @@ When you create an ExpressRoute gateway, Microsoft automatically provisions and 
 
 **Availability:**  
 
-Auto-assigned public IP isn't available for Virtual WAN (vWAN) or Extended Zone deployments.
+Auto-assigned public IP isn't available for Virtual WAN (vWAN).
  
 ## Connectivity from virtual network to virtual network and from virtual network to virtual WAN
 
