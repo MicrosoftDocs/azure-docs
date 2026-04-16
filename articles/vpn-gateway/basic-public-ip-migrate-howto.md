@@ -12,18 +12,16 @@ ms.author: cherylmc
 
 # How to migrate a Basic SKU public IP address to Standard SKU for VPN Gateway 
 
-This article helps you migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway deployments that use gateway SKUs VpnGw 1-5. For more information about Basic SKU public IP address migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md).
+This article helps you migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway deployments that use gateway SKUs VpnGw 1-5 including legacy SKU's like High-Performance and Standard SKU. For more information about Basic SKU public IP address migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md).
 
 > [!IMPORTANT]
-> * Basic SKU public IP address migration for VPN Gateway is currently Generally Available for Active-Passive with some limitations (see known issues). <br> For Active-Active Gateways this is in Preview.
+> * Basic SKU public IP address migration for VPN Gateway is currently Generally Available for Active-Passive and Active-Active scenarios. <br> 
 > * The steps on this page apply to VPN gateways using gateway SKUs other than the Basic gateway SKU. If your gateway uses the Basic gateway SKU, see [Remove the Basic SKU public IP reference from a Basic SKU VPN gateway](basic-sku-public-ip-remove.md).
 
 During the public IP address SKU migration process, your Basic SKU public IP address resource is migrated to a Standard SKU public IP address resource. The IP address assigned to your gateway doesn't change.
 
 Additionally, if your VPN Gateway gateway SKU is VpnGw 1-5, your gateway SKU might be migrated to a VPN Gateway AZ SKU (VpnGw 1-5 AZ). For more information, see [About VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md).
 
-> [!NOTE]
-> Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region. For more information, see the [VPN Gateway - What's New](whats-new.md#upcoming-projected-changes) article.
 
 ## Workflow
 

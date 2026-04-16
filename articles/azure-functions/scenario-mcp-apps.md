@@ -1,7 +1,7 @@
 ---
 title: Build an MCP Apps server using Azure Functions
 description: "Learn how to create and deploy an MCP App that returns interactive UI using Azure Functions. This quickstart uses the Azure Developer CLI to deploy an MCP App project that enables AI clients to access tools with rich interactive interfaces hosted on Azure's Flex Consumption plan."
-ms.date: 02/25/2026
+ms.date: 04/06/2026
 ms.update-cycle: 180-days
 ms.topic: quickstart
 ai-usage: ai-assisted
@@ -248,17 +248,17 @@ The `GetWeatherWidget` function serves the bundled HTML file at that URI using `
 You can view the complete project template in the [Azure Functions .NET MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) GitHub repository.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
-The function code for the MCP Apps weather tool is defined in the `src/function_app.py` file. In this function, the `metadata` parameter on `@app.mcp_tool()` adds UI metadata to the `get_weather` tool.
+The function code for the MCP Apps weather tool is defined in the `src/McpWeatherApp/function_app.py` file. In this function, the `metadata` parameter on `@app.mcp_tool()` adds UI metadata to the `get_weather` tool.
 
-:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="109-130" :::
+:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/McpWeatherApp/function_app.py" range="70-92" :::
 
 The `@app.mcp_resource_trigger()` decorator is applied to the `get_weather_widget` function, which serves the HTML widget.
 
-:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="64-105" :::
+:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/McpWeatherApp/function_app.py" range="27-67" ::: 
 
 The `TOOL_METADATA` constant declares a `ui.resourceUri` that tells the MCP host to fetch the interactive UI from `ui://weather/index.html` after the tool runs.
 
-:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="20-21" :::
+:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/McpWeatherApp/function_app.py" range="21" ::: 
 
 The `get_weather_widget` function serves the bundled HTML file at that URI using `@app.mcp_resource_trigger()`.
 

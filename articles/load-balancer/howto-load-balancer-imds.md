@@ -88,7 +88,7 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 ```
 
 ## Next steps
-[Common error codes and troubleshooting steps](troubleshoot-load-balancer-imds.md)
+[Support and troubleshooting for Azure Load Balancer](load-balancer-support-help.md)
 
 Learn more about [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service)
 

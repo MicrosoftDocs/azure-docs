@@ -648,6 +648,12 @@ The following items are prefixed with:
     sudo firewall-cmd --zone=public --add-port={62101,3201,3301,50113,50114,50116}/tcp
     ```
 
+> [!Note]
+> SAP ASCS/ERS cluster can be extended from 2-node to 3-node cluster with 3rd node as a spare node for failover of ASCS or ERS services.
+> - 3-node setup can only be used for SAP systems using SAP Enqueue Replication Server 2 (ENSA2).
+> - The cluster property `priority-fencing-delay` should not be used in a 3-node cluster.
+
+
 ## SAP NetWeaver application server preparation
 
 Some databases require that the database instance installation runs on an application server. Prepare the application server VMs to be able to use them in these cases.  

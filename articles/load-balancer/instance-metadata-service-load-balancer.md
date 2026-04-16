@@ -29,7 +29,7 @@ For more information on how to access the load balancer metadata, see [Use Azure
 
 ## Troubleshoot common error codes
 
-For more information on common error codes and their mitigation methods, see [Troubleshoot common error codes when using IMDS](troubleshoot-load-balancer-imds.md). 
+For more information on support and troubleshooting resources, see [Support and troubleshooting for Azure Load Balancer](load-balancer-support-help.md).
 
 ## Support
 

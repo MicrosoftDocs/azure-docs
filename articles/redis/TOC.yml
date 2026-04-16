@@ -79,6 +79,10 @@ items:
             href: monitor-diagnostic-settings.md
           - name: List of Redis metrics
             href: monitor-cache-reference.md#metrics
+          - name: Enable Redis keyspace notifications
+            href: enable-redis-keyspace-notifications.md
+          - name: Dashboards with Grafana
+            href: grafana-dashboards.md
       - name: Scaling and performance
         items:
           - name: Change the size and tier of a cache
@@ -161,23 +165,27 @@ items:
           href: /azure/developer/github-copilot-azure?toc=/azure/redis/toc.json&bc=/azure/redis/breadcrumb/toc.json
   - name: Migration
     items:
-      - name: Migrate Basic, Standard, or Premium tiers
+      - name: Migrate Basic, Standard, or Premium tiers to Azure Managed Redis
         items:
           - name: Overview
-            href: migrate/migrate-basic-standard-premium-overview.md
-          - name: Understand
-            href: migrate/migrate-basic-standard-premium-understand.md
-          - name: Self-service
-            href: migrate/migrate-basic-standard-premium-self-service.md
-      - name: Migrate Enterprise tier
+            href: /azure/redis/migrate/migrate-basic-standard-premium-overview
+          - name: Understand differences
+            href: /azure/redis/migrate/migrate-basic-standard-premium-understand
+          - name: Explore migration options
+            href: /azure/redis/migrate/migrate-basic-standard-premium-options
+          - name: Self-service migration
+            href: /azure/redis/migrate/migrate-basic-standard-premium-self-service
+          - name: Migration using tooling
+            href: /azure/redis/migrate/migrate-basic-standard-premium-with-tooling
+      - name: Migrate Enterprise tier to Azure Managed Redis
         items:
           - name: Overview
             href: migrate/migrate-redis-enterprise-overview.md
-          - name: Understand
+          - name: Understand differences
             href: migrate/migrate-redis-enterprise-understand.md
-          - name: Self-service
+          - name: Self-service migration
             href: migrate/migrate-redis-enterprise-self-service.md
-      - name: Migrate to Azure Redis from other caches
+      - name: Migrate to Azure Managed Redis from other caches
         href: migrate/migration-guide.md
   - name: Azure Cache for Redis
     items:

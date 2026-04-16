@@ -28,7 +28,7 @@ Microsoft Sentinel pricing is based on the tier that you ingest data into. The *
 
 ### Microsoft Sentinel entity analyzer tool
 You pay for the KQL queries the [entity analyzer](sentinel-mcp-data-exploration-tool.md#entity-analyzer)
-performs over the Microsoft Sentinel data lake. You're charged for the Security Compute Units (SCUs) required to deliver the reasoned entity risk analysis based on prevalence, threat intelligence, and relationships.  
+performs over the Microsoft Sentinel data lake. You're charged for the [Security Compute Units (SCUs)](/copilot/security/manage-usage) required to deliver the reasoned entity risk analysis based on prevalence, threat intelligence, and relationships.  
 
 ### Triage tool
 

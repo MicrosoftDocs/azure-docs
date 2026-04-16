@@ -58,22 +58,21 @@ The following logic is used for subnet selection for other scenarios (Migration 
 
 The test environment boundaries would  depend on the network setting of the VNet you selected. The tested VM would behave exactly like it's supposed to run after migration. Performing a test migration to a production virtual network is not recommended. If the VNet selected for test migration has connections open to the on-premises VNet, it may cause issues like duplication of VM or DNS entry changes.
 
-
 ## Selecting test migration VNet while enabling replication (Agentless VMware migration)
 
  Select the VNet and subnet for test migration from the **Target settings** tab. These settings can be overridden later in the **Compute and Network** tab of the replicating VM or while starting test migration of the replicating VM.
 
-:::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-during-start-replication-flow.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box.":::
+:::image type="content" source="./media/how-to-test-replicating-virtual-machines/new-e2e-test-migration-subnet-selection-target-settings.png" alt-text="Screenshot shows the target settings of the Replicate dialog box.":::
 
 ## Changing test migration virtual network and subnet of a replicating machine (Agentless VMware migration)
 
 You can change the VNet and subnet of a replicating machine by following the steps below.
 
-1. Select  the virtual machine from the list of currently replicating virtual machines
+1. In your Azure Migrate Project, Go to **Execute** > **Migrations**. Select the required virtual machine from the list (**Preparation** or **Testing**) by clicking on the virtual machine name under the  **Workloads** column.
 
-    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-1.png" alt-text="Screenshot shows the contents of replicating machine screen. It contains a list of replicating machine.":::
+    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/new-e2e-list-of-machines.png" alt-text="Screenshot shows the contents of express migrations screen. It contains a list of machines.":::
 
-2. Select **Compute and Network** option under **General**.
+2. In the drill-down menu, Select **Compute and Network** option under **General**.
 
     :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-2.png" alt-text="Screenshot shows the location of network and compute option on the details page of replicating machine.":::
 

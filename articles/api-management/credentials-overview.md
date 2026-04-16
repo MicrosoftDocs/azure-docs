@@ -4,7 +4,7 @@ description: Learn about using credential manager in Azure API Management to cre
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/25/2025
+ms.date: 04/10/2026
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -129,9 +129,9 @@ At runtime, API Management can't fetch new tokens, and an error occurs.
 
 * If the connection is of type *client credentials*, the client secret needs to be updated on the connection level.
 
-### Is this feature supported using API Management running inside a VNet?
+### Is this feature supported using API Management running inside a virtual network?
 
-Yes, as long as outbound connectivity on port 443 is enabled to the **AzureConnectors** service tag. For more information, see [Virtual network configuration reference](virtual-network-reference.md#required-ports).
+Requests for tokens need to go out of the customer's network to the credential manager endpoint, which remains in a Microsoft network. If the API Management instance is running inside a virtual network, credential manager is supported as long as outbound connectivity on port 443 is enabled to the **AzureConnectors** service tag. For more information, see [Virtual network configuration reference](virtual-network-reference.md#required-ports).
 
 ### What happens when a credential provider is deleted?
 

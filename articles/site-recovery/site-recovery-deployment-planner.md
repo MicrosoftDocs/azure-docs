@@ -5,13 +5,15 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.author: v-gajeronika
-ms.date: 12/18/2025
+ms.date: 04/06/2026
 # Customer intent: "As a VMware administrator, I want to utilize the Azure Site Recovery Deployment Planner, so that I can accurately assess bandwidth and storage requirements for disaster recovery to Azure and optimize my virtual machine replication process."
 ---
 
 # About the Azure Site Recovery Deployment Planner for VMware to Azure
 
 This article is the Azure Site Recovery Deployment Planner user guide for VMware to Azure production deployments.
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 ## Overview
 

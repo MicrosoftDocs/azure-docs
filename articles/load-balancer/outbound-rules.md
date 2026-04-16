@@ -56,7 +56,7 @@ The _parameters_ provide fine grained control over the outbound NAT algorithm.
 
 Each extra IP address provided by a frontend provides another 64,000 ephemeral ports for load balancer to use as SNAT ports. Load balancer uses IPs as needed based on the available ports. The Load balancer will use the next IP once the connections can no longer be made with the current IP in use. 
 
-Use multiple IP addresses to plan for large-scale scenarios. Use outbound rules to mitigate [SNAT exhaustion](troubleshoot-outbound-connection.md#configure-load-balancer-outbound-rules-to-maximize-snat-ports-per-vm). 
+Use multiple IP addresses to plan for large-scale scenarios. Use outbound rules to mitigate SNAT exhaustion as described in [Support and troubleshooting for Azure Load Balancer](load-balancer-support-help.md).
 
 You can also use a [public IP prefix](./load-balancer-outbound-connections.md#outboundrules) directly with an outbound rule. 
 

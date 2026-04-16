@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -312,6 +312,7 @@ Azure service: [Security Center](/azure/security-center/)
 > | --- | --- |
 > | `Microsoft.Security/register/action` | Registers the subscription for Azure Security Center |
 > | `Microsoft.Security/unregister/action` | Unregisters the subscription from Azure Security Center |
+> | `Microsoft.Security/pricings/action` | Updates batch of pricing settings for the scope |
 > | `Microsoft.Security/aggregations/action` | Gets aggregations |
 > | `Microsoft.Security/adaptiveNetworkHardenings/read` | Gets Adaptive Network Hardening recommendations of an Azure protected resource |
 > | `Microsoft.Security/adaptiveNetworkHardenings/enforce/action` | Enforces the given traffic hardening rules by creating matching security rules on the given Network Security Group(s) |
