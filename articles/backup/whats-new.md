@@ -19,6 +19,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- April 2026
+  - [Simplified CLI experience to enable backup for AKS clusters](#simplified-cli-experience-to-enable-backup-for-aks-clusters)
 - January 2026
   - [Backup support for Confidential VMs (preview)](#backup-support-for-confidential-vms-preview)
 - November 2025
@@ -63,6 +65,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 
+## Simplified CLI experience to enable backup for AKS clusters
+
+Azure Backup now supports configuring backups for Azure Kubernetes Service (AKS) clusters using a single Azure CLI command. This simplified experience eliminates the need for multiple manual setup steps such as installing the Backup extension, preparing storage, creating a backup vault and policy, configuring Trusted Access, and creating the backup instance.
+ 
+The single command automatically completes all required configuration, including extension deployment, storage preparation, vault and policy provisioning or reuse, Trusted Access setup, and backup instance creation. Optional configuration files let you reference existing resources and apply tags, making this capability well‑suited for automation, infrastructure‑as‑code, and CI/CD pipelines.
+ 
+For more information, see [Configure AKS backup using a single CLI command](azure-kubernetes-service-cluster-backup-using-cli.md#configure-backup-using-a-single-azure-cli-command).
 
 ## Backup support for Confidential VMs (preview)
 
