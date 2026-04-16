@@ -7,7 +7,6 @@ ms.pagetype: security
 author: guywi-ms
 ms.author: guywild
 ms.localizationpriority: medium
-audience: ITPro
 ms.topic: how-to
 appliesto:
     - Microsoft Sentinel in the Azure portal

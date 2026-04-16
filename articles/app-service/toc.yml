@@ -23,6 +23,8 @@ items:
     href: scenario-ai-openapi-tool.md
   - name: Model Context Protocol servers
     href: scenario-ai-model-context-protocol-server.md
+  - name: MCP hosting options
+    href: /azure/container-apps/mcp-choosing-azure-service?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Local small language models
     href: scenario-ai-local-small-language-model.md
   - name: Secure AI applications

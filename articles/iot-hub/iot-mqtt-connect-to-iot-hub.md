@@ -427,6 +427,48 @@ To respond, the device sends a message with a valid JSON or empty body to the to
 
 For more information, see [Understand and invoke direct methods from IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md).
 
+## Renew a device certificate (operational certificate)
+
+1. First, a device subscribes to `$iothub/credential/#`, to allow it to receive the operation's response. 
+
+1. Then, it then publishes a message to topic `$iothub/credentials/POST/issueCertificate/?$rid={request_id}`, where the message includes a request ID value. The request body contains the device ID for the device requesting the certificate and a certificate signing request (CSR).
+
+
+```json
+{       
+	"id": "device1", // Required. The ID for the device requesting the certificate. This may only be the active authenticated device.
+	"csr": "MIICYTCCAUkCAQAwHDEaMBgGA1wRZGAw...yM1X8USCtPz/1nRYDOtA==", // Required. The base64 encoded PKCS#10 CSR, without PEM header/footers or new lines.
+	"replace": "*", // Optional. Default null. "*" is accepted to replace any active request.
+  } 
+```
+
+3. The service then sends a response message containing the device certificate data on topic `$iothub/credential/res/{status}/?$rid={request-id}`, using the same **request ID** as the request.
+
+The request ID can be any valid value for a message property value, and status is validated as an integer. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md). 
+
+The response body contains the full chain for the renewed device certificate, as shown in the following response example:
+
+```json
+{
+  "certificates": [
+    "-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----",  // Device cert
+    "-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----",  // Intermediate CA
+    "-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----"   // Root CA
+  ]
+}
+```
+
+The possible status codes are:
+
+|Status | Description |
+| -------- | -------- |
+| 200 | Success |
+| 202 | Certificate signing request (CSR) accepted. Waiting for response.|
+| 429 | Too many requests (throttled). For more information, see [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) |
+| 5** | Server errors |
+
+**For more information, see [Device certificate renewal in Azure IoT Hub certificate management](../iot-hub/concept-certificate-renewal.md)
+
 ## Next steps
 
 To learn more about using MQTT, see:

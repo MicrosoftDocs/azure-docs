@@ -273,7 +273,7 @@ In the restore process, you'll see the option **Availability Zone.** You'll see 
 
 In summary, the **Availability Zone** will only appear when
  - The source VM is zone pinned and is NOT encrypted
- - The recovery point is present in vault tier only (Snapshots only or snapshot and vault tier are not supported)
+ - The recovery point is present in vault tier (Snapshots only are not supported)
  - The recovery option is to either create a new VM or to restore disks (replace disks option replaces source data and hence the availability zone option is not applicable)
  - Creating VM/disks in the same region when vault's storage redundancy is ZRS (Doesn't work when vault's storage redundancy is GRS even though the source VM is zone pinned)
  - Creating VM/disks in the paired region when vault's storage redundancy is enabled for Cross-Region-Restore AND if the paired region supports zones

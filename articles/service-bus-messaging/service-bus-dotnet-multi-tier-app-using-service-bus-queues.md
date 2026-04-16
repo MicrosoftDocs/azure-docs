@@ -150,8 +150,8 @@ In this section, you create the various pages that your application displays.
    {
        public class OnlineOrder
        {
-           public string Customer { get; set; }
-           public string Product { get; set; }
+           public string Customer { get; set; 
+           public string Product { get; set }
        }
    }
    ```

@@ -40,7 +40,7 @@ First, connect an external tool. You need the connector before you can assign it
 1. Select **Builder** in the left sidebar.
 1. Select **Connectors**.
 1. Select **Add connector**.
-1. Select **Send email (Office 365 Outlook)**.
+1. Select the **Notification** tab, then select **Send email (Office 365 Outlook)**.
 1. Sign in with your Microsoft account.
 1. Select **Add connector**.
 
@@ -100,7 +100,7 @@ The canvas now shows the complete workflow: scheduled task to subagent to tool.
 
 Test your scheduled task to confirm everything works together.
 
-1. Select **Builder** > **Scheduled tasks**.
+1. Select **Scheduled tasks** in the left sidebar.
 1. Select your task in the list (check the checkbox).
 1. Select **Run task now** in the toolbar.
 1. Select the chat thread that opens to see execution details.

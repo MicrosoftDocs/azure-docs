@@ -1,7 +1,7 @@
 ---
 title: Use Client Tools to Access Data in Azure Managed Redis
 description: Learn how to use *Redis Insight* and *redis-cli* as client tools to access data and for troubleshooting and debugging Azure Managed Redis.
-ms.date: 03/11/2026
+ms.date: 04/06/2026
 ms.topic: concept-article
 ms.custom:
 appliesto:
@@ -16,7 +16,37 @@ You can use the following tools to access and manage data in Azure Managed Redis
 
 ## Redis Insight
 
-[Redis Insight](https://redis.com/redis-enterprise/redis-insight/) is a rich open-source graphical tool for issuing Redis commands and viewing the contents of a Redis instance. It works with Azure Managed Redis and is supported on Linux, Windows, and macOS.
+[Redis Insight](https://redis.com/redis-enterprise/redis-insight/) is a rich open-source graphical and CLI tool for issuing Redis commands and viewing the contents of a Redis instance. It works with Azure Managed Redis and is supported on Linux, Windows, and macOS.
+
+### Install Redis Insight
+
+To install Redis Insight, follow the instructions in the [Redis Insight documentation](https://redis.com/redis-enterprise/redis-insight/).
+
+> [!TIP]
+> We recommend that you select **Use recommended settings** on the **EULA and privacy settings** page during installation.
+
+### Configure access to Azure Managed Redis with Redis Insight
+
+Redis Insight can authenticate to Azure Managed Redis instance using Microsoft Entra ID or access key authentication. We recommend using Microsoft Entra ID for better security. 
+
+Starting with version 3.2.0, Redis Insight can [authenticate to Azure Managed Redis with Microsoft Entra ID](https://redis.io/docs/latest/develop/tools/insight/#connect-to-azure-managed-redis-with-ease) using the PKCE OAuth 2.0 flow, enabling automatic discovery of databases across subscriptions and passwordless authentication. 
+
+For instructions to configure access to Azure Managed Redis with Redis Insight, see the [Redis Insight GitHub repo](https://github.com/redis/RedisInsight/blob/main/docs/azure-setup.md). This is a one-time setup per Azure tenant.
+
+### Connect to Azure Managed Redis with Redis Insight
+
+After Microsoft Entra ID access is configured, connect to an Azure Managed Redis instance in Redis Insight by following these steps:
+
+1. In Redis Insight, on the **Redis Databases** tab, select **+ Connect existing database**.
+1. In the **Add database** window, select **Azure Managed Redis**.
+1. Follow the prompts to connect using Microsoft Entra ID authentication.
+1. On the **Subscription** page, select the subscription that contains your Azure Managed Redis instance, and select **Add database**.
+1. Select the Azure Managed Redis instance (database) that you want to connect to, and then select **Add database**. You can select multiple databases to connect to at the same time.
+1. Repeat the preceding steps to add Azure Managed Redis instances as needed in the same or another Azure subscription.
+
+* After you add an Azure Managed Redis instance, you can select it from the list of Redis databases in Redis Insight and start issuing commands and viewing data.
+
+* To access the built-in CLI, select (**>_ CLI**) at the bottom of the screen for the selected database. 
 
 ## redis-cli command-line tool
 

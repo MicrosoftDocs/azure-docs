@@ -376,7 +376,7 @@ The response to a successfully executed request is a message that contains all t
 
 Endpoint operations are process control calls that work on an inbound endpoint only. They don't need an asset.
 
-For example, to dump the address space of an OPC UA server, send a message to the topic `azure-iot-operations/endpoint-operations/{InboundEndpointName}/browse`.
+For example, to dump the address space of an OPC UA server, send a message to the topic `azure-iot-operations/endpoint-operations/{DeviceName}/{EndpointName}/{ActionName}`.
 
 If the payload contains an empty JSON object, the entire address space is returned.
 

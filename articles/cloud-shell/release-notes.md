@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 04/01/2026
+ms.date: 04/07/2026
 ms.topic: release-notes
 ---
 
@@ -37,6 +37,21 @@ Feature updates
   - To open Cloud Shell running PowerShell use:
     `https://portal.azure.com/?feature.azureconsole.shell=pwsh#cloudshell`
 
+Tool updates
+
+- Az CLI upgraded to v2.84.0
+- AzCopy upgraded to v10.32.1
+- Azure Developer CLI upgraded to v1.23.7
+- Azure Functions Core Tools CLI upgraded to v4.8.0
+- Azure PowerShell upgraded to v15.4.0
+- Bicep CLI upgraded to 0.41.2
+- Go upgraded to v1.26.1
+- Helm upgraded to v3.19
+- Inspektor Gadget (ig) upgraded to v0.50
+- Microsoft.Graph PowerShell modules upgraded to v2.36.0
+- MicrosoftPowerBIMgmt modules upgraded to v1.3.80
+- PostreSQL upgraded to v16.12
+- Vim upgraded to v9.2
 
 ## February 2026
 

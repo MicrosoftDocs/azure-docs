@@ -945,6 +945,12 @@
       href: backup-reports-system-functions.md
   - name: Backup Explorer
     href: monitor-azure-backup-with-backup-explorer.md
+- name: Pricing
+  items:
+  - name: Granular billing
+    href: backup-azure-granular-billing.md
+  - name: Pricing calculator
+    href: azure-backup-pricing.md
 - name: Automation
   items:
   - name: Overview
@@ -1118,8 +1124,6 @@
     href: https://azure.microsoft.com/updates/?searchterms=Azure+Backup
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-backup.html
-  - name: Pricing calculator
-    href: azure-backup-pricing.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Videos

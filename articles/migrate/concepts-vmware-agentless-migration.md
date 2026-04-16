@@ -71,15 +71,7 @@ The following table summarizes the *Azure* components that are created when you 
 
 ## Required permissions
 
-When you start replication for the first time, the logged-in user must have the following roles:
-
-- Owner or Contributor and User Access Administrator on the Azure Migrate project's resource group and the target resource group
-
-For the subsequent replications, the logged-in user must have the following roles:
-
-- Owner or Contributor on the Azure Migrate project's resource group and the target resource group
-
-In addition to the preceding roles, the logged-in user needs the following permission at a subscription level: `Microsoft.Resources/subscriptions/resourceGroups/read`.
+- Azure Migrate Owner or Azure Migrate Execute Expert on the Azure Migrate project's resource group and the target resource group. [Learn more](prepare-azure-accounts.md).
 
 ## Data integrity
 
@@ -105,7 +97,21 @@ Upon decompression, Azure Migrate calculates the checksum for the data and compa
 
 The Azure Migrate appliance compresses data and encrypts it before uploading it. Data is transmitted over a secure communication channel that uses HTTPS and TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it's persisted to the cloud (encryption at rest).
 
-## Replication status
+## Tracking  migrations
+
+Execution progress is shown in **Execution stage** and **Execution status**:
+
+**Execution stage**: Preparation, Testing, or Completion.
+   
+- Preparation: Servers that are enabled for replication remain in the Preparation stage while initial replication (data replication) is in progress. After initial replication is complete, the servers move to the Testing stage.
+  
+- Testing: Servers for which initial replication is complete, and delta replication is in progress will move to the Testing phase. You can choose to run test migrations on a test virtual network before the actual migration (recommended). Ensure that you clean up test migrations after validation.
+  
+- Completion: Servers for which Test Migrations are completed or skipped will move to this stage. You can perform final migrations (cut over) for these servers. After migration finishes, ensure that you select Complete Migration from the same drop-down menu to clean up resources and shut down the source virtual machines.
+
+**Execution status**: In progress, In error, Action pending, or Completed. Click on the status hyperlink to view the details in the drill-down menu.
+
+## Replication states
 
 When a VM undergoes replication (data copy), there are several possible states:
 

@@ -1,7 +1,7 @@
 ---
 title: Build a custom remote MCP server using Azure Functions
 description: "Learn how to create and deploy a custom Model Context Protocol (MCP) server using Azure Functions. This quickstart uses the Azure Developer CLI to deploy an MCP server project that enables AI clients to access custom tools hosted on Azures Flex Consumption plan."
-ms.date: 12/01/2025
+ms.date: 04/06/2026
 ms.update-cycle: 180-days
 ms.topic: quickstart
 ai-usage: ai-assisted
@@ -85,7 +85,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-dotnet -e mcpserver-dotnet
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure.       
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.       
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -94,7 +94,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-java -e mcpserver-java 
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure. 
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the names of the resources you create in Azure. 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -103,7 +103,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-typescript -e mcpserver-ts
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.   
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the names of the resources you create in Azure.   
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -112,7 +112,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-python -e mcpserver-python
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure. 
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the names of the resources you create in Azure. 
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
 ## Start the storage emulator
@@ -198,9 +198,9 @@ You can view the complete project template in the [Azure Functions Java MCP Serv
 ::: zone pivot="programming-language-python"
 The function code for the MCP server tools is defined in the `src/function_app.py` file. The MCP function annotations expose these functions as MCP Server tools:
 
-:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="30-33" :::
+:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/FunctionsMcpTool/function_app.py" range="18-25" ::: 
 
-:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="36-60" :::
+:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/FunctionsMcpTool/function_app.py" range="28-42" ::: 
 
 You can view the complete project template in the [Azure Functions Python MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-python) GitHub repository.
 ::: zone-end   

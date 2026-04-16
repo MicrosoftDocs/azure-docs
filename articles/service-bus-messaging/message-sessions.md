@@ -69,6 +69,13 @@ The definition of delivery count per message in the context of sessions varies s
 | Session is accepted, the messages within the session aren't completed (even if they're locked), and the session is closed | No |
 | Session is accepted, messages are completed, and then the session is explicitly closed | N/A (It's the standard flow. Here, messages are removed from the session) |
 
+## Maximum delivery count in sessions
+
+When a message in a session is abandoned (for example, due to a processing failure), it becomes available again for the receiver until the [`MaxDeliveryCount`](service-bus-dead-letter-queues.md#maximum-delivery-count) for the queue or subscription is exceeded. The default value is 10. Once exceeded, the message is moved to the [dead-letter queue (DLQ)](service-bus-dead-letter-queues.md), and the receiver continues receiving subsequent messages from the session.
+
+> [!IMPORTANT]
+> If a dead-lettered message is later moved back to the original queue for reprocessing, the original ordering relative to other session messages is lost because the resubmitted message receives a new enqueue time and sequence number.
+
 ## Request-response pattern
 The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) is a well-established integration pattern that enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. This pattern typically needs a short-lived queue or topic for the application to send responses to. In this scenario, sessions provide a simple alternative solution with comparable semantics. 
 
