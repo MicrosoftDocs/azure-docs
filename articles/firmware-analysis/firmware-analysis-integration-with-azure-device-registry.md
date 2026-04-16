@@ -108,13 +108,13 @@ From Firmware analysis, you can select an Azure Device Registry resource to be t
 
 Access to Azure Device Registry associated device and asset information is governed by Azure role based access control (RBAC).
 
-Firmware analysis roles do not automatically grant access to Azure Device Registry resources. Users of Firmware analysis with the Firmware Analysis Admin role do not have proper permissions to view the list of Azure Device Registry devices. Users must also have appropriate Azure Device Registry permissions to view:
+Firmware analysis roles don't automatically grant access to Azure Device Registry resources. Users of Firmware analysis with the Firmware Analysis Admin role don't have proper permissions to view the list of Azure Device Registry devices. Users must also have appropriate Azure Device Registry permissions to view:
 
 - Azure Device Registry device lists  
 - Azure Device Registry asset metadata  
 - Azure Device Registry resource details in the Azure Device Registry portal  
 
-Azure Device Registry-associated information might not be visible if the user does not have the required Azure Device Registry permissions, even when metadata values match. Ensure you have both of the following roles:
+Azure Device Registry-associated information might not be visible if the user doesn't have the required Azure Device Registry permissions, even when metadata values match. Ensure you have both of the following roles:
 
 - Azure Device Registry Contributor, which allows you to read Azure Device Registry namespaces  
 - Azure IoT Operations Administrator, which allows you to read Azure Device Registry Assets and Devices in the Azure Device Registry namespaces  
@@ -131,11 +131,11 @@ Ensure you have the Firmware Analysis Admin role in addition to the appropriate 
 
 ## Why am I not seeing any Azure Device Registry Devices or Assets?
 
-If Azure Device Registry device or asset counts are not visible for a firmware image, it may be due to one of the following:
+If Azure Device Registry device or asset counts aren't visible for a firmware image, it may be due to one of the following:
 
-- Insufficient permissions – Your Azure role may not have permission to read Azure Device Registry devices and/or assets. In this case, counts may appear blank (–) or partially populated.  
+- Insufficient permissions – Azure Device Registry correlation requires read access to devices and assets. If the assigned Azure role doesn't include the required permissions, or if the Azure Device Registry resource provider isn't registered, device and asset usage can't be determined. When the resource provider is unregistered, Firmware analysis assumes that no devices or assets are present. Counts may appear blank (–) or partially populated.
 
-- Missing firmware metadata – Azure Device Registry correlation requires Vendor, Model, and Version fields. If these are not populated accurately in both Firmware analysis and Azure Device Registry, device and asset usage cannot be determined.  
+- Missing firmware metadata – Azure Device Registry correlation requires Vendor, Model, and Version fields. If these aren't populated accurately in both Firmware analysis and Azure Device Registry, device and asset usage can't be determined.  
 
 - Temporary query failure – Azure Device Registry results are retrieved using Azure Resource Graph (ARG). Counts may appear empty if a query error occurs. Refreshing the page might resolve this.  
 
@@ -146,4 +146,4 @@ The initial preview version of this integration:
 
 - Displays Azure Device Registry device and asset count  
 - Displays results by using Azure Resource Graph. Changes to metadata for Azure Device Registry Devices and Assets might take a few minutes to appear in Firmware analysis  
-- Provides navigation to individual Azure Device Registry resources instead of a pre-filtered Azure Device Registry device list view
+- Provides navigation to individual Azure Device Registry resources instead of a prefiltered Azure Device Registry device list view

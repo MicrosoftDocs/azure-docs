@@ -46,7 +46,8 @@ To learn more about how to deploy StandardV2 NAT Gateway, see [Create a Standard
 
 ### Key limitations of StandardV2 NAT Gateway
 * Requires StandardV2 SKU public IP addresses or prefixes. Standard SKU public IPs aren't supported with StandardV2 NAT Gateway.
-* Standard SKU NAT Gateway can't be upgraded to StandardV2 NAT Gateway. You must first create StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway on your subnet. 
+* Standard SKU NAT Gateway can't be upgraded to StandardV2 NAT Gateway. You must first create StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway on your subnet.
+* Terraform doesn't yet support attachment of IPv6 StandardV2 public IPs to StandardV2 NAT Gateway. IPv4 StandardV2 public IPs can be attached to StandardV2 NAT Gateway with terraform. No other clients are impacted.
 * The following regions don't support StandardV2 NAT Gateway:
     * Canada East
     * Chile Central

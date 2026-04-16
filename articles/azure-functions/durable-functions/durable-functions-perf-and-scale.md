@@ -26,7 +26,7 @@ The following diagram illustrates this concept:
 In the Consumption and Elastic Premium plans, Durable Functions supports autoscale through the [Azure Functions scale controller](../event-driven-scaling.md#runtime-scaling). The scale controller monitors how long messages and tasks wait before processing. Based on these latencies, it adds or removes workers.
 
 > [!NOTE]
-> Starting with Durable Functions 2.0, you can configure function apps to run in VNet-protected service endpoints in the Elastic Premium plan. In this configuration, the Durable Functions triggers start scale requests instead of the scale controller. For more information, see [Runtime scale monitoring](../functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers).
+> Starting with Durable Functions 2.0, you can configure function apps to run in virtual network-protected service endpoints in the Elastic Premium plan. In this configuration, the Durable Functions triggers start scale requests instead of the scale controller. For more information, see [Runtime scale monitoring](../functions-target-based-scaling.md#premium-plan-with-runtime-scale-monitoring-enabled).
 
 On the Premium plan, automatic scaling keeps the number of workers (and operating cost) roughly proportional to the application's load.
 
