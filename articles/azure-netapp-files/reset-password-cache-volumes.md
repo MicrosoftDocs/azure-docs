@@ -1,5 +1,5 @@
 ---
-title: Reset SMB password for Azure NetApp Files cache volumes
+title: Reset SMB password for an Azure NetApp Files cache volume
 description: This article shows you how to reset SMB password for cache volumes.
 services: azure-netapp-files
 author: netapp-manishc
@@ -9,7 +9,7 @@ ms.date: 04/10/2026
 ms.author: anfdocs
 
 ---
-# Reset SMB password for Azure NetApp Files cache volumes
+# Reset SMB password for an Azure NetApp Files cache volume
 
 If you accidentally reset the password of the AD computer account on the AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes. A reset affects all volumes on the SMB server. 
 
