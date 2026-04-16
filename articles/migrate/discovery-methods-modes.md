@@ -20,7 +20,7 @@ Azure Migrate supports the following modes of discovery.
 
 This article explains the different discovery methods in Azure Migrate and gives guidance to choose the most suitable approach based on your requirements. Refer to this decision making table to decide on which discovery method to use. 
 
-| | Azure Migrate appliance | Azure Migrate collector | Import (CSV or RVTools upload) |
+| Capability | Azure Migrate appliance | Azure Migrate collector | Import (CSV or RVTools upload) |
 |---|---|---|---|
 | Description | Continuous discovery of IT estate to generate lift and shift or modernize TCO benchmark reports, map server dependencies, and execute migrations. | Quick offline snapshot of IT estate to generate lift and shift or modernize TCO benchmark reports. | Upload inventory via CSV or RVTools to generate lift and shift TCO benchmark reports. |
 | Mode of Discovery | Continuous data collection | One-time data collection, manually upload the collected data to Azure | Upload pre-existing inventory files |

@@ -278,7 +278,7 @@ Follow these steps to set up secure access:
       --name <APP_NAME> \
       --resource-group <RESOURCE_GROUP> \
       --client-id <APP_ID> \
-      --client-secret CLIENT_SECRET> \
+      --client-secret <CLIENT_SECRET> \
       --tenant-id <TENANT_ID> \
       --yes
     ```

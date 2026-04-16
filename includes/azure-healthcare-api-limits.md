@@ -21,4 +21,3 @@ Each FHIR service instance in Azure Health Data Services has a storage limit of 
 |Workspace |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per subscription|
 |FHIR |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per workspace|
 |DICOM |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per workspace|
-|MedTech |10|N/A |Limit per workspace, can't be increased|

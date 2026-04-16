@@ -112,7 +112,8 @@ After **60 more days** without accessing objects on smart tier, they transition 
 
 ## Billing details
 
-Objects on smart tier are billed for the capacity meters and connected prices of the underlying capacity tier (hot, cool, or cold tier). There's **no smart tier specific capacity meter or price**. All capacity under smart tier is billed at **pay-as-you-go rates**. There's no reserved capacity applicable.
+Objects on smart tier are billed for the capacity meters and connected prices of the underlying capacity tier (hot, cool, or cold tier). There's **no smart tier specific capacity meter or price**, existing hot, cool, and cold tier capacity meters (data stored / month) are beeing used.
+
 Smart tier charges a monthly monitoring operation for each object over **128 KiB** managed by smart tier. No monitoring fee is billed for objects 128 KiB or smaller in size.
 Objects in smart tier aren't charged for **tier transitions** within smart tier, **early deletion fees**, or **data retrieval** operations.
 

@@ -263,6 +263,9 @@ items:
         items:
           - name: Overview
             href: manage-layered-network/overview-layered-network.md
+          - name: Layered networking
+            href: manage-layered-network/concept-layered-network.md
+            displayName: Purdue, ISA-95, Envoy, CoreDNS, proxy chaining, layered network
           - name: Deploy with private connectivity
             href: manage-layered-network/howto-private-connectivity.md
             displayName: Private Link, Arc Gateway, explicit proxy, private endpoints, storage, dataflow

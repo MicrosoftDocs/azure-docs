@@ -94,25 +94,6 @@ conceptualContent:
               text: Use image data for digital pathology  
             
         # Card
-        - title: Device data
-          links:
-            - url: ./iot/overview.md
-              itemType: overview
-              text: MedTech service overview
-            - url: ./iot/deploy-choose-method.md          
-              itemType: how-to-guide
-              text: Choose a deployment method
-            - url: ./iot/how-to-use-monitoring-and-health-checks-tabs.md
-              itemType: how-to-guide
-              text: Monitor service health in Azure portal 
-            - url: ./iot/how-to-use-mapping-debugger.md
-              itemType: how-to-guide
-              text: Troubleshoot with the Mapping debugger 
-            - url: ./iot/troubleshoot-errors-logs.md
-              itemType: how-to-guide
-              text: Troubleshoot service log errors   
-
-        # Card
         - title: Automate and optimize data workflows
           links:
             - url: ./events/events-overview.md

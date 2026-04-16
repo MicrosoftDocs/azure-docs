@@ -48,7 +48,7 @@ If you have registered Microsoft Sentinel in your tenant, and your customers in 
 1. Open Microsoft Sentinel, where you'll see all the workspaces in the selected subscriptions and can work with them seamlessly, just like any workspace in your own tenant.
 
 > [!NOTE]
-> You will not be able to deploy connectors in Microsoft Sentinel from within a managed workspace configured with Azure Lighthouse alone. To deploy a connector in this manner, you must also configure GDAP. For detailed information on this topic, see [Microsoft Defender portal implementation guide for MSSPs](/unified-secops/playbook-managed-security).
+> You can't deploy connectors in Microsoft Sentinel from within a managed workspace configured with Azure Lighthouse alone. To deploy a connector in this manner, you must also configure GDAP. For detailed information on this topic, see [Microsoft Defender portal implementation guide for MSSPs](/unified-secops/playbook-managed-security).
 
 ## Related content
 
