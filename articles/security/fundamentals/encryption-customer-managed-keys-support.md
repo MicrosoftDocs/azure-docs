@@ -21,7 +21,7 @@ The following services support server-side encryption with customer managed keys
 |---|---|---|---|---|
 | [Azure AI Search](/azure/search/) | Yes | Yes | [Configure customer-managed keys for data encryption in Azure AI Search](/azure/search/search-security-manage-encryption-keys) |
 | [Foundry Tools](/azure/ai-services/) | Yes | Yes | [Customer-managed keys for encryption](/azure/ai-services/encryption/cognitive-services-encryption-keys-portal) |
-| [Microsoft Foundry](/azure/ai-studio) | Yes | | [Encryption of data at rest in Foundry Tools](/azure/ai-studio/concepts/encryption-keys-portal) |
+| [Microsoft Foundry](/azure/ai-studio) | Yes | Yes | [Encryption of data at rest in Foundry Tools](/azure/ai-studio/concepts/encryption-keys-portal) |
 | [Content Safety in Foundry Control Plane](/azure/ai-services/content-safety/) | Yes | | [Encryption of data at rest in Content Safety](/azure/ai-services/content-safety/how-to/encrypt-data-at-rest) |
 | [Azure Document Intelligence in Foundry Tools](/azure/ai-services/document-intelligence/) | Yes | | [Document Intelligence encryption of data at rest](/azure/ai-services/document-intelligence/authentication/encrypt-data-at-rest) |
 | [Azure Language in Foundry Tools](/azure/ai-services/language-service/) | Yes | | [Language encryption of data at rest](/azure/ai-services/language-service/concepts/encryption-data-at-rest) |
