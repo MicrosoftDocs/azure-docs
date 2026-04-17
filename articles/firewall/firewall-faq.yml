@@ -359,6 +359,10 @@ sections:
           TCP ping is a unique use case where if there's no allowed rule, the Firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. In this case, the event isn't logged. If there's a network rule that allows access to the target IP address/FQDN, then the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.
 
 
+      - question: Why do TCP ping and similar tools successfully connect to a target FQDN/IP address on ports 80, 443, and 1433 but aren't observed in the Azure Firewall logs?
+        answer: |
+          Azure Firewall acts as a passive listener for ports 80, 443, and 1433. Azure Firewall doesn't log TCP SYN packets on these ports unless there's application traffic. The HTTP GET request and TLS client hello are logged in Azure Firewall.
+
       - question: Are there limits for the number of IP addresses supported by IP Groups?
         answer: |
           Yes. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)

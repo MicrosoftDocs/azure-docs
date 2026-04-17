@@ -681,7 +681,7 @@ The identifier is returned in the following format:
 
 You use this function to get the resource ID for resources that are [deployed to the subscription](deploy-to-subscription.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a resource group value.
 
-### subscriptionResourceID example
+### subscriptionResourceId example
 
 The following Bicep file assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the `subscriptionResourceId` function to get the resource ID for built-in roles.
 

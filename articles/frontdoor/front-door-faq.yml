@@ -328,7 +328,7 @@ sections:
     - question: | 
         What actions should I take to avoid service disruption?
       answer: |
-        Microsoft will automatically migrate eligible profiles on a "best effort" basis to Azure Front Door Standard/Premium between April 10, 2026 and April 14, 2026, unless you notify us otherwise. Classic and Azure Front Door Standard/Premium SKUs are charged differently. Please refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/frontdoor/?msockid=06fc59dfa84d6e0612124fafa9586f44) for details. 
+        Microsoft will automatically migrate eligible profiles on a "best effort" basis to Azure Front Door Standard/Premium between April 10 and April 14, 2026, unless you notify us otherwise. Classic and Azure Front Door Standard/Premium SKUs are charged differently. Please refer to the [pricing page](https://azure.microsoft.com/en-us/pricing/details/frontdoor/?msockid=06fc59dfa84d6e0612124fafa9586f44) for details. 
         
         If you plan to migrate to Azure Front Door Standard/Premium or switch to BYOC yourself, please notify Microsoft by April 9, 2026 by setting the required feature flag, see instructions below.
         
@@ -336,26 +336,75 @@ sections:
         
         **Required action**
            
-        Azure CDN from Microsoft (classic)
+        **Azure CDN from Microsoft (classic)**
         
         Before April 9, 2026: 
         - [Migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) or [move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate).
         - If you plan to migrate to Azure Front Door or move to BYOC yourself before April 14, 2026 or  want to opt out of auto migration and willing to risk disruption to the HTTPS traffic, you will need to set a Feature Flag by following [instruction provided](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-portal), and selecting the Feature Flag "Microsoft.Cdn/DoNotAutoMigrateClassicManagedCertificatesProfiles") before April 9, 2026. Doing so will prevent Microsoft from migrating your eligible classic managed certificate profiles to Azure Front Door. 
        
-        Between April 10, 2026 and April 14, 2026: 
-        - Customers who didn't set the said Feature Flag before April 9, 2026, their profiles will be migrated to Azure Front Door Standard or Premium SKU on a "best effort" basis and should watch for an email related to their migration status.  
-        - Customers who set the said Feature Flag but are still consuming services with classic SKUs will have until April 14, 2026 to complete migration or move to BYOC. 
+        Between April 10 and April 14, 2026: 
+        - Customers who didn't set the said Feature Flag before April 9, 2026, their profiles will be migrated to Azure Front Door Standard or Premium SKU on a "best effort" basis and should watch for an email related to their migration status. You can also check migration status by following steps in the following question.
+        - Customers who set the said feature flag but are still consuming services with classic SKUs will have until April 14, 2026 to complete migration or move to BYOC. 
 
-        Azure Front Door (classic)
+        After migration to Azure Front Door Standard/Premium, [update your DevOps pipeline scripts](https://learn.microsoft.com/en-us/azure/frontdoor/post-migration-dev-ops-experience) to deploy and manage the new Front Door Standard/Premium resources.
+
+        **Azure Front Door (classic)**
   
         Before April 9, 2026:
         - [Migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) or [move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell).
 
         - If you plan to migrate to Azure Front Door or transition to Bring Your Own Certificate (BYOC) before April 14, 2026, or if you choose to opt out of auto migration and accept the risk of HTTPS traffic disruption, you will need to set a feature flag by following the [instruction provided](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-portal), and selecting the Feature Flag "Microsoft.Cdn/DoNotAutoMigrateClassicManagedCertificatesProfiles" before April 9, 2026. Doing so will prevent Microsoft from migrating your eligible classic managed certificate profiles to Azure Front Door.
 
-        Between April 10, 2026 and April 14, 2026:
+        Between April 10 and April 14, 2026:
+        - For customers who do not set the feature flag by April 9, 2026, Microsoft will migrate their profiles to Azure Front Door Standard or Premium SKU on a "best effort" basis. Customers are advised to monitor their email for updates on migration status. You can also check migration status by following steps in the following question.
+        - Customers who have set the said Feature Flag but are still consuming services with classic SKUs will have until April 14, 2026 to complete migration or move to BYOC.
 
-        - For customers who do not set the feature flag by April 9, 2026, Microsoft will migrate their profiles to Azure Front Door Standard or Premium SKU on a "best effort" basis. Customers are advised to monitor their email for updates on migration status. Customers who have set the said Feature Flag but are still consuming services with classic SKUs will have until April 14, 2026 to complete migration or move to BYOC.
+        After migration to Azure Front Door Standard/Premium, [update your DevOps pipeline scripts](https://learn.microsoft.com/en-us/azure/frontdoor/post-migration-dev-ops-experience) to deploy and manage the new Front Door Standard/Premium resources.
+
+    - question: |
+         How to check the migration status? 
+      answer: |
+         Between April 10 and April 14, 2026, please check the status of your profile's migration.
+         
+         **Azure CDN from Microsoft (classic):**
+         Migration from Azure CDN (classic) is in-place tier upgrade to Azure Front Door Standard tier, using the same profile name. 
+            - After migration, the profile will appear as Azure Front Door Standard.
+            - The original CDN (classic) profile will no longer be visible.
+         Follow steps below to check the migration status.
+            - Go to the Azure portal and search for Front Doors.
+            - Identify the classic CDN profile names. For each profile: 
+                - If the profile is now on Azure Front Door Standard, the migration is successful. You can confirm by opening the profile and reviewing the configuration details.
+                - If the profile is still on Azure CDN (classic), open the profile, select Migration, and review the migration status:
+                      - No migration step initiated: This classic instance is not eligible for auto-migration.
+                      - Error at Step 1 Validate compatibility: Resolve the reported errors, then re-run validation and continue the migration. At this state no migration has not been done. You are responsible for completing the migration or moving to BYOC. 
+                      - Status at Step 2 Prepare for migration through Step 5 Migrate: Migration is in progress. Please wait until the migration completes. After step 2 Prepare for migration, the profile will be in a read-only state. Migration only affects control plan and there would not be any impact on traffic during the migration. 
+            - If migration is complete, the tier will change from CDN Classic to Standard and the profile name will remain the same.
+            - After migration, please monitor the domain state in the standard or premium profile and check if you need to revalidate domain ownership for managed certificate renewal. 
+            - If we are unable to migrate, profile will be rolled back to the original state. If you still wish to use managed certificates without any disruption to HTTPS traffic, you will be responsible for migrating to Azure Front Door or BYOC before 14 April 2026. 
+
+         **Azure Front Door (classic):**
+          To validate the migration status, please follow the steps below based on the migration documentation:
+            - Sign in to the Azure Portal -> Front Doors, and search for Front Door (Classic). 
+            - Select your Azure Front Door (Classic) instance and navigate to: Settings → Migration
+            - Review the migration status:
+                - No migration step initiated: This classic instance is not eligible for auto-migration. 
+                - Error at Step 1 Validate compatibility: Resolve the reported errors, then re-run validation and continue the migration. At this state no migration has not been done. You are responsible for completing the migration or moving to BYOC. 
+                - Status at Step 2 Prepare for migration through Step 5 Migrate: Migration is in progress. Please wait until the migration completes. After step 2 Prepare for migration, the profile will be in a read-only state. Migration only affects control plan and there would not be any impact on traffic during the migration. 
+            - If migration is complete, the tier will change from Azure Front Door Classic to Standard and the new profile name is in the format of [Endpointprefix]-migrated. Learn more in [Azure Front Door (Classic) To Standard/Premium Tier Migration Name convention](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration#naming-convention-used-for-migration).
+            - After migration, please monitor the domain state in the standard or premium profile and check if you need to revalidate domain ownership for managed certificate renewal. 
+            - If we are unable to migrate, profile will be rolled back to the original state. If you still wish to use managed certificates without any disruption to HTTPS traffic, you will be responsible for migrating to Azure Front Door or BYOC before 14 April 2026.
+    
+    - question: |
+        Do I need to take any action to renew my managed certificate after migration?
+      answer: |
+       In most cases, no action is required. After your profile is migrated, Azure Front Door automatically attempts to rotate your managed certificate if it is within 45 days of expiry. 
+       - If your domain is CNAME-mapped to Azure Front Door and meets CAA record and domain state requirements, the certificate is auto-rotated. Auto-rotation job runs every 6-8 hours and takes around 24-48 hours to complete. If the autorotation fails, the domain validation state goes to 'Pending validation' and you can revalidate domain ownership to manually trigger validation. 
+       - If your domain does not meet the above-mentioned validation requirements or has HTTPS disabled, the certificate state changes to Pending revalidation, and you must revalidate domain ownership. 
+
+       You can manually revalidate domain ownership for renewal if you don't want to wait for the auto-rotation by either:
+         - Adding the required DNS validation record following step 3 for [domains pending validation](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-add-custom-domain#add-a-new-custom-domain)
+         - Or triggering validation manually using PowerShell or Azure CLI (`RefreshValidation`).
+
     
   - name: Billing
     questions:

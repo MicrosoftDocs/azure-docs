@@ -26,6 +26,7 @@ We use GitHub Codespaces as a virtual environment for this quickstart so that yo
 > Codespaces are easy to set up quickly and tear down later, but they're not suitable for production, performance evaluation, or scale testing. Use GitHub Codespaces for exploration only.
 >
 > The Codespaces environment is sufficient to complete the quickstart steps, but doesn't support advanced configurations like _secure settings_.
+> See these scripts in GitHub for a [production-ready deployment with secure settings](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md).
 
 ## Prerequisites
 
