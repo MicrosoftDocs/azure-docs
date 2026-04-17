@@ -6,7 +6,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.date: 02/20/2026
+ms.date: 04/16/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -584,8 +584,7 @@ The following items are prefixed with:
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
     
-    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS01 
-    sudo pcs resource meta rsc_sap_NW1_ERS01 resource-stickiness=3000
+    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS01
 
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
     sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS score=-5000
