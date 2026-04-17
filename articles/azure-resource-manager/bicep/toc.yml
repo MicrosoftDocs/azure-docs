@@ -627,7 +627,7 @@ items:
   - name: Resource reference
     href: /azure/templates/
   - name: Bicep CLI
-    displayName: build,decompile,decompile-params, format,generate-params,install,jsonrpc,lint,list-versions,list versions,publish,restore,upgrade,version,module,registry
+    displayName: build,console,decompile,decompile-params, format,generate-params,install,jsonrpc,lint,list-versions,list versions,publish,restore,upgrade,version,module,registry
     href: bicep-cli.md
   - name: Azure CLI
     href: /cli/azure/resource
