@@ -473,7 +473,7 @@ az storage-mover project create \
 
 ---
 
-### Create a job definition and run the job
+## Create a job definition
 
 ### [Azure portal](#tab/portal)
 
@@ -509,15 +509,88 @@ az storage-mover project create \
 
 ### [Azure PowerShell](#tab/powershell)
 
-Not applicable
+Use the `New-AzStorageMoverJobDefinition` command to create a job definition:
+
+```powershell
+New-AzStorageMoverJobDefinition `
+    -Name <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -ProjectName <String> `
+    -SourceEndpointName <String> `
+    -TargetEndpointName <String> `
+    -JobType CloudToCloud
+```
+
+**Parameters:**
+
+- **Name**: The name of the job definition.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+- **ProjectName**: The name of the project to which the job definition belongs.
+- **SourceEndpointName**: The name of the Azure Blob Storage source endpoint.
+- **TargetEndpointName**: The name of the Azure Blob Storage target endpoint.
+- **JobType**: Set to **CloudToCloud** for Azure-to-Azure migrations.
+
+**Example:**
+
+```powershell
+New-AzStorageMoverJobDefinition `
+    -Name "my-job-definition" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -ProjectName "my-migration-project" `
+    -SourceEndpointName "my-src-blob-endpoint" `
+    -TargetEndpointName "my-dst-blob-endpoint" `
+    -JobType CloudToCloud
+```
 
 ### [Azure CLI](#tab/CLI)
 
-Not applicable
+Use the `az storage-mover job-definition create` command to create a job definition:
+
+```bash
+az storage-mover job-definition create \
+    --copy-mode {Additive|Mirror} \
+    --job-definition-name <String> \
+    --job-type CloudToCloud \
+    --project-name <String> \
+    --resource-group <String> \
+    --source-name <String> \
+    --storage-mover-name <String> \
+    --target-name <String>
+```
+
+**Parameters:**
+
+- **--copy-mode**: The copy mode for the job. Use **Additive** to copy only new files, or **Mirror** to synchronize the source and target.
+- **--job-definition-name**: The name of the job definition.
+- **--job-type**: The type of job. Set to **CloudToCloud** for Azure-to-Azure migrations.
+- **--project-name**: The name of the project to which the job definition belongs.
+- **--resource-group**: The name of the resource group containing the Storage Mover resource.
+- **--source-name**: The name of the Azure Blob Storage source endpoint.
+- **--storage-mover-name**: The name of the Storage Mover resource.
+- **--target-name**: The name of the Azure Blob Storage target endpoint.
+
+**Example:**
+
+```bash
+az storage-mover job-definition create \
+    --copy-mode Mirror \
+    --job-definition-name "my-job-definition" \
+    --job-type CloudToCloud \
+    --project-name "my-migration-project" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --source-name "my-src-blob-endpoint" \
+    --storage-mover-name "myStorageMover" \
+    --target-name "my-dst-blob-endpoint"
+```
 
 ---
 
 ### Run a migration job
+
+### [Azure portal](#tab/portal)
 
 1. Go to the **Migration Jobs** tab. The **Migration Jobs** tab shows all migration jobs you created in your Storage Mover resource, including the one you just created. It might take a moment for the new migration job to show up in the list. Refresh the page if needed. 
 
@@ -530,11 +603,6 @@ Not applicable
     :::image type="content" source="./media/azure-to-azure/migration-job-start.png" alt-text="Screenshot of the Migration Job page's Start Job pane." lightbox="./media/azure-to-azure/migration-job-start.png":::
 
 
-### Start a job definition
-
-### [Azure portal](#tab/portal)
-
-Not applicable
 
 ### [Azure PowerShell](#tab/powershell)
 

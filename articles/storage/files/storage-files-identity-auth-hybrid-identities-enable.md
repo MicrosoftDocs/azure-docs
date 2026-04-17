@@ -207,7 +207,7 @@ To set share-level permissions, follow the instructions in [Assign share-level p
 
 ## Configure directory and file-level permissions
 
-Once share-level permissions are in place, you can assign Windows ACLs (directory and file-level permissions) to the user or group. **For hybrid identities, this assignment requires using a device with unimpeded network connectivity to an Active Directory**.
+Once share-level permissions are in place, you can assign Windows ACLs (directory and file-level permissions) to the user or group. **For hybrid identities, if using icacls or File Explorer, this assignment requires using a device with unimpeded network connectivity to an Active Directory**.
 
 To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-configure-file-level-permissions.md).
 

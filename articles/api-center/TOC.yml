@@ -63,7 +63,7 @@
     - name: Agents
       items:
       - name: Overview
-        href: agent-to-agent-overview.md
+        href: agent-to-agent-overview.md 
       - name: Register and manage agents 
         href: register-manage-agents.md
     - name: MCP servers
@@ -100,6 +100,8 @@
     href: self-host-api-center-portal.md
   - name: Discover and consume APIs - VS Code extension
     href: discover-apis-vscode-extension.md
+  - name: Enable plugin marketplace
+    href: enable-api-center-plugin-marketplace.md
 - name: API center management and operations
   items:
   - name: Reliability

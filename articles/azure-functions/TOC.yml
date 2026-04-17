@@ -56,6 +56,8 @@
     - name: Process real-time events
       displayName: Event Hubs, streaming, events
       href: scenario-real-time-events-processing.md
+    - name: Migrate Linux apps to Flex Consumption using Copilot
+      href: migration/scenario-migrate-linux-consumption-to-flex.md
   - name: Developer tools
     items:
     - name: Azure Developer CLI

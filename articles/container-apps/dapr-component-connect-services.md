@@ -8,7 +8,7 @@ ms.service: azure-container-apps
 ms.subservice: dapr
 ms.custom: build-2023
 ms.topic: concept-article
-ms.date: 02/03/2026
+ms.date: 03/27/2026
 ---
 
 # Connect to other Azure or partner services by using Dapr components
@@ -19,14 +19,13 @@ Before getting started, learn more about the [offered support for Dapr component
 
 ## Recommendations
 
-Whenever possible, it's recommended that you use Azure components that provide managed identity support for the most secure connection. Use Azure Key Vault secret stores *only* when managed identity authentication isn't supported. 
+For the most secure connection, we recommended that you use Azure components that provide managed identity support whenever possible. Use Azure Key Vault secret stores *only* when managed identity authentication isn't supported. 
 
 | Service type | Recommendation |
 | ------------ | -------------- |
 | Azure component with managed identity support | [Use the managed identity flow (recommended)](#use-managed-identity-recommended) |
 | Azure component without managed identity support | [Use an Azure Key Vault secret store](#azure-key-vault-secret-stores) |
 | Non-Azure components | [Use an Azure Key Vault secret store](#azure-key-vault-secret-stores) |
-
 
 ## Use managed identity (recommended)
 
@@ -72,7 +71,7 @@ scopes:
 
 #### Platform-managed Kubernetes secrets
 
-As an alternative to Kubernetes secrets, local environment variables, and local file Dapr secret stores, Azure Container Apps provides a platform-managed approach for creating and using Kubernetes secrets. This approach can be used to connect to non-Azure services or in dev/test scenarios for quickly deploying components via the CLI without setting up a secret store or managed identity.
+As an alternative to Kubernetes secrets, local environment variables, and local file Dapr secret stores, Azure Container Apps provides a platform-managed approach for creating and using Kubernetes secrets. This approach can be used to connect to non-Azure services. Or, in dev/test scenarios it can be used for quickly deploying components via the CLI without setting up a secret store or managed identity.
 
 This component configuration defines the sensitive value as a secret parameter that can be referenced from the metadata section. 
 

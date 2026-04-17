@@ -1,7 +1,7 @@
 ---
 title: Azure Functions Consumption plan hosting (legacy)
 description: Learn about Azure Functions Consumption plan hosting, a legacy serverless hosting option. We recommend the Flex Consumption plan for new serverless function apps.
-ms.date: 03/13/2026
+ms.date: 04/09/2026
 ms.topic: concept-article
 ms.custom:
   - build-2024

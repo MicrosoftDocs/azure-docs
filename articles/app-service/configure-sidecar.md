@@ -128,7 +128,7 @@ In a Linux app, all containers (main and sidecars) share environment variables. 
 
 ## Add the Redis sidecar extension
 
-From the Azure portal, you can add a Redis sidecar extension to your app for caching. The Redis sidecar is for lightweight caching only, not a replacement for Azure Cache for Redis.
+From the Azure portal, you can add a Redis sidecar extension to your app for caching. The Redis sidecar is for lightweight caching only, not a replacement for Azure Managed Redis.
 
 To use the Redis sidecar:
 

@@ -35,20 +35,16 @@ We recommend the following pre-migration steps to prepare for the migration.
 Before you migrate to StandardV2 NAT gateway, make sure that your specific scenario is supported. Review the following unsupported scenarios and [known issues](#known-issues) with StandardV2 NAT gateway.  
 
 * StandardV2 NAT Gateway must be used with StandardV2 SKU public IPs. Standard SKU public IPs aren't supported.
-* Azure Kubernetes Service (AKS) managed NAT gateway doesn't support StandardV2 NAT Gateway deployment. To use a StandardV2 NAT gateway with AKS, StandardV2 NAT Gateway must be deployed as user-assigned.
 * StandardV2 NAT Gateway and Basic SKU Load balancer or Basic SKU public IPs aren't supported.
 * StandardV2 NAT Gateway doesn't support the use of custom public IPs (BYOIP).
 * The following regions don't support StandardV2 NAT Gateway and StandardV2 public IPs:
-  * Brazil Southeast
   * Canada East
-  * Central India
   * Chile Central
   * Indonesia Central
   * Israel Northwest
   * Malaysia West
   * Qatar Central
   * Sweden South
-  * UAE Central
   * West Central US
   * West India
 
