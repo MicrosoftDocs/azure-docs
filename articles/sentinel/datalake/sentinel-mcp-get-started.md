@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: Learn how to set up and use Microsoft Sentinel's Model Context Protocol (MCP) collection of security tools to enable natural language queries and AI-powered security investigations 
 author: poliveria
 ms.topic: get-started
-ms.date: 01/30/2026
+ms.date: 04/17/2026
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-platform
@@ -54,6 +54,9 @@ After adding Microsoft Sentinel's collection of tools, use the following sample 
 - Find all the URL IOCs from <threat analytics report\> and analyze them to tell me everything Microsoft knows about them.
 
 To understand how agents invoke these tools to answer these prompts, see [How Microsoft Sentinel MCP tools work alongside your agent](sentinel-mcp-data-exploration-tool.md#how-microsoft-sentinel-mcp-tools-work-alongside-your-agent).
+
+## Turn off Microsoft Sentinel MCP tool access
+To turn off your access to Microsoft Sentinel's collection of MCP tools, contact customer support.
 
 ## Next step
 - [Tool collection in Microsoft Sentinel MCP server](sentinel-mcp-tools-overview.md)

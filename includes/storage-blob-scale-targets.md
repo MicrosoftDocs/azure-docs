@@ -2,7 +2,7 @@
 author: normesta
 ms.service: azure-storage
 ms.topic: include
-ms.date: 12/10/2025
+ms.date: 04/17/2026
 ms.author: normesta
 ---
 
@@ -16,6 +16,7 @@ ms.author: normesta
 | Maximum size of an append blob | 50,000 x 4 MiB (approximately 195 GiB) |
 | Maximum size of a page blob | 8 TiB<sup>2</sup> |
 | Maximum number of stored access policies per blob container | 5 |
+| Target request rate for a single block blob | Up to 3,000 requests per second |
 | Target request rate for a single page blob | Up to 500 requests per second |
 | Target throughput for a single page blob | Up to 60 MiB per second<sup>2</sup> |
 | Target throughput for a single block blob | Up to storage account ingress/egress limits<sup>1</sup> |

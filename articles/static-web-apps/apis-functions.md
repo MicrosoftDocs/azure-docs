@@ -11,7 +11,7 @@ ms.author: jikunchen
 
 # API support in Azure Static Web Apps with Azure Functions
 
-Front end web applications often callback end APIs for data and services. By default, Azure Static Web Apps provides built-in serverless API endpoints via [Azure Functions](apis-functions.md).
+Front end web applications often call back-end APIs for data and services. By default, Azure Static Web Apps provides built-in serverless API endpoints via [Azure Functions](apis-functions.md).
 
 Azure Functions APIs in Static Web Apps are available in two possible configurations depending on the [hosting plan](plans.md#features):
 
