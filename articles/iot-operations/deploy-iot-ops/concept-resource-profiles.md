@@ -1,20 +1,18 @@
 ---
-title: "Azure IoT Operations Baseline Resource Profiles"
-description: Measured baseline resource consumption for Azure IoT Operations deployments at idle, including memory and CPU profiles across configurations.
+title: Azure IoT Operations baseline resource profiles
+description: Learn about measured baseline resource consumption for Azure IoT Operations deployments at idle, including memory and CPU profiles across configurations.
 author: huguesbouvier
 ms.author: hubouvie
 ms.topic: concept-article
 ms.date: 03/25/2026
+ms.service: azure-iot-operations
 
+#CustomerIntent: As a platform engineer or IT administrator planning capacity for Azure IoT Operations deployments, I want to see scaling recommendations before deploying to production.
 ---
 
-# Azure IoT Operations—Baseline Resource Profiles
+# Azure IoT Operations baseline resource profiles
 
 This reference provides measured baseline resource consumption for Azure IoT Operations deployments at idle (no active workloads). Use these profiles to validate your hardware meets minimum requirements and to establish resource monitoring baselines.
-
-> **Audience**: Platform engineers and IT administrators planning capacity for Azure IoT Operations deployments.
-
----
 
 ## Overview
 
@@ -28,11 +26,10 @@ Three configurations were measured on single-node clusters at idle (no connected
 | **Config B** | Low | 2 frontends <br> 2 partitions <br> redundancy factor 2 | ~5,130 MiB | ~1,559 MiB | ~5,695 MiB | 58 |
 | **Config C** | Medium | 2 frontends <br> 2 partitions <br> redundancy factor 2 | ~6,088 MiB | ~2,407 MiB | ~6,564 MiB | 58 |
 
-> **Note**: The difference between Config A and Config B comes from both higher cardinality (more broker pods) and a different [memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile). The difference between Config B and Config C is purely from the memory profile (same cardinality, same pod count). See [Production deployment examples](./concept-production-examples.md) for loaded scenarios.
+> [!NOTE]
+> The difference between Config A and Config B comes from both higher cardinality (more broker pods) and a different [memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile). The difference between Config B and Config C is purely from the memory profile (same cardinality, same pod count). See [Production deployment examples](./concept-production-examples.md) for loaded scenarios.
 
----
-
-## Namespace Breakdown
+## Namespace breakdown
 
 The following table shows peak RSS memory by namespace across all three configurations at idle:
 
@@ -47,14 +44,12 @@ The following table shows peak RSS memory by namespace across all three configur
 | **azure-secret-store** | 87 | 88 | 87 | Secret sync controller |
 | **Total** | **~5,409** | **~5,695** | **~6,564** | |
 
-> **Note**:
-> - **Azure Arc, cert-manager, gatekeeper, and other infrastructure namespaces consume ~3.8–4.1 GB regardless of broker configuration.** This overhead is the fixed cost of running an Arc-enabled cluster with Azure IoT Operations.
+> [!NOTE]
+> - **Azure Arc, cert-manager, gatekeeper, and other infrastructure namespaces consume ~3.8-4.1 GB regardless of broker configuration.** This overhead is the fixed cost of running an Arc-enabled cluster with Azure IoT Operations.
 > - **Only the `azure-iot-operations` namespace scales with the memory profile and cardinality choices**, from ~1.3 GB (Tiny, minimal cardinality) to ~2.4 GB (Medium, higher cardinality).
 > - Plan for at least **6 GB of memory** dedicated to Azure IoT Operations infrastructure at idle before accounting for any workloads.
 
----
-
-## MQTT Broker Pod Resource Consumption
+## MQTT broker pod resource consumption
 
 The MQTT broker is the largest variable component. Memory differences across configurations come from **both** the memory profile (per-pod allocation) and the cardinality (number of pods). The following table shows per-pod idle RSS—these numbers grow with traffic:
 
@@ -75,6 +70,8 @@ The MQTT broker is the largest variable component. Memory differences across con
 
 ### Broker configuration per profile tested
 
+
+
 | Setting | Config A (Tiny) | Config B (Low) | Config C (Medium) |
 |---|---|---|---|
 | Frontend replicas | 1 | 2 | 2 |
@@ -85,28 +82,24 @@ The MQTT broker is the largest variable component. Memory differences across con
 | Idle backend memory per pod | ~41 MiB | ~66 MiB | ~211 MiB |
 | Max message size | 4 MB | 16 MB | 64 MB |
 
----
-
-## Other Azure IoT Operations Component Consumption
+## Other Azure IoT Operations component consumption
 
 These components have consistent idle resource usage regardless of memory profile or cardinality:
 
 | Component | Peak RSS (MiB) | Peak CPU (cores) | Notes |
 |---|---|---|---|
-| **adr-schema-registry** (×2) | ~52 each | 0.002 | Schema registry pods |
+| **adr-schema-registry** (x2) | ~52 each | 0.002 | Schema registry pods |
 | **aio-akri-operator-0** | ~39 | 0.001 | Akri device discovery |
 | **aio-akri-adr-service-0** | ~30 | 0.001 | Akri Azure Device Registry (ADR) service |
 | **aio-dataflow-dev-0** | ~67 | 0.002 | Data flow runtime |
 | **aio-dataflow-operator-0** | ~56 | 0.001 | Data flow operator |
 | **aio-operator** | ~114 | 0.003 | Azure IoT Operations operator |
-| **aio-observability** (×2) | ~125 each | 0.005 | OpenTelemetry collectors |
+| **aio-observability** (x2) | ~125 each | 0.005 | OpenTelemetry collectors |
 | **aio-observability-operator** | ~106 | 0.003 | Observability operator |
 | **aio-observability-cluster-metrics-agent** | ~114 | 0.004 | Metrics agent |
 | **aio-wasm-graph-controller-0** | ~30 | 0.001 | WebAssembly (WASM) graph controller |
 
----
-
-## CPU Consumption
+## CPU consumption
 
 CPU consumption is minimal at idle across all configurations tested:
 
@@ -118,9 +111,7 @@ CPU consumption is minimal at idle across all configurations tested:
 
 > CPU usage is negligible at idle. Under production load, expect significantly higher CPU consumption proportional to message throughput and the number of frontend/backend workers configured.
 
----
-
-## Hardware Sizing Guidance
+## Hardware sizing guidance
 
 Based on these idle baseline measurements, the following minimum hardware recommendations apply for single-node deployments. Actual requirements are higher under production traffic:
 
@@ -131,13 +122,12 @@ Based on these idle baseline measurements, the following minimum hardware recomm
 | **Medium** | 12 GB | 16–32 GB | Moderate traffic and message sizes |
 | **High** | 16 GB | 32+ GB | High throughput, large messages |
 
-> **Important**: These recommendations account for the ~4 GB of fixed infrastructure overhead (Azure Arc, cert-manager, gatekeeper) plus the variable Azure IoT Operations component footprint. Production workloads require additional headroom for MQTT message buffering, data flow processing, and OPC UA connector activity.
+> [!IMPORTANT]
+> These recommendations account for the ~4 GB of fixed infrastructure overhead (Azure Arc, cert-manager, gatekeeper) plus the variable Azure IoT Operations component footprint. Production workloads require additional headroom for MQTT message buffering, data flow processing, and OPC UA connector activity.
 
----
+## Related content
 
-## Related Resources
-
-- [Choose your cluster topology](./operational-manual-day0-deployment.md#12-choose-your-cluster-topology)—Day 0 deployment manual
-- [Production deployment guidelines](./concept-production-guidelines.md)—Best practices for production
-- [Production deployment examples](./concept-production-examples.md)—Validated scaling configurations with load
-- [Configure availability and scale](../manage-mqtt-broker/howto-configure-availability-scale.md)—MQTT broker cardinality and memory profiles
+- [Choose your cluster topology](./operational-manual-day0-deployment.md#12-choose-your-cluster-topology)
+- [Production deployment guidelines](./concept-production-guidelines.md)
+- [Production deployment examples](./concept-production-examples.md)
+- [Configure availability and scale](../manage-mqtt-broker/howto-configure-availability-scale.md)

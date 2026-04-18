@@ -1,41 +1,26 @@
 ---
-title: "Azure IoT Operations Day 0 Operational Manual: Deployment"
-description: Step-by-step guide for deploying Azure IoT Operations to a production Kubernetes cluster, covering planning, prerequisites, cluster preparation, and post-deployment validation.
+title: "Azure IoT Operations: Day 0 operational manual - Deployment"
+description: Learn how to deploy Azure IoT Operations to a production Kubernetes cluster, including planning, prerequisites, cluster preparation, and post-deployment validation.
 author: huguesbouvier
 ms.author: hubouvie
 ms.topic: how-to
+ms.service: azure-iot-operations
 ms.date: 03/25/2026
 
 ---
 
-# Azure IoT Operations—Day 0 Operational Manual: Deployment
+# Azure IoT Operations: Day 0 operational manual - Deployment
 
 This operational manual provides a comprehensive, step-by-step guide for deploying [Azure IoT Operations](../overview-iot-operations.md) to a production Kubernetes cluster. It covers everything from initial planning and prerequisites through cluster preparation, deployment, configuration of assets and data flows, and post-deployment validation.
 
-> **Audience**: IT administrators, platform engineers, and OT professionals responsible for deploying Azure IoT Operations.
+> [!NOTE]
+> **Audience:** IT administrators, platform engineers, and OT professionals responsible for deploying Azure IoT Operations.
 
----
 
-## Table of Contents
+## 1. Deployment planning
 
-1. [Deployment Planning](#1-deployment-planning)
-2. [Prerequisites and Azure Resource Setup](#2-prerequisites-and-azure-resource-setup)
-3. [Cluster Preparation](#3-cluster-preparation)
-4. [Security Preparation](#4-security-preparation)
-5. [Deploy Azure IoT Operations](#5-deploy-azure-iot-operations)
-6. [Post-Deployment Validation](#6-post-deployment-validation)
-7. [Observability Setup](#7-observability-setup)
-8. [Configure MQTT Broker for Production](#8-configure-mqtt-broker-for-production)
-9. [Configure Assets and Devices](#9-configure-assets-and-devices)
-10. [Configure Data Flows to Cloud](#10-configure-data-flows-to-cloud)
-11. [End-to-End Validation](#11-end-to-end-validation)
-12. [Production Deployment Checklist](#12-production-deployment-checklist)
 
----
-
-## 1. Deployment Planning
-
-### 1.1 Understand the Architecture
+### 1.1 Understand the architecture
 
 Azure IoT Operations is a set of modular, Kubernetes-native services deployed to an Azure Arc-enabled cluster. Key components include:
 
@@ -50,7 +35,8 @@ Azure IoT Operations is a set of modular, Kubernetes-native services deployed to
 
 An Azure IoT Operations *deployment* includes the instance, Arc extensions, custom locations, and all configurable resources (assets, devices, data flows). The *instance* is the parent resource that bundles the services.
 
-### 1.2 Choose Your Cluster Topology
+### 1.2 Choose your cluster topology
+
 
 | Topology | Use Case | Min Hardware |
 |---|---|---|
@@ -176,7 +162,9 @@ The memory profile controls the maximum MQTT message size the broker accepts. Th
 | **Medium** | 64 MB | ~169 MiB | ~211 MiB | Moderate traffic and message sizes |
 | **High** | 256 MB | ~4.9 GiB | ~5.8 GiB | High throughput, large messages |
 
-> **Warning**: The broker rejects messages when memory usage reaches 75% capacity. Choose a profile with sufficient headroom for your expected message sizes and throughput.
+> [!WARNING]
+
+> The broker rejects messages when memory usage reaches 75% capacity. Choose a profile with sufficient headroom for your expected message sizes and throughput.
 
 Total broker memory depends on **both** the memory profile and the cardinality (number of frontend replicas, backend partitions, and redundancy factor). More pods mean more total memory. For measured baseline resource consumption across different configurations, see [Baseline resource profiles](./concept-resource-profiles.md).
 
@@ -188,7 +176,8 @@ As a rule of thumb for capacity planning, an approximate throughput per partitio
 
 For more information, see [Performance](../manage-mqtt-broker/howto-configure-availability-scale.md#performance).
 
-### 1.3 Choose Your Platform
+### 1.3 Choose your platform
+
 
 | Platform | OS | Production Status |
 |---|---|---|
@@ -197,13 +186,17 @@ For more information, see [Performance](../manage-mqtt-broker/howto-configure-av
 | **AKS Edge Essentials** | Windows (x86_64) | ⚠️ Public preview |
 | **AKS on Azure Local** | Windows (x86_64) | ⚠️ Public preview |
 
-> **Recommendation**: For multi-node production deployments, use K3s on Ubuntu/RHEL or Tanzu Kubernetes (both GA).
+> [!TIP]
 
-### 1.4 Supported Azure Regions
+> For multi-node production deployments, use K3s on Ubuntu/RHEL or Tanzu Kubernetes (both GA).
+
+### 1.4 Supported Azure regions
+
 
 Azure IoT Operations is available in: East US, East US 2, West US, West US 2, West US 3, West Europe, North Europe, Germany West Central.
 
-### 1.5 Plan Your Azure Resources
+### 1.5 Plan your Azure resources
+
 
 You need the following Azure resources:
 
@@ -214,16 +207,17 @@ You need the following Azure resources:
 | **Azure Storage Account** | Schema registry backend (hierarchical namespace required) |
 | **[Schema Registry](../connect-to-cloud/concept-schema-registry.md)** | Data validation and serialization |
 | **Device Registry Namespace** | Organizes assets and devices |
-| **User-Assigned Managed Identities (×2)** | One for secrets, one for Azure IoT Operations components |
+| **User-Assigned Managed Identities (x2)** | One for secrets, one for Azure IoT Operations components |
 | **Azure Monitor Workspace** | Metrics collection (recommended) |
 | **Azure Managed Grafana** | Dashboard visualization (recommended) |
 | **Log Analytics Workspace** | Container logs (recommended) |
 
----
 
-## 2. Prerequisites and Azure Resource Setup
+## 2. Prerequisites and Azure resource setup
 
-### 2.1 Azure Subscription and Permissions
+
+### 2.1 Azure subscription and permissions
+
 
 Required permissions:
 
@@ -232,7 +226,8 @@ Required permissions:
 - **Key Vault Secrets Officer** on the Azure Key Vault
 - **Storage Blob Data Contributor** on the storage account (autoassigned during schema registry creation)
 
-### 2.2 Install Azure CLI and Extensions
+### 2.2 Install Azure CLI and extensions
+
 
 ```bash
 # Install or upgrade Azure CLI (version 2.53.0 or higher required)
@@ -248,7 +243,8 @@ az extension add --upgrade --name connectedk8s
 az --version
 ```
 
-### 2.3 Install Cluster Tools
+### 2.3 Install cluster tools
+
 
 ```bash
 # Install kubectl
@@ -260,7 +256,8 @@ kubectl version --client
 helm version
 ```
 
-### 2.4 Register Required Resource Providers
+### 2.4 Register required resource providers
+
 
 ```bash
 # Register Azure IoT Operations core resource providers
@@ -272,9 +269,12 @@ az provider register --namespace Microsoft.DeviceRegistry
 az provider register --namespace Microsoft.SecretSyncController
 ```
 
-> **Note**: Provider registration is a one-time operation per subscription. Verify status with `az provider show --namespace <NAME> --query registrationState`.
+> [!NOTE]
 
-### 2.5 Create Azure Resources
+> Provider registration is a one-time operation per subscription. Verify status with `az provider show --namespace <NAME> --query registrationState`.
+
+### 2.5 Create Azure resources
+
 
 ```bash
 # Set variables
@@ -322,13 +322,16 @@ az storage container create \
   --account-name "<storage-account-name>"
 ```
 
-> **Production hardening**: After deployment, restrict the storage account to **"Enabled from selected virtual networks and IP addresses"** and enable the **"Allow trusted Microsoft services"** exception. This prevents public access while allowing Azure IoT Operations schema registry to function.
+> [!IMPORTANT]
 
----
+> After deployment, restrict the storage account to **"Enabled from selected virtual networks and IP addresses"** and enable the **"Allow trusted Microsoft services"** exception. This prevents public access while allowing Azure IoT Operations schema registry to function.
 
-## 3. Cluster Preparation
 
-### 3.1 Create a K3s Cluster (Ubuntu)
+## 3. Cluster preparation
+
+
+### 3.1 Create a K3s cluster (Ubuntu)
+
 For additional details on K3s and setting up more complicated clusters, see [here](https://docs.k3s.io/)
 
 ```bash
@@ -345,7 +348,8 @@ kubectl config use-context default
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 ```
 
-### 3.2 Tune System Parameters
+### 3.2 Tune system parameters
+
 
 ```bash
 # Increase inotify limits
@@ -358,11 +362,13 @@ echo fs.file-max=100000 | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 ```
 
-### 3.3 Multi-Node Cluster Preparation
+### 3.3 Multi-node cluster preparation
+
 
 For multi-node clusters with fault tolerance, configure Edge Volumes for Azure Container Storage. For more information, see [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/howto-prepare-linux-edge-volumes).
 
-### 3.4 Arc-Enable the Cluster
+### 3.4 Arc-enable the cluster
+
 
 ```bash
 export CLUSTER_NAME="<your-cluster-name>"
@@ -390,14 +396,17 @@ az connectedk8s enable-features \
 az connectedk8s show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --query connectivityStatus
 ```
 
-> **Note**: You must use a Microsoft Entra user account (not a service principal) for this step.
+> [!NOTE]
+
+> You must use a Microsoft Entra user account (not a service principal) for this step.
 
 If your Kubernetes environment requires a proxy for outgoing Internet connections, make sure to pass the `--proxy-http`, `--proxy-https`, `--proxy-skip-range`, and `--proxy-cert` arguments to the `az connectedk8s connect` command. These arguments will be provided to all installed components.
 - `--proxy-http` and `--proxy-https` are the proxy URLs. The expected format is `http(s)://<username>:<password>@proxy-url:port`
 - `--proxy-skip-range` is a comma-separated list of IP addresses or DNS names that should not use the proxy. Generally, it makes sense to exclude endpoints on the same Kubernetes cluster from the proxy (for example, `--proxy-skip-range "kubernetes.default.svc,10.0.0.0/8"`, assuming the cluster is using `10.0.0.0/8` as addresses for pods)
 - `--proxy-cert` is a list of PEM-encoded certificates, which will be added as trusted CA certificates for all outgoing connections
 
-#### Configure K3s for Workload Identity
+#### Configure K3s for workload identity
+
 
 After Arc-enabling, configure K3s to support workload identity federation (required for secret sync):
 
@@ -416,7 +425,8 @@ EOF
 sudo systemctl restart k3s
 ```
 
-### 3.5 Networking and Firewall Configuration
+### 3.5 Networking and firewall configuration
+
 
 If you use enterprise firewalls or proxies, add the Azure IoT Operations endpoints to your allow list. Three networking approaches are supported:
 
@@ -424,11 +434,12 @@ If you use enterprise firewalls or proxies, add the Azure IoT Operations endpoin
 2. **Explicit proxy**—Azure Firewall Explicit Proxy for traffic inspection
 3. **[Layered networking](../manage-layered-network/overview-layered-network.md)**—For Purdue Network Architecture / ISA-95 scenarios
 
----
 
-## 4. Security Preparation
+## 4. Security preparation
 
-### 4.1 Bring Your Own Certificate Authority (Recommended)
+
+### 4.1 Bring your own certificate authority (Recommended)
+
 
 For production, replace the default self-signed CA with an enterprise public key infrastructure (PKI) issuer.
 
@@ -450,15 +461,16 @@ kubectl create configmap -n azure-iot-operations <YOUR_CONFIGMAP_NAME> \
   --from-file=<CA_CERTIFICATE_FILENAME_PEM_OR_DER>
 ```
 
-### 4.2 Validate Container Images
+### 4.2 Validate container images
+
 
 Before deployment, optionally validate the Microsoft signatures on Azure IoT Operations images. See [Validate images](../secure-iot-ops/howto-validate-images.md).
 
-### 4.3 Block IMDS Access (Azure Kubernetes Service (AKS) Deployments)
+### 4.3 Block IMDS access (Azure Kubernetes Service (AKS) deployments)
+
 
 For AKS deployments with [secure settings](./howto-enable-secure-settings.md), block pod access to the Azure Instance Metadata Service (IMDS) to prevent credential leakage.
 
----
 
 ## 5. Deploy Azure IoT Operations
 
@@ -542,9 +554,13 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
        </tbody>
    </table>
 
-   > **Critical**: Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support. Always set at least **2 frontend replicas** on single-node deployments to enable rolling updates.
+   > [!IMPORTANT]
 
-   > **Warning**: MQTT broker cardinality settings (replicas, workers, partitions) are configured **only at deployment time**. To change these settings later, you must uninstall and redeploy Azure IoT Operations.
+   > Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support. Always set at least **2 frontend replicas** on single-node deployments to enable rolling updates.
+
+   > [!WARNING]
+
+   > MQTT broker cardinality settings (replicas, workers, partitions) are configured **only at deployment time**. To change these settings later, you must uninstall and redeploy Azure IoT Operations.
 
    - Configure [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md) (instance count for scaling)
 
@@ -554,11 +570,14 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
    - Select **[Secure settings](./howto-enable-secure-settings.md)** deployment option
    - Configure Azure Key Vault, user-assigned managed identity for secrets, and user-assigned managed identity for AIO components
 
-   > **Important**: Use **different** managed identities for secrets and AIO components.
+   > [!IMPORTANT]
+
+   > Use **different** managed identities for secrets and AIO components.
 
 6. **Automation tab**—Run the generated CLI commands (see next section)
 
-### 5.2 Run the CLI Commands
+### 5.2 Run the CLI commands
+
 
 The portal generates a sequence of CLI commands. Run them in order:
 
@@ -596,7 +615,8 @@ az iot ops identity assign ...  # (copied from portal)
 kubectl delete pods adr-schema-registry-0 adr-schema-registry-1 -n azure-iot-operations
 ```
 
-### 5.3 Configure Observability on the Instance
+### 5.3 Configure observability on the instance
+
 
 ```bash
 az iot ops upgrade \
@@ -606,11 +626,12 @@ az iot ops upgrade \
   --ops-config observability.metrics.exportInternalSeconds=60
 ```
 
----
 
-## 6. Post-Deployment Validation
+## 6. Post-Deployment validation
 
-### 6.1 Run Health Check
+
+### 6.1 Run health check
+
 
 ```bash
 # Basic health check
@@ -625,7 +646,8 @@ az iot ops check --ops-service broker
 
 > The `check` command displays a warning about missing data flows—this is expected until you create one.
 
-### 6.2 Verify Health Status
+### 6.2 Verify health status
+
 
 After deployment, verify that all components report **Available** health status:
 
@@ -633,47 +655,56 @@ After deployment, verify that all components report **Available** health status:
 2. In the Azure portal, navigate to your Azure IoT Operations instance and review the health state of the broker, data flows, and connectors.
 3. If any component reports **Degraded** (🟡) or **Unavailable** (🔴), check the reason code and message for diagnostic details.
 
-> **Note**: If a resource hasn't reported status within 15 minutes, it shows as **Unknown** (⚪). Allow a few minutes after deployment for initial health reports to appear.
+> [!NOTE]
 
-### 6.3 Verify Pods Are Running
+> If a resource hasn't reported status within 15 minutes, it shows as **Unknown** (⚪). Allow a few minutes after deployment for initial health reports to appear.
+
+### 6.3 Verify pods are running
+
 
 ```bash
 kubectl get pods -n azure-iot-operations
 kubectl get pods -n azure-arc
 ```
 
-### 6.4 View Deployment Tree
+### 6.4 View deployment tree
+
 
 ```bash
 az iot ops show --name <INSTANCE_NAME> --resource-group $RESOURCE_GROUP --tree
 ```
 
-### 6.5 Check Available Versions
+### 6.5 Check available versions
+
 
 ```bash
 az iot ops get-versions
 ```
 
----
 
-## 7. Observability Setup
+## 7. Observability setup
+
 
 Azure IoT Operations provides unified health status reporting across all components and resources. Health status (Available, Degraded, Unavailable, Unknown) is reported through Azure Resource Manager and visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI and Azure portal. Combined with metrics and logs, this gives you a complete operational view of your deployment. Follow the steps outlined in [Deploy observability resources](../configure-observability-monitoring/howto-configure-observability.md#deploy-with-the-automated-script) for an automated way to deploy observability resources.
 
----
 
-## 8. Configure MQTT Broker for Production
+## 8. Configure MQTT Broker for production
 
-### 8.1 Configure Transport Layer Security (TLS) Listeners
+
+### 8.1 Configure Transport Layer Security (TLS) listeners
+
 
 After deployment, configure TLS on [broker listeners](../manage-mqtt-broker/howto-configure-brokerlistener.md):
 
-> **Warning**: Do not modify the default broker listener on port 18883. This listener is used for internal Azure IoT Operations communication. Create additional `BrokerListener` resources for external client access instead.
+> [!WARNING]
+
+> Do not modify the default broker listener on port 18883. This listener is used for internal Azure IoT Operations communication. Create additional `BrokerListener` resources for external client access instead.
 
 - Use **automatic certificate management** with cert-manager for listeners
 - For external clients, configure a `BrokerListener` with TLS and your preferred service type (NodePort or LoadBalancer)
 
-### 8.2 Configure Authentication
+### 8.2 Configure authentication
+
 
 Production [authentication](../manage-mqtt-broker/howto-configure-authentication.md) options (do **not** use no-auth):
 
@@ -683,22 +714,26 @@ Production [authentication](../manage-mqtt-broker/howto-configure-authentication
 | **Kubernetes Service Account Tokens (SAT)** | In-cluster workloads |
 | **Custom authentication** | Integration with external identity providers |
 
-### 8.3 Configure Authorization
+### 8.3 Configure authorization
+
 
 Create `BrokerAuthorization` resources with least-privilege access per topic:
 
 - Define [authorization policies](../manage-mqtt-broker/howto-configure-authorization.md) mapping clients to allowed topic patterns
 - Support for attribute-based access control (ABAC)
 
-### 8.4 Encrypt Internal Traffic
+### 8.4 Encrypt internal traffic
+
 
 For production, enable [encryption between broker frontend and backend pods](../manage-mqtt-broker/howto-encrypt-internal-traffic.md).
 
-### 8.5 Configure Disk-Backed Message Buffer
+### 8.5 Configure disk-backed message buffer
+
 
 To prevent RAM overflow, set a [disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) with a max size. This works similar to an operating system's swap file, the data is stored to disk but it is **not** durable, a restart will lose everything in the swap.
 
-### 8.6 Configure Persistence
+### 8.6 Configure persistence
+
 
 Enable [data persistence](../manage-mqtt-broker/howto-broker-persistence.md) for the MQTT broker to survive pod restarts and ensure message durability. Persistence complements the broker's replication system—while replication protects against individual node failures, persistence protects against cluster-wide shutdowns.
 
@@ -708,13 +743,18 @@ Key deployment-time decisions (can't be changed after deployment):
 - **PersistentVolumeClaim spec**: Optionally provide a custom PVC template. If omitted, the broker uses the default storage class, which may not be optimal for performance. Use a local path provisioner for best results. Access mode must be `ReadWriteOncePod`.
 - **Encryption**: Configure encryption for data at rest if required by your security policies.
 
-> **Important**: You set persistence during deployment and can't turn it off afterward. You can change some persistence-related options (retained messages, subscriber queue, state store persistence) after deployment. See [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md) for all options.
+> [!IMPORTANT]
 
-### 8.7 Configure CPU Resource Limits
+> You set persistence during deployment and can't turn it off afterward. You can change some persistence-related options (retained messages, subscriber queue, state store persistence) after deployment. See [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md) for all options.
+
+### 8.7 Configure CPU resource limits
+
 
 To prevent resource starvation, the broker can [request Kubernetes CPU resource limits](../manage-mqtt-broker/howto-configure-availability-scale.md#cardinality-and-kubernetes-resource-limits) based on the cardinality settings. When enabled, scaling replicas or workers proportionally increases the CPU resources required.
 
-> **Note**: The default for `generateResourceLimits.cpu` depends on the deployment method:
+> [!NOTE]
+
+> The default for `generateResourceLimits.cpu` depends on the deployment method:
 > - **Azure CLI (`az iot ops create`)**: `Disabled` by default to avoid deployment failures on resource-constrained clusters.
 > - **REST API, Bicep, and ARM templates**: `Enabled` by default.
 
@@ -733,13 +773,16 @@ To prevent resource starvation, the broker can [request Kubernetes CPU resource 
 | Backend CPU | `partitions` × `redundancyFactor` × `backend.workers` × 2.0 CPU |
 | **Total broker CPU** | Frontend CPU + Backend CPU |
 
-> **Caution**: The broker isn't the only component that consumes CPU. Other Azure IoT Operations components (dataflow engine, OPC UA connector, system pods) typically consume ~200–300m in aggregate. Account for this overhead when planning cluster capacity. If total CPU requested exceeds available CPU, broker pods get stuck in `Pending` state.
+> [!CAUTION]
 
----
+> The broker isn't the only component that consumes CPU. Other Azure IoT Operations components (dataflow engine, OPC UA connector, system pods) typically consume ~200–300m in aggregate. Account for this overhead when planning cluster capacity. If total CPU requested exceeds available CPU, broker pods get stuck in `Pending` state.
 
-## 9. Configure Assets and Devices
 
-### 9.1 Configure OPC UA Connectivity
+## 9. Configure assets and devices
+
+
+### 9.1 Configure OPC UA connectivity
+
 
 1. **Set up [OPC UA authentication](../discover-manage-assets/howto-configure-opc-ua.md)**—Don't use no-auth for production. Options:
    - Username/password authentication (secrets stored in Azure Key Vault)
@@ -762,7 +805,8 @@ az iot ops ns device create ...
 az iot ops ns asset create ...
 ```
 
-### 9.2 Configure More Connectors
+### 9.2 Configure more connectors
+
 
 Azure IoT Operations supports multiple connector types:
 
@@ -776,7 +820,8 @@ Azure IoT Operations supports multiple connector types:
 | **SSE** | Server-Sent Events | Event streams |
 | **Kafka** | Kafka | Event Hubs / Kafka clusters |
 
-### 9.3 Automatic Asset Discovery
+### 9.3 Automatic asset discovery
+
 
 Enable Akri-based [autodiscovery](../discover-manage-assets/howto-detect-opc-ua-assets.md) for OPC UA servers:
 
@@ -785,11 +830,12 @@ Enable Akri-based [autodiscovery](../discover-manage-assets/howto-detect-opc-ua-
 az iot ops enable-rsync -n <INSTANCE_NAME> -g $RESOURCE_GROUP
 ```
 
----
 
-## 10. Configure Data Flows to Cloud
+## 10. Configure data flows to cloud
 
-### 10.1 Supported Cloud Destinations
+
+### 10.1 Supported cloud destinations
+
 
 | Destination | Service |
 |---|---|
@@ -801,7 +847,8 @@ az iot ops enable-rsync -n <INSTANCE_NAME> -g $RESOURCE_GROUP
 | **Local Storage** | Edge persistence via Azure Container Storage |
 | **Apache Kafka** | Kafka-compatible endpoints |
 
-### 10.2 Create Data Flow Endpoints
+### 10.2 Create data flow endpoints
+
 
 Configure [endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md) with user-assigned managed identity authentication (recommended):
 
@@ -810,26 +857,33 @@ Configure [endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md) 
 # or via Kubernetes manifests / Bicep / Azure CLI
 ```
 
-### 10.3 Create Data Flows
+### 10.3 Create data flows
+
 
 [Data flows](../connect-to-cloud/howto-create-dataflow.md) define the pipeline: **Source → Transformation → Destination**
 
-> **Requirement**: Every data flow must include the local MQTT broker default endpoint (`aio-broker`) as either its source or its destination. You cannot connect two custom endpoints directly without the local broker in between.
+> [!IMPORTANT]
+
+> Every data flow must include the local MQTT broker default endpoint (`aio-broker`) as either its source or its destination. You cannot connect two custom endpoints directly without the local broker in between.
 
 - **Source**: MQTT broker topics (default), Kafka, or asset data
 - **Transformations**: Filtering, [mapping](../connect-to-cloud/concept-dataflow-mapping.md) (one-to-one, many-to-one), [enrichment](../connect-to-cloud/concept-dataflow-enrich.md) from reference datasets, type conversions
 - **Destination**: Any supported cloud endpoint
 
-### 10.4 Scale Data Flow Profiles
+### 10.4 Scale data flow profiles
+
 
 ```bash
 # Configure data flow profile instance count for throughput and HA
 # Group related flows into profiles and scale each independently
 ```
 
-> **Limitation**: A [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md) can't exceed 70 data flows. Create multiple profiles and distribute flows if needed.
+> [!NOTE]
 
-### 10.5 WebAssembly (WASM) Data Processing
+> A [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md) can't exceed 70 data flows. Create multiple profiles and distribute flows if needed.
+
+### 10.5 WebAssembly (WASM) data processing
+
 
 For advanced edge processing, deploy custom [WASM modules](../develop-edge-apps/howto-develop-wasm-modules.md):
 
@@ -837,11 +891,12 @@ For advanced edge processing, deploy custom [WASM modules](../develop-edge-apps/
 - Can run [Open Neural Network Exchange (ONNX) inference](../develop-edge-apps/howto-wasm-onnx-inference.md) models at the edge
 - Deployed as graph definitions in data flow pipelines
 
----
 
-## 11. End-to-End Validation
+## 11. End-to-end validation
 
-### 11.1 Verify MQTT Broker Connectivity
+
+### 11.1 Verify MQTT broker connectivity
+
 
 ```bash
 # Deploy MQTT test client
@@ -858,31 +913,35 @@ mosquitto_sub --host aio-broker --port 18883 \
   -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
-### 11.2 Verify Data Reaches Cloud
+### 11.2 Verify data reaches cloud
+
 
 - Check Azure Event Hubs for incoming messages
 - Verify data in Azure Data Lake, Data Explorer, or Fabric OneLake
 - Use the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) portal to monitor connector and data flow status
 
-### 11.3 Verify Observability
+### 11.3 Verify observability
+
 
 1. Access Grafana: `az grafana show --name $GRAFANA_NAME --resource-group $RESOURCE_GROUP --query url -o tsv`
 2. Import the unified Azure IoT Operations Grafana dashboard—it brings health status, metrics, and logs together in a single view
 3. Verify the health overview at the top of the dashboard shows components as Available
 4. Verify metrics are flowing for MQTT broker, OPC UA connector, and data flows
 
-### 11.4 Create a Support Bundle
+### 11.4 Create a support bundle
+
 
 ```bash
 # Collect diagnostic information
 az iot ops support create-bundle
 ```
 
----
 
-## 12. Production Deployment Checklist
+## 12. Production deployment checklist
 
-### Platform & Cluster
+
+### Platform & cluster
+
 
 - [ ] K3s on Ubuntu 24.04 (production GA platform)
 - [ ] System parameters tuned (inotify, file descriptors)
@@ -926,7 +985,8 @@ az iot ops support create-bundle
 - [ ] Prometheus alerts configured in Azure Monitor
 - [ ] Health status verified: all components report Available (🟢)
 
-### Data Pipeline
+### Data pipeline
+
 
 - [ ] [Schema registry](../connect-to-cloud/concept-schema-registry.md) created with hierarchical-namespace storage
 - [ ] Storage account scoped to trusted Azure services only
@@ -949,9 +1009,8 @@ az iot ops support create-bundle
 - [ ] Grafana dashboards showing metrics
 - [ ] Support bundle collected for baseline
 
----
 
-## Quick Reference: Key Commands
+## Quick reference: Key commands
 
 | Action | Command |
 |---|---|
@@ -965,11 +1024,10 @@ az iot ops support create-bundle
 | View pod logs | `kubectl logs <POD_NAME> -n azure-iot-operations` |
 | Describe pod | `kubectl describe pod <POD_NAME> -n azure-iot-operations` |
 
----
 
-## Next Steps
+## Next steps
 
-- Proceed to the [Day 1 Operational Manual](./operational-manual-day1-operations.md) for maintenance, monitoring, troubleshooting, and upgrade procedures.
+- Proceed to the [Day 1 operational manual](./operational-manual-day1-operations.md) for maintenance, monitoring, troubleshooting, and upgrade procedures.
 - Review [Production deployment guidelines](./concept-production-guidelines.md) for more best practices.
 - Review [Production deployment examples](./concept-production-examples.md) for validated scaling configurations.
 - Review [Baseline resource profiles](./concept-resource-profiles.md) for measured resource consumption at each memory profile level.
