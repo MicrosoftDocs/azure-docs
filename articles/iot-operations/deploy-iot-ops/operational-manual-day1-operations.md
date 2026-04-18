@@ -174,9 +174,9 @@ az iot ops show --name <INSTANCE_NAME> --resource-group <RG> --tree
 
 | Check | Action |
 |---|---|
-| Version check | `az iot ops get-versions`—Check for available updates |
+| Version check | `az iot ops get-versions`. Check for available updates |
 | Security patches | Review and plan upgrades for security fixes |
-| Azure Arc agents | `az connectedk8s show`—Check agent version, manually upgrade if needed |
+| Azure Arc agents | `az connectedk8s show`. Check agent version, manually upgrade if needed |
 | RBAC audit | Review role assignments on resource group and Key Vault |
 | Storage account | Verify [schema registry](../connect-to-cloud/concept-schema-registry.md) storage health and access policies |
 
@@ -332,7 +332,7 @@ az keyvault secret set \
 
 #### Internal certificates (TLS between components)
 
-- Managed by [**cert-manager**](../secure-iot-ops/howto-manage-certificates.md)—automatic rotation
+- Managed by [**cert-manager**](../secure-iot-ops/howto-manage-certificates.md), which handles automatic rotation
 - Default self-signed CA: `CN=Azure IoT Operations Quickstart Root CA - Not for Production`
 - Root CA stored in secret: `azure-iot-operations-aio-ca-certificate` (namespace: `cert-manager`)
 - Trust bundle in ConfigMap: `azure-iot-operations-aio-ca-trust-bundle` (namespace: `azure-iot-operations`)
@@ -389,7 +389,7 @@ Edit [`BrokerListener`](../manage-mqtt-broker/howto-configure-brokerlistener.md)
 
 > [!WARNING]
 
-> Do not modify the default broker listener on port 18883—it is used for internal Azure IoT Operations communication. Create new `BrokerListener` resources for external client access instead.
+> Do not modify the default broker listener on port 18883. It is used for internal Azure IoT Operations communication. Create new `BrokerListener` resources for external client access instead.
 
 - Change TLS configuration
 - Add/remove ports
@@ -406,9 +406,9 @@ kubectl edit brokerauthentication <AUTH_NAME> -n azure-iot-operations
 ```
 
 Supported [authentication](../manage-mqtt-broker/howto-configure-authentication.md) methods:
-- **X.509 certificates**—Best for machine-to-machine
-- **Kubernetes SAT**—Best for in-cluster workloads
-- **Custom**—External identity providers
+- **X.509 certificates**: Best for machine-to-machine
+- **Kubernetes SAT**: Best for in-cluster workloads
+- **Custom**: External identity providers
 
 ### Modify authorization
 
@@ -444,7 +444,7 @@ Data persistence allows the MQTT broker to survive pod restarts and preserve mes
 az iot ops broker persist update --persist-mode retain=All \
   --resource-group <RG> --instance <INSTANCE>
 
-# Update subscriber queue persistence (custom—specific client IDs)
+# Update subscriber queue persistence (custom, specific client IDs)
 az iot ops broker persist update --persist-mode subscriberQueue=Custom \
   --subscriber-client-ids "client1" "client2" \
   --resource-group <RG> --instance <INSTANCE>
@@ -456,7 +456,7 @@ az iot ops broker persist update --persist-mode stateStore=All \
 
 > [!NOTE]
 
-> The state store is **in-memory only** by default—all contents are lost on cluster restart unless persistence is explicitly enabled.
+> The state store is **in-memory only** by default. All contents are lost on cluster restart unless persistence is explicitly enabled.
 
 ### Testing broker connectivity
 
@@ -475,13 +475,13 @@ mosquitto_sub --host aio-broker --port 18883 \
   -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
-**Option 2: NodePort service**—Access from any MQTT client via node IP + port
+**Option 2: NodePort service**: Access from any MQTT client via node IP + port
 
-**Option 3: LoadBalancer service**—Access via external IP on port 1883
+**Option 3: LoadBalancer service**: Access via external IP on port 1883
 
 **Recommended tools**:
-- **mqttui**—CLI tool for subscribing, publishing, and monitoring
-- **MQTT Explorer**—GUI tool for browsing topics and messages
+- **mqttui**: CLI tool for subscribing, publishing, and monitoring
+- **MQTT Explorer**: GUI tool for browsing topics and messages
 
 ## Asset and device management
 
@@ -618,8 +618,8 @@ az iot ops dataflow profile update --resource-group <RG> --instance <INSTANCE> -
 - Use **user-assigned managed identity** for cloud endpoint authentication
 - Keep data flows per profile under **70** (hard limit)
 - Use multiple profiles to distribute flows beyond the limit
-- Monitor for `AllBrokersDown` errors—indicates source misconfiguration
-- **Data flow profile assignment is immutable**—you can't reassign a data flow to a different profile after creation. Delete and recreate the data flow if you need to change its profile.
+- Monitor for `AllBrokersDown` errors, which indicate source misconfiguration
+- **Data flow profile assignment is immutable**. You can't reassign a data flow to a different profile after creation. Delete and recreate the data flow if you need to change its profile.
 - Every data flow **must include the local MQTT broker** default endpoint (`aio-broker`) as either its source or its destination
 
 ### Supported data flow graph endpoints
@@ -733,19 +733,19 @@ az iot ops ns device endpoint inbound add opcua \
 #### Broker resources not visible in portal
 
 **Cause**: Resources created via Kubernetes aren't synced to cloud
-**Status**: Known limitation—resource sync from edge to cloud isn't supported yet
+**Status**: Known limitation. Resource sync from edge to cloud isn't supported yet.
 
 ### Data Flow issues
 
 #### "Global error: allBrokersDown"
 
 **Symptom**: [Data flow](../connect-to-cloud/overview-dataflow.md) reports error after 4-5 minutes of no messages
-**Fix**: Verify data flow source configuration—check that the MQTT topic name is correct and the broker is publishing messages
+**Fix**: Verify data flow source configuration. Check that the MQTT topic name is correct and the broker is publishing messages.
 
 #### Data Flow resources not visible in UI
 
 **Cause**: Resources created via Kubernetes aren't visible in operations experience
-**Status**: Known limitation—resource sync not supported
+**Status**: Known limitation. Resource sync not supported.
 
 #### Profile exceeds 70 data Flows
 
@@ -770,7 +770,7 @@ az iot ops ns device endpoint inbound add opcua \
 #### Namespace stuck in "Terminating"
 
 **Cause**: Finalizers on AIO resources block deletion
-**Fix**: Always use `az iot ops delete`—never force-delete the namespace
+**Fix**: Always use `az iot ops delete`. Never force-delete the namespace.
 
 #### Orphaned cluster-Scoped resources
 
@@ -810,7 +810,7 @@ For measured baseline resource consumption at each memory profile level, see [Ba
 | **backendPartitions** | Data partitions across backend pods |
 | **backendWorkers** | Worker threads per backend pod |
 | **backendRedundancyFactor** | Replication factor (min 2 for HA) |
-| **memoryProfile** | Low / Medium / High—controls memory allocation |
+| **memoryProfile** | Low / Medium / High. Controls memory allocation |
 
 > [!TIP]
 
@@ -818,7 +818,7 @@ For measured baseline resource consumption at each memory profile level, see [Ba
 
 #### Memory profile limits
 
-The following per-pod memory figures are **idle baselines measured with near-zero traffic**—actual consumption grows with message throughput and connected clients:
+The following per-pod memory figures are **idle baselines measured with near-zero traffic**. Actual consumption grows with message throughput and connected clients:
 
 | Memory Profile | Max Message Size | Idle Frontend Memory (per pod) | Idle Backend Memory (per pod) |
 |---|---|---|---|
@@ -829,7 +829,7 @@ The following per-pod memory figures are **idle baselines measured with near-zer
 
 > [!WARNING]
 
-> The broker rejects messages when memory usage reaches 75% capacity. The memory profile controls the maximum message size—messages exceeding the limit are rejected. Total broker memory depends on **both** the memory profile and the cardinality (more replicas and partitions mean more pods and more total memory).
+> The broker rejects messages when memory usage reaches 75% capacity. The memory profile controls the maximum message size. Messages exceeding the limit are rejected. Total broker memory depends on **both** the memory profile and the cardinality (more replicas and partitions mean more pods and more total memory).
 
 ### Data Flow scaling
 
@@ -884,7 +884,7 @@ The clone captures:
 
 > [!NOTE]
 
-> The `az iot ops clone` command requires a specific CLI extension version (`1.0.34 ≤ version < 1.2.0`). Check your version with `az extension show --name azure-iot-ops --query version`. Resource sync rules and user-created ConfigMaps are not captured by the clone—reapply these manually on the target cluster.
+> The `az iot ops clone` command requires a specific CLI extension version (`1.0.34 <= version < 1.2.0`). Check your version with `az extension show --name azure-iot-ops --query version`. Resource sync rules and user-created ConfigMaps are not captured by the clone. Reapply these manually on the target cluster.
 
 ### Backup strategy
 
@@ -985,10 +985,10 @@ kubectl get events -n azure-iot-operations --sort-by='.lastTimestamp' # Recent e
 Install: [https://k9scli.io/](https://k9scli.io/)
 
 Key commands:
-- `:ns`—Filter by namespace
-- `d`—Describe resource
-- `l`—View logs
-- `Ctrl+a`—View custom resource types (devices, assets, brokers, dataflows, secrets)
+- `:ns`: Filter by namespace
+- `d`: Describe resource
+- `l`: View logs
+- `Ctrl+a`: View custom resource types (devices, assets, brokers, dataflows, secrets)
 
 ### Azure IoT Operations CLI
 
@@ -1054,8 +1054,8 @@ az iot ops show -n <NAME> -g <RG> --query "extendedLocation.name" -o tsv
 - Custom location name maximum length: 63 characters
 - Broker cardinality settings are immutable after deployment (uninstall + redeploy required to change)
 - Persistence can't be disabled once enabled (uninstall + redeploy required)
-- State store is in-memory by default—contents lost on cluster restart unless persistence is enabled
-- Data flow profile assignment is immutable—delete and recreate required to change profile
+- State store is in-memory by default. Contents are lost on cluster restart unless persistence is enabled.
+- Data flow profile assignment is immutable. Delete and recreate required to change profile.
 
 ## Runbook: common operational procedures
 
@@ -1134,7 +1134,7 @@ kubectl top pods -n azure-iot-operations
 
 ### Procedure: Handle expired Akri webhook certificate
 
-**Symptom**: `akri error when updating or deleting instances`—expired webhook certificate
+**Symptom**: `akri error when updating or deleting instances` (expired webhook certificate)
 
 ```bash
 kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Operations baseline resource profiles
+title: Baseline resource profiles for Azure IoT Operations
 description: Learn about measured baseline resource consumption for Azure IoT Operations deployments at idle, including memory and CPU profiles across configurations.
 author: huguesbouvier
 ms.author: hubouvie
@@ -10,15 +10,15 @@ ms.service: azure-iot-operations
 #CustomerIntent: As a platform engineer or IT administrator planning capacity for Azure IoT Operations deployments, I want to see scaling recommendations before deploying to production.
 ---
 
-# Azure IoT Operations baseline resource profiles
+# Baseline resource profiles for Azure IoT Operations
 
 This reference provides measured baseline resource consumption for Azure IoT Operations deployments at idle (no active workloads). Use these profiles to validate your hardware meets minimum requirements and to establish resource monitoring baselines.
 
 ## Overview
 
-Azure IoT Operations deploys multiple components across several Kubernetes namespaces. The total resource footprint depends on two factors: the MQTT broker **memory profile** (which controls per-pod memory allocation) and the broker **cardinality** (number of frontend replicas, backend partitions, and redundancy factor—which controls how many pods are deployed). Higher cardinality means more pods, and a higher memory profile means each pod uses more memory.
+Azure IoT Operations deploys multiple components across several Kubernetes namespaces. The total resource footprint depends on two factors: the MQTT broker **memory profile** (which controls per-pod memory allocation) and the broker **cardinality** (number of frontend replicas, backend partitions, and redundancy factor, which controls how many pods are deployed). Higher cardinality means more pods, and a higher memory profile means each pod uses more memory.
 
-Three configurations were measured on single-node clusters at idle (no connected assets, no active data flows, near-zero traffic). These are **baseline numbers, not maximums**—production workloads increase consumption significantly:
+Three configurations were measured on single-node clusters at idle (no connected assets, no active data flows, near-zero traffic). These are **baseline numbers, not maximums**. Production workloads increase consumption significantly:
 
 | Configuration | Memory Profile | Cardinality | Node Peak Memory | Azure IoT Operations Namespace Peak RSS | Total Pod Peak RSS | Pod Count |
 |---|---|---|---|---|---|---|
@@ -33,7 +33,7 @@ Three configurations were measured on single-node clusters at idle (no connected
 
 The following table shows peak RSS memory by namespace across all three configurations at idle:
 
-| Namespace | Config A—Tiny (MiB) | Config B—Low (MiB) | Config C—Medium (MiB) | Description |
+| Namespace | Config A, Tiny (MiB) | Config B, Low (MiB) | Config C, Medium (MiB) | Description |
 |---|---|---|---|---|
 | **azure-iot-operations** | 1,298 | 1,559 | 2,407 | Azure IoT Operations core services (broker, data flows, connectors, observability) |
 | **azure-arc** | 1,964 | 1,985 | 1,990 | Azure Arc agents and controllers |
@@ -51,16 +51,16 @@ The following table shows peak RSS memory by namespace across all three configur
 
 ## MQTT broker pod resource consumption
 
-The MQTT broker is the largest variable component. Memory differences across configurations come from **both** the memory profile (per-pod allocation) and the cardinality (number of pods). The following table shows per-pod idle RSS—these numbers grow with traffic:
+The MQTT broker is the largest variable component. Memory differences across configurations come from **both** the memory profile (per-pod allocation) and the cardinality (number of pods). The following table shows per-pod idle RSS. These numbers grow with traffic:
 
-| Pod | Config A—Tiny (MiB) | Config B—Low (MiB) | Config C—Medium (MiB) | Notes |
+| Pod | Config A, Tiny (MiB) | Config B, Low (MiB) | Config C, Medium (MiB) | Notes |
 |---|---|---|---|---|
 | **aio-broker-frontend-0** | 29 | 33 | 169 | Per-pod memory scales with profile |
-| **aio-broker-frontend-1** | — | 33 | 169 | Not present in Config A (one frontend replica) |
+| **aio-broker-frontend-1** | N/A | 33 | 169 | Not present in Config A (one frontend replica) |
 | **aio-broker-backend-1-0** | 41 | 66 | 211 | Per-pod memory scales with profile |
 | **aio-broker-backend-1-1** | 41 | 65 | 210 | Redundancy factor replica |
-| **aio-broker-backend-2-0** | — | 66 | 212 | Not present in Config A (one partition) |
-| **aio-broker-backend-2-1** | — | 65 | 211 | Not present in Config A (one partition) |
+| **aio-broker-backend-2-0** | N/A | 66 | 212 | Not present in Config A (one partition) |
+| **aio-broker-backend-2-1** | N/A | 65 | 211 | Not present in Config A (one partition) |
 | **aio-broker-health-manager-0** | 41 | 41 | 42 | Constant across profiles |
 | **aio-broker-operator-0** | 60 | 60 | 56 | Constant across profiles |
 | **aio-broker-diagnostics-probe-0** | 24 | 43 | 43 | |

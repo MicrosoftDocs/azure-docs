@@ -85,7 +85,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 
 #### Memory profile and message size limits
 
-The memory profile controls the maximum MQTT message size the broker accepts. The following per-pod memory figures are **idle baselines measured with near-zero traffic**—actual consumption grows with message throughput and connected clients:
+The memory profile controls the maximum MQTT message size the broker accepts. The following per-pod memory figures are **idle baselines measured with near-zero traffic**. Actual consumption grows with message throughput and connected clients:
 
 | Memory Profile | Max Message Size | Idle Frontend Memory (per pod) | Idle Backend Memory (per pod) | Use Case |
 |---|---|---|---|---|
@@ -345,9 +345,9 @@ sudo systemctl restart k3s
 
 If you use enterprise firewalls or proxies, add the Azure IoT Operations endpoints to your allow list. Three networking approaches are supported:
 
-1. **Azure Arc gateway**—Network proxy for simplifying firewall configuration
-2. **Explicit proxy**—Azure Firewall Explicit Proxy for traffic inspection
-3. **[Layered networking](../manage-layered-network/overview-layered-network.md)**—For Purdue Network Architecture / ISA-95 scenarios
+1. **Azure Arc gateway**: Network proxy for simplifying firewall configuration
+2. **Explicit proxy**: Azure Firewall Explicit Proxy for traffic inspection
+3. **[Layered networking](../manage-layered-network/overview-layered-network.md)**: For Purdue Network Architecture / ISA-95 scenarios
 
 ## Security preparation
 
@@ -429,7 +429,7 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
 
    > Use **different** managed identities for secrets and AIO components.
 
-6. **Automation tab**—Run the generated CLI commands (see next section)
+6. **Automation tab**: Run the generated CLI commands (see next section)
 
 ### Run the CLI commands
 
@@ -494,7 +494,7 @@ az iot ops check --detail-level 2
 az iot ops check --ops-service broker
 ```
 
-> The `check` command displays a warning about missing data flows—this is expected until you create one.
+> The `check` command displays a warning about missing data flows. This is expected until you create one.
 
 ### Verify health status
 
@@ -571,7 +571,7 @@ To prevent RAM overflow, set a [disk-backed message buffer](../manage-mqtt-broke
 
 ### Configure persistence
 
-Enable [data persistence](../manage-mqtt-broker/howto-broker-persistence.md) for the MQTT broker to survive pod restarts and ensure message durability. Persistence complements the broker's replication system—while replication protects against individual node failures, persistence protects against cluster-wide shutdowns.
+Enable [data persistence](../manage-mqtt-broker/howto-broker-persistence.md) for the MQTT broker to survive pod restarts and ensure message durability. Persistence complements the broker's replication system: while replication protects against individual node failures, persistence protects against cluster-wide shutdowns.
 
 Key deployment-time decisions (can't be changed after deployment):
 
@@ -616,7 +616,7 @@ To prevent resource starvation, the broker can [request Kubernetes CPU resource 
 
 ### Configure OPC UA connectivity
 
-1. **Set up [OPC UA authentication](../discover-manage-assets/howto-configure-opc-ua.md)**—Don't use no-auth for production. Options:
+1. **Set up [OPC UA authentication](../discover-manage-assets/howto-configure-opc-ua.md)**: Don't use no-auth for production. Options:
    - Username/password authentication (secrets stored in Azure Key Vault)
    - X.509 certificate mutual authentication
 
@@ -742,7 +742,7 @@ mosquitto_sub --host aio-broker --port 18883 \
 ### Verify observability
 
 1. Access Grafana: `az grafana show --name $GRAFANA_NAME --resource-group $RESOURCE_GROUP --query url -o tsv`
-2. Import the unified Azure IoT Operations Grafana dashboard—it brings health status, metrics, and logs together in a single view
+2. Import the unified Azure IoT Operations Grafana dashboard. It brings health status, metrics, and logs together in a single view.
 3. Verify the health overview at the top of the dashboard shows components as Available
 4. Verify metrics are flowing for MQTT broker, OPC UA connector, and data flows
 
@@ -782,7 +782,7 @@ az iot ops support create-bundle
 - [ ] Memory profile set appropriately (Low/High)
 - [ ] CPU resource limits evaluated (`generateResourceLimits.cpu`) and cluster capacity verified
 - [ ] TLS enabled on all listeners
-- [ ] Authentication is configured (X.509 or SAT—no no-auth)
+- [ ] Authentication is configured (X.509 or SAT, no no-auth)
 - [ ] Authorization policies with least privilege
 - [ ] Internal traffic encryption enabled
 - [ ] Disk-backed message buffer is configured
