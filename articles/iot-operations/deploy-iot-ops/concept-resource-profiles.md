@@ -70,8 +70,6 @@ The MQTT broker is the largest variable component. Memory differences across con
 
 ### Broker configuration per profile tested
 
-
-
 | Setting | Config A (Tiny) | Config B (Low) | Config C (Medium) |
 |---|---|---|---|
 | Frontend replicas | 1 | 2 | 2 |
@@ -127,7 +125,7 @@ Based on these idle baseline measurements, the following minimum hardware recomm
 
 ## Related content
 
-- [Choose your cluster topology](./operational-manual-day0-deployment.md#12-choose-your-cluster-topology)
+- [Choose your cluster topology](./operational-manual-day0-deployment.md#choose-your-cluster-topology)
 - [Production deployment guidelines](./concept-production-guidelines.md)
 - [Production deployment examples](./concept-production-examples.md)
 - [Configure availability and scale](../manage-mqtt-broker/howto-configure-availability-scale.md)
