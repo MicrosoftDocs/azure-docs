@@ -43,7 +43,7 @@ The following services support server-side encryption with customer managed keys
 
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
-| [Azure Data Explorer](/azure/data-explorer/) | Yes | | [Configure customer-managed keys (CMK) in Azure Data Explorer](/azure/data-explorer/customer-managed-keys-portal) |
+| [Azure Data Explorer](/azure/data-explorer/) | Yes | Yes | [Configure customer-managed keys (CMK) in Azure Data Explorer](/azure/data-explorer/customer-managed-keys-portal) |
 | [Azure Data Factory](/azure/data-factory/) | Yes | Yes | [Encryption with customer-managed keys for Azure Data Factory](/azure/data-factory/enable-customer-managed-key) |
 | [Azure Data Lake Store](/azure/data-lake-store/) | Yes (RSA 2048-bit) | | |
 | [Azure Data Manager for Energy](/azure/energy-data-services/) | Yes | Yes | [Manage data security and encryption](/azure/energy-data-services/how-to-manage-data-security-and-encryption) |
