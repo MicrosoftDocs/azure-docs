@@ -142,6 +142,9 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
     * **System-assigned:** Enable the system-assigned managed identity toggle.
     * **User-assigned:** Select or add an existing user-assigned managed identity.
 
+    > [!NOTE]
+    > The identity must be granted at minimum the Key Vault Secrets Officer role on the target Key Vault.
+    
    
 1. Select **Save**. 
 1. Once you configure the LDAP connection, you can create an [NFS volume](azure-netapp-files-create-volumes.md).
