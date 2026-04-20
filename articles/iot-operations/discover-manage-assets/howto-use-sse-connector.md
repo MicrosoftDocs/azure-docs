@@ -52,6 +52,8 @@ Your IT administrator must configure the connector for SSE template for your Azu
 
 You need any credentials required to access the SSE source. If the SSE source requires authentication, you need to create a Kubernetes secret that contains the username and password for the SSE source.
 
+Have the event identification ready for each SSE source event you want to receive. 
+
 ## Deploy the connector for SSE
 
 [!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
@@ -199,9 +201,9 @@ An event group defines where the connector sends the data it receives from a col
 
 1. Select **Add event** to add an event to the group. For example:
 
-    :::image type="content" source="media/howto-use-sse-connector/add-event.png" alt-text="Screenshot that shows how to add an event for SSE source." lightbox="media/howto-use-sse-connector/add-event.png":::
+    <img width="1247" height="671" alt="Screenshot that shows how to add an event for SSE source." src="https://github.com/user-attachments/assets/d82dd9f5-5d0e-48ba-994e-dfa6ad1a4cd5" />
 
-    Add details for each event to publish to the MQTT broker. Select **Next** to continue.
+    Add details for each event like the SSE event identification as data source and MQTT topic as destination to publish to the MQTT broker. Select **Next** to continue.
 
 1. On the **Review** page, review the details of the asset and select **Create** to create the asset. After a few minutes, the asset is listed on the **Assets** page:
 
