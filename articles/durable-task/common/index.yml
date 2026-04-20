@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Durable Task documentation
-summary: Durable Task automatically handles retries, state persistence, and crash recovery so you can focus on your business logic.
+summary: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Durable Task handles state persistence, automatic recovery, and distributed coordination for you. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management. 
 
 metadata:
   title: Durable Task documentation
-  description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Instead of managing complex retry logic, state machines, or message queues, you express your business logic as straightforward functions - Durable Task handles state persistence, automatic recovery, and distributed coordination for you. Workflows can run for hours, days, or even months, reliably resuming from the last completed step after any crash, restart, or redeployment. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management. Durable Task encompasses the Durable Task SDKs for self-hosted applications, Durable Functions for serverless hosting on Azure Functions, and the Durable Task Scheduler - a fully managed backend service purpose-built for durable workloads.
+  description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Durable Task handles state persistence, automatic recovery, and distributed coordination for you. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management. 
   ms.service: durable-task
   ms.topic: landing-page
   author: hhunter-ms
@@ -23,6 +23,17 @@ landingContent:
             url: choose-orchestration-framework.md
           - text: Programming model
             url: programming-model-overview.md
+
+  - title: Get started with Durable Agents
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Durable Task for AI Agents
+            url: ../sdks/durable-task-for-ai-agents.md?toc=/azure/durable-task/common/toc.json
+          - text: Durable Task Microsoft Agent Framework extension (preview)
+            url: ../sdks/durable-agents-microsoft-agent-framework.md?toc=/azure/durable-task/common/toc.json
+          - text: Agentic application patterns
+            url: ../../azure-functions/durable-functions/quickstart-js-vscode.md?toc=/azure/durable-task/common/toc.json
 
   - title: Get started in Durable Functions
     linkLists:

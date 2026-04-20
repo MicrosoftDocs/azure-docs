@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
 title: Durable Task documentation
-summary: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically handles state persistence, crash recovery, and distributed coordination.
+summary: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that handles state persistence, automatic recovery, and distributed coordination for you. Durable Task encompasses the Durable Task SDKs for self-hosted applications, Durable Functions for serverless hosting on Azure Functions, the Durable Task Scheduler storage provider, and Durable Agentic application patterns.
 brand: azure
 
 metadata:
   title: Durable Task documentation
-  description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Durable Task encompasses the Durable Task SDKs for self-hosted applications, Durable Functions for serverless hosting on Azure Functions, and the Durable Task Scheduler - a fully managed backend service purpose-built for durable workloads.
+  description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that handles state persistence, automatic recovery, and distributed coordination for you. Durable Task encompasses the Durable Task SDKs for self-hosted applications, Durable Functions for serverless hosting on Azure Functions, the Durable Task Scheduler storage provider, and Durable Agentic application patterns.
   ms.service: durable-task
   ms.topic: hub-page
   author: hhunter-ms
