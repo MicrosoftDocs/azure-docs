@@ -1,6 +1,6 @@
 ---
 title: Manage file access logs in Azure NetApp Files cache volumes
-description: File access logs provide file access logging for individual cache volumes, capturing file system operations on selected volume.
+description: File access logs provide file access logging for individual cache volumes, capturing file system operations on selected cache volume.
 services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
@@ -12,7 +12,7 @@ ms.author: anfdocs
 ---
 # Manage file access logs in Azure NetApp Files cache volumes
 
-File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
+File access logs provide file access logging for individual cache volumes, capturing file system operations on selected cache volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
 > [!NOTE]
 > You should use REST APIs to add/delete diagnostic settings to enable/disable file access logs for cache volumes as portal support is not available.
@@ -20,13 +20,13 @@ File access logs provide file access logging for individual volumes, capturing f
 ## Considerations
 
 >[!IMPORTANT]
->The file access logs feature is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
+>The file access logs feature is only supported with SMB3, NFSv4.1, cache volumes, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
 
-* Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
+* Once file access logs are enabled on a cache volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
 * File access logs occasionally create duplicate log entries that must be filtered manually. 
-* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. For more information, see [Diagnostic Settings](/rest/api/monitor/diagnostic-settings).
-* Before enabling file access logs on a volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
+* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any cache volume with that setting to become disabled. For more information, see [Diagnostic Settings](/rest/api/monitor/diagnostic-settings).
+* Before enabling file access logs on a cache volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a cache volume.  
     >[!IMPORTANT]
     >For dual-protocol volumes using the NTFS security style, you must set Audit ACLs from a Windows machine. For dual-protocol volumes using UNIX security style, Audit ACLs must be set from a Linux machine.
 * Azure NetApp Files file access logs provide detailed information about successful and failed requests to the storage service. This information can be used to monitor individual requests and to diagnose file access issues. Requests are logged on a best-effort basis, meaning that most requests result in a log record, but the completeness and timeliness of file access logs aren't guaranteed. The Azure NetApp Files file access logs feature doesn't provide explicit or implicit expectations or guarantees around logging for auditing and compliance purposes.  
@@ -48,7 +48,7 @@ File access logs provide file access logging for individual volumes, capturing f
 
 ## Recognized events
 
-The events capture in file access logs depend on the protocol of your volume.
+The events capture in file access logs depend on the protocol of your cache volume.
 
 ### Logged NFS events
 * Close

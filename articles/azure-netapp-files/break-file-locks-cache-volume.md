@@ -15,10 +15,11 @@ ms.author: anfdocs
 1. Run the following command to break file locks for a cache volume:
 
     ```
-    POST .../caches/{cacheName}/poolChange?api-version=2026-01-01
-    curl -sS -X POST \
-    "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/caches/cache1/poolChange?api-version=2026-01-01" \
-    -H "Authorization: Bearer $TOKEN" \
+    POST 
+    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/poolChange?api-version=2026-01-01
+
+    Body:
+        -H "Authorization: Bearer $TOKEN" \
     -H "Content-Type: application/json" \
     -d '{
         "newPoolResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool2"
