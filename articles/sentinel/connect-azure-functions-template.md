@@ -46,6 +46,9 @@ Make sure that you have the following permissions and credentials before using A
 >
 > - Some data connectors depend on a parser based on a [Kusto Function](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true) to work as expected. See the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page for links to instructions to create the Kusto function and alias.
 
+### Azure Functions runtime configuration
+> [!NOTE]
+> Microsoft Sentinel connectors that use Azure Functions include precompiled Python dependencies. The Azure Function App runtime, including the Python version, is preconfigured in the solution ARM template and should not be modified.
 
 ### Step 1: Get your source system's API credentials
 

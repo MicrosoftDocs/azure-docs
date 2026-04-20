@@ -1,0 +1,89 @@
+### YamlMime:FAQ
+
+metadata:
+  title: Microsoft Discovery FAQ
+  description: Get answers to frequently asked questions about Microsoft Discovery.
+  author: mukesh-dua
+  ms.author: mukeshdua
+  ms.service: azure
+  ms.topic: faq
+  ms.date: 01/20/2026/31/2025
+title: Microsoft Discovery FAQ
+summary: |
+  Get answers to common questions about the Microsoft Discovery service.
+
+sections:
+  - name: Get started
+    questions:
+      - question: Is Microsoft Discovery primarily an offline optimization and prediction platform, or are there capabilities for direct, real-time, closed-loop process control of physical scientific or manufacturing equipment?
+        answer: |
+          Discovery is an online platform with human oversight. Researchers can change, edit, and kick off runs as needed. We're thinking about extending Microsoft Discovery to digital twins and lab automation using natural language, giving researchers more access to lab processes.
+
+  - name: Network security
+    questions:
+      - question: Do I need to configure network hardening manually?
+        answer: |
+          No. Network hardening is **fully automated** by the Discovery control plane. All NSP associations, private endpoints, and virtual network injection settings are provisioned automatically when you create a workspace. You only need to:
+
+          1. Assign the **Discovery NSP Perimeter Joiner** custom role before creating the workspace.
+          2. Provide dedicated subnets in your virtual network for Discovery resources (agent workloads, private endpoints, and workspace services).
+
+      - question: What is the difference between network hardening and private endpoints?
+        answer: |
+          These are two complementary layers:
+
+          - **Network hardening (NSP)** protects the managed resources (databases, storage, AI services) that Discovery creates on your behalf. It uses Network Security Perimeters and private endpoints of MRG resources to restrict access to authorized Discovery components only.
+          - **Private endpoints** for the data-plane protect your API traffic to the workspace and bookshelf services. You create these in your own virtual network to route API calls through Azure Private Link instead of the public internet.
+
+      - question: Which Discovery resources support private endpoints?
+        answer: |
+          Private endpoints are supported for:
+
+          | Resource type | Group ID | Private DNS zone |
+          |---|---|---|
+          | `Microsoft.Discovery/workspaces` | `workspace` | `privatelink.workspace.discovery.azure.com` |
+          | `Microsoft.Discovery/bookshelves` | `bookshelf` | `privatelink.bookshelf.discovery.azure.com` |
+
+          Other Discovery resource types (supercomputers, storage, tools, agents) don't support customer-created private endpoints.
+
+      - question: Can I disable public network access entirely?
+        answer: |
+          Yes. After creating private endpoints, you can disable public network access on your workspace or bookshelf by setting `publicNetworkAccess` to `Disabled` through a PATCH request on the resource. For detailed steps, see [Disable public network access](how-to-configure-network-security.md#disable-public-network-access-optional).
+
+          When disabled, only requests through approved private endpoints are accepted.
+
+  - name: Troubleshooting
+    questions:
+      - question: "I get 'doesn't have permission to perform action joinPerimeterRule/action' when creating a workspace. How do I fix it?"
+        answer: |
+          The custom role assignment for the Discovery service principal is missing or hasn't propagated yet.
+
+          1. Verify the **Discovery NSP Perimeter Joiner** role exists at your subscription scope.
+          2. Ensure it's assigned to the **AIFSPInfrastructure** service principal (`92c174ac-8e41-4815-a1b7-d81b19ab03ce`).
+          3. Wait up to 5 minutes for Azure RBAC propagation.
+          4. Retry workspace creation -- the operation is idempotent and safe to retry.
+
+          See [Configure network security](how-to-configure-network-security.md#assign-the-nsp-perimeter-joiner-role) for detailed steps.
+
+      - question: "I get 'Service principal not found' when assigning the RBAC role. What should I do?"
+        answer: |
+          The **AIFSPInfrastructure** service principal (`92c174ac-8e41-4815-a1b7-d81b19ab03ce`) doesn't exist in your tenant yet. Create the service principal in your tenant by following the steps in [Configure network security](how-to-configure-network-security.md#verify-the-service-principal).
+
+          Then retry the role assignment.
+
+      - question: My private endpoint shows 'Approved' but API calls still fail. What's wrong?
+        answer: |
+          Common causes:
+
+          | Error | Likely cause | Resolution |
+          |---|---|---|
+          | 504 Gateway Timeout | Backend temporarily unavailable | Check if the public path also fails. If both fail, the service may be temporarily unavailable. |
+          | 401 Unauthorized | Token audience mismatch or missing role | Verify the token is for `https://discovery.azure.com/` and you have the required role on the resource. |
+          | DNS resolves to public IP | Private DNS zone not linked to virtual network | Create the DNS zone and virtual network link. See [Configure private DNS](how-to-configure-network-security.md#configure-private-dns). |
+
+      - question: DNS resolves to a public IP even though I created a private endpoint. How do I fix it?
+        answer: |
+          1. Verify the private DNS zone exists (for example, `privatelink.workspace.discovery.azure.com`).
+          2. Verify the DNS zone is **linked to your virtual network**.
+          3. Verify a **DNS zone group** is configured on the private endpoint (this autocreates A records).
+          4. If you use custom DNS servers, ensure they forward to Azure DNS (`168.63.129.16`).

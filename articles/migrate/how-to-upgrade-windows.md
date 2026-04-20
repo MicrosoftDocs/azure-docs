@@ -63,8 +63,6 @@ To upgrade Windows during the test migration, follow these steps:
 
 1. In the **Migrations** page, click on the windows server for which you want to upgrade OS which is currently in **Testing** stage, select **Testing** drop-down menu and click **Start test migration**.
 
-   :::image type="content" source="./media/how-to-upgrade-windows/test-migration.png" alt-text="Screenshot displays the Test Migrate option.":::
-
 1. Select the **Upgrade available** option.
 
    :::image type="content" source="./media/how-to-upgrade-windows/upgrade-available-inline.png" alt-text="Screenshot with the Upgrade available option." lightbox="./media/how-to-upgrade-windows/upgrade-available-expanded.png":::
@@ -89,16 +87,15 @@ After you've verified that the test migration works as expected, you can migrate
 
 1.  the **Migrations** page, click on the windows server for which you want to upgrade OS which is currently in **Testing** or **Completion** stage, select **Completion** drop-down menu and click **Migrate**.
 
-   :::image type="content" source="./media/how-to-upgrade-windows/migration.png" alt-text="Screenshot displays the Migrate option.":::
 
-3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.  
+2. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.  
    - By default, Azure Migrate shuts down the on-premises VM to ensure minimum data loss.  
    - If you don't want to shut down the VM, select No.  
-4. Select the **Upgrade available** option. 
+3. Select the **Upgrade available** option. 
 
    :::image type="content" source="./media/how-to-upgrade-windows/migrate-upgrade-available-inline.png" alt-text="Screenshot with the Upgrade available option in the Migration screen." lightbox="./media/how-to-upgrade-windows/migrate-upgrade-available-expanded.png":::
 
-5. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. 
+4. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. 
 
    :::image type="content" source="./media/how-to-upgrade-windows/migrate-upgrade-options.png" alt-text="Screenshot with the available servers in the Azure Migrate screen.":::
 

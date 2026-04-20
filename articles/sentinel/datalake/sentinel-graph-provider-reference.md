@@ -823,6 +823,9 @@ NodeBuilderInitial(alias: str, graph_builder: GraphSpecBuilder)
 
 #### Methods
 
+> [!NOTE]
+> The use of underscores `_` when naming nodes, edges, or properties in a custom graph isn't supported. An invalid request error is returned when underscores are used.
+
 ##### `from_table`
 
 ```python
@@ -1064,6 +1067,9 @@ EdgeBuilderInitial(alias: str, graph_builder: GraphSpecBuilder)
 **Note:** Typically created via `GraphSpecBuilder.add_edge()`, not directly instantiated.
 
 #### Methods
+
+> [!NOTE]
+> The use of underscores `_` when naming nodes, edges, or properties in a custom graph isn't supported. An invalid request error is returned when underscores are used.
 
 ##### `from_table`
 
@@ -2484,10 +2490,6 @@ builder.add_node("user") \
     .with_columns("id", "name", key="id", display="name") \
     .add_edge("follows")
 ```
-
-### Restrictions
-
-Builder support methods - add_node() and add_edge() does not allow use of underscores ('_') when naming nodes, edges or properties in a custom graph. Graph building operations will fail surfacing an invalid request error.
 
 ### Union Schemas
 

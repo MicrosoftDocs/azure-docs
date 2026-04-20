@@ -2,8 +2,8 @@
 title: Automate Threat Response with Playbooks in Microsoft Sentinel
 description: Learn how to automate threat response in Microsoft Sentinel using playbooks to efficiently manage security alerts and incidents.
 ms.topic: how-to
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.date: 05/27/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

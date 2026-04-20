@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation State Configuration issues
 description: This article tells how to troubleshoot and resolve Azure Automation State Configuration issues.
 services: automation
 ms.subservice:
-ms.date: 10/22/2024
+ms.date: 04/15/2026
 ms.topic: troubleshooting
 ms.custom: linux-related-content
 ms.author: v-rochak2
@@ -432,6 +432,7 @@ channels:
 * Get answers from Azure experts through [Azure Forums][22].
 * Connect with [@AzureSupport][27], the official Microsoft Azure account for improving customer
   experience. Azure Support connects the Azure community to answers, support, and experts.
+* If you plan to open a support case for an unresolved issue, collect the required diagnostic data before opening it. See [Data to collect when opening a case for Microsoft Azure Automation](collect-data-microsoft-azure-automation-case.md).
 * File an Azure support incident. Go to the [Azure support site][23], and select **Get Support**.
 
 <!-- link references -->

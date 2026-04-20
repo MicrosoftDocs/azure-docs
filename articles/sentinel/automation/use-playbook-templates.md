@@ -2,8 +2,8 @@
 title: Create and customize Microsoft Sentinel playbooks from templates | Microsoft Docs
 description: This article shows how to create playbooks from and work with playbook templates, to customize them to fit your needs.
 ms.topic: how-to
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.date: 03/14/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

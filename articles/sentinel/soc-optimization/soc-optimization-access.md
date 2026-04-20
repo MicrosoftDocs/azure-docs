@@ -3,7 +3,6 @@ title: Optimize security operations
 description: Use Microsoft Sentinel SOC optimization recommendations to optimize your security operations center (SOC) team activities.
 ms.author: abbyweisberg
 author: AbbyMSFT
-manager: orpsod
 ms.collection:
   - usx-security
 ms.topic: how-to

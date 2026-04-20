@@ -1,8 +1,8 @@
 ---
 title: Multiple workspaces - Microsoft Sentinel in Defender portal
 description: Learn about the support of multiple workspaces for Microsoft Sentinel in the Defender portal including primary and secondary workspaces.
-author: batamig
-ms.author: bagol
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: concept-article
 ms.date: 03/17/2026
 appliesto: 

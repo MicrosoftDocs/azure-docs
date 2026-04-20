@@ -2,8 +2,8 @@
 title: Create and perform incident tasks in Microsoft Sentinel using playbooks
 description: This article explains how to use playbooks to create (and optionally perform) incident tasks, in order to manage complex analyst workflow processes in Microsoft Sentinel.
 ms.topic: how-to
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.date: 03/14/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
