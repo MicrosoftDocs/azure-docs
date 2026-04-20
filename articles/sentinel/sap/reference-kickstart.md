@@ -1,8 +1,8 @@
 ---
 title: Kickstart deployment script reference for the Microsoft Sentinel for SAP applications data connector agent
 description: Description of command line options available with kickstart deployment script
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: reference
 ms.date: 09/15/2024
 appliesto:

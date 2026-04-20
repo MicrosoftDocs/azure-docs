@@ -8,8 +8,9 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 04/09/2026
 ms.author: mbaldwin
+ai-usage: ai-assisted
 
 ---
 
@@ -40,7 +41,7 @@ Encryption at rest protects stored data (at rest). Attacks against data at rest 
 
 Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk. If an attacker obtains a hard drive with encrypted data but not the encryption keys, the attacker must defeat the encryption to read the data. This attack is much more complex and resource consuming than accessing unencrypted data on a hard drive. For this reason, encryption at rest is highly recommended and is a high priority requirement for many organizations.
 
-An organization's need for data governance and compliance efforts might also require encryption at rest. Industry and government regulations such as HIPAA, PCI, and FedRAMP, lay out specific safeguards regarding data protection and encryption requirements. Encryption at rest is a mandatory measure required for compliance with some of those regulations. For more information on Microsoft's approach to FIPS 140-2 validation, see [Federal Information Processing Standard (FIPS) Publication 140-2](/microsoft-365/compliance/offering-fips-140-2).
+An organization's need for data governance and compliance efforts might also require encryption at rest. Industry and government regulations such as HIPAA, PCI, and FedRAMP, lay out specific safeguards regarding data protection and encryption requirements. Encryption at rest is a mandatory measure required for compliance with some of those regulations. For more information on Microsoft's approach to FIPS 140 validation, see [Federal Information Processing Standard (FIPS) 140](/azure/compliance/offerings/offering-fips-140-2).
 
 In addition to satisfying compliance and regulatory requirements, encryption at rest provides defense-in-depth protection. Microsoft Azure provides a compliant platform for services, applications, and data. It also provides comprehensive facility and physical security, data access control, and auditing. However, it's important to provide additional "overlapping" security measures in case one of the other security measures fails. Encryption at rest provides such a security measure.
 
@@ -64,7 +65,7 @@ As described previously, the goal of encryption at rest is that data persisted o
 
 ### Azure Key Vault
 
-The storage location of the encryption keys and access control to those keys is central to an encryption at rest model. You need to highly secure the keys but make them manageable by specified users and available to specific services. For Azure services, Azure Key Vault is the recommended key storage solution and provides a common management experience across services. You store and manage keys in key vaults, and you can give users or services access to a key vault. Azure Key Vault supports customer creation of keys or import of customer keys for use in customer-managed encryption key scenarios.
+The storage location of the encryption keys and access control to those keys is central to an encryption at rest model. You need to highly secure the keys but make them manageable by specified users and available to specific services. For Azure services, Azure Key Vault (Premium tier) or Azure Managed HSM is the recommended key storage solution and provides a common management experience across services. You store and manage keys in key vaults, and you can give users or services access to a key vault. Azure Key Vault supports customer creation of keys or import of customer keys for use in customer-managed encryption key scenarios.
 
 ### Microsoft Entra ID
 
@@ -78,6 +79,8 @@ You use more than one encryption key in an encryption at rest implementation. St
 - **Key Encryption Key (KEK)** – An encryption key used to encrypt the Data Encryption Keys by using envelope encryption, also referred to as wrapping. By using a Key Encryption Key that never leaves Key Vault, you can encrypt and control the data encryption keys. The entity that has access to the KEK can be different from the entity that requires the DEK. An entity can broker access to the DEK to limit the access of each DEK to a specific partition. Since the KEK is required to decrypt the DEKs, customers can cryptographically erase DEKs and data by disabling the KEK.
 
 Resource providers and application instances store the encrypted Data Encryption Keys as metadata. Only an entity with access to the Key Encryption Key can decrypt these Data Encryption Keys. Different models of key storage are supported. For more information, see [data encryption models](encryption-models.md).
+
+When services cache DEKs locally for active cryptographic operations, the cached keys are protected by Azure platform security controls, including [host-level compute isolation](isolation-choices.md) and process-level protections. Cached operational keys are an availability and performance mechanism — the KEK in Key Vault remains the root of trust, and key revocation governs access to encrypted data.
 
 ## Encryption at rest in Microsoft cloud services
 

@@ -1,8 +1,8 @@
 ---
 title: Use Watchlists to Correlate and Enrich Event Data in Microsoft Sentinel
 description: Learn how to use watchlists in Microsoft Sentinel to efficiently correlate and enrich event data, reduce alert fatigue, and respond to threats. Discover best practices and get started today.
-author: batamig
-ms.author: bagol
+author: guywi-ms
+ms.author: guywild
 ms.topic: concept-article
 ms.date: 05/27/2025
 appliesto:

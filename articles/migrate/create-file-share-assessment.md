@@ -31,7 +31,10 @@ For more information about prerequisites, see [Prerequisites for assessments](as
 After discovery, decide whether you want to create:
 - An As-is on-premises assessment, or
 - A Performance-based assessment.
-Check [Performance vs. As-is on-premises assessments](target-right-sizing.md) for more details.  
+Check [Performance vs. As-is on-premises assessments](target-right-sizing.md) for more details.
+
+> [!NOTE]
+> Azure Migrate doesn’t support file share discovery and TCO assessment on Windows Server 2008 R2. This limitation exists because the operating system lacks the required PowerShell capabilities and system APIs needed to discover file shares and collect assessment data.  
 
 ## Create an assessment 
 

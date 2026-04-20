@@ -56,6 +56,7 @@ Target services:
 * Azure Database for PostgreSQL
 * Azure Event Hubs
 * Azure Key Vault
+* Azure Managed Redis
 * Azure Service Bus
 * Azure SQL Database
 * Azure SignalR Service

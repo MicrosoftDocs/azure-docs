@@ -1,8 +1,8 @@
 ---
 title: Disable SNAT requirement for Azure private endpoint traffic through NVA
 description: Learn how to enable SNAT bypass for Azure private endpoint traffic passing through a network virtual appliance (NVA) in Azure.
-author: abell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: how-to #Don't change
 ms.date: 03/30/2026

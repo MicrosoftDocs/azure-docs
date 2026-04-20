@@ -6,14 +6,12 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 ---
 
 # Transform data with map in data flow graphs
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 A map transform takes each incoming message and produces an output message based on your rules. You can rename fields, reorganize them into new structures, compute derived values, or remove unwanted fields. Wildcard rules let you copy all fields at once.
 
@@ -61,7 +59,9 @@ In the map transform configuration, add a rule:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -97,7 +97,9 @@ Add two rules:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -158,7 +160,9 @@ Add a rule:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -208,7 +212,9 @@ To scale a sensor reading:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -247,7 +253,9 @@ Add a passthrough rule that copies all fields. Set the input to `*` and the outp
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -280,7 +288,9 @@ Add a rule with input `ColorProperties.*` and output `*`.
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -334,7 +344,9 @@ Set the `output` to an empty string to exclude specific fields. This approach is
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -376,7 +388,9 @@ The map transform applies the specific rule to `temperature` and copies all othe
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -412,7 +426,9 @@ Add a rule with input `region` and output `$metadata.user_property.region` to wr
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -445,7 +461,9 @@ Add a rule for the `temperature` field and enable **Last known value**. Set a de
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -482,7 +500,9 @@ In the map transform configuration, set the input to include the `??` syntax fol
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -526,7 +546,6 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
   name: 'temperature-map-example'
   parent: dataflowProfile
   properties: {
-    profileRef: dataflowProfileName
     mode: 'Enabled'
     nodes: [
       {
@@ -576,7 +595,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 The rules configuration is a JSON string placed as the `value` for the `rules` key in a `DataflowGraph` transform node's `configuration` section:
 

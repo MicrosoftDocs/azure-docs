@@ -172,9 +172,16 @@ items:
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
     items:
-    - name: Durable Task
-      tocHref: /azure/azure-functions/durable/
-      topicHref: /azure/azure-functions/durable/
+    - name: Durable Functions
+      tocHref: /azure/azure-functions/durable-functions/
+      topicHref: /azure/azure-functions/durable-functions/index
+  - name: Durable Task
+    tocHref: /azure/durable-task/common/
+    topicHref: /azure/durable-task/index
+    items:
+    - name: Durable Functions
+      tocHref: /azure/azure-functions/durable-functions/
+      topicHref: /azure/azure-functions/durable-functions/index
   - name: Azure Australia
     tocHref: /azure/azure-australia/
     topicHref: /azure/azure-australia/
@@ -522,9 +529,6 @@ items:
     - name: DICOM service
       tocHref: /azure/healthcare-apis/dicom/
       topicHref: /azure/healthcare-apis/dicom/index
-    - name: MedTech service
-      tocHref: /azure/healthcare-apis/iot/
-      topicHref: /azure/healthcare-apis/iot/index
     - name: Events
       tocHref: /azure/healthcare-apis/events/
       topicHref: /azure/healthcare-apis/events/index

@@ -52,12 +52,16 @@ items:
         items:
           - name: Connect knowledge
             href: connect-knowledge.md
+          - name: Add web page knowledge
+            href: add-web-page-knowledge.md
           - name: File attachments
             href: file-attachments.md
           - name: GitHub connector
             href: github-connector.md
           - name: Azure DevOps connector
             href: ado-connector.md
+          - name: Cross-account ADO access
+            href: cross-account-ado-oauth.md
       - name: Diagnose
         items:
           - name: Incident response
@@ -74,6 +78,8 @@ items:
             href: deep-investigation.md
           - name: Diagnose with Azure observability
             href: diagnose-azure-observability.md
+          - name: Azure Monitor alerts
+            href: azure-monitor-alerts.md
           - name: Diagnose with external observability
             href: diagnose-observability.md
           - name: Troubleshoot App Service
@@ -104,6 +110,8 @@ items:
             href: agent-hooks.md
           - name: Code interpreter
             href: code-interpreter.md
+          - name: Tools and skills
+            href: global-tools-page.md
       - name: Knowledge & data sources
         items:
           - name: Azure DevOps Wiki knowledge
@@ -112,6 +120,8 @@ items:
             href: upload-knowledge-document.md
           - name: Kusto tools
             href: kusto-tools.md
+          - name: Azure Data Explorer connector
+            href: kusto-cluster-grouping.md
           - name: MCP connectors
             href: mcp-connectors.md
       - name: Access
@@ -198,6 +208,14 @@ items:
             href: tutorial-upload-knowledge-document.md
           - name: Connect Azure DevOps Wiki
             href: connect-devops-wiki.md
+          - name: Manage global tools
+            href: manage-global-tools.md
+          - name: Connect ADO repo with managed identity
+            href: connect-ado-repo-managed-identity.md
+          - name: Cross-account ADO access
+            href: cross-account-azdo-oauth-authorization.md
+          - name: Add a web page knowledge source
+            href: add-web-page.md
       - name: Access
         items:
           - name: Set up Teams bot
@@ -216,8 +234,6 @@ items:
         href: pricing-billing.md
       - name: Anthropic subprocessor
         href: anthropic-sub-processor.md
-      - name: Billing
-        href: billing.md
       - name: Frequently asked questions
         items:
           - name: General

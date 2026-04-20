@@ -1,13 +1,13 @@
 ---
 title: Azure Private Endpoint private DNS zone values
 description: Learn about the private DNS zone values for Azure services that support private endpoints.
-author: AbdullahBell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.custom:
   - ignite-2024
 ms.topic: concept-article
-ms.date: 08/04/2025
+ms.date: 04/17/2026
 # Customer intent: As a network administrator, I want to configure private DNS zone values for Azure services with private endpoints, so that I can ensure proper DNS resolution for secure connections within my network.
 ---
 
@@ -167,6 +167,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
 > | Azure Media Services (Microsoft.Media/mediaservices) | keydelivery </br> liveevent </br> streamingendpoint | privatelink.media.azure.net | media.azure.net |
+> | Azure AI Video Indexer (Microsoft.VideoIndexer/accounts) | account | privatelink.api.videoindexer.ai | api.videoindexer.ai |
 
 ### Management and Governance
 
@@ -223,6 +224,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Web Apps / Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net<sup>3</sup> | azurewebsites.net </br> scm.azurewebsites.net |
 > | SignalR (Microsoft.SignalRService/SignalR) | signalr | privatelink.service.signalr.net | service.signalr.net |
 > | Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
+> | Azure Maps (Microsoft.Maps/accounts) | account | privatelink.account.maps.azure.com | account.maps.azure.com |
 > | Azure Web PubSub service (Microsoft.SignalRService/WebPubSub) | webpubsub | privatelink.webpubsub.azure.com | webpubsub.azure.com |
 
 <sup>1</sup>If you are using Azure Private DNS Zones, do not deploy this as an additional zone. DNS entries will be automatically added to the existing DNS Zone `privatelink.azurecr.io`.

@@ -7,6 +7,9 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/07/2025
+ms.collection:
+  - migration
+  - aws-to-azure
 ms.custom:
   - MVC
   - engagement-fy24
@@ -79,7 +82,7 @@ Prepare Azure for migration with the Migration and modernization tool.
 Task | Details
 --- | ---
 Create an Azure Migrate project | Your Azure account needs Contributor or Owner permissions to [create a new project](./create-manage-projects.md).
-Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure Managed Disk.
+Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure managed disk.
 
 ### Assign permissions to create a project
 
@@ -95,7 +98,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 
 - Create a VM in the selected resource group.
 - Create a VM in the selected virtual network.
-- Write to an Azure Managed Disk.
+- Write to an Azure managed disk.
 
 ### Create an Azure network
 

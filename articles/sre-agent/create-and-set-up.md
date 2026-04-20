@@ -3,7 +3,7 @@ title: Create and set up Azure SRE Agent
 description: Deploy an Azure SRE Agent using the onboarding wizard, connect your GitHub repository, and grant Azure resource access.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 03/30/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -13,60 +13,58 @@ ms.custom: onboarding, create agent, setup, code repo, azure resources, getting 
 
 # Create and set up Azure SRE Agent
 
-**Estimated time**: 10 minutes
-
-Deploy an Azure SRE Agent, connect your code repository, and grant the agent access to your Azure resources.
+Deploy an Azure SRE Agent, connect your code repository, and add Azure resource access.
 
 ## What you accomplish
 
-By the end of this guide, you have:
-
-- Deployed an Azure SRE Agent to your subscription
-- Connected your GitHub code repository
-- Granted the agent Reader access to your Azure resources
+- Deploy an Azure SRE Agent to your subscription
+- Connect your GitHub code repository
+- Grant the agent Reader access to your Azure resources
 
 ## Prerequisites
 
-| Requirement | Details |
-|---|---|
-| **Azure subscription** | An active Azure subscription with permission to create resources. |
-| **Role** | **Contributor** on the subscription (needed to register resource providers and create resources). If your team assigns managed resource groups with RBAC, you also need **Owner** or **User Access Administrator** to create role assignments. |
-| **Network access** | `*.azuresre.ai` must be reachable from your browser. See [Network requirements](network-requirements.md). |
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
+- **Contributor** role on the subscription (needed to register resource providers and create resources). If your team assigns managed resource groups with RBAC, you also need **Owner** or **User Access Administrator** to create role assignments.
+- Network access to `*.azuresre.ai` from your browser
 
 ## Open the onboarding wizard
 
-Navigate to the onboarding wizard to start creating your agent.
-
-1. Go to [sre.azure.com](https://sre.azure.com).
-1. Sign in by using your Azure credentials.
-1. The wizard opens with a three-step flow: **Basics** > **Review** > **Deploy**.
+1. Navigate to [sre.azure.com](https://sre.azure.com).
+1. Sign in with your Azure credentials.
+1. The wizard opens with a **three-step flow**: **Basics > Review > Deploy**.
 
 ## Configure basics
 
 To define your agent, fill in the fields.
 
 | Field | Description | Example |
-|---|---|---|
-| **Subscription** | The Azure subscription that owns the agent resource. | `My Production Subscription` |
-| **Resource group** | An existing resource group, or create a new one. | `rg-sre-agent` |
-| **Agent name** | A unique name for your agent instance. | `contoso-sre-agent` |
-| **Region** | Azure region for deployment. | `East US 2` |
-| **Application Insights** | Create a new instance or use an existing one. | `Create new` (default) |
+|-------|-------------|---------|
+| **Subscription** | The Azure subscription that owns the agent resource | `My Production Subscription` |
+| **Resource group** | An existing resource group or create a new one | `rg-sre-agent` |
+| **Agent name** | A unique name for your agent instance | `contoso-sre-agent` |
+| **Region** | Azure region for deployment | `East US 2` |
+| **Model provider** | Choose the AI model provider for your agent | See provider table |
+| **Application Insights** | Create a new instance or use an existing one | `Create new` (default) |
 
-:::image type="content" source="media/create-and-setup/wizard-basics.png" alt-text="Screenshot of the create agent wizard with subscription, resource group, agent name, and region fields filled in." lightbox="media/create-and-setup/wizard-basics.png":::
+After you select a region, the **Model provider** field appears. Choose the AI provider that powers your agent's investigations and conversations. Select the ℹ icon next to the label for [pricing details](pricing-billing.md). Organizations with EU data residency requirements should select Azure OpenAI—Anthropic is excluded from EU Data Boundary (EUDB) commitments. Anthropic (Claude) models require a direct Anthropic agreement and aren't available to all tenants.
+
+| Provider | Description |
+|----------|-------------|
+| **Anthropic** | Claude models—marked **Preferred** for most regions |
+| **Azure OpenAI** | GPT models—covered by EU Data Boundary commitments for Sweden Central deployments |
+
+Anthropic is selected by default for most regions. For **Sweden Central**, Azure OpenAI is selected by default. You can change the model provider after creation in **Settings > Basics**.
 
 Select **Next** to proceed.
 
-**Checkpoint:** All fields are filled and the **Next** button is enabled.
+**Checkpoint:** All fields are filled, including the model provider. The **Next** button is enabled.
 
 ## Review
 
-The wizard shows a summary of your configuration. Verify the following details:
+The wizard shows a summary of your configuration. Verify:
 
 - Subscription and resource group are correct.
 - Agent name and region match your intent.
-
-:::image type="content" source="media/create-and-setup/wizard-review.png" alt-text="Screenshot of the review step showing the agent configuration summary before deployment." lightbox="media/create-and-setup/wizard-review.png":::
 
 Select **Create** to begin provisioning.
 
@@ -74,40 +72,34 @@ Select **Create** to begin provisioning.
 
 ## Deploy
 
-The deployment creates the following Azure resources.
+The deployment creates the following Azure resources:
 
 | Resource | Purpose |
-|---|---|
-| **Managed identity** | Authenticates the agent to Azure services. |
-| **Log Analytics workspace** | Stores agent telemetry and diagnostic logs. |
-| **Application Insights** | Monitors agent health and performance. |
-| **Role assignments** | Grants the managed identity required access. |
-| **Azure SRE Agent resource** | The agent itself. |
+|----------|---------|
+| **Managed Identity** | Authenticates the agent to Azure services |
+| **Log Analytics Workspace** | Stores agent telemetry and diagnostic logs |
+| **Application Insights** | Monitors agent health and performance |
+| **Role Assignments** | Grants the managed identity required access |
+| **Azure SRE Agent resource** | The agent itself |
 
-If you select **Create new** for Application Insights, the deployment also creates an Application Insights instance and a Log Analytics workspace.
+If you selected **Create new** for Application Insights, the deployment also creates an Application Insights instance and Log Analytics Workspace.
 
-Wait for the deployment to complete. This step typically takes 2 to 5 minutes.
+Wait for the deployment to complete. This typically takes 2-5 minutes.
 
-:::image type="content" source="media/create-and-setup/deploy-success.png" alt-text="Screenshot of the deployment succeeded status with all resources listed as created." lightbox="media/create-and-setup/deploy-success.png":::
-
-**Checkpoint:** Deployment status shows **Succeeded** and all resources are listed as created.
+**Checkpoint:** Deployment status shows **Succeeded**. All resources are listed as created.
 
 ## Set up your agent
 
-After the deployment finishes, select **Set up your agent** to open the setup page. The page displays two tabs for connecting data sources.
+After deployment finishes, select **Set up your agent** to open the setup page. You'll see the header **"More context. Better investigations."** This page has two tabs:
 
 | Tab | Data sources |
-|---|---|
+|-----|-------------|
 | **Quickstart** | Code, Logs, Deployments, Incidents |
-| **Full setup** | Everything in Quickstart plus Azure Resources and Knowledge Files |
+| **Full setup** | Everything in Quickstart + Azure Resources + Knowledge Files |
 
-Start with the **Quickstart** tab. You don't need to connect all sources, but connecting more sources gives your agent better context for investigations. The following sections walk through connecting code (from Quickstart) and Azure resources (from Full setup).
-
-:::image type="content" source="media/create-and-setup/setup-page.png" alt-text="Screenshot of the setup page showing data source cards for Code, Logs, Deployments, and Incidents." lightbox="media/create-and-setup/setup-page.png":::
+Start with the **Quickstart** tab. Not all sources are required, however connecting more sources gives your agent better context for investigations. This guide walks through connecting code (from Quickstart) and Azure resources (from Full setup).
 
 ### Connect your code repository
-
-Connect a GitHub repository so your agent can analyze source code during investigations.
 
 1. On the Code card, select the **+** button to connect repositories.
 1. **Choose a platform**: Select **GitHub** (Azure DevOps is also supported).
@@ -115,62 +107,58 @@ Connect a GitHub repository so your agent can analyze source code during investi
    - **Auth**: Select **Sign in**, authenticate in the browser, and approve access when prompted.
    - **PAT**: Paste your Personal Access Token and select **Connect**.
 1. Select **Next** to proceed to repository selection.
-1. **Pick repositories**: Use the dropdown to select one or more repositories for the agent to explore.
-
-    :::image type="content" source="media/create-and-setup/repo-picker.png" alt-text="Screenshot of the repository picker dropdown showing available GitHub repositories." lightbox="media/create-and-setup/repo-picker.png":::
-
+1. **Pick repositories**: Use the dropdown to select one or more repositories—they're listed alphabetically for easy browsing.
 1. Select **Add repository**.
-
-:::image type="content" source="media/create-and-setup/code-connected.png" alt-text="Screenshot of the Code card showing a green checkmark with the connected repository." lightbox="media/create-and-setup/code-connected.png":::
 
 **Checkpoint:** The Code card shows a green checkmark and lists the connected repositories.
 
 > [!TIP]
-> Connect the repository that contains the service you plan to investigate first. Once connected, your agent immediately starts exploring the codebase and building expertise. It learns your project structure, deployment configurations, and code patterns through [deep context](workspace-tools.md).
+> Connect the repository that contains the service you'll investigate first. Once connected, your agent immediately starts exploring the codebase and building expertise—learning your project structure, deployment configurations, and code patterns through [Deep Context](workspace-tools.md).
 
 ### Add Azure resource access
 
-Grant the agent Reader access to your Azure resources so it can query metrics, logs, and resource configurations during investigations.
+Granting the agent Reader access to your Azure resources allows it to query metrics, logs, and resource configurations during investigations.
 
 1. On the setup page, switch to the **Full setup** tab (or use the Azure Resources card if visible on Quickstart).
-1. On the Azure Resources card, select the **+** button to add resources.
-1. **Choose resource type**: Select **Subscriptions** or **Resource groups**, and then select **Next**.
-
-Follow the steps for the resource type you selected.
+2. On the Azure Resources card, select the **+** button to add resources.
+3. **Choose resource type**: Select **Subscriptions** or **Resource groups**, then select **Next**.
 
 **If you chose Subscriptions:**
 
-1. Use the search box to find subscriptions. Check the ones you want the agent to access.
-1. Select **Next** to review agent permissions.
-1. The agent's managed identity automatically gets the **Reader** role on each selected subscription. Review the permissions status.
-1. Select **Add subscriptions**.
+4. **Select subscriptions**: Use the search box to find subscriptions. Check the ones you want the agent to access.
+5. Select **Next** to review agent permissions.
+6. The agent's managed identity is automatically granted **Reader** role on each selected subscription. Review the permissions status.
+7. Select **Add subscriptions**.
 
 **If you chose Resource groups:**
 
-1. Use the subscription dropdown to filter which resource groups are shown.
-1. Use the search box to find resource groups. Check the ones you want the agent to access. The grid shows the resource group name, subscription, and region.
-1. Select **Next** to review agent permissions.
-1. Choose the permission level for the agent, and review the role assignments.
-1. Select **Add resource group**.
+4. **Filter by subscription**: Use the subscription dropdown to filter which resource groups are shown.
+5. **Select resource groups**: Use the search box to find resource groups. Check the ones you want the agent to access. The grid shows the resource group name, subscription, and region.
+6. Select **Next** to review agent permissions.
+7. Choose the permission level for the agent and review the role assignments.
+8. Select **Add resource group**.
 
 **Checkpoint:** The Azure Resources card shows the connected subscriptions or resource groups.
 
+> [!TIP]
+> The subscription picker shows **all** your subscriptions in two sections: those you can assign (where you have Owner or User Access Administrator) and those that require a higher role. A **User role** column displays your current role on each subscription. If you use **Privileged Identity Management (PIM)** for just-in-time access, the picker detects your active PIM role within seconds—no need to wait for cache refreshes.
+
 > [!NOTE]
-> After you add subscriptions or resource groups, the agent automatically assigns the required permissions to its managed identity. This assignment can take a few seconds. You see the status update on the permissions review step. The Reader role provides read-only access. For advanced permission management, see [Permissions and roles](permissions.md).
+> After you add subscriptions or resource groups, the agent automatically assigns the required permissions to its managed identity. This can take a few seconds—you'll see the status update on the permissions review step. Reader role provides read-only access. For advanced permission management, see [Manage permissions and access](manage-permissions.md).
 
-### Go to your agent
+### Select "Done and go to agent"
 
-After you connect your data sources, select **Done and go to agent** to open the agent chat.
+Once you've connected your data sources, select **Done and go to agent**. This takes you into the agent chat to start team onboarding.
 
 **Checkpoint:** The agent chat opens.
+
+## Related content
+
+- [Connectors](connectors.md)
+- [User roles and permissions](user-roles.md)
+- [Agent permissions](permissions.md)
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Step 2: Team onboarding](team-onboard.md)
-
-## Related content
-
-- [Connectors](connectors.md): How the agent connects to external data sources
-- [User roles](user-roles.md): Who can access your agent and what they can do
-- [Permissions and roles](permissions.md): How permission levels and RBAC roles work
+> [Team onboarding](team-onboard.md)

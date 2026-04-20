@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel Content and Solutions Overview
 description: Discover Microsoft Sentinel content and solutions, including data connectors and analysis tools, to enhance your security operations. Learn more today.
-author: batamig
+author: mberdugo
 ms.topic: overview
 ms.date: 05/27/2025
-ms.author: bagol
+ms.author: monaberdugo
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

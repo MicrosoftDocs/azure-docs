@@ -1,32 +1,32 @@
 ---
-title: Terraform/OpenTofu examples for Oracle Database@Azure services
-description: Learn about Terraform/OpenTofu examples for Oracle Database@Azure.
+title: Terraform/OpenTofu examples for Oracle AI Database@Azure services
+description: Learn about Terraform/OpenTofu examples for Oracle AI Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
-# Customer intent: As a cloud engineer, I want to utilize Terraform to provision Oracle Database resources on Azure, so that I can automate infrastructure management and ensure efficient deployment within my organization’s cloud strategy.
+# Customer intent: As a cloud engineer, I want to utilize Terraform to provision Oracle AI Database resources on Azure, so that I can automate infrastructure management and ensure efficient deployment within my organization’s cloud strategy.
 ---
 
-# Terraform/OpenTofu examples for Oracle Database@Azure
+# Terraform/OpenTofu examples for Oracle AI Database@Azure
 
-You can use Terraform by HashiCorp to provision and manage resources for Oracle Database@Azure. Terraform offers the AzAPI provider as a tool to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
+You can use Terraform by HashiCorp to provision and manage resources for Oracle AI Database@Azure. Terraform offers the AzAPI provider as a tool to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
 
 For more information on reference implementations for Terraform or OpenTofu modules, see the following resources:
 
-* [Quickstart Oracle Database@Azure by using Terraform or OpenTofu modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html)
+* [Quickstart Oracle AI Database@Azure by using Terraform or OpenTofu modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html)
 * [OCI landing zones](https://github.com/oci-landing-zones/)
 * [Azure Verified Modules](https://aka.ms/avm)
 
 > [!NOTE]
-> This article provides example code to demonstrate provisioning and managing Oracle Database@Azure resources by using the Terraform provider AzAPI. For detailed AzAPI provider resources and data sources documentation, see [AzAPI provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs) in the Terraform registry.
+> This article provides example code to demonstrate provisioning and managing Oracle AI Database@Azure resources by using the Terraform provider AzAPI. For detailed AzAPI provider resources and data sources documentation, see [AzAPI provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs) in the Terraform registry.
 
 The samples use example values for illustration. Replace the placeholder example values with values from your scenario.
 
 The samples use [AzAPI dynamic properties](https://techcommunity.microsoft.com/t5/azure-tools-blog/announcing-azapi-dynamic-properties/ba-p/4121855) instead of JSONEncode for more native Terraform behavior.
 
-## Create a delegated subnet for Oracle Database@Azure
+## Create a delegated subnet for Oracle AI Database@Azure
 
 ```terraform
 resource "azurerm_resource_group" "resource_group" {

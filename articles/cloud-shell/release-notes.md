@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 02/05/2026
+ms.date: 04/07/2026
 ms.topic: release-notes
 ---
 
@@ -20,10 +20,38 @@ For a tool to be included in Cloud Shell, it must meet certain criteria. For sec
 tool packages become deprecated when they're no longer actively maintained. There's usually a 30-day
 notice before a package is removed from the image. We can remove a package sooner if there's a
 security vulnerability or other critical issue. For more information about the package inclusion
-criteria, see [Cloud Shell Package inclusion guide][16].
+criteria, see [Cloud Shell Package inclusion guide][12].
 
 You can install any tool you need in your Cloud Shell session as long as it doesn't require root
 access. For installation instructions, consult the documentation for the package you require.
+
+## April 2026
+
+Feature updates
+
+- The Cloud Shell editor user interface was improved. It now includes a File menu and new keyboard
+  shortcuts. For more information, see [How to use the Azure Cloud Shell editor (New)][17].
+- You can now start a specific shell in Cloud Shell using URL parameters.
+  - To open Cloud Shell running Bash use:
+    `https://portal.azure.com/?feature.azureconsole.shell=bash#cloudshell`
+  - To open Cloud Shell running PowerShell use:
+    `https://portal.azure.com/?feature.azureconsole.shell=pwsh#cloudshell`
+
+Tool updates
+
+- Az CLI upgraded to v2.84.0
+- AzCopy upgraded to v10.32.1
+- Azure Developer CLI upgraded to v1.23.7
+- Azure Functions Core Tools CLI upgraded to v4.8.0
+- Azure PowerShell upgraded to v15.4.0
+- Bicep CLI upgraded to 0.41.2
+- Go upgraded to v1.26.1
+- Helm upgraded to v3.19
+- Inspektor Gadget (ig) upgraded to v0.50
+- Microsoft.Graph PowerShell modules upgraded to v2.36.0
+- MicrosoftPowerBIMgmt modules upgraded to v1.3.80
+- PostreSQL upgraded to v16.12
+- Vim upgraded to v9.2
 
 ## February 2026
 
@@ -102,12 +130,12 @@ Deprecated Packages
 
 The following packages were removed for compliance with our package inclusion policy.
 
-- [packer][12]
+- [packer][08]
 - [sfctl][03]
 
 Published policy for inclusion of new tools
 
-- [Package inclusion guide][16]
+- [Package inclusion guide][12]
 
 ## May 2024
 
@@ -159,4 +187,5 @@ require.
 [13]: https://github.com/Azure/generator-az-terra-module
 [14]: https://inspektor-gadget.io/
 [15]: https://yeoman.io/
-[16]: new-ui-shell-window.md
+[16]: use-the-shell-window-new.md
+[17]: use-cloud-shell-editor-new.md

@@ -2,8 +2,8 @@
 title: Extract incident entities with non-native actions 
 description: In this tutorial, you extract entity types with action types that aren't native to Microsoft Sentinel, and save these actions in a playbook to use for SOC automation.
 ms.topic: tutorial
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.date: 03/14/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

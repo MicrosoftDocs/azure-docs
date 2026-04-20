@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 04/02/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand when to use data flows vs. data flow graphs.
@@ -18,13 +18,13 @@ Azure IoT Operations provides two ways to process and route data: **data flows**
 
 ## What are data flows?
 
-A [data flow](overview-dataflow.md) is a simple, linear pipeline that moves data from a source to a destination with optional transformations. The transformation stage runs three operations in a fixed order: enrich, filter, then map. You configure a data flow by creating a `Dataflow` custom resource.
+A [data flow](overview-dataflow.md) is a simple, linear pipeline that moves data from a source to a destination with optional transformations. The transformation stage runs three operations in a fixed order: enrich, filter, then map. You configure a data flow by using the operations experience web UI, the Azure CLI, or Azure Resource Manager templates.
 
 Data flows are generally available and support all endpoint types.
 
 ## What are data flow graphs?
 
-A [data flow graph](concept-dataflow-graphs.md) is a composable, graph-based pipeline that connects multiple transforms in any topology you define. You can chain, branch, and merge processing steps. Each transform is a pre-built processing unit (map, filter, branch, window, enrichment) that you configure with rules. You configure a data flow graph by creating a `DataflowGraph` custom resource.
+A [data flow graph](concept-dataflow-graphs.md) is a composable, graph-based pipeline that connects multiple transforms in any topology you define. You can chain, branch, and merge processing steps. Each transform is a pre-built processing unit (map, filter, branch, window, enrichment) that you configure with rules. You configure a data flow graph by using the operations experience web UI, the Azure CLI, or Azure Resource Manager templates.
 
 Data flow graphs support MQTT, Kafka, and OpenTelemetry endpoints.
 
@@ -33,8 +33,8 @@ Data flow graphs support MQTT, Kafka, and OpenTelemetry endpoints.
 | Feature | Data flows | Data flow graphs |
 |---------|-----------|-----------------|
 | Pipeline shape | Fixed: enrich, filter, map | Flexible: any graph topology |
-| Transforms | Map, filter, enrich | Map, filter, branch, concat, window (aggregation), enrich |
-| Branch and merge | Not supported | Branch on conditions, merge with concat |
+| Transforms | Map, filter, enrich | Map, filter, branch, concatenate, window (aggregation), enrich |
+| Branch and merge | Not supported | Branch on conditions, merge with concatenate |
 | Time-based aggregation | Not supported | Tumbling windows with avg, min, max, count |
 | Endpoint support (source) | MQTT, Kafka | MQTT, Kafka, OpenTelemetry |
 | Endpoint support (destination) | MQTT, Kafka, ADLS, Fabric, ADX, local storage, OpenTelemetry | MQTT, Kafka, OpenTelemetry |

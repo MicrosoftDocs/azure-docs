@@ -38,6 +38,8 @@ Consider implementing your App Service app as an MCP server when you want to:
 - **Improve developer productivity**: Reduce context switching by bringing your app's functionality into the IDE
 - **Leverage existing infrastructure**: Use your deployed App Service apps as agent tools without separate deployments
 
+If you're evaluating where to host an MCP server in Azure, compare App Service with other options in [Choose an Azure service for hosting MCP servers](/azure/container-apps/mcp-choosing-azure-service) before selecting your deployment target.
+
 MCP is particularly valuable for line-of-business applications, internal tools, and developer-focused services where making functionality easily accessible to AI agents can dramatically improve productivity.
 
 ## How MCP works with App Service

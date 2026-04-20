@@ -1,6 +1,6 @@
 ---
 title: Prepare machines for migration with Azure Migrate
-description: Learn how to prepare on-premises machines for migration with Azure Migrate.
+description: Learn how to prepare on-premises or Azure VMware Solution machines for migration with Azure Migrate.
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.manager: vijain
@@ -9,12 +9,12 @@ ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.custom: engagement-fy25
-# Customer intent: As a cloud architect, I want to prepare on-premises machines for migration to Azure so that I can ensure a seamless and compliant transition of workloads to the cloud environment.
+# Customer intent: As a cloud architect, I want to prepare on-premises or Azure VMware Solution machines for migration to Azure so that I can ensure a seamless and compliant transition of workloads to the cloud environment.
 ---
 
-# Prepare on-premises machines for migration to Azure
+# Prepare on-premises or Azure VMware Solution machines for migration to Azure
 
-This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](/azure/migrate/common-questions-server-migration) tool.
+This article describes how to prepare on-premises or Azure VMware Solution (AVS) machines before you migrate them to Azure using the [Migration and modernization](/azure/migrate/common-questions-server-migration) tool.
 
 In this article, you:
 > * Review migration limitations.
@@ -102,7 +102,7 @@ By default, Azure VMs are assigned drive D: to use as temporary storage.
 
 Configure this setting manually as follows:
 
-1. On the on-premises machine (not the host server), open an elevated command prompt.
+1. On the on-premises or Azure VMware Solution VM (not the host server), open an elevated command prompt.
 2. Enter **diskpart**.
 3. Enter **SAN**. If the drive letter of the guest operating system isn't maintained, **Offline All** or **Offline Shared** is returned.
 4. At the **DISKPART** prompt, enter **SAN Policy=OnlineAll**. This setting ensures that disks are brought online, and it ensures that you can read and write to both disks.
@@ -113,14 +113,14 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux  9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
+- Red Hat Enterprise Linux  10,x, 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - CentOS Stream (Azure Linux VM agent is also installed automatically during migration)
 - SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
 - Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
-- Debian 11, 10, 9, 8, 7
-- Oracle Linux 9, 8, 7.7-CI, 7.7, 6
-- Alma Linux 8.x, 9.x
-- Rocky Linux 8.x, 9.x
+- Debian 13, 12, 11, 10, 9, 8, 7
+- Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6
+- AlmaLinux 10,x, 8.x, 9.x
+- Rocky Linux 10.x, 8.x, 9.x
 
 For other versions, prepare machines as summarized in the table. 
 > [!Note]
@@ -160,7 +160,7 @@ Review the list of [required packages](/azure/virtual-machines/extensions/agent-
 
 ## Check Azure VM requirements
 
-On-premises machines that you replicate to Azure must comply with Azure VM requirements for the operating system and architecture, the disks, network settings, and VM naming.
+On-premises or AVS machines that you replicate to Azure must comply with Azure VM requirements for the operating system and architecture, the disks, network settings, and VM naming.
 
 Before migrating, review the Azure VMs requirements for [VMware](migrate-support-matrix-vmware-migration.md#azure-vm-requirements), [Hyper-V](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements), and [physical server](migrate-support-matrix-physical-migration.md#azure-vm-requirements) migration.
 
@@ -171,19 +171,19 @@ Azure VMs are created during migration to Azure. After migration, you must be ab
 
 ### Prepare to connect to Azure Windows VMs
 
-On on-premises Windows machines:
+On on-premises or AVS Windows machines:
 
 1. Configure Windows settings. Settings include removing any static persistent routes or WinHTTP proxy.
 2. Make sure [required services](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#check-the-windows-services) are running.
-3. Enable remote desktop (RDP) to allow remote connections to the on-premises machine. Learn how to [use PowerShell to enable RDP](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#update-remote-desktop-registry-settings).
-4. To access an Azure VM over the internet after migration, in Windows Firewall on the on-premises machine, allow TCP and UDP in the Public profile, and set RDP as an allowed app for all profiles.
-5. If you want to access an Azure VM over a site-to-site VPN after migration, in Windows Firewall on the on-premises machine, allow RDP for the Domain and Private profiles. Learn how to [allow RDP traffic](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules).
-6. Make sure there are no Windows updates pending on the on-premises VM when you migrate. If there are, updates might start installing on the Azure VM after migration, and you won't be able to sign into the VM until updates finish.
+3. Enable remote desktop (RDP) to allow remote connections to the source (on-premises or AVS) machine. Learn how to [use PowerShell to enable RDP](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#update-remote-desktop-registry-settings).
+4. To access an Azure VM over the internet after migration, in Windows Firewall on the source (on-premises or AVS) machine, allow TCP and UDP in the Public profile, and set RDP as an allowed app for all profiles.
+5. If you want to access an Azure VM over a site-to-site VPN after migration, in Windows Firewall on the source (on-premises or AVS) machine, allow RDP for the Domain and Private profiles. Learn how to [allow RDP traffic](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules).
+6. Make sure there are no Windows updates pending on the source (on-premises or AVS) VM when you migrate. If there are, updates might start installing on the Azure VM after migration, and you won't be able to sign into the VM until updates finish.
 
 
 ### Prepare to connect with Linux Azure VMs
 
-On on-premises Linux machines:
+On on-premises or AVS Linux machines:
 
 1. Check that the Secure Shell service is set to start automatically on system boot.
 2. Check that firewall rules allow an SSH connection.
@@ -192,7 +192,7 @@ On on-premises Linux machines:
 
 After migration, complete these steps on the Azure VMs that are created:
 
-1. To connect to the VM over the internet, assign a public IP address to the VM. You must use a different public IP address for the Azure VM than you used for your on-premises machine. [Learn more](../virtual-network/ip-services/virtual-network-public-ip-address.md).
+1. To connect to the VM over the internet, assign a public IP address to the VM. You must use a different public IP address for the Azure VM than you used for your on-premises or AVS machine. [Learn more](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 2. Check that network security group (NSG) rules on the VM allow incoming connections to the RDP or SSH port.
 3. Check [boot diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) to view the VM.
 

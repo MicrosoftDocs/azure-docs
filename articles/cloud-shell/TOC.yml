@@ -19,12 +19,14 @@ items:
         href: get-started/existing-storage.md
   - name: How to use Azure Cloud Shell
     items:
-      - name: Use the window (Classic UI)
-        href: using-the-shell-window.md
       - name: Use the window (New UI)
-        href: new-ui-shell-window.md
+        href: use-the-shell-window-new.md
+      - name: Use the Cloud Shell editor (New UI)
+        href: use-cloud-shell-editor-new.md
+      - name: Use the window (Classic UI)
+        href: use-the-shell-window-classic.md
       - name: Use the Cloud Shell editor (Classic UI)
-        href: using-cloud-shell-editor.md
+        href: use-cloud-shell-editor-classic.md
       - name: Persist files in storage
         href: persisting-shell-storage.md
       - name: Predictive IntelliSense in Cloud Shell

@@ -89,7 +89,7 @@ Additional device-identity commands, including `add-children`,`list-children`, a
 >[!NOTE]
 >To establish parent and child relationships programmatically, use the C#, Java, or Node.js [IoT Hub Service SDK](../iot-hub/iot-hub-devguide-sdks.md).
 >
->Here's an [example of assigning child devices](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
+>Here's an example of assigning child devices using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
 
 ## Generate certificates
 

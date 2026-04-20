@@ -99,7 +99,7 @@ For more information about ERS1 and ERS2, see [Enqueue Replication Server in a M
 
 There are two options for shared disks in a Windows failover cluster in Azure:
 
-- Use [Azure shared disks](/azure/virtual-machines/disks-shared) to attach Azure Managed Disks to multiple VMs simultaneously.
+- Use [Azure shared disks](/azure/virtual-machines/disks-shared) to attach Azure managed disks to multiple VMs simultaneously.
 - Use [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create a mirrored storage that simulates cluster shared storage.
 
 When you select a technology for shared disks, keep in mind the following considerations about Azure shared disks for SAP workloads:

@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -64,6 +64,8 @@ Azure service: [App Service](/azure/app-service/)
 > | `Microsoft.DomainRegistration/domains/verifyRegistrantEmail/Action` | Resends verification emails to the email address of registrant contact. |
 > | `Microsoft.DomainRegistration/domains/retrieveContactInfo/Action` | Retrieve contact info for existing domain |
 > | `Microsoft.DomainRegistration/domains/Read` | Transfer out a domain to another registrar. |
+> | `Microsoft.DomainRegistration/domains/changeOfRegistrant/Read` | Get pending change of registrant information for a domain. |
+> | `Microsoft.DomainRegistration/domains/changeOfRegistrant/Delete` | Cancel a pending change of registrant request for a domain. |
 > | `Microsoft.DomainRegistration/domains/domainownershipidentifiers/Read` | List ownership identifiers |
 > | `Microsoft.DomainRegistration/domains/domainownershipidentifiers/Read` | Get ownership identifier |
 > | `Microsoft.DomainRegistration/domains/domainownershipidentifiers/Write` | Create or update identifier |

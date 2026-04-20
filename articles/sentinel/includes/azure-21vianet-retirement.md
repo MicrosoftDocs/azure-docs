@@ -1,6 +1,6 @@
 ---
-author: sbreingold
-ms.author: v-sreingold
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: include
 ms.date: 08/21/2025
 

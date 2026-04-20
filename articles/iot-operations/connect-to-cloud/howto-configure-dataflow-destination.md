@@ -14,8 +14,6 @@ ai-usage: ai-assisted
 
 # Configure a data flow destination in Azure IoT Operations
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 The destination is where a data flow or data flow graph sends processed data. You configure the destination by specifying an endpoint reference and a data destination (topic, container, or table).
 
 This page applies to both [data flows](overview-dataflow.md) and [data flow graphs](concept-dataflow-graphs.md). For data flows, the destination is an operation in the `Dataflow` resource. For data flow graphs, the destination is a `Destination` node in the `DataflowGraph` resource.
@@ -58,7 +56,9 @@ destinationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 destinationSettings:
@@ -141,7 +141,9 @@ destinationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To send data back to the local MQTT broker:
 
@@ -208,7 +210,9 @@ destinationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 destinationSettings:
@@ -269,7 +273,9 @@ builtInTransformationSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 After you [upload a schema to the schema registry](concept-schema-registry.md#upload-with-the-azure-cli), reference it in the data flow configuration.
 

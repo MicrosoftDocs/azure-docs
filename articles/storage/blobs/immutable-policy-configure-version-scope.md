@@ -147,11 +147,11 @@ If version-level immutability support is enabled for a container and the contain
 
 #### Migrate an existing container to support version-level immutability
 
-To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and can't be reversed. You can migrate 10 containers at a time per storage account.
+To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and can't be reversed. However, if a migration fails, it will revert back to a container-level WORM policy, and you will have to start the migration again. You can migrate 10 containers at a time per storage account.
 
-To migrate an existing container to support version-level immutability policies, the container must have a container-level time-based retention policy configured. The migration fails unless the container has an existing policy. The retention interval for the container-level policy is maintained as the retention interval for the default version-level policy on the container.
+To migrate an existing container to support version-level immutability policies, the container must have a container-level time-based retention policy configured and versioning enabled at the account level. The migration fails unless the container has an existing policy. The retention interval for the container-level policy is maintained as the retention interval for the default version-level policy on the container.
 
-If the container has an existing container-level legal hold, then it can't be migrated until the legal hold is removed. If a container or any blob within that container has an active lease, it cannot be migrated.
+If the container has an existing container-level legal hold, then it can't be migrated until the legal hold is removed. If a container or any blob within that container has an active lease, it cannot be migrated. The migration will continue to fail after restarting unless all active leases are removed. There is a possibility that if a migration is started and then fails, some of the blobs will have a version-level immutability policy that will not be visible on the Azure Portal until the migration completes successfully.
 
 ##### [Portal](#tab/azure-portal)
 
@@ -176,7 +176,8 @@ After the migration is complete, the scope of the policy on the container shows 
 
 You can restart a failed migration by repeating the earlier steps. Before starting the process again, it is recommended that you verify there are no active leases on any blobs. The easiest way to do so is using [Blob Inventory](/azure/storage/blobs/blob-inventory). Migrations could fail for multiple reasons, the most common one being active leases on any blob.
 
-NOTE: A failed migration could result in a partial migration state where some of the blobs in the container have a blob-level policy and is not reflected on the Portal. But the scope of the immutability policy will remain at the container level until a successful migration has been completed.
+> [!NOTE]
+> A failed migration could result in a partial migration state where some of the blobs in the container have a blob-level policy and is not reflected on the Portal. But the scope of the immutability policy will remain at the container level until a successful migration has been completed. There are currently no error messages showing the cause of failure, so you will have to investigate potential causes in your container.
 
 ##### [PowerShell](#tab/azure-powershell)
 

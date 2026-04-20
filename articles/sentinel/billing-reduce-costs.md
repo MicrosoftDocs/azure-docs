@@ -4,7 +4,7 @@ description: Learn how to reduce costs for Microsoft Sentinel by using different
 author: EdB-MSFT
 ms.author: edbaynash
 ms.custom: subject-cost-optimization
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 06/14/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -23,6 +23,7 @@ Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azu
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Set or change pricing tier
+
 To optimize for highest savings, monitor your ingestion volume to ensure you have the commitment tier that aligns most closely with your ingestion volume patterns. Consider increasing or decreasing your commitment tier to align with changing data volumes.
 
 You can increase your commitment tier anytime, which restarts the 31-day commitment period. However, to move back to pay-as-you-go or to a lower commitment tier, you must wait until after the 31-day commitment period finishes. Billing for commitment tiers is on a daily basis.
@@ -35,7 +36,7 @@ To change your pricing tier commitment, select one of the other tiers on the pri
 
 To learn more about how to monitor your costs, see [Manage and monitor costs for Microsoft Sentinel](billing-monitor-costs.md).
 
-For workspaces still using classic pricing tiers, the Microsoft Sentinel pricing tiers don't include Log Analytics charges. For more information, see [Simplified pricing tiers](billing.md#simplified-pricing-tiers).
+For workspaces still using classic pricing tiers, the Microsoft Sentinel pricing tiers don't include Log Analytics charges. For more information, see [Understand the full billing model for Microsoft Sentinel](billing.md#understand-the-full-billing-model-for-microsoft-sentinel).
 
 ## Buy a pre-purchase plan
 

@@ -11,7 +11,9 @@ ms.custom: sfi-image-nochange
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+**APPLIES TO:** :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Synapse Analytics
+
+[!INCLUDE [copy-job-recommendation](includes/copy-job-recommendation.md)]
 
 In this tutorial, you use the Azure portal to create a data factory. Then you use the Copy Data tool to create a pipeline that copies data from Azure Blob storage to a SQL Database.
 

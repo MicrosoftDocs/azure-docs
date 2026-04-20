@@ -2,11 +2,11 @@
 title: 'Quickstart: Create a private endpoint - Azure CLI'
 description: In this quickstart, you learn how to create a private endpoint using the Azure CLI.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 02/20/2026
-ms.author: abell
+ms.author: allensu
 ms.custom: mode-api, devx-track-azurecli, template-quickstart
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using the Azure CLI.
 # Customer intent: As a network engineer new to Azure, I want to create a private endpoint using the Azure CLI, so that I can securely connect to an Azure web app and test connectivity within a private network.

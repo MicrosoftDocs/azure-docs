@@ -2,8 +2,8 @@
 title: Authenticate playbooks to Microsoft Sentinel | Microsoft Docs
 description: Learn how to give your playbooks access to Microsoft Sentinel and authorization to take remedial actions.
 ms.topic: how-to
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.date: 03/14/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

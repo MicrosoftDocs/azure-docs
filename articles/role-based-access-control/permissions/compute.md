@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 03/08/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -134,6 +134,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/locations/sourcecontroloperationstatuses/read` | Get a Container App Source Control Long Running Operation Status |
 > | `Microsoft.App/locations/sreagentoperationresults/read` | Get the result of a SRE Agent operation |
 > | `Microsoft.App/locations/sreagentoperationstatuses/read` | Get the status of a SRE Agent operation |
+> | `Microsoft.App/locations/supportedAgentModels/read` | Get the supported AI models in a region for SRE Agent |
 > | `microsoft.app/locations/usages/read` | Get Quota Usages in a Region |
 > | `microsoft.app/logicApps/read` | Get a Logic App |
 > | `microsoft.app/logicApps/write` | Create or update a Logic App |
@@ -193,6 +194,12 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/managedenvironments/usages/read` | Get Quota Usages in a Managed Environment |
 > | `microsoft.app/managedenvironments/workloadprofilestates/read` | Get Current Workload Profile States |
 > | `microsoft.app/operations/read` | Get a list of supported container app operations |
+> | `Microsoft.App/sandboxGroups/write` | Create or update a sandbox group resource |
+> | `Microsoft.App/sandboxGroups/read` | Get a sandbox group resource |
+> | `Microsoft.App/sandboxGroups/delete` | Delete a sandbox group resource |
+> | `Microsoft.App/sandboxGroups/vnetConnections/write` | Create or update a vnetConnection resource |
+> | `Microsoft.App/sandboxGroups/vnetConnections/read` | Get a vnetConnection resource |
+> | `Microsoft.App/sandboxGroups/vnetConnections/delete` | Delete a vnetConnection resource |
 > | `microsoft.app/sessionpools/write` | Create or Update a Session Pool |
 > | `microsoft.app/sessionpools/read` | Get a Session Pool |
 > | `microsoft.app/sessionpools/delete` | Delete a Session Pool |
@@ -223,6 +230,55 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/containerApps/debug/action` | Connect to debug console of a container app |
 > | `microsoft.app/jobs/logstream/action` | View log stream of a container app job |
 > | `microsoft.app/jobs/exec/action` | Connect to console of a container app job |
+> | `Microsoft.App/sandboxGroups/connections/read` | List connections in a sandbox group |
+> | `Microsoft.App/sandboxGroups/connections/write` | Create a new connection in a sandbox group |
+> | `Microsoft.App/sandboxGroups/connections/delete` | Delete a connection in a sandbox group |
+> | `Microsoft.App/sandboxGroups/diskimages/read` | List disk images in a sandbox group |
+> | `Microsoft.App/sandboxGroups/diskimages/write` | Create a new disk image in a sandbox group |
+> | `Microsoft.App/sandboxGroups/diskimages/delete` | Delete a disk image in a sandbox group |
+> | `Microsoft.App/sandboxGroups/egressPolicies/read` | List named egress policies in a sandbox group |
+> | `Microsoft.App/sandboxGroups/egressPolicies/write` | Create or update a named egress policy in a sandbox group |
+> | `Microsoft.App/sandboxGroups/egressPolicies/delete` | Delete a named egress policy in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/read` | List sandboxes in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/write` | Create a new sandbox in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/delete` | Delete a sandbox from a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/executeCommand/action` | Execute a command in a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/executeShellCommand/action` | Execute a shell command in a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/snapshot/action` | Take a snapshot of a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/stop/action` | Stop a running sandbox and save its state |
+> | `Microsoft.App/sandboxGroups/sandboxes/commit/action` | Commit a running sandbox to a new disk image |
+> | `Microsoft.App/sandboxGroups/sandboxes/resume/action` | Resume a stopped sandbox from its snapshot |
+> | `Microsoft.App/sandboxGroups/sandboxes/downloadContentPackage/action` | Download a content package to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/logstream/action` | Stream logs from a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/batch/write` | Create multiple sandboxes in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/connections/write` | Add a connection to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/count/read` | Get the total count of sandboxes in a sandbox group |
+> | `Microsoft.App/sandboxGroups/sandboxes/egress-decisions/read` | Get egress decisions for a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/egresspolicy/write` | Set the egress policy for a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/exec/stream/action` | Start an interactive exec session via WebSocket in a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/files/read` | Read a file from a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/files/write` | Write a file to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/files/delete` | Delete a file or directory in a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/lifecycle/write` | Set the lifecycle policy for a sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/pod-volumes/write` | Add pod volume mounts to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/ports/read` | Get the list of ports for a sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/ports/write` | Add a port to a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/ports/delete` | Remove a port from a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/processes/stream/action` | Stream the process list from a running sandbox via WebSocket |
+> | `Microsoft.App/sandboxGroups/sandboxes/stats/read` | Get resource usage statistics for a running sandbox |
+> | `Microsoft.App/sandboxGroups/sandboxes/volumes/write` | Add a volume mount to a running sandbox |
+> | `Microsoft.App/sandboxGroups/secrets/read` | List secrets in a sandbox group |
+> | `Microsoft.App/sandboxGroups/secrets/write` | Create or update a secret in a sandbox group |
+> | `Microsoft.App/sandboxGroups/secrets/delete` | Delete a secret in a sandbox group |
+> | `Microsoft.App/sandboxGroups/snapshots/read` | List snapshots in a sandbox group |
+> | `Microsoft.App/sandboxGroups/snapshots/delete` | Delete a snapshot in a sandbox group |
+> | `Microsoft.App/sandboxGroups/snapshots/count/read` | Get the total count of snapshots in a sandbox group |
+> | `Microsoft.App/sandboxGroups/volumes/read` | List volumes in a sandbox group |
+> | `Microsoft.App/sandboxGroups/volumes/write` | Create a new volume in a sandbox group |
+> | `Microsoft.App/sandboxGroups/volumes/delete` | Delete a volume in a sandbox group |
+> | `Microsoft.App/sandboxGroups/volumes/files/read` | List directory contents within a volume |
+> | `Microsoft.App/sandboxGroups/volumes/files/write` | Upload a file to a volume |
+> | `Microsoft.App/sandboxGroups/volumes/files/delete` | Delete a file or directory from a volume |
 > | `Microsoft.App/sessionPools/executions/action` | Execute code in a session pool code interpreter session |
 > | `Microsoft.App/sessionPools/files/action` | Upload file to a session pool code interpreter session |
 > | `Microsoft.App/sessionPools/executions/read` | Get the execution result of a previous asynchronous code execution |
@@ -599,123 +655,6 @@ Azure service: [Batch](/azure/batch/)
 > | `Microsoft.Batch/batchAccounts/jobSchedules/write` | Creates a new job schedule on a Batch account or updates an existing job schedule |
 > | `Microsoft.Batch/batchAccounts/jobSchedules/delete` | Deletes a job schedule from a Batch account |
 
-## Microsoft.ClassicCompute
-
-Azure service: Classic deployment model virtual machine
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | `Microsoft.ClassicCompute/register/action` | Register to Classic Compute |
-> | `Microsoft.ClassicCompute/checkDomainNameAvailability/action` | Checks the availability of a given domain name. |
-> | `Microsoft.ClassicCompute/moveSubscriptionResources/action` | Move all classic resources to a different subscription. |
-> | `Microsoft.ClassicCompute/validateSubscriptionMoveAvailability/action` | Validate the subscription's availability for classic move operation. |
-> | `Microsoft.ClassicCompute/capabilities/read` | Shows the capabilities |
-> | `Microsoft.ClassicCompute/checkDomainNameAvailability/read` | Gets the availability of a given domain name. |
-> | `Microsoft.ClassicCompute/domainNames/read` | Return the domain names for resources. |
-> | `Microsoft.ClassicCompute/domainNames/write` | Add or modify the domain names for resources. |
-> | `Microsoft.ClassicCompute/domainNames/delete` | Remove the domain names for resources. |
-> | `Microsoft.ClassicCompute/domainNames/swap/action` | Swaps the staging slot to the production slot. |
-> | `Microsoft.ClassicCompute/domainNames/active/write` | Sets the active domain name. |
-> | `Microsoft.ClassicCompute/domainNames/availabilitySets/read` | Show the availability set for the resource. |
-> | `Microsoft.ClassicCompute/domainNames/capabilities/read` | Shows the domain name capabilities |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/read` | Shows the deployment slots. |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/write` | Creates or update the deployment. |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read` | Get role on deployment slot of domain name |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read` | Get role instance for role on deployment slot of domain name |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/state/read` | Get the deployment slot state. |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/state/write` | Add the deployment slot state. |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read` | Get upgrade domain for deployment slot on domain name |
-> | `Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write` | Update upgrade domain for deployment slot on domain name |
-> | `Microsoft.ClassicCompute/domainNames/extensions/read` | Returns the domain name extensions. |
-> | `Microsoft.ClassicCompute/domainNames/extensions/write` | Add the domain name extensions. |
-> | `Microsoft.ClassicCompute/domainNames/extensions/delete` | Remove the domain name extensions. |
-> | `Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read` | Reads the operation status for the domain names extensions. |
-> | `Microsoft.ClassicCompute/domainNames/internalLoadBalancers/read` | Gets the internal load balancers. |
-> | `Microsoft.ClassicCompute/domainNames/internalLoadBalancers/write` | Creates a new internal load balance. |
-> | `Microsoft.ClassicCompute/domainNames/internalLoadBalancers/delete` | Remove a new internal load balance. |
-> | `Microsoft.ClassicCompute/domainNames/internalLoadBalancers/operationStatuses/read` | Reads the operation status for the domain names internal load balancers. |
-> | `Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/read` | Get the load balanced endpoint sets. |
-> | `Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/write` | Add the load balanced endpoint set. |
-> | `Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/operationStatuses/read` | Reads the operation status for the domain names load balanced endpoint sets. |
-> | `Microsoft.ClassicCompute/domainNames/operationstatuses/read` | Get operation status of the domain name. |
-> | `Microsoft.ClassicCompute/domainNames/operationStatuses/read` | Reads the operation status for the domain names extensions. |
-> | `Microsoft.ClassicCompute/domainNames/serviceCertificates/read` | Returns the service certificates used. |
-> | `Microsoft.ClassicCompute/domainNames/serviceCertificates/write` | Add or modify the service certificates used. |
-> | `Microsoft.ClassicCompute/domainNames/serviceCertificates/delete` | Delete the service certificates used. |
-> | `Microsoft.ClassicCompute/domainNames/serviceCertificates/operationStatuses/read` | Reads the operation status for the domain names service certificates. |
-> | `Microsoft.ClassicCompute/domainNames/slots/read` | Shows the deployment slots. |
-> | `Microsoft.ClassicCompute/domainNames/slots/write` | Creates or update the deployment. |
-> | `Microsoft.ClassicCompute/domainNames/slots/delete` | Deletes a given deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/start/action` | Starts a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/stop/action` | Suspends the deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/validateMigration/action` | Validates migration of a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/prepareMigration/action` | Prepares migration of a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/commitMigration/action` | Commits migration of a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/abortMigration/action` | Aborts migration of a deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/operationStatuses/read` | Reads the operation status for the domain names slots. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/read` | Get the role for the deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/write` | Add role for the deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/read` | Returns the extension reference for the deployment slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/write` | Add or modify the extension reference for the deployment slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/delete` | Remove the extension reference for the deployment slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/extensionReferences/operationStatuses/read` | Reads the operation status for the domain names slots roles extension references. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/metricdefinitions/read` | Get the role metric definition for the domain name. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/metrics/read` | Get role metric for the domain name. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/operationstatuses/read` | Get the operation status for the domain names slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metrics definitions. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/downloadremotedesktopconnectionfile/action` | Downloads remote desktop connection file for the role instance on the domain name slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/read` | Get the role instance. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/restart/action` | Restarts role instances. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/reimage/action` | Reimages the role instance. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/rebuild/action` | Rebuilds the role instance. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/roleInstances/operationStatuses/read` | Gets the operation status for the role instance on domain names slot role. |
-> | `Microsoft.ClassicCompute/domainNames/slots/roles/skus/read` | Get role sku for the deployment slot. |
-> | `Microsoft.ClassicCompute/domainNames/slots/state/start/write` | Changes the deployment slot state to stopped. |
-> | `Microsoft.ClassicCompute/domainNames/slots/state/stop/write` | Changes the deployment slot state to started. |
-> | `Microsoft.ClassicCompute/domainNames/slots/upgradeDomain/write` | Walk upgrade the domain. |
-> | `Microsoft.ClassicCompute/operatingSystemFamilies/read` | Lists the guest operating system families available in Microsoft Azure, and also lists the operating system versions available for each family. |
-> | `Microsoft.ClassicCompute/operatingSystems/read` | Lists the versions of the guest operating system that are currently available in Microsoft Azure. |
-> | `Microsoft.ClassicCompute/operations/read` | Gets the list of operations. |
-> | `Microsoft.ClassicCompute/operationStatuses/read` | Reads the operation status for the resource. |
-> | `Microsoft.ClassicCompute/quotas/read` | Get the quota for the subscription. |
-> | `Microsoft.ClassicCompute/resourceTypes/skus/read` | Gets the Sku list for supported resource types. |
-> | `Microsoft.ClassicCompute/virtualMachines/read` | Retrieves list of virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/write` | Add or modify virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/delete` | Removes virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/capture/action` | Capture a virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/start/action` | Start the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/redeploy/action` | Redeploys the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/performMaintenance/action` | Performs maintenance on the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/restart/action` | Restarts virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/stop/action` | Stops the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/shutdown/action` | Shutdown the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/attachDisk/action` | Attaches a data disk to a virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/detachDisk/action` | Detaches a data disk from virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/downloadRemoteDesktopConnectionFile/action` | Downloads the RDP file for virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/read` | Gets the network security group associated with the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/write` | Adds a network security group associated with the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/delete` | Deletes the network security group associated with the virtual machine. |
-> | `Microsoft.ClassicCompute/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/read` | Reads the operation status for the virtual machines associated network security groups. |
-> | `Microsoft.ClassicCompute/virtualMachines/asyncOperations/read` | Gets the possible async operations |
-> | `Microsoft.ClassicCompute/virtualMachines/diagnosticsettings/read` | Get virtual machine diagnostics settings. |
-> | `Microsoft.ClassicCompute/virtualMachines/disks/read` | Retrieves list of data disks |
-> | `Microsoft.ClassicCompute/virtualMachines/extensions/read` | Gets the virtual machine extension. |
-> | `Microsoft.ClassicCompute/virtualMachines/extensions/write` | Puts the virtual machine extension. |
-> | `Microsoft.ClassicCompute/virtualMachines/extensions/operationStatuses/read` | Reads the operation status for the virtual machines extensions. |
-> | `Microsoft.ClassicCompute/virtualMachines/metricdefinitions/read` | Get the virtual machine metric definition. |
-> | `Microsoft.ClassicCompute/virtualMachines/metrics/read` | Gets the metrics. |
-> | `Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/read` | Gets the network security group associated with the network interface. |
-> | `Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write` | Adds a network security group associated with the network interface. |
-> | `Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/delete` | Deletes the network security group associated with the network interface. |
-> | `Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/operationStatuses/read` | Reads the operation status for the virtual machines associated network security groups. |
-> | `Microsoft.ClassicCompute/virtualMachines/operationStatuses/read` | Reads the operation status for the virtual machines. |
-> | `Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicCompute/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metrics definitions. |
-
 ## Microsoft.Compute
 
 Access cloud compute capacity and scale on demand (such as virtual machines) and only pay for the resources you use.
@@ -823,6 +762,10 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | `Microsoft.Compute/images/read` | Get the properties of the Image |
 > | `Microsoft.Compute/images/write` | Creates a new Image or updates an existing one |
 > | `Microsoft.Compute/images/delete` | Deletes the image |
+> | `Microsoft.Compute/interconnectBlocks/read` | Get the properties of an interconnect block |
+> | `Microsoft.Compute/interconnectBlocks/write` | Creates a new interconnect block or updates an existing interconnect block |
+> | `Microsoft.Compute/interconnectBlocks/delete` | Deletes the interconnect block |
+> | `Microsoft.Compute/interconnectBlocks/deploy/action` | Deploy a new VM/VMSS using Interconnect Block |
 > | `Microsoft.Compute/locations/capsOperations/read` | Gets the status of an asynchronous Caps operation |
 > | `Microsoft.Compute/locations/cloudServiceOsFamilies/read` | Read any guest OS Family that can be specified in the XML service configuration (.cscfg) for a Cloud Service. |
 > | `Microsoft.Compute/locations/cloudServiceOsVersions/read` | Read any guest OS Version that can be specified in the XML service configuration (.cscfg) for a Cloud Service. |
@@ -1034,9 +977,12 @@ Azure service: Microsoft Compute Limit
 > | Action | Description |
 > | --- | --- |
 > | `Microsoft.ComputeLimit/register/action` | Registers the subscription for the Compute Limit resource provider and enables the management of compute limit resources. |
+> | `Microsoft.ComputeLimit/locations/features/read` | Lists or gets feature registrations for a subscription within a location. |
+> | `Microsoft.ComputeLimit/locations/features/write` | Enables a feature registration for a subscription within a location. |
 > | `Microsoft.ComputeLimit/locations/guestSubscriptions/read` | Reads guest subscriptions for a given host subscription within a location. |
 > | `Microsoft.ComputeLimit/locations/guestSubscriptions/write` | Adds a subscription as a guest to consume a host subscription's shared compute limits. |
 > | `Microsoft.ComputeLimit/locations/guestSubscriptions/delete` | Removes a subscription as a guest preventing it from consuming the host subscription's shared compute limits. |
+> | `Microsoft.ComputeLimit/locations/operationResults/read` | Gets the status of a long-running operation for the Microsoft.ComputeLimit resource provider. |
 > | `Microsoft.ComputeLimit/locations/sharedLimits/read` | Lists all compute shared limits a host subscription shares with its guest subscriptions. |
 > | `Microsoft.ComputeLimit/locations/sharedLimits/write` | Enables sharing of a compute limit by a host subscription with its guest subscriptions. |
 > | `Microsoft.ComputeLimit/locations/sharedLimits/delete` | Disables sharing of a compute limit by a host subscription with its guest subscriptions. |
@@ -1083,6 +1029,7 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action` | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreate/action` | VirtualMachinesExecuteCreate: Execute create operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action` | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
+> | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreateFlex/action` | virtualMachinesExecuteCreateFlex: executeCreateFlex for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/OperationStatuses/read` | read OperationStatuses |
 > | `Microsoft.ComputeSchedule/locations/OperationStatuses/write` | write OperationStatuses |
 > | `Microsoft.ComputeSchedule/Operations/read` | read Operations |
@@ -1270,12 +1217,14 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | `Microsoft.DesktopVirtualization/repositoryfolders/read` | Read repositoryfolders |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/write` | Write repositoryfolders |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/delete` | Delete repositoryfolders |
+> | `Microsoft.DesktopVirtualization/repositoryfolders/listRepositoryApplications/action` | Get applications from all repository integrations in a repository folder that specify the search criteria |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/providers/Microsoft.Insights/diagnosticSettings/read` | Gets the diagnostic setting |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/providers/Microsoft.Insights/diagnosticSettings/write` | Creates or updates the diagnostic setting |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/providers/Microsoft.Insights/logDefinitions/read` | Gets the available logs |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/read` | Read repositoryfolders/repositoryIntegrations |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/write` | Write repositoryfolders/repositoryIntegrations |
 > | `Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/delete` | Delete repositoryfolders/repositoryIntegrations |
+> | `Microsoft.DesktopVirtualization/repositoryfolders/repositoryIntegrations/listRepositoryApplicationDetails/action` | Get application details for a given app in a repository integration |
 > | `Microsoft.DesktopVirtualization/resourceTypes/read` | Read resourceTypes |
 > | `Microsoft.DesktopVirtualization/scalingplans/read` | Read scalingplans |
 > | `Microsoft.DesktopVirtualization/scalingplans/write` | Write scalingplans |

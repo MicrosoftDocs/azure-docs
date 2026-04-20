@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: azure-sentinel
-author: yelevin
+author: guywi-ms
 ms.service: microsoft-sentinel
 ms.topic: include
 ms.date: 06/28/2020
-ms.author: yelevin
+ms.author: guywild
 ms.custom: include file
 ---
 ### The data model of the schema

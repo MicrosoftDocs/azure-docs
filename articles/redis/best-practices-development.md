@@ -83,7 +83,7 @@ Azure Managed Redis requires TLS encrypted communications by default. TLS versio
 
 ## Monitor memory usage, CPU usage metrics, client connections, and network bandwidth
 
-When using Azure Managed Redis instance in production, we recommend setting alerts for **Used Memory Percentage**, **CPU** metrics, **Connected Clients**. If these metrics are consistently above 75%, consider scaling your instance to a  bigger memory or better throughput tier. For more details, see [when to scale](how-to-scale.md#when-to-scale).
+When using Azure Managed Redis instance in production, we recommend setting alerts for **Used Memory Percentage**, **CPU** metrics, **Connected Clients**. If these metrics are consistently above 75%, consider scaling your instance to a  bigger memory or better throughput tier. For more details, see [when to scale](how-to-scale.md#when-to-scale). For details on how memory is reported and how to plan capacity, see [memory management](best-practices-memory-management.md).
 
 ## Consider enabling Data Persistence or Data Backup
 

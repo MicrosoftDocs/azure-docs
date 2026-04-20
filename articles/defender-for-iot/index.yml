@@ -7,10 +7,9 @@ metadata:
   title: Microsoft Defender for IoT documentation
   description: Learn how Microsoft Defender for IoT, an Azure-based, cloud security service provides comprehensive IoT device threat protection.
   ms.service: defender-for-iot
-  ms.author: raynew
-  ms.topic: landing-page
+  ms.author: lwainstein
   author: limwainstein
-  manager: raynew
+  ms.topic: landing-page
   ms.date: 04/10/2024
 
 highlightedContent:

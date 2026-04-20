@@ -193,14 +193,14 @@ The following table shows the redundancy options supported by each Azure Storage
 | Queue storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | Table storage                                   | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | Azure Files                                     | &#x2705; <sup>1</sup> | &#x2705; <sup>1</sup> | &#x2705;  | | &#x2705;  | |
-| Azure Managed Disks                             | &#x2705; | &#x2705; <sup>2</sup> |          |          |          |          |
+| Azure managed disks                             | &#x2705; | &#x2705; <sup>2</sup> |          |          |          |          |
 | Azure Elastic SAN                               | &#x2705; | &#x2705; |          |          |          |          |
 
 <sup>1</sup> SSD file shares are supported on LRS and ZRS.<br/>
 <sup>2</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
 
 > [!NOTE]
-> For storage accounts that utilize the smart tier public preview, redundancy conversions and account failover scenarios have dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
+> For storage accounts that utilize smart tier, redundancy conversions and account failover scenarios have dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
 
 ### Supported storage account types
 

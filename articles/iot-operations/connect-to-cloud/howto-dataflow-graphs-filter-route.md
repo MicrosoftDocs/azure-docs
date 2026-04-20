@@ -6,16 +6,14 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/13/2026
+ms.date: 04/16/2026
 ai-usage: ai-assisted
 
 ---
 
 # Filter and route data in data flow graphs
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
-Data flow graphs provide two ways to control which messages flow through your pipeline: **filter** transforms drop unwanted messages, and **branch** transforms route each message down one of two paths based on a condition. After branching, a **concat** transform merges the paths back together.
+Data flow graphs provide two ways to control which messages flow through your pipeline: **filter** transforms drop unwanted messages, and **branch** transforms route each message down one of two paths based on a condition. After branching, a **concatenate** transform merges the paths back together.
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
@@ -73,7 +71,9 @@ filter: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -115,7 +115,9 @@ filter: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -160,7 +162,9 @@ filter: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -178,13 +182,85 @@ For the full list of operators and functions, see [Expressions reference](concep
 
 You can configure a filter transform to validate incoming messages against a JSON schema before filter rules run. Messages that don't conform to the schema are dropped immediately.
 
-To enable schema validation, set `validateSchema` to `true` in the filter configuration. When enabled, the filter retrieves the schema from the dataflow source's `schemaRef` setting.
+To enable schema validation, set `validateSchema` to `true` in the filter configuration. When enabled, the filter retrieves the schema from the `schemaRef` on the incoming node connection (the `from` side of the `nodeConnections` entry that feeds into the filter node).
+
+# [Operations experience](#tab/portal)
+
+The filter transform configuration includes a **Validate schema** checkbox. However, the Operations experience doesn't currently support configuring or viewing the `schemaRef` on node connections. To use schema validation, configure the node connection's `schemaRef` through Bicep or Kubernetes manifests.
+
+# [Bicep](#tab/bicep)
+
+Include `validateSchema` in the filter rules JSON and configure `schemaRef` on the incoming node connection:
+
+```bicep
+nodes: [
+  {
+    nodeType: 'Graph'
+    name: 'schema-filter'
+    graphSettings: {
+      registryEndpointRef: 'default'
+      artifact: 'azureiotoperations/graph-dataflow-filter:1.0.0'
+      configuration: [
+        {
+          key: 'rules'
+          value: '{"version":"1.0.0","validateSchema":true,"filter":[]}'
+        }
+      ]
+    }
+  }
+]
+nodeConnections: [
+  {
+    from: {
+      name: 'sensors'
+      schema: {
+        schemaRef: 'aio-sr://my-namespace/sensor-schema:1'
+        serializationFormat: 'Json'
+      }
+    }
+    to: { name: 'schema-filter' }
+  }
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+nodes:
+  - nodeType: Graph
+    name: schema-filter
+    graphSettings:
+      registryEndpointRef: default
+      artifact: azureiotoperations/graph-dataflow-filter:1.0.0
+      configuration:
+        - key: rules
+          value: |
+            {
+              "version": "1.0.0",
+              "validateSchema": true,
+              "filter": []
+            }
+
+nodeConnections:
+  - from:
+      name: sensors
+      schema:
+        schemaRef: "aio-sr://my-namespace/sensor-schema:1"
+        serializationFormat: Json
+    to:
+      name: schema-filter
+```
+
+---
 
 Guidelines:
 
 - Use only one validating filter per pipeline.
 - Place the validating filter first so that invalid messages are dropped before other processing.
 - Filter rules still apply after schema validation passes. If you only need schema validation, leave the filter rules empty.
+- The `schemaRef` must point to a schema in the schema registry. The `serializationFormat` specifies the schema format (for example, `Json`).
 
 To learn about configuring schemas, see [Understand message schemas](concept-schema-registry.md).
 
@@ -211,7 +287,9 @@ configuration: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```json
 {
@@ -260,7 +338,7 @@ Key constraints:
 - **Exactly one branch rule.** The `branch` key takes a single object, not an array.
 
 > [!IMPORTANT]
-> Branching splits messages into separate processing paths, but all paths must merge back together using a concat transform before reaching the destination. Think of branching as a way to apply different transformations to different messages, not as a way to route to multiple endpoints.
+> Branching splits messages into separate processing paths, but all paths must merge back together using a concatenate transform before reaching the destination. Think of branching as a way to apply different transformations to different messages, not as a way to route to multiple endpoints.
 
 ### Define a branch rule
 
@@ -286,7 +364,9 @@ configuration: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```json
 {
@@ -320,7 +400,9 @@ nodeConnections: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 nodeConnections:
@@ -334,13 +416,13 @@ nodeConnections:
 
 ---
 
-## Merge paths with concat
+## Merge paths with concatenate
 
-All branch paths must converge before reaching a destination. A concat transform merges them. It has no configuration and no rules. Messages from all connected inputs pass through unmodified.
+All branch paths must converge before reaching a destination. A concatenate transform merges them. It has no configuration and no rules. Messages from all connected inputs pass through unmodified.
 
 # [Operations experience](#tab/portal)
 
-Add a concat transform to the canvas and connect both branch paths to it, then connect the concat to the destination.
+Add a concatenate transform to the canvas and connect both branch paths to it, then connect the concatenate to the destination.
 
 # [Bicep](#tab/bicep)
 
@@ -355,7 +437,9 @@ Add a concat transform to the canvas and connect both branch paths to it, then c
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - nodeType: Graph
@@ -382,9 +466,9 @@ To build this pipeline in the Operations experience:
 1. Add a **branch** transform. Configure the condition `severity > 5` to route high-severity messages to the true path.
 1. Add a **map** transform on the true path. Configure rules to rename `deviceId` to `id`, `temperature` to `temp`, and add a field `alert` set to `true`.
 1. Add a **map** transform on the false path. Configure rules to rename `deviceId` to `id` and `temperature` to `temp`.
-1. Add a **concat** transform to merge both paths.
+1. Add a **concatenate** transform to merge both paths.
 1. Add a **destination** that sends to `telemetry/processed`.
-1. Connect the elements: source → filter → branch → (true path: alert map, false path: normal map) → concat → destination.
+1. Connect the elements: source → filter → branch → (true path: alert map, false path: normal map) → concatenate → destination.
 
 # [Bicep](#tab/bicep)
 
@@ -490,7 +574,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1

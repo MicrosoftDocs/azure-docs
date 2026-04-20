@@ -1,8 +1,8 @@
 ---
 title: Monitor the health of your Microsoft Sentinel automation rules and playbooks
 description: Use the SentinelHealth and AzureDiagnostics data tables to keep track of your automation rules' and playbooks' execution and performance.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
 ms.date: 08/20/2025
 ms.service: microsoft-sentinel
@@ -86,7 +86,7 @@ For the **Playbook was triggered** status, you may see the following statuses:
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Microsoft Sentinel is missing permissions to run it. | Microsoft Sentinel requires [permissions to run playbooks](tutorial-respond-threats-playbook.md?tabs=LAC#respond-to-incidents). |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Playbook wasn’t migrated to new permissions model. Grant Microsoft Sentinel permissions to run this playbook and resave the rule. | Grant Microsoft Sentinel [permissions to run this playbook](tutorial-respond-threats-playbook.md?tabs=LAC#respond-to-incidents) and resave the rule. |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Too many requests, exceeding workflow throttling limits. | The number of waiting workflow runs has exceeded the maximum allowed limit. Try increasing the value of `'maximumWaitingRuns'` in [trigger concurrency configuration](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs-limit). |
-| **Could not trigger playbook: *\<PlaybookName>*.**<br>Too many requests, exceeding throttling limits. | Learn more about [subscription and tenant limits](../azure-resource-manager/management/request-limits-and-throttling.md#subscription-and-tenant-limits). |
+| **Could not trigger playbook: *\<PlaybookName>*.**<br>Too many requests, exceeding throttling limits. | Learn more about [throttling limits](../azure-resource-manager/management/request-limits-and-throttling.md). |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Access was forbidden. Managed identity is missing configuration or Logic Apps network restriction has been set. | If the playbook uses managed identity, [make sure the managed identity was assigned with permissions](authenticate-playbooks-to-sentinel.md#authenticate-with-managed-identity). The playbook may have network restriction rules preventing it from being triggered as they block Microsoft Sentinel service. |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>The subscription or resource group was locked. | Remove the lock to allow Microsoft Sentinel trigger playbooks in the locked scope. Learn more about [locked resources](../azure-resource-manager/management/lock-resources.md?tabs=json). |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Caller is missing required playbook-triggering permissions on playbook, or Microsoft Sentinel is missing permissions on it. | The user trying to trigger the playbook on demand is missing Logic Apps Contributor role on the playbook or to trigger the playbook. [Learn more](../logic-apps/logic-apps-securing-a-logic-app.md?tabs=azure-portal#restrict-access-by-ip-address-range) |

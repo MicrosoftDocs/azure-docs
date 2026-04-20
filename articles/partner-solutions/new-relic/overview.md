@@ -11,7 +11,7 @@ ms.date: 01/10/2025
 
 Microsoft and New Relic developed this service and manage it together.
 
-You can find New Relic in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview).
+You can find New Relic in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) or get it on [Azure Marketplace](https://marketplace.microsoft.com/product/newrelicinc1635200720692.newrelic_liftr_payg_2025?tab=Overview).
 
 New Relic is a full-stack observability platform that enables a single source of truth for application performance, infrastructure monitoring, log management, error tracking, and real-user monitoring. Combined with the Azure platform, use Azure Native New Relic Service to help monitor, troubleshoot, and optimize Azure services and applications.
 
@@ -59,7 +59,7 @@ For more help, see the New Relic documentation.
 
 - For more information on the New Relic and Azure partnership, see [New Relic & Azure Partnership](https://newrelic.com/press-release/2022051803).
 - For more help with using Azure Native New Relic Service, see the [New Relic documentation](https://docs.newrelic.com/docs/infrastructure/microsoft-azure-integrations/get-started/azure-native).
-- To find New Relic in Azure, go to the [pay-as-you-go listing in Azure Marketplace](https://aka.ms/azurenativenewrelic).
+- To find New Relic in Azure, go to the [pay-as-you-go listing in Azure Marketplace](https://ms.portal.azure.com/#browse/NewRelic.Observability%2Fmonitors).
 
 ## Next steps
 

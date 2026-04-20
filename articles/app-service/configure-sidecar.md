@@ -12,6 +12,9 @@ ms.service: azure-app-service
 
 This article provides practical steps for enabling and configuring sidecars in your App Service app.
 
+> [!IMPORTANT]
+> Because sidecars share the same network namespace and environment as your main app, only run trusted code and container images as sidecars.
+
 ## Create a sidecar in the Azure portal
 
 1. Go to your App Service resource in the Azure portal.
@@ -125,7 +128,7 @@ In a Linux app, all containers (main and sidecars) share environment variables. 
 
 ## Add the Redis sidecar extension
 
-From the Azure portal, you can add a Redis sidecar extension to your app for caching. The Redis sidecar is for lightweight caching only, not a replacement for Azure Cache for Redis.
+From the Azure portal, you can add a Redis sidecar extension to your app for caching. The Redis sidecar is for lightweight caching only, not a replacement for Azure Managed Redis.
 
 To use the Redis sidecar:
 

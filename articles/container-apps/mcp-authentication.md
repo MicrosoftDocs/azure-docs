@@ -5,7 +5,7 @@ description: Learn how to authenticate and authorize MCP servers on Azure Contai
 ms.topic: how-to
 ms.service: azure-container-apps
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/19/2026
+ms.date: 04/09/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -55,6 +55,33 @@ The following steps register a Microsoft Entra ID application and enable built-i
 
     ```azurecli
     az ad sp create --id $APP_ID
+    ```
+
+1. Set the Application ID URI and expose an API scope. These settings are required so that clients can request access tokens for your MCP server.
+
+    ```azurecli
+    az ad app update --id $APP_ID --identifier-uris "api://$APP_ID"
+
+    OBJECT_ID=$(az ad app show --id $APP_ID --query id -o tsv)
+    SCOPE_ID=$(uuidgen)
+
+    az rest --method PATCH \
+        --uri "https://graph.microsoft.com/v1.0/applications/$OBJECT_ID" \
+        --headers "Content-Type=application/json" \
+        --body "{
+            \"api\": {
+                \"oauth2PermissionScopes\": [{
+                    \"id\": \"$SCOPE_ID\",
+                    \"adminConsentDescription\": \"Access the MCP server\",
+                    \"adminConsentDisplayName\": \"Access MCP Server\",
+                    \"isEnabled\": true,
+                    \"type\": \"User\",
+                    \"userConsentDescription\": \"Access the MCP server\",
+                    \"userConsentDisplayName\": \"Access MCP Server\",
+                    \"value\": \"access_as_user\"
+                }]
+            }
+        }"
     ```
 
 1. Add a client secret:
@@ -113,7 +140,7 @@ When your MCP server requires a bearer token, configure token retrieval in your 
 ```
 
 > [!TIP]
-> For development, get a token by using `az account get-access-token --resource $APP_ID --query accessToken -o tsv` and paste it when prompted. For automated workflows, integrate with your organization's token management system.
+> For development, get a token by using `az account get-access-token --resource api://$APP_ID --query accessToken -o tsv` and paste it when prompted. For automated workflows, integrate with your organization's token management system.
 
 ### Configure CORS
 
@@ -206,6 +233,7 @@ A common mistake is using the API key header (`x-ms-apikey`) with a standalone c
 |----------|--------|
 | `x-ms-apikey` header sent to standalone app | Header is ignored; request hits built-in authentication and returns `401` if auth is enabled |
 | `Authorization: Bearer` sent to sessions MCP | Key validation fails and returns `401` |
+| Bearer token requested without an exposed API scope | Token acquisition fails or the token has no valid audience, resulting in `401` |
 
 Make sure your MCP client configuration matches the hosting model you deployed.
 

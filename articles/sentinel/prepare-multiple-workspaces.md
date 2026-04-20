@@ -1,10 +1,10 @@
 ---
 title: Prepare for multiple workspaces and tenants in Microsoft Sentinel
 description: To prepare for your deployment, learn how Microsoft Sentinel can extend across multiple workspaces and tenants.
-author: batamig
+author: EdB-MSFT
 ms.topic: concept-article
 ms.date: 07/16/2025
-ms.author: bagol
+ms.author: edbaynash
 ms.service: microsoft-sentinel
 
 #Customer intent: As a security operations center (SOC) manager, I want to understand how to extend and manage Microsoft Sentinel across multiple workspaces and tenants so that I can ensure compliance, data ownership, and efficient monitoring for my organization.

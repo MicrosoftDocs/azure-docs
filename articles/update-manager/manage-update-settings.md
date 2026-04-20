@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: how-to
+ms.update-cycle: 1095-days
 # Customer intent: As a system administrator, I want to manage update settings for my Azure virtual machines and servers, so that I can ensure they are properly maintained and compliant with the latest patches and updates.
 ---
 

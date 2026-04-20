@@ -13,8 +13,6 @@ ms.date: 03/19/2026
 
 # Configure data flow endpoints
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 To get started with data flows, first create data flow endpoints. A data flow endpoint is the connection point for the data flow. You can use an endpoint as a source, a destination, or both. Some endpoint types can be used as both sources and destinations, while others are for destinations only.
 
 Use the following table to choose the endpoint type to configure:
@@ -137,7 +135,9 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -239,7 +239,9 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -267,6 +269,9 @@ spec:
 Similar to the MQTT example, you can create multiple data flows that use the same Kafka endpoint for different topics, or the same Data Lake endpoint for different tables.
 
 ## Next steps
+
+> [!TIP]
+> To route dataflow traffic to cloud destinations through Private Link instead of public endpoints, see [Configure dataflow destinations with private endpoints](../manage-layered-network/howto-private-connectivity.md#configure-dataflow-destinations-with-private-endpoints).
 
 Create a data flow endpoint: 
 

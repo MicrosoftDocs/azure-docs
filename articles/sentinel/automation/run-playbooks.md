@@ -1,8 +1,8 @@
 ---
 title: Automate and run Microsoft Sentinel playbooks
 description: Learn how to automate incident response with Microsoft Sentinel playbooks, or run playbooks manually to remediate immediate security threats.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
 ms.date: 10/16/2024
 appliesto:

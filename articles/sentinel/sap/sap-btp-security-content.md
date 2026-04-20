@@ -1,8 +1,8 @@
 ---
 title: Microsoft Sentinel Solution for SAP BTP - security content reference
 description: Learn about the built-in security content provided by the  Microsoft Sentinel Solution for SAP BTP.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: reference
 ms.date: 07/17/2024
 ms.custom: sfi-image-nochange

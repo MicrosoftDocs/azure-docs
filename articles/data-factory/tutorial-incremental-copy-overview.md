@@ -10,7 +10,9 @@ ms.subservice: data-movement
 
 # Incrementally load data from a source data store to a destination data store
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+**APPLIES TO:** :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Synapse Analytics
+
+[!INCLUDE [copy-job-recommendation](includes/copy-job-recommendation.md)]
 
 In a data integration solution, incrementally (or delta) loading data after an initial full data load is a widely used scenario. The tutorials in this section show you different ways of loading data incrementally by using Azure Data Factory.
 
