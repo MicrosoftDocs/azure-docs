@@ -3,7 +3,7 @@ title: Runbook execution in Azure Automation
 description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/17/2025
+ms.date: 04/15/2026
 ms.topic: overview
 ms.custom:
 ms.service: azure-automation
@@ -75,7 +75,7 @@ Defender for Cloud places constraints on users who can run any scripts, either s
 
 ## Subscriptions
 
-An Azure [subscription](/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) is an agreement with Microsoft to use one or more cloud-based services, for which you are charged. You can [manage multiple subscriptions](manage-runbooks.md#work-with-multiple-subscriptions) from the same Automation account if the credential you are using has access to multiple subscriptions.
+An Azure [subscription](/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) is an agreement with Microsoft to use one or more cloud-based services, for which you're charged. You can [manage multiple subscriptions](manage-runbooks.md#work-with-multiple-subscriptions) from the same Automation account if the credential you're using has access to multiple subscriptions.
 
 ## Credentials
 
@@ -94,7 +94,7 @@ A runbook needs permissions for authentication to Azure, through credentials. Se
 Azure Automation includes the following PowerShell modules:
 
 * Orchestrator.AssetManagement.Cmdlets - contains several internal cmdlets that are only available when you execute runbooks in the Azure sandbox environment or on a Windows Hybrid Runbook Worker. These cmdlets are designed to be used instead of Azure PowerShell cmdlets to interact with your Automation account resources.
-* Az.Automation - the recommended PowerShell module for interacting with Azure Automation that replaces the AzureRM Automation module. The Az.Automation module is not automatically included when you create an Automation account and you need to import them manually. 
+* Az.Automation - the recommended PowerShell module for interacting with Azure Automation that replaces the AzureRM Automation module. The Az.Automation module isn't automatically included when you create an Automation account and you need to import them manually. 
 * AzureRM.Automation - installed by default when you create an Automation account. 
 
 Also supported are installable modules, based on the cmdlets that your runbooks and DSC configurations require. For details of the modules that are available for your runbooks and DSC configurations, see [Manage modules in Azure Automation](shared-resources/modules.md).
@@ -103,7 +103,7 @@ Also supported are installable modules, based on the cmdlets that your runbooks 
 
 Azure Automation uses [certificates](shared-resources/certificates.md) for authentication to Azure or adds them to Azure or third-party resources. The certificates are stored securely for access by runbooks and DSC configurations.
 
-Your runbooks can use self-signed certificates, which are not signed by a certificate authority (CA). See [Create a new certificate](shared-resources/certificates.md#create-a-new-certificate).
+Your runbooks can use self-signed certificates, which aren't signed by a certificate authority (CA). See [Create a new certificate](shared-resources/certificates.md#create-a-new-certificate).
 
 ## Jobs
 
@@ -133,7 +133,7 @@ The following table describes the statuses that are possible for a job. You can 
 | Stopping |The system is stopping the job. |
 | Suspended |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a checkpoint, it starts from the beginning. If it has a checkpoint, it can start again and resume from its last checkpoint. The system only suspends the runbook when an exception occurs. By default, the `ErrorActionPreference` variable is set to Continue, indicating that the job keeps running on an error. If the preference variable is set to Stop, the job suspends on an error.  |
 | Suspending |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The system is trying to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it has already passed its last checkpoint, it completes before it can be suspended. |
-| New | The job has been submitted recently but is not yet activated.|
+| New | The job has been submitted recently but isn't yet activated.|
 
 >[!NOTE]
 >In case of an infrastructure failure, the job is retried internally for a max of 3 times.
@@ -148,7 +148,7 @@ This section describes some ways to handle exceptions or intermittent issues in 
 
 ### ErrorActionPreference
 
-The [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable determines how PowerShell responds to a non-terminating error. Terminating errors always terminate and are not affected by `ErrorActionPreference`.
+The [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable determines how PowerShell responds to a non-terminating error. Terminating errors always terminate and aren't affected by `ErrorActionPreference`.
 
 When the runbook uses `ErrorActionPreference`, a normally non-terminating error such as `PathNotFound` from the [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem) cmdlet stops the runbook from completing. The following example shows the use of `ErrorActionPreference`. The final [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) command never executes, as the script stops.
 
@@ -226,3 +226,5 @@ Using child runbooks decreases the total amount of time for the parent runbook t
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
 * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation#automation).
+* For troubleshooting issues related to shared resources during Azure Automation runbook execution, see [Troubleshoot Azure Automation shared resource issues](troubleshoot/shared-resources.md).
+* For troubleshooting issues during Azure Automation runbook execution, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

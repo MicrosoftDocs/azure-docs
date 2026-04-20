@@ -2,8 +2,8 @@
 title: Create incident tasks in Microsoft Sentinel using automation rules
 description: This article explains how to use automation rules to create lists of incident tasks, in order to standardize analyst workflow processes in Microsoft Sentinel.
 ms.topic: how-to
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.date: 03/14/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

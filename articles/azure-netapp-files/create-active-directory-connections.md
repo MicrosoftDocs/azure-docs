@@ -302,26 +302,6 @@ Once configured, the AD connection of the NetApp account is used when you create
 >[!IMPORTANT]
 >The scope of each AD configuration is limited to its parent NetApp account. 
 
-### Register the feature
-
-The ability to create one AD connection per NetApp account is generally available. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
-
-1. Register the feature: 
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMultipleActiveDirectory
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMultipleActiveDirectory
-    ```
-
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
-
 ## <a name="shared_ad"></a>Map multiple NetApp accounts in the same subscription and region to one AD connection (preview)
 
 The Shared AD feature enables all NetApp accounts to share an AD connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). When you use this feature, the AD connection is visible in all NetApp accounts that are under the same subscription and same region.

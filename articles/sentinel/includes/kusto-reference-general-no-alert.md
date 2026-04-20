@@ -2,8 +2,8 @@
 title: "include file" 
 description: "include file" 
 services: microsoft-sentinel
-author: yelevin
-ms.author: yelevin
+author: poliveria
+ms.author: pauloliveria
 ms.topic: "include"
 ms.date: 12/26/2024
 ms.custom: "include file"

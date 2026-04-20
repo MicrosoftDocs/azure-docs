@@ -28,18 +28,18 @@ This checklist helps you quickly deploy critical recommended actions to protect 
 > [!NOTE]
 > Many of the recommendations in this document apply only to applications that are configured to use Microsoft Entra ID as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Microsoft Entra Application Management](/entra/identity/enterprise-apps/what-is-application-management) is the foundation on which all these recommendations are based.
 
-The recommendations in this document are aligned with the [Identity Secure Score](/entra/fundamentals/identity-secure-score.md), an automated assessment of your Microsoft Entra tenant’s identity security configuration. Organizations can use the Identity Secure Score page in the Microsoft Entra admin center to find gaps in their current security configuration to ensure they follow current Microsoft best practices for security. Implementing each recommendation in the Secure Score page increases your score and allow you to track your progress, plus help you compare your implementation against other similar size organizations.
+The recommendations in this document are aligned with the [Identity Secure Score](/entra/identity/monitoring-health/concept-identity-secure-score), an automated assessment of your Microsoft Entra tenant’s identity security configuration. Organizations can use the Identity Secure Score page in the Microsoft Entra admin center to find gaps in their current security configuration to ensure they follow current Microsoft best practices for security. Implementing each recommendation in the Secure Score page increases your score and allow you to track your progress, plus help you compare your implementation against other similar size organizations.
 
 :::image type="content" source="media/steps-secure-identity/identity-secure-score-in-azure-portal.png" alt-text="Azure portal window showing Identity Secure Score and some recommendations." lightbox="media/steps-secure-identity/identity-secure-score-in-azure-portal.png":::
 
 > [!NOTE]
-> Some of the functionality recommended here is available to all customers, while others require a Microsoft Entra ID P1 or P2 subscription. Please review  [Microsoft Entra pricing](https://www.microsoft.com/security/business/microsoft-entra-pricing) and [Microsoft Entra Deployment checklist](/entra/fundamentals/active-directory-deployment-checklist-p2.md) for more information.
+> Some of the functionality recommended here is available to all customers, while others require a Microsoft Entra ID P1 or P2 subscription. Please review  [Microsoft Entra pricing](https://www.microsoft.com/security/business/microsoft-entra-pricing) and [Microsoft Entra Deployment checklist](/entra/fundamentals/configure-security) for more information.
 
 ## Before you begin: Protect privileged accounts with MFA
 
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. In Microsoft Entra we observe 50 million password attacks daily, yet only a fraction of users and administrators are using strong authentications such as multifactor authentication (MFA). These statistics are based on data as of August 2021. In Microsoft Entra ID, users who have privileged roles, such as administrators, are the root of trust to build and manage the rest of the environment. Implement the following practices to minimize the effects of a compromise. 
 
-Attackers who get control of privileged accounts can do tremendous damage, so it's critical to [protect these accounts before proceeding](/entra/identity/authentication/how-to-authentication-find-coverage-gaps). Enable and require [Microsoft Entra multifactor authentication (MFA)](/entra/identity/authentication/concept-mfa-howitworks) for all administrators in your organization using [Microsoft Entra Security Defaults](/entra/fundamentals/concept-fundamentals-security-defaults.md) or [Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-admin-mfa). It's critical.
+Attackers who get control of privileged accounts can do tremendous damage, so it's critical to [protect these accounts before proceeding](/entra/identity/authentication/how-to-authentication-find-coverage-gaps). Enable and require [Microsoft Entra multifactor authentication (MFA)](/entra/identity/authentication/concept-mfa-howitworks) for all administrators in your organization using [Microsoft Entra Security Defaults](/entra/fundamentals/security-defaults) or [Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-admin-mfa). It's critical.
 
 All set? Let's get started on the checklist.
 
@@ -51,7 +51,7 @@ As an organization you need to make sure that your identities are validated and 
 
 ### Make sure your organization uses strong authentication
 
-To easily enable the basic level of identity security, you can use the one-select enablement with [Microsoft Entra security defaults](/entra/fundamentals/concept-fundamentals-security-defaults.md). Security defaults enforce Microsoft Entra multifactor authentication for all users in a tenant and blocks sign-ins from legacy protocols tenant-wide.
+To easily enable the basic level of identity security, you can use the one-select enablement with [Microsoft Entra security defaults](/entra/fundamentals/security-defaults). Security defaults enforce Microsoft Entra multifactor authentication for all users in a tenant and blocks sign-ins from legacy protocols tenant-wide.
 
 If your organization has Microsoft Entra ID P1 or P2 licenses, then you can also use the [Conditional Access insights and reporting workbook](/entra/identity/conditional-access/howto-conditional-access-insights-reporting) to help you discover gaps in your configuration and coverage. From these recommendations, you can easily close this gap by creating a policy using the new Conditional Access templates experience. [Conditional Access templates](/entra/identity/conditional-access/concept-conditional-access-policy-common) are designed to provide an easy method to deploy new policies that align with Microsoft recommended [best practices](identity-management-best-practices.md), making it easy to deploy common policies to protect your identities and devices.
 
@@ -61,12 +61,12 @@ Many organizations use traditional complexity and password expiration rules. [Mi
 
 ### Protect against leaked credentials and add resilience against outages
 
-The simplest and recommended method for enabling cloud authentication for on-premises directory objects in Microsoft Entra ID is to enable [password hash synchronization (PHS)](/entra/identity/hybrid/how-to-connect-password-hash-synchronization.md). If your organization uses a hybrid identity solution with pass-through authentication or federation, then you should enable password hash sync for the following two reasons:
+The simplest and recommended method for enabling cloud authentication for on-premises directory objects in Microsoft Entra ID is to enable [password hash synchronization (PHS)](/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization). If your organization uses a hybrid identity solution with pass-through authentication or federation, then you should enable password hash sync for the following two reasons:
 
-- The [Users with leaked credentials report](/entra/id-protection/overview-identity-protection) in Microsoft Entra ID warns of publicly exposed username and password pairs. An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and tells you, in this report, if they match credentials in your organization – but only if you enable [password hash sync](/entra/identity/hybrid/how-to-connect-password-hash-synchronization.md) or have cloud-only identities.
-- If an on-premises outage happens, like a ransomware attack, you can [switch over to using cloud authentication using password hash sync](/entra/identity/hybrid/choose-ad-authn.md). This backup authentication method allows you to continue accessing apps configured for authentication with Microsoft Entra ID, including Microsoft 365. In this case, IT staff doesn't need to resort to shadow IT or personal email accounts to share data until the on-premises outage is resolved.
+- The [Users with leaked credentials report](/entra/id-protection/overview-identity-protection) in Microsoft Entra ID warns of publicly exposed username and password pairs. An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and tells you, in this report, if they match credentials in your organization – but only if you enable [password hash sync](/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization) or have cloud-only identities.
+- If an on-premises outage happens, like a ransomware attack, you can [switch over to using cloud authentication using password hash sync](/entra/identity/hybrid/connect/choose-ad-authn). This backup authentication method allows you to continue accessing apps configured for authentication with Microsoft Entra ID, including Microsoft 365. In this case, IT staff doesn't need to resort to shadow IT or personal email accounts to share data until the on-premises outage is resolved.
 
-Passwords are never stored in clear text or encrypted with a reversible algorithm in Microsoft Entra ID. For more information on the actual process of password hash synchronization, see [Detailed description of how password hash synchronization works](/entra/identity/hybrid/how-to-connect-password-hash-synchronization.md#detailed-description-of-how-password-hash-synchronization-works). 
+Passwords are never stored in clear text or encrypted with a reversible algorithm in Microsoft Entra ID. For more information on the actual process of password hash synchronization, see [Detailed description of how password hash synchronization works](/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization#detailed-description-of-how-password-hash-synchronization-works). 
 
 ### Implement AD FS extranet smart lockout
 
@@ -137,7 +137,7 @@ Microsoft recommends restricting user consent to allow end-user consent only for
 
 Make sure users can request admin approval for new applications to reduce user friction, minimize support volume, and prevent users from signing up for applications using non-Microsoft Entra credentials. Once you regulate your consent operations, administrators should audit app and consent permissions regularly.
 
-For more information, see the article [Microsoft Entra consent framework](/entra/identity-platform/consent-framework.md).
+For more information, see the article [Microsoft Entra consent framework](/entra/identity-platform/application-consent-experience).
 
 ## Step 3: Automate threat response
 
@@ -176,7 +176,7 @@ Learn more about Microsoft Threat Protection and the importance of integrating d
 
 ### Set up monitoring and alerting
 
-Monitoring and auditing your logs is important to detect suspicious behavior. The Azure portal has several ways to integrate Microsoft Entra logs with other tools, like Microsoft Sentinel, Azure Monitor, and other SIEM tools. For more information, see the [Microsoft Entra security operations guide](/entra/fundamentals/security-operations-introduction.md#data-sources).
+Monitoring and auditing your logs is important to detect suspicious behavior. The Azure portal has several ways to integrate Microsoft Entra logs with other tools, like Microsoft Sentinel, Azure Monitor, and other SIEM tools. For more information, see the [Microsoft Entra security operations guide](/entra/architecture/security-operations-introduction#data-sources).
 
 ## Step 4: Utilize cloud intelligence
 
@@ -186,13 +186,13 @@ Auditing and logging of security-related events and related alerts are essential
 
 ### Monitor Microsoft Entra ID
 
-Microsoft Azure services and features provide you with configurable security auditing and logging options to help you identify gaps in your security policies and mechanisms and address those gaps to help prevent breaches. You can use [Azure Logging and Auditing](log-audit.md) and use [Audit activity reports in the Microsoft Entra admin center](/entra/identity/monitoring-health/concept-audit-logs). See the [Microsoft Entra Security Operations guide](/entra/fundamentals/security-operations-introduction.md) for more details on monitoring user accounts, Privileged accounts, apps, and devices.
+Microsoft Azure services and features provide you with configurable security auditing and logging options to help you identify gaps in your security policies and mechanisms and address those gaps to help prevent breaches. You can use [Azure Logging and Auditing](log-audit.md) and use [Audit activity reports in the Microsoft Entra admin center](/entra/identity/monitoring-health/concept-audit-logs). See the [Microsoft Entra Security Operations guide](/entra/architecture/security-operations-introduction) for more details on monitoring user accounts, Privileged accounts, apps, and devices.
 
 <a name='monitor-azure-ad-connect-health-in-hybrid-environments'></a>
 
 ### Monitor Microsoft Entra Connect Health in hybrid environments
 
-[Monitoring AD FS with Microsoft Entra Connect Health](/entra/identity/hybrid/how-to-connect-health-adfs.md) provides you with greater insight into potential issues and visibility of attacks on your AD FS infrastructure. You can now view [ADFS sign-ins](/entra/identity/hybrid/how-to-connect-health-ad-fs-sign-in.md) to give greater depth for your monitoring. Microsoft Entra Connect Health delivers alerts with details, resolution steps, and links to related documentation; usage analytics for several metrics related to authentication traffic; performance monitoring and reports. Utilize the [Risky IP WorkBook for ADFS](/entra/identity/hybrid/how-to-connect-health-adfs-risky-ip-workbook.md#) that can help identify the norm for your environment and alert when there’s a change. All Hybrid Infrastructure should be monitored as a Tier 0 asset. Detailed monitoring guidance for these assets can be found in the [Security Operations guide for Infrastructure](/entra/fundamentals/security-operations-infrastructure.md).
+[Monitoring AD FS with Microsoft Entra Connect Health](/entra/identity/hybrid/connect/how-to-connect-health-adfs) provides you with greater insight into potential issues and visibility of attacks on your AD FS infrastructure. You can now view [ADFS sign-ins](/entra/identity/hybrid/connect/how-to-connect-health-ad-fs-sign-in) to give greater depth for your monitoring. Microsoft Entra Connect Health delivers alerts with details, resolution steps, and links to related documentation; usage analytics for several metrics related to authentication traffic; performance monitoring and reports. Utilize the [Risky IP WorkBook for ADFS](/entra/identity/hybrid/connect/how-to-connect-health-adfs-risky-ip-workbook) that can help identify the norm for your environment and alert when there’s a change. All Hybrid Infrastructure should be monitored as a Tier 0 asset. Detailed monitoring guidance for these assets can be found in the [Security Operations guide for Infrastructure](/entra/architecture/security-operations-infrastructure).
 
 <a name='monitor-azure-ad-identity-protection-events'></a>
 
@@ -255,6 +255,6 @@ We appreciate how seriously you take security and hope this document is a useful
 
 ## Next steps
 
-If you need assistance to plan and deploy the recommendations, refer to the [Microsoft Entra ID project deployment plans](/entra/fundamentals/deployment-plans.md) for help.
+If you need assistance to plan and deploy the recommendations, refer to the [Microsoft Entra ID project deployment plans](/entra/architecture/deployment-plans) for help.
 
-If you're confident all these steps are complete, use Microsoft’s [Identity Secure Score](/entra/fundamentals/identity-secure-score.md), which keeps you up to date with the [latest best practices](identity-management-best-practices.md) and security threats.
+If you're confident all these steps are complete, use Microsoft’s [Identity Secure Score](/entra/identity/monitoring-health/concept-identity-secure-score), which keeps you up to date with the [latest best practices](identity-management-best-practices.md) and security threats.

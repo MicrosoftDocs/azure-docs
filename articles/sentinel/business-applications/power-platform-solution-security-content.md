@@ -1,8 +1,8 @@
 ---
 title: Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement and Microsoft Dynamics 365 Customer Engagement
 description: Learn about the built-in security content provided by the Microsoft Sentinel solution for Power Platform.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.reviewer: Ankur Kushwaha
 ms.topic: article
 ms.date: 12/12/2025
