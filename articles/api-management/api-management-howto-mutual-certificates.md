@@ -52,7 +52,10 @@ We recommend that you use key vault certificates because doing so improves API M
 
     > [!NOTE]
     > When a client certificate is used by API Management for **outbound authentication** (for example, when API Management presents the certificate to a backend service), you don't need to upload the root or intermediate CA certificates to the API Management CA store. In this scenario, API Management *presents* the client certificate and doesn't perform certificate chain validation.<br/><br/>
-    > Uploading trusted root or intermediate CA certificates is only required when API Management must *validate* a certificate chain, such as during inbound client certificate authentication. If you do need to upload CA certificates, review the [safety considerations](api-management-howto-ca-certificates.md#safety-considerations) before uploading, because CA certificates affect the machine-wide certificate store.
+    > Uploading trusted root or intermediate CA certificates is only required when API Management must *validate* a certificate chain, such as during inbound client certificate authentication.
+
+    > [!IMPORTANT]
+    > Uploading CA certificates (root or intermediate) affects the **machine-wide** certificate store on the API Management infrastructure node. A newly uploaded intermediate certificate can alter TLS certificate chain building for **all** services on the node — including the API gateway host certificate, custom domain certificates, backend connections, and other internal communications — not just the chain you intend to modify. Review the [safety considerations](api-management-howto-ca-certificates.md#safety-considerations) before uploading, and test in a non-production environment first.
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
 

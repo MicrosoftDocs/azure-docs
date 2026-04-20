@@ -80,6 +80,9 @@ If you already have a private certificate from a third-party provider, you can u
 * Contains private key at least 2048 bits long
 * Contains all intermediate certificates and the root certificate in the certificate chain.
 
+> [!NOTE]
+> If you also upload CA certificates (root or intermediate) to the API Management [CA certificate store](api-management-howto-ca-certificates.md), those certificates are installed into the machine-wide certificate store on the underlying infrastructure. This can affect TLS certificate chain building for **all** endpoints on the node, including custom domain certificates. Review the [safety considerations](api-management-howto-ca-certificates.md#safety-considerations) before uploading CA certificates.
+
 # [Key Vault](#tab/key-vault)
 
 We recommend using Azure Key Vault to [manage your certificates](/azure/key-vault/certificates/about-certificates) and setting them to `autorenew`.

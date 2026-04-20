@@ -121,6 +121,9 @@ To add CA certificate details, follow these steps:
 > [!TIP]
 > You can also configure CA certificate details programmatically by using the API Management REST API. Set the `backendTlsProperties` in the [backend entity](/rest/api/apimanagement/backend/create-or-update?view=rest-apimanagement-2025-03-01-preview&preserve-view=true#backendtlsproperties).
 
+> [!IMPORTANT]
+> CA certificates uploaded to API Management are installed into the machine-wide certificate store. Uploading a CA certificate can affect TLS certificate chain building for **all** services on the API Management node — not only backend connections. The operating system may automatically include the new certificate in chains used by the gateway, custom domains, and other endpoints. Review the [safety considerations](api-management-howto-ca-certificates.md#safety-considerations) before uploading CA certificates, and test changes in a non-production environment first.
+
 ## Reference backend using set-backend-service policy
 
 After creating a backend, reference the backend identifier (name) in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:
