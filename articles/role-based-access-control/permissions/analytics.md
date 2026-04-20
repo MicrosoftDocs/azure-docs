@@ -360,6 +360,35 @@ Azure service: [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-sto
 > | `Microsoft.DataLakeStore/locations/usages/read` | Get quota usages information of a subscription regarding using DataLakeStore. |
 > | `Microsoft.DataLakeStore/operations/read` | Get available operations of DataLakeStore. |
 
+## Microsoft.Fabric
+
+Azure service: [Microsoft Fabric](/fabric/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | `Microsoft.Fabric/register/action` | Registers Fabric resource provider. |
+> | `Microsoft.Fabric/capacities/read` | Retrieves the information of the specified Fabric Capacity. |
+> | `Microsoft.Fabric/capacities/write` | Creates or updates the specified Fabric Capacity. |
+> | `Microsoft.Fabric/capacities/delete` | Deletes the Fabric Capacity. |
+> | `Microsoft.Fabric/capacities/suspend/action` | Suspend the specified Fabric capacity. |
+> | `Microsoft.Fabric/capacities/resume/action` | Resume the specified Fabric capacity. |
+> | `Microsoft.Fabric/capacities/skus/read` | Retrieve available SKU information for the Fabric capacity. |
+> | `Microsoft.Fabric/locations/checkNameAvailability/action` | Checks that given Fabric resource name is valid and not in use. |
+> | `Microsoft.Fabric/locations/operationresults/read` | Retrieves the information of the specified operation result. |
+> | `Microsoft.Fabric/locations/operationstatuses/read` | Retrieves the information of the specified operation status. |
+> | `Microsoft.Fabric/operations/read` | Retrieves the information of operations. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/read` | Gets all Fabric Private Link Services. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/write` | Creates or updates Fabric Private Link Service. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/delete` | Deletes Fabric Private Link Service resource. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/operationResults/read` | Gets result of Fabric Private Link Service operation. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/operationStatuses/read` | Gets status of Fabric Private Link Service operation. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/privateEndpointConnections/read` | Gets private endpoint connection to a Fabric Private Link Service. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/privateEndpointConnections/write` | Creates or updates private endpoint connection to a Fabric Private Link Service. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/privateEndpointConnections/delete` | Deletes private endpoint connection to a Fabric Private Link Service. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/privateLinkResources/read` | Gets private link resources in a Fabric Private Link Service. |
+> | `Microsoft.Fabric/skus/read` | Retrieves the information of SKUs. |
+
 ## Microsoft.HDInsight
 
 Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters.

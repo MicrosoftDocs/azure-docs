@@ -122,7 +122,7 @@ Migration of file shares protected with snapshot backup to vaulted backup is sup
 | Setting                                 | Limit     |
 | --------------------------------------- | ------    |
 | Maximum size of file share              | 10 TB      |
-| Maximum number of files in a file share | 10 million |
+| Maximum number of files and folders in a file share | 10 million |
 
 >[!Note]
 >If you have multiple backups scheduled per day, only the last scheduled snapshot of the day is transferred to the vault.

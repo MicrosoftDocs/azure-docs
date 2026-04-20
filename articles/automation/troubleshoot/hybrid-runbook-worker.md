@@ -2,7 +2,7 @@
 title: Troubleshoot agent-based Hybrid Runbook Worker issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation agent-based Hybrid Runbook Workers.
 services: automation
-ms.date: 09/17/2023
+ms.date: 04/15/2026
 ms.topic: troubleshooting
 ms.custom: linux-related-content, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.author: v-rochak2
@@ -30,7 +30,7 @@ The Hybrid Runbook Worker jobs failed as it was unable to import Az modules.
 
 As a workaround, you can follow these steps:
 
-1. Go to the folder : C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.1722.0\HybridAgent
+1. Go to the folder: C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.1722.0\HybridAgent
 1. Edit the file with the name *Orchestrator.Sandbox.exe.config*
 1. Add the following lines inside the `<assemblyBinding>` tags:
 ```xml
@@ -111,10 +111,10 @@ Job gets suspended with the following error message:
 #### Cause
 Jobs might get suspended due to any of the following reasons:
 - Each active Hybrid Worker in the group will poll for jobs every 30 seconds to see if any jobs are available. The Worker picks jobs on a first-come, first-serve basis. Depending on when a job was pushed, whichever Hybrid Worker within the Hybrid Worker Group pings the Automation service first picks up the job. A single hybrid worker can generally pick up four jobs per ping (that is, every 30 seconds). If your rate of pushing jobs is higher than four per 30 seconds and no other Worker picks up the job, the job might get suspended.
-- Hybrid Worker might not be polling as expected every 30 seconds. This could happen if the Worker is not healthy or there are network issues.
+- Hybrid Worker might not be polling as expected every 30 seconds. This could happen if the Worker isn't healthy or there are network issues.
 
 #### Resolution
-- If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they do not exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat.
+- If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they don't exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat.
 - Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job.
 - You can also monitor the [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues.
 
@@ -197,7 +197,7 @@ The following issues are possible causes:
 
 * There's a mistyped workspace ID or workspace key (primary) in the agent's settings.
 * The Hybrid Runbook Worker can't download the configuration, which causes an account linking error. When Azure enables features on machines, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date or time is set on the computer. If the time is +/- 15 minutes from the current time, feature deployment fails.
-* Log Analytics Gateway is not configured to support Hybrid Runbook Worker.
+* Log Analytics Gateway isn't configured to support Hybrid Runbook Worker.
 
 #### Resolution
 
@@ -454,4 +454,5 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* If you plan to open a support case for an unresolved issue, collect the required diagnostic data before opening it. See [Data to collect when opening a case for Microsoft Azure Automation](collect-data-microsoft-azure-automation-case.md).
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

@@ -79,7 +79,7 @@ Configure the machine's security according to your organization's security polic
 
 If your devices are sending syslog and CEF logs over TLS because, for example, your log forwarder is in the cloud, you need to configure the syslog daemon (`rsyslog` or `syslog-ng`) to communicate in TLS. For more information, see:
 
-- [Encrypt Syslog traffic with TLS – rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html)
+- [Encrypt Syslog traffic with TLS – rsyslog](https://docs.rsyslog.com/doc/tutorials/tls_cert_summary.html)
 - [Encrypt log messages with TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)
 
 ## Configure the data connector
@@ -371,7 +371,7 @@ If you're using a log forwarder, configure the syslog daemon to listen for messa
 
     > [!NOTE] 
     > To avoid [Full Disk scenarios](/azure/azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
-    > For more information, see [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](https://syslog-ng.github.io/).
+    > For more information, see [RSyslog](https://docs.rsyslog.com/doc/configuration/actions.html) or [Syslog-ng](https://syslog-ng.github.io/).
 
 
 1. Check the service status.

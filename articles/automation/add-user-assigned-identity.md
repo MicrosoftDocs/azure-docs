@@ -4,7 +4,7 @@ description: This article describes how to set up a user-assigned managed identi
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell
-ms.date: 11/17/2025
+ms.date: 04/14/2026
 ms.topic: how-to 
 ms.service: azure-automation
 ms.author: v-rochak2
@@ -420,7 +420,7 @@ print(response.text)
 
 ## Next steps
 
-- If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues](troubleshoot/managed-identity.md).
+- For troubleshooting issues related to user assigned managed identity, see  [Troubleshoot Azure Automation managed identity issues](troubleshoot/managed-identity.md).
 
 - If you need to disable a managed identity, see [Disable your Azure Automation account managed identity](disable-managed-identity-for-automation.md).
 

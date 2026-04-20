@@ -38,3 +38,6 @@
 /articles/container-registry @jasonwhowell @thomps23
 /articles/kubernetes-fleet @MicrosoftDocs/azure-docs-codeowners
 /articles/reliability @thomps23
+/articles/sentinel @thomps23
+/articles/defender-for-iot @thomps23
+/articles/external-attack-surface-management @thomps23

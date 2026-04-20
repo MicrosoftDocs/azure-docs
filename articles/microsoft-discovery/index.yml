@@ -1,0 +1,120 @@
+### YamlMime:Landing
+
+title: Microsoft Discovery documentation
+summary: Microsoft Discovery is an extensible platform that brings together agentic orchestration, advanced reasoning, a graph-based knowledge foundation, and high-performance computing for scientific research and R&D workflows.
+
+metadata:
+  title: Microsoft Discovery documentation
+  description: Microsoft Discovery is an extensible platform that brings together agentic orchestration, advanced reasoning, a graph-based knowledge foundation, and high-performance computing for scientific research and R&D workflows.
+  ms.service: azure
+  ms.topic: landing-page
+  ms.author: mukeshdua
+  ms.date: 04/17/2026
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About Microsoft Discovery
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Discovery?
+            url: overview-what-is-microsoft-discovery.md
+          - text: Service architecture overview
+            url: overview-service-architecture.md
+          - text: Key scenarios
+            url: overview-key-scenarios.md
+          - text: Microsoft Discovery Studio
+            url: concept-studio.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy infrastructure using Azure portal
+            url: quickstart-infrastructure-portal.md
+          - text: Deploy infrastructure using Bicep
+            url: quickstart-infrastructure-bicep.md
+          - text: Run your first agent and investigation
+            url: quickstart-agents-studio.md
+          - text: Add agents using bundles
+            url: quickstart-agents-bundles.md
+
+  - title: Agents and investigations
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Discovery Agent concepts
+            url: concept-discovery-agent.md
+          - text: Discovery Agent types
+            url: concept-discovery-agent-types.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create agents
+            url: how-to-agent-creation.md
+          - text: Select models for agents
+            url: how-to-select-models-for-agents.md
+          - text: Write effective prompts for agents
+            url: how-to-prompt-engineering.md
+          - text: Data handling with tools and agents
+            url: how-to-data-handling-with-tools-agents.md
+
+  - title: Discovery Engine
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Discovery Engine overview
+            url: concept-discovery-engine.md
+          - text: Cognition overview
+            url: concept-cognition-overview.md
+          - text: Tasks and investigations
+            url: concept-tasks-investigations.md
+          - text: Advanced investigation patterns
+            url: concept-advanced-investigation-patterns.md
+      - linkListType: how-to-guide
+        links:
+          - text: Build investigations with cognition
+            url: how-to-build-investigations-cognition.md
+
+  - title: Data and knowledge
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Bookshelf and Knowledge Bases
+            url: concept-bookshelf-knowledge-bases.md
+          - text: Storage containers and storage assets
+            url: concept-storage-containers-assets.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage storage containers
+            url: how-to-manage-storage-containers.md
+          - text: Create and index a Bookshelf Knowledge Base
+            url: how-to-index-bookshelf-knowledgebase.md
+
+  - title: Security and compliance
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Network security overview
+            url: concept-network-security.md
+          - text: Data encryption at rest
+            url: concept-data-encryption-at-rest.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure network security
+            url: how-to-configure-network-security.md
+          - text: End-to-end network-hardened deployment
+            url: how-to-deploy-network-hardened-stack.md
+          - text: Configure customer-managed keys
+            url: howto-data-encryption-at-rest.md
+
+  - title: Billing and reference
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Billing overview
+            url: concept-discovery-billing.md
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /rest/api/discovery/

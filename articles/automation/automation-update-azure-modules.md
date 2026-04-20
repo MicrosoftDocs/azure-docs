@@ -3,7 +3,7 @@ title: Update Azure PowerShell modules in Azure Automation
 description: This article tells how to update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/17/2025
+ms.date: 04/15/2026
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
@@ -66,7 +66,7 @@ To update the Azure modules in your Automation account:
 >[!NOTE]
 > We recommend you to update Az modules through Azure portal. You can also perform this using the `Update-AutomationAzureModulesForAccount` script, available as open-source and provided as a reference. However, in case of any runbook failure, you need to modify parameters in the runbook as required or debug the script as per the scenario.
 
-The **Update-AutomationAzureModulesForAccount** runbook supports updating the Azure, AzureRM, and Az modules by default. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating Az.Automation modules with this runbook. There are additional important factors that you need to take into account when using the Az modules in your Automation account. To learn more, see [Manage modules in Azure Automation](shared-resources/modules.md).
+The **Update-AutomationAzureModulesForAccount** runbook supports updating the Azure, AzureRM, and Az modules by default. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating Az. Automation modules with this runbook. There are another important factors that you need to take into account when using the Az modules in your Automation account. To learn more, see [Manage modules in Azure Automation](shared-resources/modules.md).
 
 #### Use the update runbook code as a regular PowerShell script
 
@@ -84,3 +84,4 @@ If you want to use a specific Azure PowerShell module version instead of the lat
 
 * For details of using modules, see [Manage modules in Azure Automation](shared-resources/modules.md).
 * For information about the update runbook, see [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).
+* For troubleshooting issues when updating Azure PowerShell modules managed as shared resources in Azure Automation, see [Troubleshoot Azure Automation shared resource issues](troubleshoot/shared-resources.md).

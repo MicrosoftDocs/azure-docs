@@ -1,10 +1,10 @@
 ---
 title: Recommended Microsoft Sentinel playbook use cases, templates, and examples
 description: Learn about sample use cases for Microsoft Sentinel playbooks, as well as example playbooks and recommended playbook templates.
-author: batamig
+author: mberdugo
 ms.topic: reference
 ms.date: 04/18/2024
-ms.author: bagol
+ms.author: monaberdugo
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

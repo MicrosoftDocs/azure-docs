@@ -3,7 +3,8 @@ title: Download SAP software for the automation framework
 description: Download the SAP software to your Azure environment by using Ansible playbooks to use SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
-ms.date: 04/01/2026
+ms.reviewer: kimforss
+ms.date: 4/17/2026
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -73,14 +74,14 @@ To configure the SAP parameters file:
 
 1. Create the SAP parameters YAML file.
 
-   ```bash
-   cat <<EOF > sap-parameters.yaml
-   ---
-   bom_base_name:               S41909SPS03_v0010ms
-   kv_name: Name of your Management/Control Plane keyvault
-   ..
-   EOF
-   ```
+    ```bash
+    cat <<EOF > sap-parameters.yaml
+    ---
+    bom_base_name:               S42025SPS00_v88_v0002ms
+    kv_name: Name of your Management/Control Plane keyvault
+    ..
+    EOF
+    ```
 
 1. Open `sap-parameters.yaml` in an editor and verify the following values:
 
@@ -90,7 +91,7 @@ To configure the SAP parameters file:
 
    1. Confirm that `bom_base_name` is set to the correct Bill of Materials name for your deployment (for example, `S41909SPS03_v0010ms`).
 
-   1. Confirm that `kv_name` matches the name of your deployer key vault.
+    1. Change the value of `bom_base_name` to `S42025SPS00_v88_v0002ms`.
 
    1. (If needed) Update the value of `secret_prefix` to match the prefix in your environment (for example, `DEV-WEEU-SAP`).
 
@@ -118,6 +119,7 @@ Another option is to run the Ansible playbooks by using the `ansible-playbook` c
 ansible-playbook                                                                                   \
   --user        azureadm                                                                           \
   --extra-vars="@sap-parameters.yaml"                                                              \
+  --extra-vars="BOM_directory=~/Azure_SAP_Automated_Deployment/samples"                            \ 
   ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
 ```
 

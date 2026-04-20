@@ -3,7 +3,7 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/27/2025
+ms.date: 04/15/2026
 ms.topic: how-to 
 ms.custom:
   - devx-track-azurepowershell
@@ -36,9 +36,9 @@ When you create an Automation account, Azure Automation imports some modules by 
 
 When Automation executes runbook and DSC compilation jobs, it loads the modules into sandboxes where the runbooks can run and the DSC configurations can compile. Automation also automatically places any DSC resources in modules on the DSC pull server. Machines can pull the resources when they apply the DSC configurations.
 
-Cloud sandbox supports a maximum of 48 system calls, and restricts all other calls for security reasons. Other functionality such as credential management and some networking is not supported in the cloud sandbox.
+Cloud sandbox supports a maximum of 48 system calls, and restricts all other calls for security reasons. Other functionality such as credential management and some networking isn't supported in the cloud sandbox.
 
-Due to the number of modules and cmdlets included, it's difficult to know beforehand which of the cmdlets will make unsupported calls. Generally, we have seen issues with cmdlets which require elevated access, require a credential as a parameter, or cmdlets related to networking. Any cmdlets that perform full stack network operations are not supported in the sandbox, including [Connect-AipService](/powershell/module/aipservice/connect-aipservice) from the AIPService PowerShell module and [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) from the DNSClient module.
+Due to the number of modules and cmdlets included, it's difficult to know beforehand which of the cmdlets will make unsupported calls. Generally, we have seen issues with cmdlets which require elevated access, require a credential as a parameter, or cmdlets related to networking. Any cmdlets that perform full stack network operations aren't supported in the sandbox, including [Connect-AipService](/powershell/module/aipservice/connect-aipservice) from the AIPService PowerShell module and [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) from the DNSClient module.
 
 These are known limitations with the sandbox. The recommended workaround is to deploy a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) or use [Azure Functions](../../azure-functions/functions-overview.md).
 
@@ -49,11 +49,11 @@ These are known limitations with the sandbox. The recommended workaround is to d
 
 All new Automation accounts have the latest version of the PowerShell Az module imported by default. The Az module replaces AzureRM and is the recommended module to use with Azure. **Default modules** in the new Automation account includes the existing 24 AzureRM modules and 60+ Az modules.
 
-There is a native option to update modules to the latest Az module by the user for Automation accounts. The operation will handle all the module dependencies at the backend thereby removing the hassles of updating the modules [manually](../automation-update-azure-modules.md#update-az-modules) or executing the runbook to [update Azure modules](../automation-update-azure-modules.md#update-az-modules-through-runbook).  
+There's a native option to update modules to the latest Az module by the user for Automation accounts. The operation will handle all the module dependencies at the backend thereby removing the hassles of updating the modules [manually](../automation-update-azure-modules.md#update-az-modules) or executing the runbook to [update Azure modules](../automation-update-azure-modules.md#update-az-modules-through-runbook).  
 
 If the existing Automation account has only AzureRM modules, the [Update Az modules](../automation-update-azure-modules.md#update-az-modules) option will update the Automation account with the user selected version of the Az module.  
 
-If the existing Automation account has AzureRM and some Az modules, the option will import the remaining Az modules to the Automation account. The existing Az modules will take preference and the update operation will not update those modules. This is to ensure the update module operation doesn't lead to any runbook execution failure by inadvertently updating a module being used by a runbook. The recommended way for this scenario is to first delete the existing Az modules and then perform the update operations to get the latest Az module imported in the Automation account. Such module types, not imported by default, are referred to as **Custom**.  **Custom** modules will always take preference over **default** modules.  
+If the existing Automation account has AzureRM and some Az modules, the option will import the remaining Az modules to the Automation account. The existing Az modules will take preference and the update operation won't update those modules. This is to ensure the update module operation doesn't lead to any runbook execution failure by inadvertently updating a module being used by a runbook. The recommended way for this scenario is to first delete the existing Az modules and then perform the update operations to get the latest Az module imported in the Automation account. Such module types, not imported by default, are referred to as **Custom**.  **Custom** modules will always take preference over **default** modules.  
 
 For example: If you already have the `Az.Aks` module imported with version 2.3.0 which is provided by Az module 6.3.0 and you try to update the Az module to the latest 6.4.0 version. The update operation will import all the Az modules from 6.4.0 package, except `Az.Aks`. To have the latest version of `Az.Aks`, first delete the existing module and then perform the update operation, or you can also update this module separately as described in [Import Az modules](#import-az-modules) to import a different version of a specific module.  
 
@@ -144,7 +144,7 @@ Be sure to test all runbooks and DSC configurations carefully, in a separate Aut
 
 ### Stop and unschedule all runbooks that use AzureRM modules
 
-To ensure that you don't run any existing runbooks or DSC configurations that use AzureRM modules, you must stop and unschedule all affected runbooks and configurations. First, make sure that you review each runbook or DSC configuration and its schedules separately, to ensure that you can reschedule the item in the future if necessary.
+To ensure that, you don't run any existing runbooks or DSC configurations that use AzureRM modules, you must stop and unschedule all affected runbooks and configurations. First, make sure that you review each runbook or DSC configuration and its schedules separately, to ensure that you can reschedule the item in the future if necessary.
 
 When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzAutomationSchedule](/powershell/module/az.automation/remove-azautomationschedule) cmdlet. See [Remove a schedule](schedules.md#remove-a-schedule).
 
@@ -209,11 +209,11 @@ TestModule
    2.0.0
 ```
 
-Within each of the version folders, copy your PowerShell .psm1, .psd1, or PowerShell module **.dll** files that make up a module into the respective version folder. Zip up the module folder so that Azure Automation can import it as a single .zip file. While Automation only shows one of the versions of the module imported, if the module package contains side-by-side versions of the module, they are all available for use in your runbooks or DSC configurations.  
+Within each of the version folders, copy your PowerShell .psm1, .psd1, or PowerShell module **.dll** files that make up a module into the respective version folder. Zip up the module folder so that Azure Automation can import it as a single .zip file. While Automation only shows one of the versions of the module imported, if the module package contains side-by-side versions of the module, they're all available for use in your runbooks or DSC configurations.  
 
-While Automation supports modules containing side-by-side versions within the same package, it does not support using multiple versions of a module across module package imports. For example, you import **module A**, which contains versions 1 and 2 into your Automation account. Later you update **module A** to include versions 3 and 4, when you import into your Automation account, only versions 3 and 4 are usable within any runbooks or DSC configurations. If you require all versions - 1, 2, 3, and 4 to be available, the .zip file your import should contain versions 1, 2, 3, and 4.
+While Automation supports modules containing side-by-side versions within the same package, it doesn't support using multiple versions of a module across module package imports. For example, you import **module A**, which contains versions 1 and 2 into your Automation account. Later you update **module A** to include versions 3 and 4, when you import into your Automation account, only versions 3 and 4 are usable within any runbooks or DSC configurations. If you require all versions - 1, 2, 3, and 4 to be available, the .zip file your import should contain versions 1, 2, 3, and 4.
 
-If you’re going to use different versions of the same module between runbooks, you should always declare the version you want to use in your runbook using the `Import-Module` cmdlet and include the parameter `-RequiredVersion <version>`. Even if the version you want to use is the latest version. This is because runbook jobs may run in the same sandbox. If the sandbox has already explicitly loaded a module of a certain version number, because a previous job in that sandbox said to do so, future jobs in that sandbox won't automatically load the latest version of that module. This is because some version of it is already loaded in the sandbox.
+If you’re going to use different versions of the same module between runbooks, you should always declare the version you want to use in your runbook using the `Import-Module` cmdlet and include the parameter `-RequiredVersion <version>`. Even if the version you want to use is the latest version. This is because runbook jobs may run in the same sandbox. If the sandbox has already explicitly loaded a module of a certain version number, because a previous job in that sandbox said to do so, future jobs in that sandbox won't automatically load the latest version of that module. This is because some version of it's already loaded in the sandbox.
 
 For a DSC resource, use the following command to specify a particular version:
 
@@ -319,7 +319,7 @@ Add `[OutputType([<MyOutputType>])]`, where `MyOutputType` is a valid type. To l
 
 ### Cmdlet state
 
-Make all cmdlets in your module stateless. Multiple runbook jobs can simultaneously run in the same `AppDomain` and the same process and sandbox. If there is any state shared on those levels, jobs can affect each other. This behavior can lead to intermittent and hard-to-diagnose issues. Here is an example of what not to do:
+Make all cmdlets in your module stateless. Multiple runbook jobs can simultaneously run in the same `AppDomain` and the same process and sandbox. If there's any state shared on those levels, jobs can affect each other. This behavior can lead to intermittent and hard-to-diagnose issues. Here's an example of what not to do:
 
   ```powershell
   $globalNum = 0
@@ -438,3 +438,5 @@ Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationA
 * For more information about using Azure PowerShell modules, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
 * To learn more about creating PowerShell modules, see [Writing a Windows PowerShell module](/powershell/scripting/developer/module/writing-a-windows-powershell-module).
+
+* For troubleshooting issues related to shared resources such as Azure PowerShell, Python, internal cmdlet, and custom modules in Azure Automation, see [Troubleshoot Azure Automation shared resource issues](../troubleshoot/shared-resources.md).

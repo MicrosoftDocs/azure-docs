@@ -103,7 +103,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5066136]: https://support.microsoft.com/kb/5066136
 [5066143]: https://support.microsoft.com/kb/5066143
 [5066139]: https://support.microsoft.com/kb/5066139
-[5074428]: https://support.microsoft.com/kb/5074428
+[5074428]: https://support.microsoft.com/topic/january-17-2026-kb5077800-os-build-20348-4650-out-of-band-905431bc-e40b-41bb-9896-e824042df3e8
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494175]: https://support.microsoft.com/kb/4494175
 [5073447]: https://support.microsoft.com/kb/5073447
@@ -2863,7 +2863,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5003711]: https://support.microsoft.com/kb/5003711
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-[4052623]: https://support.microsoft.com/kb/4052623
+[4052623]: https://www.catalog.update.microsoft.com/Search.aspx?q=KB4052623
 [2.111]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 [3.98]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4.91]: ./cloud-services-guestos-update-matrix.md#family-4-releases
@@ -3180,7 +3180,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 [4586768]: https://support.microsoft.com/kb/4586768
 [4593226]: https://support.microsoft.com/kb/4593226
-[4052623]: https://support.microsoft.com/kb/4052623
+[4052623]: https://www.catalog.update.microsoft.com/Search.aspx?q=KB4052623
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
 [4578953]: https://support.microsoft.com/kb/4578953

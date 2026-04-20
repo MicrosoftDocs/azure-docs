@@ -36,6 +36,8 @@ Filter and split transformations are the first steps in a larger transformation 
 
 Before you configure filter or split transformation rules, verify the following requirements:
 
+- Your Microsoft Sentinel workspace must be onboarded to the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops/microsoft-sentinel-onboard).
+
 - In the Microsoft Defender portal with unified role-based access control (RBAC), **Data (manage)** permissions under the **Data operations** permissions group.
 
 - For the Microsoft Sentinel workspace, you need the following permissions: 

@@ -1,8 +1,8 @@
 ---
 title: Create and manage Microsoft Sentinel playbooks
 description: Learn how to create and manage Microsoft Sentinel playbooks to automate your incident response and remediate security threats.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
 ms.date: 10/16/2024
 appliesto:

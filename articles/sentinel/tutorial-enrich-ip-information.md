@@ -2,8 +2,8 @@
 title: Tutorial - Automatically check and record IP address reputation in incident in Microsoft Sentinel
 description: In this tutorial, learn how to use Microsoft Sentinel automation rules and playbooks to automatically check IP addresses in your incidents against a threat intelligence source and record each result in its relevant incident.
 ms.topic: tutorial
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.date: 03/14/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal

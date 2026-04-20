@@ -1,8 +1,8 @@
 ---
 title: Monitor the health of your Microsoft Sentinel automation rules and playbooks
 description: Use the SentinelHealth and AzureDiagnostics data tables to keep track of your automation rules' and playbooks' execution and performance.
-author: batamig
-ms.author: bagol
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
 ms.date: 08/20/2025
 ms.service: microsoft-sentinel
