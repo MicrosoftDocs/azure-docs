@@ -44,8 +44,8 @@ Azure requirements | For the latest information, see the [Azure network](../site
 Mobility service | Install the Mobility service agent on each machine you want to migrate.
 UEFI boot | Supported. <br/><br/> Windows : NTFS  <br/><br/> Linux: The following filesystem types are supported: ext4, xfs, btrfs. Some filesystems such as ZFS, UFS, ReiserFS, and DazukoFS may not be supported subject to additional command requirements to mount them.
 UEFI - Secure boot         | Not supported for migration.
-Target disk | Machines can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-Ultra disk | Ultra disk migration isn't supported from the Azure Migrate and Modernize portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium disk type and change it to Ultra disk after migration.
+Target disk | Machines can be migrated only to managed disks (Standard HDD, Standard SSD, Premium SSD) in Azure.
+Ultra Disk | Ultra Disk migration isn't supported from the Azure Migrate and Modernize portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.
 Disk size | Up to 2-TB OS disk for gen 1 VM. Up to 4-TB OS disk for gen 2 VM and 32 TB for data disks.
 Disk limits |  Up to 63 disks per machine.
 Encrypted disks/volumes |  Machines with encrypted disks/volumes aren't supported for migration.

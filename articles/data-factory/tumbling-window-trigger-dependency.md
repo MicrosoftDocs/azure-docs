@@ -5,7 +5,7 @@ description: Learn how to create dependency on a tumbling window trigger in Azur
 ms.author: makromer
 author: kromerm
 ms.subservice: orchestration
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/26/2024
 ms.custom:
   - synapse

@@ -39,7 +39,7 @@ Service Connector offers the following authentication options:
 
 | Target resource                               | System assigned managed identity | User assigned managed identity (Workload identity) | Connection string | Service principal |
 |-----------------------------------------------|----------------------------------|--------------------------------|-------------------|-------------------|
-| Azure AI services                             | Yes                              | Yes                            | Yes               | Yes               |
+| Foundry Tools                                 | Yes                              | Yes                            | Yes               | Yes               |
 | Azure App Configuration                       | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Blob Storage                            | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Cache for Redis                         | No                               | No                             | Yes               | No                |
@@ -56,6 +56,7 @@ Service Connector offers the following authentication options:
 | Azure Event Hubs                              | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Files                                   | No                               | No                             | Yes               | No                |
 | Azure Key Vault                               | Yes                              | Yes                            | No                | Yes               |
+|Azure Managed Redis|No|No|Yes|No|
 | Azure Queue Storage                           | Yes                              | Yes                            | Yes               | Yes               |
 | Azure Service Bus                             | Yes                              | Yes                            | Yes               | Yes               |
 | Azure SignalR Service                         | Yes                              | Yes                            | Yes               | Yes               |

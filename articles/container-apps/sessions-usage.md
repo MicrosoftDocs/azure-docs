@@ -4,43 +4,42 @@ description: Learn how to use dynamic sessions in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
-ms.date: 05/19/2025
+ms.topic: how-to
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.custom: references_regions, ignite-2024
 ---
 
 # Use dynamic sessions in Azure Container Apps
 
-Azure Container Apps dynamic [sessions](sessions.md) offer isolated, secure contexts when you need to run code or applications separately from other workloads. Sessions run inside a [session pool](session-pool.md) which provides immediate access to new and existing sessions. These sessions are ideal for scenarios where user-generated input needs to be processed in a controlled manner or when integrating third-party services that require executing code in an isolated environment.
+Azure Container Apps dynamic [sessions](sessions.md) offer isolated, secure contexts when you need to run code or applications separately from other workloads. Sessions run inside a [session pool](session-pool.md) which provides immediate access to new and existing sessions. These sessions are ideal for scenarios where user-generated input needs to be processed in a controlled manner or when integrating third-party services that require executing code in an isolated environment. You don't need to deploy a container app resource to use dynamic sessions, create a session pool and call its management API.
 
 This article shows you how to manage and interact with dynamic sessions.
 
-## Session access
+## Management endpoint and routing
 
-Your application interacts with a session using the session pool's management API.
+Your application interacts with a session using the session pool's management API. For a conceptual overview of how requests are routed, see [Key concepts](./sessions.md#key-concepts).
 
-A pool management endpoint follows this format:
+To get the session pool management endpoint, see [session pools management endpoint](./session-pool.md#management-endpoint).
 
 ```text
 https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io
 ```
 
-For more information managing session pools, see [session pools management endpoint](./session-pool.md#management-endpoint)
+For more information on managing session pools, see [session pools management endpoint](./session-pool.md#management-endpoint).
+### Management API authentication and authorization
 
-## Forwarding requests to a session's container
+All requests to the session pool management API require authentication (AuthN) with a Microsoft Entra token and authorization (AuthZ) via the *Azure ContainerApps Session Executor* role on the session pool. For details and examples, see [Authentication and authorization](#authentication).
+
+## Send requests to a session
 
 To send a request into a session's container, you use the management endpoint as the root for your request. Anything in the path following the base pool management endpoint is forwarded to the session's container.
 
-For example, if you make a call to: `<POOL_MANAGEMENT_ENDPOINT>/api/uploadfile`, the request is routed to the session's container at `0.0.0.0:<TARGET_PORT>/api/uploadfile`.
+For example, if you make a call to `<POOL_MANAGEMENT_ENDPOINT>/api/uploadfile`, the request is routed to the session container on its target port at `<TARGET_PORT>/api/uploadfile`.
 
-## Continuous interaction
+### Sample request
 
-As you continue to make calls to the same session, the session remains [allocated](sessions.md#session-lifecycle) in the pool. Once there are no requests to the session after the cooldown period has elapsed, the session is automatically destroyed.
-
-## Sample request
-
-The following example shows how to send request to a session using a user's ID as the session unique identifier.
+The following example shows how to send a request to a session using a user's ID as the unique session identifier.
 
 Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
 
@@ -54,11 +53,11 @@ Authorization: Bearer <TOKEN>
 
 This request is forwarded to the container in the session with the identifier for the user's ID.
 
-If the session isn't already running, Azure Container Apps automatically allocates a session from the pool before forwarding the request.
+If no session exists for the given identifier, Azure Container Apps automatically allocates one from the pool before forwarding the request.
 
-In this example, the session's container receives the request at `http://0.0.0.0:<INGRESS_PORT>/<API_PATH_EXPOSED_BY_CONTAINER>`.
+In this example, the session's container receives the request on the target port at `<TARGET_PORT>/<API_PATH_EXPOSED_BY_CONTAINER>`.
 
-## Identifiers
+### Identifiers
 
 To send an HTTP request to a session, you must provide a session identifier in the request. You pass the session identifier in a query string parameter named `identifier` in the URL when you make a request to a session.
 
@@ -66,42 +65,183 @@ To send an HTTP request to a session, you must provide a session identifier in t
 
 - If a session with the identifier doesn't exist, a new session is automatically allocated before the request is sent to it.
 
-:::image type="content" source="media/sessions/sessions-overview.png" alt-text="Screenshot of session pool and sessions usage.":::
+The following diagram shows how a session pool routes requests to existing sessions or allocates a new session when needed.
 
-### Identifier format
+:::image type="content" source="media/sessions/sessions-overview.png" alt-text="Diagram showing a session pool routing requests to existing sessions or creating new sessions based on the identifier.":::
+
+#### Identifier format
 
 The session identifier is a free-form string, meaning you can define it in any way that suits your application's needs.
 
-The session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID as the session identifier. If you're building a chatbot, you can use the conversation ID.
+The session identifier is a string you define that is unique within the session pool. If you're building a web application, you can use the user's ID as the session identifier. If you're building a chatbot, you can use the conversation ID.
 
 The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
 
+## Retrieve session information
+
+You can query your session pool to check session status, get expiration details, and list all active sessions. This capability is useful for monitoring session health, tracking resource usage, and implementing custom cleanup workflows.
+
+### Get a single session
+
+To retrieve details about a specific session, use the `getSession` endpoint:
+
+```text
+POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/.management/getSession?identifier=<SESSION_ID>&api-version=2024-02-02-preview
+Authorization: Bearer <TOKEN>
+```
+
+The `getSession` endpoint returns session metadata including the session identifier, current expiration time, and creation timestamp.
+
+#### SessionView response schema
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `identifier` | string | Yes | The session identifier you provided |
+| `etag` | string | Yes | Opaque version identifier for the session. You can use this identifier for change detection. |
+| `expiresAt` | DateTime | Yes | UTC timestamp when the session will be terminated |
+| `createdAt` | DateTime | No | Session creation timestamp |
+| `lastAccessedAt` | DateTime | No | Timestamp of the last request to this session |
+
+#### Example request and response
+
+```bash
+curl -X POST "https://my-pool.env-id.westus2.azurecontainerapps.io/.management/getSession?identifier=user-123&api-version=2024-02-02-preview" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+Success response (HTTP 200):
+
+```json
+{
+  "identifier": "user-123",
+  "etag": "a1b2c3d4",
+  "expiresAt": "2026-04-30T14:30:00Z",
+  "createdAt": "2026-04-30T13:30:00Z",
+  "lastAccessedAt": "2026-04-30T14:29:00Z"
+}
+```
+
+### List all sessions in a pool
+
+To retrieve a list of all sessions in your session pool, use the `listSessions` endpoint:
+
+```text
+POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/.management/listSessions?skip=0&api-version=2024-02-02-preview
+Authorization: Bearer <TOKEN>
+```
+
+#### Pagination
+
+The list endpoint supports skip-based pagination. By default, each page returns up to 300 sessions. Use the `skip` query parameter to navigate through results.
+
+| Parameter | Description |
+|-----------|-------------|
+| `skip` | Number of sessions to skip from the beginning (default: 0) |
+| `nextLink` | Full URL for the next page of results (included in response when more results exist) |
+
+#### ApiCollectionEnvelope response schema
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `value` | SessionView[] | Array of session objects |
+| `count` | integer | Number of sessions in the current page |
+| `nextLink` | string | URL for the next page (null if no more results) |
+
+#### Example pagination loop
+
+```bash
+POOL_URL="https://my-pool.env-id.westus2.azurecontainerapps.io"
+next_url="$POOL_URL/.management/listSessions?skip=0&api-version=2024-02-02-preview"
+
+while [ -n "$next_url" ]; do
+  response=$(curl -s -X POST "$next_url" \
+    -H "Authorization: Bearer $TOKEN")
+
+  echo "$response" | jq '.value[] | {identifier, expiresAt}'
+
+  next_url=$(echo "$response" | jq -r '.nextLink // empty')
+done
+```
+
+Example response (HTTP 200):
+
+```json
+{
+  "value": [
+    {
+      "identifier": "user-123",
+      "etag": "a1b2c3d4",
+      "expiresAt": "2026-04-30T14:30:00Z"
+    },
+    {
+      "identifier": "user-456",
+      "etag": "e5f6a7b8",
+      "expiresAt": "2026-04-30T14:31:00Z"
+    }
+  ],
+  "count": 2,
+  "nextLink": "https://my-pool.env-id.westus2.azurecontainerapps.io/.management/listSessions?skip=300"
+}
+```
+
+## Error responses
+
+When an error occurs, the API returns a structured error response with details to help you diagnose the issue.
+
+```json
+{
+  "error": {
+    "code": "ErrorCode",
+    "message": "Human-readable error description",
+    "details": "Optional additional context",
+    "target": "Field or parameter that caused the error",
+    "traceId": "Request trace ID for debugging"
+  }
+}
+```
+
+### Common error codes
+
+| Error Code | HTTP status | Description | Resolution |
+|------------|-------------|-------------|-----------|
+| `SessionWithIdentifierNotFound` | 400 | The session identifier doesn't exist in this session pool | Verify the session identifier is correct and the session hasn't expired |
+| `SessionRequestValidationFailed` | 400 | The request is missing required fields or has invalid parameters | Check the query parameters (identifier, skip, api-version) are properly formatted |
+| `SessionRequestNotSupported` | 400 | The request type isn't recognized by the API | Verify you're using a supported endpoint and method |
+| `InternalServerError` | 500 | An unexpected server-side error occurred | Retry the request; if the error persists, check the traceId in logs |
+
+## Session lifecycle in practice
+
+As you continue to make calls to the same session, the session remains [allocated](sessions.md#key-concepts) in the pool. Once there are no requests to the session after the cooldown period has elapsed, the session is automatically destroyed.
+
+> [!NOTE]
+> In rare cases, when a session's background TTL-extension request fails (for example, if the container exits unexpectedly), the session is automatically removed from the pool. You'll see a "session not found" error on your next request to that session. This cleanup is automatic and requires no action on your part.
+
 ## Security
+
+### Security model
 
 Dynamic sessions are built to run untrusted code and applications in a secure and isolated environment. While sessions are isolated from one another, anything within a single session, including files and environment variables, is accessible by users of the session.
 
 Only configure or upload sensitive data to a session if you trust the users of the session.
 
+### Network access
+
 By default, sessions are prevented from making outbound network requests. You can control network access by configuring network status settings on the session pool.
 
-- **Use strong, unique session identifiers**: Always generate session identifiers that are long and complex to prevent brute-force attacks. Use cryptographic algorithms to create identifiers that are hard to guess.
+### Best practices
 
+- **Secure identifiers**: Use secure [session identifiers](sessions-usage.md#identifiers) at all times. Generate session identifiers using cryptographic methods to ensure unique and unpredictable values. Avoid using sequential IDs that could be guessed by an attacker.
+- **Use HTTPS**: Always use HTTPS to encrypt data in transit. This protects session identifiers and any sensitive data exchanged between the client and server from being intercepted.
+- **Limit session lifetime**: Implement timeouts for sessions. For instance, allow a maximum of 15 minutes of inactivity before the session is automatically terminated. This helps mitigate risks due to a lost or unattended device.
 - **Limit session visibility**: Set strict access controls to ensure that session identifiers are only visible to the session pool. Avoid exposing session IDs in URLs or logs.
-
-- **Implement short expiration times**: Configure session identifiers to expire after a short period of inactivity. This approach minimizes the risk of sessions being hijacked after a user has finished interacting with your application.
-
 - **Regularly rotate session credentials**: Periodically review and update the credentials associated with your sessions. Rotation decreases the risk of unauthorized access.
+
+### Additional guidance for custom container sessions
 
 - **Utilize secure transmission protocols**: Always use HTTPS to encrypt data in transit, including session identifiers. This approach protects against man-in-the-middle attacks.
 
 - **Monitor session activity**: Implement logging and monitoring to track session activities. Use these logs to identify unusual patterns or potential security breaches.
-
 - **Validate user input**: Treat all user input as dangerous. Use input validation and sanitation techniques to protect against injection attacks and ensure that only trusted data is processed.
-
-To fully secure your sessions, you can:
-
-- [Use Microsoft Entra ID authentication and authorization](#authentication)
-- [Protect session identifiers](#protect-session-identifiers)
 
 ### <a name="authentication"></a>Authentication and authorization
 
@@ -116,9 +256,9 @@ az role assignment create \
     --scope <SESSION_POOL_RESOURCE_ID>
 ```
 
-If you're using an [large language model (LLM) framework integration](sessions-code-interpreter.md#llm-framework-integrations), the framework handles the token generation and management for you. Ensure that the application is configured with a managed identity with the necessary role assignments on the session pool.
+If you're using a [large language model (LLM) framework integration](sessions-code-interpreter.md#llm-framework-integrations), the framework handles the token generation and management for you. Ensure that the application is configured with a managed identity with the necessary role assignments on the session pool.
 
-If you're using the pool's management API endpoints directly, you must generate a token and include it in the `Authorization` header of your HTTP requests. In addition to the role assignments previously mentioned, token needs to contain an audience (`aud`) claim with the value `https://dynamicsessions.io`.
+If you're using the pool's management API endpoints directly, you must generate a token and include it in the `Authorization` header of your HTTP requests. In addition to the role assignments previously mentioned, the token needs to contain an audience (`aud`) claim with the value `https://dynamicsessions.io`.
 
 ##### [Azure CLI](#tab/cli)
 
@@ -317,7 +457,17 @@ This template contains the following settings for managed identity:
 
 ## Logging
 
-Console logs from containers running in a session are available in the Azure Log Analytics workspace associated with the Azure Container Apps environment in a table named `AppEnvSessionConsoleLogs_CL`.
+Azure Container Apps dynamic sessions integrate with Azure Monitor and Log Analytics to collect logs emitted during session execution. The configuration steps are the same for code interpreter and custom container session pools, but the available log categories differ by session type. Metrics returned via API response headers aren't written to Log Analytics.
+
+### Logging differences by session type
+
+Use the following guidance to compare logging behavior and jump to the details that match your session type:
+
+- **Code interpreter sessions**: Outputs are returned from execution (including `stdout` and `stderr`), but AppEnvSession Log Analytics tables aren't emitted. See [Code interpreter sessions logging](./sessions-code-interpreter.md#logging).
+- **Custom container sessions**: AppEnvSession Log Analytics tables are emitted when your container writes to `stdout` or `stderr`, and platform logs are available for pool lifecycle and events. See [Custom container sessions logging](./sessions-custom-container.md#logging).
+- **Common**: Metrics returned via API response headers aren't written to Log Analytics. 
+
+For a full list of supported session categories on the environment resource (`Microsoft.App/managedEnvironments`), see [Supported logs for Microsoft.App/managedEnvironments](/azure/azure-monitor/reference/supported-logs/microsoft-app-managedenvironments-logs).
 
 ## Related content
 

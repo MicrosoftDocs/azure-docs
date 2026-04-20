@@ -4,7 +4,7 @@ description: Recent updates for Azure Cache for Redis
 ms.custom:
   - references_regions
   - build-2025
-ms.topic: conceptual
+ms.topic: whats-new
 ms.date: 10/02/2025
 appliesto:
   - ✅ Azure Cache for Redis
@@ -15,6 +15,10 @@ appliesto:
 
 Find out what's new in Azure Redis.
 
+## April 2026
+
+### Tooling to migrate Azure Cache for Redis instance to Azure Managed Redis (preview)
+Tooling to aid migration from Azure Cache for Redis (Basic, Standard, and Premium) is now available in Public Preview. When migration is initiated using the tooling, your Azure Cache for Redis endpoint is updated to point to your precreated Azure Managed Redis. For more information, see [Migration using tooling](/azure/redis/migrate/migrate-basic-standard-premium-with-tooling).
 
 ## October 2025
 
@@ -39,7 +43,10 @@ The following are the important dates to note for Basic, Standard, and Premium t
 | October 1, 2026 | Creating new caches in Basic, Standard or Premium tiers is blocked for existing customers. |
 | October 1, 2028 | Remaining caches in Basic, Standard or Premium tiers are turned off.                       |
 
-For more information on moving your caches to Azure Managed Redis, see [Migrate from Basic, Standard, Premium, and Enterprise tiers to Azure Managed Redis](/azure/redis/migrate/migrate-overview).
+For more information on moving your caches to Azure Managed Redis, see:
+
+- [Migrate Basic, Standard, and Premium tiers to Azure Managed Redis](/azure/redis/migrate/migrate-basic-standard-premium-overview)
+- [Migrate Enterprise tier to Azure Managed Redis](/azure/redis/migrate/migrate-redis-enterprise-overview)
 
 For more details about the retirement of Azure Cache for Redis, see [Azure Cache for Redis Retirement: What to Know and How to Prepare](https://techcommunity.microsoft.com/blog/azure-managed-redis/azure-cache-for-redis-retirement-what-to-know-and-how-to-prepare/4458721).
 
@@ -155,7 +162,7 @@ For more information, see [How to configure CMK encryption on Enterprise caches]
 
 All tiers of Azure Cache for Redis now support TLS 1.3.
 
-For more information, see [What are the configuration settings for the TLS protocol?](cache-tls-configuration.md).
+For more information, see [What are the configuration settings for the TLS protocol?](cache-tls-configuration.md)
 
 ## October 2023
 

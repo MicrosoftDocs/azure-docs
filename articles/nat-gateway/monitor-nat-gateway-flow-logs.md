@@ -20,13 +20,7 @@ In this article, you learn how to set up, monitor, and troubleshoot with Azure S
 - An Azure StandardV2 NAT Gateway resource. To learn how to create a StandardV2 NAT Gateway resource, see [Quickstart: Create a StandardV2 NAT Gateway](./quickstart-create-nat-gateway-v2.md).
 - An Azure Monitor Log Analytics workspace. To learn how to create a Log Analytics workspace, see [Quickstart: Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
-> [!IMPORTANT]
-> StandardV2 Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
-## Enable diagnostic settings to collect NAT gateway flow logs
-
-In this section, you learn how to set up StandardV2 NAT gateway flow logs and send it to the recommended destination – Log Analytics workspace, which enables you to manage data retention and access. To learn more about the other destinations, including Azure Storage account and Azure Event Hubs, see [Diagnostic settings in Azure Monitor - Azure Monitor | Microsoft Learn.](/azure/azure-monitor/platform/diagnostic-settings)
 
 > [!NOTE]
 > If you're sending logs to Azure Storage or Event Hubs, ensure the region of your storage account and Event Hubs namespace are in the same region as your StandardV2 NAT gateway resource.

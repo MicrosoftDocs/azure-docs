@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: concept-article
-ms.date: 12/07/2025
+ms.date: 04/02/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to implement Azure NetApp Files to migrate and run mission-critical applications, so that I can ensure high performance, scalability, and security for diverse workloads in the cloud.
 ---
@@ -69,16 +69,6 @@ This section provides references for solutions for Linux OSS applications and da
 * [Moodle deployment with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)
 * [Moodle on Azure NetApp Files NFS storage](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
 
-### Mainframe refactor
-
-* [Use Azure NetApp Files to deploy IBM Power in Skytap on Azure – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/deploy-ibm-power-workloads)
-* [General mainframe refactor to Azure - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
-* [Refactor mainframe applications with Advanced - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
-* [Refactor mainframe applications with Astadia – Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-astadia)
-* [Refactor mainframe computer systems that run Adabas & Natural - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-adabas-aks)
-* [Refactor IBM z/OS mainframe coupling facility (CF) to Azure - Azure Example Scenarios](/azure/architecture/reference-architectures/zos/refactor-zos-coupling-facility)
-* [Refactor mainframe applications to Azure with Raincode compilers - Azure Example Scenarios](/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture)
-
 ## Windows Apps and SQL Server solutions
 
 This section provides references for Windows applications and SQL Server solutions.
@@ -135,7 +125,9 @@ This section provides references to SAP on Azure solutions.
 * [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
 * [Azure NetApp Files Backup for SAP Solutions](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/anf-backup-for-sap-solutions/ba-p/3717977)
 * [SAP HANA Disaster Recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
-* [Running SAP Applications on the Microsoft Platform](https://techcommunity.microsoft.com/blog/sapapplications/designing-migrating-and-managing-a-151-node-sap-bw-scale-out-landscape-on-micros/3715003)
+* [Designing, Migrating and Managing a 15+1-Node SAP BW Scale-Out Landscape on Microsoft Azure](https://techcommunity.microsoft.com/blog/sapapplications/designing-migrating-and-managing-a-151-node-sap-bw-scale-out-landscape-on-micros/3715003)
+* [SAP HANA data protection on Azure NetApp Files with SnapCenter](https://techcommunity.microsoft.com/blog/sapapplications/sap-hana-data-protection-on-azure-netapp-files-with-snapcenter/3510031)
+* [SAP System Refresh and Cloning operations on Azure NetApp Files with SnapCenter](https://techcommunity.microsoft.com/blog/sapapplications/sap-system-refresh-and-cloning-operations-on-azure-netapp-files-with-snapcenter/4356389)
 
 ### SAP AnyDB
 
@@ -168,7 +160,7 @@ This section provides references to SAP on Azure solutions.
 
 * [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 * [Attach Azure NetApp Files to Azure VMware Solution VMs - Guest OS Mounts](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
-* [Deploy disaster recovery using JetStream DR software](../azure-vmware/deploy-disaster-recovery-using-jetstream.md#disaster-recovery-with-azure-netapp-files-jetstream-dr-and-azure-vmware-solution)
+* [Deploy disaster recovery using JetStream DR software](../azure-vmware/deploy-disaster-recovery-using-jetstream.md)
 * [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/) - Jetstream
 * [Enable App Volume Replication for Horizon VDI on Azure VMware Solution using Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-migration-and/enable-app-volume-replication-for-horizon-vdi-on-azure-vmware/ba-p/3798178)
 * [Disaster Recovery using cross-region replication with Azure NetApp Files datastores for AVS](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-using-cross-region-replication-with-azure/ba-p/3870682)
@@ -233,23 +225,19 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 This section provides solutions for Azure platform services. 
 
+### Azure data and AI services
+
+* [How Azure NetApp Files Object REST API powers Azure and ISV Data and AI services](https://techcommunity.microsoft.com/blog/azurearchitectureblog/how-azure-netapp-files-object-rest-api-powers-azure-and-isv-data-and-ai-services/4459545)
+* [Unlocking Advanced Data Analytics and AI with Azure NetApp Files object REST API](https://techcommunity.microsoft.com/blog/azurearchitectureblog/unlocking-advanced-data-analytics--ai-with-azure-netapp-files-object-rest-api/4486098)
+
 ### Azure Kubernetes Services and Kubernetes
 
-* [Astra: protect, recover, and manage your AKS workloads on Azure NetApp Files](https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html) 
 * [Integrate Azure NetApp Files with Azure Kubernetes Service](/azure/aks/azure-netapp-files)
 * [Azure NetApp Files SMB volumes for Azure Kubernetes Services with Astra Trident on Windows](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-smb-volumes-for-azure-kubernetes-services/ba-p/3052900)
 * [Application data protection for AKS workloads on Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)
-* [Disaster Recovery of AKS workloads with Astra Control Service and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-of-aks-workloads-with-astra-control-service/ba-p/2948089)
-* [Protecting MongoDB on AKS/ANF with Astra Control Service using custom execution hooks](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-mongodb-on-aks-anf-with-astra-control-service-using/ba-p/3057574)
 * [Comparing and Contrasting the AKS/ANF NFS subdir external provisioner with Astra Trident](https://techcommunity.microsoft.com/t5/azure-architecture-blog/comparing-and-contrasting-the-aks-anf-nfs-subdir-external/ba-p/3057547)
 * [Out-of-This-World Kubernetes performance on Azure with Azure NetApp Files](https://bluexp.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Azure NetApp Files + Trident = Dynamic and Persistent Storage for Kubernetes](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
-* [Magento e-commerce platform in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
-* [Protecting Magento e-commerce platform in AKS against disasters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-magento-e-commerce-platform-in-aks-against-disasters/ba-p/3285525)
-* [Protecting applications on private Azure Kubernetes Service clusters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-applications-on-private-azure-kubernetes-service/ba-p/3289422)
-* [Providing Disaster Recovery to CloudBees-Jenkins in AKS with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/providing-disaster-recovery-to-cloudbees-jenkins-in-aks-with/ba-p/3553412)
-* [Disaster protection for JFrog Artifactory in AKS with Astra Control Service and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-protection-for-jfrog-artifactory-in-aks-with-astra/ba-p/3701501)
-* [Develop and test easily on AKS with NetApp® Astra Control Service® and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/develop-and-test-easily-on-aks-with-netapp-astra-control-service/ba-p/3604225)
 
 ### Azure Machine Learning
 

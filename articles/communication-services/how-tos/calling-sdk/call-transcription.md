@@ -2,8 +2,8 @@
 title: Show call transcription state on the client
 titleSuffix: An Azure Communication Services article
 description: Use Azure Communication Services SDKs to display the call transcription state
-author: tophpalmer
-ms.author: chpalm
+author: sundiraman
+ms.author: sundraman
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 

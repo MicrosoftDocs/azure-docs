@@ -5,7 +5,7 @@ description: Learn about the key features that help you optimize the copy activi
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
 ms.date: 02/13/2025
 

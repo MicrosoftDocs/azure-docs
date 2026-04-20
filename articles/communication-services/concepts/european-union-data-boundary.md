@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: micahvivion
 ms.date: 08/25/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.custom: references_regions
 ---

@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/21/2025
+ms.date: 02/23/2026
 ms.author: liuyizhu
 
 #CustomerIntent: As a billing administrator, I want to learn how to grant RBAC access to reservations by using PowerShell so that I can effectively assign permissions.

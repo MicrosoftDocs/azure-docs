@@ -21,7 +21,7 @@ ms.collection:
 This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool to discover and assess servers in a VMware environment for migration to Azure.
 
 
-To assess servers, first, create an Azure Migrate project. The Azure Migrate: Discovery and assessment tool is automatically added to the project. Then, deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends configuration and performance metadata to Azure. When discovery is finished, gather the discovered servers into groups and run assessments per group.
+To assess servers, first, create an Azure Migrate project. The Azure Migrate: Discovery and assessment tool is automatically added to the project. Then, deploy the Azure Migrate appliance. The appliance continuously discovers on-premises or Azure VMware Solution servers and sends configuration and performance metadata to Azure. When discovery is finished, gather the discovered servers into groups and run assessments per group.
 
 As you plan your migration of VMware servers to Azure, see the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
@@ -62,7 +62,7 @@ ESXi hosts | For [discovery of software inventory](how-to-discover-applications.
 
 ## Software inventory requirements
 
-In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles, and features running on Windows and Linux servers that are discovered by using Azure Migrate and Modernize. It allows you to identify and plan a migration path tailored for your on-premises workloads.
+In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles, and features running on Windows and Linux servers that are discovered by using Azure Migrate and Modernize. It allows you to identify and plan a migration path tailored for your on-premises or Azure VMware Solution workloads.
 
 Support | Details
 --- | ---
@@ -292,12 +292,10 @@ Support | ASP.NET web apps | Java web apps
 --- | --- | ---
 Stack |VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
 Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
-Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, and Red Hat Enterprise Linux 5/6/7.
+Linux servers | Not supported | Servers that meet the [requirements](/azure/migrate/migrate-support-matrix-vmware?view=migrate&tabs=businesscase#vmware-requirements)
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
 Protocol | WinRM port 5986 (HTTPS) by default, if HTTPS prerequisites aren't configured on the target servers, communication falls back to WinRM port 5985 (HTTP) | SSH port 22 (TCP)
-Required privileges | Local admin. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
-Protocol | WinRM port 5985 (HTTP) | SSH port 22 (TCP)
-Required privileges | The least privileged user should be a part of the two user groups 1. Remote Management Users 2. IIS_IUSRS. The users must have read permissions to the following locations: C:\Windows\system32\inetsrv\config, C:\Windows\system32\inetsrv\config\applicationHost.config and C:\Windows\system32\inetsrv\config\redirection.config. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
+Required privileges | The user should be a part of the two user groups 1. Remote Management Users 2. IIS_IUSRS. The users must have read permissions to the following locations: C:\Windows\system32\inetsrv\config, C:\Windows\system32\inetsrv\config\applicationHost.config and C:\Windows\system32\inetsrv\config\redirection.config. Add the user to 'log on as batch job' using secpol.msc and ensure user is not part of 'deny log on as batch job'  | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
 
 > [!NOTE]
 > Data is always encrypted at rest and during transit.
@@ -325,14 +323,14 @@ Discovery method |  Dependency information between servers is gathered by using 
 
 ## Dependency analysis requirements (agent-based)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you identify dependencies between on-premises servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agent-based dependency analysis.
+[Dependency analysis](concepts-dependency-visualization.md) helps you identify dependencies between on-premises or Azure VMware Solution servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agent-based dependency analysis.
 
 Requirement | Details
 --- | ---
-Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br /><br />Learn how to [create a project for the first time](create-manage-projects.md).<br /> Learn how to [add a discovery and assessment tool to an existing project](how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
-Supported servers | Supported for all servers in your on-premises environment.
+Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises or Azure VMware Solution servers.<br /><br />Learn how to [create a project for the first time](create-manage-projects.md).<br /> Learn how to [add a discovery and assessment tool to an existing project](how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
+Supported servers | Supported for all servers in your on-premises and Azure VMware Solution environment.
 Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency visualization.<br /><br /> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br /><br /> The workspace must be in the same subscription as the project.<br /><br /> The workspace must be located in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /><br /> The workspace must be in a [region in which Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> In Log Analytics, the workspace associated with Azure Migrate is tagged with the project key and project name.
-Required agents | On each server that you want to analyze, install the following agents:<br />- Azure Monitor agent (AMA)<br />- [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance)<br /><br /> If on-premises servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the Azure Monitor agent.
+Required agents | On each server that you want to analyze, install the following agents:<br />- Azure Monitor agent (AMA)<br />- [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance)<br /><br /> If on-premises or Azure VMware Solution servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the Azure Monitor agent.
 Log Analytics workspace | The workspace must be in the same subscription as the project.<br /><br /> Azure Migrate supports workspaces that are located in the East US, Southeast Asia, and West Europe regions.<br /><br />  The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> You can't modify the workspace for a project after you add the workspace.
 Cost | The Service Map solution doesn't incur any charges for the first 180 days. The count starts from the day you associate the Log Analytics workspace with the project.<br /><br /> After 180 days, standard Log Analytics charges apply.<br /><br /> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br /><br /> When the project is deleted, the workspace isn't automatically deleted. After you delete the project, Service Map usage isn't free. Each node is charged according to the paid tier of the Log Analytics workspace.<br /><br />If you have projects that you created before Azure Migrate general availability (GA on February 28, 2018), you might incur other Service Map charges. To ensure that you're charged only after 180 days, we recommend that you create a new project. Workspaces that were created before GA are still chargeable.
 Management | When you register agents to the workspace, use the ID and key provided by the project.<br /><br /> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br /><br /> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](/azure/azure-monitor/logs/manage-access).<br /><br /> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
@@ -361,7 +359,7 @@ Using an RVTools XLSX file:
 
 - Helps to create a business case or assess the servers before you deploy the appliance.
 - Aids as an alternative when there's an organizational restriction to deploy the Azure Migrate appliance.
-- Is helpful when you can't share credentials that allow access to on-premises servers.
+- Is helpful when you can't share credentials that allow access to on-premises or Azure VMware Solution servers.
 - Is useful when security constraints prevent you from gathering and sending data collected by the appliance to Azure.
 
 ### Limitations

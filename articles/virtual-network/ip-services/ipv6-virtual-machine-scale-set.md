@@ -83,4 +83,4 @@ The only step that is different from individual VMs is creating the network inte
 To deploy a dual stack (IPv4 + IPv6) Virtual Machine Scale Set with dual stack external Load Balancer and virtual network view sample template [here](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-vmss/).
 ## Next steps
 
-To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md).
+To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md)

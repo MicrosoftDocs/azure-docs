@@ -30,7 +30,7 @@ The following diagram shows how traffic flows between the client and the storage
 
 ![Overview of routing options for Azure Storage](media/network-routing-preference/routing-options-diagram.png)
 
-For more information on routing preference in Azure, see [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md).
+For more information on routing preference in Azure, see [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md)
 
 ## Routing configuration
 
@@ -114,7 +114,7 @@ The following known issues affect the routing preference for Azure Storage:
 
 ## Pricing and billing
 
-For pricing and billing details, see the **Pricing** section in [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md#pricing).
+For pricing and billing details, see the **Pricing** section in [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md#pricing)
 
 ## Next steps
 

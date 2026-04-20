@@ -13,7 +13,7 @@ ms.topic: concept-article
 This article describes reliability support in Azure Deployment Environments. It covers intra-regional resiliency with availability zones and inter-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/reliability/).
 
 ## Availability zone support
-[Availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) are physically separate groups of datacenters within an Azure region. When one zone fails, services can fail over to one of the remaining zones. To improve the availability of your applications, architect your solutions to use multiple availability zones within a region. For more information about Azure regions where availability zones are available, see [Azure regions list](../reliability/regions-list.md).
+[Availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) are physically separate groups of datacenters within an Azure region. When one zone fails, services can fail over to one of the remaining zones. To improve the availability of your applications, architect your solutions to use multiple availability zones within a region. For more information about Azure regions where availability zones are available, see [Azure regions list](/azure/reliability/regions-list).
 
 When you deploy Azure Deployment Environments in a region that supports availability zones, the environments automatically support availability zones for all resources. Check the regions that support Deployment Environments by using the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=deployment-environments) page.
 

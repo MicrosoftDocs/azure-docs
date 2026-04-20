@@ -3,7 +3,7 @@ title: Monitor Azure Stream Analytics
 description: Start here to learn how to monitor Azure Stream Analytics.
 ms.date: 03/21/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: how-to
 author: spelluru
 ms.author: spelluru
 ms.service: azure-stream-analytics

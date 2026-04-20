@@ -19,7 +19,7 @@ The full sample source code is available in the [Azure App Configuration GitHub 
 
 ## Prerequisites
 
-- Create an _Azure AI project_ in Microsoft Foundry and configure the _example agent settings_ discussed in the [Get started](./howto-ai-agent-config.md#example-agent-settings) section.
+- Create a _Foundry project_ in Microsoft Foundry and configure the _example agent settings_ discussed in the [Get started](./howto-ai-agent-config.md#example-agent-settings) section.
 - Python 3.10 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/).
 
 ## Console application

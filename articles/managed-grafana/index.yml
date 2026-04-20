@@ -105,7 +105,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Service reliability
-            url: high-availability.md
+            url: /azure/reliability/reliability-managed-grafana?toc=/azure/managed-grafana/toc.json&bc=/azure/managed-grafana/breadcrumb/toc.json
           - text: Zone redundancy
             url: how-to-enable-zone-redundancy.md
 

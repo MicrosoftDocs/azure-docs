@@ -13,25 +13,37 @@ ms.author: ofshezaf
 
 # Advanced Security Information Model (ASIM) schemas
 
-An Advanced Security Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
+An Advanced Security Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity or entity. Using the fields from a normalized schema in a query ensures that the query works with every normalized source.
 
 To understand how schemas fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
-Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas:
+## Activity/Event Schemas
 
-| Schema | Version | Status |
-| ------ | ------- | ------ |
-| [Alert Event](normalization-schema-alert.md) | 0.1 | GA |
-| [Audit Event](normalization-schema-audit.md) | 0.1.2 | GA |
-| [Authentication Event](normalization-schema-authentication.md) | 0.1.4 | GA |
-| [DNS Activity](normalization-schema-dns.md) | 0.1.7 | GA |
-| [DHCP Activity](normalization-schema-dhcp.md) | 0.1.1 | GA |
-| [File Activity](normalization-schema-file-event.md) | 0.2.2 | GA |
-| [Network Session](normalization-schema.md) | 0.2.7 | GA |
-| [Process Event](normalization-schema-process-event.md) | 0.1.4 | GA |
-| [Registry Event](normalization-schema-registry-event.md) | 0.1.3 | GA |
-| [User Management](normalization-schema-user-management.md) | 0.1.2 | GA |
-| [Web Session](normalization-schema-web.md) | 0.2.7 | GA |
+Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas for events:
+
+| Schema | Schema Name for Tests | Version | Status |
+| ------ | --------------------- | ------- | ------ |
+| [Alert Event](normalization-schema-alert.md) | `AlertEvent` | 0.1 | GA |
+| [Audit Event](normalization-schema-audit.md) | `AuditEvent` | 0.1.2 | GA |
+| [Authentication Event](normalization-schema-authentication.md) | `Authentication` | 0.1.4 | GA |
+| [DHCP Activity](normalization-schema-dhcp.md) | `DhcpEvent` | 0.1.1 | GA |
+| [DNS Activity](normalization-schema-dns.md) | `Dns` | 0.1.7 | GA |
+| [File Activity](normalization-schema-file-event.md) | `FileEvent` | 0.2.2 | GA |
+| [Network Session](normalization-schema.md) | `NetworkSession` | 0.2.7 | GA |
+| [Process Event](normalization-schema-process-event.md) | `ProcessEvent` | 0.1.4 | GA |
+| [Registry Event](normalization-schema-registry-event.md) | `RegistryEvent` | 0.1.3 | GA |
+| [User Management](normalization-schema-user-management.md) | `UserManagement` | 0.1.2 | GA |
+| [Web Session](normalization-schema-web.md) | `WebSession` | 0.2.7 | GA |
+
+## Entity Schemas
+
+ASIM currently defines the following schemas for entities:
+
+| Schema | Schema Name for Tests | Version | Status |
+| ------ | --------------------- | ------- | ------ |
+| [Asset Entity](normalization-schema-asset.md) | `AssetEntity` | 0.1.0 | GA |
+
+For entities which are part of other ASIM schemas, refer to [Event Entities](#event-entities).
 
 ## Field naming
 
@@ -39,9 +51,9 @@ At the core of each schema are its field names. Field names belong to the follow
 
 - Fields common to all schemas.
 - Fields specific to a schema.
-- Fields that represent entities, such as users, which take part in the schema. Fields that represent entities [are similar across schemas](#entities).
+- Fields that represent entities, such as users, which take part in the schema. Fields that represent entities [are similar across schemas](#event-entities).
 
-When sources have fields that aren't presented in the documented schema, they're normalized to maintain consistency. If the extra fields represent an entity, they'll be normalized based on the entity field guidelines. Otherwise, the schemas strive to keep consistency across all schemas.<br><br> For example, while DNS server activity logs don't provide user information, DNS activity logs from an endpoint might include user information, which can be normalized according to the user entity guidelines.
+When sources have fields that aren't presented in the documented schema, they're normalized to maintain consistency. If the extra fields represent an entity, they're normalized based on the entity field guidelines. Otherwise, the schemas strive to keep consistency across all schemas.<br><br> For example, while DNS server activity logs don't provide user information, DNS activity logs from an endpoint might include user information, which can be normalized according to the user entity guidelines.
 
 ## Common fields
 
@@ -51,17 +63,17 @@ Some fields are common to all ASIM schemas. Each schema might add guidelines for
 
 Fields might have several classes, which define when the fields should be implemented by a parser: 
 
-- **Mandatory** fields must appear in every parser. If your source doesn't provide information for this value, or the data can't be otherwise added, it won't support most content items that reference the normalized schema.
+- **Mandatory** fields must appear in every parser. If your source doesn't provide information for this value, or the data can't be otherwise added, it does not support most content items that reference the normalized schema.
 - **Recommended** fields should be normalized if available. However, they might not be available in every source. Any content item that references that normalized schema should take availability into account.
 - **Optional** fields, if available, can be normalized or left in their original form. Typically, a minimal parser wouldn't normalize them for performance reasons.
 - **Conditional** fields are mandatory if the field they follow is populated. Conditional fields are typically used to describe the value in another field. For example, the common field [DvcIdType](normalization-common-fields.md#dvcidtype) describes the value int the common field [DvcId](normalization-common-fields.md#dvcid) and is therefore mandatory if the latter is populated.
 - **Alias** is a special type of a conditional field, and is mandatory if the aliased field is populated.
 
-## Entities
+## Event Entities
 
 Events evolve around entities, such as users, hosts, processes, or files. Each entity might require several fields to describe it. For example, a host might have a name and an IP address.
 
-A single record might include multiple entities of the same type, such as both a source and destination host. <br><br>ASIM defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the Network Session schema doesn't include process information, some event sources do provide process information that can be added. For more information, see [Entities](#entities). 
+A single record might include multiple entities of the same type, such as both a source and destination host. <br><br>ASIM defines how to describe entities consistently, and entities allow for extending the schemas. <br><br>For example, while the Network Session schema doesn't include process information, some event sources do provide process information that can be added. For more information, see [Entities](#event-entities). 
 
 To enable entity functionality, entity representation has the following guidelines:
 
@@ -71,20 +83,23 @@ To enable entity functionality, entity representation has the following guidelin
 |**Identifiers and types**     | A normalized schema allows for several identifiers for each entity, which we expect to coexist in events. If the source event has other entity identifiers that can't be mapped to the normalized schema, keep them in the source form or use the **AdditionalFields** dynamic field. <br><br>To maintain the type information for the identifiers, store the type, when applicable, in a field with the same name and a suffix of **Type**. For example, **UserIdType**.         |
 |**Attributes**     |   Entities often have other attributes that don't serve as an identifier and can also be qualified with a descriptor. For example, if the source user has domain information, the normalized field is **SrcUserDomain**.      |
 
-For more information about specific entity types refer to:
+For more information about specific entity types, refer to:
 - [User Entity](normalization-entity-user.md)
 - [Device Entity](normalization-entity-device.md)
 - [Application Entity](normalization-entity-application.md)
+
+For more information about full entity schemas, refer to:
+- [Asset Entity Schema](normalization-schema-asset.md)
 
 ## Aliases
 
  Aliases allow multiple names for a specified value. In some cases, different users expect a field to have different names. For example, in DNS terminology, you might expect a field named [DnsQuery](normalization-schema-dns.md#query), while more generally, it holds a domain name. The alias [Domain](normalization-schema-dns.md#domain) helps the user by allowing the use of both names. 
 
  > [!NOTE]
-> Aliases are intended to help an analyst with interactive queries. When using queries in reusable content such asn custom detections, analytic rules or workbooks, use the aliased field rather than the alias. Using the aliased field ensures better performance, less errors and better query readability.
+> Aliases are intended to help an analyst with interactive queries. When using queries in reusable content such asn custom detections, analytic rules, or workbooks, use the aliased field rather than the alias. Using the aliased field ensures better performance, less errors and better query readability.
 >
  
- In some cases, an alias can have the value of one of several fields, depending on which values are available in the event. For example, the [Dvc](normalization-common-fields.md#dvc) alias, aliases either the [DvcFQDN](normalization-common-fields.md#dvcfqdn), [DvcId](normalization-common-fields.md#dvcid), [DvcHostname](normalization-common-fields.md#dvchostname), or [DvcIpAddr](normalization-common-fields.md#dvcipaddr) , or [Event Product](normalization-common-fields.md#eventproduct) fields. When an alias can have several values, its type has to be a string to accommodate all possible aliased values. As a result, when assigning a value to such an alias, make sure to convert the type to string using the KQL function [tostring](/kusto/query/tostring-function?view=microsoft-sentinel&preserve-view=true).<br><br>[Native normalized tables](normalization-ingest-time.md#ingest-time-parsing) do not include aliases, as those would imply duplicate data storage. Instead the [stub parsers](normalization-ingest-time.md#combining-ingest-time-and-query-time-normalization) add the aliases. To implement aliases in parsers, create a copy of the original value by using the `extend` operator.
+ In some cases, an alias can have the value of one of several fields, depending on which values are available in the event. For example, the [Dvc](normalization-common-fields.md#dvc) alias, aliases either the [DvcFQDN](normalization-common-fields.md#dvcfqdn), [DvcId](normalization-common-fields.md#dvcid), [DvcHostname](normalization-common-fields.md#dvchostname), or [DvcIpAddr](normalization-common-fields.md#dvcipaddr) , or [Event Product](normalization-common-fields.md#eventproduct) fields. When an alias can have several values, its type has to be a string to accommodate all possible aliased values. As a result, when assigning a value to such an alias, make sure to convert the type to string using the KQL function [tostring](/kusto/query/tostring-function?view=microsoft-sentinel&preserve-view=true).<br><br>[Native normalized tables](normalization-ingest-time.md#ingest-time-parsing) don't include aliases, as those would imply duplicate data storage. Instead the [stub parsers](normalization-ingest-time.md#combining-ingest-time-and-query-time-normalization) add the aliases. To implement aliases in parsers, create a copy of the original value by using the `extend` operator.
 
 
 ## Logical types
@@ -99,10 +114,10 @@ Each schema field has a type. The Log Analytics workspace has a limited set of d
 |**MAC address**    |  String       | Colon-Hexadecimal notation.        |
 |**IP address**     |String         |    Microsoft Sentinel schemas don't have separate IPv4 and IPv6 addresses. Any IP address field might include either an IPv4 address or an IPv6 address, as follows: <br><br>- **IPv4** in a dot-decimal notation.<br>- **IPv6** in 8-hextets notation, allowing for the short form.<br><br>For example:<br>- **IPv4**: `192.168.10.10` <br>- **IPv6**: `FEDC:BA98:7654:3210:FEDC:BA98:7654:3210`<br>- **IPv6 short form**: `1080::8:800:200C:417A`     |
 |**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `learn.microsoft.com`. For more information, see [The Device entity](normalization-entity-device.md). |
-|<a name="hostname"></a>**Hostname** | String | A hostname which is not an FQDN, includes up to 63 characters including letters, numbers and hyphens. For more information, see [The Device entity](normalization-entity-device.md).|
+|<a name="hostname"></a>**Hostname** | String | A hostname that isn't an FQDN, includes up to 63 characters including letters, numbers, and hyphens. For more information, see [The Device entity](normalization-entity-device.md).|
 |**Domain**        |   String      |    the domain part of an FQDN, without the hostname, for example, `learn.microsoft.com`. For more information, see [The Device entity](normalization-entity-device.md). |
 | **DomainType** | Enumerated | The type of domain stored in domain and FQDN fields. For a list of values and more information, see [The Device entity](normalization-entity-device.md). |
-| **DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. For a list of allowed values and further information refer to [DvcIdType](normalization-entity-device.md#dvcidtype). |
+| **DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. For a list of allowed values and further information, refer to [DvcIdType](normalization-entity-device.md#dvcidtype). |
 |<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other`. For more information, see [The Device entity](normalization-entity-device.md). |
 |<a name="username"></a>**Username** | String | A valid username in one of the supported [types](#usernametype). For more information, see [The User entity](normalization-entity-user.md). |
 |<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. For more information and list of supported values, see [The User entity](normalization-entity-user.md). |

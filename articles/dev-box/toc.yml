@@ -66,24 +66,25 @@ items:
         href: how-to-conditional-access-dev-tunnels-service.md
       - name: Move dev box pools between regions
         href: how-to-move-dev-box-pool-region.md
-  - name: Prepare images
-    items:
-      - name: Configure an Azure compute gallery
-        href: how-to-configure-azure-compute-gallery.md
-      - name: Provision a Custom Image with Azure Image Builder
-        href: how-to-customize-devbox-azure-image-builder.md
   - name: Customize dev boxes
     items:
       - name: What are Dev Box customizations
         href: concept-what-are-dev-box-customizations.md
         displayName: customizations, image definition, team customization
-      - name: Quickstart:Use Team Customizations
-        href: quickstart-team-customizations.md
       - name: Configure team customizations
         href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization
       - name: Configure dev center imaging
         href: how-to-configure-dev-center-imaging.md
+        displayName: customizations, image definition, dev center imaging
+      - name: Prepare images
+        items:
+          - name: Configure an Azure compute gallery
+            href: how-to-configure-azure-compute-gallery.md
+          - name: Prepare a custom image
+            href: how-to-prepare-custom-image-dev-box.md
+          - name: Provision a Custom Image with Azure Image Builder
+            href: how-to-customize-devbox-azure-image-builder.md
       - name: Configure user customizations
         href: how-to-configure-user-customizations.md
         displayName: customizations, image definition, personal customization, individual
@@ -127,6 +128,9 @@ items:
       - name: Manage project access
         href: how-to-manage-dev-box-access.md
         displayName: project access, RBAC, roles, permissions
+      - name: Enable guest user access
+        href: how-to-enable-guest-access.md
+        displayName: guest, external users, cross-tenant, B2B, preview
       - name: Configure conditional access policies
         href: how-to-configure-intune-conditional-access-policies.md
       - name: Configure elevated privilege for dev boxes
@@ -175,6 +179,8 @@ items:
       - name: Automatically repair connectivity issues
         href: how-to-troubleshoot-repair-dev-box.md
         displayName: Troubleshoot & repair, troubleshooter, fix, wizard
+      - name: Troubleshoot custom image validation
+        href: how-to-troubleshoot-custom-image-validation.md
       - name: Troubleshoot dev box connectivity issues
         href: how-to-troubleshoot-remote-desktop-connectivity.md
         displayName: Troubleshoot & repair, troubleshooter, fix

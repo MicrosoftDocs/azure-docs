@@ -14,6 +14,11 @@
       "source_path_from_root": "/articles/api-center/enable-api-center-portal.md",
       "redirect_url": "/azure/api-center/self-host-api-center-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-center/customize-api-center-portal.md",
+      "redirect_url": "/azure/api-center/set-up-api-center-portal#customize-the-api-center-portal",
+      "redirect_document_id": false
     }
   ]
 }

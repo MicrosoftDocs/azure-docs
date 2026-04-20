@@ -77,7 +77,7 @@ The following limits apply only for networking resources managed through **Azure
 | Network Security Groups (NSGs) |200 |200 |
 | NSG rules per NSG |200 |1,000 |
 | User-defined route tables |200 |200 |
-| User-defined routes per route table |400 |400 |
+| User-defined routes per route table |600 |600 |
 | Public IP addresses (dynamic) |500 |500 |
 | Reserved public IP addresses |500 |500 |
 | Public IP per deployment |5 |Contact support |

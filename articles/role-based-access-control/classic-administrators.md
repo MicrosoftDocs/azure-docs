@@ -6,7 +6,7 @@ manager: pmwongera
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 12/11/2025
+ms.date: 02/26/2026
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: sfi-image-nochange
@@ -33,7 +33,7 @@ What happens to classic administrator role assignments after December 2025?
 
 How do I know what subscriptions have classic administrators?
 
-- You can use an Azure Resource Graph query to list subscriptions with Service Administrator or Co-Administrator role assignments. For steps see [List classic administrators](#list-classic-administrators).
+- You can use the Azure portal to list subscriptions with Service Administrator or Co-Administrator role assignments. For steps see [List classic administrators](#list-classic-administrators).
 
 What is the equivalent Azure role I should assign for Co-Administrators?
 
@@ -72,8 +72,6 @@ If Azure automatically assigns the Owner role, it **doesn't** automatically remo
 
 ## List classic administrators
 
-# [Azure portal](#tab/azure-portal)
-
 Follow these steps to list the Service Administrator and Co-Administrators for a subscription using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
@@ -86,42 +84,6 @@ Follow these steps to list the Service Administrator and Co-Administrators for a
 
     :::image type="content" source="./media/shared/classic-administrators.png" alt-text="Screenshot of Access control (IAM) page with Classic administrators tab selected." lightbox="./media/shared/classic-administrators.png":::
 
-# [Azure Resource Graph](#tab/azure-resource-graph)
-
-Follow these steps to list the number of Service Administrators and Co-Administrators in your subscriptions using Azure Resource Graph.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
-
-1. Open the **Azure Resource Graph Explorer**.
-
-1. Select **Scope** and set the scope for the query.
-
-    Set scope to **Directory** to query your entire tenant, but you can narrow the scope to particular subscriptions.
-
-    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
-
-1. Select **Set authorization scope** and set the authorization scope to **At, above and below** to query all resources at the specified scope.
-
-    :::image type="content" source="./media/shared/resource-graph-authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="./media/shared/resource-graph-authorization-scope.png":::
-
-1. Run the following query to list the number Service Administrators and Co-Administrators based on the scope.
-
-    ```kusto
-    authorizationresources
-    | where type == "microsoft.authorization/classicadministrators"
-    | mv-expand role = parse_json(properties).role
-    | mv-expand adminState = parse_json(properties).adminState
-    | where adminState == "Enabled"
-    | where role in ("ServiceAdministrator", "CoAdministrator")
-    | summarize count() by subscriptionId, tostring(role)
-    ```
-
-    The following shows an example of the results. The **count_** column is the number of Service Administrators or Co-Administrators for a subscription.
-
-    :::image type="content" source="./media/classic-administrators/resource-graph-classic-admin-list.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows the number Service Administrators and Co-Administrators based on the subscription." lightbox="./media/classic-administrators/resource-graph-classic-admin-list.png":::
-
----
-
 ## Co-Administrators retirement
 
 If you still have classic administrators, use the following steps to help you convert Co-Administrator role assignments.
@@ -130,7 +92,7 @@ If you still have classic administrators, use the following steps to help you co
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
-1. Use the Azure portal or Azure Resource Graph to [list of your Co-Administrators](#list-classic-administrators).
+1. Use the Azure portal to [list your Co-Administrators](#list-classic-administrators).
 
 1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Co-Administrators to assess whether they're active users.
 
@@ -224,7 +186,7 @@ If you still have classic administrators, use the following steps to help you co
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an [Owner](built-in-roles.md#owner) of a subscription.
 
-1. Use the Azure portal or Azure Resource Graph to [list your Service Administrator](#list-classic-administrators).
+1. Use the Azure portal to [list your Service Administrator](#list-classic-administrators).
 
 1. Review the [sign-in logs](/entra/identity/monitoring-health/concept-sign-ins) for your Service Administrator to assess whether they're an active user.
 

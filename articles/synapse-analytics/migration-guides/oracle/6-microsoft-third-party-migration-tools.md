@@ -3,7 +3,7 @@ title: "Tools for Oracle data warehouse migration to Azure Synapse Analytics"
 description: Learn about Microsoft and third-party data and database migration tools that can help you migrate from Oracle to Azure Synapse Analytics. 
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 author: ajagadish-24
 ms.author: ajagadish
 

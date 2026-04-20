@@ -22,7 +22,7 @@ For information related to calculating costs, see [Azure Maps pricing] and [Unde
 >
 > Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated.
 >
->After 9/14/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts via the Azure Portal. After 10/12/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts when using an ARM template.
+>After 9/14/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts via the Azure portal. After 10/12/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts when using an ARM template.
 >
 > You don't have to generate new subscription keys, client ID (for Microsoft Entra authentication) or shared access signature (SAS) tokens if you change the pricing tier for your Azure Maps account.
 >
@@ -32,7 +32,7 @@ For information related to calculating costs, see [Azure Maps pricing] and [Unde
 
 ### Azure portal
 
-To change your pricing tier from Gen1 to Gen2 in the Azure Portal, navigate to the Pricing tier option in the settings menu of your Azure Maps account. Select Gen2 from the Pricing tier drop-down list then the Save button.
+To change your pricing tier from Gen1 to Gen2 in the Azure portal, navigate to the Pricing tier option in the settings menu of your Azure Maps account. Select Gen2 from the Pricing tier drop-down list then the Save button.
 
 > [!NOTE]
 > You don't have to generate new subscription keys, client ID (for Microsoft Entra authentication) or shared access signature (SAS) tokens if you change the pricing tier for your Azure Maps account.
@@ -82,7 +82,7 @@ Learn how to see the API usage metrics for your Azure Maps account:
 > [View usage metrics]
 
 [Azure Maps pricing]: https://azure.microsoft.com/pricing/details/azure-maps/
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Azure Resource Manager (ARM) template]: how-to-create-template.md
 [Create account with ARM template]: how-to-create-template.md
 [View usage metrics]: how-to-view-api-usage.md

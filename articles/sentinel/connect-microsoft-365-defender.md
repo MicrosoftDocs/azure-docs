@@ -72,6 +72,9 @@ To ingest and synchronize Microsoft Defender XDR incidents with all their alerts
 
 When you enable the Microsoft Defender XDR connector, any Microsoft Defender components’ connectors that were previously connected are automatically disconnected in the background. Although they continue to *appear* connected, no data flows through them.
 
+> [!NOTE]
+> Replacing standalone connectors with the XDR connector changes the schema of your alerts and might impact your existing queries. For a detailed comparison, see [Alert schema differences: Standalone vs. XDR connector](security-alert-schema-differences.md).
+
 ### Connect entities
 
 Use Microsoft Defender for Identity to sync user entities from your on-premises Active Directory to Microsoft Sentinel.

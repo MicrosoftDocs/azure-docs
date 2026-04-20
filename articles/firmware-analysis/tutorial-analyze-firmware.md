@@ -9,7 +9,7 @@ ms.service: azure-iot-operations
 #Customer intent: As a device builder, I want to see what vulnerabilities or weaknesses might exist in my firmware image.
 ---
 
-# Tutorial: Analyze an IoT/OT firmware image with firmware analysis 
+# Tutorial: Analyze a firmware image with firmware analysis
 
 This tutorial describes how to use the **firmware analysis** page to upload a firmware image for security analysis and view analysis results.
 
@@ -30,7 +30,7 @@ To use the **firmware analysis** page to analyze your firmware security, your fi
 
 ## Firmware analysis workspace limits
 
-Firmware analysis workspaces are currently available as a free tier. The free tier has the following capacity limitations. If you use more than the capacity, you will receive an indication in the Azure Portal that you are over the capacity but will not be prevented from going over the capacity limit.
+Firmware analysis workspaces are currently available as a free tier. The free tier has the following capacity limitations. If you use more than the capacity, you will receive an indication in the Azure portal that you are over the capacity but will not be prevented from going over the capacity limit.
 
 The following limits apply to [firmware analysis workspaces](firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy).
 

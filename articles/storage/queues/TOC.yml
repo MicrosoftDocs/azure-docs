@@ -32,7 +32,7 @@
   - name: Java
     href: ../common/storage-samples-java.md?toc=/azure/storage/queues/toc.json
   - name: Spring
-    href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client
+    href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client
   - name: Python
     href: ../common/storage-samples-python.md?toc=/azure/storage/queues/toc.json
   - name: JavaScript
@@ -96,7 +96,7 @@
   - name: Reliability
     items:
     - name: Reliability in Azure Queue storage
-      href: ../../reliability/reliability-storage-queue.md?toc=/azure/storage/queues/toc.json
+      href: /azure/reliability/reliability-storage-queue?toc=/azure/storage/queues/toc.json
     - name: Data redundancy
       href: ../common/storage-redundancy.md?toc=/azure/storage/queues/toc.json
     - name: Disaster recovery and failover

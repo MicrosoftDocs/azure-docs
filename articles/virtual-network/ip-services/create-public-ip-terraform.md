@@ -28,6 +28,7 @@ In this article, you learn how to:
 > * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
 > * Create a standard zone-redundant public IPv4 address named **myStandardPublicIP**
+> * Create a standard v2 zone-redundant public IPv4 address named **myStandardv2PublicIP**
 > * Create a standard zonal public IPv4 address in Zone 2 named **myZonalStandardPublicIP**
 > * Create a standard static public IPv4 address named **myRoutingPreferenceStandardPublicIP** that supports the Routing Preference feature
 > * Create a standard static public IPv4 address named **myGlobalTierStandardPublicIP** that supports the Global Tier feature
@@ -45,7 +46,7 @@ An Azure resource group is a logical container into which Azure resources are de
 
 ## Create public IP
 
-# [Standard SKU](#tab/create-public-ip-standard)
+# [Zone-Redundant Standard SKU](#tab/create-public-ip-standard)
 
 ### Create a standard zone-redundant IP address
 
@@ -62,9 +63,35 @@ In this section, you learn how to create a standard zone-redundant public IP add
 > For versions of the API older than 2020-08-01, omit the `zone` field to create a zone-redundant IP address. 
 >
 
+# [Zone-Redundant Standardv2 SKU](#tab/create-public-ip-standardv2)
 
+### Create a standard v2 zone-redundant IP address
 
-# [Zonal](#tab/create-public-ip-zonal)
+>[!NOTE]
+>Standard v2 SKU public IP is required for use of the Standard v2 NAT Gateway with zone-redundancy. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
+>
+>The following command snippet works for API version **2020-08-01** or **later**. For more information about the API version currently being used, see [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
+The following code snippet creates a standard v2 zone-redundant public IPv4 address named **myStandardv2PublicIP**.
+
+To create an IPv6 address, set the `ip_version` value to **IPv6**.
+
+```terraform
+resource "azurerm_public_ip" "public_ip_standardv2" {
+  name                = "myStandardv2PublicIP"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  allocation_method   = "Static"
+  sku                 = "Standard_v2"
+  zones               = ["1", "2", "3"]
+}
+```
+
+> [!IMPORTANT]
+> For versions of the API older than 2020-08-01, omit the `zones` field to create a zone-redundant IP address.
+>
+
+# [Zonal Standard SKU](#tab/create-public-ip-zonal)
 
 ### Create a zonal public IP address
 
@@ -77,7 +104,7 @@ To create an IPv6 address, set the `ip_version` value to **IPv6**.
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="35-45":::
 
 >[!NOTE]
->For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>For more information about availability zones, see [What are availability zones?](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ---
 
@@ -91,7 +118,7 @@ By default, the routing preference for public IP addresses is set to **Microsoft
 
 The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate. 
 
-For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md).
+For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md)
 
 The following code snippet creates a new standard zone-redundant public IPv4 address with a routing preference of type **Internet**:
 

@@ -18,6 +18,8 @@ landingContent:
         links:
           - text: What is Arize AI?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
 
   # Card
   - title: Create an Arize AI deployment

@@ -40,7 +40,7 @@ After a successful TLS handshake, IoT Hub can authenticate a device using a symm
 
 During a TLS handshake, IoT Hub presents RSA-keyed server certificates to connecting clients. All IoT hubs in the global Azure cloud use the TLS certificate issued by the DigiCert Global Root G2. 
 
-We strongly recommend that all devices trust the following three root CAs: 
+We strongly recommend that all devices trust the following two root CAs: 
 
 * DigiCert Global G2 root CA
 * Microsoft RSA root CA 2017

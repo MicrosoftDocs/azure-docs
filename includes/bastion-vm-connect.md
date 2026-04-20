@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: abell
  ms.service: azure-bastion
  ms.topic: include
- ms.date: 01/22/2025
- ms.author: cherylmc
+ ms.date: 01/22/2026
+ ms.author: abell
  ms.custom: sfi-image-nochange
 ---
 
@@ -11,9 +11,11 @@
 1. At the top of the pane, select **Connect** > **Bastion** to go to the **Bastion** pane. You can also go to the **Bastion** pane by using the left menu.
 1. The options available on the **Bastion** pane depend on the Bastion SKU.
 
+   If you're using the **Standard or higher SKU**, you have more connection protocol and port options available. Expand **Connection Settings** to see the options. Typically, unless you configure different settings for your VM, you connect to a Windows computer by using RDP and port 3389. You connect to a Linux computer by using SSH and port 22.
+
    If you're using the **Basic SKU**, you connect to a Windows computer by using RDP and port 3389. Also for the Basic SKU, you connect to a Linux computer by using SSH and port 22. You don't have options to change the port number or the protocol. However, you can change the keyboard language for RDP by expanding **Connection Settings** on this pane.
 
-   If you're using the **Standard SKU**, you have more connection protocol and port options available. Expand **Connection Settings** to see the options. Typically, unless you configure different settings for your VM, you connect to a Windows computer by using RDP and port 3389. You connect to a Linux computer by using SSH and port 22.
+   If you're using the **Developer SKU**, Bastion deploys automatically when you connect for the first time. You connect to a Windows computer by using RDP and port 3389, or to a Linux computer by using SSH and port 22. The Developer SKU uses a shared pool architecture and is available at no extra cost in [select regions](../articles/bastion/quickstart-host-portal.md?tabs=developer).
 
 1. For **Authentication Type**, select the authentication type from the dropdown list. The protocol determines the available authentication types. Complete the required authentication values.
 

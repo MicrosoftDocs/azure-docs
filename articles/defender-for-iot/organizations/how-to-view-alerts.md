@@ -26,6 +26,9 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 ## View alerts on an OT sensor
 
+> [!NOTE]
+> When you view alerts in the Azure portal **Alerts** page, some alerts may not correlate with alerts on specific sensors. For more information, see [Investigate alerts that don't correlate with specific sensors](respond-ot-alert.md#investigate-alerts-that-dont-correlate-with-a-specific-sensor).
+
 1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
     By default, the following details are shown in the grid:
@@ -195,6 +198,9 @@ To reduce alert fatigue, multiple versions of the same alert violation with iden
 1. Select the **Take action** tab. Follow the **Remediation steps**.
 
 1. Select **Learn**, if needed. For more information, see [learning an alert](alerts.md#alert-statuses-and-triaging-options).
+
+> [!NOTE]
+> An alert with specific violations does not prevent new alerts with different violations from appearing. After you learn an alert, the same alert might be triggered again if the new alert has different violation parameters. To check why the alert was triggered, review the list of violations in the alert list (for the first 10 alerts) or the CSV file you downloaded in step 3.
 
 ## Next steps
 

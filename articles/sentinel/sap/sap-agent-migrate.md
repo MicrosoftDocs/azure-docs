@@ -51,6 +51,9 @@ Your existing investment in the Microsoft Sentinel Solution for SAP analytic rul
 1. **Monitor**: Run both the containerized agent and the agentless data connector in parallel for a defined period to ensure stability and completeness of log collection.
 1. **Decommission**: Once you have validated that the agentless data connector is functioning correctly, proceed to decommission the containerized SAP agent. See the "[Stop SAP data collection](stop-collection.md)" article for details.
 
+> [!TIP]
+> Follow the [agentless migration video playlist](https://www.youtube.com/playlist?list=PLmAptfqzxVEV69k9hwfI4zVOb_o6LgfDV) for latest insights for a smooth transition.
+
 > [!IMPORTANT]
 > Review the authorizations of the Sentinel user and role on your SAP systems used with the containerized agent. The agentless data connector requires less but different authorizations compared to the containerized SAP agent. Refer to the [configuration guide](/azure/sentinel/sap/preparing-sap?pivots=connection-agentless#configure-the-microsoft-sentinel-role) for details and SAP role sample for minimum authorizations.
 
@@ -71,6 +74,8 @@ The solution scope can be extended through [extensions patterns](https://github.
 SAP HANA database or OS-level detections are out of scope for the comparison because they are covered by their own connectors in Microsoft Sentinel.
 
 ## Next steps
+
+- [Discover the agentless migration video playlist](https://www.youtube.com/playlist?list=PLmAptfqzxVEV69k9hwfI4zVOb_o6LgfDV)
 
 - [Learn more about Microsoft Sentinel Solution for SAP applications](solution-overview.md).
 

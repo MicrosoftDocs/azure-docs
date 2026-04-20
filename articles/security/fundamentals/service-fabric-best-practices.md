@@ -78,7 +78,9 @@ Treat your cluster configuration as code:
 Many aspects of the [Service Fabric application lifecycle](/azure/service-fabric/service-fabric-application-lifecycle) can be automated. The [Service Fabric PowerShell module](/azure/service-fabric/service-fabric-deploy-remove-applications#upload-the-application-package) automates common tasks for deploying, upgrading, removing, and testing Azure Service Fabric applications. Managed APIs and HTTP APIs for application management are also available.
 
 ## Use X.509 certificates
-Always secure your clusters by using X.509 certificates or Windows security. Security is only configured at cluster creation time. It's not possible to turn on security after the cluster is created.
+
+**Best practice**: Always secure your clusters by using X.509 certificates or Windows security.
+**Detail**: Security is only configured at cluster creation time. It's not possible to turn on security after the cluster is created.
 
 To specify a [cluster certificate](/azure/service-fabric/service-fabric-windows-cluster-x509-security), set the value of the **ClusterCredentialType** property to X509. To specify a server certificate for outside connections, set the **ServerCredentialType** property to X509.
 
@@ -143,16 +145,18 @@ The HTTP protocol is unsecure and subject to eavesdropping attacks. Data that is
 To learn more about using SSL/TLS certificates, see [Configuring TLS for an application in Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## Use network isolation and security with Azure Service Fabric
-Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
+
+**Best practice**: Set up a secure cluster with network isolation.
+**Detail**: Use [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to set up a 3 nodetype secure cluster. Control the inbound and outbound network traffic by using the template and Network Security Groups.
 
 The template has an NSG for each of the virtual machine scale sets and is used to control the traffic in and out of the set. The rules are configured by default to allow all traffic necessary for the system services and the application ports specified in the template. Review these rules and make any changes to fit your needs, including adding new rules for your applications.
 
 For more information, see [Common networking scenarios for Azure Service Fabric](/azure/service-fabric/service-fabric-patterns-networking).
 
 ## Set up Azure Key Vault for security
-Service Fabric uses certificates to provide authentication and encryption for securing a cluster and its applications.
 
-Service Fabric uses X.509 certificates to secure a cluster and to provide application security features. You use Azure Key Vault to [manage certificates](/azure/service-fabric/service-fabric-cluster-security-update-certs-azure) for Service Fabric clusters in Azure. The Azure resource provider that creates the clusters pulls the certificates from a key vault. The provider then installs the certificates on the VMs when the cluster is deployed on Azure.
+**Best practice**: Use Azure Key Vault to manage certificates for Service Fabric clusters.
+**Detail**: Service Fabric uses X.509 certificates to secure a cluster and to provide application security features. You use Azure Key Vault to [manage certificates](/azure/service-fabric/service-fabric-cluster-security-update-certs-azure) for Service Fabric clusters in Azure. The Azure resource provider that creates the clusters pulls the certificates from a key vault. The provider then installs the certificates on the VMs when the cluster is deployed on Azure.
 
 A certificate relationship exists between [Azure Key Vault](/azure/key-vault/general/security-features), the Service Fabric cluster, and the resource provider that uses the certificates. When the cluster is created, information about the certificate relationship is stored in a key vault.
 
@@ -165,10 +169,12 @@ There are two basic steps to set up a key vault:
 
     The key vault must be enabled for deployment. The compute resource provider can then get the certificates from the vault and install them on the VM instances.
 
-To learn more about how to set up a key vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
+To learn more about how to set up a key vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
 ## Assign users to roles
-After you've created the applications to represent your cluster, assign your users to the roles that are supported by Service Fabric: read-only and admin. You can assign these roles by using the Azure portal.
+
+**Best practice**: Assign users to the roles supported by Service Fabric.
+**Detail**: After you've created the applications to represent your cluster, assign your users to the read-only and admin roles. You can assign these roles by using the Azure portal.
 
 >[!NOTE]
 > For more information about using roles in Service Fabric, see [Service Fabric role-based access control for Service Fabric clients](/azure/service-fabric/service-fabric-cluster-security-roles).

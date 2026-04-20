@@ -14,10 +14,6 @@ ms.author: alittleton
 
 This article describes the key components of the NAT gateway resource that enable it to provide highly secure, scalable, and resilient outbound connectivity. NAT Gateway can be configured in your subscription through supported clients. These clients include Azure portal, Azure CLI, Azure PowerShell, Resource Manager templates, or appropriate alternatives.
 
-> [!IMPORTANT]
-> Standard V2 SKU Azure NAT Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## NAT Gateway SKUs
 NAT Gateway is available in two SKUs: StandardV2 and Standard. 
 
@@ -87,7 +83,7 @@ A single NAT gateway can scale by the number of public IP addresses associated t
 
 ## Availability zones
 
-NAT Gateway has two SKUs – Standard and StandardV2. To ensure that your architecture is resilient to zonal failures, deploy StandardV2 NAT gateway as it is a zone-redundant resource. When an [availability zone](../reliability/availability-zones-overview.md) in a region goes down, new connections flow from the remaining healthy zones.
+NAT Gateway has two SKUs – Standard and StandardV2. To ensure that your architecture is resilient to zonal failures, deploy StandardV2 NAT gateway as it is a zone-redundant resource. When an [availability zone](/azure/reliability/availability-zones-overview) in a region goes down, new connections flow from the remaining healthy zones.
 
 :::image type="content" source="./media/nat-overview/zone-redundant-standard-2.png" alt-text="Diagram of multi-zone deployment of StandardV2 NAT Gateway.":::
 
@@ -160,6 +156,7 @@ For UDP traffic, after a connection closes, the port is in hold down for 65 seco
 ## Bandwidth
 There are different bandwidth limits for each SKU of NAT Gateway.
 StandardV2 SKU NAT Gateway supports up to 100 Gbps of data throughput per NAT gateway resource.
+
 Standard SKU NAT Gateway provides 50 Gbps of throughput, which is split between outbound and inbound (response) data. Data throughput is rate limited at 25 Gbps for outbound and 25 Gbps for inbound (response) data per Standard NAT gateway resource.
 
 ## Performance

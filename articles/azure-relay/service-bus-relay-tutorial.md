@@ -2,7 +2,7 @@
 title: Expose on-premises WCF REST service to clients
 description: This tutorial describes how to expose an on-premises WCF REST service to an external client by using Azure WCF Relay.
 ms.topic: tutorial
-ms.date: 12/11/2024
+ms.date: 01/24/2026
 # Customer intent: I want to know how to expose an on-premises WCF REST service to external clients using WCF Relay.
 ---
 

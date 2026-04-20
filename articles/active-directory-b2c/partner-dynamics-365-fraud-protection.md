@@ -94,7 +94,7 @@ Learn more: [UI customization documentation](./customize-ui-with-html.md?pivots=
 
 ### Add policy keys for your Microsoft DFP client app ID and secret
 
-1. In the Microsoft Entra tenant where Microsoft DFP is set up, create an [Microsoft Entra application and grant admin consent](/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
+1. In the Microsoft Entra tenant where Microsoft DFP is set up, create a [Microsoft Entra application and grant admin consent](/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
 2. Create a secret value for this application registration. Note the application client ID and client secret value.
 3. Save the client ID and client secret values as [policy keys in your Azure AD B2C tenant](./policy-keys-overview.md).
 

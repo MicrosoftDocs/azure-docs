@@ -1,8 +1,9 @@
 ---
-title: Quotas and limits - Azure Event Hubs | Microsoft Docs
-description: This article provides limits and quotas for Azure Event Hubs. For example, number of namespaces per subscription, number of event hubs per namespace. 
+title: Azure Event Hubs Quotas and Limits Overview
+description: This article provides limits and quotas for Azure Event Hubs. For example, number of namespaces per subscription, number of event hubs per namespace.
+#customer intent: As a cloud architect, I want to understand the quotas and limits of Azure Event Hubs so that I can design scalable solutions.
 ms.topic: article
-ms.date: 11/18/2024
+ms.date: 02/05/2026
 ---
 
 # Azure Event Hubs quotas and limits
@@ -22,5 +23,5 @@ The following tables provide quotas and limits specific to [Azure Event Hubs](ht
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](./event-hubs-about.md)
-* [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)
+* [Auto-inflate](event-hubs-auto-inflate.md)
 * [Event Hubs FAQ](event-hubs-faq.yml)

@@ -4,7 +4,7 @@ description: Learn how to secure IoT solutions, with best practices for cloud-ba
 author: dominicbetts
 ms.service: azure-iot
 services: iot
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 06/13/2025
 ms.author: dobett
@@ -120,8 +120,8 @@ The recommendations in this article help you meet the security obligations descr
 
 Microsoft Defender for IoT automatically monitors some of the recommendations in this article. Microsoft Defender for IoT periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities and then offers recommendations on how to address them. To learn more, see:
 
-- [What is Microsoft Defender for IoT for organizations?](../defender-for-iot/organizations/overview.md).
-- [What is Microsoft Defender for IoT for device builders?](../defender-for-iot/device-builders/overview.md).
+- [What is Microsoft Defender for IoT for organizations?](../defender-for-iot/organizations/overview.md)
+- [What is Microsoft Defender for IoT for device builders?](../defender-for-iot/device-builders/overview.md)
 - [Enhance security posture with security recommendations](../defender-for-iot/organizations/recommendations.md).
 
 ### Device security
@@ -138,7 +138,7 @@ This section provides guidance on how to secure your IoT devices, which are the 
 
 - **Follow a secure software development methodology**: The development of secure software requires you to consider security from the inception of the project all the way through implementation, testing, and deployment. The [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) provides a step-by-step approach to building secure software.
 
-- **Use device SDKs whenever possible**: Device SDKs implement various security features such as encryption and authentication that help you develop robust and secure device applications. To learn more, see [Azure IoT SDKs](iot-sdks.md).
+- **Use device SDKs whenever possible**: Device SDKs implement various security features such as encryption and authentication that help you develop robust and secure device applications. To learn more, see [Azure IoT SDKs](../iot-hub/iot-sdks.md).
 
 - **Choose open-source software with care**: Open-source software provides an opportunity to quickly develop solutions. When you choose open-source software, consider the activity level of the community for each open-source component. An active community ensures that software is supported and that issues are discovered and addressed. An obscure and inactive open-source software project might not be supported, and issues aren't likely be discovered.
 

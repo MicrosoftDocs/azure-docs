@@ -1,6 +1,6 @@
 ---
 title: CLI command reference from OT network sensors- Microsoft Defender for IoT
-description: Learn about the CLI commands available from Microsoft Defender for IoT OT network sensors.
+description: Learn about the CLI commands available from Microsoft Defender for IoT OT network sensors, including capture filters.
 ms.date: 12/19/2023
 ms.topic: reference
 ---
@@ -8,6 +8,9 @@ ms.topic: reference
 # CLI command reference from OT network sensors
 
 This article lists the CLI commands available from Defender for IoT OT network sensors.
+
+> [!TIP]
+> To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source. For more information, see [Traffic capture filters](#traffic-capture-filters).
 
 [!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
 

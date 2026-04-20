@@ -69,7 +69,8 @@ For a transaction bundle, all interactions or operations either succeed or fail 
 
 Transaction bundles don't support:
 - Conditional delete
-- Search operations using _search 
+- Search operations using _search
+- Hard delete
 
 ### Bundle parallel processing 
 

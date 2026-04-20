@@ -18,11 +18,8 @@ This article describes common methods and sample procedures for using [user enti
 > [!IMPORTANT]
 >
 > Noted features in this article are currently in  **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
-> [!NOTE]
-> This tutorial provides scenario-based procedures for a top customer task: investigating with UEBA data. For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
->
+
 ## Prerequisites
 
 Before you can use UEBA data in your investigations, you must [enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md).
@@ -46,16 +43,16 @@ To investigate a user in an incident, select **Go Hunt > All user anomalies** fr
 For more information, see [Investigate incidents in the Microsoft Defender portal](https://aka.ms/ueba-go-hunt) and [User entity page in Microsoft Defender](https://aka.ms/ueba-entity-details).
 
 
-## Run proactive, routine searches in entity data
+## Run proactive, routine searches on entity data
 
 We recommend running regular, proactive searches through user activity to create leads for further investigation.
 
-You can use the Microsoft Sentinel [User and Entity Behavior Analytics workbook](identify-threats-with-entity-behavior-analytics.md#hunting-queries-and-exploration-queries) to query your data, such as for:
+Use the Microsoft Sentinel [UEBA Essentials solution](identify-threats-with-entity-behavior-analytics.md#enable-ueba-to-create-behavior-profiles-and-detect-anomalies) to query your data for a range of insights, such as:
 
-- **Top risky users**, with anomalies or attached incidents
-- **Data on specific users**, to determine whether subject has indeed been compromised, or whether there is an insider threat due to action deviating from the user's profile.
+- **Top risky users**, with anomalies or attached incidents.
+- **Data on specific users**, to determine whether the user has indeed been compromised, or whether there is an insider threat based on actions that deviate from the user's profile.
 
-Additionally, capture non-routine actions in the UEBA workbook, and use them to find anomalous activities and potentially non-compliance practices.
+Capture non-routine actions in the UEBA workbook, and use them to find anomalous activities and potentially non-compliance practices.
 
 ### Investigate an anomalous sign-in
 

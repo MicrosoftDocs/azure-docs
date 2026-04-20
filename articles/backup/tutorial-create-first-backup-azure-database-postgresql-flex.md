@@ -2,7 +2,7 @@
 title: Tutorial - Back up Azure Database for PostgreSQL - Flexible Server using Azure portal
 description: Learn how to back up Azure Database for PostgreSQL - Flexible Server using Azure portal.
 ms.topic: tutorial
-ms.date: 02/28/2025
+ms.date: 01/22/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -33,7 +33,7 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
 To view the backup job status, follow these steps:
 
-1. Go to **Business Continuity Center** > **Monitoring + Reporting** > **Jobs**.
+1. Go to **Resiliency** > **Monitoring + Reporting** > **Jobs**.
 
    The **Jobs** pane appears that shows the operation and status for the past **24 hours**.
 

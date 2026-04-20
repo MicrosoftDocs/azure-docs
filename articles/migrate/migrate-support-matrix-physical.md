@@ -298,7 +298,8 @@ Stack | VMware, Hyper-V, and physical servers | VMware, Hyper-V, and physical se
 Windows servers | Windows Server 2008 R2 and later are supported | Not supported
 Linux servers | Not supported | Servers that meet the [requirements](migrate-support-matrix-physical.md#physical-server-requirements)
 Web server versions | IIS 7.5 and later | Tomcat 8 and later
-Required privileges | The least privileged user should be a part of the two user groups 1. Remote Management Users 2. IIS_IUSRS. The users must have read permissions to the following locations: C:\Windows\system32\inetsrv\config, C:\Windows\system32\inetsrv\config\applicationHost.config and C:\Windows\system32\inetsrv\config\redirection.config. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
+Protocol | WinRM port 5986 (HTTPS) by default, if HTTPS prerequisites aren't configured on the target servers, communication falls back to WinRM port 5985 (HTTP) | SSH port 22 (TCP)
+Required privileges | The least privileged user should be a part of the two user groups 1. Remote Management Users 2. IIS_IUSRS. The users must have read permissions to the following locations: C:\Windows\system32\inetsrv\config, C:\Windows\system32\inetsrv\config\applicationHost.config and C:\Windows\system32\inetsrv\config\redirection.config. Add the user to 'log on as batch job' using secpol.msc and ensure user is not part of 'deny log on as batch job'. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
 
 > [!NOTE]
 > Data is always encrypted at rest and during transit.

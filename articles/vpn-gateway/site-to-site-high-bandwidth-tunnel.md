@@ -24,16 +24,15 @@ High Bandwidth tunnels provide end-to-end encryption to meet security compliance
 
 ## Prerequisites
 
-To use VPN Gateway High Bandwidth tunnels, your ExpressRoute Connection must have FastPath enabled. FastPath is currently supported only on ExpressRoute Direct port pairs. As a result, your ExpressRoute circuit must be provisioned on an ExpressRoute Direct port pair to support this solution.
+To use VPN Gateway High Bandwidth tunnels, your ExpressRoute Connection must have FastPath enabled.
 
 This article assumes that your Azure subscription already includes:
-- An ExpressRoute circuit deployed on a Direct port pair with private peering.
+- An ExpressRoute circuit deployed with private peering.
 - A virtual network with the address space `10.1.0.0/16` and a Gateway subnet of `10.1.0.0/26`.
 
 The required Azure resources for this deployment are:
 
-- **ExpressRoute Direct Port**
-- **ExpressRoute Circuit**
+- **ExpressRoute Circuit with FastPath support**
 - **ExpressRoute Virtual Network Gateway**
 - **Connection between the ExpressRoute circuit and the virtual network gateway with FastPath enabled**
 - **VPN Gateway (SKU: VpnGw5AZ) with Advanced Connectivity enabled**
@@ -69,14 +68,6 @@ After running these commands, verify that **$connection.ExpressRouteGatewayBypas
 You can also confirm FastPath is enabled in the Azure portal. Go to your ExpressRoute circuit, select **Connections**, then under **Settings > Configuration**, ensure that the FastPath setting is set to **Enable**.
 
 :::image type="content" source="media/site-to-site-high-bandwidth-tunnel/expressroute-connection-fastpath.png" alt-text="Screenshot showing ExpressRoute Connection with FastPath enabled.":::
-
-To enable support for High Bandwidth tunnels, you must activate the **EnablePrivateLinkFastPath** attribute on your ExpressRoute connection. Use the following PowerShell commands:
-
-```azurepowershell-interactive
-
-$connection.EnablePrivateLinkFastPath = $true
-Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
-```
 
 After you complete this step, your Azure virtual network will be connected to your on-premises networks, and ExpressRoute will be configured to support High Bandwidth tunnels.
 

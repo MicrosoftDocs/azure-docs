@@ -90,6 +90,9 @@ After you grant permissions to the user-assigned identity, follow these steps:
 
 This setting applies to all Key Vault references for the app.
 
+> [!TIP]
+> If you want to revert your app to use the system-assigned identity, set the value to `SystemAssigned` instead of the Resource ID.
+
 ## <a name = "rotation"></a> Understand rotation
 
 If the secret version isn't specified in the reference, the app uses the latest version that exists in the key vault. When newer versions become available, such as with rotation, the app is automatically updated and begins using the latest version within 24 hours.

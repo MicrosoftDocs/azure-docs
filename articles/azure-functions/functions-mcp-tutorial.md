@@ -6,6 +6,7 @@ description: Host your MCP server on Azure Functions with ease. Learn to configu
 ms.author: jiayma
 ms.topic: tutorial
 ms.date: 11/14/2025
+ms.update-cycle: 180-days
 ms.collection: 
   - ce-skilling-ai-copilot 
 zone_pivot_groups: programming-languages-set-functions
@@ -287,7 +288,7 @@ There are two ways to reduce or prevent unauthorized use of your remote MCP serv
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Disable key-based authentication  
 
-The built-in server authorization feature is a component separate from Azure Functions. When using server authentication, it's best to first disable key-based authentication by allowing anonymous access. 
+The built-in server authorization feature is a component separate from Azure Functions. When using server authentication, disable key-based authentication by allowing anonymous access first. 
 
 ### [MCP extension server](#tab/mcp-extension)
 
@@ -366,6 +367,16 @@ When deployment finishes, you should see a notification in Visual Studio Code ab
 ## Enable built-in server authorization and authentication
 
 The following instruction shows how to enable the built-in authorization and authentication feature on the server app and configures Microsoft Entra ID as the identity provider. When done, you test by connecting to the server in Visual Studio Code and see that you're prompted to authenticate before connecting. 
+
+When enabling built-in auth, you should [disable the default key-based auth](#disable-key-based-authentication) first. If you haven't done that and your app is already deployed, follow the instructions below. 
+
+### [MCP extension server](#tab/mcp-extension)
+[!INCLUDE [functions-mcp-extension-disable-key-access](../../includes/functions-mcp-extension-disable-key-access.md)]
+
+### [Self-hosted server](#tab/self-hosted)
+[!INCLUDE [functions-self-hosted-disable-key-access](../../includes/functions-self-hosted-disable-key-access.md)]
+
+---
 
 ### Configure authentication on server app
 
@@ -558,9 +569,9 @@ To find the access key, go to the Function app on Azure portal. On the left menu
 >
 > :::image type="content" source="./media/functions-mcp/trace-log-setting.png" alt-text="Screenshot of the MCP server settings showing the _Trace_ log level being selected. ":::
 
-## Configure Azure AI Foundry agent to use your tools
+## Configure Microsoft Foundry agent to use your tools
 
-You can configure an [agent on Azure AI Foundry](/azure/ai-foundry/agents/quickstart) to use tools exposed by MCP servers hosted on Azure Functions.
+You can configure an [agent on Foundry](/azure/ai-foundry/agents/quickstart) to use tools exposed by MCP servers hosted on Azure Functions.
 
 1. In the Foundry portal, find the agent you want to configure with MCP servers hosted on Functions. 
 

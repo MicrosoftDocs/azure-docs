@@ -18,11 +18,11 @@ Cluster bubble layers enable you to use enhanced data aggregation capabilities b
 
 Azure Maps Power BI visual offers a range of configuration options to provide flexibility when customizing the appearance of cluster bubbles. With parameters like cluster bubble size, color, text size, text color, border color, and border width, you can tailor the visual representation of clustered data to align with your reporting needs.
 
-:::image type="content" source="./media/power-bi-visual/visualizations-settings-cluster-bubbles.png" alt-text="A screenshot showing the format visual options for a cluster bubble layer.":::
+:::image type="content" source="./media/power-bi-visual/visualizations-settings-cluster-bubbles.png" alt-text="A screenshot showing the format visual options for the cluster bubble layer.":::
 
 | Setting       | Description                                       | Values  |
 |---------------|---------------------------------------------------|---------|
-| Bubble Size   | The size of each cluster bubble. Default: 12 px   | 1-50 px |
+| Size          | The size of each cluster bubble. Default: 12 px   | 1-50 px |
 | Cluster Color | Fill color of each cluster bubble.                |         |
 | Text Size     | The size of the number indicating the quantity of clustered bubbles. Default: 18 px.| 1-60 px|
 | Text Color    | Text color of the number displayed in the cluster bubbles.| |

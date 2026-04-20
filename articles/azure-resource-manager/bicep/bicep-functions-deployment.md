@@ -55,7 +55,7 @@ Sample output (values differ based on your deployment):
 }
 ```
 
-For more information about Azure identities, see [What is an Azure Active Directory identity?](/azure/active-directory/fundamentals/active-directory-whatis).
+For more information about Azure identities, see [What is an Azure Active Directory identity?](/azure/active-directory/fundamentals/active-directory-whatis)
 
 ## deployment
 

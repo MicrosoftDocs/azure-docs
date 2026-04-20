@@ -4,7 +4,7 @@ description: Learn how to configure port mirroring to monitor network traffic th
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/06/2023
+ms.date: 2/12/2026
 # Customer intent: As an Azure service administrator, I want to configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another.
 ---
 
@@ -13,7 +13,7 @@ ms.date: 12/06/2023
 After deploying Azure VMware Solution, you can configure port mirroring from the Azure portal. Port mirroring places a protocol analyzer on the port that receives the mirrored data. It analyzes traffic from a source, a virtual machine (VM), or a group of VMs, and then sent to a defined destination. Use the following steps to configure port mirroring to monitor network traffic, which involves forwarding a copy of each packet from one network switch port to another. 
 
    >[!IMPORTANT]
-   >Port Mirroring is intended to be used as a temporary investigative tool and not a permanent network data collection feature. This is because NSX-T Data Center does not have the resources to port mirror all traffic continuously. The IPFIX feature should be used if a continuous meta-data network flow logging solution is required.
+   >Port Mirroring is intended to be used as a temporary investigative tool and not a permanent network data collection feature. NSX-T Data Center doesn't have the resources to port mirror all traffic continuously. The IPFIX feature should be used if a continuous meta-data network flow logging solution is required.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Create the source and destination VMs or VM groups. The source group has a singl
 1. Repeat these steps to create the destination VM group.
 
    >[!NOTE]
-   >Before creating a port mirroring profile, make sure that you've created both the source and destination VM groups.
+   >Before creating a port mirroring profile, verify you created both the source and destination VM groups.
 
 ## Create a port mirroring profile
 

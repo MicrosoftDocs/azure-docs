@@ -230,7 +230,7 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ### Invalid JSON
 
-If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
+If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](/previous-versions/azure/iot/concepts-message-payloads).
 
 You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
 
@@ -282,4 +282,4 @@ Data export only exports data that arrives in your application after you enable 
 
 If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
-For more information, see [What are the Azure IoT support and help options?](../../iot/iot-support-help.md).
+For more information, see [What are the Azure IoT support and help options?](../../iot/iot-support-help.md)

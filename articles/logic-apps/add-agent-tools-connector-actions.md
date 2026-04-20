@@ -187,5 +187,5 @@ You can continue with these steps only after you finish the steps from the prece
 
 ## Related content
 
-- [What is Azure AI Foundry](/azure/ai-foundry/what-is-azure-ai-foundry)?
+- [What is Microsoft Foundry](/azure/ai-foundry/what-is-azure-ai-foundry)?
 - [What is Azure Logic Apps](/azure/logic-apps/logic-apps-overview)?

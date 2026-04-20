@@ -4,7 +4,7 @@ description: Learn how to deploy Azure IoT Operations observability resources, c
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
-ms.date: 12/19/2025
+ms.date: 01/27/2026
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
@@ -13,7 +13,7 @@ ms.date: 12/19/2025
 
 Azure IoT Operations observability provides visibility into every layer of your configuration and gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards hosted in Azure, powered by Azure Monitor managed service for Prometheus and Container Insights.
 
-This article shows you how to deploy Azure IoT Operations observability resources, set up Azure Managed Prometheus and Grafana, and enable comprehensive monitoring for your Azure Arc cluster.
+This article shows you how to deploy Azure IoT Operations observability resources, set up Azure Managed Prometheus and Grafana, and enable comprehensive monitoring for your Azure Arc cluster. You can deploy all observability resources using an [automated script](#deploy-with-the-automated-script), or follow the [manual steps](#create-resources-in-azure) for a customized setup.
 
 ## Prerequisites
 
@@ -21,6 +21,49 @@ This article shows you how to deploy Azure IoT Operations observability resource
 * Azure CLI installed on your cluster machine. For instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 * Helm installed on your cluster machine. For instructions, see [Install Helm](https://helm.sh/docs/intro/install/).
 * Kubectl installed on your cluster machine. For instructions, see [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/).
+
+## Deploy with the automated script
+
+To set up all observability resources in a single step, use the automated [deploy-observability-resources.sh](https://github.com/Azure/azure-iot-operations/blob/main/scripts/observability/deploy-observability-resources.sh) script. The script automates the steps in this article, from [creating Azure resources](#create-resources-in-azure) through [setting up the observability configuration](#set-up-observability-configuration). You can run the script multiple times safely. It skips resources that already exist and updates resources that need changes.
+
+1. Download the script:
+
+   ```bash
+   curl -fsSL -o deploy-observability-resources.sh \
+     https://raw.githubusercontent.com/Azure/azure-iot-operations/main/scripts/observability/deploy-observability-resources.sh
+   chmod +x deploy-observability-resources.sh
+   ```
+
+1. Set the required environment variables and run the script:
+
+   ```bash
+   export RESOURCE_GROUP=<RESOURCE_GROUP>
+   export CLUSTER_NAME=<CLUSTER_NAME>
+   export INSTANCE_NAME=<INSTANCE_NAME>
+   export WORKSPACE_NAME=<WORKSPACE_NAME>
+   export GRAFANA_NAME=<GRAFANA_NAME>
+   export LOGS_WORKSPACE_NAME=<LOGS_WORKSPACE_NAME>
+   export LOCATION=<LOCATION>
+
+   ./deploy-observability-resources.sh
+   ```
+
+   Set `LOCATION` to the Azure region for provisioning new resources. If all resources already exist, `LOCATION` is optional.
+
+   | Variable | Description |
+   | -------- | ----------- |
+   | `RESOURCE_GROUP` | Azure resource group for your Azure IoT Operations and monitoring resources. |
+   | `CLUSTER_NAME` | Name of the Arc-enabled Kubernetes cluster where Azure IoT Operations is deployed. |
+   | `INSTANCE_NAME` | Name of the Azure IoT Operations instance to configure. |
+   | `WORKSPACE_NAME` | Name for the Azure Monitor workspace (created if it doesn't exist). |
+   | `GRAFANA_NAME` | Name for the Azure Managed Grafana instance (created if it doesn't exist). |
+   | `LOGS_WORKSPACE_NAME` | Name for the Log Analytics workspace (created if it doesn't exist). |
+   | `LOCATION` | Azure region for new resources. Optional if all resources already exist. |
+
+After the script completes, continue to [Deploy dashboards to Grafana](#deploy-dashboards-to-grafana) to import the curated dashboards.
+
+> [!NOTE]
+> If you need more control over individual steps, for example, to customize the OpenTelemetry Collector configuration or reuse existing monitoring resources, follow the manual steps in the rest of this article instead of using the script.
 
 ## Create resources in Azure
 
@@ -97,7 +140,7 @@ Define and deploy an [OpenTelemetry (OTel) Collector](https://opentelemetry.io/d
    fullnameOverride: aio-otel-collector
    image:
      repository: otel/opentelemetry-collector
-     tag: 0.107.0
+     tag: 0.143.0
 
    config:
      processors:
@@ -127,7 +170,7 @@ Define and deploy an [OpenTelemetry (OTel) Collector](https://opentelemetry.io/d
 
        telemetry:
          metrics:
-           readers: []
+           level: none
 
        pipelines:
          metrics:
@@ -242,11 +285,11 @@ az iot ops upgrade --resource-group <rg name> -n <instance name> --ops-config ob
 
 ## Deploy dashboards to Grafana
 
-Azure IoT Operations provides a [sample dashboard](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboard) designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
+Azure IoT Operations provides a [sample dashboard](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/observability), designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
 
 Complete the following steps to install the Azure IoT Operations curated Grafana dashboards:
 
-1. Clone or download the **azure-iot-operations** repository to get the sample Grafana Dashboard json file locally: [https://github.com/Azure/azure-iot-operations](https://github.com/Azure/azure-iot-operations).
+1. Clone or download the **explore-iot-operations** repository to get the sample Grafana Dashboard json file locally: [https://github.com/Azure-Samples/explore-iot-operations](https://github.com/Azure-Samples/explore-iot-operations).
 1. Sign in to the Grafana console. You can access the console through the Azure portal or use the `az grafana show` command to retrieve the URL.
 
    ```azurecli
@@ -255,9 +298,12 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 
 1. On the Grafana landing page, select the **Create your first dashboard** tile.
 1. Select **Import Dashboard**.
-1. Browse to the sample dashboard directory in your local copy of the Azure IoT Operations repository, **azure-iot-operations > samples > grafana-dashboard**, then select the  **aio.sample.json** dashboard file.
+1. Browse to the sample dashboard directory in your local copy of the Azure IoT Operations repository, **explore-iot-operations > samples > observability > grafana-dashboard**, then select the  **aio-observability.json** dashboard file.
 1. When the application prompts, select your managed Prometheus data source.
 1. Select **Import**.
+
+> [!NOTE]
+> In the **aio-observability.json** file, make sure to configure both the Prometheus and Azure Monitor datasources, and set the `subscriptionId` variable to your Azure subscription ID, for log queries.
 
 ## Next steps
 

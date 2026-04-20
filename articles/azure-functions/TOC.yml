@@ -9,10 +9,10 @@
   - name: AI-enabled functions
     displayName: OpenAI, AI, MCP server, agent, agentic, Foundry
     href: functions-create-ai-enabled-apps.md
-  - name: Getting started
+  - name: Get started
     href: functions-get-started.md
   - name: Durable Functions
-    href: durable/durable-functions-overview.md
+    href: durable-functions/durable-functions-overview.md
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
   - name: Hosting plan options
@@ -28,14 +28,17 @@
     - name: Scalable web API
       displayName: Flex Consumption plan
       href: create-first-function-azure-developer-cli.md
-    - name: Process file uploads
-      displayName: storage, blob, Event Grid
-      href: scenario-blob-storage-events.md  
+    - name: Respond to blob storage events
+      displayName: storage, blob, Event Grid, file uploads
+      href: scenario-blob-storage-events.md
     - name: AI tools and MCP
       items:
       - name: Custom remote MCP server
         displayName: AI, agent, agentic, tools, trigger
         href: scenario-custom-remote-mcp-server.md
+      - name: MCP Apps
+        displayName: AI, agent, agentic, tools, MCP Apps, UI
+        href: scenario-mcp-apps.md
       - name: Host MCP server using SDKs
         displayName: AI, agent, agentic, tools, MCP SDKs
         href: scenario-host-mcp-server-sdks.md
@@ -47,12 +50,12 @@
       - name: Azure SQL
         displayName: data validation, database
         href: scenario-database-changes-azure-sqldb.md
-    - name: Build a serverless workflow
-      displayName: workflow, Durable Functions
-      href: ./durable/scenario-build-serverless-workflow.md?toc=/azure/azure-functions/toc.json
     - name: Run scheduled tasks
       displayName: timer trigger, schedule
       href: scenario-scheduled-tasks.md
+    - name: Process real-time events
+      displayName: Event Hubs, streaming, events
+      href: scenario-real-time-events-processing.md
   - name: Developer tools
     items:
     - name: Azure Developer CLI
@@ -77,7 +80,7 @@
       - name: Quarkus
         href: functions-create-first-quarkus.md
       - name: Spring Cloud
-        href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json
+        href: /azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Resource Manager
     items:
     - name: Bicep
@@ -114,9 +117,7 @@
     href: functions-twitter-email.md
   - name: Host MCP servers for AI-enabled functions
     displayName: agent, agentic, Foundry
-    href: functions-mcp-tutorial.md 
-  - name: Develop Python functions with VS Code
-    href: ./create-first-function-vs-code-python.md
+    href: functions-mcp-tutorial.md
   - name: Create serverless APIs using Visual Studio
     displayName: OpenAPI, Swagger
     href: openapi-apim-integrate-visual-studio.md
@@ -143,9 +144,9 @@
     displayName: storage, ngrok, local
     href: functions-event-grid-blob-trigger.md
   - name: Image resize with Event Grid
-    href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json
-  - name: Create a serverless web app
-    href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
+    href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+  - name: Real-time serverless app with SignalR
+    href: /azure/azure-signalr/signalr-tutorial-authenticate-azure-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Data + AI
     items:
     - name: Azure OpenAI for text completion
@@ -155,7 +156,15 @@
     - name: Image classification with PyTorch
       href: machine-learning-pytorch.md
   - name: Functions on IoT Edge device
-    href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json
+    href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+  - name: Azure Files storage mounts
+    items:
+    - name: Process images with FFmpeg on a mounted share
+      displayName: Azure Files, storage mount, ffmpeg, Flex Consumption
+      href: tutorial-ffmpeg-processing-azure-files.md
+    - name: Durable text analysis on a mounted share
+      displayName: Azure Files, storage mount, Durable Functions, Flex Consumption
+      href: durable-functions/tutorial-durable-text-analysis-azure-files.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Java with Azure Cosmos DB and Event Hubs
     href: functions-event-hub-cosmos-db.md
 - name: Samples
@@ -177,31 +186,7 @@
     - name: TypeScript
       href: /samples/browse/?products=azure-functions&languages=typescript
   - name: Azure CLI
-    items:
-    - name: CLI sample index
-      href: functions-cli-samples.md
-    - name: Create function app
-      items:
-      - name: Serverless function app
-        href: ./scripts/functions-cli-create-serverless.md
-      - name: Serverless Python app
-        href: ./scripts/functions-cli-create-serverless-python.md
-      - name: Scalable Premium plan app
-        href: ./scripts/functions-cli-create-premium-plan.md
-      - name: Dedicated (App Service) plan app
-        href: ./scripts/functions-cli-create-app-service-plan.md
-    - name: Integrate services
-      items:
-      - name: Connect Azure Storage
-        href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
-      - name: Connect Azure Cosmos DB
-        href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
-      - name: Python mount Files share
-        href: ./scripts/functions-cli-mount-files-storage-linux.md
-    - name: Continuous deployment
-      items:
-      - name: GitHub deployment
-        href: ./scripts/functions-cli-create-function-app-github-continuous.md
+    href: functions-cli-samples.md
   - name: Azure PowerShell
     href: create-resources-azure-powershell.md
 - name: Concepts
@@ -219,6 +204,9 @@
     - name: Storage considerations
       displayName: encryption, keys, mount, files
       href: storage-considerations.md
+    - name: Choose a file access strategy
+      displayName: Azure Files, storage mount, bindings, file mounts, file access, shared files
+      href: concept-file-access-options.md
     - name: Error handling and function retries
       displayName: best practices, retry policies
       href: functions-bindings-error-pages.md
@@ -242,9 +230,9 @@
         href: container-concepts.md
       - name: Azure Container Apps hosting
         href: functions-container-apps-hosting.md
-    - name: Consumption plan
+    - name: Consumption plan (legacy)
       href: consumption-plan.md
-    - name: MCP server hosting
+    - name: Host MCP servers
       href: self-hosted-mcp-servers.md
   - name: Deployment
     items:
@@ -288,14 +276,16 @@
       displayName: secure, ssl
       href: security-concepts.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/TOC.json
+      href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Reliability
     items:
-    - name: Availability zones and disaster recovery
+    - name: Reliability in Azure Functions
       displayName: availability zones, high-availability, zone redundancy, disaster recovery
-      href: ../reliability/reliability-functions.md?toc=/azure/azure-functions/TOC.json
+      href: /azure/reliability/reliability-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+    - name: Zone redundancy
+      href: functions-zone-redundancy.md
     - name: Migrate to a zone-redundant plan
-      href: ../reliability/migrate-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      href: /azure/reliability/migrate-functions?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Diagnostics
     href: functions-diagnostics.md
   - name: Consumption plan costs
@@ -307,8 +297,6 @@
     href: ip-addresses.md
   - name: Custom handlers
     href: functions-custom-handlers.md
-  - name: Self-hosted MCP servers
-    href: self-hosted-mcp-servers.md
 - name: Languages
   items:
   - name: Supported languages
@@ -392,7 +380,7 @@
         href: functions-create-function-app-portal.md
       - name: Azure CLI
         displayName: create function app
-        href: ./scripts/functions-cli-create-serverless.md
+        href: how-to-create-function-azure-cli.md
     - name: Create functions
       items:
       - name: HTTP trigger
@@ -401,10 +389,6 @@
           href: functions-create-http-endpoint.md
         - name: Kotlin using IntelliJ
           href: functions-create-maven-kotlin-intellij.md
-        - name: Consumption plan
-          href: ./scripts/functions-cli-create-app-service-plan.md
-        - name: Premium plan
-          href: ./scripts/functions-cli-create-premium-plan.md
         - name: Linux container (Premium)
           displayName: container, Docker, custom
           href: functions-deploy-container.md
@@ -438,7 +422,7 @@
       - name: Debug Event Grid trigger locally
         href: functions-debug-event-grid-trigger-local.md
     - name: Load testing
-      href: ../app-testing/load-testing/how-to-create-load-test-function-app.md?toc=/azure/azure-functions/toc.json
+      href: ../app-testing/load-testing/how-to-create-load-test-function-app.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Dependency injection
       href: functions-dotnet-dependency-injection.md
     - name: Manage connections
@@ -478,7 +462,7 @@
     - name: Run from package
       href: run-functions-from-deployment-package.md
     - name: Deploy using the Jenkins plugin
-      href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
+      href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Configure
     items:
     - name: Manage a function app
@@ -519,45 +503,45 @@
     - name: Configure auth providers
       items:
       - name: Authenticate with Microsoft Entra ID
-        href: ../app-service/configure-authentication-provider-aad.md?toc=/azure/azure-functions/toc.json
+        href: ../app-service/configure-authentication-provider-aad.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
       - name: Authenticate with Facebook
-        href: ../app-service/configure-authentication-provider-facebook.md?toc=/azure/azure-functions/toc.json
+        href: ../app-service/configure-authentication-provider-facebook.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
       - name: Authenticate with GitHub
-        href: ../app-service/configure-authentication-provider-github.md?toc=/azure/azure-functions/toc.json
+        href: ../app-service/configure-authentication-provider-github.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
       - name: Authenticate with Google
-        href: ../app-service/configure-authentication-provider-google.md?toc=/azure/azure-functions/toc.json
+        href: ../app-service/configure-authentication-provider-google.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
       - name: Authenticate with X
-        href: ../app-service/configure-authentication-provider-twitter.md?toc=/azure/azure-functions/toc.json
+        href: ../app-service/configure-authentication-provider-twitter.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
       - name: Authenticate with an OpenID Connect provider
-        href: ../app-service/configure-authentication-provider-openid-connect.md?toc=/azure/azure-functions/toc.json
+        href: ../app-service/configure-authentication-provider-openid-connect.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
       - name: Authenticate using Sign in with Apple (Preview)
-        href: ../app-service/configure-authentication-provider-apple.md?toc=/azure/azure-functions/toc.json
+        href: ../app-service/configure-authentication-provider-apple.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Customize sign-ins/outs
-      href: ../app-service/configure-authentication-customize-sign-in-out.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/configure-authentication-customize-sign-in-out.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Access user identities
-      href: ../app-service/configure-authentication-user-identities.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/configure-authentication-user-identities.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Work with tokens
-      href: ../app-service/configure-authentication-oauth-tokens.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/configure-authentication-oauth-tokens.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Manage API versions
-      href: ../app-service/configure-authentication-api-version.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/configure-authentication-api-version.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: File-based configuration
-      href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/configure-authentication-file-based.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: MCP server authorization
-      href: ../app-service/configure-authentication-mcp.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/configure-authentication-mcp.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Secure
     items:
     - name: Work with access keys
       href: function-keys-how-to.md
     - name: Add SSL cert
-      href: ../app-service/configure-ssl-certificate.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/configure-ssl-certificate.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Restrict IPs
-      href: ../app-service/app-service-ip-restrictions.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/app-service-ip-restrictions.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Use a managed identity
-      href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Use an agent identity
-      href: ../app-service/overview-agent-identity.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/overview-agent-identity.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Reference secrets from Key Vault
-      href: ../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Encrypt site data
       href: configure-encrypt-at-rest-using-cmk.md
   - name: Integrate
@@ -579,15 +563,15 @@
       - name: SignalR
         items:
         - name: C#
-          href: ../azure-signalr/signalr-quickstart-azure-functions-csharp.md?toc=/azure/azure-functions/toc.json
+          href: ../azure-signalr/signalr-quickstart-azure-functions-csharp.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
         - name: Java
-          href: ../azure-signalr/signalr-quickstart-azure-functions-java.md?toc=/azure/azure-functions/toc.json
+          href: ../azure-signalr/signalr-quickstart-azure-functions-java.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
         - name: JavaScript
-          href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=/azure/azure-functions/toc.json
+          href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
         - name: Python
-          href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json
+          href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
       - name: Web PubSub
-        href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
+        href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
       - name: Work with Event Grid
         href: event-grid-how-tos.md
     - name: Connect to a virtual Network
@@ -600,10 +584,8 @@
       - name: Visual Studio with API Management (C#)
         displayName: OpenAPI, Swagger
         href: openapi-apim-integrate-visual-studio.md
-    - name: Register an MCP server in API Center
-      href: register-mcp-server-api-center.md    
     - name: Use a managed identity
-      href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json
+      href: ../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Manage on-premises resources
       href: functions-hybrid-powershell.md
   - name: Troubleshoot
@@ -613,7 +595,7 @@
       href: functions-recover-storage-account.md
     - name: Azure Cosmos DB bindings
       displayName: troubleshoot
-      href: /azure/cosmos-db/troubleshoot-changefeed-functions?toc=/azure/azure-functions/toc.json
+      href: /azure/cosmos-db/troubleshoot-changefeed-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Node.js
       href: functions-node-troubleshoot.md
     - name: Python
@@ -624,11 +606,41 @@
         href: python-scale-performance-reference.md
       - name: Memory profiling
         href: python-memory-profiler-reference.md
+- name: AI
+  items: 
+  - name: Create AI-enabled functions
+    displayName: OpenAI, agent, agentic, tools, trigger
+    href: functions-create-ai-enabled-apps.md
+  - name: Custom remote MCP servers 
+    items:  
+    - name: MCP extension quickstart
+      displayName: AI, agent, agentic, tools, trigger
+      href: scenario-custom-remote-mcp-server.md
+    - name: MCP Apps quickstart
+      displayName: AI, agent, agentic, tools, MCP Apps, UI
+      href: scenario-mcp-apps.md
+    - name: Custom remote MCP tutorial
+      displayName: agent, agentic, Foundry
+      href: functions-mcp-tutorial.md
+    - name: Self-hosted MCP servers
+      href: self-hosted-mcp-servers.md
+    - name: MCP server authorization
+      href: ../app-service/configure-authentication-mcp.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+    - name: Connect to Foundry Agent Service
+      href: functions-mcp-foundry-tools.md
+    - name: Register an MCP server in API Center
+      href: register-mcp-server-api-center.md
+  - name: Azure MCP server for Azure Functions
+    href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+  - name: GitHub Copilot for Azure
+    href: /azure/developer/github-copilot-azure?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
 - name: Migration guides
   items:
   - name: Migrate from AWS Lambda
     displayName: AWS Lambda, migration
     href: migration/migrate-aws-lambda-to-azure-functions.md
+  - name: Migrate Consumption plan apps to Flex Consumption
+    href: migration/migrate-plan-consumption-to-flex.md
   - name: Upgrade runtime versions
     items:
     - name: Migrate v3.x to v4.x
@@ -642,8 +654,6 @@
       href: update-language-versions.md
     - name: Migrate Node.js to model v4.x
       href: functions-node-upgrade-v4.md
-  - name: Migrate Consumption plan apps to Flex Consumption
-    href: migration/migrate-plan-consumption-to-flex.md
   - name: Migrate .NET apps to the isolated model
     href: migrate-dotnet-to-isolated-model.md
   - name: Move resources
@@ -672,27 +682,27 @@
     href: functions-app-settings.md
   - name: Triggers and bindings
     items:
-    - name: Azure Cache for Redis
+    - name: Azure Managed Redis
       items:
       - name: Overview
-        displayName: Azure Cache for Redis
+        displayName: Azure Managed Redis
         href: functions-bindings-cache.md
       - name: Trigger
         items:
         - name: Pub Sub
-          displayName: Azure Cache for Redis
+          displayName: Azure Managed Redis
           href: functions-bindings-cache-trigger-redispubsub.md
         - name: List
-          displayName: Azure Cache for Redis
+          displayName: Azure Managed Redis
           href: functions-bindings-cache-trigger-redislist.md
         - name: Stream
-          displayName: Azure Cache for Redis
+          displayName: Azure Managed Redis
           href: functions-bindings-cache-trigger-redisstream.md
       - name: Input
-        displayName: Azure Cache for Redis
+        displayName: Azure Managed Redis
         href: functions-bindings-cache-input.md
       - name: Output
-        displayName: Azure Cache for Redis
+        displayName: Azure Managed Redis
         href: functions-bindings-cache-output.md
     - name: Azure Cosmos DB
       items:
@@ -909,9 +919,12 @@
       - name: Overview
         displayName: MCP
         href: functions-bindings-mcp.md
-      - name: Trigger
+      - name: Tool trigger
         displayName: MCP tool
-        href: functions-bindings-mcp-trigger.md
+        href: functions-bindings-mcp-tool-trigger.md
+      - name: Resource trigger
+        displayName: MCP resource
+        href: functions-bindings-mcp-resource-trigger.md
     - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
     - name: Notification Hubs
@@ -1039,6 +1052,8 @@
         href: errors-diagnostics/diagnostic-events/azfd0012.md
       - name: AZFD0013
         href: errors-diagnostics/diagnostic-events/azfd0013.md
+      - name: AZFD0015
+        href: errors-diagnostics/diagnostic-events/azfd0015.md
   - name: host.json 2.x reference
     href: functions-host-json.md
   - name: host.json 1.x reference

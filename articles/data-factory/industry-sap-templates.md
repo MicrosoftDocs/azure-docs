@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory
 description: Overview of the SAP templates
 author: ukchrist
 ms.author: ulrichchrist
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 10/03/2024
 ms.subservice: data-movement
 ---

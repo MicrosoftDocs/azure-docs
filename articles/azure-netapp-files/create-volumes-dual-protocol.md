@@ -114,12 +114,11 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * **Availability zone**   
         This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
 
-    * **Encryption key source** 
+    * **Encryption key source**     
         You can select `Microsoft Managed Key` or `Customer Managed Key`. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
-    * **Advanced Ransomware Protection**
+    * **Advanced Ransomware Protection**   
         Select **Enabled** to configure ransomware threat detection alerts for your volumes. For more information, see [Configure advanced ransomware protection](ransomware-configure.md). 
-
 
     * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 

@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.author: mbender
-ms.date: 09/30/2024
+ms.date: 01/28/2026
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep,engagement-fy23
 # Customer intent: As a cloud architect, I want to create an internal load balancer using a Bicep file, so that I can efficiently distribute traffic among virtual machines in a secure network environment.
 ---
@@ -49,15 +49,15 @@ Multiple Azure resources have been defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name CreateIntLBQS-rg --location eastus
-    az deployment group create --resource-group CreateIntLBQS-rg --template-file main.bicep --parameters adminUsername=AzureAdmin
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminUsername=AzureAdmin
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name CreateIntLBQS-rg -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName CreateIntLBQS-rg -TemplateFile ./main.bicep -adminUsername "<admin-user>"
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -adminUsername "<admin-user>"
     ```
 
     ---
@@ -74,13 +74,13 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resour
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group CreateIntLBQS-rg
+az resource list --resource-group exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName CreateIntLBQS-rg
+Get-AzResource -ResourceGroupName exampleRG
 ```
 
 ---
@@ -92,13 +92,13 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to d
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name CreateIntLBQS-rg
+az group delete --name exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name CreateIntLBQS-rg
+Remove-AzResourceGroup -Name exampleRG
 ```
 
 ---

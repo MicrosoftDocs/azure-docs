@@ -161,4 +161,4 @@ The component of a policy definition used to define the constraint template. For
 
 ## Next steps
 
-To get started with Azure Policy, see [What is Azure Policy?](./overview.md).
+To get started with Azure Policy, see [What is Azure Policy?](./overview.md)

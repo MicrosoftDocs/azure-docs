@@ -38,8 +38,7 @@ For AGIC to observe an ingress resource, the resource *must be annotated* with `
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` ||
 | [appgw.ingress.kubernetes.io/override-frontend-port](#override-frontend-port) | `bool` | `false` ||
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` ||
-| [appgw.ingress.kubernetes.io/request-timeout]
-(#request-timeout) | `int32` (seconds) | `30` ||
+| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32` (seconds) | `30` ||
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` ||
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
 | [appgw.ingress.kubernetes.io/hostname-extension](#hostname-extension) | `string` | `nil` ||

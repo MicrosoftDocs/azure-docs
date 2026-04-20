@@ -34,7 +34,7 @@ You can find your hub's quota limit in the Azure portal.
 
 Operation throttles are rate limitations that are applied in minute ranges and are intended to prevent abuse. They're also subject to [traffic shaping](#traffic-shaping).
 
-It's a good practice to throttle your calls so that you don't hit or exceed the throttling limits. If you hit the limit, IoT Hub responds with `error code 429`, and the client should back-off and retry. These limits are per hub (or in some cases per hub per unit). For more information, see [Retry patterns](../iot/concepts-manage-device-reconnections.md#retry-patterns).
+It's a good practice to throttle your calls so that you don't hit or exceed the throttling limits. If you hit the limit, IoT Hub responds with `error code 429`, and the client should back-off and retry. These limits are per hub (or in some cases per hub per unit). For more information, see [Retry patterns](concepts-manage-device-reconnections.md#retry-patterns).
 
 For pricing details about which operations are charged and under what circumstances, see [Azure IoT Hub billing information](iot-hub-devguide-pricing.md).
 

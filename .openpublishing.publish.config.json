@@ -70,7 +70,7 @@
         },
         {
             "path_to_root": "azure_cli_scripts",
-            "url": "https://github.com/ggailey777/azure-cli-samples",
+            "url": "https://github.com/Azure-Samples/azure-cli-samples",
             "branch": "master",
             "branch_mapping": {}
         },
@@ -237,6 +237,12 @@
           "branch_mapping": {}
         },
         {
+          "path_to_root": "functions-flex-azure-files-samples",
+          "url": "https://github.com/Azure-Samples/Azure-Functions-Flex-Consumption-with-Azure-Files-OS-Mount-Samples",
+          "branch": "main",
+          "branch_mapping": {}
+        },
+        {
           "path_to_root": "functions-quickstart-java-azd",
           "url": "https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd",
           "branch": "main",
@@ -281,6 +287,24 @@
         {
             "path_to_root": "functions-azd-timer-typescript",
             "url": "https://github.com/Azure-Samples/functions-quickstart-typescript-azd-timer",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-event-hub-azd-dotnet",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventhub",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-event-hub-azd-typescript",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-typescript-azd-eventhub",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-event-hub-azd-python",
+            "url": "https://github.com/Azure-Samples/functions-quickstart-python-azd-eventhub",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -832,12 +856,6 @@
             "path_to_root": "samples-javascript",
             "url": "https://github.com/Microsoft/tsiclient",
             "branch": "tutorial",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "samples-tsi",
-            "url": "https://github.com/Azure-Samples/Azure-Time-Series-Insights",
-            "branch": "master",
             "branch_mapping": {}
         },
         {

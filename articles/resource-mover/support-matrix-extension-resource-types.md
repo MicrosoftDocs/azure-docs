@@ -6,7 +6,7 @@ ms.author: v-rochak2
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: concept-article
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 ms.custom: UpdateFrequency.5
 
 # Customer intent: "As a cloud architect, I want to understand which extension resource types are supported during region migrations, so that I can plan and execute effective resource relocations without encountering unsupported configurations."

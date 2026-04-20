@@ -89,4 +89,4 @@ To use the `DataLoads` workload group, a [workload classifier](/sql/t-sql/statem
 ## See also
 
 - [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
-- [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](../sql/overview-difference-between-formerly-sql-dw-workspace.md).
+- [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](../sql/overview-difference-between-formerly-sql-dw-workspace.md)

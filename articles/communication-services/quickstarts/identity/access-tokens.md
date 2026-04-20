@@ -41,7 +41,7 @@ This article describes how to use the Azure Communication Services SDKs to creat
 ::: zone-end
 
 ::: zone pivot="platform-azportal"
-[!INCLUDE [Azure Portal](./includes/access-tokens/access-token-az-portal.md)]
+[!INCLUDE [Azure portal](./includes/access-tokens/access-token-az-portal.md)]
 ::: zone-end
 
 ::: zone pivot="platform-nocode"

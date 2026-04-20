@@ -1,6 +1,22 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/frontdoor/troubleshoot-issues.md",
+            "redirect_url": "/troubleshoot/azure/front-door/troubleshoot-issues",
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/troubleshoot-performance-issues.md",
+            "redirect_url": "/troubleshoot/azure/front-door/troubleshoot-performance-issues",
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-compression.md",
+            "redirect_url": "/troubleshoot/azure/front-door/troubleshoot-compression",
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/refstring.md",
+            "redirect_url": "/troubleshoot/azure/front-door/refstring",
+        },
+        {
             "source_path_from_root": "/articles/frontdoor/signed-request.md",
             "redirect_url": "/azure/frontdoor",
             "redirect_document_id": false

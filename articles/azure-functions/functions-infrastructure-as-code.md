@@ -2,7 +2,7 @@
 title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/05/2025
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content, ignite-2024
 zone_pivot_groups: functions-hosting-plan
@@ -32,6 +32,8 @@ The template code to create the required Azure resources depends on the desired 
 | [Azure Container Apps](../container-apps/functions-overview.md) | Container-only | [Bicep](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/ACAKindfunctionapp)|
 | [Consumption plan](consumption-plan.md) | Code-only | [Bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/main.bicep)<br/>[ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/azuredeploy.json) |
 
+For new serverless function apps, use the Flex Consumption plan. <br/>The Consumption plan is a legacy hosting plan. For existing apps, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).
+
 Make sure to select your hosting plan at the top of the article.
 ::: zone pivot="consumption-plan"  
 [!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
@@ -50,7 +52,7 @@ When using this article, keep these considerations in mind:
 ::: zone pivot="flex-consumption-plan"  
 + Examples are shown as individual sections for specific resources. For Bicep, [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) are shown, when available. For a broad set of complete Bicep file and ARM template examples, see [these Flex Consumption app deployment examples](/samples/browse/?expanded=azure&terms=%22azure%20functions%20flex%22&products=azure-resource-manager). 
 ::: zone-end  
-::: zone pivot="container-apps,azure-arc"  
+::: zone pivot="container-apps"  
 + Examples are shown as individual sections for specific resources.  
 ::: zone-end  
 ## Required resources  
@@ -83,16 +85,6 @@ An Azure Container Apps-hosted deployment typically consists of these resources:
 | A [managed environment](../container-apps/functions-overview.md#) | Required | [Microsoft.App/managedEnvironments](/azure/templates/microsoft.app/managedenvironments) |
 | A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
 ::: zone-end  
-::: zone pivot="azure-arc"  
-An Azure Arc-hosted deployment typically consists of these resources:
-
-| Resource  | Requirement | Syntax and properties reference |
-|------|-------|----|
-| A [storage account](#create-storage-account) | Required | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| An [Application Insights](#create-application-insights) component | Recommended | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)<sup>1</sup>|  
-| An [App Service Kubernetes environment](../app-service/overview-arc-integration.md#app-service-kubernetes-environment) | Required | [Microsoft.ExtendedLocation/customLocations](/azure/templates/microsoft.extendedlocation/customlocations) |
-| A [function app](#create-the-function-app) | Required | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)  |
-::: zone-end  
 <sup>*</sup>If you don't already have a Log Analytics Workspace that can be used by your Application Insights instance, you also need to create this resource.   
 
 When you deploy multiple resources in a single Bicep file or ARM template, the order in which resources are created is important. This requirement is a result of dependencies between resources. For such dependencies, make sure to use the `dependsOn` element to define the dependency in the dependent resource. For more information, see either [Define the order for deploying resources in ARM templates](../azure-resource-manager/templates/resource-dependency.md) or [Resource dependencies in Bicep](../azure-resource-manager/bicep/resource-dependencies.md). 
@@ -103,9 +95,6 @@ When you deploy multiple resources in a single Bicep file or ARM template, the o
 + Both Application Insights and storage logs require you to have an existing [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). Workspaces can be shared between services, and as a rule of thumb you should create a workspace in each geographic region to improve performance. For an example of how to create a Log Analytics workspace, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-resource-manager#create-a-workspace). You can find the fully qualified workspace resource ID in a workspace page in the [Azure portal](https://portal.azure.com) under **Settings** > **Properties** > **Resource ID**. 
 ::: zone pivot="container-apps" 
 + This article assumes that you have already created a [managed environment](../container-apps/environment.md) in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
-::: zone-end  
-::: zone pivot="azure-arc" 
-+ This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
 ::: zone-end  
 <a name="storage"></a>
 ## Create storage account
@@ -649,120 +638,6 @@ For more context, see the complete [azuredeploy.json](https://github.com/Azure-S
 ---
  
 ::: zone-end
-::: zone pivot="azure-arc" 
-## Kubernetes environment
-Azure Functions can be deployed to [Azure Arc-enabled Kubernetes](../app-service/overview-arc-integration.md) either as a code project or a containerized function app. 
-
-To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. The examples in this article assume you have the resource ID of the custom location (`customLocationId`) and App Service Kubernetes environment (`kubeEnvironmentId`) to which you're deploying, which are set in this example: 
-
-### [ARM template](#tab/json)
-
-```json
-"parameters": {
-  "kubeEnvironmentId" : {
-    "type": "string"
-  },
-  "customLocationId" : {
-    "type": "string"
-  }
-}
-```
-
-### [Bicep](#tab/bicep)
-
-```bicep
-param kubeEnvironmentId string
-param customLocationId string
-```
-
----
-
-Both sites and plans must reference the custom location through an `extendedLocation` field. As shown in this truncated example, `extendedLocation` sits outside of `properties`, as a peer to `kind` and `location`:
-
-### [ARM template](#tab/json)
-
-```json
-{
-  "type": "Microsoft.Web/serverfarms",
-  ...
-  {
-    "extendedLocation": {
-      "name": "[parameters('customLocationId')]"
-    },
-  }
-}
-```
-
-### [Bicep](#tab/bicep)
-
-```bicep
-resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
-  ...
-  {
-    extendedLocation: {
-      name: customLocationId
-    }
-  }
-}
-```
-
----
-
-The plan resource should use the Kubernetes (`K1`) value for `SKU`, the `kind` field should be `linux,kubernetes`, and the `reserved` property should be `true`, since it's a Linux deployment. You must also set the `extendedLocation` and `kubeEnvironmentProfile.id` to the custom location ID and the Kubernetes environment ID, respectively, which might look like this example section:
-
-### [ARM template](#tab/json)
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2022-03-01",
-    "name": "[parameters('hostingPlanName')]",
-    "location": "[parameters('location')]",
-    "kind": "linux,kubernetes",
-    "sku": {
-      "name": "K1",
-      "tier": "Kubernetes"
-    },
-    "extendedLocation": {
-      "name": "[parameters('customLocationId')]"
-    },
-    "properties": {
-      "kubeEnvironmentProfile": {
-        "id": "[parameters('kubeEnvironmentId')]"
-      },
-      "reserved": true
-    }
-  }
-]
-```
-
-### [Bicep](#tab/bicep)
-
-```bicep
-resource hostingPlan 'Microsoft.Web/serverfarms@2022-03-01' = {
-  name: hostingPlanName
-  location: location
-  kind: 'linux,kubernetes'
-  sku: {
-    name: 'K1'
-    tier: 'Kubernetes'
-  }
-  extendedLocation: {
-    name: customLocationId
-  }
-  properties: {
-    kubeEnvironmentProfile: {
-      id: kubeEnvironmentId
-    }
-    reserved: true
-  }
-}
-```
-
----
-
-::: zone-end
 
 ## Create the function app
 
@@ -1204,7 +1079,7 @@ For a complete end-to-end example, see this [azuredeploy.json template](https://
 
 ::: zone-end  
 ## Deployment sources
-::: zone pivot="container-apps,azure-arc"  
+::: zone pivot="container-apps"  
 You can use the [`linuxFxVersion`](./functions-app-settings.md#linuxfxversion) site setting to request that a specific Linux container be deployed to your app when it's created. More settings are required to access images in a private repository. For more information, see [Application configuration](#application-configuration).    
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
@@ -1668,102 +1543,6 @@ resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
 ---
 
 ::: zone-end
-::: zone pivot="azure-arc"
-When deploying functions to Azure Arc, the value you set for the `kind` field of the function app resource depends on the type of deployment:
-
-| Deployment type | `kind` field value |
-|----|----|
-| Code-only deployment | `functionapp,linux,kubernetes` |
-| Container deployment | `functionapp,linux,kubernetes,container` |  
-
-You must also set the `customLocationId` as you did for the [hosting plan resource](#create-the-hosting-plan).
-
-The definition of a containerized function app, using a .NET 6 quickstart image, might look like this example:
-
-### [Bicep](#tab/bicep)
-
-```bicep
-resource functionApp 'Microsoft.Web/sites@2022-03-01' = {
-  name: functionAppName
-  kind: 'kubernetes,functionapp,linux,container'
-  location: location
-  extendedLocation: {
-    name: customLocationId
-  }
-  properties: {
-    serverFarmId: hostingPlanName
-    siteConfig: {
-      linuxFxVersion: 'DOCKER|mcr.microsoft.com/azure-functions/4-dotnet-isolated6.0-appservice-quickstart'
-      appSettings: [
-        {
-          name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~4'
-        }
-        {
-          name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value}'
-        }
-        {
-          name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
-          value: applicationInsightsName.properties.ConnectionString
-        }
-      ]
-      alwaysOn: true
-    }
-  }
-  dependsOn: [
-    storageAccount
-    hostingPlan
-  ]
-}
-```
-
-### [ARM template](#tab/json)
-
-```json
-"resources": [
-  {
-    "type": "Microsoft.Web/sites",
-    "apiVersion": "2022-03-01",
-    "name": "[parameters('functionAppName')]",
-    "kind": "kubernetes,functionapp,linux,container",
-    "location": "[parameters('location')]",
-    "extendedLocation": {
-      "name": "[parameters('customLocationId')]"
-    },
-    "dependsOn": [
-      "[resourceId('Microsoft.Insights/components', parameters('applicationInsightsName'))]",
-      "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
-      "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
-    ],
-    "properties": {
-      "serverFarmId": "[parameters('hostingPlanName')]",
-      "siteConfig": {
-        "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/4-dotnet-isolated6.0-appservice-quickstart",
-        "appSettings": [
-          {
-            "name": "FUNCTIONS_EXTENSION_VERSION",
-            "value": "~4"
-          },
-          {
-            "name": "AzureWebJobsStorage",
-            "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}', parameters('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2021-09-01').keys[0].value)]"
-          },
-          {
-            "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
-            "value": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2020-02-02').ConnectionString]"
-          }
-        ],
-        "alwaysOn": true
-      }
-    }
-  }
-]
-```
-
----
-
-::: zone-end  
 
 ## Application configuration
 ::: zone pivot="flex-consumption-plan"   
@@ -1797,7 +1576,7 @@ The Flex Consumption plan also supports these application settings:
     + [`AzureWebJobsStorage__accountName`](functions-app-settings.md#azurewebjobsstorage__accountname)
 
 ::: zone-end  
-::: zone pivot="consumption-plan,premium-plan,dedicated-plan,container-apps,azure-arc"  
+::: zone pivot="consumption-plan,premium-plan,dedicated-plan,container-apps"  
 Functions provides the following options for configuring your function app in Azure: 
 
 | Configuration | `Microsoft.Web/sites` property |  
@@ -1838,11 +1617,7 @@ These site settings are required on the `siteConfig` property:
 ::: zone pivot="container-apps"  
 + [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
 ::: zone-end  
-::: zone pivot="azure-arc"  
-+ [`alwaysOn`](functions-app-settings.md#alwayson)
-+ [`linuxFxVersion`](functions-app-settings.md#linuxfxversion)
-::: zone-end  
-::: zone pivot="dedicated-plan,premium-plan,azure-arc,container-apps"  
+::: zone pivot="dedicated-plan,premium-plan,container-apps"  
 These site settings are required only when using managed identities to obtain the image from an Azure Container Registry instance:
 
 + [`AcrUseManagedIdentityCreds`](functions-app-settings.md#acrusemanagedidentitycreds)
@@ -1921,7 +1696,7 @@ These application settings are required (or recommended) for a specific operatin
 --- 
 
 ::: zone-end 
-::: zone pivot="container-apps,azure-arc"  
+::: zone pivot="container-apps"  
 These application settings are required for container deployments:
  
 + [`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)
@@ -1964,7 +1739,7 @@ Keep these considerations in mind when working with site and application setting
 ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 + There are important considerations for when you should set `WEBSITE_CONTENTSHARE` in an automated deployment. For detailed guidance, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference. 
 ::: zone-end
-::: zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  
+::: zone pivot="container-apps,premium-plan,dedicated-plan"  
 + For container deployments, also set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) to `false`, since your app content is provided in the container itself. 
 ::: zone-end  
 + You should always define your application settings as a `siteConfig/appSettings` collection of the `Microsoft.Web/sites` resource being created, as is done in the examples in this article. This definition guarantees the settings your function app needs to run are available on initial startup.

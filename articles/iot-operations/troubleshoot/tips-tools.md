@@ -15,6 +15,18 @@ This article describes how to use some common tools when you're learning, explor
 
 Azure IoT Operations components run in a standard Kubernetes cluster. You can use the `kubectl` and `k9s` CLI tools to interact with and manage your cluster.
 
+### Manage components using Kubernetes deployment manifests
+
+> [!IMPORTANT]
+> The use of Kubernetes deployment manifests is not supported in production environments and should only be used for debugging and testing.
+
+In general, Azure IoT Operations uses the Azure Arc platform to provide a hybrid cloud experience where you can manage the configuration through Azure Resource Manager (ARM) and front-end tools like the Azure portal, Bicep, and the Azure CLI.
+
+However, in a debug or test environment you can  manage the components of Azure IoT Operations using YAML Kubernetes deployment manifests. This means you can use tools like `kubectl` to manage some components of Azure IoT Operations. This feature has some limitations:
+
+- Unless you enable resource sync in Azure IoT Operations using `az iot ops enable-rsync` command, changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
+- Even if resource sync is enabled, brand new resources created using Kubernetes deployment manifests are not synced to Azure. Only changes to existing resources are synced.
+
 ### `kubectl`
 
 `kubectl` is the Kubernetes command-line tool for managing your cluster. It has many capabilities that you can learn about in the official [kubernetes documentation](https://kubernetes.io/docs/reference/kubectl/introduction/). This article describes the common uses for `kubectl` when you're working with Azure IoT Operations such as listing the running pods and viewing logs.

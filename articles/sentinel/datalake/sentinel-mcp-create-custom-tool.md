@@ -7,6 +7,7 @@ ms.topic: get-started
 ms.date: 11/24/2025
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform
 
 #customer intent: As a security analyst, I want to create a custom Microsoft Sentinel Model Context Protocol (MCP) tool using saved KQL queries in advanced hunting so I can have granular control over the data accessible to my AI agents.
 ---

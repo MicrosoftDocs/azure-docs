@@ -230,7 +230,7 @@
     - name: Migrate to Azure
       href: migrate-overview.md
     - name: Migration to availability zones 
-      href: ../reliability/migrate-recovery-services-vault.md     
+      href: /azure/reliability/migrate-recovery-services-vault     
   - name: Security
     items:
     - name: Security baseline

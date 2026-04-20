@@ -79,6 +79,11 @@
             "source_path_from_root":"/articles/azure-netapp-files/snapshots-edit-hide-path.md",
             "redirect_url": "/azure/azure-netapp-files/snapshots-manage-policy#edit-the-hide-snapshot-path-option",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-resource-limits.md",
+            "redirect_url": "/azure/azure-netapp-files/azure-netapp-files-resource-limits",
+            "redirect_document_id": false
         }
     ]
 }

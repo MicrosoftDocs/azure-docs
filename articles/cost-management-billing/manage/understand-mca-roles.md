@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/11/2025
+ms.date: 02/10/2026
 ms.author: jkinma
 ms.custom: sfi-ga-nochange
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
@@ -182,9 +182,11 @@ The following tables show what role you need to complete tasks in the context of
 |---|---|---|---|---|---|---|---|---|---|---|---|
 |View all Azure subscriptions for invoice section|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
 |Create Azure subscriptions|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|✘|✘|✘|✘|
 |Change invoice section for the Azure subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Request billing ownership of subscriptions from users in other billing accounts|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+
+¹ Azure subscription creator can only cancel the subscriptions they created.
 
 ## Subscription billing roles and tasks
 
@@ -196,7 +198,9 @@ The following table shows what role you need to complete tasks in the context of
 |Update cost center for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Change invoice section for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Change billing profile for the subscription|✘|✘|✘|✘|✔|✔|✘|✘|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|✘|✘|✘|✘|
+
+¹ Azure subscription creator can only cancel the subscriptions they created.
 
 ## Manage billing roles in the Azure portal
 

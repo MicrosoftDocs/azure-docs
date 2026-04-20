@@ -284,6 +284,11 @@
       "source_path_from_root": "/articles/sap/workloads/expose-sap-odata-to-power-platform.md ",
       "redirect_url": "/power-platform/sap/connect/entra-id-apim-oauth",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sap/business-process-solutions/configure-dataset.md",
+      "redirect_url": "/azure/sap/business-process-solutions/manage-datasets",
+      "redirect_document_id": false
     }
   ]
 }

@@ -2,13 +2,12 @@
 title: SAP ASCS/SCS multi-SID HA with WSFC and Azure shared disk | Microsoft Docs
 description: Learn about multi-SID high availability for an SAP ASCS/SCS instance with Windows Server Failover Clustering and an Azure shared disk.
 services: virtual-machines-windows,virtual-network,storage
-author: rdeltcheva
 manager: juergent
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.topic: article
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.date: 11/19/2024
+ms.date: 03/25/2026
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 # Customer intent: "As an SAP system administrator, I want to configure multi-SID high availability for SAP ASCS/SCS using Windows Failover Clustering and Azure shared disks, so that I can ensure continuous availability and fault tolerance for critical SAP workloads."
@@ -17,15 +16,15 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 
 > ![Windows OS][Logo_Windows] Windows
 
-This article focuses on how to move from a single SAP ASCS/SCS installation to configuration of multiple SAP system IDs (SIDs) by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with an Azure shared disk. When you complete this process, you've configured an SAP multi-SID cluster.
+This article focuses on how to move from a single SAP ASCS/SCS installation to configuration of multiple SAP system IDs (SIDs) by installing other SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster with an Azure shared disk. When you complete this process, you've configured an SAP multi-SID cluster.
 
 ## Prerequisites and limitations
 
-You can use Azure Premium SSD disks as Azure shared disks for the SAP ASCS/SCS instance. The following limitations are currently in place:
+You can use Azure Premium SSD disks as Azure shared disks for the SAP ASCS/SCS instance. The following gitlimitations are currently in place:
 
-- [Azure Ultra Disk Storage disks](/azure/virtual-machines/disks-types#ultra-disks) and [Azure Standard SSD disks](/azure/virtual-machines/disks-types#standard-ssds) aren't supported as Azure shared disks for SAP workloads.
-- [Azure shared disks](/azure/virtual-machines/disks-shared) with [Premium SSD disks](/azure/virtual-machines/disks-types#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
-- Azure shared disks with Premium SSD disks come with two storage options:
+- [Ultra Disks](/azure/virtual-machines/disks-types#ultra-disks) and [Azure Standard SSDs](/azure/virtual-machines/disks-types#standard-ssds) aren't supported as Azure shared disks for SAP workloads.
+- [Azure shared disks](/azure/virtual-machines/disks-shared) with [Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
+- Azure shared disks with Premium SSDs come with two storage options:
   - Locally redundant storage (LRS) for Premium SSD shared disks (`skuName` value of `Premium_LRS`) is supported with deployment in availability sets.
   - Zone-redundant storage (ZRS) for Premium SSD shared disks (`skuName` value of `Premium_ZRS`) is supported with deployment in availability zones.
 - The Azure shared disk value [maxShares](/azure/virtual-machines/disks-shared-enable?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. For an SAP ASCS/SCS instance, you typically configure two nodes in WSFC. You then set the value for `maxShares` to `2`.
@@ -53,7 +52,7 @@ Consider these important points about Azure Premium SSD shared disks:
 >
 > - The SID for each database management system (DBMS) must have its own dedicated WSFC cluster.  
 > - SAP application servers that belong to one SAP SID must have their own dedicated virtual machines (VMs).  
-> - A mix of Enqueue Replication Server 1 (ERS1) and Enqueue Replication Server 2 (ERS2) in the same cluster is not supported.  
+> - A mix of Enqueue Replication Server 1 (ERS1) and Enqueue Replication Server 2 (ERS2) in the same cluster isn't supported.  
 
 ## Supported OS versions
 
@@ -142,7 +141,7 @@ The steps in this article remain the same for both deployment types. But if your
 
 For multi-sid configuration of SAP SID, PR2, you could use the same internal load balancer that you have created for SAP SID, PR1 system. For the ENSA1 architecture on Windows, you would need only one virtual IP address for SAP ASCS/SCS. On the other hand, the ENSA2 architecture necessitates two virtual IP addresses - one for SAP ASCS and another for ERS2.
 
-Configure additional frontend IP and load balancing rule for SAP SID, PR2 system on the existing load balancer using following guidelines. This section assumes that the configuration of standard internal load balancer for SAP SID, PR1 is already in place as described in [create load balancer](./sap-high-availability-infrastructure-wsfc-shared-disk.md#create-azure-internal-load-balancer).
+Configure other frontend IP and load balancing rule for SAP SID, PR2 system on the existing load balancer using following guidelines. This section assumes that the configuration of standard internal load balancer for SAP SID, PR1 is already in place as described in [create load balancer](./sap-high-availability-infrastructure-wsfc-shared-disk.md#create-azure-internal-load-balancer).
 
 1. Open the same standard internal load balancer that you have created for SAP SID, PR1 system.
 2. **Frontend IP Configuration:** Create frontend IP (example: 10.0.0.45).
@@ -162,7 +161,7 @@ Configure additional frontend IP and load balancing rule for SAP SID, PR2 system
 5. Applicable to only ENSA2 architecture: Create additional frontend IP (10.0.0.44), load balancing rule (use 621<Instance-no.> for ERS2 health probe port) as described in point 1 and 3.
 
 > [!NOTE]
-> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
+> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It's currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity unless you perform additional configuration to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  

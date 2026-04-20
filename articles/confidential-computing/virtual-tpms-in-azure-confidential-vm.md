@@ -3,8 +3,7 @@ title: Virtual TPMs in Azure confidential VMs
 description: Learn about how we use virtual Trusted Platform Modules in our confidential VMs.
 author: simranparkhe
 ms.author: simranparkhe
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 07/20/2023
 ms.custom: template-concept

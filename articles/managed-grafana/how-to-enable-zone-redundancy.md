@@ -12,7 +12,7 @@ ms.date: 12/20/2024
 
 # Enable zone redundancy in Azure Managed Grafana
 
-Azure Managed Grafana offers a zone-redundant option to protect your workspace against datacenter failure. Enabling zone redundancy for Azure Managed Grafana lets you deploy your Azure Managed Grafana resources across a minimum of three [Azure availability zones](../reliability/availability-zones-region-support.md) within the same Azure region.
+Azure Managed Grafana offers a zone-redundant option to protect your workspace against datacenter failure. Enabling zone redundancy for Azure Managed Grafana lets you deploy your Azure Managed Grafana resources across a minimum of three [Azure availability zones](/azure/reliability/availability-zones-region-support) within the same Azure region.
 
 In this how-to guide, learn how to enable zone redundancy for Azure Managed Grafana during the creation of your Azure Managed Grafana workspace.
 

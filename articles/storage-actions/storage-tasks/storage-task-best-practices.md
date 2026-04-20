@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-storage-actions
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 09/15/2025
 ms.author: normesta
 
@@ -97,7 +97,7 @@ Storage Actions perform more reliably in accounts with [geo-redundant storage](.
 
 ### Use geo redundancy for business continuity 
 
-[!INCLUDE [Storage Actions continuity after a failover](../../../includes/storage-actions-reliability.md)]
+[!INCLUDE [Storage Actions continuity after a failover](~/reusable-content/ce-skilling/azure/includes/storage-actions-reliability.md)]
 
 ## Monitoring
 

@@ -56,12 +56,9 @@ The Azure portal's focus is on setting up, changing, and experimenting with your
 
 While you can't use the portal to deploy your code, it's ideal for making incremental changes to your configuration. The portal's strengths lie in making it easy for you to set up, change, and experiment with your container app.
 
-You can also use the portal with [Azure App Spaces](/azure/app-spaces/overview) to deploy your applications to Container Apps.
-
 ### Resources
 
 - [Deploy your first container app using the Azure portal](quickstart-portal.md)
-- [Deploy a web app with Azure App Spaces](/azure/app-spaces/quickstart-deploy-your-app)
 
 ## Code repository
 
@@ -100,3 +97,4 @@ In Azure Container Apps, you can use the [Azure CLI](/cli/azure/) or the [Azure 
 
 - [Deploy to Azure Container Apps using Visual Studio](deploy-visual-studio.md)
 - [Deploy to Azure Container Apps using Visual Studio Code](deploy-visual-studio-code.md)
+- Migrating from Heroku? See [Heroku to Azure Container Apps migration overview](migrate-heroku-overview.md).

@@ -5,7 +5,7 @@ description: Learn about the mapping data flow Select Transformation in Azure Da
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.custom: synapse
 ms.date: 05/15/2024
 ---

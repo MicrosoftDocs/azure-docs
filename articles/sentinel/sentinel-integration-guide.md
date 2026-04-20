@@ -5,7 +5,7 @@ author: mberdugo
 ms.author: monaberdugo
 ms.reviewer: angodavarthy
 ms.service: microsoft-sentinel
-ms.topic: conceptual 
+ms.topic: how-to
 ms.date: 09/16/2025
 
 #CustomerIntent: As an ISV interested to build solutions for Microsoft Sentinel, I should be able to know all the details that will help me get started and guide me through the entire lifecycle of developing and publishing Microsoft Sentinel solutions.

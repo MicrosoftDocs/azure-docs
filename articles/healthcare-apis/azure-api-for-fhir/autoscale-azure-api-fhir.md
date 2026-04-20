@@ -4,7 +4,7 @@ description: This article describes the autoscale feature for Azure API for FHIR
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/24/2025
 ms.author: kesheth
 ms.custom: sfi-image-nochange

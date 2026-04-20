@@ -1,139 +1,136 @@
 ---
 title: Azure Firewall rule processing logic
 description: Azure Firewall has NAT rules, network rules, and applications rules. The rules are processed according to the rule type.
-services: firewall
 author: varunkalyana
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 05/07/2025
+ms.date: 03/23/2026
 ms.author: varunkalyana
 # Customer intent: "As a network administrator, I want to configure Azure Firewall rules and understand their processing logic, so that I can effectively manage traffic flow and maintain network security."
 ---
 
 # Configure Azure Firewall rules
-You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic. The rules are terminating, so rule processing stops on a match.
 
-## Rule processing using classic rules
+You can configure Azure Firewall with NAT rules, network rules, and application rules by using either classic rules or a Firewall Policy. By default, Azure Firewall denies all traffic until you manually configure rules to allow traffic. The rules are terminating, so rule processing stops on a match.
 
-Rule collections are processed according to the rule type in priority order, lower numbers to higher numbers from 100 to 65,000. A rule collection name can have only letters, numbers, underscores, periods, or hyphens. It must begin with a letter or number, and end with a letter, number, or underscore. The maximum name length is 80 characters.
+## Rule processing by using classic rules
 
-It's best to initially space your rule collection priority numbers in 100 increments (100, 200, 300, and so on) so you have room to add more rule collections if needed.
+The firewall processes rule collections in priority order by rule type, from lower numbers to higher numbers (100 to 65,000). A rule collection name can contain only letters, numbers, underscores, periods, or hyphens. It must begin with a letter or number, and end with a letter, number, or underscore. The maximum name length is 80 characters.
 
-## Rule processing using Firewall Policy
+Initially, space your rule collection priority numbers in 100 increments (100, 200, 300, and so on) so you have room to add more rule collections if needed.
 
-With Firewall Policy, rules are organized inside Rule Collections and Rule Collection Groups. Rule Collection Groups contain zero or more Rule Collections. Rule Collections are type NAT, Network, or Applications. You can define multiple Rule Collection types within a single Rule Group. You can define zero or more Rules in a Rule Collection. Rules in a Rule Collection must be of the same type (NAT, Network, or Application).    
+## Rule processing by using Firewall Policy
 
-Rules are processed based on Rule Collection Group Priority and Rule Collection priority. Priority is any number between 100 (highest priority) to 65,000 (lowest priority). Highest priority Rule Collection Groups are processed first. Inside a rule collection group, Rule Collections with highest priority (lowest number) are processed first.  
+By using Firewall Policy, you organize rules inside rule collections and rule collection groups. Rule collection groups contain zero or more rule collections. Rule collections are type NAT, Network, or Applications. You can define multiple rule collection types within a single rule group. You can define zero or more rules in a rule collection. Rules in a rule collection must be of the same type (NAT, Network, or Application).
 
-If a Firewall Policy is inherited from a parent policy, Rule Collection Groups in the parent policy always takes precedence regardless of the priority of a child policy.
+The system processes rules based on rule collection group priority and rule collection priority. Priority is any number between 100 (highest priority) to 65,000 (lowest priority). The system processes highest priority rule collection groups first. Inside a rule collection group, the system processes rule collections with highest priority (lowest number) first.
 
+If you inherit a Firewall Policy from a parent policy, rule collection groups in the parent policy always take precedence regardless of the priority of a child policy.
 
 
 > [!NOTE]
-> Application rules are always processed after Network rules, which are processed after DNAT rules regardless of Rule collection group or Rule collection priority and policy inheritance.
-
-So, to summarize:
-
-Parent policy always takes precedence.
-
-1. Rule collection groups are processed in priority order.
-1. Rule collections are processed in priority order.
-1. DNAT rules, then Network rules, then Application rules are processed.
+> The system always processes application rules after network rules, and processes network rules after DNAT rules regardless of rule collection group or rule collection priority and policy inheritance.
 
 
-Here's an example policy:
+To summarize:
 
-Assuming BaseRCG1 is a rule collection group priority (200) that contains the rule collections: DNATRC1, DNATRC3,NetworkRC1.\
-BaseRCG2 is a rule collection group priority (300) that contains the rule collections: AppRC2, NetworkRC2.\
-ChildRCG1 is a rule collection group priority (300) that contains the rule collections: ChNetRC1, ChAppRC1.\
-ChildRCG2 is a rule collection group priority (650) that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
+1. The parent policy always takes precedence over the child policy.
+1. The system processes rule collection groups in priority order.
+1. The system processes rule collections in priority order.
+1. The system processes DNAT rules, then network rules, then application rules.
 
-As per following table:
 
-|Name  |Type  |Priority  |Rules  |Inherited from
-|---------|---------|---------|---------|-------|
-|BaseRCG1      |Rule collection group           |200         |8         |Parent policy|
-|DNATRC1     |DNAT rule collection         |  600       |   7      |Parent policy|
-|DNATRC3|DNAT rule collection|610|3|Parent policy|
-|NetworkRC1     |Network rule collection  | 800        |    1     |Parent policy|
-|BaseRCG2  |Rule collection group         |300         | 3        |Parent policy|
-|AppRC2     |Application rule collection | 1200        |2         |Parent policy
-|NetworkRC2     |Network rule collection         |1300         |    1     |Parent policy|
-|ChildRCG1  | Rule collection group        | 300        |5         |-|
-|ChNetRC1     |Network rule collection         |  700       | 3        |-|
-|ChAppRC1       |   Application rule collection      |    900     |    2     |-|
-|ChildRCG2      |Rule collection group         | 650        |    9     |-|
-|ChNetRC2      |Network rule collection         |    1100     |  2       |-|
-|ChAppRC2      |     Application rule collection    |2000         |7         |-|
-|ChDNATRC3     | DNAT rule collection        | 3000        |  2       |-|
+Here's an example policy with four rule collection groups. **BaseRCG1** and **BaseRCG2** are inherited from a parent policy; **ChildRCG1** and **ChildRCG2** belong to the child policy.
 
-Initial Iteration for DNAT Rules:
 
-The process begins by examining the rule collection group (RCG) with the lowest number, which is BaseRCG1 with a priority of 200. Within this group, it searches for DNAT rule collections and evaluates them according to their priorities. In this case, DNATRC1 (priority 600) and DNATRC3 (priority 610) are found and processed accordingly.\
-Next, it moves to the next RCG, BaseRCG2 (priority 300), but finds no DNAT rule collection.\
-Following that, it proceeds to ChildRCG1 (priority 300), also without a DNAT rule collection.\
-Finally, it checks ChildRCG2 (priority 650) and finds the ChDNATRC3 rule collection (priority 3000).
+> [!TIP]
+> **Abbreviations used in these tables:** RCG = rule collection group, RC = rule collection. Priority numbers range from 100 (highest priority) to 65,000 (lowest priority).
 
-Iteration for NETWORK Rules:
 
-Returning to BaseRCG1, the iteration continues, this time for NETWORK rules. Only NetworkRC1 (priority 800) is found.\
-Then, it moves to BaseRCG2, where NetworkRC2 (priority 1300) is located.\
-Moving on to ChildRCG1, it discovers ChNetRC1 (priority 700) as the NETWORK rule.\
-Lastly, in ChildRCG2, it finds ChNetRC2 (priority 1100) as the NETWORK rule collection.
+**Policy structure:**
 
-Final Iteration for APPLICATION Rules:
+| Level | Name | Type | Priority | Rules | Policy |
+| --- | --- | --- | --- | --- | --- |
+| Group | **BaseRCG1** | Rule collection group | 200 | 8 | Parent |
+| Collection | DNATRC1 | DNAT | 600 | 7 | Parent |
+| Collection | DNATRC3 | DNAT | 610 | 3 | Parent |
+| Collection | NetworkRC1 | Network | 800 | 1 | Parent |
+| Group | **BaseRCG2** | Rule collection group | 300 | 3 | Parent |
+| Collection | AppRC2 | Application | 1200 | 2 | Parent |
+| Collection | NetworkRC2 | Network | 1300 | 1 | Parent |
+| Group | **ChildRCG1** | Rule collection group | 300 | 5 | Child |
+| Collection | ChNetRC1 | Network | 700 | 3 | Child |
+| Collection | ChAppRC1 | Application | 900 | 2 | Child |
+| Group | **ChildRCG2** | Rule collection group | 650 | 9 | Child |
+| Collection | ChNetRC2 | Network | 1100 | 2 | Child |
+| Collection | ChAppRC2 | Application | 2000 | 7 | Child |
+| Collection | ChDNATRC3 | DNAT | 3000 | 2 | Child |
 
-Returning to BaseRCG1, the process iterates for APPLICATION rules, but none are found.\
-In BaseRCG2, it identifies AppRC2 (priority 1200) as the APPLICATION rule.\
-In ChildRCG1, ChAppRC1 (priority 900) is found as the APPLICATION rule.\
-Finally, in ChildRCG2, it locates ChAppRC2 (priority 2000) as the APPLICATION rule.
+The firewall iterates through all rule collection groups three times — once per rule type in order: DNAT, then Network, then Application. Within each pass, it processes groups in priority order, then rule collections within each group in priority order. The following table shows the complete processing sequence for this example:
 
-**In summary, the rule processing sequence is as follows: DNATRC1, DNATRC3, ChDNATRC3, NetworkRC1, NetworkRC2, ChNetRC1, ChNetRC2, AppRC2, ChAppRC1, ChAppRC2.**
+**Processing order:**
 
-This process involves analyzing rule collection groups by priority, and within each group, ordering the rules according to their priorities for each rule type (DNAT, NETWORK, and APPLICATION).
-
-So first all the DNAT rules are processed from all the rule collection groups, analysing the rule collection groups by order of priority and ordering the DNAT rules within each rule collection group by order of priority. Then the same process for NETWORK rules, and finally for APPLICATION rules.
+| Step | Rule collection | Type | Parent RCG |
+| --- | --- | --- | --- |
+| 1 | DNATRC1 | DNAT | BaseRCG1 (200) |
+| 2 | DNATRC3 | DNAT | BaseRCG1 (200) |
+| 3 | ChDNATRC3 | DNAT | ChildRCG2 (650) |
+| 4 | NetworkRC1 | Network | BaseRCG1 (200) |
+| 5 | NetworkRC2 | Network | BaseRCG2 (300) |
+| 6 | ChNetRC1 | Network | ChildRCG1 (300) |
+| 7 | ChNetRC2 | Network | ChildRCG2 (650) |
+| 8 | AppRC2 | Application | BaseRCG2 (300) |
+| 9 | ChAppRC1 | Application | ChildRCG1 (300) |
+| 10 | ChAppRC2 | Application | ChildRCG2 (650) |
 
 For more information about Firewall Policy rule sets, see [Azure Firewall Policy rule sets](policy-rule-sets.md).
 
-### Threat Intelligence
+### Threat intelligence
 
-If you enable threat intelligence-based filtering, those rules are highest priority and are always processed first (before network and application rules). Threat-intelligence filtering may deny traffic before any configured rules are processed. For more information, see [Azure Firewall threat intelligence-based filtering](threat-intel.md).
+If you enable threat intelligence-based filtering, those rules have the highest priority. Azure Firewall always processes them first, before network and application rules. Threat intelligence-based filtering can block traffic before Azure Firewall processes any configured rules. For more information, see [Azure Firewall threat intelligence-based filtering](threat-intel.md).
 
 ### IDPS
 
-When IDPS is configured in *Alert* mode, the IDPS engine works in parallel to the rule processing logic and  generates alerts on matching signatures for both inbound and outbound flows. For an IDPS signature match, an alert is logged in firewall logs. However, since the IDPS engine works in parallel to the rule processing engine, traffic denied or allowed by application/network rules may still generate another log entry. 
+When you configure IDPS in *Alert* mode, the IDPS engine works in parallel with the rule processing logic. It generates alerts on matching signatures for both inbound and outbound flows. For an IDPS signature match, Azure Firewall logs an alert in firewall logs. However, since the IDPS engine works in parallel with the rule processing engine, traffic that application or network rules deny or allow might still generate another log entry.
 
-When IDPS is configured in *Alert and Deny* mode, the IDPS engine is inline and activated after the rules processing engine. So both engines generate alerts and may block matching flows.  
+When you configure IDPS in *Alert and Deny* mode, the IDPS engine works inline and activates after the rules processing engine. So both engines generate alerts and might block matching flows.
 
-Session drops done by IDPS blocks the flow silently. So no RST is sent on the TCP level. Since IDPS inspects traffic always after the Network/Application rule has been matched (Allow/Deny) and marked in logs, another *Drop* message may be logged where IDPS decides to deny the session because of a signature match. 
+Session drops that IDPS performs block the flow silently. So no RST is sent on the TCP level. Since IDPS always inspects traffic after the network or application rule is matched (Allow or Deny) and marked in logs, another *Drop* message might be logged when IDPS decides to deny the session because of a signature match.
 
-When TLS inspection is enabled both unencrypted and encrypted traffic is inspected.  
+When you enable TLS inspection, Azure Firewall inspects both unencrypted and encrypted traffic.
+
+### Implicit return traffic support (stateful TCP/UDP)
+
+You can configure firewall rules to allow traffic in one direction only. For example, Azure Firewall can allow connections that you initiate from an **on-premises network** to an **Azure virtual network**, while requiring that new connections you initiate from the **Azure virtual network** to **on-premises** be blocked. To enforce this policy, add an **explicit Deny** rule for traffic from the **Azure virtual network** to the **on-premises** network.
+
+Azure Firewall supports this configuration. Azure Firewall is stateful, so it allows return traffic for an established TCP or UDP connection (for example, the SYN-ACK/ACK packets for a connection you initiated from on-premises) even when an explicit Deny rule exists in the reverse direction. The explicit Deny rule continues to block new connections you initiate from the Azure virtual network to on-premises.
 
 ## Outbound connectivity
 
-### Network rules and applications rules
+### Network rules and application rules
 
-If you configure network rules and application rules, then network rules are applied in priority order before application rules. The rules are terminating. So, if a match is found in a network rule, no other rules are processed. If configured, IDPS is done on all traversed traffic and upon signature match, IDPS may alert or/and block suspicious traffic.  
+If you configure network rules and application rules, Azure Firewall applies network rules in priority order before application rules. The rules are terminating. So, if Azure Firewall finds a match in a network rule, it doesn't process any other rules. If you configure IDPS, Azure Firewall runs it on all traversed traffic. When IDPS finds a signature match, it can generate alerts or block suspicious traffic, depending on the IDPS mode.
 
-Application rules then evaluate the packet in priority order if there's no network rule match, and if the protocol is HTTP, HTTPS, or MSSQL.
+Application rules evaluate the packet in priority order if there's no network rule match and if the protocol is HTTP, HTTPS, or MSSQL.
 
-For HTTP, Azure Firewall looks for an application rule match according to the Host header. For HTTPS, Azure Firewall looks for an application rule match according to SNI only.  
+For HTTP, Azure Firewall looks for an application rule match according to the Host header. For HTTPS, Azure Firewall looks for an application rule match according to SNI only.
 
-In both HTTP and TLS inspected HTTPS cases, the firewall ignores the packet's destination IP address and uses the DNS resolved IP address from the Host header. The firewall expects to get port number in the Host header, otherwise it assumes the standard port 80. If there's a port mismatch between the actual TCP port and the port in the host header, the traffic is dropped. DNS resolution is done by Azure DNS or by a custom DNS if configured on the firewall.  
+In both HTTP and TLS inspected HTTPS cases, the firewall ignores the packet's destination IP address and uses the DNS resolved IP address from the Host header. If there's a port mismatch between the actual TCP port and the port in the host header, the firewall drops the traffic. Azure DNS or a custom DNS that you configure on the firewall performs DNS resolution.
+
 
 > [!NOTE]
-> Both HTTP and HTTPS protocols (with TLS inspection) are always filled by Azure Firewall with XFF (X-Forwarded-For) header equal to the original source IP address.  
+> Azure Firewall always fills both HTTP and HTTPS protocols (with TLS inspection) with the XFF (X-Forwarded-For) header set to the original source IP address.
 
-When an application rule contains TLS inspection, the firewall rules engine process SNI, Host Header, and also the URL to match the rule. 
 
-If still no match is found within application rules, then the packet is evaluated against the infrastructure rule collection. If there's still no match, then the packet is denied by default.
+When an application rule contains TLS inspection, the firewall rules engine processes SNI, Host header, and also the URL to match the rule.
+
+If Azure Firewall doesn't find a match within application rules, it evaluates the packet against the infrastructure rule collection. If Azure Firewall still doesn't find a match, it denies the packet by default.
 
 ### Infrastructure rule collection
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. The infrastructure rule collection is processed after application rules and before the final deny-all rule.
 
-The following services are included in the built-in infrastructure rule collection:
+The built-in infrastructure rule collection includes the following services:
 
 - Compute access to storage Platform Image Repository (PIR)
 - Managed disks status storage access
@@ -141,18 +138,20 @@ The following services are included in the built-in infrastructure rule collecti
 
 #### Overriding the infrastructure rule collection
 
-You can override this built-in infrastructure rule collection by creating a deny all application rule collection that is processed last. It will always be processed before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
+You can override the built-in infrastructure rule collection by creating a deny all application rule collection that is processed last. It always processes before the infrastructure rule collection. Anything that's not in the infrastructure rule collection is denied by default.
+
 
 > [!NOTE]
-> Network rules can be configured for *TCP*, *UDP*, *ICMP*, or *Any* IP protocol. Any IP protocol includes all the IP protocols as defined in the Internet Assigned Numbers Authority (IANA) Protocol Numbers document. If a destination port is explicitly configured, then the rule is translated to a TCP+UDP rule. Before November 9, 2020, *Any* meant TCP, or UDP, or ICMP. So, you might have configured a rule before that date with **Protocol = Any**, and **destination ports = '*'**. If you don't intend to allow any IP protocol as currently defined, then modify the rule to explicitly configure the protocol(s) you want (TCP, UDP, or ICMP). 
+> You can configure network rules for *TCP*, *UDP*, *ICMP*, or *Any* IP protocol. *Any* IP protocol includes all the IP protocols as defined in the Internet Assigned Numbers Authority (IANA) Protocol Numbers document. If you explicitly configure a destination port, the rule translates to a TCP+UDP rule. Before November 9, 2020, *Any* meant TCP, or UDP, or ICMP. So, you might have configured a rule before that date with **Protocol = Any**, and **destination ports = '*'**. If you don't intend to allow any IP protocol as currently defined, modify the rule to explicitly configure the protocol(s) you want (TCP, UDP, or ICMP).
+
 
 ## Inbound connectivity
 
-### DNAT rules and Network rules
+### DNAT rules and network rules
 
-Inbound Internet or intranet connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
+You can enable inbound Internet or intranet connectivity by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](tutorial-firewall-dnat.md). NAT rules apply in priority before network rules. If Azure Firewall finds a match, it translates the traffic according to the DNAT rule and allows it. So, the traffic isn't subject to any further processing by other network rules. For security reasons, add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
 
-Application rules aren't applied for inbound connections. So, if you want to filter inbound HTTP/S traffic, you should use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md)?
+Azure Firewall doesn't apply application rules for inbound connections. So, if you want to filter inbound HTTP/S traffic, use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md).
 
 ## Examples
 
@@ -160,72 +159,59 @@ The following examples show the results of some of these rule combinations.
 
 ### Example 1
 
-Connection to google.com is allowed because of a matching network rule.
+The connection to google.com is allowed because a network rule matches.
 
-**Network rule**
+**Network rule** — Action: Allow
 
-- Action: Allow
+| Name | Protocol | Source type | Source | Destination type | Destination address | Destination ports |
+|--|--|--|--|--|--|--|
+| Allow-web | TCP | IP address | * | IP address | * | 80,443 |
 
+**Application rule** — Action: Deny
 
-|name  |Protocol  |Source type  |Source  |Destination type  |Destination address  |Destination ports|
-|---------|---------|---------|---------|----------|----------|--------|
-|Allow-web     |TCP|IP address|*|IP address|*|80,443
-
-**Application rule**
-
-- Action: Deny
-
-|name  |Source type  |Source  |Protocol:Port|Target FQDNs|
-|---------|---------|---------|---------|----------|----------|
-|Deny-google     |IP address|*|http:80,https:443|google.com
+| Name | Source type | Source | Protocol:Port | Target FQDNs |
+|--|--|--|--|--|
+| Deny-google | IP address | * | http:80,https:443 | google.com |
 
 **Result**
 
-The connection to google.com is allowed because the packet matches the *Allow-web* network rule. Rule processing stops at this point.
+The connection to google.com is allowed because the packet matches the *Allow-web* network rule. Rule processing stops here.
 
 ### Example 2
 
 SSH traffic is denied because a higher priority *Deny* network rule collection blocks it.
 
-**Network rule collection 1**
+**Network rule collection 1** — Name: Allow-collection, Priority: 200, Action: Allow
 
-- Name: Allow-collection
-- Priority: 200
-- Action: Allow
+| Name | Protocol | Source type | Source | Destination type | Destination address | Destination ports |
+|--|--|--|--|--|--|--|
+| Allow-SSH | TCP | IP address | * | IP address | * | 22 |
 
-|name  |Protocol  |Source type  |Source  |Destination type  |Destination address  |Destination ports|
-|---------|---------|---------|---------|----------|----------|--------|
-|Allow-SSH     |TCP|IP address|*|IP address|*|22
+**Network rule collection 2** — Name: Deny-collection, Priority: 100, Action: Deny
 
-**Network rule collection 2**
-
-- Name: Deny-collection
-- Priority: 100
-- Action: Deny
-
-|name  |Protocol  |Source type  |Source  |Destination type  |Destination address  |Destination ports|
-|---------|---------|---------|---------|----------|----------|--------|
-|Deny-SSH     |TCP|IP address|*|IP address|*|22
+| Name | Protocol | Source type | Source | Destination type | Destination address | Destination ports |
+|--|--|--|--|--|--|--|
+| Deny-SSH | TCP | IP address | * | IP address | * | 22 |
 
 **Result**
 
-SSH connections are denied because a higher priority network rule collection blocks it. Rule processing stops at this point.
+SSH connections are denied because a higher priority network rule collection blocks them. Rule processing stops at this point.
 
 ## Rule changes
 
-If you change a rule to deny previously allowed traffic, any relevant existing sessions are dropped.
+If you change a rule to deny previously allowed traffic, Azure Firewall drops any relevant existing sessions.
 
 ## Three-way handshake behavior
 
 As a stateful service, Azure Firewall completes a TCP three-way handshake for allowed traffic, from a source to the destination. For example, VNet-A to VNet-B.
 
-Creating an allow rule from VNet-A to VNet-B doesn't mean that new initiated connections from VNet-B to VNet-A are allowed.
+Creating an allow rule from VNet-A to VNet-B doesn't mean that newly initiated connections from VNet-B to VNet-A are allowed.
 
-As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. 
+As a result, you don't need to create an explicit deny rule from VNet-B to VNet-A.
 
 ## Next steps
 
-- [Learn more about Azure Firewall NAT behaviors](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834)
-- [Learn how to deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md)
-- [Learn more about Azure network security](../networking/security/index.yml)
+- [Learn more about Azure Firewall NAT behaviors](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834).
+- [Learn how to deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md).
+- [Learn more about Azure network security](../networking/security/index.yml).
 

@@ -1,19 +1,11 @@
 ---
 author: EdB-MSFT
-ms.author: edbayansh
+ms.author: edbaynash
 ms.topic: include
-ms.date: 01/14/2026
+ms.date: 03/30/2026
 
-# This file is auto-generated . Do not edit manually. Changes will be overwritten.
+# This file is auto-generated. Do not edit manually. Changes will be overwritten.
 ---
-
-## Deprecated Sentinel data connectors
-
-
-> [!NOTE]
-> The following table lists the deprecated and legacy data connectors. Deprecated connectors are no longer supported.
-
-
 
 <a name="deprecated-github-enterprise-audit-log"></a><details><summary>**[Deprecated] GitHub Enterprise Audit Log**</summary>
 
@@ -64,6 +56,31 @@ This data connector ingests Infoblox SOC Insight CDC logs into your Log Analytic
 
  ---
    
+<a name="deprecated-ionix-security-logs-push"></a><details><summary>**[Deprecated] IONIX Security Logs (Push)**</summary>
+
+**Supported by:** [IONIX](https://ionix.io/)
+
+⚠️ **This connector is deprecated and will be removed in June 2026.** Please use the new 'IONIX Security Logs (via Codeless Connector Framework)' connector instead, which provides automatic daily polling without requiring manual configuration in the IONIX portal.
+
+---
+
+The IONIX Security Logs data connector ingests logs from the IONIX system directly into Sentinel. The connector allows users to visualize their data, create alerts and incidents and improve security investigations.
+
+**Log Analytics table(s):**  
+
+|Table|DCR support|Lake-only ingestion|
+|---|---|---|
+|`CyberpionActionItems_CL`|No|No|
+
+**Data collection rule support:** Not currently supported
+
+**Prerequisites:**
+
+- **IONIX Subscription**: A subscription and account is required for IONIX logs. [One can be acquired here.](https://azuremarketplace.microsoft.com/en/marketplace/apps/cyberpion1597832716616.cyberpion)<br><br>
+</details> 
+
+ ---
+   
 <a name="deprecated-lookout"></a><details><summary>**[Deprecated] Lookout**</summary>
 
 **Supported by:** [Lookout](https://www.lookout.com/support)
@@ -109,7 +126,7 @@ Deprecated, use the 'ESI-Opt' dataconnectors. You can stream all Exchange Audit 
 **Prerequisites:**
 
 - Azure Log Analytics will be deprecated, to collect data from non-Azure VMs, Azure Arc is recommended. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
-- **Detailled documentation**: >**NOTE:** Detailled documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
+- **Detailed documentation**: >**NOTE:** Detailed documentation on Installation procedure and usage can be found [here](https://aka.ms/MicrosoftExchangeSecurityGithub)<br><br>
 </details> 
 
  ---

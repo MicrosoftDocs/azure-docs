@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ROBOTS: NOINDEX
 # Customer intent: "As a web administrator, I want to configure rules in the Content Delivery Network to enforce HTTPS, so that I can improve security and ensure all user requests are served securely."
 ---

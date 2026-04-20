@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 12/05/2025
+ms.date: 3/25/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -57,6 +57,18 @@ This article provides detailed descriptions and requirements for components of A
 - At this time, the only security policy type offered is `waf` for web application firewall capabilities.
 - The `waf` security policy is a one-to-one mapping between the security policy resource and a Web Application Firewall policy.
   - You can reference only one web application firewall policy in any number of security policies for a defined Application Gateway for Containers resource.
+ 
+### Application Gateway for Containers AKS managed add-on
+
+The AKS add-on for Application Gateway for Containers provides a managed deployment experience by AKS for the ALB Controller, eliminating the need to manually deploy a helm chart.
+
+Some of the benefits of using the managed add-on over a helm based deployment are:
+
+- **Managed updates:** No need to manually update Helm charts; updates are managed by AKS.
+- **Automated identity management:** The add-on automatically creates and configures the managed identity (`applicationloadbalancer-<cluster-name>`) with the required permissions.
+- **Simplified subnet configuration:** A dedicated subnet (`aks-appgateway`) is automatically provisioned with the correct delegation.
+- **Reduced configuration complexity:** No need to manually set up federated credentials or role assignments.
+- **AKS Automatic support:** Add-on deployment is required when using AKS Automatic clusters.
 
 ## Azure / general concepts
 
@@ -126,3 +138,32 @@ Application Gateway for Containers enforces the following timeouts as it initiat
 
 > [!NOTE]
 > Request timeout strictly enforces the request to complete in the defined time irrespective if data is actively streaming or the request is idle. For example, if you're serving large file downloads and you expect transfers to take greater than 60 seconds due to size or slow transfer rates, consider increasing the request timeout value or setting it to 0.
+
+## Connectivity
+
+The following connectivity requirements are needed for successful operation of Application Gateway for Containers.
+
+### ALB controller outbound connectivity
+
+|Endpoint|Port|Purpose|
+|--|--|--|
+| management.azure.com | TCP 443 | Azure ARM API |
+| login.microsoftonline.com | TCP 443 | Entra AD authentication |
+| *.oic.prod-aks.azure.com | TCP 443 | AKS OIDC issuer (Workload Identity) |
+| *.alb.azure.com | TCP 443 | Configuration Endpoint |
+| mcr.microsoft.com | TCP 443 | Container images for helm deployment |
+| DNS Resolution | UDP 53 | In a default AKS deployment, ALB Controller will query coreDNS/kube-dns within the cluster |
+
+### ALB controller inbound connectivity
+
+>[!Note]
+>These inbound ports are exposed via ClusterIP Service and not published directly to the internet. They are exposed to help with troubleshooting / diagnostics and may be blocked with network policy if desired.
+
+|Port|Name|Purpose|
+|--|--|--|
+| TCP 8000 | backend health | Backend health endpoint (/backendHealth) |
+| TCP 8001 | metrics | Prometheus metrics endpoint (/metrics) |
+
+### Frontend connectivity
+
+Each frontend for Application Gateway for Containers is in the format of `*.fzXX.alb.azure.com`, where XX are numeric digits 0-99.  Frontends may only listen on port 443 and 80.

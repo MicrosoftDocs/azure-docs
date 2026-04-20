@@ -3,7 +3,7 @@ title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 04/28/2025
+ms.date: 01/13/2026
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -497,7 +497,7 @@ You can break a string into multiple lines. For example, see the `location` prop
   ],
 ```
 
-In Bicep, see [multi-line strings](../bicep/file.md#multi-line-strings).
+In Bicep, see [multi-line strings](../bicep/data-types.md#multi-line-strings).
 
 ## languageVersion 2.0
 

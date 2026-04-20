@@ -71,7 +71,7 @@ The Azure Front Door WAF enables you to control the number of requests allowed f
 
 For more information, see the following resources:
 
-- [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md).
+- [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md)
 - [Configure an Azure Web Application Firewall rate limit rule by using Azure PowerShell](waf-front-door-rate-limit-configure.md).
 - [Why do additional requests above the threshold configured for my rate limit rule get passed to my back-end server?](waf-faq.yml#why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-back-end-server-)
 
@@ -89,13 +89,13 @@ This section discusses best practices for geo-filtering.
 
 Many web applications are designed for users within a specific geographic region. If this situation applies to your application, consider implementing geo-filtering to block requests that come from outside of the countries or regions from which you expect to receive traffic.
 
-For more information, see [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-tutorial-geo-filtering.md).
+For more information, see [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-tutorial-geo-filtering.md)
 
 ### Specify the unknown (ZZ) location
 
 Some IP addresses aren't mapped to locations in our dataset. When an IP address can't be mapped to a location, the WAF assigns the traffic to the unknown (ZZ) country or region. To avoid blocking valid requests from these IP addresses, consider allowing the unknown (ZZ) country or region through your geo-filter.
 
-For more information, see [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-tutorial-geo-filtering.md).
+For more information, see [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-tutorial-geo-filtering.md)
 
 ## Logging
 

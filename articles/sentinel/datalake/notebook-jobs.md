@@ -5,16 +5,16 @@ description: This article describes how to explore and interact with lake data u
 author: EdB-MSFT  
 ms.author: edbaynash  
 ms.service: microsoft-sentinel
-ms.subservice: sentinel-graph
+ms.subservice: sentinel-platform
 ms.topic: how-to  
-ms.date: 07/09/2025
+ms.date: 03/26/2026
 
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
 ---
 
 # Create and manage Jupyter notebook jobs
  
-You can create scheduled jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.
+You can create scheduled jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake and federated tables. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.
 
 ## Permissions
 

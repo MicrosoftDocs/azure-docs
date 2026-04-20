@@ -10,53 +10,53 @@ ms.author: glenga
 
 ## Choose your development language
 
-First, you use Azure Functions tools to create your project code as a function app in a Docker container using a language-specific Linux base image. Make sure to select your language of choice at the top of the article. 
+First, you use Azure Functions tools to create your project code as a function app in a Docker container by using a language-specific Linux base image. Make sure to select your language of choice at the top of the article. 
 
-Core Tools automatically generates a Dockerfile for your project that uses the most up-to-date version of the correct base image for your functions language. You should regularly update your container from the latest base image and redeploy from the updated version of your container. For more information, see [Creating containerized function apps](../articles/azure-functions/functions-how-to-custom-container.md#creating-containerized-function-apps).
+Core Tools automatically generates a Dockerfile for your project that uses the most up-to-date version of the correct base image for your functions language. You should regularly update your container from the latest base image and redeploy from the updated version of your container. For more information, see [Create containerized function apps](../articles/azure-functions/functions-how-to-custom-container.md#creating-containerized-function-apps).
 
 ## Prerequisites 
 
 Before you begin, you must have the following requirements in place:
 
 ::: zone pivot="programming-language-csharp"
-+ Install the [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
++ Install the [.NET SDK](https://dotnet.microsoft.com/download).
 
-+ Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.0.5198, or a later version.
++ Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.0.5198 or later.
 ::: zone-end  
 <!---add back programming-language-other-->
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-+ Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
++ Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ Install a version of [Node.js](https://nodejs.org/) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#supported-versions).
++ Install a version of [Node.js](https://nodejs.org) that's [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-+ Install a version of Python that is [supported by Azure Functions](../articles/azure-functions/functions-reference-python.md#supported-python-versions). 
++ Install a version of Python that's [supported by Azure Functions](../articles/azure-functions/functions-reference-python.md#supported-python-versions). 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-+ Install the [.NET 6 SDK](https://dotnet.microsoft.com/download).
++ Install the [.NET SDK](https://dotnet.microsoft.com/download).
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ Install a version of the [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) that is [supported by Azure Functions](../articles/azure-functions/functions-reference-java.md#supported-versions).
++ Install a version of the [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) that's [supported by Azure Functions](../articles/azure-functions/functions-reference-java.md#supported-versions).
 
-+ Install [Apache Maven](https://maven.apache.org) version 3.0 or above.
++ Install [Apache Maven](https://maven.apache.org) version 3.0 or later.
 ::: zone-end
 <!---removing the other pivot until we camn get ACA tested with custom handlers
 ::: zone pivot="programming-language-other"
 + Development tools for the language you're using. This tutorial uses the [R programming language](https://www.r-project.org/) as an example.
 ::: zone-end
 -->
-+ [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or a later version.
++ Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 <!---Requirements specific to Docker -->
-To publish the containerized function app image you create to a container registry, you need a Docker ID and [Docker](https://docs.docker.com/install/) running on your local computer. If you don't have a Docker ID, you can [create a Docker account](https://hub.docker.com/signup).
+To publish the containerized function app image you create to a container registry, you need a Docker ID and [Docker Desktop](https://docs.docker.com/install/) running on your local computer. If you don't have a Docker ID, you can [create a Docker account](https://hub.docker.com/signup).
 
 ### [Azure Container Registry](#tab/acr)
 
-You also need to complete the [Create a container registry](/azure/container-registry/container-registry-get-started-portal#create-a-container-registry) section of the Container Registry quickstart to create a registry instance. Make a note of your fully qualified login server name.
+You also need to complete the [Create a container registry](/azure/container-registry/container-registry-get-started-portal#create-a-container-registry) section of the Container Registry quickstart. Make a note of your fully qualified login server name.
 
 ### [Docker Hub](#tab/docker)
 
@@ -165,6 +165,7 @@ func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
 To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
+To ensure the function can be called later when hosted in Docker, check that the authorization level is set to `AuthorizationLevel.Anonymous`, or set it if not already configured.
 ::: zone pivot="programming-language-csharp"  
 ```console
 func start  
@@ -198,20 +199,20 @@ Press **Ctrl**+**C** (**Command**+**C** on macOS) to stop the host.
 
 ## Build the container image and verify locally
 
-(Optional) Examine the _Dockerfile_ in the root of the project folder. The _Dockerfile_ describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+(Optional) Examine the _Dockerfile_ in the root of the project folder. The _Dockerfile_ describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/r/microsoft/azure-functions-base).
 
-In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, provide a name as `azurefunctionsimage`, and tag as `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
+In the root project folder, run the [docker build](https://docs.docker.com/reference/cli/docker/image/build/) command, provide a name as `azurefunctionsimage`, and tag as `v1.0.0`. Replace `<DOCKER-ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```console
-docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
+docker build --tag <DOCKER-ID>/azurefunctionsimage:v1.0.0 .
 ```
 
 When the command completes, you can run the new container locally.
 
-To verify the build, run the image in a local container using the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command, replace `<DOCKER_ID>` again with your Docker Hub account ID, and add the ports argument as `-p 8080:80`:
+To verify the build, run the image in a local container using the [docker run](https://docs.docker.com/reference/cli/docker/container/run/) command, replace `<DOCKER-ID>` again with your Docker Hub account ID, and add the ports argument as `-p 8080:80`:
 
 ```console
-docker run -p 8080:80 -it <DOCKER_ID>/azurefunctionsimage:v1.0.0
+docker run -p 8080:80 -it <DOCKER-ID>/azurefunctionsimage:v1.0.0
 ```
 
 ::: zone pivot="programming-language-csharp"
@@ -231,42 +232,38 @@ To make your container image available for deployment to a hosting environment, 
 
 Azure Container Registry is a private registry service for building, storing, and managing container images and related artifacts. You should use a private registry service for publishing your containers to Azure services.
 
-1. Use this command to sign in to your registry instance using your current Azure credentials:
+1. Use this command to sign in to your registry instance using your current Azure credentials. Replace `<REGISTRY-NAME>` with the name of your Container Registry instance.
 
     ```azurecli
-    az acr login --name <REGISTRY_NAME>
+    az acr login --name <REGISTRY-NAME>
     ```
 
-    In the previous command, replace `<REGISTRY_NAME>` with the name of your Container Registry instance.
-
-1. Use this command to tag your image with the fully qualified name of your registry login server:
+1. Use this command to tag your image with the fully qualified name of your registry login server. Replace `<LOGIN-SERVER>` with the fully qualified name of your registry login server and `<DOCKER-ID>` with your Docker ID.
 
     ```docker
-    docker tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 <LOGIN_SERVER>/azurefunctionsimage:v1.0.0 
+    docker tag <DOCKER-ID>/azurefunctionsimage:v1.0.0 <LOGIN-SERVER>/azurefunctionsimage:v1.0.0 
     ```
-    
-    Replace `<LOGIN_SERVER>` with the fully qualified name of your registry login server and `<DOCKER_ID>` with your Docker ID.
 
 1.  Use this command to push the container to your registry instance:
  
     ```docker
-    docker push <LOGIN_SERVER>/azurefunctionsimage:v1.0.0
+    docker push <LOGIN-SERVER>/azurefunctionsimage:v1.0.0
     ```
  
 ### [Docker Hub](#tab/docker)
 
 Docker Hub is a container registry that hosts images and provides image and container services. 
 
-1. If you haven't already signed in to Docker, do so with the [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) command, replacing `<docker_id>` with your Docker Hub account ID. This command prompts you for your username and password. A "sign in Succeeded" message confirms that you're signed in.
+1. If you haven't already signed in to Docker, do so with the [`docker login`](https://docs.docker.com/reference/cli/docker/login/) command. This command prompts you for your username and password. A "sign in succeeded" message confirms that you're signed in.
 
     ```console
     docker login
     ```
 
-1. After you've signed in, push the image to Docker Hub by using the [`docker push`](https://docs.docker.com/engine/reference/commandline/push/) command, again replace the `<docker_id>` with your Docker Hub account ID.
+1. After you've signed in, push the image to Docker Hub by using the [`docker push`](https://docs.docker.com/reference/cli/docker/image/push/) command, again replace the `<DOCKER-ID>` with your Docker Hub account ID.
 
     ```console
-    docker push <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    docker image push <DOCKER-ID>/azurefunctionsimage:v1.0.0
     ```
 
     Depending on your network speed, pushing the image for the first time might take a few minutes. Subsequent changes are pushed faster. 

@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 12/09/2025
+ms.date: 01/29/2026
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -17,12 +17,43 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## April 2026
+## April 2026 
 
 * [Support for Red Hat IdM and Oracle Unified Directory (OUD)](configure-directory-server.md) (preview)
  
     Azure NetApp Files now supports Red Hat IdM and Oracle Unified Directory, enabling seamless integration with widely used enterprise directory services. This capability allows organizations to leverage their existing LDAP-based identity infrastructure for authentication and access control providing simplified identity management, enhanced security and compliance, and improved scalability. This feature is ideal for enterprises-grade LDAP service with advanced scalability and security features. This feature is available in all Azure NetApp Files supported regions. This feature in currently in preview.
-## January 2026
+    
+* [Advanced ransomware protection](ransomware-configure.md) is now generally available (GA)
+
+    Azure NetApp Files advanced ransomware protection is designed to help organizations proactively detect, respond to, and recover from ransomware threats on cloud volumes. Advanced ransomware protection monitors Azure NetApp Files volumes for suspicious activity using file extension profiling, entropy, and I/OPS patterns. When a threat is detected, the system creates a point-in-time snapshot, enabling rapid evaluation and recovery. Notifications are sent through the Azure Activity log, and attack reports are retained for 30 days. 
+
+* [User and group quota reporting](generate-user-group-quota-reports.md) is now generally available (GA)
+
+    If you're using individual user and group quotas in Azure NetApp Files to manage capacity on NFS, SMB, and dual-protocol volumes, the user and group quota reporting feature now offers clear visibility into key metrics such as quota limits, used capacity, and percentage utilization for each target user and quota rule. Administrators can generate quota usage reports and modify quota rules directly within the Azure portal for any volume with quota rules, removing the previous dependency on host-based tools and the need to mount the volume for reporting.
+
+* [Secure object REST API access using Azure Key Vault certificates and credentials](object-rest-api-access-configure.md) (preview)
+
+    Azure NetApp Files now supports Azure Key Vault–based certificates and credentials for the object REST API, enabling secure, S3‑compatible access to volumes. Certificates can be generated and stored directly in Azure Key Vault and automatically retrieved during bucket creation, while access credentials are securely managed in Key Vault, eliminating the need to manually upload or store sensitive information.
+
+    This native integration with Azure Key Vault simplifies certificate lifecycle management, centralizes certificate and credential storage, strengthens security, and aligns object REST API access with enterprise key and credential management best practices.
+     
+* [Storage with cool access enhancement](cool-access-introduction.md#throughput-for-premium-and-ultra-service-levels) for Premium and Ultra service levels (preview)
+
+    Azure NetApp Files introduces an enhancement to storage with cool access for Premium and Ultra service levels that more precisely aligns throughput with data tiering. When cool access is enabled, maximum throughput is dynamically calculated based on the amount of data tiered to cool access storage, rather than applying a fixed reduction. Hot data retains its configured performance, and throughput is adjusted only when data is tiered to the cool tier. This enhancement delivers more predictable QoS behavior while optimizing performance and cost as data access patterns evolve, without requiring manual tuning or reconfiguration.
+
+## March 2026
+
+* [Large volumes improvement:](large-volumes-requirements-considerations.md#requirements-and-considerations) removed 30% default limit imposed on large volumes
+
+    Large volumes operational improvement no longer requires a support ticket to increase a large volume past the 30% imposed limit. This allows customer to automate their large volume size increases without waiting for approval and human intervention.
+    
+  ## January 2026
+
+* [Elastic zone-redundant storage service level](elastic-zone-redundant-concept.md) (preview)
+
+    Azure NetApp Files Elastic zone-redundant storage service level is an advanced high-availability service level for Azure NetApp Files that provides continuous data access with zero data loss, even if an entire Azure Availability Zone goes offline. Built on Azure’s Zone-redundant storage (ZRS) architecture and compute infrastructure, Azure NetApp Files Elastic zone-redundant storage synchronously replicates file data across availability zones within one region. By eliminating single points of failure, it ensures mission-critical workloads remain online and protected without requiring special configuration or manual intervention. This makes it ideal for applications that demand uncompromising resilience and in-region data protection. 
+    
+    As a modern data platform, Azure NetApp Files Elastic zone-redundant storage provides consistent performance for metadata-heavy workloads across VMs and containers, making it well suited for AI, analytics, and Kubernetes/OpenShift environments. Whether you're running AKS and containerized apps, cloud‑native applications, or general file shares, Azure NetApp Files Elastic zone-redundant storage delivers continuity without compromise, cost‑effective scalability, and operational simplicity. You can create volumes as small as 1 GiB, giving you the flexibility to optimize storage for workloads of any size. 
 
 * [Application volume group for Oracle](configure-application-volume-oracle-api.md#replication) support for cross-zone and cross-region replication is now generally available (GA)
 
@@ -92,7 +123,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Object REST API](object-rest-api-access-configure.md) (preview)
 
-    The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. With the Object REST API, you can seamlessly integrate Azure NetApp Files data with Microsoft Fabric, Azure AI services, and other Azure offerings without the need to move or replicate data. This unlocks new use cases such as advanced analytics, machine learning, and real-time business intelligence, while reducing costs and accelerating innovation.
+    The [Object REST API (an S3-compatible REST API)](object-rest-api-introduction.md) on Azure NetApp Files bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. With the Object REST API, you can seamlessly integrate Azure NetApp Files data with Microsoft Fabric, Foundry Tools, and other Azure offerings without the need to move or replicate data. This unlocks new use cases such as advanced analytics, machine learning, and real-time business intelligence, while reducing costs and accelerating innovation.
 
     The Object REST API introduces native S3-compatible read/write access, allowing modern applications to interact with your data directly and efficiently. Enterprises benefit from simplified integration, enhanced productivity, and improved data security, as data remains in place and protected by Azure NetApp Files' robust security measures. This feature is ideal for organizations looking to leverage AI-driven insights, streamline workflows, and maintain compliance with industry standards. This feature is currently in preview.
 
@@ -207,9 +238,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross-subscription replication](cross-region-replication-create-peering.md)
 
-    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](replication.md) in all Azure NetApp Files regions with [availability zones](../reliability/regions-list.md) and [cross-region replication](replication.md) in all supported regions.
+    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](replication.md) in all Azure NetApp Files regions with [availability zones](/azure/reliability/regions-list) and [cross-region replication](replication.md) in all supported regions.
     
-    You must [register the feature](cross-region-replication-create-peering.md#register-for-cross-subscription-replication) before using it for the first time. 
+    You must [register the feature](enable-cross-subscription-replication.md) before using it for the first time. 
 
 ## April 2025
 
@@ -353,7 +384,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Cross-zone replication allows you to replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone (AZ) to another within the same region. Using technology similar to the cross-region replication feature and Azure NetApp Files availability zone volume placement feature, cross-zone replication replicates data in-region across different zones; only changed blocks are sent over the network in a compressed, efficient format. It helps you protect your data from unforeseeable zone failures without the need for host-based data replication. This feature minimizes the amount of data required to replicate across the zones, limiting data transfers required and shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn't involve any network transfer costs and is highly cost-effective. 
     
-    Cross-zone replication is available in all [regions with availability zones](../reliability/availability-zones-region-support.md) and with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+    Cross-zone replication is available in all [regions with availability zones](/azure/reliability/availability-zones-region-support) and with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
     
 * [Transition a volume to customer-managed keys](configure-customer-managed-keys.md#transition) (preview)
 
@@ -692,7 +723,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     The public preview of the feature is currently available in the following regions: Australia East, Brazil South, Canada Central, Central US, East Asia, East US, East US 2, France Central, Germany West Central, Japan East, North Europe, Norway East, Southeast Asia, South Central US, UK South, West Europe, West US 2, and West US 3.
 
-    In the future, cross-zone replication is planned for all [AZ-enabled regions](../reliability/availability-zones-region-support.md) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+    In the future, cross-zone replication is planned for all [AZ-enabled regions](/azure/reliability/availability-zones-region-support) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
 * [Azure Virtual WAN](configure-virtual-wan.md) (preview)
 
@@ -710,7 +741,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) (preview)
 
-    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure's push towards the use of [availability zones (AZs)](../reliability/availability-zones-overview.md) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure's [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
+    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure's push towards the use of [availability zones (AZs)](/azure/reliability/availability-zones-overview) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure's [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
 
 * [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
 
@@ -743,7 +774,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## June 2022
 
-* [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](../azure-vmware/deploy-disaster-recovery-using-jetstream.md#disaster-recovery-with-azure-netapp-files-jetstream-dr-and-azure-vmware-solution)
+* [Disaster Recovery with Azure NetApp Files, JetStream DR and Azure VMware Solution](../azure-vmware/deploy-disaster-recovery-using-jetstream.md)
 
 * [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) (preview)
 
@@ -808,7 +839,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Single-file snapshot restore](snapshots-restore-file-single.md) (preview)
 
-    Azure NetApp Files provides ways to quickly restore data from snapshots (mainly at the volume level). See [How Azure NetApp Files snapshots work](snapshots-introduction.md). Options for user file self-restore are available via client-side data copy from the `~snapshot` (Windows) or `.snapshot` (Linux) folders. These operations require data (files and directories) to traverse the network twice (upon read and write). As such, the operations aren't time and resource efficient, especially with large data sets. If you don't want to restore the entire snapshot to a new volume, revert a volume, or copy large files across the network, you can use the single-file snapshot restore feature to restore individual files directly on the service from a volume snapshot without requiring data copy via an external client. This approach drastically reduces recovery time objective (RTO) and network resource usage when restoring large files.
+    Azure NetApp Files provides ways to quickly restore data from snapshots (mainly at the volume level). See [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md). Options for user file self-restore are available via client-side data copy from the `~snapshot` (Windows) or `.snapshot` (Linux) folders. These operations require data (files and directories) to traverse the network twice (upon read and write). As such, the operations aren't time and resource efficient, especially with large data sets. If you don't want to restore the entire snapshot to a new volume, revert a volume, or copy large files across the network, you can use the single-file snapshot restore feature to restore individual files directly on the service from a volume snapshot without requiring data copy via an external client. This approach drastically reduces recovery time objective (RTO) and network resource usage when restoring large files.
 
 * Features that are now generally available (GA)
 
@@ -853,7 +884,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files backup extends ONTAP's built-in snapshot technology. When snapshots are vaulted to Azure storage, only changed blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots are still represented in full. You can restore them to a new volume individually and directly, eliminating the need for an iterative, full-incremental recovery process. This advanced technology minimizes the amount of data required to store to and retrieve from Azure storage, therefore saving data transfer and storage costs. It also shortens the backup vaulting time, so you can achieve a smaller Restore Point Objective (RPO). You can keep a minimum number of snapshots online on the Azure NetApp Files service for the most immediate, near-instantaneous data-recovery needs. In doing so, you can build up a longer history of snapshots at a lower cost for long-term retention in the Azure NetApp Files backup vault.
 
-    For more information, see [How Azure NetApp Files snapshots work](snapshots-introduction.md).
+    For more information, see [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md).
 
 * [**Administrators**](create-active-directory-connections.md#create-an-active-directory-connection) option in Active Directory connections (preview)
 

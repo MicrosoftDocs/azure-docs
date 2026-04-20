@@ -68,7 +68,7 @@ The Azure Data Lake Storage access control model supports both Azure role-based 
 
 #### Massive scalability
 
-Azure Data Lake Storage offers massive storage and accepts numerous data types for analytics. It doesn't impose any limits on account sizes, file sizes, or the amount of data that can be stored in the data lake. Individual  files can have sizes that range from a few kilobytes (KBs) to a few petabytes (PBs). Processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
+Azure Data Lake Storage offers massive storage and accepts numerous data types for analytics. It doesn't impose any limits on account sizes, file sizes, or the amount of data that can be stored in the data lake. Individual  files can have sizes that range from a few kilobytes (KBs) to hundreds of terabytes (TBs). Processing is executed at near-constant per-request latencies that are measured at the service, account, and file levels.
 
 This design means that Azure Data Lake Storage can easily and quickly scale up to meet the most demanding workloads. It can also just as easily scale back down when demand drops.
 

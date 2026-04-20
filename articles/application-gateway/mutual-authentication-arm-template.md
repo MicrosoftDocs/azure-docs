@@ -388,4 +388,4 @@ az deployment group create \
 
 ## Security notice
 
-This solution is classified as **Microsoft Confidential**. Please ensure you follow your organization’s security and data handling best practices when deploying and managing this solution.
+Please ensure you follow your organization’s security and data handling best practices when deploying and managing this solution.

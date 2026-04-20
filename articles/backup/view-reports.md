@@ -2,7 +2,7 @@
 title: View reports for Azure Backup
 description: Learn how to view backup reports.
 ms.topic: how-to
-ms.date: 11/21/2025
+ms.date: 01/30/2026
 ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -12,6 +12,9 @@ ms.author: v-mallicka
 # View out-of-box reports for Azure Backup
 
 This article describes how to view reports for all backup operations.
+
+>[!NOTE]
+>Backup Reports can show data from up to 100 Log Analytics workspaces, but complex queries or large data volumes can cause errors even when you select lesser than 100 workspaces. To ensure reliable performance, limit each query to no more than 30 workspaces for optimal results.
 
 ## Out-of-box reports
 

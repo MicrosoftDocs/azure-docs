@@ -1,7 +1,7 @@
 ---
 title: Data retention and sharing across Microsoft Defender for IoT
 description: Learn about the data retention periods and capacities for Microsoft Defender for IoT data stored in Microsoft Azure and the OT sensor.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/30/2024
 ---
 

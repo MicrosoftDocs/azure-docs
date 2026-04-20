@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -345,8 +345,15 @@ Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs fo
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrBackup/action | Start LTR backup operation for a server |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrBackupAccess/action | Start LTR backup access operation for a server |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrBackupOperations/read | Returns the list of  PostgreSQL server long term backup operation tracking. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrBackupPreCheck/action | Start LTR backup pre-check operation for a server |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrPreBackup/action | Checks if a server is ready for a long term backup |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrRestoreFinalize/action | Start LTR restore finalize operation for a server |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrRestoreInitialize/action | Start LTR restore initialize operation for a server |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrRestorePreCheck/action | Start LTR restore pre-check operation for a server |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/read | Return the list of servers or gets the properties for the specified server. |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/startLtrBackup/action | Start long term backup for a server |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/locations/azureAsyncOperation/read | Return PostgreSQL Server Operation Results |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/locations/operationResults/read | Return PostgreSQL Server Operation Results |
@@ -370,8 +377,15 @@ Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs fo
   "permissions": [
     {
       "actions": [
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrBackup/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupAccess/action",
         "Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupPreCheck/action",
         "Microsoft.DBforPostgreSQL/flexibleServers/ltrPreBackup/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrRestoreFinalize/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrRestoreInitialize/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrRestorePreCheck/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/read",
         "Microsoft.DBforPostgreSQL/flexibleServers/startLtrBackup/action",
         "Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read",
         "Microsoft.DBforPostgreSQL/locations/operationResults/read",

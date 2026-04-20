@@ -8,6 +8,7 @@ author: karengu0
 ms.author: karenguo
 ai-usage: ai-assisted
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 content_well_notification: 
   - AI-contribution
 #customer intent: I am a Terraform user who wants to create a firmware analysis workspace

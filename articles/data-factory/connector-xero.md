@@ -5,8 +5,8 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 01/04/2026
+ms.topic: how-to
+ms.date: 04/03/2026
 ms.author: jianleishen
 ---
 # Copy data from Xero using Azure Data Factory or Synapse Analytics
@@ -19,7 +19,7 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 > The Xero connector requires OAuth authentication and is not intended for server-to-server use.
 
 > [!IMPORTANT]
-> The Xero connector version 2.0 provides improved native Xero support. If you are using Xero connector version 1.0 in your solution, please [upgrade the Xero connector](#upgrade-the-xero-connector-from-version-10-to-version-20) before **March 31, 2026**. Refer to this [section](#xero-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
+> The Xero connector version 2.0 provides improved native Xero support. If you are using Xero connector version 1.0 in your solution, please [upgrade the Xero connector](#upgrade-the-xero-connector-from-version-10-to-version-20) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **April 30, 2026**. Refer to this [section](#xero-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -103,6 +103,7 @@ The Xero linked service supports the following properties when applying version 
     "name": "XeroLinkedService",
     "properties": {
         "type": "Xero",
+        "version": "2.0",
         "typeProperties": {
             "host": "api.xero.com",
             "clientId": "<client ID>",
@@ -112,8 +113,7 @@ The Xero linked service supports the following properties when applying version 
                 "type": "SecureString",
                 "value": "<refresh token>"
             },
-            "authenticationType":"OAuth_2.0", 
-            "version": "2.0"         
+            "authenticationType":"OAuth_2.0"       
         }
     }
 }

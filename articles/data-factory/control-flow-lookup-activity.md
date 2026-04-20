@@ -6,7 +6,7 @@ author: jianleishen
 ms.author: jianleishen
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/13/2025
 ---
 

@@ -5,14 +5,14 @@ metadata:
   ms.reviewer: vijayts
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 07/25/2025
+  ms.date: 02/13/2026
   author: AbhishekMallick-MS
   ms.author: v-mallicka
 
     
 title: FAQ about SQL Server databases that are running on an Azure VM backup
 summary: |
-  This article answers common questions about backing up SQL Server databases that run on Azure virtual machines (VMs) and use the [Azure Backup](backup-overview.md) service.
+  This article answers common questions about backing up SQL Server databases that run on Azure virtual machines (VMs) and use the [Azure Backup](backup-overview.md) service. To understand the SQL database backup and restore support scenarios, see the [support matrix](sql-support-matrix.md).
   
 
 sections:
@@ -161,4 +161,8 @@ sections:
 additionalContent: |
 
   ## Next steps
-  Learn how to [back up a SQL Server database](backup-azure-sql-database.md) that's running on an Azure VM.
+
+  - [Back up a SQL Server database running on an Azure VM](backup-azure-sql-database.md).
+  - [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
+  - [Manage and monitor backed up SQL Server databases using Azure portal](manage-monitor-sql-database-backup.md).
+

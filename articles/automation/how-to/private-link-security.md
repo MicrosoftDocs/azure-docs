@@ -184,4 +184,4 @@ For more information, see [Azure Private Endpoint DNS configuration](../../priva
 
 ## Next steps
 
-To learn more about Private Endpoint, see [What is Azure Private Endpoint?](../../private-link/private-endpoint-overview.md).
+To learn more about Private Endpoint, see [What is Azure Private Endpoint?](../../private-link/private-endpoint-overview.md)

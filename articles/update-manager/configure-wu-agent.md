@@ -7,6 +7,7 @@ ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
 ms.custom: engagement-fy24
+ms.update-cycle: 1095-days
 # Customer intent: As a system administrator, I want to configure Windows Update settings for Azure Update Manager so that I can keep all Windows servers consistently updated with the latest patches and maintain compliance across the environment.
 ---
 

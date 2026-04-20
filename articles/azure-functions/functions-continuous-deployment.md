@@ -19,7 +19,7 @@ Azure Functions supports these sources for continuous deployment to your app:
 
 ### [Azure Repos](#tab/azure-repos)
 
-Maintain your project code in [Azure Repos](https://azure.microsoft.com/services/devops/repos/), one of the services in Azure DevOps. Supports both Git and Team Foundation Version Control. Used with the [Azure Pipelines build provider](functions-continuous-deployment.md?tabs=azure-repos%2azure-pipelines#build-providers). For more information, see [What is Azure Repos?](/azure/devops/repos/get-started/what-is-repos).
+Maintain your project code in [Azure Repos](https://azure.microsoft.com/services/devops/repos/), one of the services in Azure DevOps. Supports both Git and Team Foundation Version Control. Used with the [Azure Pipelines build provider](functions-continuous-deployment.md?tabs=azure-repos%2azure-pipelines#build-providers). For more information, see [What is Azure Repos?](/azure/devops/repos/get-started/what-is-repos)
 
 ### [GitHub](#tab/github)
 

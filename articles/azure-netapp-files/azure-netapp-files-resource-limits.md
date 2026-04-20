@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/11/2025
+ms.date: 04/14/2026
 ms.author: anfdocs
 # Customer intent: As an IT administrator managing Azure NetApp Files, I want to understand the resource limits and how to request limit increases, so that I can effectively plan and allocate storage resources for my organization’s needs.
 ---
@@ -15,12 +15,16 @@ Understanding resource limits for Azure NetApp Files helps you manage your volum
 
 ## Resource limits
 
-The following table describes resource limits for Azure NetApp Files:
+Resources limits differ depending on the service level you are using. Ensure you are reviewing limits for the correct service level. 
+
+# [Flexible, Standard, Premium, Ultra](#tab/regular)
+
+The following table describes resource limits for the Flexible, Standard, Premium, and Ultra service levels of Azure NetApp Files:
 
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
 |  [Regional capacity quota per subscription](regional-capacity-quota.md)   |  25 TiB  |  Yes  |
-|  Number of NetApp accounts per Azure region per subscription  |  10    |  Yes   |
+|  Number of NetApp accounts per Azure region per subscription  |  100    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per subscription   |    500     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
@@ -33,14 +37,13 @@ The following table describes resource limits for Azure NetApp Files:
 |  Minimum size of a single regular volume    |    50 GiB    |    No    |
 |  Maximum size of a single regular volume     |    100 TiB    |    No    |
 |  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) | 50 TiB | No |
-| Large volume size increase | 30% of lowest provisioned size | Yes |
 |  Maximum size of a single [large volume](large-volumes-requirements-considerations.md) | 1 PiB | Yes** |
 | Maximum size of a single large volume with breakthrough mode (preview) | 2,400 TiB | No |
-| Maximum size of a large volume up to 7.2 PiB** | 7.2 PiB | Yes** |
+| Maximum size of a large volume up to 7.2 PiB*** | 7.2 PiB | Yes** |
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](directory-sizes-concept.md#directory-limit).  |    No    |   
-|  Maximum number of `maxfiles` per volume | See [`maxfiles`](maxfiles-concept.md)  | Yes |    
+|  Maximum number of `maxfiles` per volume | See [`maxfiles`](maxfiles-concept.md)  | Yes**** |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Maximum number of quota rules per volume     |   1,000  |    No    | 
 |  Minimum assigned throughput for a manual Quality of Service (QoS) volume     |    1 MiB/s   |    No    |    
@@ -54,6 +57,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of volumes supported for cool access per subscription per region |  500  |  Yes  |
 | Maximum number of [short-term clones](create-short-term-clone.md) per volume | 5 | No | 
 | Maximum number of [short-term clones](create-short-term-clone.md) per subscription | 16 | No | 
+| Advanced ransomware protection volumes per subscription | 10 | Yes | 
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
@@ -61,9 +65,35 @@ The following table describes resource limits for Azure NetApp Files:
 
 \*** This feature is available [when cool access is enabled and by request](large-volumes-requirements-considerations.md#requirements-and-considerations-for-large-volumes-up-to-72-pib-preview). When enabled, the minimum size of the volume is 2,400 GiB.
 
+\**** Support request to adjust maxfiles limits is appropriate only when the volume is already provisioned at a size that supports the requested file count. While Azure NetApp Files support can adjust maxfiles limits within supported backend thresholds, these adjustments cannot override the fundamental relationship between volume size and inode capacity. If a workload requires a higher maxfiles limit, then the volume must be provisioned at a size that natively supports that file count. Support requests cannot be used to keep a small volume size while enabling a maxfiles limit that is only supported by a much larger volume. Support requests should not be opened in the following situations as support engineers cannot make backend changes to satisfy the request:
+
+* To avoid increasing volume size
+* To request maxfiles limits that exceed what the current volume size supports
+* To request backend exceptions for inode limits
+
+
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
-For limits and constraints related to Azure NetApp Files network features, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
+# [Elastic](#tab/elastic)
+
+The following table describes resource limits for the Elastic zone-redundant service level of Azure NetApp Files:
+
+| Resource | Default limit | Adjustable via support request? |
+| ---- | -- | - |
+| Maximum number of Elastic NetApp accounts per subscription | 10 | Yes | 
+| Number of Elastic capacity pools per subscription  | 5 | Yes | 
+| Number of volumes per capacity pool | 50 | No |
+| Minimum size of a capacity pool | 1 TiB | No | 
+| Maximum size of a capacity pool | 128 TiB | No | 
+| Minimum size of a volume | 1 GiB | No | 
+| Maximum size of a volume | 16 TiB | No |
+| Maximum number of snapshots per volume | 255 | No | 
+| Maximum number of export policy rules per volume | 5 | No | 
+| Maximum number of quota rules per volume | 1,000| No | 
+
+<!-- maxfiles -->
+<!-- file, throughput, regional capacity per subscription, number of IPs / VNet, backups per day, backups, snapshots, |  # of CRR/CZR DP volumes, # volumes per subscription --> 
+---
 
 ## Request limit increase
 

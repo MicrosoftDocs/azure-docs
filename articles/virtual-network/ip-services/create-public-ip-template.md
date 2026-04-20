@@ -62,7 +62,7 @@ Template section to add:
 >
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>The above options for zones are only valid selections in regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### Zone redundant (Standardv2)
 
@@ -96,7 +96,7 @@ Template section to add:
 >
 
 >[!NOTE]
->The above options for zones are only valid selections in regions with [Availability Zones](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>The above options for zones are only valid selections in regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Routing preference and tier
 
@@ -108,7 +108,7 @@ By default, the routing preference for public IP addresses is set to **Microsoft
 
 The selection of **Internet** minimizes travel on Microsoft's network, instead using the transit ISP network to deliver traffic at a cost-optimized rate.  
 
-For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md).
+For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md)
 
 To use Internet Routing preference for a standard zone-redundant public IPv4 address, the template section should look similar to:
 

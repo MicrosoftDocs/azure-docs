@@ -16,7 +16,7 @@
           href: tutorial-create-gateway-portal.md
         - name: Configure a site-to-site connection
           items:
-            - name: Preshared key
+            - name: Shared key
               href: tutorial-site-to-site-portal.md
             - name: Certificate authentication
               href: site-to-site-certificate-authentication-gateway-portal.md
@@ -64,14 +64,16 @@
       items:
         - name: About Basic SKU public IP address migration
           href: basic-public-ip-migrate-about.md
-        - name: How to migrate a Basic SKU public IP address to Standard
+        - name: Migrate a Basic SKU public IP address to Standard
           href: basic-public-ip-migrate-howto.md
+        - name: Remove the Basic SKU public IP reference - Basic SKU VPN gateways
+          href: basic-sku-public-ip-remove.md
     - name: About active-active mode gateways
       href: about-active-active-gateways.md
     - name: VPN Gateway configuration settings
       href: vpn-gateway-about-vpn-gateway-settings.md
-    - name: IPv6 configuration settings
-      href: ipv6-configuration.md
+    - name: About site-to-site VPN connections with certificate authentication
+      href: site-to-site-certificate-authentication-gateway-about.md
 - name: Create & manage a VPN gateway
   items:
     - name: Create a VPN gateway
@@ -114,7 +116,7 @@
       href: customer-controlled-gateway-maintenance.md
 - name: Site-to-site (S2S) VPN
   items:
-    - name: Configure site-to-site connections - preshared key
+    - name: Configure site-to-site connections - shared key
       items:
         - name: Azure portal
           href: tutorial-site-to-site-portal.md
@@ -123,7 +125,11 @@
         - name: Azure CLI
           href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
     - name: Configure site-to-site connections - certificate
-      href: site-to-site-certificate-authentication-gateway-portal.md
+      items:
+        - name: Azure portal
+          href: site-to-site-certificate-authentication-gateway-portal.md
+        - name: Azure PowerShell
+          href: site-to-site-certificate-authentication-gateway-powershell.md
     - name: Connect AWS and Azure using a BGP-enabled VPN gateway
       href: vpn-gateway-howto-aws-bgp.md
     - name: Site-to-site with ExpressRoute connections
@@ -251,7 +257,11 @@
         - name: VPN client configuration
           items:
             - name: Azure VPN Client - Windows
-              href: point-to-site-entra-vpn-client-windows.md
+              items:
+                - name: Microsoft-registered authentication
+                  href: point-to-site-entra-vpn-client-windows.md
+                - name: Configure Device SSO
+                  href: point-to-site-entra-vpn-client-windows-device-sso.md
             - name: Azure VPN Client - Linux
               href: point-to-site-entra-vpn-client-linux.md
             - name: Azure VPN Client - macOS
@@ -306,8 +316,20 @@
           href: azure-vpn-client-prerequisites-check.md
         - name: Azure VPN Client versions
           href: azure-vpn-client-versions.md
+        - name: Download Azure VPN Client with Windows Package Manager (WinGet)
+          href: point-to-site-vpn-client-winget.md
+        - name: Report Azure VPN Client problems - Feedback Hub
+          href: https://learn.microsoft.com/troubleshoot/azure/vpn-gateway/feedback-hub-azure-vpn-client?toc=/azure/vpn-gateway/TOC.json
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
+- name: IPv6 dual stack connections
+  items:
+    - name: Azure portal
+      href: ipv6-configuration.md
+    - name: Azure PowerShell
+      href: site-to-site-ipv6-azure-powershell.md
+    - name: Azure CLI
+      href: site-to-site-ipv6-azure-cli.md
 - name: VNet-to-VNet VPN
   items:
     - name: Configure VNet-to-VNet VPN connections
@@ -345,7 +367,7 @@
 - name: Reliability
   items:
   - name: Reliability in VPN Gateway
-    href: ../reliability/reliability-virtual-network-gateway.md?pivot=vpn&toc=/azure/vpn-gateway/TOC.json
+    href: /azure/reliability/reliability-virtual-network-gateway?pivots=vpn&toc=/azure/vpn-gateway/TOC.json
   - name: Configure a zone redundant gateway
     href: create-zone-redundant-vnet-gateway.md
   - name: Design highly available gateway connections
@@ -392,34 +414,8 @@
       href: packet-capture.md
     - name: Monitoring data reference
       href: monitor-vpn-gateway-reference.md
-- name: Troubleshooting
-  items:
-    - name: Troubleshoot VPN Gateway
-      href: vpn-gateway-troubleshoot.md
-    - name: Troubleshoot using diagnostic logs
-      href: troubleshoot-vpn-with-azure-diagnostics.md
-    - name: Troubleshoot digital certificate authentication
-      href: troubleshoot-digital-certificate-authentication.md
-    - name: Troubleshoot point-to-site connection issues
-      items:
-        - name: Point-to-site connection problems
-          href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
-        - name: macOS - native VPN client connection problems
-          href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
-        - name: Troubleshoot the Azure VPN Client
-          href: troubleshoot-azure-vpn-client.md
-        - name: Report Azure VPN Client problems - Feedback Hub
-          href: feedback-hub-azure-vpn-client.md
-    - name: Troubleshoot site-to-site connection issues
-      items:
-        - name: Site-to-site connection problems
-          href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
-        - name: Site-to-site error codes and solutions
-          href: vpn-gateway-troubleshoot-site-to-site-error-codes.md
-        - name: Site-to-site connection disconnects intermittently
-          href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
-    - name: Validate VPN throughput to a VNet
-      href: vpn-gateway-validate-throughput-to-vnet.md
+- name: Support and troubleshooting
+  href: vpn-gateway-support-help.md
 - name: Reference
   items:
     - name: Azure PowerShell

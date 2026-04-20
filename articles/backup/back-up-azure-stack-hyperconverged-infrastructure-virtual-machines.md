@@ -12,7 +12,7 @@ ms.author: v-mallicka
 
 # Back up Azure Local virtual machines with Azure Backup Server
 
-This article describes how to back up virtual machines running on Azure Local, versions *23 H2* and *22 H2*, using Microsoft Azure Backup Server (MABS).
+This article describes how to back up virtual machines running on Azure Local using Microsoft Azure Backup Server (MABS).
  
 ## Supported scenarios
 

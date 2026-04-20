@@ -4,7 +4,7 @@ description: This article tells how to configure machines to a desired state usi
 services: automation
 ms.subservice: desired-state-config
 ms.topic: tutorial
-ms.date: 11/17/2025
+ms.date: 03/05/2026
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ms.author: v-rochak2
@@ -31,6 +31,8 @@ For this tutorial, we use a simple [DSC configuration][04] that ensures that IIS
 VM.
 
 ## Prerequisites
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 - An Azure Automation account. To learn more about an Automation account and its requirements, see
   [Automation Account authentication overview][01].

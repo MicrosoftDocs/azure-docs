@@ -6,6 +6,8 @@ items:
   items:
   - name: What is LambdaTest - HyperExecute?
     href: overview.md 
+  - name: FAQ
+    href: faq.yml
 - name: Quickstart
   expanded: true
   items:

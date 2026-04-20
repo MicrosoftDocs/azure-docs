@@ -25,7 +25,7 @@ The connector for OPC UA must trust the OPC UA servers it connects to. The conne
 
 ## Prerequisites
 
-An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+An Azure IoT Operations instance deployed with secure settings and the connector for OPC UA enabled. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## Configure a self-signed application instance certificate for the connector for OPC UA
 
@@ -295,3 +295,52 @@ Like the previous examples, you use a dedicated Kubernetes secret to store the c
     ```
 
 Now that the connector for OPC UA uses the enterprise certificate, don't forget to add the new certificate's public key to the trusted certificate lists of all OPC UA servers it needs to connect to.
+
+## Configure certificate subject alternative names
+
+The connector's self-signed certificate automatically includes the application URI and the local hostname in the Subject Alternative Name (SAN) extension. If OPC UA servers access the connector through other hostnames or IP addresses, you need to add those identities to the SAN. To learn more about SAN and when you need custom entries, see [Certificate subject alternative name](overview-opc-ua-connector-certificates-management.md#certificate-subject-alternative-name).
+
+> [!NOTE]
+> This configuration only applies to the connector's self-generated certificate. If you use an enterprise grade certificate, configure the SAN entries when you generate that certificate externally. For more information, see [Configure an enterprise grade application instance certificate](#configure-an-enterprise-grade-application-instance-certificate).
+
+To add custom DNS names, IP addresses, or both, add the `SubjectAlternativeDnsNames` and `SubjectAlternativeIpAddresses` properties to the connector's `SecurityPki` configuration in the `additionalConfiguration` field of the connector's deployment:
+
+```json
+{
+  "SecurityPki": {
+    "SubjectName": "CN=aio-opc-opcuabroker",
+    "ApplicationUri": "urn:microsoft.com:aio:opc:ua:broker",
+    "SubjectAlternativeDnsNames": "opcua-connector.iot-ops.svc.cluster.local,opcua.contoso.com",
+    "SubjectAlternativeIpAddresses": "192.168.1.100,10.0.0.50"
+  }
+}
+```
+
+The resulting certificate SAN includes the application URI, all specified DNS names and IP addresses, and the local hostname that the connector adds automatically.
+
+### Regenerate the certificate with new SAN entries
+
+If you change the SAN configuration on a running connector, regenerate the certificate to apply the new entries:
+
+1. Update the configuration with the new SAN values.
+1. Delete the existing certificate from the PKI store:
+
+   ```bash
+   rm -rf -- /tmp/opcuabroker/pki/own/certs/* /tmp/opcuabroker/pki/own/private/*
+   ```
+
+1. Restart the connector pod. The connector automatically generates a new certificate with the updated SAN entries.
+
+To verify the new certificate contains the expected SAN entries, run the following command:
+
+```bash
+openssl x509 -in /tmp/opcuabroker/pki/own/certs/your-cert-file.der -inform DER -text -noout | grep -A 10 "Subject Alternative Name"
+```
+
+### Troubleshoot SAN validation failures
+
+If an OPC UA server rejects connections with certificate hostname or IP validation errors:
+
+1. Check the server's error message for the hostname or IP address it validated against.
+1. Add that hostname or IP address to the appropriate SAN configuration property (`SubjectAlternativeDnsNames` or `SubjectAlternativeIpAddresses`).
+1. Regenerate the certificate as described in the previous section.

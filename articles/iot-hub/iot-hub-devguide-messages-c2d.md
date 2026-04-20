@@ -2,12 +2,12 @@
 title: Understand Azure IoT Hub cloud-to-device messaging
 description: This developer guide discusses how to use cloud-to-device messaging with your IoT hub. It includes information about the message life cycle and configuration options.
 author: cwatson-cat
-
 ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 06/25/2025
+ms.date: 02/11/2026
 ms.custom: mqtt, devx-track-azurecli
+ai-usage: ai-assisted
 ---
 
 # Understand cloud-to-device messaging from an IoT hub
@@ -43,7 +43,19 @@ A device can also:
 
 A thread could fail to process a message without notifying the IoT hub. In this case, messages automatically transition from the *Invisible* state back to the *Enqueued* state after a visibility timeout (or lock timeout). The length of this timeout is one minute and can't be changed.
 
-The **max delivery count** property on the IoT hub determines the maximum number of times a message can transition between the *Enqueued* and *Invisible* states. After that number of transitions, the IoT hub sets the state of the message to *Dead lettered*. Similarly, the IoT hub sets the state of a message to *Dead lettered* after its expiration time.
+The **max delivery count** property on the IoT hub applies only when a device explicitly abandons a message. Each explicit abandon transitions a message from *Invisible* back to *Enqueued* and increments the delivery count. If the lock expires, the message returns to *Enqueued* but the delivery count does not increment. After the delivery count reaches the max, the IoT hub sets the message state to *Dead lettered*. The IoT hub also sets a message to *Dead lettered* after its expiration time.
+
+### Understanding delivery count behavior
+
+IoT Hub increments the delivery count only when your device explicitly abandons a message. If a message lock expires without explicit completion, rejection, or abandonment, the message returns to the queue without incrementing the delivery count. This behavior means that messages might be redelivered more times than the configured max delivery count.
+
+To avoid unexpected message redelivery behavior, consider the following guidance when you design your device code:
+
+* Design your device code to explicitly abandon messages that can't be processed successfully.
+* Monitor message lock timeouts and handle them appropriately in your application logic.
+* Consider implementing retry logic that explicitly abandons messages after a certain number of local processing attempts.
+
+Without explicit abandonment, messages continue cycling between the Enqueued and Invisible states indefinitely until they expire based on time-to-live.
 
 A device ordinarily completes a cloud-to-device message when the loss of the message doesn't affect the application logic. An example of this completion might be when the device persists the message content locally or successfully executes an operation. The message could also carry transient information, whose loss wouldn't impact the functionality of the application. Sometimes, for long-running tasks, you can:
 

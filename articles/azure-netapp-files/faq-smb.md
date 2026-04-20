@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 12/08/2025
+ms.date: 04/09/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
@@ -20,6 +20,25 @@ Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 
 ## Can I use Windows Server 2025? 
 
 Yes, Windows Server 2025 domain controllers are supported as of September 9, 2025. Windows Server 2025 domain controllers must have all cumulative security updates installed, including [KB5065426](https://support.microsoft.com/en-us/topic/september-9-2025-kb5065426-update-for-windows-server-2025-os-build-26100-6584-6a59dc6a-1ff2-48f4-b375-81e93deee5dd), released on September 9, 2025. You must also enable AES encryption (AES-256) on the Active Directory connection if you plan to introduce any Windows Server 2025 domain controllers into your Active Directory environment. For more information, see [Create and Manage Active Directory connections for Azure NetApp Files](create-active-directory-connections.md).
+
+## What SMB minimum version should be configured on Windows Server 2025 domain controllers for Azure NetApp Files?
+
+For Azure NetApp Files communication with Windows Server 2025 domain controllers, set the SMB minimum dialect to SMB 3.0. If required by your environment, SMB 2.1 can be used. Although Windows Server 2025 supports SMB 3.1.1, enforcing SMB 3.1.1 for this communication can break domain controller communication and prevent authentication to Azure NetApp Files SMB shares.
+
+Run one of the following commands on each Windows Server 2025 domain controller, based on your requirements:
+
+```
+Set-SmbServerConfiguration -Smb2DialectMin SMB211
+```
+
+```
+Set-SmbServerConfiguration -Smb2DialectMin SMB300
+```
+
+>[!NOTE] 
+>This configuration must be applied individually on all Windows Server 2025 domain controllers. It doesn't replicate across the domain.
+
+As an alternative, update the Active Directory site used by Azure NetApp Files so it includes only domain controllers that aren't running Windows Server 2025.
 
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
 
@@ -40,6 +59,12 @@ Azure NetApp Files now supports the ability to [create multiple Active Directory
 You can also map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
 
 <a name='does-azure-netapp-files-support-azure-active-directory'></a>
+
+## Does Azure NetApp Files support SMB symbolic links or widelinks?
+
+No. Azure NetApp Files SMB volumes do not support UNIX symbolic links (symlinks) or widelinks. SMB clients cannot create or follow symbolic links. 
+
+Symbolic links created by NFS clients or other systems are not honored when accessed over SMB. Absolute symbolic links and widelinks that reference paths outside the SMB share are not available.
 
 ## Does Azure NetApp Files support Microsoft Entra ID? 
 

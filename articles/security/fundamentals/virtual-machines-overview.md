@@ -112,7 +112,7 @@ Site Recovery:
 * **Supports failover and recovery**: Provides test failovers for disaster recovery drills without affecting production environments
 * **Eliminates secondary datacenters**: Replicate to Azure, eliminating the cost and complexity of maintaining a secondary site
 
-For more information, see [What is Azure Site Recovery?](/azure/site-recovery/site-recovery-overview), [How does Azure Site Recovery work?](/azure/site-recovery/azure-to-azure-architecture), and [What workloads are protected by Azure Site Recovery?](/azure/site-recovery/site-recovery-workload).
+For more information, see [What is Azure Site Recovery?](/azure/site-recovery/site-recovery-overview), [How does Azure Site Recovery work?](/azure/site-recovery/azure-to-azure-architecture), and [What workloads are protected by Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
 
 ## Virtual networking
 

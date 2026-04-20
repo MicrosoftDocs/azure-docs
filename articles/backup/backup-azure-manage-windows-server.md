@@ -108,7 +108,7 @@ The Backup alerts report lists the alerts for the vault.
 
 ## Manage backup items
 
-A Recovery Services vault holds many types of backup data. To learn about what you can back up, see [What is the Azure Backup service?](backup-overview.md#what-can-i-back-up). To manage your various servers, computers, databases, and workloads, select the **Backup items** tile to view the contents of the vault.
+A Recovery Services vault holds many types of backup data. To learn about what you can back up, see [What is the Azure Backup service?](backup-overview.md#what-can-i-back-up) To manage your various servers, computers, databases, and workloads, select the **Backup items** tile to view the contents of the vault.
 
 ![Screenshot that shows the Backup items tile.](./media/backup-azure-manage-windows-server/backup-items.png)
 

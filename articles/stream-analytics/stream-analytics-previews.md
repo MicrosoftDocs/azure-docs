@@ -4,7 +4,7 @@ description: This article lists the Azure Stream Analytics features that are cur
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/10/2022
 ---
 

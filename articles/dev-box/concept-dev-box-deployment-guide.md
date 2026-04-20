@@ -6,8 +6,12 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
-ms.date: 08/22/2025
-ms.custom: template-concept
+ms.date: 03/31/2026
+ai-usage: ai-assisted
+ms.custom:
+  - template-concept
+  - copilot-scenario-highlight
+  - awp-ai
 #Customer intent: As a platform engineer, I want to understand the process, considerations, and configuration options so that I can successfully plan and implement a Microsoft Dev Box deployment.
 ---
 
@@ -26,7 +30,7 @@ The deployment of Microsoft Dev Box requires the [involvement of different roles
 1. Configure network connections for the dev center or projects.
 1. Create or attach Azure Compute Galleries (optional) for image governance.
 1. Attach a customization catalog (optional) for setup tasks.
-1. Create dev box definitions (image + compute size).
+1. Configure images and compute (image definitions, custom images, or marketplace images; select compute size and storage).
 1. Create projects and set dev box limits.
 1. Create dev box pools (choose network connection and auto-stop).
 1. Configure Microsoft Intune (device config, conditional access, privilege management).
@@ -74,7 +78,7 @@ The following table lists requirements that could influence your Microsoft Dev B
 |                           | Multiple project with different team leads and permissions. | Permissions for development projects are controlled at the level of the project within a dev center. Consider creating a new project when you require separation of control across different development teams.  |
 | Dev box configuration     | Different teams have different software requirements for their dev box. | Create image definitions, custom images, or use marketplace images to represent different operating system/software requirements across your organization. Image definitions use YAML-based customization files and allow independent selection of compute and storage. For example, create an image definition for data scientists with data science tooling. When you create a dev box pool within a project, you can select from available image sources and independently choose compute size and storage. |
 |                           | Multiple compute/resource configurations. | Modern dev box pools allow independent selection of compute size and storage, providing greater flexibility than legacy dev box definitions. Choose the appropriate compute and storage configurations when creating dev box pools based on team requirements. |
-|                           | Developers can customize their dev box. | For per-developer customization, for example to configure source control repositories or developer tool settings, you can [enable customizations for dev boxes](./how-to-customize-dev-box-setup-tasks.md). |
+|                           | Developers can customize their dev box. | For per-developer customization, for example to configure source control repositories or developer tool settings, you can [enable customizations for dev boxes](how-to-configure-user-customizations.md). |
 |                           | Standardize on organization-specific VM images. | When you configure a dev center, you can specify one or more Azure compute galleries, which contain VM images that are specific to your organization. With a compute gallery, you can ensure that only approved VM images are used for creating dev boxes. |
 | Identity & access         | Cloud-only user management with Microsoft Entra ID. | Your user management solution affects the networking options for creating dev box pools. When you use Microsoft Entra ID, you can choose between both Microsoft-hosted and using your own networking. |
 |                           | Users sign in with an Active Directory account. | If you manage users in Active Directory Domain Services, you need to use Microsoft Entra hybrid join to integrate with Microsoft Dev Box. So, you can't use the Microsoft-hosted networking option when creating a dev box pool, and you need to use Azure networking to enable hybrid network connectivity. |
@@ -83,10 +87,73 @@ The following table lists requirements that could influence your Microsoft Dev B
 |                           | Custom routing. | When you require custom routing, you need to set up an Azure network connection. As a result, you can't use the Microsoft-hosted networking option when creating a dev box pool. |
 | Network security          | Configure traffic restrictions with network security groups (NSGs). | When you require network security groups to limit inbound or outbound traffic, you need to set up an Azure network connection. As a result, you can't use the Microsoft-hosted networking option when creating a dev box pool. |
 |                           | Use of a firewall. | For using firewalls or application gateways, you need to set up an Azure network connection. As a result, you can't use the Microsoft-hosted networking option when creating a dev box pool. |
-| Device management         | Restrict access to dev box to only managed devices, or based on geography. | You can use Microsoft Intune to create dynamic device groups and conditional access policies. Learn how to [configure Intune conditional access policies](./how-to-configure-intune-conditional-access-policies.md). |
-|                           | Configure device settings and features on different devices. | After a Dev Box is provisioned, you can manage it like any other device in Microsoft Intune. You can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off. |
+| Device management         | Restrict access to dev box to only managed devices, or based on geography. | You can use Microsoft Intune to create dynamic device groups and conditional access policies. |
+|                           | Configure device settings and features on different devices. | After a Dev Box is provisioned, you can manage it like any other device in Microsoft Intune. You can create device configuration profiles to turn different settings on and off. |
 
 See also: [Microsoft Dev Box customizations](./concept-what-are-dev-box-customizations.md).
+
+### Network, identity, and connection decision matrix
+
+Use the following matrix to determine the recommended connection type and join type for your deployment:
+
+| Identity model | Egress control (NSGs/firewalls)? | On-premises access? | Recommended connection | Join type |
+|---|---|---|---|---|
+| Entra ID (cloud-only) | No | No | Microsoft-hosted | Microsoft Entra join |
+| Entra ID (cloud-only) | Yes | No | Azure network connection | Microsoft Entra join |
+| Entra ID (cloud-only) | No or Yes | Yes | Azure network connection | Microsoft Entra join |
+| Active Directory (hybrid) | Any | Yes | Azure network connection | Microsoft Entra hybrid join |
+
+### Common architecture patterns
+
+Most organizations fit into one of the following patterns. Use these as a starting point and adjust for your specific requirements.
+
+- **Cloud-only (simplest)**: Microsoft Entra join + Microsoft-hosted networking. Best for organizations with no on-premises dependencies and no custom egress requirements. Developers access only cloud-based resources.
+
+- **Hybrid with Azure resources**: Microsoft Entra join + Azure network connection. For organizations that need dev boxes to access Azure-hosted services like Azure SQL Database, Azure Kubernetes Service, or Azure Cosmos DB. Use virtual network peering to connect dev box subnets to other Azure resources.
+
+- **Full hybrid (on-premises access)**: Microsoft Entra hybrid join + Azure network connection + hub-and-spoke topology. For organizations with Active Directory Domain Services and on-premises resources (licensing servers, version control, databases). Requires ExpressRoute or VPN connectivity.
+
+## Use AI to plan your deployment
+
+You can use AI assistants like GitHub Copilot to help analyze your organizational requirements and generate a tailored Dev Box deployment plan. This is especially useful when you need to make decisions across networking, identity, image strategy, and cost controls.
+
+Here's an example prompt you can adapt for your scenario:
+
+```copilot-prompt
+Help me plan a Microsoft Dev Box deployment based on these requirements:
+
+Organization details:
+- 50 developers across 3 teams (frontend, backend, data science)
+- Teams located in US West and Europe
+- Using Microsoft Entra ID (cloud-only, no on-premises Active Directory)
+- Need access to Azure SQL Database and Azure Kubernetes Service
+
+Requirements:
+- Frontend team: Visual Studio Code, Node.js, needs 8 GB RAM
+- Backend team: Visual Studio 2022, .NET 8, SQL Server tools, needs 16 GB RAM
+- Data science team: Python, Jupyter, GPU access, needs 32 GB RAM
+- Must auto-shutdown dev boxes at 7 PM local time
+- Limit developers to 2 dev boxes each
+
+Generate a deployment plan that includes:
+1. Recommended number of dev centers and projects
+2. Network connection strategy (Microsoft-hosted vs Azure network connection)
+3. Image strategy (marketplace images, custom images, or image definitions)
+4. Dev box pool configuration for each team and region
+5. Cost optimization recommendations
+```
+
+You can customize this prompt to include your specific requirements, such as:
+
+- Hybrid connectivity needs for on-premises resources
+- Compliance or security policies (firewalls, NSGs)
+- Existing Azure Compute Gallery images
+- Microsoft Intune conditional access requirements
+
+> [!NOTE]
+> AI-generated content can contain errors. Always validate the deployment plan against your organization's policies and the Microsoft Dev Box architecture before implementation.
+
+For step-by-step guidance on implementing your plan, see the [deployment steps](#deploy-microsoft-dev-box) later in this article.
 
 ## Prerequisites
 
@@ -97,7 +164,7 @@ See also: [Microsoft Dev Box customizations](./concept-what-are-dev-box-customiz
 
 ## Deploy Microsoft Dev Box
 
-After you've defined the requirements, you can start the deployment of Microsoft Dev Box. Microsoft Dev Box consists of multiple Azure resources, such as a dev center, projects, dev box definitions, and more. Dev Box also has dependencies on other Azure services and Microsoft Intune. Learn more about the [Microsoft Dev Box architecture](./concept-dev-box-architecture.md).
+After you've defined the requirements, you can start the deployment of Microsoft Dev Box. Microsoft Dev Box consists of multiple Azure resources, such as a dev center, projects, dev box definitions, and more. Dev Box also has dependencies on other Azure services and Microsoft Intune.
 
 To deploy Microsoft Dev Box involves creating and configuring multiple services, across Azure, Intune, and your infrastructure. The following sections provide the different steps for deploying Microsoft Dev Box in your organization. Some steps are optional and depend on your specific organizational setup.
 
@@ -134,20 +201,33 @@ When you connect to on-premises resources through Microsoft Entra hybrid joins, 
 
 Network planning should include an estimate of the number of IP addresses you'll need, and their distribution across VNets. Additional free IP addresses are necessary for the Azure Network connection health check. Plan one additional IP address per dev box, and two IP addresses for the health check and Dev Box infrastructure.
 
+> [!TIP]
+> **Subnet sizing example**: For 50 dev boxes, plan for at least 52 IP addresses in your subnet (one per dev box + 2 for health checks and infrastructure). A /26 subnet (62 usable IPs) supports approximately 60 dev boxes. A /24 subnet (254 usable IPs) supports up to 252 dev boxes.
+
+When using Microsoft Entra hybrid join, also ensure DNS resolution between your dev box subnet and on-premises Active Directory. The subnet's DNS servers must resolve your AD domain for domain join to succeed.
+
+Dev boxes require outbound connectivity to specific Microsoft endpoints, including the `WindowsVirtualDesktop`, `Windows365`, and `AzureActiveDirectory` service tags. Verify that your firewall and NSG rules allow outbound traffic to the [required FQDNs and endpoints](./concept-dev-box-network-requirements.md?tabs=W365#required-fqdns-and-endpoints).
+
 Learn more about [Microsoft Dev Box networking requirements](./concept-dev-box-network-requirements.md?tabs=W365).
 
 When planning your Dev Box architecture, choose both primary and backup regions. Choose a primary region close to your developers to optimize latency and avoid quota issues. A backup region prepares you for disaster recovery scenarios and lets you migrate quickly when needed. Place your Dev Center in a location central to your distributed teams—for example, between India and the US—and place pools in regions closest to each development group. For example, West US works well for Redmond-based developers, and Central US is a good backup to maintain continuity. Configure two network connections, on for each region.
 
 ### Step 3: Configure security groups for role-based access control
 
-Microsoft Dev Box uses Azure role-based access control (Azure RBAC) to grant access to functionality in the service: 
+Microsoft Dev Box uses Azure role-based access control (Azure RBAC) to grant access to functionality in the service. The following table summarizes the key roles and their typical assignments:
 
-- Grant project administrators access to perform administrative tasks on Microsoft Dev Box projects (Project Admin role)
-- Grant dev box users access to create and manage their dev boxes in a Dev Box project (Dev Box User role)
+| Role | Typical scope | Typical assignment |
+|---|---|---|
+| Owner or Contributor | Subscription or resource group | Platform engineers provisioning infrastructure |
+| DevCenter Owner | Dev center | Platform engineers managing Dev Box configuration |
+| DevCenter Project Admin | Project | Team leads managing pools and project settings |
+| Dev Box User | Project or pool | Developers creating and managing their own dev boxes |
+
+Assign the most restrictive role that allows users to perform their tasks. For example, a team lead who only manages dev box pools within a single project needs the DevCenter Project Admin role scoped to that project, not the Contributor role on the resource group.
 
 Consider creating security groups in Microsoft Entra ID for granting or revoking access for admins and users for each project. By using a security group, you can delegate the task of granting access independently of their permissions on the Azure resources. For example, you could delegate granting access for dev box users to the dev team lead for that project.
 
-Learn more about [Microsoft Entra ID groups](/entra/fundamentals/concept-learn-about-groups).
+Learn more about [Dev Box roles and permissions](./concept-dev-box-role-based-access-control.md) and [Microsoft Entra ID groups](/entra/fundamentals/concept-learn-about-groups).
 
 ### Step 4: Create dev center
 
@@ -216,20 +296,26 @@ Consider attaching a catalog in the following cases:
 
 Consider creating a new catalog if the tasks in the quick start catalog are insufficient. You can attach both the quick start catalog and your own catalogs to the dev center.
 
-Learn how to [create dev box customizations](./how-to-customize-dev-box-setup-tasks.md).
+Learn how to [create dev box customizations](./how-to-configure-customization-tasks.md).
 
-### Step 8: Create dev box definitions
+### Step 8: Configure images and compute
 
-A dev box definition contains the configuration of a dev box by specifying the VM image, compute resources, such as memory and CPUs, and storage.
+When you create a dev box pool, you specify the VM image source, compute size, and storage for the dev boxes in that pool. You can choose from multiple image approaches:
 
-You configure dev box definitions at the level of a dev center. All dev center projects share the dev box definitions in the dev center.
+- **Image definitions** (recommended for new deployments): YAML-based customization files that use a base image and apply setup tasks. Image definitions allow independent selection of compute size and storage when you create a pool, providing the most flexibility.
+- **Custom images**: VM images you create and store in an Azure Compute Gallery. Useful when you need fully preconfigured, validated images for your organization.
+- **Marketplace images**: Prebuilt images available from the Azure Marketplace. The fastest way to get started, with options like Visual Studio and general Windows development images.
 
-Consider creating one or more dev box definitions in the following cases:
+> [!IMPORTANT]
+> Dev box definitions are a legacy option that bundles image, compute size, and storage into a single configuration. For new deployments, we recommend image definitions, custom images, or marketplace images, which provide greater flexibility. Learn more about [image options for Dev Box](./concept-dev-box-architecture.md).
+
+Consider the following when choosing an image strategy:
 
 - Development teams require different VM images because they need another operating system version or other applications.
 - Development teams have different compute resource requirements. For example, database administrators might need a machine with lots of storage and memory.
+- Reduce image sprawl by preferring customization tasks and catalogs. Create purpose-built images only where necessary.
 
-Consider the cost of the compute resources associated with a dev box definition to assess to total cost of your deployment.
+Consider the cost of the compute resources to assess the total cost of your deployment.
 
 #### Decision summary
 
@@ -298,6 +384,15 @@ Some usage scenarios for conditional access in Microsoft Dev Box include:
 
 Learn how you can [configure conditional access policies for Dev Box](./how-to-configure-intune-conditional-access-policies.md).
 
+> [!TIP]
+> **Recommended baseline for pilot deployments**: Consider these conditional access policies as a starting point:
+> - Require multifactor authentication for developer portal access.
+> - Restrict dev box access to managed or compliant devices.
+> - Block legacy authentication protocols.
+> - Limit dev box access to approved geographic locations.
+>
+> Refine these policies based on your organization's security requirements before expanding to production.
+
 #### Privilege management
 
 You can configure Microsoft Intune Endpoint Privilege Management (EPM) for dev boxes so that dev box users don't need local administrative privileges. Microsoft Intune Endpoint Privilege Management allows your organization's users to run as a standard user (without administrator rights) and complete tasks that require elevated privileges. Tasks that commonly require administrative privileges are application installs (like Microsoft 365 Applications), updating device drivers, and running certain Windows diagnostics.
@@ -311,6 +406,17 @@ Learn more about how to [configure Microsoft Intune Endpoint Privilege for Micro
 - Define an image versioning and validation cadence when using images.
 - Use customization tasks to keep base images generic; consider producing a reusable image after validation if creation time becomes critical.
 
+## Pilot rollout checklist
+
+Before a full production rollout, validate your deployment with a pilot group:
+
+1. **Select pilot scope**: Choose one team (5–10 developers), one region, and one project.
+1. **Define success criteria**: Set targets for provisioning success rate, developer portal sign-in success, and network connection health check pass rate.
+1. **Apply baseline policies**: Configure minimum Intune conditional access policies and auto-stop schedules.
+1. **Set cost controls**: Enable auto-stop on dev box pools and set dev box limits per user.
+1. **Monitor for 2–4 weeks**: Check Azure Activity Log, Microsoft Entra sign-in logs, and Intune compliance reports.
+1. **Expand to production**: Add more teams and regions. Validate image definitions and networking at scale.
+
 ## Monitor and troubleshoot
 
 - Use Azure Activity Log to audit changes to Dev Center and Project resources.
@@ -322,3 +428,5 @@ Learn more about how to [configure Microsoft Intune Endpoint Privilege for Micro
 
 - [What is Microsoft Dev Box?](overview-what-is-microsoft-dev-box.md)
 - [Microsoft Dev Box architecture overview](./concept-dev-box-architecture.md)
+- [Dev Box roles and permissions](./concept-dev-box-role-based-access-control.md)
+- [Microsoft Dev Box networking requirements](./concept-dev-box-network-requirements.md?tabs=W365)

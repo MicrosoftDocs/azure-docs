@@ -1,16 +1,20 @@
 ---
-title: "Identity management configuration"
-description: Learn how to configure identity management during a migration of high performance computing architecture.
+title: Configure identity management for Azure HPC clusters
+description: Set up user authentication and identity management for HPC environments using Azure Active Directory and on-premises directory services.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: As an IT administrator overseeing high performance computing migration, I want to configure identity management systems, so that I can ensure secure access to resources and comply with organizational policies during the migration process.
 ---
 
-# Identity management configuration
+# Configure identity management for Azure HPC clusters
 
 A key aspect of your high performance computing migration is identity management configuration. Your identity management system ensures secure access to resources, seamless integration, and compliance with organizational policies. It should allow the creation and deletion of users and groups, allow updating and resetting of passwords, and support single sign-on. This part of the guide covers the needs, tools, services, and best practices associated with identity management.
 

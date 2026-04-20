@@ -19,17 +19,17 @@ Resiliency in Azure is a cloud-native unified experience for resiliency posture 
 
 ## Expanded scope and capabilities of Resiliency in Azure
 
-Azure Business Continuity Center (ABCC) is now Resiliency in Azure, indicating a broader scope and expanded capabilities. The platform, originally focused on backup and disaster recovery, now includes built-in resiliency experiences that integrate Zonal Resiliency and High Availability, Backup & Disaster Recovery, and Ransomware Protection within a single solution.
+Azure Business Continuity Center (ABCC) is now Resiliency in Azure, indicating a broader scope and expanded capabilities. The platform, originally focused on backup and disaster recovery, now includes built-in resiliency experiences that integrate Zone Resiliency and High Availability, Backup & Disaster Recovery, and Ransomware Protection within a single solution.
 
 Resiliency in Azure consolidates all aspects of resiliency into one platform:
 
-- **Infrastructure Resiliency**: Protect from infrastructure outages with zonal resiliency.
+- **Infrastructure Resiliency**: Protect from infrastructure outages with zone resiliency.
 - **Data Resiliency**: Ensure backup and disaster recovery meet Recovery Point Objective (RPO)/Recovery Time Objective (RTO).
 - **Cyber Recovery**: Secure backups and enable at-scale recovery during cyberattacks.
 
 Existing Azure Business Continuity Center capabilities continue to be available. Resiliency in Azure can be used to manage backup and disaster recovery at scale from a single interface across environments and solutions. It allows configuration of backups and replication, defining protection policies, monitoring operations, and reviewing configurations. Security features include immutability, soft delete, Multi-user authorization, Private endpoint, Customer Managed keys (CMK), and the Threat Detection for Virtual Machines (VMs) to help protect datasources from ransomware.
 
-To try out the Zonal Resiliency feature, fill out [this enrollment form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR9NW9IkjD2RCnDQwsmIfABFUNU5MWUVaN1FWWDYxMFY1VTNBM1FPVDM3OC4u&route=shorturl).
+To try out the Zone Resiliency feature, fill out [this enrollment form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR9NW9IkjD2RCnDQwsmIfABFUNU5MWUVaN1FWWDYxMFY1VTNBM1FPVDM3OC4u&route=shorturl).
 
 ## Why should I use Resiliency in Azure?
 

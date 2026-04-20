@@ -1,7 +1,7 @@
 ---
 title: Delete messages from Azure Service Bus
 description: This article explains how to delete messages in Azure Service Bus programmatically. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/20/2024
 ---
 

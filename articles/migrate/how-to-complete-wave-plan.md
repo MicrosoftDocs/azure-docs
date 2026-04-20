@@ -80,6 +80,10 @@ Azure Migrate identifies the prerequisites you need to complete before starting 
 :::image type="content" source="./media/how-to-complete-wave-plan/add-tasks-and-prereqs.png" alt-text="The screenshot shows how to add tasks in wave settings." lightbox="./media/how-to-complete-wave-plan/add-tasks-and-prereqs.png":::   
 
 3. Provide a description name of the task and **Description** about the task.
+
+> [!NOTE]
+> **Don't** include any personal, sensitive, or confidential information in the wave or task description. 
+
 4. Select **Add**, and then select **Save changes** to save the tasks as a prerequisite.
 
 The tasks appear in the Wave configuration stage of the migration and modernization journey. Complete these tasks before the Wave is ready for execution.

@@ -33,17 +33,17 @@ This article explains how to use Python with Azure Resource Manager templates (A
 
 You can target your deployment to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different methods.
 
-* To deploy to a **resource group**, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update):
+* To deploy to a **resource group**, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update):
 
-* To deploy to a **subscription**, use [ResourceManagementClient.deployments.begin_create_or_update_at_subscription_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update-at-subscription-scope):
+* To deploy to a **subscription**, use [ResourceManagementClient.deployments.begin_create_or_update_at_subscription_scope](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update-at-subscription-scope):
 
   For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
-* To deploy to a **management group**, use [ResourceManagementClient.deployments.begin_create_or_update_at_management_group_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update-at-management-group-scope).
+* To deploy to a **management group**, use [ResourceManagementClient.deployments.begin_create_or_update_at_management_group_scope](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update-at-management-group-scope).
 
   For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
 
-* To deploy to a **tenant**, use [ResourceManagementClient.deployments.begin_create_or_update_at_tenant_scope](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update-at-tenant-scope).
+* To deploy to a **tenant**, use [ResourceManagementClient.deployments.begin_create_or_update_at_tenant_scope](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update-at-tenant-scope).
 
   For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
 
@@ -107,7 +107,7 @@ rg_result = resource_client.resource_groups.create_or_update(
 print(f"Provisioned resource group with ID: {rg_result.id}")
 ```
 
-To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update). The following example requires a local template named `storage.json`.
+To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update). The following example requires a local template named `storage.json`.
 
 ```python
 import os
@@ -169,7 +169,7 @@ rg_result = resource_client.resource_groups.create_or_update(
 print(f"Provisioned resource group with ID: {rg_result.id}")
 ```
 
-To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update). The following example deploys a [remote template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-account-create). That template creates a storage account.
+To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update). The following example deploys a [remote template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-account-create). That template creates a storage account.
 
 ```python
 import os

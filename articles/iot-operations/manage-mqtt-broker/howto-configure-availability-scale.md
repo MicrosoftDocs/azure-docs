@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
 ms.subservice: azure-mqtt-broker
-ms.date: 05/14/2025
+ms.date: 02/20/2026
 ms.service: azure-iot-operations
 
 # CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
@@ -126,6 +126,9 @@ The backend chain subfield defines the settings for the backend partitions. The 
 - **Partitions**: The number of partitions to deploy. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions. Increasing the number of partitions increases the number of messages that the broker can handle.
 - **Redundancy factor**: The number of backend replicas (pods) to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
 - **Workers**: The number of workers to deploy per backend replica. Increasing the number of workers per backend replica might increase the number of messages that the backend pod can handle. Each worker can consume up to two CPU cores at most, so be careful when you increase the number of workers per replica to not exceed the number of CPU cores in the cluster.
+
+> [!IMPORTANT]
+> The backend redundancy factor must be set to **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support. Setting the redundancy factor to `1` results in a deployment validation error.
 
 #### Considerations
 
@@ -248,14 +251,69 @@ In comparison, the *Tiny* memory profile has a frontend memory usage of 99 MiB a
 
 ## Cardinality and Kubernetes resource limits
 
-To prevent resource starvation in the cluster, the broker is configured by default to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/). Scaling the number of replicas or workers proportionally increases the CPU resources required. A deployment error is emitted if there are insufficient CPU resources available in the cluster. This notification helps you avoid situations where the requested broker cardinality lacks enough resources to run optimally. It also helps to avoid potential CPU contention and pod evictions.
+To prevent resource starvation in the cluster, the broker can be configured to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) based on the cardinality settings. When enabled, scaling the number of replicas or workers proportionally increases the CPU resources required. A deployment error is emitted if there are insufficient CPU resources available in the cluster. This notification helps you avoid situations where the requested broker cardinality lacks enough resources to run optimally. It also helps to avoid potential CPU contention and pod evictions.
 
-The MQTT broker currently requests one (1.0) CPU unit per frontend worker and two (2.0) CPU units per backend worker. For more information, see [Kubernetes CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu).
+> [!IMPORTANT]
+> The default value for `generateResourceLimits.cpu` depends on the deployment method:
+>
+> - **Azure CLI (`az iot ops create`)**: `Disabled` by default. The CLI actively sets this value to `Disabled` to avoid deployment failures on resource-constrained clusters, particularly single-node clusters where the CPU requests can exceed available resources.
+> - **REST API, Bicep, and ARM templates**: `Enabled` by default, as defined in the [Broker API specification](/rest/api/iotoperations/broker/create-or-update). If you deploy using these methods without explicitly setting `generateResourceLimits.cpu`, CPU resource limits are applied automatically.
+>
+> If you enable CPU resource limits, make sure your cluster has enough CPU resources to satisfy the broker's requests based on your cardinality configuration. See the CPU requirements below.
 
-For example, the following cardinality would request the following CPU resources:
+### Calculate CPU requirements
 
-- **For frontends**: 2 CPU units per frontend pod, totaling 6 CPU units.
-- **For backends**: 4 CPU units per backend pod (for two backend workers), times 2 (redundancy factor), times 3 (number of partitions), totaling 24 CPU units.
+The MQTT broker requests CPU resources per pod based on the number of workers configured:
+
+- **Frontend pods**: 1.0 CPU per worker
+- **Backend pods**: 2.0 CPU per worker
+
+Use the following formulas to calculate total CPU requirements:
+
+| Component | Formula |
+|-----------|---------|
+| Frontend CPU | `replicas` &times; `frontend.workers` &times; 1.0 CPU |
+| Backend CPU | `partitions` &times; `redundancyFactor` &times; `backend.workers` &times; 2.0 CPU |
+| **Total broker CPU** | Frontend CPU + Backend CPU |
+
+For more information, see [Kubernetes CPU resource units](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu).
+
+> [!CAUTION]
+> The broker isn't the only component that consumes CPU on the cluster. Other Azure IoT Operations components (such as the dataflow engine, OPC UA connector, and system pods) also reserve CPU resources, typically around 200-300m in aggregate. When planning cluster capacity, make sure to account for this overhead on top of the broker's CPU requirements. If the total CPU requested by all pods exceeds the available CPU on your cluster, broker pods get stuck in a `Pending` state.
+
+#### Example: small cluster
+
+Consider a 2-node cluster with 4 CPU cores per node (8 cores total) with the following cardinality:
+
+```json
+{
+  "cardinality": {
+    "frontend": {
+      "replicas": 2,
+      "workers": 2
+    },
+    "backendChain": {
+      "partitions": 1,
+      "redundancyFactor": 2,
+      "workers": 1
+    }
+  }
+}
+```
+
+The broker requests:
+
+- **Frontend CPU**: 2 replicas &times; 2 workers &times; 1.0 = **4.0 CPU**
+- **Backend CPU**: 1 partition &times; 2 RF &times; 1 worker &times; 2.0 = **4.0 CPU**
+- **Total broker CPU**: **8.0 CPU**
+
+Even though the cluster has 8 cores total, this deployment fails because other Azure IoT Operations components also consume CPU (~280m). The broker pods get stuck in `Pending` state with `Insufficient cpu` errors.
+
+To resolve this, either add more nodes, increase cores per node, or reduce the broker cardinality.
+
+#### Example: larger deployment
+
+The following cardinality requests significantly more CPU resources:
 
 ```json
 {
@@ -273,15 +331,29 @@ For example, the following cardinality would request the following CPU resources
 }
 ```
 
-To disable this setting, set the `generateResourceLimits.cpu` field to `Disabled` in the Broker resource.
+- **Frontend CPU**: 3 replicas &times; 2 workers &times; 1.0 = **6.0 CPU**
+- **Backend CPU**: 3 partitions &times; 2 RF &times; 2 workers &times; 2.0 = **24.0 CPU**
+- **Total broker CPU**: **30.0 CPU**
+
+To change this setting, set the `generateResourceLimits.cpu` field to `Enabled` or `Disabled` in the Broker resource.
 
 # [Portal](#tab/portal)
 
-Changing the `generateResourceLimits` field isn't supported in the Azure portal. To disable this setting, use the Azure CLI.
+Changing the `generateResourceLimits` field isn't supported in the Azure portal. To change this setting, use the Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
-Prepare a Broker configuration file in JSON format, which includes the desired properties of the [Resource Manager `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update), and set the `generateResourceLimits.cpu` field to `Disabled`. For example:
+Prepare a Broker configuration file in JSON format, which includes the desired properties of the [Resource Manager `microsoft.iotoperations/instances/brokers` resource](/rest/api/iotoperations/broker/create-or-update), and set the `generateResourceLimits.cpu` field. For example, to enable CPU resource limits:
+
+```json
+{
+  "generateResourceLimits": {
+    "cpu": "Enabled"
+  }
+}
+```
+
+Or to disable CPU resource limits:
 
 ```json
 {

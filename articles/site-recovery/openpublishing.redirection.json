@@ -2435,16 +2435,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/app-spaces/deploy-app-spaces-template.md",
-      "redirect_url": "/azure/app-spaces/quickstart-deploy-your-app",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-spaces/quickstart-deploy-web-app.md",
-      "redirect_url": "/azure/app-spaces/quickstart-deploy-sample-app",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/application-insights/app-insights-analytics-diagnostics.md",
       "redirect_url": "/azure/application-insights/app-insights-analytics",
       "redirect_document_id": false
@@ -5260,51 +5250,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/scheduler/get-started-portal.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-advanced-complexity.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-concepts-terms.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-high-availability-reliability.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-intro.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-limits-defaults-errors.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-outbound-authentication.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-plans-billing.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/scheduler/scheduler-powershell-reference.md",
-      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/sdks/index.yml",
       "redirect_url": "https://azure.microsoft.com/downloads/",
       "redirect_document_id": false
@@ -5546,7 +5491,7 @@
     },
     {
       "source_path_from_root": "/articles/time-series-insights/migration-to-adx.md",
-      "redirect_url": "/azure/time-series-insights/migration-to-fabric.md",
+      "redirect_url": "/previous-versions/azure/time-series-insights/migration-to-fabric",
       "redirect_document_id": false
     },
     {

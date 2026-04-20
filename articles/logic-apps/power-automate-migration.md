@@ -94,7 +94,7 @@ Enterprises consider security a top priority, so Azure Logic Apps (Standard) pro
 
 - Role-based access control (RBAC)
 
-  Minimize the risks from unauthorized access or changes by assigning granular permissions to your logic app workflows with precisely defined role-based access controls. In Azure Logic Apps, RBAC works at the resource level where you assign role-based access to a specific resource. So, if the workflow creator leaves, you don't lose access to their workflows. For more information, see [Secure access and data for workflows](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations) and [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview).
+  Minimize the risks from unauthorized access or changes by assigning granular permissions to your logic app workflows with precisely defined role-based access controls. In Azure Logic Apps, RBAC works at the resource level where you assign role-based access to a specific resource. So, if the workflow creator leaves, you don't lose access to their workflows. For more information, see [Secure access and data for workflows](/azure/logic-apps/logic-apps-securing-a-logic-app#access-to-logic-app-operations) and [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
   In Power Automate, RBAC works at the user level. For more information, see [Manage security for Power Automate](/power-automate/desktop-flows/desktop-flows-security#power-automate-specific-security-roles).
 

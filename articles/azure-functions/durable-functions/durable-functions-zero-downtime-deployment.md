@@ -1,0 +1,195 @@
+---
+title: Zero-downtime deployment for Durable Functions
+description: Learn how to enable your Durable Functions orchestration for zero-downtime deployments.
+author: tsushi
+ms.topic: concept-article
+ms.service: azure-functions
+ms.date: 05/11/2021
+ms.author: azfuncdf
+ms.custom: fasttrack-edit
+#Customer intent: As a Durable Functions user, I want to deploy with zero downtime so that updates don't interrupt my Durable Functions orchestration execution.
+---
+
+# Zero-downtime deployment for Durable Functions
+
+The [reliable execution model](../../durable-task/common/durable-task-orchestrations.md) of Durable Functions requires that orchestrations be deterministic, which creates an additional challenge to consider when you deploy updates. When a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances fail. This situation is especially a problem for instances of long-running orchestrations, which might represent hours or days of work.
+
+To prevent these failures from happening, you have several options: 
+- Delay your deployment until all running orchestration instances have completed.
+- Use [orchestration versioning](../../durable-task/common/durable-orchestration-versioning.md) to allow different versions of orchestrations to coexist (recommended).
+- Make sure that any running orchestration instances use the existing versions of your functions. 
+
+The following chart compares the four main strategies to achieve a zero-downtime deployment for Durable Functions: 
+
+| Strategy |  When to use | Pros | Cons |
+| -------- | ------------ | ---- | ---- |
+| [Orchestration versioning](#orchestration-versioning) | Applications with [breaking changes](durable-functions-versioning.md), especially those that need to support concurrent execution of different orchestration versions. | Enables zero-downtime deployments with breaking changes.<br/>Built-in feature requiring minimal configuration. | Requires careful orchestrator code modifications for version compatibility. |
+| [Name-based versioning](#name-based-versioning) |  Applications that don't experience frequent [breaking changes.](durable-functions-versioning.md) | Simple to implement. |  Increased function app size in memory and number of functions.<br/>Code duplication. |
+| [Status check with slot](#status-check-with-slot) | A system that doesn't have long-running orchestrations lasting more than 24 hours or frequently overlapping orchestrations. | Simple code base.<br/>Doesn't require additional function app management. | Requires additional storage account or task hub management.<br/>Requires periods of time when no orchestrations are running. |
+| [Application routing](#application-routing) | A system that doesn't have periods of time when orchestrations aren't running, such as those time periods with orchestrations that last more than 24 hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max out the number of function apps allowed by your subscription. The default is 100. |
+
+The remainder of this document describes these strategies in more detail.
+
+> [!NOTE]
+> The descriptions for these zero-downtime deployment strategies assume you are using the default Azure Storage provider for Durable Functions. The guidance may not be appropriate if you are using a storage provider other than the default Azure Storage provider. For more information on the various storage provider options and how they compare, see the [Durable Functions storage providers](../../durable-task/common/durable-task-storage-providers.md) documentation.
+
+## Orchestration versioning
+
+The [orchestration versioning](../../durable-task/common/durable-orchestration-versioning.md) feature allows you to make breaking changes to orchestrations while avoiding downtime during deployments. This built-in feature enables different versions of orchestrations to coexist and execute concurrently without conflicts.
+
+With orchestration versioning:
+- Each orchestration instance gets a version permanently associated with it when created.
+- Workers running newer orchestrator versions can continue executing older version instances.
+- Workers running older orchestration versions _can't_ execute newer version instances.
+- Orchestrator functions can examine their version and branch execution accordingly.
+
+This approach facilitates rolling upgrades where workers running different versions of your application can coexist safely. It's the recommended strategy for applications that need to support breaking changes while maintaining zero-downtime deployments.
+The orchestration versioning feature is **[backend agnostic](../../durable-task/common/durable-task-storage-providers.md)**, so you can leverage it regardless of what storage backend your Durable Function app is using. 
+For detailed configuration and implementation guidance, see [Orchestration versioning](../../durable-task/common/durable-orchestration-versioning.md).
+
+## Name-based versioning
+
+Define new versions of your functions and leave the old versions in your function app. As you can see in the diagram, a function's version becomes part of its name. Because previous versions of functions are preserved, in-flight orchestration instances can continue to reference them. Meanwhile, requests for new orchestration instances call for the latest version, which your orchestration client function can reference from an app setting.
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/versioning-strategy.png" alt-text="Diagram showing the name-based versioning strategy for Durable Functions.":::
+
+In this strategy, every function must be copied, and its references to other functions must be updated. You can make it easier by writing a script. Here's a [sample project](https://github.com/TsuyoshiUshio/DurableVersioning) with a migration script.
+
+> [!NOTE]
+> This strategy uses deployment slots to avoid downtime during deployment. For more detailed information about how to create and use new deployment slots, see [Azure Functions deployment slots](../functions-deployment-slots.md).
+
+## Status check with slot
+
+While the current version of your function app is running in your production slot, deploy the new version of your function app to your staging slot. Before you swap your production and staging slots, check to see if there are any running orchestration instances. After all orchestration instances are complete, you can do the swap. This strategy works when you have predictable periods when no orchestration instances are in flight. This is the best approach when your orchestrations aren't long-running and when your orchestration executions don't frequently overlap.
+
+### Function app configuration
+
+Use the following procedure to set up this scenario.
+
+1. [Add deployment slots](../functions-deployment-slots.md#add-a-slot) to your function app for staging and production.
+
+1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection of a shared storage account. This storage account connection is used by the Azure Functions runtime to securely store the [functions' access keys](../function-keys-how-to.md). For the highest level of security, you should use a [managed identity connection](../../app-service/overview-managed-identity.md) to your storage account.
+
+1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](../../durable-task/common/durable-task-orchestrations.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting. Again, managed identity-based connections are the most secure.
+
+1. In your function app's [host.json file's durableTask section](durable-functions-host-json-settings.md), specify `connectionStringName` (Durable 2.x) or `azureStorageConnectionStringName` (Durable 1.x) as the name of the app setting you created in step 3.
+
+The following diagram shows the described configuration of deployment slots and storage accounts. In this potential predeployment scenario, version 2 of a function app is running in the production slot, while version 1 remains in the staging slot.
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/deployment-slot.png" alt-text="Diagram showing deployment slots and storage accounts before slot swap.":::
+
+### host.json examples
+
+The following JSON fragments are examples of the connection string setting in the *host.json* file.
+
+#### Functions 2.0
+
+```json
+{
+  "version": 2.0,
+  "extensions": {
+    "durableTask": {
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
+    }
+  }
+}
+```
+
+#### Functions 1.x
+
+```json
+{
+  "durableTask": {
+    "azureStorageConnectionStringName": "DurableManagementStorage"
+  }
+}
+```
+
+### CI/CD pipeline configuration
+
+Configure your CI/CD pipeline to deploy only when your function app has no pending or running orchestration instances. When you're using Azure Pipelines, you can create a function that checks for these conditions, as in the following example:
+
+```csharp
+[FunctionName("StatusCheck")]
+public static async Task<IActionResult> StatusCheck(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
+    [DurableClient] IDurableOrchestrationClient client,
+    ILogger log)
+{
+    var runtimeStatus = new List<OrchestrationRuntimeStatus>();
+
+    runtimeStatus.Add(OrchestrationRuntimeStatus.Pending);
+    runtimeStatus.Add(OrchestrationRuntimeStatus.Running);
+
+    var result = await client.ListInstancesAsync(new OrchestrationStatusQueryCondition() { RuntimeStatus = runtimeStatus }, CancellationToken.None);
+    return (ActionResult)new OkObjectResult(new { HasRunning = result.DurableOrchestrationState.Any() });
+}
+```
+
+Next, configure the staging gate to wait until no orchestrations are running. For more information, see [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates)
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/deployment-gate.png" alt-text="Screenshot showing an Azure Pipelines deployment gate configuration.":::
+
+Azure Pipelines checks your function app for running orchestration instances before your deployment starts.
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/deployment-gate-2.png" alt-text="Screenshot showing a running Azure Pipelines deployment gate check.":::
+
+Now the new version of your function app should be deployed to the staging slot.
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/deployment-slot-2.png" alt-text="Diagram showing the new app version deployed to the staging slot.":::
+
+Finally, swap slots. 
+
+Application settings that aren't marked as deployment slot settings are also swapped, so the version 2 app keeps its reference to storage account A. Because orchestration state is tracked in the storage account, any orchestrations running on the version 2 app continue to run in the new slot without interruption.
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/deployment-slot-3.png" alt-text="Diagram showing slot swap completion with app settings moved to production.":::
+
+To use the same storage account for both slots, you can change the names of your task hubs. In this case, you need to manage the state of your slots and your app's HubName settings. To learn more, see [Task hubs in Durable Functions](../../durable-task/common/durable-task-hubs.md).
+
+## Application routing
+
+This strategy is the most complex. However, it can be used for function apps that don't have time between running orchestrations.
+
+For this strategy, you must create an *application router* in front of your Durable Functions. This router can be implemented with Durable Functions. The router has the responsibility to:
+
+* Deploy the function app.
+* Manage the version of Durable Functions. 
+* Route orchestration requests to function apps.
+
+The first time an orchestration request is received, the router does the following tasks:
+
+1. Creates a new function app in Azure.
+2. Deploys your function app's code to the new function app in Azure.
+3. Forwards the orchestration request to the new app.
+
+The router manages the state of which version of your app's code is deployed to which function app in Azure.
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/application-routing.png" alt-text="Diagram showing first-time application routing and deployment flow.":::
+
+The router directs deployment and orchestration requests to the appropriate function app based on the version sent with the request. It ignores the patch version.
+
+When you deploy a new version of your app without a breaking change, you can increment the patch version. The router deploys to your existing function app and sends requests for the old and new versions of the code, which are routed to the same function app.
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/application-routing-2.png" alt-text="Diagram showing application routing when there is no breaking change.":::
+
+When you deploy a new version of your app with a breaking change, you can increment the major or minor version. Then the application router creates a new function app in Azure, deploys to it, and routes requests for the new version of your app to it. In the following diagram, running orchestrations on the 1.0.1 version of the app keep running, but requests for the 1.1.0 version are routed to the new function app.
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/application-routing-3.png" alt-text="Diagram showing application routing for a deployment with breaking changes.":::
+
+The router monitors the status of orchestrations on the 1.0.1 version and removes apps after all orchestrations are finished. 
+
+### Tracking store settings
+
+Each function app should use separate scheduling queues, possibly in separate storage accounts. If you want to query all orchestrations instances across all versions of your application, you can share instance and history tables across your function apps. You can share tables by configuring the `trackingStoreConnectionStringName` and `trackingStoreNamePrefix` settings in the [host.json settings](durable-functions-host-json-settings.md) file so that they all use the same values.
+
+For more information, see [Manage instances in Durable Functions in Azure](../../durable-task/common/durable-task-instance-management.md).
+
+:::image type="content" source="media/durable-functions-zero-downtime-deployment/tracking-store-settings.png" alt-text="Diagram showing shared tracking store settings across versioned function apps.":::
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Versioning Durable Functions](durable-functions-versioning.md)

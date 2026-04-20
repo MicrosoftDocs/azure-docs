@@ -7,6 +7,9 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/07/2025
+ms.collection:
+  - migration
+  - aws-to-azure
 ms.custom:
   - MVC
   - engagement-fy24
@@ -256,7 +259,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use.
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure and select the disk type (Standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, they won't be present on the Azure VM after migration.
 

@@ -152,6 +152,8 @@
         href: use-key-vault-references-dotnet-core.md
       - name: Spring Boot
         href: use-key-vault-references-spring-boot.md
+      - name: Python
+        href: use-key-vault-references-python-provider.md
     - name: Reload secrets and certificates automatically
       items:
       - name: .NET
@@ -192,6 +194,8 @@
       href: howto-chat-completion-config.md
     - name: .NET
       href: quickstart-chat-completion-dotnet.md
+    - name: Python
+      href: quickstart-chat-completion-python.md
     - name: Go
       href: quickstart-chat-completion-go.md
   - name: Agent framework
@@ -212,6 +216,8 @@
       href: howto-feature-filters.md
     - name: ASP.NET Core
       href: howto-feature-filters-aspnet-core.md
+    - name: Spring Boot
+      href: how-to-feature-filters-spring-boot.md
     - name: JavaScript
       href: howto-feature-filters-javascript.md
     - name: Python
@@ -248,6 +254,8 @@
       href: howto-variant-feature-flags.md
     - name: ASP.NET Core
       href: howto-variant-feature-flags-aspnet-core.md
+    - name: Spring Boot
+      href: how-to-variant-feature-flags-spring-boot.md
     - name: Python
       href: howto-variant-feature-flags-python.md
     - name: JavaScript
@@ -293,8 +301,6 @@
   items:
   - name: Monitor App Configuration
     href: monitor-app-configuration.md
-  - name: Reference for monitoring data
-    href: monitor-app-configuration-reference.md
 - name: Resource management
   items:
   - name: Move a resource between Azure regions
@@ -341,10 +347,12 @@
       href: concept-geo-replication.md
     - name: Enable geo-replication
       href: howto-geo-replication.md
+  - name: Reliability in App Configuration
+    href: /azure/reliability/reliability-app-configuration?bc=/azure/bread/toc.json&toc=/azure/azure-app-configuration/TOC.json
   - name: Resiliency and disaster recovery
     href: concept-disaster-recovery.md
   - name: Availability zone support
-    href: ../reliability/migrate-app-configuration.md
+    href: /azure/reliability/migrate-app-configuration
 - name: Samples
   items:
   - name: Azure CLI

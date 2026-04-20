@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Use RoboCopy to migrate to Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 This migration article describes the use of RoboCopy to move or migrate files to an SMB Azure file share. RoboCopy is a trusted and well-known file copy utility with a feature set that makes it well suited for migrations. It uses the SMB protocol, which makes it broadly applicable to any source and target combination that supports SMB.
 
@@ -68,6 +68,14 @@ robocopy <SourcePath> <Dest.Path> /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOP
 | `/L`                  | **Only for a test run** </br> Files are to be listed only. They won't be copied, not deleted, and not time stamped. Often used with `/TEE` for console output. Flags from the sample script, like `/NP`, `/NFL`, and `/NDL`, might need to be removed to achieve you properly documented test results. |
 | `/Z`                  | **Use cautiously** </br>Copies files in restart mode. This switch is recommended only in an unstable network environment. It significantly reduces copy performance because of extra logging. |
 | `/ZB`                 | **Use cautiously** </br>Uses restart mode. If access is denied, this option uses backup mode. This option significantly reduces copy performance because of checkpointing. |
+
+RoboCopy might report that files were copied even when no data transfer was necessary. This behavior occurs because robocopy evaluates both file data and metadata changes when producing its output.
+
+To correctly interpret the results, review the file status in the command output:
+- Newer: File data is copied to the destination.
+- Modified: Only metadata is updated; file data isn't recopied.
+
+In both cases, RoboCopy might report byte counts as though data was transferred. This behavior can lead to confusion when validating copy operations.
 
 > [!IMPORTANT]
 > We recommend using a Windows Server 2022 or newer. When using a Windows Server 2019, ensure at the latest patch level or at least [OS update KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f) is installed. It contains important fixes for certain Robocopy scenarios.
@@ -160,7 +168,7 @@ You can use Robocopy to copy files and folders from a snapshot view of an SMB Az
 
 As you begin your migration to Azure Files, RoboCopy copies your files and folders into Azure. Depending on your billing model for Azure Files, transaction charges might apply. See [Understanding billing](understanding-billing.md).
 
-If you're using a pay-as-you-go billing model for standard Azure file shares, it might be difficult to estimate the number of transactions your migration will generate.
+If your HDD (standard) Azure file shares use the pay-as-you-go billing model, it might be difficult to estimate the number of transactions your migration will generate.
 
 - It's not possible to estimate the number of transactions based on the utilized storage capacity of the source. The number of transactions scales with the number of namespace items (files and folder) and their properties that are migrated, not their size. For example, more transactions are required to migrate 1 GiB of small files than 1 GiB of larger files.
 - In order to minimize downtime, you might need to run copy operations several times from source to target. All source and target items are processed during each copy operation, though subsequent runs finish faster. After the initial operations, only the differences introduced between copy runs are transported over the network. It's important to understand that although less data is being transported, the number of transactions required might remain the same.

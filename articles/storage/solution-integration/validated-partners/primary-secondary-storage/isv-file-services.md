@@ -59,7 +59,7 @@ Some general rules are always recommended:
   - Networking: if VM type supports it, use accelerated networking. It will reduce the latency and always have a positive effect on the performance. 
   - VM type: select the VM type that is most suitable for the workload. If the workload has small number of clients, running file services in smaller number of larger VMs is better suited. In contrast, large number of clients can benefit from running file services in larger number of smaller VMs.
   - For low concurrency and small block size workloads explore solutions that:
-    - use managed disks (Premium or Ultra SSD disks) or
+    - use managed disks (Premium SSDs or Ultra Disks) or
     - have a suitable caching algorithm.
   - For high concurrency and large block size workloads, explore solutions that use Azure Blob Storage as a backend
 

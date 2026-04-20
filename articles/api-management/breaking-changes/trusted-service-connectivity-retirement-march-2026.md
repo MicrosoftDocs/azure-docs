@@ -10,7 +10,6 @@ ms.service: azure-api-management
 ai-usage: ai-assisted
 ---
 
-
 # Trusted service connectivity retirement (March 2026)
 
 [!INCLUDE [api-management-availability-all-tiers](../../../includes/api-management-availability-all-tiers.md)]
@@ -31,11 +30,17 @@ First, check for an Azure Advisor recommendation:
 
 **If you don't see a recommendation**, your API Management gateway isn't affected by the change.
 
-**If you see a recommendation**, your API Management gateway is affected by the breaking change and you need to take action: 
+**If you see a recommendation**, your API Management gateway has previously sent traffic to the listed Azure services. Because of this, it is considered affected by the breaking change and you need to take action:   
 
 1. Determine if your API Management gateway relies on trusted service connectivity to Azure services. 
 1. If it does, update the networking configuration to eliminate the dependency on trusted service connectivity. If it doesn’t, proceed to the next step. 
 1. Disable trusted service connectivity in your API Management gateway.
+
+> [!NOTE]
+> Azure Advisor recommendation shows the Azure backend services your API Management instance has sent outbound requests to in the past 24 hours, regardless of the authentication method used.
+> Use this to identify the backends your API Management instance depends on and validate their configuration.
+>
+> If no traffic is reported, continue monitoring for a few days and disable the feature if results are consistent.
 
 #### Scenarios that are not affected by the breaking change
 
@@ -48,9 +53,14 @@ If your API Management service has an established networking line of sight to th
  
 For backup and restore and custom hostname certificates, you need to ensure the target key vault or storage account is publicly accessible or you need to preserve its trusted connectivity setting to allow traffic from API Management resources, even if your API Management service has a networking line of sight established with it.
 
+APIs in workspaces aren't affect by this change, since they [do not support managed identity](../workspaces-overview.md).
+
 ### Step 1: Does my API Management gateway rely on trusted service connectivity? 
 
 Your API Management gateway should no longer rely on trusted service connectivity to Azure services. Instead, it should establish a networking line of sight.
+
+> [!TIP]
+> You can get a detailed overview through "Diagnose and solve problems > Availability and Performance" in the Azure Portal on your API Management instance to learn about outbound requests, Entra ID tokens required and if further action is required.
 
 To verify if your API Management gateway relies on trusted connectivity to Azure services, check the networking configuration of all Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, and Container Registry resources that your API Management gateway connects to: 
 
@@ -101,6 +111,13 @@ You can configure the networking of target resources to one of the following opt
 
   - [Transition to a Network Security Perimeter in Azure](/azure/private-link/network-security-perimeter-transition)
 
+  - [How to front a network security perimeter-protected Azure resource with Azure API Management](../using-network-security-perimeter.md)
+
+> [!IMPORTANT]
+> Customers can continue using trusted services on the target Azure service for non-Azure API Management scenarios. However, Azure API Management will no longer support it so the gateway needs alternative ways to communicate and have network line-of-sight.
+>
+> For example, you can enable trusted service connectivity for an Azure Storage resource and use Network Security Perimeter to access it from API Management's gateway.
+ 
 ### Step 3: Disable trusted service connectivity in API Management gateway
 
 After ensuring that your API Management gateway doesn't access other Azure services using trusted service connectivity, you must explicitly disable trusted connectivity in your gateway to acknowledge you have verified that the service no longer depends on trusted connectivity.
@@ -119,6 +136,7 @@ To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.Ma
   "location": "string",
   "properties": {
     "customProperties": {
+      // Existing custom properties defined on the service
       "Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess": "True"
     }
   },
@@ -128,6 +146,9 @@ To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.Ma
   }
 }
 ```
+
+> [!NOTE]
+> Existing custom properties, such as ciphers, must be added to the PATCH call as they would otherwise be removed from the service.
 
 The Azure Advisor recommendation should disappear within a day or two of disabling the trusted connectivity on the API Management gateway. 
 

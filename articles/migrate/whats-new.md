@@ -16,6 +16,13 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (March 2026)
+
+- Public preview: Azure Migrate now offers **Reports** a new experience that helps you generate executive-level insights for migration and modernization planning. Reports include migration and modernization executive summaries, security insights, and business case insights for workloads discovered in Azure Migrate. You can tailor reports to different migration strategies, such as modernizing to **PaaS (AI‑ready), migrating to Azure Virtual Machines**, or rehosting to **Azure VMware Solution (AVS)**. Reports help you assess your application and infrastructure landscape by providing readiness analysis, target recommendations, and cost guidance, including TCO and ROI comparisons between on‑premises environments and Azure. Reports also deliver security insights and cost optimization recommendations, such as savings through Azure Hybrid Benefit, Reserved Instances, and dev/test pricing, and recommend related services like Azure Backup, Azure Site Recovery, and Microsoft Defender for Cloud. [Learn more](reports-overview.md).
+- General Availability: Azure Migrate now supports migrating Generation 2 VMs to Trusted Launch Azure VMs. Trusted Launch helps protect workloads from boot-level by threats using UEFI-based Secure Boot and vTPM, ensuring that only trusted, signed components during startup. [Learn more](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md).
+
+- Public preview: Azure Migrate now offers Azure Copilot migration agent, which provides a conversational experience to help you plan and analyze VMware migrations using Azure Migrate data. You can use natural language prompts to explore inventory, assess readiness, and evaluate migration strategies and business cases, while migration execution continues in the Azure Migrate portal. [Learn more](azure-copilot-migration-agent.md).
+
 ## Update (November 2025)
 
 - Azure Migrate now offers three built-in roles for role-based access control (RBAC), enabling you to implement least privilege access for your Azure Migrate projects. These new roles replace the previous requirement for Contributor or Owner permissions at the subscription level and allow you to grant only the necessary permissions for each migration phase.
@@ -60,7 +67,7 @@ Notable aspects of the solution:
  - Built-in dashboard view summarizing security risks in discovered Servers and Software.
  - Auto-detects security risks such as unsupported operating systems and software, pending security and critical updates, known vulnerabilities (CVEs) associated with software versions currently in use, and servers lacking security or patch management software.
  - Recommends mitigation strategies for secure migration by configuring Microsoft Defender for Cloud and Azure Update Manager.
- - Highlights fragmentation in security tooling in the environment through [classification](how-to-discover-applications.md#software-classification--potential-targets).
+ - Highlights fragmentation in security tooling in the environment through [classification](/previous-versions/azure/migrate/how-to-discover-applications#software-classification--potential-targets).
 
 - Public preview: Software inventory enhancements will help improve the usability of the inventory and assist customers in planning for the migration of this software as part of their overall migration planning for their workloads. [Learn more](how-to-discover-applications.md)
 
@@ -114,8 +121,8 @@ You can use this capability to:
 
 ## Update (May 2025)
 
-- General availability: Azure Migrate enhances support for [Premium v2 SSD Disks](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli). This offers a seamless experience to migrate their on-premises workloads to Azure and benefit from the advanced disk options that offer greater flexibility and enhanced performance of Pv2 disks in Azure. 
-- Public preview: Azure Migrate expands support for migrations with [Ultra SSD](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal). This enables customers to seamlessly migrate their on-premises workloads to Azure while taking advantage of Ultra Disk’s cutting-edge performance and scalability.
+- General availability: Azure Migrate enhances support for [Premium SSD v2 disks](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli). This offers a seamless experience to migrate their on-premises workloads to Azure and benefit from the advanced disk options that offer greater flexibility and enhanced performance of Pv2 disks in Azure. 
+- Public preview: Azure Migrate expands support for migrations with [Ultra Disk](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal). This enables customers to seamlessly migrate their on-premises workloads to Azure while taking advantage of Ultra Disk’s cutting-edge performance and scalability.
 - Public preview: Azure Migrate enhances resiliency by supporting migration to [ZRS Disks](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) during Migration only. **Zone-Redundant Storage (ZRS)** for Azure Disks synchronously replicates data across three physically separate availability zones within a region – each with independent power, cooling, and networking – enhancing Disk availability and resiliency.
 
 - General availability: Azure Migrate now supports a simplified experience through its upgraded version of the agent-based migration stack. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
@@ -314,7 +321,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 ## Update (August 2021)
 
 - At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, now in preview. [Learn more](concepts-azure-webapps-assessment-calculation.md). To get started, refer to the [discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-webapps.md) tutorials.
-- Support for Azure [ultra disks](/azure/virtual-machines/disks-types#ultra-disks) in Azure VM assessment recommendations.
+- Support for Azure [Ultra Disks](/azure/virtual-machines/disks-types#ultra-disks) in Azure VM assessment recommendations.
 - General availability of at-scale software inventory and agentless dependency analysis for VMware virtual machines.
 - Azure Migrate appliance updates:
   - Ability of users to diagnose and solve appliance problems.
@@ -415,7 +422,7 @@ New assessment and migration tools were added to Azure Migrate:
 - **RackWare**: Offers cloud migration.
 - **Movere**: Offers assessment.
 
-For more information about using tools and SDC offerings for assessment and migration in Azure Migrate, see [What is Azure Migrate?](migrate-services-overview.md).
+For more information about using tools and SDC offerings for assessment and migration in Azure Migrate, see [What is Azure Migrate?](migrate-services-overview.md)
 
 ## Azure Migrate current version
 

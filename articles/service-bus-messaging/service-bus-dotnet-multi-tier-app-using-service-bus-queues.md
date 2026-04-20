@@ -81,7 +81,7 @@ In this tutorial, you'll use Microsoft Entra authentication to create `ServiceBu
 1. [Add the application to the `Service Bus Data Owner` role](/azure/role-based-access-control/role-assignments-portal).
 1. Set the `AZURE-CLIENT-ID`, `AZURE-TENANT-ID`, AND `AZURE-CLIENT-SECRET` environment variables. For instructions, see [this article](/dotnet/api/overview/azure/identity-readme#environment-variables).
 
-For a list of Service Bus built-in roles, see [Azure built-in roles for Service Bus](service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus).
+For a list of Service Bus built-in roles, see [Azure built-in roles for Service Bus](service-bus-managed-service-identity.md#assign-a-service-bus-role-to-the-managed-identity).
 
 ## Create a namespace
 
@@ -150,8 +150,8 @@ In this section, you create the various pages that your application displays.
    {
        public class OnlineOrder
        {
-           public string Customer { get; set; }
-           public string Product { get; set; }
+           public string Customer { get; set; 
+           public string Product { get; set }
        }
    }
    ```

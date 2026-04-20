@@ -4,7 +4,7 @@ description: Learn how to install the Azure File Sync agent for Windows on Azure
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/20/2025
+ms.date: 02/03/2026
 ms.author: kendownie
 # Customer intent: As an IT administrator, I want to learn how to install and manage the Azure File Sync agent extension on Azure Arc-enabled Windows servers.
 ---
@@ -388,3 +388,9 @@ This command will initiate the removal of the Azure File Sync agent extension. U
 ---
 
 You can verify removal by checking the **Extensions** list in the Azure portal (the extension should no longer appear), or by running the validation commands above (which should no longer find the extension). If the extension fails to uninstall, check the Azure Activity Log or the extension instance view for error details.
+
+## Discounted per-server pricing
+
+Beginning January 2026, organizations with [Software Assurance (SA)](/azure/azure-arc/servers/windows-server-management-overview) and Azure Arc-enabled servers receive fully discounted per-server Azure File Sync pricing if they are using Azure File Sync agent version 22 or later. Customers using an Azure File Sync agent older than version 22 won't receive the discount.
+
+This benefit helps customers reduce operational costs as hybrid file deployments scale.

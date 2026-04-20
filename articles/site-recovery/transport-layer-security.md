@@ -17,6 +17,8 @@ Transport Layer Security (TLS) is an encryption protocol that keeps data secure 
 
 If the machine is running earlier versions of Windows, ensure to install the corresponding updates as detailed below and make the registry changes as documented in the respective KB articles.
 
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+
 |Operating system  |KB article |
 |---------|---------|
 |Windows Server 2008 SP2 | <https://support.microsoft.com/help/4019276> |

@@ -793,7 +793,7 @@ Use the following commands to create these items.
 
    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
-   First, find your Web PubSub resource from **Azure Portal** and copy out the connection string under **Keys**. Then, navigate to Function App settings in **Azure Portal** -> **Settings** -> **Environment variables**. And add a new item under **App settings**, with name equals `WebPubSubConnectionString` and value is your Web PubSub resource connection string.
+   First, find your Web PubSub resource from **Azure portal** and copy out the connection string under **Keys**. Then, navigate to Function App settings in **Azure portal** -> **Settings** -> **Environment variables**. And add a new item under **App settings**, with name equals `WebPubSubConnectionString` and value is your Web PubSub resource connection string.
 
 ## Configure the Web PubSub service `Event Handler`
 

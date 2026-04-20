@@ -1,6 +1,6 @@
 ---
-title: Create, query, and delete a cache using Azure CLI
-description: Use the Azure CLI to create an Azure Redis instance, get cache details like status, hostname, ports, and keys, and delete the cache.
+title: Create, query, and delete a managed cache using Azure CLI
+description: Use the Azure CLI to create an Azure Managed Redis instance, get cache details like status, hostname, ports, and keys, and delete the cache.
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 05/18/2025
@@ -13,7 +13,7 @@ appliesto:
   - ✅ Azure Cache for Redis
 ---
 
-# Manage an Azure Redis cache using the Azure CLI
+# Manage an Azure Managed Redis cache using the Azure CLI
 
 This article describes how to create and delete an Azure Redis cache instance by using the Azure CLI. The article also shows how to use the Azure CLI to get cache details including provisioning status, hostname, ports, and keys.
 

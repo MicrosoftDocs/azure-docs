@@ -5,7 +5,7 @@ author: prashantsaini4
 ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/23/2025
 ms.author: prsaini
 ---

@@ -48,10 +48,10 @@ Artifact Signing Client Tools for SignTool.exe is a library plugin that requires
 To simplify this setup there is an MSI installer package that is available for download along with a Setup.exe.
 
 > [!div class="nextstepaction"]
-> [Artifact Signing Client Tools MSI Download](https://download.microsoft.com/download/70ad2c3b-761f-4aa9-a9de-e7405aa2b4c1/ArtifactSigningClientTools.msi)
+> [Artifact Signing Client Tools MSI Download](https://download.microsoft.com/download/a3c24ba9-ff1f-444f-b626-eff710f345c3/ArtifactSigningClientTools.msi)
 
 > [!div class="nextstepaction"]
-> [Artifact Signing Client Tools Setup.exe Download](https://download.microsoft.com/download/70ad2c3b-761f-4aa9-a9de-e7405aa2b4c1/setup.exe)
+> [Artifact Signing Client Tools Setup.exe Download](https://download.microsoft.com/download/a3c24ba9-ff1f-444f-b626-eff710f345c3/setup.exe)
 
 #### Installing from the Windows Package Manager
 
@@ -61,7 +61,7 @@ The Artifact Signing Client Tools installer is available on the Windows Package 
 > winget is available by default in Windows 11 and modern versions of Windows 10. However, it may not be installed in older versions of Windows. See the [winget documentation](/windows/package-manager/winget/) for installation instructions.
 
    ```PowerShell
-   winget install -e --id Microsoft.Azure.TrustedSigningClientTools
+   winget install -e --id Microsoft.Azure.ArtifactSigningClientTools
    ```
 
 The `-e` option is to ensure the official Artifact Signing Client Tools package is installed. This command installs the latest version by default. To specify a version, add a `-v <version>` with your desired version to the command.
@@ -179,8 +179,8 @@ For example, when authenticating with [EnvironmentCredential](/dotnet/api/azure.
 
    ```json
    {
-     "Endpoint": "<Trusted Signing account endpoint>",
-     "CodeSigningAccountName": "<Trusted Signing account name>",
+     "Endpoint": "<Artifact Signing account endpoint>",
+     "CodeSigningAccountName": "<Signing account name>",
      "CertificateProfileName": "<Certificate profile name>",
      "CorrelationId": "<Optional CorrelationId value>",
      "ExcludeCredentials": [
@@ -223,11 +223,11 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **GitHub Actions**: To learn how to use a GitHub action for Artifact Signing, see [Artifact Signing - Actions](https://github.com/azure/artifact-signing-action) in GitHub Marketplace. Complete the instructions to set up and use a GitHub action.
 
-- **Azure DevOps task**: To use the Artifact Signing Azure DevOps task, see [Artifact Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) in Visual Studio Marketplace. Complete the instructions for setup.
+- **Azure DevOps task**: To use the Artifact Signing Azure DevOps task, see [Artifact Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.ArtifactSigning) in Visual Studio Marketplace. Complete the instructions for setup.
 
 - **PowerShell for Authenticode**: To use PowerShell for Artifact Signing, see [Artifact Signing](https://www.powershellgallery.com/packages/TrustedSigning/) in PowerShell Gallery to install the PowerShell module.
 
-- **Azure PowerShell - App Control for Business CI policy**: To use Artifact Signing for code integrity (CI) policy signing, follow the instructions in [Sign a new CI policy](./how-to-sign-ci-policy.md) and see [Az.TrustedSigning PowerShell Module](/powershell/azure/install-azps-windows).
+- **Azure PowerShell - App Control for Business CI policy**: To use Artifact Signing for code integrity (CI) policy signing, follow the instructions in [Sign a new CI policy](./how-to-sign-ci-policy.md) and download the [Az.ArtifactSigning PowerShell Module](https://www.powershellgallery.com/packages/Az.ArtifactSigning).
 
 - **Artifact Signing SDK**: To create your own signing integration, you can use our open-source [Artifact Signing SDK](https://www.nuget.org/packages/Azure.CodeSigning.Sdk). 
 

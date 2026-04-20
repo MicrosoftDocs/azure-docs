@@ -5,7 +5,7 @@ description: Learn about Communication Services' Pricing Model.
 author: nmurav
 ms.author: nmurav
 ms.date: 09/11/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 # Pricing Scenarios

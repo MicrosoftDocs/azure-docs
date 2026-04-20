@@ -4,7 +4,7 @@ description: Understand the default Redis configuration for Azure Cache for Redi
 
 
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2024
 appliesto:
   - ✅ Azure Cache for Redis

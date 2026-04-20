@@ -2,7 +2,7 @@
 title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to look up or correlate data in an Azure Stream Analytics job's query design.
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/26/2024
 ---
 # Use reference data for lookups in Stream Analytics
@@ -82,7 +82,7 @@ When a reference dataset is refreshed, a diagnostic log is generated: `Loaded ne
 
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Data Factory supports [connecting to a large number of cloud-based and on-premises data stores](../data-factory/copy-activity-overview.md). It can move data easily on a regular schedule that you specify.
 
-For more information on how to set up a Data Factory pipeline to generate reference data for Stream Analytics that refreshes on a predefined schedule, see this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
+For more information on how to set up a Data Factory pipeline to generate reference data for Stream Analytics that refreshes on a predefined schedule, see this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2).
 
 ### Tips on refreshing blob reference data
 

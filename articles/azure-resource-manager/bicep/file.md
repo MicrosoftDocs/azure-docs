@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Understand how to use declarative syntax to understand the structure and properties of Bicep files.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 07/25/2025
+ms.date: 01/30/2026
 ---
 
 # Bicep file structure and syntax
@@ -14,9 +14,9 @@ For a step-by-step tutorial that guides you through the process of creating a Bi
 
 ## Known limitations
 
-* Support isn't available for the concept of `apiProfile`, which is used to map a single `apiProfile` to a set `apiVersion` for each resource type.
+* The Bicep language doesn't support the concept of `apiProfile`. This concept maps a single `apiProfile` to a set `apiVersion` for each resource type.
 * User-defined functions aren't supported at this time. An experimental feature is currently accessible. For more information, see [User-defined functions in Bicep](./user-defined-functions.md).
-* Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available after all the required updates are deployed to global Azure. If you use a different environment such as Azure Stack, there might be a delay in the availability of the feature. The Bicep feature is available only after the intermediate language is also updated in that environment.
+* Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). The product team announces these features as available after all the required updates are deployed to global Azure. If you use a different environment such as Azure Stack, there might be a delay in the availability of the feature. The Bicep feature is available only after the intermediate language is also updated in that environment.
 
 ## Bicep format
 
@@ -99,11 +99,11 @@ module webModule './webApp.bicep' = {
 
 ## Metadata
 
-Metadata in Bicep is an untyped value that you can include in your Bicep files. Metadata provides supplementary information about your Bicep files, like name, description, author, and creation date.
+Metadata in Bicep is an untyped value that you can include in your Bicep files. Metadata provides supplementary information about your Bicep files, such as name, description, author, and creation date.
 
 ## Target scope
 
-By default, the target scope is set to `resourceGroup`. If you deploy at the resource-group level, you don't need to set the target scope in your Bicep file.
+The default target scope is `resourceGroup`. If you deploy at the resource group level, you don't need to set the target scope in your Bicep file.
 
 The allowed values are:
 
@@ -112,7 +112,7 @@ The allowed values are:
 * `managementGroup`: Used for [management group deployments](deploy-to-management-group.md).
 * `tenant`: Used for [tenant deployments](deploy-to-tenant.md).
 
-In a module, you can specify a scope that's different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope).
+In a module, you can specify a scope that's different from the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope).
 
 ## Parameters
 
@@ -138,13 +138,13 @@ For more information, see [Parameters in Bicep](./parameters.md).
 
 ## Variables
 
-To make your Bicep file more readable, encapsulate complex expressions in a variable. For example, you might add a variable for a resource name that's constructed by concatenating several values together.
+To make your Bicep file more readable, encapsulate complex expressions in a variable. For example, you might add a variable for a resource name that you create by concatenating several values together.
 
 ```bicep
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 ```
 
-Apply this variable wherever you need the complex expression.
+Use this variable wherever you need the complex expression.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
@@ -157,7 +157,7 @@ For more information, see [Variables in Bicep](./variables.md).
 
 ## Resources
 
-Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You use this symbolic name in other parts of the Bicep file to get a value from the resource.
+Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. Use this symbolic name in other parts of the Bicep file to get a value from the resource.
 
 The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 
@@ -229,7 +229,7 @@ For more information, see [Set name and type for child resources in Bicep](child
 
 ## Modules
 
-Modules enable you to reuse code from a Bicep file in other Bicep files. In the module declaration, you link to the file to reuse. When you deploy the Bicep file, the resources in the module are also deployed.
+Modules enable you to reuse code from a Bicep file in other Bicep files. In the module declaration, you link to the file to reuse. When you deploy the Bicep file, you also deploy the resources in the module.
 
 ```bicep
 module webModule './webApp.bicep' = {
@@ -261,7 +261,7 @@ For more information, see [Outputs in Bicep](./outputs.md).
 
 ## Types
 
-You can use the `type` statement to define user-defined data types.
+Use the `type` statement to define user-defined data types.
 
 ```bicep
 param location string = resourceGroup().location
@@ -294,7 +294,7 @@ For more information, see [User-defined data types in Bicep](./user-defined-data
 
 ## Functions
 
-In your Bicep file, you can create your own functions and also use the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that are used repeatedly in your Bicep files.
+In your Bicep file, you can create your own functions and also use the [standard Bicep functions](./bicep-functions.md) that are automatically available within your Bicep files. Create your own functions when you have complicated expressions that you use repeatedly in your Bicep files.
 
 ```bicep
 func buildUrl(https bool, hostname string, path string) string => '${https ? 'https' : 'http'}://${hostname}${empty(path) ? '' : '/${path}'}'
@@ -306,7 +306,7 @@ For more information, see [User-defined functions in Bicep](./user-defined-funct
 
 ## Decorators
 
-You can add one or more decorators for each of the following elements:
+Add one or more decorators to each of the following elements:
 
 * [param](#parameters)
 * [var](#variables)
@@ -335,44 +335,42 @@ The following table lists the decorators:
 
 ## Directives
 
-Directives provide instructions to the Bicep compiler and linter without affecting the runtime behavior of a template. You write directives as comments. The compiler evaluates them during compilation and validation.
-
-A directive uses the following general syntax:
+Bicep supports directives (pragmas) to control certain behaviors within the file, such as suppressing linter warnings or warning diagnostic messages. Directives are prefixed with the `#` character.
 
 ```bicep
 #<directive-name> <argument1> [<argument2> ... ]
 ```
 
-You separate arguments by using spaces. The specific directive determines how to interpret the arguments.
-
-### `disable-next-line`
-
-Use the `#disable-next-line` directive to suppress diagnostics for the statement immediately following the directive. You must specify at least one identifier after the directive. If you don't provide any identifiers, the compiler reports an error. The identifiers you specify after the directive can refer to:
+You must specify at least one identifier after the directive. If you don't provide any identifiers, the compiler reports an error. The identifiers you specify after the directive can refer to:
 
 * [Bicep compiler diagnostics](./bicep-core-diagnostics.md), such as `BCP138`
 * [Bicep linter rules](./linter.md), such as `no-unused-params`
 
-The following example suppresses a compiler diagnostic:
+You separate arguments by using spaces. The linter rules and diagnostic codes are case sensitive.
 
-```bicep
-#disable-next-line BCP138
-resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
-  name: 'examplestorage'
-}
-```
+Bicep currently supports three directive types:
 
-The following example suppresses a linter rule:
-
-```bicep
-#disable-next-line no-unused-params
-param unusedParam string
-```
+* `#disable-next-line` — disables one or more diagnostics for the next line only
+* `#disable-diagnostics` — disables one or more diagnostics for an entire file or until re-enabled
+* `#restore-diagnostics` — re-enables previously disabled diagnostics
 
 The following example suppresses multiple diagnostics and rules:
 
 ```bicep
-#disable-next-line BCP138 no-unused-params
-param example string
+#disable-diagnostics no-unused-vars BCP335 
+
+var location = 'eastus'
+
+param storageCount int
+
+resource accounts 'Microsoft.Storage/storageAccounts@2025-06-01' = [for i in range(0, storageCount): if (i % 2 == 0) {
+  name: 'sa0820${i}'
+  location: resourceGroup().location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+}]
 ```
 
 Use directives sparingly and only when you review and intentionally suppress a diagnostic or linter rule. Excessive use can reduce template readability and maintainability. Add a comment explaining why the rules or the diagnostic codes don't apply to this line.
@@ -405,7 +403,7 @@ For more information, see [Iterative loops in Bicep](loops.md).
 
 ## Conditional deployment
 
-You can add a resource or module to your Bicep file that's conditionally deployed. During deployment, the condition is evaluated and the result determines whether the resource or module is deployed. Use the `if` expression to define a conditional deployment.
+You can add a resource or module to your Bicep file for conditional deployment. During deployment, the condition is evaluated and the result determines whether the resource or module is deployed. Use the `if` expression to define a conditional deployment.
 
 ```bicep
 param deployZone bool
@@ -420,9 +418,9 @@ For more information, see [Conditional deployments in Bicep with the if expressi
 
 ## Whitespace
 
-Spaces and tabs are ignored when you author Bicep files.
+Bicep files ignore spaces and tabs.
 
-Bicep is newline sensitive. For example:
+Bicep is sensitive to newlines. For example:
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2025-06-01' = if (newOrExisting == 'new') {
@@ -430,7 +428,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2025-06-01' = if (newOrExisting =
 }
 ```
 
-Can't be written as:
+You can't write it as:
 
 ```bicep
 resource sa 'Microsoft.Storage/storageAccounts@2025-06-01' =
@@ -439,7 +437,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2025-06-01' =
     }
 ```
 
-Define [objects](./data-types.md#objects) and [arrays](./data-types.md#arrays) in multiple lines.
+You can define [objects](./data-types.md#objects) and [arrays](./data-types.md#arrays) across multiple lines.
 
 ## Comments
 
@@ -464,32 +462,6 @@ The following example shows a multiline comment.
 param existingKeyVaultName string
 ```
 
-## Multi-line strings
-
-You can break a string into multiple lines. Use three single quotation marks `'''` to start and end the multi-line string.
-
-Characters within the multi-line string are handled as is. Escape characters are unnecessary. You can't include `'''` in the multi-line string. String interpolation isn't currently supported.
-
-You can start your string right after the opening `'''`, or include a new line. In either case, the resulting string doesn't include a new line. Depending on the line endings in your Bicep file, new lines are interpreted as `\r\n` or `\n`.
-
-The following example shows a multi-line string.
-
-```bicep
-var stringVar = '''
-this is multi-line
-  string with formatting
-  preserved.
-'''
-```
-
-The preceding example is equivalent to the following JSON:
-
-```json
-"variables": {
-  "stringVar": "this is multi-line\r\n  string with formatting\r\n  preserved.\r\n"
-}
-```
-
 ## Multiple-line declarations
 
 You can now use multiple lines in function, array, and object declarations. This feature requires [Bicep CLI version 0.7.X or higher](./install.md).
@@ -506,6 +478,5 @@ For multiple-line declaration samples, see [arrays](./data-types.md#arrays) and 
 
 ## Related content
 
-* For an introduction to Bicep, see [What is Bicep?](./overview.md).
+* For an introduction to Bicep, see [What is Bicep?](./overview.md)
 * For Bicep data types, see [Data types](./data-types.md).
-

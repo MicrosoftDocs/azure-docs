@@ -1,7 +1,7 @@
 ---
 title: 'Azure Event Grid Transport Layer Security flow'
 description: 'Describes how mTLS connection is established when a client connects to Azure Event Grid’s Message Queueing Telemetry Transport (MQTT) broker feature.'
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - build-2023
   - ignite-2023

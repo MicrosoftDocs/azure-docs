@@ -5,7 +5,7 @@ author: joeolerich
 ms.author: joeolerich
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 11/18/2025
+ms.date: 01/22/2026
 ---
 
 # HTTP DDoS Ruleset in Azure Application Gateway WAF (preview)
@@ -52,12 +52,7 @@ When an IP address exceeds a threshold, a rule hit for the HTTP DDoS ruleset is 
 
 ## Limitations
 
-The following limitations apply to the HTTP DDoS ruleset during the preview:
-
-- No ability for traffic from specific IP addresses to bypass the DDoS ruleset or penalty box 
-
-- Once HTTP DDoS ruleset is assigned to a Web Application Firewall policy, any changes made to other managed rulesets using the production portal will remove the HTTP DDoS ruleset from the WAF Policy.
-
+During the preview, there is no ability for traffic from specific IP addresses to bypass the DDoS ruleset or penalty box.
 
 ## Related content
 

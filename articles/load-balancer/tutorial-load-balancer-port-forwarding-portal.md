@@ -86,7 +86,7 @@ You create a load balancer in this section. The frontend IP, backend pool, load-
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -186,7 +186,7 @@ You create a load balancer in this section. The frontend IP, backend pool, load-
 
 In this section, you create a NAT gateway for outbound internet access for resources in the virtual network. 
 
-For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 

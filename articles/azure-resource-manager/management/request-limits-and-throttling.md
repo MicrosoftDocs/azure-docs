@@ -1,8 +1,8 @@
-﻿---
+---
 title: Understand how Azure Resource Manager throttles requests
 description: Learn how Azure Resource Manager throttles requests when subscription limits are reached and how to respond.
 ms.topic: article
-ms.date: 05/28/2025
+ms.date: 02/27/2026
 ms.custom: devx-track-arm-template
 ---
 
@@ -18,7 +18,7 @@ The token bucket represents the maximum number of requests that you can send for
 
 These updated limits make it easier for you to refresh and manage your quota.
 
-The updated limits are:
+The updated limits for public and sovereign clouds are:
 
 | Scope | Operations | Bucket size | Refill rate per sec |
 | ----- | ---------- | ----------- | ------------------- |
@@ -36,8 +36,6 @@ The limits might be smaller for free or trial customers.
 For example, suppose you have a bucket size of 250 tokens for read requests and refill rate of 25 tokens per second. If you send 250 read requests in a second, the bucket is empty and your requests are throttled. Each second, 25 tokens become available until the bucket reaches its maximum capacity of 250 tokens. You can use tokens as they become available.
 
 Reading metrics using the `*/providers/microsoft.insights/metrics` API contributes significantly to overall Azure Resource Manager traffic and is a common cause of subscription throttling events. If you use this API heavily, we recommend that you switch to the `getBatch` API. You can query multiple resources in a single REST request, which improves performance and reduces throttling. For more information about converting your operations, see [How to migrate from the metrics API to the getBatch API](/azure/azure-monitor/essentials/migrate-to-batch-api).
-
-These limits and architecture will also apply to all sovereign clouds by the end of 2026.
 
 ### How can I view my throttled requests?
 
@@ -62,39 +60,6 @@ The request for subscription '{0}' could not be processed due to an excessive vo
 ```
 
 Customers might experience throttling due to excessive background jobs, which can be triggered by high-frequency operations or system-wide activities. While customers do not have direct control over the creation or execution of these jobs, awareness of potential throttling is important.
-
-## Throttling for sovereign clouds
-
-Throttling happens at two levels. Azure Resource Manager throttles requests for the subscription and tenant. If the request is under the throttling limits for the subscription and tenant, Resource Manager routes the request to the resource provider. The resource provider applies throttling limits that are tailored to its operations.
-
-Requests are initially throttled per principal ID and per Azure Resource Manager instance in the region of the user sending the request. Requests to the Azure Resource Manager instance in the region are also throttled per principal user ID and per hour. When the request is forwarded to the resource provider, requests are throttled per region of the resource rather than per Azure Resource Manager instance in region of the user. 
-
-> [!NOTE]
-> The limits of a resource provider can differ from the limits of the Azure Resource Manager instance in the region of the user.
-
-The following image shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider. 
-
-:::image type="content" source="./media/request-limits-and-throttling/request-throttling.svg" alt-text="Diagram that shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider.":::
-
-## Subscription and tenant limits
-
-Every subscription-level and tenant-level operation is subject to throttling limits. Subscription requests are ones that involve passing your subscription ID, such as retrieving the resource groups in your subscription. For example, sending a request to `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups?api-version=2022-01-01` is a subscription-level operation. Tenant requests don't include your subscription ID, such as retrieving valid Azure locations. For example, sending a request to `https://management.azure.com/tenants?api-version=2022-01-01` is a tenant-level operation.
-
-The default throttling limits per hour are shown in the following table.
-
-| Scope | Operations | Limit |
-| ----- | ---------- | ------- |
-| Subscription | reads | 12,000 |
-| Subscription | deletes | 15,000 |
-| Subscription | writes | 1,200 |
-| Tenant | reads | 12,000 |
-| Tenant | writes | 1,200 |
-
-These limits are scoped to the security principal (user or application) making the requests and the subscription ID or tenant ID. If your requests come from more than one security principal, your limit across the subscription or tenant is greater than 12,000 and 1,200 per hour.
-
-These limits apply to each Azure Resource Manager instance. There are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions. So, in practice, the limits are higher than these limits. Different instances of Azure Resource Manager usually handle the user's requests.
-
-The remaining requests are returned in the [response header values](#remaining-requests).
 
 ## Resource provider limits
 

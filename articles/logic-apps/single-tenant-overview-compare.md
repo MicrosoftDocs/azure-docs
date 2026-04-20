@@ -15,7 +15,7 @@ Azure Logic Apps is a cloud-based platform for creating and running automated *l
 
 Before you choose which logic app resource to create, review the following guide to learn how the logic app workflow types compare with each other. You can then make a better choice about which logic app workflow and environment best suits your scenario, solution requirements, and the destination where you want to deploy and run your workflows.
 
-If you're new to Azure Logic Apps, review [What is Azure Logic Apps?](logic-apps-overview.md) and [What is a *logic app workflow*?](logic-apps-overview.md#logic-app-concepts).
+If you're new to Azure Logic Apps, review [What is Azure Logic Apps?](logic-apps-overview.md) and [What is a *logic app workflow*?](logic-apps-overview.md#logic-app-concepts)
 
 <a name="resource-environment-differences"></a>
 

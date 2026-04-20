@@ -4,7 +4,7 @@ description: Learn how to copy data from Sybase to supported sink data stores us
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
 ms.author: jianleishen
 ms.custom:

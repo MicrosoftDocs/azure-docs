@@ -3,14 +3,14 @@ title: Architecture - API Management
 description: Learn how API Management protects APIs running on Azure VMware Solution virtual machines (VMs)
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 1/14/2026
 ms.custom: engagement-fy23
 # Customer intent: As a DevOps engineer, I want to implement API Management for Azure VMware Solution VMs, so that I can securely publish and protect APIs for both internal and external consumers while ensuring optimal traffic flow and management using Azure services.
 ---
 
 # Publish and protect APIs running on Azure VMware Solution VMs
 
-Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) lets you securely publish to external or internal consumers.  Only the Developer (development) and Premium (production) SKUs allow Azure Virtual Network integration to publish APIs that run on Azure VMware Solution workloads. In addition, both SKUs enable the connectivity between the API Management service and the backend.
+Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) lets you securely publish to external or internal consumers. Only the Developer (development) and Premium (production) SKUs allow Azure Virtual Network integration to publish APIs that run on Azure VMware Solution workloads. In addition, both SKUs enable the connectivity between the API Management service and the backend.
 
 The API Management configuration is the same for backend services that run on Azure VMware Solution virtual machines (VMs) and on-premises. API Management also configures the virtual IP on the load balancer as the backend endpoint for both deployments when the backend server is placed behind an NSX Load Balancer on Azure VMware Solution.
 

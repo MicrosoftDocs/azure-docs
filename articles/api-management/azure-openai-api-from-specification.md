@@ -1,5 +1,5 @@
 ---
-title: Import an Azure OpenAI API as REST API - Azure API Management
+title: Import an Azure OpenAI API as a REST API - Azure API Management
 description: How to import an Azure OpenAI API as a REST API from Azure OpenAI in Foundry Models or from an OpenAPI specification.
 ms.service: azure-api-management
 author: dlepow
@@ -14,7 +14,7 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Import an Azure OpenAI API 
+# Import an Azure OpenAI API as a REST API
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
@@ -32,7 +32,7 @@ Learn more about managing LLM APIs in API Management:
 * [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 
   > [!NOTE]
-  > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) support certain API endpoints exposed through specific Azure OpenAI models. For more information, see [Supported Azure OpenAI models](azure-openai-token-limit-policy.md#supported-azure-openai-in-azure-ai-foundry-models).
+  > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) support certain API endpoints exposed through specific Azure OpenAI models. For more information, see [Supported Azure OpenAI models](azure-openai-token-limit-policy.md#supported-azure-openai-in-microsoft-foundry-models).
 
 ## Prerequisites
 

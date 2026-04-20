@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: guywi-ms
 ms.author: guywild
 ms.topic: concept-article
-ms.date: 09/28/2025
+ms.date: 04/10/2026
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 ms.custom:
   - build-2025
@@ -18,7 +18,152 @@ The listed features were released in the last six months. For information about 
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## April 2026
+
+- [Microsoft Sentinel data federation (Preview)](#microsoft-sentinel-data-federation-preview)
+- [Transform data with filter and split features (Preview)](#transform-data-with-filter-and-split-features-preview)
+- [Accelerate Microsoft Sentinel connector development with Visual Studio Code connector builder agent (Preview)](#accelerate-microsoft-sentinel-connector-development-with-visual-studio-code-connector-builder-agent-preview)
+- [Build custom security graphs (Preview)](#build-custom-graphs-preview)
+- [Entity analyzer is now generally available](#entity-analyzer-is-now-generally-available)
+- [AI-powered SIEM migration tool is now generally available](#ai-powered-siem-migration-tool-is-now-generally-available)
+- [Cost estimation tool for customers and partners (Preview)](#cost-estimation-tool-for-customers-and-partners-preview)
+- [Configure row-level access using Microsoft Sentinel scoping (Preview)](#configure-row-level-access-using-microsoft-sentinel-scoping-preview)
+
+### Microsoft Sentinel data federation (Preview)
+Powered by Microsoft Fabric, Microsoft Sentinel data federation lets you analyze security data where it already lives, without copying or duplicating it. You can federate data from Microsoft Fabric, Azure Data Lake Storage, and Azure Databricks into Microsoft Sentinel data lake, then use familiar Microsoft Sentinel experiences like KQL, notebooks, and custom graphs across both federated and native data.
+
+For more information, see [Data federation overview in Microsoft Sentinel data lake](datalake/data-federation-overview.md).
+
+### Transform data with filter and split features (Preview)
+Native filtering and splitting in the Microsoft Defender portal helps you reduce noise before ingestion, control costs, and intelligently route data between analytics and data lake tiers so you can optimize what gets analyzed versus retained. For more information, see [Transform data using filter and split in Microsoft Sentinel](transformation-filter-split.md).
+
+### Accelerate Microsoft Sentinel connector development with Visual Studio Code connector builder agent (Preview)
+An AI-powered, low-code agent in Visual Studio Code helps you build Microsoft Sentinel connectors in minutes, bringing in new data sources faster and unlocking security outcomes sooner. For more information, see [Get started with custom connectors using AI agent in Microsoft Sentinel](create-custom-connector-builder-agent.md).
+
+### Build custom graphs (Preview)
+Build tailored security graphs across the Sentinel data lake and third-party data to uncover attack paths, blast radius, and hidden relationships. These graphs also serve as a foundation for advanced investigations and AI agents. For more information, see [Custom Graph overview](datalake/custom-graphs-overview.md).
+
+#### Graphs experience in the Microsoft Defender portal (Preview)
+After creating your custom graphs, you can access them in the graphs section of the Defender portal under **Microsoft Sentinel**. From there, you can run Graph Query Language (GQL) queries, view the graph schema, visualize the graph, view graph results in tabular format, and interactively traverse the graph to the next hop with a simple click.
+
+### Entity analyzer is now generally available
+
+[Entity analyzer](datalake/sentinel-mcp-data-exploration-tool.md#entity-analyzer) in the Microsoft Sentinel Model Context Protocol (MCP) [data exploration tool collection](datalake/sentinel-mcp-data-exploration-tool.md) lets you get out-of-the-box, explainable entity risk assessments for URLs and identities using threat intelligence, prevalence, and organizational context.
+
+> [!IMPORTANT]
+> Starting April 1, 2026, you're charged for the Security Compute Units (SCUs) required when using the entity analyzer. For more information, see: [Understand Microsoft Sentinel MCP server pricing, limits, and availability](datalake/sentinel-mcp-billing.md#microsoft-sentinel-entity-analyzer-tool).
+
+### AI-powered SIEM migration tool is now generally available
+Accelerate migrations to Microsoft Sentinel from Splunk and QRadar using an AI-assisted SIEM migration experience designed to reduce manual effort and speed time-to-value. For more information, see [Migrate to Microsoft Sentinel with the SIEM migration experience](siem-migration.md).
+
+### Cost estimation tool for customers and partners (Preview)
+A guided, meter-level Microsoft Sentinel cost estimator with three-year projections helps organizations model data growth, predict spend, and plan Microsoft Sentinel adoption with confidence. For more information, see [Microsoft Sentinel pricing](https://www.microsoft.com/security/pricing/microsoft-sentinel/cost-estimator). 
+
+### Configure row-level access using Microsoft Sentinel scoping (Preview)
+Microsoft Sentinel now supports scoping (row-level RBAC) to control access to specific subsets of Sentinel data without requiring workspace separation. Administrators can define logical scopes, tag data at ingestion time, and assign users or groups to scopes using Unified RBAC, enabling multiple teams to work securely within a shared Sentinel environment. Scoping is configured in the Microsoft Defender portal. For more information see [Configure Microsoft Sentinel scoping (row-level RBAC)](./scoping.md).
+
+
+## March 2026
+
+- [Call to action: update older Microsoft Sentinel content as code (Sentinel repositories) API versions before June 15, 2026](#call-to-action-update-older-microsoft-sentinel-content-as-code-sentinel-repositories-api-versions-before-june-15-2026)
+- Microsoft Sentinel repositories are now generally available. For more information, see [Manage content as code with Microsoft Sentinel repositories](ci-cd-custom-content.md).
+
+### Call to action: update older Microsoft Sentinel content as code (Sentinel repositories) API versions before June 15, 2026
+
+Starting **June 15, 2026**, older API versions used by [Microsoft Sentinel repositories](ci-cd-custom-content.md) will no longer be supported. This change impacts all [Source Control](/rest/api/securityinsights/source-control) and [Source Controls](/rest/api/securityinsights/source-controls) actions in the Microsoft Sentinel REST API for the affected API versions.
+
+The retired API versions will no longer be supported, and requests using them will fail. Existing repository connections created with those APIs aren't affected, and the repositories will continue to operate.
+
+**Required action**
+
+If you're using APIs to create or manage repository connections, transition to API version **2025-09-01**, **2025-06-01**, or **2025-07-01-preview** before June 1, 2026 to avoid service disruption.
+
+**Affected API versions**
+
+The following API versions will be retired on June 1, 2026:
+
+<details>
+<summary><strong>Preview API versions (click to expand)</strong></summary>
+
+- 2021-03-01-preview
+- 2021-09-01-preview
+- 2021-10-01-preview
+- 2022-01-01-preview
+- 2022-04-01-preview
+- 2022-05-01-preview
+- 2022-06-01-preview
+- 2022-07-01-preview
+- 2022-08-01-preview
+- 2022-09-01-preview
+- 2022-10-01-preview
+- 2022-11-01-preview
+- 2022-12-01-preview
+- 2023-02-01-preview
+- 2023-03-01-preview
+- 2023-04-01-preview
+- 2023-05-01-preview
+- 2023-06-01-preview
+- 2023-07-01-preview
+- 2023-08-01-preview
+- 2023-09-01-preview
+- 2023-10-01-preview
+- 2023-11-01-preview
+- 2023-12-01-preview
+- 2024-01-01-preview
+- 2024-04-01-preview
+- 2024-10-01-preview
+- 2025-01-01-preview
+- 2025-04-01-preview
+- 2025-07-01-preview
+
+</details>
+
+<details>
+<summary><strong>Stable API versions (click to expand)</strong></summary>
+
+- 2023-11-01
+- 2024-03-01
+- 2024-09-01
+- 2025-03-01
+
+</details>
+
+**Recommended API versions to use:**
+- **2025-09-01** (stable)
+- **2025-06-01** (stable)
+- **2025-07-01-preview** (preview)
+
+## February 2026
+
+### Microsoft Sentinel UEBA behaviors layer is now generally available
+
+The UEBA behaviors layer in Microsoft Sentinel is now generally available, summarizing clear, human‑readable behavioral insights from high-volume, raw security logs. The behaviors layer aggregates and sequences related events into normalized behaviors, helping analysts more quickly understand who did what to whom without manually correlating raw logs. For more information, see [Translate raw security logs to behavioral insights using UEBA behaviors in Microsoft Sentinel](../sentinel/entity-behaviors-layer.md).
+
+Watch the [UEBA behaviors webinar](https://www.youtube.com/watch?v=SqbxmGdMP7c) for a full overview and demo of the UEBA behaviors layer.
+
+**New UEBA behaviors workbook**
+
+To help SOC teams get value from behaviors from day one, Microsoft Sentinel now provides the **behaviors workbook** as part of the UEBA essentials solution. The workbook offers guided views and prebuilt, customizable analytics that turn rich behavioral data into actionable insights across three core SOC workflows:
+
+- **Overview**: High‑level metrics and trends that give SOC managers and leadership quick situational awareness  
+- **Investigation**: Deep‑dive, entity‑centric timelines that help analysts accelerate incident response  
+- **Hunting**: Proactive threat discovery for threat hunters using anomaly detection and attack‑chain analysis
+
+For more information about the workbook, see the [Microsoft Sentinel Behaviors Workbook blog post](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/introducing-the-microsoft-sentinel-ueba-behaviors-workbook/4448398).
+
+### Generate playbooks using AI in Microsoft Sentinel (preview)
+
+You can now [generate playbooks using AI in Microsoft Sentinel](./automation/generate-playbook.md). The SOAR playbook generator creates python based automation workflows coauthored through a conversational experience with Cline, an AI coding agent. For more information, see [the Playbook Generation blog post](https://aka.ms/PlaybookGenBlog).
+
 ## January 2026
+
+### New Entity Behavior Analytics (UEBA) widget in the Defender portal home page (Preview)
+
+The Defender portal home page now includes a UEBA widget where analysts can immediately have visibility into anomalous user behavior and therefore accelerate threat detection workflows. For more information, see [How UEBA empowers analysts and streamlines workflows](identify-threats-with-entity-behavior-analytics.md#use-embedded-ueba-experiences-in-defender-portal).
+
+### Updated date: Microsoft Sentinel in the Azure portal to be retired March 2027
+
+[!INCLUDE [sentinel-azure-deprecation](includes/sentinel-azure-deprecation.md)]
 
 ### UEBA behaviors layer aggregates actionable insights from raw logs in near-real time (Preview)
 
@@ -41,6 +186,14 @@ UEBA behaviors can be enabled independently from UEBA anomaly detection.
 
 For more information, see [Translate raw security logs to behavioral insights using UEBA behaviors in Microsoft Sentinel](../sentinel/entity-behaviors-layer.md).
 
+### Enable UEBA directly from data connector configuration (Preview)
+
+You can now enable UEBA for supported data sources directly from the data connector configuration page, reducing management time and preventing coverage gaps. When you enable new connectors, you can onboard the data source to UEBA without navigating to a separate configuration page.
+
+This integration allows you to see which data sources feed into UEBA and enable that feed directly from the connector configuration.
+
+For more information, see [Connect data sources to Microsoft Sentinel by using data connectors](configure-data-connector.md#enable-user-and-entity-behavior-analytics-ueba-from-supported-connectors).
+
 ### New detections for Sentinel solution for SAP BTP
 
 This update expands [detection coverage for SAP BTP](../sentinel/sap/sap-btp-security-content.md#built-in-analytics-rules), strengthening visibility into high‑risk control plane, integration, and identity activities.
@@ -54,9 +207,9 @@ This update expands [detection coverage for SAP BTP](../sentinel/sap/sap-btp-sec
 
 ### New Entity Behavior Analytics (UEBA) experiences in the Defender portal (Preview)
 
-Microsoft Sentinel introduces new UEBA experiences in the Defender portal, bringing behavioral insights directly into key analyst workflows. These enhancements help analysts prioritize investigations and apply UEBA context more effectively.
+Microsoft Sentinel introduces new UEBA experiences in the Defender portal, bringing behavioral insights directly into key analyst workflows. These enhancements help analysts prioritize investigations and apply UEBA context more effectively. 
 
-#### Anomaly-focused user investigations
+#### Anomaly focused user investigations
 
 In the Defender portal, users with behavioral anomalies are automatically tagged with **UEBA Anomalies**, helping analysts quickly identify which users to prioritize.
 
@@ -65,7 +218,7 @@ Analysts can view the top three anomalies from the past 30 days in a dedicated T
 - User side panels accessible from various portal locations.
 - The **Overview** tab of user entity pages.
 
-This section also includes direct links to anomaly queries and the Sentinel events timeline, enabling deeper investigation and faster context gathering.
+This section also includes direct links to anomaly queries and the Microsoft Sentinel events timeline, enabling deeper investigation and faster context gathering.
 
 #### Drilldown to user anomalies from incident graphs
 
@@ -77,13 +230,13 @@ Advanced hunting and custom detection experiences now include a contextual banne
 
 All features require UEBA to be enabled and are workspace-scoped to the currently selected workspace.
 
-For more information, see [How UEBA empowers analysts and streamlines workflows](identify-threats-with-entity-behavior-analytics.md#ueba-experiences-in-the-defender-portal-empower-analysts-and-streamline-workflows).
+For more information, see [How UEBA empowers analysts and streamlines workflows](identify-threats-with-entity-behavior-analytics.md#use-embedded-ueba-experiences-in-defender-portal).
 
 ### SAP data connectors
 
 - [Agentless data connector](sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md) for Sentinel Solution for SAP now generally available. Learn more from our [Tech Community blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/microsoft-sentinel-for-sap-agentless-connector-ga/4464490).
 
-- Deprecation: Containerized SAP data connector will be out of support by September 30th 2026. [Migrate to our Agentless SAP data connector](sap/sap-agent-migrate.md) today. All new deployments only have the new agentless connector option which is billed at the same price.
+- Deprecation: Containerized SAP data connector will be out of support by September 30th 2026. [Migrate to our Agentless SAP data connector](sap/sap-agent-migrate.md) today. All new deployments only have the new agentless connector option that is billed at the same price.
 
 ### Call to action: update queries and automation by July 1, 2026 - standardized account entity naming in incidents and alerts
 
@@ -92,7 +245,7 @@ Microsoft Sentinel is updating how it identifies account entities in incidents a
 > [!IMPORTANT]
 > This change might affect your analytic rules, automation rules, playbooks, workbooks, hunting queries, and custom integrations.
 
-Sentinel will now select the most reliable account identifier using the following priority:
+Microsoft Sentinel will now select the most reliable account identifier using the following priority:
 
 1. **UPN prefix** – the part before “@” in a User Principal Name
    - Example: `john.doe@contoso.com` → `john.doe`
@@ -181,7 +334,7 @@ UEBA now supports anomaly detection using six new data sources:
 
   These sources provide deeper visibility into identity behavior across your Microsoft environment.
 
-  - **Microsoft Defender XDR device logon events**: Capture logon activity from endpoints, helping identify lateral movement, unusual access patterns, or compromised devices.
+  - **Microsoft Defender XDR device logon events**: Capture sign in activity from endpoints, helping identify lateral movement, unusual access patterns, or compromised devices.
   - **Microsoft Entra ID managed identity signin logs**: Track sign-ins by managed identities used in automation, such as scripts and services. This is crucial for spotting silent misuse of service identities.
   - **Microsoft Entra ID service principal signin logs**: Monitor sign-ins by service principals - often used by apps or scripts - to detect anomalies, such as unexpected access or privilege escalation.
 
@@ -297,7 +450,18 @@ For more information, see:
 
 ### Microsoft Sentinel in the Azure portal to be retired July 2026
 
-[!INCLUDE [sentinel-azure-deprecation](includes/sentinel-azure-deprecation.md)]
+Microsoft Sentinel is [generally available in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md), including for customers without Microsoft Defender XDR or an E5 license. This means that you can use Microsoft Sentinel in the Defender portal even if you aren't using other Microsoft Defender services.
+
+Starting in **July 2026**, Microsoft Sentinel will be supported in the Defender portal only, and any remaining customers using the Azure portal will be automatically redirected.
+
+If you're currently using Microsoft Sentinel in the Azure portal, we recommend that you start planning your transition to the Defender portal now to ensure a smooth transition and take full advantage of the [unified security operations experience offered by Microsoft Defender](/unified-secops-platform/overview-unified-security).
+
+For more information, see:
+
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md)
+- [Planning your move to Microsoft Defender portal for all Microsoft Sentinel customers](https://techcommunity.microsoft.com/blog/microsoft-security-blog/planning-your-move-to-microsoft-defender-portal-for-all-microsoft-sentinel-custo/4428613) (blog)
+
 
 ## June 2025
 
@@ -405,126 +569,6 @@ For more information, see the following articles:
 
 To optimize your cost/security value ratio, SOC optimization surfaces hardly used data connectors or tables. SOC optimization now surfaces unused columns in your tables. For more information, see [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md#unused-columns-preview).
 
-## March 2025
-
-- [Agentless connection to SAP now in public preview](#agentless-connection-to-sap-now-in-public-preview)
-
-### Agentless connection to SAP now in public preview
-
-The Microsoft Sentinel agentless data connector for SAP and related security content is now included, as public preview, in the solution for SAP applications. This update also includes the following enhancements for the agentless data connector:
-
-- **Enhanced instructions** in the portal for deploying and configuring the data connector. [External documentation](sap/preparing-sap.md#next-step) is updated to rely on the instructions in the portal.
-- **[More data ingested](sap/sap-solution-log-reference.md)**, such as Change Docs logs and User Master data.
-- **Optional parameters** to [Customize data connector behavior (optional)](sap/deploy-data-connector-agent-container.md#customize-data-connector-behavior-optional).
-- [**A new tool to verify system prerequisites and compatibility**](sap/preparing-sap.md#configure-the-connector-in-microsoft-sentinel-and-in-your-sap-system), recommended both before deploying and when [troubleshooting](sap/sap-deploy-troubleshoot.md#check-for-prerequisites).
-
-For more information, see:
-
-- [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
-- [Microsoft Sentinel solution for SAP applications - functions reference](sap/sap-solution-function-reference.md)
-- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap/sap-deploy-troubleshoot.md)
-
-## January 2025
-
-- [Optimize threat intelligence feeds with ingestion rules](#optimize-threat-intelligence-feeds-with-ingestion-rules)
-- [Matching analytics rule now generally available (GA)](#matching-analytics-rule-now-generally-available-ga)
-- [Threat intelligence management interface updated](#threat-intelligence-management-interface-has-moved)
-- [Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables](#unlock-advanced-hunting-with-new-stix-objects-by-opting-in-to-new-threat-intelligence-tables)
-- [Threat intelligence upload API now supports more STIX objects](#threat-intelligence-upload-api-now-supports-more-stix-objects)
-- [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#microsoft-defender-threat-intelligence-data-connectors-now-generally-available-ga)
-- [Bicep file support for repositories (Preview)](#bicep-file-support-for-repositories-preview)
-- [SOC optimization updates for unified coverage management](#soc-optimization-updates-for-unified-coverage-management)
-- [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
-
-### Optimize threat intelligence feeds with ingestion rules
-
-Optimize threat intelligence feeds by filtering and enhancing objects before they're delivered to your workspace. Ingestion rules update threat intel object attributes, or filter objects out all together. Check out the blog announcement [here](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/introducing-threat-intelligence-ingestion-rules/4379019)!
-
-For more information, see [Understand threat intelligence ingestion rules](understand-threat-intelligence.md#configure-ingestion-rules).
-
-### Matching analytics rule now generally available (GA)
-
-Microsoft provides access to its premium threat intelligence through the Defender Threat Intelligence analytics rule which is now generally available (GA). For more information on how to take advantage of this rule, which generates high-fidelity alerts and incidents, see [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md).
-
-### Threat intelligence management interface has moved
-
-Threat intelligence for Microsoft Sentinel in the Defender portal has changed! We've renamed the page **Intel management** and moved it with other threat intelligence workflows. There's no change for customers using Microsoft Sentinel in the Azure experience.
-
-:::image type="content" source="media/whats-new/intel-management-navigation.png" alt-text="Screenshot showing new menu placement for Microsoft Sentinel threat intelligence.":::
-
-Enhancements to threat intelligence capabilities are available for customers using both Microsoft Sentinel experiences. The management interface streamlines the creation and curation of threat intel with these key features:
-
-- Define relationships as you create new STIX objects.
-- Curate existing threat intelligence with the new relationship builder.
-- Create multiple objects quickly by copying common metadata from a new or existing TI object using a duplication feature.
-- Use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
-
-For more information, see the following articles:
-- [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
-- [Understand threat intelligence](understand-threat-intelligence.md#create-and-manage-threat-intelligence)
-- [Uncover adversaries with threat intelligence in the Defender portal](/unified-secops-platform/threat-intelligence-overview)
-
-### Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables
-
-Tables supporting the new STIX object schema aren't available publicly. In order to query threat intelligence for STIX objects with KQL and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicators` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
-
-For more information, see the blog announcement [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164).
-
-### Threat intelligence upload API now supports more STIX objects
-
-Make the most of your threat intelligence platforms when you connect them to Microsoft Sentinel with the upload API. Now you can ingest more objects than just indicators, reflecting the varied threat intelligence available. The upload API supports the following STIX objects:
-
-- `indicator`
-- `attack-pattern`
-- `identity`
-- `threat-actor`
-- `relationship`
-
-For more information, see the following articles:
-
-- [Connect your threat intelligence platform with the upload API (Preview)](connect-threat-intelligence-upload-api.md)
-- [Import threat intelligence to Microsoft Sentinel with the upload API (Preview)](stix-objects-api.md)
-- [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
-
-### Microsoft Defender Threat Intelligence data connectors now generally available (GA)
-
-Both premium and standard Microsoft Defender Threat Intelligence data connectors are now generally available (GA) in content hub. For more information, see the following articles:
-
-- [Explore Defender Threat Intelligence licenses](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence#areaheading-oc8e7d)
-- [Enable the Microsoft Defender Threat Intelligence data connector](connect-mdti-data-connector.md)
-
-### Bicep file support for repositories (Preview)
-Use Bicep files alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.
-
-For more information, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
-
-### SOC optimization updates for unified coverage management
-
-In workspaces onboarded to the Defender portal, SOC optimizations now support both SIEM and XDR data, with detection coverage from across Microsoft Defender services. 
-
-In the Defender portal, the **SOC optimizations** and **MITRE ATT&CK** pages also now provide extra functionality for threat-based coverage optimizations to help you understand the impact of the recommendations on your environment and help you prioritize which to implement first.
-
-Enhancements include:
-
-|Area | Details|
-|-----|--------|
-|**SOC optimizations Overview page** | - A **High**, **Medium**, or **Low** score for your current detection coverage. This sort of scoring can help you decide which recommendations to prioritize at a glance. <br><br>- An indication of the number of active Microsoft Defender products (services) out of all available products. This helps you understand whether there's a whole product that you're missing in your environment. |
-| **Optimization details side pane**,<br> shown when you drill down to a specific optimization| - Detailed coverage analysis, including the number of user-defined detections, response actions, and products you have active. <br><br>- Detailed spider charts that show your coverage across different threat categories, for both user-defined and out-of-the-box detections. <br><br>- An option to jump to the specific threat scenario in the **MITRE ATT&CK** page instead of viewing MITRE ATT&CK coverage only in the side pane.<br><br>- An option to **View full threat scenario** to drill down to even further details about the security products and detections available to provide security coverage in your environment. |
-|**MITRE ATT&CK page** | - A new toggle to view coverage by threat scenario. If you've jumped to the **MITRE ATT&CK** page from either a recommendation details side pane or from the **View full threat scenario** page, the **MITRE ATT&CK** page is pre-filtered for your threat scenario. <br><br>- The technique details pane, shown on the side when you select a specific MITRE ATT&CK technique, now shows the number of active detections out of all available detections for that technique. |
-
-For more information, see [Optimize your security operations](soc-optimization/soc-optimization-access.md) and [Understand security coverage by the MITRE ATT&CK framework](mitre-coverage.md).
-
-### View granular solution content in the Microsoft Sentinel content hub
-
-Now you can view the individual content available in a specific solution directly from the **Content hub**, even before you've installed the solution. This new visibility helps you understand the content available to you, and more easily identify, plan, and install the specific solutions you need.
-
-Expand each solution in the Content hub to view included security content. For example:
-
-:::image type="content" source="media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of showing granular content.":::
-
-The granular solution content updates also include a generative AI-based search engine that helps you run more robust searches, diving deep into the solution content and returning results for similar terms.
-
-For more information, see [Discover content](sentinel-solutions-deploy.md#discover-content).
 
 ## Next steps
 

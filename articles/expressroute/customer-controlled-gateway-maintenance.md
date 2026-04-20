@@ -12,11 +12,21 @@ ms.author: cherylmc
 ---
 # Configure customer-controlled gateway maintenance for ExpressRoute
 
-This article helps you configure customer-controlled maintenance windows for your ExpressRoute virtual network gateways. Learn how to schedule customer-controlled maintenance for your gateways using the Azure portal or PowerShell.
+This article helps you configure customer-controlled maintenance windows for your ExpressRoute virtual network gateways. Learn how to schedule customer-controlled maintenance for your gateways using the Azure portal or PowerShell. 
 
 [!INCLUDE [Overview](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-overview.md)]
 
 For more information on limitations and frequently asked questions related to customer-controlled maintenance, see the [ExpressRoute FAQ](expressroute-faqs.md#customer-controlled).
+## Maintenance window behavior
+
+Consider the following information about maintenance window behavior:
+
+* **Start date**: The maintenance window takes effect on the configured start date. Before this date, maintenance or upgrades might occur outside the selected window.
+* **End date**: If you configure an end (expiration) date, the maintenance window is honored through that date. After the end date, maintenance or upgrades might occur outside the selected window.
+* **Daily schedule**: The selected start time and duration apply daily while the window is active.
+* **Timing within the window**: If an upgrade is scheduled during the window, it can occur at any time within the configured duration. For example, if the window starts at 8:30 AM and has a 6-hour duration, the upgrade might occur at any point between 8:30 AM and 2:30 PM.
+* **Upgrade frequency**: Upgrades don't necessarily occur every day during the maintenance window. An upgrade is only applied during the window when there's an upgrade available for the resource.
+
 
 ## Azure portal steps
 

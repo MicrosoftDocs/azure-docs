@@ -159,6 +159,6 @@ Some ready-made scripts are also available for download:
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell]: /powershell/azure/
 [.NET API for Notification Hubs]: /dotnet/api/overview/azure/notification-hubs
-[Get-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/get-azuresbnamespace
-[New-AzureSBNamespace]: /powershell/module/servicemanagement/azure.service/new-azuresbnamespace
-[Get-AzureSBAuthorizationRule]: /powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
+[Get-AzServiceBusNamespace]: /powershell/module/az.servicebus/get-azservicebusnamespace
+[New-AzServiceBusNamespace]: /powershell/module/az.servicebus/new-azservicebusnamespace
+[Get-AzServiceBusAuthorizationRule]: /powershell/module/az.servicebus/get-azservicebusauthorizationrule

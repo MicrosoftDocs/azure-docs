@@ -4,7 +4,7 @@ description: Learn how to configure private endpoints and DNS for virtual networ
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic:  conceptual
+ms.topic:  concept-article
 ms.date: 01/12/2026
 ms.author: cshoe
 ---
@@ -62,6 +62,10 @@ When configuring your network security group (NSG) or firewall, the DNS requirem
 
 > [!IMPORTANT]
 > For organizations with strict DNS security requirements (such as banking and healthcare), Dedicated workload profiles provide the option to completely control DNS traffic flow through your custom DNS servers without requiring Azure Platform DNS access.
+
+
+> [!IMPORTANT]
+> Users of private DNS zones MUST NOT block or override the resolution of `*.hcp.<LOCATION>.azmk8s.io`, `mcr.microsoft.com` and other DNS requirements that are shared with AKS and listed on [Azure Global required FQDN / application rules](/azure/aks/outbound-rules-control-egress#azure-global-required-network-rules). Failure to ensure resolvability of required entries disrupts your Container Apps environment operation and networking.
 
 ### VNet-scope ingress
 

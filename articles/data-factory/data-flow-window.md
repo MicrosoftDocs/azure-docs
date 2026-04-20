@@ -5,7 +5,7 @@ description: Learn how to use the mapping data flow Window Transformation in Azu
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
 ms.date: 09/23/2024
 ---

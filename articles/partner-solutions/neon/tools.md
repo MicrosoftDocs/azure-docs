@@ -3,7 +3,7 @@ title: Neon Serverless Postgres Preview Developer Resources and Tools
 description: Learn about resources and developer tools available with Neon Serverless Postgres Preview.
 author: ProfessorKendrick
 ms.topic: overview
-ms.date: 12/02/2024
+ms.date: 02/11/2026
 
 #customer intent: As a developer who's implementing Neon Serverless Postgres, I want to know about other resources and tools available so that I can maximize the success of my integration.
 

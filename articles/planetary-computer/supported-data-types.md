@@ -6,7 +6,7 @@ ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: concept-article
 ms.date: 4/9/2025
-#customer intent: As a user of an Microsoft Planetary Computer Pro GeoCatalog, I want to understand which geospatial data formats are supported so that I can understand the capabilities of Planetary Computer Pro.
+#customer intent: As a user of a Microsoft Planetary Computer Pro GeoCatalog, I want to understand which geospatial data formats are supported so that I can understand the capabilities of Planetary Computer Pro.
 ms.custom:
   - build-2025
 ---

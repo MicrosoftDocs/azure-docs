@@ -5,8 +5,45 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 12/19/2025
+ms.date: 01/27/2026
 ---
+
+## Additional prerequisites for Azure CLI
+
+Before you begin, make sure you have:
+
+- Azure CLI installed. Follow the steps to [install the Azure CLI](/cli/azure/install-azure-cli). 
+- Installed the **Azure IoT CLI extension with previews enabled** to access the ADR integration and certificate management functionalities for IoT Hub:
+
+    1. Check for existing Azure CLI extension installations.
+    
+        ```azurecli-interactive
+        az extension list
+        ```
+    
+    1. Remove any existing azure-iot installations.
+    
+        ```azurecli-interactive
+        az extension remove --name azure-iot
+        ```
+        
+    1. Install the azure-iot extension from the index with previews enabled, 
+    
+        ```azurecli-interactive
+        az extension add --name azure-iot --allow-preview
+        ```
+
+        or download the .whl file from the GitHub releases page to install the extension manually.
+
+        ```azurecli-interactive
+        az extension add --upgrade --source https://github.com/Azure/azure-iot-cli-extension/releases/download/v0.30.0b1/azure_iot-0.30.0b1-py3-none-any.whl
+        ```
+    
+    1. After the install, validate your azure-iot extension version is at least **0.30.0b1**.
+    
+        ```azurecli-interactive
+        az extension list
+        ``` 
 
 ## Overview
 
@@ -299,7 +336,7 @@ az iot adr ns policy create --name "custom-policy" --namespace <NAMESPACE_NAME> 
 
 ### Delete resources
 
-To delete your ADR namespace, you must first delete any IoT Hubs and DPS instances linked to the namespace.
+To delete your ADR namespace, you must first delete any IoT Hubs linked to the namespace.
 
 ```azurecli-interactive
 az iot hub delete --name <HUB_NAME> --resource-group <RESOURCE_GROUP_NAME>

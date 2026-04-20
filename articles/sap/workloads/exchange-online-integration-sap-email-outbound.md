@@ -6,7 +6,7 @@ author: MartinPankraz
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.date: 03/11/2022
+ms.date: 02/02/2026
 ms.author: mapankra
 ms.custom: sfi-image-nochange
 # Customer intent: "As an SAP system administrator, I want to configure outbound email communication from SAP ABAP Platform to Exchange Online, so that I can efficiently manage notifications and workflows while ensuring compliance with modern authentication standards."
@@ -285,7 +285,7 @@ SMTP relay lets Microsoft 365 relay emails on your behalf by using a connector c
 
 1. Obtain the public (static) IP address of the endpoint that sends the mail using one of the methods listed in the [article](../../load-balancer/load-balancer-outbound-connections.md) above. A dynamic IP address isn\'t supported or allowed. You can share your static IP address with other devices and users, but don't share the IP address with anyone outside of your company. Make a note of this IP address for later.
 
-:::image type="content" source="media/exchange-online-integration/azure-portal-pip-sec-3-1.png" alt-text="Screenshot of where to retrieve the public ip on the Azure Portal.":::
+:::image type="content" source="media/exchange-online-integration/azure-portal-pip-sec-3-1.png" alt-text="Screenshot of where to retrieve the public ip on the Azure portal.":::
 
 > [!NOTE]
 > Find above information on the Azure portal using the Virtual Machine overview of the SAP application server.

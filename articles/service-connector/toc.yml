@@ -115,7 +115,7 @@ items:
   expanded: false
 - name: Samples
   items:
-  - name: Azure AI services
+  - name: Foundry Tools
     href: how-to-integrate-ai-services.md
   - name: Azure App Configuration
     href: how-to-integrate-app-configuration.md

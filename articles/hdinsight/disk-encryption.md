@@ -3,7 +3,7 @@ title: Double encryption for data at rest
 titleSuffix: Azure HDInsight
 description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/15/2024
 ms.devlang: azurecli
 author: apurbasroy
@@ -179,7 +179,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### Using Azure Resource Manager templates
 
-The following example shows how to use an Azure Resource Manager template to create a new Apache Spark cluster with disk encryption enabled. For more information, see [What are ARM templates?](../azure-resource-manager/templates/overview.md). The resource manager template property `diskEncryptionKeyVersion` is optional.
+The following example shows how to use an Azure Resource Manager template to create a new Apache Spark cluster with disk encryption enabled. For more information, see [What are ARM templates?](../azure-resource-manager/templates/overview.md) The resource manager template property `diskEncryptionKeyVersion` is optional.
 
 This example uses PowerShell to call the template.
 

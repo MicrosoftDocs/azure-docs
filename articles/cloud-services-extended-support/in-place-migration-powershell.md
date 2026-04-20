@@ -1,14 +1,14 @@
 ---
 title: Migrate to Azure Cloud Services (extended support) using PowerShell 
 description: How to migrate from Azure Cloud Services (classic) to Azure Cloud Services (extended support) using PowerShell
-ms.service: azure-virtual-machines
-ms.subservice: classic-to-arm-migration
+ms.service: azure-cloud-services-classic
 ms.reviewer: mimckitt
 ms.topic: how-to
 ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah
-ms.custom: devx-track-azurepowershell
+ms.update-cycle: 365-days
+ms.custom: devx-track-azurepowershell, cloud-services-extended-support, classic-to-arm-migration
 
 # Customer intent: As an IT administrator managing legacy Azure Cloud Services, I want to migrate from classic to extended support using PowerShell, so that I can leverage the improved reliability and features of the Azure Resource Manager deployment model.
 ---
@@ -26,7 +26,7 @@ Planning is the most important step for a successful migration experience. Revie
 ## Install the latest version of PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
 
-For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps?preserve-view=true&view=azuresmps-4.0.0).
+For installation instructions, see [How to install and configure Azure PowerShell](https://www.powershellgallery.com/packages/Azure/).
 
 ## Ensure Admin permissions
 To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).

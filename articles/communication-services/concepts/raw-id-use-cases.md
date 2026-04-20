@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: ostoliarova
 ms.date: 12/23/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 #Customer intent: As a developer, I want to learn how to correctly use Raw ID so that I can build applications that run efficiently.
 ---

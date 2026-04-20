@@ -3,7 +3,7 @@ title: Microsoft Sentinel solution for SAP applications overview
 description: This article provides an overview of the Microsoft Sentinel solution for SAP applications and available support.
 author: batamig
 ms.author: bagol
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 11/05/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -53,13 +53,11 @@ Investigate SAP incidents just as you would any other incidents in Microsoft Sen
 
 ## Certification
 
-The Microsoft Sentinel **SAP applications** solution is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4 on-premises. It's also certified for ECC/Netweaver.
+The Microsoft Sentinel Solution for SAP applications is officially available on the [SAP Business Accelerator Hub](https://api.sap.com/package/MicrosoftSentinelSolutionforSAP/overview). It's available for:
 
-- The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4).
-- Our certification includes S/4 and SAP Rise S/4 HANA Cloud Private Edition running in any cloud and on-premises.
+- SAP ECC, Business Suite, all other SAP NetWeaver based products running in any cloud and on-premises.
+- S/4HANA Cloud Private Edition (RISE).
 - We support hybrid deployments that can cover the entire customer estate.
-
-For more information, see the certification on the [SAP Certified Solutions Directory](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8).
 
 ## Solution pricing
 

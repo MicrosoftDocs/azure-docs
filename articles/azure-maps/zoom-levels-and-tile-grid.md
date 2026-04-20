@@ -4,7 +4,7 @@ description: Learn how to set zoom levels in Azure Maps. See how to convert geog
 author: faterceros 
 ms.author: aterceros 
 ms.date: 03/31/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: render
 ---

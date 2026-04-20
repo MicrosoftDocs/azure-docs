@@ -2,13 +2,17 @@
 title: Migrate to Azure Managed Redis
 description: Learn how to migrate your existing cache to Azure Managed Redis
 ms.date: 05/18/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - ignite-2024
   - build-2025
 ai-usage: ai-assisted
 appliesto:
     - ✅ Azure Managed Redis
+ms.collection:
+  - migration
+  - aws-to-azure
+  - onprem-to-azure
 ---
 # Migrate to Azure Managed Redis from other caches
 

@@ -4,7 +4,7 @@ description: This article provides information about client negotiation in Azure
 author: JialinXin
 ms.author: jixin
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/02/2024
 ---
 

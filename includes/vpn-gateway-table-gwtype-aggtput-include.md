@@ -24,3 +24,10 @@
 |**Generation2**|**VpnGw3AZ**| Max. 30   | Max. 128  | Max. 1000      | 2.5 Gbps  | Supported | Yes | 3300 |
 |**Generation2**|**VpnGw4AZ**| Max. 100*   | Max. 128  | Max. 5000      | 5 Gbps    | Supported | Yes | 4400 |
 |**Generation2**|**VpnGw5AZ**| Max. 100*   | Max. 128  | Max. 10000      | 10 Gbps   | Supported | Yes | 9000 |
+
+> [!NOTE]
+> "Supported Number of VMs in the Virtual Network" refers to the count of resources that communicate through the gateway. This includes:
+> - Virtual Machines in the hub and peered spoke virtual networks
+> - Private Endpoints
+> - Network Virtual Appliances (such as Application Gateway, Azure Firewall)
+> - Backend instances of PaaS services deployed in virtual networks (such as SQL Managed Instance, App Service Environment)

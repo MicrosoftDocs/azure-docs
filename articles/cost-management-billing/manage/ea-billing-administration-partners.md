@@ -4,7 +4,7 @@ description: This article explains the common tasks that a partner administrator
 author: SandeepReddyAcc
 ms.author: v-salin
 ms.date: 09/24/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: v-salin

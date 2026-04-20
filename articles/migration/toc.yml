@@ -10,20 +10,22 @@ items:
     items:
     - name: Getting started
       href: ./migrate-from-aws.yml
-#    - name: Workload migration process
-#      items:
-#      - name: 1. Assess your current workload
-#        href: ./placeholder.md
-#      - name: 2. Design a similar solution
-#        href: ./placeholder.md
-#      - name: 3. Prepare the workload and Azure
-#        href: ./placeholder.md
-#      - name: 4. Perform the migration
-#        href: ./placeholder.md
-#      - name: 5. Evaluate success
-#        href: ./placeholder.md
-#      - name: 6. Optimize with Azure
-#        href: ./placeholder.md
+    - name: Workload migration guide
+      items:
+      - name: Introduction
+        href: ./migrate-workload-from-aws-introduction.md
+      - name: 1. Plan
+        href: ./migrate-workload-from-aws-plan.md
+      - name: 2. Prepare
+        href: ./migrate-workload-from-aws-prepare.md
+      - name: 3. Execute
+        href: ./migrate-workload-from-aws-execute.md
+      - name: 4. Evaluate
+        href: ./migrate-workload-from-aws-evaluate.md
+      - name: 5. Decommission
+        href: ./migrate-workload-from-aws-decommission.md
+      - name: Conclusion
+        href: ./migrate-workload-from-aws-conclusion.md
     - name: Compute
       href: ./migrate-compute-from-aws.md
     - name: Databases

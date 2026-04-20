@@ -13,7 +13,7 @@ ms.date: 10/30/2025
 
 # Deploy Bicep files with the Azure CLI
 
-This article explains how to use the Azure CLI with Bicep files to deploy your resources to Azure. If you aren't familiar with deploying and managing your Azure solutions, see [What is Bicep?](./overview.md).
+This article explains how to use the Azure CLI with Bicep files to deploy your resources to Azure. If you aren't familiar with deploying and managing your Azure solutions, see [What is Bicep?](./overview.md)
 
 ## Prerequisites
 

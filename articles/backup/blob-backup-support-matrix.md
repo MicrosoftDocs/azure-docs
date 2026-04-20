@@ -24,7 +24,7 @@ Operational backup for blobs is available in all public cloud regions, except Fr
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-Vaulted backup for blobs is available in all public cloud regions.
+Vaulted backup for blobs is available in all public cloud regions. It's also available in China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV Texas, US GOV Virginia,  US DoD East, US DoD Central.
 
 
 ---
@@ -42,6 +42,8 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - Operational backup supports block blobs in standard general-purpose v2 storage accounts only.  Also, any page blobs, append blobs, and premium blobs in your storage account won't be restored and only block blobs will be restored.
 
 - Blob backup is also supported when the storage account has private endpoints.
+  
+- Cross-subscription backup is supported.
 
 **Other limitations**:
 
@@ -60,8 +62,8 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - Blob vaulted backup is also supported when the storage account has private endpoints.
 - Storage accounts using NFS 3.0*, and *SFTP protocols* for blobs are currently not supported. 
 - You can take up to five backups per storage account in a day.
-- You can back up storage accounts with *up to 100 containers*, there is no limit on the number of blobs within those containers. You can also select a subset of containers to back up (up to 100 containers).
-  - If your storage account contains more than 100 containers, you need to select *up to 100 containers* to back up.
+- You can back up storage accounts with *up to 1000 containers*, there is no limit on the number of blobs within those containers. You can also select a subset of containers to back up (up to 1000 containers).
+  - If your storage account contains more than 1000 containers, you need to select *up to 1000 containers* to back up.
   - To back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed up automatically.
 - The storage accounts to be backed up must contain *a minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
 - Only `$web` and `$root` system containers are supported for vaulted backup.

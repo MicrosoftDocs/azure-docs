@@ -2,7 +2,7 @@
 title: Tutorial - Configure and run Cross Region Restore for Azure database for PostgreSQL
 description: Learn how to configure and run Cross Region Restore for Azure database for PostgreSQL using Azure Backup.
 ms.topic: tutorial
-ms.date: 04/07/2025
+ms.date: 01/29/2026
 ms.service: azure-backup
 ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to configure and run Cross Region Restore for Azure PostgreSQL databases, so that I can ensure data resiliency and perform recovery drills without downtime in the primary region."
@@ -15,7 +15,7 @@ This tutorial describes how you can enable and run Cross Region Restore to resto
 The Cross Region Restore option allows you to restore data in a secondary [Azure paired region](/azure/reliability/cross-region-replication-azure) even when no outage occurs in the primary region; thus, enabling you to perform drills to assess regional resiliency.  
 
 > [!NOTE]
->- Currently, Geo-redundant Storage (GRS) vault with Cross Region Restore enabled can't be changed to Zone-redundant Storage (ZRS) or Locally-redundant Storage (LRS) after the protection starts for the first time.  
+>- Currently, Geo-redundant Storage (GRS) vault with Cross Region Restore enabled can't be changed to Zone-redundant Storage (ZRS) or Locally redundant Storage (LRS) after the protection starts for the first time.  
 >- Secondary region Recovery Point Objective (RPO) is currently *36 hours*. This is because the RPO in the primary region is 24 hours and can take up to 12 hours to replicate the backup data from the primary to the secondary region.  
 
 ## Considerations
@@ -68,7 +68,7 @@ To restore the database to the secondary region, follow these steps:
 1. Go to the Backup vault’s **Overview** pane, and then configure a backup for PostgreSQL database. 
     > [!Note]
     > Once the backup is complete in the primary region, it can take up to 12 hours for the recovery point in the primary region to get replicated to the secondary region. 
-1. To check the availability of recovery point in the secondary region, go to the **Backup center** > **Backup Instances**.
+1. To check the availability of recovery point in the secondary region, go to the **Backup vault** > **Backup Instances**.
 1. Filter to **Azure Database for PostgreSQL servers**, then filter Instance region as **Secondary Region**, and then select the required Backup Instance. 
      :::image type="content" source="./media/create-manage-backup-vault/view-jobs-in-secondary-region.png" alt-text="Screenshot showing how to view jobs in secondary region." lightbox="./media/create-manage-backup-vault/view-jobs-in-secondary-region.png":::
 

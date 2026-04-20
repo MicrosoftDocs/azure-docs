@@ -4,7 +4,7 @@ description: This article describes Azure Stream Analytics resource model which 
 author: ajetasin
 ms.author: ajetasi
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/08/2022
 ---
 

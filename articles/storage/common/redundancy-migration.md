@@ -47,7 +47,7 @@ Geo-redundancy and read-access can be changed at the same time. However, any cha
 
 For answers to common questions about changing replication types, see the [Storage redundancy change FAQ](storage-redundancy-change-faq.md) article.
 > [!NOTE]
-> For storage accounts that leverage the smart tier public preview, redundancy conversions and account failover scenarios have additional dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
+> For storage accounts that leverage smart tier, redundancy conversions and account failover scenarios have additional dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
 
 ### Changing redundancy configuration
 
@@ -399,7 +399,8 @@ done < <(tr -d '\r' < $csvFilePath | tail -n +2)
 Customers can still request a conversion by opening a support request with Microsoft.
 
 > [!TIP]
-> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Additional details** tab.
+> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Additional details** tab. 
+> You can also submit multiple conversion requests at once using PowerShell or Azure CLI scripts. See [customer-initiated conversion](#customer-initiated-conversion) for script examples.
 
 Follow these steps to request a conversion from Microsoft:
 
@@ -442,7 +443,7 @@ You must perform a manual migration if:
 - Your storage account includes data in the archive tier and rehydrating the data isn't desired.
 
 > [!IMPORTANT]
-> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a [conversion](#perform-a-conversion) option. A conversion is an in-place migration with no downtime.
+> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a [conversion](#perform-a-conversion) option.
 
 With a manual migration, you copy the data from your existing storage account to a new storage account. To perform a manual migration, you can use one of the following options:
 
@@ -472,7 +473,7 @@ Some storage account features aren't compatible with other features or operation
 
 Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM). 
 
-Any conversion attempts to add zonal redundancy, such as LRS to ZRS or GRS to GZRS, fail. To convert your account to a zone-redundant SKU, disable boot diagnostics on your account and resubmit the request. To learn more about boot diagnostics, review the [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics#enable-managed-boot-diagnostics) article.
+Any conversion attempts to add zone redundancy, such as LRS to ZRS or GRS to GZRS, fail. To convert your account to a zone-redundant SKU, disable boot diagnostics on your account and resubmit the request. To learn more about boot diagnostics, review the [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics#enable-managed-boot-diagnostics) article.
 
 ### Storage account type
 
@@ -494,7 +495,7 @@ The following table provides an overview of redundancy options available for sto
 
 
 <sup>1</sup> Customer-initiated conversion for premium file shares can be undertaken using the [Azure portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
-<sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](/azure/virtual-machines/disks-redundancy#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](/azure/virtual-machines/disks-convert-types). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Convert a disk from LRS to ZRS](/azure/virtual-machines/disks-migrate-lrs-zrs). You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview#integration-with-availability-sets).<br />
+<sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](/azure/virtual-machines/disks-redundancy#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](/azure/virtual-machines/disks-convert-types). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Convert a disk from LRS to ZRS](/azure/virtual-machines/disks-migrate-lrs-zrs). You can store snapshots and images for Standard SSD managed disks on Standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts are deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
 
@@ -569,7 +570,7 @@ If you performed a customer-managed account failover to recover from an outage f
 
 ## Downtime requirements
 
-During a [conversion](#perform-a-conversion), you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and no data is lost during a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
+During a [conversion](#perform-a-conversion), you can access data in your storage account with no loss of durability, and non-HNS-enabled accounts experience no interruption to availability. However, HNS-enabled accounts might experience a brief pause while the account switches to the new resiliency level. This pause lasts less than 30 seconds and requests will complete automatically after the pause. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and no data is lost during a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
 If you choose to perform a manual migration, downtime is required but you have more control over the timing of the migration process.
 

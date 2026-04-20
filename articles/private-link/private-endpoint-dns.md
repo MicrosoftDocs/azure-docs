@@ -1,8 +1,8 @@
 ---
 title: Azure Private Endpoint private DNS zone values
 description: Learn about the private DNS zone values for Azure services that support private endpoints.
-author: AbdullahBell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.custom:
   - ignite-2024
@@ -25,7 +25,7 @@ You can use the following options to configure your DNS settings for private end
 
 - **Use a private DNS zone**. You can use [Private DNS Zones](../dns/private-dns-privatednszone.md) to override the DNS resolution for a private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
 
-- **Use Azure Private Resolver (optional)**. You can use Azure Private Resolver to override the DNS resolution for a private link resource. For more information about Azure Private Resolver, see [What is Azure Private Resolver?](../dns/dns-private-resolver-overview.md).
+- **Use Azure Private Resolver (optional)**. You can use Azure Private Resolver to override the DNS resolution for a private link resource. For more information about Azure Private Resolver, see [What is Azure Private Resolver?](../dns/dns-private-resolver-overview.md)
 
 > [!CAUTION]
 >
@@ -62,7 +62,7 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Machine Learning workspace (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
 > | Azure Machine Learning registry (Microsoft.MachineLearningServices/registries) | amlregistry | privatelink.api.azureml.ms | api.azureml.ms |
-> | Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com <br/> privatelink.services.ai.azure.com | cognitiveservices.azure.com <br/> openai.azure.com <br/> services.ai.azure.com |
+> | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com <br/> privatelink.services.ai.azure.com | cognitiveservices.azure.com <br/> openai.azure.com <br/> services.ai.azure.com |
 > | Azure Bot Service (Microsoft.BotService/botServices) | Bot | privatelink.directline.botframework.com | directline.botframework.com |
 > | Azure Bot Service (Microsoft.BotService/botServices) | Token | privatelink.token.botframework.com | token.botframework.com |
 
@@ -81,7 +81,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.com | adf.azure.com |
 > | Azure HDInsight (Microsoft.HDInsight/clusters) | gateway </br> headnode | privatelink.azurehdinsight.net | azurehdinsight.net |
 > | Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.net </br> privatelink.blob.core.windows.net </br> privatelink.queue.core.windows.net </br> privatelink.table.core.windows.net | {regionName}.kusto.windows.net </br> blob.core.windows.net </br> queue.core.windows.net </br> table.core.windows.net |
-> | Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
+> | Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.prod.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> prod.powerquery.microsoft.com |
 > | Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
 > | Microsoft Fabric (Microsoft.Fabric/privateLinkServicesForFabric) | workspace | privatelink.fabric.microsoft.com  | fabric.microsoft.com |
 
@@ -246,7 +246,7 @@ For Azure services, use the recommended zone names as described in the following
 > [!div class="mx-tdBreakAll"]
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
-> | Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us | cognitiveservices.azure.us |
+> | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us | cognitiveservices.azure.us |
 > | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net <br/> instances.azureml.us<br/>aznbcontent.net <br/> inference.ml.azure.us |
 
 ### Analytics
@@ -337,6 +337,8 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Automation / (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.us | azure-automation.us |
 > | Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup | privatelink.{regionCode}.backup.windowsazure.us | {regionCode}.backup.windowsazure.us |
+> | Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.us | prod.migration.windowsazure.us |
+> | Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.us | prod.migration.windowsazure.us |
 > | Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.us | {regionCode}.siterecovery.windowsazure.us |
 > | Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.us <br/> privatelink.adx.monitor.azure.us <br/> privatelink.oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | monitor.azure.us <br/> adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
 > | Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.us | purview.azure.us |

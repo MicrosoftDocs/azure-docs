@@ -155,7 +155,6 @@ This configuration helps protect against failure of the primary ExpressRoute cir
 
 - You can have simultaneous connections from the on-premises datacenter to source vNEt with the primary circuit, and to the target vNet with the secondary circuit.
 - With simultaneous connections to primary and target, make sure that  on-premises routing only uses the secondary circuit and connection after failover.
--	You can’t connect both circuits to the same vNet when circuits are created at the same peering location.
 
 ### Access with a single circuit
 

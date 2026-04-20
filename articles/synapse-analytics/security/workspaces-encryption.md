@@ -7,7 +7,7 @@ ms.author: mesrivas
 ms.date: 07/31/2024
 ms.service: azure-synapse-analytics
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: sfi-image-nochange
 ---
 

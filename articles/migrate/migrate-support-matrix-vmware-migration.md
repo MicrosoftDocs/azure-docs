@@ -62,9 +62,11 @@ The VMware vSphere hypervisor requirements are:
     **Provisioning** - Allow read-only disk access | Allow read-only disk access: Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomRead
     **Provisioning** - Allow disk access | Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines | VirtualMachine.Provisioning.DiskRandomAccess
     **Provisioning** - Allow virtual machine download | Allow virtual machine download: Allows read operations on files associated with a VM to download the logs and troubleshoot if failure occurs. | Root host or vCenter Server | VirtualMachine.Provisioning.GetVmFiles
-    **Snapshot management** | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.* 
-    **Guest operations** | Allow Discovery, Software Inventory, and Dependency Mapping on VMs. | Virtual machines | VirtualMachine.State.*
+    **Snapshot management** | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.State.*
+    **Guest operations** | Allow Discovery, Software Inventory, and Dependency Mapping on VMs. | Virtual machines | VirtualMachine.GuestOperations.* 
     **Interaction Power Off** | Allow the VM to be powered off during migration to Azure. | Virtual machines | VirtualMachine.Interact.PowerOff
+
+If you are migrating VMs from Azure VMware Solution, you can use the [CloudAdmin account](/azure/azure-vmware/architecture-identity#vcenter-server-access-and-identity) which has the requisite permissions required for querying VMware vCenter.
 
 ### VM requirements (agentless)
 
@@ -77,12 +79,12 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 --- | ---
 **Supported operating systems** | Windows Server 2003 and later versions. [Learn more](/troubleshoot/azure/virtual-machines/server-software-support). <br/><br/> You can migrate all the Linux operating systems supported by Azure listed [here](/troubleshoot/azure/cloud-services/support-linux-open-source-technology).
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration.
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 24.04, 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 11, 10, 9, 8, 7<br> - Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - Alma Linux 8.x, 9.x <br> - Rocky Linux 8.x, 9.x <br> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM. The `SELinux Permissive` setting is supported.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 10.x, 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 24.04, 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 13, 12, 11, 10, 9, 8, 7 <br> - Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - Alma Linux 10.X, 8.x, 9.x <br> - Rocky Linux 10.x, 8.x, 9.x <br> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM. The `SELinux Permissive` setting is supported.
 **Boot requirements** | **Windows VMs:**<br/>OS Drive (C:\\) and System Reserved Partition (EFI System Partition for UEFI VMs) should reside on the same disk.<br/>If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks. <br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks. <br/><br/> **Linux VMs:**<br/> If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks.<br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks.
 **UEFI boot** | UEFI-based virtual machines are migrated to Azure's Generation 2 VMs. However, it's important to note that Azure Generation 2 VMs lack the Secure Boot feature. For VMs that utilized Secure Boot in their original configuration, a conversion to Trusted Launch VMs is recommended after migration. This step ensures that Secure Boot, along with other enhanced security functionalities, is re-enabled.
 **Disk size** | Up to 2TB OS disk for Gen1 VM and up to 4TB OS disk for Gen2 VM; 32 TB for data disks. Changing the size of the source disk after initiating replication is supported and won't impact ongoing replication cycle.
 **Dynamic disk** | - An OS disk as a dynamic disk isn't supported. <br/> - If a VM with OS disk as dynamic disk is replicating, convert the disk type from dynamic to basic and allow the new cycle to complete, before triggering test migration or migration. You'll need help from OS support for conversion of dynamic to basic disk type.
-**Ultra disk** | Ultra disk migration isn't supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium disk type and change it to Ultra disk after migration.
+**Ultra Disk** | Ultra Disk migration isn't supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
 **Independent disks** | Not supported.
@@ -96,9 +98,9 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **NVMe disks** | Not supported.
-**Target disk** | VMs can be migrated only to managed disks (standard HDD, standard SSD, Premium V2 SSD (preview) for data disks) in Azure.
+**Target disk** | VMs can be migrated only to managed disks (Standard HDD, Standard SSD, Premium SSD v2 (preview) for data disks) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](how-to-scale-out-for-migration.md) is deployed.
-**Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br/>- CentOS Stream<br/>- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 11, 10, 9, 8, 7<br/>- Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
+**Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 10.X, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br/>- CentOS Stream<br/>- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 13, 12, 11, 10, 9, 8, 7<br/>- Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
 
 > [!NOTE]
 > Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
@@ -172,7 +174,7 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **UEFI - Secure boot**         | Not supported for migration.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
+**Target disk** | VMs can only be migrated to managed disks (Standard HDD, Standard SSD, Premium SSD) in Azure.
 **Disk size** | up to 2-TB OS disk for gen 1 VM; up to 4-TB OS disk for gen 2 VM; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
@@ -207,13 +209,13 @@ Ensure you meet all the [hardware](../site-recovery/replication-appliance-suppor
 
 **Device** | **Connection**
 --- | ---
-VMs | The Mobility service running on VMs communicates with the on-premises replication appliance (configuration server) on port HTTPS 443 inbound, for replication management.<br/><br/> VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
+VMs | The Mobility service running on VMs communicates with the on-premises or Azure VMware Solution replication appliance (configuration server) on port HTTPS 443 inbound, for replication management.<br/><br/> VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
 Replication appliance | The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
 Process server | The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.<br/> By default the process server runs on the replication appliance.
 
 ## Azure VM requirements
 
-All on-premises VMs replicated to Azure (with agentless or agent-based migration) must meet the Azure VM requirements summarized in this table.
+All on-premises or Azure VMware Solution (AVS) VMs replicated to Azure (with agentless or agent-based migration) must meet the Azure VM requirements summarized in this table.
 
 **Component** | **Requirements**
 --- | --- | ---
@@ -228,8 +230,8 @@ Shared VHD | Not supported.
 FC disk | Not supported.
 BitLocker | Not supported.<br/><br/> BitLocker must be disabled before you migrate the machine.
 VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number.
-Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/><br/> - Before migration, enable RDP on the on-premises VM.<br/><br/> Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.<br/><br/> For site-to-site VPN access, enable RDP and allow RDP in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.<br/><br/> In addition, check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](prepare-for-migration.md).
-Connect after migration-Linux | To connect to Azure VMs after migration using SSH:<br/><br/> Before migration, on the on-premises machine, check that the Secure Shell service is set to Start, and that firewall rules allow an SSH connection.<br/><br/> After failover, on the Azure VM, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected.<br/><br/> In addition, add a public IP address for the VM.  
+Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/><br/> - Before migration, enable RDP on the source (on-premises or Azure VMware Solution) VM.<br/><br/> Make sure that TCP and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps** for all profiles.<br/><br/> For site-to-site VPN access, enable RDP and allow RDP in **Windows Firewall** > **Allowed apps and features** for **Domain and Private** networks.<br/><br/> In addition, check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](prepare-for-migration.md).
+Connect after migration-Linux | To connect to Azure VMs after migration using SSH:<br/><br/> Before migration, on the source (on-premises or Azure VMware Solution) machine, check that the Secure Shell service is set to Start, and that firewall rules allow an SSH connection.<br/><br/> After failover, on the Azure VM, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected.<br/><br/> In addition, add a public IP address for the VM.  
 
 
 ## Next steps

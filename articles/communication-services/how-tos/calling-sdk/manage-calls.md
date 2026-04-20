@@ -2,8 +2,8 @@
 title: Manage calls
 titleSuffix: An Azure Communication Services article
 description: This article describes how to manage calls using the Azure Communication Services Calling SDK.
-author: tophpalmer
-ms.author: chpalm
+author: sundiraman
+ms.author: sundraman
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 

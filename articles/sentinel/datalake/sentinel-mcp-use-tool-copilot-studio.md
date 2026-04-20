@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/18/2025
 ms.author: pauloliveria
 ms.service: microsoft-sentinel
+ms.subservice: sentinel-platform
 
 #customer intent: As a security analyst, I want to add Sentinel MCP tools in Microsoft Copilot Studio.
 ---

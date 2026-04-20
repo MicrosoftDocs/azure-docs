@@ -18,6 +18,9 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
     For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft Defender XDR](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
+> [!TIP]
+> You can use different areas in Defender for IoT to investigate alerts, and drill down into device and network details, violations, and more. For more information, see [Investigate and respond to and OT network alert](respond-ot-alert.md).
+
 ## Prerequisites
 
 - **To have alerts in Defender for IoT**, you must have an [OT](onboard-sensors.md) onboarded, and network data streaming into Defender for IoT.
@@ -61,8 +64,10 @@ For more information, see [Azure user roles and permissions for Defender for IoT
         | **Category**| The [category](alert-engine-messages.md#supported-alert-categories) associated with the alert, such as *operational issues*, *custom alerts*, or *illegal commands*. |
         | **Type**| The  internal name of the alert. |
 
-> [!TIP]
-> If you're seeing more alerts than expected, you might want to create suppression rules to prevent alerts from being triggered for legitimate network activity. For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts).
+### Considerations
+
+- If you're seeing more alerts than expected, you might want to create suppression rules to prevent alerts from being triggered for legitimate network activity. For more information, see [Suppress irrelevant alerts](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts).
+- When you view alerts in the alert list, some alerts may not correlate with alerts on specific sensors. For more information, see [Investigate alerts that don't correlate with specific sensors](respond-ot-alert.md#investigate-alerts-that-dont-correlate-with-a-specific-sensor).
 
 ### Filter alerts displayed
 
@@ -164,6 +169,9 @@ To reduce alert fatigue, multiple versions of the same alert violation with iden
 1. Select the **Take action** tab. Follow the **Remediation steps**.
 
 1. Select **Learn**, if needed. For more information, see [learning an alert](alerts.md#alert-statuses-and-triaging-options).
+
+> [!NOTE]
+> After you learn an alert, the same alert might be triggered again if the new alert has different violation parameters. To check why the alert was triggered, review the list of violations in the CSV file you downloaded in step 3.
 
 ## Next steps
 

@@ -94,7 +94,7 @@ sections:
         answer: Yes. Provided the system it's installed on can access the private cloud vCenter Server and is using public DNS to resolve ESXi hostnames.
 
       - question: Are there special instructions for installing and using VMRC with Azure VMware Solution VMs?
-        answer:  No. To meet the VM prerequisites, follow the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
+        answer:  No. To meet the VM prerequisites, follow the [instructions provided by VMware](https://techdocs.broadcom.com/content/dam/broadcom/techdocs/us/en/pdf/vmware/vsphere/vsphere/vmware-vsphere-6-7.pdf). 
 
       - question: Can I use vRealize Suite running on-premises? 
         answer: vRealize Automation, vRealize Operations Manager, and vRealize Network Insight are certified for use with Azure VMware Solution when those products are installed in an on-premises data center. The cloud-based versions of these products--vRealize Automation Cloud, vRealize Operations Cloud, and vRealize Network Insight Cloud--are also certified for use. 

@@ -2226,6 +2226,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/quickstart-python-portal.md",
+      "redirect_url": "/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-portal%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/app-service-web-tutorial-monitoring.md",
       "redirect_url": "/azure/app-service/web-sites-monitor",
       "redirect_document_id": false
@@ -2768,12 +2773,12 @@
     {
       "source_path_from_root": "/articles/app-service/environment/overview-zone-redundancy.md",
       "redirect_url": "/azure/reliability/migrate-app-service-environment",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/how-to-zone-redundancy.md",
       "redirect_url": "/azure/reliability/migrate-app-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/overview-disaster-recovery.md",
@@ -2974,6 +2979,11 @@
       "source_path_from_root": "/articles/app-service/invoke-openapi-web-app-from-azure-ai-agent-service.md",
       "redirect_url": "/azure/app-service/tutorial-ai-integrate-azure-ai-agent-dotnet",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/auto-migration.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
     }
   ]
 }

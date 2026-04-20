@@ -9,6 +9,10 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 03/20/2025
 ms.custom: mvc, engagement-fy25
+ms.collection:
+  - migration
+  - aws-to-azure
+  - onprem-to-azure
 # Customer intent: "As an IT manager, I want to utilize Azure Migrate to assess and execute the migration of our on-premises workloads to Azure, so that I can minimize downtime and ensure a cost-effective and efficient transition to the cloud."
 ---
 
@@ -42,6 +46,9 @@ Watch this video to learn how Azure Migrate delivers enhanced experiences. It he
 
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed-one-stream.html?id=08b50a5e-0ee6-4dc5-91d8-9e55350547c6]
 ::: moniker-end
+
+>[!IMPORTANT]
+> For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
 
 ### Decide
 

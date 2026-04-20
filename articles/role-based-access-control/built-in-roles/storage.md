@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -1102,7 +1102,7 @@ Lets you manage classic storage accounts, but not access to them.
 
 Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts
 
-[Learn more](/azure/key-vault/secrets/overview-storage-keys)
+[Learn more](/azure/storage/common/authorize-data-access)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

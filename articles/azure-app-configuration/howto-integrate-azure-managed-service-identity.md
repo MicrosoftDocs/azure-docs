@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 08/25/2025
+ms.date: 02/10/2026
 zone_pivot_groups: appconfig-provider
 ms.custom:
   - devx-track-csharp
@@ -60,7 +60,7 @@ To complete this tutorial, you must have:
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
-* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 17.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 :::zone-end

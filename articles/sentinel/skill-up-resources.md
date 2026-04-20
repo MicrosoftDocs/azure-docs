@@ -2,7 +2,7 @@
 title: Microsoft Sentinel skill-up training 
 description: This article walks you through a level 400 training to help you skill up on Microsoft Sentinel. The training comprises 21 modules that present relevant product documentation, blog posts, and other resources.
 author: rayne-wiselman
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/16/2024
 ms.author: raynew
 ms.custom: fasttrack-edit
@@ -66,7 +66,7 @@ This skill-up training is a level-400 training that's based on the [Microsoft Se
 
 ### Module 1: Get started with Microsoft Sentinel
 
-Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Microsoft Sentinel delivers security analytics and threat intelligence across the enterprise. It provides a single solution for alert detection, threat visibility, proactive hunting, and threat response. For more information, see [What is Microsoft Sentinel?](overview.md).
+Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Microsoft Sentinel delivers security analytics and threat intelligence across the enterprise. It provides a single solution for alert detection, threat visibility, proactive hunting, and threat response. For more information, see [What is Microsoft Sentinel?](overview.md)
 
 If you want to get an initial overview of Microsoft Sentinel's technical capabilities, the latest [Ignite presentation](https://www.youtube.com/watch?v=kGctnb4ddAE) is a good starting point. You might also find the [Quick Start Guide to Microsoft Sentinel](https://azure.microsoft.com/resources/quick-start-guide-to-azure-sentinel/) useful (site registration is required). 
 

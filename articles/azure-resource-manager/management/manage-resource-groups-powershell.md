@@ -1,8 +1,8 @@
-﻿---
+---
 title: Manage Resource Groups - Azure PowerShell
 description: Use Azure PowerShell to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 ms.topic: article
-ms.date: 02/10/2025
+ms.date: 02/27/2026
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 

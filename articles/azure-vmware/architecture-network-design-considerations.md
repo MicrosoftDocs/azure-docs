@@ -3,7 +3,7 @@ title: Architecture - Network design considerations
 description: Learn about network design considerations for Azure VMware Solution
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 1/16/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -27,10 +27,10 @@ Due to asymmetric routing, connectivity issues can occur when Azure VMware Solut
 For AS-Path Prepend, consider the following prerequisites:
 
 > [!div class="checklist"]
-* The key point is that you must prepend **Public** Autonomous System Numbers (ASNs) to influence how Azure VMware Solution routes traffic back to on-premises. If you prepend using _Private_ ASN, Azure VMware Solution will ignore the prepend, and the ECMP behavior mentioned previously will occur. Even if you operate a Private BGP ASN on-premises, it's still possible to configure your on-premises devices to utilize a Public ASN when prepending routes outbound, to ensure compatibility with Azure VMware Solution.
+* The key point is that you must prepend **Public** Autonomous System Numbers (ASNs) to influence how Azure VMware Solution routes traffic back to on-premises. If you prepend using _Private_ ASN, Azure VMware Solution ignores the prepend, and the ECMP behavior mentioned previously occurs. Even if you operate a Private BGP ASN on-premises, it's still possible to configure your on-premises devices to utilize a Public ASN when prepending routes outbound, to ensure compatibility with Azure VMware Solution.
 * Design your traffic path for private ASNs after the public ASN to be honored by Azure VMware Solution. The Azure VMware Solution ExpressRoute circuit doesn't strip any private ASNs that exist in the path after the public ASN is processed.
 * Both or all circuits are connected to Azure VMware Solution through Azure ExpressRoute Global Reach.
-* The same netblocks are being advertised from two or more circuits.
+* The same netblocks are advertised from two or more circuits.
 * You want to use AS-Path Prepend to force Azure VMware solution to prefer one circuit over another.
 * Use either 2-byte or 4-byte public ASN numbers.
 
@@ -41,7 +41,7 @@ Azure VMware Solution utilizes specific private Autonomous System Numbers (ASNs)
 
 ### Reserved ASNs for Underlay Networking
 
-The following ASNs are reserved for internal Azure VMware Solution infrastructure and should be avoided by customers:
+The following ASNs are reserved for internal Azure VMware Solution infrastructure and customers should avoid them:
 
 - **Tier-2 ASNs:** 65300 – 65340
 
@@ -53,33 +53,33 @@ The following ASNs are reserved for internal Azure VMware Solution infrastructur
 
 ### Impact of Using Reserved ASNs
 
-Using any of the ASNs listed above in your environment may lead to BGP session failures, network routing conflicts, or service disruptions. Ensure that your ASN assignments do not overlap with these reserved values.
+Using any of the previously listed ASNs in your environment can lead to BGP session failures, network routing conflicts, or service disruptions. Ensure that your ASN assignments don't overlap with those reserved values.
 
 ## Management VMs and default routes from on-premises
 
 > [!IMPORTANT]
-> Azure VMware Solution management virtual machines (VMs) won't honor a default route from on-premises for RFC1918 destinations.
+> Azure VMware Solution management virtual machines (VMs) don't honor a default route from on-premises for RFC1918 destinations.
 
-If you're routing back to your on-premises networks by using only a default route advertised toward Azure, traffic from vCenter Server and NSX Manager VMs being used towards on-premises destinations with private IP addresses won't follow that route.
+If you route back to your on-premises networks using a default route broadcast toward Azure, traffic from vCenter Server and NSX Manager VMs being used towards on-premises destinations with private IP addresses won't follow that route.
 
 To reach vCenter Server and NSX Manager from on-premises, provide specific routes to allow traffic to have a return path to those networks. For example, advertise the RFC1918 summaries (10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16).
 
 ## Default route to Azure VMware Solution for internet traffic inspection
 
-Certain deployments require inspecting all egress traffic from Azure VMware Solution toward the internet. Although it's possible to create network virtual appliances (NVAs) in Azure VMware Solution, there are use cases where these appliances already exist in Azure and can be applied to inspect internet traffic from Azure VMware Solution. In this case, a default route can be injected from the NVA in Azure to attract traffic from Azure VMware Solution and inspect the traffic before it goes out to the public internet.
+Certain deployments require inspecting all egress traffic from Azure VMware Solution toward the internet. It's possible to create network virtual appliances (NVAs) in Azure VMware Solution. However, there are use cases where these appliances already exist in Azure and can be applied to inspect internet traffic from Azure VMware Solution. In this case, a default route can be injected from the NVA in Azure to attract traffic from Azure VMware Solution and inspect the traffic before it goes out to the public internet.
 
 The following diagram describes a basic hub-and-spoke topology connected to an Azure VMware Solution cloud and to an on-premises network through ExpressRoute. The diagram shows how the NVA in Azure originates the default route (`0.0.0.0/0`). Azure Route Server propagates the route to Azure VMware Solution through ExpressRoute.
 
 :::image type="content" source="media/concepts-network-design/vmware-solution-default.png" alt-text="Diagram of Azure VMware Solution with Route Server and a default route." lightbox="media/concepts-network-design/vmware-solution-default.png":::
 
 > [!IMPORTANT]
-> The default route that the NVA advertises will be propagated to the on-premises network. You need to add user-defined routes (UDRs) to ensure that traffic from Azure VMware Solution is transiting through the NVA.
+> The default route that the NVA advertises gets propagated to the on-premises network. You need to add user-defined routes (UDRs) to ensure that traffic from Azure VMware Solution is transiting through the NVA.
 
 Communication between Azure VMware Solution and the on-premises network usually occurs over ExpressRoute Global Reach, as described in [Peer on-premises environments to Azure VMware Solution](../azure-vmware/tutorial-expressroute-global-reach-private-cloud.md).
 
 ## Connectivity between Azure VMware Solution and an on-premises network
 
-There are two main scenarios for connectivity between Azure VMware Solution and an on-premises network via a third-party NVA:
+There are two main scenarios for connectivity between Azure VMware Solution and an on-premises network via a non-Microsoft NVA:
 
 - Organizations have a requirement to send traffic between Azure VMware Solution and the on-premises network through an NVA (typically a firewall).
 - ExpressRoute Global Reach isn't available in a particular region to interconnect the ExpressRoute circuits of Azure VMware Solution and the on-premises network.
@@ -98,14 +98,14 @@ There are two requirements to hairpin network traffic to an NVA:
 - The NVA should advertise a supernet for the Azure VMware Solution and on-premises prefixes.
 
     You could use a supernet that includes both Azure VMware Solution and on-premises prefixes. Or you could use individual prefixes for Azure VMware Solution and on-premises (always less specific than the actual prefixes advertised over ExpressRoute). Keep in mind that all supernet prefixes advertised to Route Server get propagated to both Azure VMware Solution and on-premises.
-- UDRs in the gateway subnet, that exactly match the prefixes advertised from Azure VMware Solution and on-premises, cause hairpin traffic from the gateway subnet to the NVA.
+- UDRs in the gateway subnet, that exactly matches the prefixes advertised from Azure VMware Solution and on-premises, cause hairpin traffic from the gateway subnet to the NVA.
 
 This topology results in high management overhead for large networks that change over time. Consider these limitations:
 
-- Anytime a workload segment is created in Azure VMware Solution, UDRs might need to be added to ensure that traffic from Azure VMware Solution is transiting through the NVA.
-- If your on-premises environment has a large number of routes that change, Border Gateway Protocol (BGP) and UDR configuration in the supernet might need to be updated.
-- Because a single ExpressRoute gateway processes network traffic in both directions, performance might be limited.
-- There's an Azure Virtual Network limit of 400 UDRs.
+- When a workload segment is created in Azure VMware Solution, UDRs could need to be added to ensure that traffic from Azure VMware Solution is transiting through the NVA.
+- When your on-premises environment has a large number of routes that change, Border Gateway Protocol (BGP) and UDR configuration in the supernet might need to be updated.
+- Since a single ExpressRoute gateway processes network traffic in both directions, it could cause performance to be limited.
+- Azure Virtual Network has a limit of 400 UDRs.
 
 The following diagram demonstrates how the NVA needs to advertise prefixes that are more generic (less specific) and that include the networks from on-premises and Azure VMware Solution. Be careful with this approach. The NVA could potentially attract traffic that it shouldn't, because it's advertising wider ranges (for example, the whole `10.0.0.0/8` network).
 
@@ -123,7 +123,7 @@ The following diagram demonstrates how a single `0.0.0.0/0` route is advertised 
 :::image type="content" source="media/concepts-network-design/vmware-solution-to-on-premises.png" alt-text="Diagram of Azure VMware Solution to on-premises communication with Route Server in two regions." lightbox="media/concepts-network-design/vmware-solution-to-on-premises.png":::
 
 > [!IMPORTANT]
-> An encapsulation protocol such as VXLAN or IPsec is required between the NVAs. Encapsulation is needed because the NVA network adapter (NIC) would learn the routes from Azure Route Server with the NVA as the next hop and create a routing loop.
+> An encapsulation protocol such as VXLAN or IPsec is required between the NVAs. Encapsulation is needed because the NVA network adapter (NIC) could learn the routes from Azure Route Server with the NVA as the next hop and create a routing loop.
 
 There's an alternative to using an overlay. Apply secondary NICs in the NVA that don't learn the routes from Azure Route Server. Then, configure UDRs so that Azure can route traffic to the remote environment over those NICs. You can find more details in [Enterprise-scale network topology and connectivity for Azure VMware Solution](/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity#scenario-2-a-third-party-nva-in-hub-azure-virtual-network-inspects-all-network-traffic).
 

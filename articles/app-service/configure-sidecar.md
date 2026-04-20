@@ -12,6 +12,9 @@ ms.service: azure-app-service
 
 This article provides practical steps for enabling and configuring sidecars in your App Service app.
 
+> [!IMPORTANT]
+> Because sidecars share the same network namespace and environment as your main app, only run trusted code and container images as sidecars.
+
 ## Create a sidecar in the Azure portal
 
 1. Go to your App Service resource in the Azure portal.

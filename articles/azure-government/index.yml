@@ -89,7 +89,7 @@ landingContent:
             url: ./compliance/secure-azure-computing-architecture.md
           - text: Develop with Storage API
             url: documentation-government-get-started-connect-to-storage.md
-          - text: Develop with Azure AI services
+          - text: Develop with Foundry Tools
             url: documentation-government-cognitiveservices.md
           - text: Integrate Microsoft Entra authentication
             url: documentation-government-aad-auth-qs.md

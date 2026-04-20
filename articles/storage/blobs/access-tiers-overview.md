@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 12/02/2025
+ms.date: 04/02/2026
 ms.service: azure-blob-storage
 ms.topic: concept-article
 # Customer intent: As a cloud storage manager, I want to select the appropriate access tier for my blob data, so that I can optimize storage costs based on the frequency of access and retention requirements.
@@ -92,6 +92,21 @@ To change the redundancy configuration for a storage account that contains blobs
 
 Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. 
 
+## Minimum billable object size on cooler tiers
+
+For storage accounts that use Azure Blob Storage or Azure Data Lake Storage, a minimum billable object size of **128 KiB** applies to objects stored in the **cool**, **cold**, and **archive** access tiers. Objects in these tiers that are smaller than 128 KiB are billed as 128 KiB objects at the rate for the corresponding tier. Billing uses the existing capacity billing meters (data stored), and there is no change to transaction billing.
+
+This billing behavior will be introduced in two stages:
+
+- **July 1, 2026**: The billing behavior applies to all new storage accounts created on or after this date. There is no change for existing storage accounts.
+- **July 1, 2027**: The billing behavior applies to all storage accounts.
+
+The creation time of a storage account, which is part of the account-level metadata, determines which stage applies.
+
+The **hot** access tier continues to have no minimum billable object size. To reduce potential cost impact, consider [packaging small objects into larger objects](access-tiers-best-practices.md#pack-small-files-before-moving-data-to-cooler-tiers) before moving data to cooler tiers, or using [smart tier](access-tiers-smart.md) to automatically keep small objects on the hot access tier.
+
+To support this change, the **Blob Capacity** metrics in the Azure portal will introduce new blob types: **BlockBlobSmall** and Azure **Data Lake Storage Small**.
+
 ## Default account access tier setting
 
 Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot, cool or cold. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
@@ -124,7 +139,7 @@ Changing a blob's tier from a warmer tier to a cooler one is instantaneous, as i
 
 Keep in mind the following points when changing a blob's tier:
 
-- You can't use **Set Blob Tier** to archive a a blob that uses an encryption scope. You can only use **Set Blob Tier** to move between online access tiers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
+- You can't use **Set Blob Tier** to archive a blob that uses an encryption scope. You can only use **Set Blob Tier** to move between online access tiers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
  
 - If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
@@ -136,7 +151,7 @@ You can't rehydrate an archived blob to an online tier by using lifecycle manage
 
 ## Storage Actions
 
-While lifecycle management helps you move data between tiers in a single account, you can use a _storage task_ to accomplish this task at scale across multiple accounts. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
+While lifecycle management helps you move data between tiers in a single account, you can use a _storage task_ to accomplish this task at scale across multiple accounts. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md)
 
 ## Summary of access tier options
 
@@ -165,7 +180,7 @@ For more information about pricing for block blobs, see [Block blob pricing](htt
 
 ### Storage capacity costs
 
-In addition to the amount of data stored, the cost of storing data varies depending on the access tier. The per-gigabyte capacity cost decreases as the tier gets cooler.
+In addition to the amount of data stored, the cost of storing data varies depending on the access tier. The per-gigabyte capacity cost decreases as the tier gets cooler. Objects in the **cool**, **cold**, and archive tiers that are smaller than 128 KiB might be billed as 128 KiB objects, depending on when the storage account was created. For details, see [Minimum billable object size on cooler tiers](#minimum-billable-object-size-on-cooler-tiers).
 
 ### Data access costs
 
@@ -211,12 +226,12 @@ The cold tier requires the following minimum versions of REST, SDKs, and tools
 | Environment | Minimum version |
 |---|---|
 | [REST API](/rest/api/storageservices/blob-service-rest-api)| 2021-12-02 |
-| [.NET](/dotnet/api/azure.storage.blobs) | 12.15.0 |
-| [Java](/java/api/overview/azure/storage-blob-readme) | 12.21.0 |
-| [Python](/python/api/azure-storage-blob/) | 12.15.0 |
-| [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
-| [PowerShell (Az.Storage)](/powershell/azure/install-azure-powershell) | 5.8.0 |
-| [Azure CLI](/cli/azure/install-azure-cli) | 2.50.0 |
+| [.NET](/dotnet/api/overview/azure/storage) | 12.15.0 |
+| [Java](/java/api/overview/azure/storage) | 12.21.0 |
+| [Python](/python/api/overview/azure/storage) | 12.15.0 |
+| [JavaScript](/javascript/api/overview/azure/storage) | 12.13.0 |
+| [PowerShell (Az.Storage)](/powershell/module/az.storage) | 5.8.0 |
+| [Azure CLI](/cli/azure/storage) | 2.50.0 |
 | [AzCopy](../common/storage-use-azcopy-v10.md) | 10.18.1 |
 | [Azure Storage Explorer](quickstart-storage-explorer.md) | 1.29.0 |
 

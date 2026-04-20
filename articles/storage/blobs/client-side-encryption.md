@@ -72,7 +72,7 @@ If your application is using client-side encryption with an earlier version of t
 
 The Azure Blob Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
 
-The Blob Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
+The Blob Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
 ### Encryption and decryption via the envelope technique
 

@@ -10,11 +10,11 @@ ms.topic: how-to
 
 # Enable attack disruption actions on AWS with Microsoft Sentinel (preview)
 
-This article describes how to configure your AWS environment so that Microsoft Sentinel can take automated actions on a user that assumes a SAML role, or on an AWS IAM account when an alert is triggered. Attack disruption uses high-confidence signals to contain compromised assets and limit the impact of attacks, including actions on identities in AWS.
+This article describes how to configure your AWS environment so that Microsoft Sentinel can take automated actions on a user that assumes a SAML role, or on an AWS IAM account when an alert is triggered. Attack disruption uses high-confidence signals to contain compromised assets and limit the damage from attacks, including actions on identities in AWS.
 
 ## Prerequisites
 
-Before you begin, ensure the following:
+Before you begin, you need the following prerequisites in place:
 
 - You have an active AWS account with administrative privileges.
 - Your Microsoft Sentinel analytic workspace is connected to the unified security operations portal.
@@ -27,13 +27,11 @@ Before you begin, ensure the following:
 
 ### 1.1 Create a dedicated IAM role for Microsoft Sentinel
 
-1. In the AWS console, go to **IAM \> Roles**.
+1. [Create a new IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the AWS Management Console.
 
-1. Select **Create role**.
+- Select **AWS service** as the trusted entity and choose **EC2** (you'll update the trust relationship [next](#12-configure-trust-relationship)).
 
-1. Select **AWS service** as the trusted entity and choose **EC2** (you'll update the trust relationship later).
-
-1. Attach the following policy to the role (replace \<YOUR_ACCOUNT_ID\> as needed):
+- Attach the following policy to the role (replace \<YOUR_ACCOUNT_ID\> as needed):
 
     ```json
     {
@@ -50,7 +48,6 @@ Before you begin, ensure the following:
             "iam:RemoveUserFromGroup",
             "iam:ResetServiceSpecificCredential",
             "iam:ResyncMFADevice",
-            "iam:RevokeSession",
             "iam:DeleteUserPermissionsBoundary",
             "iam:DeleteUserPolicy",
             "iam:DetachUserPolicy"
@@ -61,15 +58,11 @@ Before you begin, ensure the following:
     }
     ```
 
-1. Name the role (for example, SentinelAttackDisruptionRole) and create it.
-
 ### 1.2 Configure trust relationship
 
-1. In the IAM role you created, go to the **Trust relationships** tab.
+Create a [custom trust policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-custom.html#roles-creatingrole-custom-trust-policy-console) for the IAM role.
 
-1. Select **Edit trust relationship**.
-
-1. Replace the trust policy with the following, specifying the Microsoft Sentinel integration principal (replace `<YOUR_AZURE_SUBSCRIPTION_ID>` with your actual Azure subscription ID):
+Use the following trust policy, specifying the Microsoft Sentinel integration principal (replace `<YOUR_AZURE_SUBSCRIPTION_ID>` with your actual Azure subscription ID):
 
 ```json
 {

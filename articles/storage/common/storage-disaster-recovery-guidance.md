@@ -37,7 +37,7 @@ Azure Storage maintains multiple copies of your storage account to ensure that a
 
 Locally redundant storage (LRS), the lowest-cost redundancy option, automatically stores and replicates three copies of your storage account within a single datacenter. Although LRS protects your data against server rack and drive failures, it doesn't account for disasters such as fire or flooding within a datacenter. In the face of such disasters, all replicas of a storage account configured to use LRS might be lost or unrecoverable.
 
-By comparison, zone-redundant storage (ZRS) retains a copy of a storage account and replicates it in each of three separate availability zones within the same region. For more information about availability zones, see [Azure availability zones](../../reliability/availability-zones-overview.md).
+By comparison, zone-redundant storage (ZRS) retains a copy of a storage account and replicates it in each of three separate availability zones within the same region. For more information about availability zones, see [Azure availability zones](/azure/reliability/availability-zones-overview).
 
 <!--Recovery of a single copy of a storage account occurs automatically with both LRS and ZRS.-->
 
@@ -66,7 +66,7 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 
 | Type                                   | Failover Scope  | Use case | Expected data loss | Hierarchical Namespace (HNS) supported |
 |----------------------------------------|-----------------|----------|--------------------|----------------------------------------|
-| Customer-managed planned failover      | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but another service is preventing your workloads from functioning properly.<br><br>To proactively prepare for large-scale disasters, such as a hurricane, that might affect a region. | [No](#anticipate-data-loss-and-inconsistencies)  | Yes <br> *(In preview)* |
+| Customer-managed planned failover      | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but another service is preventing your workloads from functioning properly.<br><br>To proactively prepare for large-scale disasters, such as a hurricane, that might affect a region. | [No](#anticipate-data-loss-and-inconsistencies)  | Yes |
 | Customer-managed (unplanned) failover  | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | Yes |
 | Microsoft-managed                      | Entire region   | The primary region becomes unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | Yes |
 
@@ -221,7 +221,7 @@ The following table can be used to reference feature support.
 | **Storage Actions**              | Supported<sup>1</sup> | Supported<sup>1</sup> | 
 | **Point-in-time restore (PITR)** | Unsupported           | Supported             |
 
-<sup>1</sup> If you initiate a customer-managed planned or unplanned failover, storage tasks can't operate on the account until it fails back to the original primary region. [Learn more](../../reliability/reliability-storage-actions.md#cross-region-disaster-recovery-and-business-continuity).
+<sup>1</sup> If you initiate a customer-managed planned or unplanned failover, storage tasks can't operate on the account until it fails back to the original primary region. [Learn more](/azure/reliability/reliability-storage-actions#cross-region-disaster-recovery-and-business-continuity).
 
 ### Failover isn't for account migration
 
@@ -291,5 +291,5 @@ Microsoft also recommends that you design your application to prepare for the po
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md)
 - [Azure Storage redundancy](storage-redundancy.md)
-- [How customer-managed planned failover (preview) works](storage-failover-customer-managed-planned.md)
+- [How customer-managed planned failover works](storage-failover-customer-managed-planned.md)
 - [How customer-managed (unplanned) failover works](storage-failover-customer-managed-unplanned.md)

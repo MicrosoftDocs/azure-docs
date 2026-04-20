@@ -22,7 +22,7 @@ In this article, you learn how [Azure Resource Health](/azure/service-health/res
 
 - The alerts are updated to have all the necessary information for better reporting and triage purposes.
 
-- You can [leverage Azure Action groups on Resource Health alerts](./configure-alerts-for-azure-vmware-solution.md) that allow you to configure Email/SMS/Webhook/ITSM and get notified via communication method of your choice.
+- You can [leverage Azure Action groups on Resource Health alerts](./configure-alerts-for-azure-vmware-solution.md) that allow you to configure Email/SMS/[Webhook](/azure/azure-monitor/alerts/activity-log-alerts-webhook)/[ITSM](/azure/azure-monitor/alerts/itsmc-overview) and get notified via communication method of your choice.
 
 - The health of your private cloud infrastructure reflects following statuses: **Available**, **Unavailable**, **Unknown** & **Degraded**. To learn more about the health status, see the [health status](/azure/service-health/resource-health-overview#health-status) section.
 

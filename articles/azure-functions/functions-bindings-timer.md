@@ -417,7 +417,7 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 
 > [!NOTE]
 > NCRONTAB expression supports both **five field** and **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression.
-> If the CRON expression is invalid the Azure Portal Function Test will display a 404 error, if Application Insights is connected more details are logged there.
+> If the CRON expression is invalid the Azure portal Function Test will display a 404 error, if Application Insights is connected more details are logged there.
 
 #### NCRONTAB time zones
 

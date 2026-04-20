@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 11/24/2025
+ms.date: 02/26/2026
 ai-usage: ai-assisted
 
 ---
@@ -17,7 +17,7 @@ This article shows how to embed and run small Open Neural Network Exchange (ONNX
 > [!IMPORTANT]
 > Data flow graphs currently only support MQTT (Message Queuing Telemetry Transport), Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
-## Why use in-band ONNX interference
+## Why use in-band ONNX inference
 
 With Azure IoT Operations data flow graphs, you can embed small ONNX model inference directly in the pipeline instead of calling an external prediction service. This approach offers several practical advantages:
 
@@ -56,7 +56,7 @@ Before you begin, ensure you have:
 - Access to a container registry like Azure Container Registry.
 - Development environment set up for WebAssembly module development.
 
-For detailed setup instructions, see [Develop WebAssembly modules](./howto-develop-wasm-modules.md).
+For detailed setup instructions, see [Develop WebAssembly modules](./howto-build-wasm-modules.md).
 
 ## Architecture pattern
 
@@ -277,7 +277,7 @@ Reuse the streamlined sample builders or build locally:
 
 Follow this deployment process:
 
-1. Build your WASM module in release mode and produce a `<module-name>-<version>.wasm` file.
+1. Build your WASM module in release mode and produce a `.wasm` file.
 1. Push the module and optionally a graph definition to your registry by using OCI Registry as Storage (ORAS).
 1. Create or reuse a registry endpoint in Azure IoT Operations.
 1. Create a data flow graph resource that references your graph definition artifact.
@@ -301,6 +301,7 @@ Inference in WASM data flow graphs has the following limitations:
 
 ## Next steps
 
-- [Develop WebAssembly modules](./howto-develop-wasm-modules.md)
+- [Develop WebAssembly modules](./howto-build-wasm-modules.md)
+- [Build WebAssembly modules with VS Code](./howto-build-wasm-modules.md)
 - [Configure WebAssembly graph definitions](./howto-configure-wasm-graph-definitions.md)
 - [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)

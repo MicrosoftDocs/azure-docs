@@ -1,15 +1,14 @@
 ---
-title: Connection monitor overview
+title: Connection Monitor Overview
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher connection monitor and how to use it to monitor network communication in a distributed environment.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 12/29/2024
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
 
-#CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 # Customer intent: "As an Azure administrator, I want to use a connectivity monitoring tool across Azure and hybrid environments, so that I can diagnose network issues, measure performance metrics, and ensure reliable communication between my virtual machines and endpoints."
 ---
 
@@ -42,7 +41,7 @@ Here are some of the benefits of using Connection monitor:
 
 - Supported source endpoints enabled with Network Watcher extension: Azure VMs, Azure virtual machine scale sets, and Arc enabled on-premises hosts.
 
-- Supported destination endpoints: Azure VMs, Azure virtual machine scale sets, Arc enabled on-premises hosts, URLs, FQDNs, and IP addresses. Destination endpoints don't require the Network Watcher extension.
+- Supported destination endpoints: Azure Virtual Machines, Azure virtual machine scale sets, Arc enabled on-premises hosts, URLs, FQDNs, or IP addresses, including on-premises endpoints without Arc. Destination endpoints don't require the Network Watcher extension.
 
 - High probing frequencies and visibility into network performance  
 
@@ -72,7 +71,7 @@ To monitor connectivity from the on-premises host, it must be enabled with Arc a
 Once the Azure Arc agent is enabled, proceed to enable the Azure Monitor Agent. For more information, see [Install and manage Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage).
 
 > [!TIP]
-You can escape the installation process of the Azure Monitor Agent extension if you use the Azure Portal to create your connection monitor. However, you still need to enable the Azure Arc agent on the on-premises host machines. 
+You can escape the installation process of the Azure Monitor Agent extension if you use the Azure portal to create your connection monitor. However, you still need to enable the Azure Arc agent on the on-premises host machines. 
 
 > [!NOTE]
 > Currently, Connection monitor only supports Arc-enabled on-premises hosts as source endpoints. Log Analytics agent is no longer supported for monitoring on-premises machines with Connection monitor.

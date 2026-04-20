@@ -96,7 +96,7 @@ This corruption is neither a bug on ONTAP nor the Azure NetApp Files service its
 Oracle publishes [document 1495104.1](https://support.oracle.com/knowledge/Oracle%20Cloud/1495104_1.html), which is continually updated with recommended dNFS patches. If your database uses dNFS, ensure the DBA team is checking for updates in this document.
 
 >[!IMPORTANT]
-> Customers using Oracle dNFS with NFSv4.1 on Azure NetApp Files volumes must ensure to take actions mentioned under [Are there any patches required for use of Oracle dNFS with NFSv4.1?](#are-there-any-patches-required-for-use-of-oracle-dnfs-with-nfsv41).
+> Customers using Oracle dNFS with NFSv4.1 on Azure NetApp Files volumes must ensure to take actions mentioned under [Are there any patches required for use of Oracle dNFS with NFSv4.1?](#are-there-any-patches-required-for-use-of-oracle-dnfs-with-nfsv41)
 
 ### Are there any patches required for use of Oracle dNFS with NFSv4.1?
 >[!IMPORTANT]

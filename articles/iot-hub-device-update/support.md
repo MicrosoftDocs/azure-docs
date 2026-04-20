@@ -22,7 +22,7 @@ If you experience problems while using the Device Update service, there are seve
 
 **Microsoft Customer Support team** - Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Feature requests** - The DU product tracks feature requests via the product's [Device Update Discussions](https://github.com/Azure/iot-hub-device-update/discussions) community.
+**Feature requests** - The DU product tracks feature requests via the product's [Device Update Discussions](https://github.com/Azure/iot-hub-device-update/blob/develop/CONTRIBUTING.md) community.
 
 ## Linux Operating Systems
 

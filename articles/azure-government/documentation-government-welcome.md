@@ -32,7 +32,7 @@ There are some key differences that developers working on applications hosted in
 
 ## Region pairing
 
-Azure relies on [paired regions](../reliability/cross-region-replication-azure.md) to deliver [geo-redundant storage](../storage/common/storage-redundancy.md). The following table shows the primary and secondary region pairings in Azure Government.
+Azure relies on [paired regions](/azure/reliability/cross-region-replication-azure) to deliver [geo-redundant storage](../storage/common/storage-redundancy.md). The following table shows the primary and secondary region pairings in Azure Government.
 
 |Geography|Regional Pair A|Regional Pair B|
 |---------|---------------|---------------|

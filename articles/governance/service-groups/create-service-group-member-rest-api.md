@@ -31,8 +31,16 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 
 ## Create in REST API
 
+The `[scope]` in the URLs below refers to the full Azure Resource Manager path of the resource you want to add as a member. The scope varies depending on the type of resource:
+
+| Resource type | Scope format |
+|---|---|
+| Subscription | `subscriptions/{subscriptionId}` |
+| Resource group | `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
+| Resource | `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}` |
+
 For REST API, use the
-[Service Groups Member- Create or Update]() endpoint to create a new service group member.
+[Service Groups Member - Create or Update](/rest/api/resources/service-group-member/create-or-update) endpoint to create a new service group member.
 
 In this example, we're adding a Virtual Machine [VM1] to a service group [Contoso].
 
@@ -71,7 +79,7 @@ specify the service group as the parent, use the **TargetID** property.
 ## Clean up resources
 
 To remove the service group created in this document, use the
-[Service Group Member Delete]() endpoint:
+[Service Group Member - Delete](/rest/api/resources/service-group-member/delete) endpoint:
 
 - REST API URI
 
@@ -81,6 +89,22 @@ To remove the service group created in this document, use the
 
 - No Request Body
 
+## Verify your service group member
+
+The Create Service Group Member API is an asynchronous call. A successful response means the request was accepted, but the operation may still be processing. To check the operation status:
+
+1. Look for the **Azure-AsyncOperation** header in the response from the PUT request.
+2. Make a GET request to the URL in that header to check the operation status.
+
+```json
+{
+    "status": "Succeeded"
+}
+```
+
+Possible status values include `Succeeded`, `Failed`, and `InProgress`. Wait for the operation to complete before relying on the membership relationship.
+
+For more information on checking operation status, see [Checking for Service Group Operation Status](manage-service-groups.md#checking-for-service-group-operation-status).
 
 ## Next step
 

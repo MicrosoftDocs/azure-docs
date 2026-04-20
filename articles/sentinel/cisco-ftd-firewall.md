@@ -5,7 +5,7 @@ author: guywi-ms
 ms.date: 03/24/2025
 ms.service: microsoft-sentinel
 ms.author: guywild
-ms.topic: conceptual
+ms.topic: how-to
 ms.collection: sentinel-data-connector
 ---
 

@@ -12,7 +12,12 @@ ms.date: 11/11/2024
 
 # Manage multiple tenants in Microsoft Sentinel as an MSSP
 
-If you're a managed security service provider (MSSP) and you're using [Azure Lighthouse](/azure/lighthouse/overview) to offer security operations center (SOC) services to your customers, you can manage your customers' Microsoft Sentinel resources directly from your own Azure tenant, without having to connect to the customer's tenant. The Microsoft Sentinel technical playbook for MSSPs is a great source for best practices. For more information, download the technical playbook here at [https://aka.ms/mssentinelmssp](https://aka.ms/mssentinelmssp).
+If you're a managed security service provider (MSSP) and you're using [Azure Lighthouse](/azure/lighthouse/overview) to offer security operations center (SOC) services to your customers, you can manage your customers' Microsoft Sentinel resources directly from your own Azure tenant, without having to connect to the customer's tenant. 
+
+> [!IMPORTANT]
+> After **March 31, 2027**, Microsoft Sentinel will no longer be supported in the Azure portal and will be available only in the Microsoft Defender portal. All customers using Microsoft Sentinel in the Azure portal will be [redirected to the Defender portal and will use Microsoft Sentinel in the Defender portal only](overview.md#microsoft-sentinel-in-the-azure-portal-retirement-timeline).
+>
+> If you're still using Microsoft Sentinel in the Azure portal, we recommend that you start planning your move to the Defender portal to ensure a smooth experience and to take full advantage of unified security operations and multitenant management capabilities offered by the Defender portal. For guidance and best practices, see the [Microsoft Defender portal implementation guide for MSSPs](/unified-secops/playbook-managed-security). 
 
 ## Prerequisites
 
@@ -43,7 +48,7 @@ If you have registered Microsoft Sentinel in your tenant, and your customers in 
 1. Open Microsoft Sentinel, where you'll see all the workspaces in the selected subscriptions and can work with them seamlessly, just like any workspace in your own tenant.
 
 > [!NOTE]
-> You will not be able to deploy connectors in Microsoft Sentinel from within a managed workspace configured with Azure Lighthouse alone. To deploy a connector in this manner, you must also configure GDAP. For detailed information on this topic, see (The Microsoft Sentinel technical playbook for MSSPs)(https://aka.ms/mssentinelmssp).
+> You will not be able to deploy connectors in Microsoft Sentinel from within a managed workspace configured with Azure Lighthouse alone. To deploy a connector in this manner, you must also configure GDAP. For detailed information on this topic, see [Microsoft Defender portal implementation guide for MSSPs](/unified-secops/playbook-managed-security).
 
 ## Related content
 

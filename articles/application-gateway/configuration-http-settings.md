@@ -188,6 +188,15 @@ This capability establishes direct, one-to-one mapping between frontend and back
 >
 >Dedicated Backend connection is not supported with HTTP/2.
 
+**Troubleshooting 4xx Errors with Dedicated Backend Connections**
+
+When Dedicated Backend Connections is enabled for a backend setting, and the backend application returns 4xx status codes, use the following guidance to diagnose and resolve the issue.
+
+**Verify Service Principal Name (SPN) Configuration**-Authentication mechanisms such as NTLM and Kerberos require correctly registered Service Principal Names .Ensure that SPNs are properly configured and unique in the directory to allow successful authentication.For additional details , see the [Kerberos documentation.]( /windows/win32/ad/mutual-authentication-using-kerberos)
+
+**Review Backend Server Logs for Sub‑Status Codes**-Application Gateway surfaces only the primary HTTP status (for example, 401 Unauthorized). To identify the underlying cause, review the backend server logs for more detailed sub‑status information.For guidance refer to the [Windows Authentication configuration.](/iis/configuration/system.webserver/security/authentication/windowsauthentication/#remarks)
+
+
 ## [Backend Settings](#tab/backendsettings)
 
 ### Port

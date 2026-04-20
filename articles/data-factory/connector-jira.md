@@ -4,8 +4,8 @@ description: Learn how to copy data from Jira to supported sink data stores usin
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 10/29/2025
+ms.topic: how-to
+ms.date: 04/03/2026
 ms.author: jianleishen
 ms.custom:
   - synapse
@@ -18,7 +18,7 @@ ms.custom:
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Jira. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Jira connector version 2.0 provides improved native Jira support. If you are using Jira connector version 1.0 in your solution, please [upgrade the Jira connector](#upgrade-the-jira-connector-from-version-10-to-version-20) before **March 31, 2026**. Refer to this [section](#jira-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
+> The Jira connector version 2.0 provides improved native Jira support. If you are using Jira connector version 1.0 in your solution, please [upgrade the Jira connector](#upgrade-the-jira-connector-from-version-10-to-version-20) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **April 30, 2026**. Refer to this [section](#jira-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 

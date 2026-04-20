@@ -6,7 +6,7 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.author: rmareddy
 author: duongau
-ms.date: 11/05/2025
+ms.date: 03/02/2026
 ms.custom: references_regions
 # Customer intent: As a network administrator, I want to understand the features of ExpressRoute FastPath so that I can determine if it meets my organization's performance needs.
 ---
@@ -66,7 +66,7 @@ FastPath has IP address limits based on your circuit type. Plan your deployment 
 
 | Circuit type | Bandwidth | IP address limit |
 |--------------|-----------|------------------|
-| ExpressRoute Direct | 100 Gbps | 200,000 |
+| ExpressRoute Direct | 100, 400 Gbps | 200,000 |
 | ExpressRoute Direct | 10 Gbps | 100,000 |
 | ExpressRoute provider | 10 Gbps or lower | 25,000 |
 
@@ -120,7 +120,7 @@ FastPath supports Private Link connectivity for ExpressRoute Direct circuits (10
 #### Important considerations for Private Link
 
 - FastPath supports private endpoints deployed in spoke virtual networks that are peered to your hub virtual network
-- FastPath supports up to 100-Gbps connectivity to a single availability zone
+- With 100-Gbps or 400-Gbps ExpressRoute Direct, FastPath supports up to 100-Gbps connectivity to a single availability zone 
 - Cross-region connectivity for virtual networks, private endpoints, and Private Link services isn't supported. Traffic to cross-region resources flows through the ExpressRoute gateway
 - Azure Private Link pricing doesn't apply to traffic sent over FastPath. For more information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/)
 - If FastPath becomes unavailable, traffic automatically flows through the ExpressRoute gateway to maintain connectivity
@@ -139,6 +139,10 @@ FastPath doesn't support all scenarios. Review the following limitations when pl
 FastPath doesn't support traffic to Azure internal load balancers or Azure PaaS services deployed in spoke virtual networks. Traffic to these services flows through the ExpressRoute gateway instead.
 
 Internal load balancers deployed in the hub virtual network work with FastPath and traffic bypasses the gateway.
+
+### Azure Firewall 
+
+You can use Azure Firewall with FastPath in the hub virtual network. However, Azure Firewall deployed in spoke virtual networks isn't supported. Traffic to Azure Firewall in spoke networks flows through the ExpressRoute gateway instead of FastPath.
 
 ### Virtual network peering configurations
 

@@ -1,12 +1,12 @@
 ---
 title: Choose the right Azure Bastion SKU to meet your needs
 description: Learn about the different Azure Bastion SKU tiers and choose the right one for your requirements.
-author: abell
-ms.author: abell
+author: cherylmc
+ms.author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 11/24/2025
-# Customer intent: As a cloud administrator, I want to compare Azure Bastion SKU tiers and understand their features, so that I can select the appropriate tier for my organization's secure remote access requirements.
+# Customer intent: As a cloud administrator, I want to compare Azure Bastion SKU tiers and understand their features, so that I can select the appropriate SKU for my organization's secure remote access requirements.
 ---
 
 # Choose the right Azure Bastion SKU to meet your needs
@@ -52,13 +52,13 @@ Compare the features across all four Azure Bastion SKU tiers:
 ¹ For dedicated deployments (Basic, Standard, Premium), the AzureBastionSubnet must be /26 or larger (/25, /24, etc.). For more information, see [Azure Bastion subnet](configuration-settings.md#subnet).  
 ² Private-only deployment option doesn't require public IP address. For more information, see [Private-only deployment](private-only-deployment.md).  
 ³ Bastion Developer uses a shared resource and supports one VM connection at a time.  
-⁴ Developer SKU supports availability zones in select regions. For more information, see [Reliability in Azure Bastion](../reliability/reliability-bastion.md).  
+⁴ Developer SKU supports availability zones in select regions. For more information, see [Reliability in Azure Bastion](/azure/reliability/reliability-bastion).  
 ⁵ At maximum scale (50 instances). For more information, see [Instances and host scaling](configuration-settings.md#instance).  
 ⁶ First 5 GB per month is free. For more information, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/).
 
 ## Performance and scalability
 
-The following table shows the capacity and scaling characteristics of each SKU tier:
+The following table shows the capacity and scaling characteristics of each SKU:
 
 | Metric | Developer | Basic | Standard | Premium |
 |--------|-----------|----------|---------|---------|
@@ -73,10 +73,9 @@ The following table shows the capacity and scaling characteristics of each SKU t
 
 ## Regional availability
 
-Azure Bastion SKU availability varies by region:
+Azure Bastion SKU availability varies by region. **Basic, Standard, Premium SKUs** are available in all Azure regions where Azure Bastion is supported.
 
-- **Developer SKU**: Available in select regions. For the current list of supported regions, see [Connect with Azure Bastion Developer](quickstart-developer.md).
-- **Basic, Standard, Premium SKUs**: Available in all Azure regions where Azure Bastion is supported.
+[!INCLUDE [regions](../../includes/bastion-developer-regions.md)]
 
 ## Decision framework
 
@@ -88,7 +87,9 @@ Developer SKU is available for development and test environments at no cost. Cho
 
 - You're working in dev/test environments
 - You don't require virtual network peering or concurrent connections
-- You're operating in a [supported region](quickstart-developer.md)
+- You're operating in a [supported region](#regional-availability)
+
+For production-level workloads, choose Basic, Standard, or Premium SKU based on the capabilities you need.
 
 > [!WARNING]
 > Developer SKU isn't suitable for production workloads. It provides access to only one VM at a time and doesn't support virtual network peering.
@@ -126,8 +127,8 @@ Azure Bastion supports upgrading from lower SKUs to higher SKUs, but downgrading
 
 ### Upgrade paths
 
-- **Developer to Basic/Standard/Premium**: Requires creating an AzureBastionSubnet (/26 or larger) and a public IP address (Standard SKU, Static allocation). See [Upgrade from Bastion Developer](upgrade-sku.md#upgrade-from-bastion-developer).
-- **Basic and Higher**: Upgrade through the Azure portal. You can add features at the same time you upgrade. See [Upgrade from Basic or Standard SKU](upgrade-sku.md#upgrade-from-the-basic-or-standard-sku).
+- **Developer to Basic/Standard/Premium**: Requires creating an AzureBastionSubnet (/26 or larger) and a public IP address (Standard SKU, Static allocation). See [Upgrade from Developer SKU](upgrade-sku.md#upgrade-from-developer-sku).
+- **Basic and Higher**: Upgrade through the Azure portal. You can add features at the same time you upgrade. See [Upgrade from Basic or Standard SKU](upgrade-sku.md#upgrade-from-basic-or-standard-sku).
 
 > [!IMPORTANT]
 > Upgrades take approximately 10 minutes. Downgrading a SKU isn't supported. You must delete and recreate Azure Bastion. You can add features during the upgrade process.
@@ -142,9 +143,9 @@ For detailed pricing information and cost optimization strategies, see [Azure Ba
 
 ## Next steps
 
-- [Connect with Azure Bastion Developer](quickstart-developer.md)
+- [Deploy Bastion from the Azure portal](quickstart-host-portal.md)
 - [Deploy Bastion with default settings (Standard SKU)](quickstart-host-portal.md)
-- [Deploy Bastion using specified settings (Basic SKU or higher)](tutorial-create-host-portal.md)
+- [Deploy Bastion from the Azure portal](quickstart-host-portal.md)
 - [About Bastion configuration settings](configuration-settings.md)
 - [View or upgrade a SKU](upgrade-sku.md)
 - [Configure host scaling](configure-host-scaling.md)

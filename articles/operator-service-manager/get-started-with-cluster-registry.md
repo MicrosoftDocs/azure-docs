@@ -116,7 +116,7 @@ With HA enabled, cluster registry and webhook pods support a replicaset with a m
   * A weight of 100 is used.
 
 #### Node affinity
-Nexus node placement is spread evenly across zones by design, resulting in zonal redundancy. AOSM further spreads pods evenly across nodes, using the following rules:  
+Nexus node placement is spread evenly across zones by design, resulting in zone redundancy. AOSM further spreads pods evenly across nodes, using the following rules:  
 * Prefer nodes without 'control-plane' role (weight: 10)
 * Prefer nodes with 'system' mode (weight: 20)
 

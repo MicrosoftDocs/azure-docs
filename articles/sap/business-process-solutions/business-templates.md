@@ -3,7 +3,7 @@ title: Templates for Business Process Solutions
 description: Learn how Business Process Solutions templates support common business processes and how to utilize those resources to turn data models into practical insights.
 author: mohitmakhija1
 ms.service: sap-on-azure
-ms.subservice:
+ms.subservice: center-sap-solutions
 ms.topic: overview
 ms.custom: subject-monitoring
 ms.date: 11/07/2025

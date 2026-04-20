@@ -137,6 +137,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Enable guest user access (preview)
+            url: how-to-enable-guest-access.md
           - text: Configure conditional access policies
             url: how-to-configure-intune-conditional-access-policies.md
           - text: Enable single sign-on for dev box

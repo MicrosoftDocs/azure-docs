@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-[!INCLUDE [reliability-az-description](../reliability/includes/reliability-availability-zone-description-include.md)]
+[!INCLUDE [reliability-az-description](~/reusable-content/ce-skilling/azure/includes/reliability/reliability-availability-zone-description-include.md)]
 
 For scenarios where you need high reliability for your logic app workflows, you can set up *zone redundancy* with *availability zones* within an Azure region. Azure Logic Apps can then distribute logic app workloads across all the availability zones within a region. This capability protects your apps and their information from datacenter failures within a region.
 
@@ -22,7 +22,7 @@ This guide shows how to enable zone redundancy for your logic apps.
 
 ## Prerequisites
 
-- Make sure that you understand zone redundancy support. Also, ensure you meet the requirements to use availability zones, including being in a supported region, when you create your logic app resource. For more information, see [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md#resilience-to-availability-zone-failures).
+- Make sure that you understand zone redundancy support. Also, ensure you meet the requirements to use availability zones, including being in a supported region, when you create your logic app resource. For more information, see [Reliability in Azure Logic Apps](/azure/reliability/reliability-logic-apps#resilience-to-availability-zone-failures).
 
 - You need to have an Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
@@ -72,4 +72,4 @@ For Standard logic apps only, follow these steps:
 
 ## Related content
 
-- [Reliability in Azure Logic Apps](../reliability/reliability-logic-apps.md)
+- [Reliability in Azure Logic Apps](/azure/reliability/reliability-logic-apps)

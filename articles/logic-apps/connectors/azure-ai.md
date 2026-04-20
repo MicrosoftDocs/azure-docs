@@ -1,17 +1,18 @@
 ---
-title: Connect to Azure AI services from Workflows
-description: Learn to integrate workflows with Azure OpenAI and Azure AI Search services using Azure Logic Apps.
-author: ecfan
+title: Connect to Azure OpenAI and Azure AI Search from Workflows
+description: Create workflows that integrate Azure OpenAI and Azure AI Search services by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
+author: ecfan
 ms.reviewers: estfan, divswa, azla
 ms.topic: how-to
-ms.date: 09/28/2025
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
+ms.date: 03/10/2026
+#Customer intent: As an integration and AI developer who works with Azure Logic Apps, I want to integrate my workflows to use Azure OpenAI and Azure Ai Search.
 ---
 
-# Connect to Azure AI services from workflows in Azure Logic Apps
+# Connect to Azure OpenAI and Azure AI Search from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -22,7 +23,7 @@ This guide provides an overview and examples that show how to use **Azure OpenAI
 - [What is Azure OpenAI Service](/azure/ai-services/openai/overview)
 - [What is Azure AI Search](/azure/search/search-what-is-azure-search)
 
-## Why use Azure Logic Apps with AI services?
+## Why connect to Azure OpenAI and Azure AI Search?
 
 Usually, building AI solutions involves several key steps and requires a few building blocks. Primarily, you need to have a dynamic ingestion pipeline and a chat interface that can communicate with large language models (LLMs) and vector databases.
 
@@ -37,7 +38,7 @@ Usually, building AI solutions involves several key steps and requires a few bui
 
 You can assemble various components, not only to perform data ingestion but also to provide a robust backend for the chat interface. This backend facilitates entering prompts and generates dependable responses during interactions. However, creating the code to manage and control all these elements can pose challenges, which is the case for most solutions.
 
-Azure Logic Apps offers a low code approach and simplifies backend management by providing prebuilt connectors that you use as building blocks to streamline the backend process. This approach lets you focus on sourcing your data and making sure that search results provide current and relevant information. With these AI connectors, your workflow acts as an orchestration engine that transfers data between AI services and other components that you want to integrate.
+Azure Logic Apps offers a low code approach and simplifies backend management by providing prebuilt connectors that you use as building blocks to streamline the backend process. This approach lets you focus on sourcing your data and making sure that search results provide current and relevant information. With these AI connectors, your workflow acts as an orchestration engine that transfers data between Foundry Tools and other components that you want to integrate.
 
 For more information, see the following resources:
 
@@ -46,7 +47,7 @@ For more information, see the following resources:
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - The Azure AI Search and Azure OpenAI resources to access and use in your workflow, including connection information:
 
@@ -94,13 +95,13 @@ The **Azure AI Search** connector has different versions, based on [logic app ty
 
 ### Authentication
 
-The AI managed connectors require an API key for authentication. However, the AI built-in connectors support multiple authentication types for your AI service endpoint. These options provide robust authentication that meets most customers' needs. Both built-in connectors can also directly connect to Azure OpenAI and Azure AI Search resources inside virtual networks or behind firewalls.
+The AI managed connectors require an API key for authentication. However, the AI built-in connectors support multiple authentication types for your Azure AI Services endpoint. These options provide robust authentication that meets most customers' needs. Both built-in connectors can also directly connect to Azure OpenAI and Azure AI Search resources inside virtual networks or behind firewalls.
 
-The following table describes the built-in connector authentication options, all which require that you provide the URL for the AI service endpoint:
+The following table describes the built-in connector authentication options, all which require that you provide the URL for the Azure AI Services endpoint:
 
 | Authentication type | Description |
 |---------------------|-------------|
-| **URL and key-based authentication** | Provide the API key or admin generated by the AI service. |
+| **URL and key-based authentication** | Provide the API key or admin generated by the Microsoft Foundry tool. |
 | **Active Directory OAuth** (Microsoft Entra ID) | Provide information such as your Entra tenant, client ID, and password to authenticate as an Entra user. |
 | **Managed identity** | After you set up managed identity authentication on your AI service resource and your logic app resource, you can use that identity to authenticate access for the connector. |
 
@@ -108,7 +109,7 @@ The following table describes the built-in connector authentication options, all
 
 For more information, see the following resources:
 
-- [Authenticate requests to Azure AI services](/azure/ai-services/authentication)
+- [Authenticate requests to Foundry Tools](/azure/ai-services/authentication)
 - [What is Microsoft Entra ID](/entra/fundamentals/whatis)
 - [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)
 - [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](../authenticate-with-managed-identity.md?tabs=standard)
@@ -178,7 +179,7 @@ To save considerable time and effort when you build an ingestion pipeline, imple
 
 Each step in this pattern makes sure that the AI seamlessly extracts all the crucial information from your data files. If run as a stateless workflow, this pattern also provides faster performance. This approach simplifies not only the coding aspect but also guarantees that your workflows have effective authentication, monitoring, and deployment processes in place.
 
-:::image type="content" source="media/azure-ai/ingest-data-workflow.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and workflow operations that implement data ingestion functionality.":::
+:::image type="content" source="media/azure-ai/ingest-data-workflow.png" alt-text="Screenshot that shows the Azure portal, Standard workflow designer, and workflow operations that implement data ingestion functionality.":::
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|
@@ -199,7 +200,7 @@ As your vector databases continue to ingest data, make sure the data is easily s
 
 The following pattern is only one example that shows how a chat workflow might look:
 
-:::image type="content" source="media/azure-ai/chat-workflow.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and workflow operations that implement a chat interaction.":::
+:::image type="content" source="media/azure-ai/chat-workflow.png" alt-text="Screenshot that shows the Azure portal, Standard workflow designer, and workflow operations that implement a chat interaction.":::
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|

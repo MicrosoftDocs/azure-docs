@@ -1,5 +1,5 @@
 ---
-title: Restore Azure Kubernetes Service (AKS) using Azure Backup
+title: Restore Azure Kubernetes Service (AKS) using Azure Backup.
 description: This article explains how to restore backed-up Azure Kubernetes Service (AKS) using Azure Backup.
 ms.topic: how-to
 ms.service: azure-backup
@@ -24,7 +24,13 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) in the target AKS cluster. Also, you must [enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#trusted-access-related-operations) between the Backup vault and the AKS cluster.
 
-- In case you're trying to restore a backup stored in Vault Tier, you need to provide a storage account in input as a staging location. Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one vault to staging storage account across tenants. Ensure that the staging storage account for the restore has the **AllowCrossTenantReplication** property set to **true**. 
+- For Azure Files-based volumes, ensure that the persistent volumes have the Reclaim Policy set to **Retain** before performing a restore. This ensures that snapshots remain secure even if the PVC is deleted. If you need to restore and the PVC still exists in the target cluster, delete it before starting the restore operation.
+
+- For Azure Files-based volumes, the target AKS cluster must have the **Storage File Data Privileged Contributor** role assigned on the storage account hosting the file shares. For dynamically provisioned volumes, the Backup vault handles this assignment automatically. For statically provisioned volumes, you must assign this role manually.
+
+- Azure Files-based volumes can only be restored to clusters within the same subscription and region. Cross-region and cross-subscription restore is not supported for Azure Files volumes.
+
+- In case you're trying to restore a backup stored in Vault Tier, you need to provide a storage account in input as a staging location. Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one vault to staging storage account across tenants. Ensure that the staging storage account for the restore has the **AllowCrossTenantReplication** property set to **true**. Note that Vault Tier is only supported for Azure Disk-based volumes; Azure Files volumes use Operational Tier only. 
 
 - Azure Backup doesn't automatically scale out AKS nodes—it only restores data and associated resources. AKS manages autoscaling by using features like the Cluster Autoscaler. If autoscaling is enabled on the target cluster, it should handle resource scaling automatically. Before restoring, ensure that the target cluster has sufficient resources to avoid restore failures or performance issues 
 
@@ -80,6 +86,10 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/validate-restore-parameters.png" alt-text="Screenshot shows the validation of restore parameters.":::
 
+   > [!NOTE]
+   > - For Azure Files-based volumes, validation checks that the target AKS cluster has the **Storage File Data Privileged Contributor** role on the storage account. If this role is missing, you may need to assign it manually, especially for statically provisioned volumes.
+   > - If you're restoring Azure Files volumes and Kubernetes secrets are used to store storage account keys, ensure that secrets were included in the backup configuration.
+
 
 1. After the validation is successful, select **Next: Review + restore**.
 1. On the **Review + restore** pane, review the selections, and then select **Restore** to restore the backups to the selected cluster.
@@ -94,7 +104,7 @@ As part of item-level restore capability of AKS backup, you can utilize multiple
 
   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-namespace.png" alt-text="Screenshot shows selection of Namespace." lightbox="./media/azure-kubernetes-service-cluster-restore/select-namespace.png":::
 
-  You can also select the checkboxes if you want to restore cluster scoped resources and persistent volumes (of Azure Disk only).
+  You can also select the checkboxes if you want to restore cluster scoped resources and persistent volumes.
 
   To restore specific cluster resources, use the labels attached to them in the textbox. Only resources with the entered labels are backed up.
 
@@ -112,6 +122,24 @@ As part of item-level restore capability of AKS backup, you can utilize multiple
    
      :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-backed-up-namespace-for-migrate.png" alt-text="Screenshot shows the selection of namespace for migration." lightbox="./media/azure-kubernetes-service-cluster-restore/select-backed-up-namespace-for-migrate.png":::
 
+- **Resource Modifier** (Optional): To modify resource properties during restore (such as changing the storage class for persistent volume claims), you can deploy a Resource Modifier ConfigMap in the target cluster. This is useful when restoring to an alternate cluster with different storage classes. For example, to change the storage class:
+
+   1. Create a YAML file with resource modification rules:
+      ```yaml
+      version: v1
+      resourceModifierRules:
+        - conditions:
+            groupResource: persistentvolumeclaims
+          patches:
+            - operation: replace
+              path: "/spec/storageClassName"
+              value: "azurefile-csi-premium"
+      ```
+   
+   2. Deploy the ConfigMap: `kubectl create cm <configmap-name> --from-file=<yaml-file> -n <namespace>`
+   
+   3. Reference this ConfigMap in the restore configuration under **Resource Modifier**.
+
 Azure Backup for AKS currently supports the following two options when doing a restore operation when resource clash happens (backed-up resource has the same name as the resource in the target AKS cluster). You can choose one of these options when defining the restore configuration.
 
 - **Skip**: This option is selected by default. For example, if you backed up a PVC named *pvc-azuredisk* and you're restoring it in a target cluster that has the PVC with the same name, then the backup extension skips restoring the backed-up persistent volume claim (PVC). In such scenarios, we recommend you to delete the resource from the cluster, and then do the restore operation.
@@ -120,6 +148,33 @@ Azure Backup for AKS currently supports the following two options when doing a r
 
 >[!Note]
 >AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumes in the original location, delete the existing Persistent Volumes, and then do the restore operation.
+
+## Verify restore completion
+
+After the restore operation completes, verify that resources have been successfully restored:
+
+1. Check that the resources are available in the target cluster:
+
+   ```bash
+   kubectl get pods -n <namespace>
+   kubectl get pvc -n <namespace>
+   kubectl get pv
+   ```
+
+2. For Azure Files-based volumes, verify that the application can access the restored data:
+
+   ```bash
+   kubectl exec -it <pod-name> -n <namespace> -- ls /mnt/azure
+   ```
+
+   Replace `/mnt/azure` with your actual mount path.
+
+3. Verify that Azure Files snapshots are still available in the storage account for future restores.
+
+4. If you're restoring statically provisioned Azure Files volumes, ensure that:
+   - The Kubernetes secrets used to access the file shares were restored.
+   - The **Storage File Data Privileged Contributor** role is assigned to the target AKS cluster on the storage account.
+   - The file share exists in the storage account.
 
 ## Restore the AKS clusters in secondary region
 

@@ -5,8 +5,8 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
-ms.topic: conceptual
-ms.date: 11/19/2024
+ms.topic: tutorial
+ms.date: 03/30/2026
 ms.author: cshoe
 ---
 
@@ -25,8 +25,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* [Azure CLI](/cli/azure/install-azure-cli).
+- An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Considerations
 
@@ -36,7 +36,7 @@ When you run Eureka Server for Spring in Container Apps, be aware of the followi
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Scope     | The Eureka Server for Spring component runs in the same environment as the connected container app.                                                                                                                                                                                                                              |
 | Scaling   | The Eureka Server for Spring component can't scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. To achieve high availability, see [Create a highly available Eureka Service in Container Apps](java-eureka-server-highly-available.md).                                                          |
-| Resources | The container resource allocation for Eureka Server for Spring is fixed. The number of the CPU cores is 0.5, and the memory size is 1 Gi.                                                                                                                                                                                        |
+| Resources | The container resource allocation for Eureka Server for Spring is fixed. The number of the CPU cores is `0.5`, and the memory size is `1 Gi`.                                                                                                                                                                                        |
 | Pricing   | The Eureka Server for Spring billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You can delete components that are no longer in use to stop billing.                                                                                              |
 | Binding   | Container apps connect to a Eureka Server for Spring component via a binding. The bindings inject configurations into container app environment variables. After a binding is established, the container app can read the configuration values from environment variables and connect to the Eureka Server for Spring component. |
 
@@ -284,7 +284,7 @@ az containerapp update \
 > To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
 
 > [!NOTE]
-> The dashboard isn't available in Azure China 21Vianet.
+> The dashboard isn't available in Azure operated by 21Vianet.
 
 1. Create a custom role definition.
 
@@ -300,7 +300,7 @@ az containerapp update \
    }'
    ```
 
-    Make sure to replace the `<SUBSCRIPTION_ID>` placeholder in the `AssignableScopes` value with your subscription ID.
+   Make sure to replace the `<SUBSCRIPTION_ID>` placeholder in the `AssignableScopes` value with your subscription ID.
 
 1. Assign the custom role to your account on a managed environment resource.
 
@@ -359,7 +359,7 @@ az group delete --resource-group $RESOURCE_GROUP
 The following sections describe the supported configurations. For more information, see [Spring Cloud Eureka Server](https://cloud.spring.io/spring-cloud-netflix/reference/html/#spring-cloud-eureka-server).
 
 > [!NOTE]
-> Please submit support tickets for new feature requests.
+> You can submit support tickets for new feature requests.
 
 ### Configuration options
 
@@ -369,22 +369,22 @@ The following configuration settings are available on the `eureka.server` config
 
 | Name                                                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Default value |
 |-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| `eureka.server.enable-self-preservation`                  | When enabled, the server keeps track of the number of renewals it should receive from the server. Any time the number of renewals drops below the threshold percentage as defined by `eureka.server.renewal-percent-threshold`. The default value is set to `true` in the original Eureka server, but in the Eureka Server Java component, the default value is set to `false`. See [Limitations of Eureka Server for Spring Java component](#limitations). | `false`       |
+| `eureka.server.enable-self-preservation`                  | When enabled, the server keeps track of the number of renewals it should receive from the server. When the number of renewals drops below the threshold percentage as defined by `eureka.server.renewal-percent-threshold`. The default value is set to `true` in the original Eureka server, but in the Eureka Server Java component, the default value is set to `false`. See [Limitations of Eureka Server for Spring Java component](#limitations). | `false`       |
 | `eureka.server.renewal-percent-threshold`                 | The minimum percentage of renewals that is expected from the clients in the period specified by `eureka.server.renewal-threshold-update-interval-ms`. If the renewals drop below the threshold, the expirations are disabled if `eureka.server.enable-self-preservation` is enabled.                                                                                                                                                                        | `0.85`        |
 | `eureka.server.renewal-threshold-update-interval-ms`      | The interval with which the threshold - as specified in `eureka.server.renewal-percent-threshold` - needs to be updated.                                                                                                                                                                                                                                                                                                                                    | `0`           |
-| `eureka.server.expected-client-renewal-interval-seconds`  | The interval with which clients are expected to send their heartbeats. Defaults to 30 seconds. If clients send heartbeats with different frequency, say, every 15 seconds, then this parameter should be tuned accordingly, otherwise, self-preservation won't work as expected.                                                                                                                                                                            | `30`          |
-| `eureka.server.response-cache-auto-expiration-in-seconds` | Gets the time for which the registry payload should be kept in the cache if it is not invalidated by change events.                                                                                                                                                                                                                                                                                                                                         | `180`         |
+| `eureka.server.expected-client-renewal-interval-seconds`  | The interval with which clients are expected to send their heartbeats. Defaults to 30 seconds. If clients send heartbeats with different frequency, say, every 15 seconds, then this parameter should be tuned accordingly, otherwise, self-preservation doesn't work as expected.                                                                                                                                                                            | `30`          |
+| `eureka.server.response-cache-auto-expiration-in-seconds` | Gets the time for which the registry payload should be kept in the cache if change events don't invalidate it.                                                                                                                                                                                                                                                                                                                                        | `180`         |
 | `eureka.server.response-cache-update-interval-ms`         | Gets the time interval with which the payload cache of the client should be updated.                                                                                                                                                                                                                                                                                                                                                                        | `0`           |
 | `eureka.server.use-read-only-response-cache`              | The `com.netflix.eureka.registry.ResponseCache` currently uses a two level caching strategy to responses. A `readWrite` cache with an expiration policy, and a `readonly` cache that caches without expiry.                                                                                                                                                                                                                                                 | `true`        |
 | `eureka.server.disable-delta`                             | Checks to see if the delta information can be served to client or not.                                                                                                                                                                                                                                                                                                                                                                                      | `false`       |
 | `eureka.server.retention-time-in-m-s-in-delta-queue`      | Get the time for which the delta information should be cached for the clients to retrieve the value without missing it.                                                                                                                                                                                                                                                                                                                                     | `0`           |
-| `eureka.server.delta-retention-timer-interval-in-ms`      | Get the time interval with which the clean up task should wake up and check for expired delta information.                                                                                                                                                                                                                                                                                                                                                  | `0`           |
+| `eureka.server.delta-retention-timer-interval-in-ms`      | Get the time interval with which the cleanup task should wake up and check for expired delta information.                                                                                                                                                                                                                                                                                                                                                  | `0`           |
 | `eureka.server.eviction-interval-timer-in-ms`             | Get the time interval with which the task that expires instances should wake up and run.                                                                                                                                                                                                                                                                                                                                                                    | `60000`       |
 | `eureka.server.sync-when-timestamp-differs`               | Checks whether to synchronize instances when timestamp differs.                                                                                                                                                                                                                                                                                                                                                                                             | `true`        |
 | `eureka.server.rate-limiter-enabled`                      | Indicates whether the rate limiter should be enabled or disabled.                                                                                                                                                                                                                                                                                                                                                                                           | `false`       |
 | `eureka.server.rate-limiter-burst-size`                   | Rate limiter, token bucket algorithm property.                                                                                                                                                                                                                                                                                                                                                                                                              | `10`          |
 | `eureka.server.rate-limiter-registry-fetch-average-rate`  | Rate limiter, token bucket algorithm property. Specifies the average enforced request rate.                                                                                                                                                                                                                                                                                                                                                                 | `500`         |
-| `eureka.server.rate-limiter-privileged-clients`           | A list of certified clients. This is in addition to standard eureka Java clients.                                                                                                                                                                                                                                                                                                                                                                           | `N/A`         |
+| `eureka.server.rate-limiter-privileged-clients`           | A list of certified clients that are in addition to standard eureka Java clients.                                                                                                                                                                                                                                                                                                                                                                           | `N/A`         |
 | `eureka.server.rate-limiter-throttle-standard-clients`    | Indicate if rate limit standard clients. If set to `false`, only nonstandard clients are rate limited.                                                                                                                                                                                                                                                                                                                                                      | `false`       |
 | `eureka.server.rate-limiter-full-fetch-average-rate`      | Rate limiter, token bucket algorithm property. Specifies the average enforced request rate.                                                                                                                                                                                                                                                                                                                                                                 | `100`         |
 
@@ -476,7 +476,7 @@ Now you have a caller and callee application that communicate with each other us
 ## Limitations
 
 - The Eureka Server Java component comes with a default configuration, `eureka.server.enable-self-preservation`, set to `false`. This default configuration helps avoid times when instances aren't deleted after self-preservation is enabled. If instances are deleted too early, some requests might be directed to nonexistent instances. If you want to change this setting to `true`, you can overwrite it by setting your own configurations in the Java component.
-- The Eureka dashboard isn't available in Azure China 21Vianet.
+- The Eureka dashboard isn't available in Azure operated by 21Vianet.
 
 ## Next steps
 

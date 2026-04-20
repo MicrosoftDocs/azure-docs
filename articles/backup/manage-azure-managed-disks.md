@@ -1,19 +1,20 @@
 ---
-title: Manage Azure Managed Disks
-description: Learn about managing Azure Managed Disk from the Azure portal.
+title: Manage Azure managed disks
+description: Learn about managing Azure managed disk from the Azure portal.
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 02/13/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup
 ms.custom: engagement-fy24
-# Customer intent: "As an IT administrator, I want to manage Azure Managed Disks through the portal so that I can efficiently change backup policies, monitor operations, and control data protection settings."
+# Customer intent: "As an IT administrator, I want to manage Azure managed disks through the portal so that I can efficiently change backup policies, monitor operations, and control data protection settings."
 ---
 
-# Manage Azure Managed Disks backup using the Azure portal
+# Manage Azure managed disks backup using the Azure portal
 
-This article describes how to manage Azure Managed Disk using the Azure portal.
+This article describes how to manage Azure managed disk using the Azure portal.
 
+To view the supported Azure Disk backup and restore scenarios, region availability, and limitations, see the [support matrix](disk-backup-support-matrix.md). For common questions, see the [frequently asked questions](disk-backup-faq.yml).
 
 ## Change policy
 
@@ -36,11 +37,11 @@ To change the backup policy for Azure Disk, follow these steps:
 >
 > Changing a backup policy assigned to a backup instance doesn't affect existing recovery points and their retention duration. The updated retention settings will apply only to new recovery points created after the policy change.
 
-## Monitor the backup and restore operations for Azure Managed Disks
+## Monitor the backup and restore operations for Azure managed disks
 
 The Azure Backup service creates a job to track the progress of backup (scheduled and on-demand) and restore operations. After you trigger a backup or restore, Azure Backup initiates a job and shows notifications about its status in the Azure portal. To view the job progress for backup or restore, follow these steps:
 
-1. Go to the **Business Continuity Center** and select **Monitoring + Reporting** > **Jobs**.
+1. Go to the **Resiliency** and select **Monitoring + Reporting** > **Jobs**.
 
    The **Jobs** pane shows the jobs dashboard with operation and status for the past six hours. You can extend the list upto two weeks or set a custom time range.
 
@@ -58,7 +59,7 @@ The Azure Backup service creates a job to track the progress of backup (schedule
 
 ## Manage operations using the Azure portal
 
-This section describes several Azure Backup supported management operations that make it easy to manage Azure Managed disks.
+This section describes several Azure Backup supported management operations that make it easy to manage Azure managed disks.
 
 ### Stop Protection
 
@@ -72,7 +73,7 @@ You can stop protecting an Azure Disk using one of the following methods:
 
 #### Stop Protection and Retain Data
 
-1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
@@ -97,7 +98,7 @@ You can stop protecting an Azure Disk using one of the following methods:
 
 #### Stop Protection and Delete Data
 
-1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
@@ -124,7 +125,7 @@ If you stop protection with the **Retain backup data** option, you can resume pr
 
 To resume protection for a disk backup instance, follow these steps:
 
-1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
@@ -149,7 +150,7 @@ If you choose to stop all scheduled backup jobs and delete all existing backups,
 
 To delete a disk backup instance, follow these steps:
 
-1. Go to **Business Continuity Center** and select **Protection inventory** > **Protected items**.
+1. Go to **Resiliency** and select **Protection inventory** > **Protected items**.
 
    :::image type="content" source="./media/manage-azure-managed-disks/protected-items.png" alt-text="Screenshot shows the list of protected Azure Disks." lightbox="./media/manage-azure-managed-disks/protected-items.png":::
 
@@ -169,10 +170,10 @@ To delete a disk backup instance, follow these steps:
 
 ## Next steps
 
-[Troubleshoot Azure Managed Disk backup failures](disk-backup-troubleshoot.md).
+[Troubleshoot Azure managed disk backup failures](disk-backup-troubleshoot.md).
 
 ## Related content
 
-- [Create a Backup policy for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
-- [Configure backup for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
-- [Restore Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
+- [Create a Backup policy for Azure managed disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Configure backup for Azure managed disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Azure managed disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).

@@ -2,7 +2,7 @@
 title: Create Confluent Resources in Azure (preview)
 description: Learn how to create and manage Confluent environments, clusters, and topics in Azure via the Azure portal.
 ms.topic: how-to
-ms.date: 11/22/2024
+ms.date: 1/28/2026
 
 #customer intent: As an IT professional, I want to learn how to create Confluent environments, clusters, and topics in the Azure portal so that I can create my own resources.
 ---
@@ -36,9 +36,9 @@ To create a new Confluent environment:
 
 > [!TIP]
 > To access advanced environment configuration in the Confluent UI, in your Confluent organization, go to **Confluent entity management** > **Environments (Preview)** > **Manage environment in Confluent portal**.
-
+>
 > [!NOTE]
-> Currently, Azure doesn't support configuration for the Confluent schema registry. Access this option directly in Confluent. For more information, see [Manage schemas in Confluent Cloud](https://docs.confluent.io/cloud/current/sr/schemas-manage.html).
+> Currently, Azure doesn't support configuration for the Confluent schema registry. Access this option directly in Confluent. For more information, see [Manage Schemas and Data Contracts in Confluent Cloud](https://docs.confluent.io/cloud/current/sr/schemas-manage.html).
 
 ### View existing environments
 
@@ -62,9 +62,9 @@ If you no longer need to use an environment or the clusters that operate inside 
 >
 > - Azure supports deleting only environments that you created in Azure. To delete an environment that you created in Confluent, use the Confluent UI.
 
-In the list of environments, select the ellipsis (**…**) next to the name of the environment you want to delete. Then, in the command bar, select **Delete environment**.
+In the list of environments, select the ellipsis (**…**) next to the name of the environment you want to delete. Then, in the command bar, select **Delete Environment**.
 
-Alternatively, select the name of the environment you want to delete, and then select **Delete environment**. Confirm deletion by entering the environment name in the text box. Then, select **Delete** and confirm deletion.
+Alternatively, select the name of the environment you want to delete, and then select **Delete Environment**. Confirm deletion by entering the environment name in the text box. Then, select **Delete** and confirm deletion.
 
 ## Clusters
 
@@ -76,18 +76,18 @@ To create a cluster in your Confluent Cloud environment:
 
 1. In the Azure portal, go to your Confluent organization.
 1. On the left menu, select **Confluent entity management** > **Environments (Preview)**.
-1. On the command bar, select **Create Cluster**.
+1. Select your environment, and then select **Create Cluster** on the command bar.
 1. On the **Basics** tab, enter or select values for the following settings:
 
-   1. **Confluent resource details**: Leave the default values for the organization and environment. Optionally, you can change the environment name to create the new cluster in a different environment.
+   1. **Confluent cluster details**: Leave the default values for the organization and environment. Optionally, you can change the environment name to create the new cluster in a different environment.
    1. **Cluster name**: Enter a name for the new cluster.
-   1. **Cluster type**: Choose **Basic**, **Standard**, or **Enterprise**. Select the link to view a detailed comparison of each plan.
+   1. **Cluster type**: Choose **Basic**, **Standard**, **Enterprise**, or **Dedicated**. Select the link to view a detailed comparison of each plan.
    1. **Region** and **Availability**: Leave the default values, or select another region and availability. Review pricing and select **Next**.  
 1. On the **Tags** tab, optionally enter tags. To skip this step, select **Review + create**.
 1. On the **Review + create** tab, carefully review your settings for the new cluster.
 1. Select **Create**.
 
-The message "Deployment is in progress" appears. Deployment takes 2 to 3 minutes. When the deployment is complete, the message "Your deployment is complete" appears on the upper-right corner of the Azure portal.
+The message "Creating cluster" appears to deploy. Deployment takes 2 to 3 minutes. When the deployment is complete, the message "Cluster is created" appears on the upper-right corner of the Azure portal.
 
 ### View existing clusters
 
@@ -121,8 +121,8 @@ To delete a cluster:
 
 1. In the Azure portal, go to your Confluent organization.
 1. On the left menu, select **Confluent entity management** > **Environments (Preview)**.
-1. Select the cluster to delete and select **Delete Cluster**.
-1. Enter the cluster name and select **Delete**. Confirm the deletion to delete the cluster.
+1. Select the cluster to delete, and select **Delete Cluster**.
+1. Enter the cluster name, and select **Delete**. Confirm the deletion to delete the cluster.
 
 ## Topics
 
@@ -132,7 +132,7 @@ Topics in Confluent Cloud are fundamental units of organization for your data st
 
 1. In the Azure portal, go to your Confluent organization.
 1. On the left menu, select **Confluent entity management** > **Environments (Preview)**.
-1. Select **Create Topic**.
+1. Select a cluster, and then **Create Topic**.
 1. Enter a topic name and the number of partitions.
 1. Optionally, you can select the option to enable infinite retention.
 1. Optionally, you can select **Enable advanced settings**. Select a cleanup policy, retention time, retention size, and maximum message size.
@@ -169,6 +169,6 @@ To delete a topic:
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
-
+    >
     > [!div class="nextstepaction"]
     > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

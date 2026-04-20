@@ -4,7 +4,7 @@ description: Learn about how to choose the right real-time analytics and streami
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/29/2024
 ---
 

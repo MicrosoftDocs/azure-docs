@@ -1,11 +1,12 @@
 ---
-title: Web application firewall rate limiting for Azure Front Door
+title: WAF Rate Limiting for Azure Front Door
 description: Learn how to use web application firewall rate limiting to protect your web applications from malicious attacks.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 07/29/2024
+ms.date: 02/25/2026
+
 # Customer intent: As a web application administrator, I want to implement rate limiting using a web application firewall, so that I can protect my applications from denial-of-service attacks and manage traffic effectively.
 ---
 
@@ -43,7 +44,7 @@ A few considerations to keep in mind while you determine threshold values and ti
 - Setting larger time window sizes (for example, five minutes over one minute) and larger threshold values (for example, 200 over 100) tend to be more accurate in enforcing close to rate limit's thresholds than using the shorter time window sizes and lower threshold values.
 - Azure Front Door WAF rate limiting operates on a fixed time period. Once a rate limit threshold is breached, all traffic matching that rate limiting rule is blocked for the remainder of the fixed window. 
 
-## Next steps
+## Related content
 
-- Configure [rate limiting on your Azure Front Door WAF](waf-front-door-rate-limit-configure.md).
-- Review [rate limiting best practices](waf-front-door-best-practices.md#rate-limiting-best-practices).
+- [Configure rate limiting on your Azure Front Door WAF](waf-front-door-rate-limit-configure.md).
+- [Rate limiting best practices](waf-front-door-best-practices.md#rate-limiting-best-practices).

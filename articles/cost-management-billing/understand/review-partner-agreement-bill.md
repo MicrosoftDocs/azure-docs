@@ -17,7 +17,7 @@ In the billing account for a Microsoft Partner Agreement, an invoice is generate
 
 For more information, see [how to download invoices from the Azure portal](download-azure-invoice.md).
 
-This tutorial applies only to Azure partners with an Microsoft Partner Agreement.
+This tutorial applies only to Azure partners with a Microsoft Partner Agreement.
 
 In this tutorial, you learn how to:
 

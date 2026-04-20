@@ -48,7 +48,7 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 
 API developers can rapidly iterate on API changes by using Postman's API testing, monitoring, and development capabilities.
 
-APIs developed in Postman can then be exported and imported back into API Management as API revisions. This enables you to develop APIs in Postman and then deploy them to API Management for runtime access and management. [Learn more](https://learning.postman.com/docs/designing-and-developing-your-api/deploying-an-api/deploying-an-api-azure/)
+APIs developed in Postman can then be exported and imported back into API Management as API revisions. This enables you to develop APIs in Postman and then deploy them to API Management for runtime access and management. For more information, see [Deploy to Azure API Management from the Postman API Builder](https://learning.postman.com/v11/docs/integrations/available-integrations/azure-api-management/deploying-an-api-azure).
 
 
 > [!CAUTION]

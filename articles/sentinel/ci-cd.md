@@ -29,7 +29,7 @@ When creating custom content, you can manage it from your own Microsoft Sentinel
 
 Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that:
 
-- You have an **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
+- You have an **Owner** role in the resource group that contains your Microsoft Sentinel workspace
 - Custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 - The account you use to create the connection is in your home tenant. External identities, such as B2B guest accounts, and delegated access aren’t supported.
 

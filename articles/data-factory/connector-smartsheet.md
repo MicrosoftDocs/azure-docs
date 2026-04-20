@@ -5,7 +5,7 @@ description: Learn how to transform data in Smartsheet (Preview) by using Data F
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
 ms.date: 01/05/2024
 ---

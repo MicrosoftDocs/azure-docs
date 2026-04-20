@@ -6,7 +6,7 @@ ms.author: fipopovi
 ms.date: 04/15/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Use T-SQL loops with Synapse SQL in Azure Synapse Analytics

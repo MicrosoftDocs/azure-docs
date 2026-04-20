@@ -16,7 +16,7 @@ ms.custom:
 
 # Support requirements and considerations for private endpoint connectivity
 
-This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the tools in Azure Migrate to connect to the service over an Azure ExpressRoute private peering connection or a site-to-site VPN connection by using Private Link. For more information about these tools, see [What is Azure Migrate?](migrate-services-overview.md).
+This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the tools in Azure Migrate to connect to the service over an Azure ExpressRoute private peering connection or a site-to-site VPN connection by using Private Link. For more information about these tools, see [What is Azure Migrate?](migrate-services-overview.md)
 
 We recommend the method of private endpoint connectivity when there's an organizational requirement to access Azure Migrate and other Azure resources without traversing public networks. By using Private Link, you can use your existing ExpressRoute private peering circuits for better bandwidth or latency requirements.
 
@@ -56,6 +56,7 @@ Consideration | Details
 Pricing | See [Azure page blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 Virtual network requirements | The ExpressRoute/VPN gateway endpoint should reside in the selected virtual network or a virtual network connected to it. You might need about 15 IP addresses in the virtual network.
 PowerShell support | PowerShell isn't supported. We recommend using the Azure portal or REST APIs for Private Link support in Azure Migrate.
+Multiple Appliances | Adding new appliances to the project would require further private IPs from virtual network, please plan accordingly.
 
 ## Related content
 

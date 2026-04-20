@@ -44,7 +44,7 @@ Follow below steps to restore encrypted VMs:
 1. Select **Restore** to trigger the restore operation.
 
 When your virtual machine uses managed disks and you select the **Create virtual machine** option, Azure Backup doesn't use the specified storage account. In the case of **Restore disks** and **Instant Restore**, the storage account is used only for storing the template. Managed disks are created in the specified resource group.
-When your virtual machine uses unmanaged disks, they're restored as blobs to the storage account.
+For legacy recovery points from VMs that used unmanaged disks, Azure Backup restores the disks as managed disks and uses the storage account only for restore metadata and temporary VHD files.
 
    > [!NOTE]
    > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](/azure/virtual-machines/windows/os-disk-swap).
@@ -75,7 +75,7 @@ Reinstall the ADE extension so the data disks are open and mounted.
 
 ## Cross Region Restore for an encrypted Azure VM
 
-Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](../reliability/cross-region-replication-azure.md). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore) for an encrypted VM.
+Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](/azure/reliability/cross-region-replication-azure). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#set-cross-region-restore) for an encrypted VM.
 
 > [!NOTE]
 > Cross region restore for Encrypted VMs is not supported if the paired region is not in the same geography. For example: Brazil South and South Central US.
