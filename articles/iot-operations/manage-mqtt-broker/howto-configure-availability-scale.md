@@ -138,7 +138,7 @@ When you increase the cardinality values, the broker's capacity to handle more c
 #### Single-node recommendations
 
 - **Frontend replicas**: Set to at least **1**
-- **Frontend workers**: Set equal to the **number of CPU cores** on the node.
+- **Frontend workers**: Set to **half the number of CPU cores** per node.
 - **Backend replicas (redundancy factor)**: Set to at least **2** so the broker can perform rolling updates. For more information, see the [backend redundancy factor requirement](#backend-redundancy-factor).
 
 *Example — single node with 4 CPU cores:*
@@ -146,17 +146,14 @@ When you increase the cardinality values, the broker's capacity to handle more c
 | Setting | Recommended value |
 |---|---|
 | frontendReplicas | 1 |
-| frontendWorkers | 4 |
+| frontendWorkers | 2 |
 | backendRedundancyFactor | 2 |
 | backendWorkers | 1 |
 | backendPartitions | 1 |
 
 #### Multi-node recommendations
 
-The following values are recommended for optimal performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections.
-
-> [!NOTE]
-> It is always recommended to test your configuration with the expected workload to verify the desired performance.
+The following values are recommended for optimal performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections. It is always recommended to test your configuration with the expected workload to verify the desired performance.
 
 - **Frontend replicas**: Set equal to the **number of nodes** in the cluster.
 - **Frontend workers**: Set to **half the number of CPU cores** per node.
@@ -184,7 +181,8 @@ The following values are recommended for optimal performance. For large clusters
 | backendWorkers | 8 |
 | backendPartitions | 5 |
 
-Remember that backend and frontend workers might compete for CPU resources with each other and other pods.
+> [!IMPORTANT]
+> The total number of frontend and backend workers per node should not exceed the number of CPU cores available on that node. Over-provisioning workers beyond available cores may lead to CPU contention and degrade performance.
 
 ## Configure memory profile
 

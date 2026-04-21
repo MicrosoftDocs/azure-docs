@@ -40,12 +40,12 @@ An Azure IoT Operations *deployment* includes the instance, Arc extensions, cust
 
 **MQTT broker cardinality guidance for optimal performance:**
 
-The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-availability-scale.md) should be tuned based on your cluster hardware. The following recommendations help you get the best performance from your deployment.
+The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-availability-scale.md) should be tuned based on your cluster hardware. The following recommendations help you get the most optimal performance from your deployment.
 
 #### Single-node recommendations
 
 - **Frontend replicas**: Set to at least **1**.
-- **Frontend workers**: Set equal to the **number of CPU cores** on the node.
+- **Frontend workers**: Set to **half the number of CPU cores** per node.
 - **Backend replicas (redundancy factor)**: Set to at least **2** so the broker can perform rolling updates.
 
 *Example - single node with four CPU cores:*
@@ -53,15 +53,12 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 | Frontend setting | Value | Backend setting | Value |
 |---|---|---|---|
 | Replicas | 1 | Redundancy factor | 2 |
-| Workers | 4 | Workers | 1 |
+| Workers | 2 | Workers | 1 |
 | | | Partitions | 1 |
 
 #### Multi-node recommendations
 
-The following values are recommended for optimal performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections.
-
-> [!NOTE]
-> It is always recommended to test your configuration with the expected workload to verify the desired performance.
+The following values are recommended for optimal performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections. It is always recommended to test your configuration with the expected workload to verify the desired performance.
 
 - **Frontend replicas**: Set equal to the **number of nodes** in the cluster.
 - **Frontend workers**: Set to **half the number of CPU cores** per node.
@@ -84,6 +81,9 @@ The following values are recommended for optimal performance. For large clusters
 | Replicas | 5 | Redundancy factor | 2 |
 | Workers | 8 | Workers | 8 |
 | | | Partitions | 5 |
+
+> [!IMPORTANT]
+> The total number of frontend and backend workers per node should not exceed the number of CPU cores available on that node. Over-provisioning workers beyond available cores may lead to CPU contention and degrade performance.
 
 #### Memory profile and message size limits
 
