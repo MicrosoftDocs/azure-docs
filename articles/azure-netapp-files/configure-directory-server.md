@@ -132,7 +132,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 1. In the **Bind DN username**, specify the Distinguished Name (DN) of the account used to authenticate with the LDAP server.
 1. Select the secret in Azure Key Vault that contains the bind password for LDAP authentication.
 
-    * **Enter Secret URI:** You can manually enter the secret.
+    * **Enter Secret URI:** You can manually enter the secret identifier.
     * **Select from Key Vault:** You can select the secret from the Azure Key Vault.
 
     The Key Vault and Secret are displayed. You can click **Change selection** to select another secret.
@@ -143,7 +143,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
     * **User-assigned:** Select or add an existing user-assigned managed identity.
 
     > [!NOTE]
-    > The identity must be granted at minimum the Key Vault Secrets Officer role on the target Key Vault.
+    > The identity must be granted at minimum the **Key Vault Secrets User** role on the target Key Vault.
     
    
 1. Select **Save**. 
