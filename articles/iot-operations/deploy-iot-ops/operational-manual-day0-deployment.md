@@ -89,12 +89,12 @@ The following values are recommended for optimal performance. For large clusters
 
 The memory profile controls the maximum MQTT message size the broker accepts, idle memory usage, and maximum memory usage of each pod. For details on each profile, see [Configure memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md?tabs=portal#configure-memory-profile).
 
-| Memory Profile | Max Message Size | Idle Frontend Memory (per pod) | Idle Backend Memory (per pod) | Use Case |
-|---|---|---|---|---|
-| **Tiny** | 4 MB | ~29 MiB | ~41 MiB | Low traffic, small packets only |
-| **Low** | 16 MB | ~33 MiB | ~66 MiB | Limited memory, small packets |
-| **Medium** | 64 MB | ~169 MiB | ~211 MiB | Moderate traffic and message sizes |
-| **High** | 256 MB | ~4.9 GiB | ~5.8 GiB | High throughput, large messages |
+| Memory Profile | Max Message Size | Idle Frontend Memory (per pod) | Max Frontend Memory (per pod) | Idle Backend Memory (per pod) | Max Backend Memory (per pod) | Use Case |
+|---|---|---|---|---|---|---|
+| **Tiny** | 4 MB | ~29 MiB | ~99 MiB | ~41 MiB | ~102 MiB | Low traffic, small packets only |
+| **Low** | 16 MB | ~33 MiB | ~387 MiB | ~66 MiB | ~390 MiB | Limited memory, small packets |
+| **Medium** | 64 MB | ~169 MiB | ~1.9 GiB | ~211 MiB | ~1.5 GiB | Moderate traffic and message sizes |
+| **High** | 256 MB | ~4.9 GiB | ~4.9 GiB | ~5.8 GiB | ~5.8 GiB | High throughput, large messages |
 
 > [!WARNING]
 > The broker rejects messages when memory usage reaches 75% capacity. Choose a profile with sufficient headroom for your expected message sizes and throughput.

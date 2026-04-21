@@ -223,6 +223,8 @@ Use this profile when you have limited memory resources and client publish traff
 
 When you use this profile:
 
+- Idle memory usage of each frontend replica is approximately 29 MiB with near-zero traffic.
+- Idle memory usage of each backend replica is approximately 41 MiB with near-zero traffic.
 - Maximum memory usage of each frontend replica is approximately 99 MiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 102 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 - Maximum message size is 4 MB.
@@ -239,6 +241,8 @@ Use this profile when you have limited memory resources and clients publish smal
 
 When you use this profile:
 
+- Idle memory usage of each frontend replica is approximately 33 MiB with near-zero traffic.
+- Idle memory usage of each backend replica is approximately 66 MiB with near-zero traffic.
 - Maximum memory usage of each frontend replica is approximately 387 MiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 390 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 - Maximum message size is 16 MB.
@@ -255,6 +259,8 @@ Use this profile when you need to handle a moderate number of client messages.
 
 Medium is the default profile.
 
+- Idle memory usage of each frontend replica is approximately 169 MiB with near-zero traffic.
+- Idle memory usage of each backend replica is approximately 211 MiB with near-zero traffic.
 - Maximum memory usage of each frontend replica is approximately 1.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 1.5 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 - Maximum message size is 64 MB.
@@ -264,6 +270,8 @@ Medium is the default profile.
 
 Use this profile when you need to handle a large number of client messages.
 
+- Idle memory usage of each frontend replica is approximately 4.9 GiB with near-zero traffic.
+- Idle memory usage of each backend replica is approximately 5.8 GiB with near-zero traffic.
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 - Maximum message size is 256 MB.
