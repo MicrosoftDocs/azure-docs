@@ -84,13 +84,11 @@ The following table shows the language versions supported for Java function apps
 
 | Supported version | Support level | Supported until |
 | ---- | ---- |--- |
-| **Java 25** | Preview | Pending<sup>*</sup> |
-| **Java 21** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap) |
-| **Java 17** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap) |
-| **Java 11** | GA |See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap) |
-| **Java 8** | GA | See the [Temurin support page](https://adoptium.net/support/) |
-
-<sup>*</sup>The end-of-support date for Java 25 is determined when general availability (GA) is declared.
+| **Java 25** | GA | May 2029 |
+| **Java 21** | GA | September 2028 |
+| **Java 17** | GA | September 2027 |
+| **Java 11** | GA | September 2027 |
+| **Java 8** | GA | September 2027 |
 
 > [!NOTE]
 > Java 21 is the last Java version supported for Linux Consumption plan apps. Newer Java versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).

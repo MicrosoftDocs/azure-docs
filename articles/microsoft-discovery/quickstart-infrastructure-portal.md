@@ -67,6 +67,8 @@ Assign the following built-in roles to users at the desired scope (subscription 
 - Storage Blob Data Contributor
 - Network Contributor
 - ACRPush
+- Azure AI Owner (Workspace MRG level)
+- Microsoft Discovery Bookshelf Index Data Reader (Preview) 
 
 **Steps to assign roles:**
 
@@ -102,7 +104,8 @@ Repeat this process for all roles listed above.
      - `workspaceSubnet`: `10.0.3.0/24`
      - `privateEndpointSubnet`: `10.0.4.0/24`
      - `agentSubnet`: `10.0.5.0/24`
-1. For `workspaceSubnet` and `agentSubnet`, under **SubnetDelegation**, select `Microsoft.App/environments`.
+     - `searchSubnet`: `10.0.6.0/24`
+1. For `workspaceSubnet`, `agentSubnet` and `searchSubnet`, under **SubnetDelegation**, select `Microsoft.App/environments`.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg" alt-text="Screenshot of the Create virtual network subnet page showing subnet delegation settings." lightbox="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg":::
 1. Optionally, you can remove the `default` subnet from the list. 
 1. Review and create the virtual network.
