@@ -338,7 +338,7 @@
       href: credentials-configure-common-providers.md
     - name: Configure credential manager - Microsoft Graph API
       href: credentials-how-to-azure-ad.md
-    - name: Configure credential manager - GitHub
+    - name: Configure credential manager - GitHub API
       href: credentials-how-to-github.md
     - name: Configure credential manager - user-delegated permissions
       href: credentials-how-to-user-delegated.md

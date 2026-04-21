@@ -2,7 +2,7 @@
 title: Set up ServiceNow incident indexing in Azure SRE Agent
 description: Connect ServiceNow to Azure SRE Agent so your agent automatically indexes, investigates, and responds to ServiceNow incidents.
 ms.topic: tutorial
-ms.date: 03/16/2026
+ms.date: 04/15/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-sre-agent
@@ -158,6 +158,28 @@ To stop receiving ServiceNow incidents:
 1. In the confirmation dialog, select **Yes**.
 
 After you disconnect, the agent stops scanning for ServiceNow incidents. Your response plans are preserved and reactivate when you reconnect.
+
+## Update incident fields during investigations (preview)
+
+> [!IMPORTANT]
+> This feature is in preview. Functionality and behavior may change before general availability.
+
+Once your ServiceNow connection is active, your agent can update incident fields directly during investigations. In an incident investigation thread, ask the agent to update fields like assignment group, category, impact, or priority—the agent handles the ServiceNow API call.
+
+**Try it:** In an incident investigation thread, ask:
+
+> "Update this incident's category to 'Network' and subcategory to 'DNS'"
+
+The agent updates the fields directly in ServiceNow and confirms the changes.
+
+**Supported fields:** `assignment_group`, `category`, `subcategory`, `impact`, `urgency`, `priority`, `short_description`, and custom fields (`u_*` prefix like `u_environment`).
+
+**Priority values:** Use string values—`"1"` (Critical), `"2"` (High), `"3"` (Moderate), `"4"` (Low), `"5"` (Planning).
+
+> [!NOTE]
+> Use ServiceNow's snake_case field names (for example, `assignment_group`, not `Assignment Group`). The agent handles the mapping automatically when you describe the field in natural language.
+
+State changes use dedicated actions—the update action doesn't change incident state. To acknowledge or resolve incidents, ask the agent directly (for example, "acknowledge this incident" or "resolve this incident").
 
 ## Troubleshooting
 

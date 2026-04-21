@@ -66,6 +66,28 @@ Each plan specifies how your agent responds.
 - **Autonomous**: Your agent analyzes incidents and independently performs mitigation or resource modifications by using the required permissions.
 - **Review**: Your agent diagnoses incidents, then mitigates or modifies resources only after its proposed actions are reviewed and approved.
 
+### Alert reinvestigation cooldown (Azure Monitor only)
+
+For Azure Monitor response plans, control how your agent handles recurring fires of the same alert rule. By default, when the same alert rule fires again within the cooldown window, the new alert merges into the existing investigation thread instead of starting a new one. This approach saves token consumption and keeps your incident list clean.
+
+| Setting | Options | Default |
+|---|---|---|
+| **Reinvestigation cooldown** | Enable / Disable | Enabled |
+| **Cooldown time** | 1-24 hours | 3 hours |
+
+When the cooldown is **enabled** (default):
+
+- Recurring alerts from the same rule merge into the existing thread. Five firings become one investigation, not five.
+- If the previous thread was resolved or closed within the cooldown window, the agent reopens it instead of creating a new thread.
+
+When the cooldown is **disabled**:
+
+- Every alert fire creates a new investigation thread, even from the same rule.
+- Use this setting for critical alerts where every fire needs a fresh, independent investigation.
+
+> [!WARNING]
+> Disabling the cooldown means every fire of a noisy alert rule triggers a new investigation. For rules that fire frequently (such as CPU or memory threshold alerts), this approach can significantly increase token consumption.
+
 ## What makes this approach different
 
 Response plans differ from other automation approaches in several key ways.

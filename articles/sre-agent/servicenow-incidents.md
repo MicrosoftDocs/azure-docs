@@ -2,7 +2,7 @@
 title: ServiceNow incident indexing in Azure SRE Agent
 description: Learn how Azure SRE Agent indexes ServiceNow incidents with real-time scanning, connectivity validation, and automated investigation.
 ms.topic: conceptual
-ms.date: 03/16/2026
+ms.date: 04/15/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-sre-agent
@@ -19,6 +19,7 @@ Connect ServiceNow as your incident platform so your agent automatically indexes
 > - Connect ServiceNow with basic authentication or OAuth 2.0.
 > - Real connectivity validation during setup confirms your credentials work before indexing begins.
 > - The scanner polls every minute and automatically creates investigation threads for new incidents.
+> - Update incident fields (assignment group, category, impact, and more) directly from the agent conversation.
 > - Use response plans to control which priorities and incident types your agent handles.
 
 ## The problem: incidents in ServiceNow, investigation everywhere else
@@ -42,6 +43,38 @@ When you connect ServiceNow as your incident platform, the agent provides the fo
 A quickstart response plan is created by default during setup. From there, the agent follows the same [investigation and response flow](incident-response.md) as any other incident platform.
 
 :::image type="content" source="media/servicenow-incidents/servicenow-form-basic-authentication.png" alt-text="Screenshot of the ServiceNow incident platform configuration form showing authentication type, endpoint, username, password, and quickstart response plan options." lightbox="media/servicenow-incidents/servicenow-form-basic-authentication.png":::
+
+## Update incident fields (preview)
+
+> [!IMPORTANT]
+> This feature is in preview. Functionality and behavior may change before general availability.
+
+Your agent can update ServiceNow incident fields directly during an investigation—no need to switch to the ServiceNow portal. Ask the agent to set assignment group, category, subcategory, impact, urgency, priority, or any custom field, and it updates the incident through ServiceNow's API.
+
+### Supported fields
+
+The following table lists the fields you can update through the agent.
+
+| Field | Example value | Notes |
+|---|---|---|
+| `assignment_group` | `"Network Ops"` | Sets the assignment group for the incident |
+| `category` | `"Network"` | Primary incident category |
+| `subcategory` | `"DNS"` | Subcategory within the primary category |
+| `impact` | `"1"` | Business impact level |
+| `urgency` | `"2"` | Urgency of the incident |
+| `priority` | `"1"` (Critical), `"2"` (High), `"3"` (Moderate), `"4"` (Low), `"5"` (Planning) | String values |
+| `short_description` | `"DNS resolution failures in prod"` | Incident summary |
+| Custom fields | `u_environment`: `"Production"` | Any `u_*` prefixed field |
+
+### Safeguards
+
+The agent can't change the incident state through this action. State transitions use dedicated tools—acknowledge and resolve actions handle those separately. Journal fields (`comments`, `work_notes`) go through the discussion entry action, which pins the incident state to prevent ServiceNow business rules from auto-transitioning the incident.
+
+### Example conversation
+
+> **You:** Update this incident's assignment group to "Network Ops" and category to "Network"
+>
+> **Agent:** Updated 2 fields on INC0010005 successfully.
 
 ## What makes this approach different
 
@@ -87,6 +120,7 @@ The following table compares manual ServiceNow incident management with agent-as
 | Manually monitor ServiceNow for new incidents | Agent scans every minute and creates investigation threads automatically |
 | Context-switch between ServiceNow and investigation tools | Agent queries your connected data sources and posts findings back to ServiceNow |
 | No validation that connection works during setup | Real connectivity check confirms credentials before indexing begins |
+| Switch to ServiceNow portal to update incident metadata | Agent updates fields like assignment group, category, and impact directly from the conversation |
 | Investigation knowledge leaves with the engineer | Agent captures findings in threads and discussion entries |
 
 ## Next step

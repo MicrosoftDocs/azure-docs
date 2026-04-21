@@ -380,6 +380,8 @@ items:
       href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
+    - name: Relocate to another region
+      href: relocate-region.md
 - name: Dedicated compute
   items:
     - name: Workload profiles

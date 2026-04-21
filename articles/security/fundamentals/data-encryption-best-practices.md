@@ -8,7 +8,7 @@ ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 04/02/2026
+ms.date: 04/20/2026
 ms.author: mbaldwin
 
 ---
@@ -54,6 +54,8 @@ Most Azure services, such as Azure Storage and Azure SQL Database, encrypt data 
 - **Use encryption to help mitigate risks related to unauthorized data access**: Encrypt your services before you write sensitive data to them.
 
 - **Understand key rotation behavior**: When you rotate a key encryption key (KEK), the service re-wraps the data encryption keys (DEKs) with the new key version. The underlying data itself is not re-encrypted. Both old and new key versions must remain enabled until re-wrapping is complete. For more information, see [Configure key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
+
+- **Respond to suspected key compromise by rotating first**: If you suspect a customer-managed key has been compromised, rotate to a new key and reconfigure dependent services before disabling or deleting the old key. Disabling or deleting a key immediately takes dependent services offline but does not re-encrypt any data encryption keys, meaning they are still at risk of decryption by the compromised key encryption key. For the full incident response procedure, see [Backup security considerations](/azure/key-vault/general/backup#security-considerations).
 
 - **Use RSA-OAEP-256 for key wrapping**: RSA-OAEP-256 is the recommended wrapping algorithm for customer-managed keys. RSA-OAEP (without the -256 suffix) uses SHA-1 and is considered legacy.
 

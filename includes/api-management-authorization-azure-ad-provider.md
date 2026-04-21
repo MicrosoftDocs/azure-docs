@@ -2,17 +2,17 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 10/03/2025
+ms.date: 04/09/2026
 ms.author: danlep
 ---
 | Property | Description | Required | Default |
 |---|---|---|---|
 | **Credential provider name** | The name of the credential provider resource in API Management. |Yes | N/A | 
 | **Identity provider**  | Select **Azure Active Directory v1**. |Yes | N/A | 
-| **Grant type**  | The OAuth 2.0 authorization grant type to use.<br/><br/>Depending on your scenario, select either **Authorization code** or **Client credentials**. |Yes | **Authorization code** | 
+| **Grant type**  | The OAuth 2.0 authorization grant type to use.<br/><br/>Depending on your scenario, select either **Authorization code**, **Client credentials**, or **Authorization code with federated identity credentials**. |Yes | **Authorization code** | 
 |**Authorization URL** | The authorization URL. | No | `https://login.microsoftonline.com` |
 | **Client ID** | The application (client) ID used to identify the Microsoft Entra app. | Yes | N/A |
-| **Client secret** | The client secret used for the Microsoft Entra app. | Yes | N/A |
+| **Client secret** | The client secret used for the Microsoft Entra app. | Yes for authorization code and client credentials grant types, no for federated identity credentials | N/A |
 | **Resource URL** | The URL of the resource that requires authorization.<br/><br/> Example: `https://graph.microsoft.com` | Yes | N/A |
 | **Tenant ID** | The tenant ID of your Microsoft Entra app. | No | **common** |  
 | **Scopes** | One or more API permissions for your Microsoft Entra app, separated by spaces. <br/><br/>Example: `ChannelMessage.Read.All User.Read` | No | API permissions set in the Microsoft Entra app | 

@@ -22,20 +22,9 @@ At a high level, the Bookshelf works by converting diverse file formats to text,
 The Bookshelf uses an advanced technique developed by Microsoft Research called Graph Retrieval-Augmented Generation (GraphRAG) to transform customer data into graph-based representations and generate responses to queries. Unlike traditional RAG methods, GraphRAG-based algorithms not only create an indexed vector database of the source content but also constructs a knowledge graph that captures entity relationships within the data. Research from Microsoft demonstrates that GraphRAG delivers more accurate and comprehensive grounding information than standard RAG or vector-based techniques, leading to higher-quality responses.
 
 ### Indexing
-Currently, the Bookshelf supports indexing unstructured (text-based) file formats stored in Azure Blob Storage. Supported file formats include:
+Currently, the Bookshelf supports indexing unstructured (text-based) file formats stored in Azure Blob Storage. Supported file formats are documented in the [Create a Bookshelf and index a Knowledge Base](https://learn.microsoft.com/azure/microsoft-discovery/how-to-index-bookshelf-knowledgebase) how-to guide.
 
-* Text (.txt)
-* PDF (.pdf)
-* Word (.docx)
-* PowerPoint (.pptx)
-* Excel (.xlsx)
-* Markdown
-* XML
-* HTML
-* JSON
-* CSV
-
-The Bookshelf uses Azure AI Search Enrichment to process supported file formats. Images embedded in supported file formats are processed using Azure AI Search's built-in [Vision skill](/azure/ai-services/computer-vision/overview), which automatically generates alt-text for embedded images. See [Azure AI Search's documentation](/azure/search/cognitive-search-skill-document-intelligence-layout#supported-file-formats) for the full list of supported file formats.
+The Bookshelf uses Azure AI Search Enrichment to process supported file formats. Images embedded in supported file formats are processed using Azure AI Search's built-in [Vision skill](https://learn.microsoft.com/azure/ai-services/computer-vision/overview), which automatically generates alt-text for embedded images. 
 
 The knowledge graph and vector database that results from indexing, collectively known as a Knowledge Base (KB), are stored in an Azure SQL DB in your subscription.
 
@@ -46,13 +35,6 @@ The Bookshelf provides the query function that can be invoked by any agent runni
 
 ### Unsupported file types 
 Encrypted, password-protected, or sensitivity-labeled files aren't supported for indexing. Any unsupported file types are skipped during indexing.
-
-### Cross-project sharing
-
-Bookshelves can't be shared across projects. Each project must have its own dedicated Bookshelves and Knowledge Bases.
-
-> [!NOTE]
-> The ability to share Bookshelves across projects is a planned feature for future releases.
 
 ### One knowledge base per Bookshelf
 

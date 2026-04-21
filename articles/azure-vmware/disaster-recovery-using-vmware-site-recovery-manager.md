@@ -48,16 +48,15 @@ You can use VMware SRM to implement different types of recovery, such as:
 
 - **Bidirectional Protection** uses a single set of paired VMware SRM sites to protect VMs in both directions. Each site can simultaneously be a protected site and a recovery site, but for a different set of VMs.
 
-> [!IMPORTANT]
-> Azure VMware Solution doesn't support:
-> - Array-based replication and storage policy protection groups
+> [!IMPORTANT] 
+- Azure VMware Solution doesn't support:
+- Array-based replication and storage policy protection groups
 - VMware vVOLs Protection Groups
 - VMware SRM IP customization using SRM command-line tools
 - One-to-Many and Many-to-One topologies
 - Custom VMware SRM plug-in identifier or extension ID
 - VMware Cloud Disaster Recovery (VCDR)
 - VMware Live Site Recovery – External Datastore support status, see [What's new](/azure/azure-vmware/azure-vmware-solution-platform-updates)
-- Enhanced replication is unsupported in Azure VMware Solution Gen 1
 
 
 
@@ -159,13 +158,21 @@ After you created the site pairing, use the following VMware documentation for e
 
 - [Perform a Failback](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/restoring-the-pre-recovery-site-configuration-by-performing-failback/perform-a-failback.html)
 
-## Ongoing management of your VMware SRM solution
+## VMware Live Site Recovery Licensing in Azure VMware Solution
+VMware Live Site Recovery supports **two licensing models** in Azure VMware Solution. The setup process depends on the type of license you have.
 
-Microsoft aims to simplify VMware SRM and vSphere Replication installation on an Azure VMware Solution private cloud. You're responsible for managing your license and the day-to-day operation of the disaster recovery solution. 
+1. **25-Character Live Site Recovery License Key**
+- If you have a standard 25-character Live Site Recovery license key, follow these steps:
+- Sign in to the Azure VMware Solution portal
+- Navigate to Add-ons
+- Select the Disaster Recovery tab
+- Enter the 25-character license key
+- Save the configuration
 
-## VMware Live Site Recovery licenses
+2. **Offline Mode Base License**
 
-[Set up offline mode](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/set-up-offline-mode-for-vmware-live-site-recovery.html) for VMware Live Recovery. [Remove the offline mode license](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/remove-offline-mode-license-for-vmware-live-site-recovery.html) for VMware Live Site Recovery.
+- [Set up offline mode](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/set-up-offline-mode-for-vmware-live-site-recovery.html) for VMware Live Site Recovery. 
+- [Remove the offline mode license](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/remove-offline-mode-license-for-vmware-live-site-recovery.html) for VMware Live Site Recovery.
 
 Customers are responsible to purchase and apply Live Site Recovery by following Broadcom's instructions. Customers are requested to create Broadcom ticket for license issues.
 
