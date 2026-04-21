@@ -53,6 +53,9 @@ For configuration, the MQTT broker uses several Kubernetes custom resources to d
 - A Broker resource can have up to three [BrokerListeners](/rest/api/iotoperations/broker-listener), each of which listens for incoming MQTT connections on the specified service type (`NodePort`, `LoadBalancer`, or `ClusterIP`). Each BrokerListener resource can have multiple ports.
 - Each port within a BrokerListener resource can be associated with a [BrokerAuthentication](/rest/api/iotoperations/broker-authentication) resource and a [BrokerAuthorization](/rest/api/iotoperations/broker-authorization) resource. These authentication and authorization policies determine which clients can connect to the port and what actions they can perform on the broker.
 
+> [!IMPORTANT]
+> Use the Azure portal or Azure CLI to manage broker listeners.
+
 The relationship between Broker and BrokerListener is *one-to-many*, while the relationship between BrokerListener and BrokerAuthentication/BrokerAuthorization is *many-to-many*. The entity relationship diagram for these resources is:
 
 <!-- ```mermaid

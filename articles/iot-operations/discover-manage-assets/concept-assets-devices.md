@@ -72,6 +72,8 @@ An asset is a configuration resource that represents a physical device or asset 
 - An Azure Resource Manager resource in the cloud.
 - A Kubernetes custom resource at the edge.
 
+The cloud is always the source of truth for asset configuration. Always create and modify assets through Azure—by using the operations experience, the Azure portal, the Azure CLI, or ARM/Bicep templates. Don't create or edit the Kubernetes custom resources directly on the cluster.
+
 When you define an asset by using the operations experience or the Azure IoT Operations CLI, set up schema information like data points, tags, events, and streams for each asset.
 
 The type of inbound endpoint that the asset connects to determines what schema elements you define for the asset. For example, if the asset connects to an OPC UA server, define tags and events. If the asset connects to a media resource, define streams.

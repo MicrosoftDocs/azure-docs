@@ -344,7 +344,10 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
     > [!IMPORTANT]
     > If you don't have the **Entra ID Application Developer** role or higher, and you select **deploy required Azure resources**, an error message is displayed, for example: "Deploy required Azure resources" (errors may vary). This means that the data collection rule (DCR) and data collection endpoint (DCE) were created, but you need to ensure that your Entra ID app registration is authorized. Continue to set up the correct authorization.
-
+    
+    > [!NOTE]
+    > When deploying the required Azure resources for the Microsoft Sentinel solution for SAP applications (agentless), Azure Resource Manager (ARM) may take up to **45 seconds** to complete resource provider operations. During this time, the deployment might appear delayed. This behavior is expected. Wait for the operation to complete before retrying or redeploying.
+    
 1. Do one of the following: 
     - If you have the **Entra ID Application Developer** role or higher, continue to the next step.
     - If you don't have the **Entra ID Application Developer** role or higher:

@@ -118,9 +118,7 @@ items:
             href: private-link.md
           - name: Security controls by Azure Policy
             href: ./security-controls-policy.md
-            displayName: regulatory, compliance, standards, domains
-          - name: Security baseline
-            href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
+            displayName: regulatory, compliance, standards, domain
       - name: Cache management
         items:
           - name: Configure in Azure portal

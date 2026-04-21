@@ -2,10 +2,10 @@
 title: Microsoft Sentinel in the Azure portal retirement announcement
 description: Provides an include file for reuse of the Microsoft Sentinel in the Azure portal retirement announcement.  
 services: microsoft-sentinel
-author: batamig
+author: guywi-ms
 ms.topic: "include"
 ms.date: 01/28/2026
-ms.author: bagol
+ms.author: guywild
 ms.custom: "include file"
 ---
 

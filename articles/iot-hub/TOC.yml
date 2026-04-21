@@ -38,6 +38,8 @@
     - name: Understanding IoT hub IP address
       href: iot-hub-understand-ip-address.md
       displayName: service tags, firewall rules, IP filter
+    - name: Best practices for Azure Device Registry namespaces
+      href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Protocol support
       items:
         - name: MQTT support

@@ -122,7 +122,7 @@ Currently, you're limited to 10 schedulers and five task hubs per region per sub
 
 ### Example 1
 
-A development team is testing simple orchestrations, each with three actions (using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/quickstarts/durable-functions/dotnet/HelloCities)), and runs 10,000 orchestrations per month.
+A development team is testing simple orchestrations, each with three actions (using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-functions/dotnet/HelloCities)), and runs 10,000 orchestrations per month.
 
 | Activity | Calculation | Result |
 | - | ----------- | ------ |

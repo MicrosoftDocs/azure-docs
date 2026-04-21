@@ -23,6 +23,8 @@ ms.custom: mvc, engagement-fy25
 
 - Public preview: Azure Migrate now offers Azure Copilot migration agent, which provides a conversational experience to help you plan and analyze VMware migrations using Azure Migrate data. You can use natural language prompts to explore inventory, assess readiness, and evaluate migration strategies and business cases, while migration execution continues in the Azure Migrate portal. [Learn more](azure-copilot-migration-agent.md).
 
+- Public preview update: Security insights provide customers with a workload‑level view of risks in their on‑premises environment during migration planning. In addition to Servers and Software, it also assesses security risks in discovered Web apps and Databases. You can now identify web apps built on runtimes that are end of support and with vulnerabilities. Likewise, you can detect database instances with end of support platform and with vulnerabilities. [Learn more](insights-overview.md)
+
 ## Update (November 2025)
 
 - Azure Migrate now offers three built-in roles for role-based access control (RBAC), enabling you to implement least privilege access for your Azure Migrate projects. These new roles replace the previous requirement for Contributor or Owner permissions at the subscription level and allow you to grant only the necessary permissions for each migration phase.

@@ -1,8 +1,8 @@
 ---
 title: Respond to threat actors while investigating or threat hunting in Microsoft Sentinel in the Azure portal
 description: This article shows you how to take response actions against threat actors on the spot, during the course of an incident investigation or threat hunt, without pivoting or context switching out of the investigation or hunt. You accomplish this using playbooks based on the new entity trigger.
-author: batamig
-ms.author: bagol
+author: guywi-ms
+ms.author: guywild
 ms.topic: how-to
 ms.date: 01/17/2023
 appliesto:

@@ -2,10 +2,10 @@
 title: Out-of-the-box (OOTB) content centralization changes
 titleSuffix: Microsoft Sentinel
 description: This article describes upcoming centralization changes for out-of-the-box content in Microsoft Sentinel.
-author: batamig
+author: guywi-ms
 ms.topic: whats-new
 ms.date: 06/22/2023
-ms.author: bagol
+ms.author: guywild
 
 
 #Customer intent: As a security operations center (SOC) admin, I want to centralize and update out-of-the-box (OOTB) content in Microsoft Sentinel so that I can ensure all security tools and templates are current and centrally manage content efficiently.

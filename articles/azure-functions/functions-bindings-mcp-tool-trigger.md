@@ -81,7 +81,7 @@ builder.Build().Run();
 > [!TIP]
 > The example above uses literal strings for things like the name of the "get_snippets" tool in both `Program.cs` and the function. Consider instead using shared constant strings to keep things in sync across your project.
 
-For the complete code example, see [SnippetTool.cs](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/blob/main/src/SnippetsTool.cs).  
+For the complete code example, see [SnippetTool.cs](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/blob/main/src/FunctionsMcpTool/SnippetsTool.cs).  
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
@@ -167,7 +167,7 @@ public String getSnippet(
 }
 ```
 
-For the complete code example, see [Snippets.java](https://github.com/Azure-Samples/remote-mcp-functions-java/blob/main/src/main/java/com/function/Snippets.java).  
+For the complete code example, see [Snippets.java](https://github.com/Azure-Samples/remote-mcp-functions-java/blob/main/samples/FunctionsMcpTool/src/main/java/com/function/Snippets.java).  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 Example code for JavaScript isn't currently available. See the TypeScript examples for general guidance using Node.js.
@@ -511,7 +511,6 @@ builder.Build().Run();
 
 You can call the `WithProperty()` method multiple times to define multiple properties for the tool. Each call to `WithProperty()` includes a string representation of the MCP property type, which might not directly correspond to a CLR type. For example, use `"boolean"` to define a boolean property, even though the corresponding CLR type is `bool`. Valid types are: `"string"`, `"number"`, `"integer"`, `"boolean"`, `"object"`.
 
-For the complete example, see the [`Program.cs` file](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/blob/main/src/Program.cs).
 
 ---
 
