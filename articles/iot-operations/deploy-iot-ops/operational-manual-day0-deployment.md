@@ -114,12 +114,12 @@ For more information, see [Performance](../manage-mqtt-broker/howto-configure-av
 | Platform | OS | Production Status |
 |---|---|---|
 | **K3s** | Ubuntu 24.04 / Red Hat Enterprise Linux (RHEL) 9.x (x86_64) | ✅ GA (recommended for production) |
+| **RKE2** | Ubuntu 24.04 / RHEL 9.x (x86_64) | ✅ GA |
 | **Tanzu Kubernetes (TKr)** | x86_64 | ✅ GA |
 | **AKS Edge Essentials** | Windows (x86_64) | ⚠️ Public preview |
 | **AKS on Azure Local** | Windows (x86_64) | ⚠️ Public preview |
 
 > [!TIP]
-
 > For multi-node production deployments, use K3s on Ubuntu/RHEL or Tanzu Kubernetes (both GA).
 
 ### Supported Azure regions
@@ -194,7 +194,6 @@ az provider register --namespace Microsoft.SecretSyncController
 ```
 
 > [!NOTE]
-
 > Provider registration is a one-time operation per subscription. Verify status with `az provider show --namespace <NAME> --query registrationState`.
 
 ### Create Azure resources
@@ -246,7 +245,6 @@ az storage container create \
 ```
 
 > [!IMPORTANT]
-
 > After deployment, restrict the storage account to **"Enabled from selected virtual networks and IP addresses"** and enable the **"Allow trusted Microsoft services"** exception. This prevents public access while allowing Azure IoT Operations schema registry to function.
 
 ## Cluster preparation
@@ -315,7 +313,6 @@ az connectedk8s show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --que
 ```
 
 > [!NOTE]
-
 > You must use a Microsoft Entra user account (not a service principal) for this step.
 
 If your Kubernetes environment requires a proxy for outgoing Internet connections, make sure to pass the `--proxy-http`, `--proxy-https`, `--proxy-skip-range`, and `--proxy-cert` arguments to the `az connectedk8s connect` command. These arguments will be provided to all installed components.
@@ -396,22 +393,6 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
 4. **Configuration tab**:
    - Configure MQTT broker cardinality and memory profile based on your cluster hardware. See [Choose your cluster topology](#choose-your-cluster-topology) for detailed recommendations.
 
-   **Single-node example** (4 CPU cores):
-
-   | Frontend setting | Value | Backend setting | Value | Broker setting | Value |
-   |---|---|---|---|---|---|
-   | Replicas | 1 | Redundancy factor | 2 | Memory profile | Low |
-   | Workers | 4 | Workers | 1 | | |
-   | | | Partitions | 1 | | |
-
-   **Multi-node example** (3 nodes, 8 CPU cores per node):
-
-   | Frontend setting | Value | Backend setting | Value | Broker setting | Value |
-   |---|---|---|---|---|---|
-   | Replicas | 3 | Redundancy factor | 2 | Memory profile | High |
-   | Workers | 4 | Workers | 4 | | |
-   | | | Partitions | 3 | | |
-
    > [!IMPORTANT]
    > Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support.
 
@@ -427,7 +408,6 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
    - Configure Azure Key Vault, user-assigned managed identity for secrets, and user-assigned managed identity for AIO components
 
    > [!IMPORTANT]
-
    > Use **different** managed identities for secrets and AIO components.
 
 6. **Automation tab**: Run the generated CLI commands (see next section)
@@ -506,7 +486,6 @@ After deployment, verify that all components report **Available** health status:
 3. If any component reports **Degraded** (🟡) or **Unavailable** (🔴), check the reason code and message for diagnostic details.
 
 > [!NOTE]
-
 > If a resource hasn't reported status within 15 minutes, it shows as **Unknown** (⚪). Allow a few minutes after deployment for initial health reports to appear.
 
 ### Verify pods are running
@@ -539,7 +518,6 @@ Azure IoT Operations provides unified health status reporting across all compone
 After deployment, configure TLS on [broker listeners](../manage-mqtt-broker/howto-configure-brokerlistener.md):
 
 > [!WARNING]
-
 > Do not modify the default broker listener on port 18883. This listener is used for internal Azure IoT Operations communication. Create additional `BrokerListener` resources for external client access instead.
 
 - Use **automatic certificate management** with cert-manager for listeners
@@ -581,7 +559,6 @@ Key deployment-time decisions (can't be changed after deployment):
 - **Encryption**: Configure encryption for data at rest if required by your security policies.
 
 > [!IMPORTANT]
-
 > You set persistence during deployment and can't turn it off afterward. You can change some persistence-related options (retained messages, subscriber queue, state store persistence) after deployment. See [Configure MQTT broker persistence](../manage-mqtt-broker/howto-broker-persistence.md) for all options.
 
 ### Configure CPU resource limits
@@ -589,7 +566,6 @@ Key deployment-time decisions (can't be changed after deployment):
 To prevent resource starvation, the broker can [request Kubernetes CPU resource limits](../manage-mqtt-broker/howto-configure-availability-scale.md#cardinality-and-kubernetes-resource-limits) based on the cardinality settings. When enabled, scaling replicas or workers proportionally increases the CPU resources required.
 
 > [!NOTE]
-
 > The default for `generateResourceLimits.cpu` depends on the deployment method:
 > - **Azure CLI (`az iot ops create`)**: `Disabled` by default to avoid deployment failures on resource-constrained clusters.
 > - **REST API, Bicep, and ARM templates**: `Enabled` by default.
@@ -610,7 +586,6 @@ To prevent resource starvation, the broker can [request Kubernetes CPU resource 
 | **Total broker CPU** | Frontend CPU + Backend CPU |
 
 > [!CAUTION]
-
 > The broker isn't the only component that consumes CPU. Other Azure IoT Operations components (dataflow engine, OPC UA connector, system pods) typically consume ~200–300m in aggregate. Account for this overhead when planning cluster capacity. If total CPU requested exceeds available CPU, broker pods get stuck in `Pending` state.
 
 ## Configure assets and devices
@@ -703,7 +678,6 @@ Configure [endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md) 
 ```
 
 > [!NOTE]
-
 > A [data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md) can't exceed 70 data flows. Create multiple profiles and distribute flows if needed.
 
 ### WebAssembly (WASM) data processing

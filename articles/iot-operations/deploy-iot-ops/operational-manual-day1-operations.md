@@ -202,7 +202,6 @@ Azure IoT Operations can operate offline for a **maximum of 72 hours**. During o
 | GA → Preview | ❌ No (see preview upgrade section) |
 
 > [!IMPORTANT]
-
 > Azure IoT Operations does **not** support live upgrades. Expect some downtime during the upgrade process.
 
 ### Pre-upgrade checklist
@@ -325,7 +324,6 @@ az keyvault secret set \
 3. **Known issue**: Connectors may not detect credential updates until restarted. Restart the affected connector pod if needed.
 
 > [!WARNING]
-
 > Do not directly edit `SecretProviderClass` or `SecretSync` custom resources in Kubernetes. Always use the operations experience web UI or CLI.
 
 ### Certificate lifecycle
@@ -388,7 +386,6 @@ kubectl get brokerauthorization -n azure-iot-operations
 Edit [`BrokerListener`](../manage-mqtt-broker/howto-configure-brokerlistener.md) resources to:
 
 > [!WARNING]
-
 > Do not modify the default broker listener on port 18883. It is used for internal Azure IoT Operations communication. Create new `BrokerListener` resources for external client access instead.
 
 - Change TLS configuration
@@ -434,7 +431,6 @@ Data persistence allows the MQTT broker to survive pod restarts and preserve mes
 - **Runtime-configurable settings**: Which data types are persisted (retained messages, subscriber queues, state store data) and which specific topics/clients/keys are included.
 
 > [!WARNING]
-
 > Once persistence is enabled at deployment, it **can't be disabled** without uninstalling and redeploying Azure IoT Operations.
 
 #### Manage persistence at runtime
@@ -455,7 +451,6 @@ az iot ops broker persist update --persist-mode stateStore=All \
 ```
 
 > [!NOTE]
-
 > The state store is **in-memory only** by default. All contents are lost on cluster restart unless persistence is explicitly enabled.
 
 ### Testing broker connectivity
@@ -580,7 +575,6 @@ kubectl get dataflowendpoints -n azure-iot-operations
 ```
 
 > [!NOTE]
-
 > Data flow resources created via Kubernetes aren't visible in the [operations experience](../discover-manage-assets/howto-use-operations-experience.md) web UI (known limitation).
 
 #### Via Azure CLI
@@ -644,7 +638,6 @@ When a component reports **Degraded** or **Unavailable** health status, use the 
 5. **Investigate further**: Use `az iot ops check`, pod logs, and the Grafana dashboard metrics to correlate the health status with runtime behavior
 
 > [!TIP]
-
 > If a resource shows **Unknown** (⚪), it hasn't reported status in the last 15 minutes. Check that the component pods are running and that K8s Bridge is syncing status to ARM.
 
 ### Deployment issues
@@ -813,7 +806,6 @@ For measured baseline resource consumption at each memory profile level, see [Ba
 | **memoryProfile** | Low / Medium / High. Controls memory allocation |
 
 > [!TIP]
-
 > Test MQTT broker configuration before production to ensure it handles the expected message load.
 
 #### Memory profile limits
@@ -828,7 +820,6 @@ The following per-pod memory figures are **idle baselines measured with near-zer
 | **High** | 256 MB | ~4.9 GiB | ~5.8 GiB |
 
 > [!WARNING]
-
 > The broker rejects messages when memory usage reaches 75% capacity. The memory profile controls the maximum message size. Messages exceeding the limit are rejected. Total broker memory depends on **both** the memory profile and the cardinality (more replicas and partitions mean more pods and more total memory).
 
 ### Data Flow scaling
@@ -883,7 +874,6 @@ The clone captures:
 - Data flow definitions
 
 > [!NOTE]
-
 > The `az iot ops clone` command requires a specific CLI extension version (`1.0.34 <= version < 1.2.0`). Check your version with `az extension show --name azure-iot-ops --query version`. Resource sync rules and user-created ConfigMaps are not captured by the clone. Reapply these manually on the target cluster.
 
 ### Backup strategy
@@ -910,7 +900,6 @@ The clone captures:
 ### Proper uninstall procedure
 
 > [!IMPORTANT]
-
 > Always use `az iot ops delete`. Never directly delete the namespace or resource group without uninstalling first.
 
 ```bash
