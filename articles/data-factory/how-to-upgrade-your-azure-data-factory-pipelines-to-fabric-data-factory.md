@@ -4,7 +4,7 @@ description: Learn how to assess and upgrade your Azure Data Factory pipelines t
 author: ssindhub
 ms.author: ssrinivasara
 ms.topic: how-to
-ms.date: 03/04/2026
+ms.date: 04/20/2026
 ms.custom: pipelines
 ai-usage: ai-assisted
 ---
@@ -199,6 +199,10 @@ Yes. Pipelines still migrate, but activities that depend on unmapped connections
 **Can I validate migrations before moving production workloads?**
 
 Yes. Microsoft recommends validating migrations in a nonproduction environment, confirming connections, triggers, and end-to-end execution before migrating production pipelines.
+
+**Why certain system variables behave differently in Fabric compared to Azure Data Factory?**
+
+These differences are expected as the platforms evolve independently, and they can typically be addressed with a small adjustment during migration. For example, pipeline().TriggerName is available in Azure Data Factory but is not currently supported in Fabric Data Factory. If your pipeline logic depends on the trigger name, you could use supported trigger event metadata or pass the trigger name explicitly as a pipeline parameter instead.
 
 ## Related content
 

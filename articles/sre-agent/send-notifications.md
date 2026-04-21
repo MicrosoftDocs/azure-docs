@@ -93,6 +93,12 @@ Updates about the same issue stay in the same thread, so your channels stay orga
 > [!NOTE]
 > Teams messages must be formatted as HTML, not Markdown. The agent handles this formatting automatically when composing messages.
 
+### Message footer
+
+Outgoing Teams messages include a "Sent by Azure SRE Agent" footer with a UTC timestamp. When the message originates from a conversation thread in the portal, the footer includes a **View thread** link back to the SRE Agent portal so recipients can see the full investigation context.
+
+The footer appears on both standard messages and Adaptive Cards. It's enabled by default when you set up the Teams connector. To disable it, clear the **Add "Sent by Azure SRE Agent" footer to messages** checkbox in the connector settings (**Builder** > **Connectors** > **Edit**).
+
 ## Use notifications
 
 After you connect Outlook or Teams through **Builder** > **Connectors**, ask the agent directly in chat:

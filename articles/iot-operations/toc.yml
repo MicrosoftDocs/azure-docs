@@ -33,6 +33,10 @@ items:
           - name: Deploy to a production cluster
             href: deploy-iot-ops/howto-deploy-iot-operations.md
             displayName: Kubernetes, Arc-enable, secure settings
+          - name: Best practices for namespaces
+            href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
+          - name: Best practices for schema registries
+            href: ../iot/iot-device-registry-schema-registry-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
           - name: Manage, update, or uninstall
             href: deploy-iot-ops/howto-manage-update-uninstall.md
             displayName: Kubernetes, deployment manifest, delete

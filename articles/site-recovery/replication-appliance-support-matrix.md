@@ -3,7 +3,7 @@ title: Support Requirements for Azure Site Recovery Replication Appliance
 description: This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery with modernized architecture.
 ms.service: azure-site-recovery
 ms.topic: faq
-ms.date: 02/27/2026
+ms.date: 04/21/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: "As a VMware administrator, I want to deploy the Azure Site Recovery replication appliance so that I can ensure effective disaster recovery of my virtual machines to Azure."
@@ -60,23 +60,31 @@ Federal Information Processing Standards (FIPS) | Don't enable FIPS mode.|
 
 #### Allow URLs
 
-Ensure that the following URLs are allowed and reachable from the Site Recovery replication appliance for continuous connectivity:
+The appliance needs access to the following URLs (directly or via proxy) over and above private link access. Ensure that the following URLs are allowed and reachable from the Site Recovery replication appliance for continuous connectivity.
 
-  | URL                  | Details                             |
-  | ------------------------- | -------------------------------------------|
-  | `portal.azure.com`          | Go to the Azure portal.              |
-  | `login.windows.net`<br>`graph.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | Sign in to your Azure subscription.  |
-  |`*.microsoftonline.com`|Create Microsoft Entra apps for the appliance to communicate with Site Recovery. |
-  |`management.azure.com` |Create Microsoft Entra apps for the appliance to communicate with Site Recovery. |
-  |`*.services.visualstudio.com`|Upload app logs used for internal monitoring. |
-  |`*.vault.azure.net`|Manage secrets in Azure Key Vault. Ensure that the machines that need to be replicated have access to this URL. |
-  |`aka.ms` |Allow access to *also known as* links. Used for Site Recovery appliance updates. |
-  |`download.microsoft.com/download` |Allow downloads from Microsoft download. |
-  |`*.servicebus.windows.net`|Enable communication between the appliance and Site Recovery. |
-  |`*.discoverysrv.windowsazure.com`<br><br>`*.hypervrecoverymanager.windowsazure.com `<br><br> `*.backup.windowsazure.com ` |Connect to Site Recovery microservice URLs.
-  |`*.blob.core.windows.net`|Upload data to Azure Storage, which is used to create target disks. |
-  |`*.backup.windowsazure.com`|Use the protection service URL. Site Recovery uses this microservice to process and create replicated disks in Azure. |
-  | `*.prod.migration.windowsazure.com`| Discover your on-premises estate.
+**URL (Mandatory)** | **Details**  
+--- | --- |
+login.windows.net <br> graph.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.live.com <br> *.office.com <br> m365.cloud.microsoft.com | Used to sign in to your Azure subscription 
+developer.microsoft.com <br> graph.microsoft.com | Used for access control and identity management by Microsoft Entra ID.
+login.microsoftonline.com |  Create Microsoft Entra apps for the appliance to communicate with Site Recovery 
+*.vault.azure.net | Manage secrets in Azure Key Vault. Ensure that the machines that need to be replicated have access to this URL.
+
+You can configure Private Links for the following required URLs using the referenced guidance and update the DNS configuration on your local network to resolve the corresponding private endpoint addresses.
+
+**URL** | **Details** | **How to configure private link**  
+--- | --- | --- |
+management.azure.com | Used for creating Microsoft Entra apps for the appliance to communicate with Site Recovery | [Create private link for managing resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
+*.blob.core.windows.net | Used to upload data to Azure Storage, which is used to create target disks | [Connect to a storage account using an Azure Private Endpoint - Azure Private Link](/azure/private-link/tutorial-private-endpoint-storage-portal?tabs=dynamic-ip#create-storage-account-with-a-private-endpoint).
+*.siterecovery.windowsazure.com | Connect to Site Recovery | [Enable replication for private endpoints in Azure Site Recovery](/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints).
+*.prod.migration.windowsazure.com | Discovery your on-premises estate | [Enable replication for private endpoints in Azure Site Recovery](/azure/site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints).
+
+The following URLs are optional. You can choose to skip allowlisting these based on your security requirements but be aware of the impact listed below.  
+
+**URL (Optional)** | **Details**  | **Impact**|
+--- | --- | --- |
+portal.azure.com | Required for Azure portal access. | The appliance Configuration Manager cannot automatically use the portal for time sync checks with internet time server.
+download.microsoft.com/* <br> aka.ms/v2arcmlatestapplianceservices | Download the latest versions of the appliance components (auto-updater). | The appliance cannot automatically check for or update agents to the latest versions. In this scenario [agents must be manually updated](/azure/site-recovery/migrate-appliance.md#manually-update-an-older-version) and [auto update must be disabled](/azure/site-recovery/migrate-appliance.md#turn-off-auto-update).
+*.services.visualstudio.com <br> *.events.data.microsoft.com | Upload diagnostics logs for appliance components. | Appliance diagnostic logs will not be sent to Microsoft. This may affect Microsoft Support's ability to troubleshoot issues.
 
 #### Allow URLs for government clouds
 

@@ -9,6 +9,10 @@ items:
   href: iot-overview-security.md
 - name: Choose an Azure IoT service
   href: iot-services-and-technologies.md
+- name: Best practices for namespaces
+  href: iot-device-registry-namespace-guidance.md
+- name: Best practices for schema registries
+  href: iot-device-registry-schema-registry-guidance.md
 - name: IoT device development
   href: iot-overview-device-development.md
 - name: Deliver industrial solutions
