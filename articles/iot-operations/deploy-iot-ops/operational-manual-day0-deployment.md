@@ -48,7 +48,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 - **Frontend workers**: Set equal to the **number of CPU cores** on the node.
 - **Backend replicas (redundancy factor)**: Set to at least **2** so the broker can perform rolling updates.
 
-*Example--single node with four CPU cores:*
+*Example - single node with four CPU cores:*
 
 | Frontend setting | Value | Backend setting | Value |
 |---|---|---|---|
@@ -58,16 +58,18 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 
 #### Multi-node recommendations
 
-> [!NOTE]
-> The following values are recommendations for optimal performance. Minor deviations shouldn't cause issues, but may result in slightly reduced performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections.
+The following values are recommended for optimal performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections.
 
-- **Frontend replicas**: Set to **1 per node** to distribute load evenly across the cluster.
-- **Frontend workers**: Set equal to the **number of CPU cores** per node.
+> [!NOTE]
+> It is always recommended to test your configuration with the expected workload to verify the desired performance.
+
+- **Frontend replicas**: Set equal to the **number of nodes** in the cluster.
+- **Frontend workers**: Set to **half the number of CPU cores** per node.
 - **Backend replicas (redundancy factor)**: Set to **2** for redundancy and rolling update support.
 - **Backend partitions**: Set equal to the **number of nodes** in the cluster.
 - **Backend workers**: Set to **half the number of CPU cores** per node.
 
-*Example--3-node cluster, eight CPU cores per node:*
+*Example - 3-node cluster, eight CPU cores per node:*
 
 | Frontend setting | Value | Backend setting | Value |
 |---|---|---|---|
@@ -75,7 +77,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 | Workers | 4 | Workers | 4 |
 | | | Partitions | 3 |
 
-*Example--5-node cluster, 16 CPU cores per node:*
+*Example - 5-node cluster, 16 CPU cores per node:*
 
 | Frontend setting | Value | Backend setting | Value |
 |---|---|---|---|
@@ -85,7 +87,7 @@ The [MQTT broker cardinality settings](../manage-mqtt-broker/howto-configure-ava
 
 #### Memory profile and message size limits
 
-The memory profile controls the maximum MQTT message size the broker accepts. The following per-pod memory figures are **idle baselines measured with near-zero traffic**. Actual consumption grows with message throughput and connected clients:
+The memory profile controls the maximum MQTT message size the broker accepts, idle memory usage, and maximum memory usage of each pod. For details on each profile, see [Configure memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md?tabs=portal#configure-memory-profile).
 
 | Memory Profile | Max Message Size | Idle Frontend Memory (per pod) | Idle Backend Memory (per pod) | Use Case |
 |---|---|---|---|---|
@@ -95,7 +97,6 @@ The memory profile controls the maximum MQTT message size the broker accepts. Th
 | **High** | 256 MB | ~4.9 GiB | ~5.8 GiB | High throughput, large messages |
 
 > [!WARNING]
-
 > The broker rejects messages when memory usage reaches 75% capacity. Choose a profile with sufficient headroom for your expected message sizes and throughput.
 
 Total broker memory depends on **both** the memory profile and the cardinality (number of frontend replicas, backend partitions, and redundancy factor). More pods mean more total memory. For measured baseline resource consumption across different configurations, see [Baseline resource profiles](./concept-resource-profiles.md).

@@ -152,32 +152,34 @@ When you increase the cardinality values, the broker's capacity to handle more c
 | backendPartitions | 1 |
 
 #### Multi-node recommendations
-Note: The values below are recommendations for optimal performance. Minor deviations should not cause issues, but may result in slightly reduced performance.
-For very large clusters with low traffic, these values can be set lower than the recommendations without causing issues.
-Additional considerations such as memory (RAM) and performance characteristics are discussed in the sections below.
 
-- **Frontend replicas**: Set to **1 per node** to distribute load evenly across the cluster.
-- **Frontend workers**: Set equal to the **number of CPU cores** per node.
+The following values are recommended for optimal performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections.
+
+> [!NOTE]
+> It is always recommended to test your configuration with the expected workload to verify the desired performance.
+
+- **Frontend replicas**: Set equal to the **number of nodes** in the cluster.
+- **Frontend workers**: Set to **half the number of CPU cores** per node.
 - **Backend replicas (redundancy factor)**: Set to at least **2** so the broker can perform rolling updates. For more information, see the [backend redundancy factor requirement](#backend-redundancy-factor).
 - **Backend partitions**: Set equal to the **number of nodes** in the cluster.
 - **Backend workers**: Set to **half the number of CPU cores** per node.
 
-*Example — 3-node cluster, 8 CPU cores per node:*
+*Example - 3-node cluster, 8 CPU cores per node:*
 
 | Setting | Recommended value |
 |---|---|
 | frontendReplicas | 3 |
-| frontendWorkers | 8 |
+| frontendWorkers | 4 |
 | backendRedundancyFactor | 2 |
 | backendWorkers | 4 |
 | backendPartitions | 3 |
 
-*Example — 5-node cluster, 16 CPU cores per node:*
+*Example - 5-node cluster, 16 CPU cores per node:*
 
 | Setting | Recommended value |
 |---|---|
 | frontendReplicas | 5 |
-| frontendWorkers | 16 |
+| frontendWorkers | 8 |
 | backendRedundancyFactor | 2 |
 | backendWorkers | 8 |
 | backendPartitions | 5 |
