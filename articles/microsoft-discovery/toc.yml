@@ -138,7 +138,7 @@ items:
           - name: Configure managed identities
             href: how-to-configure-managed-identity.md
             displayName: Microsoft Discovery, managed identity, UAMI, role assignments, authentication
-      - name: Compute & Execution
+      - name: Supercomputer & Workspace Management
         items:
           - name: Manage Supercomputer & Nodepools
             href: how-to-manage-supercomputers.md

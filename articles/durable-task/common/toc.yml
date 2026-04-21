@@ -114,10 +114,10 @@
         href: ../sdks/durable-task-schedulers-schedules.md
       - name: Large payload support
         href: ../scheduler/durable-task-scheduler-large-payloads.md?pivots=durable-task-sdks
-      - name: C#
-        items:
-        - name: Roslyn Analyzer
-          href: ../../azure-functions/durable-functions/durable-functions-roslyn-analyzer.md?toc=/azure/durable-task/common/toc.json
+      - name: Export orchestration history
+        href: ../scheduler/durable-task-scheduler-export-history.md?pivots=durable-task-sdks
+      - name: Roslyn Analyzer
+        href: ../../azure-functions/durable-functions/durable-functions-roslyn-analyzer.md?toc=/azure/durable-task/common/toc.json
     - name: Monitor
       items:
       - name: Diagnostics

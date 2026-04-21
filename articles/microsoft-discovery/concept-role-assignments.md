@@ -30,7 +30,7 @@ For background on Azure RBAC concepts, see [Azure role-based access control docu
 
 ## Built-in Microsoft Discovery roles
 
-Microsoft Discovery provides three built-in roles designed around research personas. They're listed here in order of decreasing permissions.
+Microsoft Discovery provides four built-in roles. Three are designed around research personas; one is a specialized role for agent-knowledgebase integration scenarios. They're listed here in order of decreasing permissions.
 
 ### Microsoft Discovery Platform Administrator (Preview)
 
@@ -193,6 +193,37 @@ Readers have limited privileges to view and review information. They can't creat
 
 ---
 
+### Microsoft Discovery Bookshelf Index Data Reader (Preview)
+
+**Target persona:** AI developers other than the owner who created the Knowledge base
+
+**Assignable scopes:** Subscription, resource group, resource
+
+**Primary interface:** REST APIs, SDKs
+
+**Description:** Grants query access to search and retrieve data from Microsoft Discovery Bookshelf knowledge bases. 
+
+**Key capabilities:**
+
+- Retrieving data from Microsoft Discovery Bookshelf knowledge base versions using Discovery Agents
+- Minimum required access for agents to query linked knowledge bases
+
+**Key limitations:**
+
+- Can't create, update, or delete any resources
+- Can't perform any control plane or other data plane operations
+- No data action permissions; access is limited to the single search action
+
+**Permissions:**
+
+| Permission | Purpose |
+|------------|---------|
+| `Microsoft.Discovery/bookshelf/knowledgeBaseVersions/search` | Search and retrieve data from Bookshelf knowledge base versions |
+
+**Data actions:** None
+
+---
+
 ## Roles required by persona
 
 The following table summarizes the recommended role combinations for each user persona. Roles can be assigned at the subscription or resource group scope. You can add more roles as your requirements grow.
@@ -200,18 +231,20 @@ The following table summarizes the recommended role combinations for each user p
 > [!TIP]
 > Start with least-privilege roles scoped to the narrowest scope needed, and expand permissions only as required.
 
-| Platform / IT administrator | Scientist / researcher | Reader / viewer |
+| Platform administrator | Scientist / researcher | Reader / viewer |
 |-----------------------------|------------------------|-----------------|
 | Microsoft Discovery Platform Administrator (Preview) | Microsoft Discovery Platform Contributor (Preview) | Microsoft Discovery Platform Reader (Preview) |
 | Managed Identity Contributor | Storage Account Contributor | Reader |
 | Managed Identity Operator | Storage Blob Data Contributor | |
 | Storage Account Contributor | AcrPush | |
 | Storage Blob Data Contributor | Reader (subscription level) | |
-| Network Contributor | | |
-| AcrPush | | |
+| Network Contributor | Azure AI User (Workspace MRG level) | |
+| AcrPush | Microsoft Discovery Bookshelf Index Data Reader (Preview) | |
 | Reader | | |
+| Azure AI Owner (Workspace MRG level) | | |
+| Microsoft Discovery Bookshelf Index Data Reader (Preview) | | |
 
-## Other Azure roles
+## Other Azure roles definition
 
 Some workflows require Azure built-in roles beyond the Microsoft Discovery roles. The following table lists the most common ones.
 
@@ -285,6 +318,12 @@ az role assignment create \
   --assignee-object-id {group-object-id} \
   --role "Microsoft Discovery Platform Reader (Preview)" \
   --scope "/subscriptions/{subscription-id}/resourceGroups/{rg-name}"
+
+# Assign Bookshelf Index Data Reader role to a managed identity at resource group scope
+az role assignment create \
+  --assignee {managed-identity-object-id} \
+  --role "Microsoft Discovery Bookshelf Index Data Reader (Preview)" \
+  --scope "/subscriptions/{subscription-id}/resourceGroups/{rg-name}"
 ```
 
 ### Azure PowerShell
@@ -307,6 +346,12 @@ New-AzRoleAssignment `
   -SignInName user@contoso.com `
   -RoleDefinitionName "Microsoft Discovery Platform Reader (Preview)" `
   -Scope "/subscriptions/{subscription-id}"
+
+# Assign Bookshelf Index Data Reader role to a managed identity at resource group scope
+New-AzRoleAssignment `
+  -ObjectId {managed-identity-object-id} `
+  -RoleDefinitionName "Microsoft Discovery Bookshelf Index Data Reader (Preview)" `
+  -Scope "/subscriptions/{subscription-id}/resourceGroups/{rg-name}"
 ```
 
 ## Related content
