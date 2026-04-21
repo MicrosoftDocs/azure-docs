@@ -330,7 +330,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
     ---
 
-1. Windows Firewall might prompt you to allow the Azure Functions runtime to access the internet. Select **Allow**.
+1. Windows Firewall might prompt you to allow the Azure Functions runtime to access the Internet. Select **Allow**.
 
 1. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
 
