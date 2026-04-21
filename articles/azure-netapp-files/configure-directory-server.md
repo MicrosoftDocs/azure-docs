@@ -129,7 +129,9 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
     :::image type="content" source="./media/configure-directory-server/authentication-settings.png" alt-text="Screenshot of the authentication setting options." lightbox="./media/configure-directory-server/authentication-settings.png":::
 
-1. In the **Bind DN username**, specify the Distinguished Name (DN) of the account used to authenticate with the LDAP server.
+1. In the **Bind DN username**, specify the Distinguished Name (DN) of the account used to authenticate with the LDAP server.  
+    Example: uid=binduser,cn=users,cn=accounts,dc=contoso,dc=com
+
 1. Select the secret in Azure Key Vault that contains the bind password for LDAP authentication.
 
     * **Enter Secret URI:** You can manually enter the secret identifier.
