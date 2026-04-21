@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Operations: Day 0 operational manual - Deployment"
+title: "Day 0 operational manual: Deployment"
 description: Learn how to deploy Azure IoT Operations to a production Kubernetes cluster, including planning, prerequisites, cluster preparation, and post-deployment validation.
 author: huguesbouvier
 ms.author: hubouvie
@@ -10,7 +10,7 @@ ms.date: 03/25/2026
 #CustomerIntent: As an IT administrator or platform engineer, I want a step-by-step guide for deploying Azure IoT Operations to a production Kubernetes cluster.
 ---
 
-# Azure IoT Operations: Day 0 operational manual - Deployment
+# Day 0 operational manual: Deployment
 
 This operational manual provides a comprehensive, step-by-step guide for deploying [Azure IoT Operations](../overview-iot-operations.md) to a production Kubernetes cluster. It covers everything from initial planning and prerequisites through cluster preparation, deployment, configuration of assets and data flows, and post-deployment validation.
 
@@ -123,7 +123,7 @@ For more information, see [Performance](../manage-mqtt-broker/howto-configure-av
 
 ### Supported Azure regions
 
-Azure IoT Operations is available in: East US, East US 2, West US, West US 2, West US 3, West Europe, North Europe, Germany West Central.
+Azure IoT Operations is available in: East US, East US 2, West US, West US 2, West US 3, South Central US, West Europe, North Europe, Germany West Central. For the latest list, see [Supported regions](../overview-support.md#supported-regions).
 
 ### Plan your Azure resources
 
@@ -399,7 +399,7 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
 
    | Frontend setting | Value | Backend setting | Value | Broker setting | Value |
    |---|---|---|---|---|---|
-   | Replicas | 2 | Redundancy factor | 2 | Memory profile | Low |
+   | Replicas | 1 | Redundancy factor | 2 | Memory profile | Low |
    | Workers | 4 | Workers | 1 | | |
    | | | Partitions | 1 | | |
 
@@ -412,7 +412,7 @@ For AKS deployments with [secure settings](./howto-enable-secure-settings.md), b
    | | | Partitions | 3 | | |
 
    > [!IMPORTANT]
-   > Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support. Always set at least **2 frontend replicas** on single-node deployments to enable rolling updates.
+   > Backend redundancy factor must be **2 or greater** for high availability and rolling upgrade support.
 
    > [!WARNING]
    > MQTT broker cardinality settings (replicas, workers, partitions) are configured **only at deployment time**. To change these settings later, you must uninstall and redeploy Azure IoT Operations.
@@ -688,8 +688,7 @@ Configure [endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md) 
 [Data flows](../connect-to-cloud/howto-create-dataflow.md) define the pipeline: **Source → Transformation → Destination**
 
 > [!IMPORTANT]
-
-> Every data flow must include the local MQTT broker default endpoint (`aio-broker`) as either its source or its destination. You cannot connect two custom endpoints directly without the local broker in between.
+> Every data flow must include the local MQTT broker default endpoint (`aio-broker`) as either its source or its destination. You can't connect two custom endpoints directly without the local broker in between.
 
 - **Source**: MQTT broker topics (default), Kafka, or asset data
 - **Transformations**: Filtering, [mapping](../connect-to-cloud/concept-dataflow-mapping.md) (one-to-one, many-to-one), [enrichment](../connect-to-cloud/concept-dataflow-enrich.md) from reference datasets, type conversions

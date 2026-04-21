@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT Operations: Day 1 operational manual - Maintenance and troubleshooting"
+title: "Day 1 operational manual: Maintenance and troubleshooting"
 description: Learn how to maintain, monitor, troubleshoot, upgrade, and operate Azure IoT Operations in production environments.
 author: huguesbouvier
 ms.author: hubouvie
@@ -10,7 +10,7 @@ ms.date: 03/25/2026
 #CustomerIntent: As an SRE or IT administrator, I want a guide for maintaining, monitoring, troubleshooting, and upgrading Azure IoT Operations in production.
 ---
 
-# Azure IoT Operations: Day 1 operational manual - Maintenance and troubleshooting
+# Day 1 operational manual: Maintenance and troubleshooting
 
 This operational manual provides a comprehensive guide for maintaining, monitoring, troubleshooting, upgrading, and operating [Azure IoT Operations](../overview-iot-operations.md) in production. It covers day-to-day operations, incident response, scaling, certificate and secrets management, and disaster recovery.
 
@@ -442,16 +442,16 @@ Data persistence allows the MQTT broker to survive pod restarts and preserve mes
 ```bash
 # Update retained message persistence
 az iot ops broker persist update --persist-mode retain=All \
-  --resource-group <RG> --instance <INSTANCE>
+  --resource-group <RG> --instance <INSTANCE> --name <BROKER_NAME>
 
 # Update subscriber queue persistence (custom, specific client IDs)
 az iot ops broker persist update --persist-mode subscriberQueue=Custom \
   --subscriber-client-ids "client1" "client2" \
-  --resource-group <RG> --instance <INSTANCE>
+  --resource-group <RG> --instance <INSTANCE> --name <BROKER_NAME>
 
 # Update state store persistence
 az iot ops broker persist update --persist-mode stateStore=All \
-  --resource-group <RG> --instance <INSTANCE>
+  --resource-group <RG> --instance <INSTANCE> --name <BROKER_NAME>
 ```
 
 > [!NOTE]
@@ -668,7 +668,7 @@ When a component reports **Degraded** or **Unavailable** health status, use the 
 
 **Symptom**: Broker pods fail to start
 **Cause**: Insufficient cluster resources for the configured [cardinality and memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md)
-**Fix**: Reduce replica count, workers, sharding, or memory profile. **Warning**: Setting replica count to one risks data loss.
+**Fix**: Reduce replica count, workers, partitions, or memory profile to fit available cluster resources. Backend redundancy factor should remain at **2 or greater** for high availability.
 
 ### Secret and certificate issues
 
@@ -965,8 +965,8 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <CLUSTER> 
 # Configure for K3s
 export KUBECONFIG=~/.kube/config
 
-# Remote access via Arc proxy
-az connectedk8s proxy --name <CLUSTER> -g <RG>
+# Remote access via Arc proxy (requires a service account token)
+az connectedk8s proxy --name <CLUSTER> -g <RG> --token <TOKEN>
 
 # Key namespaces
 kubectl get pods -n azure-iot-operations  # AIO components
