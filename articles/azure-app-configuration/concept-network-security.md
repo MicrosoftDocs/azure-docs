@@ -34,7 +34,7 @@ If you disable public network access to your configuration store (public network
 
 ## Choosing a network security approach
 
-The right approach depends on your requirements:
+The right approach depends on your requirements. In some scenarios, disabling public network access isn't an option. For example, if you use [hyperscale configuration delivery for client applications](./concept-hyperscale-client-configuration.md), your configuration store must remain publicly accessible so that Azure Front Door can serve configuration to end users. When you can restrict public access, consider the following options:
 
 - **Private endpoints** are ideal when your clients reside in an Azure virtual network and you want to ensure all traffic stays on the Microsoft backbone network.
 - **Network security perimeter (preview)** gives you the capability to define IP address and subscription-based inbound access rules for your configuration store. In addition, network security perimeters allow you to define a logical isolation boundary between many PaaS resources, centralize network access rule configuration, control outbound access, and more. To learn more, see [Network security perimeter for Azure App Configuration](./concept-nsp.md).
