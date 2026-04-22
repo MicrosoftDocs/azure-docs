@@ -33,23 +33,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     ```
     POST 
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/poolChange?api-version=2026-01-01
+    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}/resetSmbPassword?api-version=2026-01-01
 
     Body:
-    -H "Authorization: Bearer $TOKEN" \
-    -H "Content-Length: 0"
+    {}
 
     ```
-
-
-
-## Next steps  
-
-* [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md)
-* [Modify Active Directory connections](modify-active-directory-connections.md)
-* [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
-* [Create a dual-protocol volume](create-volumes-dual-protocol.md)
-* [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
-* [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) 
-* [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
-* [AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)

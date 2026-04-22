@@ -318,8 +318,8 @@ If the cache volume has `writeBack` enabled, issue a PATCH call to disable `writ
 You can update the peer addresses associated with an existing cluster peer by using a POST API call.
 
 > [!NOTE]
-> * You should provide the full set of peer addresses to be used by the cluster peer (not just new ones or ones that have changed).
-> * You should execute the modifyClusterPeer call against one cache volume using the cluster peer.
+> * You are required to provide the full set of peer addresses to be used by the cluster peer (not just new ones or ones that have changed).
+> * If you have more than one cache volume using the cluster peer, you only need to execute the modifyClusterPeer call against one of the cache volumes.
 
 ```
 POST
