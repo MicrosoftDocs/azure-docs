@@ -16,7 +16,7 @@ You can change the service level of an existing cache volume by moving the cache
 
 This functionality enables you to meet your workload needs on demand. You can change an existing cache volume to use a higher service level for better performance, or to use a lower service level for cost optimization. For example, if the cache volume is in a capacity pool that uses the *Standard* service level and you want the cache volume to use the *Premium* service level, you can move the cache volume dynamically to a capacity pool that uses the *Premium* service level. 
 
-The capacity pool that you want to move the cache volume to must already exist and have sufficient capacity and throughput. The capacity pool can contain other cache volumes and cache volumes. If you want to move the cache volume to a brand-new capacity pool, you need to [create the capacity pool](azure-netapp-files-set-up-capacity-pool.md) before you move the cache volume. 
+The capacity pool that you want to move the cache volume to must already exist and have sufficient capacity and throughput. The capacity pool can contain other volumes and cache volumes. If you want to move the cache volume to a brand-new capacity pool, you need to [create the capacity pool](azure-netapp-files-set-up-capacity-pool.md) before you move the cache volume. 
 
 ## Considerations
 
