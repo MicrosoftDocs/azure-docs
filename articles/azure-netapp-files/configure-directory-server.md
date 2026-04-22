@@ -89,12 +89,12 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 You must first create the LDAP server before you can connect it to Azure NetApp Files. Follow the instructions for the relevant server: 
 
-* To configure FreeIPA, see the [FreeIPA QuickStart Guide](https://www.freeipa.org/page/Quick_Start_Guide) then follow [Red Hat's guidance](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/client-install#client-install-non-interactive).
-* To configure RedHat IDM, see [Red Hat documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/installing_identity_management/index). 
+* To configure FreeIPA, see the [FreeIPA QuickStart Guide](https://www.freeipa.org/page/Quick_Start_Guide) then follow [Red Hat's guidance](https://docs.redhat.com/documentation/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/client-install#client-install-non-interactive).
+* To configure RedHat IDM, see [Red Hat documentation](https://docs.redhat.com/documentation/red_hat_enterprise_linux/8/html/installing_identity_management/index). 
 * To configure OpenLDAP, see [OpenLDAP documentation](https://www.openldap.org/doc/).
-* To configure Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/en/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS). For more information, see the [install guide for 389 Directory Server](https://www.port389.org/docs/389ds/howto/howto-install-389.html). 
+* To configure Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS). For more information, see the [install guide for 389 Directory Server](https://www.port389.org/docs/389ds/howto/howto-install-389.html). 
 * To configure Oracle Unified Directory, follow the [Oracle Unified Directory documentation](https://docs.oracle.com/en/middleware/idm/unified-directory/14.1.2/install.html). 
-    
+
 
 ## Configure the LDAP connection in Azure NetApp Files 
 
@@ -107,17 +107,18 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
     :::image type="content" source="./media/configure-directory-server/configure-connection.png" alt-text="Screenshot of Configure LDAP connection options." lightbox="./media/configure-directory-server/configure-connection.png":::
 
-    * **Domain:** The domain name serves as the base DN. 
+    * **Domain name:** The domain name serves as the base DN. 
     * **LDAP servers:** The IP address of the LDAP server. 
+    * **LDAP port:** The custom port number for the LDAP server connection, to improve compatibility with varied infrastructure setups.
     * **LDAP over TLS:** Optionally, check the box to enable LDAP over TLS for secure communication. 
       
        > [!NOTE]
        > To enable LDAP over TLS on multiple servers, you should generate and install the common certificate on each server and then upload the server CA certificate in the Azure portal.
 
     * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 
-    * **Certificate CN Host:** The common name server of the host, for example contoso.server.com. 
-    * **DNS Server IP for CN Hostname Resolution:**  The DNS server used to dynamically resolve the CN hostname to the LDAP server’s IP address.
-    * **Custom LDAP Server Ports:** The custom port number for the LDAP server connection, to improve compatibility with varied infrastructure setups.
+    * **Certificate CN host:** The common name server of the host, for example contoso.server.com. 
+    * **DNS servers:** The DNS server used to dynamically resolve the CN hostname to the LDAP server’s IP address.
+   
     * **User DN:** Defines the base path in the LDAP directory where user entries are located.  
     * **Group DN:** Specifies the location of group entries used for access control and permissions.  
     * **Netgroup DN:** Defines the network-based groupings, often for NFS or system-level access control. Allowing customers to configure these DNs ensures that ANF can accurately query and integrate with their specific LDAP directory structures, thereby enhancing flexibility.     
@@ -141,7 +142,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
 1. Select the identity type used to access the Key Vault secret. To configure a managed identity, click **Add New Identity** in the edit window and select one of the following:
 
-    * **System-assigned:** Enable the system-assigned managed identity toggle.
+    * **System-assigned:** Enable the system-assigned managed identity.
     * **User-assigned:** Select or add an existing user-assigned managed identity.
 
     > [!NOTE]
@@ -156,6 +157,8 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 1. To validate the connection, navigate to the volume overview for the volume using the LDAP connection.
 1. Select **LDAP connection** then **LDAP Group ID List**.  
 1. In the Username field, enter the username provided when you configured the LDAP server. Select **Get Group IDs**. Ensure the group IDs match the client and server.
+
+For more information, see [Troubleshoot user access on LDAP volumes in Azure NetApp Files](troubleshoot-user-access-ldap.md).
 
 ## Next steps
 
