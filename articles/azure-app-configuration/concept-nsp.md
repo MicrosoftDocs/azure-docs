@@ -12,6 +12,8 @@ ms.date: 04/22/2026
 ---
 # Network security perimeter for Azure App Configuration (preview)
 
+## Overview
+
 [Azure network security perimeter (NSP)](../private-link/network-security-perimeter-concepts.md) allows you to define a logical network isolation boundary for PaaS resources that are deployed outside of a virtual network. By default, a network security perimeter restricts public network access to PaaS resources within the perimeter. However, you can configure explicit access rules for inbound and outbound traffic.
 
 > [!IMPORTANT]
@@ -25,7 +27,7 @@ When you associate a configuration store with a network security perimeter, you 
 - **Shared configuration across PaaS resources**: Share a collection of access rules across multiple PaaS resources using network security perimeter profiles.
 - **Diagnostic logging**: Monitor network traffic to and from your configuration store through network security perimeter diagnostic logs.
 
-## Customer-managed key encryption
+## Considerations for customer-managed key encryption
 
 If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the store communicates with Azure Key Vault to access your encryption key. When the store is associated with a network security perimeter, this outbound communication is subject to the perimeter's access rules. To ensure your configuration store can continue to access the encryption key, you must meet one of the following requirements:
 
