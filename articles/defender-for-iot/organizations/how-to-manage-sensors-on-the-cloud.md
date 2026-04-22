@@ -52,7 +52,7 @@ Enterprise IoT sensors are all automatically added to the same site, named **Ent
     |Option |Description  |
     |---------|---------|
     |**Display name**| Enter a meaningful name for your site. |
-    | **Owner** | **For OT sites only**. Enter one or more email addresses for the user you want to designate as the owner of the devices at this site. The site owner is inherited by all devices at the site, and is shown on the IoT device entity pages and in incident details in Microsoft Sentinel.<br><br>    In Microsoft Sentinel, use the **AD4IoT-SendEmailtoIoTOwner** and **AD4IoT-CVEAutoWorkflow** playbooks to automatically notify device owners about important alerts or incidents. For more information, see [Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md).|
+    | **Owner** | **For OT sites only**. Enter one or more email addresses for the user you want to designate as the owner of the devices at this site. The site owner is inherited by all devices at the site, and is shown on the IoT device entity pages and in incident details in Microsoft Sentinel.<br><br>    In Microsoft Sentinel, use the **AD4IoT-SendEmailtoIoTOwner** and **AD4IoT-CVEAutoWorkflow** playbooks to automatically notify device owners about important alerts or incidents. For more information, see [Investigate and detect threats for IoT devices](/azure/sentinel/iot-advanced-threat-monitoring).|
     |**Tags** | (Optional) Enter values for the **Key** and **Value** fields for each new tag you want to add to your site. Select **+ Add** to add a new tag. |
 
 1. **For OT sites only**: To define specified permissions per site, select **Manage site access control (Preview)**. 

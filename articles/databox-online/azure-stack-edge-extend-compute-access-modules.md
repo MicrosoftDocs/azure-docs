@@ -2,12 +2,12 @@
 title: Azure Stack Edge Pro FPGA compute network management to access modules 
 description: Describes how to extend the compute network on your Azure Stack Edge Pro FPGA to access modules via an external IP.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 05/17/2019
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 ---
 # Enable compute network on your Azure Stack Edge Pro

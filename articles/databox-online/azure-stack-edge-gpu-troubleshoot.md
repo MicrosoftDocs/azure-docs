@@ -2,12 +2,12 @@
 title: Run diagnostics, collect logs to troubleshoot Azure Stack Edge devices| Microsoft Docs
 description: Describes how to run diagnostics, use logs to troubleshoot Azure Stack Edge Pro GPU device issues.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 10/18/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues
 

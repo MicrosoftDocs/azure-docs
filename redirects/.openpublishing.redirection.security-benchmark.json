@@ -286,11 +286,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sentinel/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/sentinel-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-signalr/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/signalr-security-baseline",
       "redirect_document_id": false
