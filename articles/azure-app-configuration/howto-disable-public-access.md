@@ -40,7 +40,7 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 ## Disable public access to a store
 
-Azure App Configuration offers three public access options:
+Azure App Configuration offers four public access options:
 
 - Automatic public access: public network access is enabled, as long as you don't have a private endpoint present. Once you create a private endpoint, App Configuration disables public network access and enables private access. This option can only be selected when creating the store.
 - Disabled: public access is disabled and no traffic can access this resource unless it's through a private endpoint.

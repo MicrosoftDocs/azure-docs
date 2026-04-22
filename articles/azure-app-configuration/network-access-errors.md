@@ -68,4 +68,4 @@ Content-Type: application/problem+json; charset=utf-8
 - [Set up private access in Azure App Configuration](./howto-set-up-private-access.md)
 - [Disable public access in Azure App Configuration](./howto-disable-public-access.md)
 - [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md)
-- [NSP DOC][INSERT LINK]
+- [Network security perimeter for Azure App Configuration](./concept-nsp.md)
