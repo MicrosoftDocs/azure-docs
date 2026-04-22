@@ -92,7 +92,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 * To configure FreeIPA, see the [FreeIPA QuickStart Guide](https://www.freeipa.org/page/Quick_Start_Guide) then follow [Red Hat's guidance](https://docs.redhat.com/documentation/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/client-install#client-install-non-interactive).
 * To configure RedHat IDM, see [Red Hat documentation](https://docs.redhat.com/documentation/red_hat_enterprise_linux/8/html/installing_identity_management/index). 
 * To configure OpenLDAP, see [OpenLDAP documentation](https://www.openldap.org/doc/).
-* To configure Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS). For more information, see the [install guide for 389 Directory Server](https://www.port389.org/docs/389ds/howto/howto-install-389.html). 
+* To configure Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS). For more information, see the [install Red Hat Directory Server](https://docs.redhat.com/documentation/red_hat_directory_server/13/html/installing_red_hat_directory_server/index). 
 * To configure Oracle Unified Directory, follow the [Oracle Unified Directory documentation](https://docs.oracle.com/en/middleware/idm/unified-directory/14.1.2/install.html). 
 
 
@@ -116,7 +116,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
        > To enable LDAP over TLS on multiple servers, you should generate and install the common certificate on each server and then upload the server CA certificate in the Azure portal.
 
     * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 
-    * **Certificate CN host:** The common name server of the host, for example contoso.server.com. 
+    * **Certificate CN host:** The common name server of the host, for example server.contoso.com. 
     * **DNS servers:** The DNS server used to dynamically resolve the CN hostname to the LDAP server’s IP address.
    
     * **User DN:** Defines the base path in the LDAP directory where user entries are located.  
