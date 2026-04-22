@@ -318,7 +318,7 @@ When you create an asset by using the Azure CLI, you can define:
   - Serial number
   - Documentation URI
 - Dataset values for sampling interval, publishing interval, key frame count, and queue size.
-- Datapoint specific values for sampling interval, publishing interval, and queue size.
+- Data point specific values for sampling interval, publishing interval, and queue size.
 - Event specific values for sampling publishing interval, and queue size.
 - The observability mode for each data point and event
 

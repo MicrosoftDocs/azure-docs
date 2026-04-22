@@ -2,13 +2,13 @@
 title: Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU 
 description: Describes how to troubleshoot GPU extension installation issues for GPU VMs on Azure Stack Edge Pro GPU.
 services: databox
-author: v-dalc
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 06/28/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
 

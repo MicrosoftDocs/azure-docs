@@ -2,12 +2,12 @@
 title: Recover from an Azure Stack Edge Pro device failure 
 description: Describes how to recover from an Azure Stack Edge Pro failed device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Recover from a failed Azure Stack Edge Pro GPU device 

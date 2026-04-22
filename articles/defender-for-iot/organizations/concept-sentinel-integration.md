@@ -114,7 +114,7 @@ SecurityAlert
 After you've installed the Microsoft Defender for IoT solution and deployed the [AD4IoT-AutoAlertStatusSync](iot-advanced-threat-monitoring.md#update-alert-statuses-in-defender-for-iot) playbook, alert status changes are synchronized from Microsoft Sentinel to Defender for IoT. Alert status changes are *not* synchronized from Defender for IoT to Microsoft Sentinel.
 
 > [!IMPORTANT]
-> We recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel. For more information, see [Work with incident tasks in Microsoft Sentinel](../../sentinel/work-with-tasks.md).
+> We recommend that you manage your alert statuses together with the related incidents in Microsoft Sentinel. For more information, see [Work with incident tasks in Microsoft Sentinel](/azure/sentinel/work-with-tasks).
 >
 
 ### Defender for IoT incidents in Microsoft Sentinel
@@ -131,7 +131,7 @@ SecurityIncident
 For more information, see:
 
 - [Integrations with Microsoft and partner services](integrate-overview.md)
-- [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md)
-- [Detect threats out-of-the-box with Defender for IoT data](../../sentinel/iot-advanced-threat-monitoring.md#detect-threats-out-of-the-box-with-defender-for-iot-data)
-- [Create custom analytics rules to detect threats](../../sentinel/detect-threats-custom.md)
-- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+- [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](/azure/sentinel/iot-solution)
+- [Detect threats out-of-the-box with Defender for IoT data](/azure/sentinel/iot-advanced-threat-monitoring#detect-threats-out-of-the-box-with-defender-for-iot-data)
+- [Create custom analytics rules to detect threats](/azure/sentinel/detect-threats-custom)
+- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)

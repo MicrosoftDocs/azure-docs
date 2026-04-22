@@ -27,6 +27,15 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Improved processing for custom search parameters in bundles**: Enhanced validation has been added to identify and prevent conflicting custom search parameters within bundle requests. This improvement helps ensure more consistent and reliable search parameter processing when submitting bundle operations.
 
+#### Bug fixes:
+
+**Fix for versioning errors**: There was an issue where impacted customers could face errors when accessing or updating certain resources (when different resource types shared the same resource ID), where the most recent version may not be returned as expected. The issue was fixed on 11 April 2026 by fixing the resource comparison logic from string-based ID comparison to proper ResourceKey comparison. This fix ensures that resources with the same ID but different resource types are treated as completely separate resources, preventing versioning confusion.
+
+**Fix for capability statement intermittent failures**: Previously, users could experience intermittent failures as a side-effect of background in-process attempts to update the capability statements. This issue is fixed by ensuring that access to the resources of the capability statement are using thread-safe components to help prevent these errors.
+
+**Batch oversized bulk operation audit logs**: Previously, some bulk delete audit logs could exceed the maximum body size, preventing their processing. This issue has been fixed by splitting the items into size-bounded batches.
+
+
 ## March 2026
 ### FHIR service
 **Token search behavior update**: After 2 March 2026, the Azure FHIR service was updated so that token values longer than 128 characters are no longer truncated during indexing. If your workspace is affected, you may notice changes in the number of resources returned for token-based queries, along with improved overall query performance. The goal for this update is to improve search behavior accuracy and strengthen service reliability. An Azure service notification was sent to affected accounts with more details.

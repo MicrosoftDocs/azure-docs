@@ -196,7 +196,7 @@ You create the firewalls directly from Defender for Cloud. These WAF instances a
 
 #### Microsoft Sentinel
 
-[Microsoft Sentinel](../../sentinel/overview.md?toc=/azure/web-application-firewall/toc.json) is a scalable, cloud-native solution that encompasses security information event management (SIEM) and security orchestration automated response (SOAR). Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise. It provides a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+[Microsoft Sentinel](/azure/sentinel/overview?toc=/azure/web-application-firewall/toc.json) is a scalable, cloud-native solution that encompasses security information event management (SIEM) and security orchestration automated response (SOAR). Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise. It provides a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
 With the firewall events workbook built into Azure Web Application Firewall, you can get an overview of the security events on your WAF. The overview includes matched rules, blocked rules, and all other logged firewall activity.
 
