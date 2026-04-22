@@ -92,7 +92,7 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 * To configure FreeIPA, see the [FreeIPA QuickStart Guide](https://www.freeipa.org/page/Quick_Start_Guide) then follow [Red Hat's guidance](https://docs.redhat.com/documentation/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/client-install#client-install-non-interactive).
 * To configure RedHat IDM, see [Red Hat documentation](https://docs.redhat.com/documentation/red_hat_enterprise_linux/8/html/installing_identity_management/index). 
 * To configure OpenLDAP, see [OpenLDAP documentation](https://www.openldap.org/doc/).
-* To configure Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS). For more information, see the [install Red Hat Directory Server](https://docs.redhat.com/documentation/red_hat_directory_server/13/html/installing_red_hat_directory_server/index). 
+* To configure Red Hat Directory Server, follow the [Red Hat documentation](https://docs.redhat.com/documentation/red_hat_fuse/6.3/html/security_guide/esbldaptutorialinstallds#ESBLDAPTutorialInstallDS). For more information, see the [Install Red Hat Directory Server](https://docs.redhat.com/documentation/red_hat_directory_server/13/html/installing_red_hat_directory_server/index). 
 * To configure Oracle Unified Directory, follow the [Oracle Unified Directory documentation](https://docs.oracle.com/en/middleware/idm/unified-directory/14.1.2/install.html). 
 
 
