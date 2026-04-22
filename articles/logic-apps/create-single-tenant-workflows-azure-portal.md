@@ -22,7 +22,7 @@ This how-to guide shows how to create an example automated workflow that waits f
 - The **Request** trigger, which creates a callable endpoint that can handle inbound requests from any caller.
 - The **Office 365 Outlook** connector, which provides an action to send email.
 
-When you finish, your workflow looks like the following high level example:
+When you finish, your workflow looks like the following high-level example:
 
 :::image type="content" source="media/create-single-tenant-workflows-azure-portal/overview.png" alt-text="Screenshot shows Azure portal, example Standard workflow with Request trigger and Office 365 Outlook action." lightbox="media/create-single-tenant-workflows-azure-portal/overview.png":::
 

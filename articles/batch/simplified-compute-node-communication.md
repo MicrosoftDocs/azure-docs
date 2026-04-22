@@ -2,7 +2,7 @@
 title: Use simplified compute node communication
 description: Learn about the simplified compute node communication mode in the Azure Batch service and how to enable it.
 ms.topic: how-to
-ms.date: 01/12/2026
+ms.date: 04/21/2026
 ms.custom: references_regions
 # Customer intent: "As a cloud administrator managing workload execution on Batch pools, I want to switch to simplified compute node communication mode, so that I can reduce networking complexity and enhance security for my batch processing environment."
 ---
@@ -17,11 +17,19 @@ Batch supports two types of communication modes:
 
 This article describes the *simplified* communication mode and the associated network configuration requirements.
 
-> [!TIP]
-> Information in this document pertaining to networking resources and rules such as NSGs doesn't apply to Batch pools with no public IP addresses that use the node management private endpoint without internet outbound access.
-
 > [!WARNING]
 > The *classic* compute node communication mode will be retired on **31 March 2026** and replaced with the *simplified* communication mode described in this document.
+
+> [!IMPORTANT]
+> **Understand two independent settings before configuring simplified mode:**
+>
+> - **Pool public IP addresses** control the networking of compute nodes themselves (whether VMs have public IPs for outbound internet access).
+> - **Account public network access** (`publicNetworkAccess`) controls whether the Batch service endpoints (including the *node management endpoint*) accept connections from the public internet.
+>
+> These settings are independent. A pool can have public IPs on its compute nodes, while the Batch account has public network access disabled. In simplified mode, compute nodes initiate outbound connections to the Batch *node management endpoint*. If the Batch account has `publicNetworkAccess` set to **Disabled**, the node management endpoint rejects public connections — even if the pool has public IPs and the NSG allows outbound traffic. In this case, you **must** create a [**nodeManagement** private endpoint](private-connectivity.md) so that compute nodes can reach the node management service through a private connection.
+
+> [!TIP]
+> If your pool uses [no public IP addresses](simplified-node-communication-pool-no-public-ip.md) with a **nodeManagement** private endpoint and has no internet outbound access, the NSG and firewall rules described in this document don't apply to your configuration.
 
 ## Supported regions
 
@@ -44,13 +52,24 @@ Batch pools with the *classic* communication mode require the following networki
   - Destination port `443` over TCP to `Storage.<region>`
   - Destination port `443` over TCP to `BatchNodeManagement.<region>` for certain workloads that require communication back to the Batch Service, such as Job Manager tasks
 
-Batch pools with the *simplified* communication mode only need outbound access to Batch account's node management endpoint (see [Batch account public endpoints](public-network-access.md#batch-account-public-endpoints)). They require the following networking rules in NSGs, UDRs, and firewalls:
+Batch pools with the *simplified* communication mode only need outbound access to Batch account's node management endpoint (see [Batch account public endpoints](public-network-access.md#batch-account-public-endpoints)). When the Batch account has `publicNetworkAccess` set to **Enabled** (the default), they require the following networking rules in NSGs, UDRs, and firewalls:
 
 - Inbound:
   - None
 
 - Outbound:
   - Destination port `443` over ANY to `BatchNodeManagement.<region>`
+
+When the Batch account has `publicNetworkAccess` set to **Disabled**, the preceding outbound rule to `BatchNodeManagement.<region>` alone is **not** sufficient — the node management endpoint rejects public connections. In this case, you must:
+
+1. Create a [**nodeManagement** private endpoint](private-connectivity.md) in the pool's virtual network.
+1. Configure DNS so the node management endpoint resolves to the private endpoint IP address.
+1. Ensure the network path (NSG, UDR) allows TCP/443 from the pool subnet to the private endpoint subnet.
+
+For more information, see [Use private endpoints with Batch accounts](private-connectivity.md).
+
+> [!IMPORTANT]
+> If account public network access is disabled and no **nodeManagement** private endpoint is configured, compute nodes in simplified communication mode can't connect to the node management service — **even if the pool has public IPs and the NSG allows outbound traffic to `BatchNodeManagement.<region>`**. This results in nodes going to an **unusable** state. To resolve, create the **nodeManagement** private endpoint and verify DNS resolution. For details, see the [troubleshooting section](simplified-node-communication-pool-no-public-ip.md#troubleshooting).
 
 Outbound requirements for a Batch account can be discovered using the [List Outbound Network Dependencies Endpoints API](/rest/api/batchmanagement/batch-account/list-outbound-network-dependencies-endpoints). This API reports the base set of dependencies, depending upon the Batch account pool communication mode. User-specific workloads might need extra rules such as opening traffic to other Azure resources (such as Azure Storage for Application Packages, Azure Container Registry) or endpoints like the Microsoft package repository for virtual file system mounting functionality.
 
@@ -77,6 +96,7 @@ If either of these cases applies to you, then follow the steps outlined in the n
 
 The following steps are required to migrate to the new communication mode:
 
+1. **Check your Batch account's public network access setting.** If `publicNetworkAccess` is set to **Disabled**, you must create a [**nodeManagement** private endpoint](private-connectivity.md) in the pool's virtual network and configure DNS before proceeding. Without this, compute nodes in simplified mode can't connect to the Batch service regardless of NSG rules. For details, see [Use private endpoints with Azure Batch accounts](private-connectivity.md).
 1. Ensure your networking configuration as applicable to Batch pools (NSGs, UDRs, firewalls, etc.) includes a union of the modes, that is, the combined network rules of both classic and simplified modes. At a minimum, these rules would be:
    - Inbound:
      - Destination ports `29876`, `29877` over TCP from `BatchNodeManagement.<region>`
