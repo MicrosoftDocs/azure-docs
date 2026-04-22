@@ -26,18 +26,25 @@ When you associate a configuration store with a network security perimeter, you 
 - **Diagnostic logging**: Monitor network traffic to and from your configuration store through network security perimeter diagnostic logs.
 
 > [!NOTE]
-> Allow up to 15 minutes for the any changes to network security perimeter configuration to take effect at the data plane level.
+> Allow up to 15 minutes for any changes to network security perimeter configuration to take effect at the data plane level.
 
 ## Limitations
-- Certain network security perimeter features, such as subscription-based inbound access rules, do not work with [access key authentication](./howto-disable-access-key-authentication). Use [Entra ID authentication[(./concept-enable-rbac) for full NSP functionality.
+- Certain network security perimeter features, such as subscription-based inbound access rules, do not work with [access key authentication](./howto-disable-access-key-authentication). Use [Entra ID authentication](./concept-enable-rbac) for full NSP functionality.
 - At this time, a configuration store in a network security perimeter is unable to send events to Azure Event Grid. If a configuration store has an Azure App Configuration event subscription configured, you will not be able to associate the store with a network security perimeter. Similarly, if a store is associated with a network security perimeter, you will not be able to enable an event subscription for the store.
 
-> tatic website, being open in nature cannot be used with network security perimeter. If static website is already enabled, you cannot associate a network security perimeter. Similarly, if a network security perimeter is already associated, you cannot enable static website. This restriction prevents you from configuring an unsupported scenario.
-
 ## Troubleshooting
-- Feature not registered
-- Cross subscription
-- Event grid 
+
+**RP registration errors**
+
+If you associate a configuration store with a network security perimeter in a different subscription than the store, you must ensure that the network security perimeter's subscription has registered the Microsoft.AppConfiguration resource provider. If the Microsoft.AppConfiguration resource provider is not registered, you will receive the following error when performing the association:
+
+"The network security perimeter's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/registerrp for instructions on registering a resource provider."
+
+To resolve the situation, take the following steps:
+1. Register the `Microsoft.AppConfiguration` resource provider in the network security perimeter's subscription. 
+2. Re-attempt the association between the configuration store and the network security perimeter. 
+
+For more information about registering a subscription to a resource provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ## Related content
 
