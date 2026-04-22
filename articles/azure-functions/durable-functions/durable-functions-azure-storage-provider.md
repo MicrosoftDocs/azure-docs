@@ -76,7 +76,7 @@ The **Instances** table contains the statuses of all orchestration and entity in
 
 The instance table satisfies [instance query requests from code](../../durable-task/common/durable-task-instance-management.md#query-instances) and [status query HTTP API](durable-functions-http-api.md#get-instance-status) calls. It stays eventually consistent with the contents of the **History** table. This separation of concerns follows the [Command and Query Responsibility Segregation (CQRS) pattern](/azure/architecture/patterns/cqrs), which efficiently handles instance query operations.
 
-The Instances table's partitioning lets you store millions of orchestration instances without any noticeable impact on runtime performance or scale. However, the number of instances can significantly impact your [multi-instance query](../../durable-task/common/durable-task-instance-management.md#query-all-instances) performance. To control how much data these tables store, consider periodically [purging old instance data](../../durable-task/common/durable-task-instance-management.md#purge-instance-history).
+The Instances table's partitioning lets you store millions of orchestration instances without any noticeable impact on runtime performance or scale. However, the number of instances can significantly impact your [multi-instance query](../../durable-task/common/durable-task-instance-management.md#query-all-orchestration-instances) performance. To control how much data these tables store, consider periodically [purging old instance data](../../durable-task/common/durable-task-instance-management.md#purge-orchestration-instance-history).
 
 ### Partitions table
 

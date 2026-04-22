@@ -93,7 +93,8 @@ The application needs a client secret to prove its identity when requesting a to
 1. Provide a description for the secret, and choose the wanted expiration interval, and then select **Add**.
 
     :::image type="content" source="./media/authenticate-application/add-client-secret-page.png" alt-text="Screenshot showing the Add a client secret page.":::
-1. Immediately copy the value of the new secret to a secure location. The fill value is displayed to you only once.
+
+1. Immediately copy the value of the new secret to a secure location. The full value is shown only once.
 
     :::image type="content" source="./media/authenticate-application/client-secret.png" alt-text="Screenshot showing the Client secrets section with the secret you added.":::
 

@@ -1,7 +1,7 @@
 ---
 author: hhunter-ms
-title: Bindings for Durable Functions - Azure
-description: Become familiar with triggers and bindings for the Durable Functions extension for Azure Functions.
+title: "Durable Functions Triggers and Bindings - Azure"
+description: "Learn how to use triggers and bindings for the Durable Functions extension in Azure Functions, including orchestration, activity, and entity triggers with code samples."
 ms.topic: concept-article
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
@@ -11,17 +11,17 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 # Customer intent: As a developer, I want to become familiar with Durable Functions triggers and bindings so that I can use them to control the execution of orchestrator, entity, activity, and client functions in my function apps.
 ---
 
-# Bindings for Durable Functions (Azure Functions)
+# Bindings for Durable Functions in Azure Functions
 
-The [Durable Functions](../../durable-task/common/what-is-durable-task.md) extension introduces three trigger bindings that control the execution of orchestrator, entity, and activity functions. It also introduces an output binding that acts as a client for the Durable Functions runtime.
+The [Durable Functions](../../durable-task/common/what-is-durable-task.md) extension provides trigger and output bindings that connect your code to the Durable Functions runtime for workflow orchestration. Use these bindings to define orchestrator functions, activity functions, entity functions, and client functions that start and manage durable workflows.
 
-This article discusses the use of these four bindings and provides code samples.
+This article explains how to configure and use each binding (the orchestration trigger, activity trigger, entity trigger, and orchestration client) with code samples for every supported language.
 
 Make sure to select your Durable Functions development language at the top of the article.
 
 ::: zone pivot="programming-language-python" 
 
-Both versions of the [Python programming model for Azure Functions](../functions-reference-python.md) are supported by Durable Functions. Because Python v2 is the recommended version, examples in this article exclusively feature this version.  
+Durable Functions supports both versions of the [Python programming model for Azure Functions](../functions-reference-python.md). Because Python v2 is the recommended version, examples in this article exclusively feature this version.  
 
 ## Prerequisites
 
@@ -64,16 +64,20 @@ When you use the Python v2 programming model, you can define an orchestration tr
 In the v2 model, you access the Durable Functions triggers and bindings from an instance of `DFApp`. You can use this subclass of `FunctionApp` to export decorators that are specific to Durable Functions. 
 ::: zone-end    
 
-Internally, this trigger binding polls the configured durable store for new orchestration events. Examples of events include orchestration start events, durable timer expiration events, activity function response events, and external events raised by other functions.
+Internally, this trigger binding polls the configured durable store for new orchestration events. Examples of events include:
+- Orchestration start events
+- Durable timer expiration events
+- Activity function response events
+- External events raised by other functions
 
-### Trigger behavior
+### Orchestration trigger behavior
 
 Here are some notes about the orchestration trigger:
 
 * **Single-threading**: A single dispatcher thread is used for all orchestrator function execution on a single host instance. For this reason, it's important to ensure that orchestrator function code is efficient and doesn't perform any I/O operations. It's also important to ensure that this thread doesn't do any asynchronous work except when awaiting task types that are specific to Durable Functions.
 * **Poison-message handling**: There's no support for poison messages in orchestration triggers.
 * **Message visibility**: Orchestration trigger messages are dequeued and kept invisible for a configurable duration. The visibility of these messages is renewed automatically as long as the function app is running and healthy.
-* **Return values**: Return values are serialized to JSON and persisted to the orchestration history table in Azure Table Storage. These return values can be queried by the orchestration client binding, described later.
+* **Return values**: Return values are serialized to JSON and persisted to the orchestration history table in Azure Table Storage. You can query these return values by the orchestration client binding, described later.
 
 > [!WARNING]
 > Orchestrator functions should never use any input or output bindings other than the orchestration trigger binding. Using other bindings can cause problems with the Durable Task extension, because those bindings might not obey the single-threading and I/O rules. If you want to use other bindings, add them to an activity function called from your orchestrator function. For more information about coding constraints for orchestrator functions, see [Orchestrator function code constraints](../../durable-task/common/durable-task-code-constraints.md).
@@ -84,19 +88,21 @@ Here are some notes about the orchestration trigger:
 ::: zone-end
 
 <a name="python-trigger-usage"></a> 
-### Trigger usage
+### Orchestration trigger usage
 
 The orchestration trigger binding supports both inputs and outputs. Here are some notes about input and output handling:
 
 * **Inputs**: You can invoke orchestration triggers that have inputs. The inputs are accessed through the context input object. All inputs must be JSON-serializable.
 * **Outputs**: Orchestration triggers support both output and input values. The return value of the function is used to assign the output value. The return value must be JSON-serializable.
 
-### Trigger sample
+### Orchestration trigger sample
 
 The following code provides an example of a basic *Hello World* orchestrator function. This example orchestrator doesn't schedule any tasks.
 
 ::: zone pivot="programming-language-csharp"
-The attribute that you use to define the trigger depends on whether you run your C# functions [in the same process as the Functions host process](../functions-dotnet-class-library.md) or in an [isolated worker process](../dotnet-isolated-process-guide.md).
+The attribute that you use to define the trigger depends on whether you run your C# functions:
+- [In the same process as the Functions host process](../functions-dotnet-class-library.md), or
+- In an [isolated worker process](../dotnet-isolated-process-guide.md).
 
 #### [In-process](#tab/in-process)
 
@@ -375,7 +381,7 @@ public String sayHello(@DurableActivityTrigger(name = "name") String name) {
 ```
 ::: zone-end
 
-### Use input and output bindings
+### Use activity input and output bindings
 
 Besides the activity trigger binding, you can also use regular input and output bindings. 
 

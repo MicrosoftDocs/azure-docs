@@ -1,6 +1,6 @@
 ---
-title: Manage orchestration instances - Azure Durable Functions and Durable Task SDKs
-description: Learn how to manage orchestration instances in Durable Functions and the Durable Task SDKs, including starting, querying, terminating, and sending events.
+title: "Manage Orchestration Instances in Durable Functions and Durable Task SDKs"
+description: Learn how to manage orchestration instances in Durable Functions and Durable Task SDKs. Start, query, terminate, suspend, and resume workflows using built-in APIs.
 author: cgillum
 ms.topic: how-to
 ms.date: 01/30/2026
@@ -14,7 +14,7 @@ zone_pivot_groups: azure-durable-approach
 
 # Manage orchestration instances
 
-Orchestrations are long-running stateful workflows that you can start, query, suspend, resume, and end using built-in management APIs. In [Durable Functions](what-is-durable-task.md), the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) exposes these APIs. In the [Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md), these operations are available through the `DurableTaskClient` class. This article covers all supported instance management operations for both platforms.
+Use the built-in instance management APIs to start, query, terminate, suspend, resume, and purge orchestration instances in your durable workflows. In [Durable Functions](what-is-durable-task.md), the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) exposes these APIs. In the [Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md), the same operations are available through the `DurableTaskClient` class. This article shows how to perform each instance management operation with code examples for both platforms.
 
 > [!TIP]
 > The [Azure Durable Task Scheduler](what-is-durable-task.md) is the recommended backend for both Durable Functions and the Durable Task SDKs, providing a fully managed, serverless experience for running durable workflows at scale.
@@ -515,7 +515,7 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone-end
 
-## Query all instances
+## Query all orchestration instances
 
 You can use APIs in your language SDK to query the statuses of all orchestration instances in your [task hub](durable-task-hubs.md). This *"list-instances"* or *"get-status"* API returns a list of objects that represent the orchestration instances matching the query parameters.
 
@@ -673,7 +673,7 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone-end
 
-## Query instances with filters
+## Query orchestration instances with filters
 
 What if you don't need all the information that a standard instance query provides? For example, what if you're just looking for the orchestration creation time or the orchestration runtime status? Narrow your query by applying filters.
 
@@ -884,7 +884,7 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone-end
 
-## Terminate instances
+## Terminate orchestration instances
 
 If you have an orchestration instance that's taking too long to run, or you need to stop it before it completes for any reason, you can end it.
 
@@ -1018,7 +1018,7 @@ A terminated instance eventually transitions into the `Terminated` state. But th
 > [!NOTE]
 > Instance termination doesn't currently propagate. Activity functions and sub-orchestrations run to completion, regardless of whether you end the orchestration instance that called them.
 
-## Suspend and resume instances
+## Suspend and resume orchestration instances
 
 Suspending an orchestration lets you stop a running orchestration. Unlike ending an orchestration, you can resume a suspended orchestrator later.
 
@@ -1571,7 +1571,7 @@ Transfer-Encoding: chunked
 
 ::: zone pivot="durable-functions"
 
-## Retrieve HTTP management webhook URLs
+## Retrieve HTTP management webhook URLs for orchestration instances
 
 Use an external system to monitor or raise events to an orchestration. External systems communicate with Durable Functions through the webhook URLs that are part of the default response described in [HTTP API URL discovery](../../azure-functions/durable-functions/durable-functions-http-features.md#http-api-url-discovery). The webhook URLs are alternatively accessible programmatically using the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client). Specifically, the *create HTTP management payload* API gets a serializable object that contains these webhook URLs.
 
@@ -1673,7 +1673,7 @@ Push-OutputBinding -Name Response -Value $Response
 
 ::: zone-end
 
-## Rewind instances
+## Rewind orchestration instances
 
 If you have an orchestration failure for an unexpected reason, *rewind* the instance to a previously healthy state by using an API built for that purpose.
 
@@ -1803,7 +1803,7 @@ This sample is shown for .NET and JavaScript only.
 
 ::: zone-end
 
-## Restart instances
+## Restart orchestration instances
 
 Restarting an orchestration creates a new instance using the history of a previously run instance. This feature is useful when you want to rerun an orchestration with the same input and instance ID pattern, creating a fresh run based on the original.
 
@@ -1894,7 +1894,7 @@ This sample is shown for .NET and JavaScript only.
 
 ::: zone-end
 
-## Purge instance history
+## Purge orchestration instance history
 
 To remove all the data associated with an orchestration, purge the instance history. For example, delete any storage resources associated with a completed instance. Use the *purge instance* API defined by the [orchestration client](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client).
 
