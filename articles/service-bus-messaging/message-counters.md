@@ -83,7 +83,7 @@ TransferMessageCount           : 0
 TransferDeadLetterMessageCount : 0
 ```
 
-you can obtain the message count details for a subscription as follows:
+You can obtain the message count details for a subscription as follows:
 
 ```azurepowershell-interactive
 $topicObj= Get-AzServiceBusSubscription -ResourceGroup myresourcegroup `

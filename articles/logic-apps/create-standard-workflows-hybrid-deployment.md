@@ -420,7 +420,7 @@ After you deploy your Standard logic app, confirm that your app is running corre
    Otherwise, if your app has any failures, check that your AKS pods are running correctly. From Windows PowerShell, run the following commands:
 
    ```powershell
-   az aks get-credentials {resource-group-name} --name {aks-cluster-name} --admin
+   az aks get-credentials --resource-group {resource-group-name} --name {aks-cluster-name} --admin
    kubectl get ns
    kubectl get pods -n logicapps-aca-ns
    kubectl describe pod {logic-app-pod-name} -n logicapps-aca-ns 

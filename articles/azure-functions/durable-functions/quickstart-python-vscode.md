@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create a Python Durable Functions app"
-description: Create and publish a Python Durable Functions app in Azure Functions by using Visual Studio Code.
+description: "Create and publish a Python Durable Functions app in Azure Functions using Visual Studio Code. Follow this quickstart to build stateful serverless workflows with orchestrator, activity, and client functions."
 author: lilyjma
 ms.author: hannahhunter
 ms.topic: quickstart
@@ -18,11 +18,11 @@ ms.custom:
 
 # Quickstart: Create a Python Durable Functions app
 
-Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts in your application.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to build stateful serverless functions in Python. Durable Functions automatically manages state persistence, checkpoints, and restarts, so you can focus on your orchestration logic.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
+In this quickstart, you create and test a Python Durable Functions app locally in Visual Studio Code, then deploy it to Azure. You build a "hello world" orchestration with orchestrator, activity, and client functions that chain together calls and return an aggregated result. The tools you use are available via the Visual Studio Code [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
 
-:::image type="content" source="./media/quickstart-python-vscode/functions-vs-code-complete.png" alt-text="Screenshot of the running Durable Functions app in Azure.":::
+:::image type="content" source="./media/quickstart-python-vscode/functions-vs-code-complete.png" alt-text="Screenshot of the completed Python Durable Functions app running in Azure.":::
 
 > [!NOTE]
 > This quickstart uses the decorator-based [v2 programming model for Python](../functions-reference-python.md). This model gives a simpler file structure and is more code-centric compared to v1.
@@ -51,7 +51,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
 
-    :::image type="content" source="media/quickstart-python-vscode/functions-create-project.png" alt-text="Screenshot of Create function window.":::
+    :::image type="content" source="media/quickstart-python-vscode/functions-create-project.png" alt-text="Screenshot of the Create New Project window in Visual Studio Code for Azure Functions.":::
 
 2. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
@@ -121,7 +121,7 @@ The most basic Durable Functions app has three functions:
 * **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
 * **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
 
-## Sample code 
+## Sample code for a Python Durable Functions app 
 
 To create a basic Durable Functions app by using these three function types, replace the contents of *function_app.py* with the following Python code:
 
@@ -166,7 +166,7 @@ Review the following table for an explanation of each function and its purpose i
 > [!NOTE]
 > Durable Functions also supports Python v2 programming model [blueprints](../functions-reference-python.md#organizing-with-blueprints). To use blueprints, register your blueprint functions by using the [azure-functions-durable](https://pypi.org/project/azure-functions-durable) `Blueprint` [class](https://github.com/Azure/azure-functions-durable-python/blob/dev/samples-v2/blueprint/durable_blueprints.py). You can register the resulting blueprint as usual. You can use our [sample](https://github.com/Azure/azure-functions-durable-python/tree/dev/samples-v2/blueprint) as an example.
 
-## Configure storage emulator
+## Configure the Azurite storage emulator
 
 You can use [Azurite](../../storage/common/storage-use-azurite.md?tabs=visual-studio-code), an emulator for Azure Storage, to test the function locally. In *local.settings.json*, set the value for `AzureWebJobsStorage` to `UseDevelopmentStorage=true` like in this example:
 
@@ -195,7 +195,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 2. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-    :::image type="content" source="media/quickstart-python-vscode/functions-f5.png" alt-text="Screenshot of Azure local output.":::
+    :::image type="content" source="media/quickstart-python-vscode/functions-f5.png" alt-text="Screenshot of the Azure Functions local output in the terminal showing the HTTP endpoint URL.":::
 
 3. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
 

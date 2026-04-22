@@ -36,8 +36,8 @@ To **create a namespace with partitioning enabled**, use the [`az servicebus nam
 az servicebus namespace create \
     --resource-group myresourcegroup \
     --name mynamespace \
-    --location westus 
-    --sku Premium
+    --location westus  \
+    --sku Premium \
     --premium-messaging-partitions 4
 ```
 

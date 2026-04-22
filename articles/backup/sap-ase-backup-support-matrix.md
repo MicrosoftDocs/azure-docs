@@ -93,7 +93,6 @@ The following table lists the required parameters for adding/removing SAP ASE in
 >
 > `sudo ./<script name> -us`
 
-
 ## Next steps
 
 - [Configure backup for SAP ASE (Sybase) databases on Azure VMs using Azure portal](sap-ase-database-backup.md).

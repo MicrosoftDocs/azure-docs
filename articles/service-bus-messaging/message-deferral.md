@@ -9,7 +9,7 @@ ms.date: 07/25/2024
 When a queue or subscription client receives a message that it's willing to process, but the processing isn't currently possible because of special circumstances, it has the option of "deferring" retrieval of the message to a later point. The message remains in the queue or subscription, but it's set aside.
 
 > [!NOTE]
-> Deferred messages aren't expired and automatically moved to a dead-letter queue until a client app attempts to receive them using an API and the sequence number. This behavior is by design. When a client tries to retrieve a deferred message, it's checked for [expired condition](service-bus-dead-letter-queues.md#time-to-live) and moved to a dead-letter queue if it's already expired. An expired message is moved to a deadletter subqueue only when the dead-letter feature is enabled for the entity (queue or subscription).  
+> Deferred messages aren't expired and automatically moved to a dead-letter queue until a client app attempts to receive them using an API and the sequence number. This behavior is by design. When a client tries to retrieve a deferred message, it's checked for [expired condition](service-bus-dead-letter-queues.md#time-to-live) and moved to a dead-letter queue if it's already expired. An expired message is moved to a dead-letter subqueue only when the dead-letter feature is enabled for the entity (queue or subscription).  
 
 ## Sample scenarios
 Deferral is a feature created specifically for workflow processing scenarios. Workflow frameworks might require certain operations to be processed in a particular order. They might have to postpone processing of some received messages until prescribed prior work that's informed by other messages has been completed.

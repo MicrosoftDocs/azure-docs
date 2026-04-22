@@ -1,6 +1,6 @@
 ---
-title: Durable Functions overview
-description: Learn how Durable Functions extends Azure Functions to build reliable, stateful workflows in a serverless environment.
+title: "Durable Functions Overview: Stateful Serverless Workflows"
+description: "Learn how Durable Functions extends Azure Functions to build reliable, stateful workflows in a serverless environment. Get started with supported languages, storage providers, and quickstarts."
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: azfuncdf

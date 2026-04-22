@@ -1,10 +1,10 @@
 ---
-title: Disaster recovery and failover for Azure Files
+title: Disaster Recovery and Failover for Azure Files
 description: Learn how to recover your data in Azure Files. Understand the concepts and processes involved with disaster recovery and storage account failover.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/25/2024
+ms.date: 04/22/2026
 ms.author: kendownie
 # Customer intent: "As a cloud architect, I want to understand the disaster recovery and failover processes for Azure Files, so that I can implement a robust data protection strategy that ensures data availability during unplanned outages."
 ---
@@ -127,6 +127,20 @@ After a failback operation, you can configure the new primary region to be geo-r
 ## Initiate an account failover
 
 You can initiate an account failover from the Azure portal, PowerShell, Azure CLI, or the Azure Storage resource provider API. For more information on how to initiate a failover, see [Initiate an account failover](../common/storage-initiate-account-failover.md).
+
+### Best practices for planned geo failover
+
+Before initiating a planned failover, ensure that all application and client activity against Azure file shares is fully stopped. Active read or write operations during failover can result in file shares entering an inconsistent state after the failover completes.
+
+Before starting the failover:
+
+- Shut down all applications and clients that access Azure file shares.
+- Ensure there's no active I/O (read or write) on any file share in the storage account.
+- Verify that no open file handles exist on the file shares.
+- Use the [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) Azure PowerShell cmdlet to list active file handles and connected client IP addresses.
+- Shut down all the client IP addresses that show up in the results before starting the failover operation for the storage account.
+
+Proceed with the planned failover only after all file shares are idle and no active client connections remain.
 
 ## Microsoft-managed failover
 

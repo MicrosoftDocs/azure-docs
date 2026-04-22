@@ -116,7 +116,7 @@ Next, connect Storage Explorer to your storage account.
 
 ## Set up Storage Explorer
 
-The following steps connect Storage Explorer to your storage account so to you can confirm that your workflow correctly saves attachments as blobs in your storage container.
+The following steps connect Storage Explorer to your storage account so that you can confirm that your workflow correctly saves attachments as blobs in your storage container.
 
 1. Launch Microsoft Azure Storage Explorer. Sign in with your Azure account.
 
@@ -308,7 +308,7 @@ The following steps add a trigger that waits for incoming emails that have attac
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-   Your workflow is now live but doesn't do anything other check your emails. Next, add a condition that specifies criteria to continue subsequent actions in the workflow.
+   Your workflow is now live but doesn't do anything other than check your emails. Next, add a condition that specifies criteria to continue subsequent actions in the workflow.
 
 ## Add a condition to check for attachments
 

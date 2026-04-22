@@ -158,7 +158,7 @@ public static async Task Run(
 
 ## Machine learning and AI
 
-Azure Functions provides serverless compute resources that integrate with AI and Azure services to streamline building cloud-hosted intelligent applications. You can use the Functions programming model to create and host remote Model Content Protocol (MCP) servers and implement various AI tools. For more information, see [Tools and MCP servers](functions-create-ai-enabled-apps.md#tools-and-mcp-servers).
+Azure Functions provides serverless compute resources that integrate with AI and Azure services to streamline building cloud-hosted intelligent applications. You can use the Functions programming model to create and host remote Model Context Protocol (MCP) servers and implement various AI tools. For more information, see [Tools and MCP servers](functions-create-ai-enabled-apps.md#tools-and-mcp-servers).
 
 The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets you integrate AI features and behaviors of [Azure OpenAI](/azure/ai-services/openai/overview), such as retrieval-augmented generation (RAG), into your function code executions. For more information, see [Retrieval-augmented generation](functions-create-ai-enabled-apps.md#retrieval-augmented-generation).
 

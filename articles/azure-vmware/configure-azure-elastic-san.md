@@ -21,6 +21,8 @@ Azure Elastic storage area network (SAN) addresses the problem of workload optim
 
 To accompany the steps below, you can use this [interactive demo](https://regale.cloud/microsoft/play/4092/expand-storage-with-elastic-san#/0/0) as a visual representation of what you need to do to connect Elastic SAN and AVS.
 
+Unless explicitly noted, the following sections apply to both Azure VMware Solution Gen1 and Gen2 private clouds.
+
 ## Prerequisites
 
 The following prerequisites are required to continue.
@@ -60,11 +62,8 @@ The following prerequisites are required to continue.
 
 You can use the following host types when Azure Elastic SAN is the backing storage for Azure VMware solution:
 
-- AV36
-- AV36P
-- AV48
-- AV52
-- AV64
+- Azure VMware solution Gen1: AV36, AV36P, AV48, AV52, AV64
+- Azure VMware solution Gen2: AV64
 
 ## Configuration recommendations
 
@@ -80,12 +79,14 @@ If your Elastic SAN is only connecting to a single cluster, and will only ever h
 - AV64 - Seven iSCSI sessions over seven Private Endpoints
 
 If your Elastic SAN is connecting to a single cluster that won't have 16 nodes, use one of the following configurations.
--  AV36, AV36P, AV52 - Eight iSCSI sessions over four Private Endpoints
+- AV36, AV36P, AV52 - Eight iSCSI sessions over four Private Endpoints
 - AV64 - Eight iSCSI sessions over eight Private Endpoints
 
 If you're planning on connecting an Elastic SAN datastore to multiple clusters, you must calculate the number of hosts, sessions, and connections per cluster. An Elastic SAN datastore only supports a maximum of 128 connections, and each time you connect an Elastic SAN datastore to a cluster, it automatically connects to all nodes in that cluster. This can rapidly use up the available connections when each node in a cluster is establishing multiple connections.
 
 ## Configure Private Endpoint
+[!NOTE]
+> This section only applies to Azure VMWare solution Gen1. For Azure VMWare solution Gen2, create a private endpoint for the volume group and use private cloud connectivity. Multiple private endpoints are not required to scale iSCSI sessions for Azure VMWare solution Gen2. A single private endpoint can be used because Azure VMWare solution Gen2 clones iSCSI sessions.ExpressRoute is not a Gen2 requirement in this flow.
 
 Using the guidance from the previous section, create as many private endpoints for your volume groups as you need.
 
@@ -98,11 +99,13 @@ Fill out the values in the menu that pops up, select the virtual network that ha
 :::image type="content" source="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png" alt-text="Screenshot of the volume group private endpoint creation experience." lightbox="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png":::
 
 > [!NOTE]
-> Using Private Endpoints provides the highest network security. However, since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you might experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> Using Private Endpoints provides the highest network security. However, since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway for Azure VMWare solution Gen1, you might experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
 > These connectivity issues aren't expected to impact the availability of the datastore backed by Elastic SAN as the connection is re-established within seconds. The potential impact from gateway maintenance is covered under the [Service Level Agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for ExpressRoute virtual network gateways and private endpoints.
 
 
 ## Configure external storage address block
+> [!NOTE]
+> This section applies to Azure VMware Solution Gen1 only
 
 Start by providing an IP block for deploying external storage. Navigate to the **Storage** tab in your Azure VMware Solution private cloud in the Azure portal. The address block should be a /24 network. 
 

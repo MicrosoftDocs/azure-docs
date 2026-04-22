@@ -1095,18 +1095,18 @@ Oranges,2
 To add line breaks between rows, add one of the following expressions to your table:
 
 ```text
-replace(body('Create_CSV_table'),'','<br/>')
+replace(body('Create_CSV_table'),'\r\n','<br/>')
 ```
 
 ```text
-replace(body('Create_HTML_table'),'','<br/>')
+replace(body('Create_HTML_table'),'\r\n','<br/>')
 ```
 
 For example: 
 
 ```json
 {
-	"Send_an_email_": {
+	"Send_an_email": {
 		"inputs": {
 			"body": {
 				"Body": "<p>Results from Create CSV table action:<br/>\n<br/>\n<br/>\n@{replace(body('Create_CSV_table'),'\r\n','<br/>')}</p>",

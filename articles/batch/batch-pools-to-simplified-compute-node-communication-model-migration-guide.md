@@ -3,7 +3,7 @@ title: Migrate Azure Batch pools to the simplified compute node communication mo
 description: Learn how to migrate Azure Batch pools to the simplified compute node communication model and plan for feature end of support.
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 04/21/2026
 # Customer intent: As an Azure Batch user, I want to migrate my Batch pools to the simplified compute node communication model, so that I can enhance security and simplify my communication setup before the classic model is deprecated on March 31, 2026.
 ---
 
@@ -48,12 +48,20 @@ can be scoped appropriately.
 
 ## Migrate your eligible pools
 
-To migrate your Batch pools from classic to the simplified compute node communication model, follow this document
-from the section entitled
+To migrate your Batch pools from classic to the simplified compute node communication model, follow these steps:
+
+> [!IMPORTANT]
+> **Before migrating**, check your Batch account's `publicNetworkAccess` setting. If it's set to **Disabled**, you **must** first create a [**nodeManagement** private endpoint](private-connectivity.md) in your pool's virtual network and configure DNS. In classic mode, the Batch service initiates inbound connections to nodes and doesn't go through the public network access check. In simplified mode, nodes initiate outbound connections to the node management endpoint, and the service **enforces** the account's public network access setting. Migrating without the private endpoint causes nodes to fail with an **unusable** state.
+
+For the detailed migration process, start from the section entitled
 [potential impact between classic and simplified communication modes](simplified-compute-node-communication.md#potential-impact-between-classic-and-simplified-communication-modes).
 You can either create new pools or update existing pools with simplified compute node communication.
 
 ## FAQs
+
+- Do I need a **nodeManagement** private endpoint?
+
+  A **nodeManagement** private endpoint is **required** if your Batch account has `publicNetworkAccess` set to **Disabled**, or if your pool uses [no public IP addresses](./simplified-node-communication-pool-no-public-ip.md). In simplified mode, compute nodes initiate outbound connections to the node management endpoint. If the account rejects public connections, nodes can't register with the Batch service and go to an **unusable** state. Create the private endpoint **before** migrating to simplified mode. For details, see [Use private endpoints with Batch accounts](private-connectivity.md).
 
 - Are public IP addresses still required for my pools?
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 12/12/2025
 ms.update-cycle: 180-days
-# Customer intent: As an AI integration developer working in Microsoft Foundry, I want to add agent tools powered connector actions in Azure Logic Apps by creating MCP servers.
+# Customer intent: As an AI integration developer working in Microsoft Foundry, I want to add agent tools powered by connector actions in Azure Logic Apps by creating MCP servers.
 ---
 
 # Add agent tools in Foundry backed by connector actions in Azure Logic Apps (preview)
@@ -21,7 +21,7 @@ ms.update-cycle: 180-days
 > This capability is in preview, might incur charges, and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This guide shows how to add tools powered by Azure Logic Apps to your agents in Microsoft Foundry. These tools use connector actions that run in Azure Logic Apps and let you integrate agents with specific Microsoft and non-Microsoft services, systems, apps, and data sources so you don't have to write any code. Tools include single or multiple actions provided by the connector that you choose. You then package these tools by creating Model Content Protocol (MCP) servers as tool providers.
+This guide shows how to add tools powered by Azure Logic Apps to your agents in Microsoft Foundry. These tools use connector actions that run in Azure Logic Apps and let you integrate agents with specific Microsoft and non-Microsoft services, systems, apps, and data sources so you don't have to write any code. Tools include single or multiple actions provided by the connector that you choose. You then package these tools by creating Model Context Protocol (MCP) servers as tool providers.
 
 For more information, see:
 

@@ -38,7 +38,7 @@ To use the Service Bus Explorer tool, complete the following tasks:
     - [Quickstart - Create topics](service-bus-quickstart-topics-subscriptions-portal.md)
 
     > [!NOTE]
-    > To execute send or receive operations (including peek and purge) on the namespace or entities, you're a member of one of these roles: 
+    > To execute send or receive operations (including peek and purge) on the namespace or entities, you must be a member of one of these roles: 
     > - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner); Allows both send and receive operations.
     > - [Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender); Allows send operations.
     > - [Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver); Allows receive operations.
@@ -259,7 +259,7 @@ When working with Service Bus Explorer, you can use either **Access Key** or **M
 
     :::image type="content" source="./media/service-bus-explorer/queue-select-authentication-type.png" alt-text="Screenshot indicating the Settings button and a page showing the different authentication types." lightbox="./media/service-bus-explorer/queue-select-authentication-type.png":::
 
-## Next Steps
+## Next steps
 
    * Learn more about Service Bus [Queues](service-bus-queues-topics-subscriptions.md#queues) and [Topics](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions).
    * Learn more about creating [Service Bus Queues via the Azure portal](service-bus-quickstart-portal.md).

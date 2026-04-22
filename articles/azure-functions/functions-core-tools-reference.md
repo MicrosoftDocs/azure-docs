@@ -460,7 +460,7 @@ The `func durable get-instances` command supports these options:
 | **`--top`** | Limit the number of records returned in a given request. |
 | **`--task-hub-name`** | Name of the Durable Functions task hub to use. |
 
-For more information, see [Durable Functions documentation](../durable-task/common/durable-task-instance-management.md#query-all-instances).
+For more information, see [Durable Functions documentation](../durable-task/common/durable-task-instance-management.md#query-all-orchestration-instances).
 
 ## `func durable get-runtime-status`
 
@@ -500,7 +500,7 @@ The `func durable purge-history` command supports these options:
 | **`--runtime-status`** | Delete the history of instances whose status matches a specific status, including `completed`, `terminated`, `canceled`, and `failed`. Provide one or more space-separated statuses. If you don't include `--runtime-status`, instance history is deleted regardless of status. |
 | **`--task-hub-name`** | Name of the Durable Functions task hub to use. |
 
-For more information, see the [Durable Functions documentation](../durable-task/common/durable-task-instance-management.md#purge-instance-history).
+For more information, see the [Durable Functions documentation](../durable-task/common/durable-task-instance-management.md#purge-orchestration-instance-history).
 
 ## `func durable raise-event`
 
@@ -539,7 +539,7 @@ The `func durable rewind` command supports these options:
 | **`--reason`** | Reason for rewinding the orchestration. (Required) |
 | **`--task-hub-name`** | Name of the Durable Functions task hub to use. |
 
-For more information, see [Durable Functions documentation](../durable-task/common/durable-task-instance-management.md#rewind-instances).
+For more information, see [Durable Functions documentation](../durable-task/common/durable-task-instance-management.md#rewind-orchestration-instances).
 
 ## `func durable start-new`
 
@@ -578,7 +578,7 @@ The `func durable terminate` command supports these options:
 | **`--reason`** | Reason for ending the orchestration. (Required) |
 | **`--task-hub-name`** | Name of the Durable Functions task hub to use. |
 
-For more information, see the [Durable Functions documentation](../durable-task/common/durable-task-instance-management.md#terminate-instances).
+For more information, see the [Durable Functions documentation](../durable-task/common/durable-task-instance-management.md#terminate-orchestration-instances).
 
 ## `func extensions install`
 

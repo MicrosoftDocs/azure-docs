@@ -1,7 +1,7 @@
 ---
-title: Manage orchestration data using storage providers
+title: "Storage Providers for Durable Task: Compare and Choose"
 titleSuffix: Durable Task
-description: Learn about and compare the different storage providers for Durable Functions and the Durable Task SDKs
+description: Compare storage providers for Durable Functions and Durable Task SDKs. Explore options like Durable Task Scheduler and Azure Storage to find the best fit.
 author: cgillum
 ms.topic: concept-article
 ms.service: durable-task
@@ -11,13 +11,13 @@ zone_pivot_groups: azure-durable-approach
 #Customer intent: As a developer, I want to understand what storage providers are available in Durable Functions and the Durable Task SDKs and which one I should choose.
 ---
 
-# Manage orchestration data using storage providers
+# Manage orchestration data with storage providers
 
 When you build workflows with Durable Functions or the Durable Task SDKs, your orchestrations need somewhere to store their state. Storage providers handle this by persisting orchestration history, entity state, and internal messages to a backend of your choice. This durable storage is what makes your workflows reliable—they can pause, scale, restart, and recover without losing progress.
 
 ::: zone pivot="durable-functions"
 
-Durable Functions support various backend storage providers. You can configure your apps to use the two types of storage providers available to Durable Task:
+Durable Functions supports multiple backend storage providers. Configure your app to use one of the following options:
 
 - Azure managed:
   - Durable Task Scheduler (recommended)
@@ -33,7 +33,7 @@ Durable Functions support various backend storage providers. You can configure y
 
 ::: zone pivot="durable-task-sdks"
 
-The Durable Task SDKs support the Azure managed [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) as a storage provider. 
+The Durable Task SDKs use the Azure managed [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) as their storage provider, giving you a fully managed backend for reliable workflow orchestration without infrastructure to maintain.
 
 ::: zone-end
 
@@ -103,7 +103,7 @@ Learn more about the Netherite storage provider:
 - The [source code for the Netherite storage provider](https://github.com/microsoft/durabletask-netherite). 
 - A more in-depth evaluation of the Netherite storage provider: [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/abs/2103.00033).
 
-## Comparing storage providers
+## Compare storage providers
 
 You can use the following table to understand the significant tradeoffs between the various supported storage providers and decide which storage provider is best for your needs.
 
