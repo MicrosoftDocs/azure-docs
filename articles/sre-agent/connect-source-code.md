@@ -100,7 +100,7 @@ The system automatically creates the appropriate GitHub OAuth or Azure DevOps OA
 With your repository connected, your agent can now create pull requests directly from chat.
 
 1. Open a chat thread with your agent.
-1. Type a prompt like: *"Create a PR in https://github.com/OWNER/REPO from fix/my-branch to main titled 'Fix connection timeout'"*.
+1. Type a prompt like: *"Create a PR in `https://github.com/OWNER/REPO` from fix/my-branch to main titled 'Fix connection timeout'"*.
 1. In Review mode, select **Continue** to approve the PR creation.
 
 Your agent returns a tool card with a clickable link to the created PR.
