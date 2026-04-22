@@ -37,7 +37,7 @@ Content-Type: application/problem+json; charset=utf-8
 - Verify that the client making the request is within a virtual network and the relevant [DNS changes](./concept-private-endpoint.md#dns-changes-for-private-endpoints) are in place to ensure the endpoint of the configuration store resolves to the IP address of the private endpoint connected to the configuration store.
 - Verify that the private endpoint connection associated with the private endpoint has been approved. 
 
-## IP address rejected
+## Rejected by network security perimeter
 
 When a store is associated with a network security perimeter in "enforced mode", requests will be rejected unless they meet the criteria for inbound access.
 
