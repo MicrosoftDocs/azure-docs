@@ -45,8 +45,12 @@ Azure App Configuration offers three public access options:
 - Automatic public access: public network access is enabled, as long as you don't have a private endpoint present. Once you create a private endpoint, App Configuration disables public network access and enables private access. This option can only be selected when creating the store.
 - Disabled: public access is disabled and no traffic can access this resource unless it's through a private endpoint.
 - Enabled: all networks can access this resource.
+- Secured by perimeter: public access is disabled. Only traffic from a private endpoint or traffic allowed by the associated network security perimeter can access this resource.
 
 To disable access to the App Configuration store from public network, follow the process below.
+
+> [!NOTE]
+> The example below sets public access to "Disabled". Setting public access to "Secured by perimeter" also disables access from public networks, but is slightly less restrictive as it allows traffic that meets the perimeter requirements.
 
 ### [Portal](#tab/azure-portal)
 
@@ -65,11 +69,11 @@ To disable access to the App Configuration store from public network, follow the
 In the CLI, run the following code:
 
 ```azurecli-interactive
-az appconfig update --name <name-of-the-appconfig-store> --enable-public-network false
+az appconfig update --name <name-of-the-appconfig-store> --public-network-access disabled
 ```
 
 > [!NOTE]
-> When you create an App Config store without specifying if you want public access to be enabled or disabled, public access is set to automatic by default. After you've run the `--enable-public-network` command, you won't be able to switch to an automatic public access anymore.
+> When you create an App Config store without specifying if you want public access to be enabled or disabled, public access is set to automatic by default. After you've modified the value using the `--public-network-access` flag, you won't be able to switch to an automatic public access anymore.
 
 ---
 
