@@ -812,7 +812,7 @@ az iot ops support create-bundle
 
 ## Next steps
 
-- Proceed to the [Day 1 operational manual](./operational-manual-day1-operations.md) for maintenance, monitoring, troubleshooting, and upgrade procedures.
+- Proceed to the [Day 1 operational manual](./operational-manual-day-one-operations.md) for maintenance, monitoring, troubleshooting, and upgrade procedures.
 - Review [Production deployment guidelines](./concept-production-guidelines.md) for more best practices.
 - Review [Production deployment examples](./concept-production-examples.md) for validated scaling configurations.
 - Review [Baseline resource profiles](./concept-resource-profiles.md) for measured resource consumption at each memory profile level.

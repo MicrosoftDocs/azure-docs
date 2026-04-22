@@ -792,7 +792,7 @@ az iot ops enable-rsync -n <INSTANCE> -g <RG> --k8-bridge-sp-oid $K8_BRIDGE_OID
 
 ### MQTT Broker scaling
 
-Cardinality settings are configured **at deployment time only** and can't be changed on a running instance. To adjust these settings, you must uninstall and redeploy Azure IoT Operations. Plan your broker sizing carefully during [Day 0 deployment](./operational-manual-day0-deployment.md#choose-your-cluster-topology).
+Cardinality settings are configured **at deployment time only** and can't be changed on a running instance. To adjust these settings, you must uninstall and redeploy Azure IoT Operations. Plan your broker sizing carefully during [Day 0 deployment](./operational-manual-day-zero-deployment.md#choose-your-cluster-topology).
 
 For measured baseline resource consumption at each memory profile level, see [Baseline resource profiles](./concept-resource-profiles.md).
 
@@ -1167,7 +1167,7 @@ kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found
 
 ## Next steps
 
-- Review the [Day 0 deployment manual](./operational-manual-day0-deployment.md) if you need to deploy a new instance.
+- Review the [Day 0 deployment manual](./operational-manual-day-zero-deployment.md) if you need to deploy a new instance.
 - For the latest known issues, see [Known issues](../troubleshoot/known-issues.md).
 - For detailed troubleshooting, see [Troubleshoot Azure IoT Operations](../troubleshoot/troubleshoot.md).
 - For troubleshooting tools, see [Tips and tools](../troubleshoot/tips-tools.md).

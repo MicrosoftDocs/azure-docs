@@ -151,7 +151,7 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 1. Prepare the cluster for Azure IoT Operations deployment. Copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
     > [!TIP]
-    > The `init` command only needs to be run once per cluster. If you followed the optional prerequisite to set up your own certificate authority issuer, follow the steps in [Bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer).
+    > The `init` command only needs to be run once per cluster. If you followed the optional prerequisite to set up your own certificate authority issuer, follow the steps in [Bring your own issuer](deployment-planning-certificates.md#bring-your-own-issuer).
 
     This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
