@@ -16,18 +16,6 @@ Decide before deployment what diagnostics configuration you need for the MQTT br
 > [!IMPORTANT]
 > The diagnostics are set on the Broker resource. Configure diagnostics during initial deployment by using the Azure CLI or the Azure portal. If you want to change broker settings, deploy a new broker resource. To learn more, see [Customize default Broker](../manage-mqtt-broker/overview-broker.md#customize-default-broker).
 
-## Metrics
-
-Metrics show the current and past health and status of the MQTT broker. These metrics use the OpenTelemetry Protocol (OTLP) format. Convert them to Prometheus format with an OpenTelemetry Collector, and route them to Azure Managed Grafana dashboards by using Azure Monitor managed service for Prometheus. To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
-
-For a full list of available metrics, see [MQTT broker metrics](../reference/observability-metrics-mqtt-broker.md).
-
-## Logs
-
-Logs show information about actions the MQTT broker performs. These logs are in the Kubernetes cluster as container logs. Set them up to send to Azure Monitor Logs with Container Insights.
-
-To learn more, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
-
 ## Self-check
 
 The MQTT broker's self-check mechanism is on by default. It uses a diagnostics probe and OpenTelemetry (OTel) traces to monitor the broker. The probe sends test messages to check system behavior and timing.
@@ -44,9 +32,9 @@ The diagnostics probe regularly runs MQTT operations (PING, CONNECT, PUBLISH, SU
 >
 > Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-broker-diagnostics.md) produces diagnostics messages on its own topic, you can still get messages from the self-test when you subscribe to the `#` topic. This is a limitation and expected behavior.
 
-## Change diagnostics settings
+## Configure diagnostics settings
 
-In most scenarios, the default diagnostics settings are enough. To override the default diagnostics settings for the MQTT broker, edit the `diagnostics` section in the Broker resource. Currently, you can change settings only by using the `--broker-config-file` flag when you deploy Azure IoT Operations with the `az iot ops create` command.
+In most scenarios, the default diagnostics settings are enough. To override the default diagnostics settings for the MQTT broker, edit the `diagnostics` section in the Broker resource. Currently, you can change settings only by using the `--broker-config-file` flag when you deploy Azure IoT Operations with the `az iot ops create` command. For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
 To override, prepare a broker configuration file by following the [BrokerDiagnostics](/rest/api/iotoperations/broker/create-or-update#brokerdiagnostics) API reference. For example:
 
@@ -57,7 +45,7 @@ To override, prepare a broker configuration file by following the [BrokerDiagnos
       "prometheusPort": 9600
     },
       "logs": {
-        "level": "debug"
+        "level": "info"
       },
     "traces": {
       "mode": "Enabled",
@@ -71,7 +59,7 @@ To override, prepare a broker configuration file by following the [BrokerDiagnos
     "selfCheck": {
       "mode": "Enabled",
       "intervalSeconds": 30,
-      "timeoutSeconds": 15
+      "timeoutSeconds": 60
     }
   }
 }

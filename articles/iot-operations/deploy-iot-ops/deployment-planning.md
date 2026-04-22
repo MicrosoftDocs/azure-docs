@@ -195,7 +195,12 @@ The following cardinality requests significantly more CPU resources:
 - **Backend CPU**: 3 partitions x 2 RF x 2 workers x 2.0 = **24.0 CPU**
 - **Total broker CPU**: **30.0 CPU**
 
-To enable or disable CPU resource limits, set the `generateResourceLimits.cpu` field in the Broker resource. Prepare a Broker configuration file in JSON format:
+### Configure CPU resource limits
+
+To enable or disable CPU resource limits, set the `generateResourceLimits.cpu` field in the Broker resource. Currently, this configuration is supported only by using the `--broker-config-file` flag when you deploy Azure IoT Operations by using the `az iot ops create` command. For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
+
+To get started, prepare a Broker configuration file by following the [GenerateResourceLimits](/rest/api/iotoperations/broker/create-or-update#generateresourcelimits) API reference.
+
 
 ```json
 {
@@ -205,7 +210,7 @@ To enable or disable CPU resource limits, set the `generateResourceLimits.cpu` f
 }
 ```
 
-Or to disable CPU resource limits:
+Or
 
 ```json
 {
@@ -213,12 +218,6 @@ Or to disable CPU resource limits:
     "cpu": "Disabled"
   }
 }
-```
-
-Then, deploy IoT Operations by using the `az iot ops create` command with the `--broker-config-file` flag, like the following command (other parameters are omitted for brevity):
-
-```azurecli
-az iot ops create ... --broker-config-file <FILE>.json
 ```
 
 ## Choose your memory profile

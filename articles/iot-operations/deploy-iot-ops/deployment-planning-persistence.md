@@ -11,11 +11,11 @@ ms.date: 04/21/2026
 
 # Deployment planning - Persistence
 
-Decide before deployment whether you need data persistence for the MQTT broker. Data persistence writes critical data to disk and preserves it across restarts.
+Decide before deployment whether you need data persistence for the MQTT broker. Data persistence writes critical data to disk and preserves it across cluster restarts.
 
 The data persistence feature is designed as a complementary mechanism to the replication system. While the broker replicates data across multiple nodes, a cluster-wide shutdown can still result in data loss. This data persistence feature is different from the [disk-backed message buffer](deployment-planning-disk-buffer.md), which uses disk as an extension of memory but is ephemeral and doesn't provide durability guarantees.
 
-Storing data on disk introduces a performance cost. The impact varies depending on the type and speed of the underlying storage medium.
+Storing data on disk introduces a significant performance cost. The impact varies depending on the type and speed of the underlying storage medium.
 
 > [!IMPORTANT]
 > You set persistence during deployment and can't turn it off afterward. You can change some persistence-related options after deployment.
@@ -33,23 +33,23 @@ The MQTT broker uses a persistent volume (PV) to store data on disk. Two setting
 > [!IMPORTANT]
 > When you specify `persistentVolumeClaimSpec`, the access mode must be set to `ReadWriteOncePod`.
 
-To deploy the MQTT broker with the minimum required settings to enable disk persistence, use the `az iot ops create` command.
+## Configuring persistence
+
+To configure the persistence for MQTT broker with the minimum required settings, use the `--broker-mem-profile` parameter to of `az iot ops create` command to specify the maximum size of the persistent volume.
 
 ```azurecli
-az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi
+az iot ops create ... --persist-max-size 10Gi
 ```
 
-To deploy the MQTT broker with disk persistence, custom persistent volume claim, and custom persist mode settings, add the `--persist-pvc-sc` and `--persist-mode` flags to the `az iot ops create` command.
+To configure the persistence for MQTT broker with custom persistent volume claim, and custom persist mode settings, add the `--persist-pvc-sc` and `--persist-mode` flags to the `az iot ops create` command.
 
 ```azurecli
-az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi --persist-pvc-sc <MYSTORAGECLASS> --persist-mode retain=All stateStore=None
+az iot ops create ... --persist-max-size 10Gi --persist-pvc-sc <MYSTORAGECLASS> --persist-mode retain=All stateStore=None
 ```
 
-If you want to use a custom broker configuration file, add the `--broker-config-file` flag and include the persistence settings in the JSON file.
+The full list of configuration options is available via `--broker-config-file` flag when you deploy Azure IoT Operations by using the `az iot ops create` command. For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
-```azurecli
-az iot ops create --broker-config-file <BROKER_CONFIG_FILE>.json --cluster <CLUSTER_NAME> --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID>
-```
+See the [Persistence](/rest/api/iotoperations/broker/create-or-update#brokerpersistence) API reference for the full list of options.
 
 The following is an example JSON snippet to include in your custom broker configuration file to set up persistence with a maximum size of 10 GiB and a custom storage class.
 

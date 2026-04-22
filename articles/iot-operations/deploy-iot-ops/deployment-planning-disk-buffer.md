@@ -27,9 +27,11 @@ By default, the disk-backed message buffer feature is disabled. In this case, me
 > [!NOTE]
 > The MQTT broker writes data to disk exactly as received from clients, without added encryption. Securing the disk is essential to protect the data that the broker stores.
 
-## Configuration options
+## Configure disk-backed message buffer
 
-To configure the disk-backed message buffer, edit the `diskBackedMessageBuffer` section in the Broker resource. Currently, this configuration is supported only by using the `--broker-config-file` flag when you deploy Azure IoT Operations by using the `az iot ops create` command.
+To configure the disk-backed message buffer, edit the `diskBackedMessageBuffer` section in the Broker resource. Currently, this configuration is supported only by using the `--broker-config-file` flag when you deploy Azure IoT Operations by using the `az iot ops create` command. For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
+
+This setting can't be changed after deployment. To change the disk-backed message buffer configuration, redeploy the IoT Operations instance.
 
 To get started, prepare a Broker configuration file by following the [DiskBackedMessageBuffer](/rest/api/iotoperations/broker/create-or-update#diskbackedmessagebuffer) API reference.
 
@@ -38,7 +40,7 @@ For example, the simplest configuration involves only specifying the maximum siz
 ```json
 {
   "diskBackedMessageBuffer": {
-    "maxSize": "<SIZE>"
+    "maxSize": "1G"
   }
 }
 ```
@@ -48,11 +50,11 @@ To get a better disk-backed message buffer configuration, specify an ephemeral v
 ```json
 {
   "diskBackedMessageBuffer": {
-    "maxSize": "<SIZE>",
+    "maxSize": "1G",
     "ephemeralVolumeClaimSpec": {
-      "storageClassName": "<NAME>",
+      "storageClassName": "foo",
       "accessModes": [
-        "<MODE>"
+        "ReadWriteOnce"
       ]
     }
   }
@@ -62,11 +64,11 @@ To get a better disk-backed message buffer configuration, specify an ephemeral v
 ```json
 {
   "persistentVolumeClaimSpec": {
-    "maxSize": "<SIZE>",
+    "maxSize": "1G",
     "ephemeralVolumeClaimSpec": {
-      "storageClassName": "<NAME>",
+      "storageClassName": "foo",
       "accessModes": [
-        "<MODE>"
+        "ReadWriteOnce"
       ]
     }
   }
@@ -78,16 +80,6 @@ Tailor the broker message buffer options by adjusting the following settings:
 - **Configure the volume**: Specify a volume claim template to mount a dedicated storage volume for your message buffer.
 - **Select a storage class**: Define the desired storage class by using the `storageClassName` property.
 - **Define access modes**: Determine the access modes you need for your volume. For more information, see [Persistent volume access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1).
-
-## Deploy IoT Operations with disk-backed message buffer
-
-To use a disk-backed message buffer, deploy IoT Operations by using the `az iot ops create` command with the `--broker-config-file` flag. See the following command. (Other parameters are omitted for brevity.)
-
-```azurecli
-az iot ops create ... --broker-config-file <FILE>.json
-```
-
-This setting can't be changed after deployment. To change the disk-backed message buffer configuration, redeploy the IoT Operations instance.
 
 ## Ephemeral volume
 
