@@ -322,11 +322,19 @@
   - name: Network security
     items:
     - name: Overview
-      href: concept-private-endpoint.md
-    - name: Set up Private Endpoints
-      href: howto-set-up-private-access.md
+      href: concept-network-security.md
     - name: Disable public network access
       href: howto-disable-public-access.md
+    - name: Private endpoint
+      items:
+      - name: Overview
+        href: concept-private-endpoint.md
+      - name: Set up Private Endpoints
+        href: howto-set-up-private-access.md
+    - name: Network security perimeter
+      items:
+      - name: Overview
+        href: concept-nsp.md
     - name: Network access errors
       href: network-access-errors.md
   - name: Data encryption
