@@ -27,7 +27,7 @@ Three configurations were measured on single-node clusters at idle (no connected
 | **Config C** | Medium | 2 frontends <br> 2 partitions <br> redundancy factor 2 | ~6,088 MiB | ~2,407 MiB | ~6,564 MiB | 58 |
 
 > [!NOTE]
-> The difference between Config A and Config B comes from both higher cardinality (more broker pods) and a different [memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile). The difference between Config B and Config C is purely from the memory profile (same cardinality, same pod count). See [Production deployment examples](./concept-production-examples.md) for loaded scenarios.
+> The difference between Config A and Config B comes from both higher cardinality (more broker pods) and a different [memory profile](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-memory-profile). The difference between Config B and Config C is purely from the memory profile (same cardinality, same pod count). See [Production deployment examples](../deploy-iot-ops/concept-production-examples.md) for loaded scenarios.
 
 ## Namespace breakdown
 
@@ -125,7 +125,7 @@ Based on these idle baseline measurements, the following minimum hardware recomm
 
 ## Related content
 
-- [Choose your cluster topology](./operational-manual-day-zero-deployment.md#choose-your-cluster-topology)
-- [Production deployment guidelines](./concept-production-guidelines.md)
-- [Production deployment examples](./concept-production-examples.md)
+- [Choose your cluster topology](../deploy-iot-ops/operational-manual-day-zero-deployment.md#choose-your-cluster-topology)
+- [Production deployment guidelines](../deploy-iot-ops/concept-production-guidelines.md)
+- [Production deployment examples](../deploy-iot-ops/concept-production-examples.md)
 - [Configure availability and scale](../manage-mqtt-broker/howto-configure-availability-scale.md)

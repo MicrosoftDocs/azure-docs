@@ -62,7 +62,8 @@ A deployment with secure settings has the following characteristics:
 
 To deploy Azure IoT Operations with secure settings, follow these articles:
 
-1. Start with [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
+1. Start with [Deployment planning](./deployment-planning.md) to review architecture, sizing, and broker configuration decisions. Many MQTT broker settings can't be changed after deployment.
+1. Then, [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
 1. Then, follow the steps in [Deploy Azure IoT Operations to a production cluster](./howto-deploy-iot-operations.md).
 
 [!INCLUDE [aks-imds-restriction](../includes/aks-imds-restriction.md)]

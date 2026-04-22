@@ -11,7 +11,7 @@ ms.date: 04/21/2026
 
 # Deployment planning for Azure IoT Operations
 
-Many MQTT broker settings in Azure IoT Operations are configured at deployment time and can't be changed afterward. A new deployment is required if broker configuration changes are needed. This constraint makes pre-deployment planning critical -- you need to make informed decisions about cluster topology, memory profiles, disk buffering, persistence, diagnostics, and security before you deploy. This guide consolidates the key decisions you should review before deployment. For a full overview of the deployment process, see [Deploy Azure IoT Operations](howto-deploy-iot-operations.md).
+Many MQTT broker settings in Azure IoT Operations are configured at deployment time and can't be changed afterward. A new deployment is required if broker configuration changes are needed. This constraint makes pre-deployment planning critical -- you need to make informed decisions about cluster topology, memory profiles, disk buffering, persistence, diagnostics, and security before you deploy. This guide consolidates the key decisions you should review before deployment.
 
 ## Understand the architecture
 
@@ -22,21 +22,11 @@ Azure IoT Operations is a set of modular, Kubernetes-native services deployed to
 | **[MQTT Broker](../manage-mqtt-broker/overview-broker.md)** | High-performance MQTT v3.1.1/v5 broker for edge messaging |
 | **[Connector for OPC UA](../discover-manage-assets/overview-opc-ua-connector.md)** | Collects data from OPC UA servers and publishes to MQTT |
 | **[Data Flows](../connect-to-cloud/overview-dataflow.md)** | Routes, transforms, and pushes data to cloud endpoints |
-| **Azure Device Registry** | Cloud-based registry for devices, assets, and schemas |
+| **[Azure Device Registry](../discover-manage-assets/overview-manage-assets.md#azure-device-registry)** | Cloud-based registry for devices, assets, and schemas |
 | **[Akri Services](../discover-manage-assets/overview-akri.md)** | Device discovery and protocol adapters |
 | **[State Store](../develop-edge-apps/overview-state-store.md)** | Key-value persistence layer in the MQTT broker |
 
 An Azure IoT Operations *deployment* includes the instance, Arc extensions, custom locations, and all configurable resources (assets, devices, data flows). The *instance* is the parent resource that bundles the services.
-
-## Performance and throughput planning
-
-The MQTT broker can scale horizontally by increasing the number of backend workers and backend partitions. Because the broker distributes topics across backend partitions using hashing, the effectiveness of scaling depends on how evenly the topic space is spread across those partitions. A highly skewed distribution can create hotspots, which may become performance bottlenecks. Similarly, the performance of an individual partition depends heavily on the CPU characteristics of the node it's running on.
-
-As a rule of thumb for capacity planning, an approximate throughput per partition is on the order of **5--6K messages per second** for QoS 1 with 8-KB payloads on 2-GHz base frequency CPU (~4-GHz turbo). This estimate is intentionally approximate -- real-world performance depends on many factors -- but it can serve as a rule of thumb for capacity planning.
-
-For detailed benchmark data, see [MQTT Broker performance benchmarking](https://techcommunity.microsoft.com/blog/iotblog/azure-iot-operations-mqtt-broker-performance-benchmarking-on-throughput-and-late/4405528).
-
-For more information, see [Performance](../manage-mqtt-broker/howto-configure-availability-scale.md#performance).
 
 ## Choose your cluster topology
 
@@ -50,27 +40,35 @@ Before you deploy, decide whether you need a single-node or multi-node cluster. 
 > [!IMPORTANT]
 > Cardinality is set at deployment time only. A new deployment is required if the cardinality settings need to be changed.
 
-### Understand cardinality
+### Understand broker cardinality
 
-Cardinality means the number of instances of a particular entity in a set. In the context of the MQTT broker, cardinality refers to the number of frontend replicas, backend partitions, and backend workers to deploy. The cardinality settings are used to scale the broker horizontally and improve high availability if there are pod or node failures.
+Cardinality means the number of instances of a particular entity in a set. In the context of the MQTT broker, cardinality refers to the number of frontend replicas, frontend workers, backend partitions, and backend workers to deploy. The cardinality settings are used to scale the broker horizontally and improve high availability if there are pod or node failures.
+
+The MQTT broker has a two-tier architecture: **frontend** pods handle client connections and protocol processing, while **backend** pods handle message storage and delivery. Understanding how each tier scales is important for capacity planning.
 
 #### Frontend
 
-The frontend subfield defines the settings for the frontend pods. The two main settings are:
+Frontend pods accept MQTT client connections and forward messages to the backend. Frontend pods don't store messages themselves. There are two main settings for the frontend tier:
 
-- **Replicas**: The number of frontend replicas (pods) to deploy. Increasing the number of frontend replicas provides high availability in case one of the frontend pods fails.
-- **Workers**: The number of logical frontend workers per replica. Each worker can consume up to one CPU core at most.
+- **Replicas**: The number of frontend replicas (pods) to deploy. Adding more frontend replicas increases the number of concurrent client connections the broker can handle and provides high availability in case one of the frontend pods fails.
+- **Workers**: The number of logical frontend workers per replica. Adding more workers allows the frontend pod to use more CPU cores. Each worker can consume up to one CPU core at most.
 
 #### Backend chain
 
-The backend chain subfield defines the settings for the backend partitions. The three main settings are:
+Backend pods handle message storage and delivery. There are three main settings for the backend tier:
 
-- **Partitions**: The number of partitions to deploy. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions. Increasing the number of partitions increases the number of messages that the broker can handle.
+- **Partitions**: The number of partitions to deploy. Partitions are the unit of horizontal scaling for message throughput. Through a process called *sharding*, each partition is responsible for a portion of the messages, divided by topic ID and session ID. The frontend pods distribute message traffic across the partitions. Adding more partitions increases the total message throughput the broker can handle. However, the effectiveness of scaling depends on how evenly the topic space is spread across partitions -- a highly skewed distribution can create hotspots on a single partition.
 - **Redundancy factor**: The number of backend replicas (pods) to deploy per partition. Increasing the redundancy factor increases the number of data copies to provide resiliency against node failures in the cluster.
-- **Workers**: The number of workers to deploy per backend replica. Increasing the number of workers per backend replica might increase the number of messages that the backend pod can handle. Each worker can consume up to two CPU cores at most, so be careful when you increase the number of workers per replica to not exceed the number of CPU cores in the cluster.
+- **Workers**: The number of workers to deploy per backend replica. Workers are the unit of vertical scaling within a partition -- adding more workers allows the backend pod to use more CPU cores on the same node. Each worker can consume up to two CPU cores at most, so be careful when you increase the number of workers per replica to not exceed the number of CPU cores in the cluster.
 
 > [!IMPORTANT]
 > The backend redundancy factor must be set to **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support. Setting the redundancy factor to `1` results in a deployment validation error.
+
+#### Throughput estimate
+
+The performance of an individual partition depends heavily on the CPU characteristics of the node it's running on. As a rule of thumb, a ballpark throughput per partition is on the order of **5--6K messages** per second for QoS 1 with 8-KB payloads on 2-GHz base frequency CPU (~4-GHz turbo). This estimate is intentionally approximate -- real-world performance depends on many factors -- but it can serve as a starting point for capacity planning.
+
+For detailed benchmark data, see [MQTT Broker performance benchmarking](https://techcommunity.microsoft.com/blog/iotblog/azure-iot-operations-mqtt-broker-performance-benchmarking-on-throughput-and-late/4405528).
 
 ### Single-node recommendations
 
@@ -117,7 +115,7 @@ The following values are recommended for optimal performance. For large clusters
 
 ### CPU resource limits
 
-To prevent resource starvation in the cluster, the broker can be configured to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) based on the cardinality settings. When enabled, scaling the number of replicas or workers proportionally increases the CPU resources required. A deployment error is emitted if there are insufficient CPU resources available in the cluster. This notification helps you avoid situations where the requested broker cardinality lacks enough resources to run optimally. It also helps to avoid potential CPU contention and pod evictions.
+To prevent resource starvation in the cluster, the broker can be configured to [request Kubernetes CPU resource limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) based on the cardinality settings. When enabled, scaling the number of replicas or workers proportionally increases the CPU resources required.
 
 > [!IMPORTANT]
 > The default value for `generateResourceLimits.cpu` depends on the deployment method:
@@ -227,20 +225,20 @@ az iot ops create ... --broker-config-file <FILE>.json
 
 The memory profile controls the maximum MQTT message size the broker accepts, idle memory usage, and maximum memory usage of each pod. Decide on the right memory profile before deployment based on your expected message sizes and throughput.
 
-> [!IMPORTANT]
-> This setting requires that you modify the Broker resource. It's configured only at initial deployment by using the Azure CLI or the Azure portal. A new deployment is required if Broker configuration changes are needed. To learn more, see [Customize default Broker](../manage-mqtt-broker/overview-broker.md#customize-default-broker).
-
 | Memory Profile | Max Message Size | Idle Frontend Memory (per pod) | Max Frontend Memory (per pod) | Idle Backend Memory (per pod) | Max Backend Memory (per pod) | Use Case |
 |---|---|---|---|---|---|---|
 | **Tiny** | 4 MB | ~29 MiB | ~99 MiB | ~41 MiB | ~102 MiB | Low traffic, small packets only |
 | **Low** | 16 MB | ~33 MiB | ~387 MiB | ~66 MiB | ~390 MiB | Limited memory, small packets |
-| **Medium** | 64 MB | ~169 MiB | ~1.9 GiB | ~211 MiB | ~1.5 GiB | Moderate traffic and message sizes |
+| **Medium** (default) | 64 MB | ~169 MiB | ~1.9 GiB | ~211 MiB | ~1.5 GiB | Moderate traffic and message sizes |
 | **High** | 256 MB | ~4.9 GiB | ~4.9 GiB | ~5.8 GiB | ~5.8 GiB | High throughput, large messages |
+
+> [!NOTE]
+> The memory values in the table are per pod. All workers within a pod share the same memory allocation -- adding more workers does not increase the pod's memory limit.
 
 > [!WARNING]
 > The broker rejects messages when memory usage reaches 75% capacity. Choose a profile with sufficient headroom for your expected message sizes and throughput.
 
-Total broker memory depends on **both** the memory profile and the cardinality (number of frontend replicas, backend partitions, and redundancy factor). More pods mean more total memory. For measured baseline resource consumption across different configurations, see [Baseline resource profiles](./concept-resource-profiles.md).
+Total broker memory depends on **both** the memory profile and the cardinality (number of frontend replicas, backend partitions, and redundancy factor). More pods mean more total memory. For measured baseline resource consumption across different configurations, see [Baseline resource profiles](../reference/concept-resource-profiles.md).
 
 ### Calculate total memory usage
 

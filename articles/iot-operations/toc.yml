@@ -412,6 +412,9 @@ items:
           - name: MQTT support
             href: reference/mqtt-support.md
             displayName: v5, v3.1.1, protocol
+          - name: Baseline resource profiles
+            href: reference/concept-resource-profiles.md
+            displayName: memory, CPU, resource consumption, idle, baseline, profiles
           - name: IoT Glossary
             href: ../iot/iot-glossary.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
             displayName: term, terminology, definition, usage
