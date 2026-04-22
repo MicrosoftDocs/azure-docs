@@ -25,6 +25,15 @@ When you associate a configuration store with a network security perimeter, you 
 - **Shared configuration across PaaS resources**: Share a collection of access rules across multiple PaaS resources using network security perimeter profiles.
 - **Diagnostic logging**: Monitor network traffic to and from your configuration store through network security perimeter diagnostic logs.
 
+## Customer-managed key encryption
+
+If your configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), the store communicates with Azure Key Vault to access your encryption key. When the store is associated with a network security perimeter, this outbound communication is subject to the perimeter's access rules. To ensure your configuration store can continue to access the encryption key, you must meet one of the following requirements:
+
+- **Same perimeter**: Place the Azure Key Vault in the same network security perimeter as your configuration store. When both resources are within the same perimeter, communication between them is automatically allowed.
+- **FQDN outbound access rule**: Add an FQDN outbound access rule to the network security perimeter profile associated with your configuration store. The rule must list the endpoint of the Key Vault (for example, `mykeyvault.vault.azure.net`).
+
+If neither condition is met, the configuration store can't access the encryption key, and requests to the store will fail.
+
 ## Limitations
 - Certain network security perimeter features, such as subscription-based inbound access rules, don't work with [access key authentication](./howto-disable-access-key-authentication.md). Use [Microsoft Entra ID authentication](./concept-enable-rbac.md) for full NSP functionality.
 - At this time, a configuration store in a network security perimeter can't send events to Azure Event Grid. If a configuration store has an Azure App Configuration event subscription configured, you can't associate the store with a network security perimeter. Similarly, if a store is associated with a network security perimeter, you can't enable an event subscription for the store.
