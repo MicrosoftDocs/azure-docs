@@ -776,7 +776,7 @@ productDirectory:
       azureCategories:
         - hybrid
         - security
-      url: sentinel/index.yml
+      url: /azure/sentinel/
     # Card
     - title: Azure Local
       summary: Operate infrastructure across distributed locations enabled by Azure Arc

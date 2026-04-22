@@ -2,12 +2,12 @@
 title: Azure Stack Edge Preview release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Stack Edge running preview availability release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/05/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge Pro with GPU Preview release notes

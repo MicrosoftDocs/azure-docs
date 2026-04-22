@@ -2,12 +2,12 @@
 title: Cluster failure scenarios on your Azure Stack Edge device
 description: Describes clustering-related failure scenarios on your Azure Stack Edge device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 02/15/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Cluster failover scenarios on your Azure Stack Edge Pro GPU device

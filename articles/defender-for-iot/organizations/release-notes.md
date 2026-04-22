@@ -558,7 +558,7 @@ This version minor maintenance updates.
 
 This version includes the following new updates and fixes:
 
-- [New Microsoft Sentinel solution for Defender for IoT](../../sentinel/iot-solution.md)
+- [New Microsoft Sentinel solution for Defender for IoT](/azure/sentinel/iot-solution)
 - [Mitigation for the Apache Log4j vulnerability](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844)
 - [Alerts for minor events and edge cases disabled or minimized](alert-engine-messages.md)
 

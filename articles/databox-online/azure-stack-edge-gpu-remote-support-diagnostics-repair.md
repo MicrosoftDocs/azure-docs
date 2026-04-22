@@ -2,12 +2,12 @@
 title: Enable remote support, diagnostics, and remediation for Azure Stack Edge devices 
 description: Describes how to enable remote support on your Azure Stack Edge devices.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 07/27/2023
-ms.author: alkohli
+ms.author: sipastak
 
 ---
 # Remote support and diagnostics for Azure Stack Edge 

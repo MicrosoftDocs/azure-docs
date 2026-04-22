@@ -54,7 +54,7 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
   }
   properties: {
     displayName: 'Process Control Demo'
-    description: 'A asset containing simple datapoints used for read/write'
+    description: 'A asset containing simple data points used for read/write'
     enabled: true
     deviceRef: {
       deviceName: deviceName

@@ -87,4 +87,4 @@ You can access your alerts and investigate them with the Log Analytics workspace
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn how to [integrate Microsoft Sentinel and Microsoft Defender for IoT](../../sentinel/iot-solution.md?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json)
+> Learn how to [integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended&toc=%2fazure%2fdefender-for-iot%2forganizations%2ftoc.json)

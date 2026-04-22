@@ -2,12 +2,12 @@
 title: Azure Stack Edge 2407 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2407 release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 08/15/2024
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2407 release notes

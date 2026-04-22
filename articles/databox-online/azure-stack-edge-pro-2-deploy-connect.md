@@ -2,12 +2,12 @@
 title: Tutorial to connect to, configure, activate Azure Stack Edge Pro 2 device 
 description: Learn how you can connect to your Azure Stack Edge Pro 2 device by using the local web UI.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 03/21/2022
-ms.author: alkohli
+ms.author: sipastak
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---

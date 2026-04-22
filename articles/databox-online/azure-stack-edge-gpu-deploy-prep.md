@@ -2,12 +2,12 @@
 title: Tutorial to prepare Azure portal, datacenter environment to deploy Azure Stack Edge Pro GPU
 description: The first tutorial about deploying Azure Stack Edge Pro GPU involves preparing the Azure portal, placing a device order, and then creating a management resource. 
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 06/02/2023
-ms.author: alkohli
+ms.author: sipastak
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro GPU so I can use it to compute at the edge and to transfer data to Azure. 
 ---
 

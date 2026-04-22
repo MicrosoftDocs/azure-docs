@@ -2,12 +2,12 @@
 title: Data resiliency for Azure Stack Edge Pro GPU/Pro R/Mini R 
 description: Describes data resiliency for Azure Stack Edge.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 04/18/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Data resiliency for Azure Stack Edge 

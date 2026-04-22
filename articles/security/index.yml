@@ -147,9 +147,9 @@ additionalContent:
         - title: Microsoft Sentinel
           summary: See and stop threats before they cause harm
           links: 
-            - url: ../sentinel/overview.md
+            - url: /azure/sentinel/overview
               text: Overview
-            - url: ../sentinel/quickstart-onboard.md
+            - url: /azure/sentinel/quickstart-onboard
               text: Onboard Microsoft Sentinel
             - url: /training/paths/security-ops-sentinel/
               text: "Learn: Cloud-native security operations with Microsoft Sentinel"

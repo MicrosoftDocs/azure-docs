@@ -26,7 +26,7 @@ In this tutorial, you will learn how to:
 
 Before you start, make sure you have the following requirements on your workspace:
 
-- **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](../../sentinel/roles.md).
+- **Read** and **Write** permissions on your Microsoft Sentinel workspace. For more information, see [Permissions in Microsoft Sentinel](/azure/sentinel/roles).
 
 - **Contributor** or **Owner** permissions on the subscription you want to connect to Microsoft Sentinel.
 
@@ -34,7 +34,7 @@ Before you start, make sure you have the following requirements on your workspac
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
 
-Start by enabling the [Defender for IoT data connector](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) to stream all your Defender for IoT events into Microsoft Sentinel.
+Start by enabling the [Defender for IoT data connector](/azure/sentinel/data-connectors-reference#microsoft-defender-for-iot) to stream all your Defender for IoT events into Microsoft Sentinel.
 
 **To enable the Defender for IoT data connector**:
 
@@ -46,7 +46,7 @@ Start by enabling the [Defender for IoT data connector](../../sentinel/data-conn
 
     If you've made any connection changes, it can take 10 seconds or more for the **Subscription** list to update.
 
-For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](../../sentinel/connect-azure-windows-microsoft-services.md).
+For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](/azure/sentinel/connect-azure-windows-microsoft-services).
 
 ## View Defender for IoT alerts
 

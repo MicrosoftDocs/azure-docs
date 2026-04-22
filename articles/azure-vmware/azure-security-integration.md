@@ -160,7 +160,7 @@ After connecting data sources to Microsoft Sentinel, you can create rules to gen
 
 6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response**.
  
-    :::image type="content" source="../sentinel/media/create-analytics-rules/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Microsoft Sentinel.":::
+    :::image type="content" source="/azure/sentinel/media/create-analytics-rules/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Microsoft Sentinel.":::
 
 7. Select **Next: Review**.
 
@@ -193,7 +193,7 @@ You can create queries or use the available predefined query in Microsoft Sentin
    >[!TIP]
    >You can also create a new query by selecting **New Query**.
    >
-   >:::image type="content" source="../sentinel/media/hunting/save-query.png" alt-text="Screenshot of Microsoft Sentinel Hunting page with + New Query highlighted.":::
+   >:::image type="content" source="/azure/sentinel/media/hunting/save-query.png" alt-text="Screenshot of Microsoft Sentinel Hunting page with + New Query highlighted.":::
 
 3. Select a query and then select **Run Query**.
 

@@ -37,7 +37,7 @@ Unless otherwise noted, you can run the console commands in this quickstart in e
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows. Data flows let you manipulate and route data to cloud services such as Azure Event Hubs. In this quickstart, the data flow changes the names of some fields in payload and adds an asset ID to the messages.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as data points, events, and actions. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows. Data flows let you manipulate and route data to cloud services such as Azure Event Hubs. In this quickstart, the data flow changes the names of some fields in payload and adds an asset ID to the messages.
 
 ## Deploy the OPC PLC simulator
 

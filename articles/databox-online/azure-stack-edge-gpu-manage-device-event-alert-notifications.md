@@ -2,12 +2,12 @@
 title: Use alert processing rules to manage alert notifications on Azure Stack Edge devices | Microsoft Docs 
 description: Describes how to define alert processing rules to manage alert notifications for Azure Stack Edge devices in the Azure portal.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/13/2023
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Use alert processing rules to manage alert notifications on Azure Stack Edge devices
 

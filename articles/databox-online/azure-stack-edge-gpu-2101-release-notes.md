@@ -1,11 +1,11 @@
 ---
 title: Azure Stack Edge Pro 2101 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running 2101 release.
-author: alkohli
+author: sipastak
 ms.service: azure-stack-edge
 ms.topic: release-notes
 ms.date: 03/08/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2101 release notes

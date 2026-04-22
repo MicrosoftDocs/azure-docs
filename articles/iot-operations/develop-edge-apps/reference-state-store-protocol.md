@@ -1,8 +1,8 @@
 ---
 title: State store protocol
 description: State store protocol guidance for developers who need to implement their own state store clients.
-author: dominicbetts
-ms.author: dobett
+author: sethmanheim
+ms.author: sethm
 ms.subservice: azure-mqtt-broker
 ms.topic: reference
 ms.date: 05/07/2025

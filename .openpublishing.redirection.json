@@ -1,8 +1,129 @@
 {
   "redirections": [
     {
+      "source_path": "articles/playwright-testing/concept-determine-optimal-configuration.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/zone-pivots-groups.yml",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-configure-visual-comparisons.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-manage-access-tokens.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-manage-authentication.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-manage-playwright-workspace.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-manage-workspace-access.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-optimize-regional-latency.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-test-local-applications.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-try-playwright-testing-free.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-use-service-config-file.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/how-to-use-service-features.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/index.yml",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/monitor-playwright-testing-reference.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/monitor-playwright-testing.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/overview-what-is-microsoft-playwright-testing.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/playwright-testing-reporting-with-sharding.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/quickstart-automate-end-to-end-testing.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/quickstart-generate-rich-reports-for-tests.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/quickstart-run-end-to-end-tests.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/resource-limits-quotas-capacity.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/troubleshoot-test-run-failures.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/troubleshoot-unable-sign-into-playwright-portal.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/playwright-testing/tutorial-run-end-to-end-tests.md",
+      "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/web-application-firewall/ag/web-application-firewall-troubleshoot.md",
       "redirect_url": "/troubleshoot/azure/web-application-firewall/web-application-firewall-troubleshoot",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/healthcare-apis/iot/concepts-machine-learning.md",
@@ -137,11 +258,6 @@
     {
       "source_path": "articles/healthcare-apis/iot/troubleshoot-errors-logs.md",
       "redirect_url": "/previous-versions/azure/healthcare-apis/iot/troubleshoot-errors-logs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sentinel/datalake/sentinel-mcp-chatgpt-connector.md",
-      "redirect_url": "/azure/sentinel/datalake/sentinel-mcp-chatgpt-claude-connector",
       "redirect_document_id": false
     },
     {
@@ -412,6 +528,7 @@
     {
       "source_path": "articles/iot/tutorial-send-telemetry-iot-hub.md",
       "redirect_url": "/previous-versions/azure/iot/tutorial-send-telemetry-iot-hub",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/backup/backup-azure-enhanced-soft-delete-about.md",
@@ -683,26 +800,32 @@
     {
       "source_path": "articles/expressroute/expressroute-troubleshooting-arp-resource-manager.md",
       "redirect_url": "/troubleshoot/azure/expressroute/expressroute-troubleshooting-arp-resource-manager",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/expressroute/get-correlation-id.md",
       "redirect_url": "/troubleshoot/azure/expressroute/get-correlation-id",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/expressroute/expressroute-troubleshooting-expressroute-overview.md",
       "redirect_url": "/troubleshoot/azure/expressroute/expressroute-troubleshooting-expressroute-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/expressroute/expressroute-troubleshooting-network-performance.md",
       "redirect_url": "/troubleshoot/azure/expressroute/expressroute-troubleshooting-network-performance",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/expressroute/gateway-migration-error-messaging.md",
       "redirect_url": "/troubleshoot/azure/expressroute/gateway-migration-error-messaging",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/expressroute/reset-circuit.md",
       "redirect_url": "/troubleshoot/azure/expressroute/reset-circuit",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/extended-zones/arc-enabled-workloads-postgre-sql.md",
@@ -3902,7 +4025,7 @@
     {
       "source_path_from_root": "/articles/azure/sentinel/connect-windows-virtual-desktop.md",
       "redirect_url": "/azure/sentinel/connect-azure-virtual-desktop",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
@@ -6200,61 +6323,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sentinel/automation-in-azure-sentinel.md",
-      "redirect_url": "/azure/sentinel/automation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/azure-sentinel-billing.md",
-      "redirect_url": "/azure/sentinel/billing",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/connect-azure-security-center.md",
-      "redirect_url": "/azure/sentinel/connect-defender-for-cloud",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/data-connectors/azure-information-protection.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/entities-in-azure-sentinel.md",
-      "redirect_url": "/azure/sentinel/entities",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/normalization-schema.md",
-      "redirect_url": "/azure/sentinel/network-normalization-schema",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/quickstart-get-visibility.md",
-      "redirect_url": "/azure/sentinel/get-visibility",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/tutorial-detect-threats-built-in.md",
-      "redirect_url": "/azure/sentinel/detect-threats-built-in",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/tutorial-detect-threats-custom.md",
-      "redirect_url": "/azure/sentinel/detect-threats-custom",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/tutorial-investigate-cases.md",
-      "redirect_url": "/azure/sentinel/investigate-cases",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/tutorial-monitor-your-data.md",
-      "redirect_url": "/azure/sentinel/monitor-your-data",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/site-recovery/move-vaults-across-regions.md",
       "redirect_url": "/azure/operational-excellence/relocation-site-recovery",
       "redirect_document_id": false
@@ -7145,11 +7213,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sentinel/data-connectors/threat-intelligence-upload-indicators-api.md",
-      "redirect_url": "/azure/sentinel/data-connectors/threat-intelligence-upload-api",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-spaces/how-to-add-components.md",
       "redirect_url": "/azure/container-apps/",
       "redirect_document_id": false
@@ -7200,18 +7263,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sentinel/resources.md",
-      "redirect_url": "/azure/sentinel/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer.md",
       "redirect_url": "/azure/nat-gateway/nat-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sentinel/kusto-resources.md",
-      "redirect_url": "/kusto/query/kql-learning-resources?view=microsoft-sentinel?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json",
       "redirect_document_id": false
     },
     {
@@ -7240,11 +7293,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sentinel/work-with-styx-objects-and-indicators.md",
-      "redirect_url": "/azure/sentinel/work-with-styx-objects-indicators",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/storage/files/geo-redundant-storage-for-large-file-shares.md",
       "redirect_url": "/azure/storage/files/files-redundancy",
       "redirect_document_id": false
@@ -7257,11 +7305,6 @@
     {
       "source_path": "articles/cyclecloud/how-to/slurm-cloud-bursting-setup.md",
       "redirect_url": "/azure/cyclecloud/how-to/bursting/slurm-cloud-bursting-setup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sentinel/work-with-styx-objects-indicators.md",
-      "redirect_url": "/azure/sentinel/work-with-stix-objects-indicators",
       "redirect_document_id": false
     },
     {
@@ -7644,16 +7687,16 @@
       "redirect_url": "/azure/oracle/oracle-db/database-overview",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path": "articles/cyclecloud/how-to/ccws/register-entra-id-app.md",
       "redirect_url": "/azure/cyclecloud/how-to/create-app-registration",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path": "articles/cyclecloud/how-to/ccws/open-ondemand-add-users.md",
       "redirect_url": "/azure/cyclecloud/how-to/ccws/configure-open-ondemand",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path": "articles/reliability/reliability-health-insights.md",
       "redirect_url": "/azure/azure-health-insights/reliability-health-insights",
@@ -7691,31 +7734,38 @@
     },
     {
       "source_path": "articles/virtual-network/virtual-network-test-latency.md",
-      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-test-latency"
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-test-latency",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/virtual-network-bandwidth-testing.md",
-      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-bandwidth-testing"
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-bandwidth-testing",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/troubleshoot-vm-connectivity.md",
-      "redirect_url": "/troubleshoot/azure/virtual-network/troubleshoot-vm-connectivity"
+      "redirect_url": "/troubleshoot/azure/virtual-network/troubleshoot-vm-connectivity",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/troubleshoot-outbound-smtp-connectivity.md",
-      "redirect_url": "/troubleshoot/azure/virtual-network/troubleshoot-outbound-smtp-connectivity"
+      "redirect_url": "/troubleshoot/azure/virtual-network/troubleshoot-outbound-smtp-connectivity",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/virtual-network-troubleshoot-peering-issues.md",
-      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-peering-issues"
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-peering-issues",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms.md",
-      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms"
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/virtual-network-troubleshoot-cannot-delete-vnet.md",
-      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-cannot-delete-vnet"
+      "redirect_url": "/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-cannot-delete-vnet",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/certification/edge-secured-core-get-certified.md",

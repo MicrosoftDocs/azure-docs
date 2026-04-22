@@ -485,7 +485,7 @@ See [Classic Microsoft Purview data governance limits](../../purview/how-to-mana
 
 ## Microsoft Sentinel limits
 
-See [Service limits for Microsoft Sentinel](../../sentinel/sentinel-service-limits.md) for Microsoft Sentinel limits.
+See [Service limits for Microsoft Sentinel](/azure/sentinel/sentinel-service-limits) for Microsoft Sentinel limits.
 
 ## Azure Service Bus limits
 

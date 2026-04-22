@@ -768,9 +768,6 @@ items:
     - name: Benchmarks
       tocHref: /azure/security/benchmarks/
       topicHref: /azure/security/benchmarks/
-    - name: Microsoft Sentinel
-      tocHref: /azure/sentinel/
-      topicHref: /azure/sentinel/
     - name: Microsoft Defender for IoT
       tocHref: /azure/defender-for-iot/
       topicHref: /azure/defender-for-iot/

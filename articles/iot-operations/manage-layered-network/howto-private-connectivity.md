@@ -1,9 +1,9 @@
 ---
 title: Deploy Azure IoT Operations with private connectivity
 description: Configure private connectivity for Azure IoT Operations using Private Link, Arc Gateway, and Azure Firewall Explicit Proxy.
-author: david-emakenemi
+author: sethmanheim
 ms.subservice: layered-network-management
-ms.author: demakenemi
+ms.author: sethm
 ms.topic: how-to
 ms.date: 03/25/2026
 

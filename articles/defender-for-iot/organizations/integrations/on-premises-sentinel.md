@@ -26,7 +26,7 @@ Before you start, make sure that you have the following prerequisites as needed:
 
 - Access to the OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
-- A proxy machine prepared to send data to Microsoft Sentinel. For more information, see [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](../../../sentinel/connect-common-event-format.md).
+- A proxy machine prepared to send data to Microsoft Sentinel. For more information, see [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](/azure/sentinel/connect-common-event-format).
 
 - If you want to encrypt the data you send to Microsoft Sentinel using TLS, make sure to generate a valid TLS certificate from the proxy server to use in your forwarding alert rule.
 
@@ -51,7 +51,7 @@ Select **Save** when you're done. Make sure to test the rule to make sure that i
 > [Stream data from cloud-connected sensors](../iot-solution.md)
 
 > [!div class="nextstepaction"]
-> [Investigate in Microsoft Sentinel](../../../sentinel/investigate-cases.md)
+> [Investigate in Microsoft Sentinel](/azure/sentinel/investigate-cases)
 
 For more information, see:
 > [!div class="nextstepaction"]

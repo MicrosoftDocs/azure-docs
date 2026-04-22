@@ -2,12 +2,12 @@
 title: Azure Stack Edge Pro GPU limits | Microsoft Docs
 description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge Pro GPU, including service limits, device limits, and storage limits.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/21/2025
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge limits

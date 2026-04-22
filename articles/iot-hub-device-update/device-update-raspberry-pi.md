@@ -1,7 +1,7 @@
 ---
 title: Azure Device Update for IoT Hub using a Raspberry Pi image
 description: Do an end-to-end image-based Azure Device Update for IoT Hub update using a Raspberry Pi 3 B+ Yocto image.
-author: eshashah
+author: cwatson-cat
 ms.author: cwatson
 ms.date: 12/18/2024
 ms.topic: tutorial

@@ -4,7 +4,7 @@ description: Learn how to deploy S/4HANA infrastructure with Azure Center for SA
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 04/22/2026
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -41,7 +41,7 @@ This article describes how to deploy S/4HANA infrastructure in *Azure Center for
 
 - Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Center for SAP solutions to size your SAP system. If you're not sure, you can also select the virtual machines (VMs). There are:
 
-  - A single or cluster of Advanced Business Application Programming Central Services (ASCS) VMs, which make up a single ASCS instance in the VIS.
+  - A single or cluster of Advanced Business Application Programming SAP Central Services (ASCS) VMs, which make up a single ASCS instance in the VIS.
   - A single or cluster of Database VMs, which make up a single Database instance in the VIS.
   - A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
 

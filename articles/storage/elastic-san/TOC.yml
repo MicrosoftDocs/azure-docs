@@ -13,24 +13,26 @@ items:
     items:
       - name: Create an Elastic SAN
         href: elastic-san-create.md
-      - name: Configure private endpoints
-        href: elastic-san-configure-private-endpoints.md
-      - name: Configure service endpoints
-        href: elastic-san-configure-service-endpoints.md
-      - name: Connect to Windows
-        href: elastic-san-connect-windows.md
-      - name: Connect to Linux
-        href: elastic-san-connect-linux.md
-      - name: Connect to AKS
-        href: ../container-storage/use-container-storage-with-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
-      - name: Connect to Azure VMware Solutions
-        href: ../../azure-vmware/configure-azure-elastic-san.md?toc=/azure/storage/elastic-san/toc.json
-      - name: Connect to SQL Server
+      - name: Networking and connection configuration
         items:
-          - name: Deploy and configure Elastic SAN for SQL Server on Azure VMs
-            href: /azure/azure-sql/virtual-machines/windows/storage-configuration-azure-elastic-san?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
-          - name: Configure failover cluster instance to use an Elastic SAN volume
-            href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-elastic-san-manually-configure?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+        - name: Configure private endpoints
+          href: elastic-san-configure-private-endpoints.md
+        - name: Configure service endpoints
+          href: elastic-san-configure-service-endpoints.md
+        - name: Connect to Windows
+          href: elastic-san-connect-windows.md
+        - name: Connect to Linux
+          href: elastic-san-connect-linux.md
+        - name: Connect to AKS
+          href: ../container-storage/use-container-storage-with-elastic-san.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+        - name: Connect to Azure VMware Solutions
+          href: ../../azure-vmware/configure-azure-elastic-san.md?toc=/azure/storage/elastic-san/toc.json
+        - name: Connect to SQL Server
+          items:
+            - name: Deploy and configure Elastic SAN for SQL Server on Azure VMs
+              href: /azure/azure-sql/virtual-machines/windows/storage-configuration-azure-elastic-san?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+            - name: Configure failover cluster instance to use an Elastic SAN volume
+              href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-elastic-san-manually-configure?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
       - name: Resize an Elastic SAN
         href: elastic-san-expand.md
       - name: Using volume snapshots
@@ -53,6 +55,8 @@ items:
             href: elastic-san-configure-customer-managed-keys.md
           - name: Manage customer keys
             href: elastic-san-encryption-manage-customer-keys.md
+      - name: Transition IQN Naming Authority on Connected Volumes
+        href: elastic-san-transition-iqn-naming-authority.md
       - name: Troubleshoot your Elastic SAN
         href: elastic-san-troubleshoot.md
       - name: Delete an Elastic SAN

@@ -2,12 +2,12 @@
 title: Understand Kubernetes workload management on Azure Stack Edge Pro device| Microsoft Docs
 description: Describes how Kubernetes workloads can be managed on your Azure Stack Edge Pro device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 03/01/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Kubernetes workload management on your Azure Stack Edge Pro device

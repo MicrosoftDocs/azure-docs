@@ -8,7 +8,7 @@ ms.subservice: sentinel-integration
 
 # Tutorial: Set up automatic sensor disconnection notifications with Microsoft Defender for IoT and Microsoft Sentinel
 
-This tutorial shows you how to create a [playbook](../../sentinel/tutorial-respond-threats-playbook.md) in Microsoft Sentinel that automatically sends an email notification when a sensor disconnects from the cloud.
+This tutorial shows you how to create a [playbook](/azure/sentinel/tutorial-respond-threats-playbook) in Microsoft Sentinel that automatically sends an email notification when a sensor disconnects from the cloud.
 
 In this tutorial, you:
 
@@ -508,18 +508,18 @@ Copy this code and return to the [paste the playbook code](#paste-the-playbook-c
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visualize data](../../sentinel/get-visibility.md)
+> [Visualize data](/azure/sentinel/get-visibility)
 
 > [!div class="nextstepaction"]
-> [Create custom analytics rules](../../sentinel/detect-threats-custom.md)
+> [Create custom analytics rules](/azure/sentinel/detect-threats-custom)
 
 > [!div class="nextstepaction"]
-> [Investigate incidents](../../sentinel/investigate-cases.md)
+> [Investigate incidents](/azure/sentinel/investigate-cases)
 
 > [!div class="nextstepaction"]
-> [Investigate entities](../../sentinel/entity-pages.md)
+> [Investigate entities](/azure/sentinel/entity-pages)
 
 > [!div class="nextstepaction"]
-> [Use playbooks with automation rules](../../sentinel/tutorial-respond-threats-playbook.md)
+> [Use playbooks with automation rules](/azure/sentinel/tutorial-respond-threats-playbook)
 
 For more information, see our blog: [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)

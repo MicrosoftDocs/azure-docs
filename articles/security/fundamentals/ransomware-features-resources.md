@@ -67,7 +67,7 @@ Microsoft Sentinel is your birds-eye view across the enterprise alleviating the 
 
 Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds. 
 
-Detect previously undetected threats, and minimize [false positives](../../sentinel/false-positives.md) using Microsoft's analytics and unparalleled threat intelligence. 
+Detect previously undetected threats, and minimize [false positives](/azure/sentinel/false-positives) using Microsoft's analytics and unparalleled threat intelligence. 
 
 Investigate threats with artificial intelligence, and hunt for suspicious activities at scale, tapping into years of Cyber security work at Microsoft.
 

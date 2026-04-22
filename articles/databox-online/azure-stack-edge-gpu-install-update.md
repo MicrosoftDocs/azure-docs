@@ -2,12 +2,12 @@
 title: Install Update on Azure Stack Edge Pro GPU device | Microsoft Docs
 description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge Pro GPU device and the Kubernetes cluster on the device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 07/17/2025
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Update your Azure Stack Edge Pro GPU
 
