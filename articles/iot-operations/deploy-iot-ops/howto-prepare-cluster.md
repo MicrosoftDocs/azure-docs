@@ -349,7 +349,6 @@ At this point, when you have an Azure Arc-enabled Kubernetes cluster but before 
 
 ## Next steps
 
-Now that you have an Azure Arc-enabled Kubernetes cluster, you can choose to deploy Azure IoT Operation with test settings or with production settings.
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can deploy Azure IoT Operations.
 
-- [Test deployment](howto-deploy-iot-test-operations.md): Recommended for quick evaluation and prototyping before deploying in production. Test deployment isn't suitable for production, it lacks observability and hardened security.
-- [Production deployment](howto-deploy-iot-operations.md): Recommended for production-ready workloads. Production deployment is suitable for real-world IoT deployments with compliance and security needs.
+- [Deploy to a production cluster](howto-deploy-iot-operations.md)

@@ -188,4 +188,4 @@ The following diagram shows an example deployment that illustrates how to mainta
 
 ## Next steps
 
-[Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable a cluster for Azure IoT Operations.
+[Plan your deployment](./deployment-planning.md) to review architecture, sizing, and broker configuration decisions before deploying.

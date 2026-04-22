@@ -296,4 +296,4 @@ The following broker settings are also configured at deployment time and can't b
 - [Prepare your cluster](howto-prepare-cluster.md)
 - [Deploy to a production cluster](howto-deploy-iot-operations.md)
 - [Configure observability](../configure-observability-monitoring/howto-configure-observability.md)
-- [Secure your deployment](../secure-iot-ops/howto-manage-certificates.md)
+- [Secure your deployment](howto-enable-secure-settings.md)
