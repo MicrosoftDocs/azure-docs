@@ -190,7 +190,7 @@ When you're done with the resources you created in this tutorial, you can delete
 Use the following command to delete the environment you created in this tutorial:
 
 ```azurecli
-az devcenter dev environment delete --dev-center <DevCenterName> --project-name <DevCenterProjectName> --name <DeploymentEnvironmentInstanceToCreateName> --yes
+az devcenter dev environment delete --dev-center-name <DevCenterName> --project-name <DevCenterProjectName> --name <DeploymentEnvironmentInstanceToCreateName> --yes
 ```
 
 ## Related content

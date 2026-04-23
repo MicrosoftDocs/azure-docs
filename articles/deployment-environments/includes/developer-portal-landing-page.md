@@ -3,7 +3,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 11/13/2024
 ms.topic: include
-ms.service: dev-box
+ms.service: azure-deployment-environments
 ---
 
 1. Go to the [developer portal](https://aka.ms/devbox-portal). The landing page contains useful information and links. When you're ready, select **Sign in**. 
@@ -12,7 +12,7 @@ ms.service: dev-box
 
 #### [No existing environments](#tab/no-existing-environments)
 
-2. If you don't have any dev boxes, you see this screen. Select **New environment**.
+2. If you don't have any environments, you see this screen. Select **New environment**.
 
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-deployment-environment.png" alt-text="Screenshot of the developer portal. New environment is highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-deployment-environment.png":::
 

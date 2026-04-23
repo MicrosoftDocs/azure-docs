@@ -5,7 +5,7 @@ description: "Learn how to use triggers and bindings for the Durable Functions e
 ms.topic: concept-article
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 09/29/2025
+ms.date: 04/22/2026
 ms.author: azfuncdf
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 # Customer intent: As a developer, I want to become familiar with Durable Functions triggers and bindings so that I can use them to control the execution of orchestrator, entity, activity, and client functions in my function apps.

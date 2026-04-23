@@ -1,17 +1,17 @@
 ---
 author: hhunter-ms
-title: Durable Timers
-description: Learn how to implement durable timers in Durable Functions and Durable Task SDKs.
+title: "Durable Timers: Implement Delays and Timeouts"
+description: "Learn how to implement durable timers in Durable Functions and Durable Task SDKs to add delays, set timeouts on async actions, and schedule billing notifications. Get started with code examples in C#, Python, Java, and JavaScript."
 ms.topic: feature-guide
 ms.service: durable-task
-ms.date: 01/28/2026
+ms.date: 04/22/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, powershell, python, java
 zone_pivot_groups: azure-durable-approach
 ---
 
-# Durable timers
+# Implement durable timers for delays and timeouts
 
 ::: zone pivot="durable-functions"
 [Durable Functions](what-is-durable-task.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Use durable timers in orchestrator functions instead of `sleep` or `delay` APIs that might be built into the language.
@@ -122,7 +122,7 @@ When you `await` the timer task, the orchestration sleeps until the specified ex
 > [!NOTE]
 > Orchestrations continue to process other incoming events while waiting for a timer task to expire.
 
-## Timer limitations
+## Durable timer limitations
 
 ::: zone pivot="durable-functions"
 When you create a timer that expires at 4:30 pm UTC, the underlying Durable Task Framework enqueues a message that becomes visible only at 4:30 PM UTC. If the function app is scaled down to zero instances in the meantime, the newly visible timer message ensures that the function app activates again on an appropriate VM.
@@ -141,7 +141,7 @@ When you create a timer that expires at 4:30 pm UTC, the underlying Durable Task
 > * Don't use built-in date and time APIs to get the current time. When calculating a future date for a timer to expire, always use the orchestration context's current time property (like `context.CurrentUtcDateTime` in .NET, `ctx.current_utc_datetime` in Python, or `ctx.currentUtcDateTime` in JavaScript).
 ::: zone-end
 
-## Usage for delays
+## Use durable timers for delays
 
 The following example shows how to use durable timers to delay execution. The example issues a billing notification every day for 10 days.
 
@@ -313,7 +313,7 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 > Avoid infinite loops in orchestrations. For information about how to safely and efficiently implement infinite loop scenarios, see [Eternal orchestrations](durable-task-eternal-orchestrations.md).
 ::: zone-end
 
-## Usage for timeouts
+## Use durable timers for timeouts
 
 This example shows how to use durable timers to implement timeouts:
 

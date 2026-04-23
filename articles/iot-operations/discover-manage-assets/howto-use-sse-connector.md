@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 09/23/2025
+ms.date: 04/23/2026
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from SSE endpoints.
 ---
@@ -51,6 +51,8 @@ To configure devices and assets, you need a running instance of Azure IoT Operat
 Your IT administrator must configure the connector for SSE template for your Azure IoT Operations instance in the Azure portal.
 
 You need any credentials required to access the SSE source. If the SSE source requires authentication, you need to create a Kubernetes secret that contains the username and password for the SSE source.
+
+Have the event identification ready for each SSE source event you want to receive.
 
 ## Deploy the connector for SSE
 
@@ -201,7 +203,7 @@ An event group defines where the connector sends the data it receives from a col
 
     :::image type="content" source="media/howto-use-sse-connector/add-event.png" alt-text="Screenshot that shows how to add an event for SSE source." lightbox="media/howto-use-sse-connector/add-event.png":::
 
-    Add details for each event to publish to the MQTT broker. Select **Next** to continue.
+    Add details for each event including the SSE event identification as the data source and the MQTT topic to publish to as the destination. Select **Next** to continue.
 
 1. On the **Review** page, review the details of the asset and select **Create** to create the asset. After a few minutes, the asset is listed on the **Assets** page:
 

@@ -4,7 +4,7 @@ description: Learn how to create and publish a C# Durable Functions app in Azure
 author: lilyjma
 ms.topic: quickstart
 ms.service: azure-functions
-ms.date: 02/24/2026
+ms.date: 04/22/2026
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp
