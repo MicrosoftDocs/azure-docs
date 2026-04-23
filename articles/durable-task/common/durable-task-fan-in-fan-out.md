@@ -1,16 +1,16 @@
 ---
-title: "Fan-Out/Fan-In Scenarios in Durable Functions"
+title: "Fan-Out/Fan-In Pattern Scenarios in Durable Functions"
 description: Learn how to implement the fan-out/fan-in pattern in Durable Functions and Durable Task SDKs to run multiple tasks in parallel and aggregate results. Try it now.
 ms.topic: tutorial
 ms.custom: devx-track-js, devx-track-python
-ms.date: 02/04/2026
+ms.date: 04/22/2026
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: durable-task
 zone_pivot_groups: azure-durable-approach
 ---
 
-# Fan-out/fan-in scenario
+# Fan-out/fan-in pattern
 
 ::: zone pivot="durable-functions"
 

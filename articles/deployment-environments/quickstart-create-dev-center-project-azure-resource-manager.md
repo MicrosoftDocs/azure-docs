@@ -1,7 +1,6 @@
 ---
-title: Create a Dev Center and Project for Deployment Environments by Using an ARM Template
+title: Create a dev center and project for Deployment Environments by using an ARM template
 description: Learn how to create and configure a dev center and project for Azure Deployment Environments by using an ARM template.
-services: deployment-environments
 ms.service: azure-deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm

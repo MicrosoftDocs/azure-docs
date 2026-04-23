@@ -4,7 +4,7 @@ description: "Discover what Durable Task is and how its SDKs, Durable Functions,
 author: cgillum
 ms.author: cgillum
 ms.reviewer: hannahhunter
-ms.date: 02/14/2026
+ms.date: 04/22/2026
 ms.topic: overview
 ms.service: durable-task
 titleSuffix: Durable Task

@@ -75,7 +75,7 @@ When you install `azd`, the `azd` tools are installed within an `azd` scope rath
 
 To enable Azure Developer CLI features in Visual Studio Code, install the Azure Developer CLI extension. Select the **Extensions** icon in the Activity bar, search for **Azure Developer CLI**, and then select **Install**.
 
-:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-small.png" alt-text="Screenshot of Visual Studio Code, showing the Sign in command in the command palette." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-large.png":::
+:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-small.png" alt-text="Screenshot of Visual Studio Code, showing the Extensions pane with the Azure Developer CLI extension and Install highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-large.png":::
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
@@ -93,7 +93,7 @@ Sign in to `azd` using the command palette:
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png" alt-text="Screenshot of Visual Studio Code, showing the Extensions pane with the Azure Developer CLI and Install highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png":::
+:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png" alt-text="Screenshot of Visual Studio Code, showing the Sign in command in the command palette." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png":::
 
 The output of commands issued from the command palette is displayed in an **azd dev** terminal like the following example:
 
@@ -217,7 +217,7 @@ To learn more about the settings you can configure, see [Configure dev center se
 
 You can use `azd` to provision and deploy resources to your deployment environments using commands like `azd up` or `azd provision`. 
 
-To learn more about provisioning your environment, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#work-with-azure-deployment-evironments).
+To learn more about provisioning your environment, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration#work-with-azure-deployment-environments).
 
 
 ## Related content

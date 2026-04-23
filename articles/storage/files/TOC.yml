@@ -293,18 +293,22 @@
     items:
     - name: What is retrieval-augmented generation?
       href: artificial-intelligence/retrieval-augmented-generation/overview.md
-    - name: LangChain
-      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/langchain.md
-    - name: LlamaIndex
-      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/llamaindex.md
-    - name: Haystack
-      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/haystack.md
-    - name: Pinecone
-      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/pinecone.md
-    - name: Weaviate
-      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/weaviate.md
-    - name: Qdrant
-      href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/qdrant.md
+    - name: Orchestrations
+      items:
+      - name: LangChain
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/langchain.md
+      - name: LlamaIndex
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/llamaindex.md
+      - name: Haystack
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/haystack.md
+    - name: Vector databases
+      items:
+      - name: Pinecone
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/pinecone.md
+      - name: Weaviate
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/weaviate.md
+      - name: Qdrant
+        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/qdrant.md
     - name: Tutorials
       items:
       - name: Get started
