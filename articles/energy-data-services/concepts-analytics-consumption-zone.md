@@ -96,7 +96,6 @@ When you create a new ACZ, the service takes a historical snapshot. This snapsho
 
 | Status | Description |
 |---|---|
-| **PENDING** | Queued and waiting to start. |
 | **PROCESSING** | Actively exporting data. |
 | **COMPLETED** | All historical data exported. |
 | **FAILED** | An error occurred. |
