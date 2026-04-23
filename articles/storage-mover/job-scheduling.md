@@ -49,14 +49,14 @@ To define a job schedule while creating a new migration job, complete the follow
    - *One-time*
    - *Recurring*
 1. Configure the schedule:
-   1. Select a *start date and time*. The start date can be set up to 90 days from the creation date. For example, if you create the schedule on October 31, 2026, you can select any *Start date* between October 31 and January 29, 2026.
-   1. For recurring schedules, select *Daily*, *Weekly*, or *Monthly*, and then select the days that apply.
-   1. Select an **end date**. You can update the end date later, but *Until* must always remain within a year of when the schedule was created. The one-year limit is based on the creation date, not the selected *Start date*. For example, if you create a schedule on October 31, 2026, the latest possible end date (*Until*) is October 31, 2027.
+    1. Select a *start date and time*. The start date can be set up to 90 days from the creation date. For example, if you create the schedule on October 31, 2026, you can select any *Start date* between October 31 and January 29, 2026.
+    1. For recurring schedules, select *Daily*, *Weekly*, or *Monthly*, and then select the days that apply.
+    1. Select an **end date**. You can update the end date later, but *Until* must always remain within a year of when the schedule was created. The one-year limit is based on the creation date, not the selected *Start date*. For example, if you create a schedule on October 31, 2026, the latest possible end date (*Until*) is October 31, 2027.
 
-> [!NOTE]
-> For recurring schedules, the end date must be within one year of the start date. You can update the end date later, but it must stay within that one-year window.
+    > [!NOTE]
+    > For recurring schedules, the end date must be within one year of the start date. You can update the end date later, but it must stay within that one-year window.
 
-:::image type="content" source="media/job-scheduling/create-job-scheduling-settings.png" alt-text="Screenshot of the job scheduling settings in Azure Storage Mover.":::
+    :::image type="content" source="media/job-scheduling/create-job-scheduling-settings.png" alt-text="Screenshot of the job scheduling settings in Azure Storage Mover.":::
 
 1. Select *Create*.
 1. After the job is created, open the job and select *Enable* to activate the schedule.
