@@ -16,10 +16,10 @@ ms.custom: incident, response-plans, incident-triggers, routing, filters, automa
 Incident response plans let your agent route incoming incidents to the right custom agent, with the right level of autonomy, based on the conditions you define. Use them when you want incident handling to follow repeatable rules instead of relying on manual triage.
 
 > [!TIP]
-- The right custom agent handles each incident type automatically, with no human routing at 3 AM.
-- Filter by severity, service, title, and type to match precisely the incidents you care about.
-- Turn any plan on or off with one action, so you can pause routing during maintenance without deleting it.
-- See all plans, statuses, and custom agent mappings in a unified grid.
+> - The right custom agent handles each incident type automatically, with no human routing at 3 AM.
+> - Filter by severity, service, title, and type to match precisely the incidents you care about.
+> - Turn any plan on or off with one action, so you can pause routing during maintenance without deleting it.
+> - See all plans, statuses, and custom agent mappings in a unified grid.
 
 ## The problem: one playbook for every fire
 
