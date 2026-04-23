@@ -22,56 +22,56 @@ This article provides security recommendations for Azure Route Server based on t
 
 Network security for Route Server involves protecting BGP peering sessions, controlling route propagation, and securing the routing infrastructure that underpins your virtual network traffic flows.
 
-- **Route traffic through security NVAs for centralized inspection**: Use Route Server to inject routes that steer traffic through firewalls or intrusion detection systems for spoke-to-spoke and spoke-to-on-premises communication. This pattern enables centralized enforcement of security policies without manually managing route tables. See [Route injection in spoke virtual networks](/azure/route-server/route-injection-in-spokes).
+- **Route traffic through security NVAs for centralized inspection**: Use Route Server to inject routes that steer traffic through firewalls or intrusion detection systems for spoke-to-spoke and spoke-to-on-premises communication. This pattern enables centralized enforcement of security policies without manually managing route tables. See [Route injection in spoke virtual networks](route-injection-in-spokes.md).
 
-- **Use BGP communities to control route propagation**: Configure NVAs to advertise routes with the `no-advertise` BGP community (65535:65282) to prevent unwanted route propagation to specific peers. Controlling which routes are shared across your network reduces the risk of unintended traffic paths that bypass security controls. See [Route injection in spoke virtual networks](/azure/route-server/route-injection-in-spokes).
+- **Use BGP communities to control route propagation**: Configure NVAs to advertise routes with the `no-advertise` BGP community (65535:65282) to prevent unwanted route propagation to specific peers. Controlling which routes are shared across your network reduces the risk of unintended traffic paths that bypass security controls. See [Route injection in spoke virtual networks](route-injection-in-spokes.md).
 
-- **Validate NVA ASN configuration to prevent peering failures**: Configure each NVA with a different ASN than Route Server's reserved ASN (65515). Route Server drops routes with an ASN of 0 in the AS-Path and requires eBGP multi-hop when the NVA is in a different subnet. Incorrect ASN configuration can cause BGP session failures or route blackholing. See [Troubleshoot Azure Route Server issues](/azure/route-server/troubleshoot-route-server).
+- **Validate NVA ASN configuration to prevent peering failures**: Configure each NVA with a different ASN than Route Server's reserved ASN (65515). Route Server drops routes with an ASN of 0 in the AS-Path and requires eBGP multi-hop when the NVA is in a different subnet. Incorrect ASN configuration can cause BGP session failures or route blackholing. See [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md).
 
-- **Enable DDoS Protection for the Route Server virtual network**: Activate Azure DDoS Protection on the virtual network that contains your Route Server to defend its public IP endpoints against distributed denial-of-service attacks. Route Server requires public IP addresses for Azure management plane communication, making DDoS protection important for service continuity. See [Tutorial: Protect your Azure Route Server with Azure DDoS protection](/azure/route-server/tutorial-protect-route-server-ddos). For comprehensive guidance on securing DDoS Protection itself, see [Secure your Azure DDoS Protection deployment](/azure/ddos-protection/secure-ddos-protection).
+- **Enable DDoS Protection for the Route Server virtual network**: Activate Azure DDoS Protection on the virtual network that contains your Route Server to defend its public IP endpoints against distributed denial-of-service attacks. Route Server requires public IP addresses for Azure management plane communication, making DDoS protection important for service continuity. See [Tutorial: Protect your Azure Route Server with Azure DDoS protection](tutorial-protect-route-server-ddos.md). For comprehensive guidance on securing DDoS Protection itself, see [Secure your Azure DDoS Protection deployment](../ddos-protection/secure-ddos-protection.md).
 
-- **Keep the RouteServerSubnet dedicated and isolated**: Deploy Route Server in its dedicated `RouteServerSubnet` without associating user-defined routes (UDRs) or network security groups (NSGs), as these are not supported and can cause service instability. Do not associate service endpoint policies to the RouteServerSubnet, as this breaks communication with the Azure management platform and can put the Route Server into an unhealthy state. See [Azure Route Server FAQ](/azure/route-server/route-server-faq).
+- **Keep the RouteServerSubnet dedicated and isolated**: Deploy Route Server in its dedicated `RouteServerSubnet` without associating user-defined routes (UDRs) or network security groups (NSGs), as these are not supported and can cause service instability. Do not associate service endpoint policies to the RouteServerSubnet, as this breaks communication with the Azure management platform and can put the Route Server into an unhealthy state. See [Azure Route Server FAQ](route-server-faq.md).
 
-- **Exclude Route Server control plane traffic from firewall inspection**: Avoid routing BGP control plane traffic between Route Server and gateways through a firewall NVA. Forcing control plane traffic through a firewall breaks BGP peering and can cause full connectivity loss. Add UDRs to NVA subnets with the RouteServerSubnet address range using the `VirtualNetwork` next hop. See [Troubleshoot Azure Route Server issues](/azure/route-server/troubleshoot-route-server).
+- **Exclude Route Server control plane traffic from firewall inspection**: Avoid routing BGP control plane traffic between Route Server and gateways through a firewall NVA. Forcing control plane traffic through a firewall breaks BGP peering and can cause full connectivity loss. Add UDRs to NVA subnets with the RouteServerSubnet address range using the `VirtualNetwork` next hop. See [Troubleshoot Azure Route Server issues](troubleshoot-route-server.md).
 
-- **Configure AS path prepending for deterministic failover**: Use AS path prepending on less-preferred paths (such as VPN or NVA routes) so traffic follows your intended primary path and fails over predictably. Without prepending, asymmetric routing or unpredictable path selection can bypass intended security inspection points. See [Routing preference with Azure Route Server](/azure/route-server/hub-routing-preference).
+- **Configure AS path prepending for deterministic failover**: Use AS path prepending on less-preferred paths (such as VPN or NVA routes) so traffic follows your intended primary path and fails over predictably. Without prepending, asymmetric routing or unpredictable path selection can bypass intended security inspection points. See [Routing preference with Azure Route Server](hub-routing-preference.md).
 
 For guidance on securing the virtual networks and gateways that Route Server integrates with, see:
-- [Secure your Virtual Network deployment](/azure/virtual-network/secure-virtual-network)
-- [Secure your ExpressRoute deployment](/azure/expressroute/secure-expressroute)
-- [Secure your VPN Gateway deployment](/azure/vpn-gateway/secure-vpn-gateway)
+- [Secure your Virtual Network deployment](../virtual-network/secure-virtual-network.md)
+- [Secure your ExpressRoute deployment](../expressroute/secure-expressroute.md)
+- [Secure your VPN Gateway deployment](../vpn-gateway/secure-vpn-gateway.md)
 
 ## Identity and access management
 
 Identity and access management for Route Server controls who can create, configure, and modify routing infrastructure. Unauthorized changes to route peering or route exchange settings could redirect traffic through unintended paths.
 
-- **Assign the Network Contributor role for routine management**: Use the built-in [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role for users who need to manage Route Server, BGP peering, and route exchange settings. This role provides the necessary permissions without granting broader subscription access. See [Roles and permissions for Azure Route Server](/azure/route-server/roles-permissions).
+- **Assign the Network Contributor role for routine management**: Use the built-in [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role for users who need to manage Route Server, BGP peering, and route exchange settings. This role provides the necessary permissions without granting broader subscription access. See [Roles and permissions for Azure Route Server](roles-permissions.md).
 
-- **Create custom roles for least-privilege access**: Define custom RBAC roles that grant only the specific permissions required for each operational task. For example, a monitoring role might only need `Microsoft.Network/virtualHubs/*/read` permissions, while a peering administrator needs `Microsoft.Network/virtualHubs/bgpConnections/*`. Apply these roles at the narrowest scope possible—individual resource group or resource. See [Roles and permissions for Azure Route Server](/azure/route-server/roles-permissions).
+- **Create custom roles for least-privilege access**: Define custom RBAC roles that grant only the specific permissions required for each operational task. For example, a monitoring role might only need `Microsoft.Network/virtualHubs/*/read` permissions, while a peering administrator needs `Microsoft.Network/virtualHubs/bgpConnections/*`. Apply these roles at the narrowest scope possible—individual resource group or resource. See [Roles and permissions for Azure Route Server](roles-permissions.md).
 
-- **Audit role assignments regularly**: Review RBAC assignments for Route Server resources to detect excessive permissions or stale accounts. Changes to route peering or branch-to-branch connectivity settings affect traffic flows across your entire network, making access control audits critical. See [Azure RBAC overview](/azure/role-based-access-control/overview).
+- **Audit role assignments regularly**: Review RBAC assignments for Route Server resources to detect excessive permissions or stale accounts. Changes to route peering or branch-to-branch connectivity settings affect traffic flows across your entire network, making access control audits critical. See [Azure RBAC overview](../role-based-access-control/overview.md).
 
 ## Logging and monitoring
 
 Monitoring Route Server enables you to detect BGP peering failures, unexpected route changes, and potential route hijacking. Timely detection of routing anomalies is critical because Route Server controls traffic paths across your virtual network.
 
-- **Monitor BGP peer status and configure disconnect alerts**: Track the BGP Peer Status metric, which reports 1 for established sessions and 0 for down sessions. Configure Azure Monitor alerts that trigger when peer status drops to 0, so your team is immediately notified of BGP session failures that could indicate configuration issues, NVA failures, or potential attacks. See [Monitor Azure Route Server with Azure Monitor](/azure/route-server/monitor-route-server).
+- **Monitor BGP peer status and configure disconnect alerts**: Track the BGP Peer Status metric, which reports 1 for established sessions and 0 for down sessions. Configure Azure Monitor alerts that trigger when peer status drops to 0, so your team is immediately notified of BGP session failures that could indicate configuration issues, NVA failures, or potential attacks. See [Monitor Azure Route Server with Azure Monitor](monitor-route-server.md).
 
-- **Baseline and alert on route count deviations**: Establish a baseline for the number of routes advertised and learned per BGP peer, then configure alerts for significant deviations. Unexpected increases in route counts can indicate route injection attacks or NVA misconfiguration, while sudden decreases may signal route withdrawal or peering failures. See [Monitor Azure Route Server with Azure Monitor](/azure/route-server/monitor-route-server).
+- **Baseline and alert on route count deviations**: Establish a baseline for the number of routes advertised and learned per BGP peer, then configure alerts for significant deviations. Unexpected increases in route counts can indicate route injection attacks or NVA misconfiguration, while sudden decreases may signal route withdrawal or peering failures. See [Monitor Azure Route Server with Azure Monitor](monitor-route-server.md).
 
-- **Validate learned and advertised routes periodically**: Use the Azure CLI or PowerShell to retrieve the routes Route Server learns from and advertises to each peer. Compare these routes against your expected routing topology to detect unauthorized route advertisements or missing routes. See [Configure and manage Azure Route Server](/azure/route-server/configure-route-server).
+- **Validate learned and advertised routes periodically**: Use the Azure CLI or PowerShell to retrieve the routes Route Server learns from and advertises to each peer. Compare these routes against your expected routing topology to detect unauthorized route advertisements or missing routes. See [Configure and manage Azure Route Server](configure-route-server.md).
 
-- **Peer each NVA instance with both Route Server instances**: Establish BGP sessions between every NVA instance and both Route Server peer IPs. This ensures that Route Server receives consistent route information and that a single instance failure doesn't create monitoring blind spots or route gaps. See [Azure Route Server FAQ](/azure/route-server/route-server-faq).
+- **Peer each NVA instance with both Route Server instances**: Establish BGP sessions between every NVA instance and both Route Server peer IPs. This ensures that Route Server receives consistent route information and that a single instance failure doesn't create monitoring blind spots or route gaps. See [Azure Route Server FAQ](route-server-faq.md).
 
 ## Compliance and governance
 
 Governance for Route Server focuses on enforcing consistent routing configurations and preventing misconfigurations that could compromise network security.
 
-- **Enforce routing preference standards with Azure Policy**: Use Azure Policy to audit or enforce that Route Server instances use your organization's required routing preference setting (ExpressRoute, VPN, or AS Path). Inconsistent routing preferences across deployments can lead to unpredictable traffic paths that bypass security inspection. See [Azure Policy overview](/azure/governance/policy/overview).
+- **Enforce routing preference standards with Azure Policy**: Use Azure Policy to audit or enforce that Route Server instances use your organization's required routing preference setting (ExpressRoute, VPN, or AS Path). Inconsistent routing preferences across deployments can lead to unpredictable traffic paths that bypass security inspection. See [Azure Policy overview](../governance/policy/overview.md).
 
-- **Test failover scenarios regularly**: Validate that traffic fails over correctly to backup paths and returns to primary paths when they recover. Route Server doesn't guarantee automatic traffic switchback after ExpressRoute recovery, so test and document failover behavior to ensure traffic always passes through intended security inspection points. See [Routing preference with Azure Route Server](/azure/route-server/hub-routing-preference).
+- **Test failover scenarios regularly**: Validate that traffic fails over correctly to backup paths and returns to primary paths when they recover. Route Server doesn't guarantee automatic traffic switchback after ExpressRoute recovery, so test and document failover behavior to ensure traffic always passes through intended security inspection points. See [Routing preference with Azure Route Server](hub-routing-preference.md).
 
-- **Document and standardize BGP peering configurations**: Maintain a record of all NVA peer ASNs, advertised prefixes, and BGP community values. Standardized configurations make it easier to detect unauthorized changes and simplify compliance auditing. See [Configure and manage Azure Route Server](/azure/route-server/configure-route-server).
+- **Document and standardize BGP peering configurations**: Maintain a record of all NVA peer ASNs, advertised prefixes, and BGP community values. Standardized configurations make it easier to detect unauthorized changes and simplify compliance auditing. See [Configure and manage Azure Route Server](configure-route-server.md).
 
 ## Backup and recovery
 
@@ -79,14 +79,14 @@ Route Server provides built-in high availability. Your recovery planning should 
 
 - **Deploy in regions that support availability zones**: Route Server automatically provides zone-level redundancy when deployed in regions that support [availability zones](/azure/reliability/availability-zones-overview). Choose availability zone–enabled regions for production deployments to protect against datacenter-level failures without additional configuration.
 
-- **Design multi-region routing architectures for disaster recovery**: Deploy Route Server instances in multiple regions with hub-and-spoke topologies connected through global virtual network peering and NVA overlay tunnels. This design ensures that routing continues to function even during a full regional outage. See [Multi-region networking with Azure Route Server](/azure/route-server/multiregion).
+- **Design multi-region routing architectures for disaster recovery**: Deploy Route Server instances in multiple regions with hub-and-spoke topologies connected through global virtual network peering and NVA overlay tunnels. This design ensures that routing continues to function even during a full regional outage. See [Multi-region networking with Azure Route Server](multiregion.md).
 
-- **Peer at least two NVA instances with Route Server per region**: Deploy redundant NVA instances in each region, each peered with both Route Server instances. This ensures that a single NVA failure doesn't disrupt route exchange or traffic inspection. See [Azure Route Server FAQ](/azure/route-server/route-server-faq).
+- **Peer at least two NVA instances with Route Server per region**: Deploy redundant NVA instances in each region, each peered with both Route Server instances. This ensures that a single NVA failure doesn't disrupt route exchange or traffic inspection. See [Azure Route Server FAQ](route-server-faq.md).
 
 ## Next steps
 
-- [What is Azure Route Server?](/azure/route-server/overview)
-- [Roles and permissions for Azure Route Server](/azure/route-server/roles-permissions)
-- [Monitor Azure Route Server with Azure Monitor](/azure/route-server/monitor-route-server)
+- [What is Azure Route Server?](overview.md)
+- [Roles and permissions for Azure Route Server](roles-permissions.md)
+- [Monitor Azure Route Server with Azure Monitor](monitor-route-server.md)
 - [Azure Route Server security baseline](/security/benchmark/azure/baselines/azure-route-server-security-baseline)
-- [Multi-region networking with Azure Route Server](/azure/route-server/multiregion)
+- [Multi-region networking with Azure Route Server](multiregion.md)
