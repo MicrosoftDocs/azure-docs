@@ -54,7 +54,66 @@ ACZ uses a managed identity to write data to ADLS Gen2. Create a user-assigned m
 4. Select **Review + create**, then select **Create**.
 5. After creation, open the managed identity and note the **Client ID** and **Object (principal) ID** from the **Overview** page.
 
-## Step 3: Grant the managed identity permissions on the ADLS Gen2 container
+## Step 3: Assign the managed identity to your ADME instance
+
+If you don't already have a managed identity assigned to your Azure Data Manager for Energy instance (for example, from Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS)), you must assign the user-assigned managed identity you created in Step 2.
+
+> [!NOTE]
+> If your ADME instance already has user-assigned managed identities configured for CMEK or EDS, you can skip this step and proceed to Step 4.
+
+Use the Azure Management API to update your ADME instance with the managed identity:
+
+```bash
+curl --request PUT \
+  --url 'https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.OpenEnergyPlatform/energyServices/{adme-instance-name}?api-version=2025-09-22-preview' \
+  --header 'Authorization: Bearer {management-api-token}' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "location": "{location}",
+    "properties": {
+      "authAppId": "{auth-app-id}",
+      "dataPartitionNames": [
+        {
+          "name": "{data-partition-name}"
+        }
+      ]
+    },
+    "identity": {
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+        "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}": {}
+      }
+    }
+  }'
+```
+
+**Replace the placeholders:**
+
+| Placeholder | Description |
+|---|---|
+| `{subscription-id}` | Your Azure subscription ID |
+| `{resource-group}` | The resource group containing your ADME instance |
+| `{adme-instance-name}` | Your ADME instance name |
+| `{management-api-token}` | Azure Management API access token. See [Get access token](/rest/api/azure/#acquire-an-access-token) |
+| `{location}` | Azure region of your ADME instance (for example, `southcentralus`) |
+| `{auth-app-id}` | Application ID used for ADME authentication |
+| `{data-partition-name}` | Name of your data partition (for example, `dp1`) |
+| `{sub-id}` | Subscription ID where the managed identity resides |
+| `{rg}` | Resource group where the managed identity resides |
+| `{identity-name}` | Name of the user-assigned managed identity from Step 2 |
+
+> [!IMPORTANT]
+> - If you already have other user-assigned managed identities on the instance, include them all in the `userAssignedIdentities` object to avoid removing them.
+> - If your instance uses system-assigned identity, set `"type": "UserAssigned, SystemAssigned"` instead.
+> - This operation updates the entire instance configuration. Ensure all existing properties are included in the request body.
+
+After the operation completes, verify the identity is assigned:
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your ADME instance.
+2. Select **Identity** from the left menu.
+3. Under **User assigned**, confirm your managed identity appears in the list.
+
+## Step 4: Grant the managed identity permissions on the ADLS Gen2 container
 
 Grant the managed identity write access to the ADLS Gen2 storage account.
 
@@ -68,7 +127,7 @@ Grant the managed identity write access to the ADLS Gen2 storage account.
 8. Select the managed identity you created in Step 2, then select **Select**.
 9. Select **Review + assign** to complete the role assignment.
 
-## Step 4: Share managed identity details with Microsoft (Preview requirement)
+## Step 5: Share managed identity details with Microsoft (Preview requirement)
 
 > [!IMPORTANT]
 > During the preview, there's no self-service UX to enable ACZ. Share the following details with your Microsoft contact to enable ACZ for your ADME instance and to allow list the managed identity for ACZ operations.
@@ -85,7 +144,7 @@ After Microsoft adds your managed identity to the allow list, you can create an 
 > [!NOTE]
 > Allow-listing propagation may take up to 15 minutes. Wait before attempting to create an ACZ.
 
-## Step 5: Verify your setup
+## Step 6: Verify your setup
 
 Before you call the ACZ APIs, check these items:
 
@@ -97,7 +156,7 @@ Before you call the ACZ APIs, check these items:
 
 4. **Storage account access**: Verify the managed identity has **Storage Blob Data Contributor** on the ADLS Gen2 storage account.
 
-## Step 6: Create an ACZ using the API
+## Step 7: Create an ACZ using the API
 
 After allow-listing, use the ACZ Create API to set up your Analytics Consumption Zone. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 
