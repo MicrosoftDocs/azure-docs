@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 
 Azure Network Watcher provides monitoring, diagnostics, and traffic logging tools for Azure IaaS resources. It enables you to capture packets, analyze flow logs, diagnose connectivity issues, and inspect network security group rules. Because Network Watcher has broad visibility into your network traffic and configuration, securing its deployment, its data outputs, and the identities that access it is critical. This article provides security recommendations for Azure Network Watcher.
 
-For an overview of Azure's network security services and how they work together, see [What is Azure network security?](../networking/security/network-security.md).
+For an overview of Azure's network security services and how they work together, see [What is Azure network security?](/azure/networking/security/network-security).
 
 [!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
 
@@ -48,7 +48,7 @@ Network Watcher is primarily a tool for *analyzing* network security. The follow
 
 - **Use managed identities for virtual network flow logs**: Configure a user-assigned managed identity to authorize flow log writes to storage accounts. This approach eliminates the need for storage account keys or SAS tokens and aligns with Zero Trust principles. Assign the Storage Blob Data Contributor role to the managed identity on the target storage account. See [Managed identity for virtual network flow logs](/azure/network-watcher/vnet-flow-logs-managed-identity).
 
-- **Limit who can initiate packet captures**: Packet capture creates a VM extension and can access raw network traffic. Restrict the `Microsoft.Network/networkWatchers/packetCaptures/action` permission to security and operations teams that have a legitimate need for payload-level inspection. See [RBAC permissions required to use Network Watcher](/azure/network-watcher/required-rbac-permissions).
+- **Limit who can initiate packet captures**: Packet capture creates a VM extension and can access raw network traffic. Restrict the `Microsoft.Network/networkWatchers/packetCaptures/write` permission to security and operations teams that have a legitimate need for payload-level inspection. See [RBAC permissions required to use Network Watcher](/azure/network-watcher/required-rbac-permissions).
 
 - **Scope traffic analytics permissions carefully**: Traffic analytics requires permissions on Log Analytics workspaces, data collection rules, and data collection endpoints in addition to Network Watcher. Permissions inherited from management groups aren't supported for traffic analytics—assign them at the subscription or resource group level. See [RBAC permissions required to use Network Watcher](/azure/network-watcher/required-rbac-permissions).
 

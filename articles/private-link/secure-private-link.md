@@ -68,7 +68,7 @@ This article provides security recommendations for Azure Private Link. Following
 
 ## Compliance and governance
 
-- **Use Azure Policy to enforce private endpoint usage on supported services**: Assign built-in policies such as *Azure services should use Private Link* to audit or deny the creation of PaaS resources without associated private endpoints. Apply these policies at the management group or subscription level for consistent enforcement. See [Azure Policy built-in definitions for Azure Private Link](/azure/private-link/policy-reference).
+- **Use Azure Policy to enforce private endpoint usage on supported services**: Assign built-in policies such as *Azure services should use Private Link* to audit or deny the creation of PaaS resources without associated private endpoints. Apply these policies at the management group or subscription level for consistent enforcement. See [Azure Policy built-in definitions for Azure networking services](/azure/networking/policy-reference).
 
 - **Use Azure Policy to block public network access on PaaS resources**: Complement private endpoint enforcement policies with policies that deny public network access on target services. This ensures that even if a private endpoint exists, the resource cannot also be reached over the public internet.
 

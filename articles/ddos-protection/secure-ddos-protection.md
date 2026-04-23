@@ -50,7 +50,7 @@ Identity and access management for Azure DDoS Protection controls who can create
 
 - **Restrict DDoS plan creation to authorized personnel**: Limit the ability to create DDoS protection plans to a small set of administrators. A single DDoS Network Protection plan can cover multiple subscriptions and regions, so unnecessary plan creation leads to uncontrolled costs. Use Azure Policy or role assignments to enforce this restriction. See [About Azure DDoS Protection tier comparison](/azure/ddos-protection/ddos-protection-sku-comparison).
 
-- **Use Microsoft Entra Conditional Access for management operations**: Require multifactor authentication and compliant devices when administrators access the Azure portal or Azure Resource Manager APIs to manage DDoS protection plans. This prevents unauthorized modifications even if credentials are compromised. See [Microsoft Entra Conditional Access](/azure/active-directory/conditional-access/overview).
+- **Use Microsoft Entra Conditional Access for management operations**: Require multifactor authentication and compliant devices when administrators access the Azure portal or Azure Resource Manager APIs to manage DDoS protection plans. This prevents unauthorized modifications even if credentials are compromised. See [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview).
 
 ## Data protection
 
