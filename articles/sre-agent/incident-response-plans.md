@@ -83,7 +83,7 @@ Start with **Review** mode for new response plans to validate your agent's inves
 | **Incident routing** | Human decides which playbook to follow | Agent matches incident to specialized response plan |
 | **Tool selection** | Engineer opens relevant dashboards manually | Right custom agent with right tools handles it |
 | **Investigation depth** | Same approach for P1 and P4 | Autonomous for critical, review for low-severity |
-| **Pausing a plan** | Delete the plan, recreate later | Click **Turn off**. Configuration is preserved |
+| **Pausing a plan** | Delete the plan, recreate later | Select **Turn off**. Configuration is preserved |
 | **Plan visibility** | Navigate between multiple pages | One grid shows plans, statuses, and custom agent mappings |
 
 ## How to create a response plan
@@ -106,8 +106,8 @@ You can turn any response plan on or off without deleting it. This capability is
 
 1. Go to **Builder → Incident response plans**.
 1. Select the plan by selecting its checkbox.
-1. Click **Turn off** in the toolbar. A confirmation dialog appears.
-1. Click **Yes** to disable the plan.
+1. Select **Turn off** in the toolbar. A confirmation dialog appears.
+1. Select **Yes** to disable the plan.
 
 The plan's status changes to **Off** and the scanner stops matching incidents against it. Your filter configuration is preserved.
 

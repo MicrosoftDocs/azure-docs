@@ -13,8 +13,9 @@ ms.custom: incident trigger, response plan, filter, custom agent, automation, tu
 
 # Create an Incident Response Plan (Create Trigger via Agent Canvas) in Azure SRE Agent
 
-:::info What you build
-A response plan that filters incidents by severity and service, routes matching incidents to a specific custom agent for automated investigation, and demonstrates the enable and disable toggle. Learn more in [Incident response plans](incident-response-plans.md). Time: about 5 to 10 minutes.
+> [!NOTE]
+> **What you build**
+> A response plan that filters incidents by severity and service, routes matching incidents to a specific custom agent for automated investigation, and demonstrates the enable and disable toggle. Learn more in [Incident response plans](incident-response-plans.md). Time: about 5 to 10 minutes.
 
 ## Prerequisites
 
