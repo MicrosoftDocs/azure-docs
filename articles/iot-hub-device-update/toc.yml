@@ -98,7 +98,7 @@ items:
     href: device-update-log-collection.md
     displayName: Azure CLI, az iot, az iot du
   - name: Use delta updates
-    href: delta-updates.md
+    href: use-delta-updates.md
   - name: Use related files
     href: related-files.md
   - name: Use TLS downloads
