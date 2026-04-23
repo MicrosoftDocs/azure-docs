@@ -26,7 +26,7 @@ ACZ is a managed sync layer. It exports entity data from your Azure Data Manager
 
 Key characteristics of ACZ:
 
-- **Customer-owned storage**: Data goes to an ADLS Gen2 storage account that you provision and manage.
+- **Customer-owned storage**: Data goes to an ADLS Gen2 storage account that you provision and manage. You're responsible for selecting an in-geo destination storage account if you have data residency requirements.
 - **Open format**: Data exports in Delta Parquet format. Analytics engines widely support this format.
 - **Selective sync**: You choose which entity types to sync. Options include catalog kinds and Wellbore Domain Data Management Service (DDMS) kinds.
 - **Historical and incremental sync**: ACZ takes an initial snapshot of existing data, then synchronizes changes as they occur.

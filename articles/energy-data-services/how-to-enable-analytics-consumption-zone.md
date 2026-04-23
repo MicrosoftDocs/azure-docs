@@ -41,6 +41,9 @@ If you don't already have an ADLS Gen2 storage account, create one:
 > [!NOTE]
 > The storage account must have hierarchical namespace enabled. ACZ doesn't support standard Azure Blob Storage accounts.
 
+> [!IMPORTANT]
+> You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the ADLS Gen2 storage account you specify, regardless of location.
+
 ## Step 2: Create a managed identity
 
 ACZ uses a managed identity to write data to ADLS Gen2. Create a user-assigned managed identity:
