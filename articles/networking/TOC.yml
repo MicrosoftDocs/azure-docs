@@ -16,8 +16,6 @@
     href: monitoring-management/index.yml?toc=/azure/networking/toc.json
   - name: Network foundations
     items:
-    - name: Network foundations hub
-      href: foundations/index.yml
     - name: Create a virtual network
       href: ../virtual-network/quickstart-create-virtual-network.md?toc=/azure/networking/toc.json
   - name: Load balancing and content delivery
@@ -26,13 +24,6 @@
       href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=/azure/networking/toc.json
     - name: Create a front door
       href: ../frontdoor/create-front-door-portal.md?toc=/azure/networking/toc.json
-  - name: Network security
-    items:
-  - name: Hybrid connectivity
-    items:
-  - name: Network monitoring and management
-    items:
-
 - name: Plan and Design
   items:
   - name: Architecture guides

@@ -404,8 +404,6 @@ items:
       href: troubleshoot-appliance-diagnostic.md
     - name: Troubleshoot network connectivity for private endpoint
       href: troubleshoot-network-connectivity.md
-  - name: Workload discovery
-    items:
   - name: Action Center
     href: centralized-issue-tracking.md
   - name: Server discovery

@@ -72,6 +72,8 @@ landingContent:
             url: ./validated-partners/data-management/storagex-quick-start-guide.md
           - text: Cirrus Data getting started guide
             url: ./validated-partners/data-management/cirrus-data-migration-guide.md
+          - text: NetApp Data Migrator getting started guide
+            url: ./validated-partners/data-management/netapp-data-migrator-guide.md
                      # Card
   - title: Primary and secondary storage partner solutions
     linkLists:

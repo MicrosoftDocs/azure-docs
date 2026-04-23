@@ -2,7 +2,7 @@
 title: Restore System State to a Windows Server
 description: Step-by-step explanation for restoring Windows Server System State from a backup in Azure.
 ms.topic: how-to
-ms.date: 09/09/2025
+ms.date: 04/23/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -121,6 +121,8 @@ The terminology used in these steps includes:
     The *WindowsImageBackup* folder is available on the path `<restore_path>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch\SSBV\WindowsImageBackup` where `>\C_vol\Program Files\Microsoft Azure Recovery Services Agent\Scratch` is the scratch volume that was configured for the MARS agent.
 
 13. To complete the recovery process, use the following section to [apply the restored System State files on a Windows Server](#apply-restored-system-state-on-a-windows-server).
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 ## Apply restored System State on a Windows Server
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 03/09/2026
+ms.date: 04/23/2026
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -18,7 +18,8 @@ Before you configure [Azure NetApp Files advanced ransomware protection](ransomw
 * Attack reports are retained for 30 days.  
 * Ransomware threat notifications are sent in the Azure Activity log.  
 * It’s recommended that you enable no more than five volumes per Azure region with advanced ransomware protection to mitigate performance issues. 
-* It's recommended you increase QoS capacity by 5 to 10 percent due to potential performance impacts of advanced ransomware protection. The scale of the impact can vary based on the configurations across your Azure NetApp Files deployment.  
+* It's recommended you increase QoS capacity by 5 to 10 percent due to potential performance impacts of advanced ransomware protection. The scale of the impact can vary based on the configurations across your Azure NetApp Files deployment.
+* It’s recommended that you enable no more than 10 volumes per Azure subscription with advanced ransomware protection to mitigate performance issues. If you want to enable more than 10 volumes per Azure subscription, raise an Azure support request. For more information, see [Request limit increase](azure-netapp-files-resource-limits.md#request-limit-increase).
 
 ## Usage guidelines
 

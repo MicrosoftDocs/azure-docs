@@ -4,7 +4,7 @@ metadata:
   description: Addresses common questions about backing up files and folders with Azure Backup.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 06/20/2025
+  ms.date: 04/23/2026
   author: AbhishekMallick-MS
   ms.author: v-mallicka
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
@@ -95,6 +95,8 @@ sections:
           Does the MARS agent support Windows Server 2012 deduplication?
         answer: |
           Yes. The MARS agent converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the vault.
+
+          [!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
       - question: |
           Do I need administrator permissions to install and configure the MARS agent?

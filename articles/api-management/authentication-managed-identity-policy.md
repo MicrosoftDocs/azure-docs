@@ -21,7 +21,7 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 > [!CAUTION]
-> **Security consideration:** Any user with permissions to edit API Management policies (for example, users assigned the [API Management Service Contributor](/azure/role-based-access-control/built-in-roles#api-management-service-contributor) role) can use this policy to authenticate as the service's managed identity. This effectively grants that user access to any resource for which the managed identity has permissions. Ensure that you follow the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access) when assigning permissions to API Management resource. For more information, see [How to use managed identities in Azure API Management](api-management-howto-use-managed-service-identity.md).
+> **Security consideration:** Users with permissions to edit API Management policies can use this policy to authenticate as the service's managed identity. However, they cannot gain direct access to resources without first assigning a managed identity to the API Management instance. Once a managed identity is assigned, users who can modify policies may be able to exfiltrate the authentication token, propagate it to a backend, or log it for later use. For detailed security guidance and mitigation strategies, see [Security considerations for managed identities](api-management-howto-use-managed-service-identity.md#security-considerations-for-managed-identities) in the managed identity overview.
   
 ## Policy statement  
   

@@ -63,7 +63,8 @@ Successful Azure Front Door streaming deployments require attention to several i
 
 ## Related content
 
-- [Improve performance by compressing files in Azure Front Door](./standard-premium/how-to-compression.md).
-- [High-availability implementation guide for using Azure Front Door](high-availability.md).
+- [Improve performance by compressing files in Azure Front Door](./standard-premium/how-to-compression.md)
+- [High-availability implementation guide for using Azure Front Door](high-availability.md)
 - [Architecture best practices for Azure Front Door](/azure/well-architected/service-guides/azure-front-door?toc=/azure/frontdoor/toc.json)
+- [Caching with Azure Front Door](front-door-caching.md)
 

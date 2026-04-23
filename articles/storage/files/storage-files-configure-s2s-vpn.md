@@ -4,7 +4,7 @@ description: Learn how to configure a site-to-site VPN for use with Azure Files 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 04/22/2026
 ms.author: kendownie
 ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure a site-to-site VPN for Azure Files, so that I can securely mount and access Azure file shares from my on-premises network without sending data over the open internet.
@@ -18,7 +18,7 @@ ms.custom: sfi-image-nochange
 
 You can use a site-to-site VPN connection to mount your Azure file shares from your on-premises network, without sending data over the open internet. You can set up a site-to-site VPN using [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), which is an Azure resource offering VPN services. You deploy VPN Gateway in a resource group alongside storage accounts or other Azure resources.
 
-![A topology chart illustrating the topology of an Azure VPN gateway connecting an Azure file share to an on-premises site using a site-to-site VPN](media/storage-files-configure-s2s-vpn/s2s-topology.png)
+![A chart illustrating the topology of an Azure VPN gateway connecting an Azure file share to an on-premises site using a site-to-site VPN](media/storage-files-configure-s2s-vpn/site-to-site-topology.png)
 
 We strongly recommend that you read [Azure Files networking overview](storage-files-networking-overview.md) before continuing with this article for a complete discussion of the networking options available for Azure Files.
 
@@ -28,13 +28,15 @@ The article details the steps to configure a site-to-site VPN to mount Azure fil
 
 - An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blobs or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
 
+- A private endpoint for the storage account deployed in the virtual network you'll use for VPN Gateway. A private endpoint assigns the storage account a private IP address from within your virtual network address space, enabling on-premises clients to access Azure Files through the VPN tunnel. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md).
+
 - A network appliance or server in your on-premises data center that's compatible with Azure VPN Gateway. Azure Files is agnostic of the on-premises network appliance chosen, but Azure VPN Gateway maintains a [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Different network appliances offer different features, performance characteristics, and management functionalities, so consider these when selecting a network appliance.
 
 If you don't have an existing network appliance, Windows Server contains a built-in Server Role, Routing and Remote Access (RRAS), which can be used as the on-premises network appliance. To learn more about how to configure Routing and Remote Access in Windows Server, see [RAS Gateway](/windows-server/remote/remote-access/ras-gateway/ras-gateway).
 
-## Add virtual network to storage account
+## Configure virtual network and network access
 
-To add a new or existing virtual network to your storage account, follow these steps.
+To configure a new or existing virtual network and restrict storage account access, follow these steps.
 
 # [Portal](#tab/azure-portal)
 
@@ -42,13 +44,11 @@ To add a new or existing virtual network to your storage account, follow these s
 
 1. In the service menu, under **Security + networking**, select **Networking**. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the radio button for **Enabled from all networks** selected under **Public network access**.
 
-1. To add a virtual network, select the **Enabled from selected virtual networks and IP addresses** radio button. Under the **Virtual networks** subheading, select either **+ Add existing virtual network** or **+ Add new virtual network**. Creating a new virtual network will result in a new Azure resource being created. The new or existing virtual network resource must be in the same region as the storage account, but it doesn't need to be in the same resource group or subscription. However, keep in mind that the resource group, region, and subscription you deploy your virtual network into must match where you deploy your virtual network gateway in the next step.
+1. To restrict storage account access to specific virtual networks, select the **Enabled from selected virtual networks and IP addresses** radio button. Under the **Virtual networks** subheading, select either **+ Add existing virtual network** or **+ Add new virtual network**. Creating a new virtual network will result in a new Azure resource being created. The new or existing virtual network resource must be in the same region as the storage account, but it doesn't need to be in the same resource group or subscription. However, keep in mind that the resource group, region, and subscription you deploy your virtual network into must match where you deploy your virtual network gateway in the next step.
 
    :::image type="content" source="media/storage-files-configure-s2s-vpn/add-virtual-network.png" alt-text="Screenshot of the Azure portal giving the option to add an existing or new virtual network to the storage account.":::
 
    If you add an existing virtual network, you must first create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network. You'll be asked to select one or more subnets of that virtual network. If you create a new virtual network, you'll create a subnet as part of the creation process. You can add more subnets later through the resulting Azure resource for the virtual network.
-
-   If you haven't enabled public network access to the virtual network previously, the `Microsoft.Storage` service endpoint will need to be added to the virtual network subnet. This can take up to 15 minutes to complete, although in most cases it will complete much faster. Until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection. The service endpoint routes traffic from the virtual network through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request.
 
 1. Select **Save** at the top of the page.
 
@@ -123,12 +123,6 @@ To add a new or existing virtual network to your storage account, follow these s
    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroup -Name $storageAccount -DefaultAction Deny
    ```
    
-1. Enable a `Microsoft.Storage` service endpoint on the virtual network and subnet. This can take up to 15 minutes to complete, although in most cases it will complete much faster. Until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection. The service endpoint routes traffic from the virtual network through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request.
-
-   ```azurepowershell-interactive
-   Get-AzVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnetAddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
-   ```
-   
 1. Add a network rule for the virtual network and subnet.
 
    ```azurepowershell-interactive
@@ -198,18 +192,137 @@ To add a new or existing virtual network to your storage account, follow these s
    az storage account update --resource-group $resourceGroup --name $storageAccount --default-action Deny
    ```
    
-1. Enable a `Microsoft.Storage` service endpoint on the virtual network and subnet. This can take up to 15 minutes to complete, although in most cases it will complete much faster. Until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection. The service endpoint routes traffic from the virtual network through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request.
-
-   ```azurecli-interactive
-   az network vnet subnet update --resource-group $resourceGroup --vnet-name $vnetName --name $subnetName --service-endpoints "Microsoft.Storage.Global"
-   ```
-   
 1. Add a network rule for the virtual network and subnet.
 
    ```azurecli-interactive
    subnetid=$(az network vnet subnet show --resource-group $resourceGroup --vnet-name $vnetName --name $subnetName --query id --output tsv)
    az storage account network-rule add --resource-group $resourceGroup --account-name $storageAccount --subnet $subnetid
    ```
+
+---
+
+## Create a private endpoint for the storage account
+
+A private endpoint assigns your storage account a private IP address from within your virtual network's address space. When on-premises clients connected through the VPN tunnel resolve the storage account's fully qualified domain name (FQDN), the name resolves to the private IP address instead of the public IP, and traffic routes through the tunnel.
+
+Without a private endpoint, `storageaccount.file.core.windows.net` resolves to the storage account's public IP address, and on-premises routing tables send traffic directly over the internet, bypassing the VPN tunnel entirely.
+
+# [Portal](#tab/azure-portal)
+
+1. Navigate to the storage account in the Azure portal. In the service menu, under **Security + networking**, select **Networking**, and then select the **Private endpoint connections** tab.
+
+1. Select **+ Private endpoint**.
+
+1. On the **Basics** tab, select the subscription, resource group, and region. Give the private endpoint a name.
+
+1. On the **Resource** tab, select **Microsoft.Storage/storageAccounts** as the resource type. Select your storage account as the resource, and **file** as the target sub-resource.
+
+1. On the **Virtual Network** tab, select the virtual network and subnet where you want to place the private endpoint. This should be a subnet within the virtual network you configured in the previous section (not the GatewaySubnet).
+
+1. On the **DNS** tab, select **Yes** for **Integrate with private DNS zone**. This creates a `privatelink.file.core.windows.net` private DNS zone linked to your virtual network, which is required for the storage account's FQDN to resolve to the private IP address.
+
+1. Select **Review + create**, then **Create**.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+# Define parameters (reuse values from the previous section)
+$privateEndpointName = "myStoragePrivateEndpoint"
+$privateDnsZoneName = "privatelink.file.core.windows.net"
+
+# Get the storage account resource ID
+$storageAccountId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccount).Id
+
+# Get the virtual network and a non-gateway subnet
+$vnet = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup
+
+# If you don't have a non-gateway subnet, create one
+$vnet | Add-AzVirtualNetworkSubnetConfig -Name "PrivateEndpointSubnet" -AddressPrefix "10.0.1.0/24" | Set-AzVirtualNetwork
+$vnet = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup
+$peSubnet = Get-AzVirtualNetworkSubnetConfig -Name "PrivateEndpointSubnet" -VirtualNetwork $vnet
+
+# Create private link service connection
+$plsConnection = New-AzPrivateLinkServiceConnection `
+    -Name "myStoragePLS" `
+    -PrivateLinkServiceId $storageAccountId `
+    -GroupId "file"
+
+# Create the private endpoint
+$privateEndpoint = New-AzPrivateEndpoint `
+    -Name $privateEndpointName `
+    -ResourceGroupName $resourceGroup `
+    -Location $location `
+    -Subnet $peSubnet `
+    -PrivateLinkServiceConnection $plsConnection
+
+# Create the private DNS zone
+$privateDnsZone = New-AzPrivateDnsZone `
+    -ResourceGroupName $resourceGroup `
+    -Name $privateDnsZoneName
+
+# Link the private DNS zone to the virtual network
+New-AzPrivateDnsVirtualNetworkLink `
+    -ResourceGroupName $resourceGroup `
+    -ZoneName $privateDnsZoneName `
+    -Name "myDnsLink" `
+    -VirtualNetworkId $vnet.Id
+
+# Create DNS zone group for automatic DNS record management
+New-AzPrivateDnsZoneGroup `
+    -ResourceGroupName $resourceGroup `
+    -PrivateEndpointName $privateEndpointName `
+    -Name "myZoneGroup" `
+    -PrivateDnsZoneId $privateDnsZone.ResourceId
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+# Define parameters (reuse values from the previous section)
+privateEndpointName="myStoragePrivateEndpoint"
+privateDnsZoneName="privatelink.file.core.windows.net"
+
+# Get the storage account resource ID
+storageAccountId=$(az storage account show --resource-group $resourceGroup --name $storageAccount --query id --output tsv)
+
+# If you don't have a non-gateway subnet, create one
+az network vnet subnet create \
+    --resource-group $resourceGroup \
+    --vnet-name $vnetName \
+    --name PrivateEndpointSubnet \
+    --address-prefixes "10.0.1.0/24"
+
+# Create the private endpoint
+az network private-endpoint create \
+    --resource-group $resourceGroup \
+    --name $privateEndpointName \
+    --vnet-name $vnetName \
+    --subnet PrivateEndpointSubnet \
+    --private-connection-resource-id $storageAccountId \
+    --group-ids file \
+    --connection-name myStoragePLS
+
+# Create the private DNS zone
+az network private-dns zone create \
+    --resource-group $resourceGroup \
+    --name $privateDnsZoneName
+
+# Link the private DNS zone to the virtual network
+az network private-dns link vnet create \
+    --resource-group $resourceGroup \
+    --zone-name $privateDnsZoneName \
+    --name myDnsLink \
+    --virtual-network $vnetName \
+    --registration-enabled false
+
+# Create DNS zone group for automatic DNS record management
+az network private-endpoint dns-zone-group create \
+    --resource-group $resourceGroup \
+    --endpoint-name $privateEndpointName \
+    --name myZoneGroup \
+    --private-dns-zone $privateDnsZoneName \
+    --zone-name file
+```
 
 ---
 
@@ -232,7 +345,7 @@ To deploy a virtual network gateway, follow these steps.
    - **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
    - **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. The SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. See [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
    - **Generation**: Select the generation you want to use. We recommend using a Generation2 SKU. For more information, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
-   - **Virtual network**: From the dropdown, select the virtual network you added to your storage account in the previous step.
+   - **Virtual network**: From the dropdown, select the virtual network you configured in the previous step.
    - **Subnet**: This field should be grayed out and list the name of the gateway subnet you created, along with its IP address range. If you instead see a **Gateway subnet address range** field with a text box, then you haven't yet configured a gateway subnet on the virtual network.
 
 1. Specify the values for the **Public IP address** that gets associated to the virtual network gateway. The public IP address is assigned to this object when the virtual network gateway is created. The only time the primary public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades.
@@ -459,9 +572,43 @@ az network vpn-connection show --name VNet1toSite1 --resource-group <resource-gr
 
 ---
 
+## Configure DNS forwarding for on-premises access
+
+For on-premises clients to access Azure file shares through the VPN tunnel, DNS must resolve the storage account's FQDN (for example, `storageaccount.file.core.windows.net`) to the private endpoint's private IP address. Without DNS forwarding, on-premises DNS resolves the FQDN to the storage account's public IP address, and traffic routes over the internet instead of the VPN tunnel.
+
+### Option 1: Azure DNS Private Resolver (recommended)
+
+Deploy an [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview) in your virtual network. Configure your on-premises DNS servers to conditionally forward queries for `file.core.windows.net` to the Private Resolver's inbound endpoint IP address. The Private Resolver can resolve names against the `privatelink.file.core.windows.net` private DNS zone that was linked to your virtual network when you created the private endpoint.
+
+### Option 2: DNS forwarder virtual machines
+
+Deploy one or more DNS forwarder VMs in your virtual network that forward queries to the Azure recursive resolver at `168.63.129.16`. Configure your on-premises DNS servers to conditionally forward queries for `file.core.windows.net` to the IP addresses of these forwarder VMs.
+
+For detailed instructions on both approaches, see [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md).
+
+### Verify DNS resolution from on-premises
+
+Before mounting your file share, verify that DNS resolution is working correctly from an on-premises machine connected to the VPN. The FQDN should resolve to a private IP address from your virtual network's address space.
+
+**Windows (PowerShell):**
+
+```powershell
+Resolve-DnsName -Name storageaccount.file.core.windows.net
+```
+
+**Linux/macOS:**
+
+```bash
+nslookup storageaccount.file.core.windows.net
+```
+
+If the result returns a public IP address instead of a private IP (for example, `10.0.x.x`), your DNS forwarding isn't configured correctly and the mount traffic won't traverse the VPN tunnel.
+
 ## Mount Azure file share
 
-Verify that your VPN connection works by mounting your Azure file share on-premises. See the instructions to mount by OS:
+Before mounting, confirm that DNS resolution returns the private endpoint's private IP address (see previous section). If DNS resolution returns a public IP, the mount traffic will bypass the VPN tunnel.
+
+Once DNS resolution is confirmed, mount your Azure file share on-premises. See the instructions to mount by OS:
 
 - [Windows](storage-how-to-use-files-windows.md)
 - [macOS](storage-how-to-use-files-mac.md)
@@ -471,5 +618,7 @@ Verify that your VPN connection works by mounting your Azure file share on-premi
 ## See also
 
 - [Azure Files networking overview](storage-files-networking-overview.md)
+- [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md)
+- [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md)
 - [Configure a Point-to-Site VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configure a Point-to-Site VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
