@@ -74,14 +74,14 @@ For more information, see [Azure API Management pricing](https://azure.microsoft
 
 Azure API Center is currently available in the following Azure regions:
 
-* Australia East
-* Canada Central
-* Central India
-* East US
-* France Central
-* Sweden Central
-* UK South
-* West Europe
+- Australia East
+- Canada Central
+- Central India
+- East US
+- France Central
+- Sweden Central
+- UK South
+- West Europe
              
 ## Azure API Center and the API ecosystem
 
@@ -89,7 +89,7 @@ Azure API Center can serve a key role in an organization's API ecosystem. Consid
 
 Contoso's API developers, app developers, API program managers, and API managers collaborate through Azure API Center to develop and use the organization's API inventory. The following diagram and explanation demonstrates this scenario:
 
-:::image type="content" source="media/overview/api-ecosystem-example.png" border="false" alt-text="Diagram showing Azure API Center in an example API ecosystem.":::
+:::image type="content" source="media/overview/api-ecosystem-example.png" border="false" alt-text="Diagram showing Azure API Center in an example API ecosystem." lightbox="media/overview/api-ecosystem-example.png ":::
 
 Contoso's API ecosystem includes the following features:
 
