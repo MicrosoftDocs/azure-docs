@@ -15,7 +15,7 @@ This article describes reliability support in Azure Deployment Environments. I
 ## Availability zone support
 [Availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) are physically separate groups of datacenters within an Azure region. When one zone fails, services can fail over to one of the remaining zones. To improve the availability of your applications, architect your solutions to use multiple availability zones within a region. For more information about Azure regions where availability zones are available, see [Azure regions list](/azure/reliability/regions-list).
 
-When you deploy Azure Deployment Environments in a region that supports availability zones, the environments automatically support availability zones for all resources. Check the regions that support Deployment Environments by using the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=deployment-environments) page.
+When you deploy Azure Deployment Environments in a region that supports availability zones, the Deployment Environments service itself benefits from availability zone redundancy. However, the actual availability zone support for the resources deployed within your environments depends on the individual Azure services and configurations defined in your infrastructure-as-code templates. To ensure zone-redundant deployments, configure each resource in your templates to use availability zones where supported. Check the regions that support Deployment Environments by using the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=deployment-environments) page.
 
 
 ## Cross-region disaster recovery and business continuity
@@ -23,7 +23,7 @@ Disaster recovery (DR) refers to practices that organizations use to recover fro
 
 For DR, Microsoft uses the [shared responsibility model](/azure/reliability/concept-shared-responsibility). In this model, Microsoft ensures that the baseline infrastructure and platform services are available. However, many Azure services don't automatically replicate data or fall back from a failed region to cross-replicate to another enabled region. For those services, you're responsible for setting up a disaster recovery plan that works for your workload. Most services that run on Azure platform as a service (PaaS) offerings provide features and guidance to support DR. You can use [service-specific features to support fast recovery](/azure/reliability/overview-reliability-guidance) to help develop your DR plan.
 
-You can replicate the following Deployment Environments resources in an alternate region to prevent data loss if a cross-region failover occurs:
+You can recreate the following Deployment Environments configuration resources in an alternate region to maintain your ability to deploy environments if a cross-region failover occurs. Note that you must manually recreate these resources in the alternate region; Deployment Environments doesn't automatically replicate them across regions.
 
 - Dev centers
 - Projects
@@ -31,7 +31,8 @@ You can replicate the following Deployment Environments resources in an alternat
 - Catalog items
 - Dev center environment types
 - Project environment types
-- Environments
+
+Previously deployed environments and their underlying Azure resources aren't automatically replicated. You're responsible for implementing disaster recovery strategies for the resources deployed within your environments, based on the DR capabilities of each individual Azure service used.
 
 For more information, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture).
 

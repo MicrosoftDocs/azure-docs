@@ -3,7 +3,7 @@ title: "Manage Orchestration Instances in Durable Functions and Durable Task SDK
 description: Learn how to manage orchestration instances in Durable Functions and Durable Task SDKs. Start, query, terminate, suspend, and resume workflows using built-in APIs.
 author: cgillum
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 04/22/2026
 ms.author: azfuncdf
 reviewer: hhunter-ms
 ms.service: durable-task
