@@ -123,7 +123,7 @@ curl --request POST \
   }'
 ```
 
-A successful response returns status `201` with the ACZ details. The response includes the ACZ ID and an initial status of `PROVISIONING`.
+A successful response returns status `201` with the ACZ details. The response includes the ACZ ID and an initial status of `ACTIVE`.
 
 ## Related content
 

@@ -86,11 +86,9 @@ Each ACZ goes through these states:
 
 | Status | Description |
 |---|---|
-| **PROVISIONING** | Setup is in progress. The initial snapshot is running. |
 | **ACTIVE** | Operational. ACZ synchronizes changes incrementally. |
 | **FAILED** | An error stopped setup or sync. |
 | **ACCESS_DENIED** | ACZ can't reach the destination ADLS storage account. |
-| **DELETING** | Removal is in progress. |
 
 ### Historical snapshot
 
