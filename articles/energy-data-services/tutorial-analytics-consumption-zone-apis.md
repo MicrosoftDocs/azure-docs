@@ -33,7 +33,11 @@ In this tutorial, you learn how to:
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) instance in your Azure subscription.
 - ACZ enabled for your instance. See [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
-- An Azure Data Lake Storage (ADLS) Gen2 storage account with managed identity access.
+- An Azure Data Lake Storage (ADLS) Gen2 storage account with hierarchical namespace enabled.
+- A user-assigned managed identity that:
+  - Is assigned to your ADME instance. See [How to use managed identity](how-to-use-managed-identity.md).
+  - Has **Storage Blob Data Contributor** role on the destination ADLS Gen2 storage account.
+- Your user account must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group to call ACZ APIs. See [How to manage users](how-to-manage-users.md).
 - cURL installed on your machine.
 - An access token for authentication. See [How to generate auth token](how-to-generate-auth-token.md).
 
@@ -57,7 +61,10 @@ Use the Create ACZ API to set up a new Analytics Consumption Zone for a data par
 **Key points**:
 - Maximum of three ACZs per data partition (preview limit).
 - The ACZ name must be unique within the partition.
-- The managed identity must have access to the destination ADLS storage account.
+- The user-assigned managed identity must be:
+  - Assigned to your ADME instance
+  - Granted **Storage Blob Data Contributor** role on the destination ADLS Gen2 storage account
+- Your user must belong to the `users@{data-partition-id}.dataservices.energy` entitlement group.
 
 ```bash
 curl --request POST \
@@ -110,7 +117,7 @@ curl --request POST \
 {
   "aczId": "acz-abc123def456",
   "name": "my-acz-wells-and-logs",
-  "status": "PROVISIONING",
+  "status": "ACTIVE",
   "aczType": "LATEST_VERSION",
   "targetFormat": "DELTA_PARQUET",
   "sink": {
@@ -127,14 +134,14 @@ curl --request POST \
       "osdu:wks:work-product-component--WellLog:*"
     ]
   },
-  "historicalSnapshotStatus": "PENDING",
+  "historicalSnapshotStatus": "PROCESSING",
   "createdTs": "2026-03-31T10:00:00Z",
   "updatedTs": "2026-03-31T10:00:00Z",
   "createdBy": "user@contoso.com"
 }
 ```
 
-After you create the ACZ, it enters `PROVISIONING` status and begins the historical snapshot. Use the Get ACZ API to check the status.
+After you create the ACZ, it enters `ACTIVE` status and begins the historical snapshot with `PROCESSING` state. Use the Get ACZ API to check the status.
 
 ## List ACZs
 
