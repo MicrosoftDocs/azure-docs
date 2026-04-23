@@ -2,7 +2,6 @@
 title: Add and Configure an Environment Definition in a Catalog
 titleSuffix: Azure Deployment Environments
 description: Learn how to add and configure an environment definition to use in Azure Deployment Environments projects. 
-services: Azure Deployment Environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
@@ -73,7 +72,7 @@ To add an environment definition:
       | `version` | The version of the environment definition. This field is optional. |
       | `summary` | A brief description of the environment definition. |
       | `description` | A detailed description of the environment definition. |
-      | `runner` | The IaC framework that the template uses. The value can be `ARM` or `Bicep`. You can also specify a path to a template stored in a container registry. |
+      | `runner` | The IaC framework that the template uses. The value can be `ARM` or `Bicep`. You can also specify a path to a container image stored in a container registry. |
       | `templatePath` | The path to the IaC template file. |
 
       To learn more about the options and data types you can use in environment.yaml, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#what-is-environmentyaml).
@@ -92,7 +91,7 @@ You can create custom container images for more advanced environment deployments
 
 To get started, you can get sample ARM and Bicep container images via the Microsoft Artifact Registry (also known as the Microsoft Container Registry). 
 
-For more information on building a custom container image, see [Configure a container image to execute deployments](how-to-configure-extensibility-generic-container-image.md).
+For more information on building a custom container image, see [Configure a container image to execute deployments](how-to-configure-extensibility-model-custom-image.md).
 
 ### Specify the ARM or Bicep sample container image
 
