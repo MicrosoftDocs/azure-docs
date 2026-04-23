@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn about alternative approaches you can use when you self-host a developer portal in Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 02/02/2025
+ms.date: 04/24/2026
 ms.service: azure-api-management
 ms.topic: how-to
 #customer intent: As an API developer, I want to understand the alternative approaches using a self-hosted developer portal to see which might fit my needs.
@@ -20,7 +20,7 @@ There are several alternative approaches you can explore when you [self-host a d
 - Use an Azure Function App to publish your developer portal.
 - Front the files of your developer portal with a content delivery network to reduce page loading times.
 
-This article provides information on each of these approaches. 
+This article provides information on each of these approaches.
 
 If you haven't already done so, set up a [local environment](developer-portal-self-host.md#step-1-set-up-local-environment) for the latest release of the developer portal.
 
@@ -50,13 +50,14 @@ To implement publishing with an Azure Function App, you need the following prere
 
 - [Create an Azure Function](../azure-functions/functions-get-started.md). The Function needs to be a JavaScript language Function.
 - Install Azure Functions Core Tools:
+
     ```console
     npm install -g azure-function-core-tools
     ```
 
 ### Step 1: Configure output storage
 
-Uploading the content directly to the hosting website instead of a local folder. This location is the `$web` container of output storage. Configure this change in the `./src/config.publish.json` file:
+Upload the content directly to the hosting website instead of a local folder. This location is the `$web` container of output storage. Configure this change in the `./src/config.publish.json` file:
 
 ```json
 {
