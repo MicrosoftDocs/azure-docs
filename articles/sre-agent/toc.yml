@@ -126,8 +126,6 @@ items:
             href: mcp-connectors.md
       - name: Access
         items:
-          - name: Chat from your tools
-            href: chat-from-your-tools.md
           - name: Learn via Chat
             href: docsguide.md
           - name: Favorites and Mine filter
@@ -216,10 +214,6 @@ items:
             href: cross-account-azdo-oauth-authorization.md
           - name: Add a web page knowledge source
             href: add-web-page.md
-      - name: Access
-        items:
-          - name: Set up Teams bot
-            href: teams-bot.md
   - name: Reference
     items:
       - name: Supported regions
