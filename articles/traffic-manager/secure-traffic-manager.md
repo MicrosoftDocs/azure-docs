@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-traffic-manager
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/17/2025
+ms.date: 04/23/2026
 ai-usage: ai-assisted
 ---
 
@@ -64,7 +64,7 @@ Logging and monitoring for Traffic Manager provides visibility into endpoint hea
 
 - **Monitor DNS query volume per endpoint**: Track the **Queries by endpoint returned** metric to identify unexpected shifts in traffic distribution that could indicate a routing misconfiguration or endpoint failure. A sudden increase in queries to a secondary endpoint might signal that the primary endpoint is degraded. For more information, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).
 
-- **Investigate degraded profile status promptly**: When your Traffic Manager profile status shows **Degraded**, one or more endpoints are unhealthy. Investigate immediately because degraded status means Traffic Manager might be routing traffic to remaining healthy endpoints, which could become overloaded. For more information, see [Troubleshooting degraded state on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+- **Investigate degraded profile status promptly**: When your Traffic Manager profile status shows **Degraded**, one or more endpoints are unhealthy. Investigate immediately because degraded status means Traffic Manager might be routing traffic to remaining healthy endpoints, which could become overloaded. For more information, see [Troubleshooting degraded state on Azure Traffic Manager](/troubleshoot/azure/traffic-manager/traffic-manager-troubleshooting-degraded).
 
 ## Compliance and governance
 
