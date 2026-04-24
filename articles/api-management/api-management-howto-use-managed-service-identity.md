@@ -313,13 +313,7 @@ You can use a system-assigned managed identity to access Key Vault to store and 
 
 ### Authenticate to a backend by using an API Management identity
 
-Use the system-assigned identity to authenticate to a backend service via the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
-
-> [!CAUTION]
-> **Security consideration:** Users with permissions to edit API Management policies (for example, users assigned the [API Management Service Contributor](/azure/role-based-access-control/built-in-roles#api-management-service-contributor) role) can use the [`authentication-managed-identity`](authentication-managed-identity-policy.md) policy to authenticate as the service's managed identity. When you assign roles or permissions to the API Management resouce, be aware that any user who can edit policies may be able to access those same resources through the managed identity. To mitigate risk:
-> - Follow the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access) when assigning roles to managed identities.
-> - Only grant the API Management Contributor role or policy editing permissions to trusted users.
-> - Regularly review and audit managed identity role assignments and who has access to edit API Management policies.
+Use the system-assigned identity to authenticate to a backend service via the [authentication-managed-identity](authentication-managed-identity-policy.md) policy. For security considerations when using policy-based authentication, see [Security considerations for managed identities](#security-considerations-for-managed-identities).
 
 ### Connect to Azure resources behind an IP firewall by using a system-assigned managed identity
 
@@ -485,17 +479,28 @@ You can use a user-assigned managed identity to access Key Vault to store and ma
 
 ### Authenticate to a backend by using a user-assigned identity
 
-You can use the user-assigned identity to authenticate to a backend service via the [authentication-managed-identity](authentication-managed-identity-policy.md) policy.
-
-> [!CAUTION]
-> **Security consideration:** Users with permissions to edit API Management policies (for example, users assigned the [API Management Service Contributor](/azure/role-based-access-control/built-in-roles#api-management-service-contributor) role) can use the [`authentication-managed-identity`](authentication-managed-identity-policy.md) policy to authenticate as the service's managed identity. When you assign roles or permissions to the API Management resouce, be aware that any user who can edit policies may be able to access those same resources through the managed identity. To mitigate risk:
-> - Follow the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access) when assigning roles to managed identities.
-> - Only grant the API Management Contributor role or policy editing permissions to trusted users.
-> - Regularly review and audit managed identity role assignments and who has access to edit API Management policies.
+You can use the user-assigned identity to authenticate to a backend service via the [authentication-managed-identity](authentication-managed-identity-policy.md) policy. For security considerations when using policy-based authentication, see [Security considerations for managed identities](#security-considerations-for-managed-identities).
 
 ### Log events to an event hub
 
 You can configure and use a user-assigned managed identity to access an event hub to log events from an API Management instance. For more information, see [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md).
+
+## Security considerations for managed identities
+
+When using managed identities in API Management, it's important to follow security best practices to protect your resources and minimize risk:
+
+> [!CAUTION]
+> **Policy editing access grants indirect resource access:** Users with permissions to edit API Management policies (for example, users assigned the [API Management Service Contributor](/azure/role-based-access-control/built-in-roles#api-management-service-contributor) role, or any custom role with the `Microsoft.ApiManagement/service/apis/write` or `Microsoft.ApiManagement/service/apis/policies/write` permissions) can use the [`authentication-managed-identity`](authentication-managed-identity-policy.md) policy to authenticate as the service's managed identity. A user cannot directly gain access to resources by simply having policy editing permissions alone. However, they can modify a policy to exfiltrate the authentication token, propagate it to a backend service, or log it for later use—thereby gaining indirect access to resources that the managed identity can reach.
+
+To mitigate this risk:
+
+- Follow the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access) when assigning Azure roles to managed identities. Grant only the permissions the service requires.
+- Only assign the API Management Contributor role or policy editing permissions (such as `Microsoft.ApiManagement/service/apis/write` and `Microsoft.ApiManagement/service/apis/policies/write`) to trusted users.
+- Regularly review and audit managed identity role assignments and monitor who has access to edit API Management policies.
+- Implement policy controls and governance to prevent unauthorized modifications to critical policies.
+
+> [!IMPORTANT]
+> **Token forwarding is the customer's responsibility:** When using the [`authentication-managed-identity`](authentication-managed-identity-policy.md) policy, API Management obtains a token from Microsoft Entra ID and forwards it to the backend as-is in the `Authorization` header. API Management does **not** validate which backend the token is sent to—it is the customer's responsibility to ensure that tokens are only forwarded to intended and trusted backend services. Configure [backend entities](backends.md) and [policies](set-backend-service-policy.md) carefully to prevent tokens from being sent to unintended destinations.
 
 ## Remove an identity
 

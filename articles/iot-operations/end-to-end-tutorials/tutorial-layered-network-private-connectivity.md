@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Deploy Azure IoT Operations in a layered network with private connectivity"
 description: "Tutorial: Deploy Azure IoT Operations in a Purdue/ISA-95 layered network with private Azure connectivity using ExpressRoute, Private Link, and explicit proxy routing."
-author: david-emakenemi
-ms.author: demakenemi
+author: sethmanheim
+ms.author: sethm
 ms.topic: tutorial
 ms.date: 03/24/2026
 

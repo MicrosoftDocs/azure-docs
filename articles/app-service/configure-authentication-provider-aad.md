@@ -243,6 +243,34 @@ For **Unauthenticated requests**, choose error options:
 
 Select **Token store** (recommended). The token store collects, stores, and refreshes tokens for your application. You can disable this behavior later if your app doesn't need tokens or if you need to optimize performance.
 
+## Allowed token audiences
+
+The **Allowed token audiences** setting lets you restrict which access tokens are accepted by your App Service or Azure Functions app based on the token audience (`aud` claim).
+
+By default, App Service authentication accepts tokens that are issued for the app registration associated with this application. If your app exposes multiple APIs, uses multiple application IDs, or is accessed through custom application ID URIs, you may need to explicitly configure additional allowed audiences.
+
+When configured, only access tokens whose `aud` claim matches one of the allowed audiences are accepted.
+
+Typical values include:
+
+- The Application (client) ID of the app registration
+- The Application ID URI (for example, `api://<application-client-id>` or a custom URI such as `https://contoso.com/api`)
+
+You can configure this setting from the **Authentication** page in the Azure portal:
+
+1. Go to your App Service or Azure Functions app.
+2. Select **Settings > Authentication**.
+3. Select **Edit** for the Microsoft identity provider.
+4. Under **Allowed token audiences**, add one or more allowed audience values.
+
+This setting is useful when:
+
+- Your app is called by multiple client applications using different resource identifiers.
+- You use a custom Application ID URI for your API.
+- You want to explicitly limit which tokens are accepted by the app.
+
+If this list is configured, any token whose audience does not match one of the configured values is rejected.
+
 ## Add the identity provider
 
 If you selected workforce configuration, you can select **Next: Permissions** and add any Microsoft Graph permissions that the application needs. These permissions are added to the app registration, but you can also change them later. If you selected external configuration, you can add Microsoft Graph permissions later.

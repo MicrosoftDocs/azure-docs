@@ -396,7 +396,7 @@ public class Counter : ICounter
 }
 ```
 
-Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](../../durable-task/common/durable-task-entities.md#comparison-with-virtual-actors).
+Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](../../durable-task/common/durable-task-entities.md#comparison-of-durable-entities-with-virtual-actors).
 
 Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity can implement multiple interfaces, a single entity can serve multiple roles. Also, since multiple entities can implement an interface, general communication patterns can be implemented as reusable libraries.
 
