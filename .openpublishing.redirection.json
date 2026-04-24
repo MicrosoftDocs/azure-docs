@@ -5048,16 +5048,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/external-attack-surface-management/data-connections-overview.md",
-      "redirect_url": "/azure/external-attack-surface-management/index",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/external-attack-surface-management/labeling-inventory-assets.md",
-      "redirect_url": "/azure/external-attack-surface-management/modifying-inventory-assets",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/firewall-manager/multiple-public-ip-powershell.md",
       "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
       "redirect_document_id": false

@@ -41,7 +41,6 @@ Zonal placement is supported for SSD storage accounts with LRS redundancy in the
 - Denmark East
 - East US
 - East US 2
-- Europe North
 - Europe West
 - Germany West Central
 - Indonesia Central
