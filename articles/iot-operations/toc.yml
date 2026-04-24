@@ -53,6 +53,9 @@ items:
           - name: Prepare a cluster
             href: deploy-iot-ops/howto-prepare-cluster.md
             displayName: Kubernetes, Arc-enable
+          - name: Deploy to a test cluster
+            href: deploy-iot-ops/howto-deploy-iot-test-operations.md
+            displayName: Kubernetes, Arc-enable, test settings
           - name: Deploy to a production cluster
             href: deploy-iot-ops/howto-deploy-iot-operations.md
             displayName: Kubernetes, Arc-enable, secure settings

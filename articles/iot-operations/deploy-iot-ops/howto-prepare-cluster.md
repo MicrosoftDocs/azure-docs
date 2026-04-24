@@ -351,4 +351,5 @@ At this point, when you have an Azure Arc-enabled Kubernetes cluster but before 
 
 Now that you have an Azure Arc-enabled Kubernetes cluster, you can deploy Azure IoT Operations.
 
-- [Deploy to a production cluster](howto-deploy-iot-operations.md)
+- [Deploy to a test cluster](howto-deploy-iot-test-operations.md): For quick evaluation and testing before deploying in production.
+- [Deploy to a production cluster](howto-deploy-iot-operations.md): For production-ready workloads with secure settings.
