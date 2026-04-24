@@ -6,7 +6,7 @@ author: mbender-ms
 ms.custom: references_regions
 ms.service: azure-appgw-for-containers
 ms.topic: overview
-ms.date: 2/7/2026
+ms.date: 4/22/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand how Application Gateway for Containers functions, so that I can effectively implement it for load balancing and traffic management within my Kubernetes cluster."
 ---
@@ -47,7 +47,7 @@ Application Gateway for Containers offers some entirely new features at release,
 - Flexible [deployment strategies](#deployment-strategies)
 - Increased performance, offering near real-time updates to add or remove pods, routes, and probes
 
-Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway. These APIs are different from the current implementation of Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. The service is managed by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs.
+Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of Azure Resource Manager APIs](#implementation-of-gateway-api), different from existing Application Gateway. These APIs are different from the current implementation of Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. The service is managed by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs.
 
 ### Load balancing features
 
@@ -59,6 +59,12 @@ Application Gateway for Containers supports the following features for traffic m
 - Availability zone resiliency
 - Custom and default health probes
 - ECDSA and RSA certificate support
+- Flexible load balancing strategies
+  - Least Request
+  - Load Aware Routing
+  - Ring Hash
+  - Round Robin
+  - Weighted Round Robin
 - gRPC
 - Header rewrite
 - HTTP/2
@@ -75,7 +81,6 @@ Application Gateway for Containers supports the following features for traffic m
   - Ports (80/443)
 - Mutual authentication (mTLS) to frontend, backend, or end-to-end
 - Server-sent event (SSE) support
-- Traffic splitting / weighted round robin
 - TLS policies
 - URL redirect
 - URL rewrite

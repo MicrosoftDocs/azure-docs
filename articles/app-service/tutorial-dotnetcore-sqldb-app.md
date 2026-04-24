@@ -25,7 +25,9 @@ ms.custom:
 
 # Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
 
-In this tutorial, you learn how to deploy a data-driven ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. You'll also deploy an Azure Cache for Redis to enable the caching code in your application. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. Although this tutorial uses an ASP.NET Core 8.0 app, the process is the same for other versions of ASP.NET Core.
+In this tutorial, you learn how to deploy a data-driven ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. You'll also deploy a Redis cache to enable the caching code in your application. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. Although this tutorial uses an ASP.NET Core 8.0 app, the process is the same for other versions of ASP.NET Core.
+
+[!INCLUDE [cache-retirement-alert](../azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 In this tutorial, you learn how to:
 
@@ -169,7 +171,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. Select the **Database** tab.
         1. Select **Create a Database**.
         1. In **Engine**, select **SQLAzure**.
-        1. Select **Create an Azure Cache for Redis**.
+        1. Create a Redis cache.
         1. In **Name** (under Cache), enter a name for the cache.
         1. In **SKU**, select **Basic**.
     :::column-end:::
@@ -204,7 +206,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Network interfaces**: Represents private IP addresses, one for each of the private endpoints.
         - **Azure SQL Database server**: Accessible only from behind its private endpoint.
         - **Azure SQL Database**: A database and a user are created for you on the server.
-        - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
+        - **Redis**: Accessible only from behind its private endpoint.
         - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
         - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
     :::column-end:::
@@ -549,7 +551,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 ## 2. Create Azure resources and deploy a sample app
 
-In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure SQL Database, and Azure Cache for Redis.
+In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure SQL Database, and Redis cache.
 
 The dev container already has the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) (AZD).
 
@@ -591,7 +593,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     * **Network interfaces**: Represents private IP addresses, one for each of the private endpoints.
     * **Azure SQL Database server**: Accessible only from behind its private endpoint.
     * **Azure SQL Database**: A database and a user are created for you on the server.
-    * **Azure Cache for Redis**: Accessible only from behind its private endpoint.
+    * **Redis**: Accessible only from behind its private endpoint.
     * **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
     * **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
 
@@ -799,7 +801,7 @@ Pricing for the created resources is as follows:
 
 * The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 * The Azure SQL Database is created in general-purpose, serverless tier on Standard-series hardware with the minimum cores. There's a small cost and can be distributed to other regions. You can minimize cost even more by reducing its maximum size, or you can scale it up by adjusting the serving tier, compute tier, hardware configuration, number of cores, database size, and zone redundancy. See [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/azure-sql-database/single/).
-* The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
+* The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).  For more information, see [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 * The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 * The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/).
 

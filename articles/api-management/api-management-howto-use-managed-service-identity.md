@@ -499,6 +499,9 @@ To mitigate this risk:
 - Regularly review and audit managed identity role assignments and monitor who has access to edit API Management policies.
 - Implement policy controls and governance to prevent unauthorized modifications to critical policies.
 
+> [!IMPORTANT]
+> **Token forwarding is the customer's responsibility:** When using the [`authentication-managed-identity`](authentication-managed-identity-policy.md) policy, API Management obtains a token from Microsoft Entra ID and forwards it to the backend as-is in the `Authorization` header. API Management does **not** validate which backend the token is sent to—it is the customer's responsibility to ensure that tokens are only forwarded to intended and trusted backend services. Configure [backend entities](backends.md) and [policies](set-backend-service-policy.md) carefully to prevent tokens from being sent to unintended destinations.
+
 ## Remove an identity
 
 You can remove a system-assigned identity by disabling the feature through the portal or by using an ARM template, just like you created it. You can remove user-assigned identities individually. To remove all identities, set the identity type to `"None"`.
