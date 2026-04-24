@@ -87,7 +87,4 @@ For more information on managing certificates, see [Manage certificates for your
 
 ## Next steps
 
-- [Review internal traffic encryption options](deployment-planning-encryption.md)
-- [Review disk-backed message buffer settings](deployment-planning-disk-buffer.md)
-- [Prepare your cluster](howto-prepare-cluster.md)
 - [Deploy to a production cluster](howto-deploy-iot-operations.md)
