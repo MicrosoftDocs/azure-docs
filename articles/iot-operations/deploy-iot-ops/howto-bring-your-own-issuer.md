@@ -1,6 +1,6 @@
 ---
-title: Deployment planning - Certificate management
-description: Plan certificate management options for internal communications in your Azure IoT Operations deployment.
+title: Bring your own issuer
+description: Set up your own certificate authority issuer for internal communications in Azure IoT Operations instead of using the default self-signed issuer.
 author: huguesbouvier
 ms.author: hubouvie
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 04/21/2026
 #CustomerIntent: As an IT administrator, I want to understand certificate management options for internal communications so I can decide whether to bring my own CA issuer before deploying Azure IoT Operations.
 ---
 
-# Deployment planning - Certificate management
+# Bring your own issuer
 
 Decide before deployment whether you need to bring your own certificate authority (CA) issuer for internal communications, or whether the default self-signed issuer is sufficient for your use case.
 

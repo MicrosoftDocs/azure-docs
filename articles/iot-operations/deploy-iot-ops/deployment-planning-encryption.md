@@ -63,7 +63,6 @@ Then, deploy IoT Operations by using the `az iot ops create` command with `--bro
 
 ## Next steps
 
-- [Review certificate management options](deployment-planning-certificates.md)
 - [Review advanced MQTT options](deployment-planning-mqtt-options.md)
 - [Review diagnostics settings](deployment-planning-diagnostics.md)
 - [Prepare your cluster](howto-prepare-cluster.md)

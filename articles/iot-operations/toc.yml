@@ -43,9 +43,6 @@ items:
               - name: Internal traffic encryption
                 href: deploy-iot-ops/deployment-planning-encryption.md
                 displayName: MQTT, broker, certificates, TLS, internal
-              - name: Certificate management
-                href: deploy-iot-ops/deployment-planning-certificates.md
-                displayName: TLS, certificate, root CA, issuer, cert-manager, trust-manager
           - name: Best practices for namespaces
             href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
           - name: Best practices for schema registries
@@ -53,6 +50,9 @@ items:
           - name: Prepare a cluster
             href: deploy-iot-ops/howto-prepare-cluster.md
             displayName: Kubernetes, Arc-enable
+          - name: Bring your own issuer
+            href: deploy-iot-ops/howto-bring-your-own-issuer.md
+            displayName: TLS, certificate, root CA, issuer, cert-manager, trust-manager
           - name: Deploy to a test cluster
             href: deploy-iot-ops/howto-deploy-iot-test-operations.md
             displayName: Kubernetes, Arc-enable, test settings

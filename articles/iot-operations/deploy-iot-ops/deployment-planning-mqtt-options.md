@@ -86,6 +86,5 @@ By default, `maxMessageExpirySeconds` is not set. In this case, retained message
 ## Next steps
 
 - [Review internal traffic encryption options](deployment-planning-encryption.md)
-- [Review certificate management options](deployment-planning-certificates.md)
 - [Review disk-backed message buffer settings](deployment-planning-disk-buffer.md)
 - [Prepare your cluster](howto-prepare-cluster.md)

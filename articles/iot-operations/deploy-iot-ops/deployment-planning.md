@@ -286,7 +286,6 @@ The following broker settings are also configured at deployment time and can't b
 - [Diagnostics](deployment-planning-diagnostics.md) -- Configure metrics, logs, and self-check probes for the MQTT broker.
 - [Advanced MQTT options](deployment-planning-mqtt-options.md) -- Customize session expiry, message expiry, subscriber queue limits, and keep alive settings.
 - [Internal traffic encryption](deployment-planning-encryption.md) -- Configure encryption of internal traffic between broker frontend and backend pods (enabled by default).
-- [Certificate management](deployment-planning-certificates.md) -- Decide whether to bring your own CA issuer for internal communications or use the default self-signed issuer.
 
 ## Next steps
 

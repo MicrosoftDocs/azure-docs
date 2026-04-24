@@ -13,7 +13,7 @@ ms.date: 01/27/2026
 
 Azure IoT Operations uses TLS to encrypt communication between all components. This article describes how to manage certificates for external communications.
 
-For information about managing certificates for internal communications, including the default self-signed issuer and bringing your own CA issuer, see [Deployment planning - Certificate management](../deploy-iot-ops/deployment-planning-certificates.md).
+For information about managing certificates for internal communications, including the default self-signed issuer and bringing your own CA issuer, see [Bring your own issuer](../deploy-iot-ops/howto-bring-your-own-issuer.md).
 
 ## Prerequisites
 

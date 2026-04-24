@@ -340,16 +340,10 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    ```
 ---
 
-## Advanced configuration 
-
-At this point, when you have an Azure Arc-enabled Kubernetes cluster but before you deploy Azure IoT Operations to it, you might want to configure your cluster for advanced scenarios.
-
-* If you want to enable observability features on the cluster, follow the steps in [Deploy observability resources and set up logs](../configure-observability-monitoring/howto-configure-observability.md).
-* If you want to configure your own certificate issuer on the cluster, follow the steps in [Certificate management > Bring your own issuer](deployment-planning-certificates.md#bring-your-own-issuer).
-
 ## Next steps
 
 Now that you have an Azure Arc-enabled Kubernetes cluster, you can deploy Azure IoT Operations.
 
+- [Bring your own issuer](howto-bring-your-own-issuer.md): If you want to configure your own certificate issuer on the cluster before deploying Azure IoT Operations.
 - [Deploy to a test cluster](howto-deploy-iot-test-operations.md): For quick evaluation and testing before deploying in production.
 - [Deploy to a production cluster](howto-deploy-iot-operations.md): For production-ready workloads with secure settings.
