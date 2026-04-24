@@ -3,7 +3,7 @@ title: Incident Response Plans in Azure SRE Agent
 description: Learn how to route incidents to specialized custom agents with the right tools, investigation depth, and autonomy level automatically.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/22/2026
+ms.date: 04/24/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -66,7 +66,7 @@ Each plan specifies how your agent responds:
 When you select **Autonomous**, an info icon (ℹ️) appears next to the option. Select it to review the **Autonomous mode acknowledgement**. This dialog explains what autonomous operation means, including agent boundaries, AI model limitations, your responsibilities for scoping access and reviewing outcomes, and liability terms.
 
 > [!TIP]
-Start with **Review** mode for new response plans to validate your agent's investigation behavior before granting full autonomy. You can switch to Autonomous after you're confident in the agent's tool selection and investigation patterns.
+> Start with **Review** mode for new response plans to validate your agent's investigation behavior before granting full autonomy. You can switch to Autonomous after you're confident in the agent's tool selection and investigation patterns.
 
 ## What makes this different
 
@@ -141,12 +141,6 @@ You create two response plans:
 |---------|--------|----------|------|
 | `api-high-sev` | P1 + P2 on `api-gateway` | `DeploymentAnalyzer` | Review |
 | `db-critical` | P1 on `postgres-primary` | `DatabaseExpert` | Autonomous |
-
-## Get started
-
-| Resource | What you learn |
-|----------|-------------------|
-| [Set up an incident trigger](response-plan.md) | Configure response plans to automate incident handling |
 
 ## Related capabilities
 

@@ -3,7 +3,7 @@ title: Azure Monitor alerts in Azure SRE Agent
 description: Learn how Azure SRE Agent uses Azure Monitor alerts to detect incidents, acknowledge them automatically, and start investigations without managing credentials.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/22/2026
+ms.date: 04/24/2026
 author: dm-chelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted

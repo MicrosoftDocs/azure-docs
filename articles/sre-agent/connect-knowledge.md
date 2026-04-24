@@ -3,7 +3,7 @@ title: Connect knowledge in Azure SRE Agent
 description: Give your agent access to runbooks, documentation, source code, and web content so it can investigate incidents with the context your team already has.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/22/2026
+ms.date: 04/24/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -89,7 +89,7 @@ Use chat attachments when you want to give the agent immediate context in a sing
 
 The following table compares long-term knowledge uploads with temporary chat attachments:
 
-|  | Upload to Knowledge base | Share in chat |
+| Scenario | Upload to Knowledge base | Share in chat |
 |---|---|---|
 | **Best for** | Runbooks, procedures, and documents you want available in future conversations | Files you want the agent to analyze right now |
 | **Storage scope** | Agent-level and searchable across future conversations | Thread-level and available in the current conversation |

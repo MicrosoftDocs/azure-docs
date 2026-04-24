@@ -13,7 +13,9 @@ ms.custom: incidents, metrics, value, daily-reports, incident-scorecard, respons
 
 # Track incident value in Azure SRE Agent
 
-Incident metrics help you understand how much work your agent is handling and how effectively your response plans are performing. Use this dashboard to measure mitigation rates, time saved, and quality trends across the incidents your agent processes.
+To determine whether your agent is working, you typically need to query telemetry manually, cross-reference incident tickets, and estimate which response plans are effective. Without consolidated data, it's difficult to tell whether a response plan resolves 80% of incidents autonomously or escalates most of them to humans. It's equally difficult to demonstrate that the agent resolved 15 incidents overnight or to decide where to invest in additional automation.
+
+The incident metrics dashboard gives you that consolidated view. Use it to measure mitigation rates, time saved, and quality trends across the incidents your agent processes, broken down by response plan.
 
 > [!TIP]
 > - Select any chart segment, severity bar, or root-cause tile to drill down into matching incidents by using search and filtering.
@@ -21,14 +23,6 @@ Incident metrics help you understand how much work your agent is handling and ho
 > - Four KPI cards show hours saved, success rate with stacked outcome bar, median time-to-mitigate, and quality score with star ratings from 1 to 5.
 > - Analytics data loads progressively, so each card and chart renders as soon as its data is ready and you see results faster.
 > - Charts auto-rotate date labels and normalize comparison bars for readability at any time range.
-
-## The problem: you can't prove your agent is working
-
-Today, answering those questions means manually querying telemetry, cross-referencing incident tickets, and guessing which response plans are effective. There's no single view that shows what your agent did, how well each response plan performed, or whether mitigation rates are improving over time.
-
-Without this data, you can't distinguish a response plan that resolves 80% of incidents autonomously from one that escalates everything to humans. You can't show your team that the agent handled 15 incidents overnight while everyone slept. And you can't make informed decisions about where to invest in better automation.
-
----
 
 ## How incident value tracking works
 
@@ -70,7 +64,7 @@ The **Quality Score** card uses a 5-star rating to make the Intent Met score ins
 
 ### Interactive drill-down
 
-Every visualization in the dashboard is interactive. Select a segment to open a drill-down modal showing the matching incidents.
+Every visualization in the dashboard is interactive. Select a segment to open a drilldown modal that shows the matching incidents.
 
 | Selection | What the modal shows |
 |-------------|---------------------|

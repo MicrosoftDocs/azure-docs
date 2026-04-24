@@ -3,7 +3,7 @@ title: Upload Knowledge Documents to Azure SRE Agent
 description: Create and upload runbooks, troubleshooting guides, and documentation to Knowledge settings during conversations to capture institutional knowledge automatically.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 04/22/2026
+ms.date: 04/24/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -13,37 +13,26 @@ ms.custom: knowledge-base, upload, documents, runbooks, troubleshooting, automat
 
 # Upload knowledge documents in Azure SRE Agent
 
-Use knowledge uploads to turn incident fixes, troubleshooting steps, and team documentation into reusable context for future investigations. When the same problem happens again, your agent can draw on that stored knowledge instead of depending on chat history or memory alone.
+Every incident your team resolves generates valuable knowledge, including what went wrong, what commands fixed it, and what to check first next time. This knowledge typically ends up in chat threads, individual memory, or postmortems that are difficult to find during a future incident. Runbooks help, but they go stale quickly. When the same issue occurs again, a different engineer often starts from scratch.
+
+Knowledge uploads solve this problem by turning incident fixes, troubleshooting steps, and team documentation into reusable, searchable context. When the same problem happens again, your agent draws on that stored knowledge instead of depending on chat history or memory alone.
 
 > [!NOTE]
 > This feature is available in version 26.1.57.0 and later.
 
-> [!TIP]
-- Your agent creates and uploads runbooks during conversations with no manual file management.
-- Attach 31 file types in chat, including `.kql`, `.bicep`, `.tf`, `.har`, `.py`, and `.xlsx`, for immediate analysis context.
-- Upload 28 file types to Knowledge settings for persistent, indexed storage across all future conversations.
-- Incident resolutions become institutional knowledge automatically.
-
-## The problem: knowledge dies with the conversation
-
-Every incident your team resolves generates valuable knowledge, including what went wrong, what commands fixed it, and what to check first next time. But that knowledge lives in chat threads, engineer memory, and postmortems that nobody reads at 3 AM.
-
-Your team has runbooks, but they go stale. The fix discovered during last night's incident? It's in someone's head, or buried in a conversation that scrolls out of view by next week. The next time the same issue occurs, a different engineer starts from scratch.
-
-## How your agent solves this problem
+## How it works
 
 Your agent can upload documents to Knowledge settings during conversations by using the **Upload Knowledge Document** tool. When your agent discovers a fix, creates a troubleshooting guide, or synthesizes investigation findings, it stores that knowledge directly. This approach makes the information searchable for every future conversation.
 
 ```text
-"Create a runbook from the steps we just followed to fix this database
-connection pool exhaustion issue and save it to Knowledge settings."
+Create a runbook from the steps we just followed to fix this database connection pool exhaustion issue and save it to Knowledge settings.
 ```
 
 Your agent generates a structured runbook and uploads it in seconds. The document is indexed automatically and becomes searchable for future investigations.
 
 ## Before and after
 
-|  | Before | After |
+| Feature | Before | After |
 |---|--------|-------|
 | **Knowledge capture** | Post-incident: engineer writes runbook (maybe) | Your agent captures the fix as it happens |
 | **Time to document** | 30 to 60 minutes to write a runbook | Seconds. Your agent generates and uploads inline |
@@ -125,7 +114,7 @@ To upload all supported files at once, drag an entire folder onto the upload dro
 > Uploaded files appear as individual documents in Knowledge sources. The original folder hierarchy isn't maintained. A file at `runbooks/networking/dns-troubleshooting.md` appears as `dns-troubleshooting.md`.
 
 > [!NOTE]
-Knowledge settings uploads accept legacy Office formats (`.doc`, `.ppt`, `.xls`) and additional image formats (`.bmp`, `.tiff`, `.tif`) that chat attachments don't. Chat attachments support code, scripts, infrastructure, and web formats that Knowledge settings doesn't.
+> Knowledge settings uploads accept legacy Office formats (`.doc`, `.ppt`, `.xls`) and additional image formats (`.bmp`, `.tiff`, `.tif`) that chat attachments don't. Chat attachments support code, scripts, infrastructure, and web formats that Knowledge settings doesn't.
 
 ### Agent-generated documents
 
@@ -136,12 +125,11 @@ When your agent creates documents during conversations (by using the **Upload Kn
 During an incident investigation, ask your agent:
 
 ```text
-We just resolved the high CPU issue on web-app-prod. It was caused by a
-memory leak in the connection pool. Create a troubleshooting guide from
-what we learned and upload it to Knowledge settings.
+We just resolved the high CPU issue on web-app-prod. It was caused by a memory leak in the connection pool. Create a troubleshooting guide from what we learned and upload it to Knowledge settings.
 ```
 
 Your agent generates a structured troubleshooting guide with:
+
 - **Scoping steps**: how to identify the issue
 - **Quick mitigations**: immediate actions to reduce impact
 - **Root cause analysis**: what to investigate
@@ -161,7 +149,7 @@ The next time a similar CPU issue occurs, your agent automatically references th
 
 ## Limits
 
-|  | Chat attachments | Knowledge settings uploads | Agent tool |
+| Type | Chat attachments | Knowledge settings uploads | Agent tool |
 |---|---|---|---|
 | **Maximum file size** | 10 MB | 16 MB | 16 MB |
 | **Maximum total** | 50 MB per message | 100 MB per upload | Not applicable |
@@ -180,13 +168,7 @@ The next time a similar CPU issue occurs, your agent automatically references th
 | Bulk importing many documents at once | Upload multiple files through **Builder → Knowledge settings → Add file** |
 | Keeping code repositories up to date automatically | Connect a GitHub or ADO connector |
 
-## Get started
-
-| Resource | What you learn |
-|----------|-------------------|
-| [Upload knowledge documents](upload-knowledge-document.md) | Add runbooks and docs to your agent's Knowledge settings |
-
-## Related capabilities
+## Related content
 
 | Capability | What it adds |
 |------------|--------------|

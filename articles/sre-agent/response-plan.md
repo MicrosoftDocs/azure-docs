@@ -11,11 +11,9 @@ ms.custom: incident trigger, response plan, filter, custom agent, automation, tu
 #customer intent: As an SRE, I want to create an incident response plan so that matching incidents are automatically routed to the right custom agent for investigation.
 ---
 
-# Create an Incident Response Plan (Create Trigger via Agent Canvas) in Azure SRE Agent
+# Tutorial: Create an incident response plan for Azure SRE Agent
 
-> [!NOTE]
-> **What you build**
-> A response plan that filters incidents by severity and service, routes matching incidents to a specific custom agent for automated investigation, and demonstrates the enable and disable toggle. Learn more in [Incident response plans](incident-response-plans.md). Time: about 5 to 10 minutes.
+Response plans route incoming incidents to the right custom agent based on filter criteria you define. In this tutorial, you create a response plan from the agent canvas, preview which incidents it matches, and use the enable/disable toggle to control when it's active.
 
 ## Prerequisites
 
@@ -23,9 +21,7 @@ ms.custom: incident trigger, response plan, filter, custom agent, automation, tu
 - At least one custom agent configured
 - Contributor or Owner role on the agent resource
 
----
-
-## Step 1: Open the Agent Canvas
+## Step 1: Open the agent canvas
 
 In the SRE Agent portal, select your agent. In the left sidebar, go to **Builder** → **Agent Canvas**.
 
@@ -34,7 +30,7 @@ In the SRE Agent portal, select your agent. In the left sidebar, go to **Builder
 
 ## Step 2: Create a new response plan
 
-In the Agent Canvas, select **Create** in the toolbar. Select **Trigger** > **Incident response plan**.
+In the agent canvas, select **Create** in the toolbar. Select **Trigger** > **Incident response plan**.
 
 The create dialog opens.
 
@@ -43,10 +39,12 @@ Fill in the filter criteria. The fields shown depend on your incident platform:
 - **Incident response plan name**: Enter a descriptive name, such as `high-sev-api-trigger`.
 
 For **Azure Monitor**:
+
 - **Severity**: Select one or more severity levels.
 - **Title contains** (optional): Add a keyword to narrow matches further.
 
 For **PagerDuty / ServiceNow**:
+
 - **Impacted service**: Select the service this plan covers, or select **All**.
 - **Incident type**: Choose the incident classification, or select **All incident types**.
 - **Priority**: Select one or more priority levels, such as P1 and P2.
@@ -122,8 +120,6 @@ You can see your plan right in the **Incident response plans** page grid with th
 > [!TIP]
 > Use the **Title contains** filter to test safely. Set it to match a specific test incident title (for example, `"[TEST] CPU spike"`) and create a test incident with that title. This method validates your agent's behavior without affecting production routing. Once verified, adjust or remove the title filter.
 
----
-
 ## Edit or delete a response plan
 
 ### Edit
@@ -147,7 +143,7 @@ Deleted plans stop routing incidents immediately. Active investigations that the
 - How filter criteria (severity, service, type, title) route incidents to the right custom agent.
 - How to preview matching historical incidents before committing.
 - How to use the enable/disable toggle to pause and resume routing.
-- How to verify plans in the unified grid view in the Agent Canvas.
+- How to verify plans in the unified grid view in the agent canvas.
 - The difference between Autonomous and Review autonomy levels.
 
 ## Related
