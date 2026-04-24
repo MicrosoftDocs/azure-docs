@@ -1,6 +1,6 @@
 ---
 title: Use delta updates with Azure Device Update for IoT Hub | Microsoft Learn
-description: Understand key concepts for using delta or differential updates with Azure Device Update for IoT Hub.
+description: Generate, configure, import, and deploy delta or differential updates with Azure Device Update for IoT Hub
 author: cwatson-cat
 ms.author: cwatson
 ms.date: 02/14/2025
@@ -12,6 +12,9 @@ ms.subservice: device-update
 # Use delta updates
 
 This article describes how to generate, configure, import, and deploy delta updates with Azure Device Update for IoT Hub. For an overview of how delta updates work, see [Delta Updates](delta-updates.md).
+
+> [!NOTE]
+> Delta updates are available starting with **Device Update agent version 1.3 or later**.
 
 ## Requirements for using delta updates in Device Update for IoT Hub
 
