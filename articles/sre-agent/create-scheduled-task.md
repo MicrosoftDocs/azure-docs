@@ -1,98 +1,103 @@
 ---
-title: "Tutorial: Create and Edit Scheduled Tasks in Azure SRE Agent"
+title: "Tutorial: Create and edit scheduled tasks in Azure SRE Agent"
 description: Set up a recurring automated task and learn how to modify it.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 04/02/2026
 author: craigshoemaker
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
 #customer intent: As an SRE, I want to create a scheduled task so that my agent automates routine checks on a recurring basis.
 ---
 
-# Tutorial: Create and edit scheduled tasks in Azure SRE Agent
+# Create and edit scheduled tasks in Azure SRE Agent
 
-In this tutorial, you set up your agent to run tasks automatically on a schedule (from daily health checks to weekly reports) then modify them as your needs change.
+Scheduled tasks let your agent run automated checks on a recurring basis without manual intervention. You define what the agent should do, set a frequency, and the agent executes the task on schedule. Each run produces a conversation thread with full details on what the agent found and any actions it took.
 
-**Estimated time**: 5 minutes
-
-In this tutorial, you:
-
-> [!div class="checklist"]
-> - Create a recurring automated task from the Scheduled tasks dashboard
-> - Verify task execution through conversation threads
-> - Edit a task's schedule, instructions, or autonomy level
-> - Create a scheduled task from the Agent Canvas
+In this tutorial, you create a scheduled task, verify it runs successfully, and then edit the task to adjust its configuration.
 
 ## Prerequisites
 
 - An agent with the connectors and permissions needed for your task
 - A clear understanding of what you want to automate
 
+---
+
 ## Create a scheduled task
 
-Follow these steps to create a new scheduled task from the portal.
+### 1. Open Scheduled Tasks
 
-1. Go to your agent, and select **Scheduled tasks** in the left sidebar.
+1. Go to your agent, and select **Scheduled tasks** in the sidebar.
 
-    :::image type="content" source="media/common/portal-scheduled-tasks.png" alt-text="Screenshot of scheduled tasks dashboard showing task list and toolbar.":::
+<!-- Screenshot placeholder -->
 
-1. Select **Create task** in the toolbar.
+### 2. Select Create Task
 
-1. Fill in the form:
+Select **Create task** in the toolbar.
 
-    | Field | Example value |
-    |-------|---------------|
-    | **Task name** | Daily Health Check |
-    | **Task details** | Check Azure Resource Health for all resources in prod-rg. Summarize healthy, warning, and critical counts. |
-    | **Frequency** | Daily |
-    | **Time of day (*timezone*)** | 9:00 AM |
+Fill in the form:
 
-    Don't change the default values for optional fields:
+| Field | Example value |
+|-------|---------------|
+| **Task name** | Daily Health Check |
+| **Task details** | Check Azure Resource Health for all resources in prod-rg. Summarize healthy, warning, and critical counts. |
+| **Frequency** | Daily |
+| **Time of day** | 9:00 AM |
 
-    - **Response subagent**: Leave empty to use the main agent.
-    - **Message grouping for updates**: Select **Use same thread** to group results together.
-    - **Agent autonomy level**: Select **Autonomous (Default)** to let the agent act without approval.
+Leave optional fields at their defaults:
 
-    > [!TIP]
-    > When you select **Weekly**, a **Day of week** dropdown appears (default: Monday). For **Monthly**, a **Day of month** dropdown appears (default: 1). For **Custom cron**, the time picker is replaced by a **Cron expression (UTC)** text field.
+- **Response custom agent**: Leave empty to use the main agent.
+- **Message grouping for updates**: "Use same thread" groups results together.
+- **Agent autonomy level**: Autonomous (Default) lets the agent act without approval.
 
-1. Select **Create task**.
+> [!TIP]
+> When you select **Weekly**, a **Day of week** dropdown appears (default: Monday). For **Monthly**, a **Day of month** dropdown appears (default: 1). For **Custom cron**, the time picker is replaced by a **Cron expression (UTC)** text field.
 
-**Checkpoint:** Your task appears in the list with status **On**. You see the task name, frequency, and next run time you configured.
+### 3. Select Create task
 
-## Verify task execution
+**Checkpoint:** Your task appears in the list with status **On**. You should see the task name, frequency, and next run time you configured.
 
-After the first scheduled run, select the task name to view the execution history. Each execution creates a conversation thread that shows:
+### Verify it works
 
-- **Planning steps**: How the agent decides what to do.
-- **Tool usage**: Which connectors and tools the agent calls, with timing.
-- **Memory context**: Relevant past findings the agent considers.
+After the first scheduled run, select the task name to view execution history. Each execution creates a conversation thread that shows:
+- **Planning steps**: How the agent decided what to do.
+- **Tool usage**: Which connectors and tools were called, with timing.
+- **Memory context**: Relevant past findings the agent considered.
 - **Outcome summary**: Results, recommendations, and any notifications sent.
 
 If a run fails, the thread shows the error. After three consecutive failures, the task status changes to **Failed**.
 
 ## Edit a scheduled task
 
-To change the schedule, update instructions, or switch the agent mode, edit the task directly.
+Need to change the schedule, update instructions, or switch the agent mode? Edit the task directly without recreating it. The task's execution history is preserved across edits.
 
-:::image type="content" source="media/create-scheduled-task/portal-scheduled-task-edit-dialog.png" alt-text="Screenshot of edit scheduled task dialog with prepopulated fields.":::
+<!-- Screenshot placeholder -->
 
-1. In the task list, either check the task's checkbox and select **Edit task** in the toolbar, or select the task name to open it directly.
+### 1. Select the task
 
-1. The edit dialog opens with all current values prepopulated. Change the fields you need:
+In the task list, either:
+- Check the task's checkbox and select **Edit task** in the toolbar
+- Select **⋯** on the task row and select **Edit task**
+- Or select the task name to open execution history, and then select **Edit task**
 
-    | What to change | Field to update |
-    |----------------|-----------------|
-    | When it runs | **Frequency** and **Time of day (*timezone*)** |
-    | What it does | **Task details** |
-    | Who handles it | **Response subagent** |
-    | How long it runs | **Repeat until** or **Run limit** |
-    | Safety level | **Agent autonomy level** |
+### 2. Modify fields
 
-1. Select **Save**.
+The edit dialog opens with all current values pre-populated. Change what you need:
+
+| What to change | Field to update |
+|----------------|-----------------|
+| When it runs | **Frequency** and **Time of day** |
+| What it does | **Task details** |
+| Who handles it | **Response custom agent** |
+| How long it runs | **Repeat until** or **Run limit** |
+| Safety level | **Agent autonomy level** |
+
+### 3. Select Save
 
 Your changes take effect immediately. The next run uses the updated configuration.
+
+**Checkpoint:** A notification confirms the update. Select the task name to verify your execution history is still intact – all previous runs remain visible alongside future runs with the updated settings.
 
 > [!TIP]
 > Use **Refine with AI** on the Task details field to improve your instructions after seeing initial results.
@@ -101,17 +106,15 @@ Your changes take effect immediately. The next run uses the updated configuratio
 
 You can also create a scheduled task directly from a custom agent node in the canvas view. This approach preselects the custom agent as the task responder, which is useful when you want a specialized custom agent to handle the task.
 
-1. Go to **Builder** > **Agent Canvas**.
+1. Go to **Builder** → **Agent Canvas**.
 1. Find the custom agent you want to assign the task to.
-1. Select the circular **+** button on the left side of the custom agent node.
+1. Select the circular **+** button on the side of the custom agent node.
 1. Under the **Trigger** group, select **Add scheduled task**.
-1. The create dialog opens with the **Response custom agent** preselected. Fill in the remaining fields as described in [Create a scheduled task](#create-a-scheduled-task).
+1. The create dialog opens with the **Response custom agent** preselected. Fill in the remaining fields as described earlier.
 
 The task appears both on the canvas (connected to the custom agent) and in the **Scheduled tasks** list.
 
 ## Common schedules
-
-The following table lists example schedules for common use cases.
 
 | Use case | Frequency | Time |
 |----------|-----------|------|
@@ -120,13 +123,17 @@ The following table lists example schedules for common use cases.
 | Weekly cost report | Weekly (Monday) | 8:00 AM |
 | Monthly capacity review | Monthly (1st) | 9:00 AM |
 
-## Next step
+## What you learned
 
-> [!div class="nextstepaction"]
-> [Learn about scheduled tasks](./scheduled-tasks.md)
+- How to create a scheduled task from the **Scheduled tasks** page and from the **Agent Canvas**.
+- How to configure frequency, time, and response custom agent.
+- How to edit a task in place while preserving execution history.
+- How to verify scheduled tasks.
 
 ## Related content
 
-- [Scheduled tasks](scheduled-tasks.md)
-- [Workflow automation](workflow-automation.md)
-- [Custom agents](sub-agents.md)
+| Resource | What you learn |
+|----------|-------------------|
+| [Scheduled Tasks](scheduled-tasks.md) | Full capability reference |
+| [Workflow Automation](workflow-automation.md) | Connect tasks with triggers and custom agents |
+| [Custom agents](sub-agents.md) | Assign specialized custom agents to handle scheduled tasks |

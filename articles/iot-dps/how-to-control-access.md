@@ -33,7 +33,8 @@ In some cases you might need to use the HTTP Device Provisioning Service REST AP
 
 ## Device API authentication
 
-The [Device API](/rest/api/iot-dps/device/runtime-registration) is used by devices to attest to the Device Provisioning Service and receive an IoT Hub connection.
+The [Device API](/rest/api/iot-dps/data-plane/runtime-registration)
+ is used by devices to attest to the Device Provisioning Service and receive an IoT Hub connection.
 
 >[!NOTE]
 >In order to receive an authenticated connection, devices must first be registered in the Device Provisioning Service through an enrollment. Use the Service API to programmatically register a device through an enrollment.
@@ -132,7 +133,7 @@ curl -L -i -X PUT –cert ./[device_cert].pem –key ./[device_cert_private_key]
 
 ## Service API authentication
 
-The [Service API](/rest/api/iot-dps/service/device-registration-state) is used to retrieve registration state and remove device registrations. The service is also used by backend apps to programmatically manage both [individual groups](/rest/api/iot-dps/service/individual-enrollment) and [enrollment groups](/rest/api/iot-dps/service/enrollment-group). The Service API supports key-based authentication for backend apps.  
+The [Service API](/rest/api/iot-dps/data-plane/device-registration-state) is used to retrieve registration state and remove device registrations. The service is also used by backend apps to programmatically manage both [individual groups](/rest/api/iot-dps/data-plane/individual-enrollment) and [enrollment groups](/rest/api/iot-dps/data-plane/enrollment-group). The Service API supports key-based authentication for backend apps.  
 
 You must have appropriate permissions to access any of the Service API endpoints. For example, a backend app must include a token containing security credentials along with every message it sends to the service.
 

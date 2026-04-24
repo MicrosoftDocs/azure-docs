@@ -135,7 +135,7 @@ The following command updates the same enrollment group to use the *Lowest laten
 az iot dps enrollment-group update --dps-name MyExampleDps --enrollment-id MyEnrollmentGroup --allocation-policy geolatency --iot-hubs "MyExampleHub.azure-devices.net MyExampleHub-2.azure-devices.net"
 ```
 
-DPS also supports setting allocation policy and selected IoT hubs on the enrollment using the [Create or Update individual enrollment](/rest/api/iot-dps/service/individual-enrollment/create-or-update) and [Create or Update enrollment group](/rest/api/iot-dps/service/enrollment-group/create-or-update) REST APIs, and the [DPS service SDKs](libraries-sdks.md#service-sdks).
+DPS also supports setting allocation policy and selected IoT hubs on the enrollment using the [Create or Update individual enrollment](/rest/api/iot-dps/data-plane/individual-enrollment/create-or-update) and [Create or Update enrollment group](/rest/api/iot-dps/data-plane/enrollment-group/create-or-update) REST APIs, and the [DPS service SDKs](libraries-sdks.md#service-sdks).
 
 ## Allocation behavior
 

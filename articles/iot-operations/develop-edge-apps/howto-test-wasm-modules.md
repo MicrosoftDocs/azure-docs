@@ -128,7 +128,7 @@ aio-dataflow test --app . my-test
 aio-dataflow run stop
 ```
 
-For a complete set of test examples, see the [test-runner/tests](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/test-runner/tests) directory in the samples repository.
+For a complete set of test examples, see the [tests](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/tests) directory in the samples repository.
 
 ## End-to-end testing on a cluster
 

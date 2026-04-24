@@ -139,12 +139,13 @@ The following tables show the current billable status for each DPS API operation
 
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
-| [DPS Device API - runtime registration](/rest/api/iot-dps/device/runtime-registration) | Device registration status lookup | No |
+| [DPS Device API - runtime registration](/rest/api/iot-dps/data-plane/runtime-registration)
+ | Device registration status lookup | No |
 |  | Operation status lookup | No |
 |  | Register device | Yes |
-| [DPS Service API - device registration state](/rest/api/iot-dps/service/device-registration-state)  | All | Yes |
-| [DPS Service API - enrollment group](/rest/api/iot-dps/service/enrollment-group) | All | Yes |
-| [DPS Service API - individual enrollment](/rest/api/iot-dps/service/individual-enrollment) | All  | Yes |
+| [DPS Service API - device registration state](/rest/api/iot-dps/data-plane/device-registration-state)  | All | Yes |
+| [DPS Service API - enrollment group](/rest/api/iot-dps/data-plane/enrollment-group) | All | Yes |
+| [DPS Service API - individual enrollment](/rest/api/iot-dps/data-plane/individual-enrollment) | All  | Yes |
 | [DPS Certificate API](/rest/api/iot-dps/dps-certificate) | All | No |
 | [IoT DPS Resource API](/rest/api/iot-dps/iot-dps-resource) | All  | No |
 

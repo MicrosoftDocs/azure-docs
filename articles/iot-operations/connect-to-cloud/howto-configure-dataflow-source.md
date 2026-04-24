@@ -409,7 +409,7 @@ When you use MQTT or Kafka as the source, you can specify a [schema](concept-sch
 If the source is an asset, the portal automatically infers the schema from the asset definition.
 
 > [!TIP]
-> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
 To configure the schema used to deserialize the incoming messages from a source:
 

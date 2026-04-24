@@ -1,6 +1,181 @@
 {
   "redirections": [
     {
+      "source_path": "articles/hpc-cache/access-policies.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/access-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/add-namespace-paths.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/add-namespace-paths",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/az-cli-prerequisites.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/az-cli-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/cache-usage-models.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/cache-usage-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/client-load-balancing.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/client-load-balancing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/configuration.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/custom-flush-script.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/custom-flush-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/customer-keys.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/customer-keys",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/directory-services.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/directory-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-add-storage.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-add-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-blob-firewall-fix.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-blob-firewall-fix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-create.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-edit-storage.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-edit-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-ingest-manual.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-ingest-manual",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-ingest-msrsync.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-ingest-msrsync",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-ingest-parallelcp.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-ingest-parallelcp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-ingest.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-ingest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-manage.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-mount.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-mount",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-namespace.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-namespace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-netapp.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-netapp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-overview.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-prerequisites.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-security-info.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-security-info",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-cache-support-ticket.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-cache-support-ticket",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/hpc-region-recovery.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/hpc-region-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/increase-quota.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/increase-quota",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/index.yml",
+      "redirect_url": "/previous-versions/azure/hpc-cache/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/manage-storage-targets.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/manage-storage-targets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/metrics.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/move-resource.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/move-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/nfs-blob-considerations.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/nfs-blob-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/prime-cache.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/prime-cache",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/troubleshoot-nas.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/troubleshoot-nas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hpc-cache/usage-scenarios.md",
+      "redirect_url": "/previous-versions/azure/hpc-cache/usage-scenarios",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/playwright-testing/concept-determine-optimal-configuration.md",
       "redirect_url": "/azure/app-testing",
       "redirect_document_id": false
@@ -5046,16 +5221,6 @@
       "source_path_from_root": "/articles/expressroute/expressroute-howto-add-ipv6-portal.md",
       "redirect_url": "/azure/expressroute/expressroute-howto-add-ipv6",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/external-attack-surface-management/data-connections-overview.md",
-      "redirect_url": "/azure/external-attack-surface-management/index",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/external-attack-surface-management/labeling-inventory-assets.md",
-      "redirect_url": "/azure/external-attack-surface-management/modifying-inventory-assets",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/firewall-manager/multiple-public-ip-powershell.md",

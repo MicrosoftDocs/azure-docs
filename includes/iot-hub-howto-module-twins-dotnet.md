@@ -141,7 +141,7 @@ private async Task OnDesiredPropertyChangedAsync(TwinCollection desiredPropertie
 The Azure IoT SDK for .NET provides working samples of device apps that handle module identity twin tasks. For more information, see:
 
 * [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample)
-* [Device Client Tests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/tests/DeviceClientTests.cs)
+* [Device Client Tests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/tests/IotHubDeviceClientTests.cs)
 
 ## Create a backend application
 
@@ -222,4 +222,4 @@ catch (Exception e)
 
 ### SDK service sample
 
-The Azure IoT SDK for .NET provides a working sample of a service app that handles module identity twin tasks. For more information, see [Registry Manager E2E Tests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs).
+The Azure IoT SDK for .NET provides a working sample of a service app that handles module identity twin tasks. For more information, see [Registry Manager E2E Tests](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/how%20to%20guides/RegistryManagerSample).

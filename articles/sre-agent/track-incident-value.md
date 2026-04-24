@@ -1,30 +1,30 @@
 ---
-title: Track Incident Value in Azure SRE Agent
-description: Measure your agent's impact with interactive analytics — drill into incidents from any chart, filter by response plan, and track quality with star ratings.
-ms.topic: concept-article
+title: Track incident value in Azure SRE Agent
+description: Measure your agent's impact with interactive analytics. Drill into incidents from any chart, filter by response plan, and track quality with star ratings.
+ms.topic: conceptual
 ms.service: azure-sre-agent
-ms.date: 03/25/2026
+ms.date: 04/24/2026
 author: craigshoemaker
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
 ms.custom: incidents, metrics, value, daily-reports, incident-scorecard, response-plans, analytics, MTTR, mitigation-rate, intent-met, scheduled-tasks, drill-down, treemap, star-ratings
 #customer intent: As an engineering manager, I want to track my agent's incident response impact so that I can prove ROI and optimize my automation strategy.
 ---
 
 # Track incident value in Azure SRE Agent
+
+You deployed an AI agent to handle incidents. Leadership wants to know: *Is it actually reducing toil? Which incidents is it resolving on its own? Are we getting ROI from this investment?*
+
+Today, answering those questions means manually querying telemetry, cross-referencing incident tickets, and guessing which response plans are effective. There's no single view that shows what your agent did, how well each response plan performed, or whether mitigation rates are improving over time.
+
+Without this data, you can't distinguish a response plan that resolves 80% of incidents autonomously from one that escalates everything to humans. You can't show your team that the agent handled 15 incidents overnight while everyone slept. And you can't make informed decisions about where to invest in better automation.
+
 > [!TIP]
-> - Click any chart segment, severity bar, or root-cause tile to drill down into matching incidents with search and filtering.
+> - Select any chart segment, severity bar, or root-cause tile to drill down into matching incidents with search and filtering.
 > - Filter the entire dashboard to a single response plan. All KPI cards, charts, and treemap update.
-> - Four KPI cards show hours saved, success rate with stacked outcome bar, median time-to-mitigate, and quality score with star ratings (1–5).
+> - Four KPI cards show hours saved, success rate with stacked outcome bar, median time-to-mitigate, and quality score with star ratings (1 to 5).
 > - Treemap root-cause view sizes tiles proportionally by incident count so your biggest problem is immediately visible.
-
-## Overview
-
-You deployed an AI agent to handle incidents. Leadership wants to know whether it reduces toil, which incidents it resolves on its own, and whether the investment delivers ROI.
-
-Answering those questions typically requires manual telemetry queries, cross-referencing incident tickets, and guessing which response plans are effective. There's no single view that shows what your agent did, how each response plan performed, or whether mitigation rates improve over time.
-
-Without this data, you can't distinguish a response plan that resolves 80% of incidents autonomously from one that escalates everything to humans. You can't show your team that the agent handled 15 incidents overnight. And you can't make informed decisions about where to invest in better automation.
 
 ## How incident value tracking works
 
@@ -54,7 +54,7 @@ The **Quality Score** card uses a 5-star rating to make the Intent Met score ins
 Every visualization in the dashboard is clickable. Select a segment to open a drill-down modal showing the matching incidents.
 
 | Click target | What the modal shows |
-|-------------|---------------------|
+| --- | --- |
 | Root-cause treemap tile | Incidents with that root cause |
 | Severity distribution bar | Incidents at that severity level |
 | Volume chart data point | Incidents from that date, optionally filtered by outcome |
@@ -98,22 +98,26 @@ This grid is where you make decisions. You can see at a glance which plans run i
 
 ### Intent Met score
 
-The **Intent Met score** measures how effectively your agent resolves work, whether that's an incident investigation or a scheduled task execution. After each thread completes, an automated evaluation scores the outcome on a 1–5 scale:
+The **Intent Met score** measures how effectively your agent resolves work, whether that's an incident investigation or a scheduled task execution. After each thread completes, an automated evaluation scores the outcome on a 1 to 5 scale:
 
 | Score | Meaning |
 |-------|---------|
-| **5** | Exceptionally resolved—exceeded expectations with additional insights |
-| **4** | Well resolved—successfully completed with clear evidence of satisfaction |
-| **3** | Partially resolved—made progress but didn't fully resolve, or thread is waiting for user action |
-| **2** | Poorly resolved. The agent attempted but failed significantly |
-| **1** | Unresolved. The agent failed to address the core objective |
+| **5** | Exceptionally resolved. Exceeded expectations with additional insights. |
+| **4** | Well resolved. Successfully completed with clear evidence of satisfaction. |
+| **3** | Partially resolved. Made progress but didn't fully resolve, or thread is waiting for user action. |
+| **2** | Poorly resolved. Attempted but failed significantly. |
+| **1** | Completely unresolved. Failed to address the core objective. |
 
-The **Quality Score** KPI card on the dashboard displays the average Intent Met score as X / 5 with a star rating visualization. The same star rating appears in the response plan grid's Quality column, making it easy to compare quality across plans.\n\nThe score combines results from both incident threads and scheduled task threads into a single unified metric. You measure your agent's effectiveness at proactive automation, such as scheduled health checks, compliance scans, and cost monitoring, alongside reactive incident response.
+The **Quality Score** KPI card on the dashboard displays the average Intent Met score as X / 5 with a star rating visualization. The same star rating appears in the response plan grid's Quality column, making it easy to compare quality across plans.
 
-Intent Met scoring is fully automatic. No configuration is needed. The system evaluates every completed incident and scheduled task thread using the same scoring criteria. Scheduled tasks that are still waiting for user action receive a score of 3, reflecting their indeterminate outcome.
+The score combines results from both incident threads and scheduled task threads into a single unified metric. You measure your agent's effectiveness at proactive automation, such as scheduled health checks, compliance scans, and cost monitoring, alongside reactive incident response.
+
+Intent Met scoring is fully automatic. No configuration is needed because every completed incident and scheduled task thread is evaluated using the same scoring criteria. Scheduled tasks that are still waiting for user action receive a score of 3, reflecting their indeterminate outcome.
 
 > [!TIP]
-> If your Intent Met score is lower than expected, review individual thread conversations in **Monitor** > **Session insights** to understand where the agent struggled. Common improvements include clearer task instructions, adding relevant connectors, or adjusting the agent's tools.
+> If your Intent Met score is lower than expected, review individual thread conversations in **Monitor → Session insights** to understand where the agent struggled. Common improvements include clearer task instructions, adding relevant connectors, or adjusting the agent's tools.
+
+---
 
 ## Before and after
 
@@ -131,31 +135,25 @@ The following table compares incident tracking workflows before and after using 
 
 ## Incident overview
 
-For a real-time view of every incident your agent handles, go to **Incidents** in the left sidebar.
-
-:::image type="content" source="media/track-incident-value/incidents-overview.png" alt-text="Screenshot of the incidents overview showing incident grid with status cards, filterable by time range, priority, and investigation status.":::
+For a real-time view of every incident your agent is handling, go to **Incidents** in the left sidebar.
 
 The page shows summary cards for incident status (Triggered, Acknowledged) and agent investigation status (Pending user input, In progress, Completed), plus a filterable grid of all incidents. Filter by time range, priority, status, investigation status, or search for specific incidents.
 
-Each row links to the agent's investigation thread, so you can review exactly what the agent did: which tools it called, what evidence it found, and what it recommended.
+Each row links to the agent's investigation thread, so you can review exactly what the agent did, including which tools it called, what evidence it found, and what it recommended.
 
 ## Daily reports
 
-Your agent generates automated daily reports that you can access at **Daily reports** in the left sidebar.
-
-:::image type="content" source="media/track-incident-value/daily-reports.png" alt-text="Screenshot of the daily report showing security findings, incident summary, resource health metrics, and recommended actions.":::
+Your agent generates automated daily reports accessible at **Daily reports** in the left sidebar.
 
 Select a date to view that day's report. Each report covers:
 
-- **Security findings**: CVE vulnerabilities across connected repositories, grouped by severity
-- **Incidents**: Active, mitigated, and resolved counts with per-incident investigation details
-- **Health and performance**: Per-resource health status with availability, CPU, and memory metrics
-- **Code optimizations**: Performance recommendations identified by the agent
-- **Recommended actions**: Prioritized action items with descriptions and estimated effort
+- **Security findings**: CVE vulnerabilities across connected repositories, grouped by severity.
+- **Incidents**: Active, mitigated, and resolved counts with per-incident investigation details.
+- **Health and performance**: Per-resource health status with availability, CPU, and memory metrics.
+- **Code optimizations**: Performance recommendations identified by the agent.
+- **Recommended actions**: Prioritized action items with descriptions and estimated effort.
 
 Daily reports replace the "what happened overnight?" morning routine. Instead of asking your agent or querying dashboards, the information is already compiled and waiting.
-
-## What makes incident value tracking different
 
 Incident metrics dashboards aren't new. Most observability platforms have them. The difference here is that you measure the agent's contribution, not just incident volume, and every metric is interactive.
 
@@ -175,14 +173,11 @@ Incident tracking is built in. Open the **Incidents** tab in the agent portal to
 |----------|-------------------|
 | [Set up a response plan](response-plan.md) | Configure incident response plans that generate tracking data |
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [Monitor agent usage](./monitor-agent-usage.md)
-
 ## Related content
 
-- [Automate incident response](incident-response.md)
-- [Automate tasks on a schedule](scheduled-tasks.md)
-- [Monitor agent usage](monitor-agent-usage.md).
-- [Audit agent actions](audit-agent-actions.md).
+| Capability | What it adds |
+|------------|--------------|
+| [Automate incident response](incident-response.md) | Configure response plans that determine how your agent handles each incident type |
+| [Automate tasks on a schedule](scheduled-tasks.md) | Set up recurring tasks whose quality is reflected in the Intent Met score |
+| [Monitor agent usage](monitor-agent-usage.md) | Track AAU consumption and session insights alongside incident metrics |
+| [Audit agent actions](audit-agent-actions.md) | Review the specific actions your agent took during incident investigations |

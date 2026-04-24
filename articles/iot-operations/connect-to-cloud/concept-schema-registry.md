@@ -71,7 +71,7 @@ Both formats require `type: "object"` and a `properties` field that defines the 
 
 ### Generate a schema
 
-To generate a schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+To generate a schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
 For a tutorial that uses the schema generator, see [Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2](./tutorial-opc-ua-to-data-lake.md).
 

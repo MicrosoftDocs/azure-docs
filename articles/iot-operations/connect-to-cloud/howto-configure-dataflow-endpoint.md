@@ -33,7 +33,7 @@ Use the following table to choose the endpoint type to configure:
 > [!IMPORTANT]
 > Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use data flow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](./howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 > 
-> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
 ## Data flows must use local MQTT broker endpoint
 
