@@ -1,7 +1,6 @@
 ---
 ms.topic: include
-ms.date: 04/07/2026
-
+ms.date: 04/24/2026
 ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli
 ms.service: azure-app-service
@@ -18,18 +17,18 @@ ms.service: azure-app-service
 
 1. In a browser, go to your deployed app at `<app-name>.azurewebsites.net`. Try the language detector by entering strings in various languages.
 
-    ![Screenshot that shows the deployed language detector app in App Service.](../../media/tutorial-connect-msi-key-vault/deployed-app.png)
+   :::image type="content" source="../../media/tutorial-connect-msi-key-vault/deployed-app.png" alt-text="Screenshot that shows deployed language detector app in App Service.":::
 
-    If you look at the application code, the debug output for the detection results might be in the same font color as the background. You can see the output by highlighting the white space directly below the result.
+   If you look at the application code, you might notice the debug output for the detection results in the same font color as the background. You can see it by trying to highlight the white space directly below the result.
 
 ## Secure back-end connectivity
 
-Connection secrets are now stored as app settings in your App Service app. This approach already secures connection secrets from your application codebase. However, any contributor who can manage your app can also see the app settings. In this step, you move the connection secrets to a key vault and lock down access so that only you can manage it and only the App Service app can read it by using its managed identity.
+At the moment, connection secrets are stored as app settings in your App Service app. This approach already secures connection secrets from your application codebase. However, any contributor who can manage your app can also see the app settings. In this section, you move the connection secrets to a key vault. You lock down access so that only you can manage it and only the App Service app can read it using its managed identity.
 
 1. Create a key vault. Replace *\<vault-name>* with a unique name.
 
     ```azurecli-interactive
-    # Save the app name as a variable for convenience
+    # Save key vault name as variable for convenience
     vaultName=<vault-name>
 
     az keyvault create --resource-group $groupName --name $vaultName --location $region --sku standard --enable-rbac-authorization
@@ -78,7 +77,7 @@ az group delete --name $groupName
 
 This command might take a minute to run.
 
-## Next steps
+## Related content
 
 - [Tutorial: Isolate back-end communication with Virtual Network integration](../../tutorial-networking-isolate-vnet.md)
 - [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)

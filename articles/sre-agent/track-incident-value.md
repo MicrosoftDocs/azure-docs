@@ -1,11 +1,12 @@
 ---
-title: Track Incident Value in Azure SRE Agent
-description: Measure your agent's impact with interactive analytics, drill into incidents from any chart, filter by response plan, and track quality with star ratings.
-ms.topic: concept-article
+title: Track incident value in Azure SRE Agent
+description: Measure your agent's impact with interactive analytics. Drill into incidents from any chart, filter by response plan, and track quality with star ratings.
+ms.topic: conceptual
 ms.service: azure-sre-agent
-ms.date: 04/22/2026
+ms.date: 04/24/2026
 author: craigshoemaker
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
 ms.custom: incidents, metrics, value, daily-reports, incident-scorecard, response-plans, analytics, MTTR, mitigation-rate, intent-met, scheduled-tasks, drill-down, treemap, star-ratings
 #customer intent: As an engineering manager, I want to track my agent's incident response impact so that I can prove ROI and optimize my automation strategy.
@@ -135,9 +136,7 @@ The score combines results from both incident threads and scheduled task threads
 Intent Met scoring is fully automatic. No configuration is needed. Every completed incident and scheduled task thread is evaluated using the same scoring criteria. Scheduled tasks that are still waiting for user action receive a score of 3, reflecting their indeterminate outcome.
 
 > [!TIP]
-If your Intent Met score is lower than expected, review individual thread conversations in **Monitor → Session insights** to understand where the agent struggled. Common improvements include clearer task instructions, adding relevant connectors, or adjusting the agent's tools.
-
----
+> If your Intent Met score is lower than expected, review individual thread conversations in **Monitor → Session insights** to understand where the agent struggled. Common improvements include clearer task instructions, adding relevant connectors, or adjusting the agent's tools.
 
 ## Before and after
 
@@ -150,8 +149,6 @@ If your Intent Met score is lower than expected, review individual thread conver
 | **Measuring scheduled task quality** | Read each task's thread transcript and manually judge whether the objective was met | Automatic Intent Met score evaluates every completed thread, with incidents and scheduled tasks combined into a single quality metric |
 | **Dashboard loading** | All cards and charts stay blank until every query finishes | Each card and chart renders independently as its data arrives, so you can start reading metrics in seconds |
 | **Reading charts over 30 days** | Date labels overlap and become unreadable, so you must stick to shorter ranges or hover over individual points | Labels auto-rotate at 45 degrees and TTM bars show proportional widths, which keeps charts readable at any time range |
-
----
 
 ## Incident overview
 
@@ -193,7 +190,7 @@ Incident tracking is built in. Open the **Incidents** tab in the agent portal to
 |----------|-------------------|
 | [Set up a response plan](response-plan.md) | Configure incident response plans that generate tracking data |
 
-## Related capabilities
+## Related content
 
 | Capability | What it adds |
 |------------|--------------|
