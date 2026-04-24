@@ -11,29 +11,56 @@ ms.subservice: device-update
 
 # Use delta updates
 
-This article describes how to generate, configure, import, and deploy delta updates with Azure Device Update for IoT Hub. For an overview of how delta updates work, see [Delta Updates](delta-updates.md).
+This article describes how to generate, configure, import, and deploy delta updates with Azure Device Update for IoT Hub. For an overview of how delta updates work, see [Azure Device Update for IoT Hub delta updates](delta-updates.md).
 
 > [!NOTE]
 > Delta updates are available starting with **Device Update agent version 1.3 or later**.
 
-## Requirements for using delta updates in Device Update for IoT Hub
+## Prerequisites
 
-- The source and target update files must be in SWUpdate (SWU) format.
-- Within each SWUpdate file, there must be a raw image that uses the Ext2, Ext3, or Ext4 filesystem.
+Before generating or deploying delta updates, make sure the following are in place:
 
-The delta generation process recompresses the target SWU update using gzip compression to produce an optimal delta. You import the recompressed target SWU update to the Device Update service along with the generated delta update file.
+- An Azure Device Update for IoT Hub account and instance.
+- An IoT device or simulator provisioned for Device Update with **agent version 1.3 or later**. For instructions, see [Device Update agent provisioning](device-update-agent-provisioning.md)
+- Source and target update files in **SWUpdate (SWU) format**. Delta updates currently support image-based updates only.
+- Within each SWUpdate file, a raw image that uses the **Ext2, Ext3, or Ext4** filesystem.
 
-## Device Update agent configuration for the delta processor component
+The delta generation process recompresses the target SWU update using gzip compression to produce an optimal delta. Import the recompressed target SWU update to the Device Update service along with the generated delta update file.
 
-To download and install delta updates from the Device Update service, your device needs the Device Update agent with the update handler and delta processor component present and configured.
+## Configure the device
 
-### Device Update agent
+The Device Update agent (version 1.3 or later) handles update orchestration. To support delta updates specifically, the device also needs:
 
-The Device Update agent _orchestrates_ the update process on the device, including download, install, and restart actions. To add the Device Update agent to a device and configure it for use, see [Device Update agent provisioning](device-update-agent-provisioning.md). Use agent version 1.0 or later.
+- A compatible **update handler** (for SWU updates, this is the SWUpdate handler).
+- The **delta processor extension** to reconstruct the full target update from the delta.
+
+The following sections describe how to set up each one.
 
 ### Update handler
 
-An update handler integrates with the Device Update agent to perform the actual update install. For delta updates, start with the [`microsoft/swupdate:2` update handler](https://github.com/Azure/iot-hub-device-update/blob/main/src/extensions/step_handlers/swupdate_handler_v2/README.md) if you don't already have your own SWUpdate update handler that you want to modify.
+For delta updates, start with the [microsoft/swupdate:2 update handler README](https://github.com/Azure/iot-hub-device-update) if you don't already have a custom SWUpdate update handler.
+
+> [!NOTE]
+> The SWUpdate handler isn't installed or registered by default when you install the Device Update agent package. Include or register it as part of your device image.
+
+### Delta processor extension
+
+The delta processor extension reconstructs the full target SWU image on the device by combining the downloaded delta update with the source version already on the device. The update handler then installs the reconstructed update.
+
+You can install the delta processor extension using one of the following options.
+
+#### Option 1: Install the prebuilt library manually
+
+Use this option if you build your device image without Yocto, or if you prefer to install the delta processor library directly on a device.
+
+Download the prebuilt delta processor library from the [Azure/iot-hub-device-update-delta repo](https://github.com/Azure/iot-hub-device-update-delta/tree/main/preview/3.0.0). Choose the version that matches the OS and architecture of your device.
+
+For Ubuntu 20.04 and later, install the Debian package directly. For other distributions, follow the `README.md` instructions to build the delta processor from source using CMAKE, then install the shared object `libadudiffapi.so` by copying it to `/usr/lib`:
+
+```bash
+sudo cp <path to libadudiffapi.so> /usr/lib/libadudiffapi.so
+sudo ldconfig
+```
 
 ### Delta processor
 
