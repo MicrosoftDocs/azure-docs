@@ -18,9 +18,9 @@ Decide before deployment whether you need to customize MQTT client options for t
 
 The MQTT broker advanced client options control how the broker interacts with MQTT clients. These settings, negotiated between the broker and the client during connection, include session expiry, message expiry, receive maximum, and keep alive. The only setting specific to Azure IoT Operations is the [subscriber queue limit](#subscriber-queue-limit).
 
-For the complete list of available settings, see the [ClientConfig](/rest/api/iotoperations/broker/create-or-update#clientconfig) API reference.
+In many scenarios, the default client settings are sufficient. To override the default client settings for the MQTT broker, edit the `advanced.clients` section in the Broker resource. Currently, this override is supported only by using the `--broker-config-file` flag when you deploy IoT Operations by using the `az iot ops create` command. For more information, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
 
-In many scenarios, the default client settings are sufficient. To override the default client settings for the MQTT broker, edit the `advanced.clients` section in the Broker resource. Currently, this override is supported only by using the `--broker-config-file` flag when you deploy IoT Operations by using the `az iot ops create` command.
+For the complete list of available settings, see the [ClientConfig](/rest/api/iotoperations/broker/create-or-update#clientconfig) API reference.
 
 To get started, prepare a Broker configuration file in JSON format, like the following example:
 
