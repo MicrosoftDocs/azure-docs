@@ -388,7 +388,7 @@ Here is an example of response payloads including the orchestration status (form
 ```
 
 > [!NOTE]
-> This operation can be expensive in terms of Azure Storage I/O if you're using the [Azure Storage provider](../../durable-task/common/durable-task-storage-providers.md#azure-storage) and there are many rows in the Instances table. For more information about the Instances table, see the [Azure Storage provider](durable-functions-azure-storage-provider.md#instances-table) documentation.
+> This operation can be expensive in terms of Azure Storage I/O if you're using the [Azure Storage provider](../../durable-task/common/durable-task-storage-providers.md#azure-storage) and there are many rows in the Instances table. For more information about the Instances table, see the [Azure Storage provider](durable-functions-azure-storage-provider.md#instances-table-for-orchestration-and-entity-status) documentation.
 
 If more results exist, a continuation token is returned in the response header. The name of the header is `x-ms-continuation-token`.
 
@@ -487,7 +487,7 @@ Request parameters for this API include the default set mentioned previously and
 | **`runtimeStatus`**   | Query string    | Optional parameter. When specified, filters the list of purged instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](../../durable-task/common/durable-task-instance-management.md) article. |
 
 > [!NOTE]
-> This operation can be expensive in terms of Azure Storage I/O if you're using the [Azure Storage provider](../../durable-task/common/durable-task-storage-providers.md#azure-storage) and there are many rows in the Instances or History tables. For more information about these tables, see [Performance and scale in Durable Functions (Azure Functions)](durable-functions-azure-storage-provider.md#instances-table).
+> This operation can be expensive in terms of Azure Storage I/O if you're using the [Azure Storage provider](../../durable-task/common/durable-task-storage-providers.md#azure-storage) and there are many rows in the Instances or History tables. For more information about these tables, see [Performance and scale in Durable Functions (Azure Functions)](durable-functions-azure-storage-provider.md#instances-table-for-orchestration-and-entity-status).
 
 ### Response
 

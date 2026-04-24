@@ -74,14 +74,14 @@ You can see a list of supported Azure services here: [Supported Azure compute se
 
 ## Make your ADE catalog compatible with `azd`
 
-To enable your development teams to us `azd` with ADE, you need to create an environment definition in your catalog that is compatible with `azd`. You can create a new `azd`compatible environment definition, or you can use an existing environment definition from the Azure Deployment Environments dev center catalog. If you choose to use an existing environment definition, you need to make a few changes to make it compatible with `azd`.
+To enable your development teams to use `azd` with ADE, you need to create an environment definition in your catalog that is compatible with `azd`. You can create a new `azd`compatible environment definition, or you can use an existing environment definition from the Azure Deployment Environments dev center catalog. If you choose to use an existing environment definition, you need to make a few changes to make it compatible with `azd`.
 
 Changes include:
 - If you're modifying an existing `azd` template, remove the `infra` folder. ADE uses the following files to create the infrastructure:
     - ARM template (azuredeploy.json.)
     - Configuration file that defines parameters (environment.yaml or manifest.yaml)
 - Tag resources in *azure.yaml* with specific information so that `azd` knows how to find the hosts and deploy the app to them.
-    - Learn about [Tagging resources for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#tagging-resources-for-azure-deployment-environments).
+    - Learn about [Tagging resources for Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration#tagging-resources-for-azure-deployment-environments).
     - Learn about [Azure Developer CLI's azure.yaml schema](/azure/developer/azure-developer-cli/azd-schema).
 
 To learn more about how to make your ADE environment definition compatible with `azd`, see [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/ade-integration).
@@ -97,7 +97,7 @@ To enable `azd` support, run the following command:
    ```
 ### Explore `azd` commands
 
-When the dev center feature is enabled, the default behavior of some common `azd` commands changes to work with these remote environments. For more information, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#work-with-azure-deployment-evironments).
+When the dev center feature is enabled, the default behavior of some common `azd` commands changes to work with these remote environments. For more information, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration#work-with-azure-deployment-environments).
 
 
 ## Related content

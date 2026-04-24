@@ -83,7 +83,7 @@ The following URLs are optional. You can choose to skip allowlisting these based
 **URL (Optional)** | **Details**  | **Impact**|
 --- | --- | --- |
 portal.azure.com | Required for Azure portal access. | The appliance Configuration Manager cannot automatically use the portal for time sync checks with internet time server.
-download.microsoft.com/* <br> aka.ms/v2arcmlatestapplianceservices | Download the latest versions of the appliance components (auto-updater). | The appliance cannot automatically check for or update agents to the latest versions. In this scenario [agents must be manually updated](/azure/site-recovery/migrate-appliance.md#manually-update-an-older-version) and [auto update must be disabled](/azure/site-recovery/migrate-appliance.md#turn-off-auto-update).
+download.microsoft.com/* <br> aka.ms/v2arcmlatestapplianceservices | Download the latest versions of the appliance components (auto-updater). | The appliance cannot automatically check for or update agents to the latest versions. In this scenario [agents must be manually updated](/azure/migrate/migrate-appliance#manually-update-an-older-version) and [auto update must be disabled](/azure/migrate/migrate-appliance#turn-off-auto-update).
 *.services.visualstudio.com <br> *.events.data.microsoft.com | Upload diagnostics logs for appliance components. | Appliance diagnostic logs will not be sent to Microsoft. This may affect Microsoft Support's ability to troubleshoot issues.
 
 #### Allow URLs for government clouds
