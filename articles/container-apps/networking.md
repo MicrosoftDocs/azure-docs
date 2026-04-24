@@ -134,7 +134,7 @@ Azure Container Apps uses an edge HTTP proxy that terminates Transport Layer Sec
 
 HTTP applications scale based on the number of HTTP requests and connections. Envoy routes internal traffic inside clusters.
 
-Downstream connections support HTTP1.1 and HTTP2 and Envoy automatically detects and upgrades connections if the client connection requires an upgrade.
+Downstream connections support HTTP/1.1 and HTTP/2 and Envoy automatically detects and upgrades connections if the client connection requires an upgrade.
 
 Upstream connections are defined by setting the `transport` property on the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) object.
 

@@ -1,9 +1,8 @@
 ---
 author: cephalin
 ms.service: azure-app-service
-ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/14/2025
+ms.date: 04/20/2026
 ms.author: cephalin
 ---
 
@@ -81,7 +80,7 @@ Make sure you're in the cloned repository's root folder. This repository contain
 
    - Enter a globally unique name for your web app.
    - Select **Container**.
-   - For **Operating System**, select **Linux**.
+   - For **Operating System**, select **Windows**.
    - For **Region**, select the region from which you want to serve your app.
 
    :::image type="content" source="../../media/quickstart-custom-container/instance-details-windows.png" alt-text="Screenshot that shows the Instance details section where you provide a name for the virtual machine and select its region, image, and size.":::
@@ -95,7 +94,7 @@ Make sure you're in the cloned repository's root folder. This repository contain
 1. On the **Container** tab, for **Image Source**, select **Azure Container Registry**. Under **Azure Container Registry options**, set the following values:
 
    - **Registry**: Select your container registry.
-   - **Image**: Select **dotnetcore-docs-hello-world-linux**.
+   - **Image**: Select **dotnetcore-docs-hello-world-windows**.
    - **Tag**: Select **latest**.
 
    :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-windows.png" alt-text="Screenshot that shows Azure Container Registry options.":::
@@ -128,11 +127,11 @@ The App Service app pulls from the container registry each time it starts. If yo
 
 - [Configure a custom container](../../configure-custom-container.md)
 - [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
-- [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Monitor Azure App Service](../../monitor-app-service.md)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [Secure with a custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 - [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
-- [Use private endpoints for App Service apps](../../networking/private-endpoint.md)
+- [Use private endpoints for App Service apps](../../overview-private-endpoint.md)
 - [Use Azure Container Registry with Azure Private Link](/azure/container-registry/container-registry-private-link)
 - [Migrate to a Windows container in Azure](../../tutorial-custom-container.md)
 - [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)
