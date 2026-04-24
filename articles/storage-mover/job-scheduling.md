@@ -56,12 +56,12 @@ To define a job schedule while creating a new migration job, complete the follow
     > [!NOTE]
     > For recurring schedules, the end date must be within one year of the start date. You can update the end date later, but it must stay within that one-year window.
 
-    :::image type="content" source="media/job-scheduling/create-job-scheduling-settings.png" alt-text="Screenshot of the job scheduling settings in Azure Storage Mover.":::
+    :::image type="content" source="media/job-scheduling/create-job-scheduling-settings-sml.png" alt-text="Screenshot of the job scheduling settings in Azure Storage Mover." lightbox="media/job-scheduling/create-job-scheduling-settings-lrg.png":::
 
 1. Select *Create*.
 1. After the job is created, open the job and select *Enable* to activate the schedule.
 
-:::image type="content" source="media/job-scheduling/enable-schedulinge-for-job.png" alt-text="Screenshot of enabling a schedule for a job in Azure Storage Mover.":::
+:::image type="content" source="media/job-scheduling/enable-scheduling-for-job-sml.png" alt-text="Screenshot of enabling a schedule for a job in Azure Storage Mover." lightbox="media/job-scheduling/enable-scheduling-for-job-lrg.png":::
 
 ## Update the schedule for an existing job
 
@@ -70,4 +70,4 @@ To define a job schedule while creating a new migration job, complete the follow
 1. Select the *Scheduling* tab and update the schedule settings.
 1. Select *Save*.
 
-:::image type="content" source="media/job-scheduling/edit-job-schedule-settings.png" alt-text="Screenshot of editing schedule settings for an existing job.":::
+:::image type="content" source="media/job-scheduling/edit-job-schedule-settings-sml.png" alt-text="Screenshot of editing schedule settings for an existing job." lightbox="media/job-scheduling/edit-job-schedule-settings-lrg.png":::
