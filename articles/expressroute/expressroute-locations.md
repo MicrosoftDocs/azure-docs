@@ -98,7 +98,7 @@ The following table shows locations by service provider. If you want to view ava
 | **DCI Indonesia** |&check; |&check; | Jakarta Metro |
 | **[DE-CIX](https://www.de-cix.net/en/services/directcloud/microsoft-azure)** | &check; |&check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Chennai<br/>Chicago2<br/>Copenhagen<br/>Dallas<br/>Doha2<br/>Dubai2<br/>Frankfurt<br/>Frankfurt2<br/>Jakarta<br/>Jakarta2<br/>Kuala Lumpur<br/>Madrid<br/>Madrid2<br/>Marseille<br/>Mumbai<br/>Munich<br/>New York<br/>Osaka<br/>Oslo<br/>Phoenix<br/>Queretaro<br/>Rio de Janeiro<br/>Sao Paulo<br/>Seattle<br/>Singapore2<br/>Tokyo2 |
 | **[Devoli](https://devoli.com/)** | &check; |&check; | Auckland<br/>Melbourne<br/>Sydney |
-| **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | &check; |&check; | Frankfurt |
+| **[Deutsche Telekom AG IntraSelect](https://business.telekom.com/global/products-and-solutions/next-level-networking/mpls/intraselect-transport-connect/)** | &check; |&check; | Frankfurt |
 | **[Deutsche Telekom AG](https://www.t-systems.com/de/en/cloud-services/solutions/public-cloud/azure-managed-cloud-services/cloud-connect-for-azure)** | &check; |&check; | Amsterdam<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Hong Kong2 |
 | **[Digital Realty](https://www.digitalrealty.com/partners/microsoft-azure)** | &check; | &check; | Amsterdam Metro<br/>Amsterdam2<br/>Atlanta2<br/>Brussels<br/>Dallas2<br/>Hong Kong2<br/>London<br/>Phoenix2<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore2<br/>Sydney2<br/>Tokyo2<br/>Vienna<br/>Washington DC<br/>Zurich Metro |
 | **du datamena** |&check; |&check; | Dubai2 |
@@ -233,7 +233,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | &check; | &check; | Osaka<br/>Tokyo2 |
 | **TPG Telecom**| &check; | &check; | Melbourne<br/>Sydney |
 | **[T-Mobile Poland](https://biznes.t-mobile.pl/pl/produkty-i-uslugi/sieci-teleinformatyczne/cloud-on-edge)** |&check; |&check; | Warsaw |
-| **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | &check; | &check; | Frankfurt |
+| **[T-Systems](https://business.telekom.com/global/products-and-solutions/next-level-networking/mpls/intraselect-transport-connect/)** | &check; | &check; | Frankfurt |
 | **UOLDIVEO** | &check; | &check; | Sao Paulo |
 | **[UIH](https://www.uih.co.th/products-services/managed-services/cloud-direct/)** | &check; | &check; | Bangkok |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Frankfurt<br/>Hong Kong SAR<br/>London<br/>Mumbai<br/>Paris<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC |

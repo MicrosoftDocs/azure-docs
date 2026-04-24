@@ -4,7 +4,7 @@ description: Learn best practices for optimizing Azure Elastic SAN performance. 
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: concept-article
-ms.date: 01/09/2026
+ms.date: 04/23/2026
 ms.author: rogarana
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud infrastructure administrator, I want to implement best practices for configuring an Elastic SAN, so that I can achieve optimal performance and resource efficiency for my storage solutions in a cloud environment.
@@ -33,20 +33,25 @@ This article provides guidance on how to get optimal performance with an environ
 #### Azure VMware Solution
 
 - Deploy your Elastic SAN in the same region and availability zone as your Azure VMware Solution cluster
--  Configure Private Endpoints before mounting your Elastic SAN volume as an external datastore
-- If you plan for your environment to ever have 16 nodes in an Azure VMware Solution cluster, use one of the following configurations, depending on which hosts you have:
-    - AV36, AV36P, AV52 - Six iSCSI sessions over three Private Endpoints
-    - AV64 - Seven iSCSI sessions over seven Private Endpoints
-- If your environment won't have 16 nodes, use one of the following configurations:
-    -  AV36, AV36P, AV52 - Eight iSCSI sessions over four Private Endpoints
-    - AV64 - Eight iSCSI sessions over eight Private Endpoints
-
-    > [!NOTE]
-    > When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight iSCSI sessions, the configuration uses the maximum number of connections (128). Configuring your nodes to use seven iSCSI sessions ensures that if you need to attach an extra node (for maintenance) then you have available iSCSI sessions. 
-
+- Configure Private Endpoints before mounting your Elastic SAN volume as an external datastore
 - Use eager zeroed thick provisioning when creating virtual disks
-- Size ExpressRoute Gateway so that it can meet your throughput requirements
 - Configure your Elastic SAN to have at least 16 TiB in its base size, so you can get up to the maximum performance on your Elastic SAN datastores
+- An Elastic SAN volume supports up to 128 iSCSI sessions. When an Elastic SAN volume is attached to a cluster, it automatically attaches to all nodes. If you have 16 nodes and each node is configured to use eight iSCSI sessions, the configuration uses the maximum number of connections (128).
+
+#### Azure VMWare Solution Gen1 Private Cloud 
+
+- Size ExpressRoute Gateway so that it can meet your throughput requirements 
+- If you plan for your environment to ever have 16 nodes in an Azure VMware Solution cluster, use one of the following configurations, depending on which host type your private cloud will be based on: 
+     - AV36, AV36P, AV52 - Six iSCSI sessions over three Private Endpoints 
+     - AV64 - Seven iSCSI sessions over seven Private Endpoints 
+- If your environment won't have 16 nodes, use one of the following configurations: 
+     - AV36, AV36P, AV52 - Eight iSCSI sessions over four Private Endpoints 
+     - AV64 - Eight iSCSI sessions over eight Private Endpoints 
+> [!NOTE]
+> Configuring your nodes to use seven iSCSI sessions ensures that if you need to attach an extra node (for maintenance) then you have available iSCSI sessions.
+
+#### Azure VMWare Solution Gen2 Private Cloud 
+- Configure one Private Endpoint on the ESAN volume group to create 7 iSCSI sessions from AVS host to Elastic SAN volume. 
 
 ### MPIO
 

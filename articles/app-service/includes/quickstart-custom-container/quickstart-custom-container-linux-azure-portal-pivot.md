@@ -1,10 +1,9 @@
 ---
 author: cephalin
 ms.service: azure-app-service
-ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart
-ms.date: 02/14/2025
+ms.date: 04/20/2026
 ms.author: cephalin
 ---
 
@@ -19,7 +18,7 @@ For more information about containerized applications in a serverless environmen
 - An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal)
 - The [Azure CLI](/cli/azure/install-azure-cli)
-- [Docker](https://www.docker.com/community-edition)
+- [Docker](https://www.docker.com)
 
 ## Clone the sample repository
 
@@ -124,9 +123,9 @@ The App Service app pulls from the container registry each time it starts. If yo
 - [Secure with a custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 - [Migrate to a Windows container in Azure](../../tutorial-custom-container.md)
 - [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
-- [Use private endpoints for App Service apps](../../networking/private-endpoint.md)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
-- [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+- [Use private endpoints for App Service apps](../../overview-private-endpoint.md)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
+- [Monitor Azure App Service](../../monitor-app-service.md)
 - [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
 - [Configure custom container](../../configure-custom-container.md)
 - [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)

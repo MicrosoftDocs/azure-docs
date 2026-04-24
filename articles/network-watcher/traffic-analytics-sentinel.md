@@ -92,11 +92,6 @@ By integrating Traffic Analytics with Microsoft Sentinel, you enable end-to-end 
 |----|----|----|
 | Port scan | Identifies a source IP attempting to connect to multiple destination ports across one or more virtual networks based on Traffic Analytics flow data. | Malicious reconnaissance activity where an attacker is probing for open ports that can be exploited for initial access. |
 | Port sweep | Identifies a source IP scanning the same destination port across multiple destination IPs using network flow logs. | Targeted scanning for specific vulnerable services exposed on multiple hosts within the environment. |
-| Anomalous connection rate | Identifies an abnormal spike in allowed or denied connections between a source and destination based on behavioral baselines. | Potential brute force attempts, data exfiltration, or command-and-control activity deviating from normal traffic behavior. |
-| Abnormal port-to-protocol usage | Identifies traffic where a well-known protocol is observed over a non-standard port using flow characteristics and behavioral analysis. | Malicious command-and-control or data exfiltration activity attempting to evade detection by disguising traffic patterns. |
-| Geographic anomaly in traffic | Identifies network traffic originating from or communicating with unusual or previously unseen geographic locations. | Possible compromised workloads or unauthorized external communication from high-risk or unexpected regions. |
-| Excessive failed connections | Identifies repeated failed connection attempts to specific destinations or ports over a defined time window. | Identifies repeated failed connection attempts to specific destinations or ports over a defined time window. |
-| Suspicious inbound or outbound traffic volume | Identifies unusually large volumes of inbound or outbound traffic compared to historical baselines. | Potential data exfiltration, lateral movement, or denial-of-service–related activity within the network. |
 
 ## Related content
 

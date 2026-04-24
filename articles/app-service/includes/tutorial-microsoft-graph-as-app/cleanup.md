@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.date: 01/21/2022
+ms.date: 04/01/2026
 ms.author: cephalin
 ms.reviewer: stsoneff
 ms.topic: include
@@ -8,14 +8,14 @@ ms.topic: include
 ms.service: azure-app-service
 ---
 
-## Next steps
+## Related content
 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 >
-> * Create a system-assigned managed identity on a web app.
-> * Add Microsoft Graph API permissions to a managed identity.
-> * Call Microsoft Graph from a web app by using managed identities.
+> - Create a system-assigned managed identity on a web app.
+> - Add Microsoft Graph API permissions to a managed identity.
+> - Call Microsoft Graph from a web app by using managed identities.
 
 Learn how to connect a [.NET Core app](../../tutorial-dotnetcore-sqldb-app.md) or [Node.js app](../../tutorial-nodejs-mongodb-app.md) to a database.

@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 11/03/2025
+ms.date: 4/22/2026
 ms.author: mbender
 # Customer intent: "As a Kubernetes developer, I want to understand the API specifications for the Application Gateway for Containers, so that I can effectively configure and manage load balancing and traffic routing for my containerized applications."
 ---
@@ -945,7 +945,7 @@ Kubernetes core API.</p>
 <code>NamespacedPolicyTargetReference</code><br/>
 <em>
 <a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.NamespacedPolicyTargetReference">
-Gateway API alpha2.NamespacedPolicyTargetReference
+Gateway API .NamespacedPolicyTargetReference
 </a>
 </em>
 </td>
@@ -2046,9 +2046,9 @@ bool
 <td>
 <em>(Optional)</em>
 <p>UseTLS indicates whether health check should enforce TLS.
-By default, health check will use the same protocol as the
+By default, health check uses the same protocol as the
 service if the same port is used for health check. If the port
-is different, health check will be plaintext.</p>
+is different, health check is plaintext.</p>
 </td>
 </tr>
 <tr>
@@ -2865,6 +2865,84 @@ Kubernetes meta/v1.Duration
 </tr>
 </tbody>
 </table>
+<h3 id="alb.networking.azure.io/v1.LoadAwareConfig">LoadAwareConfig
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.LoadBalancingConfig">LoadBalancingConfig</a>)
+</p>
+<div>
+<p>LoadAwareConfig defines the configuration for load aware routing.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>blackoutPeriod</code><br/>
+<em>
+<a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#Duration">
+Kubernetes meta/v1.Duration
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>An endpoint must report load metrics continuously for at least this long before the endpoint
+metrics will be used to influence load balancing decisions. Takes effect both immediately after
+we establish a connection to an endpoint and after <code>metricExpirationPeriod</code> has elapsed.
+Default is 10 seconds.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>metricExpirationPeriod</code><br/>
+<em>
+<a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#Duration">
+Kubernetes meta/v1.Duration
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>If the endpoint doesn't report load metrics for this duration, metrics stop
+being used to influence load balancing decisions. Default is 3 minutes.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>errorUtilizationPenalty</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>The multiplier used to adjust endpoint weights with the error rated calculated based
+on the reported <code>rps_fractional</code> and <code>eps</code> load metrics. Must not be a negative value.
+Default is 1.0.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>namedMetrics</code><br/>
+<em>
+[]string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>A list of custom metrics reported by endpoints to be used for reporting utilization
+and influencing load balancing decisions. Utilization is computed by taking the
+max of the values of metrics specified in this list.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="alb.networking.azure.io/v1.LoadBalancingConfig">LoadBalancingConfig
 </h3>
 <p>
@@ -2910,6 +2988,20 @@ SlowStartConfig
 <p>SlowStart defines the schema for Slow Start specification</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>loadAware</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.LoadAwareConfig">
+LoadAwareConfig
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>LoadAware defines the schema for Load Aware Routing specification</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.LoadBalancingStrategy">LoadBalancingStrategy
@@ -2929,6 +3021,9 @@ SlowStartConfig
 </thead>
 <tbody><tr><td><p>&#34;least-request&#34;</p></td>
 <td><p>LoadBalancingLeastRequest is used to set the LoadBalancingStrategy to least-request</p>
+</td>
+</tr><tr><td><p>&#34;load-aware&#34;</p></td>
+<td><p>LoadBalancingLoadAware is used to set the LoadBalancingStrategy to load-aware</p>
 </td>
 </tr><tr><td><p>&#34;ring-hash&#34;</p></td>
 <td><p>LoadBalancingRingHash is used to set the LoadBalancingStrategy to ring-hash</p>
@@ -3305,7 +3400,7 @@ int
 <td>
 <em>(Optional)</em>
 <p>StatusCode is the HTTP status code to be used in response.</p>
-<p>Values may be added to this enum, implementations
+<p>Values can be added to this enum, implementations
 must ensure that unknown values won&rsquo;t cause a crash.</p>
 </td>
 </tr>
@@ -3910,7 +4005,7 @@ CustomTargetRef
 </p>
 <div>
 <p>URLRewriteFilter defines a filter that modifies a request during
-forwarding. At most one of these filters may be used on a rule. This
+forwarding. At most one of these filters can be used on a rule. This
 MUST NOT be used on the same rule having an sslRedirect.</p>
 </div>
 <table>

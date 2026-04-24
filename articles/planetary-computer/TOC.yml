@@ -99,6 +99,8 @@
       href: configure-cross-tenant-application.md
   - name: Azure Batch and Microsoft Planetary Computer Pro
     href: azure-batch.md
+  - name: Create an API Proxy for GeoCatalogs
+    href: create-api-proxy-geocatalog.md
   - name: API Reference
     href: /rest/api/planetarycomputer
 - name: Working with data cubes

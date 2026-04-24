@@ -3,7 +3,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 08/19/2022
+ms.date: 04/01/2026
 ms.custom:
   - azureday1
   - sfi-image-nochange
@@ -13,32 +13,34 @@ Learn how to access Microsoft Graph from a web app running on Azure App Service.
 
 :::image type="content" alt-text="Diagram that shows accessing Microsoft Graph." source="../../media/scenario-secure-app-access-microsoft-graph/web-app-access-graph.svg" border="false":::
 
-You want to call Microsoft Graph for the web app. A safe way to give your web app access to data is to use a [system-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). A managed identity from Microsoft Entra ID allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. You don't have to worry about managing secrets or app credentials.
+You want to call Microsoft Graph for the web app. A safe way to give your web app access to data is to use a [system-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). A managed identity from Microsoft Entra ID allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After you assign a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. You don't have to worry about managing secrets or app credentials.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create a system-assigned managed identity on a web app.
-> * Add Microsoft Graph API permissions to a managed identity.
-> * Call Microsoft Graph from a web app by using managed identities.
+> - Create a system-assigned managed identity on a web app.
+> - Add Microsoft Graph API permissions to a managed identity.
+> - Call Microsoft Graph from a web app by using managed identities.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* A web application running on Azure App Service that has the [App Service authentication/authorization module enabled](../../scenario-secure-app-authentication-app-service.md).
+- A web application running on Azure App Service that has the [App Service authentication/authorization module enabled](../../scenario-secure-app-authentication-app-service.md).
 
 ## Enable managed identity on app
 
 If you create and publish your web app through Visual Studio, the managed identity was enabled on your app for you. 
 
 1. In your app service, select **Identity** in the left pane and then select **System assigned**. 
-1. Verify that **Status** is set to **On**. If not, select **Save** and then select **Yes** to enable the system-assigned managed identity. When the managed identity is enabled, the status is set to **On** and the object ID is available.
+1. Verify that **Status** is set to **On**.
 
-1. Take note of the **Object ID** value, which you'll need in the next step.
+   If not, set it to **On**, then select **Save**, and then select **Yes** to enable the system-assigned managed identity. When the managed identity is enabled, the status is set to **On** and the object ID is available.
 
-:::image type="content" alt-text="Screenshot that shows the system-assigned identity." source="../../media/scenario-secure-app-access-microsoft-graph/create-system-assigned-identity.png":::
+1. Take note of the **Object ID** value, which you need in the next section.
+
+   :::image type="content" alt-text="Screenshot that shows the system-assigned identity." source="../../media/scenario-secure-app-access-microsoft-graph/create-system-assigned-identity.png" lightbox="../../media/scenario-secure-app-access-microsoft-graph/create-system-assigned-identity.png":::
 
 ## Grant access to Microsoft Graph
 
@@ -105,16 +107,17 @@ When accessing the Microsoft Graph, the managed identity needs to have proper pe
 
     ---
 
-1. After executing the script, you can verify in the [Microsoft Entra admin center](https://entra.microsoft.com) that the requested API permissions are assigned to the managed identity.
+1. After you run the script, verify in the [Microsoft Entra admin center](https://entra.microsoft.com) that the requested API permissions are assigned to the managed identity.
 
-1. Go to **Applications**, and then select **Enterprise applications**. This pane displays all the service principals in your tenant. **Add a filter** for "Application type==Managed identities" and select the service principal for the managed identity.
+1. Go to **Applications**. This pane displays all the service principals in your tenant. Select **Add filters** and then enter *Application type==Managed identities*.
+1. Select the service principal for the managed identity.
 
-    If you're following this tutorial, there are two service principals with the same display name (SecureWebApp2020094113531, for example). The service principal that has a **Homepage URL** represents the web app in your tenant. The service principal that appears in **Managed Identities** should *not* have a **Homepage URL** listed and the **Object ID** should match the object ID value of the managed identity in the [previous step](#enable-managed-identity-on-app).
+    If you're following this tutorial, there are two service principals with the same display name, secureWebApp, for example. The service principal that has a **Homepage URL** represents the web app in your tenant. The service principal that appears in **Managed Identities** should *not* have a **Homepage URL** listed and the **Object ID** should match the object ID value of the managed identity in the [previous section](#enable-managed-identity-on-app).
 
 1. Select the service principal for the managed identity.
 
-    :::image type="content" alt-text="Screenshot that shows the All applications option." source="../../media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png":::
+    :::image type="content" alt-text="Screenshot that shows the All applications option." source="../../media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png" lightbox="../../media/scenario-secure-app-access-microsoft-graph/enterprise-apps-all-applications.png":::
 
-1. In **Security**, select **Permissions**, and you'll see the added permissions for Microsoft Graph.
+1. In **Overview**, select **Permissions**. You see the added permissions for Microsoft Graph.
 
-    :::image type="content" alt-text="Screenshot that shows the Permissions pane." source="../../media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::
+    :::image type="content" alt-text="Screenshot that shows the Permissions pane." source="../../media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png" lightbox="../../media/scenario-secure-app-access-microsoft-graph/enterprise-apps-permissions.png":::

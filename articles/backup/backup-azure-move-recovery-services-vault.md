@@ -2,7 +2,7 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: how-to
-ms.date: 06/17/2025
+ms.date: 03/25/2026
 ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
 ms.service: azure-backup
@@ -27,6 +27,7 @@ All public regions and sovereign regions are supported, except France South, Fra
 - You must have permission to perform write operations on the target resource group.
 - Moving the vault only changes the resource group. The Recovery Services vault will reside on the same location and it can't be changed.
 - You can move only one Recovery Services vault, per region, at a time.
+- Movement of a Recovery Services vault that contains cross-subscription protected Azure VM backup items isn't supported.
 - If a VM doesn't move with the Recovery Services vault across subscriptions, or to a new resource group, the current VM recovery points will remain intact in the vault until they expire.
 - Whether the VM is moved with the vault or not, you can always restore the VM from the retained backup history in the vault.
 - The Azure Disk Encryption requires that the key vault and VMs reside in the same Azure region and subscription.
@@ -103,7 +104,8 @@ You can move a Recovery Services vault and its associated resources to a differe
 7. Select **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option to confirm, and then select **OK**.
 
 > [!NOTE]
-> Cross subscription backup (RS vault and protected VMs are in different subscriptions) isn't a supported scenario. Also, storage redundancy option from local redundant storage (LRS) to global redundant storage (GRS) and vice versa can't be modified during the vault move operation.
+>-  If the Recovery Services vault contains cross-subscription protected Azure VM backup items, the vault move operation across subscriptions or resource groups is blocked.
+>-  The storage redundancy option from local redundant storage (LRS) to global redundant storage (GRS) and vice versa can't be modified during the vault move operation.
 
 ## Use Azure portal to back up resources in Recovery Services vault after moving across regions
 
