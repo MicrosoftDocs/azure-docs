@@ -20,8 +20,6 @@ Knowledge uploads solve this problem by turning incident fixes, troubleshooting 
 > [!NOTE]
 > This feature is available in version 26.1.57.0 and later.
 
-## How it works
-
 Your agent can upload documents to Knowledge settings during conversations by using the **Upload Knowledge Document** tool. When your agent discovers a fix, creates a troubleshooting guide, or synthesizes investigation findings, it stores that knowledge directly. This approach makes the information searchable for every future conversation.
 
 ```text
@@ -47,8 +45,6 @@ Your agent generates a structured runbook and uploads it in seconds. The documen
 **Unlike chat history**, uploaded documents are indexed for semantic search. When a similar issue occurs months later, your agent finds the relevant runbook automatically through intelligent retrieval rather than by scrolling through old threads.
 
 **Unlike wiki connectors**, uploaded documents don't require external services. The knowledge lives directly in your agent's Knowledge settings and is available instantly without syncing delays.
-
-## How it works
 
 The **Upload Knowledge Document** tool accepts three parameters:
 
