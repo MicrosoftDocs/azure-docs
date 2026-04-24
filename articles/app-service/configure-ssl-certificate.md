@@ -361,7 +361,7 @@ This capability is supported for Windows container apps only in multitenant App 
 
 ### Can I load a private CA certificate in my App Service trusted root store?
 
-The Public Certificate method above can be used to add private CA certificates to individual Web Apps. However, you will have to add it to each Web App, as you can't modify the list of trusted root certificates in App Service (multitenant). 
+You can add private CA certificates to individual Web Apps by uploading them as public certificates. However, you will have to add the certificate to each Web App, as you can't modify the list of trusted root certificates in an App Service (multitenant).
 
 You can also load your own CA certificate into the App Service trusted root store in [App Service Environment version 3](./environment/overview-certificates.md).
 
