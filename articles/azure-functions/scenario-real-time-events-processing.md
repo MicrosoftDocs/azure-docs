@@ -22,7 +22,35 @@ This article supports version 4 of the Node.js programming model for Azure Funct
 This article supports version 2 of the Python programming model for Azure Functions.
 ::: zone-end  
 
-[!INCLUDE [functions-scenario-quickstarts-prerequisites-cli](../../includes/functions-scenario-quickstarts-prerequisites-cli.md)]
+## Prerequisites
+
+::: zone pivot="programming-language-csharp"  
++ [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Java 21 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
+    + Set the `JAVA_HOME` environment variable to the install location of the correct version of the Java Development Kit (JDK).
++ [Apache Maven 3.8.x](https://maven.apache.org)
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
++ [Node.js 22](https://nodejs.org/) or later  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)
+::: zone-end  
+::: zone pivot="programming-language-python" 
++ [Python 3.11](https://www.python.org/) or later
+::: zone-end  
+
++ [Azurite storage emulator](../storage/common/storage-use-azurite.md)
+
++ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
+
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
+
++ [Azure CLI](/cli/azure/install-azure-cli)
+
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Initialize the project
 

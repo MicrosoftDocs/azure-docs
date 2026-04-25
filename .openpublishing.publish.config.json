@@ -637,6 +637,24 @@
             "url": "https://github.com/Azure-Samples/durable-functions-quickstart-python-azd",
             "branch": "main",
             "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-java",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-java-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-javascript",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-javascript-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-powershell",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-powershell-azd",
+            "branch": "main",
+            "branch_mapping": {}
         }, 
         {    "path_to_root": "functions-sql-todo-sample",
             "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",

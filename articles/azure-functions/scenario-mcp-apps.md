@@ -42,19 +42,10 @@ This article supports version 2 of the Python programming model for Azure Functi
 + [Apache Maven 3.8.x](https://maven.apache.org)  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ [Node.js 20](https://nodejs.org/)  
++ [Node.js 22](https://nodejs.org/)  
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/)
-::: zone-end  
-::: zone pivot="programming-language-csharp" 
-+ [Node.js](https://nodejs.org/) (required to build the MCP Apps UI)
-
-+ [Visual Studio Code](https://code.visualstudio.com/) with this extension:
-
-    + [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). This extension requires [Azure Functions Core Tools](functions-run-local.md) and attempts to install it when not available. 
-
-+ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) version 1.23.x or a later version 
 ::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 + [Node.js](https://nodejs.org/) (required to build the MCP Apps UI)
@@ -64,8 +55,7 @@ This article supports version 2 of the Python programming model for Azure Functi
     + [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). This extension requires [Azure Functions Core Tools](functions-run-local.md) and attempts to install it when not available. 
 
     + [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev).
-::: zone-end   
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
+
 + [Azurite storage emulator](../storage/common/storage-install-azurite.md#install-azurite) 
 
 + [Azure CLI](/cli/azure/install-azure-cli). You can also run Azure CLI commands in [Azure Cloud Shell](../cloud-shell/overview.md).
@@ -87,7 +77,7 @@ Use the Azure Developer CLI to create an Azure Functions code project from a tem
 
     This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The -e flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.  
 ::: zone-end  
-::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript,programming-language-javascript" 
 2. Press <kbd>F1</kbd> to open the command palette. Search for and run `Azure Developer CLI (azd): init`.
 
 3. When prompted, select **Select a template**.  
@@ -98,6 +88,13 @@ Use the Azure Developer CLI to create an Azure Functions code project from a tem
 5. When prompted, enter `mcpweather-ts` as the environment name.
 
     The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the names of the resources you create in Azure.   
+::: zone-end
+::: zone pivot="programming-language-javascript"  
+4. Search for and select **Remote MCP Functions with JavaScript**.
+
+5. When prompted, enter `mcpweather-js` as the environment name.
+
+    The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-javascript) and initializes the project in the current folder.
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 4. Search for and select **Remote MCP Functions with Python**.
@@ -113,7 +110,7 @@ Use the Azure Developer CLI to create an Azure Functions code project from a tem
 
     The command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in the current folder. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure. 
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 ## Start the storage emulator
 
 [!INCLUDE [start-storage-emulator](../../includes/functions-mcp-start-storage-emulator.md)]
@@ -174,7 +171,7 @@ The MCP Apps weather tool includes a frontend application that you must build be
     ---
 
 ::: zone-end
-::: zone pivot="programming-language-typescript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
 1. In the terminal, go to the UI app folder and build the application:
 
@@ -186,7 +183,7 @@ The MCP Apps weather tool includes a frontend application that you must build be
     ```
 
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 ## Run your MCP server locally 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
@@ -195,7 +192,7 @@ When prompted, select **src/McpWeatherApp**. You see this prompt because there a
 ::: zone pivot="programming-language-java"
 In a terminal window, make sure you're in the `samples/McpWeatherApp` project folder.
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 [!INCLUDE [run-locally](../../includes/functions-mcp-run-locally.md)]
 
 ## Verify by using GitHub Copilot
@@ -222,6 +219,29 @@ You can review the code that defines the MCP Apps tools. An MCP Apps tool requir
 
 + A **tool with UI metadata** that declares a `ui.resourceUri` pointing to a UI resource.
 + A **resource** that serves the bundled HTML/JavaScript at the matching `ui://` URI.
+::: zone-end
+::: zone pivot="programming-language-javascript"
+The function code for the MCP Apps weather tool is defined in the `src/functions/weatherMcpApp.js` file. In this function, the `metadata` property on `app.mcpTool()` adds UI metadata to the `getWeather` tool when it's registered.
+
+:::code language="javascript" source="~/functions-scenarios-custom-mcp-javascript/src/functions/weatherMcpApp.js" range="98-110" :::
+
+The `getWeather` handler fetches weather data for a location and returns it as JSON.
+
+:::code language="javascript" source="~/functions-scenarios-custom-mcp-javascript/src/functions/weatherMcpApp.js" range="57-83" :::
+
+The `app.mcpResource()` function registers the `getWeatherWidget` handler, which serves the HTML widget.
+
+:::code language="javascript" source="~/functions-scenarios-custom-mcp-javascript/src/functions/weatherMcpApp.js" range="86-95" :::
+
+The `getWeatherWidget` handler reads and returns the bundled HTML file.
+
+:::code language="javascript" source="~/functions-scenarios-custom-mcp-javascript/src/functions/weatherMcpApp.js" range="31-54" :::
+
+The `TOOL_METADATA` constant declares a `ui.resourceUri` that tells the MCP host to fetch the interactive UI from `ui://weather/index.html` after the tool runs.
+
+:::code language="javascript" source="~/functions-scenarios-custom-mcp-javascript/src/functions/weatherMcpApp.js" range="13-17" :::
+
+You can view the complete project template in the [Azure Functions JavaScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-javascript) GitHub repository.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 The function code for the MCP Apps weather tool is defined in the `src/McpWeatherApp` folder. In this function, the `[McpMetadata]` attribute adds UI metadata to the `GetWeather` tool.
@@ -297,12 +317,12 @@ The `GetWeatherWidget` function serves the bundled HTML file at that URI using `
 
 You can view the complete project template in the [Azure Functions Java MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-java) GitHub repository.
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 After verifying the MCP Apps tools locally, you can publish the project to Azure.
 
 ## Deploy to Azure
 ::: zone-end  
-::: zone pivot="programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 [!INCLUDE [deploy-azure](../../includes/functions-mcp-deploy-azure.md)]
 ::: zone-end
 
@@ -339,7 +359,7 @@ This project is configured to use `azd` to deploy this project to a new function
     ```
 
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 ## Connect to your remote MCP server
 
 [!INCLUDE [connect-remote](../../includes/functions-mcp-connect-remote.md)]

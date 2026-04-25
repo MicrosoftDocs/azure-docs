@@ -226,15 +226,23 @@ py -m venv .venv
 ::: zone-end
  
 ## Run in your local environment  
+
+1. In a separate terminal window, start the Azurite storage emulator:
+
+    ```console
+    azurite
+    ```
+
+    The local Functions host process uses the Azurite emulator for the internal storage connection (`AzureWebJobsStorage`) required by the runtime.  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-powershell" 
-1. Run this command from your app folder in a terminal or command prompt:
+2. Run this command from your app folder in a terminal or command prompt:
 
     ```console
     func start
     ``` 
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-1. Run this command from your app folder in a terminal or command prompt:
+2. Run this command from your app folder in a terminal or command prompt:
  
     ```console
     mvn clean package
@@ -242,7 +250,7 @@ py -m venv .venv
     ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-1. Run this command from your app folder in a terminal or command prompt:
+2. Run this command from your app folder in a terminal or command prompt:
 
     ```console
     npm install
@@ -250,7 +258,7 @@ py -m venv .venv
     ```
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-1. Run this command from your app folder in a terminal or command prompt:
+2. Run this command from your app folder in a terminal or command prompt:
  
     ```console
     npm install
@@ -258,13 +266,13 @@ py -m venv .venv
     ```
 ::: zone-end  
 
-2. When the Functions host starts in your local project folder, it writes information about your Timer triggered function to the terminal output. You should see your Timer triggered function execute based on the schedule defined in your code.
+3. When the Functions host starts in your local project folder, it writes information about your Timer triggered function to the terminal output. You should see your Timer triggered function execute based on the schedule defined in your code.
 
     The default schedule is `*/30 * * * * *`, which runs every 30 seconds.
 
-3. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process. 
+4. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process. 
 ::: zone pivot="programming-language-python"
-4. Run `deactivate` to shut down the virtual environment.
+5. Run `deactivate` to shut down the virtual environment.
 ::: zone-end
 
 ## Review the code (optional)

@@ -57,7 +57,7 @@
         },
         {
             "source_path": "articles/azure-functions/durable/scenario-build-serverless-workflow.md",
-            "redirect_url": "/azure/container-apps/workflows-overview",
+            "redirect_url": "/azure/azure-functions/scenario-build-serverless-workflow",
             "redirect_document_id": false
         },
         {
