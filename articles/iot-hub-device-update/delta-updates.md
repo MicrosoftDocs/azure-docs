@@ -14,7 +14,7 @@ ms.subservice: device-update
 
 Deploying updates to IoT devices at scale can be constrained by bandwidth, connectivity, and the size of update content. These constraints are especially challenging for devices connected over cellular or metered networks.
 
-Delta updates (also called differential updates or diff updates) in Azure Device Update for IoT Hub help address this by allowing devices to download only the differences between two versions of an update instead of the full update. This reduces the bandwidth used to deliver updates, especially when there are only a few changes between the source and target versions.
+Delta updates (also called differential updates or diff updates) in Azure Device Update for IoT Hub help address this constraint by allowing devices to download only the differences between two versions of an update instead of the full update. This approach reduces the bandwidth used to deliver updates, especially when there are only a few changes between the source and target versions.
 
 A single deployment can include multiple delta updates to support fleets where devices are on different starting versions.
 
@@ -51,7 +51,7 @@ A deployment that uses delta updates must include:
 
 - One or more delta updates, each generated for a specific source-to-target version transition. To serve devices on different starting versions, include a delta update for each source version you want to support (for example, a **v1 → v3** delta for devices on v1 and a **v2 → v3** delta for devices on v2, both targeting v3).
 
-Always include the full target update so that devices without a compatible source version can still reach the target version. This inclusion means that adding delta updates to a deployment doesn't introduce extra risk—devices that can't use the delta path still install the full update.
+Always include the full target update so that devices without a compatible source version can still reach the target version. This inclusion means that adding delta updates to a deployment doesn't introduce extra risk - devices that can't use the delta path still install the full update.
 
 For step-by-step instructions on generating and importing delta updates, see [Use delta updates with Azure Device Update for IoT Hub](use-delta-updates.md).
 
@@ -63,7 +63,7 @@ For each device:
 
 1. The Device Update agent determines whether the device has a cached source update that's compatible with one of the delta updates in the deployment.
 
-2. If a compatible delta update is available:
+1. If a compatible delta update is available:
 
    - The device downloads the delta update.
 
@@ -71,7 +71,7 @@ For each device:
 
    - The **update handler** installs the reconstructed update.
 
-3. If no compatible delta update is available, the device downloads and installs the full target update instead.
+1. If no compatible delta update is available, the device downloads and installs the full target update.
 
 Each device performs this evaluation independently. As a result, devices in the same deployment might follow different update paths depending on which cached source update is on the device and which delta updates are available.
 
