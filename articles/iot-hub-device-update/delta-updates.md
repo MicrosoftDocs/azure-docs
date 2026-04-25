@@ -1,6 +1,6 @@
 ---
 title: Azure Device Update for IoT Hub delta updates | Microsoft Learn
-description: Understand key concepts for using delta or differential updates with Azure Device Update for IoT Hub.
+description: Understand key concepts for using delta or differential updates with Azure Device Update for IoT Hub
 author: isabellaecr
 ms.author: isabellaecr
 ms.date: 04/22/2026
@@ -14,7 +14,7 @@ ms.subservice: device-update
 
 Deploying updates to IoT devices at scale can be constrained by bandwidth, connectivity, and the size of update content. These constraints are especially challenging for devices connected over cellular or metered networks.
 
-Delta updates in Azure Device Update for IoT Hub help address this by allowing devices to download only the differences between two versions of an update instead of the full update. This reduces the bandwidth used to deliver updates, especially when there are only a few changes between the source and target versions.
+Delta updates (also called differential updates or diff updates) in Azure Device Update for IoT Hub help address this by allowing devices to download only the differences between two versions of an update instead of the full update. This reduces the bandwidth used to deliver updates, especially when there are only a few changes between the source and target versions.
 
 A single deployment can include multiple delta updates to support fleets where devices are on different starting versions.
 
@@ -24,21 +24,22 @@ Delta updates are most beneficial when the differences between the source and ta
 
 When most of the update content changes between versions, the delta might provide limited bandwidth savings. In those scenarios, using the full update directly might be simpler to generate and manage.
 
+Delta updates trade some on-device storage for bandwidth savings: devices must retain the source update locally to apply a delta, so they need enough storage capacity for cached source updates in addition to space for new updates. Consider this trade-off when deciding whether delta updates fit your fleet's constraints.
+
 ## Supported update formats
 
-Delta updates in Azure Device Update for IoT Hub are currently supported for image-based updates delivered in SWUpdate (SWU) format. Other update 
-formats, such as package-based updates, aren't supported for delta updates.
+The current implementation of delta updates in Azure Device Update for IoT Hub supports image-based updates delivered in SWUpdate (SWU) format. Microsoft provides this implementation as a [reference implementation](https://github.com/Azure/iot-hub-device-update-delta), including the source code for delta generation and the on-device reconstruction logic. You can extend or customize the reference implementation to support other update formats or alternative delta and reconstruction approaches as needed.
 
 ## How delta updates work
 
 A delta update is a compact update artifact that contains only the differences between two versions of an update:
 
-- The **source version** is the version currently installed on the device.  
+- The **source version** is the version currently installed on the device.
 - The **target version** is the version you want the device to run.
 
 Instead of downloading the full target version, the device downloads the delta update and combines it with the source version already present on the device to reconstruct the full target update before installation.
 
-Before deployment, you generate delta updates using Microsoft-provided reference tooling and import them into Azure Device Update alongside the full target update.
+Before deployment, you generate delta updates using [Microsoft-provided reference tooling](https://github.com/Azure/iot-hub-device-update-delta) and import them into Azure Device Update alongside the full target update.
 
 Because a delta update depends on the source version, the corresponding source version must be available on the device. The Device Update agent typically caches previously installed updates for future use. If needed, you can also pre-stage source versions on the device before deployment.
 
@@ -46,13 +47,11 @@ Because a delta update depends on the source version, the corresponding source v
 
 A deployment that uses delta updates must include:
 
-
-A deployment that uses delta updates must include:
-
 - The full target update.
+
 - One or more delta updates, each generated for a specific source-to-target version transition. To serve devices on different starting versions, include a delta update for each source version you want to support (for example, a **v1 → v3** delta for devices on v1 and a **v2 → v3** delta for devices on v2, both targeting v3).
 
-Always include the full target update so that devices without a compatible source version can still reach the target version. This inclusion means that adding delta updates to a deployment doesn't introduce extra risk - devices that can't use the delta path still install the full update.
+Always include the full target update so that devices without a compatible source version can still reach the target version. This inclusion means that adding delta updates to a deployment doesn't introduce extra risk—devices that can't use the delta path still install the full update.
 
 For step-by-step instructions on generating and importing delta updates, see [Use delta updates with Azure Device Update for IoT Hub](use-delta-updates.md).
 
@@ -62,19 +61,19 @@ When a deployment runs, the Device Update agent on each device evaluates which u
 
 For each device:
 
-1. The Device Update agent determines the device's current version and evaluates the available updates in the deployment.
-   
-1. If a compatible delta update is available:
-   
-   - The device downloads the delta update.
-     
-   - The **delta processor** reconstructs the full target update by combining the delta update with the source version on the device.
-     
-   - The **update handler** installs the reconstructed update.
-     
-1. If a compatible delta update isn't available, the device downloads and installs the full target update instead.
+1. The Device Update agent determines whether the device has a cached source update that's compatible with one of the delta updates in the deployment.
 
-Each device performs this evaluation independently. As a result, devices in the same deployment might follow different update paths depending on their starting version and which delta updates are available.
+2. If a compatible delta update is available:
+
+   - The device downloads the delta update.
+
+   - The **delta processor** reconstructs the full target update by combining the delta update with the cached source update on the device.
+
+   - The **update handler** installs the reconstructed update.
+
+3. If no compatible delta update is available, the device downloads and installs the full target update instead.
+
+Each device performs this evaluation independently. As a result, devices in the same deployment might follow different update paths depending on which cached source update is on the device and which delta updates are available.
 
 A device applies at most one delta update per deployment. Delta updates aren't applied in sequence to reach the target version, so each delta update must be generated to go directly from a source version to the target version. If no compatible delta is available, the device installs the full target update.
 
@@ -108,7 +107,7 @@ For example, a deployment targets **v3** and includes a **v1 → v3** delta, a *
 
 **Device storage capacity:** Delta updates require a source version to be available on the device. The Device Update agent caches previously installed updates, so devices need enough storage capacity to retain these cached versions in addition to the space needed for new updates.
 
-**Multiple update artifacts:** Deployments that support delta updates include the full target update and one or more delta update files. To serve devices on different starting versions, include a delta update for each source version you want to support, with each delta going directly from the source to the target version.
+**Multiple delta update artifacts:** Deployments that support delta updates include the full target update and one or more delta update files. To serve devices on different starting versions, include a delta update for each source version you want to support, with each delta going directly from the source to the target version.
 
 **Per-device path selection:** Within the same deployment, devices might follow different update paths depending on which delta updates are available for their current source version. This behavior is expected.
 
