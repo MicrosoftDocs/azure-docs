@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
-ms.date: 11/09/2025
+ms.date: 04/26/2026
 ms.devlang: python
 ms.custom:
   - devx-track-python
@@ -214,6 +214,27 @@ The `azure-functions` must be included in your project dependencies. To learn mo
 Use **type annotations** to improve IntelliSense and editor support:
 ```python
 def http_trigger(req: func.HttpRequest) -> str:
+```
+
+### Reading route parameters
+
+When you define a route with parameters in the path — for example, `products/{product_id}` —
+read those parameters from the [HttpRequest] object's `route_params` dictionary inside the
+function body. Don't declare route parameters as additional arguments on the function signature.
+The Python v2 model expects HTTP-trigger functions to take exactly one `HttpRequest` argument
+plus any declared input or output bindings. Adding an extra argument that doesn't correspond
+to a declared binding causes the worker indexer to silently drop all functions in the app,
+and the host logs `0 functions found (Custom)` with no traceback.
+
+```python
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.route(route="products/{product_id}", methods=["GET"])
+def get_product(req: func.HttpRequest) -> func.HttpResponse:
+    product_id = req.route_params.get("product_id", "")
+    return func.HttpResponse(f"Product: {product_id}")
 ```
 
 ### Organizing with blueprints
