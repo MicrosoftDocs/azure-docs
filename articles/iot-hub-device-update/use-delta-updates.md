@@ -47,13 +47,11 @@ There are two ways to install the delta processor extension. Both options result
 
 ### Option 1: Install the extension on the device
 
-Use this option if you want to install the delta processor extension on an existing device.
+Use this option if you want to install the delta processor extension on an existing device. This approach is recommended if you're using a prebuilt operating system or if you're not modifying your device image.
 
-This approach is recommended if you're using a prebuilt operating system or if you're not modifying your device image.
+Download the delta processor extension from the [Azure/iot-hub-device-update-delta repository](https://github.com/Azure/iot-hub-device-update-delta). 
 
-Download the delta processor extension from the [Azure/iot-hub-device-update-delta repository](https://github.com/Azure/iot-hub-device-update-delta). Prebuilt packages are available under the [3.0.0 release](https://github.com/Azure/iot-hub-device-update-delta/tree/main/preview/3.0.0).
-
-Choose the package that matches the OS and architecture of your device.
+Prebuilt packages are available under the [3.0.0 release](https://github.com/Azure/iot-hub-device-update-delta/tree/main/preview/3.0.0). Choose the package that matches the OS and architecture of your device. 
 
 For Ubuntu 20.04 and later, install the Debian package directly. 
 
@@ -108,11 +106,11 @@ Where:
 
 - `<ENCODED_HASH>` is the base64-encoded SHA256 hash of the source image, with the following substitutions:
 
-| Character | Encoded as |
-|-----------|------------|
-| `+`       | `_2B`      |
-| `/`       | `_2F`      |
-| `=`       | `_3D`      |
+| Character     | Encoded as     |
+|---------------|----------------|
+| `+`           | `_2B`          |
+| `/`           | `_2F`          |
+| `=`           | `_3D`          |
 
 ## Generate a delta update
 
