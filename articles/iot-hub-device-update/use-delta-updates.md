@@ -11,7 +11,7 @@ ms.subservice: device-update
 
 # Use delta updates
 
-This article describes how to generate, configure, import, and deploy delta updates with Azure Device Update for IoT Hub. For an overview of how delta updates work, see [Azure Device Update for IoT Hub delta updates](delta-updates.md).
+This article describes how to generate, configure, import, and deploy delta updates by using Azure Device Update for IoT Hub. For an overview of how delta updates work, see [Azure Device Update for IoT Hub delta updates](delta-updates.md).
 
 > [!NOTE]
 > Delta updates are available starting with **Device Update agent version 1.3 or later**.
@@ -20,16 +20,14 @@ This article describes how to generate, configure, import, and deploy delta upda
 ## Prerequisites
 
 - An Azure Device Update for IoT Hub account and instance.
-
 - An IoT device or simulator provisioned for Device Update with **agent version 1.3 or later**. For instructions, see [Device Update agent provisioning](device-update-agent-provisioning.md).
-
 - Source and target update files in **SWUpdate (SWU) format**, with a raw image inside. The Microsoft reference sample uses the **Ext4** filesystem, but **Ext2** and **Ext3** are also supported.
 
-## Configure the device
+# Configure the device
 
 To apply delta updates, the device needs the Device Update agent with a compatible update handler and the delta processor extension installed. The following sections describe how to set up each component.
 
-### Update handler
+## Update handler
 
 The update handler integrates with the Device Update agent to perform the actual update installation on the device.
 
@@ -38,17 +36,16 @@ For delta updates, start with the [microsoft/swupdate:2 update handler](https://
 > [!NOTE]
 > The SWUpdate handler isn't installed or registered by default when you install the Device Update agent package. Include or register it as part of your device image.
 
-### Delta processor extension
+## Delta processor extension
 
 The delta processor extension reconstructs the full target update on the device by combining the downloaded delta update with the source update already on the device. The update handler then installs the reconstructed update.
 
 There are two ways to install the delta processor extension. Both options result in the extension being available on the device — the difference is whether you install it directly on the device or include it during your device image build.
 
 - **Option 1:** Install the extension directly on the device. This is the most common approach if you're using a prebuilt operating system or working with an existing device.
-
 - **Option 2:** Include the extension as part of your device image build. This option applies if you already build and manage your own device images (for example, with Yocto).
 
-#### Option 1: Install the extension on the device
+### Option 1: Install the extension on the device
 
 Use this option if you want to install the delta processor extension on an existing device.
 
@@ -72,7 +69,7 @@ sudo ldconfig
 > [!NOTE]
 > The prebuilt library version must match your device's OS and architecture. If a compatible package isn't available, build the extension from source using the instructions in the repository.
 
-#### Option 2: Integrate with a Yocto build
+### Option 2: Integrate with a Yocto build
 
 Use this option if you build your own device image and want the delta processor extension to be included as part of that image.
 
@@ -96,7 +93,7 @@ A delta update requires a valid source update to be available on the device. Dur
 
 The simplest way to make the source update available on the device is to [import](import-update.md) and [deploy](deploy-update.md) a full update through the Device Update service. When the device installs the update, the Device Update agent automatically caches it for use with future delta updates.
 
-This behavior is the same regardless of how the delta processor extension is installed. For example, if you're using a Yocto-based image, the installed update is still cached automatically after deployment, so no additional steps are required.
+This behavior is the same regardless of how you install the delta processor extension. For example, if you're using a Yocto-based image, the installed update is still cached automatically after deployment, so no extra steps are required.
 
 > [!NOTE]
 > A device receiving its first update can't apply a delta, since no source update is cached yet. After the first full update is installed and cached, subsequent updates can use the delta path.
@@ -107,7 +104,7 @@ Where:
 
 - `<BASE_SOURCE_DOWNLOAD_CACHE_PATH>` is the base directory path used for cached source updates. By default, this path is `/var/lib/adu/sdc/<provider>`.
 
-- `<provider>` is the `provider` value from the [update identity](import-concepts.md#update-identity) of the source SWU file
+- `<provider>` is the `provider` value from the [update identity](import-concepts.md#update-identity) of the source SWU file.
 
 - `<ENCODED_HASH>` is the base64-encoded SHA256 hash of the source image, with the following substitutions:
 
@@ -119,17 +116,16 @@ Where:
 
 ## Generate a delta update
 
-Delta updates are generated using the **DiffGen** tool, a Microsoft-provided reference tool that runs on a build machine.
+Generate delta updates by using the **DiffGen** tool, a Microsoft-provided reference tool that runs on a build machine.
 
-DiffGen takes a source SWU file and a target SWU file as inputs, recompresses the target using gzip, and produces a delta update file that contains only the differences between the two.
+DiffGen takes a source SWU file and a target SWU file as inputs, recompresses the target by using gzip, and produces a delta update file that contains only the differences between the two.
 
 There are two ways to obtain the DiffGen tool:
 
 - **Option 1:** Download and run DiffGen on a build machine  
-
 - **Option 2:** Use the tools generated as part of a Yocto build  
 
-#### Option 1: Download and run DiffGen manually
+### Option 1: Download and run DiffGen manually
 
 Use this option if you're generating delta updates on a separate development or build machine.
 
@@ -149,7 +145,7 @@ Before running DiffGen, install the following on your build machine:
 | .NET runtime   | Package manager or terminal | See [Install .NET on Linux](https://learn.microsoft.com/dotnet/core/install/linux). Only the runtime is required. |
 
 
-#### Option 2: Use DiffGen from a Yocto build
+### Option 2: Use DiffGen from a Yocto build
 
 Use this option if you build your device image with Yocto and want to use the tools generated as part of that build.
 
@@ -160,27 +156,26 @@ To get started, see the [iot-hub-device-update-yocto repository](https://github.
 
 For details on how to package and use the generated tools, see [Delta tools distribution](https://github.com/Azure/iot-hub-device-update-yocto).
 
+## Run DiffGen
 
-### Run DiffGen
-
-After installing the dependencies, run DiffGen using the following syntax:
+After installing the dependencies, run DiffGen by using the following syntax:
 
 ```bash
 DiffGenTool <source_archive> <target_archive> <output_path> <log_folder> <working_folder> <recompressed_target_archive>
 ```
 
-This command runs the recompress_tool.py script, which creates the `<recompressed_target_archive>`. DiffGen uses the recompressed archive instead of `<target_archive>` when generating the delta update. Image files within the recompressed archive are compressed with gzip.
+This command runs the `recompress_tool.py` script, which creates the `<recompressed_target_archive>`. DiffGen uses the recompressed archive instead of `<target_archive>` when generating the delta update. Image files within the recompressed archive are compressed by using gzip.
 
 If your SWU files are signed, include the `<signing_command>` argument:
 
 ```bash
 DiffGenTool <source_archive> <target_archive> <output_path> <log_folder> <working_folder> <recompressed_target_archive> "<signing_command>"
 ```
-When a signing command is provided, DiffGen runs the `recompress_and_sign_tool.py` script. This script creates the `<recompressed_target_archive>` and signs the `sw-description` file inside it, producing a `sw-description.sig` file.
+When you provide a signing command, DiffGen runs the `recompress_and_sign_tool.py` script. This script creates the `<recompressed_target_archive>` and signs the `sw-description` file inside it, producing a `sw-description.sig` file.
 
-You can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) repository to generate a delta update between a source file and a recompressed and re-signed target file. Update the script to include the path to your private key, then run it as part of the DiffGen command. See the examples section for usage.
+To generate a delta update between a source file and a recompressed and re-signed target file, use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) repository. Update the script to include the path to your private key, and then run it as part of the DiffGen command. See the examples section for usage.
 
-#### DiffGen arguments
+### DiffGen arguments
 
 | Argument | Description |
 |--|--|
@@ -189,10 +184,10 @@ You can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-upda
 | `<output_path>` | The path on the build machine where the generated delta file is written, including the desired file name. If the path doesn't exist, the tool creates it. |
 | `<log_folder>` | The directory where logs are written. It's recommended to use a subfolder of the output path. If the path doesn't exist, the tool creates it. |
 | `<working_folder>` | A directory for intermediate files created during delta generation. It's recommended to use a subfolder of the output path. If the path doesn't exist, the tool creates it. |
-| `<recompressed_target_archive>` | The path where the recompressed target archive is created. This file is used instead of `<target_archive>` during delta generation. If it already exists, it is overwritten. It's recommended to define this file in a subfolder of the output path. |
+| `<recompressed_target_archive>` | The path where the recompressed target archive is created. This file is used instead of `<target_archive>` during delta generation. If it already exists, the tool overwrites it. Define this file in a subfolder of the output path. |
 | `"<signing_command>"` *(optional)* | A command used to sign the `sw-description` file within the `<recompressed_target_archive>`. The signing command must produce a corresponding `.sig` file.<br><br>Wrap the entire command in double quotes so it is passed as a single argument. Avoid using `~` in file paths; use full paths instead (for example, `/home/user/keys/priv.pem`). |
 
-#### DiffGen examples
+### DiffGen examples
 
 The following examples assume a working directory of `/mnt/o/temp` in Windows Subsystem for Linux.
 
@@ -225,7 +220,7 @@ sudo ./DiffGenTool
 
 ## Import the delta update
 
-The basic process of importing a delta update into the Device Update service is the same as importing any other update. For background information, see [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md).
+The basic process for importing a delta update into the Device Update service is the same as importing any other update. For background information, see [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md).
 
 ### Generate the import manifest
 
@@ -234,7 +229,6 @@ To import an update into the Device Update service, you must have or create an i
 For delta updates, the import manifest must reference the following files created by the DiffGen tool:
 
 - The `<recompressed_target_file>` SWU image
-
 - The `<delta file>`
 
 Delta updates use a capability called [related files](related-files.md), which requires a version 5 or later import manifest. To use this feature, include both the [relatedFiles](import-schema.md#relatedfiles-object) and [downloadHandler](import-schema.md#downloadhandler-object) objects in your manifest.
@@ -271,14 +265,12 @@ Save your generated import manifest JSON with the file extension `*.importmanife
 
 ### Import using the Azure portal
 
-Once you create your import manifest, import the delta update by following the instructions in [Add an update to Device Update for IoT Hub](import-update.md#import-an-update). 
+After you create your import manifest, import the delta update by following the instructions in [Add an update to Device Update for IoT Hub](import-update.md#import-an-update). 
 
 Include the following items in the import:
 
 - The `*.importmanifest.json` file
-
 - The `<recompressed_target_file>` SWU image created by DiffGen
-
 - The `<delta file>` created by DiffGen
 
 ## Deploy the delta update
@@ -290,15 +282,12 @@ To support devices running different starting versions, include a delta update f
 For example:
 
 - A **v1 → v3** delta update  
-
 - A **v2 → v3** delta update 
-
 - A full **v3** update  
 
 After you create a deployment, the Device Update service and client automatically determine whether a valid delta update is available for each device.
 
 - If a valid delta applies (for example, devices on **v1** or **v2**), the device downloads and installs the delta update.  
-
 - If no valid delta is available (for example, devices on **v0**), the device downloads and installs the full update (the recompressed target SWU image) instead.
 
 This behavior ensures that all devices can update to the target version, even if a matching delta update isn't available.
@@ -308,26 +297,22 @@ This behavior ensures that all devices can update to the target version, even if
 After deployment, one of the following outcomes occurs:
 
 - The delta update installs successfully, and the device updates to the target version.  
-
 - The delta update is unavailable or fails, but the fallback full update installs successfully.  
-
 - Both the delta update and fallback full update fail, and the device remains on the previous version.  
 
 To determine the outcome for a device, view its installation results in the Azure portal. For failed updates, review the `resultCode` and `extendedResultCode`.
 
 - If the delta update succeeds, the device shows a **Succeeded** status.  
-
 - If the delta update fails but the fallback succeeds, the device shows an error status with:
 
   - `resultCode`: \<value greater than 0>  
-  
   - `extendedResultCode`: \<non-zero value>
 
 You can also collect logs from failed devices if needed. For more information, see [collect logs](device-update-log-collection.md).
 
-### Troubleshoot failed updates
+## Troubleshoot failed updates
 
-Unsuccessful updates display an error status that you can interpret using the following instructions. 
+Unsuccessful updates display an error status that you can interpret by using the following instructions. 
 
 Start with the Device Update agent error definitions in [result.h](https://github.com/Azure/iot-hub-device-update/blob/main/src/inc/aduc/result.h).
 
@@ -345,18 +330,14 @@ Errors from the Device Update agent that are specific to the delta updates downl
 If the error code isn't present in [result.h](https://github.com/Azure/iot-hub-device-update/blob/main/src/inc/aduc/result.h), it likely originates from the delta processor extension. In that case, the `extendedResultCode` is a negative decimal value in the hexadecimal format `0x90AXXXXX`, where:
 
 - `9` indicates the Delta facility 
-
 - `0A` indicates the delta processor component (ADUC_COMPONENT_DELTA_DOWNLOAD_HANDLER_DELTA_PROCESSOR)
-
 - `XXXXX` is the 20-bit error code returned by the delta processor
 
-If you can't resolve the issue using the error code, collect logs from the device and file a GitHub issue for further assistance.
+If you can't resolve the issue by using the error code, collect logs from the device and file a GitHub issue for further assistance.
 
 ## Related content
 
 - [Azure Device Update for IoT Hub delta updates](delta-updates.md)
-
 - [Azure Device Update for IoT Hub import manifest schema](import-schema.md)
-
 - [Troubleshoot common issues](troubleshoot-device-update.md)
 
