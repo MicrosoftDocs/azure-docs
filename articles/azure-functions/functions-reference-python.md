@@ -221,10 +221,10 @@ def http_trigger(req: func.HttpRequest) -> str:
 When you define a route with parameters in the path — for example, `products/{product_id}` —
 read those parameters from the [HttpRequest] object's `route_params` dictionary inside the
 function body. Don't declare route parameters as additional arguments on the function signature.
-The Python v2 model expects HTTP-trigger functions to take exactly one `HttpRequest` argument
-plus any declared input or output bindings. Adding an extra argument that doesn't correspond
-to a declared binding causes the worker indexer to silently drop all functions in the app,
-and the host logs `0 functions found (Custom)` with no traceback.
+In the Python v2 model, function parameters must correspond to the trigger and any declared
+input or output bindings. Adding an extra argument that doesn't correspond to a declared
+binding, such as a route parameter, can cause the worker indexer to silently drop all
+functions in the app, and the host logs `0 functions found (Custom)` with no traceback.
 
 ```python
 import azure.functions as func
