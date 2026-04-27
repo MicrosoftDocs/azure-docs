@@ -148,6 +148,8 @@ ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets it
 | **`_delta_log/`** | The Delta Lake transaction log. Tracks all table changes for ACID transactions and time travel. |
 | **Parquet files** | Snappy-compressed data files. Updates create new files. ACZ runs VACUUM and OPTIMIZE to compact small files and remove old ones. |
 
+One folder per DDMS entity type and record id.
+
 ### Delta table schema
 
 The Delta table has these fields:
