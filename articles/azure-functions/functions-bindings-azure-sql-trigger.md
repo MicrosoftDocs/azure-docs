@@ -641,6 +641,30 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
     The trigger needs to have read access on the table being monitored for changes and to the change tracking system tables. Each function trigger has an associated change tracking table and leases table in a schema `az_func`. These tables are created by the trigger if they don't yet exist.  More information on these data structures is available in the Azure SQL binding library [documentation](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/BindingsOverview.md#internal-state-tables).
 
 
+## Required permissions for Azure SQL trigger
+
+When using the Azure SQL trigger with Azure Functions (including when using managed identity), the database principal must be granted additional permissions beyond those required for input and output bindings.
+
+The commonly used roles such as `db_datareader` and `db_datawriter` are **not sufficient** for SQL triggers.
+
+The Azure SQL trigger relies on SQL change tracking to detect changes and to support scaling. To function correctly, the following permissions are required:
+
+```sql
+-- Allow creation of required schema artifacts
+CREATE SCHEMA;
+
+-- Required for internal tables used by the extension
+CREATE TABLE;
+
+-- Read access on the monitored table
+GRANT SELECT ON [<TableName>] TO [<UserOrManagedIdentity>];
+
+-- Required for change tracking (used by the trigger and scale controller)
+GRANT VIEW CHANGE TRACKING ON [<TableName>] TO [<UserOrManagedIdentity>];
+
+-- Required permissions on the schema used by the extension
+GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::az_func TO [<UserOrManagedIdentity>];
+
 ## Enable runtime-driven scaling
 
 Optionally, your functions can scale automatically based on the number of changes that are pending to be processed in the user table. To allow your functions to scale properly on the Premium plan when using SQL triggers, you need to enable runtime scale monitoring.
