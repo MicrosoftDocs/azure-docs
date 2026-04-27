@@ -427,7 +427,7 @@ This approach allows *any* client application in your Microsoft Entra tenant to 
 
 1. Select **Grant admin consent** to authorize the client application to request the permission.
 
-   Similar to the previous scenario (before you added any roles), you can now [request an access token](/entra/identity-platform/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secrett) for the same target resource. The access token includes a `roles` claim that contains the app roles that were authorized for the client application.
+   Similar to the previous scenario (before you added any roles), you can now [request an access token](/entra/identity-platform/v2-oauth2-client-creds-grant-flow#first-case-access-token-request-with-a-shared-secret) for the same target resource. The access token includes a `roles` claim that contains the app roles that were authorized for the client application.
 
 Within the target App Service or Azure Functions app code, you can now validate that the token has the expected roles. App Service authentication doesn't perform this validation. For more information, see [Access user claims in app code](configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
