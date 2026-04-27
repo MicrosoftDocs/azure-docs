@@ -16,7 +16,7 @@ ms.custom:
 
 Artifact Signing gives you a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost and to be suitable for any signing scenario.
 
-For more information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
+For more information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
 
 ## SKU (pricing tier) overview
 
@@ -67,7 +67,7 @@ To change the SKU (pricing tier) by using the Azure portal:
 To change the SKU by using the Azure CLI, run this command:
 
 ```azurecli
-az trustedsigning update -n MyAccount -g MyResourceGroup --sku Premium
+az artifact-signing update -n MyAccount -g MyResourceGroup --sku Premium
 ```
 
 ---
