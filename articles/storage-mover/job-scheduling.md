@@ -11,7 +11,7 @@ ms.custom: sfi-image-nochange
 
 # Job scheduling in Azure Storage Mover
 
-Job scheduling in Azure Storage Mover automates running migration jobs. Use schedules to keep data in Azure synchronized with your source environment.
+Job scheduling in Azure Storage Mover automates the execution of migration jobs. You can use schedules to keep data in Azure synchronized with your source environment.
 
 ## Prerequisites
 
@@ -27,47 +27,45 @@ Before you create or schedule a job, make sure that you have:
 
 To define a job schedule while creating a new migration job, complete the following steps.
 
-1. In the Azure portal, open your Storage Mover resource and select *Projects*.
-1. Select a project, and then select *Create job*.
-1. On the *Basics* tab, select the migration type.
-
-> [!NOTE]
-> Storage Mover supports on-premises, multicloud, and Azure-to-Azure migration types.
-
-1. Select the *source endpoint*.
-   - To create a new source endpoint, select *Create*.
+1. In the Azure portal, open your Storage Mover resource and select **Projects**.
+1. Select a project, and then select **Create job**.
+1. Within the **Basics** tab, select the appropriate migration type. Storage Mover supports on-premises, multicloud, and Azure-to-Azure migration types.
+1. Select the **Source endpoint**. To create a new source endpoint, select *Create*.
+    > [!NOTE]
+    > Some sources require additional resources, such as a key vault, a registered agent, or a Multicloud connector. Ensure you have the required resources available for the source you select or create.
 1. Select the *target endpoint*.
    - To create a new target endpoint, select *Create*.
-
-> [!NOTE]
-> Some endpoints require extra setup or permissions (for example, an agent, Key Vault access, or a multicloud connector). Make sure the required resources are in place before you continue.
-
+   - Before attempting to create a target endpoint, ensure that you have the appropriate permissions to the storage account.
 1. Configure any job settings you need.
-1. Select the *Scheduling* tab.
-1. For *Frequency*, select one of the following options:
-   - *No schedule* (run manually)
-   - *One-time*
-   - *Recurring*
-1. Configure the schedule:
-    - Select a *start date and time*. The start date can be set up to 90 days from the creation date. For example, if you create the schedule on October 31, 2026, you can select any *Start date* between October 31 and January 29, 2026.
-    - For recurring schedules, select *Daily*, *Weekly*, or *Monthly*, and then select the days that apply.
-    - Select an **end date**. You can update the end date later, but *Until* must always remain within a year of when the schedule was created. The one-year limit is based on the creation date, not the selected *Start date*. For example, if you create a schedule on October 31, 2026, the latest possible end date (*Until*) is October 31, 2027.
+1. Within the *Scheduling* tab:
+
+    - Select a **Migration Frequency** option. To run your migration jobs manually, select the *No schedule* button. Otherwise, select either *One-time* or *Recurring*.
+    - Select a **Start date** and **Start time** in Coordinated Universal Time (UTC). The start date can be set up to 90 days from the creation date. For example, if you create the schedule on October 31, 2026, you can select any *Start date* between October 31 and January 29, 2026.
+    - For recurring schedules, select a **Frequency** vlaue of *Daily*, *Weekly*, or *Monthly*, and then select the days that apply. Selected values are highlighted.
+    - Select an *end date* value within the **Until** field. You can update the end date later, but the **Until** value must always remain within a year of schedule's created date. The one-year limit is based on the creation date, not the selected *Start date*. For example, if you create a schedule on October 31, 2026, the latest possible end date (*Until*) is October 31, 2027.
 
     > [!NOTE]
-    > For recurring schedules, the end date must be within one year of the date on which the schedule was created. You can update the end date later, but it must stay within that one-year window.
+    > For recurring schedules, the end date must be within one year of the date on which the schedule was created. You can update the end date later, but it must stay within a one-year window.
 
     :::image type="content" source="media/job-scheduling/create-job-scheduling-settings-sml.png" alt-text="Screenshot of the job scheduling settings in Azure Storage Mover." lightbox="media/job-scheduling/create-job-scheduling-settings-lrg.png":::
 
-1. Select *Create*.
-1. After the job is created, open the job and select *Enable* to activate the schedule.
+1. Select **Create** to complete the job creation.
+1. After the job is created, select it to display its properties. Select **Enable** to activate the schedule.
 
 :::image type="content" source="media/job-scheduling/enable-scheduling-for-job-sml.png" alt-text="Screenshot of enabling a schedule for a job in Azure Storage Mover." lightbox="media/job-scheduling/enable-scheduling-for-job-lrg.png":::
 
 ## Update the schedule for an existing job
 
-1. In your Storage Mover resource, select *Projects*, and then select a project.
-1. Select the job, and then select *Edit*.
-1. Select the *Scheduling* tab and update the schedule settings.
-1. Select *Save*.
+1. In your Storage Mover resource, select **Projects**, and then select a project.
+1. Select the job you want to update, then select **Edit**.
+1. Within the **Scheduling** tab, select a **Migration Frequency** option. To run your migration jobs manually, select the *No schedule* button. Otherwise, select either *One-time* or *Recurring*.
+
+    > [!NOTE]
+    > If you reduce the frequency of the job run scehdule, changing from a recurring schedule to a one-time schedule or to no schedule for example, all upcoming jobs runs will be cancelled. You will still have access to the job-run history and all previous job run results.
+
+1. Select **Save** to commit your changes.
+
+    > [!NOTE]
+    > If a schedule for this job was previously enabled, it need not be reeanabled. However, if the job has not previously been scheduled, it will need to be enabled.
 
 :::image type="content" source="media/job-scheduling/edit-job-schedule-settings-sml.png" alt-text="Screenshot of editing schedule settings for an existing job." lightbox="media/job-scheduling/edit-job-schedule-settings-lrg.png":::
