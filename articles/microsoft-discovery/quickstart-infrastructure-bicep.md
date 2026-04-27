@@ -24,6 +24,9 @@ This quickstart describes how to use Bicep to deploy the prerequisite infrastruc
 
 - Ensure you have the **Platform / IT administrator** persona roles assigned at the subscription or resource group scope. For the full list of required roles, see [Roles required by persona](concept-role-assignments.md#roles-required-by-persona).
 
+> [!IMPORTANT]
+> Microsoft Discovery workspaces are network-hardened by default. Before you deploy this template, you must also create the **Discovery NSP Perimeter Joiner** custom role and assign it to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For the role definition, see [Discovery NSP Perimeter Joiner (custom role)](concept-role-assignments.md#discovery-nsp-perimeter-joiner-custom-role). For step-by-step setup, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
+
 - Verify you have sufficient [quota reservations](concept-quota-reservation.md) for your target region.
 
 ## Review the Bicep file

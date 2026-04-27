@@ -24,6 +24,8 @@ items:
         href: user-roles.md
       - name: Agent permissions
         href: permissions.md
+      - name: Subscription permission visibility
+        href: subscription-permission-visibility.md
       - name: Agent identity
         href: agent-identity.md
       - name: Run modes
@@ -42,6 +44,8 @@ items:
         href: threads.md
       - name: Tools
         href: tools.md
+      - name: Default agent override info
+        href: default-agent-override-info.md
       - name: Deep context
         href: workspace-tools.md
       - name: Agent reasoning

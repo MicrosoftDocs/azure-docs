@@ -3,7 +3,7 @@ title: Upload Knowledge Documents to Azure SRE Agent
 description: Create and upload runbooks, troubleshooting guides, and documentation to Knowledge settings during conversations to capture institutional knowledge automatically.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 04/24/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -11,51 +11,53 @@ ms.custom: knowledge-base, upload, documents, runbooks, troubleshooting, automat
 #customer intent: As an SRE, I want my agent to upload knowledge documents during conversations so that incident resolutions become reusable institutional knowledge.
 ---
 
-# Upload knowledge documents to Azure SRE Agent
-<!-- > [!VIDEO <VIDEO_URL_FOR_AGENT_KNOWLEDGE_BASE>]
-Replace <VIDEO_URL_FOR_AGENT_KNOWLEDGE_BASE> with the hosted URL for the Agent's Knowledge Base video. -->
+# Upload knowledge documents in Azure SRE Agent
 
-Your agent captures institutional knowledge during conversations by uploading runbooks, troubleshooting guides, and documentation directly to the knowledge base. When your agent discovers a fix or resolves an incident, it generates structured documents and indexes them for semantic search, so every future investigation benefits from past resolutions.
 
 > [!TIP]
-> Your agent creates and uploads runbooks during conversations without manual file management. Attach 31 file types in chat, including `.kql`, `.bicep`, `.tf`, `.har`, `.py`, and `.xlsx`, for immediate analysis context. Upload 28 file types to Knowledge settings for persistent, indexed storage across all future conversations. Incident resolutions become institutional knowledge automatically.
+> - Your agent creates and uploads runbooks during conversations with no manual file management.
+> - Attach 31 file types in chat, including `.kql`, `.bicep`, `.tf`, `.har`, `.py`, and `.xlsx`, for immediate analysis context.
+> - Upload 28 file types to Knowledge settings for persistent, indexed storage across all future conversations
+> - Incident resolutions become institutional knowledge automatically
 
-## How your agent captures knowledge
+## The problem: knowledge dies with the conversation
+
+Every incident your team resolves generates valuable knowledge: what went wrong, what commands fixed it, and what to check first next time. But that knowledge lives in chat threads, engineer memory, and postmortems that nobody reads at 3 AM.
+
+Your team has runbooks, but they go stale. The fix discovered during last night's incident? It's in someone's head, or buried in a conversation that scrolls out of view by next week. The next time the same issue occurs, a different engineer starts from scratch.
+
+## How your agent solves this problem
 
 Your agent can upload documents to Knowledge settings during conversations by using the **Upload Knowledge Document** tool. When your agent discovers a fix, creates a troubleshooting guide, or synthesizes investigation findings, it stores that knowledge directly and makes it searchable for every future conversation.
 
 ```text
-Create a runbook from the steps we just followed to fix this database
-connection pool exhaustion issue and save it to Knowledge settings.
+"Create a runbook from the steps we just followed to fix this database
+connection pool exhaustion issue and save it to Knowledge settings."
 ```
 
 Your agent generates a structured runbook and uploads it in seconds. The document is indexed automatically and becomes searchable for future investigations.
 
-:::image type="content" source="media/upload-knowledge-document/agent-generated-guide.png" alt-text="Agent generating and uploading a troubleshooting guide during a conversation" lightbox="media/upload-knowledge-document/agent-generated-guide.png":::
-
 ## Before and after
 
-The following table compares knowledge capture workflows before and after using the **Upload Knowledge Document** tool.
-
-| Area | Before | After |
-|------|--------|-------|
+|  | Before | After |
+|---|--------|-------|
 | **Knowledge capture** | Post-incident: engineer writes runbook (maybe) | Your agent captures the fix as it happens |
-| **Time to document** | 30-60 minutes to write a runbook | Seconds: your agent generates and uploads inline |
+| **Time to document** | 30 to 60 minutes to write a runbook | Seconds. Your agent generates and uploads inline. |
 | **Knowledge freshness** | Runbooks go stale within weeks | Knowledge settings grows with every resolution |
 | **Accessibility** | Knowledge stuck in engineer's head or chat thread | Searchable by your agent across all future conversations |
 | **Format consistency** | Varies by author | Structured, consistent documentation every time |
 
-## What makes this approach different
+## What makes this different
 
-Unlike manual uploads, your agent proactively creates knowledge. You don't need to remember to document what you learned. Your agent does it as part of the conversation.
+**Unlike manual uploads**, your agent creates knowledge proactively. You don't need to remember to document what you learned because your agent does it as part of the conversation.
 
-Unlike chat history, uploaded documents are indexed for semantic search. When a similar issue occurs months later, your agent finds the relevant runbook automatically through intelligent retrieval, not by scrolling through old threads.
+**Unlike chat history**, uploaded documents are indexed for semantic search. When a similar issue occurs months later, your agent finds the relevant runbook automatically through intelligent retrieval, not by scrolling through old threads.
 
-Unlike wiki connectors, uploaded documents don't require external services. The knowledge lives directly in your agent's Knowledge settings, available instantly without syncing delays.
+**Unlike wiki connectors**, uploaded documents don't require external services. The knowledge lives directly in your agent's Knowledge settings, available instantly without syncing delays.
 
 ## How it works
 
-The **Upload Knowledge Document** tool accepts three parameters.
+The **Upload Knowledge Document** tool accepts three parameters:
 
 | Parameter | Required | Description |
 |-----------|----------|-------------|
@@ -65,13 +67,13 @@ The **Upload Knowledge Document** tool accepts three parameters.
 
 When your agent uploads a document:
 
-1. The agent validates the filename and content (maximum 16 MB per file).
-1. The agent stores the document in your agent's Knowledge settings.
-1. The agent indexes the content for semantic search.
-1. The agent confirms the upload with a success message.
+1. **Validates** the filename and content (up to 16 MB per file).
+1. **Stores** the document in your agent's Knowledge settings.
+1. **Indexes** the content for semantic search.
+1. **Confirms** the upload with a success message.
 
 > [!NOTE]
-> If a document with the same filename already exists, the new content replaces it. Upload by using the same name to refresh the content.
+> If a document with the same filename already exists, the new content replaces it. This process makes it easy for your agent to update knowledge. Upload with the same name to refresh the content.
 
 ## Supported file formats
 
@@ -79,7 +81,7 @@ Your agent handles files through three methods, each supporting different format
 
 ### Chat attachments
 
-Drag files into any chat to give your agent immediate context for analysis, including troubleshooting scripts, configuration files, network traces, and more.
+Drag files into any chat to give your agent immediate context for analysis - troubleshooting scripts, configuration files, network traces, and more.
 
 | Category | Extensions |
 |----------|-----------|
@@ -94,7 +96,7 @@ Drag files into any chat to give your agent immediate context for analysis, incl
 
 ### Knowledge settings uploads
 
-Upload files through **Builder** > **Knowledge settings** > **Add file** to persist documents for your agent to reference in future conversations. The system indexes uploaded files for semantic search.
+To persist documents for your agent to reference in future conversations, upload files through **Builder → Knowledge settings → Add file**. The system indexes uploaded files for semantic search.
 
 | Category | Extensions |
 |----------|-----------|
@@ -104,16 +106,27 @@ Upload files through **Builder** > **Knowledge settings** > **Add file** to pers
 
 **Limits:** 16 MB per file · 100 MB per upload
 
+#### Folder uploads
+
+To upload all supported files at once, drag an entire folder onto the upload drop zone. This process includes files in nested subfolders. The portal automatically extracts every file from the folder hierarchy and filters out unsupported file types.
+
+**How folder uploads work:**
+
+1. The system extracts all files from nested subfolders into a flat list.
+1. The system includes only files with supported extensions and silently filters unsupported types.
+1. The system deduplicates files with duplicate names from different subfolders and keeps only the first file.
+1. The system uploads and indexes each file individually for search.
+
 > [!NOTE]
-> Knowledge settings uploads accept legacy Office formats (`.doc`, `.ppt`, `.xls`) and additional image formats (`.bmp`, `.tiff`, `.tif`) that chat attachments don't. Chat attachments support code, scripts, infrastructure, and web formats that the Knowledge settings doesn't support.
+> Uploaded files appear as individual documents in Knowledge sources. The original folder hierarchy isn't maintained. A file at `runbooks/networking/dns-troubleshooting.md` appears as `dns-troubleshooting.md`.
+
+Knowledge settings uploads accept legacy Office formats (`.doc`, `.ppt`, `.xls`) and additional image formats (`.bmp`, `.tiff`, `.tif`) that chat attachments don't. Chat attachments support code, scripts, infrastructure, and web formats that knowledge settings doesn't.
 
 ### Agent-generated documents
 
-When your agent creates documents during conversations (by using the **Upload Knowledge Document** tool), it generates `.md` or `.txt` files and saves them directly to **Knowledge settings**. This process happens when you ask your agent to "save this as a runbook."
+When your agent creates documents during conversations (by using the **Upload Knowledge Document** tool), it generates `.md` or `.txt` files and saves them directly to Knowledge settings. This process happens when you ask your agent to "save this as a runbook."
 
-:::image type="content" source="media/upload-knowledge-document/add-file-dialog.png" alt-text="The Add file dialog in Knowledge settings showing supported formats and drag-and-drop upload" lightbox="media/upload-knowledge-document/add-file-dialog.png":::
-
-## Example: capture incident knowledge
+## Example: capturing incident knowledge
 
 During an incident investigation, ask your agent:
 
@@ -124,59 +137,47 @@ what we learned and upload it to Knowledge settings.
 ```
 
 Your agent generates a structured troubleshooting guide with:
+- **Scoping steps**: How to identify the issue.
+- **Quick mitigations**: Immediate actions to reduce impact.
+- **Root cause analysis**: What to investigate.
+- **Resolution steps**: The fix that worked.
+- **Prevention**: How to avoid recurrence.
 
-- **Scoping steps**: How to identify the problem
-- **Quick mitigations**: Immediate actions to reduce impact
-- **Root cause analysis**: What to investigate
-- **Resolution steps**: The fix that worked
-- **Prevention**: How to avoid recurrence
+The next time a similar CPU issue occurs, your agent automatically references this document during investigation, turning one engineer's experience into shared team knowledge.
 
-The next time a similar CPU problem occurs, your agent automatically references this document during investigation, turning one engineer's experience into shared team knowledge.
-
-## Prerequisites
-
-Before you use the **Upload Knowledge Document** tool, make sure you meet the following requirements.
+## What you need
 
 | Requirement | Details |
 |-------------|---------|
 | Agent version | 26.1.57.0 or later |
 | Knowledge settings | Enabled on your agent |
 | Write permissions | Your agent needs write access to Knowledge settings |
-| Run mode | Review or Autonomous (write actions require approval in Review mode) |
+| Run mode | Review or Autonomous. Write actions require approval in Review mode. |
 
 ## Limits
 
-The following limits apply to uploaded knowledge documents.
-
-|  | Chat attachments | Knowledge settings uploads | Agent tool |
+| Attribute | Chat attachments | Knowledge settings uploads | Agent tool |
 |---|---|---|---|
 | **Maximum file size** | 10 MB | 16 MB | 16 MB |
-| **Maximum total** | 50 MB per message | 100 MB per upload | — |
-| **Maximum files** | 5 per message | — | 1 per action |
+| **Maximum total** | 50 MB per message | 100 MB per upload | N/A |
+| **Maximum files** | 5 per message | No limit (total size capped at 100 MB) | 1 per action |
+| **Folder upload** | Not supported | ✓ Drag folders to upload all files at once | Not supported |
 | **Supported extensions** | 31 | 28 | 2 (`.md`, `.txt`) |
-| **Filename characters** | — | Letters, numbers, hyphens, underscores, dots | Same |
-| **Maximum filename length** | — | 1,024 characters | Same |
+| **Filename characters** | N/A | Letters, numbers, hyphens, underscores, dots | Same |
+| **Maximum filename length** | N/A | 1,024 characters | Same |
 
 ## When to use something else
 
-The following table describes scenarios where a different approach is more appropriate.
-
 | Scenario | Better approach |
 |----------|----------------|
-| Connecting live wiki content that stays in sync | [Azure DevOps wiki knowledge](azure-devops-wiki-knowledge.md) |
-| Uploading binary files (PDF, Word, images) | Upload through **Builder** > **Knowledge settings** > **Add file** |
-| Bulk importing many documents at once | Use the `srectl doc upload --file <path>` CLI command |
-| Keeping code repositories up to date automatically | Connect a GitHub or Azure DevOps connector |
+| Connecting live wiki content that stays in sync | [ADO Wiki Knowledge](ado-connector.md) |
+| Uploading binary files (PDF, Word, images) | Upload through **Builder → Knowledge settings → Add file** |
+| Bulk importing many documents at once | Upload multiple files through **Builder → Knowledge settings → Add file** |
+| Keeping code repositories up to date automatically | Connect a GitHub or ADO connector |
 
-## Get started
-
-| Resource | What you learn |
-|----------|----------------|
-| [Upload knowledge documents](tutorial-upload-knowledge-document.md) | Add runbooks and docs to your agent's Knowledge settings |
-
-## Related content
+## Related capabilities
 
 | Capability | What it adds |
 |------------|--------------|
-| [Azure DevOps wiki knowledge](azure-devops-wiki-knowledge.md) | Connect live wiki content that updates automatically |
-| [Root cause analysis](root-cause-analysis.md) | Investigate problems, then capture the findings |
+| [ADO wiki knowledge](ado-connector.md) | Connect live wiki content that updates automatically |
+| [Root cause analysis](root-cause-analysis.md) | Investigate issues and capture the findings |
