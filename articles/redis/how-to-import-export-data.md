@@ -1,7 +1,7 @@
 ---
 title: Import and Export data in Azure Managed Redis
 description: Learn how to import and export data to and from blob storage with your Azure Managed Redis instances
-ms.date: 05/18/2025
+ms.date: 04/24/2026
 ms.topic: how-to
 ms.custom:
   - ignite-2024
@@ -29,14 +29,15 @@ This article provides a guide for importing and exporting data with Azure Manage
 ## Compatibility
 
 - Data is exported as a .gz block blob.
-- Instances running Redis 7.2 support RDB version 11 and below.
-- Exported backups from newer versions of Redis (for example, Redis 7.2) can't be imported into older versions of Redis (for example, Redis 6.0)
+- Instances running Redis 7.4 support RDB version 11 and below.
+- Exported backups from newer versions of Redis (for example, Redis 7.4) can't be imported into older versions of Redis (for example, Redis 6.0)
 - RDB files from _Premium_ tier Azure Cache for Redis instances can be imported into Azure Managed Redis, but not vice-versa.
-- RDB files from _Enterprise_ or _Enterprise Flash_ tier Azure Cache for Redis instances can be imported into Azure Managed Redis. RDB files from Azure Managed Redis can be imported back into these tiers if the Enterprise tier cache is running the same Redis version (e.g. Redis 7.2)
+- RDB files from _Enterprise_ or _Enterprise Flash_ tier Azure Cache for Redis instances can be imported into Azure Managed Redis. RDB files from Azure Managed Redis can be imported back into these tiers if the Enterprise tier cache is running the same Redis version (e.g. Redis 7.4)
+- Individual keys larger than 2GB within the import will cause import to fail. It is a best practice to avoid overly large keys and instead split data between multiple smaller keys.
 
 ## Requirements
 
-- Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Managed Redis instance. If you are using managed identity for authentication, the storage account can be in a different subscription. For more information, see [Get started with Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet). If you exported your RDB file using the [export](#export) feature, your RDB file is already stored in a block blob and is ready for importing.
+- Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage. If you exported your RDB file using the [export](#export) feature, your RDB file is already stored in a block blob and is ready for importing.
 
 ## Import
 
@@ -82,7 +83,7 @@ Export allows you to export the data stored in Azure Managed Redis. You can use 
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-choose-storage-container.png" alt-text="Screenshot showing Export data selected in the Resource menu"::: -->
 
-1. Select **Choose Storage Container** and to display a list of available storage accounts. Select the storage account you want. The storage account must be in the same region as your cache. If you're using managed identity for authentication, the storage account can be in a different subscription. Otherwise, the storage account must be in the same subscription as your cache.
+1. Select **Choose Storage Container** to display a list of available storage accounts. Select the storage account you want.
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-choose-account.png" alt-text="Screenshot showing a list of containers in the working pane."::: -->
 
@@ -180,7 +181,7 @@ No, these settings on storage accounts are not supported.
 
 ### Can I import or export data from a storage account in a different subscription than my cache?
 
-You can import and export data from a storage account in a different subscription than your cache, but you must use managed identity as the authentication method. You need to select the chosen subscription holding the storage account when configuring the import or export.
+You can import and export data from a storage account in a different subscription than your cache. You need to select the chosen subscription holding the storage account when configuring the import or export.
 
 ### Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?
 

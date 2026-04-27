@@ -28,6 +28,7 @@ Use the provided PowerShell script to automate the setup of your IoT Hub with Az
 ## Prepare your environment
 
 1. Download [PowerShell 7](/powershell/scripting/install/installing-powershell-on-windows) for Windows.
+
 1. Navigate to the [GitHub repository](https://github.com/Azure-Samples/iot-hub-adr-cert-mgmt-preview/tree/main/scripts) and download the **Scripts** folder, which contains the script file, `iothub-adr-certs-setup-preview.ps1`.
 
 ## Customize the script variables
@@ -36,12 +37,12 @@ Open the script file in a text editor and modify the following variables to matc
 
 - `TenantId`: Your tenant ID. You can find this value by running `az account show` in your terminal.
 - `SubscriptionId`: Your subscription ID. You can find this value by running `az account show` in your terminal.
-- `ResourceGroup`: The name of your resource group.
+- `ResourceGroup`: The name of your new resource group.
 - `Location`: The Azure region where you want to create your resources. Check out the available locations for preview features in the [Supported regions](../articles/iot-hub/iot-hub-what-is-new.md#supported-regions) section.
-- `NamespaceName`: Your namespace name may only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, "msft-namespace" is a valid name.
+- `NamespaceName`: Your namespace name can only contain lowercase letters and hyphens ('-') in the middle of the name, but not at the beginning or end. For example, *msft-namespace* is a valid name.
 - `HubName`: Your hub name can only contain lowercase letters and numerals.
-- `DpsName`: The name of your Device Provisioning Service instance.
-- `UserIdentity`: The user-assigned managed identity for your resources.
+- `DpsName`: The name of your new Device Provisioning Service instance.
+- `UserIdentity`: The new user-assigned managed identity for your resources.
 - `WorkingFolder`: The local folder where your script is located.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
@@ -49,7 +50,11 @@ Open the script file in a text editor and modify the following variables to matc
 ## Run the script interactively
 
 1. Open the script and run in **PowerShell 7+ as an administrator**. Navigate to the folder containing your script and run `.\iothub-adr-certs-setup-preview.ps1`.
+
 1. If you run into an execution policy issue, try running `powershell -ExecutionPolicy Bypass -File .\iothub-adr-certs-setup-preview.ps1`.
+
+1. If you get a message that the namespace *Microsoft.DeviceRegistry* isn't registered, try running `az provider register --namespace Microsoft.DeviceRegistry`.
+
 1. Follow the guided prompts:
 
     - Press `Enter` to proceed with a step
@@ -57,11 +62,12 @@ Open the script file in a text editor and modify the following variables to matc
     - Press `Ctrl` + `C` to abort
 
 > [!NOTE]
-> The creation of your ADR namespace, IoT Hub, DPS, and other resources may take up to 5 minutes each.
+> The creation of your ADR namespace, IoT Hub, DPS, and other resources might take up to 5 minutes each.
 
 ## Monitor execution and validate the resources
 
 1. The script continues execution when warnings are encountered and only stops if a command returns a non-zero exit code. Monitor the console for red **ERROR** messages, which indicate issues that require attention.
+
 1. Once the script completes, validate the creation of your resources by visiting your new **Resource Group** on the [Azure portal](https://portal.azure.com). You should see the following resources created:
 
     - IoT Hub instance

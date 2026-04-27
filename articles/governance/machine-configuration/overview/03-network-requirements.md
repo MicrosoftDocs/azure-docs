@@ -88,8 +88,8 @@ Apply tag with the name `EnablePrivateNetworkGC` and value `TRUE` to enable this
 can be applied before or after machine configuration policy definitions are applied to the machine.
 
 > [!IMPORTANT]
-> To communicate over private link for custom packages, the link to the location of the
-> package must be added to the list of allowed URLs.
+> Azure VMs using private link do not require the regional GAS endpoints to be allowlisted or publicly resolvable. Private link traffic is routed through the host connection rather than the internet, so the regional endpoint is never consulted in that path.
+> Custom configuration packages are downloaded from the location specified in the policy assignment. If the package is hosted in an Azure Storage account with a private endpoint configured in the VM's VNet, the download follows the same private link path and no additional URL allowlisting is required. If the package is hosted at a public Azure Storage URL or any non-Azure URL, that URL must be reachable from the VM and added to the allowed URLs list.
 
 Traffic is routed using the Azure [virtual public IP address][22] to establish a secure,
 authenticated channel with Azure platform resources.

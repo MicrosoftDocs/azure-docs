@@ -47,17 +47,13 @@ Some monitoring capabilities are limited during the preview. The following monit
 
 - You can monitor the number of blocks using the Web Application Firewall *Request count* metric and filter by *Rule name*.
 
-## Accessing the preview
-
-Currently, the HTTP DDoS Ruleset on Azure Front Door is in limited preview. To participate in the preview, fill out the [signup form](https://go.microsoft.com/fwlink/?linkid=2338493). After you submit the form, a member of the product team will contact you with further instructions.
+- The Web Application Firewall HTTPDDoSRuleset Is Active metric will have a value of "1" once the DDoS Ruleset has completed learning and is ready to take action on traffic breaching the learned threasholds.
 
 ## Limitations
 
 The following limitations apply to the HTTP DDoS ruleset during the preview:
 
-- There's no ability to allow traffic from specific IP addresses to bypass the DDoS ruleset or penalty box.
-
-- After the HTTP DDoS ruleset is assigned to a WAF policy, any changes made to other managed rulesets using the production portal will remove the HTTP DDoS ruleset from the WAF policy.
+- There's no ability to allow traffic from specific IP addresses to bypass the DDoS ruleset or penalty box.  This capability will be addressed by an upcoming feature before the HTTP DDoS ruleset general availability.
 
 ## Related content
 

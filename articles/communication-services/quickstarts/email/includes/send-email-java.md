@@ -129,7 +129,7 @@ To instantiate an asynchronous client, add the following code to the `main` meth
 // You can get your connection string from your resource in the Azure portal.
 String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
 
-EmailAsyncClient emailClient = new EmailClientBuilder()
+EmailAsyncClient emailAsyncClient = new EmailClientBuilder()
     .connectionString(connectionString)
     .buildAsyncClient();
 ```
@@ -158,7 +158,7 @@ To instantiate an asynchronous client, add the following code to the `main` meth
 ```java
 // You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<resource-name>.communication.azure.com/";
-EmailAsyncClient emailClient = new EmailClientBuilder()
+EmailAsyncClient emailAsyncClient = new EmailClientBuilder()
     .endpoint(endpoint)
     .credential(new DefaultAzureCredentialBuilder().build())
     .buildAsyncClient();
