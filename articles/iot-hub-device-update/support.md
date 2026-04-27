@@ -42,9 +42,9 @@ It's possible to port the open-source Device Update agent to other operating sys
 
 ## Releases and Support
 
-Device Update for IoT Hub release assets and release notes are available on the [Device Update Release](https://github.com/Azure/iot-hub-device-update/releases) page. 
+You can find Device Update for IoT Hub release assets and release notes on the [Device Update Release](https://github.com/Azure/iot-hub-device-update/releases) page. 
 
-Support for APIs, IoT Plug and Play (PnP) models, and Device Update reference agents is summarized in the following table.
+The following table summarizes support for APIs, IoT Plug and Play (PnP) models, and Device Update reference agents.
 
 Device Update agents use IoT Plug and Play (PnP) models to communicate with the service. The models listed in the following table identify the interfaces required for each agent version. For more information, see [IoT Plug and Play in Azure Device Update for IoT Hub](https://learn.microsoft.com/en-us/azure/iot-hub-device-update/device-update-plug-and-play).
 
