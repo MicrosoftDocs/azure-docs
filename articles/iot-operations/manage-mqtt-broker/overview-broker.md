@@ -217,7 +217,7 @@ Use the Azure portal or Azure CLI to customize the default Broker resource.
 > [!IMPORTANT] 
 > You can't update the broker resource after the initial deployment. Configuration changes to cardinality, memory profile, or the disk buffer aren't allowed post-deployment.
 >
-> As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Deployment planning](../deploy-iot-ops/deployment-planning.md).
+> As a workaround, when deploying Azure IoT Operations with the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Deployment planning](../deploy-iot-ops/deployment-planning.md).
 
 ### View default Broker settings
 

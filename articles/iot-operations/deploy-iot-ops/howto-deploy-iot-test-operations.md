@@ -36,7 +36,7 @@ Cloud resources:
 
 * An Azure subscription.
 
-* Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
+* Azure access permissions. For more information, see [Deployment overview > Required permissions](overview-deploy.md#required-permissions).
 
 Development resources:
 
@@ -181,6 +181,7 @@ az iot ops get-versions
 
 ## Next steps
 
-The Azure IoT Operations instance you deployed is configured for testing scenarios. If you want to enable secure setting and prepare the instance for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](./howto-enable-secure-settings.md).
+- [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) to set up monitoring and dashboards.
+- The Azure IoT Operations instance you deployed is configured for testing scenarios. If you want to enable secure settings and prepare the instance for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](./howto-enable-secure-settings.md).
 
 

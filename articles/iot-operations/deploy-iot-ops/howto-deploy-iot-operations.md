@@ -36,7 +36,7 @@ Cloud resources:
 
 * An Azure subscription.
 
-* Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
+* Azure access permissions. For more information, see [Deployment overview > Required permissions](overview-deploy.md#required-permissions).
 
 Development resources:
 

@@ -21,7 +21,7 @@ Before you begin, prepare the following prerequisites:
 
 * A [GitHub](https://github.com) account.
 
-* Azure access permissions. For more information, see [Deployment details > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
+* Azure access permissions. For more information, see [Deployment overview > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
 
 ## Setting up
 
