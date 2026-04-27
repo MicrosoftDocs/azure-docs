@@ -159,7 +159,7 @@ You can upgrade between the following SKU types:
 
     [![Screenshot showing the Configuration page for upgrading non-availability zone gateway SKUs.](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)
 
-- **Availability zone-enabled SKUs**: ErGw1Az, ErGw2Az, ErGw3Az
+- **Availability zone-enabled SKUs**: ErGw1Az, ErGw2Az, ErGw3Az, ErGwScale
 
     [![Screenshot showing the Configuration page for upgrading availability zone-enabled gateway SKUs.](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)
 

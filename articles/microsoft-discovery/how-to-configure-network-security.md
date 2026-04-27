@@ -28,16 +28,16 @@ This article walks you through the prerequisites for network hardening and how t
 
 ## Assign the NSP Perimeter Joiner role
 
-The Discovery control plane needs permission on your subscription to create NSP inbound access rules. Create a custom role and assign it to the **AIFSPInfrastructure** service principal.
+The Discovery control plane needs permission on your subscription to create NSP inbound access rules. Create a custom role and assign it to the **Discovery control-plane service App** service principal.
 
 ### Verify the service principal
 
-The Discovery first-party app (**AIFSPInfrastructure**) has the following identity:
+The Discovery first-party app (**Discovery control-plane service App**) has the following identity:
 
 | Property | Value |
 |----------|-------|
 | **Application (client) ID** | `92c174ac-8e41-4815-a1b7-d81b19ab03ce` |
-| **Display name** | AIFSPInfrastructure |
+| **Display name** | Discovery control-plane service App |
 
 Verify the service principal exists in your tenant:
 
@@ -133,7 +133,7 @@ New-AzRoleAssignment `
 2. Select **Access control (IAM)** > **+ Add** > **Add role assignment**.
 3. Search for **Discovery NSP Perimeter Joiner** and select it > **Next**.
 4. Select **User, group, or service principal** > **+ Select members**.
-5. Search for `AIFSPInfrastructure` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
+5. Search for `Discovery control-plane service App` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
 6. Select the service principal > **Select** > **Review + assign**.
 
 ---
@@ -186,7 +186,7 @@ New-AzRoleAssignment `
 2. Select **+ Add** > **Add role assignment**.
 3. Search for **Reader** and select it > **Next**.
 4. Select **User, group, or service principal** > **+ Select members**.
-5. Search for `AIFSPInfrastructure` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
+5. Search for `Discovery control-plane service App` or `92c174ac-8e41-4815-a1b7-d81b19ab03ce`.
 6. Select the service principal > **Select** > **Review + assign**.
 
 ---
