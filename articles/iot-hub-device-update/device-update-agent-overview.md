@@ -44,7 +44,9 @@ The [diagnostic information interface](https://github.com/Azure/iot-plugandplay-
 
 ## Platform layer
 
-All clients that run on Linux systems, such as the Device Update Raspberry Pi reference image, use the Linux platform layer. The Linux platform layer integrates with the [Delivery Optimization client](https://github.com/microsoft/do-client/releases) for downloads.
+All clients that run on Linux systems, such as the Device Update Raspberry Pi reference image, use the Linux platform layer. 
+
+Recent versions of the Device Update agent use the curl-based downloader extension as the default download mechanism.
 
 The Linux platform layer implementation that integrates with [Delivery Optimization](https://github.com/microsoft/do-client) for downloads is in *src/platform_layers/linux_platform_layer*. This layer can integrate with update handlers such as `SWUpdate`, `Apt`, and `Script` to implement the installers.
 
