@@ -41,13 +41,13 @@ Azure Data Manager for Energy          Customer ADLS Gen2
 ┌──────────────────────────┐          ┌─────────────────────────┐
 │                          │          │                         │
 │  OSDU Data Platform      │   ACZ    │  Delta Parquet Files    │
-│  ┌────────────────────┐  │ ──────►  │  ┌──────────────────┐  │
-│  │ Catalog (Wells,    │  │  Sync    │  │ /container/       │  │
-│  │ Fields, etc.)      │  │          │  │   /wells/         │  │
-│  ├────────────────────┤  │          │  │   /welllogs/      │  │
-│  │ Wellbore DDMS      │  │          │  │   /fields/        │  │
-│  │ (WellLogs, etc.)   │  │          │  │                   │  │
-│  └────────────────────┘  │          │  └──────────────────┘  │
+│  ┌────────────────────┐  │ ──────►  │  ┌──────────────────┐   │
+│  │ Catalog (Wells,    │  │  Sync    │  │ /container/      │   │
+│  │ Fields, etc.)      │  │          │  │   /wells/        │   │
+│  ├────────────────────┤  │          │  │   /welllogs/     │   │
+│  │ Wellbore DDMS      │  │          │  │   /fields/       │   │
+│  │ (WellLogs, etc.)   │  │          │  │                  │   │
+│  └────────────────────┘  │          │  └──────────────────┘   │
 │                          │          │                         │
 └──────────────────────────┘          └────────────┬────────────┘
                                                    │
