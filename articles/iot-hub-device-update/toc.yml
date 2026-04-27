@@ -60,6 +60,8 @@ items:
       href: device-update-proxy-updates.md
     - name: Multi-step updates
       href: device-update-multi-step-updates.md
+    - name: Delta updates
+      href: delta-updates.md
     - name: Region mapping for scan and failover
       href: device-update-region-mapping.md  
   - name: Diagnostic features
