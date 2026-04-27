@@ -48,6 +48,8 @@ items:
       href: project-manage.md
     - name: Define and start a migration job
       href: job-definition-create.md
+    - name: Schedule a migration Job
+      href: jopb-scheduling.md
   - name: Manage
     items:
     - name: Configure bandwidth limits

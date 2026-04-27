@@ -1,5 +1,5 @@
 ---
-title: How to schedule a migration job
+title: How to schedule a Azure Storage Mover migration job
 description: Storage Mover allows users to automate data migration jobs with flexible scheduling options, enabling synchronization of data between on-premises, Azure, and other cloud sources.
 author: stevenmatthew
 ms.author: shaas
@@ -9,9 +9,14 @@ ms.date: 04/24/2026
 ms.custom: sfi-image-nochange
 ---
 
-# Job scheduling in Azure Storage Mover
+# Job scheduling in Azure Storage Mover (Preview)
 
-Job scheduling in Azure Storage Mover automates the execution of migration jobs. You can use schedules to keep data in Azure synchronized with your source environment.
+Job scheduling (preview) in Azure Storage Mover automates the execution of migration jobs. You can use schedules to keep data in Azure synchronized with your source environment.
+
+> [!IMPORTANT]
+> Azure Storage Mover job scheduling is currently in PREVIEW.
+>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -32,7 +37,7 @@ To define a job schedule while creating a new migration job, complete the follow
 1. Within the **Basics** tab, select the appropriate migration type. Storage Mover supports on-premises, multicloud, and Azure-to-Azure migration types.
 1. Select the **Source endpoint**. To create a new source endpoint, select *Create*.
     > [!NOTE]
-    > Some sources require additional resources, such as a key vault, a registered agent, or a Multicloud connector. Ensure you have the required resources available for the source you select or create.
+    > Some sources require extra resources, such as a key vault, a registered agent, or a Multicloud connector. Ensure you have the required resources available for the source you select or create.
 1. Select the *target endpoint*.
    - To create a new target endpoint, select *Create*.
    - Before attempting to create a target endpoint, ensure that you have the appropriate permissions to the storage account.
@@ -41,7 +46,7 @@ To define a job schedule while creating a new migration job, complete the follow
 
     - Select a **Migration Frequency** option. To run your migration jobs manually, select the *No schedule* button. Otherwise, select either *One-time* or *Recurring*.
     - Select a **Start date** and **Start time** in Coordinated Universal Time (UTC). The start date can be set up to 90 days from the creation date. For example, if you create the schedule on October 31, 2026, you can select any *Start date* between October 31 and January 29, 2026.
-    - For recurring schedules, select a **Frequency** vlaue of *Daily*, *Weekly*, or *Monthly*, and then select the days that apply. Selected values are highlighted.
+    - For recurring schedules, select a **Frequency** value of *Daily*, *Weekly*, or *Monthly*, and then select the days that apply. Selected values are highlighted.
     - Select an *end date* value within the **Until** field. You can update the end date later, but the **Until** value must always remain within a year of schedule's created date. The one-year limit is based on the creation date, not the selected *Start date*. For example, if you create a schedule on October 31, 2026, the latest possible end date (*Until*) is October 31, 2027.
 
     > [!NOTE]
@@ -61,11 +66,11 @@ To define a job schedule while creating a new migration job, complete the follow
 1. Within the **Scheduling** tab, select a **Migration Frequency** option. To run your migration jobs manually, select the *No schedule* button. Otherwise, select either *One-time* or *Recurring*.
 
     > [!NOTE]
-    > If you reduce the frequency of the job run scehdule, changing from a recurring schedule to a one-time schedule or to no schedule for example, all upcoming jobs runs will be cancelled. You will still have access to the job-run history and all previous job run results.
+    > If you reduce the frequency of the job run schedule, changing from a recurring schedule to a one-time schedule or to no schedule for example, all upcoming job runs are canceled. You still have access to the job-run history and all previous job run results.
 
 1. Select **Save** to commit your changes.
 
     > [!NOTE]
-    > If a schedule for this job was previously enabled, it need not be reeanabled. However, if the job has not previously been scheduled, it will need to be enabled.
+    > If a schedule for this job was previously enabled, it need not be reeanabled. Otherwise, the job needs to be enabled.
 
 :::image type="content" source="media/job-scheduling/edit-job-schedule-settings-sml.png" alt-text="Screenshot of editing schedule settings for an existing job." lightbox="media/job-scheduling/edit-job-schedule-settings-lrg.png":::
