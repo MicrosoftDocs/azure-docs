@@ -52,7 +52,7 @@ The latest Device Update agent release is **1.3.0**, which includes ongoing impr
 
 | Release notes and assets | deviceupdate-agent | Upgrade Supported from agent version | DU PnP Models supported | API Versions|
 | ------------------------ | ------------------ | ------------------------------------ | ----------------------- |-------------|
-| 1.3.0 | 1.3.0 <br /> | 1.2.0 | dtmi:azure:iot:deviceUpdateContractModel; 3 <br /> dtmi:azure:iot:deviceUpdateModel; 3  | 2022-10-01 |
+| 1.3.0 | 1.3.0 <br /> | 1.1.0 | dtmi:azure:iot:deviceUpdateContractModel; 3 <br /> dtmi:azure:iot:deviceUpdateModel; 3  | 2022-10-01 |
 | 1.2.0 | 1.2.0 <br /> | 1.1.0 | dtmi:azure:iot:deviceUpdateContractModel; 3 <br /> dtmi:azure:iot:deviceUpdateModel; 3  | 2022-10-01 |
 | 1.1.0 | 1.1.0|1.0.x | dtmi:azure:iot:deviceUpdateContractModel; 3 <br /> dtmi:azure:iot:deviceUpdateModel; 3| 2022-10-01 |
 | 1.0.0 | 1.0.0 <br /> 1.0.1 <br /> 1.0.2 | 0.8.x | dtmi:azure:iot:deviceUpdateContractModel; 2 <br /> dtmi:azure:iot:deviceUpdateModel; 2  | 2022-10-01 |
