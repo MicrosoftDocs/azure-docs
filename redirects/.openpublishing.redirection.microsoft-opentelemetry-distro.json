@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/microsoft-opentelemetry/overview-what-is-microsoft-opentelemetry.md",
+      "redirect_url": "/azure/microsoft-opentelemetry/overview",
+      "redirect_document_id": false
+    }
+  ]
+}

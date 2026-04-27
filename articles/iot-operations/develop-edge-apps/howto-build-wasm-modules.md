@@ -1,6 +1,6 @@
 ---
 title: Build WASM modules for data flows
-description: Learn how to build WebAssembly (WASM) modules for data flows using the Azure IoT Operations Data Flow extension for VS Code or the aio-dataflow CLI.
+description: Learn how to build WebAssembly (WASM) modules for data flows using the Azure IoT Operations Data Flow extension for VS Code or the dataflow-dev CLI.
 author: dominicbetts 
 ms.author: dobett 
 ms.topic: how-to
@@ -8,21 +8,21 @@ ms.date: 04/10/2026
 ms.service: azure-iot-operations
 ai-usage: ai-assisted
 
-# CustomerIntent: As a developer, I want to understand how to use the VS Code extension or the aio-dataflow CLI to build and test WASM modules to use in data flow graphs or the HTTP/REST connector.
+# CustomerIntent: As a developer, I want to understand how to use the VS Code extension or the dataflow-dev CLI to build and test WASM modules to use in data flow graphs or the HTTP/REST connector.
 ---
 
 # Build WASM modules for data flows
 
 The custom WebAssembly (WASM) data processing feature in Azure IoT Operations enables real time telemetry data processing within your Azure IoT Operations cluster. By deploying custom WASM modules, you can define and execute data transformations as part of your data flow graph, the HTTP/REST connector, or the MQTT connector.
 
-This article describes how to use the **Azure IoT Operations Data Flow** VS Code extension, the `aio-dataflow` CLI, or standard tools installed in your environment to develop and test your WASM modules locally before you deploy them to your Azure IoT Operations cluster. You'll learn how to:
+This article describes how to use the **Azure IoT Operations Data Flow** VS Code extension, the `dataflow-dev` CLI, or standard tools installed in your environment to develop and test your WASM modules locally before you deploy them to your Azure IoT Operations cluster. You'll learn how to:
 
 - Run a graph application locally by executing a prebuilt graph with sample data to understand the basic workflow.
 - Create custom WASM modules by building new operators in Python and Rust with map and filter functionality.
 
 Use the VS Code extension for an inner development loop when you're actively creating operators and graphs, for example: write code, build, review errors, debug, make changes, update the graph, and publish.
 
-Use the `aio-dataflow` CLI for CI/CD-focused graph quality workflows, for example: build existing code, run the graph, test output against known good results, and monitor quality over time.
+Use the `dataflow-dev` CLI for CI/CD-focused graph quality workflows, for example: build existing code, run the graph, test output against known good results, and monitor quality over time.
 
 Use standard tools installed in your environment for scenarios where you want more control over the build and test process, or when you need to integrate with other development tools and workflows.
 
@@ -71,9 +71,9 @@ docker tag mcr.microsoft.com/azureiotoperations/statestore-cli:0.0.2 statestore-
 docker pull eclipse-mosquitto
 ```
 
-# [aio-dataflow CLI](#tab/cli)
+# [dataflow-dev CLI](#tab/cli)
 
-- `aio-dataflow` CLI. Install with `npx @azure-tools/dataflow-dev` or globally with `npm install -g @azure-tools/dataflow-dev`.
+- `dataflow-dev` CLI. Install with `npx @azure-tools/dataflow-dev` or globally with `npm install -g @azure-tools/dataflow-dev`.
 - [Azure CLI](/cli/azure/install-azure-cli)
 - Docker
 
@@ -157,7 +157,7 @@ The output is located in the `output` folder under the `data-and-images` folder.
 
 The output shows that the graph application processed the input data and generated the output. The output includes temperature and humidity data, and the objects detected in the images.
 
-# [aio-dataflow CLI](#tab/cli)
+# [dataflow-dev CLI](#tab/cli)
 
 Clone the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository if you haven't already:
 
@@ -171,7 +171,7 @@ Navigate to your graph application directory and build all operators:
 
 ```bash
 cd explore-iot-operations/samples/wasm
-aio-dataflow build --app .
+dataflow-dev build --app .
 ```
 
 The `--app` flag specifies the directory that contains the `graph.dataflow.yaml` file and the `operators` folder. The CLI builds all operators in the workspace and creates `.wasm` files.
@@ -181,13 +181,13 @@ The `--app` flag specifies the directory that contains the `graph.dataflow.yaml`
 Start the local Docker execution environment, then run the graph:
 
 ```bash
-aio-dataflow run start
-aio-dataflow test --app . test-runner/tests/t03-complex-full-pipeline
-aio-dataflow run stop
+dataflow-dev run start
+dataflow-dev test --app . test-runner/tests/t03-complex-full-pipeline
+dataflow-dev run stop
 ```
 
 > [!TIP]
-> If you plan to run multiple tests, you can start the environment once with `aio-dataflow run start`, then run multiple test commands, and stop the environment at the end with `aio-dataflow run stop`.
+> If you plan to run multiple tests, you can start the environment once with `dataflow-dev run start`, then run multiple test commands, and stop the environment at the end with `dataflow-dev run stop`.
 
 The `test` command runs the graph defined in the test case's `.test.yaml` file, feeds the input data, and compares the output against expected results. The sample repository includes multiple test scenarios such as:
 
@@ -202,9 +202,9 @@ The `test` command runs the graph defined in the test case's `.test.yaml` file, 
 To run all tests:
 
 ```bash
-aio-dataflow run start
-aio-dataflow test --app . test-runner/tests
-aio-dataflow run stop
+dataflow-dev run start
+dataflow-dev test --app . test-runner/tests
+dataflow-dev run stop
 ```
 
 # [Standard tools](#tab/tools)
@@ -368,9 +368,9 @@ Make sure Docker is running. Then, press `Ctrl+Shift+P` to open the command pale
 
 The build process places the `filter.wasm` file for the `filter` operator in the `operators/filter/bin/release` folder.
 
-# [aio-dataflow CLI](#tab/cli)
+# [dataflow-dev CLI](#tab/cli)
 
-To create and build new operators with the aio-dataflow CLI, use one of the sample projects as a template and create new operator source files in the `operators` folder. Then, use the `aio-dataflow build` command to build the operators and generate the `.wasm` files:
+To create and build new operators with the dataflow-dev CLI, use one of the sample projects as a template and create new operator source files in the `operators` folder. Then, use the `dataflow-dev build` command to build the operators and generate the `.wasm` files:
 
 - For Rust projects, see the examples in the `explore-iot-operations/samples/wasm` folder. 
 - For Python projects, see the examples in the `explore-iot-operations/samples/wasm-python` folder.
@@ -397,7 +397,7 @@ target = "wasm32-wasip2"
 ```
 
 > [!TIP]
-> Adding `[build] target = "wasm32-wasip2"` to your `.cargo/config.toml` means you don't need to pass `--target wasm32-wasip2` on every `cargo build` command. The [Azure Samples dataflow graphs repository](https://github.com/Azure-Samples/azure-edge-extensions-aio-dataflow-graphs) uses this pattern.
+> Adding `[build] target = "wasm32-wasip2"` to your `.cargo/config.toml` means you don't need to pass `--target wasm32-wasip2` on every `cargo build` command. The [Azure Samples dataflow graphs repository](https://github.com/Azure-Samples/azure-edge-extensions-dataflow-dev-graphs) uses this pattern.
 
 Edit `Cargo.toml`:
 
@@ -615,14 +615,14 @@ The DevX container launches to run the graph. The processed result is saved in t
 
 To learn how to deploy your custom WASM modules and graph to your Azure IoT Operations instance, see [Deploy WASM modules and data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 
-# [aio-dataflow CLI](#tab/cli)
+# [dataflow-dev CLI](#tab/cli)
 
-To run your graph application locally with the aio-dataflow CLI, use the `aio-dataflow test` command with a test case that points to your graph configuration and input data. You can create a new test case YAML file in the `test-runner/tests` folder that references your `graph.dataflow.yaml` and input data files. Then, run the test with the following command:
+To run your graph application locally with the dataflow-dev CLI, use the `dataflow-dev test` command with a test case that points to your graph configuration and input data. You can create a new test case YAML file in the `test-runner/tests` folder that references your `graph.dataflow.yaml` and input data files. Then, run the test with the following command:
 
 ```bash
-aio-dataflow run start
-aio-dataflow test --app . test-runner/tests/my-test-case
-aio-dataflow run stop
+dataflow-dev run start
+dataflow-dev test --app . test-runner/tests/my-test-case
+dataflow-dev run stop
 ```
 
 Look at the example test case files in the `test-runner/tests` folder for reference on how to structure your test case YAML file. You can test both Python and Rust modules with the CLI tool by pointing to the appropriate graph configuration and input data in your test case file.

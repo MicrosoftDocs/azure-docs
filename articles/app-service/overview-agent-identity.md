@@ -75,7 +75,7 @@ For interactive agent scenarios, the agent blueprint is also used as an app regi
 - The **agent identity blueprint ID** you obtained earlier, which you use for the **client ID** value
 - The **managed identity client ID** you obtained earlier, which you use when configuring the app to use a managed identity instead of a client secret.
 
-You don't have a client secret for this registration since you created a federated identity credential instead. Configure the built-in authentication and authorization feature to use the federated identity credential by following the instructions to [use a managed identity instead of a secret](./configure-authentication-provider-aad.md#use-a-managed-identity-instead-of-a-secret-preview).
+You don't have a client secret for this registration since you created a federated identity credential instead. Configure the built-in authentication and authorization feature to use the federated identity credential by following the instructions to [use a managed identity instead of a secret](./configure-authentication-provider-aad.md#use-a-managed-identity-instead-of-a-secret).
 
 To complete this step, you must add a _redirect URI_ to your agent blueprint, which should be of the form `<app-url>/.auth/login/aad/callback`, where `<app-url>` is replaced with the base URL of your application.
 

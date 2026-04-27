@@ -68,6 +68,7 @@ Austria | AustriaEast
 Belgium | BelgiumCentral
 Brazil | Brazil South
 Canada | Canada Central or Canada East
+Denmark | DenmarkEast
 Europe | North Europe or West Europe
 France | France Central
 Germany | Germany West Central

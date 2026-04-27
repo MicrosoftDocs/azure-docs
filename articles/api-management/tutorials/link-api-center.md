@@ -1,8 +1,8 @@
 ---
 title: Create or link an API Center from the Azure portal
 description: "How to create a new API Center or link an existing API Center to an API Management service from the Azure portal."
-author: ProfessorKendrick
-ms.author: kkendrick
+author: dlepow
+ms.author: danlep
 ms.service: azure-api-management
 ms.topic: tutorial  
 ms.date: 10/20/2025

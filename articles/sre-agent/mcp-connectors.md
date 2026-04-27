@@ -3,7 +3,7 @@ title: MCP connectors and tools in Azure SRE Agent
 description: Extend your agent to any external system including observability platforms, source code, ticketing systems, and custom APIs which uses the Model Context Protocol.
 ms.topic: conceptual
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 04/24/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -13,106 +13,106 @@ ms.custom: mcp, model context protocol, connectors, tools, extensibility, datado
 
 # MCP connectors and tools in Azure SRE Agent
 
+
 > [!TIP]
-> - Connect any MCP-compatible service, such as Datadog, Splunk, GitHub, New Relic, and more, in minutes.
-> - Select which connector tools your agent can call directly. No custom agent needed for simple tool use.
-> - Your agent autodiscovers tools from connected servers and monitors connection health.
-> - A tool capacity bar shows your budget (80 tools per agent) with color-coded warnings.
+> - Connect any MCP-compatible service - Datadog, Splunk, GitHub, New Relic, and more - in minutes.
+> - Select which connector tools your agent can call directly - no custom agent needed for simple tool use.
+> - Your agent auto-discovers tools from connected servers and monitors connection health.
+> - Tool capacity bar shows your budget (80 tools per agent) with color-coded warnings.
 > - Two transport types: Streamable-HTTP for remote services, stdio for local processes.
 
 ## The problem: your agent can't see half your stack
 
-Your agent connects natively to Azure services such as Monitor, Application Insights, Log Analytics, and Resource Graph. But your stack extends beyond Azure: Datadog dashboards, Splunk log indices, GitHub repositories, PagerDuty alerts, and custom internal APIs.
+Your agent has deep built-in access to Azure services - Application Insights, Log Analytics, Azure Monitor, Resource Graph. But your operational toolchain doesn't stop at Azure. Metrics live in Datadog. Security logs live in Splunk. Source code lives in GitHub.
 
-During an incident, that gap forces you to manually bridge systems. You query each platform separately, copy data between browser tabs, and correlate findings by hand.
+During an incident, that gap forces you to manually bridge systems - querying Datadog in one tab, correlating with Azure Monitor in another, copy-pasting findings between tools. Your agent is powerful, but it only sees the Azure side.
 
-:::image type="content" source="media/mcp-connectors/mcp-architecture.svg" alt-text="MCP architecture diagram showing two transport types (Streamable-HTTP for remote services, stdio for local processes), preconfigured partner connectors, authentication methods, and tool assignment to custom agents." lightbox="media/mcp-connectors/mcp-architecture.svg":::
+## How MCP connectors work
 
-<!-- Gap: The following section (through the Azure MCP Center note) is reconstructed from
-     context clues in the diff — the architecture-diagram alt-text, the TL;DR bullet points,
-     and the connectors.md reference file. Review against the original MDX source for accuracy. -->
+The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) is an open standard for connecting AI agents to external tools. An MCP server wraps any service - a database, an API, a monitoring platform - and exposes its capabilities as tools your agent can discover and invoke.
 
-[MCP (Model Context Protocol)](https://modelcontextprotocol.io/) is an open standard that AI agents use to communicate with external tools through a unified interface. Instead of building custom integrations for each platform, your agent speaks MCP. Any MCP-compatible server becomes a data source.
+When you connect an MCP server to your agent:
 
-### Transport types
+1. **Auto-discovery** - Your agent calls the server's tool listing and immediately knows what tools are available.
+1. **Namespaced registration** - Each tool is registered with a prefixed name (for example, `my-datadog_list_metrics`) so tools from different servers never conflict.
+1. **Health monitoring** - Your agent pings each server every 60 seconds, auto-recovers from transient failures, and shows real-time connection status.
+1. **Dynamic updates** - When a server adds new tools, your agent detects them automatically within 5 minutes.
 
-MCP supports two transport mechanisms depending on where your server runs.
+## Two transport types
 
-#### Streamable-HTTP
+MCP supports two ways to connect your agent to external tools:
 
-Use Streamable-HTTP for remote services hosted on a URL. This transport is the most common option for cloud-hosted MCP servers like Datadog, Splunk, and GitHub.
+| Transport | How it works | Best for | Example |
+|-----------|-------------|----------|---------|
+| **Streamable-HTTP** | Your agent connects to a remote URL endpoint | Cloud-hosted services, SaaS platforms | Datadog, GitHub, New Relic |
+| **Stdio** | Your agent runs a local process that communicates via stdin/stdout | Custom servers, npm packages, sidecar processes | npx-based servers, Python MCP servers |
 
-- Your agent connects to the server over HTTPS.
-- Authentication uses an API key, OAuth token, or managed identity.
-- Transient failures recover automatically.
+### Streamable-HTTP (remote services)
 
-#### stdio (standard I/O)
+Connect to any MCP server accessible through a URL. Provide the endpoint and authentication credentials - either a Bearer token or custom headers.
 
-Use stdio for local processes that run alongside your agent. Your agent launches the MCP server as a child process and communicates through standard input/output streams.
+### Stdio (local processes)
 
-- Useful for on-premises tools or custom scripts.
-- No network configuration required.
-- The server runs in the same environment as your agent.
-
-### Partner connectors
-
-Partner connectors are preconfigured MCP servers for popular platforms. They include:
-
-- **Preset authentication method**: The connector knows whether to use API keys, OAuth, or managed identity.
-- **Verified tool definitions**: Tools are tested and documented.
-- **Automatic discovery**: When the partner adds new tools, your agent discovers them on the next connection.
-
-### Authentication
-
-MCP connectors support multiple authentication methods depending on the server.
-
-| Method | When to use |
-|---|---|
-| **API key** | Services that use static tokens |
-| **OAuth 2.0** | Services that require user authorization flows |
-| **Custom headers** | Services with custom authentication schemes |
-| **None** | Public MCP servers with no authentication |
-
-For partner connectors, the authentication method is preconfigured and locked. You enter the required credentials.
+Run an MCP server as a process inside your agent's cloud environment. Provide the command, arguments, and optional environment variables. Your agent manages the process lifecycle - starting it on connection, monitoring health, and restarting on failure.
 
 > [!NOTE]
-> Browse [Azure MCP Center](https://mcp.azure.com) for verified MCP servers for Azure services.
+> Stdio MCP servers run inside the agent's container. Available runtimes:
+>
+> | Command | Runtime |
+> |---------|---------|
+> | `npx`, `node` | Node.js 20 |
+> | `python`, `python3` | Python 3.12 |
+> | `dotnet` | .NET 9 |
+>
+> Docker containers aren't supported as stdio commands. Only preinstalled runtimes are available.
 
-<!-- End of reconstructed gap -->
+## Preconfigured partner connectors
+
+Your agent includes preconfigured connectors for popular platforms. These connectors have prefilled URLs, default authentication settings, and branded icons. Select the card, enter your credentials, and connect.
+
+| Partner | Transport | What you provide | What your agent gets |
+|---------|-----------|-----------------|---------------------|
+| **GitHub** | Streamable-HTTP | Personal Access Token | Repository search, PR listing, issue tracking, code search |
+| **Datadog** | Streamable-HTTP | API Key + Application Key | Metrics queries, APM traces, alert management |
+| **New Relic** | Streamable-HTTP | API Key | Performance monitoring, analytics |
+| **Splunk** | Streamable-HTTP | Bearer token | Log search, event queries |
+| **Dynatrace** | Streamable-HTTP | Bearer token | Application performance monitoring |
+| **Elasticsearch** | Streamable-HTTP | Authorization header | Search, analytics, log management |
+| **Hawkeye (NeuBird)** | Streamable-HTTP | Bearer token | AI-powered observability |
+
+For partner connectors, the authentication method is preconfigured and locked. You just enter the credential values.
+
+> [!TIP]
+> Browse [Azure MCP Center](https://mcp.azure.com) for verified MCP servers for Azure services.
 
 ## How tools reach your agents
 
 MCP tools can reach your agent in two ways:
 
-1. **Agent tools**: Select tools during connector setup or editing. These tools are available directly in the main conversation. There's no custom agent needed.
-1. **Custom agent tools**: Assign tools to specific [custom agents](sub-agents.md) for focused specialists with domain expertise.
+- **Agent tools**: Select tools during connector setup or editing. These tools are available directly in the main conversation. No custom agent needed.
+
+- **Custom agent tools**: Assign tools to specific [custom agents](sub-agents.md) for focused specialists with domain expertise.
 
 ### Agent tools
 
-**Applies to**: version 26.3.74.0 and later
+When you create or edit an MCP connector, a tool selection step lets you choose which tools are visible to your agent. The selected tools are added to your agent's tool list and stay in sync. When you add, remove, or update connectors, your agent's tools refresh automatically.
 
-When you create or edit an MCP connector, a tool selection step lets you choose which tools are visible to your agent. Selected tools are injected into your agent's tool list and kept in sync. When you add, remove, or update connectors, your agent's tools refresh automatically.
-
-**During connector creation:** After your connector connects successfully, a **Select tools** step appears. The process preselects all discovered tools up to remaining capacity. Select **Done** to save or **Skip** to add tools later.
+**During connector creation:** After your connector connects successfully, a **Select tools** step appears. All discovered tools are preselected up to the remaining capacity. Select **Done** to save or **Skip** to add tools later.
 
 **For existing connectors:** Edit any MCP connector to find the **MCP Tools** section at the bottom of the dialog. Check or uncheck tools to control which ones your agent can call.
 
 > [!TIP]
-> **No custom agent required**
->
-> By using agent tool visibility, you can connect an MCP server, select tools, and start asking questions.
+> By managing your agent tool visibility, you can connect an MCP server, select tools, and start asking questions in three steps.
 
 ### Custom agent tools
 
 For focused specialists, assign MCP tools to specific [custom agents](sub-agents.md) through the portal or YAML.
 
-**Portal:** In **Builder > Agent Canvas**, edit an agent, go to **Advanced settings > Tools**, and then select **Choose tools**.
+**Portal:** In **Builder > Agent Canvas**, edit an agent → **Advanced settings > Tools** → **Choose tools**.
 
 **YAML wildcards:**
 
-**Applies to**: version 26.2.9.0 and later
-
-```yaml
+```yaml title="Custom agent with wildcard MCP tools"
 mcp_tools:
   - datadog-mcp/*        # All tools from this connection
   - github_search_code   # One specific tool
@@ -121,30 +121,25 @@ mcp_tools:
 The `{connection-id}/*` pattern adds every tool from that server, including tools added later. The forward slash is required.
 
 | Approach | When to use |
-|---|---|
+|----------|------------|
 | **Individual tools** | Precise control over tool access |
 | **Wildcard (`connection-id/*`)** | All tools from a server, including future ones |
 | **Mixed** | All from one server, specific picks from another |
 
 > [!NOTE]
-> **Agent and custom agent tools are independent**
->
-> The same tool can be visible to both your agent and a custom agent. There's no conflict. The tool is available in both contexts.
+> The same tool can be visible to both your agent and a custom agent. There's no conflict - the tool is available in both contexts.
 
-For a full walkthrough, see [Set up MCP tools](mcp-connector.md).
+For a full walkthrough, see [Set Up MCP Tools](mcp-connector.md).
 
 ## Tool selection and capacity
-
-**Applies to**: version 26.3.74.0 and later
-
-Each agent can use up to **80 tools** (native and MCP combined). Use the tool selection UI to manage this budget across connectors.
+Each agent - whether your agent or a custom agent - can use up to **80 tools** (native and MCP combined). The tool selection UI helps you manage this budget across connectors.
 
 ### Capacity indicator
 
-The tool picker shows a progress bar with your current tool count.
+The tool picker shows a progress bar with your current tool count:
 
 | Tool count | Bar color | Meaning |
-|---|---|---|
+|-----------|-----------|----------|
 | **0–56** (≤ 70%) | Blue | Plenty of room |
 | **57–72** (71–90%) | Yellow | Approaching the limit |
 | **73–80** (> 90%) | Red | Near or at capacity |
@@ -155,85 +150,94 @@ A hint below the bar reads: **"Maximum of 80 tools allowed to avoid degrading ag
 
 When your selected tools reach the 80-tool limit:
 
-- **Unchecked tools** become disabled. You can't add more tools until you remove some.
-- **Already-checked tools** remain enabled. You can always deselect tools to free capacity.
-- **Select all** caps at remaining capacity - if you have room for 10 more tools and select **Select all**, only 10 are selected.
+- **Unchecked tools** become disabled - you can't add more until you remove some
+- **Already-checked tools** stay enabled - you can always deselect them to free capacity
+- **Select all** caps at remaining capacity - if you have room for 10 more tools and select **Select all**, only 10 are selected
 
 The tool count spans all connectors. If Connector A has 60 tools visible to your agent, Connector B can add up to 20 more.
 
 ## Connection health monitoring
+Your agent continuously monitors every MCP connection:
 
-**Applies to**: version 26.1.25.0 and later
-
-Your agent continuously monitors every MCP connection. Each connector displays a real-time status indicator so you can see at a glance whether your external tools are reachable.
-
-<!-- Gap: The status table intro and the first row (Connected) are reconstructed from the
-     connectors.md reference file, which has the same table structure. -->
-
-| Status | What it means | Action |
-|---|---|---|
-| **Connected** | Active and healthy | None |
-| **Disconnected** | Temporary loss. Autorecovery in progress | Usually none. Wait for next heartbeat |
+| Status | What it means | Action needed |
+|--------|---------------|---------------|
+| **Connected** | Server healthy, tools ready | None |
+| **Disconnected** | Temporary loss - auto-recovery in progress | Usually none - wait for next heartbeat |
 | **Failed** | Unrecoverable error | Check URL, credentials, network |
 | **Initializing** | Connection being established | Wait |
 | **Error** | No running agent instance | Start the agent |
 
-Your agent pings each server every 60 seconds. Transient failures recover automatically on the next successful heartbeat. Before the agent invokes any MCP tool, your agent validates the connection and attempts reconnection if needed.
-
-<!-- Gap: The following tip and troubleshooting table are reconstructed from the
-     connectors.md reference file, which has parallel content. -->
+Your agent pings each server every 60 seconds. Transient failures recover automatically on the next successful heartbeat. Before invoking any MCP tool, your agent validates the connection and attempts reconnection if needed.
 
 > [!TIP]
-> **Connections persist through failures**
->
-> If an MCP server goes offline, the connector stays in your portal with its error status. You can see exactly what went wrong and fix the configuration without re-creating the connector.
+> If an MCP server goes offline, the connector stays visible with its error status. Select **See details** to view the error message, tool count, and last heartbeat timestamp.
 
-### Troubleshooting connection problems
+### Auto-reconnection
+Your agent automatically recovers from MCP connection failures by using two mechanisms:
 
-The following table describes common connection problems and recommended actions.
+- **Before every tool call**, your agent checks the connection status. If the connection is disconnected, it reconnects transparently before executing the tool - no waiting for the next heartbeat cycle.
 
-| Situation | What happens | What to do |
-|---|---|---|
-| Network blip | Your agent reconnects automatically on next heartbeat | Nothing. Recovery is automatic |
-| Server temporarily down | Status shows Disconnected, recovers when server returns | Wait for the server to come back online |
-| Wrong URL or credentials | Status shows Failed | Update the connector configuration |
-| Server permanently removed | Status shows Failed | Delete and re-create the connector |
-| Agent not running | Status shows Error | Start the agent |
+- **Every 60 seconds**, your agent pings each Streamable-HTTP MCP server. If a disconnected server responds to the ping, the connection recovers. This mechanism catches failures that happen between tool calls. Stdio connections recover on the next tool call rather than through heartbeat pings.
 
-<!-- End of reconstructed gap -->
+When a connection reconnects:
 
-## How this approach differs from traditional integrations
+- Your agent establishes a new session with the MCP server.
+- Your agent re-discovers all available tools from the server.
+- Your agent refreshes tool references so every subsequent call uses the live connection.
+- Existing tool assignments (agent tools and custom agent tools) remain intact.
 
-**Unlike static tool configurations**, your agent discovers tools dynamically. When an MCP server adds a new tool, your agent picks it up automatically. Wildcard patterns (`datadog-mcp/*`) ensure new tools are available without reconfiguration.
+| Scenario | What happens | User action |
+|----------|-------------|-------------|
+| Server briefly unreachable | Auto-reconnects on next tool call | None |
+| Server restarts | Auto-reconnects when agent pings or calls a tool | None |
+| Idle connection closes | Re-establishes on next tool call | None |
+| Server permanently down | Tool calls fail with error message | Fix server or check credentials |
+| Invalid credentials | Status shows Failed - no auto-reconnect | Update connector credentials |
 
-**Unlike scripts and runbooks**, MCP connections are self-healing. Your agent monitors every connection with a 60-second heartbeat, autorecovers from transient failures, and defers custom agent loading until connections establish.
+> [!TIP]
+> If your agent reconnects during an investigation, the tool call succeeds as if the connection never dropped. You see an error only when the server is permanently unreachable.
+
+## Authentication
+
+Each MCP server has its own authentication requirements. The portal supports the following methods:
+
+| Auth method | When to use | How it works |
+|-------------|------------|--------------|
+| **Bearer token** | Most SaaS APIs (GitHub, Splunk, Dynatrace) | Sends token in the Authorization header |
+| **Custom headers** | APIs requiring specific headers (Datadog) | Sends arbitrary key-value headers with each request |
+| **Managed identity** | Azure services via stdio connectors | Uses your agent's managed identity for Azure AD tokens |
+
+For partner connectors, the auth method is preconfigured - you just enter the credentials.
+
+## What makes this different
+
+- **Unlike custom integrations**, MCP connectors use an open standard. You don't write adapter code - any MCP-compatible server works out of the box. The protocol handles discovery, invocation, and error handling.
+
+- **Unlike static tool configurations**, your agent discovers tools dynamically. When an MCP server adds a new tool, your agent picks it up automatically. Wildcard patterns (`datadog-mcp/*`) ensure new tools are available without reconfiguration.
+
+- **Unlike scripts and runbooks**, MCP connections are self-healing. Your agent monitors every connection with a 60-second heartbeat, auto-recovers from transient failures, and defers custom agent loading until connections establish.
 
 ## Before and after
 
 |  | Before MCP | After MCP |
 |---|---|---|
 | **Tools during investigation** | 4+ browser tabs open | Single conversation |
-| **Using connector tools** | Create custom agent, assign tools. Invoke via `/agent` | Select tools on connector. Ask your agent directly. |
+| **Using connector tools** | Create custom agent → assign tools → invoke via `/agent` | Select tools on connector → ask your agent directly |
 | **Data correlation** | Manual copy-paste between systems | Agent correlates across all connected systems |
-| **Time to gather context** | 15&ndash;30 minutes | 2&ndash;5 minutes |
+| **Time to gather context** | 15–30 minutes | 2–5 minutes |
 | **Adding new tools** | Wait for built-in integration or write custom scripts | Connect any MCP server in minutes |
 | **Tool capacity management** | Hit 80-tool limit with cryptic server error | Capacity bar with color-coded warnings |
-| **Failure handling** | Scripts break when APIs change | Health monitoring with autorecovery |
+| **Failure handling** | Scripts break when APIs change | Health monitoring with auto-recovery |
 
-## Get started
+## Related capabilities
 
-| Resource | What you learn |
-|---|---|
-| [Set up an MCP connector](mcp-connector.md) | Step-by-step tutorial for connecting remote and local MCP servers |
-<!-- | [Install a plugin from the marketplace](<PLACEHOLDER_PATH>) | Import skills and MCP server configs from community plugin marketplaces | -->
-
-## Related content
-
-- [External observability](diagnose-observability.md): Use MCP connectors to query Datadog, Splunk, and other platforms during investigations.
-- [Agent playground](agent-playground.md): Test custom agents with MCP tools before production use.
-- [Scheduled tasks](scheduled-tasks.md): Combine MCP tools with scheduled automation.
-- [Workflow automation](workflow-automation.md): Build automated workflows using MCP tools.
-- [Connectors](connectors.md): How all connectors work in SRE Agent.
-- [Tools](tools.md): The full tool taxonomy.
-- [Custom agents](sub-agents.md): Create specialists with focused tool sets.
-<!-- TODO: Add link to Plugin Marketplace when the page is created. -->
+| Capability | What it adds |
+|------------|-------------|
+| [Plugin marketplace](plugin-marketplace.md) | Browse and install community plugins that include MCP server configurations |
+| [External observability](diagnose-observability.md) | Use MCP connectors to query Datadog, Splunk, and other platforms during investigations |
+| [Agent Playground](agent-playground.md) | Test custom agents with MCP tools before production use |
+| [Scheduled tasks](scheduled-tasks.md) | Combine MCP tools with scheduled automation |
+| [Workflow automation](workflow-automation.md) | Build automated workflows using MCP tools |
+| [Connectors](connectors.md) | How all connectors work in SRE Agent |
+| [Tools](tools.md) | The full tool taxonomy |
+| [Custom agents](sub-agents.md) | Create specialists with focused tool sets |

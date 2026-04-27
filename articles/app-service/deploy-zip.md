@@ -4,7 +4,7 @@ description: Learn to deploy app packages, discrete libraries, static files, or 
 author: cephalin
 ms.author: cephalin
 ms.topic: how-to
-ms.date: 03/11/2026
+ms.date: 04/08/2026
 ms.custom: devx-track-azurecli
 
 #customer intent: As a web app developer, I want to deploy my Azure App Service code as a ZIP, WAR, JAR, or EAR package or deploy individual files.
@@ -101,7 +101,7 @@ Azure Resource Manager templates (ARM templates) only support [deployments from 
 
 ## Enable build automation for ZIP deploy
 
-By default, the deployment engine assumes that a ZIP package is ready to run as-is and doesn't run any build automation. To enable the same build automation used in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting. Run the following command in [Azure Cloud Shell](https://shell.azure.com):
+By default, the deployment engine assumes that a ZIP package is ready to run as-is and doesn't run any build automation. To enable the same build automation used in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting. Run the following command in [Azure Cloud Shell](https://portal.azure.com/#cloudshell/):
 
 ```azurecli
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true

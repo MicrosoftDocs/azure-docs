@@ -162,6 +162,10 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 
 ---
 
+### Configure a device to use an X.509 certificate
+
+[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
+
 ### Other security options
 
 When you create the inbound endpoint, you can also select:

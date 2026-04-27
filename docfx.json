@@ -259,7 +259,7 @@
       "author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/ansible/**/*.md": "TomArcherMsft",
-        "articles/api-center/**/*.md": "ProfessorKendrick",
+        "articles/api-center/**/*.md": "dlepow",
         "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/app-service/containers/*.md": "cephalin",
         "articles/app-service/environment/*.md": "seligj95",
@@ -871,7 +871,7 @@
       "ms.author": {
         "articles/advisor/*.md": "ikhapova",
         "articles/ansible/**/*.md": "tarcher",
-        "articles/api-center/**/*.md": "kkendrick",
+        "articles/api-center/**/*.md": "danlep",
         "articles/app-service-mobile/**/*.md": "emalani",
         "articles/app-service/containers/*.md": "cephalin",
         "articles/app-service/environment/*.md": "jordanselig",

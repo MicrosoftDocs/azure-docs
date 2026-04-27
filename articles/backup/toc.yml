@@ -949,6 +949,10 @@
   items:
   - name: Granular billing
     href: backup-azure-granular-billing.md
+  - name: Optimize storage cost
+    href: backup-azure-reserved-pricing-optimize-cost.md
+  - name: Reservation discount for storage
+    href: backup-azure-reserved-pricing-overview.md 
   - name: Pricing calculator
     href: azure-backup-pricing.md
 - name: Automation

@@ -88,7 +88,7 @@ Please note, limitations tagged with **[Temporary]** will be resolved at GA.
 |**Corelight**|[Corelight Open NDR Platform](https://corelight.com/solutions/why-open-ndr)|
 |**Vectra**|[Vectra NDR](https://www.vectra.ai/products/ndr)|
 |**Fortinet**|[FortiNDR Cloud](https://www.fortinet.com/products/network-detection-and-response)|
-||[FortiGate VM](https://azuremarketplace.microsoft.com/en/marketplace/apps/fortinet.fortinet_fortigate-vm_v5?tab=Overview)|
+||[FortiGate VM](https://marketplace.microsoft.com/en-us/search/products?search=FortiGate%20VM&page=1)|
 |**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
 |**Extrahop**|[Reveal(x)](https://www.extrahop.com/resources/datasheets/extrahop-revealx)|

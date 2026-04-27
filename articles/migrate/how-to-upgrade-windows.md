@@ -24,7 +24,7 @@ This article describes how to upgrade Windows Server OS while migrating to Azure
 ## Prerequisites 
 
 - Ensure you have an existing Migrate project or [create](create-manage-projects.md) a project. 
-- Ensure you have discovered the servers according to your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical server](tutorial-discover-physical.md) environments and replicated the servers as described in [Migrate VMware VMs](tutorial-migrate-vmware.md#replicate-vms), [Migrate Hyper-V VMs](tutorial-migrate-hyper-v.md#migrate-vms), or [Migrate Physical servers](tutorial-migrate-physical-virtual-machines.md#migrate-vms) based on your environment. 
+- Ensure you have discovered the servers according to your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical server](tutorial-discover-physical.md) environments and replicated the servers as described in [Migrate VMware VMs](tutorial-migrate-vmware.md), [Migrate Hyper-V VMs](tutorial-migrate-hyper-v.md), or [Migrate Physical servers](tutorial-migrate-physical-virtual-machines.md) based on your environment. 
 - Verify the operating system disk has enough [free space](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements) to perform the in-place upgrade. The minimum disk space requirement is 32 GB.   
 - If you're upgrading from Windows Server 2008 or 2008 R2, ensure you have PowerShell 3.0 installed.
 - To upgrade from Windows Server 2008 or 2008 R2, ensure you have Microsoft .NET Framework 4 installed on your machine. This is available by default in Windows Server 2008 SP2 and Windows Server 2008 R2 SP1.

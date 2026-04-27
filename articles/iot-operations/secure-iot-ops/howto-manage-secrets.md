@@ -12,7 +12,12 @@ ms.custom: sfi-image-nochange
 
 # Manage secrets for your Azure IoT Operations deployment
 
-Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. Edge resources like connectors and dataflows can then use these secrets for authentication when connecting to external systems.
+Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault secret store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. Edge resources like connectors and data flows can then use these secrets for authentication when connecting to external systems.
+
+Examples of secrets that you might store in Azure Key Vault for use by Azure IoT Operations include:
+
+- Usernames and passwords for external systems that your connectors or data flows need to authenticate against.
+- X.509 certificates and private keys for devices or services that use certificate-based authentication.
 
 ## Prerequisites
 
@@ -24,7 +29,7 @@ To manage secrets, you need an Azure IoT Operations instance deployed with secur
 
 ## Add and use secrets
 
-Secrets management for Azure IoT Operations uses Secret Store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets. When you enabled secure settings during deployment, you selected an Azure Key Vault for secret management. It is in this Key Vault where all secrets to be used within Azure IoT Operations are stored. 
+Secrets management for Azure IoT Operations uses the Azure Key Vault secret store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets. When you enabled secure settings during deployment, you selected an Azure Key Vault for secret management. It is in this Key Vault where all secrets to be used within Azure IoT Operations are stored. 
 
 > [!NOTE]
 > Azure IoT Operations instances work with only one Azure Key Vault, multiple key vaults per instance isn't supported.

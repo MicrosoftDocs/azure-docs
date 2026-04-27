@@ -58,7 +58,7 @@ The NSP enforces that only authorized Discovery service components can access th
 
 ### Required role assignments
 
-To create NSP associations, the Discovery first-party service principal (**AIFSPInfrastructure**) needs two role assignments on your subscription:
+To create NSP associations, the Discovery first-party service principal (**Discovery control-plane service App**) needs two role assignments on your subscription:
 
 - **Discovery NSP Perimeter Joiner** (custom role) - Allows the service principal to create NSP inbound access rules.
 - At least **Reader** (built-in role) - Allows the service principal to enumerate subscription resources for network configuration validation. If you already have Owner or Contributor assigned, a separate Reader assignment isn't needed.

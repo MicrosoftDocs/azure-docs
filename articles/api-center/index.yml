@@ -8,7 +8,7 @@ metadata:
   description: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
   ms.service: azure-api-center
   ms.topic: landing-page
-  ms.author: kkendrick
+  ms.author: danlep
   
   ms.date: 01/28/2026
 

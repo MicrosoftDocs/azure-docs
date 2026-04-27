@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: overview
-ms.date: 11/12/2024
+ms.date: 04/24/2026
 ms.custom: portfolio-consolidation-2025
 #customer intent: As an IT admin, I want to learn about Azure Front Door and what I can use it for.
 ---
@@ -20,7 +20,7 @@ Azure Front Door is an advanced content delivery network (CDN) for the cloud. It
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
-Azure Front Door is one of the services in the category of load-balancing and content delivery services in Azure. Other services in this category include [Azure Load Balancer](../load-balancer/load-balancer-overview.md) and [Azure Application Gateway](../application-gateway/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [What is load balancing and content delivery?](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
+Azure Front Door is one of the services in the category of load-balancing and content delivery services in Azure. Other services in this category include [Azure Load Balancer](../load-balancer/load-balancer-overview.md) and [Azure Application Gateway](../application-gateway/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [What is load balancing and content delivery?](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md)
 
 ## Why use Azure Front Door?
 
@@ -38,7 +38,7 @@ Azure Front Door enables internet-facing applications to:
 
 ### Global delivery scale through the Microsoft network
 
-Scale out and improve performance of your applications and content by using Microsoft's global cloud CDN and wide area network (WAN):
+Scale out and improve the performance of your applications and content by using Microsoft's global cloud CDN and wide area network (WAN):
 
 * Take advantage of more than [118 edge locations](edge-locations-by-region.md) across 100 metro areas connected to Azure by using a private enterprise-grade WAN. Improve latency for applications by up to three times.
 

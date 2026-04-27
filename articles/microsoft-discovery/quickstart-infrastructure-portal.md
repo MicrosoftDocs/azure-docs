@@ -70,6 +70,9 @@ Assign the following built-in roles to users at the desired scope (subscription 
 - Azure AI Owner (Workspace MRG level)
 - Microsoft Discovery Bookshelf Index Data Reader (Preview) 
 
+> [!IMPORTANT]
+> Microsoft Discovery workspaces, bookshelves and supercomputers are network-hardened by default. Before you create your first workspace or bookshelf or supercomputer, you must also create the **Discovery NSP Perimeter Joiner** custom role and assign it to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
+
 **Steps to assign roles:**
 
 1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).

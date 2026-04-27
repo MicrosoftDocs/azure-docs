@@ -88,21 +88,21 @@ After the graph execution completes:
 
 1. Check the logs in `data/output/logs/host-app.log` to verify that the `otel-enrich` operator retrieved values from the state store and added them as user properties to the messages.
 
-# [aio-dataflow CLI](#tab/cli)
+# [dataflow-dev CLI](#tab/cli)
 
 Review the test run configuration file: `explore-iot-operations/samples/wasm/test-runner/tests/t11-statestore-enrichment/t11-statestore-enrichment.test.yaml`.
 
 If you previously stopped the local execution environment, run the following command to start it again:
 
 ```bash
-aio-dataflow run start
+dataflow-dev run start
 ```
 
 Then, build and run the state store test with the following commands:
 
 ```bash
-aio-dataflow build --app ./statestore-scenario
-aio-dataflow test --app . test-runner/tests/t11-statestore-enrichment/t11-statestore-enrichment.test.yaml
+dataflow-dev build --app ./statestore-scenario
+dataflow-dev test --app . test-runner/tests/t11-statestore-enrichment/t11-statestore-enrichment.test.yaml
 ```
 
 Check the command output shows that the tests passed.
@@ -110,7 +110,7 @@ Check the command output shows that the tests passed.
 If you've finished using the local execution environment, stop it with the following command:
 
 ```bash
-aio-dataflow run stop
+dataflow-dev run stop
 ```
 
 Verify the test outputs and logs to confirm that state store enrichment is working as expected, with messages being enriched with values from the state store based on the specified keys.

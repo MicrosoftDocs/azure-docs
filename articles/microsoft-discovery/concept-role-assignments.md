@@ -224,6 +224,42 @@ Readers have limited privileges to view and review information. They can't creat
 
 ---
 
+### Discovery NSP Perimeter Joiner (custom role)
+
+**Target persona:** Microsoft Discovery first-party service principal (**Discovery control-plane service App**, app ID `92c174ac-8e41-4815-a1b7-d81b19ab03ce`) — *not* a human user.
+
+**Assignable scopes:** Subscription
+
+**Primary interface:** Azure CLI, Azure PowerShell, Azure portal (created by a subscription Owner during initial setup)
+
+**Description:** A *customer-created custom role* that grants the Microsoft Discovery control plane the minimum permissions it needs to associate (join) managed PaaS resources to the workspace's Network Security Perimeter (NSP) when provisioning network-hardened workspaces, supercomputers, and bookshelves. The NSP itself, and its access-rule profiles, are created by the Discovery service in the workspace's managed resource group; this role only authorizes the *resource-association* step. Network hardening is enabled by default for all new Discovery resources, so this role assignment is a one-time setup step per subscription.
+
+**Key capabilities:**
+
+- Joins managed PaaS resources (Azure OpenAI, Cosmos DB, Key Vault, Storage, Azure AI Search) to the Discovery-managed NSP at deployment time (creates the `resourceAssociations` entry on the NSP)
+- Reads NSP operation status to track association progress
+
+**Key limitations:**
+
+- Can't create, modify, or delete the NSP resource itself, its profiles, or its access rules
+- Can't create, modify, or delete `resourceAssociations` outside the join action (no broad write/delete on the NSP)
+- Can't read or modify any other Azure resource
+- Doesn't grant any data plane access
+
+**Permissions:**
+
+| Permission | Purpose |
+|------------|---------|
+| `Microsoft.Network/networkSecurityPerimeters/joinPerimeterRule/action` | Join managed resources to a Network Security Perimeter |
+| `Microsoft.Network/locations/networkSecurityPerimeterOperationStatuses/read` | Read the status of NSP operations |
+
+**Data actions:** None
+
+> [!IMPORTANT]
+> This role isn't a built-in Azure role — you create it once per subscription. Workspace, supercomputer, and bookshelf creation fail with NSP association errors if this role isn't assigned to the **Discovery control-plane service App** service principal before the first deployment. For full instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
+
+---
+
 ## Roles required by persona
 
 The following table summarizes the recommended role combinations for each user persona. Roles can be assigned at the subscription or resource group scope. You can add more roles as your requirements grow.

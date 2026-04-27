@@ -3,6 +3,7 @@ title: Geo-code mapping
 description: Learn about geo-codes mapped with the respective regions.
 ms.topic: sample
 ms.date: 04/30/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 ms.custom: references_regions
 author: AbhishekMallick-MS

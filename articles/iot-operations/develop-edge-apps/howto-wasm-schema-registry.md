@@ -110,7 +110,7 @@ This example shows how the schema registry validates incoming messages and filte
 
 Stop the local execution environment when you're done testing in release mode by pressing `Ctrl+Shift+P` and searching for **Azure IoT Operations: Stop Development Environment**.
 
-# [aio-dataflow CLI](#tab/cli)
+# [dataflow-dev CLI](#tab/cli)
 
 Review the test run configuration files:
 
@@ -121,22 +121,22 @@ Review the test run configuration files:
 If you previously stopped the local execution environment, run the following command to start it again:
 
 ```bash
-aio-dataflow run start
+dataflow-dev run start
 ```
 
 Then, build and run the state store test with the following commands:
 
 ```bash
-aio-dataflow build --app ./schema-registry-scenario
-aio-dataflow test --app . test-runner/tests/t08-schema-valid/t08-schema-valid.test.yaml
-aio-dataflow test --app . test-runner/tests/t09-schema-invalid/t09-schema-invalid.test.yaml
-aio-dataflow test --app . test-runner/tests/t10-schema-mixed/t10-schema-mixed.test.yaml
+dataflow-dev build --app ./schema-registry-scenario
+dataflow-dev test --app . test-runner/tests/t08-schema-valid/t08-schema-valid.test.yaml
+dataflow-dev test --app . test-runner/tests/t09-schema-invalid/t09-schema-invalid.test.yaml
+dataflow-dev test --app . test-runner/tests/t10-schema-mixed/t10-schema-mixed.test.yaml
 ```
 
 If you've finished using the local execution environment, stop it with the following command:
 
 ```bash
-aio-dataflow run stop
+dataflow-dev run stop
 ```
 
 Verify the test outputs and logs to confirm that schema validation is working as expected, with valid messages being processed and invalid messages being filtered out.
