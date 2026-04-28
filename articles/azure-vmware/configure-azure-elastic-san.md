@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 author: jjaygbay1 
 ms.author: jacobjaygbay
-ms.date: 6/18/2024
+ms.date: 4/08/2026
 ms.custom:
   - references_regions
   - engagement-fy23
@@ -53,9 +53,9 @@ The following prerequisites are required to continue.
 
 - Have permission to set up new resources in the subscription your private cloud is in.
 - Reserve a dedicated address block for your external storage.
-- Use either the [Azure portal](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal), [Azure PowerShell module](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell), or [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli) to create an Elastic SAN that has at least 16 TiB base size and that is in the same region and availability zone as your private cloud.
+- Use either [Azure portal](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal), [Azure PowerShell module](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell), or [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli) to create an Elastic SAN that has at least a 16 TiB base size and is in the same region and availability zone as your private cloud.
     > [!NOTE]
-    > Make sure CRC protection on your volume groups is disabled since it's not currently supported for Azure VMware Solution.
+    > Make sure the cyclic redundancy check (CRC) protection on your volume groups is disabled since it isn't currently supported for Azure VMware Solution.
 
 
 ## Supported host types

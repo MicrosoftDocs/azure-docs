@@ -129,8 +129,6 @@
         href: durable-functions-roslyn-analyzer.md
       - name: Durable entities
         href: durable-functions-dotnet-entities.md
-      - name: Migrate from In-Process to Isolated model
-        href: durable-functions-migrate.md
     - name: Node.js
       items:
       - name: Upgrade to Node.js model v4
@@ -141,6 +139,12 @@
         href: durable-functions-powershell-v2-sdk-migration-guide.md
     - name: Large payload support - Durable Task Scheduler
       href: ../../durable-task/scheduler/durable-task-scheduler-large-payloads.md?pivots=durable-functions&toc=/azure/azure-functions/durable-functions/toc.json
+  - name: Migrate
+    items:
+    - name: Migrate from In-Process to Isolated model (.NET)
+      href: durable-functions-migrate.md
+    - name: API mapping reference
+      href: durable-functions-isolated-api-mapping.md
   - name: Deploy
     items:
     - name: Continuous deployment
