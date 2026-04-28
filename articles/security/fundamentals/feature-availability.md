@@ -259,7 +259,7 @@ Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High a
 
 ## Microsoft Defender for IoT
 
-Microsoft Defender for IoT lets you accelerate IoT/OT innovation with comprehensive security across all your IoT/OT devices. For end-user organizations, Microsoft Defender for IoT offers agentless, network-layer security that is rapidly deployed, works with diverse industrial equipment, and interoperates with Microsoft Sentinel and other SOC tools. Deploy on-premises or in Azure-connected environments. For IoT device builders, the Microsoft Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. For more information, see the [Microsoft Defender for IoT product documentation](../../defender-for-iot/index.yml).
+Microsoft Defender for IoT lets you accelerate IoT/OT innovation with comprehensive security across all your IoT/OT devices. For end-user organizations, Microsoft Defender for IoT offers agentless, network-layer security that is rapidly deployed, works with diverse industrial equipment, and interoperates with Microsoft Sentinel and other SOC tools. Deploy on-premises or in Azure-connected environments. For IoT device builders, the Microsoft Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. For more information, see the [Microsoft Defender for IoT product documentation](/azure/defender-for-iot/).
 
 The following table displays the current Microsoft Defender for IoT feature availability in Azure, and Azure Government.
 
@@ -267,38 +267,38 @@ The following table displays the current Microsoft Defender for IoT feature avai
 
 | Feature | Azure | Azure Government |
 |--|--|--|
-| [On-premises device discovery and inventory](../../defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md) | GA | GA |
-| [Vulnerability management](../../defender-for-iot/how-to-create-risk-assessment-reports.md) | GA | GA |
-| [Threat detection with IoT, and OT behavioral analytics](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
-| [Manual and automatic threat intelligence updates](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
+| [On-premises device discovery and inventory](/azure/defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory) | GA | GA |
+| [Vulnerability management](/azure/defender-for-iot/how-to-create-risk-assessment-reports) | GA | GA |
+| [Threat detection with IoT, and OT behavioral analytics](/azure/defender-for-iot/how-to-work-with-alerts-on-your-sensor) | GA | GA |
+| [Manual and automatic threat intelligence updates](/azure/defender-for-iot/how-to-work-with-threat-intelligence-packages) | GA | GA |
 | **Unify IT, and OT security with SIEM, SOAR and XDR** |  |  |
-| [Active Directory](../../defender-for-iot/organizations/integrate-with-active-directory.md) | GA | GA |
-| [ArcSight](../../defender-for-iot/organizations/integrate-overview.md#micro-focus-arcsight) | GA | GA |
-| [ClearPass (Alerts & Inventory)](../../defender-for-iot/organizations/tutorial-clearpass.md) | GA | GA |
-| [CyberArk PSM](../../defender-for-iot/organizations/tutorial-cyberark.md) | GA | GA |
-| [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
-| [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
-| [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
-| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | GA | GA |
-| [NetWitness](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
-| [Palo Alto NGFW](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [Palo Alto Panorama](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [ServiceNow (Alerts & Inventory)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
-| [SNMP MIB Monitoring](../../defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring.md) | GA | GA |
-| [Splunk](../../defender-for-iot/organizations/tutorial-splunk.md) | GA | GA |
-| [SYSLOG Server (CEF format)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG Server (LEEF format)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG Server (Object)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG Server (Text Message)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [Active Directory](/azure/defender-for-iot/organizations/integrate-with-active-directory) | GA | GA |
+| [ArcSight](/azure/defender-for-iot/organizations/integrate-overview#micro-focus-arcsight) | GA | GA |
+| [ClearPass (Alerts & Inventory)](/azure/defender-for-iot/organizations/tutorial-clearpass) | GA | GA |
+| [CyberArk PSM](/azure/defender-for-iot/organizations/tutorial-cyberark) | GA | GA |
+| [Email](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#email-address-action) | GA | GA |
+| [FortiGate](/azure/defender-for-iot/organizations/tutorial-fortinet) | GA | GA |
+| [FortiSIEM](/azure/defender-for-iot/organizations/tutorial-fortinet) | GA | GA |
+| [Microsoft Sentinel](/azure/defender-for-iot/organizations/how-to-configure-with-sentinel) | GA | GA |
+| [NetWitness](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#netwitness-action) | GA | GA |
+| [Palo Alto NGFW](/azure/defender-for-iot/organizations/tutorial-palo-alto) | GA | GA |
+| [Palo Alto Panorama](/azure/defender-for-iot/organizations/tutorial-palo-alto) | GA | GA |
+| [ServiceNow (Alerts & Inventory)](/azure/defender-for-iot/organizations/tutorial-servicenow) | GA | GA |
+| [SNMP MIB Monitoring](/azure/defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring) | GA | GA |
+| [Splunk](/azure/defender-for-iot/organizations/tutorial-splunk) | GA | GA |
+| [SYSLOG Server (CEF format)](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#syslog-server-actions) | GA | GA |
+| [SYSLOG Server (LEEF format)](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#syslog-server-actions) | GA | GA |
+| [SYSLOG Server (Object)](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#syslog-server-actions) | GA | GA |
+| [SYSLOG Server (Text Message)](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#syslog-server-actions) | GA | GA |
 
 ### For device builders
 
 | Feature | Azure | Azure Government |
 |--|--|--|
-| [Micro agent for Azure RTOS](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| [Configure Sentinel with Microsoft Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | GA |
+| [Micro agent for Azure RTOS](/azure/defender-for-iot/iot-security-azure-rtos) | GA | GA |
+| [Configure Sentinel with Microsoft Defender for IoT](/azure/defender-for-iot/how-to-configure-with-sentinel) | GA | GA |
 | **Standalone micro agent for Linux** |  |  |
-| [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
+| [Standalone agent binary installation](/azure/defender-for-iot/quickstart-standalone-agent-binary-installation) | Public Preview | Public Preview |
 
 ## Azure Attestation
 

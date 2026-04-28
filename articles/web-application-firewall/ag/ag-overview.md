@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 
 # What is Azure Web Application Firewall on Azure Application Gateway?
 
+**Applies to:** :heavy_check_mark: Application Gateway
+
 An Azure Web Application Firewall deployment on Azure Application Gateway actively safeguards your web applications against common exploits and vulnerabilities. As web applications become more frequent targets for malicious attacks, these attacks often exploit well-known vulnerabilities such as SQL injection and cross-site scripting.
 
 Azure Web Application Firewall on Application Gateway is based on the [Core Rule Set (CRS)](application-gateway-crs-rulegroups-rules.md) from the Open Web Application Security Project (OWASP).

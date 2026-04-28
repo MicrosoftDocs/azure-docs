@@ -172,7 +172,7 @@ Although your Durable Functions app automatically publishes orchestration lifecy
 > [!NOTE]
 > The `eventGridTopicEndpoint` setting references the Event Grid custom topic endpoint you saved earlier. The credential setting handles both managed identity and connection string scenarios.
 
-### Assign EventGrid Data Sender role
+### Assign Event Grid Data Sender role
 
 Grant your [managed identity](../../app-service/overview-managed-identity.md) permission to publish events to the Event Grid topic.
 
@@ -490,7 +490,7 @@ Events are published automatically by the Durable Functions runtime for each orc
 
 ### Test locally
 
-To test locally, see [Local testing with viewer web app](../event-grid-how-tos.md#local-testing-with-viewer-web-app). When testing locally with managed identity, use your developer credentials to authenticate against the Event Grid topic. See [Configure Durable Functions with managed identity - Local development](durable-functions-configure-managed-identity.md#local-development) for details.
+To test locally, see [Local testing with viewer web app](../event-grid-how-tos.md#local-testing-with-viewer-web-app). When testing locally with managed identity, use your developer credentials to authenticate against the Event Grid topic. See [Configure Durable Functions with managed identity - Local development](durable-functions-configure-managed-identity.md#local-development-setup) for details.
 
 ## Clean up resources
 

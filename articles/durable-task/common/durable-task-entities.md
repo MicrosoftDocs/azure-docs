@@ -169,7 +169,7 @@ public class Counter
 
 This entity stores state in a `Counter` object that holds the current counter value. Durable Functions serializes and deserializes this object by using the [Json.NET](https://www.newtonsoft.com/json) library.
 
-For more information, see [Defining entity classes](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#defining-entity-classes).
+For more information, see [Defining entity classes](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
 
 </details>
 
@@ -562,7 +562,7 @@ To access entities from an ordinary Azure Function, which is also known as a cli
 # [C#](#tab/csharp)
 
 > [!NOTE]
-> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, [access entities through interfaces](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because they provide more type checking.
+> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, [access entities through interfaces](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#access-entities-through-interfaces) because they provide more type checking.
 
 **In-process:**
 

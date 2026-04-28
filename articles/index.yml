@@ -1119,7 +1119,7 @@ productDirectory:
       azureCategories:
         - security
         - iot
-      url: ./defender-for-iot/index.yml
+      url: /azure/defender-for-iot/
     # Card
     - title: Azure DDoS Protection
       summary: Protect your applications from Distributed Denial of Service (DDoS) attacks

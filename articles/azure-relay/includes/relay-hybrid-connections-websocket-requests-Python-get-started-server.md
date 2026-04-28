@@ -85,7 +85,7 @@ a Hybrid Connections URL with SAS Tokens utilizing WebSockets.
         if __name__ == "__main__":
             # Load configuration from JSON file
             with open("config.json") as config_file:
-            config = json.load(config_file)
+                config = json.load(config_file)
 
         asyncio.run(run_application(config))
     ```
