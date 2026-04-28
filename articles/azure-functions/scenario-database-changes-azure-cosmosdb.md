@@ -176,13 +176,13 @@ These environment variables are created for you both in Azure (function app sett
 You can review the code that defines the Azure Cosmos DB trigger in the [CosmosTrigger.cs project file](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-cosmosdb/blob/main/CosmosTrigger.cs).
 ::: zone-end 
 ::: zone pivot="programming-language-java" 
-You can review the code that defines the Azure Cosmos DB trigger in the [Function.java project file](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb/blob/main/src/main/java/com/function/Function.java).
+You can review the code that defines the Azure Cosmos DB trigger in the [CosmosTrigger.java project file](https://github.com/Azure-Samples/functions-quickstart-java-azd-cosmosdb/blob/main/src/main/java/com/function/CosmosTrigger.java).
 ::: zone-end  
 ::: zone pivot="programming-language-javascript" 
-You can review the code that defines the Azure Cosmos DB trigger in the [cosmos_trigger.js project file](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb/blob/main/src/functions/cosmos_trigger.js).
+You can review the code that defines the Azure Cosmos DB trigger in the [cosmosTrigger.js project file](https://github.com/Azure-Samples/functions-quickstart-javascript-azd-cosmosdb/blob/main/src/functions/cosmosTrigger.js).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell" 
-You can review the code that defines the Azure Cosmos DB trigger in the [CosmosTrigger project folder](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb/tree/main/src/CosmosTrigger).
+You can review the code that defines the Azure Cosmos DB trigger in the [cosmos_trigger project folder](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-cosmosdb/tree/main/cosmos_trigger).
 ::: zone-end
 ::: zone pivot="programming-language-typescript" 
 You can review the code that defines the Azure Cosmos DB trigger in the [cosmos_trigger.ts project file](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-cosmosdb/blob/main/src/functions/cosmos_trigger.ts).
