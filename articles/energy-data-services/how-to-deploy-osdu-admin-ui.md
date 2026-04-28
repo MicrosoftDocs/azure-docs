@@ -20,7 +20,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 ## Prerequisites
 
 - An [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-- A [Microsoft Entra ID App Registration](/entra/identity-platform/quickstart-register-app). <br> This App Registration can be the same as the one used for the Azure Data Manager for Energy instance. The following API permissions are required on the App Registration for the Admin UI to function properly.
+- An [Microsoft Entra ID App Registration](/entra/identity-platform/quickstart-register-app). <br> This App Registration can be the same as the one used for the Azure Data Manager for Energy instance. The following API permissions are required on the App Registration for the Admin UI to function properly.
     - [Application.Read.All](/graph/permissions-reference#applicationreadall)
     - [User.Read](/graph/permissions-reference#applicationreadall)
     - [User.ReadBasic.All](/graph/permissions-reference#userreadbasicall)
@@ -224,6 +224,7 @@ export GRAPH_ENDPOINT="https://graph.microsoft.com/v1.0/" # Microsoft Graph API 
 export APPINSIGHTS_INSTRUMENTATIONKEY="" # Optional. Application Insights instrumentation key
 export OSDU_CONNECTOR_API_ENDPOINT="" # Optional. API endpoint of the OSDU Connector API
 export REDIRECT_URI="" # this is your static website you can find in your storage account example https://<storage account name>.z21.web.core.windows.net/"
+export GCZ_ENDPOINT="" # Optional. GCZ service endpoint
 
 
 jq \
@@ -237,6 +238,7 @@ jq \
   --arg graph "$GRAPH_ENDPOINT" \
   --arg appinsights "$APPINSIGHTS_INSTRUMENTATIONKEY" \
   --arg connectorapi "$OSDU_CONNECTOR_API_ENDPOINT" \
+  --arg gcz "$GCZ_ENDPOINT" \
 '
 .settings.appInsights.instrumentationKey = $appinsights |
 .settings.data_partition = $data |
@@ -254,8 +256,9 @@ jq \
 .settings.api_endpoints.secrets_endpoint = $connectorapi |
 .settings.api_endpoints.graphAPI_endpoint = $graph |
 .settings.api_endpoints.workflow_endpoint = $endpoint |
-.settings.api_endpoints.wddms_endpoint = $endpoint
-' src/config/config.json > src/config/temp.json && \
+.settings.api_endpoints.wddms_endpoint = $endpoint |
+.settings.api_endpoints.gcz_endpoint = $gcz' \
+src/config/config.json > src/config/temp.json && \
 mv src/config/temp.json src/config/config.json
 ```
 
