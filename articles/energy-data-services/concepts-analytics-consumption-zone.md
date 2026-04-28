@@ -144,8 +144,8 @@ ACZ organizes data in your ADLS Gen2 storage account by folder. Each ACZ gets it
 |---|---|
 | **Top-level folder** | Named `<acz-id>` under the container, or under `<base-path>` if specified. One folder per ACZ. |
 | **`osducatalog/`** | One Delta table for all catalog kinds. Partitioned by kind (for example, `kind=osdu:wks:master-data--Well:1.0.0`). |
-| **DDMS entity folders** | One folder per DDMS entity type (for example, `work-product-component--WellLog`). Holds DDMS-specific parquet files by entity type and record ID. |
 | **`_delta_log/`** | The Delta Lake transaction log. Tracks all table changes for ACID transactions and time travel. |
+| **DDMS entity folders** | One folder per DDMS entity type (for example, `work-product-component--WellLog`). Holds DDMS-specific parquet files by entity type and record ID. |
 | **Parquet files** | Snappy-compressed data files. Updates create new files. ACZ runs VACUUM and OPTIMIZE to compact small files and remove old ones. |
 
 ### Delta table schema
@@ -187,6 +187,7 @@ ACZ requires:
 
 - **API access**: You must belong to the `users@{data-partition-id}.dataservices.energy` group to call ACZ APIs.
 - **Storage access**: The managed identity needs the Storage Blob Data Contributor role (or equivalent) on the ADLS Gen2 container. During preview, share the identity details with Microsoft to add the identity to the allow list.
+- **ADME access**: The managed identity needs to be assigned to the ADME instance.
 
 ## Related content
 
