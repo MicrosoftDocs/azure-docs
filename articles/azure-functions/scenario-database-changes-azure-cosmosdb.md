@@ -26,6 +26,8 @@ This article supports version 2 of the Python programming model for Azure Functi
 
 [!INCLUDE [functions-scenario-quickstarts-prerequisites](../../includes/functions-scenario-quickstarts-prerequisites.md)]
 
++ [Azure Databases extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+
 ## Initialize the project
 
 You can use the `azd init` command from the command palette to create a local Azure Functions code project from a template.
