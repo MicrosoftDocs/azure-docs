@@ -48,7 +48,7 @@ items:
       href: project-manage.md
     - name: Define and start a migration job
       href: job-definition-create.md
-    - name: Schedule a migration Job
+    - name: Schedule a migration job
       href: job-scheduling.md
   - name: Manage
     items:
