@@ -1,19 +1,23 @@
 ---
 author: hhunter-ms
 ms.author: hannahhunter
-title: Host a Durable Functions app in Azure Container Apps (preview)
-description: Learn how to host a Durable Functions app using the MSSQL backend in Azure Container Apps.
+title: "Host a Durable Functions app with MSSQL backend in Azure Container Apps (Preview)"
+description: "Learn how to containerize and deploy a Durable Functions app using the Microsoft SQL (MSSQL) storage provider to Azure Container Apps with autoscaling and managed identity."
 ms.topic: how-to
 ms.service: azure-functions
-ms.date: 05/06/2025
+ms.subservice: durable
+ms.date: 04/27/2026
+# CustomerIntent: As a .NET developer using Durable Functions with the MSSQL backend, I want to deploy my app to Azure Container Apps so that I can take advantage of autoscaling and run alongside other containerized services.
 ---
 
-# Host a Durable Functions app in Azure Container Apps (.NET isolated)
+# Host a Durable Functions app with MSSQL backend in Azure Container Apps (.NET isolated)
 
-Azure Functions provides integrated support for developing, deploying, and managing containerized Function Apps on Azure Container Apps. Use Azure Container Apps for your Functions apps when you need to run in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Learn more about [running Azure Functions in Container Apps](../../container-apps/functions-overview.md). 
+Azure Container Apps is the only hosting option that supports event-driven autoscaling (scale-to-zero) for Durable Functions when you use the [Microsoft SQL (MSSQL) storage provider](../../container-apps/functions-overview.md#event-driven-scaling). If you use a different storage backend, you must set the minimum replica count to greater than zero.
 
-> [!NOTE] 
-> While Durable Functions supports several [storage providers](../../durable-task/common/durable-task-storage-providers.md) or *backends*, autoscaling apps hosted in Azure Container Apps is only available with the [Microsoft SQL (MSSQL) backend](../../container-apps/functions-overview.md#event-driven-scaling). If another backend is used, you have to set minimum replica count to greater than zero. 
+> [!TIP]
+> For new projects, consider using the [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md), which is the recommended Azure-managed backend for durable workflows. This guide covers the MSSQL backend specifically.
+
+To learn more about running Azure Functions in Container Apps generally, see [Azure Container Apps hosting of Azure Functions](../../container-apps/functions-overview.md).
 
 In this article, you learn how to:
 
@@ -35,9 +39,12 @@ In this article, you learn how to:
 
 ## Create a local Durable Functions project
 
-In Visual Studio Code, [create a **.NET isolated** Durable Functions project configured to use the MSSQL backend](./quickstart-mssql.md). 
+This guide assumes you have a working .NET isolated Durable Functions project configured with the MSSQL backend. If you don't have one yet, follow the [MSSQL quickstart](./quickstart-mssql.md) to create and test one locally, then return here.
 
-[Test the app locally](./quickstart-mssql.md#test-locally) and return to this article. 
+Before proceeding, verify that:
+- Your project targets .NET 8.0 with the isolated worker model
+- The MSSQL storage provider is configured in `host.json`
+- The app runs successfully with `func start`
 
 ## Add Docker-related files
 
@@ -90,7 +97,7 @@ Build the Docker image. Find the complete list of supported base images for Azur
 
     ```bash
     dockerId=<DOCKER_ID>
-    imageName=IMAGE_NAME>
+    imageName=<IMAGE_NAME>
     imageVersion=v1.0.0
 
     docker build --tag $dockerId/$imageName:$imageVersion .
@@ -107,7 +114,7 @@ Build the Docker image. Find the complete list of supported base images for Azur
 
     Depending on network speed, the initial image push might take a few minutes. While you're waiting, proceed to the next section.
 
-## Create Azure resources
+## Create Azure resources for Durable Functions on Container Apps
 
 Create the Azure resources necessary for running Durable Functions on a container app.
 - **Azure resource group:** Resource group containing all created resources.  
@@ -115,7 +122,7 @@ Create the Azure resources necessary for running Durable Functions on a containe
 - **Azure Container App:** Image containing the Durable Functions app is deployed to this app. 
 - **Azure Storage Account:** Required by the function app to store app-related data, such as application code. 
 
-### Initial set up
+### Initial setup
 
 1. In a new terminal, log in to your Azure subscription:
 
@@ -191,11 +198,8 @@ A [workload profile](../functions-container-apps-hosting.md#hosting-and-workload
    ```
 
 1. In the Azure portal, [create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart) to persist state information. During creation:
-    - Enable Azure services and resources to access this server (under **Networking**)
+    - Enable Azure services and resources to access this server (under **Networking**). For production, use [stronger firewall restrictions or virtual network configurations](/azure/azure-sql/database/network-access-controls-overview) instead.
     - Set the value for **Database collation** (under **Additional settings**) to `Latin1_General_100_BIN2_UTF8`.
-
-> [!NOTE] 
-> Refrain from enabling the **Allow Azure services and resources to access this server** setting for production scenarios. Production applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
 
 ### Configure identity-based authentication
 
@@ -250,7 +254,7 @@ In this section, you set up **user-assigned managed identity** for Azure Storage
 
 1. From the SQL database resource in the Azure portal, navigate to **Settings** > **Connection strings** to find the connection string.
 
-    :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
+    :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot of the Azure SQL database connection string in the Azure portal.":::
 
     The connection string should have a format similar to: 
 
@@ -265,7 +269,7 @@ In this section, you set up **user-assigned managed identity** for Azure Storage
 
     If you forget the password from the previous database creation step, you can reset it on the SQL server resource.
 
-    :::image type="content" source="./media/quickstart-mssql/mssql-azure-reset-pass-2.png" alt-text="Screenshot showing reset password button.":::
+    :::image type="content" source="./media/quickstart-mssql/mssql-azure-reset-pass-2.png" alt-text="Screenshot of the reset password button on the Azure SQL server resource page.":::
 
 1. Store the SQL database's connection string as a [secret](../../container-apps/manage-secrets.md) called *sqldbconnection* in the container app.
 
@@ -289,7 +293,7 @@ In this section, you set up **user-assigned managed identity** for Azure Storage
     FUNCTIONS_WORKER_RUNTIME=dotnet-isolated
     ```
 
-## Test locally
+## Test the deployed Durable Functions app
 
 1. Use an HTTP test tool to send a `POST` request to the HTTP trigger endpoint, which should be similar to: 
 
@@ -318,7 +322,7 @@ In this section, you set up **user-assigned managed identity** for Azure Storage
 
 ## Next steps
 
-Learn more about:
-- [Azure Container Apps hosting of Azure Functions](../../container-apps/functions-overview.md). 
-- [MSSQL storage provider](https://microsoft.github.io/durabletask-mssql/) architecture, configuration, and workload behavior. 
-- The Azure-managed storage backend, [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md).
+- [Azure Container Apps hosting of Azure Functions](../../container-apps/functions-overview.md)
+- [MSSQL storage provider](https://microsoft.github.io/durabletask-mssql/) architecture, configuration, and workload behavior
+- [Durable Task Scheduler](../../durable-task/scheduler/durable-task-scheduler.md) — the recommended Azure-managed backend for new durable workflow projects
+- [Durable Functions overview](./durable-functions-overview.md)

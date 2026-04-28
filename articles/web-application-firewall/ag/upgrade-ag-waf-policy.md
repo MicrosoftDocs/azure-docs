@@ -11,7 +11,7 @@ ms.date: 04/30/2025
 
 # Upgrade to Azure Application Gateway WAF policy
 
-**Applies to:** Application Gateway WAF v2 Configuration deployments
+**Applies to:** :heavy_check_mark: Application Gateway V2
 
 > [!IMPORTANT]
 > On **March 15, 2024**, we announced the deprecation of WAF configuration on Application Gateway WAF V2 SKU and subsequently WAF configuration on Application Gateway WAF v2 retires on **March 15, 2027**. No further investments in WAF configuration on Application Gateway WAF v2 are made. You're strongly encouraged to upgrade from WAF Configuration to WAF Policy for easier management, better scale, and a richer feature set at no additional cost. For more information see, [Retirement: Support for Application Gateway Web Application Firewall v2 Configuration is ending](https://azure.microsoft.com/updates/retirement-support-for-application-gateway-web-application-firewall-v2-configuration-is-ending).

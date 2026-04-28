@@ -15,8 +15,6 @@ ms.date: 08/15/2025
 
 In this article, you learn about the different access modes and how to transition to a [network security perimeter](./network-security-perimeter-concepts.md) in Azure. Access modes control resource access and logging behavior, helping you secure your Azure resources.
 
-[!INCLUDE network-security-perimeter-preview-message]
-
 ## Access mode configuration point on resource associations 
 
 The **access mode** configuration point is part of a resource association on the perimeter and therefore can be set by the perimeter's administrator. 
@@ -38,10 +36,6 @@ To prevent undesired connectivity disruptions while adopting network security pe
 
 - Allow connections to be established in accordance with the network security perimeter configuration. Additionally, resources in this configuration fallback to honoring resource-defined firewall rules and trusted access behavior when connections aren't permitted by the network security perimeter access rules.
 - When diagnostic logs are enabled, generates logs detailing whether connections were approved based on network security perimeter configuration or the resource's configuration. Administrators can then analyze those logs to identify gaps in access rules, missing perimeter memberships, and undesired connections.
-
-
-> [!IMPORTANT]
-> Operating PaaS resources in **Transition (formerly Learning)** mode should serve only as a transitional step. Malicious actors may exploit unsecured resources to exfiltrate data. Therefore, it's crucial to transition to a fully secure configuration as soon as possible with the access mode set to **Enforced**.
 
 ### Transition to enforced mode for existing resources 
 

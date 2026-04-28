@@ -1,9 +1,9 @@
 ---
-title: Singleton orchestrators - Azure Durable Functions and Durable Task SDKs
-description: Learn how to implement singleton orchestrations that ensure only one instance runs at a time using Durable Functions or the Durable Task SDKs.
+title: "Singleton Orchestrators - Durable Task"
+description: Implement singleton orchestrators in Azure Durable Functions and Durable Task SDKs to ensure only one orchestration instance runs at a time. Follow this step-by-step guide to get started.
 author: cgillum
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 04/23/2026
 ms.author: azfuncdf
 reviewer: hhunter-ms
 ms.service: durable-task
@@ -11,9 +11,19 @@ ms.devlang: csharp
 zone_pivot_groups: azure-durable-approach
 ---
 
-# Singleton orchestrators
+# Singleton orchestrators in Durable Task
 
-For background jobs, you often need to ensure that only one instance of a particular orchestrator runs at a time. You can ensure this kind of singleton behavior in [Durable Functions](what-is-durable-task.md) or the [Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md) by assigning a specific instance ID to an orchestrator when creating it, and then checking if an instance with that ID is already running before starting a new one.
+For background jobs, you often need to ensure that only one instance of a particular orchestrator runs at a time, preventing duplicate orchestrations from running concurrently. You can implement this singleton pattern in [Durable Functions](what-is-durable-task.md) or the [Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md) by assigning a specific instance ID to an orchestrator when creating it, and then checking if an instance with that ID is already running before starting a new one.
+
+This article shows how to implement singleton orchestrators with code examples for each supported language.
+
+## Prerequisites
+
+- Familiarity with [Durable Task orchestrations](durable-task-orchestrations.md) and [task hubs](durable-task-hubs.md)
+- An existing Durable Functions or Durable Task SDK project
+
+> [!NOTE]
+> There is a potential race condition in the singleton pattern. If two clients execute the check-and-start logic concurrently, both calls might report success, but only one orchestration instance actually starts. Depending on your requirements, this may have undesirable side effects. If strict single-instance guarantees are required, consider adding additional locking mechanisms.
 
 ::: zone pivot="durable-task-sdks"
 
@@ -21,7 +31,7 @@ For background jobs, you often need to ensure that only one instance of a partic
 
 ::: zone-end
 
-## Singleton example
+## Singleton orchestrator example
 
 ::: zone pivot="durable-functions"
 
@@ -68,8 +78,8 @@ public static async Task<HttpResponseData> RunSingle(
 
 # [JavaScript](#tab/javascript)
 
-> [!NOTE]
-> This JavaScript example uses the Node.js programming model v3, which uses *function.json*. If you're using the Node.js programming model v4, use the v4 code-first pattern instead.
+> [!IMPORTANT]
+> This JavaScript example uses the Node.js programming model v3, which uses *function.json*. If you're using the **Node.js programming model v4** (the current default), use the v4 code-first pattern instead.
 
 **function.json**
 
@@ -144,26 +154,25 @@ app = df.DFApp(http_auth_level=func.AuthLevel.FUNCTION)
 @app.route(route="orchestrators/{functionName}/{instanceId}", methods=["POST"])
 @app.durable_client_input(client_name="client")
 async def http_start_single(req: func.HttpRequest, client):
-        instance_id = req.route_params["instanceId"]
-        function_name = req.route_params["functionName"]
+    instance_id = req.route_params["instanceId"]
+    function_name = req.route_params["functionName"]
 
     existing_instance = await client.get_status(instance_id)
 
-        if not existing_instance or existing_instance.runtime_status in [
-                df.OrchestrationRuntimeStatus.Completed,
-                df.OrchestrationRuntimeStatus.Failed,
-                df.OrchestrationRuntimeStatus.Terminated,
-        ]:
+    if not existing_instance or existing_instance.runtime_status in [
+        df.OrchestrationRuntimeStatus.Completed,
+        df.OrchestrationRuntimeStatus.Failed,
+        df.OrchestrationRuntimeStatus.Terminated,
+    ]:
         event_data = req.get_body()
-                instance_id = await client.start_new(function_name, instance_id, event_data)
+        instance_id = await client.start_new(function_name, instance_id, event_data)
         logging.info(f"Started orchestration with ID = '{instance_id}'.")
         return client.create_check_status_response(req, instance_id)
 
-        return func.HttpResponse(
-                body=f"An instance with ID '{instance_id}' already exists.",
-                status_code=409,
-        )
-
+    return func.HttpResponse(
+        body=f"An instance with ID '{instance_id}' already exists.",
+        status_code=409,
+    )
 ```
 
 # [PowerShell](#tab/powershell)
@@ -205,24 +214,25 @@ else {
 ```java
 @FunctionName("HttpStartSingle")
 public HttpResponseMessage runSingle(
-        @HttpTrigger(name = "req") HttpRequestMessage<?> req,
+        @HttpTrigger(name = "req", route = "orchestrators/{functionName}/{instanceId}") HttpRequestMessage<?> req,
         @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
 
-    String instanceID = "StaticID";
+    String instanceId = req.getHeaders().getOrDefault("instanceId", "singleton-job");
     DurableTaskClient client = durableContext.getClient();
 
     // Check to see if an instance with this ID is already running
-    OrchestrationMetadata metadata = client.getInstanceMetadata(instanceID, false);
-    if (metadata.isRunning()) {
-        return req.createResponseBuilder(HttpStatus.CONFLICT)
-                .body("An instance with ID '" + instanceID + "' already exists.")
-                .build();
+    OrchestrationMetadata metadata = client.getInstanceMetadata(instanceId, false);
+    if (metadata == null || !metadata.isRunning()) {
+        // No such instance exists or it finished - create a new one.
+        // De-dupe is handled automatically in the storage layer if another
+        // function tries to also use this instance ID.
+        client.scheduleNewOrchestrationInstance("MyOrchestration", null, instanceId);
+        return durableContext.createCheckStatusResponse(req, instanceId);
     }
 
-    // No such instance exists - create a new one. De-dupe is handled automatically
-    // in the storage layer if another function tries to also use this instance ID.
-    client.scheduleNewOrchestrationInstance("MyOrchestration", null, instanceID);
-    return durableContext.createCheckStatusResponse(req, instanceID);
+    return req.createResponseBuilder(HttpStatus.CONFLICT)
+            .body("An instance with ID '" + instanceId + "' already exists.")
+            .build();
 }
 ```
 
@@ -334,21 +344,28 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone-end
 
-By default, instance IDs are randomly generated GUIDs. In the previous example, however, a specific instance ID is used. The code then fetches the orchestration instance metadata to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
+## How the singleton pattern works
 
-> [!NOTE]
-> There is a potential race condition in this sample. If two instances execute concurrently, both calls might report success, but only one orchestration instance will actually start. Depending on your requirements, this may have undesirable side effects.
+Because instance IDs are unique within a task hub, scheduling an orchestration with a known, fixed ID and checking its status first prevents duplicate concurrent runs. By default, instance IDs are randomly generated GUIDs. In the previous examples, however, a specific instance ID is passed in. The code then fetches the orchestration instance metadata to check if an instance with that ID is already running. If no such instance is running, a new instance is created with that ID.
 
-The implementation details of the orchestrator function don't actually matter. It could be a regular orchestrator function that starts and completes, or it could be one that runs forever (that is, an [Eternal Orchestration](durable-task-eternal-orchestrations.md)). The important point is that there is only ever one instance running at a time.
+The orchestrator function itself can use any pattern — a standard function that starts and completes, or an [Eternal Orchestration](durable-task-eternal-orchestrations.md) that runs continuously. The singleton pattern only controls how many instances run concurrently.
 
 ## Next steps
 
 ::: zone pivot="durable-functions"
 > [!div class="nextstepaction"]
 > [Learn about the native HTTP features of orchestrations](../../azure-functions/durable-functions/durable-functions-http-features.md)
+
+- [Eternal orchestrations](durable-task-eternal-orchestrations.md)
+- [Sub-orchestrations](durable-task-sub-orchestrations.md)
+- [Instance management](durable-task-instance-management.md)
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 > [!div class="nextstepaction"]
 > [Get started with Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md)
+
+- [Eternal orchestrations](durable-task-eternal-orchestrations.md)
+- [Sub-orchestrations](durable-task-sub-orchestrations.md)
+- [Task hubs](durable-task-hubs.md)
 ::: zone-end

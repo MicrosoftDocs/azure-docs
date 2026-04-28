@@ -107,6 +107,18 @@ To register an Artifact Signing resource provider by using the Azure CLI:
    az extension add --name artifact-signing
    ```
 
+# [Azure Powershell](#tab/registerrp-azpowershell)
+
+1. Install [Azure PowerShell](/powershell/azure/install-azure-powershell) and [sign in](/powershell/azure/authenticate-azureps).
+
+2. To set your default subscription ID, use the `Set-AzContext -Subscription <subscription ID>` command.
+
+3. Verify the registration:
+
+   ```powershell
+   Get-AzResourceProvider -ProviderNamespace Microsoft.CodeSigning
+   ```
+
 ---
 
 ## Create an Artifact Signing account
@@ -196,13 +208,13 @@ To create an Artifact Signing account by using the Azure CLI:
 
    To create an Artifact Signing account that has a Premium SKU:
 
-   ```azurecli
+```azurecli
   az artifact-signing create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
-   ```
+```
 
 3. Verify your Artifact Signing account by using: 
 ```azurecli
-az artifact-signing show -g MyResourceGroup -n MyAccount` command.
+  az artifact-signing show -g MyResourceGroup -n MyAccount`
 ```
    > [!NOTE]
    > If you use an earlier version of the Azure CLI from the Artifact Signing preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
@@ -215,6 +227,37 @@ The following table lists *helpful commands* to use when you create an Artifact 
 | `az artifact-signing show -n MyAccount  -g MyResourceGroup`                                   | Shows the details of an account.                 |
 | `az artifact-signing update -n MyAccount -g MyResourceGroup --tags "key1=value1 key2=value2"` | Updates tags.                                    |
 | `az artifact-signing list -g MyResourceGroup`                                                 | Lists all accounts that are in a resource group. |
+
+# [Azure Powershell](#tab/account-azpowershell)
+
+To create an Artifact Signing account by using the Azure CLI:
+
+1. Create a resource group by using the following command. If you choose to use an existing resource group, skip this step.
+
+```powershell
+   New-AzResourceGroup -Name "MyResourceGroup" -Location "EastUS"
+```
+
+2. Create a unique Artifact Signing account by using the following command.
+
+   For more information, see [Naming constraints for Artifact Signing accounts](#naming-constraints-for-artifact-signing-accounts).
+
+   To create an Artifact Signing account that has a Basic SKU:
+
+```powershell
+   New-AzArtifactSigningAccount -AccountName test -ResourceGroupName rg-test -Location eastus -SkuName Basic
+```
+
+   To create an Artifact Signing account that has a Premium SKU:
+
+```powershell
+  New-AzArtifactSigningAccount -AccountName test -ResourceGroupName rg-test -Location eastus -SkuName Premium
+```
+
+3. Verify your Artifact Signing account by using: 
+```powershell
+  Get-AzArtifactSigningAccount -AccountName test -ResourceGroupName rg-test
+```
 
 ---
 
@@ -499,6 +542,40 @@ The following table lists *helpful commands* to use when you create a certificat
 | `az artifact-signing certificate-profile list -g MyResourceGroup --account-name MyAccount`                 | Lists all certificate profiles that are associated with an Artifact Signing account.  |
 | `az artifact-signing certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`    | Gets the details for a certificate profile.                                           |
 
+# [Azure Powershell](#tab/certificateprofile-azpowershell)
+
+### Prerequisites
+
+You need the identity validation ID for the entity that the certificate profile is being created for. Complete these steps find your identity validation ID in the Azure portal.
+
+1. In the Azure portal, go to your Artifact Signing account.
+2. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
+3. Select the hyperlink for the relevant entity. On the **Identity validation** pane, you can copy the value for **Identity validation Id**.
+
+   :::image type="content" source="media/artifact-signing-identity-validation-id.png" alt-text="Screenshot that shows copying the identity validation ID for an Artifact Signing account." lightbox="media/artifact-signing-identity-validation-id.png":::
+
+To create a certificate profile by using the Azure Powershell:
+
+1. Create a certificate profile by using the following command:
+
+```powershell
+  New-AzArtifactSigningCertificateProfile -AccountName test -ResourceGroupName rg-test -ProfileName test -IdentityValidationId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ProfileType PublicTrustTest
+```
+
+   For more information, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
+
+2. Create a certificate profile that includes optional fields (street address or postal code) in the subject name of the certificate by using the following command:
+
+```powershell
+  New-AzArtifactSigningCertificateProfile -AccountName test -ResourceGroupName rg-test -ProfileName test -IdentityValidationId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ProfileType PublicTrustTest -IncludeStreetAddress
+```
+
+3. Verify that you successfully created a certificate profile by using the following command:
+
+```powershell
+  Get-AzArtifactSigningCertificateProfile -AccountName test -ResourceGroupName rg-test -ProfileName test
+```
+
 ---
 
 ## Clean up resources
@@ -533,7 +610,7 @@ To delete Artifact Signing resources by using the Azure CLI:
 
 ### Delete a certificate profile
 
-To delete an Artifact Signing certificate profile, run this command:
+To delete an Artifact Signing certificate profile:
 
 ```azurecli
 az artifact-signing certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
@@ -546,10 +623,36 @@ az artifact-signing certificate-profile delete -g MyResourceGroup --account-name
 
 You can use the Azure CLI to delete Artifact Signing resources.
 
-To delete an Artifact Signing account, run this command:
+To delete an Artifact Signing account:
 
 ```azurecli
 az artifact-signing delete -n MyAccount -g MyResourceGroup
+```
+
+> [!NOTE]
+> This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with the certificate profiles stops.
+
+# [Azure Powershell](#tab/adeleteresources-azpowershell)
+
+To delete Artifact Signing resources by using Azure Powershell:
+
+### Delete a certificate profile
+
+To delete an Artifact Signing certificate profile:
+
+```powershell
+  Remove-AzArtifactSigningCertificateProfile -AccountName test -ResourceGroupName test -ProfileName test
+```
+
+> [!NOTE]
+> This action stops any signing that's associated with the certificate profile.
+
+### Delete an Artifact Signing account
+
+To delete an Artifact Signing account:
+
+```powershell
+  Remove-AzArtifactSigningAccount -AccountName test -ResourceGroupName rg-test
 ```
 
 > [!NOTE]

@@ -12,6 +12,8 @@ ms.date: 02/25/2026
 
 # Web Application Firewall request and file upload size limits
 
+**Applies to:** :heavy_check_mark: Application Gateway V2
+
 Web Application Firewall allows you to configure request size limits within a lower and upper boundary. Application Gateways Web Application Firewalls running Core Rule Set 3.2 or later have more request and file upload size controls, including the ability to disable max size enforcement for requests and/or file uploads.
 
 > [!IMPORTANT]

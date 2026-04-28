@@ -15,6 +15,8 @@ ms.custom:
 
 # Configure an IP restriction rule with a WAF for Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 This article shows you how to configure IP restriction rules in a web application firewall (WAF) for Azure Front Door by using the Azure portal, the Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 
 An IP address–based access control rule is a custom WAF rule that lets you control access to your web applications. The rule specifies a list of IP addresses or IP address ranges in Classless Inter-Domain Routing (CIDR) format.

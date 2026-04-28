@@ -12,6 +12,8 @@ ms.date: 02/25/2026
 
 # Custom rules for Azure Web Application Firewall on Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Web Application Firewall on Azure Front Door allows you to control access to your web applications based on the conditions you define. A custom web application firewall (WAF) rule consists of a priority number, rule type, match conditions, and an action.
 
 There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on a set of matching conditions. A rate limit rule controls access based on matching conditions and the rates of incoming requests. You can disable a custom rule to prevent it from being evaluated but still keep the configuration.

@@ -972,7 +972,7 @@ The API proxy module was designed to be customized to handle most common gateway
 
 Downstream devices can be used to integrate the Microsoft Defender for IoT's micro agent with the IoT Edge gateway using downstream device proxying.
 
-Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-builders/overview.md#defender-for-iot-micro-agent).
+Learn more about the [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/overview#defender-for-iot-micro-agent).
 
 **To integrate Microsoft Defender for IoT with IoT Edge using downstream device proxying**:
 
@@ -984,7 +984,7 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
     :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/select-device.png" alt-text="Screenshot showing where your device is located for selection.":::
 
-1. Select the `DefenderIotMicroAgent` module twin that you created from [these instructions](../defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin.md#create-a-defenderiotmicroagent-module-twin).  
+1. Select the `DefenderIotMicroAgent` module twin that you created from [these instructions](/azure/defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin#create-a-defenderiotmicroagent-module-twin).  
 
     :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/defender-micro-agent.png" alt-text="Screenshot showing the location of the DefenderIotMicroAgent.":::
 

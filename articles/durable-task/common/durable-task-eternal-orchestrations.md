@@ -1,13 +1,13 @@
 ---
-title: Eternal orchestrations
-description: Learn how to implement eternal orchestrations
+title: "Eternal Orchestrations in Durable Task"
+description: "Learn how to implement eternal orchestrations in Durable Task Framework to run infinite loops without performance issues. Discover how to use continue-as-new to reset orchestration history."
 author: cgillum
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 01/28/2026
+ms.date: 04/23/2026
 ms.author: azfuncdf
 ms.devlang: csharp
-# ms.devlang: csharp, javascript, python, java
+# ms.devlang: csharp, javascript, python, java, powershell
 zone_pivot_groups: azure-durable-approach
 ---
 
@@ -15,33 +15,42 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
-*Eternal orchestrations* are orchestrator functions that never end. They're useful when you want to use [Durable Functions](what-is-durable-task.md) for aggregators, and any scenario that requires an infinite loop.
+*Eternal orchestrations* are orchestrator functions that run indefinitely by periodically resetting their own history using the `continue-as-new` API. They're useful for aggregators, periodic background jobs, and any [Durable Functions](what-is-durable-task.md) scenario that requires an infinite loop without unbounded history growth.
+
+Without `continue-as-new`, an orchestrator that loops forever would accumulate [orchestration history](durable-task-orchestrations.md#orchestration-history) with every scheduled task, eventually causing performance problems and excessive memory use. The eternal orchestration pattern solves this by resetting the history on each iteration.
+
+> [!NOTE]
+> Eternal orchestration code samples are available for C#, JavaScript, Python, and Java. PowerShell doesn't support `continue-as-new`.
+
+In this article:
+
+- [How continue-as-new works](#how-continue-as-new-works) — The reset mechanism
+- [Considerations](#eternal-orchestration-considerations) — Exception behavior, incomplete tasks, and external events
+- [Periodic work example](#periodic-work-example) — A cleanup loop that avoids timer overlap
+- [Start an eternal orchestration](#start-an-eternal-orchestration) — Launch and singleton patterns
+- [Exit from an eternal orchestration](#exit-from-an-eternal-orchestration) — Graceful stop and termination
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-*Eternal orchestrations* are orchestrations that never end. They're useful when you want to use durable orchestrations for aggregators and any scenario that requires an infinite loop.
+*Eternal orchestrations* are orchestrations that run indefinitely by periodically resetting their own history using the `continue-as-new` API. They're useful for aggregators, periodic background jobs, and any scenario that requires an infinite loop without unbounded history growth.
+
+Without `continue-as-new`, an orchestration that loops forever would accumulate history with every scheduled task, eventually causing performance problems and excessive memory use. The eternal orchestration pattern solves this by resetting the history on each iteration.
 
 [!INCLUDE [preview-sample-limitations](../scheduler/includes/preview-sample-limitations.md)]
 
-::: zone-end
+In this article:
 
-## Orchestration history
-
-::: zone pivot="durable-functions"
-
-As explained in the [orchestration history](durable-task-orchestrations.md#orchestration-history) topic, the Durable Task Framework keeps track of the history of each function orchestration. This history grows continuously as long as the orchestrator function schedules new work. If the orchestrator function goes into an infinite loop and continuously schedules work, the history can grow critically large and cause significant performance problems. The *eternal orchestration* concept was designed to mitigate these kinds of problems for applications that need infinite loops.
-
-::: zone-end
-
-::: zone pivot="durable-task-sdks"
-
-The Durable Task SDKs keep track of the history of each orchestration. This history grows continuously as long as the orchestration schedules new work. If the orchestration goes into an infinite loop and continuously schedules work, the history can grow critically large and cause significant performance problems. The *eternal orchestration* concept was designed to mitigate these kinds of problems for applications that need infinite loops.
+- [How continue-as-new works](#how-continue-as-new-works) — The reset mechanism
+- [Considerations](#eternal-orchestration-considerations) — Exception behavior, incomplete tasks, and external events
+- [Periodic work example](#periodic-work-example) — A cleanup loop that avoids timer overlap
+- [Start an eternal orchestration](#start-an-eternal-orchestration) — Launch and singleton patterns
+- [Exit from an eternal orchestration](#exit-from-an-eternal-orchestration) — Graceful stop and termination
 
 ::: zone-end
 
-## Resetting and restarting
+## How continue-as-new works
 
 ::: zone pivot="durable-functions"
 
@@ -67,10 +76,11 @@ Keep these considerations in mind when using the `continue-as-new` method in an 
 
 + When an orchestrator function is reset by using the `continue-as-new` method, the Durable Task Framework maintains the same instance ID but internally creates and uses a new *execution ID* going forward. This execution ID isn't exposed externally, but it's useful when debugging orchestration execution.
 
-+ When an unhandled exception occurs during execution, the orchestration enters a _failed_ state and execution terminates. In this state, a call to `continue-as-new` from the `finally` block of a try-catch statement can't restart the orchestration. 
++ When an unhandled exception occurs during execution, the orchestration enters a _failed_ state and execution terminates. A call to `continue-as-new` from a `finally` block does *not* restart the orchestration after an uncaught exception.
 
-> [!IMPORTANT]
-> If the orchestration encounters an uncaught exception during execution, the orchestration enters a "failed" state and execution completes. In particular, this means that a call to *continue-as-new*, even in a `finally` block, does *not* restart the orchestration in the case of an uncaught exception.
++ The results of any incomplete tasks are discarded when an orchestration calls `continue-as-new`. For example, if a timer is scheduled and then `continue-as-new` is called before the timer fires, the timer event is discarded.
+
++ You can optionally preserve unprocessed external events across `continue-as-new` restarts. In C#, `ContinueAsNew` preserves unprocessed events by default. In Java, `continueAsNew` also preserves events by default. In Python, `continue_as_new` doesn't preserve events unless `save_events=True`. In JavaScript, `continueAsNew` requires a `saveEvents` parameter (`true` or `false`) to control this behavior.
 
 ::: zone-end
 
@@ -80,20 +90,24 @@ Keep these considerations in mind when using the `continue-as-new` method in an 
 
 + When an orchestration is reset by using the `continue-as-new` method, the Durable Task SDKs maintain the same instance ID but internally create and use a new *execution ID* going forward. This execution ID isn't exposed externally, but it can be useful when debugging orchestration execution.
 
-+ When an unhandled exception occurs during execution, the orchestration enters a _failed_ state and execution terminates. In this state, a call to `continue-as-new` from the `finally` block of a try-catch statement can't restart the orchestration. 
++ When an unhandled exception occurs during execution, the orchestration enters a _failed_ state and execution terminates. A call to `continue-as-new` from a `finally` block does *not* restart the orchestration after an uncaught exception.
 
 + The results of any incomplete tasks are discarded when an orchestration calls `continue-as-new`. For example, if a timer is scheduled and then `continue-as-new` is called before the timer fires, the timer event is discarded.
 
 + You can optionally preserve unprocessed external events across `continue-as-new` restarts. In .NET and Java, `continue-as-new` preserves unprocessed events by default. In Python, `continue_as_new` doesn't preserve events unless `save_events=True`. In JavaScript, `continueAsNew` requires a `saveEvents` parameter (`true` or `false`) to control this behavior. In all cases, unprocessed events are delivered when the orchestration next calls `waitForExternalEvent` or `wait_for_external_event`.
 
-> [!IMPORTANT]
-> If the orchestration encounters an uncaught exception during execution, the orchestration enters a "failed" state and execution completes. In particular, this means that a call to *continue-as-new*, even in a `finally` block, does *not* restart the orchestration in the case of an uncaught exception.
-
 ::: zone-end
 
 ## Periodic work example
 
-One use case for eternal orchestrations is code that does periodic work indefinitely.
+One common use case for eternal orchestrations is periodic background work, such as cleanup jobs.
+
+**Why not use a timer trigger?** A CRON-based timer trigger runs at fixed times regardless of whether the previous run finished. An eternal orchestration waits for the work to complete before scheduling the next iteration, so runs never overlap.
+
+| Approach | Schedule (1-hour interval, 30-min job) | Overlap risk |
+|---|---|---|
+| Timer trigger (CRON) | 1:00, 2:00, 3:00 | Yes — if the job exceeds the interval |
+| Eternal orchestration | 1:00, 2:30, 4:00 | No — next run waits for completion |
 
 ::: zone pivot="durable-functions"
 
@@ -113,9 +127,6 @@ public static async Task Run(
     context.ContinueAsNew(null);
 }
 ```
-
-> [!NOTE]
-> The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -155,7 +166,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # [PowerShell](#tab/powershell)
 
-PowerShell doesn't support `continue-as-new`.
+PowerShell doesn't support `continue-as-new`. For periodic work in PowerShell, use a [durable timer](durable-task-timers.md) with a [singleton orchestration](durable-task-singletons.md) instead.
 
 # [Java](#tab/java)
 
@@ -172,8 +183,6 @@ public void periodicCleanupLoop(
 ```
 
 ---
-
-The difference between this example and a timer-triggered function is that cleanup trigger times aren't based on a schedule. For example, a CRON schedule that runs a function every hour runs at 1:00, 2:00, 3:00, and so on, and could potentially run into overlap issues. In this example, if the cleanup takes 30 minutes, then it schedules at 1:00, 2:30, 4:00, and so on, and there's no chance of overlap.
 
 ::: zone-end
 
@@ -253,11 +262,9 @@ const periodicCleanupLoop: TOrchestrator = async function* (ctx: OrchestrationCo
 
 # [PowerShell](#tab/powershell)
 
-The Durable Task SDK isn't available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+The Durable Task SDK isn't available for PowerShell. For eternal orchestrations in PowerShell, use [Durable Functions](what-is-durable-task.md) with a [durable timer](durable-task-timers.md) and a [singleton pattern](durable-task-singletons.md).
 
 ---
-
-The difference between this example and a timer-based approach is that cleanup trigger times aren't based on a schedule. For example, a schedule that runs every hour runs at 1:00, 2:00, 3:00, and so on, and could potentially run into overlap issues. In this example, if the cleanup takes 30 minutes, then it schedules at 1:00, 2:30, 4:00, and so on, and there's no chance of overlap.
 
 ::: zone-end
 
@@ -265,10 +272,7 @@ The difference between this example and a timer-based approach is that cleanup t
 
 ::: zone pivot="durable-functions"
 
-Use the *start-new* or *schedule-new* durable client method to start an eternal orchestration, just like you would for any other orchestration function.  
-
-> [!NOTE]
-> If you need to ensure a singleton eternal orchestration is running, maintain the same instance `id` when starting the orchestration. For more information, see [Instance management](durable-task-instance-management.md).
+Use the *start-new* or *schedule-new* durable client method to start an eternal orchestration, just like any other orchestration function. To ensure only one instance runs at a time, use a fixed instance ID. For more information, see [Singleton orchestrations](durable-task-singletons.md).
 
 # [C#](#tab/csharp)
 
@@ -284,9 +288,6 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```
-
-> [!NOTE]
-> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, use the `OrchestrationClient` attribute instead of the `DurableClient` attribute, and use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md).
 
 # [JavaScript](#tab/javascript)
 
@@ -321,7 +322,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 # [PowerShell](#tab/powershell)
 
-PowerShell doesn't support *continue-as-new*.
+PowerShell doesn't support `continue-as-new`. For periodic work in PowerShell, use a [durable timer](durable-task-timers.md) with a [singleton orchestration](durable-task-singletons.md) instead.
 
 # [Java](#tab/java)
 
@@ -344,10 +345,7 @@ public HttpResponseMessage triggerEternalOrchestration(
 
 ::: zone pivot="durable-task-sdks"
 
-Use the *schedule-new* client method to start an eternal orchestration, just like you would for any other orchestration.
-
-> [!NOTE]
-> If you need to ensure a singleton eternal orchestration is running, maintain the same instance `id` when starting the orchestration.
+Use the *schedule-new* client method to start an eternal orchestration, just like any other orchestration. To ensure only one instance runs at a time, use a fixed instance ID. For more information, see [Singleton orchestrations](durable-task-singletons.md).
 
 # [C#](#tab/csharp)
 
@@ -382,7 +380,7 @@ await client.scheduleNewOrchestration(periodicCleanupLoop, undefined, instanceId
 
 # [PowerShell](#tab/powershell)
 
-The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+The Durable Task SDK isn't available for PowerShell. For eternal orchestrations in PowerShell, use [Durable Functions](what-is-durable-task.md) with a [durable timer](durable-task-timers.md) and a [singleton pattern](durable-task-singletons.md).
 
 ---
 
@@ -392,9 +390,43 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone pivot="durable-functions"
 
-If an orchestrator function needs to eventually complete, don't call `ContinueAsNew` and let the function exit.
+If an orchestrator function needs to eventually complete, don't call `continue-as-new` and let the function exit.
 
-If an orchestrator function is in an infinite loop and needs to be stopped, use the *terminate* API of the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) to stop it. For more information, see [Instance management](durable-task-instance-management.md).
+If an orchestrator function is in an infinite loop and needs to be stopped, use the *terminate* API of the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) to stop it.
+
+# [C#](#tab/csharp)
+
+```csharp
+await client.TerminateAsync(instanceId, "Cleanup no longer needed");
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+await client.terminate(instanceId, "Cleanup no longer needed");
+```
+
+# [Python](#tab/python)
+
+```python
+await client.terminate(instance_id, "Cleanup no longer needed")
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Stop-DurableOrchestration -InstanceId $instanceId -Reason "Cleanup no longer needed"
+```
+
+# [Java](#tab/java)
+
+```java
+client.terminate(instanceId, "Cleanup no longer needed");
+```
+
+---
+
+For more information, see [Instance management](durable-task-instance-management.md).
 
 ::: zone-end
 
@@ -430,7 +462,7 @@ await client.terminateOrchestration(instanceId, "Cleanup no longer needed");
 
 # [PowerShell](#tab/powershell)
 
-The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+The Durable Task SDK isn't available for PowerShell. For eternal orchestrations in PowerShell, use [Durable Functions](what-is-durable-task.md) with a [durable timer](durable-task-timers.md) and a [singleton pattern](durable-task-singletons.md).
 
 ---
 
@@ -443,11 +475,19 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 > [!div class="nextstepaction"]
 > [Learn how to implement singleton orchestrations](durable-task-singletons.md)
 
+- [Durable timers](durable-task-timers.md)
+- [Instance management](durable-task-instance-management.md)
+- [Durable Functions bindings](../../azure-functions/durable-functions/durable-functions-bindings.md)
+
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
 > [!div class="nextstepaction"]
 > [Get started with Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md)
+
+- [Singleton orchestrations](durable-task-singletons.md)
+- [Durable timers](durable-task-timers.md)
+- [Instance management](durable-task-instance-management.md)
 
 ::: zone-end

@@ -11,6 +11,8 @@ ms.date: 01/27/2026
 
 # What is rate limiting for Web Application Firewall on Application Gateway?
 
+**Applies to:** :heavy_check_mark: Application Gateway V2
+
 Rate limiting for Web Application Firewall on Application Gateway allows you to detect and block abnormally high levels of traffic destined for your application. By using rate limiting on Application Gateway WAF v2, you can mitigate many types of denial-of-service attacks, protect against clients that have accidentally been misconfigured to send large volumes of requests in a short time period, or control traffic rates to your site from specific geographies.
 
 ## Rate limiting policies

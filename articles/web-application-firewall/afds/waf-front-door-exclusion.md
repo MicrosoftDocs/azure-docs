@@ -11,6 +11,8 @@ ms.date: 03/07/2023
 
 # Web Application Firewall with Azure Front Door exclusion lists
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 Sometimes Azure Web Application Firewall in Azure Front Door might block a legitimate request. As part of tuning your web application firewall (WAF), you can configure the WAF to allow the request for your application. WAF exclusion lists allow you to omit specific request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
 
 For example, Microsoft Entra ID provides tokens that are used for authentication. When these tokens are used in a request header, they can contain special characters that might trigger a false positive detection by one or more WAF rules. You can add the header to an exclusion list, which tells the WAF to ignore the header. The WAF still inspects the rest of the request for suspicious content.

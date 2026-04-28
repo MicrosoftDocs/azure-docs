@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Create a TypeScript Durable Functions app"
-description: Create and publish a TypeScript Durable Functions app in Azure Functions by using Visual Studio Code.
+description: Learn how to create and publish a TypeScript Durable Functions app in Azure Functions by using Visual Studio Code. Get started with stateful serverless workflows today.
 author: hossam-nasr
 ms.author: hannahhunter
 ms.topic: quickstart
 ms.service: azure-functions
-ms.date: 07/24/2024
+ms.date: 04/23/2026
 ms.reviewer: azfuncdf
 ms.devlang: typescript
 ms.custom: devx-track-js, mode-api, vscode-azure-extension-update-complete, devx-track-ts
@@ -14,11 +14,14 @@ zone_pivot_groups: functions-nodejs-model
 
 # Quickstart: Create a TypeScript Durable Functions app
 
-Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. You install Durable Functions by installing the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) in Visual Studio Code. The extension manages state, checkpoints, and restarts in your application.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application automatically.
 
-In this quickstart, you use the Durable Functions extension in Visual Studio Code to locally create and test a "hello world" Durable Functions app in Azure Functions. The Durable Functions app orchestrates and chains together calls to other functions. Then, you publish the function code to Azure. The tools you use are available via the Visual Studio Code extension.
+In this quickstart, you use the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code to create and test a Durable Functions app locally, then publish it to Azure. The app orchestrates and chains together calls to activity functions that return greetings for a set of city names.
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../../includes/functions-nodejs-model-pivot-description.md)]
+
+> [!TIP]
+> The **v4 programming model** is the current default for Node.js Azure Functions and is recommended for new projects. The v3 model is available for existing apps that haven't migrated yet.
 
 :::image type="content" source="./media/quickstart-js-vscode/functions-vs-code-complete.png" alt-text="Screenshot of an Edge window. The window shows the output of invoking a simple Durable Functions app in Azure.":::
 
@@ -113,27 +116,18 @@ Visual Studio Code installs Azure Functions Core Tools if it's required to creat
 
 A *package.json* file and a *tsconfig.json* file are also created in the root folder.
 
-## Install the Durable Functions npm package
+## Install the durable-functions npm package
 
-To work with Durable Functions in a Node.js function app, you use a library called *durable-functions*.
-
-::: zone pivot="nodejs-model-v4"
-
-To use the v4 programming model, you need to install the v3.x version of the durable-functions library.
-
-::: zone-end
+To work with Durable Functions in a Node.js function app, you use the `durable-functions` npm package.
 
 1. Use the **View** menu or select Ctrl+Shift+` to open a new terminal in Visual Studio Code.
 
-::: zone pivot="nodejs-model-v3"
-
-2. Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
-
-::: zone-end
+2. Install the package by running `npm install durable-functions` in the root directory of the function app.
 
 ::: zone pivot="nodejs-model-v4"
 
-2. Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
+> [!NOTE]
+> This installs the `durable-functions` package version 3.x, which is the version that supports the v4 programming model. The npm package major version doesn't correspond to the Node.js programming model version.
 
 ::: zone-end
 
@@ -226,7 +220,10 @@ You now have a Durable Functions app that you can run locally and deploy to Azur
 
 ## Test the function locally
 
-Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function in Visual Studio Code.
+
+> [!NOTE]
+> The first time you run the app locally, Visual Studio Code prompts you to select or create an Azure Storage account. Durable Functions requires a storage account to persist orchestration state.
 
 ::: zone pivot="nodejs-model-v3"
 
@@ -266,7 +263,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="nodejs-model-v3"
 
-5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
+5. Use your browser or an [HTTP test tool](../functions-develop-local.md#http-test-tools) to send an HTTP POST request to the URL endpoint.
 
    Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
@@ -276,9 +273,9 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="nodejs-model-v4"
 
-5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
+5. Use your browser or an [HTTP test tool](../functions-develop-local.md#http-test-tools) to send an HTTP POST request to the URL endpoint.
 
-   Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+   Replace the last segment with the name of the orchestrator function (`helloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/helloOrchestrator`.
 
    The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
@@ -346,8 +343,8 @@ After you verify that the function runs correctly on your local computer, it's t
 
 ::: zone pivot="nodejs-model-v4"
 
-> [!NOTE]
-> To use the v4 node programming model, make sure that your app is running on at least version 4.25 of the Azure Functions runtime.
+> [!IMPORTANT]
+> To use the v4 Node.js programming model, make sure that your function app is running on at least version 4.25 of the Azure Functions runtime. You can verify the version in the Azure portal under **Configuration** > **Function runtime settings**, or by checking the `FUNCTIONS_EXTENSION_VERSION` app setting.
 
 ::: zone-end
 
@@ -378,3 +375,5 @@ If you no longer need the resources that you created to complete the quickstart,
 ## Related content
 
 * Learn about [common Durable Functions app patterns](../../durable-task/common/durable-task-sequence.md).
+* Learn how to [monitor and diagnose Durable Functions](durable-functions-diagnostics.md).
+* Explore [Durable Functions versioning](durable-functions-versioning.md) for managing code changes.

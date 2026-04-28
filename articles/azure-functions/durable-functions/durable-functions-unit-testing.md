@@ -1,29 +1,71 @@
 ---
-title: Unit testing Durable Functions and Durable Task SDKs
-description: Learn how to unit test orchestrator, activity, and client functions for Azure Durable Functions and standalone Durable Task SDKs.
+title: "Unit testing Durable Functions and Durable Task SDKs"
+description: "Learn how to unit test orchestrator, activity, and client functions for Azure Durable Functions and Durable Task SDKs. Catch bugs early and prevent regressions with these testing patterns."
 author: cgillum
 ms.topic: how-to
-ms.date: 02/19/2026
-ms.author: azfuncdf
+ms.date: 04/27/2026
+ms.author: cgillum
 ms.service: azure-functions
 ms.subservice: durable
 zone_pivot_groups: azure-durable-approach
 #Customer intent: As a developer, I want to learn how to write unit tests for my durable orchestrations and activities so that I can catch bugs early and prevent regressions.
 ---
 
-# Unit testing
+# Unit test Durable Functions and Durable Task SDKs
 
-Unit tests verify business logic and protect against regressions. Durable orchestrations coordinate multiple activities and can grow complex quickly. Adding unit tests helps you catch errors early.
+Unit testing durable orchestrations helps you verify business logic and catch errors early. Orchestrations coordinate multiple activities and can grow complex quickly, so tests protect against regressions as your workflow evolves.
+
+Select the tab that matches your project: **Durable Functions** if you use Azure Functions, or **Durable Task SDKs** if you use the standalone SDK without Azure Functions.
 
 ::: zone pivot="durable-functions"
 
 With Durable Functions, you test orchestrators, activities, and client (trigger) functions by **mocking the framework-provided context objects** and calling your functions directly. This approach isolates your business logic from the Azure Functions runtime.
 
+Here's a minimal C# orchestrator test to show the pattern:
+
+```csharp
+[Fact]
+public async Task MyOrchestrator_CallsActivity()
+{
+    var contextMock = new Mock<TaskOrchestrationContext>();
+    contextMock.Setup(x => x.CallActivityAsync<string>(
+        It.IsAny<TaskName>(), It.IsAny<string>(), It.IsAny<TaskOptions>()))
+        .ReturnsAsync("result");
+
+    var result = await MyOrchestrator.Run(contextMock.Object);
+
+    Assert.Equal("result", result);
+}
+```
+
+The rest of this article covers this pattern in detail for C# and Python.
+
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-The standalone Durable Task SDKs provide **built-in test infrastructure** that runs orchestrations in-memory without external dependencies. You register orchestrators and activities with a test worker, schedule orchestrations through a test client, and assert on the results. No mocking is required for C# and JavaScript. Python uses an executor-based approach with mock history events.
+The standalone Durable Task SDKs provide **built-in test infrastructure** that runs orchestrations in-memory without external dependencies. You register orchestrators and activities with a test worker, schedule orchestrations through a test client, and assert on the results. No mocking is required for C# and JavaScript. Python uses a generator-based approach with manual result injection.
+
+Here's a minimal C# test to show the pattern:
+
+```csharp
+[Fact]
+public async Task MyOrchestrator_Completes()
+{
+    await using var host = await DurableTaskTestHost.StartAsync(tasks =>
+    {
+        tasks.AddOrchestrator<MyOrchestrator>();
+        tasks.AddActivity<MyActivity>();
+    });
+
+    string id = await host.Client.ScheduleNewOrchestrationInstanceAsync(nameof(MyOrchestrator));
+    var result = await host.Client.WaitForInstanceCompletionAsync(id, getInputsAndOutputs: true);
+
+    Assert.Equal(OrchestrationRuntimeStatus.Completed, result.RuntimeStatus);
+}
+```
+
+The rest of this article covers this pattern in detail for C#, Python, and JavaScript.
 
 ::: zone-end
 
@@ -45,7 +87,7 @@ The standalone Durable Task SDKs provide **built-in test infrastructure** that r
 
 # [JavaScript](#tab/javascript)
 
-JavaScript unit testing for Durable Functions isn't covered in this article.
+JavaScript unit testing for Durable Functions requires the standalone Durable Task SDK. Switch to the **Durable Task SDKs** tab at the top of this page for JavaScript testing examples with built-in test infrastructure.
 
 ---
 
@@ -56,17 +98,17 @@ JavaScript unit testing for Durable Functions isn't covered in this article.
 # [C#](#tab/csharp)
 
 - [xUnit](https://xunit.net/) — test framework
-- The `Microsoft.DurableTask.InProcessTestHost` NuGet package
+- The [`Microsoft.DurableTask.InProcessTestHost`](https://www.nuget.org/packages/Microsoft.DurableTask.InProcessTestHost) NuGet package (v1.0.0 or later)
 
 # [Python](#tab/python)
 
 - [pytest](https://docs.pytest.org/) — test framework (or `unittest`)
-- The `durabletask` PyPI package
+- The [`durabletask`](https://pypi.org/project/durabletask/) PyPI package
 
 # [JavaScript](#tab/javascript)
 
 - [Jest](https://jestjs.io/) — test framework
-- The `@microsoft/durabletask-js` npm package
+- The [`@microsoft/durabletask-js`](https://www.npmjs.com/package/@microsoft/durabletask-js) npm package
 
 ---
 
@@ -100,7 +142,10 @@ public static async Task<List<string>> HelloCities(
 }
 ```
 
-Use Moq to mock `TaskOrchestrationContext` and set up expected return values for each activity call:
+Use Moq to mock `TaskOrchestrationContext` and set up expected return values for each activity call.
+
+> [!NOTE]
+> The `It.Is<TaskName>(...)` pattern is required because `CallActivityAsync` accepts a `TaskName` struct, not a plain string. Moq needs the explicit type match.
 
 ```csharp
 [Fact]
@@ -108,6 +153,7 @@ public async Task HelloCities_ReturnsExpectedGreetings()
 {
     var contextMock = new Mock<TaskOrchestrationContext>();
 
+    // Mock each activity call to return a known value
     contextMock.Setup(x => x.CallActivityAsync<string>(
         It.Is<TaskName>(n => n.Name == nameof(SayHello)),
         It.Is<string>(n => n == "Tokyo"),
@@ -146,7 +192,10 @@ def my_orchestrator(context: df.DurableOrchestrationContext):
     return [result1, result2, result3]
 ```
 
-Mock the context and use `orchestrator_generator_wrapper` to process the generator. This utility simulates the Durable Functions replay mechanism:
+Mock the context and use `orchestrator_generator_wrapper` to process the generator.
+
+> [!NOTE]
+> The Azure Durable Functions SDK provides `orchestrator_generator_wrapper` to simulate the replay mechanism that drives Python orchestrator generators. The standalone Durable Task SDK doesn't include this utility, so the [Durable Task SDKs](#test-orchestrator-functions) tab uses manual `gen.send()` calls instead.
 
 ```python
 import unittest
@@ -164,6 +213,7 @@ def mock_activity(activity_name, input_value):
 
 class TestOrchestrator(unittest.TestCase):
     def test_chaining_orchestrator(self):
+        # Extract the raw orchestrator function from the Azure Functions decorator wrapper
         func_call = my_orchestrator.build().get_user_function().orchestrator_function
 
         context = Mock()
@@ -183,7 +233,7 @@ class TestOrchestrator(unittest.TestCase):
 
 # [JavaScript](#tab/javascript)
 
-JavaScript unit testing for Durable Functions isn't covered in this article.
+For JavaScript unit testing, switch to the **Durable Task SDKs** tab at the top of this page.
 
 ---
 
@@ -253,7 +303,10 @@ public async Task HelloCities_ReturnsExpectedGreetings()
 
 # [Python](#tab/python)
 
-The Python Durable Task SDK doesn't yet provide a built-in test harness like C# and JavaScript. Use standard mocking to test orchestrator logic. Mock the `OrchestrationContext` and drive the generator by sending simulated activity results back for each `yield`:
+The Python Durable Task SDK doesn't yet provide a built-in test harness like C# and JavaScript. Use standard mocking to test orchestrator logic. Mock the `OrchestrationContext` and drive the generator by sending simulated activity results back for each `yield`.
+
+> [!NOTE]
+> Unlike the Azure Durable Functions SDK (which provides `orchestrator_generator_wrapper`), the standalone Durable Task SDK requires you to manually advance the generator with `gen.send()`. This gives you explicit control over the simulated activity results.
 
 ```python
 from unittest.mock import Mock, call
@@ -397,7 +450,7 @@ def test_say_hello():
 
 # [JavaScript](#tab/javascript)
 
-JavaScript unit testing for Durable Functions isn't covered in this article.
+For JavaScript activity testing, switch to the **Durable Task SDKs** tab at the top of this page.
 
 ---
 
@@ -439,7 +492,8 @@ def hello(ctx: task.ActivityContext, name: str) -> str:
 
 
 def test_hello():
-    result = hello(None, "Tokyo")
+    ctx = Mock(spec=task.ActivityContext)
+    result = hello(ctx, "Tokyo")
     assert result == "Hello Tokyo!"
 ```
 
@@ -545,6 +599,7 @@ from function_app import http_start
 
 class TestClientFunction(unittest.TestCase):
     def test_http_start(self):
+        # Extract the raw client function from the Azure Functions decorator wrapper
         func_call = http_start.build().get_user_function().client_function
 
         req = func.HttpRequest(
@@ -565,7 +620,97 @@ class TestClientFunction(unittest.TestCase):
 
 # [JavaScript](#tab/javascript)
 
-JavaScript unit testing for Durable Functions isn't covered in this article.
+For JavaScript client testing, switch to the **Durable Task SDKs** tab at the top of this page.
+
+---
+
+::: zone-end
+
+::: zone pivot="durable-task-sdks"
+
+## Test client operations
+
+With the standalone Durable Task SDKs, client operations (scheduling orchestrations, querying status, raising events) use the same `TestOrchestrationClient` already shown in the orchestrator tests. No separate client function exists — you call the client API directly.
+
+# [C#](#tab/csharp)
+
+`DurableTaskTestHost` exposes `host.Client`, which is a fully functional `DurableTaskClient`. Use it to test client-level operations like scheduling, querying, or terminating orchestrations:
+
+```csharp
+[Fact]
+public async Task Client_CanQueryOrchestrationStatus()
+{
+    await using var host = await DurableTaskTestHost.StartAsync(tasks =>
+    {
+        tasks.AddOrchestrator<HelloCitiesOrchestrator>();
+        tasks.AddActivity<SayHelloActivity>();
+    });
+
+    string instanceId = await host.Client.ScheduleNewOrchestrationInstanceAsync(
+        nameof(HelloCitiesOrchestrator));
+
+    // Query status while the orchestration runs
+    OrchestrationMetadata metadata = await host.Client.WaitForInstanceCompletionAsync(
+        instanceId, getInputsAndOutputs: true);
+
+    Assert.Equal(OrchestrationRuntimeStatus.Completed, metadata.RuntimeStatus);
+    Assert.Equal(instanceId, metadata.InstanceId);
+}
+```
+
+# [Python](#tab/python)
+
+The Python Durable Task SDK doesn't yet provide a built-in test client. Test client-level logic (scheduling, querying) by mocking the `TaskHubGrpcClient`:
+
+```python
+from unittest.mock import AsyncMock, Mock
+
+
+def test_schedule_orchestration():
+    client = Mock()
+    client.schedule_new_orchestration = AsyncMock(return_value="test-id")
+
+    # Call your application code that uses the client
+    import asyncio
+    instance_id = asyncio.run(client.schedule_new_orchestration("my_orchestrator"))
+
+    assert instance_id == "test-id"
+    client.schedule_new_orchestration.assert_called_once_with("my_orchestrator")
+```
+
+# [JavaScript](#tab/javascript)
+
+`TestOrchestrationClient` supports the same operations as the production client. Use it to test scheduling, status queries, and event raising:
+
+```javascript
+const {
+    InMemoryOrchestrationBackend,
+    TestOrchestrationClient,
+    TestOrchestrationWorker,
+    OrchestrationStatus,
+} = require("@microsoft/durabletask-js");
+
+test("client can schedule and query orchestration", async () => {
+    const backend = new InMemoryOrchestrationBackend();
+    const client = new TestOrchestrationClient(backend);
+    const worker = new TestOrchestrationWorker(backend);
+
+    const myOrchestrator = async function* (ctx) {
+        return "done";
+    };
+
+    worker.addOrchestrator(myOrchestrator);
+    await worker.start();
+
+    const id = await client.scheduleNewOrchestration(myOrchestrator);
+    const state = await client.waitForOrchestrationCompletion(id, true, 10);
+
+    expect(state.runtimeStatus).toEqual(OrchestrationStatus.COMPLETED);
+    expect(JSON.parse(state.serializedOutput)).toBe("done");
+
+    await worker.stop();
+});
+```
 
 ---
 
@@ -577,6 +722,8 @@ JavaScript unit testing for Durable Functions isn't covered in this article.
 
 - [Durable Functions overview](../../durable-task/common/what-is-durable-task.md)
 - [Orchestrator function code constraints](../../durable-task/common/durable-task-code-constraints.md)
+- [Migrate from in-process to isolated worker (.NET)](./durable-functions-migrate.md)
+- [Serialization and persistence in Durable Functions](./durable-functions-serialization-and-persistence.md)
 
 ::: zone-end
 
@@ -584,5 +731,6 @@ JavaScript unit testing for Durable Functions isn't covered in this article.
 
 - [What is Durable Task?](../../durable-task/common/what-is-durable-task.md)
 - [Orchestrator function code constraints](../../durable-task/common/durable-task-code-constraints.md)
+- [Develop with the Durable Task Scheduler](../../durable-task/scheduler/develop-with-durable-task-scheduler.md)
 
 ::: zone-end
