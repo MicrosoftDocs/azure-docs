@@ -8,8 +8,8 @@ metadata:
   description: Microsoft Planetary Computer Pro is an Azure service that enables organizations to accelerate geospatial analytics by seamlessly ingesting, managing, and analyzing their private geospatial datasets. It provides tools for integrating Earth observation data into enterprise data workflows and AI systems, allowing businesses to extract valuable insights and make data-driven decisions using satellite imagery, remote sensing data, and other geospatial information.
   ms.service: planetary-computer-pro
   ms.topic: landing-page
-  author: aloverro
-  ms.author: adamloverro
+  author: norazhan
+  ms.author: jiozhan
   ms.date: 05/08/2025
   
   ms.custom: build-2025

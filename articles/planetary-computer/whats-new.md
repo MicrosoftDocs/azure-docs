@@ -1,8 +1,8 @@
 ---
 title: New Features in Microsoft Planetary Computer Pro
 description: "Updates to users on new features in Microsoft Planetary Computer Pro."
-author: prasadko
-ms.author: prasadkomma
+author: norazhan
+ms.author: jiozhan
 ms.service: planetary-computer-pro
 ms.topic: whats-new #Don't change.
 ms.date: 04/25/2025

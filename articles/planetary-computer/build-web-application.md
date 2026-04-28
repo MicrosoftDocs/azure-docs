@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Build a web application with Microsoft Planetary Computer Pro"
 description: "Learn how to build a web application that authenticates with Microsoft Entra ID and displays geospatial data from a GeoCatalog using STAC APIs and map tiles."
-author: prasadko
-ms.author: prasadkomma
+author: aloverro
+ms.author: adamloverro
 ms.service: azure
 ms.topic: quickstart
 ms.date: 01/09/2026

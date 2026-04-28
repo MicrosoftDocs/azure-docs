@@ -3,7 +3,7 @@ title: Network Security Perimeter
 titleSuffix: Azure Service Bus
 description: Learn how to associate an Azure Service Bus namespace with a network security perimeter.
 ms.reviewer: spelluru
-ms.date: 04/10/2026
+ms.date: 04/28/2026
 author: EldertGrootenboer
 ms.author: egrootenboer
 ms.topic: feature-guide
@@ -70,10 +70,11 @@ When the association exists, the `publicNetworkAccess` field shows `SecuredByPer
 
 ### Feature availability
 
-Some capabilities of network security perimeters require feature flags to be registered on your subscription. If you encounter a "This feature isn't available for given subscription" error when configuring access rules or perimeter links, register the required feature flag and re-register the network provider:
+Some capabilities of network security perimeters require feature flags to be registered on your subscription. If you encounter a "This feature isn't available for given subscription" error when configuring access rules or perimeter links, or if your namespace doesn't appear in the list of associable resources when configuring a network security perimeter, register the required feature flag and re-register the network provider:
 
 | Capability | Feature flag | Registration command |
 | ---------- | ------------ | -------------------- |
+| NSP resource association | `AllowNetworkSecurityPerimeter` | `az feature register --namespace Microsoft.Network --name AllowNetworkSecurityPerimeter` |
 | Cross-perimeter links | `AllowNspLink` | `az feature register --namespace Microsoft.Network --name AllowNspLink` |
 | Service tag inbound rules | `EnableServiceTagsInNsp` | `az feature register --namespace Microsoft.Network --name EnableServiceTagsInNsp` |
 

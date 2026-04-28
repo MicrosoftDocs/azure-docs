@@ -6,12 +6,16 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 07/25/2025
+ms.date: 04/27/2026
 ---
 
 # Mapping data flows in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> - To compare mapping data flow transformations to their Dataflow Gen2 equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
+> - For data transformations in Microsoft Fabric, see [Dataflow Gen2 overview](/fabric/data-factory/dataflows-gen2-overview).
 
 ## What are mapping data flows?
 

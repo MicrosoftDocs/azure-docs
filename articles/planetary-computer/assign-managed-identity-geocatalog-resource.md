@@ -1,11 +1,11 @@
 ---
 title: Assign Managed Identity to GeoCatalog in Microsoft Planetary Computer Pro via the CLI
 description: Learn how to assign a User-assigned managed identity to a Microsoft Planetary Computer Pro GeoCatalog using either PowerShell or Bash.
-author: prasadko
+author: jglixon
 ms.topic: how-to
 ms.service: planetary-computer-pro
 ms.date: 04/24/2025
-ms.author: prasadkomma
+ms.author: jglixon
 ms.custom:
   - build-2025
 ---

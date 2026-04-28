@@ -1,8 +1,8 @@
 ---
 title: Microsoft Planetary Computer Service Usage Meters
 description: This article explains the usage metering model for Microsoft Planetary Computer Pro.
-author: prasadko
-ms.author: prasadkomma
+author: jglixon
+ms.author: jglixon
 ms.service: planetary-computer-pro
 ms.topic: article
 ms.date: 02/11/2026

@@ -264,6 +264,10 @@ The firewall logs show traffic through the firewall in the first attempt of a TC
 > [!TIP]
 > To avoid excessive disk usage caused by Flow trace logs in Azure Firewall with many short-lived connections, activate the logs only when troubleshooting a specific issue for diagnostic purposes.
 
+> [!NOTE]
+> Flow Trace logs capture traffic evaluated by network rules and NAT rules (Layer 3/4).
+> Traffic evaluated by application rules (Layer 7) is not included in Flow Trace logs. To monitor application rule activity, use Azure Firewall Application Rule logs.
+
 #### Flow trace properties
 
 The following properties can be added:
@@ -307,11 +311,11 @@ Get-AzProviderFeature -FeatureName "AFWEnableTcpConnectionLogging" -ProviderName
 To disable the log, use the following Azure PowerShell commands:
 
 ```powershell
-Connect-AzAccount 
+Connect-AzAccount
 Select-AzSubscription -Subscription <subscription_id> or <subscription_name>
+Unregister-AzProviderFeature -FeatureName AFWEnableTcpConnectionLogging -ProviderNamespace Microsoft.Network
 $firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
-$firewall.EnableTcpConnectionLogging = $false
-Set-AzFirewall -AzureFirewall $firewall
+Set-AzFirewall -AzureFirewall $firewall 
 ```
 
 To create a diagnostic setting and enable Resource Specific Table, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).

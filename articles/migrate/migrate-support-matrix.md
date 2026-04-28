@@ -44,9 +44,7 @@ Create a project | Your Azure account needs permissions to create a project. | S
 Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to discover and assess servers with the Azure Migrate Discovery and Assessment tool, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Azure Migrate and Modernize tool. This appliance sends metadata and performance data to Azure Migrate.<br><br> During registration, the `Microsoft.OffAzure`, `Microsoft.Migrate`, and `Microsoft.KeyVault` resource providers are registered with the subscription chosen in the appliance, so that the subscription works with the resource providers. To register, you need Contributor or Owner access on the subscription.<br><br> **VMware**: During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Migrate service. This app doesn't have permissions to make Azure resource management calls or have Azure role-based access control (RBAC) access for resources. <br><br> **Hyper-V**: During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](create-project.md).
 Create a key vault for VMware agentless migration | To migrate VMware VMs with the agentless Azure Migrate and Modernize tool, Azure Migrate creates a key vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, Contributor, and User Access Administrator) on the resource group where the project resides. | Set up [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
 
-::: moniker range="migrate-classic"
-
->[!IMPORTANT]
+> [!IMPORTANT]
 > For detailed information about Azure Migrate built‑in roles and the permissions required for different migration tasks, see [Azure Migrate built‑in roles](prepare-azure-accounts.md).
 
 ## Supported geographies
@@ -107,8 +105,6 @@ Target replication | United States | Target regions: US DoD Central, US DoD East
 Geography | Metadata storage location
 --- | ---
 Microsoft Azure operated by 21Vianet | China North 2
-
-::: moniker-end
 
 ## VMware assessment and migration
 

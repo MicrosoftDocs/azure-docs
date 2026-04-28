@@ -7,7 +7,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.topic: concept-article
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 04/27/2026
 ---
 
 # Union transformation in mapping data flow
@@ -16,11 +16,14 @@ ms.date: 05/15/2024
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-Union will combine multiple data streams into one, with the SQL Union of those streams as the new output from the Union transformation. All of the schema from each input stream will be combined inside of your data flow, without needing to have a join key.
+> [!TIP]
+>  For the equivalent transformation (**Append queries**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
-You can combine n-number of streams in the settings table by selecting the "+" icon next to each configured row, including both source data as well as streams from existing transformations in your data flow.
+Union combines multiple data streams into one, with the SQL Union of those streams as the new output from the Union transformation. All of the schema from each input stream will be combined inside of your data flow, without needing to have a join key.
 
-Here is a short video walk-through of the union transformation in the mapping data flow:
+You can combine n-number of streams in the settings table by selecting the "+" icon next to each configured row, including both source data and streams from existing transformations in your data flow.
+
+Here's a short video walk through of the union transformation in the mapping data flow:
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=b2efaa0d-096d-44e5-9ce0-71d6b68f3924]
 
@@ -30,19 +33,19 @@ In this case, you can combine disparate metadata from multiple sources (in this 
 
 :::image type="content" source="media/data-flow/union111.png" alt-text="Union transformation overview":::
 
-To achieve this, add additional rows in the Union Settings by including all source you wish to add. There is no need for a common lookup or join key:
+To achieve this, add more rows in the Union Settings by including all source you wish to add. There's no need for a common lookup or join key:
 
 :::image type="content" source="media/data-flow/unionsettings.png" alt-text="Union transformation settings":::
 
-If you set a Select transformation after your Union, you will be able to rename overlapping fields or fields that were not named from headerless sources. Click on "Inspect" to see the combine metadata with 132 total columns in this example from three different sources:
+If you set a Select transformation after your Union, you'll be able to rename overlapping fields or fields that weren't named from headerless sources. Select "Inspect" to see the combined metadata with 132 total columns in this example from three different sources:
 
 :::image type="content" source="media/data-flow/union333.png" alt-text="Union transformation final":::
 
 ## Name and position
 
-When you choose "union by name", each column value will drop into the corresponding column from each source, with a new concatenated metadata schema.
+When you choose "union by name", each column value drops into the corresponding column from each source, with a new concatenated metadata schema.
 
-If you choose "union by position", each column value will drop into the original position from each corresponding source, resulting in a new combined stream of data where the data from each source is added to the same stream:
+If you choose "union by position", each column value drops into the original position from each corresponding source, resulting in a new combined stream of data where the data from each source is added to the same stream:
 
 :::image type="content" source="media/data-flow/unionoutput.png" alt-text="Union output":::
 

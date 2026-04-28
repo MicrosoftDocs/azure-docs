@@ -34,27 +34,33 @@ The following table lists the operations that are defined as critical and that R
 
 # [Recovery Services vault](#tab/recovery-services-vault)
 
-| Operation | Mandatory/ Optional | Description |
-| --- | --- | --- |
-| **Disable soft delete or security features** | Mandatory | Disable the soft-delete setting on a vault. |
-| **Remove MUA protection** | Mandatory | Disable MUA protection on a vault. |
-| **Delete protection** | Optional | Delete protection by stopping backups and deleting data. |
-| **Modify protection** | Optional | Add a new backup policy with reduced retention, or change policy frequency to increase [recovery point objective (RPO)](azure-backup-glossary.md#recovery-point-objective-rpo). |
-| **Modify policy** | Optional | Modify the backup policy to reduce retention, or change the policy frequency to increase RPO. |
-| **Get backup security PIN** | Optional | Change the Microsoft Azure Recovery Services (MARS) security PIN. |
-| **Stop backup and retain data** | Optional | Delete protection by stopping backups and retaining data forever or retaining data according to policy. |
-| **Disable immutability** | Optional | Disable the immutability setting on a vault. |
+| Operation | Mandatory/ Optional | Default Value | Description |
+| --- | --- | --- | --- |
+| **Disable soft delete or security features** | Mandatory | Enabled | Disable the soft-delete setting on a vault. |
+| **Remove MUA protection** | Mandatory | Enabled | Disable MUA protection on a vault. |
+| **Delete protection** | Optional | Enabled | Delete protection by stopping backups and performing delete data. |
+| **Modify protection** | Optional | Enabled | Add a new backup policy with reduced retention or change policy frequency to increase RPO. |
+| **Modify policy** | Optional | Enabled | Modify backup policy to reduce retention or change policy frequency to increase RPO. |
+| **Get backup security PIN** | Optional | Enabled | Change Microsoft Azure Recovery Services (MARS) security PIN. |
+| **Modify encryption settings** | Optional | Enabled | Modify CMK encryption key or update PMK keys to CMK. |
+| **Stop backup and retain data** | Optional | Enabled | Stop backups and retain data forever or as per policy. |
+| **Disable immutability** | Optional | Enabled | Disable the immutability setting on a vault. |
+| **Restore** | Optional | Disabled | Perform restore on backup items in a vault. |
+| **Delete hybrid container** | Optional | Enabled | Delete hybrid backup (DPM/MABS/MARS) containers and corresponding backup data. |
 
 # [Backup vault](#tab/backup-vault)
 
-| Operation | Mandatory/ Optional | Description |
-| --- | --- | --- |
-| **Disable soft delete** | Mandatory | Disable the soft-delete setting on a vault. |
-| **Remove MUA protection** | Mandatory | Disable MUA protection on a vault. |
-| **Delete Backup Instance** | Optional | Delete protection by stopping backups and deleting data. |
-| **Stop backup and retain forever** | Optional | Delete protection by stopping backups and retaining data forever. |
-| **Stop backup and retain as per policy** | Optional | Delete protection by stopping backups and retaining data according to policy. |
-| **Disable immutability** | Optional | Disable the immutability setting on a vault. |
+| Operation | Mandatory/ Optional | Default Value | Description |
+| --- | --- | --- | --- |
+| **Disable soft delete** | Mandatory | Enabled | Disable the soft-delete setting on a vault. |
+| **Remove MUA protection** | Mandatory | Enabled | Disable MUA protection on a vault. |
+| **Delete Backup Instance** | Optional | Enabled | Delete protection by stopping backups and performing delete data. |
+| **Disable immutability** | Optional | Enabled | Disable the immutability setting on a vault. |
+| **Modify encryption settings** | Optional | Enabled | Modify CMK encryption key or update PMK keys to CMK. |
+| **Stop backup and retain forever** | Optional | Enabled | Stop backups and retain data forever. |
+| **Stop backup and retain as per policy** | Optional | Enabled | Stop backups and retain data as per policy. |
+| **Change policy** | Optional | Disabled | Modify backup policy by adding a new backup policy to items in a vault. |
+| **Restore** | Optional | Disabled | Perform restore on backup items in a vault. |
 
 ---
 

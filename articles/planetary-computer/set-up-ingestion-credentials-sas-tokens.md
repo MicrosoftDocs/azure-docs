@@ -1,8 +1,8 @@
 ---
 title: SAS Tokens for Data Ingestion in Microsoft Planetary Computer Pro
 description: Learn how to add credentials and ingest data into Microsoft Planetary Computer Pro.
-author: prasadko
-ms.author: prasadkomma
+author: SilviaMSFT
+ms.author: silviadiana
 ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 05/08/2025
