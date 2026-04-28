@@ -139,7 +139,7 @@ By default, the App Service resource provider doesn't have access to your key va
 
 | Resource provider | Service principal app ID / assignee | Key Vault RBAC role |
 |--|--|--|
-| Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Certificate User |
+| Microsoft Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Certificate User |
 
 The service principal app ID or assignee value is the application (client) ID for the App Service resource provider.
 
