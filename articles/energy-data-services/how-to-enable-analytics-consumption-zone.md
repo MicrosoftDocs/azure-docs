@@ -127,7 +127,45 @@ Grant the managed identity write access to the ADLS Gen2 storage account.
 8. Select the managed identity you created in Step 2, then select **Select**.
 9. Select **Review + assign** to complete the role assignment.
 
-## Step 5: Share managed identity details with Microsoft (Preview requirement)
+## Step 5: Add the managed identity to the entitlement group
+
+The managed identity must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group to perform ACZ operations.
+
+Use the Entitlements Service API to add the managed identity to the users group:
+
+```bash
+curl --request POST \
+  --url https://{base_url}/api/entitlements/v2/groups/users@{data-partition-id}.dataservices.energy/members \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'Content-Type: application/json' \
+  --header 'data-partition-id: {data-partition-id}' \
+  --data '{
+    "email": "{managed-identity-object-id}",
+    "role": "MEMBER"
+  }'
+```
+
+**Replace the placeholders:**
+
+| Placeholder | Description |
+|---|---|
+| `{base_url}` | Your ADME instance URL (for example, `myinstance.energy.azure.com`) |
+| `{access_token}` | Access token for ADME APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
+| `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
+| `{managed-identity-object-id}` | The Object (principal) ID of the managed identity from Step 2 |
+
+Verify the managed identity was added successfully:
+
+```bash
+curl --request GET \
+  --url https://{base_url}/api/entitlements/v2/groups/users@{data-partition-id}.dataservices.energy/members \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'data-partition-id: {data-partition-id}'
+```
+
+The response should include the managed identity in the members list.
+
+## Step 6: Share managed identity details with Microsoft (Preview requirement)
 
 > [!IMPORTANT]
 > During the preview, there's no self-service UX to enable ACZ. Share the following details with your Microsoft contact to enable ACZ for your ADME instance and to allow list the managed identity for ACZ operations.
@@ -144,7 +182,7 @@ After Microsoft adds your managed identity to the allow list, you can create an 
 > [!NOTE]
 > Allow-listing propagation may take up to 15 minutes. Wait before attempting to create an ACZ.
 
-## Step 6: Verify your setup
+## Step 7: Verify your setup
 
 Before you call the ACZ APIs, check these items:
 
@@ -156,7 +194,7 @@ Before you call the ACZ APIs, check these items:
 
 4. **Storage account access**: Verify the managed identity has **Storage Blob Data Contributor** on the ADLS Gen2 storage account.
 
-## Step 7: Create an ACZ using the API
+## Step 8: Create an ACZ using the API
 
 After allow-listing, use the ACZ Create API to set up your Analytics Consumption Zone. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 
