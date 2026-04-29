@@ -7,7 +7,7 @@ author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 4/22/2026
+ms.date: 4/29/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to install the Application Gateway for Containers ALB Controller on my AKS cluster using the AKS add-on, so that I can efficiently manage load balancing rules with simplified configuration and automated identity management.
 ---
@@ -213,9 +213,32 @@ Verify GatewayClass `azure-alb-external` is installed on your cluster:
 kubectl get gatewayclass azure-alb-external -o yaml
 ```
 
+You should see that the GatewayClass has a condition that reads **Valid GatewayClass**. This condition indicates that a default GatewayClass is set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller.
+
+```output
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: GatewayClass
+metadata:
+  creationTimestamp: "2023-07-31T13:07:00Z"
+  generation: 1
+  name: azure-alb-external
+  resourceVersion: "64270"
+  uid: 6c1443af-63e6-4b79-952f-6c3af1f1c41e
+spec:
+  controllerName: alb.networking.azure.io/alb-controller
+status:
+  conditions:
+    - lastTransitionTime: "2023-07-31T13:07:23Z"
+    message: Valid GatewayClass
+    observedGeneration: 1
+    reason: Accepted
+    status: "True"
+    type: Accepted
+```
+
 ##### Validate Add-on Resources in Azure portal
 
-Navigate to the `MC_` (node) resource group for your AKS cluster. You should see the following resources ally created by the add-on:
+Navigate to the `MC_` (node) resource group for your AKS cluster. You should see the following resources created by the add-on:
 
 ###### Managed Identity
 
@@ -238,30 +261,7 @@ The `applicationloadbalancer-<cluster-name>` identity has a federated identity c
 
 ###### Subnet
 
-A subnet named `aks-appgateway` with subnet delegation enabled for `Microsoft.ServiceNetworking/TrafficController`
-
-You should see that the GatewayClass has a condition that reads **Valid GatewayClass**. This condition indicates that a default GatewayClass is set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller ally.
-
-```output
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: GatewayClass
-metadata:
-  creationTimestamp: "2023-07-31T13:07:00Z"
-  generation: 1
-  name: azure-alb-external
-  resourceVersion: "64270"
-  uid: 6c1443af-63e6-4b79-952f-6c3af1f1c41e
-spec:
-  controllerName: alb.networking.azure.io/alb-controller
-status:
-  conditions:
-    - lastTransitionTime: "2023-07-31T13:07:23Z"
-    message: Valid GatewayClass
-    observedGeneration: 1
-    reason: Accepted
-    status: "True"
-    type: Accepted
-```
+When the add-on is enabled on an AKS cluster using the AKS-managed virtual network option, a subnet named `aks-appgateway` is automatically created with delegation enabled for `Microsoft.ServiceNetworking/TrafficController`.
 
 ## Next Steps
 

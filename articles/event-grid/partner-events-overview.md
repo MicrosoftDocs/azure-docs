@@ -74,9 +74,6 @@ Through Microsoft Graph API, you can get events from a diverse set of Microsoft 
 
 [Stripe](https://stripe.com) is the financial infrastructure platform for businesses. You can create a [Stripe partner topic](stripe-overview.md) to connect your Stripe account and Azure subscription. This integration allows you to route payment events such as successful charges, failed invoices, and subscription changes directly into Azure and build scalable, event-driven payment architectures without managing webhook infrastructure or custom brokers. To get started, see [Subscribe to Stripe events](subscribe-to-stripe-events.md).
 
-> [!NOTE]
-> Stripe partner topics are currently in **Public Preview**.
-
 ### Tribal Group
 
 You can receive events from Tribal Group's Edge Education platform by defining events you want to receive by configuring an eventstream using the Admin Edge application. For more information, see [Subscribe to Tribal Group events](subscribe-to-tribal-group-events.md).

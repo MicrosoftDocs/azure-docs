@@ -278,6 +278,8 @@ items:
             displayName: DNS, Private Endpoint, RBAC, SecretSync, Schema Registry, data flow, troubleshooting
       - name: Configure observability and monitoring
         items:
+          - name: Unified health status reporting
+            href: configure-observability-monitoring/health-status-reporting.md
           - name: Deploy observability resources
             href: configure-observability-monitoring/howto-configure-observability.md
             displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics
@@ -425,6 +427,8 @@ items:
               - name: Connector for OPC UA
                 href: reference/observability-metrics-opcua-broker.md
                 displayName: metrics, observability
+              - name: Health status reason codes
+                href: reference/health-status-reason-codes.md
               - name: Akri and connectors
                 href: reference/observability-metrics-akri-connectors.md
                 displayName: metrics, observability

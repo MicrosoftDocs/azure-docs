@@ -5,7 +5,7 @@ author: hectorhdzg
 ms.author: hectorh
 ms.topic: how-to
 ms.service: azure
-ms.date: 04/25/2026
+ms.date: 04/28/2026
 ms.custom:
   - devx-track-dotnet
   - devx-track-js
@@ -14,29 +14,28 @@ ms.custom:
 ROBOTS: NOINDEX
 ---
 
-# Getting Started with the Microsoft OpenTelemetry Distro
+# Get started with Microsoft OpenTelemetry Distro
 
-[!INCLUDE [microsoft-opentelemetry-quickstart-header](~/reusable-content/ce-skilling/azure/includes/azure-monitor/microsoft-opentelemetry-distro/microsoft-opentelemetry-quickstart-header.md)]
-
-## Prerequisites
-
-[!INCLUDE [microsoft-opentelemetry-quickstart-prerequisites](~/reusable-content/ce-skilling/azure/includes/azure-monitor/microsoft-opentelemetry-distro/microsoft-opentelemetry-quickstart-prerequisites.md)]
+[!INCLUDE [microsoft-opentelemetry-getting-started-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/microsoft-opentelemetry-distro/microsoft-opentelemetry-getting-started-intro.md)]
 
 ## Install the package
 
-[!INCLUDE [microsoft-opentelemetry-quickstart-install-package](~/reusable-content/ce-skilling/azure/includes/azure-monitor/microsoft-opentelemetry-distro/microsoft-opentelemetry-quickstart-install-package.md)]
+[!INCLUDE [microsoft-opentelemetry-packages](~/reusable-content/ce-skilling/azure/includes/azure-monitor/microsoft-opentelemetry-distro/microsoft-opentelemetry-packages.md)]
 
-## Initialize the distro
+## Initialize the Distro
 
-[!INCLUDE [microsoft-opentelemetry-quickstart-initialize-distro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/microsoft-opentelemetry-distro/microsoft-opentelemetry-quickstart-initialize-distro.md)]
+[!INCLUDE [microsoft-opentelemetry-initialize](~/reusable-content/ce-skilling/azure/includes/azure-monitor/microsoft-opentelemetry-distro/microsoft-opentelemetry-initialize.md)]
 
-## Configuration reference
+## Configure destinations
 
-[!INCLUDE [microsoft-opentelemetry-quickstart-configuration-reference](~/reusable-content/ce-skilling/azure/includes/azure-monitor/microsoft-opentelemetry-distro/microsoft-opentelemetry-quickstart-configuration-reference.md)]
+[!INCLUDE [microsoft-opentelemetry-configure-destinations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/microsoft-opentelemetry-distro/microsoft-opentelemetry-configure-destinations.md)]
 
 ## Next steps
 
-- [Microsoft OpenTelemetry Distro Overview](overview.md)
+- [What is Microsoft OpenTelemetry Distro?](overview.md)
+- [Configure Microsoft OpenTelemetry Distro](configuration.md)
+- [Instrument applications with Microsoft OpenTelemetry Distro](instrumentation.md)
+- [Validate Microsoft OpenTelemetry Distro locally](validate-locally.md)
 - [OpenTelemetry documentation](https://opentelemetry.io/docs/)
 - [Microsoft Agent 365 overview](/microsoft-agent-365/overview)
 - [Microsoft Foundry overview](/azure/foundry/what-is-foundry)

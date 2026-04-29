@@ -8,12 +8,9 @@ author: robece
 ms.author: robece
 ---
 
-# Subscribe to Stripe events using Azure Event Grid (preview)
+# Subscribe to Stripe events using Azure Event Grid
 
 This article describes steps to subscribe to events published by [Stripe](https://stripe.com), the financial infrastructure platform for businesses.
-
-> [!NOTE]
-> Stripe partner topics for Azure Event Grid are currently in **Preview**.
 
 ## Prerequisites
 
