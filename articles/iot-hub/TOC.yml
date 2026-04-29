@@ -237,14 +237,8 @@
     - name: Schedule bulk operations with jobs
       href: schedule-jobs-cli.md
       displayName: jobs, CLI
-  - name: Queries
-    items: 
-      - name: Query language overview
-        href: iot-hub-devguide-query-language.md
-      - name: Device and module twin queries
-        href: query-twins.md
-      - name: Job queries
-        href: query-jobs.md
+  - name: Query language overview
+    href: iot-hub-devguide-query-language.md
 - name: Monitor
   items: 
     - name: Monitor IoT Hub
