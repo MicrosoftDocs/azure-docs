@@ -89,4 +89,4 @@ For the SDK package contents, build and install instructions, code samples, IPC 
 
 ## Related content
 
-- [Understand Device Update for Azure IoT Hub diagnostic features](https://learn.microsoft.com/en-us/azure/iot-hub-device-update/device-update-diagnostics)
+- [Understand Device Update for Azure IoT Hub diagnostic features](/azure/iot-hub-device-update/device-update-diagnostics)
