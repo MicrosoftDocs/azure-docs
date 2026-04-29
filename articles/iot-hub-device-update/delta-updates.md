@@ -2,7 +2,7 @@
 title: Azure Device Update for IoT Hub delta updates | Microsoft Learn
 description: Understand key concepts for using delta or differential updates with Azure Device Update for IoT Hub
 author: isabellaecr
-ms.author: isabellaecr
+ms.author: isabellac
 ms.date: 04/22/2026
 ms.topic: feature-guide
 ms.service: azure-iot-hub
