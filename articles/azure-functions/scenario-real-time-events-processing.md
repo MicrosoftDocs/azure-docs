@@ -275,7 +275,7 @@ You can review the code that defines the Event Hubs trigger function:
 You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventhub).
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-You can review the code that defines the Event Hubs trigger in the [EventHubsTrigger.java project file](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventhub/blob/main/src/main/java/com/function/EventHubsTrigger.java). The function demonstrates how to:
+You can review the code that defines the Event Hubs trigger in the [EventHubsTriggerFunction.java project file](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventhub/blob/main/src/main/java/com/function/EventHubsTriggerFunction.java). The function demonstrates how to:
 
 - Use `@EventHubTrigger` annotation for processing events from an input Event Hub
 - Use `@EventHubOutput` annotation for sending processed messages to an output Event Hub
