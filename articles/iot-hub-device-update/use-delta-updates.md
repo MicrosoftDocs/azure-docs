@@ -140,7 +140,7 @@ Before running DiffGen, install the following on your build machine:
 | Dependency       | Where to get it | How to install |
 |----------------|-----------------|----------------|
 | DiffGen tool   | [Azure/iot-hub-device-update-delta repository](https://github.com/Azure/iot-hub-device-update-delta) | Download the version that matches your OS and architecture |
-| .NET runtime   | Package manager or terminal | See [Install .NET on Linux](https://learn.microsoft.com/dotnet/core/install/linux). Only the runtime is required. |
+| .NET runtime   | Package manager or terminal | See [Install .NET on Linux](/dotnet/core/install/linux). Only the runtime is required. |
 
 
 ### Option 2: Use DiffGen from a Yocto build
