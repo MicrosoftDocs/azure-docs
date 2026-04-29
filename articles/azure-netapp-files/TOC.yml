@@ -529,8 +529,6 @@
         href: reestablish-deleted-volume-relationships.md
       - name: Test disaster recovery with cross-region replication
         href: test-disaster-recovery.md
-      - name: Enable cross-subscription replication
-        href: enable-cross-subscription-replication.md
     - name: Manage caching 
       items: 
         - name: Manage cache volumes 
