@@ -2,7 +2,7 @@
 title: Device Update for Azure IoT Hub agent status API | Microsoft Docs
 description: Device-side API for querying the Device Update agent’s current state.
 author: isabellaecr
-ms.author: isabellaecr
+ms.author: isabellac
 ms.date: 4/27/2026
 ms.topic: concept-article
 ms.service: azure-iot-hub
