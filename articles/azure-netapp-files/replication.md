@@ -145,7 +145,7 @@ With cross-zone-region replication, you can protect your volumes by using a seco
 
 * If you use cross-region replication, you must use supported [cross-region replication pairs](#supported-region-pairs).
 
-* Cross-zone-region replication can be performed under a single subscription or [across subscriptions](enable-cross-subscription-replication.md).
+* Cross-zone-region replication can be performed under a single subscription or across subscriptions.
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 

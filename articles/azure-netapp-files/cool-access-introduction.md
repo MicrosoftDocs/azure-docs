@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/05/2026
+ms.date: 03/10/2026
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to configure inactive data to move from a hot tier to a cool tier in Azure NetApp Files, so that I can optimize storage costs while maintaining accessibility to archived data.
@@ -112,6 +112,8 @@ You can enable cool access for each volume in a [cool-access enabled capacity po
 Billing calculation for a capacity pool is at the hot-tier rate for the data that isn't tiered to the cool tier. Unallocated capacity within the capacity pool is included. When you enable tiering for volumes, the capacity in the cool tier is at the rate of the cool tier. The remaining capacity is at the rate of the hot tier. The rate of the cool tier is lower than the hot tier's rate. 
 
 The deleted data in a volume is collected once it reaches 1% of the provisioned size of the volume. This impacts the size of the cool tier, if the cool tier eligible user data is also a low percentage of the volume, such as 1~3% of the provisioned size. If the difference in the cool tier size is more than 3%, [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+Data in cool access is charged at the same rate for all service levels as defined in [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
 ## Estimate your savings
 

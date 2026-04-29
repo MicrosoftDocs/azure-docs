@@ -12,6 +12,8 @@ ms.date: 10/28/2025
 
 # Azure Front Door Web Application Firewall CAPTCHA
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 Azure Web Application Firewall (WAF) offers a CAPTCHA feature designed to differentiate human users from automated bots. This interactive challenge requires suspected traffic to complete a CAPTCHA test, blocking malicious automated requests while allowing legitimate users to proceed seamlessly. As a result, WAF helps protect applications from bot-driven attacks, including brute-force attempts and account takeover risks.
 
 CAPTCHA on Azure WAF is useful in login and sign-up flows where human authentication is crucial to protect sensitive user data. It acts as a strong defense against various automated threats, preventing bots from accessing critical website elements like login pages and forms, and reducing spam by ensuring only real users can submit comments, register accounts, or complete transactions.

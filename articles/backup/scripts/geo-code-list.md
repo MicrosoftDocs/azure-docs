@@ -2,7 +2,7 @@
 title: Geo-code mapping
 description: Learn about geo-codes mapped with the respective regions.
 ms.topic: sample
-ms.date: 04/30/2025
+ms.date: 04/29/2026
 ms.update-cycle: 1095-days
 ms.service: azure-backup
 ms.custom: references_regions
@@ -25,6 +25,7 @@ This sample XML provides you with an insight about the geo-codes mapped with the
 <GeoCodeRegionNameMap	GeoCode="EUS"	RegionName="East US"	/>
 <GeoCodeRegionNameMap	GeoCode="CUS"	RegionName="Central US"	/>
 <GeoCodeRegionNameMap	GeoCode="EUS2"	RegionName="East US 2"	/>
+<GeoCodeRegionNameMap	GeoCode="NE5S"	RegionName="North East US 5"	/>
 <GeoCodeRegionNameMap	GeoCode="NCUS"	RegionName="North Central US"	/>
 <GeoCodeRegionNameMap	GeoCode="SCUS"	RegionName="South Central US"	/>
 <GeoCodeRegionNameMap	GeoCode="NE"	RegionName="North Europe"	/>
@@ -37,6 +38,7 @@ This sample XML provides you with an insight about the geo-codes mapped with the
 <GeoCodeRegionNameMap	GeoCode="ASE"	RegionName="Australia Southeast"	/>
 <GeoCodeRegionNameMap	GeoCode="INC"	RegionName="Central India"	/>
 <GeoCodeRegionNameMap	GeoCode="INS"	RegionName="South India"	/>
+<GeoCodeRegionNameMap	GeoCode="ISC"	RegionName="India South Central"	/>
 <GeoCodeRegionNameMap	GeoCode="CNC"	RegionName="Canada Central"	/>
 <GeoCodeRegionNameMap	GeoCode="CNE"	RegionName="Canada East"	/>
 <GeoCodeRegionNameMap	GeoCode="WCUS"	RegionName="West Central US"	/>

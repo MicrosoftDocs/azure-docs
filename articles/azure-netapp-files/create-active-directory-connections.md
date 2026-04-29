@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/24/2026
+ms.date: 04/29/2026
 ms.author: anfdocs
 ms.custom:
   - devx-track-azurepowershell

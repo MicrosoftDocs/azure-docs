@@ -73,6 +73,14 @@ The tunnel type and the authentication type must correspond to the VPN client so
 
 [!INCLUDE [Add public IP address](../../includes/vpn-gateway-third-public-ip.md)]
 
+## Important
+
+For non‑AZ gateway SKUs, the third Public IP used for P2S is Microsoft‑managed and not billed to the customer. <br>
+
+When migrating to an AZ‑supported SKU using the migration tool, the platform requires the third Public IP to be created within the customer’s subscription. This Public IP becomes customer‑managed and billable, as it is no longer provided automatically by the service. <br>
+
+This behavior is expected by design and ensures proper load balancing and redundancy for P2S connections on AZ‑redundant gateways.
+
 ## <a name="uploadfile"></a>Upload root certificate public key information
 
 In this section, you upload public root certificate data to Azure. Once the public certificate data is uploaded, Azure uses it to authenticate connecting clients. The connecting clients have an installed client certificate generated from the trusted root certificate.

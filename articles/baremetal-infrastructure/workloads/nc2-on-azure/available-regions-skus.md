@@ -55,6 +55,7 @@ When planning your NC2 on Azure design, use the following table to understand wh
 | UK South | AN36P, AN64 |
 | West Europe | AN36P |
 | West US 2 | AN36 |
+| West US 3 | AN64 |
 
 ## Next steps
 
