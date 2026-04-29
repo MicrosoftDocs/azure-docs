@@ -196,6 +196,8 @@ Before you call the ACZ APIs, check these items:
 
 5. **Managed identity assigned to ADME**: Verify the managed identity is assigned to your ADME instance. In the [Azure portal](https://portal.azure.com/), navigate to your ADME instance, select **Identity** from the left menu, then confirm your managed identity appears under **User assigned**.
 
+6. **ACZ enabled on ADME instance**: Confirm with your Microsoft representative that ACZ has been enabled on your ADME instance and the managed identity has been allow-listed for ACZ operations.
+
 ## Step 8: Create an ACZ using the API
 
 After allow-listing, use the ACZ Create API to set up your Analytics Consumption Zone. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
