@@ -1,5 +1,11 @@
 items:
-  - name: Microsoft OpenTelemetry Distro Overview
+  - name: Microsoft OpenTelemetry Distro overview
     href: overview.md
-  - name: Get started
+  - name: Get started with Microsoft OpenTelemetry Distro
     href: getting-started.md
+  - name: Configure Microsoft OpenTelemetry Distro
+    href: configuration.md
+  - name: Instrument applications
+    href: instrumentation.md
+  - name: Validate locally
+    href: validate-locally.md
